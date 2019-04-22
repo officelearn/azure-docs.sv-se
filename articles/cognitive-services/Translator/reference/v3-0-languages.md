@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915772"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Språk
 
 Hämtar antal språk som stöds för närvarande av andra åtgärder för Translator Text API. 
 
-## <a name="request-url"></a>URL för begäran
+## <a name="request-url"></a>Fråge-URL
 
 Skicka en `GET` begäran om att:
 ```HTTP
@@ -48,7 +48,7 @@ Parametrarna som skickades mot frågesträngen är:
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Huvuden</th>
   <th>Beskrivning</th>
   <tr>
     <td>Accept-Language</td>
@@ -229,7 +229,7 @@ Listan över språk som stöds kommer inte ändras ofta. Spara nätverksbandbred
 ## <a name="response-headers"></a>Svarshuvud
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Huvuden</th>
   <th>Beskrivning</th>
   <tr>
     <td>ETag</td>
@@ -281,7 +281,7 @@ Om ett fel inträffar, returneras också en JSON-felsvar i begäran. Felkoden ä
 
 I följande exempel visas hur du hämtar språk som stöds för textöversättning.
 
-# [<a name="curl"></a>CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

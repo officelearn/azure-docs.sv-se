@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6abfd26e63cc8001f501371fffce0a4c10f4ff85
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483527"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "58850800"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar
 
@@ -235,7 +235,6 @@ ms.locfileid: "58483527"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -320,7 +319,7 @@ Oracle-programvara som stöds av Oracle ska köras på Microsoft Azure. Mer info
 
 Följande SAP-information är relaterade till SAP på Azure.
 
-| Nummer | Rubrik |
+| Nummer | Titel |
 | --- | --- |
 | [1928533] |SAP-program i Azure: Produkter som stöds och Azure VM-typer |
 | [2015553] |SAP på Microsoft Azure: Supportkrav |
@@ -359,7 +358,7 @@ Endast en instans Oracle med NTFS-formaterad diskar stöds. Alla databasfiler m�
 
 Vi rekommenderar starkt med [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Vi rekommenderar även med [premium SSD](../../windows/disks-types.md) för Oracle Database-distributioner.
 
-Nätverksenheter eller fjärresurser som Azure Filtjänster stöds inte för Oracle-databasfiler. Mer information finns i:
+Nätverksenheter eller fjärresurser som Azure Filtjänster stöds inte för Oracle-databasfiler. Mer information finns här:
 
 - [Introduktion till Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -374,7 +373,7 @@ För att identifiera de Azure VM-typerna som stöds, se SAP-kommentar [1928533].
 
 Den lägsta konfigurationen är följande: 
 
-| Komponent | Disk | Cachelagring | Lagringspool |
+| Komponent | Disk | Cachning | Lagringspool |
 | --- | ---| --- | --- |
 | \oracle\<SID > \origlogaA & mirrlogB | Premium | Ingen | Behövs inte |
 | \oracle\<SID > \origlogaB & mirrlogA | Premium | Ingen | Behövs inte |
@@ -387,13 +386,13 @@ Val av diskar som värd för online gör om loggar bör styras av krav på IOPs.
 
 Prestandakonfigurationen är följande:
 
-| Komponent | Disk | Cachelagring | Lagringspool |
+| Komponent | Disk | Cachning | Lagringspool |
 | --- | ---| --- | --- |
 | \oracle\<SID>\origlogaA | Premium | Ingen | Kan användas  |
 | \oracle\<SID>\origlogaB | Premium | Ingen | Kan användas |
 | \oracle\<SID > \mirrlogAB | Premium | Ingen | Kan användas |
 | \oracle\<SID>\mirrlogBA | Premium | Ingen | Kan användas |
-| \oracle\<SID > \sapdata1...n | Premium | Skrivskyddad | Rekommenderas  |
+| \oracle\<SID > \sapdata1...n | Premium | Skrivskyddad | Rekommenderad  |
 | \oracle\SID\sapdata(n+1)* | Premium | Ingen | Kan användas |
 | \oracle\<SID>\oraarch* | Premium | Ingen | Behövs inte |
 | Oracle Home, saptrace, ... | OS-disk | Behövs inte |
@@ -420,9 +419,9 @@ Oracle Data Guard har stöd för hög tillgänglighet och katastrofåterställni
 
 Mer information om haveriberedskap för Oracle-databaser i Azure finns i [haveriberedskap för en Oracle Database 12c-databas i en Azure-miljö](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
-### <a name="accelerated-networking"></a>Snabbare nätverk
+### <a name="accelerated-networking"></a>Accelererat nätverk
 För distribution av Oracle på Windows, rekommenderar vi starkt accelererat nätverk enligt beskrivningen i [Azure accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Överväg också att rekommendationerna som görs i [överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](dbms_guide_general.md). 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 [Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle-databas, inklusive Azure tillgänglighetsuppsättningar och övervakning av SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Informationen för för Oracle-databas i Oracle Linux
@@ -464,7 +463,7 @@ För att identifiera de Azure VM-typerna som stöds, se SAP-kommentar [1928533].
 
 Minsta konfiguration:
 
-| Komponent | Disk | Cachelagring | Stripping* |
+| Komponent | Disk | Cachning | Stripping* |
 | --- | ---| --- | --- |
 | /Oracle/\<SID > / origlogaA & mirrlogB | Premium | Ingen | Behövs inte |
 | /Oracle/\<SID > / origlogaB & mirrlogA | Premium | Ingen | Behövs inte |
@@ -478,13 +477,13 @@ Valet av disk som värd för Oracles online gör om loggar bör styras av krav p
 
 Prestandakonfiguration:
 
-| Komponent | Disk | Cachelagring | Stripping* |
+| Komponent | Disk | Cachning | Stripping* |
 | --- | ---| --- | --- |
 | /Oracle/\<SID > / origlogaA | Premium | Ingen | Kan användas  |
 | /oracle/\<SID>/origlogaB | Premium | Ingen | Kan användas |
 | /Oracle/\<SID > / mirrlogAB | Premium | Ingen | Kan användas |
 | /oracle/\<SID>/mirrlogBA | Premium | Ingen | Kan användas |
-| /oracle/\<SID>/sapdata1...n | Premium | Skrivskyddad | Rekommenderas  |
+| /oracle/\<SID>/sapdata1...n | Premium | Skrivskyddad | Rekommenderad  |
 | /oracle/\<SID>/sapdata(n+1)* | Premium | Ingen | Kan användas |
 | /oracle/\<SID>/oraarch* | Premium | Ingen | Behövs inte |
 | Oracle Home, saptrace, ... | OS-disk | Behövs inte |
@@ -514,7 +513,7 @@ Oracle Data Guard har stöd för hög tillgänglighet och katastrofåterställni
 
 Disaster Recovery aspekter för Oracle-databaser i Azure visas i artikeln [haveriberedskap för en Oracle Database 12c-databas i en Azure-miljö](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
-### <a name="accelerated-networking"></a>Snabbare nätverk
+### <a name="accelerated-networking"></a>Accelererat nätverk
 Tillhandahåller support för Azure Accelerated Networking i Oracle Linux med Oracle Linux 7 uppdatering 5 (Oracle Linux 7.5). Om du inte uppgradera till den senaste versionen för Oracle Linux 7.5, kan det finnas en lösning med RedHat kompatibla Kernel (RHCK) i stället för Oracle UEK kernel. 
 
 Använda RHEL-kerneln i Oracle Linux stöds enligt SAP-kommentar [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Den minsta RHCKL kernel-versionen måste vara 3.10.0-862.13.1.el7 för Azure Accelerated Networking. Om du använder UEK kernel i Oracle Linux tillsammans med [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), måste du använda Oracle UEK kernel-version 5.
@@ -525,5 +524,5 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 [Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle-databas, inklusive Azure tillgänglighetsuppsättningar och övervakning av SAP.

@@ -16,10 +16,10 @@ ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
 ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918254"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduktion till Azure Data Science Virtual Machine för Linux och Windows
@@ -75,7 +75,7 @@ Många populära datavetenskaps- och deep learning-verktyg har redan installerat
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | Y |
 | JupyterHub (anteckningsboksserver för flera användare)| N | Y |
 | JupyterLab (anteckningsboksserver för flera användare) | N | J (endast Ubuntu) |
-| **Utvecklingsverktyg, IDE: er och Kodredigerare**| | |
+| **Utvecklingsverktyg, IDE:er och kodredigerare**| | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) med Git-plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) och [R Tools for Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Y | Y |
@@ -89,7 +89,7 @@ Många populära datavetenskaps- och deep learning-verktyg har redan installerat
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | Y | N |
 | Power BI Desktop | Y | N |
 | SDK:er för åtkomst till Azure och Cortana Intelligence Suite med tjänster | Y | Y |
-| **Dataförflyttning och hanteringsverktyg** | | |
+| **Verktyg för dataförflyttning och -hantering** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Storage Explorer | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Y | N |
@@ -125,7 +125,7 @@ Många populära datavetenskaps- och deep learning-verktyg har redan installerat
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA-, cuDNN-, NVIDIA-drivrutin](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
-| **Stordataplattform (endast Devtest)**|||
+| **Stordataplattform (endast DevTest)**|||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Lokal [Spark](https://spark.apache.org/) fristående | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Lokal [Hadoop](https://hadoop.apache.org/) (HDFS, YARN) | N | Y |
 
@@ -139,4 +139,4 @@ Många populära datavetenskaps- och deep learning-verktyg har redan installerat
 * En genomgång som visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella Linux-datorn, både CentOS och Ubuntu, finns i [Datavetenskap på den virtuella Linux-datorn för datavetenskap](linux-dsvm-walkthrough.md).
 
 ## <a name="next-steps"></a>Nästa steg
-[R utvecklarens guide till Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)
+[R-utvecklarens guide till Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)

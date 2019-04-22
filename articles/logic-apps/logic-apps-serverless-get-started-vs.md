@@ -11,17 +11,17 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/02/2019
 ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863006"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Skapa ditt första serverlösa program med Azure Logic Apps och Azure Functions – Visual Studio
 
 Du kan snabbt utveckla och distribuera appar i molnet genom att använda de serverfria verktygen och funktionerna i Azure som [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Azure Functions](../azure-functions/functions-overview.md). Den här artikeln visar hur du börja skapa en app som använder en logikapp som anropar en Azure-funktion i Visual Studio utan server. Läs mer om serverlösa lösningar i Azure i [Azure utan server med Functions och Logic Apps](../logic-apps/logic-apps-serverless-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill skapa en app utan server i Visual Studio, behöver du följande objekt:
 
@@ -157,4 +157,4 @@ Du kan nu hämta redan publicerat logikappen till ditt resursgrupp-projekt. Så 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera logic apps i Visual Studio](manage-logic-apps-with-visual-studio.md)
+* [Hantera Logic Apps i Visual Studio](manage-logic-apps-with-visual-studio.md)

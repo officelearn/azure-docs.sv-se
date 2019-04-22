@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
 ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885884"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
@@ -93,7 +93,7 @@ Ja.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Vilka operativsystem som stöds för säkerhetskopiering?
 Azure Backup stöder dessa operativsystem för att säkerhetskopiera filer och mappar och appar som skyddas av Azure Backup Server och DPM.
 
-**Operativsystem** | **SKU** | **Information**
+**OS** | **SKU** | **Detaljer**
 --- | --- | ---
 Arbetsstation | |
 Windows 10 64-bitars | Enterprise, Pro, Home | Datorer ska köra den senaste services Pack och uppdateringar.
@@ -128,12 +128,12 @@ Azure VM | 16 datadiskar<br/><br/> Upp till 4 095 GB som datadisk
 ### <a name="how-is-the-data-source-size-determined"></a>Vad är datakällans storlek bestäms?
 Följande tabell beskriver hur datakällans storlek bestäms.
 
-**Datakälla** | **Information**
+**Datakälla** | **Detaljer**
 --- | ---
 Volym |Mängden data som säkerhetskopieras från en enskild volym virtuella datorn som säkerhetskopieras.
 SQL Server-databas |Storleken på enskild SQL-databasens storlek som säkerhetskopieras.
 SharePoint | Summan av innehållet och konfigurationsdatabaserna i en SharePoint-servergrupp som säkerhetskopieras.
-Exchange |Summan av alla Exchange-databaser i en Exchange-server som säkerhetskopieras.
+Utbyt |Summan av alla Exchange-databaser i en Exchange-server som säkerhetskopieras.
 BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på datorn som säkerhetskopieras.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Finns det en gräns för mängden data som säkerhetskopieras med ett Recovery Services-valv?

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915483"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status för migreringsscenarier som stöds av Azure Database Migration Service
@@ -39,15 +39,15 @@ Följande tabeller visar vilka migreringsscenarier som stöds när du använder 
 ### <a name="offline-one-time-migration-support"></a>Stöd för offline-migrering (engångs)
 I följande tabell visas Azure Database Migration Service stöd för offline-migrering.
 
-| Mål  | Källa | Support | Status |
+| Målinrikta  | Källa | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL-databas** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
+| **Azure SQL DB** | SQL Server | ✔ | Allmänt tillgänglig |
 |   | RDS-SQL |  |  |
 |   | Oracle |  |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
+| **Azure SQL DB MI** | SQL Server | ✔ | Allmänt tillgänglig |
 |   | RDS-SQL |  |  |
 |   | Oracle |  |   |
-| **Virtuell Azure SQL-dator** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
+| **Azure SQL VM** | SQL Server | ✔ | Allmänt tillgänglig |
 |   | Oracle |   |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | Offentlig förhandsversion |
 | **Azure DB för MySQL** | MySQL |   |   |
@@ -58,21 +58,21 @@ I följande tabell visas Azure Database Migration Service stöd för offline-mig
 ### <a name="online-continuous-sync-migration-support"></a>Migreringsstöd online (kontinuerlig synkronisering)
 I följande tabell visas Azure Database Migration Service stöd för online migreringar.
 
-| Mål  | Källa | Support | Status |
+| Målinrikta  | Källa | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL-databas** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
-|   | RDS-SQL | ✔ | Allmän tillgänglighet (GA) |
+| **Azure SQL DB** | SQL Server | ✔ | Allmänt tillgänglig |
+|   | RDS-SQL | ✔ | Allmänt tillgänglig |
 |   | Oracle |  |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | Allmän tillgänglighet (GA) |
-|   | RDS-SQL | ✔ | Allmän tillgänglighet (GA) |
+| **Azure SQL DB MI** | SQL Server | ✔ | Allmänt tillgänglig |
+|   | RDS-SQL | ✔ | Allmänt tillgänglig |
 |   | Oracle | ✔ | Privat förhandsgranskning |
-| **Virtuell Azure SQL-dator** | SQL Server |   |   |
+| **Azure SQL VM** | SQL Server |   |   |
 |   | Oracle  |  |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | Offentlig förhandsversion |
-| **Azure DB för MySQL** | MySQL | ✔ | Allmän tillgänglighet (GA) |
-|   | RDS MySQL | ✔ | Allmän tillgänglighet (GA) |
-| **Azure DB för PostgreSQL** | PostgreSQL | ✔ | Allmän tillgänglighet (GA) |
-|   | RDS-PostgreSQL | ✔ | Allmän tillgänglighet (GA) |
+| **Azure DB för MySQL** | MySQL | ✔ | Allmänt tillgänglig |
+|   | RDS MySQL | ✔ | Allmänt tillgänglig |
+| **Azure DB för PostgreSQL** | PostgreSQL | ✔ | Allmänt tillgänglig |
+|   | RDS-PostgreSQL | ✔ | Allmänt tillgänglig |
 |   | Oracle | ✔ | Privat förhandsgranskning |
 
 ## <a name="next-steps"></a>Nästa steg

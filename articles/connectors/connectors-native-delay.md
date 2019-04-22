@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893732"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Kom igång med fördröjning och fördröjning-tills åtgärder
@@ -57,7 +57,7 @@ A * innebär att det är ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Antal * |count |Antalet tidsenheter att fördröja |
+| Antal * | antal |Antalet tidsenheter att fördröja |
 | Enhet * |enhet |Tidsenheten: `Second`, `Minute`, `Hour`, eller `Day` |
 
 <br>

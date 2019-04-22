@@ -13,10 +13,10 @@ ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
 ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885425"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Självstudier: Använda Azure Key Vault med en Windows-dator i .NET
@@ -40,7 +40,7 @@ Innan du börjar läsa [grundläggande begrepp för Key Vault](key-vault-whatis.
 
 Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För Windows, Mac och Linux:
   * [Git](https://git-scm.com/downloads)
@@ -84,7 +84,7 @@ Du kan använda din resursgrupp du skapade i den här självstudien.
 Ange följande information för att skapa ett nyckelvalv i resursgruppen som du skapade i föregående steg:
 
 * Namn på Key vault: en sträng på 3 till 24 tecken som får endast innehålla siffror (0-9), bokstäver (a – z, A-Z) och bindestreck (-)
-* Namn på resursgrupp
+* Resursgruppsnamn
 * Plats: **USA, västra**
 
 ```azurecli
@@ -226,4 +226,4 @@ Ta bort den virtuella datorn och nyckelvalvet när de inte längre behövs.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+> [REST API för Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)

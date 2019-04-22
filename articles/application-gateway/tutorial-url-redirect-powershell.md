@@ -7,10 +7,10 @@ ms.service: application-gateway
 ms.date: 4/3/2019
 ms.author: victorh
 ms.openlocfilehash: febe02ac7fe4dfcb4140a8e5796c4c9fa86f6de3
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918390"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Skapa en programgateway med webbadressbaserad omdirigering med Azure PowerShell
@@ -21,7 +21,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
-> * Skapa en programgateway
+> * Skapa en Application Gateway
 > * Lägga till lyssnare och routningsregler
 > * Skapa VM-skalningsuppsättningar för serverdelspooler
 
@@ -74,7 +74,7 @@ New-AzPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>Skapa en programgateway
+## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
 
 I det här avsnittet skapar du stödresurser för programgatewayen och sedan själva gatewayen. Du skapar bland annat följande resurser:
 
@@ -518,4 +518,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Mer information om vad du kan göra med application gateway](application-gateway-introduction.md)
+> [Läs mer om vad du kan göra med en programgateway](application-gateway-introduction.md)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862394"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Snabbstart: Aktivera tjänsten i IoT Hub
@@ -60,4 +60,4 @@ Grattis! Du har slutfört att aktivera ASC för IoT i din IoT-hubb.
 Gå vidare till nästa artikel om du vill lära dig hur du konfigurerar din lösning...
 
 > [!div class="nextstepaction"]
-> [Konfigurera lösningen](quickstart-configure-your-solution.md)
+> [Konfigurera din lösning](quickstart-configure-your-solution.md)

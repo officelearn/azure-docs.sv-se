@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2eb480e10ca3b674895d2d22cc44fb52f305f988
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007621"
 ---
 # <a name="common-security-attributes-for-azure-services"></a>Vanliga säkerhetsattribut för Azure-tjänster
@@ -23,7 +23,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 
-## [<a name="azure-backup"></a>Azure Backup](../backup/backup-security-attributes.md)
+## <a name="azure-backupbackupbackup-security-attributesmd"></a>[Azure Backup](../backup/backup-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
@@ -44,7 +44,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Nätverksisolering / brandväggsfunktioner support| Ja | Tvingad tunneltrafik har stöd för säkerhetskopiering av virtuella datorer. Tvingad tunneltrafik finns inte stöd för arbetsbelastningar som körs på virtuella datorer. |
 | Stöd för Tvingad tunneltrafik | Nej |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -71,7 +71,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 |---|---|--|
 | Support för Configuration (versionshanteringen för konfiguration, osv.)| Ja|  |
 
-## [<a name="azure-key-vault"></a>Azure Key Vault](../key-vault/key-vault-security-attributes.md)
+## <a name="azure-key-vaultkey-vaultkey-vault-security-attributesmd"></a>[Azure Key Vault](../key-vault/key-vault-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
@@ -92,7 +92,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Nätverksisolering / brandväggsfunktioner support| Ja | Med hjälp av brandväggsregler för virtuellt nätverk. |
 | Stöd för Tvingad tunneltrafik | Nej |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -120,7 +120,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Kontroll och hantering dataplanets åtkomstkontroller | Ja | Azure Resource Manager rollbaserad åtkomstkontroll (RBAC) |
 | Data dataplanets åtkomstkontroller (på varje servicenivå) | Ja | Nyckelvalvets åtkomstprincip |
 
-## [<a name="azure-service-fabric"></a>Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
+## <a name="azure-service-fabricservice-fabricservice-fabric-security-attributesmd"></a>[Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
 
 ### <a name="preventative"></a>Förebyggande
 
@@ -141,7 +141,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Nätverksisolering / brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG). |
 | Stöd för Tvingad tunneltrafik | Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -190,7 +190,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Nätverksisolering / brandväggsfunktioner support| Ja | |
 | Stöd för Tvingad tunneltrafik | Gäller inte |  |
 
-### <a name="detection"></a>Detection (Identifiering)
+### <a name="detection"></a>Identifiering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|

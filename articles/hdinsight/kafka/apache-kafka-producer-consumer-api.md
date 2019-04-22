@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.openlocfilehash: 6b77cd9939e244fd031788164cdfe391c3e2b9d5
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916401"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producent- och konsument-API:er
@@ -25,14 +25,14 @@ Kafka-producentens API tillåter att program skickar dataströmmar till Kafka-kl
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Nödvändiga komponenter
 > * Förstå koden
 > * Skapa och distribuera programmet
 > * Köra programmet på klustret
 
 Mer information om API:er finns i Apache-dokumentationen i [Producent-API](https://kafka.apache.org/documentation/#producerapi) och [Konsument-API](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Apache Kafka på HDInsight 3.6. Läs hur du skapar en Kafka på HDInsight-kluster i [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md).
 

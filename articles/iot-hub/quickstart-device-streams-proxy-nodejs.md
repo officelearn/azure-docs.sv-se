@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005442"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Snabbstart: SSH/RDP över IoT Hub-enhetsströmmar med hjälp av Node.js-proxyprogram (förhandsversion)
@@ -31,11 +31,11 @@ Först beskrivs konfiguration för SSH (via port 22). Sedan beskrivs hur du änd
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Förhandsgranskning av enheten strömmar är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
 
-  - **Centrala USA**
+  - **USA, centrala**
   - **USA, centrala – EUAP**
 
 För att kunna köra det tjänstlokala programmet i den här snabbstarten behöver du ha Node.js v4.x.x eller senare på utvecklingsdatorn.
@@ -154,4 +154,4 @@ I den här snabbstarten har du konfigurerat en IoT-hubb, registrerat en enhet oc
 Använd länkarna nedan om du vill läsa mer om enhetsströmmar:
 
 > [!div class="nextstepaction"]
-> [Strömmar enhetsöversikt](./iot-hub-device-streams-overview.md)
+> [Översikt över enhetsströmmar](./iot-hub-device-streams-overview.md)

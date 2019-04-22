@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916045"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
@@ -68,7 +68,7 @@ När du använder livekodning med Media Services konfigurerar du din lokala live
 För att förstå live direktuppspelning arbetsflödet i Media Services v3, du måste först läsa och förstå följande begrepp: 
 
 - [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
-- [Livehändelser och liveresultat](live-events-outputs-concept.md)
+- [Livehändelser och liveutdata](live-events-outputs-concept.md)
 - [Positionerare för direktuppspelning](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Allmänna steg
@@ -88,7 +88,7 @@ För att förstå live direktuppspelning arbetsflödet i Media Services v3, du m
 ## <a name="other-important-articles"></a>Andra viktiga artiklar
 
 - [Rekommenderade livekodare](recommended-on-premises-live-encoders.md)
-- [Använda en moln-DVR](live-event-cloud-dvr.md)
+- [Använda en molnbaserad DVR-spelare](live-event-cloud-dvr.md)
 - [Live händelsetyper funktionsjämförelse](live-event-types-comparison.md)
 - [Tillstånd och fakturering](live-event-states-billing.md)
 - [Svarstid](live-event-latency.md)

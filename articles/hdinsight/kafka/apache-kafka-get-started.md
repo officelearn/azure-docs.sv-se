@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/01/2019
 ms.openlocfilehash: 4099d6ea12774fec2b24895b42d8e780bd36e2a4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917353"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka på HDInsight-kluster
@@ -27,7 +27,7 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 >
 > Mer information finns i dokumentet [Anslut till Apache Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -58,7 +58,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
     | Inställning | Värde |
     | --- | --- |
-    | Typ av kluster | Kafka |
+    | Klustertyp | Kafka |
     | Version | Kafka 1.1.0 (HDI 3.6) |
 
     Välj **Välj** att spara inställningarna för klustret och återgå till __grunderna__.
@@ -80,7 +80,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
     >
     > För hög datatillgänglighet, välj en plats (region) som innehåller __tre feldomäner__. Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
 
-   ![Välj en prenumeration](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+   ![Välj prenumeration](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
     Välj __nästa__ att slutföra den grundläggande konfigurationen.
 

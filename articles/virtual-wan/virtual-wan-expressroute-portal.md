@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876334"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Självstudier: Skapa en ExpressRoute-association med hjälp av Azure Virtual WAN (förhandsversion)
@@ -45,7 +45,7 @@ I den här guiden får du lära dig att:
 
 Du måste registrera din prenumeration i förhandsversionen innan du kan konfigurera Virtual WAN. Annars kan du inte arbeta med Virtual WAN på portalen. Om du vill registrera, skicka ett e- **azurevirtualwan\@microsoft.com** med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats.
 
-**Förhandsversion av att tänka på:**
+**Överväganden för förhandsversion:**
 
 ExpressRoute-kretsen måste vara aktiverat i ett land som stöder [ExpressRoute Global räckvidd](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
 

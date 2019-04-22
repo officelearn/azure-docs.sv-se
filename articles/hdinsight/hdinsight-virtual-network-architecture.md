@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762930"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight virtuella nätverksarkitekturen
@@ -22,7 +22,7 @@ Den här artikeln beskriver de resurser som finns när du distribuerar ett HDIns
 
 Azure HDInsight-kluster har olika typer av virtuella datorer eller noder. Varje nodtyp spelar en roll i användningen av systemet. I följande tabell sammanfattas dessa nodtyper och deras roller i klustret.
 
-| Type | Beskrivning |
+| Typ | Beskrivning |
 | --- | --- |
 | Huvudnod |  För samtliga klustertyper utom Apache Storm värd huvudnoderna de processer som hanterar körning av det distribuerade programmet. Huvudnoden är också den nod som du kan SSH och kör program som koordineras sedan för att köra över klusterresurserna. Antal huvudnoder vara högst två för alla typer av klustret. |
 | ZooKeeper-nod | Zookeeper samordnar aktiviteter mellan noderna som gör databearbetning. Den också gör val av ledare för huvudnoden och håller reda på vilka huvudnoden körs en specifik huvudtjänsten. Antalet ZooKeeper-noder är fast på två. |
@@ -53,7 +53,7 @@ I följande nätverksresurser finns skapas automatiskt i det virtuella nätverke
 
 | Nätverk-resurs | Antal finns | Information |
 | --- | --- | --- |
-|Lastbalanserare | tre | |
+|Load Balancer | tre | |
 |Nätverksgränssnitt | nio | Det här värdet är baserad på en normal kluster, där varje nod har sin egen nätverksgränssnitt. De nio gränssnitt är för två huvudnoder, tre zookeeper-noder, två arbetarnoder och två gateway-noder som nämns i föregående tabell. |
 |Offentliga IP-adresser | två |    |
 

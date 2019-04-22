@@ -9,15 +9,15 @@ ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
 ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904125"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection för Azure Storage
 
-Avancerat skydd för Azure Storage ger ett extra lager säkerhetsintelligens som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja storage-konton. Du kan hantera hot utan att behöva vara säkerhetsexpert eller hantera säkerhetssystem för övervakning i den här skyddsnivå. 
+Med Advanced Threat Protection för Azure Storage får du en ytterligare nivå med säkerhetsinsikter som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Du kan hantera hot utan att behöva vara säkerhetsexpert eller hantera säkerhetssystem för övervakning i den här skyddsnivå. 
 
 Säkerhetsvarningar utlöses när avvikelser i aktivitet inträffar.  Dessa säkerhetsaviseringar som är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/), och också skickas via e-post till prenumerationens administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöka och åtgärda hot.
 
@@ -80,7 +80,7 @@ Använda Rest API-kommandon för att skapa, uppdatera eller få Avancerat skydd-
 
 Använd följande PowerShell-cmdletar:
 
-  * [Aktivera avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Aktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [Få Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Inaktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

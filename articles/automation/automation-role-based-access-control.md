@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918798"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
@@ -214,7 +214,7 @@ Följande tabeller visar de minsta nödvändiga behörigheter som behövs för a
 
 ### <a name="onboarding-from-a-virtual-machine"></a>Onboarding från en virtuell dator
 
-|**Åtgärd**  |**Behörighet**  |**Minsta omfång**  |
+|**Åtgärd**  |**Permission**  |**Minsta omfång**  |
 |---------|---------|---------|
 |Skriva ny distribution      | Microsoft.Resources/deployments/*          |Prenumeration          |
 |Skriva ny resursgrupp      | Microsoft.Resources/subscriptions/resourceGroups/write        | Prenumeration          |
@@ -237,7 +237,7 @@ Följande tabeller visar de minsta nödvändiga behörigheter som behövs för a
 
 ### <a name="onboarding-from-automation-account"></a>Onboarding från Automation-konto
 
-|**Åtgärd**  |**Behörighet** |**Minsta omfång**  |
+|**Åtgärd**  |**Permission** |**Minsta omfång**  |
 |---------|---------|---------|
 |Skapa ny distribution     | Microsoft.Resources/deployments/*        | Prenumeration         |
 |Skapa ny resursgrupp     | Microsoft.Resources/subscriptions/resourceGroups/write         | Prenumeration        |
@@ -260,7 +260,7 @@ Följande tabeller visar de minsta nödvändiga behörigheter som behövs för a
 
 Uppdateringshantering når för flera tjänster att tillhandahålla sin tjänst. I följande tabell visas de behörigheter som krävs för att hantera distributioner av management:
 
-|**Resurs**  |**Roll**  |**Scope**  |
+|**Resurs**  |**Roll**  |**Omfång**  |
 |---------|---------|---------|
 |Automation-konto     | Log Analytics Contributor       | Automation-konto        |
 |Automation-konto    | Virtuell datordeltagare        | Resursgruppen för kontot        |

@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893409"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Anropa REST-slutpunkter med HTTP + Swagger anslutning i Azure Logic Apps
@@ -74,7 +74,7 @@ Följande visas information om utlösare och åtgärder som den här HTTP + Swag
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger-utlösare
 En utlösare är en händelse som kan användas för att starta arbetsflödet som definieras i en logikapp. HTTP + Swagger-anslutningsappen har en utlösare. [Mer information om utlösare](../connectors/apis-list.md).
 
-| Utlösare | Beskrivning |
+| Utlös | Beskrivning |
 | --- | --- |
 | HTTP + Swagger |Ett HTTP-anrop och gå tillbaka svarsinnehållet |
 
@@ -96,8 +96,8 @@ En asterisk (*) innebär ett obligatoriskt fält.
 | --- | --- | --- |
 | Metoden * |metod |HTTP-verb som använder. |
 | URI: N * |URI |URI för HTTP-begäran. |
-| Rubriker |Rubriker |En JSON-objekt för HTTP-huvuden att inkludera. |
-| Innehåll |brödtext |HTTP-begärandetexten. |
+| Huvuden |Rubriker |En JSON-objekt för HTTP-huvuden att inkludera. |
+| Brödtext |brödtext |HTTP-begärandetexten. |
 | Authentication |autentisering |Autentisering som ska användas för begäran. Mer information finns i den [HTTP-anslutningsappen](connectors-native-http.md#authentication). |
 
 **Utdatainformation**
@@ -106,8 +106,8 @@ HTTP-svar
 
 | Namn på egenskap | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Rubriker |objekt |Svarshuvud |
-| Innehåll |objekt |Svarsobjekt |
+| Huvuden |objekt |Svarshuvud |
+| Brödtext |objekt |Svarsobjekt |
 | Statuskod |int |HTTP-statuskod |
 
 ### <a name="http-responses"></a>HTTP-svar

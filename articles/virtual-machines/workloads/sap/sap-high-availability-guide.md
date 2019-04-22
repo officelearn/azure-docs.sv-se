@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2b88ac9a728606581c3364ac536b6c3fc2691024
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58848758"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver
@@ -189,7 +189,7 @@ De här artiklarna beskriver SAP-distributioner i Azure:
 
 Dessa SAP Notes är relaterade till avsnittet om SAP i Azure:
 
-| Nummer | Rubrik |
+| Nummer | Titel |
 | --- | --- |
 | [1928533] |SAP-program i Azure: Produkter som stöds och storlek |
 | [2015553] |SAP på Microsoft Azure: Supportkrav |

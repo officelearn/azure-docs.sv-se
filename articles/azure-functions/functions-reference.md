@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891898"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
@@ -46,7 +46,7 @@ Filen function.json definierar funktionens utlösare och bindningar andra konfig
 
 Den `bindings` egenskapen är där du konfigurerar både utlösare och bindningar. Varje bindning beskriver några vanliga inställningar och vissa inställningar som är specifika för en viss typ av bindning. Alla bindningar kräver följande inställningar:
 
-| Egenskap  | Värdetyper / | Kommentarer |
+| Egenskap | Värdetyper / | Kommentarer |
 | --- | --- | --- |
 | `type` |sträng |Bindningstyp. Till exempel `queueTrigger`. |
 | `direction` |”i”, ”ut” |Anger om bindningen för mottagning av data i funktionen eller skickar data från funktionen. |

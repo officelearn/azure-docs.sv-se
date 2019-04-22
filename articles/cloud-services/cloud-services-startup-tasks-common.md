@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916666"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Vanliga startuppgifter för Cloud Service
@@ -31,7 +31,7 @@ Se [i den här artikeln](cloud-services-startup-tasks.md) att förstå hur start
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definiera miljövariabler innan en roll startar
-Om du behöver miljövariabler som definieras för en viss aktivitet kan använda den [miljö] -element inuti den [uppgift] element.
+Om du behöver miljövariabler som definieras för en viss aktivitet kan använda den [miljö] -element inuti den [Aktivitet] element.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -131,7 +131,7 @@ Andra brandväggen styr anslutningar mellan den virtuella datorn och processer i
 
 Azure skapar brandväggsregler för processer som startas inom dina roller. Till exempel när du startar en tjänst eller program, skapar Azure automatiskt de nödvändiga brandväggsreglerna för att tillåta att tjänsten ska kunna kommunicera med Internet. Men om du skapar en tjänst som startas av en process utanför din roll (till exempel en COM +-tjänst eller en schemalagd uppgift i Windows) kan behöva du manuellt skapa en brandväggsregel som tillåter åtkomst till tjänsten. Brandväggsreglerna kan skapas med hjälp av en startåtgärd.
 
-En startåtgärd som skapar en brandväggsregel måste ha en [executionContext][uppgift] av **upphöjd**. Lägg till följande startåtgärd för att den [ServiceDefinition.csdef] fil.
+En startåtgärd som skapar en brandväggsregel måste ha en [executionContext][aktivitet] av **upphöjd**. Lägg till följande startåtgärd för att den [ServiceDefinition.csdef] fil.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -306,7 +306,7 @@ Du kan ha din startåtgärd utföra olika steg när det körs i molnet jämfört
 
 Den här möjligheten att utföra olika åtgärder på compute-emulatorn och molnet kan åstadkommas genom att skapa en miljövariabel i den [ServiceDefinition.csdef] fil. Du kan sedan testa att miljövariabeln för ett värde i din startåtgärd.
 
-För att skapa miljövariabeln, lägger du till den [variabeln]/[RoleInstanceValue] element och skapa en XPath-värdet för `/RoleEnvironment/Deployment/@emulated`. Värdet för den **% ComputeEmulatorRunning %** miljövariabeln `true` vid körning på compute-emulatorn och `false` när du kör i molnet.
+För att skapa miljövariabeln, lägger du till den [Variabel]/[RoleInstanceValue] element och skapa en XPath-värdet för `/RoleEnvironment/Deployment/@emulated`. Värdet för den **% ComputeEmulatorRunning %** miljövariabeln `true` vid körning på compute-emulatorn och `false` när du kör i molnet.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -472,12 +472,12 @@ Exempel på utdata i den **StartupLog.txt** fil:
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Ange executionContext för startåtgärder
 Ange behörighet för startåtgärden. Ibland måste startåtgärder köras med utökade privilegier trots att rollen körs med normala privilegier.
 
-Den [executionContext][uppgift] attributet anger behörighetsnivå för startåtgärden. Med hjälp av `executionContext="limited"` innebär startåtgärden har samma behörighetsnivå som rollen. Med hjälp av `executionContext="elevated"` innebär startåtgärden har administratörsbehörighet, vilket gör att startåtgärd för att utföra administratörsåtgärder utan att bevilja administratörsbehörighet för din roll.
+Den [executionContext][aktivitet] attributet anger behörighetsnivå för startåtgärden. Med hjälp av `executionContext="limited"` innebär startåtgärden har samma behörighetsnivå som rollen. Med hjälp av `executionContext="elevated"` innebär startåtgärden har administratörsbehörighet, vilket gör att startåtgärd för att utföra administratörsåtgärder utan att bevilja administratörsbehörighet för din roll.
 
 Ett exempel på en startåtgärd som kräver utökade privilegier är en startåtgärd som använder **AppCmd.exe** att konfigurera IIS. **AppCmd.exe** kräver `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Använd lämplig taskType
-Den [taskType][uppgift] attributet avgör hur startåtgärden körs. Det finns tre värden: **enkel**, **bakgrund**, och **förgrunden**. Förgrunden och bakgrunden aktiviteterna startas asynkront och sedan enkla uppgifter körs synkront i taget.
+Den [taskType][aktivitet] attributet avgör hur startåtgärden körs. Det finns tre värden: **enkel**, **bakgrund**, och **förgrunden**. Förgrunden och bakgrunden aktiviteterna startas asynkront och sedan enkla uppgifter körs synkront i taget.
 
 Med **enkel** startåtgärder, kan du ange den ordning som uppgifterna köras i den ordning som uppgifterna är visas i filen ServiceDefinition.csdef. Om en **enkel** uppgiften avslutas med en slutkod som inte är noll och sedan avbryts start och rollen startar inte.
 

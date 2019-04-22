@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
 ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58848836"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Förstå fakturan Azure Enterprise-avtal
@@ -113,8 +113,8 @@ I följande tabell visas de termer och beskrivningar som visas på fakturan och 
 |Totalt antal utökade belopp|Total användning|Total användning för före skatt avgiften för den specifika perioden innan krediten tillämpas.|
 |Åtagande användning|Åtagande användning|Kredit som gällde under den specifika perioden.|
 |Total försäljning|Total överförbrukning|Avgiften för total användning som överstiger din kredit. Den här mängden omfattar inte skatt.|
-|Skattebelopp|Inte tillämpligt|Skatt som gäller för det totala försäljningsbeloppet för den specifika perioden.|
-|Totalmängd|Inte tillämpligt|Hur mycket på grund av för fakturan när krediten har tillämpats och skatt läggs till.|
+|Skattebelopp|Inte aktuellt|Skatt som gäller för det totala försäljningsbeloppet för den specifika perioden.|
+|Totalmängd|Inte aktuellt|Hur mycket på grund av för fakturan när krediten har tillämpats och skatt läggs till.|
 
 ### <a name="marketplace-invoice"></a>Marketplace-faktura
 

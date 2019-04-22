@@ -9,10 +9,10 @@ ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 8afaeaea3c8ceb0de33147e70e00f3f57c857ca7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883164"
 ---
 När du skapar en virtuell dator (VM), starta om Stoppad (frigjord) virtuella datorer eller ändra storlek på en virtuell dator, allokerar Microsoft Azure beräkningsresurser till din prenumeration. Vi kontinuerligt investera i ytterligare infrastruktur och vilka funktioner du vill se till att vi alltid har alla VM-typer för att stödja kundernas efterfrågan. Det kan ibland uppstå Allokeringsfel för resursen på grund av en oöverträffad ökad efterfrågan på Azure-tjänster i vissa regioner. Det här problemet kan uppstå när du försöker skapa eller starta virtuella datorer i en region medan de virtuella datorerna visas följande felkod och meddelandet:
@@ -36,7 +36,7 @@ Identifiera scenario som bäst passar ditt ärende och försök sedan begäran o
 
 Ange en begäran om att ändra storlek på en virtuell dator eller lägga till en virtuell dator till en befintlig tillgänglighetsuppsättning måste provas på det ursprungliga klustret som är värd för den befintliga tillgängligheten. Den begärda storleken som stöds av klustret, men klustret kan för närvarande inte har tillräckligt med kapacitet. 
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 Om den virtuella datorn kan vara en del av en annan tillgänglighetsuppsättning, kan du skapa en virtuell dator i en annan tillgänglighetsuppsättning (i samma region). Den här nya virtuella datorn kan sedan läggas till samma virtuella nätverk.
 
@@ -51,7 +51,7 @@ Det här steget ser till att ett nytt försök för allokering körs och att ett
 
 Flyttningen är delvis innebär att du stoppat (frigjort) en eller flera, men inte alla, virtuella datorer i en tillgänglighetsuppsättning har angetts. När du frigöra en virtuell dator, släpps de associerade resurserna. Starta om virtuella datorer i en delvis frigjort tillgänglighetsuppsättning är detsamma som att lägga till virtuella datorer i en befintlig tillgänglighetsuppsättning. Begäran om minnesallokering måste därför provas på det ursprungliga klustret att värdarna som den befintliga tillgänglighetsuppsättning som inte kanske har tillräckligt med kapacitet.
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 Stoppa (frigöra) alla virtuella datorer i samma tillgänglighetsuppsättning ange och sedan starta om var och en.
 Sluta: Klicka på resursgrupper > [resursgruppen] > resurser > [tillgänglighetsuppsättningen] > VM > [din virtuella dator] > Stoppa.
@@ -64,7 +64,7 @@ Det säkerställer att ett nytt försök för allokering körs och att ett nytt 
 
 Flyttningen är fullständig innebär att du stoppat frigjord () alla virtuella datorer i en tillgänglighetsuppsättning. Begäran om minnesallokering att starta om dessa virtuella datorer gäller för alla kluster som har stöd för önskad storlek inom den region eller zon. Ändra din begäran om minnesallokering per förslagen i den här artikeln och försöka att förbättra risken för allokering. 
 
-### <a name="workaround"></a>Lösning
+### <a name="workaround"></a>Lösning:
 
 Om du använder äldre VM-serien eller storlekar, till exempel Dv1, DSv1, Av1, D15v2 eller DS15v2, Överväg att flytta till nyare versioner. Se dessa rekommendationer för specifika VM-storlekar.
 Om du inte har alternativet att använda en annan VM-storlek, försök att distribuera till en annan region inom samma geografiska område. Mer information om de tillgängliga storlekarna i varje region på https://aka.ms/azure-regions

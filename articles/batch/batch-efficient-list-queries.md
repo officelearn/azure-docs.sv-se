@@ -16,10 +16,10 @@ ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918543"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor för att lista Batch-resurser effektivt
@@ -179,7 +179,7 @@ Egenskapsnamn i filtret, markera och utöka strängar *måste* återspeglar mots
 ## <a name="example-construct-a-filter-string"></a>Exempel: skapa en Filtersträng
 När du skapar en Filtersträng för [ODATADetailLevel.FilterClause][odata_filter], med hjälp av tabellen ovan under ”mappningar för filtersträngar” att hitta REST API-dokumentationssida som motsvarar den liståtgärden som du vill utföra. Du hittar filtrerbara egenskaper och deras operatorer som stöds i tabellen för första försök för på sidan. Om du vill hämta alla uppgifter vars avslutskoden var inte är noll, till exempel detta rad på [lista de uppgifter som är associerade med ett jobb] [ rest_list_tasks] anger egenskapssträng och tillåten operatorer:
 
-| Egenskap  | Tillåtna åtgärder | Type |
+| Egenskap | Tillåtna åtgärder | Typ |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +190,7 @@ Därför är Filtersträngen för att lista alla uppgifter med en slutkod:
 ## <a name="example-construct-a-select-string"></a>Exempel: skapa en väljer sträng
 Att konstruera [ODATADetailLevel.SelectClause][odata_select], med hjälp av tabellen ovan under ”mappningar för väljer strängar” och gå till sidan REST API som motsvarar typ av enhet som du visar. Du hittar valbar egenskaperna och deras operatorer som stöds i tabellen för första försök för på sidan. Om du vill hämta endast ID och kommandoraden för varje aktivitet i en lista, till exempel du hittar dessa rader i tabellen gäller på [hämta information om en aktivitet][rest_get_task]:
 
-| Egenskap  | Type | Anteckningar |
+| Egenskap | Typ | Anteckningar |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

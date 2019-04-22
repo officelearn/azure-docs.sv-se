@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 4c4ac9489b9613b2eeaf26a3df9f4cbc664a1026
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58849608"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Dataöverföring för stora datauppsättningar med låg eller ingen nätverksbandbredd
@@ -45,7 +45,7 @@ Alternativen som finns i det här scenariot finns enheter för Azure Data Box of
 
 I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 
-|                                     |    Data Box Disk      |    Data Box                                      |    Data Box – tung              |    Import/Export                       |
+|                                     |    Data Box-disk      |    Data Box                                      |    Data Box – tung              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Datastorlek                        |    Upp till 35 TB                 |    Upp till 80 TB per enhet                       |    Upp till 800 TB per enhet               |    Variabel                            |
 |    Datatyp                        |    Azure-Blobar                  |    Azure-Blobar<br>Azure Files                    |    Azure-Blobar<br>Azure Files            |    Azure-Blobar<br>Azure Files          |
@@ -59,7 +59,7 @@ I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 |    Partnerintegration              |    Vissa                         |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Vissa                                |
 |    Fraktas                         |    Hanteras av Microsoft            |    Hanteras av Microsoft                             |    Hanteras av Microsoft                     |    Hanteras av kunden                    |
 | Använd när data flyttas         |Inom ett handel|Inom ett handel|Inom ett handel|Över geografiska gränser, t.ex. Vi kan EU|
-|    Prissättning                          |    [Prissättning](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prissättning](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    Priser                          |    [Prissättning](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prissättning](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 ## <a name="next-steps"></a>Nästa steg

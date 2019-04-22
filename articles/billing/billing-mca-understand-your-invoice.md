@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883017"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Förstå villkoren på din faktura för Microsoft kundavtal
@@ -110,6 +110,6 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.m
 ## <a name="next-steps"></a>Nästa steg
 
 - [Förstå debiteringar på din faktureringsinformation profil faktura](billing-mca-understand-your-bill.md)
-- [Så här hämtar du din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md)
+- [Så här hämtar du information om fakturering och daglig användning från Azure](billing-download-azure-invoice-daily-usage-date.md)
 - [Visa din organisations Azure priser](billing-ea-pricing.md)
 - [Visa skattedokument för din faktureringsinformation profil](billing-mca-download-tax-document.md)

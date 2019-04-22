@@ -11,10 +11,10 @@ ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880652"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och Identitetsupplevelse
@@ -28,7 +28,7 @@ Om du använder Azure Active Directory B2C (Azure AD B2C) anpassade principer, k
 
 De vanligaste fel i hur du konfigurerar anpassade principer är felaktigt formaterad XML. En bra XML-redigerare är nästan viktigt. En bra XML-redigerare visar XML internt, färgkodar innehåll, prefills vanliga termer, ser till att XML-element som indexeras och kan verifiera med schema. Här följer två av våra favorit XML-redigerare:
 
-* [Visual Studio-koden](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Anteckningar ++](https://notepad-plus-plus.org/)
 
 XML-schemavalideringen identifierar fel innan du laddar upp din XML-fil. I rotmappen på startpaket, får du XML-schemadefinitionen TrustFrameworkPolicy_0.3.0.0.xsd. Mer information i dokumentationen för XML-redigerare, leta efter *XML-verktyg* och *XML-verifiering*.

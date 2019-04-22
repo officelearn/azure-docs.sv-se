@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886020"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Så här använder du den hanterade klienten för Azure Mobile Apps
@@ -62,9 +62,9 @@ public class TodoItem
 
 Den [JsonPropertyAttribute] [ 6] används för att definiera den *PropertyName* mappning mellan fälten klienten och tabellen.
 
-Läs hur du skapar tabeller i Mobile Apps-serverdel, i den [.NET Server SDK innehåller] [ 7] eller [Node.js Server SDK innehåller][8]. Om du har skapat din mobilappsserverdel i Azure portal med snabbstarten kan du också använda den **enkla tabeller** i den [Azure-portalen].
+Läs hur du skapar tabeller i Mobile Apps-serverdel, i den [.NET Server SDK innehåller] [ 7] eller [Node.js Server SDK innehåller][8]. Om du har skapat din mobilappsserverdel i Azure portal med snabbstarten kan du också använda den **enkla tabeller** i den [Azure Portal].
 
-### <a name="how-to-install-the-managed-client-sdk-package"></a>Anvisningar: Installera hanterad klient-SDK-paketet
+### <a name="how-to-install-the-managed-client-sdk-package"></a>Så här: Installera hanterad klient-SDK-paketet
 Använd någon av följande metoder för att installera hanterad klient-SDK-paketet för Mobile Apps från [NuGet][9]:
 
 * **Visual Studio** högerklickar du på projektet, klicka på **hantera NuGet-paket**, Sök efter den `Microsoft.Azure.Mobile.Client` paketet och klicka sedan på **installera**.
@@ -89,13 +89,13 @@ Följande kod skapar den [MobileServiceClient] [ 12] objekt som används för at
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-I den föregående koden, Ersätt `MOBILE_APP_URL` med Webbadressen för serverdelen för Mobilappen som finns i bladet för din mobilappsserverdel i den [Azure-portalen]. MobileServiceClient-objektet ska vara en singleton.
+I den föregående koden, Ersätt `MOBILE_APP_URL` med Webbadressen för serverdelen för Mobilappen som finns i bladet för din mobilappsserverdel i den [Azure Portal]. MobileServiceClient-objektet ska vara en singleton.
 
 ## <a name="work-with-tables"></a>Arbeta med tabeller
 Följande avsnitt beskriver hur du söka efter och hämta poster och ändra data i tabellen.  I följande avsnitt beskrivs:
 
 * [Skapa en tabellreferens](#instantiating)
-* [Söka i data](#querying)
+* [Fråga efter data](#querying)
 * [Filtrera returnerade data](#filtering)
 * [Sortera returnerade data](#sorting)
 * [Returnera data på sidor](#paging)
@@ -200,7 +200,7 @@ Den `Where` satsen har stöd för åtgärder som att översättas till OData-del
 * Komma åt egenskaper för ett objekt, och
 * Uttryck som kombinerar någon av dessa åtgärder.
 
-När du överväger Server SDK stöder, kan du överväga att den [OData v3-dokumentationen].
+När du överväger Server SDK stöder, kan du överväga att den [OData v3-dokumentation].
 
 ### <a name="sorting"></a>Hur: Sortera returnerade data
 Följande kod visar hur du kan sortera data genom att inkludera en [OrderBy] eller [OrderByDescending] funktion i frågan. Returnerar den objekt från `todoTable` sorterade stigande efter den `Text` fält.
@@ -462,7 +462,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Mer information finns i den [Offline datasynkronisering i Azure Mobile Apps] avsnittet.
+Mer information finns i den [Datasynkronisering offline i Azure Mobile Apps] avsnittet.
 
 ### <a name="binding"></a>Hur: Binda Mobile Apps-data till en Windows-användargränssnittet
 Det här avsnittet visar hur du vill visa data som returneras objekt med hjälp av UI-element i en Windows-app.  Följande exempelkod Binder till källan för listan med en fråga för ofullständiga objekt. Den [MobileServiceCollection] skapar en Mobile Apps-anpassade bindning-samling.
@@ -624,14 +624,14 @@ Exempel:
 Du kan använda InvokeApiAsync för att anropa alla WebAPI, inklusive de WebAPIs som inte har definierats med Azure Mobile Apps.  När du använder InvokeApiAsync() skickas lämpliga rubriker, inklusive autentiseringshuvuden, med begäran.
 
 ## <a name="authentication"></a>Autentisera användare
-Mobile Apps stöder autentisering och auktorisering av appanvändare som använder olika externa indentitetsprovidrar: Facebook, Google, Microsoft-konto, Twitter och Azure Active Directory. Du kan ange behörigheter för tabeller för att begränsa åtkomst för specifika åtgärder endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i server-skript. Mer information finns i självstudierna [Lägg till autentisering till din app].
+Mobile Apps stöder autentisering och auktorisering av appanvändare som använder olika externa indentitetsprovidrar: Facebook, Google, Microsoft-konto, Twitter och Azure Active Directory. Du kan ange behörigheter för tabeller för att begränsa åtkomst för specifika åtgärder endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i server-skript. Mer information finns i självstudierna [Lägg till autentisering i appen].
 
 Två autentiseringsflöden stöds: *hanteras med klientprogram* och *server-hanterad* flöde. Server-hanterad flödet innehåller enklaste autentiseringsupplevelse som den är beroende av leverantörens Webbgränssnitt för autentisering. Flödet hanteras med klientprogram möjliggör djupare integrering med specifika funktioner som den är beroende av provider-specifik enhetsspecifika SDK: er.
 
 > [!NOTE]
 > Vi rekommenderar att du använder ett flöde som hanteras med klientprogram i dina produktionsappar.
 
-Om du vill konfigurera autentisering måste du registrera din app med en eller flera Identitetsproviders.  Identitetsprovidern genererar ett klient-ID och en klienthemlighet för din app.  Dessa värden anges sedan i serverdelen för att aktivera autentisering/auktorisering i Azure App Service.  Mer information följer detaljerade instruktioner i självstudiekursen [Lägg till autentisering till din app].
+Om du vill konfigurera autentisering måste du registrera din app med en eller flera Identitetsproviders.  Identitetsprovidern genererar ett klient-ID och en klienthemlighet för din app.  Dessa värden anges sedan i serverdelen för att aktivera autentisering/auktorisering i Azure App Service.  Mer information följer detaljerade instruktioner i självstudiekursen [Lägg till autentisering i appen].
 
 I följande avsnitt beskrivs i det här avsnittet:
 
@@ -654,7 +654,7 @@ Du kan använda Active Directory Authentication Library (ADAL) för att initiera
 2. Öppna projektet i Visual Studio eller Xamarin Studio och Lägg till en referens till den `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet-paketet. När du söker kan innehålla förhandsversioner.
 3. Lägg till följande kod i ditt program, beroende på plattform som du använder. I varje, gör du följande ersättningar:
 
-   * Ersätt **INSERT-UTFÄRDARE-HERE** med namnet på den klient som du har etablerat för ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i den [Azure-portalen].
+   * Ersätt **INSERT-UTFÄRDARE-HERE** med namnet på den klient som du har etablerat för ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i den [Azure Portal].
    * Ersätt **INSERT-resurs-ID-HERE** med klient-ID för din mobilappsserverdel. Du kan hämta klient-ID från den **Avancerat** fliken **Azure Active Directory-inställningar** i portalen.
    * Ersätt **INSERT-klient-ID-HERE** med klient-ID som du kopierade från native client-program.
    * Ersätt **INSERT-OMDIRIGERINGS-URI-HERE** med webbplatsens */.auth/login/done* slutpunkten, med hjälp av HTTPS-schema. Det här värdet ska vara liknar *https://contoso.azurewebsites.net/.auth/login/done*.
@@ -827,7 +827,7 @@ private async System.Threading.Tasks.Task Authenticate()
 
 Om du använder en identitetsprovider än Facebook, ändra värdet för [MobileServiceAuthenticationProvider] till värdet för din provider.
 
-I ett server-flöde hanterar flödet för OAuth-autentisering i Azure App Service genom att visa inloggningssidan för den valda providern.  När den identity providern returnerar, Azure App Service genererar en App Service-autentiseringstoken. Den [LoginAsync] metoden returnerar en [MobileServiceUser], som erbjuder både den [UserId] på den autentiserade användaren och [ MobileServiceAuthenticationToken], som en JSON-webbtoken (JWT). Den här token kan cachelagras och återanvändas tills den upphör att gälla. Mer information finns i [cachelagring autentiseringstoken](#caching).
+I ett server-flöde hanterar flödet för OAuth-autentisering i Azure App Service genom att visa inloggningssidan för den valda providern.  När den identity providern returnerar, Azure App Service genererar en App Service-autentiseringstoken. Den [LoginAsync] metoden returnerar en [MobileServiceUser], som erbjuder både den [Användar-ID] på den autentiserade användaren och [MobileServiceAuthenticationToken], som en JSON-webbtoken (JWT). Den här token kan cachelagras och återanvändas tills den upphör att gälla. Mer information finns i [cachelagring autentiseringstoken](#caching).
 
 ### <a name="caching"></a>Cachelagring autentiseringstoken
 I vissa fall kan anrop till metoden inloggningen undvikas efter den första autentiseringen genom att lagra autentiseringstoken från providern.  Microsoft Store- och UWP-appar kan använda [PasswordVault] cachelagra aktuella autentiseringstoken efter en lyckad inloggning, enligt följande:
@@ -986,7 +986,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 }
 ```
 
-Ett annat exempel för att behandla felvillkor kan hittas i den [Mobile Apps filer exempel]. Den [LoggingHandler] exempel innehåller en loggning ombud hanterare för att logga begäranden som görs till serverdelen.
+Ett annat exempel för att behandla felvillkor kan hittas i den [Exempel för Mobile Apps-filer]. Den [LoggingHandler] exempel innehåller en loggning ombud hanterare för att logga begäranden som görs till serverdelen.
 
 ### <a name="headers"></a>Hur: Anpassa begärandehuvuden
 Du kan behöva anpassa kommunikation med serverdelen för Mobilappen för att stödja ditt scenario specifik app. Du kanske vill lägga till en anpassad rubrik i varje utgående begäran eller t.o.m. Ändra statuskoder för svar. Du kan använda en anpassad [DelegatingHandler], som i följande exempel:
@@ -1067,7 +1067,7 @@ public class MyHandler : DelegatingHandler
 [Hoppa över]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [Användar-ID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Var]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[där]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Azure Portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx

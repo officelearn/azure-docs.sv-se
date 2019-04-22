@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
 ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880720"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Felsökning av API-begränsningsfel 
@@ -32,7 +32,7 @@ När en Azure API-klient hämtar en begränsning fel, är HTTP-status 429 för m
 
 ## <a name="call-rate-informational-response-headers"></a>Anropa rate informationsmeddelande svarshuvuden 
 
-| Huvud                            | Värdeformat                           | Exempel                               | Beskrivning                                                                                                                                                                                               |
+| Sidhuvud                            | Värdeformat                           | Exempel                               | Beskrivning                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Återstående antalet för API-anrop för begränsningsprincipen som täcker bucket eller åtgärden resursgruppen, inklusive mål för den här begäran                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Antalet antal ”debiteras” för den här HTTP-begäran mot principen gäller gränsen. Detta är normalt 1. Batch-begäranden, till exempel för att skala en skalningsuppsättning för virtuella datorer kan debitera flera antal. |
@@ -89,7 +89,7 @@ En begränsning av analyzer för tillfället är att inte räknas begäranden f�
 PowerShell-cmdletar använder ett REST-API, som enkelt kan anropas direkt av klienter (även om med inga formella stöd för ännu). Om du vill se format för HTTP-förfrågan, kör du cmdlets med - felsökning eller snoop på sina körning med Fiddler.
 
 
-## <a name="best-practices"></a>Bästa praxis 
+## <a name="best-practices"></a>Bästa metoder 
 
 - Försök inte Azure-tjänst-API-fel ovillkorligt och/eller omedelbart. Vanligt förekommande avser klientkod att få in i en snabb omförsöksslinga när den påträffar ett fel som inte kan och försök igen. Återförsök kommer så småningom få slut tillåtna anrop gränsen för mål-åtgärden grupp och påverka andra klienter för prenumerationen. 
 - Överväg att implementera proaktiv klientsidan automatisk begränsning när antalet tillgängliga anrop för en målgrupp för åtgärden sjunker under vissa lågtröskelövervakare i omfattande API automation fall. 

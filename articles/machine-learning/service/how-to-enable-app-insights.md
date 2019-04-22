@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885510"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller med Application Insights
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig hur du ställer in Azure Application Insig
 [Läs mer om Application Insights](../../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
@@ -85,15 +85,15 @@ Du kan aktivera och inaktivera Application Insights i Azure-portalen.
 
 1. På den **distributioner** väljer du en tjänst där du vill aktivera Application Insights.
 
-   [![LIST tjänster på fliken distributioner](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![Lista över tjänster på fliken distributioner](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Välj **Redigera**.
 
-   [![Edit knappen](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Knappen Redigera](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. I **avancerade inställningar**väljer den **aktivera AppInsights-diagnostik** markerar du kryssrutan.
 
-   [![Svalda markerar du kryssrutan för att aktivera diagnostik](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Markerad kryssruta för att aktivera diagnostik](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Välj **uppdatering** längst ned på skärmen för att tillämpa ändringarna. 
 
@@ -101,11 +101,11 @@ Du kan aktivera och inaktivera Application Insights i Azure-portalen.
 1. I den [Azure-portalen](https://portal.azure.com), öppna din arbetsyta.
 1. Välj **distributioner**, Välj tjänsten och välj **redigera**.
 
-   [![USe redigeringsknappen](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Använd redigeringsknappen](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. I **avancerade inställningar**, avmarkera de **aktivera AppInsights-diagnostik** markerar du kryssrutan. 
 
-   [![Clärde dig markerar du kryssrutan för att aktivera diagnostik](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Avmarkerad kryssruta för att aktivera diagnostik](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Välj **uppdatering** längst ned på skärmen för att tillämpa ändringarna. 
  
@@ -119,12 +119,12 @@ Visa den:
 
 1. Välj den **översikt** fliken för att se en grundläggande uppsättning mått för din tjänst.
 
-   [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Översikt över](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. Om du vill söka i dina anpassade spårningar, Välj **Analytics**.
 4. Markera under schemat **spårningar**. Välj sedan **kör** att köra frågan. Data ska visas i tabellformat och ska mappa till dina anpassade anrop i din bedömningsfilen. 
 
-   [![Canpassad spårningar](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Anpassade spårningar](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Mer information om hur du använder Application Insights finns [vad är Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     

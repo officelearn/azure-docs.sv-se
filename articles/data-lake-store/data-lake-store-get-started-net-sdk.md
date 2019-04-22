@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879717"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 med .NET SDK
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig hur du utför kontohanteringsåtgärder p�
 
 Anvisningar för hur du utför datahanteringsåtgärder på Data Lake Storage Gen1 med .NET SDK finns i [filsystemsåtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Visual Studio 2013, 2015 eller 2017**. Anvisningarna nedan använder Visual Studio 2017.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -41,7 +41,7 @@ Anvisningar för hur du utför datahanteringsåtgärder på Data Lake Storage Ge
 2. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på **Projekt**.
 3. Från **Nytt projekt** anger eller väljer du följande värden:
 
-   | Egenskap  | Värde |
+   | Egenskap | Värde |
    | --- | --- |
    | Kategori |Mallar/Visual C#/Windows |
    | Mall |Konsolprogram |
@@ -54,7 +54,7 @@ Anvisningar för hur du utför datahanteringsåtgärder på Data Lake Storage Ge
    3. Sök efter och installera följande NuGet-paket:
 
       * `Microsoft.Azure.Management.DataLake.Store` – I den här självstudiekursen används v2.1.3-förhandsversionen.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – I den här självstudiekursen används v2.2.12.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` –I den här självstudiekursen används v2.2.12.
 
         ![Lägg till en NuGet-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake-konto")
    4. Stäng **NuGet Package Manager**.
@@ -143,7 +143,7 @@ Följande kodavsnitt tar bort Data Lake Storage Gen1-kontot som du skapade tidig
 
 ## <a name="see-also"></a>Se också
 * [Filsystemsåtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-data-operations-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK Reference](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Data Lake Storage Gen1 .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)

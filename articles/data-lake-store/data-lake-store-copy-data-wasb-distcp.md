@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fbefe233ce0d2477982faf0a9f38a73062e0c7a1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884473"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Använd Distcp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen1
@@ -28,7 +28,7 @@ ms.locfileid: "58884473"
 
 Om du har ett HDInsight-kluster med åtkomst till Azure Data Lake Storage Gen1, du kan använda Hadoop-ekosystemet verktyg som Distcp för att kopiera data **till och från** ett HDInsight-kluster storage (WASB) till ett Data Lake Storage Gen1-konto. Den här artikeln innehåller anvisningar om hur du använder verktyget Distcp.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett konto med Azure Data Lake Storage Gen1**. Anvisningar för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

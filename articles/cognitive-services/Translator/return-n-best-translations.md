@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: 62992122dc16003078bb80ecd87c2bd3692586dd
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918322"
 ---
 # <a name="how-to-return-n-best-translations"></a>Hur du returnerar N-Best översättningar
@@ -40,7 +40,7 @@ Signaturen är:
 | appId | **Krävs** om auktoriseringsrubriken används, lämna appid fältet tomt eller ange en sträng som innehåller ”ägar” + ”” + åtkomst-token.|
 | text | **Krävs** en sträng som representerar text för översättning. Storleken på texten får inte överstiga 10000 tecken.|
 | från | **Krävs** en sträng som representerar språkkoden för text för översättning. |
-| till | **Krävs** en sträng som representerar språkkoden att översätta text i. |
+| i | **Krävs** en sträng som representerar språkkoden att översätta text i. |
 | maxTranslations | **Krävs** ett heltal som representerar det maximala antalet översättningar ska returneras. |
 | alternativ | **Valfritt** A TranslateOptions-objekt som innehåller de värden som anges nedan. De är valfria och de vanligaste inställningarna som standard.
 

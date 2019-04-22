@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
 ms.openlocfilehash: f0f66cd32721e277cbd6e4578b0e58bb201ee966
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793160"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuera och ta bort program med hjälp av PowerShell
@@ -143,7 +143,7 @@ Här är till exempel komprimering statistik för vissa paket, vilket visar för
 |100|100|00:00:03.3547592|60|
 |512|100|00:00:16.3850303|307|
 |1024|500|00:00:32.5907950|615|
-|2048|1000|00:01:04.3775554|1231|
+|2048|1 000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
 När ett paket har komprimerats, kan den överföras till en eller flera Service Fabric-kluster efter behov. Mekanismen för distribution är samma för komprimerade och okomprimerade paket. Komprimerade paket lagras som sådana i avbildningsarkivet kluster. Paket som har expanderats på noden och innan programmet körs.

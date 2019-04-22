@@ -9,10 +9,10 @@ ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893137"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
@@ -41,7 +41,7 @@ Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic**
 
 Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Den här nivån omfattas inte av något serviceavtal.
 
-|Planera  |QPU:er  |Minne (GB)  |
+|Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |D1    |    20     |    3     |
 
@@ -50,7 +50,7 @@ Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarie
 
 Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begränsad användarsamtidighet och enkla krav för datauppdatering. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Perspektiv, flera partitioner och DirectQuery-funktioner för tabellmodeller *stöds inte* på den här nivån.  
 
-|Planera  |QPU:er  |Minne (GB)  |
+|Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
 |B2    |    80     |    20     |
@@ -59,7 +59,7 @@ Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begr�
 
 Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kräver elastisk användarsamtidighet och har snabbväxande datamodeller. Den har stöd för avancerad datauppdatering för datamodellsuppdateringar i nära realtid och stöder alla funktioner för tabellmodeller.
 
-|Planera  |QPU:er  |Minne (GB)  |
+|Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |S0    |    40     |    10     |
 |S1    |    100     |    25     |
@@ -81,12 +81,12 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Södra Brasilien     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Östra USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|USA, östra 2     |     S8, S9   |    1    |
+|Östra USA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Östra USA 2     |     S8, S9   |    1    |
 |Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Södra centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Västra centrala USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|USA, västra centrala   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Västra USA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |Västra USA     |    S8, S9   |    2  |
 |USA, västra 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
@@ -96,10 +96,10 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|Nordeuropa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Västra Europa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Västra Europa    |   S8, S9  |  1  |
+|Västeuropa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Västeuropa    |   S8, S9  |  1  |
 
 ### <a name="asia-pacific"></a>Asien och stillahavsområdet 
 
@@ -110,13 +110,13 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Östra Japan     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
-|Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Västra Indien     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov
 
 ### <a name="scale-updown-pause-and-resume"></a>Skala upp\ner, pausa och återuppta
 
-Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Betala endast för det du använder.  
+Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Du betalar bara för det du använder.  
 
 ### <a name="scale-out-resources-for-fast-query-responses"></a>Skala ut resurser för snabba frågesvar
 
@@ -126,7 +126,7 @@ Du kan skapa en frågepool med upp till sju ytterligare frågerepliker (åtta to
 
 Du kan skala ut frågerepliker efter dina behov, precis som för att ändra nivån. Konfigurera skalning i portalen eller med hjälp av REST API: er. Läs mer i [Skalning av Azure Analysis Services](analysis-services-scale-out.md).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Totalkostnad beror på ett antal faktorer, exempelvis din valda region, nivå, frågerepliker och paus/återuppta. Använd [Azure Analysis Services pris](https://azure.microsoft.com/pricing/details/analysis-services/)-kalkylator för att fastställa vanlig prissättning för din region. Det här verktyget beräknar prissättning för en enskild serverinstans för en enskild region. Tänk på att frågerepliker debiteras med samma avgift som servern. 
 
@@ -144,7 +144,7 @@ DirectQuery-läget* använder serverdelens relationsdatabas för lagring och fr�
 
 Tabellmodeller i Azure Analysis Services stöder en mängd olika datakällor från enkla textfiler till stordata i Azure Data Lake Store. Läs mer i avsnittet [Datakällor som stöds i Azure Analysis Services](analysis-services-datasource.md).
 
-## <a name="compatibility-level"></a>Efterlevnadsnivå
+## <a name="compatibility-level"></a>Kompatibilitetsnivå
 
 Kompatibilitetsnivån refererar till release-specifika beteenden i Analysis Services-motorn. Azure Analysis Services stöder tabellmodeller på kompatibilitetsnivå 1200 och högre. Mer information finns i [kompatibilitetsnivån för Analysis Services-tabellmodeller](analysis-services-compat-level.md).
 

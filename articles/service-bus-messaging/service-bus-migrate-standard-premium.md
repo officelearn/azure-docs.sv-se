@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
 ms.openlocfilehash: 7b153c36e10f1d4e2be2a0cf42f998c31cb6473a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896588"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-premium-tier"></a>Migrera befintliga Azure Service Bus Standard-namnområden till Premium-nivån
@@ -197,7 +197,7 @@ Men det **inte** ta bort entiteter på Premium-namnområde eller ta bort det Pre
 >[!IMPORTANT]
 > Om du vill avbryta migreringen kan ta bort Premium-Namespace som du hade etablerats för migreringen, så att du inte debiteras för resurser.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Jag vill inte behöva tömma meddelanden. Vad gör jag nu?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Jag vill inte behöva tömma meddelanden. Vad gör jag?
 
 Det kan finnas meddelanden som skickas av avsändaren program och paket för lagring på Standard Namespace medan migreringen sker och strävar efter precis innan migreringen.
 

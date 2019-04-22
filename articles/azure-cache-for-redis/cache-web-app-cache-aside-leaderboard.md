@@ -16,10 +16,10 @@ ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
 ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893749"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Självstudie: Skapa en cache-aside-resultattavla för ASP.NET
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -671,8 +671,8 @@ I det här avsnittet etablerar du en ny SQL Azure-databas som appen ska använda
 
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst 8 tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
    | **Plats** | *Östra USA* | Välj samma region där du skapade cachen och apptjänsten. |
 
@@ -688,8 +688,8 @@ I det här avsnittet etablerar du en ny SQL Azure-databas som appen ska använda
 
     | Platshållare | Föreslaget värde |
     | --- | --- |
-    | *{your_username}* | Använd **serveradministratörsinloggningen** för den databasserver du precis har skapat. |
-    | *{your_password}* | Använd lösenordet för databasservern du precis har skapat. |
+    | *{ditt_användarnamn}* | Använd **serveradministratörsinloggningen** för den databasserver du precis har skapat. |
+    | *{ditt_lösenord}* | Använd lösenordet för databasservern du precis har skapat. |
 
     Genom att lägga till användarnamnet och lösenordet som en programinställning inkluderas inte ditt användarnamn och lösenord i koden. Den här metoden skyddar dessa autentiseringsuppgifter.
 
@@ -744,4 +744,4 @@ När du är klar med självstudiens exempelprogram kan du ta bort Azure-resurser
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Så här skalar du Azure Cache för Redis](./cache-how-to-scale.md)
+> [Så här skalar du Azure Cache for Redis](./cache-how-to-scale.md)

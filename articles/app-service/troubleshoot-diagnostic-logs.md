@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894926"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
@@ -57,11 +57,11 @@ När du aktiverar **programdiagnostik**, du också välja den **nivå**. I följ
 
 | Nivå| Inkluderade loggkategorier |
 |-|-|
-|**Disabled** | Ingen |
+|**Inaktiverad** | Ingen |
 |**Fel** | Fel, kritiska |
 |**Varning** | Varning, kritiskt fel|
 |**Information** | Info, varning, kritiskt fel|
-|**Utförlig** | Spårning, Avbugga, Info, varning, fel, kritiskt (alla kategorier) |
+|**utförlig** | Spårning, Avbugga, Info, varning, fel, kritiskt (alla kategorier) |
 |-|-|
 
 För **programloggning**, du kan aktivera system filalternativet tillfälligt för felsökning. Det här alternativet inaktiverar automatiskt i 12 timmar. Du kan också aktivera alternativet blob för att välja en blobbehållare loggfiler ska skrivas i.
@@ -122,7 +122,7 @@ Det här kommandot sparar loggar för appen med namnet ”appname” till en fil
 >
 >
 
-## <a name="how-to-view-logs-in-application-insights"></a>Anvisningar: Visa loggar i Application Insights
+## <a name="how-to-view-logs-in-application-insights"></a>Så här: Visa loggar i Application Insights
 Visual Studio Application Insights innehåller verktyg för att filtrera och söka i loggar och för att korrelera loggarna med begäranden och andra händelser.
 
 1. Lägg till Application Insights SDK till ditt projekt i Visual Studio.
@@ -189,7 +189,7 @@ När du loggar till blob storage lagras data i fil med kommaavgränsade värden 
 
 | Egenskapsnamn | Värdeformat / |
 | --- | --- |
-| Date |Datum och tid då händelsen inträffade |
+| Datum |Datum och tid då händelsen inträffade |
 | Nivå |Händelsenivå (till exempel fel, varning, information) |
 | ApplicationName |Appnamnet |
 | Instans-ID |Instans av appen som händelsen inträffade på |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877966"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Åtkomst till diagnostikloggar för Azure Data Lake Storage Gen1
@@ -24,7 +24,7 @@ Lär dig att aktivera loggning för ditt konto i Azure Data Lake Storage Gen1 oc
 
 Organisationer kan aktivera Diagnostisk loggning för sitt konto för Azure Data Lake Storage Gen1 att samla in granskningshistorik för dataåtkomst som ger information, till exempel listan över användare som har åtkomst till data, hur ofta data används, hur mycket data lagras i den konto, osv. När aktiverad, loggas diagnostik och/eller begäranden efter bästa förmåga. Både förfrågningar och diagnostik loggposter skapas endast om det finns förfrågningar mot tjänsteslutpunkt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Storage Gen1 konto**. Följ anvisningarna på [Kom igång med Azure Data Lake Storage Gen1 med hjälp av Azure-portalen](data-lake-store-get-started-portal.md).
 
@@ -122,7 +122,7 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
 | resultType |String |Status för åtgärden, till exempel 200. |
 | callerIpAddress |String |IP-adressen för klienten som gör begäran |
 | correlationId |String |ID för loggen som kan används för att gruppera en uppsättning relaterade loggposter |
-| identity |Objekt |Den identitet som genereras i loggen |
+| identitet |Objekt |Den identitet som genereras i loggen |
 | properties |JSON |Se nedan för information |
 
 #### <a name="request-log-properties-schema"></a>Schemat för begäran log-egenskaper
@@ -132,8 +132,8 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
 | Sökväg |String |Sökvägen åtgärden utfördes på |
 | RequestContentLength |int |Innehållslängd HTTP-förfrågan |
 | ClientRequestId |String |Det ID som unikt identifierar den här begäran |
-| startTime |String |Den tidpunkt då servern tog emot begäran |
-| endTime |String |Den tid då servern skickade ett svar |
+| StartTime |String |Den tidpunkt då servern tog emot begäran |
+| EndTime |String |Den tid då servern skickade ett svar |
 
 ### <a name="audit-logs"></a>Granskningsloggar
 Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en rotobjektet kallas **poster** som innehåller en matris med log-objekt
@@ -169,7 +169,7 @@ Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en
 | resultType |String |Status för åtgärden, till exempel 200. |
 | resultSignature |String |Mer information om åtgärden. |
 | correlationId |String |ID för loggen som kan används för att gruppera en uppsättning relaterade loggposter |
-| identity |Objekt |Den identitet som genereras i loggen |
+| identitet |Objekt |Den identitet som genereras i loggen |
 | properties |JSON |Se nedan för information |
 
 #### <a name="audit-log-properties-schema"></a>Granska loggen egenskaper schema

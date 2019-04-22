@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
 ms.openlocfilehash: d793b105e6d73c98739cd05d6e19a218413d7813
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862003"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Snabbstart: Skapa anpassade varningar
@@ -63,7 +63,7 @@ Använda säkerhetsgrupper för att gruppera dina enheter i logiska kategorier. 
 
 Följande tabell innehåller en sammanfattning av aviseringar som är tillgängliga för anpassning.
 
-| Severity | Namn                                                                                                    | Datakälla | Beskrivning                                                                                                                                     |
+| Allvarsgrad | Namn                                                                                                    | Datakälla | Beskrivning                                                                                                                                     |
 |----------|---------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Låg      | Anpassad avisering – antal cloud enhet-meddelanden i AMQP-protokollet är inte i det tillåtna intervallet          | IoT Hub     | Molnet för att meddelanden från enheten (AMQP-protokollet) under en tidsperiod är inte i den konfigurerade det tillåtna intervallet                                  |
 | Låg      | Anpassad avisering – antal avvisade cloud enhet-meddelanden i AMQP-protokollet är inte i det tillåtna intervallet | IoT Hub     | Mängden cloud enhet-meddelanden (AMQP-protokollet) som avvisats av enheten under en tidsperiod är inte i den konfigurerade det tillåtna intervallet |

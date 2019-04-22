@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: aec6282daadc61b4e1bcf6bbaf1266d9bc98cdac
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895806"
 ---
 <!--save a copy of this file to your local repo. It's important that you follow the naming conventions by starting with the service name, and use lowercase only for the file name. See "file-names-and-locations.md" under the "contributor-guide" folder in your repo.
@@ -48,7 +48,7 @@ $FriendlyName"<Describe value>"
 
 <!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table won't render until it's in GitHub or published to Sandbox.-->
 
-| Tjänstehantering | Resource Manager |
+| Tjänstehantering | Resurshanterare |
 | --- | --- |
 | `syntax` |`syntax` |
 
@@ -105,5 +105,5 @@ Här är ett exempel som använder [cmdlet-namnen)] till [aktivitet]. Det inklud
     [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Dokumentation om virtuella datorer](/previous-versions/azure/jj156003(v=azure.100))
+[Dokumentation om Virtual machines](/previous-versions/azure/jj156003(v=azure.100))
 

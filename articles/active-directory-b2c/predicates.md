@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881009"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikat och PredicateValidations
@@ -41,7 +41,7 @@ Den **predikat** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
+| ID | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
 | Metod | Ja | Metodtyp för validering. Möjliga värden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, eller **IsDateRange**. Den **IsLengthRange** värde kontrollerar om längden på ett strängvärde för anspråk är inom intervallet för lägsta och högsta parametrar har angetts. Den **MatchesRegex** värde kontrollerar om ett sträng-anspråksvärde matchar ett reguljärt uttryck. Den **IncludesCharacters** värde kontrollerar om ett strängvärde för anspråk innehåller en teckenuppsättning. Den **IsDateRange** värde kontrollerar om ett datumvärde anspråk mellan olika lägsta och högsta parametrar har angetts. |
 
 Den **predikat** elementet innehåller följande element:
@@ -61,7 +61,7 @@ Den **parametern** elementet innehåller följande attribut:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Id | 1:1 | Identifierare för parametern. |
+| ID | 1:1 | Identifierare för parametern. |
 
 I följande exempel visas en `IsLengthRange` metod med parametrar `Minimum` och `Maximum` som anger intervallet längden på strängen:
 
@@ -140,7 +140,7 @@ Den **PredicateValidation** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för predikatet verifieringen. Den **ClaimType** element kan använda den här identifieraren i principen. |
+| ID | Ja | En identifierare som används för predikatet verifieringen. Den **ClaimType** element kan använda den här identifieraren i principen. |
 
 Den **PredicateValidation** elementet innehåller följande element:
 
@@ -158,7 +158,7 @@ Den **PredicateGroup** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för gruppen predikat.  |
+| ID | Ja | En identifierare som används för gruppen predikat.  |
 
 Den **PredicateGroup** elementet innehåller följande element:
 
@@ -183,7 +183,7 @@ Den **PredicateReference** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för predikatet verifieringen.  |
+| ID | Ja | En identifierare som används för predikatet verifieringen.  |
 
 
 ## <a name="configure-password-complexity"></a>Konfigurera lösenordskomplexitet

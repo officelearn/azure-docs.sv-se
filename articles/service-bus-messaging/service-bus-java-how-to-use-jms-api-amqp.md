@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
 ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885561"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hur du använder Java Message Service (JMS) API med Service Bus och AMQP 1.0
@@ -341,7 +341,7 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>Jämfört med JMS ämnen Avsnitt om Service Bus
+## <a name="jms-topics-vs-service-bus-topics"></a>Jämfört med JMS ämnen Service Bus-ämnen
 Azure Service Bus-ämnen och prenumerationer via den Java Message Service JMS () API innehåller grundläggande skicka och ta emot funktioner. Det är ett praktiskt val när porta program från andra koordinatorerna med JMS kompatibla API: er, även om Service Bus-ämnen skiljer sig från JMS ämnen och kräver några justeringar. 
 
 Azure Service Bus-ämnen dirigera meddelanden till namngivna, delad och varaktiga prenumerationer som hanteras via Azure Resource Manager-gränssnittet, Azure kommandoradsverktyg eller Azure-portalen. Varje prenumeration kan för upp till 2 000 villkor, vart och ett av som kan ha ett filtervillkor och för SQL-filter, även en åtgärd för metadata-omvandling. Varje filter villkor matchning väljs det inkommande meddelandet som ska kopieras till tehj-prenumeration.  

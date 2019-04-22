@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863023"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Säkerhetskopiera virtuella Azure-datorer med PowerShell
@@ -123,4 +123,4 @@ Remove-AzRecoveryServicesVault -Vault $vault1
 
 - [Granska](backup-azure-vms-automation.md) en mer detaljerad genomgång av säkerhetskopiera och återställa virtuella datorer i Azure med PowerShell. 
 - [Hantera och övervaka virtuella Azure-datorer](backup-azure-manage-vms.md)
-- [Återställa virtuella Azure-datorer](backup-azure-arm-restore-vms.md)
+- [Återställa virtuella datorer i Azure](backup-azure-arm-restore-vms.md)

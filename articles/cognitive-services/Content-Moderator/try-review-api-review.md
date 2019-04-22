@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882029"
 ---
 # <a name="create-human-reviews-rest"></a>Skapa mänsklig granskning (REST)
 
 [Granskningar](./review-api.md#reviews) lagra och visa innehållet för mänskliga moderatorer att utvärdera. När en användare har slutfört en granskning, skickas resultaten till en slutpunkt för angivna återanrop. I den här guiden får du lära dig hur du ställer in granskningar som använder granska REST API: er via API-konsolen. När du förstår hur API: er kan portera du enkelt dessa anrop till valfri REST-kompatibel plattform.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
 

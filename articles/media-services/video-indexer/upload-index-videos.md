@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893460"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
@@ -61,15 +61,15 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
     
         |Namn|Beskrivning|
         |---|---|
-        |id|Video-ID|
-        |state|Videotillståndet|  
+        |ID|Video-ID|
+        |tillstånd|Videotillståndet|  
     - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person som identifierades i videon:
   - Egenskaper
     
       |Namn|Beskrivning|
       |---|---|
-      |id| Video-ID|
+      |ID| Video-ID|
       |faceId|Ansikts-ID som visas i videoindexet|
       |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
       |personName|Namnet på personen|
@@ -86,8 +86,8 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 Använd den här parametern om RAW-inspelningar eller externa inspelningar innehåller bakgrundsljud. Den här parametern används för att konfigurera indexeringsprocessen. Du kan ange följande värden:
 
 - `Default` – Indexera och extrahera insikter med hjälp av både ljud och video
-- `AudioOnly` – Indexera och extrahera insikter med hjälp av ljud endast (ignorera video)
-- `DefaultWithNoiseReduction` – Indexera och lyfta ut kunskaper från både ljud och video, samtidigt som du använder bruset minskning algoritmer på ljudström
+- `AudioOnly` – Indexera och extrahera insikter med hjälp av endast ljud (video ignoreras)
+- `DefaultWithNoiseReduction` – Indexera och extrahera insikter från både ljud och video, samtidigt som algoritmer för brusreducering tillämpas på ljudströmmen
 
 Priset beror på det valda indexeringsalternativet.  
 

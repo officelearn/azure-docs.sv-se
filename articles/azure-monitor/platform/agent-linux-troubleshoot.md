@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884184"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Så här felsöker du problem med Log Analytics-agenten för Linux 
@@ -159,7 +159,7 @@ Ta bort kommentarerna i följande avsnitt nedan utdata-plugin-programmet genom a
 * Proxyn som anges under publiceringen var felaktig
 * Azure Monitor och Azure Automation-tjänstslutpunkter är inte tillåten i ditt datacenter 
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 1. Reonboard till Azure Monitor med Log Analytics-agenten för Linux med hjälp av följande kommando med alternativet `-v` aktiverat. Det gör att utförliga utdata för den agent som ansluter via proxy till Azure Monitor. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
@@ -196,7 +196,7 @@ Det här är ett känt problem som uppstår vid första överföring av Linux-da
 - Anslutning till Azure Monitor är blockerad
 - Log Analytics-agenten för Linux-data som säkerhetskopieras
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 1. Kontrollera om onboarding Azure Monitor lyckades genom att kontrollera om det finns följande fil: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reonboard med hjälp av den `omsadmin.sh` kommandoradsinstruktioner
 3. Om du använder en proxyserver, referera till proxy Lösningssteg som angavs tidigare.
@@ -370,7 +370,7 @@ Det här felet indikerar att Linux-diagnostiktillägget (LAD) installeras sida v
  * `[DATETIME] [error]: file not accessible by omsagent.`
 * Kända problem med konkurrenstillstånd fast i Log Analytics-agenten för Linux-version 1.1.0-217
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Upplösning
 1. Kontrollera Kom igång med Azure Monitor har lyckats genom att kontrollera om det finns följande fil: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Om inte, antingen:  
 
   1. Reonboard omsadmin.sh från kommandoraden [instruktioner](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).

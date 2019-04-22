@@ -16,10 +16,10 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894414"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
@@ -277,7 +277,7 @@ Som en lösning kan du uttryckligen tilldela (eller på annat sätt [omfång i](
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Lista över guider om hur man integrerar SaaS-appar](../saas-apps/tutorial-list.md)
+- [Lista över guider om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
 - [Anpassa attributmappningar för etableringen av användare](customize-application-attributes.md)
 - [Skriva uttryck för attributmappningar](functions-for-customizing-application-data.md)
 - [Omfångsfilter för etableringen av användare](define-conditional-rules-for-provisioning-user-accounts.md)

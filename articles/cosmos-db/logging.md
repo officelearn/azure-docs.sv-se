@@ -8,10 +8,10 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904873"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
@@ -440,20 +440,20 @@ I följande tabell beskrivs innehållet i varje loggpost.
 
 | Azure Storage-fält eller någon egenskap | Azure Monitor loggar egenskapen | Beskrivning |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
-| **resourceId** | **Resurs** | Azure Cosmos DB-kontot som loggar är aktiverad.|
-| **category** | **Kategori** | För Azure Cosmos DB-loggar är **DataPlaneRequests** är endast tillgängligt värde. |
-| **operationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: Skapa, uppdatera, läsa, ReadFeed, ta bort, ersätta, köra SQL-fråga, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
-| **properties** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
+| **tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
+| **Resurs-ID** | **Resurs** | Azure Cosmos DB-kontot som loggar är aktiverad.|
+| **Kategori** | **Kategori** | För Azure Cosmos DB-loggar är **DataPlaneRequests** är endast tillgängligt värde. |
+| **OperationName** | **OperationName** | Åtgärdens namn. Det här värdet kan vara något av följande åtgärder: Skapa, uppdatera, läsa, ReadFeed, ta bort, ersätta, köra SQL-fråga, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
+| **Egenskaper** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
 | **Aktivitets-ID** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
 | **UserAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
 | **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: Databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
 | **statusCode** | **statusCode_s** | Svarsstatus för åtgärden. |
-| **requestResourceId** | **ResourceId** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på de åtgärder som utförs.|
+| **requestResourceId** | **Resurs-ID** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på de åtgärder som utförs.|
 | **clientIpAddress** | **clientIpAddress_s** | Klientens IP-adress. |
 | **requestCharge** | **requestCharge_s** | Antalet enheter för programbegäran som används av åtgärden |
 | **collectionRid** | **collectionId_s** | Unikt ID för samlingen.|
-| **varaktighet** | **duration_s** | Varaktighet för åtgärden, i ticken. |
+| **Varaktighet** | **duration_s** | Varaktighet för åtgärden, i ticken. |
 | **requestLength** | **requestLength_s** | Längden på begäran, i byte. |
 | **responseLength** | **responseLength_s** | Längden på svaret, i byte.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Det här värdet är inte tom när [resurstokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) används för autentisering. Värdet som pekar på resurs-ID för användaren. |
@@ -463,6 +463,6 @@ I följande tabell beskrivs innehållet i varje loggpost.
 - Om du vill lära dig mer om att aktivera loggning och mått och loggfiler kategorier som stöds av olika Azure-tjänster kan läsa både den [översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) och [översikt över Azure diagnostikloggar ](../azure-monitor/platform/diagnostic-logs-overview.md) artiklar.
 - Läs de här artiklarna om du vill veta mer om event hubs:
    - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-   - [Kom igång med händelsehubbar](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+   - [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Läs [hämta mått och diagnostikloggar från Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 - Läs [förstå loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-search-new.md).

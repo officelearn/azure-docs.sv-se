@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Självstudier: Azure Active Directory-integrering med Workpath
@@ -34,7 +34,7 @@ Integrera Workpath med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Workpath, behöver du följande objekt:
 
@@ -44,7 +44,7 @@ Om du vill konfigurera Azure AD-integrering med Workpath, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
 - Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
@@ -68,7 +68,7 @@ För att konfigurera integrering av Workpath i Azure AD, som du behöver lägga 
 
     ![Appar][2]
     
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Appar][3]
 
@@ -113,15 +113,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/workpath-tutorial/tutorial_workpath_url.png)
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
-    b. I textrutan **Svars-URL** anger du en URL med följande mönster: `https://api.workpath.com/v1/saml/assert/<instancename>`
+    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://api.workpath.com/v1/saml/assert/<instancename>`
 
 1. Kontrollera **visa avancerade URL-inställningar**. Om du vill konfigurera programmet i **SP** initierade läge, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.workpath.com/`
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.workpath.com/`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Workpath supportteamet](https://help.workpath.com) att hämta dessa värden.
@@ -156,7 +156,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/workpath-tutorial/tutorial_workpath_certificate.png) 
 
-1. Klicka på knappen **Spara**.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/workpath-tutorial/tutorial_general_400.png)
 
@@ -171,7 +171,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -226,7 +226,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][202] 
 
-1. Klicka på knappen **Lägg till**. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 

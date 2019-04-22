@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
 ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895823"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
@@ -62,7 +62,7 @@ Om ordförråd mellan två avsikter är samma, kombinera avsikten och Använd en
 Mer information:
 * Begrepp: [Begrepp om avsikter i LUIS-appen](luis-concept-intent.md)
 * Självstudier: [Skapa LUIS-app för att fastställa användarens avsikter](luis-quickstart-intents-only.md)
-* Anvisningar: [Lägg till avsikter att fastställa användarens avsikt är att yttranden](luis-how-to-add-intents.md)
+* Så här: [Lägg till avsikter att fastställa användarens avsikt är att yttranden](luis-how-to-add-intents.md)
 
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Hitta söta plats för avsikter

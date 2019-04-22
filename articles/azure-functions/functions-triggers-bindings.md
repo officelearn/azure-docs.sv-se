@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58889846"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
@@ -90,7 +90,7 @@ Information om vilka bindningar finns i förhandsversion eller är godkända fö
 - [Så här registrerar du ett uttryck för bindning](./functions-bindings-register.md)
 - Testning:
   - [Strategier för att testa din kod i Azure Functions](functions-test-a-function.md)
-  - [Köra en funktion som inte utlösts av HTTP manuellt](functions-manually-run-non-http.md)
+  - [Manuellt köra en icke HTTP-utlöst funktion](functions-manually-run-non-http.md)
 - [Hantering av Bindningsfel](./functions-bindings-errors.md)
 
 ## <a name="next-steps"></a>Nästa steg

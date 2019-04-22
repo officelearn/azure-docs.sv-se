@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862173"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Skapa en anpassad avsökning för Programgateway med hjälp av portalen
@@ -49,7 +49,7 @@ Avsökningar konfigureras i en tvåstegsprocess via portalen. Det första steget
 
 1. På den **Lägg till hälsoavsökning** bladet fylla i informationen som krävs för avsökningen och när du är klar klickar du på **OK**.
 
-   |**Inställning** | **Värde** | **Information**|
+   |**Inställning** | **Värde** | **Detaljer**|
    |---|---|---|
    |**Namn**|customProbe|Det här värdet är ett eget namn som avsökningen som är tillgänglig i portalen.|
    |**Protokoll**|HTTP eller HTTPS | Det protokoll som använder hälsoavsökningen.|
@@ -57,7 +57,7 @@ Avsökningar konfigureras i en tvåstegsprocess via portalen. Det första steget
    |**Sökväg**|/ eller en annan sökväg|Resten av den fullständiga URL: en för anpassad avsökning. En giltig sökväg som börjar med ”/”. Standard för HTTP-sökväg:\//contoso.com bara använda '/' |
    |**Intervall (sek)**|30|Hur ofta körs avsökningen för att söka efter hälsotillstånd. Det rekommenderas inte att ställa in lägre än 30 sekunder.|
    |**Timeout (sek)**|30|Hur lång tid avsökningen väntar innan den avbryts. Timeout-intervall måste vara tillräckligt högt för att ett http-anrop kan göras för att säkerställa sidan backend-hälsotillstånd är tillgänglig.|
-   |**Tröskelvärde för Ej felfri**|3|Antal misslyckade försök för att anses vara felaktiga. Ett tröskelvärde för 0 betyder som om en hälsokontroll misslyckas backend-bestäms feltillstånd omedelbart.|
+   |**Tröskelvärde för ej felfri**|3|Antal misslyckade försök för att anses vara felaktiga. Ett tröskelvärde för 0 betyder som om en hälsokontroll misslyckas backend-bestäms feltillstånd omedelbart.|
 
    > [!IMPORTANT]
    > Värdnamnet är inte detsamma som servernamnet på. Det här värdet är namnet på den virtuella värden som körs på programservern. Avsökningen skickas till http://(host name):(port from httpsetting)/urlPath

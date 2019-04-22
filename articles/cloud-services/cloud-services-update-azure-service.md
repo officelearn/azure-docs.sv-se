@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917234"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Så här uppdaterar du en tjänst i molnet
@@ -54,7 +54,7 @@ I följande tabell visar de tillåtna ändringarna till en tjänst under en uppd
 
 | Ändringar tillåts som är värd för, tjänster och roller | Uppdatering på plats | Mellanlagrad (VIP-växling) | Ta bort och omdistribuera |
 | --- | --- | --- | --- |
-| Operativsystemversion |Ja |Ja |Ja |
+| Operativsystemsversion |Ja |Ja |Ja |
 | .NET-förtroendenivåer |Ja |Ja |Ja |
 | Storlek på virtuell dator<sup>1</sup> |Ja<sup>2</sup> |Ja |Ja |
 | Inställningar för lokal lagring |Öka endast<sup>2</sup> |Ja |Ja |

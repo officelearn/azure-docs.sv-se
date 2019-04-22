@@ -10,10 +10,10 @@ ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762947"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
@@ -41,7 +41,7 @@ Följande är begränsningar i den aktuella lösningen:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Runbooks för den här lösningen fungerar med en [kör som-konto](automation-create-runas-account.md). Kör som-kontot är den lämpligaste autentiseringsmetoden eftersom den använder certifikatautentisering istället för ett lösenord som kan upphöra att gälla eller ändras ofta.
 
@@ -246,7 +246,7 @@ Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar oc
 
 ### <a name="job-logs"></a>Jobbloggar
 
-|Egenskap  | Beskrivning|
+|Egenskap | Beskrivning|
 |----------|----------|
 |Anropare |  Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb.|
 |Kategori | Klassificering av typ av data. För Automation är värdet JobLogs.|
@@ -257,17 +257,17 @@ Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar oc
 |ResourceGroup | Anger resursgruppens namn på runbook-jobbet.|
 |ResourceProvider | Anger den Azure-tjänst som tillhandahåller de resurser som du kan distribuera och hantera. För Automation är värdet Azure Automation.|
 |ResourceType | Anger resurstypen i Azure. För Automation är värdet Automation-kontot som är kopplat till runbook.|
-|resultType | Status för runbookjobbet. Möjliga värden:<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>- Slutförd|
-|resultDescription | Beskriver jobbstatusen för runbook. Möjliga värden:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes|
+|resultType | Status för runbookjobbet. Möjliga värden är:<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>- Slutförd|
+|resultDescription | Beskriver jobbstatusen för runbook. Möjliga värden är:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes|
 |RunbookName | Anger namnet på runbooken.|
 |SourceSystem | Anger källsystemet för data som skickats. För Automation är värdet OpsManager|
-|StreamType | Anger händelsetypen. Möjliga värden:<br>- Verbose<br>- Utdata<br>- Fel<br>- Varning|
+|StreamType | Anger händelsetypen. Möjliga värden är:<br>- Verbose<br>- Utdata<br>- Fel<br>- Varning|
 |SubscriptionId | Anger prenumerations-ID för jobbet.
 |Tid | Datum och tid då runbook-jobbet körs.|
 
 ### <a name="job-streams"></a>Arbetsflöden
 
-|Egenskap  | Beskrivning|
+|Egenskap | Beskrivning|
 |----------|----------|
 |Anropare |  Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb.|
 |Kategori | Klassificering av typ av data. För Automation är värdet JobStreams.|
@@ -281,7 +281,7 @@ Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar oc
 |resultDescription | Innehåller utdataströmmen från runbook.|
 |RunbookName | Anger namnet på runbooken.|
 |SourceSystem | Anger källsystemet för data som skickats. För Automation är värdet OpsManager.|
-|StreamType | Typ av jobbström. Möjliga värden:<br>-Förlopp<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose|
+|StreamType | Typ av jobbström. Möjliga värden är:<br>-Förlopp<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose|
 |Tid | Datum och tid då runbook-jobbet körs.|
 
 När du utför en loggsökning som returnerar poster kategori av **JobLogs** eller **JobStreams**, kan du välja den **JobLogs** eller **JobStreams**vy som visar en uppsättning paneler som sammanfattar de uppdateringar som returneras av sökningen.
@@ -290,7 +290,7 @@ När du utför en loggsökning som returnerar poster kategori av **JobLogs** ell
 
 Följande tabell innehåller exempel på sökningar i loggen för jobbposter som har samlats in av den här lösningen.
 
-|Söka i data | Beskrivning|
+|Fråga | Beskrivning|
 |----------|----------|
 |Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|

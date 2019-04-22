@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876776"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med .NET SDK
@@ -23,13 +23,13 @@ ms.locfileid: "58876776"
 > * [Använda Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Använda .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Använda Python](data-lake-store-end-user-authenticate-python.md)
-> * [Använda REST-API:et](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Använda REST-API](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 
 I den här artikeln lär du dig hur du använder .NET SDK för att göra slutanvändarautentisering med Azure Data Lake Storage Gen1. Tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med hjälp av .NET SDK, se [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Visual Studio 2013, 2015 eller 2017**. Anvisningarna nedan använder Visual Studio 2017.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -41,7 +41,7 @@ I den här artikeln lär du dig hur du använder .NET SDK för att göra slutanv
 2. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på **Projekt**.
 3. Från **Nytt projekt** anger eller väljer du följande värden:
 
-   | Egenskap  | Värde |
+   | Egenskap | Värde |
    | --- | --- |
    | Kategori |Mallar/Visual C#/Windows |
    | Mall |Konsolprogram |
@@ -56,7 +56,7 @@ I den här artikeln lär du dig hur du använder .NET SDK för att göra slutanv
    3. Sök efter och installera följande NuGet-paket:
 
       * `Microsoft.Azure.Management.DataLake.Store` – I den här självstudiekursen används v2.1.3-förhandsversionen.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – I den här självstudiekursen används v2.2.12.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` –I den här självstudiekursen används v2.2.12.
 
         ![Lägg till en NuGet-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake-konto")
    4. Stäng **NuGet Package Manager**.

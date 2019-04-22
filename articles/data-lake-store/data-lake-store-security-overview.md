@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883315"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Säkerhet i Azure Data Lake Storage Gen1
 Många företag utnyttjar stordata för affärsinsikter som hjälper dem att fatta smarta beslut. En organisation kan ha en komplex och reglerade miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att affärskritiska data lagras mer säkert med rätt nivå av åtkomst till enskilda användare. Azure Data Lake Storage Gen1 är utformad för att uppfylla dessa krav på säkerhet. I den här artikeln lär du dig om de säkerhetsfunktionerna i Data Lake Storage Gen1, inklusive:
 
 * Authentication
-* Auktorisering
+* Autentisering
 * Isolering av nätverk
 * Dataskydd
 * Granskning

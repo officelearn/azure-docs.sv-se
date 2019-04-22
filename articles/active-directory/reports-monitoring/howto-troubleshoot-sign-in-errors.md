@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877065"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Anvisningar: Felsöka inloggning med Azure Active Directory-rapporter
@@ -32,7 +32,7 @@ Den [rapporten inloggningar](concept-sign-ins.md) i Azure Active Directory (Azur
 
 Dessutom rapporten inloggningar kan också hjälpa dig att felsöka inloggningar för användare i din organisation. Du lär dig hur du isolera ett fel i rapporten inloggningar och använda den för att förstå de grundläggande orsakerna till felet i den här guiden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver:
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881026"
 ---
 # <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning
@@ -39,7 +39,7 @@ Det finns två typer av **slutpunkter för direktuppspelning**: **Standard** och
 
 I tabellen beskrivs typerna:  
 
-|Type|Skalningsenheter|Beskrivning|
+|Typ|Skalningsenheter|Beskrivning|
 |--------|--------|--------|  
 |**Standardslutpunkt för direktuppspelning** (rekommenderas)|0|Standard-slutpunkt för direktuppspelning är en **Standard** Skriv, men kan ändras till typen Premium.<br/> Standardtypen är det rekommenderade alternativet för i stort sett alla strömmande scenarier och Publiker. Typen **Standard** skalar utgående bandbredd automatiskt. Dataflödet från den här typen av slutpunkt för direktuppspelning är upp till 600 Mbit/s. Video fragment som cachelagras i CDN, Använd inte bandbredden som slutpunkt för direktuppspelning.<br/>För kunder med mycket stora krav erbjuder Media Services **Premium**-slutpunkter för direktuppspelning, som kan användas för att skala ut kapacitet för de största Internet-publikerna. Om du förväntar dig stora målgrupper och samtidiga läsare du kontakta oss på amsstreaming\@microsoft.com anvisningar om du behöver flytta till den **Premium** typen. |
 |**Premium-slutpunkt för direktuppspelning**|> 0|**Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Du flyttar till en **Premium** typ genom att justera `scaleUnits`. `scaleUnits` ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. När du använder typen **Premium** ger varje aktiverad enhet ytterligare bandbreddskapacitet till programmet. |

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894465"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
@@ -233,7 +233,7 @@ Din nyckel för redigering/starter får bara 1000 endpoint frågar en månad. Sk
 
 ## <a name="bots"></a>Robotar
 
-### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Min LUIS-bot fungerar inte. Vad gör jag nu?
+### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Min LUIS-bot fungerar inte. Vad gör jag?
 
 Första problemet är att isolera om problemet är relaterat till LUIS eller händer utanför LUIS mellanprogram. 
 
@@ -298,7 +298,7 @@ Ytterligare redigering [API-vägar](https://github.com/Azure-Samples/cognitive-s
 Videor:
 * [Azure Friday At Build 2018: Cognitive Services – Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Build 2018 AI Show - Nyheter i tjänst för Språkförståelse](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [2018 build-sessionen - Bot-intelligens, talfunktioner och NLU bästa praxis](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Session på Build 2018 – Robotintelligens, talfunktioner och regelverk för NLU](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Build 2018 - LUIS-uppdateringar](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projekt:

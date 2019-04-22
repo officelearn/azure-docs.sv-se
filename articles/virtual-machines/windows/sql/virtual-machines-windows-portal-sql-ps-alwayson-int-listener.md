@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.openlocfilehash: 5b647af7925ceb81c524deb0accf90f9e895080e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876997"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always On availability-grupplyssnare - Resource Manager
@@ -35,8 +35,8 @@ Det här avsnittet kräver att din Tillgänglighetsgrupper är redan konfigurera
 
 Relaterade ämnen innefattar:
 
-* [Konfigurera AlwaysOn-tillgänglighetsgrupper på virtuella Azure-datorer (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
-* [Konfigurera en virtuellt nätverk-till-virtuellt nätverksanslutning med hjälp av Azure Resource Manager och PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Konfigurera AlwaysOn-Tillgänglighetsgrupper på Azure virtuella datorer (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
+* [Konfigurera en VNet-till-VNet-anslutning med hjälp av Azure Resource Manager och PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 

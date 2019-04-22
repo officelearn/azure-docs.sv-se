@@ -12,10 +12,10 @@ ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886088"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
@@ -143,30 +143,30 @@ I följande exempel: **Exempel A – Contingency CA: N för att återställa åt
   * Namn: EM001 - AKTIVERA I NÖDFALL: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure AD Join
   * Användare och grupper: Inkludera ContingencyAccess. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
-  * Villkor: Alla
+  * Villkor: Valfri
   * Ge kontroll: Kräv domänansluten
-  * Status: Disabled
+  * Status: Har inaktiverats
 * Princip för 2: Blockera andra plattformar än Windows
   * Namn: EM002 - AKTIVERA I NÖDFALL: MFA-avbrott [2/4] - Exchange SharePoint – blockera åtkomst utom Windows
   * Användare och grupper: Inkludera alla användare. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Plattformen omfattar alla Enhetsplattformar, undanta Windows
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Har inaktiverats
 * Princip 3: Blockera nätverk än CorpNetwork
   * Namn: EM003 - AKTIVERA I NÖDFALL: MFA-avbrott [3 och 4] - Exchange SharePoint – blockera åtkomst förutom företagets nätverk
   * Användare och grupper: Inkludera alla användare. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Platser är valfri plats, undanta CorpNetwork
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Har inaktiverats
 * Princip 4: Blockera EAS uttryckligen
   * Namn: EM004 - AKTIVERA I NÖDFALL: MFA-avbrott [4/4] - Exchange - Block EAS för alla användare
   * Användare och grupper: Inkludera alla användare
   * Appar i molnet: Innehåller Exchange Online
   * Villkor: Klientappar: Exchange Active Sync
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Har inaktiverats
 
 Ordningen för aktivering:
 
@@ -187,14 +187,14 @@ I den här nästa exempel **exempel B - Contingency CA-principer för att tillå
   * Appar i molnet: Salesforce.
   * Villkor: Ingen
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Har inaktiverats
 * Princip för 2: Blockera säljteamet från valfri plattform än mobile (för att minska ytan på attack)
   * Namn: EM002 - AKTIVERA I NÖDFALL: Enhetens efterlevnad avbrott [2/2] - Salesforce - Block på alla plattformar förutom iOS och Android
   * Användare och grupper: Inkludera SalesforceContingency. Exkludera SalesAdmins
   * Appar i molnet: Salesforce
   * Villkor: Plattformen omfattar alla Enhetsplattformar, undanta iOS och Android
   * Ge kontroll: Blockera
-  * Status: Disabled
+  * Status: Har inaktiverats
 
 Ordningen för aktivering:
 
@@ -266,7 +266,7 @@ Om din organisation använder äldre principer för MFA för per användare, kan
 * [Konfigurera namngivna platser i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Konfigurera hybrid Azure Active Directory-anslutna enheter](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Windows Hello för företag-Distributionsguide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* [Distributionsguide för Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Riktlinjer för lösenord – Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Vad är villkor i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

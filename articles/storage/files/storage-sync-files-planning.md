@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918645"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
@@ -294,7 +294,7 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 
 ## <a name="next-steps"></a>Nästa steg
 * [Överväg att brandvägg och proxyinställningar](storage-sync-files-firewall-and-proxy.md)
-* [Planera för distribution av Azure Files](storage-files-planning.md)
+* [Planera för en Azure Files-distribution](storage-files-planning.md)
 * [Distribuera Azure Files](storage-files-deployment-guide.md)
 * [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Övervaka Azure File Sync](storage-sync-files-monitoring.md)

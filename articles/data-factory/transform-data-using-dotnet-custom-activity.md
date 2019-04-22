@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904584"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
@@ -100,7 +100,7 @@ I det här exemplet är helloworld.exe ett anpassat program som lagras i mappen 
 
 I följande tabell beskrivs namn och beskrivningar för egenskaper som är specifika för den här aktiviteten.
 
-| Egenskap               | Beskrivning                              | Krävs |
+| Egenskap              | Beskrivning                              | Krävs |
 | :-------------------- | :--------------------------------------- | :------- |
 | namn                  | Namnet på aktiviteten i pipelinen     | Ja      |
 | beskrivning           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
@@ -382,7 +382,7 @@ Om poolen använder standard [autoScaleEvaluationInterval](https://msdn.microsof
 Se följande artiklar som beskriver hur du omvandlar data på andra sätt:
 
 * [U-SQL-aktivitet](transform-data-using-data-lake-analytics.md)
-* [Dölj aktivitet](transform-data-using-hadoop-hive.md)
+* [Hive-aktivitet](transform-data-using-hadoop-hive.md)
 * [Piggningsåtgärd](transform-data-using-hadoop-pig.md)
 * [MapReduce-aktivitet](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)

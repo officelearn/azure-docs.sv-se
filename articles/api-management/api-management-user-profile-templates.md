@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903768"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Användaren profilmallar i Azure API Management
@@ -30,7 +30,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 -   [Prenumerationer](#Subscriptions)  
   
--   [Appar](#Applications)  
+-   [Program](#Applications)  
   
 -   [Uppdatera kontoinformation](#UpdateAccountInfo)  
   
@@ -104,7 +104,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 > [!NOTE]
 >  Den [profil](#Profile), [program](#Applications), och [prenumerationer](#Subscriptions) mallar delar samma datamodell och ta emot samma malldata.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`firstName`|sträng|Den aktuella användarens förnamn.|  
 |`lastName`|sträng|Efternamn för den aktuella användaren.|  
@@ -318,14 +318,14 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ### <a name="controls"></a>Kontroller  
  Den här mallen kan använda följande [sidan kontroller](api-management-page-controls.md).  
   
--   [prenumeration Avbryt](api-management-page-controls.md#subscription-cancel)  
+-   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Datamodell  
   
 > [!NOTE]
 >  Den [profil](#Profile), [program](#Applications), och [prenumerationer](#Subscriptions) mallar delar samma datamodell och ta emot samma malldata.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`firstName`|sträng|Den aktuella användarens förnamn.|  
 |`lastName`|sträng|Efternamn för den aktuella användaren.|  
@@ -488,7 +488,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 > [!NOTE]
 >  Den [profil](#Profile), [program](#Applications), och [prenumerationer](#Subscriptions) mallar delar samma datamodell och ta emot samma malldata.  
   
-|Egenskap |Typ|Beskrivning|  
+|Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |`firstName`|sträng|Den aktuella användarens förnamn.|  
 |`lastName`|sträng|Efternamn för den aktuella användaren.|  

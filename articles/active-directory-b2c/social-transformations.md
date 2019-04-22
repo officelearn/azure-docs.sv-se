@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893528"
 ---
 # <a name="social-accounts-claims-transformations"></a>Anspråksomvandlingar för konton i sociala medier
@@ -42,7 +42,7 @@ Skapar en JSON-representation av användarens alternativeSecurityId egenskap som
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | key | sträng | ClaimType som anger den unika användaridentifierare som används av den sociala identitetsprovidern. |
+| InputClaim | nyckel | sträng | ClaimType som anger den unika användaridentifierare som används av den sociala identitetsprovidern. |
 | InputClaim | identityProvider | sträng | ClaimType som anger till exempel facebook.com providernamn socialt konto identitet. |
 | OutputClaim | alternativeSecurityId | sträng | ClaimType som skapas när ClaimsTransformation har anropats. Innehåller information om identiteten för en användare med sociala kontot. Den **utfärdare** är värdet för den `identityProvider` anspråk. Den **issuerUserId** är värdet för den `key` anspråk i base64-format. |
 

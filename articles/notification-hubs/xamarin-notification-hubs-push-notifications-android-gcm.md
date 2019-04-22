@@ -16,10 +16,10 @@ ms.custom: mvc
 ms.date: 03/28/2019
 ms.author: jowargo
 ms.openlocfilehash: 79913fc300f2ca66a84cf47c0e5b650b9ea2cc59
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878782"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Xamarin.Android-appar med hjälp av Azure Notification Hubs
@@ -38,7 +38,7 @@ I den här självstudien gör du följande:
 > * Skapa en Xamarin.Android-app och anslut den till meddelandehubben
 > * Skicka testmeddelanden från Azure Portal
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * [Visual Studio med Xamarin] på Windows eller [Visual Studio för Mac] på OS X.
@@ -122,8 +122,8 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     ```
 1. Samla in följande information för Android-appen och meddelandehubben:
 
-   * **Lyssna anslutningssträng**: På instrumentpanelen i [Azure-portalen] väljer du **Visa anslutningssträngar**. Kopiera `DefaultListenSharedAccessSignature`-anslutningssträngen för det här värdet.
-   * **Hubbnamn**: Namnet på hubben från [Azure-portalen]. Till exempel *mynotificationhub2*.
+   * **Lyssna anslutningssträng**: På instrumentpanelen i [Azure Portal] väljer du **Visa anslutningssträngar**. Kopiera `DefaultListenSharedAccessSignature`-anslutningssträngen för det här värdet.
+   * **Hubbnamn**: Namnet på hubben från [Azure Portal]. Till exempel *mynotificationhub2*.
 3. I **Solution Explorer**-fönstret högerklickar du på ditt **projekt** och väljer **Lägg till** följt av **Klass**.
 4. Skapa en `Constants.cs`-klass för Xamarin-projektet och definiera följande konstantvärden i klassen. Ersätt platshållarna med värdena.
 
@@ -331,7 +331,7 @@ Push-meddelanden skickas vanligtvis via en serverdelstjänst som Mobile Services
 I de här självstudierna har du skickat meddelanden till alla Android-enheter som är registrerade hos serverdelen. Information om hur du skickar meddelanden till specifika Android-enheter finns i följande självstudier:
 
 > [!div class="nextstepaction"]
->[Skicka push-meddelanden till specifika enheter](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Skicka meddelanden till specifika enheter](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Anchors. -->
 [Enable Google Cloud Messaging]: #register

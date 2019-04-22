@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905103"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Hur du kör varaktiga funktioner som WebJobs
@@ -27,13 +27,13 @@ I version 3.x av WebJobs SDK värden är en implementering av `IHost`, och i ver
 
 Chaining varaktiga funktioner-exempel finns i en WebJobs SDK 2.x-version: ladda ned eller klona den [varaktiga funktioner databasen](https://github.com/azure/azure-functions-durable-extension/), och gå till den *exempel\\webjobssdk\\länkning* mapp.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du är bekant med grunderna för WebJobs SDK, C#-klass biblioteksutveckling för Azure Functions och varaktiga funktioner. Om du behöver en introduktion till de här ämnena finns i följande resurser:
 
 * [Kom igång med WebJobs SDK](../../app-service/webjobs-sdk-get-started.md)
 * [Skapa din första funktion med Visual Studio](../functions-create-your-first-function-visual-studio.md)
-* [Bestående funktioner](durable-functions-sequence.md)
+* [Varaktiga funktioner](durable-functions-sequence.md)
 
 För att slutföra stegen i den här artikeln:
 

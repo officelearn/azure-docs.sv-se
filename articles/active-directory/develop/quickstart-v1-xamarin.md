@@ -19,10 +19,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881893"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Snabbstart: Skapa en Xamarin-app som integrerar Microsoft-inloggning
@@ -37,7 +37,7 @@ Azure AD tillhandahåller Active Directory Authentication Library (ADAL) till Xa
 * Använder ett enda portabelt klassbibliotek (PCL) för att autentisera användare och hämta token för Azure AD Graph API.
 * Söker i en katalog efter användare med ett visst UPN.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ladda ned [projektets stomme](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) eller ladda ned det [färdiga exemplet](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Varje nedladdning är en Visual Studio 2013-lösning.
 * Du behöver även ha en Azure AD-klientorganisation där du kan skapa användare och registrera appen. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
@@ -104,7 +104,7 @@ Nu när du har en app i Azure AD kan du installera ADAL och skriva din identitet
 
 Nästan allt av appens autentiseringslogik finns i `DirectorySearcher.SearchByAlias(...)`. Allt som behövs i de plattformsspecifika projekten är att skicka en sammanhangsberoende parameter till `DirectorySearcher`-PCL.
 
-1. Öppna DirectorySearcher.cs och lägg sedan till en ny parameter i metoden `SearchByAlias(...)`. `IPlatformParameters` är sammanhangsberoende parametern som kapslar in plattformsspecifika objekten som ADAL krävs för att utföra autentiseringen.
+1. Öppna DirectorySearcher.cs och lägg sedan till en ny parameter i metoden `SearchByAlias(...)`. `IPlatformParameters` är den sammanhangsberoende parameter som kapslar in de plattformsspecifika objekt som ADAL behöver för att utföra autentiseringen.
 
     ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
@@ -130,7 +130,7 @@ Nästan allt av appens autentiseringslogik finns i `DirectorySearcher.SearchByAl
     ...
     ```
 
-    `AcquireTokenAsync(...)` först försöker denna att returnera en token för den begärda resursen (Graph API i det här fallet) utan att fråga användaren måste ange sina autentiseringsuppgifter (via cachelagring eller uppdatera gamla token). Vid behov visar den användarna Azure AD-inloggningssidan innan begärd token hämtas.
+    `AcquireTokenAsync(...)` försöker först att returnera en token för den begärda resursen (Graph API i det här fallet) utan att ombe användarna att ange sina autentiseringsuppgifter (via cachelagring eller uppdatering av gamla token). Vid behov visar den användarna Azure AD-inloggningssidan innan begärd token hämtas.
 4. Koppla åtkomsttoken till Graph API-begäran i den **auktoriseringshuvudet**:
 
     ```csharp

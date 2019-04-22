@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904193"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Distributionsguide för Azure Active Directory-funktionen
@@ -26,7 +26,7 @@ Ett framgångsrikt och utförs identitetsinfrastrukturen banar vägen för säke
 
 Dessutom kunder kan kontrollera sina [identitet skyddar score](identity-secure-score.md) att se hur justerade de är bästa praxis från Microsoft. Kontrollera dina säker poäng före och efter tillämpning av de här rekommendationerna för att se hur väl du åstadkommer jämfört med andra i din bransch och andra organisationer av storleken på dina.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Många av rekommendationerna i den här guiden kan implementeras med Azure AD kostnadsfri, Basic eller ingen licens alls. Där licenser krävs ange vi vilken licens krävs minst att utföra uppgiften.
 
@@ -46,7 +46,7 @@ I den här fasen kan aktivera administratörer grundläggande säkerhetsfunktion
 | [Ange mer än en global administratör](../users-groups-roles/directory-emergency-access.md) | Tilldela minst två molnbaserad permanent globala administratörskonton för användning om det finns ett nödfall. Dessa konton är inte användas för varje dag och ska ha långa och komplexa lösenord. | Azure AD Kostnadsfri |
 | [Använda icke-globala administrativa roller, där det är möjligt](../users-groups-roles/directory-assign-admin-roles.md) | Ge dina administratörer endast åtkomst till de områden som de behöver åtkomst till. Inte alla administratörer måste vara globala administratörer. | Azure AD Kostnadsfri |
 | [Aktivera Privileged Identity Management för att spåra användning för admin-rollen](../privileged-identity-management/pim-getting-started.md) | Aktivera Privileged Identity Management att starta spårning av administrativ roll. | Azure AD Premium P2 |
-| [Distribuera lösenordsåterställning via självbetjäning](../authentication/howto-sspr-deployment.md) | Minska antalet samtal till supportavdelningen för lösenordsåterställning genom att låta personal att återställa sina lösenord med hjälp av principer du som en administratör-kontroll. | Azure AD Basic |
+| [Lansera självåterställning av lösenord](../authentication/howto-sspr-deployment.md) | Minska antalet samtal till supportavdelningen för lösenordsåterställning genom att låta personal att återställa sina lösenord med hjälp av principer du som en administratör-kontroll. | Azure AD Basic |
 | [Skapa en lista med specifik anpassade förbjudna lösenord organisation](../authentication/howto-password-ban-bad-configure.md) | Förhindra att användarna skapar lösenord som innehåller vanliga ord eller fraser från din organisation eller ditt område. | Azure AD Basic |
 | [Aktivera lokal integrering med Azure AD-lösenordsskydd](../authentication/concept-password-ban-bad-on-premises.md) | Utöka lista med förbjudna lösenord till din lokala katalog så lösenord Ange lokala är också kompatibla med den globala och klientspecifik förbjudna lösenordslistor. | Azure AD Premium P1 |
 | [Aktivera Microsofts lösenord vägledning](https://www.microsoft.com/research/publication/password-guidance/) | Stoppa att kräva att användare kan ändra sitt lösenord på ett schema, inaktivera krav på komplexitet och dina användare är mer apt att komma ihåg lösenorden och hålla dem något som är säker. | Azure AD Kostnadsfri |

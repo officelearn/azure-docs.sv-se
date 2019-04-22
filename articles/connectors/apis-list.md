@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895891"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
@@ -34,9 +34,9 @@ Anslutningsapparna finns antingen som inbyggda utlösare och åtgärder eller ha
   |   |   |
   |---|---|
   | [**Hanterade API-kopplingar**](#managed-api-connectors) | Skapa logikappar som använder tjänster som Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online och många fler. | 
-  | [**Lokala anslutningsappar**](#on-premises-connectors) | När du installerar och konfigurerar den [lokal datagateway][gateway-doc], dessa kopplingar hjälper dina logic apps åtkomst till lokala system, till exempel SQL Server, SharePoint Server, Oracle DB, filresurser och andra. | 
-  | [**Anslutningar för integrationskonton**](#integration-account-connectors) | Tillgängliga när du skapar och betala för ett integrationskonto, transformera dessa kopplingar och validera XML, koda och avkoda flata filer och bearbeta business-to-business (B2B) meddelanden med AS2 och EDIFACT X12 protokoll. | 
-  | [**Enterprise-anslutningsappar**](#enterprise-connectors) | Ger åtkomst till företagssystem som SAP och IBM MQ mot en extra kostnad. |
+  | [**Lokala anslutningar**](#on-premises-connectors) | När du installerar och konfigurerar den [lokal datagateway][gateway-doc], dessa kopplingar hjälper dina logic apps åtkomst till lokala system, till exempel SQL Server, SharePoint Server, Oracle DB, filresurser och andra. | 
+  | [**Integrationskonton**](#integration-account-connectors) | Tillgängliga när du skapar och betala för ett integrationskonto, transformera dessa kopplingar och validera XML, koda och avkoda flata filer och bearbeta business-to-business (B2B) meddelanden med AS2 och EDIFACT X12 protokoll. | 
+  | [**Anslutningsprogram för företagsprogram**](#enterprise-connectors) | Ger åtkomst till företagssystem som SAP och IBM MQ mot en extra kostnad. |
   ||| 
 
   Till exempel om du använder Microsoft BizTalk Server, dina logic apps kan ansluta till och kommunicera med din BizTalk Server med hjälp av den [BizTalk Server-anslutningen](#on-premises-connectors). 
@@ -77,7 +77,7 @@ Här är inbyggda åtgärder för att arbeta med data utdata och deras format:
 |   |   | 
 |---|---| 
 | [![Inbyggda ikonen][data-operations-icon]<br/>**dataåtgärder**][data-operations-doc] | Utför åtgärder med data: <p>- **Compose**: Skapa ett enda utflöde från flera inmatningar med olika typer. <br>- **Skapa CSV tabell**: Skapa en Semikolonavgränsade--värden (CSV) från en matris med JSON-objekt. <br>- **Skapa HTML-tabell**: Skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtermatris**: Skapa en matris från objekten i en annan matris som uppfyller dina kriterier. <br>- **Join**: Skapa en sträng från alla objekt i en matris och avgränsa de objekt med angiven avgränsare. <br>- **Parsa JSON**: Skapa användarvänliga token från egenskaperna och deras värden i JSON-innehåll så att du kan använda dessa egenskaper i arbetsflödet. <br>- **Välj**: Skapa en matris med JSON-objekt genom att omvandla objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaperna. | 
-| ![Inbyggda ikon][date-time-icon]<br/>**Datum och tid** | Utför åtgärder med tidsstämplar som är: <p>- **Lägg till tid**: Lägga till det angivna antalet enheter till en tidsstämpel. <br>- **Konvertera tidszon**: Konvertera en tidsstämpel från källtidszonen tidszon mål. <br>- **Aktuell tid**: Returnera den aktuella tidsstämpeln som en sträng. <br>- **Hämta framtida tid**: Returnera den aktuella tidsstämpeln plus de angivna tidsenheterna. <br>- **Hämta tidigare tid**: Returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. <br>- **Subtrahera från tiden**: Ta bort ett antal tidsenheter från en tidsstämpel. |
+| ![Inbyggda ikon][date-time-icon]<br/>**Datum tid** | Utför åtgärder med tidsstämplar som är: <p>- **Lägg till tid**: Lägga till det angivna antalet enheter till en tidsstämpel. <br>- **Konvertera tidszon**: Konvertera en tidsstämpel från källtidszonen tidszon mål. <br>- **Aktuell tid**: Returnera den aktuella tidsstämpeln som en sträng. <br>- **Hämta framtida tid**: Returnera den aktuella tidsstämpeln plus de angivna tidsenheterna. <br>- **Hämta tidigare tid**: Returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. <br>- **Subtrahera från tiden**: Ta bort ett antal tidsenheter från en tidsstämpel. |
 | [![Inbyggda ikonen][variables-icon]<br/>**variabler**][variables-doc] | Utför åtgärder med variabler: <p>- **Lägga till en matrisvariabel**: Infoga ett värde som det sista objektet i en matris som lagras av en variabel. <br>- **Lägga till strängvariabeln**: Infoga ett värde som det sista tecknet i en sträng som lagras av en variabel. <br>- **Minska variabel**: Minska en variabel med ett konstant värde. <br>- **Inkrementera variabeln**: Öka en variabel med ett konstant värde. <br>- **Initiera variabel**: Skapa en variabel och deklarera dess datatyp och ursprungligt värde. <br>- **Ange variabel**: Tilldela ett annat värde till en befintlig variabel. |
 |  |  | 
 
@@ -176,7 +176,7 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 ## <a name="next-steps"></a>Nästa steg
 
 * Hitta den [kopplingarnas fullständig lista](https://docs.microsoft.com/connectors)
-* [Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Skapa din första logiska app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Skapa anpassade anslutningsappar för logic apps](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Skapa anpassade API:er för logikappar](../logic-apps/logic-apps-create-api-app.md)
 

@@ -6,10 +6,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892491"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro fokus CICS BankDemo för Micro fokus Enterprise Developer 4.0 på Azure
@@ -18,7 +18,7 @@ När du ställer in Micro fokus Enterprise Server 4.0 och Enterprise Developer 4
 
 CICs står för kontrollsystem kund, transaktion-plattform som används av många av de online stordatorprogram. Programmet BankDemo är perfekt för att lära sig hur Enterprise Server och företagsutvecklare fungerar och hur du hanterar och distribuera en typ av App med grön skärm terminaler.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En virtuell dator med [företagsutvecklare](set-up-micro-focus-azure.md). Tänk på att företagsutvecklare har en fullständig instans av Enterprise-Server på den för utveckling och testning. Det här är instansen av Enterprise-Server som används för demon.
 
@@ -270,6 +270,6 @@ Grattis! Nu körs ett CICS program i Azure med hjälp av Micro fokus Enterprise 
 
 - [Kör företagsservern i Docker-behållare i Azure](run-enterprise-server-container.md)
 - [Stordatormigrering - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
+- [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Felsökning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Avmystifiera migreringen av stordatordriften till Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Avmystifiera stordatorprogram till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

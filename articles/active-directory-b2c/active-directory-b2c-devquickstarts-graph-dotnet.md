@@ -11,13 +11,13 @@ ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895062"
 ---
-# <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API:n
+# <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API
 
 >[!NOTE]
 > Du måste använda den [Azure AD Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) att hantera användare i en Azure AD B2C-katalog. Detta skiljer sig från Microsoft Graph API. Lär dig mer [här](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
@@ -284,7 +284,7 @@ B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 
 Granska den `B2CGraphClient.SendGraphPatchRequest(...)` metod för information om hur du skickar denna begäran.
 
-### <a name="search-users"></a>Söka efter användare
+### <a name="search-users"></a>Sök efter användare
 Du kan söka efter användare i din B2C-klient på ett par olika sätt. En med hjälp av användarens objekt-ID eller två, med hjälp av användarens inloggning identifierare (d.v.s. den `signInNames` egenskapen).
 
 Kör något av följande kommandon för att söka efter en viss användare:

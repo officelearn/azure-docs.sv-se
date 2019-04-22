@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 6f2d71abeacee531b21a8276f621367dd39a39d9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891675"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
@@ -237,8 +237,8 @@ RunDetails(remote_run).show()
 ```
 Här är en statisk bild av widgeten.  Du kan klicka på någon av staplarna i tabell för att visa egenskaper för körning och utdataloggar för som körs i anteckningsboken.   Du kan också använda listrutan ovanför diagrammet för att visa ett diagram över alla tillgängliga mått för varje iteration.
 
-![widget tabell](./media/how-to-auto-train-remote/table.png)
-![widget diagram](./media/how-to-auto-train-remote/plot.png)
+![widgettabell](./media/how-to-auto-train-remote/table.png)
+![widgetdiagram](./media/how-to-auto-train-remote/plot.png)
 
 Widgeten visar en URL som du kan använda för att visa och utforska de enskilda körningsinformation.
  

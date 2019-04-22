@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917404"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Så här använder du CTF-rapportering (Collaborative Translation Framework)
@@ -79,7 +79,7 @@ Den här metoden hämtar antalet översättningar som har skapats av användaren
 | appId | **Krävs** om auktoriseringsrubriken används, lämna appid fältet tomt eller ange en sträng som innehåller ”ägar” + ”” + åtkomst-token.|
 | uriPrefix | **Valfritt** en sträng som innehåller prefixet för URI: N för översättningen.|
 | från | **Valfritt** en sträng som representerar språkkoden för Översättningstext. |
-| till | **Valfritt** en sträng som representerar språkkoden att översätta text i.|
+| i | **Valfritt** en sträng som representerar språkkoden att översätta text i.|
 | minRating| **Valfritt** ett heltalsvärde som representerar minimikvalitet-klassificering för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
 | maxRating| **Valfritt** ett heltalsvärde som representerar den högsta kvalitet klassificeringen för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
 | Användare | **Valfritt** en sträng som används för att filtrera resultatet baserat på avsändaren av överföringen. |
@@ -150,10 +150,10 @@ Den här metoden hämtar översättningar som har skapats av användaren. Det ge
 | appId | **Krävs** om auktoriseringsrubriken används, lämna appid fältet tomt eller ange en sträng som innehåller ”ägar” + ”” + åtkomst-token.|
 | uriPrefix| **Valfritt** en sträng som innehåller prefixet för URI: N för översättningen.|
 | från| **Valfritt** en sträng som representerar språkkoden för Översättningstext.|
-| till| **Valfritt** en sträng som representerar språkkoden att översätta text i.|
+| i| **Valfritt** en sträng som representerar språkkoden att översätta text i.|
 | minRating| **Valfritt** ett heltalsvärde som representerar minimikvalitet-klassificering för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
 | maxRating| **Valfritt** ett heltalsvärde som representerar den högsta kvalitet klassificeringen för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
-| Användare| **Valfri. En sträng som används för att filtrera resultatet baserat på avsändaren av överföringen**|
+| Användare| **Valfritt. En sträng som används för att filtrera resultatet baserat på avsändaren av överföringen**|
 | category| **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet Allmänt.|
 | minDateUtc| **Valfritt** datum när du vill hämta översättningar. Datumet måste vara i UTC-format.|
 | maxDateUtc| **Valfritt** datum till när du vill hämta översättningar. Datumet måste vara i UTC-format.|

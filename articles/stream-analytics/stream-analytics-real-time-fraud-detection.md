@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883725"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: Identifiering av bedrägerier i realtid
@@ -32,7 +32,7 @@ Den här självstudien används ett exempel på bedrägerier i realtid baserat p
 
 En telekomföretaget har en stor mängd data för inkommande anrop. Företaget vill identifiera bedrägliga samtal i realtid så att de kan meddela kunder eller stänga av tjänsten för ett specifikt nummer. En typ av SIM bedrägeri innebär att flera anrop från samma identitet ungefär samma tidpunkt men geografiskt olika platser. För att identifiera den här typen av bedrägerier, måste företaget att granska inkommande phone poster och leta efter särskilda mönster – i det här fallet för anrop som görs ungefär samma tidpunkt i olika länder. Alla poster i telefon som tillhör den här kategorin skrivs till lagring för efterföljande analys.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I de här självstudierna kommer du simulera telefonsamtal data med hjälp av en klientapp som genererar exempel telefonsamtal metadata. Vissa av posterna som tillverkar appen ser ut som bedrägliga samtal. 
 
@@ -418,4 +418,4 @@ Mer information om Stream Analytics i allmänhet finns i följande artiklar:
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

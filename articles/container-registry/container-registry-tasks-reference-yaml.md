@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894140"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referera till ACR-uppgifter: YAML
@@ -79,7 +79,7 @@ az configure --defaults acr=myregistry
 
 Aktivitetsegenskaper ofta ser överst i en `acr-task.yaml` fil och är globala egenskaper som gäller i hela fullständig körningen av uppgiften stegen. Några av de här globala egenskaperna kan åsidosättas i ett enskilt steg.
 
-| Egenskap  | Type | Valfri | Beskrivning | Åsidosättning som stöds | Standardvärde |
+| Egenskap | Typ | Valfritt | Beskrivning | Åsidosättning som stöds | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | sträng | Ja | Versionen av den `acr-task.yaml` filen som parsas av tjänsten ACR uppgifter. Medan ACR uppgifter strävar efter att underhålla bakåtkompatibilitet, kan det här värdet ACR uppgifter att bibehålla kompatibilitet inom en definierad version. Om inget anges som standard till den senaste versionen. | Nej | Ingen |
 | `stepTimeout` | int (sekunder) | Ja | Det maximala antalet sekunder som ett steg kan köras. Om egenskapen har angetts för en aktivitet anger standard `timeout` egenskapen för alla steg. Om den `timeout` egenskapen har angetts på ett steg, åsidosätter egenskapen från aktiviteten. | Ja | 600 (10 minuter) |
@@ -88,11 +88,11 @@ Aktivitetsegenskaper ofta ser överst i en `acr-task.yaml` fil och är globala e
 | `secrets` | [secret, secret, ...] | Ja | Matris med [hemlighet](#secret) objekt. | Ingen |
 | `networks` | [network, network, ...] | Ja | Matris med [nätverk](#network) objekt. | Ingen |
 
-### <a name="secret"></a>hemlighet
+### <a name="secret"></a>hemlig
 
 Det hemliga objektet har följande egenskaper.
 
-| Egenskap  | Type | Valfri | Beskrivning | Standardvärde |
+| Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | sträng | Nej | Identifierare för hemlighet. | Ingen |
 | `akv` | sträng | Ja | Den hemliga URL för Azure Key Vault (AKV). | Ingen |
@@ -102,7 +102,7 @@ Det hemliga objektet har följande egenskaper.
 
 Nätverksobjektet har följande egenskaper.
 
-| Egenskap  | Type | Valfri | Beskrivning | Standardvärde |
+| Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | sträng | Nej | Namnet på nätverket. | Ingen |
 | `driver` | sträng | Ja | Drivrutinen att hantera nätverket. | Ingen |
@@ -135,7 +135,7 @@ steps:
 
 Den `build` stegtyp har stöd för parametrarna i följande tabell. Den `build` stegtyp stöder också alla build-alternativ för den [docker build](https://docs.docker.com/engine/reference/commandline/build/) kommandot, till exempel `--build-arg` att ställa in byggning variabler.
 
-| Parameter | Beskrivning | Valfri |
+| Parameter | Beskrivning | Valfritt |
 | --------- | ----------- | :-------: |
 | `-t` &#124; `--image` | Definierar det fullständiga `image:tag` för den skapade avbildningen.<br /><br />Avbildningar som kan användas för inre uppgift verifieringar, till exempel funktionstester, inte alla avbildningar kräver `push` till ett register. Men om du vill instans en avbildning i en körning av aktiviteten, behöver avbildningen ett namn som refererar till.<br /><br />Till skillnad från `az acr build`, ACR-aktiviteter som körs inte tillhandahålla push standardbeteendet. Med ACR åtgärder, standard-scenariot förutsätter vi att möjligheten att skapa, validera och sedan push-överför avbildningen. Se [push](#push) för att du kan också push inbyggda avbildningar. | Ja |
 | `-f` &#124; `--file` | Anger den Dockerfile som skickades till `docker build`. Om inte anges, antas Dockerfile som finns i roten av kontexten för standard. Om du vill ange en Dockerfile Skicka filnamnet i förhållande till roten för kontexten. | Ja |
@@ -147,26 +147,26 @@ Den `build` stegtyp stöder följande egenskaper. Hitta information om de här e
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | bool | Valfri |
-| `disableWorkingDirectoryOverride` | bool | Valfri |
-| `entryPoint` | sträng | Valfri |
-| `env` | [string, string, ...] | Valfri |
-| `expose` | [string, string, ...] | Valfri |
-| `id` | sträng | Valfri |
-| `ignoreErrors` | bool | Valfri |
-| `isolation` | sträng | Valfri |
-| `keep` | bool | Valfri |
-| `network` | objekt | Valfri |
-| `ports` | [string, string, ...] | Valfri |
-| `pull` | bool | Valfri |
-| `repeat` | int | Valfri |
-| `retries` | int | Valfri |
-| `retryDelay` | int (sekunder) | Valfri |
-| `secret` | objekt | Valfri |
-| `startDelay` | int (sekunder) | Valfri |
-| `timeout` | int (sekunder) | Valfri |
-| `when` | [string, string, ...] | Valfri |
-| `workingDirectory` | sträng | Valfri |
+| `detach` | bool | Valfritt |
+| `disableWorkingDirectoryOverride` | bool | Valfritt |
+| `entryPoint` | sträng | Valfritt |
+| `env` | [string, string, ...] | Valfritt |
+| `expose` | [string, string, ...] | Valfritt |
+| `id` | sträng | Valfritt |
+| `ignoreErrors` | bool | Valfritt |
+| `isolation` | sträng | Valfritt |
+| `keep` | bool | Valfritt |
+| `network` | objekt | Valfritt |
+| `ports` | [string, string, ...] | Valfritt |
+| `pull` | bool | Valfritt |
+| `repeat` | int | Valfritt |
+| `retries` | int | Valfritt |
+| `retryDelay` | int (sekunder) | Valfritt |
+| `secret` | objekt | Valfritt |
+| `startDelay` | int (sekunder) | Valfritt |
+| `timeout` | int (sekunder) | Valfritt |
+| `when` | [string, string, ...] | Valfritt |
+| `workingDirectory` | sträng | Valfritt |
 
 ### <a name="examples-build"></a>Exempel: skapa
 
@@ -219,12 +219,12 @@ Den `push` stegtyp stöder följande egenskaper. Hitta information om de här eg
 
 | | | |
 | -------- | ---- | -------- |
-| `env` | [string, string, ...] | Valfri |
-| `id` | sträng | Valfri |
-| `ignoreErrors` | bool | Valfri |
-| `startDelay` | int (sekunder) | Valfri |
-| `timeout` | int (sekunder) | Valfri |
-| `when` | [string, string, ...] | Valfri |
+| `env` | [string, string, ...] | Valfritt |
+| `id` | sträng | Valfritt |
+| `ignoreErrors` | bool | Valfritt |
+| `startDelay` | int (sekunder) | Valfritt |
+| `timeout` | int (sekunder) | Valfritt |
+| `when` | [string, string, ...] | Valfritt |
 
 ### <a name="examples-push"></a>Exempel: push
 
@@ -264,26 +264,26 @@ Den `cmd` stegtyp stöder följande egenskaper:
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | bool | Valfri |
-| `disableWorkingDirectoryOverride` | bool | Valfri |
-| `entryPoint` | sträng | Valfri |
-| `env` | [string, string, ...] | Valfri |
-| `expose` | [string, string, ...] | Valfri |
-| `id` | sträng | Valfri |
-| `ignoreErrors` | bool | Valfri |
-| `isolation` | sträng | Valfri |
-| `keep` | bool | Valfri |
-| `network` | objekt | Valfri |
-| `ports` | [string, string, ...] | Valfri |
-| `pull` | bool | Valfri |
-| `repeat` | int | Valfri |
-| `retries` | int | Valfri |
-| `retryDelay` | int (sekunder) | Valfri |
-| `secret` | objekt | Valfri |
-| `startDelay` | int (sekunder) | Valfri |
-| `timeout` | int (sekunder) | Valfri |
-| `when` | [string, string, ...] | Valfri |
-| `workingDirectory` | sträng | Valfri |
+| `detach` | bool | Valfritt |
+| `disableWorkingDirectoryOverride` | bool | Valfritt |
+| `entryPoint` | sträng | Valfritt |
+| `env` | [string, string, ...] | Valfritt |
+| `expose` | [string, string, ...] | Valfritt |
+| `id` | sträng | Valfritt |
+| `ignoreErrors` | bool | Valfritt |
+| `isolation` | sträng | Valfritt |
+| `keep` | bool | Valfritt |
+| `network` | objekt | Valfritt |
+| `ports` | [string, string, ...] | Valfritt |
+| `pull` | bool | Valfritt |
+| `repeat` | int | Valfritt |
+| `retries` | int | Valfritt |
+| `retryDelay` | int (sekunder) | Valfritt |
+| `secret` | objekt | Valfritt |
+| `startDelay` | int (sekunder) | Valfritt |
+| `timeout` | int (sekunder) | Valfritt |
+| `when` | [string, string, ...] | Valfritt |
+| `workingDirectory` | sträng | Valfritt |
 
 Du hittar information om de här egenskaperna i den [steg Aktivitetsegenskaper](#task-step-properties) i den här artikeln.
 
@@ -362,7 +362,7 @@ Genom att använda `docker run` bild referens konventionen `cmd` köra avbildnin
 
 Varje stegtyp av har stöd för flera egenskaper som är lämpliga för typen. I följande tabell definieras alla tillgängliga stegegenskaper. Inte alla stegtyper av stöd för alla egenskaper. Om du vill se vilka egenskaper som är tillgängliga för varje stegtyp av finns i den [cmd](#cmd), [skapa](#build), och [push](#push) steg typ referensavsnitt.
 
-| Egenskap  | Type | Valfri | Beskrivning | Standardvärde |
+| Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | Ja | Oavsett om behållaren ska att koppla från när du kör. | `false` |
 | `disableWorkingDirectoryOverride` | bool | Ja | Om du vill inaktivera `workingDirectory` åsidosätta funktioner. Använd det här i kombination med `workingDirectory` ha fullständig kontroll över behållarens arbetskatalog. | `false` |

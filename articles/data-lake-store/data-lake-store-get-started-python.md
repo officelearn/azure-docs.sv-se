@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b6ef5a5c12bb766fb7106d5c7a8189c4b92980d2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880210"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 med hjälp av Python
@@ -29,7 +29,7 @@ ms.locfileid: "58880210"
 
 Lär dig hur du använder Python SDK för Azure Data Lake Storage Gen1 för att utföra grundläggande hanteringsåtgärder som att skapa ett Data Lake Storage Gen1-konto, lista över Data Lake Storage Gen1 konton osv. Anvisningar att utföra filsystemsåtgärder på Data Lake Storage Gen1 med Python finns i [filsystemsåtgärder på Data Lake Storage Gen1 med hjälp av Python](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885952"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
@@ -150,19 +150,19 @@ Skissen innehåller ett stort antal maskerade medicinska journaler att demonstre
 
 **Platsadministratören--Alex**
 
-*E-post: Alex\_SiteAdmin*
+*E-postadress: Alex\_SiteAdmin*
 
 Alexs jobb är att utvärdera tekniker som kan minska bördan med att hantera ett lokalt nätverk och minska kostnaderna för hantering. Alex har utvärdera Azure under en viss tid, men har fastnade att konfigurera de tjänster som han behöver för att uppfylla krav på efterlevnad HiTrust att lagra tålamod Data i molnet. Alex har valt Azure hälsotillstånd AI du distribuerar en lösning för efterlevnad färdiga för hälsotillstånd som har åtgärdas kraven för att uppfylla kundens krav för HiTrust.
 
-**Data Scientist -- Debra**
+**Datavetare – Adina**
 
-*E-post: Debra\_DataScientist*
+*E-postadress: Debra\_DataScientist*
 
 Adina ansvarar för att använda och skapa modeller som analyserar medicinska journaler för att ge insikter om patientvård. Adina använder SQL och det statistiska programmeringsspråket R för att skapa sin modeller.
 
 **Databasen analytiker--Danny**
 
-*E-post: Danny\_DBAnalyst*
+*E-postadress: Danny\_DBAnalyst*
 
 Danny är den viktigaste kontakten för allt om Microsoft SQL Server som lagrar alla Patientdata för Contosoclinic. Danny är en erfaren SQL Server-administratör som har nyligen bekanta dig med Azure SQL Database.
 
@@ -173,13 +173,13 @@ Caroline använder förutsägelser från längden av stanna (LOS)-lösning för 
 
 **Care Line Manager – Chris**
 
-*E-post: Chris\_CareLineManager*
+*E-postadress: Chris\_CareLineManager*
 
 Som personen som direkt ansvarar för att hantera inskrivning och utsläpp på Contosoclinic, Chris använder förutsägelser som genereras av lösningen LOS så att det finns tillräcklig personal att förse patienter försiktighet när de stanna kvar på den anläggning.
 
 **Granskare – Han**
 
-*E-post: Han\_granskare*
+*E-postadress: Han\_granskare*
 
 Han är en certifierade granskare som har erfarenhet granskning för ISO, SOC och HiTrust. Han har anlitat för att granska Contosoclincs nätverk. Han kan granska kundens ansvar matrisen medföljer lösningen för att säkerställa att skissen och LOS lösningen kan användas för lagrar, bearbetar och visa känslig personlig information.
 
@@ -342,7 +342,7 @@ Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera 
 
 ## <a name="analyze"></a>ANALYSERA
 
-### <a name="machine-learning"></a>Machine Learning
+### <a name="machine-learning"></a>Maskininlärning
 
 
 - [Loggning är aktiverat](/azure/machine-learning/studio/web-services-logging) för Machine Learning Studio-webbtjänster.
@@ -378,7 +378,7 @@ Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera 
 
     -   [Azure WebApp Analytics](/azure/log-analytics/log-analytics-azure-web-apps-analytics) lösning
 
-    -   Key Vault-analys
+    -   Key Vault Analytics
 
     -   Spårning av ändringar
 

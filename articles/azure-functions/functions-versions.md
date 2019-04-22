@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
 ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58889761"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions runtime versioner-översikt
@@ -29,7 +29,7 @@ Version 2.x-körningen körs på .NET Core 2, vilket gör att den kan köras på
 
 Jämförelsevis har stöd version 1.x-körningen endast för utveckling och som är värd i Azure-portalen eller på Windows-datorer.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Språk
 
 Version 2.x-körningen använder en ny modell för utökningsbarhet språk. I version 2.x kan alla funktioner i en funktionsapp måste dela samma språk. Språk av funktioner i en funktionsapp som ska väljas när du skapar appen.
 

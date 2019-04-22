@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876896"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använda MongoDB-tillägg-kommandon för att hantera data som lagras i Azure Cosmos DB API för MongoDB 
@@ -43,7 +43,7 @@ Kommandot create database tillägget skapar en ny MongoDB-databas. Namnet på da
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-|**Fält**|**Type** |**Beskrivning** |
+|**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction   |  sträng  |   Namn på anpassade kommandot det måste vara ”CreateDatabase”.      |
 | offerThroughput | int  | Dataflöde som du angett för databasen. Den här parametern är valfri. |
@@ -85,7 +85,7 @@ Kommandot update databas tillägget uppdaterar egenskaperna som är associerade 
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-|**Fält**|**Type** |**Beskrivning** |
+|**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction    |    sträng     |   Namnet på det anpassade kommandot. Måste vara ”UpdateDatabase”.      |
 |  offerThroughput   |  int       |     Ny dataflöde som du vill ange för databasen.    |
@@ -118,7 +118,7 @@ Kommandot get databas tillägget returnerar databasobjektet. Databasnamnet anvä
 I följande tabell beskrivs parametrarna i kommandot:
 
 
-|**Fält**|**Type** |**Beskrivning** |
+|**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 |  CustomAction   |   sträng      |   Namnet på det anpassade kommandot. Måste vara ”GetDatabase”|
         
@@ -126,7 +126,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 
 Om kommandot lyckas innehåller svaret ett dokument med följande fält:
 
-|**Fält**|**Type** |**Beskrivning** |
+|**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Status för svaret. 1 == lyckades. 0 == fel.      |
 | `database`    |    `string`        |   Namnet på databasen.      |
@@ -160,7 +160,7 @@ Skapa samlingen Tilläggskommandot skapar en ny MongoDB-samling. Namnet på data
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-|**Fält**|**Type** |**Beskrivning** |
+|**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction    | sträng | Namnet på det anpassade kommandot. Måste vara ”CreateDatabase”     |
 | samling      | sträng | Namnet på samlingen                                   |
@@ -205,7 +205,7 @@ Kommandot update samling tillägget uppdaterar egenskaperna som är associerade 
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-|**Fält**|**Type** |**Beskrivning** |
+|**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 |  CustomAction   |   sträng      |   Namnet på det anpassade kommandot. Måste vara ”UpdateCollection”.      |
 |  samling   |   sträng      |   Namnet på samlingen.       |
@@ -240,7 +240,7 @@ Kommandot get samling anpassade returnerar samlingsobjektet.
 I följande tabell beskrivs parametrarna i kommandot:
 
 
-|**Fält**|**Type** |**Beskrivning** |
+|**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 | CustomAction    |   sträng      |   Namnet på det anpassade kommandot. Måste vara ”GetCollection”.      |
 | samling    |    sträng     |    Namnet på samlingen.     |
@@ -250,7 +250,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 Om kommandot lyckas innehåller svaret ett dokument med följande fält
 
 
-|**Fält**|**Type** |**Beskrivning** |
+|**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Status för svaret. 1 == lyckades. 0 == fel.      |
 | `database`    |    `string`     |   Namnet på databasen.      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 Om inte anges innehåller en anpassad svaret ett dokument med följande fält:
 
-|**Fält**|**Type** |**Beskrivning** |
+|**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Status för svaret. 1 == lyckades. 0 == fel.      |
 | `code`    |   `int`      |   Returneras bara när kommandot misslyckades (d.v.s. ok == 0). Innehåller MongoDB-felkoden. Det här är en valfri svar-parameter.      |
@@ -286,4 +286,4 @@ Om inte anges innehåller en anpassad svaret ett dokument med följande fält:
 Sedan kan du fortsätta till Läs följande Azure Cosmos DB-begrepp: 
 
 * [Indexering i Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Ta bort data i Azure Cosmos DB automatiskt med TTL-värde](../cosmos-db/time-to-live.md)
+* [Ta bort data från Azure Cosmos DB automatiskt med hjälp av förfallodatum](../cosmos-db/time-to-live.md)

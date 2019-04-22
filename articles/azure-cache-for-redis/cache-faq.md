@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895604"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
@@ -35,7 +35,7 @@ Om din fråga inte visas kan för oss berätta och vi hjälper dig att hitta nå
 ## <a name="azure-cache-for-redis-basics"></a>Azure Cache för Redis-grunderna
 Frågor och svar i det här avsnittet beskriver några av grunderna i Azure Cache för Redis.
 
-* [Vad är Azure Cache for Redis?](#what-is-azure-cache-for-redis)
+* [Vad är Azure Cache för Redis?](#what-is-azure-cache-for-redis)
 * [Hur kan jag komma igång med Azure Cache för Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
 
 Följande vanliga frågor och svar täcker grundläggande begrepp och frågor om Azure Cache för Redis och besvaras i de andra vanliga frågor och svar-avsnitt.
@@ -133,13 +133,13 @@ Vi kan rita följande slutsatser från den här tabellen:
 * Med Redis-klustring, ökar dataflödet linjärt när du ökar antalet shards (noder) i klustret. Till exempel om du skapar ett P4-kluster med 10 shards kan det tillgängliga genomflödet är 400 000 * 10 = 4 miljoner RPS.
 * Dataflöde för större nyckelstorlekar är högre på Premium-nivån jämfört med Standard-nivån.
 
-| Prisnivå | Storlek | Processorkärnor | Tillgänglig bandbredd | 1 KB storlek | 1 KB storlek |
+| Prisnivå | Storlek | CPU-kärnor | Tillgänglig bandbredd | 1 KB storlek | 1 KB storlek |
 | --- | --- | --- | --- | --- | --- |
 | **Storlekar för standardcache** | | |**Megabit per sekund (Mbit/s) / megabyte per sekund (MBIT/s)** |**Begäranden per sekund (RPS) icke-SSL** |**Begäranden per sekund (RPS) SSL** |
-| C0 |250 MB |Delad |100 / 12.5 |15 000 |7 500 |
+| C0 |250 MB |Delad |100 / 12.5 |15,000 |7,500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
+| C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
 | C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
@@ -164,7 +164,7 @@ Azure Cache Redis priser är [här](https://azure.microsoft.com/pricing/details/
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Kan jag använda Azure Cache för Redis med Azure Government-molnet, Azure Kina-molnet eller Microsoft Azure Tyskland?
 Ja, Azure Cache för Redis är tillgängliga i Azure Government-molnet, Azure Kina-molnet och Microsoft Azure Tyskland. URL: er för att komma åt och hantera Azure Cache för Redis är olika i dessa moln jämfört med Azures offentliga moln. 
 
-| Molnet   | DNS-suffixet för Redis            |
+| I molnet   | DNS-suffixet för Redis            |
 |---------|---------------------------------|
 | Offentligt  | *.redis.cache.windows.net       |
 | USA-förvaltad region  | *.redis.cache.usgovcloudapi.net |
@@ -175,7 +175,7 @@ Se följande länkar för mer information om överväganden när du använder Az
 
 - [Azure Government-databaser – Azure Redis-Cache](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
 - [Azure Kina-molnet – Azure Redis-Cache](https://www.azure.cn/home/features/redis-cache/)
-- [Microsoft Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)
+- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
 Information om hur du använder Azure Cache Redis med PowerShell i Azure Government-molnet, Azure Kina-molnet och Microsoft Azure Germany finns i [hur du ansluter till andra moln – Azure Cache för Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
@@ -192,7 +192,7 @@ StackExchange.Redis har många alternativ. Det här avsnittet innehåller inform
 
 Vanligtvis är standardvärdena för klienten tillräckliga. Du kan finjustera alternativ baserat på din arbetsbelastning.
 
-* **Antal försök**
+* **Återförsök**
   * För ConnectRetry och ConnectTimeout är allmänna riktlinjer att misslyckas snabbt och försök igen. Den här vägledningen baseras på din arbetsbelastning och hur lång tid på genomsnittlig det tar för klienten att utfärda ett Redis-kommando och ta emot ett svar.
   * Låt StackExchange.Redis återansluta automatiskt i stället för att kontrollera anslutningsstatus och återansluter själv. **Undvik att använda egenskapen ConnectionMultiplexer.IsConnected**.
   * Snowballing - ibland kan du stöta på ett problem där du försöker igen och nya försök snowball och aldrig återställs. Om snowballing inträffar bör du använda en exponentiell backoff återförsök algoritm enligt beskrivningen i [allmänna riktlinjer för återförsök](../best-practices-retry-general.md) har publicerats av Microsoft Patterns & Practices-gruppen.

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883249"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveriberedskap i Azure Service Fabric
@@ -139,7 +139,7 @@ I både fristående Service Fabric-kluster och Azure är ”primära nodtypen”
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du simulera olika fel med den [testmöjlighet framework](service-fabric-testability-overview.md)
 - Läs andra resurser för haveriberedskap och hög tillgänglighet. Microsoft har publicerat en stor mängd information om dessa ämnen. Även om vissa av dessa dokument refererar till specifika tekniker för användning i andra produkter, innehåller de många allmänna metodtips som du kan använda i kontexten Service Fabric:
-  - [Checklista för tillgänglighet](../best-practices-availability-checklist.md)
+  - [Tillgänglighetschecklista](../best-practices-availability-checklist.md)
   - [Utföra ett programåterställningstest](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Haveriberedskap och hög tillgänglighet för Azure-program][dr-ha-guide]
 - Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)

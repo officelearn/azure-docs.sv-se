@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8b7c2a088dc917c319acf6cad251ad53367a14b6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895045"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Stordatorprogram rehosting på Azure virtual machines
@@ -76,7 +76,7 @@ Kom igång genom att se [IBM DB2 pureScale på Azure](/azure/virtual-machines/li
 
 När du migrerar stordatorprogram arbetsbelastningar till Azure-infrastrukturen som en tjänst (IaaS), kan du välja från flera typer av behovsbaserade och skalbara datorresurser, inklusive Azure virtuella datorer. Azure erbjuder en mängd [Linux](/azure/virtual-machines/linux/overview) och [Windows](/azure/virtual-machines/windows/overview) virtuella datorer.
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Databearbetning
 
 Azure beräkningskraft jämför positivt till en stordatorprogram kapacitet. Om du funderar på att flytta en stordatorprogram arbetsbelastning till Azure, jämför stordatorprogram måttet en miljon instruktioner per sekund (MIPS) till virtuella processorer. 
 
@@ -119,7 +119,7 @@ Se även:
 - [White Paper-faktablad om stordatorprogram ämnen](mainframe-white-papers.md)
 - [Stordatormigrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Felsökning](/azure/virtual-machines/troubleshooting/)
-- [Avmystifiera migreringen av stordatordriften till Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Avmystifiera stordatorprogram till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

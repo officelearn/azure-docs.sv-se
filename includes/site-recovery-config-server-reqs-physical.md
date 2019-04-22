@@ -10,10 +10,10 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58887023"
 ---
 **Configuration/Process server-krav för fysisk serverreplikering**
@@ -44,7 +44,7 @@ Portar | Tillåt 443 (kontrolkanalsorchestration)<br/><br/> Tillåt 9443 (dataö
 
 **Konfigurations/processervern ändrar storlek på krav**
 
-**Processor** | **Minne** | **Cachedisk** | **Dataändringshastigheten** | **Replikerade datorer**
+**CPU** | **Minne** | **Cachedisk** | **Dataändringshastigheten** | **Replikerade datorer**
 --- | --- | --- | --- | ---
 8 virtuella processorer<br/><br/> 2 platser * 4 kärnor \@ 2,5 GHz | 16GB | 300 GB | 500 GB eller mindre | < 100 datorer
 12 virtuella processorer<br/><br/> 2 socks * 6 kärnor \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100-150 datorer

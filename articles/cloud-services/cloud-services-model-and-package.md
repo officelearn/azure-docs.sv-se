@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917319"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är Cloud Service-modellen och hur jag paketera den?
@@ -92,7 +92,7 @@ Den **ServiceDefinition.csdef** filen anger de inställningar som används av Az
 
 Du kan referera till den [Tjänstdefinitionsschemat](/previous-versions/azure/reference/ee758711(v=azure.100)) för en bättre förståelse för XML-schema används här, men här är en snabb förklaring av vissa element:
 
-**Webbplatser**  
+**Platser**  
 Innehåller definitioner för webbplatser eller webbprogram program som finns i IIS7.
 
 **InputEndpoints**  
@@ -110,7 +110,7 @@ Innehåller definitioner för certifikat som behövs för en roll. Det förra ex
 **LocalResources**  
 Innehåller definitioner för lokala lagringsresurser. En resurs för lokal lagring är en reserverad katalog i filsystemet för den virtuella datorn som kör en instans av en roll.
 
-**Importerar**  
+**Import**  
 Innehåller definitioner för importerade moduler. Det förra exemplet visar moduler för anslutning till fjärrskrivbord och Azure Connect.
 
 **Start**  
@@ -143,7 +143,7 @@ Tjänstkonfigurationsfilen levereras inte med programmet, men har överförts ti
 
 Du kan referera till den [Tjänstkonfigurationens Schema](/previous-versions/azure/reference/ee758710(v=azure.100)) för bättre förstå XML-schema används här, men här är en snabb förklaring av element:
 
-**Instanser**  
+**instanser**  
 Konfigurerar antalet instanser för rollen som körs. Om du vill förhindra att din molntjänst potentiellt blir otillgänglig under uppgraderingar, bör du distribuera fler än en instans av webbservergrupper web-roller. Genom att distribuera fler än en instans, du följa riktlinjerna i den [Azure Compute serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/), som garanterar 99,95% extern anslutning för Internet-riktade roller när två eller fler rollinstanser distribueras för en tjänst.
 
 **ConfigurationSettings**  

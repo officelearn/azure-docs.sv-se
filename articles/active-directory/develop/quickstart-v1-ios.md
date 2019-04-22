@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879972"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en iOS-app
@@ -42,7 +42,7 @@ Om du vill skapa en komplett, fungerande app måste du:
 1. Installera och konfigurera ADAL.
 1. Använda ADAL för att hämta token från Azure AD.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kom igång genom att slutföra följande krav:
 
@@ -112,9 +112,9 @@ Nu när du har en app i Azure AD kan du installera ADAL och skriva din identitet
 
 1. I QuickStart-projektet öppnar du plist-filen `settings.plist`.
 1. Ersätt värdena för elementen i avsnittet för att använda samma värden som du angav i Azure-portalen. Koden refererar till dessa värden när den använder ADAL.
-    * `tenant` är domänen i Azure AD-klienten, till exempel contoso.onmicrosoft.com.
-    * `clientId` är klient-ID för programmet som du kopierade från portalen.
-    * `redirectUri` är omdirigerings-URL som du registrerade i portalen.
+    * `tenant` är domänen för din Azure AD-klientorganisation, till exempel contoso.onmicrosoft.com.
+    * `clientId` är klient-ID:t för din app som du har kopierat från portalen.
+    * `redirectUri` är den omdirigerings-URL som du registrerade i portalen.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Steg 4: Använda ADAL för att hämta token från Azure AD
 
@@ -259,5 +259,5 @@ Som referens tillhandahålls det slutförda exemplet (utan dina konfigurationsv�
 
 Nu kan du fortsätta med fler scenarier. Som nästa steg föreslår vi att du testar det här:
 
-* [Skydda ett Node.JS webb-API med Azure AD](quickstart-v1-nodejs-webapi.md)
+* [Skydda ett Node.JS-webb-API med Azure AD](quickstart-v1-nodejs-webapi.md)
 * Lär dig [hur du aktiverar SSO mellan appar på iOS med ADAL](howto-v1-enable-sso-ios.md)  

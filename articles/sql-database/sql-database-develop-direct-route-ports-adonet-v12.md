@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916180"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portar utöver 1433 för ADO.NET 4.5
@@ -82,7 +82,7 @@ Det här avsnittet visar monikers som refererar till produktversioner. Den visar
 * Ansluta till Azure SQL Database V12 via omdirigering https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [TDS-protokollversionslistan](http://www.freetds.org/userguide/tdshistory.htm)
-* [Översikt över SQL Database Development](sql-database-develop-overview.md)
+* [Översikt över SQL Database-utveckling](sql-database-develop-overview.md)
 * [Azure SQL Database-brandvägg](sql-database-firewall-configure.md)
 * [Anvisningar: Konfigurera brandväggsinställningar för SQL Database](sql-database-configure-firewall-settings.md)
 

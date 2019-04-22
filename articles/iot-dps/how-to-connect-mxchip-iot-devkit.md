@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904499"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Använd Azure IoT Hub Device Provisioning-tjänsten Automatisk etablering för att registrera MXChip IoT DevKit med IoT Hub
@@ -86,7 +86,7 @@ I koden för enheten, måste du ange den [Device provisioning-slutpunkten](/azur
   ![Registrerings-ID](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
 1. Klicka på `F1`skriver du och väljer **Azure IoT Device Workbench: Ladda upp enheten**. Den startar när koden kompileras och ladda upp koden till DevKit.
-  ![Enhetsuppladdning](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
+  ![Ladda upp enheten](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
 
 ## <a name="generate-x509-certificate"></a>Generera X.509-certifikat
 
@@ -122,7 +122,7 @@ Tryck på den **återställa** knappen på din DevKit. Du bör se **DPS ansluten
 1. Om registringen har lyckats skickar Device Provisioning-tjänsten IoT Hub-URI, enhets-ID och den krypterade nyckeln till enheten.
 1. IoT Hub-klientprogrammet på enheten ansluter till hubben.
 1. På lyckad anslutning till hubben visas enheten i IoT Hub Device Explorer.
-  ![Registrerad enhet](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
+  ![Enhet har registrerats](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 

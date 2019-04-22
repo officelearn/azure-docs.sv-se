@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f2228726d4edc25efe46a660d25d398959c3ea59
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58851945"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Använd Visual Studio 2017 för att utveckla och felsöka moduler för Azure IoT Edge (förhandsversion)
@@ -32,7 +32,7 @@ Den här artikeln visar hur du använder Azure IoT Edge-verktyg för Visual Stud
 > [!TIP]
 > IoT Edge-projektstruktur som skapas av Visual Studio är inte desamma som för Visual Studio Code.
   
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows som en utvecklingsdator. IoT Edge-enhet kan vara en annan fysisk enhet.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862122"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Övervaka mått och loggar i Azure ytterdörren Service
@@ -29,7 +29,7 @@ Genom att använda Azure ytterdörren Service kan övervaka du resurser på föl
 
 Mått är en funktion för vissa Azure-resurser så att du kan visa prestandaräknare i portalen. Följande är tillgängliga ytterdörren mått:
 
-| Mått | Metrisk visningsnamn | Enhet | Dimensioner | Beskrivning |
+| Mått | Metrisk visningsnamn | Enhet | Mått | Beskrivning |
 | --- | --- | --- | --- | --- |
 | RequestCount | Antal begäranden | Antal | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antalet klientbegäranden som hanteras av ytterdörren.  |
 | RequestSize | Begärandestorlek | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Antal byte som skickas när begäranden från klienter till ytterdörren. |
@@ -73,7 +73,7 @@ Så här konfigurerar du diagnostikloggar för ytterdörren tjänsten:
 
 Ytterdörren Service erbjuder för närvarande diagnostikloggar (i batchar per timme). Diagnostikloggar innehåller enskilda API-begäranden där varje inmatning har följande schema:
 
-| Egenskap   | Beskrivning |
+| Egenskap  | Beskrivning |
 | ------------- | ------------- |
 | ClientIp | IP-adressen för klienten som gjorde begäran. |
 | ClientPort | IP-porten för den klient som gjorde begäran. |

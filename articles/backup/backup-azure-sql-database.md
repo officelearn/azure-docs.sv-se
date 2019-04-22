@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285453"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "58847304"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -55,7 +55,7 @@ Innan du börjar bör du kontrollera följande:
 
 - SQL Server-säkerhetskopiering kan konfigureras i Azure-portalen eller **PowerShell**. Vi stöder inte CLI.
 - Virtuell dator som kör SQL Server kräver en Internetanslutning för att komma åt Azure offentliga IP-adresser.
-- SQL Server Always på **Redundansklusterinstanser (FCIs)** stöds inte.
+- SQL Server **instans för Failover-kluster (FCI)** och SQL Server Always på Redundansklusterinstans stöds inte.
 - Åtgärder för säkerhetskopiering och återställning för speglade databaser och databasögonblicksbilder stöds inte.
 - Med fler än en säkerhetskopieringslösningar för att säkerhetskopiera din fristående SQL Server kan-instans eller SQL Always on-tillgänglighetsgrupp leda till Säkerhetskopieringsfel; avstå från detta.
 - Säkerhetskopiera två noder i en tillgänglighetsgrupp individuellt med samma eller olika lösningar kan även leda till Säkerhetskopieringsfel. Azure Backup kan identifiera och skydda alla noder som finns i samma region som valvet. Om din SQL Server Always on-tillgänglighetsgrupp sträcker sig över flera Azure-regioner, Ställ in säkerhetskopian från den region som har den primära noden. Azure Backup kan identifiera och skydda alla databaser i tillgänglighetsgruppen enligt din inställning för säkerhetskopiering.  

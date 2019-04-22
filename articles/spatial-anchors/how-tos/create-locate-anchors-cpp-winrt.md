@@ -1,6 +1,6 @@
 ---
-title: Hur du skapar och leta upp ankare som använder Azure Spatial ankare i C + +/ WinRT | Microsoft Docs
-description: Detaljerad förklaring av hur du skapar och leta upp ankare som använder Azure Spatial ankare i C + +/ WinRT.
+title: Hur du skapar och leta upp ankare som använder Azure Spatial ankare i C++/WinRT | Microsoft Docs
+description: Detaljerad förklaring av hur du skapar och leta upp ankare som använder Azure Spatial ankare i C++/WinRT.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 966a8bd5990f955a3ec66ae465d14a0369d0cdf9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915316"
 ---
-# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Hur du skapar och leta upp ankare som använder Azure Spatial ankare i C + +/ WinRT
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Hur du skapar och leta upp ankare som använder Azure Spatial ankare i C++/WinRT
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
@@ -25,14 +25,14 @@ ms.locfileid: "58915316"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enheter. Den stöder flera olika utvecklingsmiljöer. I den här artikeln har vi kommer fördjupa dig i hur du använder Azure Spatial ankare SDK, i C + +/ WinRT till:
+Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enheter. Den stöder flera olika utvecklingsmiljöer. I den här artikeln har vi kommer fördjupa dig i hur du använder Azure Spatial ankare SDK, som i C++/WinRT till:
 
 - Korrekt ställa in och hantera en Azure Spatial ankare-session.
 - Skapa och ange egenskaper för lokal fästpunkter.
 - Ladda upp dem till molnet.
 - Leta upp och ta bort spatial molnankare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här guiden måste du kontrollera att du har:
 

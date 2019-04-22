@@ -8,10 +8,10 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 168b5cdf4f65992bad886352921e9aaff6d5b09c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885795"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB: funktioner och syntax som stöds
@@ -340,4 +340,4 @@ Cosmos DB stöder automatisk, horisontell partitionering på serversidan. Cosmos
 - Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
 - Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.
 
-<sup>Obs! I den här artikeln beskrivs en funktion i Azure Cosmos DB som tillhandahåller trådprotokollkompatibilitet med MongoDB-databaser. Microsoft kan inte köra MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplad till MongoDB, Inc.</sup>
+<sup>Obs! I den här artikeln beskrivs en funktion i Azure Cosmos DB som tillhandahåller trådprotokollkompatibilitet med MongoDB-databaser. Microsoft kan inte köra MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplat till MongoDB, Inc.</sup>

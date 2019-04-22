@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883402"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexera Cosmos DB med en Azure Search-indexerare
@@ -25,7 +25,7 @@ Eftersom terminologi kan vara förvirrande, är det värt som [Azure Cosmos DB i
 
 Du kan använda den [portal](#cosmos-indexer-portal), REST API: er eller .NET SDK för att indexera Cosmos-innehåll. Cosmos DB-indexeraren i Azure Search kan crawla [Azure Cosmos-objekt](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) nås via dessa protokoll:
 
-* [API för SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
+* [SQL-API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search-stöd för detta API är allmänt tillgänglig förhandsversion)  
 
 > [!Note]
@@ -171,10 +171,10 @@ Brödtexten i begäran innehåller definitionen av datakällan, vilket bör inne
 
 | Fält   | Beskrivning |
 |---------|-------------|
-| **namn** | Krävs. Välj ett namn som representerar din datakällobjektet. |
-|**typ**| Krävs. Måste vara `documentdb`. |
-|**autentiseringsuppgifter** | Krävs. Måste vara en Cosmos DB-anslutningssträng.<br/>För SQL-samlingar finns anslutningssträngar i följande format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>För MongoDB-samlingar, lägger du till **ApiKind = MongoDb** på anslutningssträngen:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Undvik att portnumren i slutpunkts-url. Om du inkluderar portnumret går Azure Search inte att indexera Azure Cosmos DB-databasen.|
-| **container** | Innehåller följande element: <br/>**name**: Krävs. Ange ID för samlingen databas som ska indexeras.<br/>**fråga**: Valfri. Du kan ange en fråga för att platta ut en godtycklig JSON-dokumentet till ett fast schema som Azure Search kan indexera.<br/>Frågor stöds inte för MongoDB-samlingar. |
+| **Namn** | Obligatoriskt. Välj ett namn som representerar din datakällobjektet. |
+|**typ**| Obligatoriskt. Måste vara `documentdb`. |
+|**Autentiseringsuppgifter** | Obligatoriskt. Måste vara en Cosmos DB-anslutningssträng.<br/>För SQL-samlingar finns anslutningssträngar i följande format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>För MongoDB-samlingar, lägger du till **ApiKind = MongoDb** på anslutningssträngen:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Undvik att portnumren i slutpunkts-url. Om du inkluderar portnumret går Azure Search inte att indexera Azure Cosmos DB-databasen.|
+| **container** | Innehåller följande element: <br/>**name**: Obligatoriskt. Ange ID för samlingen databas som ska indexeras.<br/>**fråga**: Valfri. Du kan ange en fråga för att platta ut en godtycklig JSON-dokumentet till ett fast schema som Azure Search kan indexera.<br/>Frågor stöds inte för MongoDB-samlingar. |
 | **dataChangeDetectionPolicy** | Vi rekommenderar. Se [indexering ändrats dokument](#DataChangeDetectionPolicy) avsnittet.|
 |**dataDeletionDetectionPolicy** | Valfri. Se [indexering bort dokument](#DataDeletionDetectionPolicy) avsnittet.|
 

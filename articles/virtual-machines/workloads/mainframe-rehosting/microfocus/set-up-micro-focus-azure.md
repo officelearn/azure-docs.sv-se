@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896605"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installera Micro fokus Enterprise Server 4.0 och företagsutvecklare 4.0 på Azure
@@ -25,7 +25,7 @@ Den här konfigurationen använder virtuella Azure-datorer som kör Windows Serv
 
 Motsvarande utvecklingsmiljö för Enterprise Server är företagsutvecklare som körs på antingen Microsoft Visual Studio 2017, Visual Studio Community (gratis att ladda ned), eller Eclipse. Den här artikeln visar hur du distribuerar den med hjälp av en virtuell Windows Server 2016-dator som ingår i Visual Studio 2017 installerat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kolla in dessa krav innan du börjar:
 

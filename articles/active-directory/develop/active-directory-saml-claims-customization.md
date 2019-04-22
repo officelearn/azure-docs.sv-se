@@ -19,13 +19,13 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878578"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Anpassa anspråk som utfärdats i SAML-token för företagsprogram
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Så här: Anpassa anspråk som utfärdats i SAML-token för företagsprogram
 
 Idag, Azure Active Directory (Azure AD) har stöd för enkel inloggning (SSO) med de flesta företagsprogram, inklusive båda programmen som är förintegrerade i appgalleriet för Azure AD samt anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av protokollet SAML 2.0, skickar Azure AD en token till programmet (via en HTTP-POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token innehåller uppgifter om användaren kallas *anspråk*.
 
@@ -62,10 +62,10 @@ Från den **Välj format för namn på identifierare** listrutan kan du välja n
 | NameID-format | Beskrivning |
 |---------------|-------------|
 | **Standard** | Azure AD ska använda standardformatet källa. |
-| **Beständig** | Azure AD använder beständiga som NameID-format. |
-| **EmailAddress** | Azure AD använder e-postadress som NameID-format. |
-| **Ospecificerat** | Azure AD använder Ospecificerad som NameID-format. |
-| **Tillfälligt** | Azure AD använder tillfälligt som NameID-format. |
+| **Beständiga** | Azure AD använder beständiga som NameID-format. |
+| **E-postadress** | Azure AD använder e-postadress som NameID-format. |
+| **Ospecificerad** | Azure AD använder Ospecificerad som NameID-format. |
+| **Transient** | Azure AD använder tillfälligt som NameID-format. |
 
 Läs mer om attributet NameIDPolicy i [enkel inloggning SAML-protokoll](single-sign-on-saml-protocol.md).
 
@@ -79,7 +79,7 @@ Välj önskad källa för den `NameIdentifier` (eller NameID) anspråk. Du kan v
 | userprincipalName | Användarens huvudnamn (UPN) för användaren |
 | onpremisessamaccount | SAM-kontonamn som har synkroniserats från den lokala Azure AD |
 | objekt-ID | objekt-ID för användaren i Azure AD |
-| employeeid | EmployeeID för användaren |
+| EmployeeID | EmployeeID för användaren |
 | Katalogtillägg | Katalogtillägg [synkroniseras från den lokala Active Directory med Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Tilläggsattribut 1 – 15 | Lokala tilläggsattribut som används för att utöka Azure AD-schema |
 
@@ -92,7 +92,7 @@ Du kan också använda funktionerna anspråk transformationer.
 | Funktion | Beskrivning |
 |----------|-------------|
 | **ExtractMailPrefix()** | Tar bort domänsuffix från e-postadressen eller användarens huvudnamn. Då extraheras bara den första delen av användarnamnet som skickas via (till exempel ”joe_smith” i stället för joe_smith@contoso.com). |
-| **JOIN()** | Ansluter till ett attribut med en verifierad domän. Om det valda användaren ID-värdet har en domän, extraherar användarnamnet om du vill lägga till valda verifierade domän. Exempel: Om du väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användaridentifierare och väljer contoso.onmicrosoft.com som verifierad domän, detta resulterar i joe_smith@contoso.onmicrosoft.com. |
+| **Join()** | Ansluter till ett attribut med en verifierad domän. Om det valda användaren ID-värdet har en domän, extraherar användarnamnet om du vill lägga till valda verifierade domän. Exempel: Om du väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användaridentifierare och väljer contoso.onmicrosoft.com som verifierad domän, detta resulterar i joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Konverterar tecknen i det valda attributet till gemener. |
 | **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
 
@@ -111,7 +111,7 @@ Du kan också använda funktionerna anspråk transformationer.
 | Funktion | Beskrivning |
 |----------|-------------|
 | **ExtractMailPrefix()** | Tar bort domänsuffix från e-postadressen eller användarens huvudnamn. Då extraheras bara den första delen av användarnamnet som skickas via (till exempel ”joe_smith” i stället för joe_smith@contoso.com). |
-| **JOIN()** | Skapar ett nytt värde genom att gå med två attribut. Du kan även använda en avgränsare mellan de två attributen. |
+| **Join()** | Skapar ett nytt värde genom att gå med två attribut. Du kan även använda en avgränsare mellan de två attributen. |
 | **ToLower()** | Konverterar tecknen i det valda attributet till gemener. |
 | **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
 | **Contains()** | Matar ut ett attribut eller konstant om indata matchar det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Exempel: Om du vill generera ett anspråk där värdet är användarens e-postadress om den innehåller domänen ”@contoso.com”, annars du vill spara användarens huvudnamn. Om du vill göra detta måste konfigurerar du följande värden:<br/>*Parametern 1(input)*: user.email<br/>*Värdet*”:@contoso.com”<br/>Parameter 2 (utdata): user.email<br/>Parameter 3 (utdata om det inte finns någon matchning): user.userprincipalname |

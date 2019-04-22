@@ -9,10 +9,10 @@ ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878595"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
@@ -169,8 +169,8 @@ Om du vill visa en lista över alternativ skriver du `/help` i kommandotolken.
 
 | Alternativ | Beskrivning | Kommando | Argument |
 | --- | --- | --- | --- |
-| **Start** |Startar storage-emulatorn. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Starta emulatorn i den aktuella processen istället för att skapa en ny process. |
-| **Stoppa** |Stoppar storage-emulatorn. |`AzureStorageEmulator.exe stop` | |
+| **Börja** |Startar storage-emulatorn. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Starta emulatorn i den aktuella processen istället för att skapa en ny process. |
+| **Stanna** |Stoppar storage-emulatorn. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Skriver status för storage-emulatorn. |`AzureStorageEmulator.exe status` | |
 | **Rensa** |Tar bort data i alla tjänster som anges på kommandoraden. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: Raderar blob-data. <br/>*queue*: Tar bort kön data. <br/>*tabellen*: Raderar tabelldata. <br/>*Alla*: Tar bort alla data i alla tjänster. |
 | **Init** |Utför enstaka initiering att konfigurera emulatorn. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-servern ServerNamn\InstansNamn*: Anger den server som är värd för SQL-instansen. <br/>*-sqlinstance instanceName*: Anger namnet på den SQL-instansen som ska användas i standardserverinstansen. <br/>*-forcecreate*: Tvingar skapandet av SQL-databasen, även om den redan finns. <br/>*-skipcreate*: Hoppar över skapandet av SQL-databasen. Detta har företräde framför - forcecreate.<br/>*-reserveports*: Försök att reservera HTTP-portar som är associerade med tjänsterna.<br/>*-unreserveports*: Försöker ta bort reservationer för HTTP-portar som är associerade med tjänsterna. Detta har företräde framför - reserveports.<br/>*-inprocess*: Utför initiering i den aktuella processen i stället för att skapa en ny process. Den aktuella processen måste startas med förhöjd behörighet om ändring av porten reservationer. |

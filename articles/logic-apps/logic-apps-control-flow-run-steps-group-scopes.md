@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882420"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på status för distributionsgrupp med omfång i Azure Logic Apps
@@ -27,7 +27,7 @@ Här är till exempel en övergripande logikapp som använder en omfattning för
 
 ![Konfigurera utlösaren ”schema – återkommande”](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa exemplet i den här artikeln behöver du följande objekt:
 
@@ -79,13 +79,13 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
       | Inställning | Värde | Beskrivning |
       | ------- | ----- | ----------- |
-      | **Waypoint 1** | <*start*> | Ange resvägen. | 
-      | **Waypoint 2** | <*slutpunkt*> | Ange slutpunkten för resvägen. | 
-      | **Avoid** | Ingen | Ange objekt för att undvika vägen, till exempel motorvägar, vägtullar, och så vidare. Möjliga värden finns i [beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
-      | **Optimera** | timeWithTraffic | Välj en parameter för att optimera färdvägen, till exempel avstånd, med information om aktuella trafik och så vidare. Det här exemplet används det här värdet: ”timeWithTraffic” | 
+      | **Waypoint 1** (Platsmarkör 1) | <*start*> | Ange resvägen. | 
+      | **Waypoint 2** (Platsmarkör 2) | <*slutpunkt*> | Ange slutpunkten för resvägen. | 
+      | **Avoid** (Undvik) | Ingen | Ange objekt för att undvika vägen, till exempel motorvägar, vägtullar, och så vidare. Möjliga värden finns i [beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Optimize** (Optimera) | timeWithTraffic | Välj en parameter för att optimera färdvägen, till exempel avstånd, med information om aktuella trafik och så vidare. Det här exemplet används det här värdet: ”timeWithTraffic” | 
       | **Avståndsenhet** | <*your-preference*> | Ange avståndet enhet för att beräkna din resväg. Det här exemplet används det här värdet: ”Mile” | 
-      | **Färdsättet** | Driving (Bil) | Ange färdmedlet för din resväg. Det här exemplet används det här värdet ”körkort” | 
-      | **Datum / tid-överföring** | Ingen | Gäller endast överföring-läge. | 
+      | **Travel mode** (Färdsätt) | Driving (Bil) | Ange färdmedlet för din resväg. Det här exemplet används det här värdet ”körkort” | 
+      | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Ingen | Gäller endast överföring-läge. | 
       | **Överföring Datumtyp typ** | Ingen | Gäller endast överföring-läge. | 
       ||||  
 

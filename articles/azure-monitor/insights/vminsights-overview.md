@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004582"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697897"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor för virtuella datorer (förhandsversion)?
 
-Azure Monitor för virtuella datorer övervakar dina Azure-datorer (VM) och VM-skalningsuppsättningar i stor skala. Den analyserar prestandan och hälsotillståndet för dina Windows- och Linux-datorer och övervakar sina processer och beroenden på andra resurser och externa processer. 
+Azure Monitor för virtuella datorer övervakar dina Azure-datorer (VM) och VM-skalningsuppsättningar i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer. 
 
 Som en lösning för har Azure Monitor för virtuella datorer stöd för övervakning av prestanda och programberoenden för virtuella datorer som hanteras lokalt eller i en annan molnleverantör. Tre huvudfunktioner ger djupgående insikter:
 
@@ -39,7 +39,7 @@ Funktionerna är uppdelade i tre perspektiv:
 * Karta
 
 >[!NOTE]
->För närvarande kan erbjuds funktionen hälsotillstånd endast för virtuella Azure-datorer och VM-skalningsuppsättning uppsättningar. Prestanda och kartfunktioner stöd för både virtuella Azure-datorer och virtuella datorer som finns i din miljö eller annan molnleverantör.
+>Funktionen hälsotillstånd erbjuds för närvarande endast för virtuella Azure-datorer. Prestanda och kartfunktioner stöd för virtuella datorer i Azure, Azure VM scale sets och virtuella datorer som finns i din miljö eller annan molnleverantör.
 
 Integrering med Azure Monitor-loggarna ger kraftfulla aggregering och filtrering och den kan analysera datatrender över tid. Sådana omfattande arbetsbelastningsövervakning uppnås inte med Azure Monitor eller Service Map enbart.  
 

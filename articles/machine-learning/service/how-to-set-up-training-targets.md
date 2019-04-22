@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046163"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683910"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
@@ -377,7 +377,6 @@ Du kan komma åt beräkningsmål som är associerade med din arbetsyta med hjäl
 
 Mer information finns i [resurshantering](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Skicka utbildning som kör
 
 När du skapar en körningskonfiguration kan du bara använda den för att köra experimentet.  Mönstret kod för att skicka en utbildning körning är samma för alla typer av beräkningsmål:
@@ -385,6 +384,13 @@ När du skapar en körningskonfiguration kan du bara använda den för att köra
 1. Skapa ett experiment att köra
 1. Skicka in körningen.
 1. Vänta tills den kör för att slutföra.
+
+> [!IMPORTANT]
+> När du skickar in utbildning kör en ögonblicksbild av den katalog som innehåller dina utbildningsskript skapas och skickas till beräkningsmål. Den lagras också som en del av experiment i din arbetsyta. Om du ändrar filer och skicka in körningen igen, bara ändrade filer ska överföras.
+>
+> Om du vill förhindra att filer som ingår i ögonblicksbilden, skapa en [.gitignore](https://git-scm.com/docs/gitignore) eller `.amlignore` filen i katalogen och Lägg till filer till den. Den `.amlignore` filen använder samma syntax och mönster som den [.gitignore](https://git-scm.com/docs/gitignore) fil. Om båda filerna finns i `.amlignore` filen företräde.
+> 
+> Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshot).
 
 ### <a name="create-an-experiment"></a>Skapa ett experiment
 
@@ -399,8 +405,6 @@ Skicka experiment med en `ScriptRunConfig` objekt.  Det här objektet innehålle
 * **source_directory**: Källkatalogen som innehåller skriptet utbildning
 * **script**: Identifiera skriptet utbildning
 * **run_config**: Körningskonfigurationen, som i sin tur definierar var utbildningen kommer att göras.
-
-När du skickar in ett utbildning kör en ögonblicksbild av den katalog som innehåller dina utbildningsskript skapas och skickas till beräkningsmål. Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshot).
 
 Till exempel vill använda [lokala målet](#local) konfiguration:
 
@@ -418,8 +422,8 @@ Eller så kan du:
 ## <a name="notebook-examples"></a>Notebook-exempel
 
 Se dessa anteckningsböcker för exempel på utbildning med olika beräkningsmål:
-* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [How-to-till-användning – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [självstudier/img-klassificering – del 1 – training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

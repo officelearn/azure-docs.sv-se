@@ -1,154 +1,147 @@
-items:
 - name: Dokumentation om Azure IoT Central
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure IoT Central?
-    href: overview-iot-central.md
-  - name: IoT-lösningsalternativ
-    href: overview-iot-options.md
-  - name: Genomgång av användargränssnittet
-    href: overview-iot-central-tour.md
+    - name: Vad är Azure IoT Central?
+      href: overview-iot-central.md
+    - name: IoT-lösningsalternativ
+      href: overview-iot-options.md
+    - name: Genomgång av användargränssnittet
+      href: overview-iot-central-tour.md
 - name: Snabbstarter
-  items:
-  - name: Skapa ett nytt program
-    href: quick-deploy-iot-central.md
   expanded: true
+  items:
+    - name: Skapa ett nytt program
+      href: quick-deploy-iot-central.md
 - name: Självstudier
   items:
-  - name: 1 – Definiera en ny enhetstyp
-    href: tutorial-define-device-type.md
-  - name: 2 – Konfigurera regler
-    href: tutorial-configure-rules.md
-  - name: 3 – Anpassa operator-vyn
-    href: tutorial-customize-operator.md
-  - name: 4 – Övervaka dina enheter
-    href: tutorial-monitor-devices.md
-  - name: 5 – Lägg till en enhet
-    href: tutorial-add-device.md
+    - name: 1 – Definiera en ny enhetstyp
+      href: tutorial-define-device-type.md
+    - name: 2 – Konfigurera regler
+      href: tutorial-configure-rules.md
+    - name: 3 – Anpassa operator-vyn
+      href: tutorial-customize-operator.md
+    - name: 4 – Övervaka dina enheter
+      href: tutorial-monitor-devices.md
+    - name: 5 – Lägg till en enhet
+      href: tutorial-add-device.md
 - name: Begrepp
   items:
-  - name: Arkitektur
-    href: concepts-architecture.md
-  - name: Anslutning
-    href: concepts-connectivity.md
+    - name: Arkitektur
+      href: concepts-architecture.md
+    - name: Anslutning
+      href: concepts-connectivity.md
 - name: Instruktionsguider
   items:
-  - name: Ansluta enheter
-    items:
-    - name: Generera en enhetsanslutningssträng
-      href: howto-generate-connection-string.md
-    - name: Förbereda och ansluta ett (allmänt) Node.js-program
-      href: howto-connect-nodejs.md
-    - name: Förbereda och ansluta MXChip IoT DevKit
-      href: howto-connect-devkit.md
-    - name: Förbereda och ansluta Raspberry Pi (Python)
-      href: howto-connect-raspberry-pi-python.md
-    - name: Förbereda och ansluta Raspberry Pi (C#)
-      href: howto-connect-raspberry-pi-csharp.md
-    - name: Förbereda och ansluta en Windows IoT Core-enhet
-      href: howto-connect-windowsiotcore.md
-    - name: Övervaka enhetsanslutning med hjälp av kommandoraden
-      href: howto-use-iotc-explorer.md
-  - name: Hantera enheter
-    items:
-    - name: Konfigurera en enhetsmall
-      href: howto-set-up-template.md
-    - name: Hantera dina enheter
-      href: howto-manage-devices.md
-    - name: Köra ett jobb
-      href: howto-run-a-job.md
-    - name: Använda enhetsuppsättningar
-      href: howto-use-device-sets.md
-    - name: Version av enhetsmall
-      href: howto-version-devicetemplate.md
-  - name: Övervakning och analys
-    items:
-    - name: Skapa regel för telemetri
-      href: howto-create-telemetry-rules.md
-    - name: Skapa en händelseregel
-      href: howto-create-event-rules.md
-    - name: Analysera dina enhetsdata
-      href: howto-create-analytics.md
-  - name: Åtgärder och utökningsbarhet
-    items:
-    - name: Gruppera flera åtgärder för regler
-      href: howto-use-action-groups.md
-    - name: Skapa webhook-åtgärder efter regler
-      href: howto-create-webhooks.md
-    - name: Bygga arbetsflöden i Microsoft Flow
-      href: howto-add-microsoft-flow.md
-    - name: Skapa arbetsflöden i Azure Logic Apps
-      href: howto-build-azure-logic-apps.md
-    - name: Utlösa Azure Functions
-      href: howto-trigger-azure-functions.md
-    - name: Exportera dina data
+    - name: Ansluta enheter
       items:
-      - name: Exportera till Event Hubs och Service Bus
-        href: howto-export-data-event-hubs-service-bus.md
-      - name: Exportera till Blob Storage
-        href: howto-export-data-blob-storage.md
-    - name: Visualisera dina data i Power BI
-      href: howto-connect-powerbi.md
-    - name: Ansluta andra IoT-moln
-      href: howto-build-iotc-device-bridge.md
-  - name: Administration
-    items:
-    - name: Administrera ditt program
-      href: howto-administer.md
-    - name: Förbereda och ladda upp avbildning
-      href: howto-prepare-images.md
-    - name: Hantera från Azure-portalen
-      href: howto-manage-iot-central-from-portal.md
-    - name: Hantera från Azure CLI
-      href: howto-manage-iot-central-from-cli.md
-    - name: Hantera från Azure PowerShell
-      href: howto-manage-iot-central-from-powershell.md
-    - name: Skapa och hantera ett program som molnlösningsleverantör
-      href: howto-create-and-manage-applications-as-CSP.md
-    - name: Konfigurera instrumentpanelen för program
-      href: howto-configure-homepage.md
-  - name: Personanpassning
-    items:
-    - name: Skapa personliga instrumentpaneler
-      href: howto-personalize-dashboard.md
-    - name: Hantera dina inställningar
-      href: howto-manage-preferences.md
+        - name: Generera en enhetsanslutningssträng
+          href: howto-generate-connection-string.md
+        - name: Förbereda och ansluta ett (allmänt) Node.js-program
+          href: howto-connect-nodejs.md
+        - name: Förbereda och ansluta MXChip IoT DevKit
+          href: howto-connect-devkit.md
+        - name: Förbereda och ansluta Raspberry Pi (Python)
+          href: howto-connect-raspberry-pi-python.md
+        - name: 'Förbereda och ansluta Raspberry Pi (C#)'
+          href: howto-connect-raspberry-pi-csharp.md
+        - name: Förbereda och ansluta en Windows IoT Core-enhet
+          href: howto-connect-windowsiotcore.md
+        - name: Övervaka enhetsanslutning med hjälp av kommandoraden
+          href: howto-use-iotc-explorer.md
+    - name: Hantera enheter
+      items:
+        - name: Konfigurera en enhetsmall
+          href: howto-set-up-template.md
+        - name: Hantera dina enheter
+          href: howto-manage-devices.md
+        - name: Köra ett jobb
+          href: howto-run-a-job.md
+        - name: Använda enhetsuppsättningar
+          href: howto-use-device-sets.md
+        - name: Version av enhetsmall
+          href: howto-version-devicetemplate.md
+    - name: Övervakning och analys
+      items:
+        - name: Skapa regel för telemetri
+          href: howto-create-telemetry-rules.md
+        - name: Skapa en händelseregel
+          href: howto-create-event-rules.md
+        - name: Analysera dina enhetsdata
+          href: howto-create-analytics.md
+    - name: Åtgärder och utökningsbarhet
+      items:
+        - name: Gruppera flera åtgärder för regler
+          href: howto-use-action-groups.md
+        - name: Skapa webhook-åtgärder efter regler
+          href: howto-create-webhooks.md
+        - name: Bygga arbetsflöden i Microsoft Flow
+          href: howto-add-microsoft-flow.md
+        - name: Skapa arbetsflöden i Azure Logic Apps
+          href: howto-build-azure-logic-apps.md
+        - name: Utlösa Azure Functions
+          href: howto-trigger-azure-functions.md
+        - name: Exportera dina data
+          items:
+            - name: Exportera till Event Hubs och Service Bus
+              href: howto-export-data-event-hubs-service-bus.md
+            - name: Exportera till Blob Storage
+              href: howto-export-data-blob-storage.md
+        - name: Visualisera dina data i Power BI
+          href: howto-connect-powerbi.md
+        - name: Ansluta andra IoT-moln
+          href: howto-build-iotc-device-bridge.md
+    - name: Administration
+      items:
+        - name: Administrera ditt program
+          href: howto-administer.md
+        - name: Förbereda och ladda upp avbildning
+          href: howto-prepare-images.md
+        - name: Hantera från Azure-portalen
+          href: howto-manage-iot-central-from-portal.md
+        - name: Hantera från Azure CLI
+          href: howto-manage-iot-central-from-cli.md
+        - name: Hantera från Azure PowerShell
+          href: howto-manage-iot-central-from-powershell.md
+        - name: Skapa och hantera ett program som molnlösningsleverantör
+          href: howto-create-and-manage-applications-as-CSP.md
+        - name: Konfigurera instrumentpanelen för program
+          href: howto-configure-homepage.md
+    - name: Personanpassning
+      items:
+        - name: Skapa personliga instrumentpaneler
+          href: howto-personalize-dashboard.md
+        - name: Hantera dina inställningar
+          href: howto-manage-preferences.md
 - name: Relaterat
   items:
-  - name: Lösningar
-    items:
-    - name: IoT-lösningsacceleratorer
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: /microsoft-iot-central
-  - name: Plattformstjänster
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: Platsbaserade tjänster
-      href: /azure/location-based-services
-    - name: Tjänst-SDK:er
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: SDK:er för IoT-enheter
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Lösningar
+      items:
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: /microsoft-iot-central
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: Platsbaserade tjänster
+          href: /azure/location-based-services
+        - name: 'Tjänst-SDK:er'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
-  - name: Kunddataförfrågningar
-    href: iot-central-customer-data-requests.md
-  - name: Webbläsare som stöds
-    href: iot-central-supported-browsers.md
-ms.openlocfilehash: 277b1ca0a239bddc02ca32d93ca1ffebbf542240
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59425907"
+    - name: Kunddataförfrågningar
+      href: iot-central-customer-data-requests.md
+    - name: Webbläsare som stöds
+      href: iot-central-supported-browsers.md

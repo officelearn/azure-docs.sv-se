@@ -1,7 +1,7 @@
 ---
 title: Modelltolkning
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder Azure Machine Learning Interpretability SDK för att förklara varför din modell förutsägelser. Den kan användas under utbildnings- och inferensjobb för att förstå hur din modell förutsägelser.
+description: Lär dig hur du förklara varför din modell förutsägelser med hjälp av Azure Machine Learning Interpretability SDK. Den kan användas under utbildnings- och inferensjobb för att förstå hur din modell förutsägelser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
-ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 668551603dfa2a9c42f4538fd9a66ee646e1feb7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494448"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682465"
 ---
-# <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Modellen interpretability med Azure Machine Learning-tjänsten
 
 I den här artikeln får du lära dig att förklara varför din modell gjort förutsägelserna det gjorde med hjälp av Azure Machine Learning Interpretability SDK. Att kunna förklarar din modell är viktigt av följande skäl:
 
@@ -25,9 +25,10 @@ I den här artikeln får du lära dig att förklara varför din modell gjort fö
 * Som en dataexpert du vill förstå **hur du frågar modellen om du vill söka efter insikter**. Du måste också verktyg för att fatta välgrundade beslut om **hur vi kan förbättra din modell**.
 * Som ett företag, måste du förstå **beteendet för modellen med olika indata distributioner** och **hur modellen beter sig vid analys av specifika indata**.
 
-Machine learning interpretability är viktigt i två faser av machine learning-utvecklingscykeln: **utbildning** tid och **inferensjobb** tid:
+Machine learning interpretability är viktigt i två faser av machine learning-utvecklingscykeln: 
 
 * Under **utbildning**: Modellen designers och bedömare kräver interpretability verktyg för att förklara utdata från en modell för intressenter att skapa förtroendet. De måste också insikter om modellen så att de kan felsöka modellen och fatta beslut rörande om beteendet matchar sina mål. Slutligen måste se till att modellen inte prioriterar.
+
 * Under **inferensjobb**: Förutsägelser måste vara explainable till personer som använder din modell. Till exempel varför modellen neka en lånet eller förutsäga att en investeringsportfölj innebär en högre risk?
 
 Azure Machine Learning Interpretability SDK innehåller tekniker som utvecklats av Microsoft och beprövade bibliotek från tredje part (till exempel FORMDATA och grön). SDK: N skapar ett gemensamt API över bibliotek som är integrerade och integrerar Azure Machine Learning-tjänster. Med detta SDK kan du förklara maskininlärningsmodeller **globalt på alla data**, eller **lokalt på en viss datapunkt** med för avancerade tekniker i ett enkelt att använda och skalbart sätt.
@@ -91,7 +92,7 @@ Intelligens är inbyggt i `TabularExplainer` kommer allt mer sofistikerade som y
 
 Följande diagram visar relationen mellan två uppsättningar med direct och meta explainers.
 
-[![Machine Learning Interpretability arkitektur](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+[![Machine Learning-Interpretability arkitektur](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
 
 ### <a name="models-supported"></a>Modeller som stöds
 

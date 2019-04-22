@@ -4,17 +4,16 @@ description: Felsöka problem när du använder Azure-diagnostik i Azure Virtual
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: robb
+ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822144"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699106"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Felsökning av Azure-diagnostik
 Den här artikeln beskriver felsökningsinformation som är relevant för med hjälp av Azure Diagnostics. Läs mer om Azure diagnostics [översikt över Azure Diagnostics](diagnostics-extension-overview.md).
@@ -82,7 +81,7 @@ Om det finns inga data för det specifika måttet, kontrollera **Diagnostiky** >
 Om konfigurationen är korrekt, men du kan fortfarande inte kan se måttdata, Använd följande riktlinjer för felsökning.
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Azure-diagnostik är inte startar
+## <a name="azure-diagnostics-is-not-starting"></a>Startar inte Azure-diagnostik
 Information om varför Azure Diagnostics gick inte att starta finns i den **DiagnosticsPluginLauncher.log** och **DiagnosticsPlugin.log** filer på loggplatsen som angavs tidigare.
 
 Om de här loggarna visar `Monitoring Agent not reporting success after launch`, betyder det uppstod ett fel som startar MonAgentHost.exe. Titta på loggarna på den plats som anges för `MonAgentHost log file` i föregående avsnitt.
@@ -105,9 +104,16 @@ Den vanligaste orsaken till att händelsedata inte alls är att lagringskontoinf
 
 Lösning: Korrigera konfigurationen diagnostik och installera om diagnostik.
 
-Om lagringskontot är korrekt konfigurerade, remote access in på datorn och kontrollera att DiagnosticsPlugin.exe och MonAgentCore.exe körs. Om de inte körs, följer du stegen i Azure Diagnostics inte startar.
+Om lagringskontot är korrekt konfigurerade, remote access in på datorn och kontrollera att *DiagnosticsPlugin.exe* och *MonAgentCore.exe* körs. Om de inte körs, följer du stegen i [startar inte Azure Diagnostics](#azure-diagnostics-is-not-starting).
 
 Om processerna som körs, går du till [är data som komma hämtats lokalt?](#is-data-getting-captured-locally) och i anvisningarna.
+
+Om detta inte löser problemet, försök att:
+
+1. Avinstallera agenten
+2. Ta bort katalogen C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. Installera agenten igen
+
 
 ### <a name="part-of-the-data-is-missing"></a>En del av informationen som saknas
 Om du får vissa data men inte alla, innebär det att datapipeline för samling/disköverföring är korrekt. Följ underavsnitt här om du vill begränsa problemet.

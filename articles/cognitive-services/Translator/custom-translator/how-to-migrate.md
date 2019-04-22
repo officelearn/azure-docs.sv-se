@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901533"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698407"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub arbetsyta och projekt till anpassad Translator
 
@@ -119,6 +119,7 @@ Migrering historiksidan visar följande information som sammanfattning för varj
 Om du vill ha mer detaljerad migreringsrapport om ditt projekt, utbildningar och dokument, har du alternativet Exportera information som CSV.
 
 ## <a name="implementation-notes"></a>Implementeringsanteckningar
+* System med språket par ännu inte tillgängliga i anpassade Translator går bara att komma åt data eller ta bort via anpassade Translator. Dessa projekt kommer att markeras som ”ej tillgänglig” på sidan projekt. Vi låter nya språkpar med anpassade Translator blir projekten aktiv för att träna och distribuera. 
 * Migrera ett projekt från hubben till anpassad Translator har inte någon inverkan på din hubb utbildningar eller projekt. Vi ta inte bort projekt eller dokument från Hub under migreringen och vi ta bort inte modeller.
 * Du får endast att migrera en gång per projekt. Om du vill upprepa en migrering i ett projekt kan du kontakta oss.
 * Anpassade Translator stöder NMT språkpar till och från engelska. [Visa den fullständiga listan över stöds langauges](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub kräver inte basmodeller och därför har stöd för flera tusen språk. Du kan migrera ett nyckelpar med språket stöds inte, men vi kommer endast utför migrering av dokument och projektet definitioner. Vi kommer inte att kunna skapa den nya modellen. Dessutom är kommer dessa dokument och projekt att visas som inaktiva för att indikera att de inte kan användas just nu. Om du lägger till stöd för dessa projekt och/eller dokument, blir de aktiva och trainable.

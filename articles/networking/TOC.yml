@@ -1,149 +1,142 @@
-items:
 - name: Översikt
   items:
-  - name: Om Azure-nätverk
-    href: networking-overview.md
-  - name: Arkitektur
-    items:
-    - name: Virtuella datacenter
-      href: /azure/architecture/vdc/networking-virtual-datacenter
-    - name: Asymmetrisk routning med flera nätverksvägar
-      href: ../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Skydda nätverkstrafik
-      href: ../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Topologi av typen hubb-ekrar
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - name: Metodtips för nätverkssäkerhet
-      href: ../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Virtuella nätverksinstallationer med hög tillgänglighet
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
-    - name: Kombinera metoder för belastningsutjämning
-      href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Haveriberedskap med hjälp av Azure DNS och Traffic Manager
-      href: disaster-recovery-dns-traffic-manager.md
-  - name: Planera och designa
-    items:
-    - name: Virtuella nätverk
-      href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Anslutning på flera platser – VPN
-      href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Anslutning på flera platser – dedikerad privat
-      href: ../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Interoperabilitet för serverdelsanslutning
+    - name: Om Azure-nätverk
+      href: networking-overview.md
+    - name: Arkitektur
       items:
-      - name: Prefix och testinstallation
-        href: connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json
-      - name: Konfiguration av testinstallation
-        href: connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json
-      - name: Kontrollplananalys
-        href: connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
-      - name: Dataplananalys
-        href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
-  - name: Begrepp
-    items:
-    - name: Virtuella nätverk
-      href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Utjämning av nätverksbelastning
-      href: ../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Belastningsutjämning för program
-      href: ../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: DNS
-      href: ../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: DNS-baserad trafikdistribution
-      href: ../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Anslut lokalt – VPN
-      href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Anslut lokalt – särskilda
-      href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Virtuella datacenter
+          href: /azure/architecture/vdc/networking-virtual-datacenter
+        - name: Asymmetrisk routning med flera nätverksvägar
+          href: ../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Skydda nätverkstrafik
+          href: ../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Topologi av typen hubb-ekrar
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke'
+        - name: Metodtips för nätverkssäkerhet
+          href: ../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Virtuella nätverksinstallationer med hög tillgänglighet
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha'
+        - name: Kombinera metoder för belastningsutjämning
+          href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Haveriberedskap med hjälp av Azure DNS och Traffic Manager
+          href: disaster-recovery-dns-traffic-manager.md
+    - name: Planera och designa
+      items:
+        - name: Virtuella nätverk
+          href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Anslutning på flera platser – VPN
+          href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Anslutning på flera platser – dedikerad privat
+          href: ../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Interoperabilitet för serverdelsanslutning
+          items:
+            - name: Prefix och testinstallation
+              href: connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json
+            - name: Konfiguration av testinstallation
+              href: connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json
+            - name: Kontrollplananalys
+              href: connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+            - name: Dataplananalys
+              href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Begrepp
+      items:
+        - name: Virtuella nätverk
+          href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Utjämning av nätverksbelastning
+          href: ../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Belastningsutjämning för program
+          href: ../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: DNS
+          href: ../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: DNS-baserad trafikdistribution
+          href: ../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Anslut lokalt – VPN
+          href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Anslut lokalt – särskilda
+          href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
 - name: Kom igång
   items:
-  - name: Skapa ditt första virtuella nätverk
-    href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Skapa ditt första virtuella nätverk
+      href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
 - name: Gör så här för att
   items:
-  - name: Internetanslutning
-    items:
-    - name: Offentliga servrar för belastningsutjämning av nätverk
-      href: ../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Offentliga servrar för belastningsutjämning av program
-      href: ../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Skydda webbprogram
-      href: ../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Distribuera trafik över platser
-      href: ../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json
-  - name: Interna anslutningar
-    items:
-    - name: Privata servrar för belastningsutjämning av nätverk
-      href: ../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Privata servrar för belastningsutjämning av program
-      href: ../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Anslut virtuella nätverk (samma plats)
-      href: ../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Anslut virtuella nätverk (olika platser)
-      href: ../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-  - name: Anslutning på flera platser
-    items:
-    - name: Skapa en S2S VPN-anslutning (IPsec/IKE)
-      href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Skapa en P2S VPN-anslutning (SSTP med certifikat)
-      href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Skapa en dedikerad privat anslutning (ExpressRoute)
-      href: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
-  - name: Hantering
-    items:
-    - name: Översikt över nätverksövervakning
-      href: network-monitoring-overview.md
-    - name: Kontrollera resursanvändningen mot Azure gränser
-      href: check-usage-against-limits.md
-    - name: Visa nätverkstopologi
-      href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
-  - name: Exempelskript
-    items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
-  - name: Självstudier
-    items:
-    - name: Belastningsutjämna virtuella datorer
-      href: ../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Anslut en dator till ett virtuellt nätverk
-      href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Internetanslutning
+      items:
+        - name: Offentliga servrar för belastningsutjämning av nätverk
+          href: ../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Offentliga servrar för belastningsutjämning av program
+          href: ../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Skydda webbprogram
+          href: ../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Distribuera trafik över platser
+          href: ../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Interna anslutningar
+      items:
+        - name: Privata servrar för belastningsutjämning av nätverk
+          href: ../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Privata servrar för belastningsutjämning av program
+          href: ../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Anslut virtuella nätverk (samma plats)
+          href: ../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Anslut virtuella nätverk (olika platser)
+          href: ../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Anslutning på flera platser
+      items:
+        - name: Skapa en S2S VPN-anslutning (IPsec/IKE)
+          href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Skapa en P2S VPN-anslutning (SSTP med certifikat)
+          href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Skapa en dedikerad privat anslutning (ExpressRoute)
+          href: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Hantering
+      items:
+        - name: Översikt över nätverksövervakning
+          href: network-monitoring-overview.md
+        - name: Kontrollera resursanvändningen mot Azure gränser
+          href: check-usage-against-limits.md
+        - name: Visa nätverkstopologi
+          href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Exempelskript
+      items:
+        - name: Azure CLI
+          href: cli-samples.md
+        - name: Azure PowerShell
+          href: powershell-samples.md
+    - name: Självstudier
+      items:
+        - name: Belastningsutjämna virtuella datorer
+          href: ../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json
+        - name: Anslut en dator till ett virtuellt nätverk
+          href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
 - name: Referens
   items:
-  - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/network
-  - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.network/
-  - name: .Net
-    href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: REST
-    href: https://msdn.microsoft.com/library/mt163658.aspx
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/network'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.network/'
+    - name: .Net
+      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview'
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/mt163658.aspx'
 - name: Resurser
   items:
-  - name: Skapa mallar
-    href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Community-mallar
-    href: https://azure.microsoft.com/resources/templates/
-  - name: Nätverksblogg
-    href: https://azure.microsoft.com/blog/topics/networking
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
-  - name: Videoklipp
-    href: https://azure.microsoft.com/resources/videos/index/?services=virtual-network
-ms.openlocfilehash: 294586f5a007cc76951d0f73ca49db9bcfa51134
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846984"
+    - name: Skapa mallar
+      href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Community-mallar
+      href: 'https://azure.microsoft.com/resources/templates/'
+    - name: Nätverksblogg
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=virtual-network'

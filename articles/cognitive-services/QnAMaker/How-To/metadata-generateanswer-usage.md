@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579418"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683624"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Hämta ett knowledge svar med GenerateAnswer API och metadata
 
@@ -46,7 +46,7 @@ Du kan använda GenerateAnswer-API: er i din robot eller ditt program för att f
 När du publicerar din kunskapsbas, antingen från den [QnA Maker portal](https://www.qnamaker.ai), eller med hjälp av den [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), du kan hämta information om din GenerateAnswer slutpunkt.
 
 Hämta information om din slutpunkt:
-1. Logga in på [ https://www.qnamaker.ai ](https://www.qnamaker.ai).
+1. Logga in på [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. I **min kunskapsbaser**, klicka på **Visa kod** för kunskapsbasen.
     ![Min kunskapsbaser](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Får tillgång till dina GenerateAnswer slutpunkt.
@@ -64,7 +64,7 @@ Du kan anropa GenerateAnswer med en HTTP POST-begäran. Exempel som visar hur du
 Den **URL för begäran** har följande format: 
 
 ```
-https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
 |Egenskapen för HTTP-begäran|Namn|Typ|Syfte|
@@ -84,7 +84,7 @@ JSON-texten har flera inställningar:
 |`top`|valfri|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|
 |`userId`|valfri|sträng|Ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.|
 |`isTest`|valfri|boolesk|Om värdet är true, returnerar resultat från `testkb` Search-index i stället för publicerade index.|
-|`strictFilters`|valfri|sträng|Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata.|
+|`strictFilters`|valfri|sträng|Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata. Använd `none` som visar svaret ska ha inga filter för filmetadata. |
 
 Det ser ut som ett exempel på JSON-texten:
 

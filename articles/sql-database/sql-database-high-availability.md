@@ -8,77 +8,73 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
-ms.author: jovanpop
+ms.author: sashan
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: fd6e383c2631a47daa7bf469c5bec59959453252
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.date: 04/17/2019
+ms.openlocfilehash: ec9f5aa8163ea9bb838b1a95ab8ad49233a72643
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616857"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698237"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 
-Azure SQL Database är en databas med hög tillgänglighet plattform som en tjänst som garanterar att din databas är igång och körs 99,99% av tiden, utan att behöva bekymra dig om underhåll och stillestånd. Det här är en fullständigt hanterad SQL Server Database Engine-processen i Azure-molnet som ser till att SQL Server-databasen är alltid uppgraderas/korrigerade utan att påverka din arbetsbelastning. När en instans är uppdaterad eller växlar över, avbrottstiden är vanligtvis inte märkbar om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Om tid att slutföra redundans är längre än 60 sekunder, ska du öppna ett supportärende. Azure SQL Database kan snabbt återställa även i de mest kritiska omständigheter som säkerställer att dina data alltid är tillgänglig.
+Målet med arkitektur med hög tillgänglighet i Azure SQL Database är att garanti för att databasen är igång och körs 99,99% av tiden, utan att behöva bekymra dig om effekten av underhåll och driftstopp. Azure hanterar automatiskt kritiska Underhåll aktiviteter, till exempel korrigeringar, säkerhetskopieringar, uppgraderingar för Windows och SQL såväl som oplanerade händelser, till exempel underliggande maskinvara, program- eller jobbavbrott.  När den underliggande SQL-instansen är uppdaterad eller växlar över, avbrottstiden är inte märkbar om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Azure SQL Database kan snabbt återställa även i de mest kritiska omständigheter som säkerställer att dina data alltid är tillgänglig.
 
-Azure-plattformen fullständigt hanterar varje Azure SQL-databas och garanterar att inga data går förlorade och en hög andel datatillgänglighet. Azure hanterar automatiskt korrigeringar, säkerhetskopieringar, replikering, felidentifiering, underliggande potentiella maskinvara, program- eller fel, distribuera felkorrigeringar, redundans, databasen uppgraderingar och andra underhållsuppgifter. SQL Server-tekniker har implementerat MES praxis att säkerställa att alla underhållsåtgärder för har utförts i mindre än 0,01% tidpunkten för livet databas. Den här arkitekturen är utformad för att se till att allokerade data aldrig går förlorad och att underhåll utförs utan att påverka arbetsbelastning. Det finns inga underhållsperioder eller stilleståndstider som bör kräver att du stoppar arbetsbelastningen när databasen har uppgraderats eller bibehålls. Inbyggd hög tillgänglighet i Azure SQL Database garanterar att databasen blir aldrig felkritisk systemdel i din programvaruarkitektur.
+Lösning för hög tillgänglighet är utformad för att se till att allokerade data aldrig går förlorad på grund av fel, att underhållsåtgärder inte påverkar din arbetsbelastning och att databasen inte är en enskild felpunkt i din programvaruarkitektur. Det finns inga underhållsperioder eller stilleståndstider som bör kräver att du stoppar arbetsbelastningen när databasen har uppgraderats eller bibehålls. 
 
-Azure SQL Database är baserad på SQL Server Database Engine-arkitektur som justeras för molnmiljön för att säkerställa 99,99% tillgänglighet även i fall av infrastrukturfel. Det finns två hög tillgänglighet arkitekturmodeller som används i Azure SQL Database (lagringsintensiva säkerställer tillgänglighet på 99,99%):
+Det finns två hög tillgänglighet arkitekturmodeller som används i Azure SQL Database:
 
-- Standard/generell användning service nivåmodellen som baseras på en åtskillnad mellan beräkning och lagring. Den här arkitekturen modellen förlitar sig på hög tillgänglighet och tillförlitlighet för lagringsnivån, men det kan ha vissa potentiella prestandaförsämring medan underhålls.
-- Premium/business kritiska-nivåmodellen som baseras på ett kluster med databasen sökmotor-processer. Den här arkitekturen modellen är beroende av ett faktum att det är alltid ett nodkvorum tillgängliga database engine och har minimal prestandapåverkan på din arbetsbelastning även under underhållsaktiviteter.
+- Standard tillgänglighet modell som baseras på en åtskillnad mellan beräkning och lagring.  Den förlitar sig på hög tillgänglighet och tillförlitlighet för Fjärrlagring nivån. Den här arkitekturen som mål budgetinriktade program som kan tolerera prestandan försämras under underhållsaktiviteter.
+- Premium tillgänglighet modell som baseras på ett kluster med databasen sökmotor-processer. Den är beroende av det faktum att det finns alltid ett nodkvorum tillgängliga database engine. Den här arkitekturen riktar sig mot verksamhetskritiska program med höga i/o-prestanda, höga transaktionsintervall och garantier minimal prestandapåverkan på din arbetsbelastning under underhållsaktiviteter.
 
-Azure uppgraderar och korrigerar underliggande operativsystemet, drivrutiner och SQL Server Database Engine transparent med minimalt driftstopp för slutanvändare. Azure SQL-databas som körs på den senaste stabila versionen av SQL Server Database Engine och Windows OS och de flesta användarna skulle inte lägger märke till att uppgraderingen utförs kontinuerligt.
+Azure SQL-databas som körs på den senaste stabila versionen av SQL Server Database Engine och Windows OS och de flesta användare skulle inte lägger märke till att uppgraderingar utförs kontinuerligt.
 
 ## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Basic, Standard och generell användning tjänsttillgänglighet nivå
 
-Standard tillgänglighet syftar på 99,99% serviceavtal (SLA) som tillämpas på tjänstnivåerna Basic, Standard och generell användning. Hög tillgänglighet i den här arkitekturen modellen uppnås genom uppdelning av beräknings- och lager och replikeringen av data på lagringsnivå.
+Dessa utnyttja arkitektur standard tillgänglighet. Följande bild visar fyra olika noder med avgränsas lagren för beräkning och lagring.
 
-Följande bild visar fyra noder i arkitekturen standardmodell med avgränsas lagren för beräkning och lagring.
+![Uppdelning av beräkning och lagring](media/sql-database-high-availability/general-purpose-service-tier.png)
 
-![Uppdelning av beräkning och lagring](media/sql-database-managed-instance/general-purpose-service-tier.png)
+Standard tillgänglighet modellen innehåller två nivåer:
 
-Det finns två nivåer i modellen standard tillgänglighet:
+- En tillståndslös beräkningslager som kör den `sqlserver.exe` bearbeta och innehåller bara tillfälligt och cachelagrade data på anslutna SSD, t.ex. TempDB, modelldatabasen, plancachen, buffertpoolen och kolumnen pool. Den här tillståndslösa noden drivs av Azure Service Fabric som initierar `sqlserver.exe`kontrollerar hälsotillståndet för noden och utför redundans till en annan nod vid behov.
+- En tillståndskänslig datalager med databasfilerna (.mdf/.ldf) som är lagrade i Azure Blob storage. Azure blob-lagring har inbyggda tillgänglighet och redundans-funktionen. Det garanterar att varje post i loggfilen eller sidan i datafilen kommer att bevaras även om SQL Server-processen kraschar.
 
-- En tillståndslös beräkningslager som kör den `sqlserver.exe` bearbeta och innehåller bara tillfälliga och cachelagrade data (till exempel – plancachen, buffertpoolen, kolumnen store pool). Den här tillståndslösa SQL Server-noden drivs av Azure Service Fabric som initierar processen, kontrollerar hälsotillståndet för noden och utför redundans till en annan plats om det behövs.
-- En tillståndskänslig datalager med databasfiler (.mdf/.ldf) som lagras i Azure Blob storage. Azure Blob storage garanterar att inga data går förlorade i poster som placeras i en databasfil. Azure Blob-lagring har inbyggda tillgänglighet/redundans som säkerställer att varje post i loggfilen eller sida i datafilen kommer att bevaras även om SQL Server-processen kraschar.
-
-När databasmotorn eller operativsystemet uppgraderas, en del av underliggande den infrastrukturen misslyckas eller om vissa viktiga problem har identifierats i Sql Server-processen, tillståndslösa SQL Server-processen Azure Service Fabric flyttas till en annan tillståndslösa compute-nod. Det finns en uppsättning ledig noder som väntar på att köra nya beräkningstjänst vid redundans för att minimera tiden för växling vid fel. Påverkas inte data i Azure Blob storage och data/loggfiler är kopplade till nyligen initierad SQL Server-processen. Den här processen garanterar 99,99% tillgänglighet, men det kan ha vissa prestandaeffekter på arbetsbelastning som körs på grund av övergångstid och faktumet den nya SQL Server-noden börjar med kalla cache.
+Varje gång databasmotorn eller operativsystemet uppgraderas eller ett fel upptäcks, flyttas Azure Service Fabric tillståndslösa SQL Server-processen till en annan tillståndslösa beräkningsnod med tillräckligt med kapacitet. Data i Azure Blob storage påverkas inte av övergången och data/loggfiler är kopplade till nyligen initierad SQL Server-processen. Den här processen garanterar 99,99% tillgänglighet, men hård belastning kan uppstå vissa prestandaförsämring under övergången eftersom den nya SQL Server-instansen som börjar med kalla cache.
 
 ## <a name="premium-and-business-critical-service-tier-availability"></a>Premium och affärskritisk nivå tjänsttillgänglighet
 
-Premium-tillgänglighet är aktiverat på Premium och affärskritisk tjänstnivåer i Azure SQL Database och den är utformad för intensiva arbetsbelastningar som inte tolererar en prestandaförsämring på grund av pågående underhållsåtgärder.
+Premium och affärskritisk service nivåerna utnyttja Premium tillgänglighet modellen, som integrerar beräkningsresurser (SQL Server Database Engine-processen) och lagring (lokalt anslutna SSD) på en enda nod. Hög tillgänglighet uppnås genom att replikera beräkning och lagring till ytterligare noder skapar tre till fyra - kluster med en nod. 
 
-I premium-modellen integreras Azure SQL-databas beräkning och lagring på en enda nod. Hög tillgänglighet i den här arkitekturen modellen uppnås genom att replikeringen av beräkning (SQL Server Database Engine-processen) och lagring (lokalt anslutna SSD) distribuerade i kluster med 4 noder, med hjälp av teknik och SQL Server [alltid på tillgänglighet Grupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
+![Kluster på database engine-noder](media/sql-database-high-availability/business-critical-service-tier.png)
 
-![Kluster på database engine-noder](media/sql-database-managed-instance/business-critical-service-tier.png)
+Underliggande databasfilerna (.mdf/.ldf) placeras på den anslutna SSD-lagringen för mycket låg latens i/o din arbetsbelastning. Hög tillgänglighet implementeras med hjälp av en teknik som liknar SQL Server [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klustret innehåller en enda primär replik (SQL Server-processen) som är tillgänglig för Läs-och kundens arbetsbelastningar och upp till tre sekundära repliker (beräkning och lagring) som innehåller kopior av data. Den primära noden ständigt skickar ändringarna till de sekundära noderna i ordning och garanterar att data har synkroniserats till minst en sekundär replik innan du genomför varje transaktion. Den här processen garanterar att om den primära noden kraschar av någon anledning, det finns alltid en helt synkroniserade nod att växla över till. Redundansen initieras av Azure Service Fabric. När den sekundära repliken blir den nya primära noden, skapas en annan sekundär replik för att säkerställa att klustret har tillräckligt många noder (kvorum set). När redundansväxlingen är klar omdirigeras automatiskt SQL-anslutningar till den nya primära noden.
 
-Både SQL database engine-processen och underliggande mdf/ldf-filerna är placerade på samma nod med lokalt anslutna SSD-lagring som ger låg fördröjning till din arbetsbelastning. Hög tillgänglighet har implementerats med hjälp av teknik och SQL Server [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Varje databas är ett kluster av databasnoder med en primär databas som är tillgänglig för kunds arbetsbelastning och en tre sekundära processer som innehåller kopior av data. Den primära noden skickar ständigt ändringarna till sekundära noder för att säkerställa att data är tillgängliga på sekundära repliker om den primära noden kraschar av någon anledning. Redundansväxling hanteras genom Azure Service Fabric – en sekundär replik blir den primära noden och en ny sekundär replik skapas för att se till att tillräckligt många noder i klustret. Arbetsbelastningen omdirigeras automatiskt till den nya primära noden.
-
-Dessutom affärskritisk kluster har inbyggd [Lässkalning](sql-database-read-scale-out.md) funktioner som ger kostnadsfri av debiterar inbyggda skrivskyddad nod som kan användas för att köra skrivskyddade frågor (till exempel rapporter) som inte påverkar prestanda i din primära arbetsbelastning.
+Som en extra förmån innehåller premium tillgänglighet modellen kan omdirigera skrivskyddade SQL-anslutningar till en av de sekundära replikerna. Den här funktionen kallas [Lässkalning](sql-database-read-scale-out.md). Det ger 100% ytterligare beräkningskapacitet utan extra kostnad att avlasta skrivskyddade åtgärder, till exempel analytiska arbetsbelastningar från den primära repliken.
 
 ## <a name="zone-redundant-configuration"></a>Zonen redundant konfiguration
 
-Som standard skapas kvorum-set-repliker för lokal lagringskonfigurationer i samma datacenter. Med introduktionen av [Azure Availability Zones](../availability-zones/az-overview.md), du har möjlighet att placera olika repliker i kvorum-aktiverar till olika tillgänglighetszoner i samma region. För att ta bort en enskild felpunkt dupliceras också ringen kontroll över flera zoner som tre gateway-ringar (GW). Routning till en specifik gateway-ring styrs av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Eftersom zonen redundant konfiguration inte skapar ytterligare databasredundans, användningen av Tillgänglighetszoner på tjänstnivåerna Premium och affärskritiska är tillgänglig utan extra kostnad. Genom att välja en zonen redundant databas, kan du din Premium- eller affärskritiska databaser elastiska till ett mycket större antal fel, inklusive oåterkalleligt datacenter-avbrott utan ändringar av programlogiken. Du kan också konvertera alla befintliga Premium eller affärskritiska databaser eller pooler till zonen redundant konfiguration.
+Som standard skapas kluster på noder för premium tillgänglighet modellen i samma datacenter. Med introduktionen av [Azure Availability Zones](../availability-zones/az-overview.md), SQL-databas kan placera olika repliker i klustret till olika tillgänglighetszoner i samma region. För att ta bort en enskild felpunkt dupliceras också ringen kontroll över flera zoner som tre gateway-ringar (GW). Routning till en specifik gateway-ring styrs av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Eftersom zonen redundant konfigurationen på tjänstnivåerna Premium och affärskritiska inte skapar ytterligare databasredundans, du kan aktivera den utan extra kostnad. Genom att välja en zonen redundant konfiguration kan du din Premium- eller affärskritiska databaser elastiska ett mycket större antal fel, inklusive oåterkalleligt datacenter-avbrott utan ändringar i programlogiken. Du kan också konvertera alla befintliga Premium eller affärskritiska databaser eller pooler till zonen redundant konfiguration.
 
-Eftersom zonen redundant kvorum-set har repliker i olika datacenter med vissa avståndet mellan dem, kan ökad Nätverksfördröjningen öka tid som commit och därmed påverka prestandan för vissa OLTP-arbetsbelastningar. Du kan alltid återgå till den enskilda zon konfigurationen genom att inaktivera inställningen zon redundans. Den här processen är en storlek på data igen och liknar regelbundna nivån tjänstuppdateringen. I slutet av processen har databas eller pool migrerats från en zonen redundant ring en enskild zon ringer eller vice versa.
+Eftersom zonen redundant databaserna har repliker i olika datacenter med vissa avståndet mellan dem, kan ökad Nätverksfördröjningen öka tid som commit och därmed påverka prestandan för vissa OLTP-arbetsbelastningar. Du kan alltid återgå till den enskilda zon konfigurationen genom att inaktivera inställningen zon redundans. Den här processen är en liknande nivå för regelbundna tjänsteuppgraderingen Onlineåtgärden. I slutet av processen har databas eller pool migrerats från en zonen redundant ring en enskild zon ringer eller vice versa.
 
 > [!IMPORTANT]
-> Zonen redundant databaser och elastiska pooler finns för närvarande stöds endast i Premium-tjänstnivån. Som standard, säkerhetskopior och granska poster lagras i RA-GRS-lagring och därför inte automatiskt tillgängliga i händelse av ett avbrott på hela zonen. 
+> Zonen redundant databaser och elastiska pooler finns för närvarande stöds endast på tjänstnivåerna Premium och affärskritisk. Som standard, säkerhetskopior och granska poster lagras i RA-GRS-lagring och därför inte automatiskt tillgängliga i händelse av ett avbrott på hela zonen. 
 
 Zonen redundant versionen av arkitektur med hög tillgänglighet är illustreras med följande diagram:
 
-![hög tillgänglighet arkitektur zonredundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
+![hög tillgänglighet arkitektur zonredundant](./media/sql-database-high-availability/zone-redundant-business-critical-service-tier.png)
 
 ## <a name="accelerated-database-recovery-adr"></a>Accelererad databasåterställning (ADR)
 
-[Accelerated Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) en ny SQL database engine-funktion som avsevärt förbättrar databastillgänglighet, särskilt om det förekommer långa körs transaktioner, genom att göra om SQL database engine återställningsprocessen. Regel för automatisk distribution är för närvarande tillgängligt för enskilda databaser, elastiska pooler och Azure SQL Data Warehouse.
+[Accelerated Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) körs en ny SQL database engine-funktion som avsevärt förbättrar databastillgänglighet, särskilt om det förekommer långa transaktioner. Regel för automatisk distribution är för närvarande tillgängligt för enskilda databaser, elastiska pooler och Azure SQL Data Warehouse.
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Azure SQL Database är djupt integrerad med Azure-plattformen och är mycket beroende på Service Fabric för identifiering och återställning på Azure Blob storage för att skydda data och Tillgänglighetszoner för högre feltolerans. På samma gång använder Azure SQL-databas fullständigt Always On Availability Group-teknik från SQL Server-box-produkt för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att fullständigt nytta av fördelarna med en blandad lagringsmodell och stöd för de mest krävande serviceavtal.
+Azure SQL Database har en inbyggd hög tillgänglighet-lösning som är helt integrerat med Azure-plattformen. Det beror på Service Fabric för identifiering och återställning, Azure Blob storage för att skydda data och Tillgänglighetszoner för högre feltolerans. Dessutom utnyttjar Azure SQL-databas Always On Availability Group-teknik från SQL Server för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att fullständigt utnyttja fördelarna med en blandad lagring modellera och stöd för de mest krävande serviceavtal.
 
 ## <a name="next-steps"></a>Nästa steg
 

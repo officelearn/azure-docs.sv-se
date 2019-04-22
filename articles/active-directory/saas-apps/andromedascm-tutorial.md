@@ -4,193 +4,199 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 7a142c86-ca0c-4915-b1d8-124c08c3e3d8
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/07/2018
+ms.topic: tutorial
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd26129a6ab8fb6082f9465be71eadcafa292db
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: b2f134e0d655f07fbe9589c96b6ff07c7ee23c92
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165205"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698373"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Självstudier: Azure Active Directory-integrering med Andromeda
 
 I den här självstudien får du lära dig hur du integrerar Andromeda med Azure Active Directory (AD Azure).
-
 Integrera Andromeda med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Andromeda.
-- Du kan aktivera användarna att automatiskt få loggat in på Andromeda (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till Andromeda.
+* Du kan aktivera användarna att vara automatiskt inloggad till Andromeda (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Andromeda, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Andromeda enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Andromeda enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Andromeda från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för Andromeda **SP och IDP** -initierad SSO
+* Har stöd för Andromeda **Just In Time** etableringen av användare
 
 ## <a name="adding-andromeda-from-the-gallery"></a>Att lägga till Andromeda från galleriet
+
 För att konfigurera integrering av Andromeda i Azure AD, som du behöver lägga till Andromeda från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Andromeda från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
 4. I sökrutan skriver **Andromeda**väljer **Andromeda** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Andromeda i resultatlistan](./media/andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
+    ![Andromeda i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Andromeda baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Andromeda är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Andromeda upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Andromeda baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Andromeda upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Andromeda, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare Andromeda](#create-an-andromeda-test-user)**  – du har en motsvarighet för Britta Simon i Andromeda som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera Andromeda Single Sign-On](#configure-andromeda-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa testanvändare Andromeda](#create-andromeda-test-user)**  – du har en motsvarighet för Britta Simon i Andromeda som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Andromeda program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Andromeda:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Andromeda:
 
-1. I Azure-portalen på den **Andromeda** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Andromeda** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/andromedascm-tutorial/tutorial_andromedascm_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **Andromeda domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Andromeda domän och URL: er med enkel inloggning för information](./media/andromedascm-tutorial/tutorial_andromedascm_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<tenantURL>.ngcxpress.com/`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+
+    ![Andromeda domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<tenantURL>.ngcxpress.com/`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Andromeda domän och URL: er med enkel inloggning för information](./media/andromedascm-tutorial/tutorial_andromedascm_url1.png)
+    ![Andromeda domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
-     
-    > [!NOTE] 
-    > Föregående värde är inte verkliga värdet. Du ska uppdatera värdet med faktiska identifierare, svars-URL och inloggnings-URL som beskrivs senare i självstudien.
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 
-5. Andromeda program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. Följande skärmbild visar ett exempel på detta.
-    
-    ![Konfigurera enkel inloggning attb](./media/andromedascm-tutorial/tutorial_andromedascm_attribute.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Du ska uppdatera värdet med faktiska identifierare, svars-URL och inloggnings-URL som beskrivs senare i självstudien.
+
+6. Andromeda program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+
+    ![image](common/edit-attribute.png)
 
     > [!Important]
     > Rensa namnområdesdefinitioner när du konfigurerar dessa.
-    
-6. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
-    
-    | Attributnamn | Attributvärde |
-    | -------------- | -------------------- |    
+
+7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
+
+    | Namn | Källattribut|
+    | ------ | -----------|
     | roll        | Ansvarar för att appen |
     | typ        | Apptyp |
-    | Företagets       | CompanyName    |
+    | company       | CompanyName |
 
     > [!NOTE]
     > Det finns inga verkliga värden. Dessa värden är endast för demo ändamål, Använd roller för din organisation.
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![Konfigurera enkel inloggning för Lägg till](./media/andromedascm-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Konfigurera enkel inloggning Addattb](./media/andromedascm-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    c. Lämna **Namnrymd** tom.
 
-    d. Lämna **Namnrymd** tom.
-    
-    e. Klicka på **OK**.
+    d. Välj Källa som **Attribut**.
 
-7. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    ![Länk för nedladdning av certifikatet](./media/andromedascm-tutorial/tutorial_andromedascm_certificate.png) 
+    f. Klicka på **Ok**
 
-8. Klicka på **spara** knappen.
+    g. Klicka på **Spara**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/andromedascm-tutorial/tutorial_general_400.png)
-    
-9. På den **Andromeda Configuration** klickar du på **konfigurera Andromeda** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+8. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Andromeda konfiguration](./media/andromedascm-tutorial/tutorial_andromedascm_configure.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-10. Inloggning till webbplatsen Andromeda företag som administratör.
+9. På den **konfigurera Andromeda** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-11. Överst på menyraden klickar du på **Admin** och gå till **Administration**.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-andromeda-single-sign-on"></a>Konfigurera Andromeda enkel inloggning
+
+1. Inloggning till webbplatsen Andromeda företag som administratör.
+
+2. Överst på menyraden klickar du på **Admin** och gå till **Administration**.
 
     ![Andromeda admin](./media/andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
-12. På vänster sida av verktygsfältet under **gränssnitt** klickar du på **SAML-konfiguration**.
+3. På vänster sida av verktygsfältet under **gränssnitt** klickar du på **SAML-konfiguration**.
 
     ![Andromeda saml](./media/andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
-13. På den **SAML-konfiguration** avsnittet sidan, utför följande steg:
+4. På den **SAML-konfiguration** avsnittet sidan, utför följande steg:
 
     ![Andromeda config](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
     a. Kontrollera **aktivera enkel inloggning med SAML**.
 
-    b. Under **Andromeda Information** avsnittet, kopiera den **SP identitet** värde och klistra in den i den **identifierare** textrutan av **Andromeda domän och URL: er** avsnittet.
+    b. Under **Andromeda Information** avsnittet, kopiera den **SP identitet** värde och klistra in den i den **identifierare** textrutan av **grundläggandeförSAML-konfiguration** avsnittet.
 
-    c. Kopiera den **konsument URL** värde och klistra in den i den **svars-URL** textrutan av **Andromeda domän och URL: er** avsnittet.
+    c. Kopiera den **konsument URL** värde och klistra in den i den **svars-URL** textrutan av **grundläggande SAML-konfiguration** avsnittet.
 
-    d. Kopiera den **inloggnings-URL** värde och klistra in den i den **inloggnings-URL** textrutan av **Andromeda domän och URL: er** avsnittet.
+    d. Kopiera den **inloggnings-URL** värde och klistra in den i den **inloggnings-URL** textrutan av **SAML grundkonfiguration** avsnittet.
 
     e. Under **SAML-identitetsprovider** Skriv namnet på din IDP: N.
 
-    f. I den **enkel inloggning på slutpunkten** textrutan klistra in värdet för **SAML inloggnings-tjänst-URL för enkel** som du har kopierat från Azure-portalen.
+    f. I den **enkel inloggning på slutpunkten** textrutan klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
 
     g. Öppna den hämtade **Base64-kodat certifikat** från Azure-portalen i anteckningar, klistra in den i den **X 509-certifikat** textrutan.
     
@@ -200,102 +206,70 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     i. Klicka på **Spara**.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/andromedascm-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/andromedascm-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/andromedascm-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/andromedascm-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-an-andromeda-test-user"></a>Skapa en Andromeda testanvändare
-
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Andromeda. Andromeda stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Andromeda om det inte finns ännu.
-
->[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [Andromeda klienten supportteamet](https://www.ngcsoftware.com/support/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Andromeda.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Andromeda**.
 
-**Om du vill tilldela Britta Simon Andromeda, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **Andromeda**.
 
-    ![Länken Andromeda i listan med program](./media/andromedascm-tutorial/tutorial_andromedascm_app.png)  
+    ![Länken Andromeda i listan med program](common/all-applications.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-andromeda-test-user"></a>Skapa Andromeda testanvändare
+
+I det här avsnittet skapas en användare som kallas Britta Simon i Andromeda. Andromeda stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Andromeda, skapas en ny efter autentisering. Om du vill skapa en användare manuellt kan du kontakta [Andromeda klienten supportteamet](https://www.ngcsoftware.com/support/).
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Andromeda i åtkomstpanelen du bör få automatiskt loggat in på ditt Andromeda program.
-Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Andromeda i åtkomstpanelen, bör det vara loggas in automatiskt till Andromeda som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/andromedascm-tutorial/tutorial_general_01.png
-[2]: ./media/andromedascm-tutorial/tutorial_general_02.png
-[3]: ./media/andromedascm-tutorial/tutorial_general_03.png
-[4]: ./media/andromedascm-tutorial/tutorial_general_04.png
-
-[100]: ./media/andromedascm-tutorial/tutorial_general_100.png
-
-[200]: ./media/andromedascm-tutorial/tutorial_general_200.png
-[201]: ./media/andromedascm-tutorial/tutorial_general_201.png
-[202]: ./media/andromedascm-tutorial/tutorial_general_202.png
-[203]: ./media/andromedascm-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

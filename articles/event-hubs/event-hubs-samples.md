@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7231b6a33c94dfe029f41f034c7674b386090d7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1c1198733fb56303d328ee97152442d25dbe945a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104058"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682405"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Git-databaser med exempel för Azure Event Hubs 
 Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). De här exemplen visar viktiga funktioner i [Azure Event Hubs](/azure/event-hubs/). Den här artikeln kategoriserar och beskriver exempel som är tillgängliga med länkar till var och en.
@@ -50,7 +50,7 @@ Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure
 Du kan hitta Python-exempel för Azure Event Hubs i den [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub-lagringsplatsen.
 
 ## <a name="nodejs-samples"></a>Node.js-exempel
-Du kan hitta Node.js-exempel för Azure Event Hubs i den [azure-event-hubs-nod](https://github.com/Azure/azure-event-hubs-node) GitHub-lagringsplatsen.
+Du kan hitta Node.js-exempel för Azure Event Hubs i den [azure sdk för js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) GitHub-lagringsplatsen.
 
 ## <a name="go-samples"></a>Go-kodexempel
 Du kan hitta Go-exempel för Azure Event Hubs i den [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub-lagringsplatsen.

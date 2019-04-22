@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 374ffc3a9d181d0596b5a4af1cd8082023e227fe
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498527"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698740"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -81,13 +81,14 @@ Ansluta till lokala datakällor från och Azure-AS-servern kräver en lokal gate
 |Salesforce-rapporter<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint<sup>[1](#tab1400b)</sup>     |   
+|SharePoint-lista<sup>[1](#tab1400b)</sup>, <sup> [2](#filesSP)</sup>     |   
 |Sybase-databas     |  
 |TXT-fil  |
 |XML-tabeller<sup>[1](#tab1400b)</sup>    |  
 ||
  
-<a name="tab1400b">1</a> tabell 1400 och högre modeller.
+<a name="tab1400b">1</a> -tabell 1400 och högre modeller.   
+<a name="filesSP">2</a> -filer i en lokal SharePoint stöds inte.
 
 ## <a name="specifying-a-different-provider"></a>Ange en annan leverantör
 

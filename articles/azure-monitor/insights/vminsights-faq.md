@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243781"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698288"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure Monitor för virtuella datorer (förhandsversion) vanliga frågor och svar
 Den här Microsoft-FAQ är en lista över vanliga frågor om Azure Monitor för virtuella datorer. Om du har ytterligare frågor om lösningen går du till den [diskussionsforum](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -100,7 +100,7 @@ I Azure Monitor för virtuella datorer kartan funktionen är baserad på Tjänst
 * Övervakade virtuella datorer ingår nu i noden klienten grupp och ringdiagrammet visar andelen av övervakade vs oövervakade virtuella datorer i gruppen.  Det kan också användas för att filtrera listan med datorer när gruppen har expanderats.
 * Övervakade virtuella datorer ingår nu i servernoder port grupp och ringdiagrammet visar andelen av övervakade vs oövervakade datorer i gruppen.  Det kan också användas för att filtrera listan med datorer när gruppen har expanderats.
 * Formatmallen kartan har uppdaterats för att vara mer konsekvent med Programkartan från Application insights.
-* Panelerna på klientsidan har uppdaterats, men har ännu inte den fullständiga uppsättningen integration's som hade stöd i Tjänstkarta - uppdateringshantering, ändringsspårning, säkerhet och support. 
+* Panelerna på klientsidan har uppdaterats och har inte den fullständiga uppsättningen integration's som hade stöd i Tjänstkarta - uppdateringshantering, ändringsspårning, säkerhet och support. 
 * Alternativet för att välja grupper och datorer för att mappa har uppdaterats och nu har stöd för prenumerationer, resursgrupper, skalningsuppsättningar för virtuella Azure-datorer och molntjänster.
 * Du kan inte skapa nya Service Map datorgrupper i Azure Monitor för virtuella datorer kartan funktion.  
 
@@ -125,6 +125,12 @@ När vi har gjort förbättringar kartan för att hantera stora och komplexa kon
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Varför ser nätverk diagrammet på fliken prestanda skiljer sig från nätverket diagrammet på översiktssidan för Azure VM?
 
 Översiktssidan för en Azure-dator visar diagram baserat på värdens mätning av aktiviteten i den Virtuella gästdatorn.  För nätverk diagrammet på Azure VM-översikt visas bara trafik som kommer att debiteras.  Detta inkluderar inte inter-vnet-trafik.  Data och diagram som visas för Azure Monitor för virtuella datorer är baserade på data från den Virtuella gästdatorn och nätverk-diagrammet visar alla TCP/IP-trafik som är inkommande och utgående trafik till den virtuella datorn, inklusive inter-vnet.
+
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Hur mäts svarstiden för data som lagras i VMConnection och visas på panelen för anslutning och arbetsböcker?
+
+Svarstiden är ett approximativt värde. Eftersom vi inte instrumenterar koden i programmet, vet vi inte riktigt när en begäran börjar och när svaret tas emot. Vi observerar istället data skickas på en anslutning och sedan data som skickas tillbaka för anslutningen. Vår agent håller reda på dessa skickar och tar emot och försöker att para ihop dem: en sekvens av skickar, följt av en serie tar emot tolkas som ett begäran/svar-par. Tiden mellan dessa åtgärder är svarstiden. Den innehåller svarstiden i nätverk och bearbetningstid för servern.
+
+Den här uppskattning fungerar bra för protokoll som är begäran/svar-baserade: en enskild begäran går för anslutningen och ett enda svar tas emot. Detta är fallet för HTTP (S) (utan pipelining), men inte uppfyllda för andra protokoll.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Har sina begränsningar om jag på Log Analytics kostnadsfria prisplanen?
 Om du har konfigurerat Azure Monitor med en Log Analytics-arbetsytan med den *kostnadsfri* prisnivå, Azure Monitor för virtuella datorer kartan funktionen stöder bara fem anslutna datorer är anslutna till arbetsytan. Om du har fem virtuella datorer är anslutna till en kostnadsfri arbetsyta kan du koppla från en av de virtuella datorerna och sedan ansluta en ny virtuell dator, den nya virtuella datorn inte övervakas och visas på sidan kartan.  

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4acecb9d15f820ba092f36d8fa3ea204658d2dba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276787"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684029"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Kunskapsbas livscykel i QnA Maker
 QnA Maker lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor. 
@@ -35,14 +35,23 @@ Kunskapsbasen är klart för testning när det fylls i med innehåll, redigering
 
 Den här tät loop av test-uppdatering fortsätter tills du är nöjd med resultaten. Lär dig hur du [testa kunskapsbasen](../How-To/test-knowledge-base.md).
 
-För stora KB-artiklar, Använd automatiska tester med den [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) och `isTest=true` frågesträngparametern vilka frågor i `test` kunskapsbas i stället för publicerade kunskapsbasen. 
+För stora KB-artiklar, Använd automatiska tester med den [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) och `isTest` body egenskapen vilka frågor i `test` kunskapsbas i stället för publicerade kunskapsbasen. 
+
+```json
+{
+  "question": "example question",
+  "top": 3,
+  "userId": "Default",
+  "isTest": true
+}
+```
 
 ## <a name="publish-the-knowledge-base"></a>Publicera kunskapsbasen
 När du är klar testar kunskapsbasen kan du publicera den. Publicera push-meddelanden den senaste versionen av testade kunskapsbasen till en dedikerad Azure Search index som representerar den **publicerade** knowledge base. Den skapar även en slutpunkt som kan anropas i ditt program eller en chattrobot.
 
 På så sätt kan alla ändringar som görs till testversion av kunskapsbasen påverkar inte den publicerade versionen som kanske bor i ett produktionsprogram.
 
-Var och en av dessa kunskapsbaser kan vara mål för att testa separat. Med API: erna kan du rikta testversion av kunskapsbas med `isTest=true` flaggan i generateAnswer-anropet.
+Var och en av dessa kunskapsbaser kan vara mål för att testa separat. Med API: erna kan du rikta testversion av kunskapsbas med `isTest` body-egenskapen i generateAnswer-anropet.
 
 Lär dig hur du [publicera din kunskapsbas](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

@@ -1,25 +1,25 @@
 ---
-title: Så konfigurerar du flera original i Azure Cosmos DB
+title: Så här konfigurerar du flera original i Azure Cosmos DB
 description: Lär dig hur du konfigurerar flera original i dina program i Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
-ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312148"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682278"
 ---
 # <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Så konfigurerar du flera original i dina program som använder Azure Cosmos DB
 
-För att kunna använda funktioner för flera original i dina program behöver  du aktivera skrivningar i flera regioner och konfigurera multihoming-funktion. Multihoming konfigureras genom att den aktuella regionen anges där programmet distribueras.
+Om du vill använda flera huvudservrar funktionen i ditt program måste aktivera skrivningar flera regioner och konfigurera funktionen med flera värdar i Azure Cosmos DB. Flera värdar konfigureras genom att ange den region där programmet har distribuerats.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-För att aktivera flera original i dina program anger du `UseMultipleWriteLocations` till sant och konfigurerar `SetCurrentLocation` till den region där programmet distribueras och Azure Cosmos DB replikeras.
+Aktivera multimaster i din program `UseMultipleWriteLocations` true och konfigurera `SetCurrentLocation` till den region där programmet distribueras och Azure Cosmos DB replikeras.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -43,7 +43,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>Java Async SDK
 
-För att aktivera flera original i dina program konfigurerar du `policy.setUsingMultipleWriteLocations(true)` till sant och konfigurerar `policy.setPreferredLocations` till den region där programmet distribueras, så replikeras Cosmos DB.
+Aktivera multimaster i din program `policy.setUsingMultipleWriteLocations(true)` och konfigurera `policy.setPreferredLocations` till den region där programmet distribueras och Cosmos DB replikeras.
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -89,14 +89,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om flera huvudservrar, global distribution och konsekvens i Azure Cosmos DB. Se följande artiklar:
+Därefter kan du läsa följande artiklar:
 
 * [Använda sessionstoken för att hantera konsekvens i Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-
 * [Konflikttyper och principer för konfliktlösning i Azure Cosmos DB](conflict-resolution-policies.md)
-
 * [Hög tillgänglighet i Azure Cosmos DB](high-availability.md)
-
+* [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md)
 * [Välja rätt konsekvensnivå i Azure Cosmos DB](consistency-levels-choosing.md)
-
 * [Kompromisser avseende konsekvens, tillgänglighet och prestanda i Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Tillgänglighet och prestanda kompromisser för olika konsekvensnivåer](consistency-levels-tradeoffs.md)
+* [Skala globalt etablerat dataflöde](scaling-throughput.md)
+* [Global distribution – under huven](global-dist-under-the-hood.md)

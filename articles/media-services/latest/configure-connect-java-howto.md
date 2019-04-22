@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 9177a1ae1f2939979d1f824c98b6018a83c2779f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: MT
+ms.openlocfilehash: 27a4a30dd0eb449726a99d02f2409632aa327567
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502270"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683434"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ansluta till Media Services v3-API – Java
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3 Java SDK med det tjänstens huvudnamn i metoden.
 
-I den här artikeln används Visual Studio Code för att utveckla en app.
+I den här artikeln används Visual Studio Code för att utveckla exempelappen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -54,9 +54,9 @@ När du kör kommandot, den `pom.xml`, `App.java`, och andra filer skapas.
 
 ## <a name="add-dependencies"></a>Lägga till beroenden
 
-1. Öppna mappen där det är ditt projekt i Visual Studio Code. 
-1. Leta upp och öppna den `pom.xml`. 
-1. Lägg till de nödvändiga beroendena. En av dem är [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar).
+1. Öppna mappen där det är ditt projekt i Visual Studio Code
+1. Leta upp och öppna den `pom.xml`
+1. Lägg till nödvändiga beroenden
 
     ```xml
     <dependency>
@@ -74,7 +74,6 @@ När du kör kommandot, den `pom.xml`, `App.java`, och andra filer skapas.
       <artifactId>azure-client-authentication</artifactId>
       <version>1.6.5</version>
     </dependency>
-    </dependency>
     ```
 
 ## <a name="connect-to-the-java-client"></a>Anslut till Java-klient
@@ -84,7 +83,7 @@ När du kör kommandot, den `pom.xml`, `App.java`, och andra filer skapas.
     ```java
     package com.azure.ams;
     ```
-2. Under instruktionen paketet lägger du till dessa import-satserna:
+1. Under instruktionen paketet lägger du till dessa import-satserna:
    
    ```java
    import com.microsoft.azure.AzureEnvironment;
@@ -92,7 +91,7 @@ När du kör kommandot, den `pom.xml`, `App.java`, och andra filer skapas.
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-2. Lägg till följande kod i main-metoden i klassen App för att skapa Active Directory-autentiseringsuppgifter som du behöver göra begäranden, och ange värden som du fick från [åtkomst API: er](access-api-cli-how-to.md):
+1. Lägg till följande kod i main-metoden i klassen App för att skapa Active Directory-autentiseringsuppgifter som du behöver göra begäranden, och ange värden som du fick från [åtkomst API: er](access-api-cli-how-to.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -115,16 +114,15 @@ När du kör kommandot, den `pom.xml`, `App.java`, och andra filer skapas.
       System.out.println(e.toString());
    }
    ```
+1. Kör appen.
 
 ## <a name="see-also"></a>Se också
 
 - [Media Services-koncepten](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
-- [Java-Referens](https://aka.ms/ams-v3-java-ref)
-- [https://search.maven.org/](https://search.maven.org/)
+- [Java-referens](https://aka.ms/ams-v3-java-ref)
+- [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu inkludera `import com.microsoft.azure.management.mediaservices.v2018_07_01.Asset;` och börja hantera enheter.<br/>
-Till exempel hämta alla resurser i ditt konto: `Observable<Asset> asyncAssets = 
-                    manager.assets().listAsync(groupId, accountId).last();`
+Du kan nu inkludera `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` och börja hantera enheter.

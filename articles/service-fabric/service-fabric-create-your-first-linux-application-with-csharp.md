@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 04163bea8f4c1247f42b65c35c2b82910e623bc9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661385"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699140"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "58661385"
 
 Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudien visar vi hur man skapar ett program för Linux och en tjänst med C# i .NET Core 2.0.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste [konfigurera Linux-utvecklingsmiljön](service-fabric-get-started-linux.md) innan du börjar. Om du använder Mac OS X kan du [konfigurera en Linux-miljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
 
 Du bör även installera [Service Fabric CLI](service-fabric-cli.md)
@@ -108,7 +108,7 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
 
 1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.
 
-   När det gäller MAC OS X måste du kopiera mappen myactorsvcTestClient till en plats i behållaren genom att köra följande kommandon för ytterligare.
+   När det gäller MAC OS X måste du kopiera mappen myactorsvcTestClient på samma plats i behållaren genom att köra följande ytterligare kommandon.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 926f067a355dcc1503e6160001cf4c47a444e1b0
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 971af370425f733649f0b8d0079baaf93cc72129
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580301"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681547"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Java-exempel
 
@@ -39,7 +39,7 @@ Den här artikeln innehåller:
 * [Skapa ett Spark-kluster med Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-java-sdk-samples/blob/master/management/src/main/java/com/microsoft/azure/hdinsight/samples/CreateHadoopClusterWithAdlsGen2Sample.java)
 * [Skapa ett Spark-kluster med Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-java-sdk-samples/blob/master/management/src/main/java/com/microsoft/azure/hdinsight/samples/CreateEspClusterSample.java)
 
-Du kan hämta de här exemplen för Java genom att klona den den [hdinsight-java-sdk-samples](https://github.com/Azure-Samples/hdinsight-java-sdk-samples) GitHub-lagringsplatsen.
+Du kan hämta de här exemplen för Java genom att klona den [hdinsight-java-sdk-samples](https://github.com/Azure-Samples/hdinsight-java-sdk-samples) GitHub-lagringsplatsen.
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 

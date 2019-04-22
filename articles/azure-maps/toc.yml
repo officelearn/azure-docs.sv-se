@@ -1,223 +1,216 @@
-items:
 - name: Dokumentation för Azure Maps
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure Maps?
-    href: about-azure-maps.md
+    - name: Vad är Azure Maps?
+      href: about-azure-maps.md
 - name: Snabbstarter
   items:
-  - name: Skapa en webbapp
-    href: quick-demo-map-app.md
+    - name: Skapa en webbapp
+      href: quick-demo-map-app.md
 - name: Självstudier
   items:
-  - name: Självstudier om webb-SDK
-    items:
-    - name: Söka efter plats av intresse
-      href: tutorial-search-location.md
-    - name: Dirigera mot ett mål
-      href: tutorial-route-location.md
-    - name: Flera vägar efter färdsätt
-      href: tutorial-prioritized-routes.md
-    - name: Skapa en butikslokaliserare
-      href: tutorial-create-store-locator.md
-  - name: Självstudier om REST-API
-    items:
-    - name: Konfigurera geofence
-      href: tutorial-geofence.md
+    - name: Självstudier om webb-SDK
+      items:
+        - name: Söka efter plats av intresse
+          href: tutorial-search-location.md
+        - name: Dirigera mot ett mål
+          href: tutorial-route-location.md
+        - name: Flera vägar efter färdsätt
+          href: tutorial-prioritized-routes.md
+        - name: Skapa en butikslokaliserare
+          href: tutorial-create-store-locator.md
+    - name: Självstudier om REST-API
+      items:
+        - name: Konfigurera geofence
+          href: tutorial-geofence.md
 - name: Begrepp
   items:
-  - name: Autentisering med Azure Maps
-    href: azure-maps-authentication.md
-  - name: Event Grid-integrering för Azure Maps
-    href: azure-maps-event-grid-integration.md
-  - name: Välja rätt prisnivå
-    href: choose-pricing-tier.md
-  - name: Täckning
-    items:
-    - name: Täckning för geokodning
-      href: geocoding-coverage.md
-    - name: Trafiktäckning
-      href: traffic-coverage.md
-    - name: Renderingstäckning
-      href: render-coverage.md
-    - name: Routningstäckning
-      href: routing-coverage.md
-  - name: Språk som stöds
-    href: supported-languages.md
-  - name: Mappningsformat som stöds
-    href: supported-map-styles.md
-  - name: Webbläsare som stöds av webb-SDK
-    href: supported-browsers.md
-  - name: Zoomningsnivåer och rutnät
-    href: zoom-levels-and-tile-grid.md
+    - name: Autentisering med Azure Maps
+      href: azure-maps-authentication.md
+    - name: Event Grid-integrering för Azure Maps
+      href: azure-maps-event-grid-integration.md
+    - name: Välja rätt prisnivå
+      href: choose-pricing-tier.md
+    - name: Täckning
+      items:
+        - name: Täckning för geokodning
+          href: geocoding-coverage.md
+        - name: Trafiktäckning
+          href: traffic-coverage.md
+        - name: Renderingstäckning
+          href: render-coverage.md
+        - name: Routningstäckning
+          href: routing-coverage.md
+    - name: Språk som stöds
+      href: supported-languages.md
+    - name: Mappningsformat som stöds
+      href: supported-map-styles.md
+    - name: Webbläsare som stöds av webb-SDK
+      href: supported-browsers.md
+    - name: Zoomningsnivåer och rutnät
+      href: zoom-levels-and-tile-grid.md
 - name: Instruktionsguider
   items:
-  - name: Hantera Maps-konton
-    items:
-    - name: Hantera konton
-      href: how-to-manage-account-keys.md
-    - name: Hantera autentisering
-      href: how-to-manage-authentication.md
-    - name: Hantera prisnivå
-      href: how-to-manage-pricing-tier.md
-    - name: Visa användningsstatistik
-      href: how-to-view-api-usage.md
-  - name: Hämta mappningsdata från REST API:er
-    items:
-    - name: Söka efter en adress
-      href: how-to-search-for-address.md
-    - name: Metodtips för sökning
-      href: how-to-use-best-practices-for-search.md
-    - name: Rendera anpassade data på statisk karta
-      href: how-to-render-custom-data.md
-  - name: Utveckla med webb-SDK
-    items:
-    - name: Kartkontroll
+    - name: Hantera Maps-konton
       items:
-      - name: Använda kartkontrollen
-        href: how-to-use-map-control.md
-      - name: Skapa en karta
-        href: map-create.md
-      - name: Välj ett kartformat
-        href: choose-map-style.md
-      - name: Lägga till kontroller till kartan
-        href: map-add-controls.md
-      - name: Lägga till ett symbolskikt
-        href: map-add-pin.md
-      - name: Lägg till ett popup-fönster
-        href: map-add-popup.md
-      - name: Lägga till ett bubbelskikt
-        href: map-add-bubble-layer.md
-      - name: Lägga till former
-        href: map-add-shape.md
-      - name: Lägga till ett heatmapskikt
-        href: map-add-heat-map-layer.md
-      - name: Klusterpunktdata
-        href: clustering-point-data-web-sdk.md
-      - name: Använda datadrivna formatuttryck
-        href: data-driven-style-expressions-web-sdk.md
-      - name: Lägga till en bild som överlägg
-        href: map-add-image-layer.md
-      - name: Lägga till panelskikt
-        href: map-add-tile-layer.md
-      - name: HTML-markeringar
-        href: map-add-custom-html.md
-      - name: Visa trafik
-        href: map-show-traffic.md
-      - name: Interagera med mushändelser
-        href: map-events.md
-      - name: Göra programmet tillgängligt
-        href: map-accessibility.md
-    - name: Tjänstmodul
+        - name: Hantera konton
+          href: how-to-manage-account-keys.md
+        - name: Hantera autentisering
+          href: how-to-manage-authentication.md
+        - name: Hantera prisnivå
+          href: how-to-manage-pricing-tier.md
+        - name: Visa användningsstatistik
+          href: how-to-view-api-usage.md
+    - name: 'Hämta mappningsdata från REST API:er'
       items:
-      - name: Använda tjänstmodulen
-        href: how-to-use-services-module.md
-      - name: Visa sökresultat
-        href: map-search-location.md
-      - name: Hämta information från en koordinat
-        href: map-get-information-from-coordinate.md
-      - name: Visa anvisningar från A till B
-        href: map-route.md
-  - name: Utveckla med Android SDK
-    items:
-    - name: Använda Android-kartkontroll
-      href: how-to-use-android-map-control-library.md
+        - name: Söka efter en adress
+          href: how-to-search-for-address.md
+        - name: Metodtips för sökning
+          href: how-to-use-best-practices-for-search.md
+        - name: Rendera anpassade data på statisk karta
+          href: how-to-render-custom-data.md
+    - name: Utveckla med webb-SDK
+      items:
+        - name: Kartkontroll
+          items:
+            - name: Använda kartkontrollen
+              href: how-to-use-map-control.md
+            - name: Skapa en karta
+              href: map-create.md
+            - name: Välj ett kartformat
+              href: choose-map-style.md
+            - name: Lägga till kontroller till kartan
+              href: map-add-controls.md
+            - name: Lägga till ett symbolskikt
+              href: map-add-pin.md
+            - name: Lägg till ett popup-fönster
+              href: map-add-popup.md
+            - name: Lägga till ett bubbelskikt
+              href: map-add-bubble-layer.md
+            - name: Lägga till former
+              href: map-add-shape.md
+            - name: Lägga till ett heatmapskikt
+              href: map-add-heat-map-layer.md
+            - name: Klusterpunktdata
+              href: clustering-point-data-web-sdk.md
+            - name: Använda datadrivna formatuttryck
+              href: data-driven-style-expressions-web-sdk.md
+            - name: Lägga till en bild som överlägg
+              href: map-add-image-layer.md
+            - name: Lägga till panelskikt
+              href: map-add-tile-layer.md
+            - name: HTML-markeringar
+              href: map-add-custom-html.md
+            - name: Visa trafik
+              href: map-show-traffic.md
+            - name: Interagera med mushändelser
+              href: map-events.md
+            - name: Göra programmet tillgängligt
+              href: map-accessibility.md
+        - name: Tjänstmodul
+          items:
+            - name: Använda tjänstmodulen
+              href: how-to-use-services-module.md
+            - name: Visa sökresultat
+              href: map-search-location.md
+            - name: Hämta information från en koordinat
+              href: map-get-information-from-coordinate.md
+            - name: Visa anvisningar från A till B
+              href: map-route.md
+    - name: Utveckla med Android SDK
+      items:
+        - name: Använda Android-kartkontroll
+          href: how-to-use-android-map-control-library.md
 - name: Referens
   items:
-  - name: API- och parametertillägg
-    items:
-    - name: Förbrukningsmodell för fordon
-      href: consumption-model.md
-    - name: Utöka GeoJSON-format
-      href: extend-geojson.md
-    - name: GeoJSON-format för Geofence
-      href: geofence-geojson.md
-    - name: Sökkategorier som stöds
-      href: supported-search-categories.md
-  - name: REST
-    items:
-    - name: Datatjänst
-      href: https://docs.microsoft.com/rest/api/maps/data
-    - name: Geoplatstjänst
-      href: https://docs.microsoft.com/rest/api/maps/geolocation
-    - name: Renderingstjänst
-      href: https://docs.microsoft.com/rest/api/maps/render
-    - name: Routningstjänst
-      href: https://docs.microsoft.com/rest/api/maps/route
-    - name: Söktjänst
-      href: https://docs.microsoft.com/rest/api/maps/search
-    - name: Rumslig tjänst
-      href: https://docs.microsoft.com/rest/api/maps/spatial
-    - name: Tidszonstjänst
-      href: https://docs.microsoft.com/rest/api/maps/timezone
-    - name: Trafiktjänst
-      href: https://docs.microsoft.com/rest/api/maps/traffic
-    - name: Kontohantering för Maps
-      href: https://docs.microsoft.com/rest/api/maps-management
-  - name: JavaScript
-    items:
-    - name: Kartkontroll
-      href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
-    - name: Tjänstmodul
-      href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.maps/accounts
+    - name: API- och parametertillägg
+      items:
+        - name: Förbrukningsmodell för fordon
+          href: consumption-model.md
+        - name: Utöka GeoJSON-format
+          href: extend-geojson.md
+        - name: GeoJSON-format för Geofence
+          href: geofence-geojson.md
+        - name: Sökkategorier som stöds
+          href: supported-search-categories.md
+    - name: REST
+      items:
+        - name: Datatjänst
+          href: 'https://docs.microsoft.com/rest/api/maps/data'
+        - name: Geoplatstjänst
+          href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: Renderingstjänst
+          href: 'https://docs.microsoft.com/rest/api/maps/render'
+        - name: Routningstjänst
+          href: 'https://docs.microsoft.com/rest/api/maps/route'
+        - name: Söktjänst
+          href: 'https://docs.microsoft.com/rest/api/maps/search'
+        - name: Rumslig tjänst
+          href: 'https://docs.microsoft.com/rest/api/maps/spatial'
+        - name: Tidszonstjänst
+          href: 'https://docs.microsoft.com/rest/api/maps/timezone'
+        - name: Trafiktjänst
+          href: 'https://docs.microsoft.com/rest/api/maps/traffic'
+        - name: Kontohantering för Maps
+          href: 'https://docs.microsoft.com/rest/api/maps-management'
+    - name: JavaScript
+      items:
+        - name: Kartkontroll
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: Tjänstmodul
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.maps/accounts
 - name: Resurser
   items:
-  - name: Användningsvillkor för Azure Maps
-    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
-  - name: Azure Maps-prissättning
-    href: https://azure.microsoft.com/pricing/details/azure-maps
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-maps
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: Azure Maps-videor
-    href: https://aka.ms/AzureMapsVideos
-  - name: Azure Maps-ordlista
-    href: glossary.md
-  - name: Tjänstuppdateringar
-    href: https://azure.microsoft.com/updates
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Tekniska fallstudier
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Azure Maps på IoT School
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+    - name: Användningsvillkor för Azure Maps
+      href: 'https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31'
+    - name: Azure Maps-prissättning
+      href: 'https://azure.microsoft.com/pricing/details/azure-maps'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-maps'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
+    - name: Azure Maps-videor
+      href: 'https://aka.ms/AzureMapsVideos'
+    - name: Azure Maps-ordlista
+      href: glossary.md
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates'
+    - name: Azure IoT Developer Center
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Tekniska fallstudier
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Azure Maps på IoT School
+      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
 - name: Relaterat
   items:
-  - name: Lösningar
-    items:
-    - name: IoT-lösningsacceleratorer
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Plattformstjänster
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: Kartor
-      href: /azure/azure-maps
-    - name: Tjänst-SDK:er
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: IoT Edge
-    items:
+    - name: Lösningar
+      items:
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: Kartor
+          href: /azure/azure-maps
+        - name: 'Tjänst-SDK:er'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
     - name: IoT Edge
-      href: /azure/iot-edge
-    - name: SDK:er för IoT-enheter
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: 94e02b599bffd24e9c9aa65560e4a74bd05ecea6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263609"
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

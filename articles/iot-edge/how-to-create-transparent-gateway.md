@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482954"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699021"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway
 
@@ -260,6 +260,18 @@ Du kan kontrollera vilka moduler som körs på en enhet med kommandot `iotedge l
    ```
 
 6. I den **granska mallen** väljer **skicka**.
+
+## <a name="open-ports-on-gateway-device"></a>Öppna portar på gateway-enhet
+
+Standard IoT Edge-enheter behöver inte inkommande anslutningar till funktionen, eftersom all kommunikation med IoT Hub görs via utgående anslutningar. Gateway-enheter är dock olika eftersom de behöver för att kunna ta emot meddelanden från sina underordnade enheter.
+
+Minst en av IoT Edge-hubben protokoll som stöds måste vara öppna för inkommande trafik från underordnade enheter för en gatewayscenariot ska fungera. Stöds portocols är MQTT-, AMQP- och HTTPS.
+
+| Port | Protokoll |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Skicka meddelanden från underordnade enheter
 IoT Edge-körningen kan dirigera meddelanden som skickas från underordnade enheter precis som meddelanden som skickas av moduler. På så sätt kan du utföra analyser i en modul som körs på gatewayen innan du skickar data till molnet. 

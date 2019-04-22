@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 126eee1664d810850f63e702abe78b241649d665
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438826"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683741"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Rapportkvarhållningsregler i Azure Active Directory
 
@@ -68,8 +68,8 @@ För säkerhets-signaler, samling processen startar när du anmäla sig till anv
 
 | Rapport                 | Azure AD Kostnadsfri | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| Kataloggranskning        | 7 dagar        |  7 dagar        | 30 dagar             | 30 dagar             |
-| Inloggningsaktivitet       | Gäller inte           |  Gäller inte           | 30 dagar             | 30 dagar             |
+| Granskningsloggar             | 7 dagar        |  7 dagar        | 30 dagar             | 30 dagar             |
+| Inloggningar               | Gäller inte           |  Gäller inte           | 30 dagar             | 30 dagar             |
 | Azure MFA-användning        | 30 dagar       |  30 dagar       | 30 dagar             | 30 dagar             |
 
 Du kan behålla aktivitetsdata gransknings- och logga in under längre tid än loggperioden ovan genom att skicka det till ett Azure storage-konto med Azure Monitor. Mer information finns i [Arkiv Azure AD-loggar till ett Azure storage-konto](quickstart-azure-monitor-route-logs-to-storage-account.md).

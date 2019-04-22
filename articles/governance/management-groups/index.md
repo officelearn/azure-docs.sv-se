@@ -1,12 +1,18 @@
 ---
 title: Ordna dina resurser med hanteringsgrupper i Azure – Azure Governance
-description: 'Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.'
+description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
+ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699397"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
 
@@ -37,11 +43,11 @@ Genom att tilldela till hanteringsgruppen kan du ge användarna åtkomst till al
 ## <a name="root-management-group-for-each-directory"></a>En rothanteringsgrupp för varje katalog
 
 Varje katalog tilldelas en hanteringsgrupp på översta nivån som kallas för rothanteringsgruppen.
-Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med hjälp av rothanteringsgruppen kan globala principer och RBAC-tilldelningar tillämpas på katalognivå. [Den globala administratören för Azure Active Directory måste utöka sin behörighet](../../role-based-access-control/elevate-access-global-admin.md) först för att bli rotgruppens ägare. När administratören är ägare av gruppen kan personen hantera hierarkin och tilldela önskad RBAC-roll till andra kataloganvändare eller grupper.
+Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med hjälp av rothanteringsgruppen kan globala principer och RBAC-tilldelningar tillämpas på katalognivå. [Den globala administratören för Azure Active Directory måste först utöka sin behörighet](../../role-based-access-control/elevate-access-global-admin.md) till rollen Administratör för användaråtkomst för rotgruppen. När behörigheten har utökats kan administratören hantera hierarkin och tilldela önskad RBAC-roll till andra kataloganvändare eller grupper. Som administratör kan du utse ditt eget konto till ägare av rothanteringsgruppen.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Viktiga fakta om rothanteringsgruppen
 
-- Rothanteringsgruppens namn och ID anges som standard. Visningsnamnet kan uppdateras när som helst på Microsoft Azure-portalen.
+- Rothanteringsgruppens namn och ID anges som standard. Visningsnamnet kan uppdateras när som helst på Microsoft Azure-portalen. Om du vill [ändra namnet](manage.md#change-the-name-of-a-management-group) måste ditt konto ha tilldelats rollen Ägare eller Deltagare i rothanteringsgruppen.
   - Namnet blir ”Rotgrupp för klienter”.
   - ID:t är samma som Azure Active Directory-ID:t.
 - Rothanteringsgruppen kan inte flyttas eller tas bort, till skillnad från andra hanteringsgrupper.  
@@ -63,7 +69,7 @@ När användarna börjar använda hanteringsgrupper måste de genomföra en init
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problem med att visa alla prenumerationer
 
-Vissa kataloger som började använda hanteringsgrupper tidigt under förhandsgranskningen, innan den 25 juni 2018, märkte av ett problem där alla prenumerationer inte fanns i hierarkin.  Processerna för att lägga till prenumerationer i hierarkin implementerades efter det att en roll- eller principtilldelning utfördes på katalogens rothanteringsgrupp.
+Vissa kataloger som började använda hanteringsgrupper tidigt under förhandsgranskningen, innan den 25 juni 2018, märkte av ett problem där alla prenumerationer inte fanns i hierarkin. Processen för att lägga till prenumerationer i hierarkin implementerades efter det att en roll- eller principtilldelning utfördes på katalogens rothanteringsgrupp. 
 
 ### <a name="how-to-resolve-the-issue"></a>Så här löser du problemet
 

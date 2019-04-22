@@ -3,17 +3,17 @@ title: Hantera säkerhetskopior med rollbaserad åtkomstkontroll i Azure.
 description: Använda rollbaserad åtkomstkontroll för att hantera åtkomst till åtgärder för hantering av säkerhetskopiering i Recovery Services-valvet.
 services: backup
 author: trinadhk
-manager: shreeshd
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 04/17/2019
 ms.author: trinadhk
-ms.openlocfilehash: e86595ceb940ebcfa702823e9c9b8ad3ef50bb45
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674641"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682533"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använda rollbaserad åtkomstkontroll för att hantera Azure Backup-återställningspunkter
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
@@ -21,7 +21,7 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
 > [!IMPORTANT]
 > Roller som tillhandahålls av Azure Backup är begränsade till åtgärder som kan utföras i Azure portal eller via REST-API eller PowerShell eller CLI-cmdletar för Recovery Services-valv. Åtgärder som utförs i Azure backup Agent-klientens användargränssnitt eller System center Data Protection Manager UI eller Användargränssnittet för Azure Backup Server är alldeles av dessa roller.
 
-Azure Backup innehåller 3 inbyggda roller som styr säkerhetskopiering hanteringsåtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
+Azure Backup innehåller tre inbyggda roller som styr säkerhetskopiering hanteringsåtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
 
 * [Säkerhetskopiera deltagare](../role-based-access-control/built-in-roles.md#backup-contributor) – den här rollen har alla behörigheter att skapa och hantera säkerhetskopia, förutom att skapa Recovery Services-valvet och ge åtkomst till andra. Anta att den här rollen som administratör för hantering av säkerhetskopiering som kan göra varje åtgärd för hantering av säkerhetskopiering.
 * [Säkerhetskopiera operatorn](../role-based-access-control/built-in-roles.md#backup-operator) – den här rollen har behörighet att allt en deltagare utom ta bort säkerhetskopiering och hantera principer för säkerhetskopiering. Den här rollen motsvarar deltagare, förutom den inte kan utföra skadliga åtgärder som Avbryt säkerhetskopiering med ta bort data eller ta bort registreringen av lokala resurser.
@@ -60,7 +60,24 @@ Följande tabell visar de hanteringsåtgärder för säkerhetskopiering och mots
 | Ta bort registrerade lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 
 > [!IMPORTANT]
-> Om du anger VM deltagare i ett omfång för VM-resurs och klicka på säkerhetskopiering som en del av inställningarna för virtuella datorer, öppnas ”Aktivera säkerhetskopiering” skärmen även om den virtuella datorn redan har säkerhetskopierats som anropet för att kontrollera status för säkerhetskopiering fungerar endast på prenumerationsnivån. För att undvika detta kan antingen går du till valvet och öppna vyn säkerhetskopieringsobjekt för den virtuella datorn eller ange VM-deltagarroll på prenumerationsnivå. 
+> Om du anger VM deltagare i ett omfång för VM-resurs och klicka på säkerhetskopiering som en del av inställningarna för virtuella datorer, öppnas ”Aktivera säkerhetskopiering” skärmen även om den virtuella datorn redan har säkerhetskopierats som anropet för att kontrollera status för säkerhetskopiering fungerar endast på prenumerationsnivån. För att undvika detta kan antingen går du till valvet och öppna vyn säkerhetskopieringsobjekt för den virtuella datorn eller ange VM-deltagarroll på prenumerationsnivå.
+
+## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Minimiroll krav på Azure säkerhetskopiering av filresurser
+Följande tabell visar de hanteringsåtgärder för säkerhetskopiering och motsvarande rollen som krävs för att utföra åtgärden för Azure File-resursen.
+
+| Hanteringsåtgärd | Rollen krävs | Resurser |
+| --- | --- | --- |
+| Aktivera säkerhetskopiering av Azure-filresurser | Säkerhetskopieringsmedarbetare | Recovery Services-valv |
+| | Lagringskonto | Deltagare resursen för lagringskonton |
+| Säkerhetskopiering på begäran för virtuell dator | Säkerhetskopieringsoperatör | Recovery Services-valv |
+| Återställa filresursen | Säkerhetskopieringsoperatör | Recovery Services-valv |
+| | Lagringskontodeltagare | Lagringskontoresurserna där återställning källa och mål-filresurser finns |
+| Återställa enskilda filer | Säkerhetskopieringsoperatör | Recovery Services-valv |
+| | Lagringskontodeltagare |   Lagringskontoresurserna där återställning källa och mål-filresurser finns |
+| Sluta skydda | Säkerhetskopieringsmedarbetare | Recovery Services-valv |      
+| Avregistrera lagringskontot från valvet |   Säkerhetskopieringsmedarbetare | Recovery Services-valv |
+| | Lagringskontodeltagare | Resursen för lagringskonton|
+
 
 ## <a name="next-steps"></a>Nästa steg
 * [Rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md): Kom igång med RBAC i Azure-portalen.

@@ -17,20 +17,20 @@ ms.date: 03/19/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd3d5a19e861bd738f3c618610aadb77da30b384
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520351"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698970"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Instruktioner: Konfigurera registreringsprincip för multi-Factor authentication
 
-Azure AD Identity Protection hjälper dig att hantera lansering av registrering för multifaktorautentisering (MFA) genom att konfigurera en princip. Den här artikeln förklarar vad principen kan användas för ett så här konfigurerar du den.
+Azure AD Identity Protection hjälper dig att hantera lansering av registrering för multifaktorautentisering (MFA) genom att konfigurera en princip för att kräva MFA-registrering. Den här artikeln förklarar vad principen kan användas för ett så här konfigurerar du den.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Vad är registreringsprincip för multi-Factor authentication?
 
-Azure Multi-Factor authentication är en metod för att verifiera vem du är som kräver användning av mer än bara ett användarnamn och lösenord. Det ger ett andra säkerhetslager till användarinloggningar och transaktioner.  
+Azure Multi-Factor authentication är en metod för att verifiera vem du är som kräver användning av mer än bara ett användarnamn och lösenord. Det ger ett andra säkerhetslager till användarinloggningar och transaktioner. För att användare ska kunna svara på förfrågningar för MFA, måste de först registrera för MFA. 
 
 Vi rekommenderar att du Kräv Azure Multi-Factor authentication för användarinloggningar eftersom den:
 
@@ -39,7 +39,7 @@ Vi rekommenderar att du Kräv Azure Multi-Factor authentication för användarin
 - Spelar en viktig roll i att förbereda din organisation för att skydda och återställa från kontot kompromisser
 
 
-Mer information finns i [vad är Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
+Mer information om MFA finns i [vad är Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 
 
 ## <a name="how-do-i-access-the-mfa-registration-policy"></a>Hur kommer jag åt MFA-registreringsprincip?
@@ -53,13 +53,13 @@ MFA-registreringsprincip finns i den **konfigurera** avsnittet på den [Azure AD
 
 ## <a name="policy-settings"></a>Principinställningar
 
-När du konfigurerar principen inloggningsrisk, måste du ange:
+När du konfigurerar MFA-registreringsprincip, måste du ange:
 
 - Användare och grupper som principen gäller för:
 
     ![Användare och grupper](./media/howto-mfa-policy/11.png)
 
-- Vilken typ av åtkomst som du vill ska tillämpas:  
+- Den kontroll som du vill framtvinga krav på MFA-registrering:  
 
     ![Access](./media/howto-mfa-policy/12.png)
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93c22475a4043d1cbf5cb0ad7f9b134e8ac717cc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: f41d51981c4da9ee089282da8b8d4cc5f37a4aed
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298423"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682992"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure Portal
 
@@ -61,7 +61,7 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 Om du vill visa en lista över avbildningarna i registret navigerar du till registret i portalen och väljer **Centrallager**. Välj sedan det lager du skapade med `docker push`.
 
-I det här exemplet har vi valt lagret **busybox**, och vi kan se avbildningen som är taggad med `v1` under **TAGGAR**.
+I det här exemplet väljer vi den **hello-world** databasen, och vi kan se den `v1`-taggade avbildningen under **taggar**.
 
 ![Visa lista över containeravbildningar i Azure-portalen][qs-portal-09]
 

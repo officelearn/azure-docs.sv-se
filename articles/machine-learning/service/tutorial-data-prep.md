@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: cd77dcc7202f61a801d29d42f61815c8ce7c2067
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496222"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698365"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
@@ -84,7 +84,7 @@ All konfiguration under utvecklingsarbetet kan utföras i en Python-anteckningsb
 Använd följande för att installera nödvändiga paket om du inte redan har dem.
 
 ```shell
-pip install "azureml-dataprep>=1.1.0,<1.2.0"
+pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
 Importera SDK:n.
@@ -157,8 +157,7 @@ green_df.head(5)
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th: endast-för-type {lodrät justering: mitt;}
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -686,8 +685,7 @@ time_split_df.head(5)
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th: endast-för-type {lodrät justering: mitt;}
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -881,8 +879,7 @@ transformed_features_df.head(5)
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th: endast-för-type {lodrät justering: mitt;}
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -1112,4 +1109,4 @@ I del ett av den här självstudien har du:
 Nu är du redo att använda träningsdata i del två av självstudien:
 
 > [!div class="nextstepaction"]
-> [Självstudie (delen): Träna regressionsmodellen](tutorial-auto-train-models.md)
+> [Självstudie (del två): Träna regressionsmodellen](tutorial-auto-train-models.md)

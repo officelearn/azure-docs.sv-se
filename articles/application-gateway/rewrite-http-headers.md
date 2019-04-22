@@ -7,21 +7,23 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: absha
-ms.openlocfilehash: efb7b46919066beb1382d70b676a2115ea0fb8ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544160"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682688"
 ---
-# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Skriv om HTTP-huvuden med Application Gateway (offentlig förhandsversion)
+# <a name="rewrite-http-headers-with-application-gateway"></a>Skriv om HTTP-huvuden med Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Med HTTP-huvuden kan klienten och servern skicka ytterligare information med begäran eller svaret. Skriva om dessa HTTP-huvuden kan du utföra flera viktiga scenarier, till exempel att lägga till säkerhetsrelaterade huvudfält som HSTS / X-XSS-skydd, ta bort svarshuvud fält som kan visa känslig information, separeringsapparaten portinformationen från X-vidarebefordrade-för rubriker, osv. Application gateway stöder möjligheten att lägga till, ta bort eller uppdatera HTTP-begäran och svarshuvuden när begäran och svarspaket flytta mellan klienten och serverdelen pooler. Den ger dig också möjligheten att lägga till villkor så att de angivna sidhuvudena är har skrivits bara när vissa villkor uppfylls.
+Med HTTP-huvuden kan klienten och servern skicka ytterligare information med begäran eller svaret. Skriva om dessa HTTP-huvuden kan du utföra flera viktiga scenarier, till exempel att lägga till säkerhetsrelaterade huvudfält som HSTS / X-XSS-skydd, ta bort svarshuvud fält som kan visa känslig information, ta bort portinformationen från X-vidarebefordrade-för rubriker, osv. Application gateway stöder möjligheten att lägga till, ta bort eller uppdatera HTTP-begäran och svarshuvuden när begäran och svarspaket flytta mellan klienten och serverdelen pooler. Den ger dig möjlighet att lägga till villkor så att de angivna sidhuvudena är har skrivits bara när vissa villkor uppfylls. Funktionen stöder också flera [servervariabler](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) som hjälper att lagra ytterligare information om begäranden och svar, så att du kan göra kraftfulla omskrivningsregler.
 > [!NOTE]
 >
 > HTTP-huvud omskrivning-stöd är endast tillgänglig för den [nya SKU: N [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+![Skriva om rubriker](media/rewrite-http-headers/rewrite-headers.png)
 
 ## <a name="headers-supported-for-rewrite"></a>Rubriker som stöds för omarbetning
 
@@ -35,7 +37,7 @@ Med hjälp av omarbetning villkor som du kan utvärdera innehållet i HTTP (S)-b
 - HTTP-huvuden i svaret
 - Servervariabler för Application gateway
 
-Ett villkor kan användas för att utvärdera om den angivna variabeln finns, om den angivna variabeln exakt matchar ett specifikt värde eller om den angivna variabeln exakt matchar ett visst mönster. [Perl kompatibla reguljära uttryck (PCRE)-biblioteket](https://www.pcre.org/) används för att implementera mönster för reguljärt uttryck som matchar under förhållanden. Mer information om syntax för reguljära uttryck, finns det [Perl reguljära uttryck man sidan](http://perldoc.perl.org/perlre.html).
+Ett villkor kan användas för att utvärdera om den angivna variabeln finns, om den angivna variabeln exakt matchar ett specifikt värde eller om den angivna variabeln exakt matchar ett visst mönster. [Perl kompatibla reguljära uttryck (PCRE)-biblioteket](https://www.pcre.org/) används för att implementera mönster för reguljärt uttryck som matchar under förhållanden. Mer information om syntax för reguljära uttryck, finns det [Perl reguljära uttryck man sidan](https://perldoc.perl.org/perlre.html).
 
 ## <a name="rewrite-actions"></a>Skriv om åtgärder
 
@@ -124,6 +126,18 @@ Det här problemet kan lösas genom att ange värdnamnet i location-huvudet till
 Flera säkerhetsproblem kan åtgärdas genom att implementera nödvändiga rubriker i program-svaret. Vissa av dessa säkerhetshuvuden är X XSS skydd, Strict transportsäkerhet, innehåll-säkerhetsprincip osv. Du kan använda application gateway för att ange dessa huvuden för alla svar.
 
 ![Säkerhetshuvudet](media/rewrite-http-headers/security-header.png)
+
+### <a name="delete-unwanted-headers"></a>Ta bort oönskade rubriker
+
+Du kanske vill ta bort dessa rubriker från HTTP-svaret som avslöjar känslig information, till exempel backend-servernamnet, operativsystem, biblioteksinformation osv. Du kan använda application gateway för att ta bort dessa.
+
+![Ta bort sidhuvud](media/rewrite-http-headers/remove-headers.png)
+
+### <a name="check-presence-of-a-header"></a>Kontrollera förekomst av en rubrik
+
+Du kan utvärdera HTTP-huvud för begäran eller ett svar om finns en variabel för sidhuvud eller en server. Detta är användbart när du planerar att utföra en rubrik-omskrivning endast när en viss rubrik finns.
+
+![Kontrollerar förekomsten av en rubrik](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Begränsningar
 

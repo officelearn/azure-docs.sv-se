@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: d12051821faa60940bf2acc569c6552561b4b3ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 24bd6731faa9788dc336db199aa9776813e7348f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267948"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683451"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>Snabbstart: Få svar från en kunskapsbas med Postman
 
 Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Senaste [**Postman**](https://www.getpostman.com/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md) och en [kunskapsbas med frågor och svar](../Tutorials/create-publish-query-in-portal.md). 
@@ -36,44 +36,42 @@ När din kunskapsbas publiceras visar sidan **publicera** inställningar för HT
 
 De gula siffrorna på följande bild visar vilka namn/värdepar som ska användas i följande steg.
 
-[![Ppublicera resultaten](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
+[![Publicera resultat](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
 
 Utför följande steg för att generera ett svar med Postman:
 
 1. Öppna Postman. Om du uppmanas att välja ett byggblock, välj byggblocket **Grundläggande begäran**. Ange **frågenamn** som `Generate QnA Maker answer`och **samling** som `Generate QnA Maker answers`. Om du inte vill spara till en samling, väljer du knappen **Avbryt**.
 1. I arbetsytan, välj HTTP-metod för **POST**.
 
-    [![In Postman angetts POST-metoden](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
+    [![Ange POST-metoden i Postman](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
 
 1. Sammanfoga HOST-värden (nr 2 från bild) och Post-värdet (nr 1 från bild) för att skapa den fullständiga URL:en. Ett komplett exempel-URL ser ut så här: 
 
     `https://qnamaker-f0.azurewebsites.net/qnamaker/knowledgebases/e1115f8c-d01b-4698-a2ed-85b0dbf3348c/generateAnswer`
 
-    [![In Postman, ange den fullständiga URL: en](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
+    [![Ställ in den fullständiga URL:en i Postman](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
 1. Välj fliken **rubriker** under URL:en och välj sedan **Massredigera**. 
 
 1. Kopiera rubriker (nr 3 och 4 från bilden) till textområdet.
 
-    [![In Postman angetts rubrikerna](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
+    [![Ställ in sidhuvuden i Postman](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
 
 1. Välj fliken **brödtext**.
 1. Välj formatet **raw** och ange den JSON (nr 5 från bilden) som representerar frågan.
 
     `{"question":"How do I programmatically update my Knowledge Base?"}`
 
-    [![In Postman konfigurera brödtext JSON-värde](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
+    [![Konfigurera JSON-värdet för brödtexten i Postman](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
 
 1. Välj knappen **Skicka**.
 1. Svaret innehåller svar tillsammans med annan information som kan vara viktig för klientprogrammet. 
 
-    [![In Postman konfigurera brödtext JSON-värde](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
+    [![Konfigurera JSON-värdet för brödtexten i Postman](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
 
 ## <a name="use-staging-endpoint"></a>Använda mellanlagringsslutpunkt
 
-Om du vill få svar från mellanlagringsslutpunkten ska du bifoga URL:en med den booleska frågeparametern `isTest` med värdet för `true`.
-
-`?isTest=true`
+Om du vill få svar från mellanlagring slutpunkten till URL-Adressen med den `isTest` body egenskapen.
 
 ## <a name="next-steps"></a>Nästa steg
 

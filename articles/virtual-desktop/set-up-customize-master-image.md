@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505608"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698323"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -274,7 +274,7 @@ Att omdirigera tidszoner:
 1. På Active Directory-servern öppnar du den **konsolen Grupprinciphantering**.
 2. Expandera din domän och grupprincipobjekt.
 3. Högerklicka på den **grupprincipobjekt** som du skapade för inställningar av grupprinciper och välj **redigera**.
-4. I den **Redigeraren för Grupprinciphantering**, gå till **Datorkonfiguration** > **principer** > **administrativa Mallar** > **Windows-komponenter** > **Horizon visa RDSH tjänster** > **fjärrskrivbordssession Värden** > **enhet och resurs**.
+4. I den **Redigeraren för Grupprinciphantering**, gå till **Datorkonfiguration** > **principer** > **administrativa Mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd för fjärrskrivbordssession**   >  **Enhet och resurs**.
 5. Aktivera den **Tillåt omdirigering av tidszon** inställningen.
 
 Du kan också köra det här kommandot på huvudavbildningen att omdirigera tidszoner:
@@ -367,8 +367,8 @@ Följande instruktioner berätta hur du överför huvudavbildningen till ett Azu
 
 Nu när du har någon bild kan du skapa eller uppdatera värd pooler. Mer information om hur du skapar och uppdatera värden pooler finns i följande artiklar:
 
-- [Skapa en värdpool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
-- [Självstudier: Skapa en värdpool med Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Skapa en värdpool med PowerShell](create-host-pools-powershell.md)
-- [Skapa en användarprofilresurs för en värdpool](create-host-pools-user-profile.md)
-- [Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+- [Skapa en värd-pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
+- [Självstudier: Skapa en värd-pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Skapa en värd-pool med PowerShell](create-host-pools-powershell.md)
+- [Skapa en användare profil resurs för en värd-pool](create-host-pools-user-profile.md)
+- [Konfigurera den virtuella Windows-skrivbordet belastningsutjämningsmetoden](configure-host-pool-load-balancing.md)

@@ -1,5 +1,5 @@
 ---
-title: Komma igång med SAP på Azure Virtual Machines | Microsoft Docs
+title: Kom igång med SAP på Azure Virtual Machines | Microsoft Docs
 description: Lär dig mer om SAP-lösningar som körs på virtuella datorer (VM) i Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -17,48 +17,48 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e07824db683b55cf5827962c1030d6cfd6c9f66
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: c22715434693abd5cebdc5ffd196a0e39b227d1b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490437"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698521"
 ---
-# <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Använda Azure vid som är värd för och köra SAP-arbetsbelastningsscenarier
+# <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att hantera och köra SAP-arbetsbelastningsscenarier
 
-Genom att välja Microsoft Azure, kan du tillförlitligt köra verksamhetskritiska SAP arbetsbelastningar och scenarier på en skalbar, kompatibel och företagsklass plattform.  Få skalbarheten, flexibiliteten och kostnadseffektiviteten med Azure. Med det utökade partnerskapet mellan Microsoft och SAP kan du köra SAP-program i olika scenarion för utveckling/testning och produktion i Azure – och få fullständig support. Vi ger dig support från SAP NetWeaver till SAP S/4HANA, SAP BI Linux till Windows, SAP HANA till SQL.
+När du använder Microsoft Azure kan köra du tillförlitligt dina verksamhetskritiska SAP-arbetsbelastningar och scenarier på en skalbar, kompatibel och företagsklass plattform. Du får skalbarhet, flexibilitet och kostnadseffektiviteten med Azure. Med det utökade partnerskapet mellan Microsoft och SAP kan du köra SAP-program i olika scenarion för utveckling och testning och produktion i Azure och få fullständig support. Från SAP NetWeaver till SAP S/4HANA, SAP BI på Linux till Windows- och SAP HANA till SQL, har vi något för dig.
 
-Förutom som är värd för SAP NetWeaver-scenarier med olika DBMS på Azure, och du kan ha olika andra SAP-arbetsbelastningsscenarier som SAP BI på Azure. 
+Du kan ha andra SAP-arbetsbelastningsscenarier som SAP BI på Azure förutom som är värd för SAP NetWeaver-scenarier med olika DBMS på Azure. 
 
-Unikhet av Azure för SAP HANA är ett erbjudande som skiljer Azure från konkurrenterna. Dedikerad maskinvara utan operativsystem i syfte att köra SAP HANA-distributioner som kräver upp till 24 TB (120 TB skalbar) minne för att aktivera som är värd för mer minne och processorresurser krävande SAP-scenarier som omfattar SAP HANA, Azure-erbjudanden användningen av kunden för S/4HANA eller andra SAP HANA-arbetsbelastningar. Den här unika Azure-lösning för SAP HANA på Azure (stora instanser) kan du köra SAP HANA på den dedikerade maskinvaran utan operativsystem med SAP-programnivån eller arbetsbelastning mitten kod lager som finns i interna Azure-datorer. Den här lösningen dokumenteras i flera dokument i avsnittet ”SAP HANA på Azure (stora instanser)”.   
+Unikhet av Azure för SAP HANA är ett erbjudande som anger Azure ifrån varandra. Om du vill aktivera som är värd för mer minne och CPU-resurs-krävande SAP scenarier för SAP HANA, erbjuder Azure användningen av kund – dedikerad maskinvara utan operativsystem. Använd den här lösningen för att köra SAP HANA-distributioner som kräver upp till 24 TB (120 TB skalbar) minne för S/4HANA eller andra SAP HANA-arbetsbelastningar. 
 
-Som är värd för SAP-arbetsbelastningsscenarier i Azure kan också skapa krav för identitetsintegrering och enkel inloggning med Azure Active Directory till olika SAP-komponenter och SAP SaaS eller erbjuder PaaS. En lista över sådant integrering och Single-Sign-On-scenarier med Azure Active Directory (AAD) och SAP-entiteter som beskrivs och beskrivs i avsnittet ”AAD SAP-Identitetsintegrering och enkel inloggning”.
+Som är värd för SAP-arbetsbelastningsscenarier i Azure kan också skapa krav identitetsintegrering och enkel inloggning. Den här situationen kan uppstå när du använder Azure Active Directory (Azure AD) för att koppla samman olika komponenter i SAP och SAP software-as-a-service (SaaS) eller plattform som tjänst (PaaS)-erbjudanden. En lista över sådant integrering och enkel inloggning med Azure AD och SAP-entiteter som beskrivs och beskrivs i avsnittet ”AAD SAP-identitetsintegrering och enkel inloggning”.
 
 ## <a name="latest-changes"></a>Senaste ändringarna
 
-Versionen av [Azure HANA stora instanser styra via Azure-portalen](hana-li-portal.md)
+- Versionen av [Azure HANA stora instanser styra via Azure portal](hana-li-portal.md)
 
-Versionen av [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program](high-availability-guide-suse-netapp-files.md)
+- Versionen av [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program](high-availability-guide-suse-netapp-files.md)
 
-Information på **Linux OS parametern net.ipv4.tcp_timestamps** inställningar tillsammans med Azure belastningsutjämnare
+- Information på **Linux OS parametern net.ipv4.tcp_timestamps** inställningar tillsammans med en Azure-belastningsutjämnare
 
-Versionen av [konfigurationer för SAP-arbetsbelastning med Tillgänglighetszoner i Azure](sap-ha-availability-zones.md)
+- Versionen av [konfigurationer för SAP-arbetsbelastning med tillgänglighetszoner i Azure](sap-ha-availability-zones.md)
 
-Versionen av [SAP arbetsbelastning planerings- och Checklista](sap-deployment-checklist.md)
-
-
+- Versionen av [SAP arbetsbelastning planerings- och Checklista](sap-deployment-checklist.md)
 
 
-## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA på SAP HANA på Azure (stora instanser)
 
-En serie med dokumentation leder dig genom SAP HANA på Azure (stora instanser) eller i korta stora HANA-instanser. Dokumenten omfatta listade områden med stora HANA-instanser:
+
+## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA på Azure (stora instanser)
+
+En serie dokument leder dig genom SAP HANA på Azure (stora instanser) eller för kort, stora HANA-instanser. Information på följande områden med stora HANA-instanser finns i:
 
 - [Översikt över SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 - [Arkitektur för SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
 - [Infrastruktur och anslutning till SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- [Installera SAP HANA på SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
-- [Hög tillgänglighet och Haveriberedskap för SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
-- [Felsökning och övervakning av SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [Installera SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
+- [Hög tillgänglighet och katastrofåterställning återställning av SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
+- [Felsöka och övervaka SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 
 Nästa steg:
 
@@ -66,10 +66,10 @@ Nästa steg:
 
 
 
-## <a name="sap-hana-on-azure-virtual-machines"></a>SAP HANA på Azure Virtual Machines
-Det här avsnittet av dokumentationen beskrivs olika aspekter av SAP HANA. Som ett krav bör du känna till de viktigaste tjänster i Azure som tillhandahåller grundläggande tjänster med Azure IaaS, så huvudsakligen kunskap om Azure-beräkning, lagring och nätverk. Många av dessa avsnitt ska hanteras i den SAP NetWeaver relaterade [Azure Planning Guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
+## <a name="sap-hana-on-azure-virtual-machines"></a>SAP HANA på Azure virtual machines
+Det här avsnittet av dokumentationen beskrivs olika aspekter av SAP HANA. Som ett krav bör du känna till de viktigaste tjänster i Azure som tillhandahåller grundläggande tjänster med Azure IaaS. Därför måste du känna till Azure-beräkning, lagring och nätverk. Många av dessa ämnen hanteras i SAP NetWeaver-relaterade [Azure Planeringsguiden](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
 
-I dokumentationen som är specifika för HANA på Azure består av den här listan med artiklar och deras subarticles:
+Information om HANA på Azure finns i följande artiklar och deras subarticles:
 
 - [Snabbstart: Manuell installation av en instans SAP HANA på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Distribuera SAP S/4HANA eller BW/4HANA på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
@@ -78,52 +78,52 @@ I dokumentationen som är specifika för HANA på Azure består av den här list
 - [SAP HANA-tillgänglighet inom en Azure-region](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 - [Tillgänglighet för SAP HANA i Azure-regioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)
 - [Hög tillgänglighet för SAP HANA på Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-- [Säkerhetskopieringsguide för SAP HANA på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Säkerhetskopieringsguide för SAP HANA på Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [SAP HANA Azure Backup på filnivå](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
 - [SAP HANA-säkerhetskopia baserat på ögonblicksbilder av lagring](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
  
 
-## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP NetWeaver distribueras på Azure Virtual Machines
-I det här avsnittet finns dokumentation för planering och distribution för SAP NetWeaver och Business One på Azure. I dokumentationen i det här kapitlet fokuserar huvudsakligen runt grunderna och användning av icke-HANA-databaser med SAP-arbetsbelastningar på Azure. De är grunden för HANA, hög tillgänglighet i Azure samt de dokument och artiklar för hög tillgänglighet. listan över artiklar som:
+## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP NetWeaver distribueras på Azure virtual machines
+Det här avsnittet innehåller dokumentation för planering och distribution för SAP NetWeaver och Business One på Azure. Dokumentationen handlar om grunderna och användning av icke-HANA-databaser med en SAP-arbetsbelastningar på Azure. Dokument och artiklar för hög tillgänglighet finns också grunden för HANA, hög tillgänglighet i Azure, till exempel:
 
-- [SAP Business One på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
+- [SAP Business One på Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
 - [Distribuera SAP IDES EHP7 SP3 för SAP ERP 6.0 på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql)
-- [Köra SAP NetWeaver på virtuella SUSE Linux-datorer i Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)
+- [Kör SAP NetWeaver på SUSE Linux-datorer för Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)
 - [Azure virtuella datorer, planering och implementering av SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [Azure Virtual Machines-distribution för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
-- [Skydda en programdistribution för flera nivåer SAP NetWeaver med hjälp av Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)
+- [Skydda en skikt SAP NetWeaver-programdistribution med hjälp av Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)
 - [SAP LaMa-anslutning för Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/lama-installation)
 
-Om icke-HANA-databaser under SAP-arbetsbelastningar på azure som listan dokument:
+Information om icke-HANA-databaser under en SAP-arbetsbelastningar på Azure finns i:
 
 - [Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 - [SQL Server Azure virtuella datorer DBMS-distribution för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver)
 - [DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle)
 - [DBMS-distribution för SAP-arbetsbelastning för IBM DB2 på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - [DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
-- [SAP MaxDB, liveCache och innehållsserver distribution på Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
+- [SAP MaxDB, Live-Cache och Content Server distribution på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
 
-Kontrollera avsnittet SAP HANA på Azure Virtual Machines för SAP HANA-databaser på Azure.
+Information om SAP HANA-databaser på Azure finns i avsnittet ”SAP HANA på Azure virtual machines”.
 
-Post-dokumentet är för hög tillgänglighet för SAP-arbetsbelastningar på Azure:
+Information om hög tillgänglighet för en SAP-arbetsbelastningar på Azure finns i:
 
 - [Azure virtuella datorer hög tillgänglighet för SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-start)
 
-Dokumentet posten pekar på olika andra arkitektur och scenario dokument. I efterföljande scenariot dokument finns länkar till detaljerad teknisk dokumentation som förklarar distributionen och konfigurationen av hög tillgänglighet för olika metoder. Olika dokument för att upprätta och konfigurera hög tillgänglighet för SAP NetWeaver arbetsbelastning täcker Linux samt Windows operativsystem.
+Det här dokumentet pekar på olika andra arkitektur och scenario dokument. I senare scenariot dokument finns länkar till detaljerad teknisk dokument som beskriver distributionen och konfigurationen av de olika metoderna för hög tillgänglighet. De olika dokument som visar hur du etablera och konfigurera hög tillgänglighet för en SAP NetWeaver-arbetsbelastning täcker Linux och Windows-operativsystem.
 
 
-Integreringen mellan Azure Active Directory (AAD) och SAP-tjänster och Single-Sign-On, listar dokument som:
+Mer information om integrering mellan Azure Active Directory (Azure AD) och SAP-tjänster och enkel inloggning, se:
 
-- [Självstudier: Azure Active Directory-integrering med SAP Cloud for Customer](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory-integrering med SAP Cloud Platform Identity Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory-integrering med SAP Cloud Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory-integration med SAP NetWeaver](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med SAP-moln för kund](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med identitetsautentisering för SAP Cloud Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med SAP-Molnplattform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudier: Azure Active Directory-integrering med SAP NetWeaver](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [Självstudier: Azure Active Directory-integrering med SAP Business ByDesign](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory-katalogintegrering med SAP HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Din miljö för S/4HANA – Fiori Launchpad SAML enkel inloggning med Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
+- [Självstudier: Azure Active Directory-integrering med SAP HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Din miljö för S/4HANA: Fiori Launchpad SAML enkel inloggning med Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
 
-För integrering av Azure-tjänster i SAP-komponenter ut listan över dokument som:
+Information om integrering av Azure-tjänster i SAP-komponenter finns i:
 
 - [Använda SAP HANA i Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-hana)
 - [DirectQuery och SAP HANA](https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana)

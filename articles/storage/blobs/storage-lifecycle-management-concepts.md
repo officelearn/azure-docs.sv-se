@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803278"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681734"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob storage livscykel
 
@@ -45,7 +45,7 @@ Livscykeln för hantering av funktionen är tillgänglig i alla offentliga Azure
 Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure-portalen [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI, [REST API: er](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), eller ett klientverktyg. Den här artikeln visar hur du hanterar princip med hjälp av portalen och PowerShell-metoder.  
 
 > [!NOTE]
-> Om du aktiverar brandväggsregler för ditt lagringskonto, blockeras livscykeln för hantering av begäranden. Du kan låsa upp dessa begäranden genom att ange undantag. Mer information finns i avsnittet undantag i [konfigurera brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Om du aktiverar brandväggsregler för ditt lagringskonto, blockeras livscykeln för hantering av begäranden. Du kan låsa upp dessa begäranden genom att ange undantag. Nödvändiga förbikopplingen är: `Logging,  Metrics,  AzureServices`. Mer information finns i avsnittet undantag i [konfigurera brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="azure-portal"></a>Azure Portal
 

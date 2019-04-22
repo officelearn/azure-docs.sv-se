@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: aac58cc0887c566c7377edf08f5a86e2d12cdf28
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6da2b63b7a9c8dc490bd30bb02ae6e7d932b2f7b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993249"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683927"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Data samling information om lösningar i Azure
 Den här artikeln innehåller en lista över [hanteringslösningar](solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det innehåller även information om deras metod och frekvensen för insamling av data i Azure Monitor.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. 
@@ -58,8 +58,8 @@ Förklaringar av kolumnerna är följande:
 | [Azure SQL-analys (förhandsversion)](../../azure-monitor/insights/azure-sql.md) | Windows | | | | | | 1 minut |
 | [Säkerhetskopiering](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | på meddelandet |
 | [Kapacitet och prestanda (förhandsgranskning)](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |anländer |
-| [Spårning av ändringar](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |varje timme |
-| [Spårning av ändringar](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |varje timme |
+| [Spårning av ändringar](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[Varierar](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
+| [Spårning av ändringar](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |[Varierar](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
 | [Containrar](../../azure-monitor/insights/containers.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 3 minuter |
 | [Key Vault-analys](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |på meddelandet |
 | [Utvärdering av skadlig kod](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |varje timme |

@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: rosh
 ms.openlocfilehash: a0d7c1611f7c6851d98fea734dfdbd3940b59b89
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048027"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784716"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Snabbstart: Hämta information om bilder med hjälp av Bing Visual Search REST API och Go
 
 Den här snabbstarten använder Go-programmeringsspråket för att anropa API i Bing Visual Search och visa resultat. En POST-begäran laddar upp en bild till API-slutpunkt. Resultatet är URL: er och beskrivande information om avbildningar liknar den uppladdade avbildningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Installera den [gå binärfiler](https://golang.org/dl/).
 * Go-spew Djupgående fin skrivaren används för att visa resultat. Du kan installera go-spew med den `$ go get -u https://github.com/davecgh/go-spew` kommando.

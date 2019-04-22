@@ -1,22 +1,22 @@
 ---
-title: Konfigurera före och efter skript på din distribution med hantering av uppdateringar i Azure (förhandsversion)
+title: Konfigurera före och efter skript på din distribution med hantering av uppdateringar i Azure
 description: Den här artikeln beskriver hur du konfigurerar och hanterar före och efter-skript för uppdateringsdistributioner
 services: automation
 ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263816"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698750"
 ---
-# <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
+# <a name="manage-pre-and-post-scripts"></a>Hantera skript före och efter
 
 Skript före och efter att du kör PowerShell-runbooks i ditt Automation-konto innan (före uppgift) och efter distributionen för en uppdatering (efter uppgift). Skript före och efter körs i Azure-kontext och inte lokalt. Före skript köras i början av uppdateringsdistributionen. Skicka skript som körs i slutet av distributionen och efter eventuella omstarter som har konfigurerats.
 
@@ -26,7 +26,7 @@ För en runbook som ska användas som ett skript före eller efter måste runboo
 
 ## <a name="using-a-prepost-script"></a>Med ett före/efter-skript
 
-Använda en i förväg och eller publicera skript i en Uppdateringsdistribution kan du börja med att skapa en Uppdateringsdistribution. Välj **förskript + Post skript (förhandsversion)**. Den här åtgärden öppnar den **Välj förskript och efterskript** sidan.  
+Använda en i förväg och eller publicera skript i en Uppdateringsdistribution kan du börja med att skapa en Uppdateringsdistribution. Välj **förskript + Post skript**. Den här åtgärden öppnar den **Välj förskript och efterskript** sidan.  
 
 ![Välj skript](./media/pre-post-scripts/select-scripts.png)
 
@@ -87,7 +87,7 @@ foreach($summary in $finalStatus)
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext properties
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | Namnet på Uppdateringskonfigurationen för programmet        |
 |SoftwareUpdateConfigurationRunId     | Unikt id för körningen.        |
@@ -206,7 +206,20 @@ $variable = Get-AutomationVariable -Name $runId
 #>      
 ```
 
-## <a name="interacting-with-non-azure-machines"></a>Interagera med icke-Azure-datorer
+## <a name="interacting-with-machines"></a>Interagera med datorer
+
+Före och efter aktiviteter som körs som en runbook i ditt Automation-konto och inte direkt på datorer i distributionen. Före och efter aktiviteter körs i Azure kontexten också och har inte åtkomst till icke-Azure-datorer. I följande avsnitt visas hur du kan interagera med datorerna direkt om de är en Azure virtuell dator eller en icke-Azure-dator:
+
+### <a name="interacting-with-azure-machines"></a>Interagera med datorer i Azure
+
+Före och efter uppgifter har körts som runbooks och kör inte internt på dina virtuella Azure-datorer i distributionen. För att interagera med virtuella datorer i Azure, måste du ha följande objekt:
+
+* Ett kör som-konto
+* En runbook som du vill köra
+
+För att interagera med Azure virtuella datorer, bör du använda den [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet för att interagera med virtuella datorer i Azure. Ett exempel på hur du gör detta finns i runbook-exemplet [uppdateringshantering - köra skriptet med kommandot Kör](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+
+### <a name="interacting-with-non-azure-machines"></a>Interagera med icke-Azure-datorer
 
 Före och efter aktiviteter körs i Azure-kontext och har inte åtkomst till icke-Azure-datorer. För att interagera med icke-Azure-datorer, måste du ha följande objekt:
 
@@ -215,38 +228,7 @@ Före och efter aktiviteter körs i Azure-kontext och har inte åtkomst till ick
 * En runbook som du vill köra lokalt
 * Överordnad runbook
 
-För att interagera med icke-Azure-datorer, körs en överordnad runbook i Azure-kontext. Denna runbook anropar en underordnad runbook med den [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Du måste ange den `-RunOn` parametern och ange namnet på den Hybrid Runbook Worker för att skriptet ska köras på.
-
-```powershell
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-
-Add-AzureRmAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-
-$resourceGroup = "AzureAutomationResourceGroup"
-$aaName = "AzureAutomationAccountName"
-
-$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "hybridWorker"
-
-$status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-while ($status.status -ne "Completed")
-{ 
-    Start-Sleep -Seconds 5
-    $status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-}
-
-$summary = Get-AzureRmAutomationJobOutput -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-
-if ($summary.Type -eq "Error")
-{
-    Write-Error -Message $summary.Summary
-}
-```
+För att interagera med icke-Azure-datorer, körs en överordnad runbook i Azure-kontext. Denna runbook anropar en underordnad runbook med den [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Du måste ange den `-RunOn` parametern och ange namnet på den Hybrid Runbook Worker för att skriptet ska köras på. Ett exempel på hur du gör detta finns i runbook-exemplet [uppdateringshantering - skript lokalt](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Avbryt patch-distribution
 
@@ -268,5 +250,5 @@ if (<My custom error logic>)
 Vill du fortsätta till självstudien om hur du hanterar uppdateringar för din Windows-datorer.
 
 > [!div class="nextstepaction"]
-> [Hantera uppdateringar och korrigeringar för dina virtuella Windows-datorer i Azure](automation-tutorial-update-management.md)
+> [Hantera uppdateringar och korrigeringar för virtuella datorer i Windows Azure](automation-tutorial-update-management.md)
 

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853023"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684097"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-anslutningar
 
@@ -74,6 +74,8 @@ För klienter med flera anslutningar kan rikta automatiska uppdateringar en ansl
 Avbrott kan uppstå när anslutningsappens uppdaterar om:  
 - Du har bara ett anslutningsprogram vi rekommenderar att du installerar ytterligare en koppling och [skapa en anslutningsgrupp](application-proxy-connector-groups.md). På så sätt undvika avbrott och ge högre tillgänglighet.  
 - En anslutning har mitt i en transaktion när uppdateringen började. Även om den första transaktionen tappas bort, webbläsaren bör automatiskt att försöka igen eller du kan uppdatera din sida. När begäran igen, dirigeras trafiken till en säkerhetskopiering koppling.
+
+Att visa information om tidigare versioner och vilka ändringar de innehåller, finns i [Application Proxy - versionshistorik](application-proxy-release-version-history.md).
 
 ## <a name="creating-connector-groups"></a>Skapa anslutningsapp-grupper
 

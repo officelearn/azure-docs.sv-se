@@ -1,281 +1,276 @@
-items:
 - name: Dokumentation för Media Services
   href: ./index.yml
 - name: Översikt
   items:
-  - name: Om Media Services
-    href: media-services-overview.md
+    - name: Om Media Services
+      href: media-services-overview.md
 - name: Snabbstarter
-  items:
-  - name: Strömma videofiler – .NET
-    href: stream-files-dotnet-quickstart.md
-  - name: Strömma videofiler – CLI
-    href: stream-files-cli-quickstart.md
-  - name: Strömma videofiler – Node.js
-    href: stream-files-nodejs-quickstart.md
   expanded: true
+  items:
+    - name: Strömma videofiler – .NET
+      href: stream-files-dotnet-quickstart.md
+    - name: Strömma videofiler – CLI
+      href: stream-files-cli-quickstart.md
+    - name: Strömma videofiler – Node.js
+      href: stream-files-nodejs-quickstart.md
 - name: Självstudier
   items:
-  - name: Koda fjärrfiler och strömma video – REST
-    displayName: encoding, job, transform
-    href: stream-files-tutorial-with-rest.md
-  - name: Koda uppladdade filer och strömma video – NET
-    displayName: encode, encoding, job, transform
-    href: stream-files-tutorial-with-api.md
-  - name: Strömma live – .NET
-    href: stream-live-tutorial-with-api.md
-  - name: Analysera din video – .NET
-    displayName: job, transform
-    href: analyze-videos-tutorial-with-api.md
-  - name: AES-128, dynamisk kryptering – .NET
-    href: protect-with-aes128.md
+    - name: Koda fjärrfiler och strömma video – REST
+      displayName: 'encoding, job, transform'
+      href: stream-files-tutorial-with-rest.md
+    - name: Koda uppladdade filer och strömma video – NET
+      displayName: 'encode, encoding, job, transform'
+      href: stream-files-tutorial-with-api.md
+    - name: Strömma live – .NET
+      href: stream-live-tutorial-with-api.md
+    - name: Analysera din video – .NET
+      displayName: 'job, transform'
+      href: analyze-videos-tutorial-with-api.md
+    - name: 'AES-128, dynamisk kryptering – .NET'
+      href: protect-with-aes128.md
 - name: Exempel
   items:
-  - name: Azure-kodexempel
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3
-  - name: Azure CLI
-    href: cli-samples.md
+    - name: Azure-kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Begrepp
   href: concepts-overview.md
   items:
-  - name: Uppladdning till och lagring i molnet
-    items:
-    - name: Storage
-      href: storage-account-concept.md
-    - name: Tillgångar
-      href: assets-concept.md
-  - name: Kodning
-    items:
-    - name: Översikt
-      displayName: Presets
-      href: encoding-concept.md
-    - name: Transformeringar och jobb
-      href: transforms-jobs-concept.md
-    - name: Media Encoder Standard-format
-      displayName: containers, codecs
-      href: media-encoder-standard-formats.md
-    - name: Generera anpassningsbar bithastighetsstege automatiskt
-      href: autogen-bitrate-ladder.md
-    - name: Innehållsmedveten kodning
-      href: cae-experimental.md
-  - name: Medieanalys
-    items:
-    - name: Översikt
-      displayName: Presets
-      href: analyzing-video-audio-files-concept.md
-    - name: Transformeringar och jobb
-      href: transforms-jobs-concept.md
-  - name: Paketering, leverans, skydd
-    items:
-    - name: Paketering
+    - name: Uppladdning till och lagring i molnet
       items:
-      - name: Dynamisk paketering
-        displayName: packager
-        href: dynamic-packaging-overview.md
-      - name: Dynamiska manifest
-        href: filters-dynamic-manifest-overview.md
-      - name: Filter
-        href: filters-concept.md
-    - name: Innehållsskydd
+        - name: Storage
+          href: storage-account-concept.md
+        - name: Tillgångar
+          href: assets-concept.md
+    - name: Kodning
       items:
-      - name: Protokoll och krypteringstyper för direktuppspelning
-        displayName: Dynamic encryption
-        href: content-protection-overview.md
-      - name: Multi-DRM-system med åtkomstkontroll
-        href: design-multi-drm-system-with-access-control.md
-      - name: DRM-licenser
-        items:
-        - name: PlayReady-licensmall
-          href: playready-license-template-overview.md
-        - name: Widevine-licensmall
-          href: widevine-license-template-overview.md
-        - name: Licenskrav för FairPlay
-          href: fairplay-license-overview.md
-    - name: Slutpunkt/ursprung för direktuppspelning
-      displayName: origins, cdn
-      href: streaming-endpoint-concept.md
-    - name: Positionerare för direktuppspelning
-      displayName: URLs
-      href: streaming-locators-concept.md
-    - name: Principer för direktuppspelning
-      href: streaming-policy-concept.md
-    - name: Viktiga innehållsprinciper
-      href: content-key-policy-concept.md
-  - name: Liveuppspelning
-    items:
-    - name: Översikt
-      href: live-streaming-overview.md
-    - name: Livehändelser och liveresultat
-      href: live-events-outputs-concept.md
-    - name: Rekommenderade livekodare
-      href: recommended-on-premises-live-encoders.md
-    - name: Använda en moln-DVR
-      displayName: archive
-      href: live-event-cloud-dvr.md
-    - name: Jämför funktioner
-      href: live-event-types-comparison.md
-    - name: Tillstånd och fakturering
-      href: live-event-states-billing.md
-    - name: Svarstid
-      href: live-event-latency.md
-  - name: Övervakning
-    items:
-    - name: Händelser med Event Grid
-      href: reacting-to-media-services-events.md
-    - name: Event Grid-scheman
-      href: media-services-event-schemas.md
-    - name: Mått och diagnostikloggar
-      href: media-services-metrics-diagnostic-logs.md
-    - name: Scheman för diagnostikloggar
-      href: media-services-diagnostic-logs-schema.md
-  - name: Player-klienter
-    items:
-    - name: Azure Media Player
-      href: use-azure-media-player.md
-  - name: Utveckla med API:er för v3
-    href: media-services-apis-overview.md
-    items:
-    - name: Sid-, filter- och orderentiteter
-      href: entities-overview.md
-    - name: RBAC
-      href: rbac-overview.md
-  - name: Vägledning för migrering från v2 till v3
-    href: migrate-from-v2-to-v3.md
+        - name: Översikt
+          href: encoding-concept.md
+          displayName: Presets
+        - name: Transformeringar och jobb
+          href: transforms-jobs-concept.md
+        - name: Media Encoder Standard-format
+          displayName: 'containers, codecs'
+          href: media-encoder-standard-formats.md
+        - name: Generera anpassningsbar bithastighetsstege automatiskt
+          href: autogen-bitrate-ladder.md
+        - name: Innehållsmedveten kodning
+          href: cae-experimental.md
+    - name: Medieanalys
+      items:
+        - name: Översikt
+          href: analyzing-video-audio-files-concept.md
+          displayName: Presets
+        - name: Transformeringar och jobb
+          href: transforms-jobs-concept.md
+    - name: 'Paketering, leverans, skydd'
+      items:
+        - name: Paketering
+          items:
+            - name: Dynamisk paketering
+              displayName: packager
+              href: dynamic-packaging-overview.md
+            - name: Dynamiska manifest
+              href: filters-dynamic-manifest-overview.md
+            - name: Filter
+              href: filters-concept.md
+        - name: Innehållsskydd
+          items:
+            - name: Protokoll och krypteringstyper för direktuppspelning
+              displayName: Dynamic encryption
+              href: content-protection-overview.md
+            - name: Multi-DRM-system med åtkomstkontroll
+              href: design-multi-drm-system-with-access-control.md
+            - name: DRM-licenser
+              items:
+                - name: PlayReady-licensmall
+                  href: playready-license-template-overview.md
+                - name: Widevine-licensmall
+                  href: widevine-license-template-overview.md
+                - name: Licenskrav för FairPlay
+                  href: fairplay-license-overview.md
+        - name: Slutpunkt/ursprung för direktuppspelning
+          displayName: 'origins, cdn'
+          href: streaming-endpoint-concept.md
+        - name: Positionerare för direktuppspelning
+          displayName: URLs
+          href: streaming-locators-concept.md
+        - name: Principer för direktuppspelning
+          href: streaming-policy-concept.md
+        - name: Viktiga innehållsprinciper
+          href: content-key-policy-concept.md
+    - name: Liveuppspelning
+      items:
+        - name: Översikt
+          href: live-streaming-overview.md
+        - name: Livehändelser och liveresultat
+          href: live-events-outputs-concept.md
+        - name: Rekommenderade livekodare
+          href: recommended-on-premises-live-encoders.md
+        - name: Använda en moln-DVR
+          displayName: archive
+          href: live-event-cloud-dvr.md
+        - name: Jämför funktioner
+          href: live-event-types-comparison.md
+        - name: Tillstånd och fakturering
+          href: live-event-states-billing.md
+        - name: Svarstid
+          href: live-event-latency.md
+    - name: Övervakning
+      items:
+        - name: Händelser med Event Grid
+          href: reacting-to-media-services-events.md
+        - name: Event Grid-scheman
+          href: media-services-event-schemas.md
+        - name: Mått och diagnostikloggar
+          href: media-services-metrics-diagnostic-logs.md
+        - name: Scheman för diagnostikloggar
+          href: media-services-diagnostic-logs-schema.md
+    - name: Player-klienter
+      items:
+        - name: Azure Media Player
+          href: use-azure-media-player.md
+    - name: 'Utveckla med API:er för v3'
+      href: media-services-apis-overview.md
+      items:
+        - name: 'Sid-, filter- och orderentiteter'
+          href: entities-overview.md
+        - name: RBAC
+          href: rbac-overview.md
+    - name: Vägledning för migrering från v2 till v3
+      href: migrate-from-v2-to-v3.md
 - name: Instruktionsguider
   items:
-  - name: Kom igång
-    items:
-    - name: Skapa ett konto – CLI
-      href: create-account-cli-how-to.md
-    - name: Åtkomst till API:er – CLI
-      href: access-api-cli-how-to.md
-    - name: Skala mediereserverade enheter – CLI
-      href: media-reserved-units-cli-how-to.md
-    - name: Utveckla med REST
+    - name: Kom igång
       items:
-      - name: Ansluta med Postman
-        href: media-rest-apis-with-postman.md
-    - name: Utveckla med SDK:er
-      href: developers-guide.md
+        - name: Skapa ett konto – CLI
+          href: create-account-cli-how-to.md
+        - name: 'Åtkomst till API:er – CLI'
+          href: access-api-cli-how-to.md
+        - name: Skala mediereserverade enheter – CLI
+          href: media-reserved-units-cli-how-to.md
+        - name: Utveckla med REST
+          items:
+            - name: Ansluta med Postman
+              href: media-rest-apis-with-postman.md
+        - name: 'Utveckla med SDK:er'
+          href: developers-guide.md
+          items:
+            - name: Ansluta med Java
+              href: configure-connect-java-howto.md
+            - name: Ansluta med .NET
+              href: configure-connect-dotnet-howto.md
+            - name: Ansluta med Node.js
+              href: configure-connect-nodejs-howto.md
+            - name: Ansluta med Python
+              href: configure-connect-python-howto.md
+    - name: Överföra innehåll
       items:
-      - name: Ansluta med Java
-        href: configure-connect-java-howto.md
-      - name: Ansluta med .NET
-        href: configure-connect-dotnet-howto.md
-      - name: Ansluta med Node.js
-        href: configure-connect-nodejs-howto.md
-  - name: Överföra innehåll
-    items:
-    - name: Från HTTPS – .NET
-      displayName: upload
-      href: job-input-from-http-how-to.md
-    - name: Från en lokal fil – .NET
-      displayName: upload
-      href: job-input-from-local-file-how-to.md
-    - name: Från en lokal fil – REST
-      displayName: upload
-      href: upload-files-rest-how-to.md
-  - name: Koda innehåll
-    items:
-    - name: HTTPS som jobbindata – .NET
-      displayName: encode, encoding
-      href: job-input-from-http-how-to.md
-    - name: Lokal fil som jobbindata – .NET
-      displayName: encode, encoding
-      href: job-input-from-local-file-how-to.md
-    - name: Koda med en anpassad transformering
+        - name: Från HTTPS – .NET
+          displayName: upload
+          href: job-input-from-http-how-to.md
+        - name: Från en lokal fil – .NET
+          displayName: upload
+          href: job-input-from-local-file-how-to.md
+        - name: Från en lokal fil – REST
+          displayName: upload
+          href: upload-files-rest-how-to.md
+    - name: Koda innehåll
       items:
-      - name: Med .NET
-        href: customize-encoder-presets-how-to.md
-      - name: Med CLI
-        href: custom-preset-cli-howto.md
-      - name: Med REST
-        href: custom-preset-rest-howto.md
-  - name: Använda Event Grid
-    items:
-    - name: Övervaka händelser – portalen
-      href: monitor-events-portal-how-to.md
-    - name: Övervaka händelser – CLI
-      href: job-state-events-cli-how-to.md
-  - name: Skydda innehåll
-    items:
-    - name: Hämta princip för innehållsnyckel – .NET
-      href: get-content-key-policy-dotnet-howto.md
-    - name: DRM, dynamisk kryptering – .NET
-      href: protect-with-drm.md
-    - name: Offline FairPlay för iOS
-      href: offline-fairplay-for-ios.md
-    - name: Offline Widevine för Android
-      href: offline-widevine-for-android.md
-    - name: Offline PlayReady för Windows 10
-      href: offline-plaready-streaming-for-windows-10.md
-  - name: Skapa filter
-    items:
-    - name: Med .NET
-      href: filters-dynamic-manifest-dotnet-howto.md
-    - name: Med REST
-      href: filters-dynamic-manifest-rest-howto.md
-    - name: Med CLI
-      href: filters-dynamic-manifest-cli-howto.md
+        - name: HTTPS som jobbindata – .NET
+          displayName: 'encode, encoding'
+          href: job-input-from-http-how-to.md
+        - name: Lokal fil som jobbindata – .NET
+          displayName: 'encode, encoding'
+          href: job-input-from-local-file-how-to.md
+        - name: Koda med en anpassad transformering
+          items:
+            - name: Med .NET
+              href: customize-encoder-presets-how-to.md
+            - name: Med CLI
+              href: custom-preset-cli-howto.md
+            - name: Med REST
+              href: custom-preset-rest-howto.md
+    - name: Använda Event Grid
+      items:
+        - name: Övervaka händelser – portalen
+          href: monitor-events-portal-how-to.md
+        - name: Övervaka händelser – CLI
+          href: job-state-events-cli-how-to.md
+    - name: Skydda innehåll
+      items:
+        - name: Hämta princip för innehållsnyckel – .NET
+          href: get-content-key-policy-dotnet-howto.md
+        - name: 'DRM, dynamisk kryptering – .NET'
+          href: protect-with-drm.md
+        - name: Offline FairPlay för iOS
+          href: offline-fairplay-for-ios.md
+        - name: Offline Widevine för Android
+          href: offline-widevine-for-android.md
+        - name: Offline PlayReady för Windows 10
+          href: offline-plaready-streaming-for-windows-10.md
+    - name: Skapa filter
+      items:
+        - name: Med .NET
+          href: filters-dynamic-manifest-dotnet-howto.md
+        - name: Med REST
+          href: filters-dynamic-manifest-rest-howto.md
+        - name: Med CLI
+          href: filters-dynamic-manifest-cli-howto.md
 - name: Referens
   items:
-  - name: OpenAPI-specifikation (Swagger)
-    href: https://aka.ms/ams-v3-rest-sdk
-  - name: REST
-    href: https://aka.ms/ams-v3-rest-ref
-  - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref
-  - name: SDK:er
-    items:
-    - name: .NET
-      href: https://aka.ms/ams-v3-dotnet-ref
-    - name: Java
-      href: https://aka.ms/ams-v3-java-ref
-    - name: Python
-      href: https://aka.ms/ams-v3-python-ref
-    - name: Node.js
-      href: https://aka.ms/ams-v3-nodejs-ref
-    - name: Go
-      href: https://aka.ms/ams-v3-go-ref
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.media/allversions
+    - name: OpenAPI-specifikation (Swagger)
+      href: 'https://aka.ms/ams-v3-rest-sdk'
+    - name: REST
+      href: 'https://aka.ms/ams-v3-rest-ref'
+    - name: Azure CLI
+      href: 'https://aka.ms/ams-v3-cli-ref'
+    - name: 'SDK:er'
+      items:
+        - name: .NET
+          href: 'https://aka.ms/ams-v3-dotnet-ref'
+        - name: Java
+          href: 'https://aka.ms/ams-v3-java-ref'
+        - name: Python
+          href: 'https://aka.ms/ams-v3-python-ref'
+        - name: Node.js
+          href: 'https://aka.ms/ams-v3-nodejs-ref'
+        - name: Go
+          href: 'https://aka.ms/ams-v3-go-ref'
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.media/allversions
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=web-mobile
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Videoklipp
-    href: https://azure.microsoft.com/resources/videos/index/?services=media-services
-  - name: OpenAPI-specifikation (Swagger)
-    href: https://aka.ms/ams-v3-rest-sdk
-  - name: SDK:er/verktyg
-    items:
-    - name: Azure CLI
-      href: https://aka.ms/ams-v3-cli
-    - name: .NET
-      href: https://aka.ms/ams-v3-dotnet-sdk
-    - name: Java
-      href: https://aka.ms/ams-v3-java-sdk
-    - name: Python
-      href: https://aka.ms/ams-v3-python-sdk
-    - name: Node.js
-      href: https://aka.ms/ams-v3-nodejs-sdk
-    - name: Ruby
-      href: https://aka.ms/ams-v3-ruby-sdk
-  - name: AMSE
-    href: https://github.com/Azure/Azure-Media-Services-Explorer
-  - name: Viktig information
-    href: release-notes.md
-  - name: Kvoter och begränsningar
-    href: limits-quotas-constraints.md
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: frequently-asked-questions.md
-  - name: Azure-moln och -regioner
-    href: azure-clouds-regions.md
-ms.openlocfilehash: adea36543cd734e61f10cb64bfba2e9557db8cf6
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563534"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: OpenAPI-specifikation (Swagger)
+      href: 'https://aka.ms/ams-v3-rest-sdk'
+    - name: 'SDK:er/verktyg'
+      items:
+        - name: Azure CLI
+          href: 'https://aka.ms/ams-v3-cli'
+        - name: .NET
+          href: 'https://aka.ms/ams-v3-dotnet-sdk'
+        - name: Java
+          href: 'https://aka.ms/ams-v3-java-sdk'
+        - name: Python
+          href: 'https://aka.ms/ams-v3-python-sdk'
+        - name: Node.js
+          href: 'https://aka.ms/ams-v3-nodejs-sdk'
+        - name: Ruby
+          href: 'https://aka.ms/ams-v3-ruby-sdk'
+    - name: AMSE
+      href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
+    - name: Viktig information
+      href: release-notes.md
+    - name: Kvoter och begränsningar
+      href: limits-quotas-constraints.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: frequently-asked-questions.md
+    - name: Azure-moln och -regioner
+      href: azure-clouds-regions.md

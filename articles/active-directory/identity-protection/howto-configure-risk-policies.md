@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517546"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699041"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instruktioner: Konfigurera principer för risk i Azure Active Directory identity protection (uppdateras)
 
@@ -41,7 +41,8 @@ Azure AD analyserar varje inloggning för en användare. Målet med analysen är
 
 Princip för inloggningsrisk är en automatisk åtgärd som du kan konfigurera för en specifik inloggning risknivå. Du kan blockera åtkomst till resurser eller kräver skicka multifaktorautentisering (MFA) svårt att få åtkomst i ditt svar.
 
-   
+När en användare har slutförts en MFA-prompt som utlösts av principen för inloggningsrisk ger feedback till Identity Protection som inloggningen kommer från legitim användare. Därför inloggningsrisk händelsen som utlöste MFA-prompten stängs automatiskt och identitetsskydd förhindrar att den här händelsen bidrar till rättighetsökning användarrisk. Aktivera princip för inloggningsrisk kan minska noisiness i vyn över riskfyllda inloggningar genom att tillåta användare att reparera när du tillfrågas om MFA och därefter automatiskt stänga tillhörande riskfyllda inloggningen.
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hur kommer jag åt inloggningsrisk principen?
    
 Princip för inloggninsrisk-är i den **konfigurera** avsnittet på den [Azure AD Identity Protection-sidan](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).

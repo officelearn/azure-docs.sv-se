@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3aac6a7fb0904089f135c9af7b136eda73701f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835477"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683675"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -49,6 +49,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-servern
 * Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials innan 2019 (Windows Server Essentials 2019 stöds). Servern måste använda Windows Server standard- eller bättre.
+* Installera Azure AD Connect på en domänkontrollant rekommenderas inte på grund av säkerhetsrutiner och mer restriktiva inställningar som kan förhindra att Azure AD Connect installerar korrekt
 * Azure AD Connect-servern måste ha ett fullständigt grafiskt användargränssnitt installerad. Det är **stöds inte** att installera på server core.
 * Azure AD Connect måste installeras på Windows Server 2008 R2 eller senare. Den här servern måste vara domänen ansluten och kan vara en domänkontrollant eller en medlemsserver.
 * Om du installerar Azure AD Connect på Windows Server 2008 R2, se till att tillämpa de senaste snabbkorrigeringarna från Windows Update. Installationen kan inte börja med en okorrigerad server.
@@ -60,6 +61,19 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 * Om Active Directory Federation Services distribueras måste [SSL-certifikat](#ssl-certificate-requirements).
 * Om Active Directory Federation Services distribueras så måste du konfigurera [namnmatchning](#name-resolution-for-federation-servers).
 * Om dina globala administratörer har MFA aktiverad, sedan URL: en **https://secure.aadcdn.microsoftonline-p.com** måste finnas i listan med betrodda platser. Du uppmanas att lägga till den här platsen i listan med betrodda platser när du ombeds ange en MFA-kontrollen och det inte lagts till innan du. Du kan använda Internet Explorer för att lägga till den till dina betrodda platser.
+* Microsoft rekommenderar Härdning av din Azure AD Connect-servern för att minska risken för angrepp säkerhet för den här viktig komponent i din IT-miljö.  Följa rekommendationerna nedan kommer att minska riskerna för din organisation.
+
+* Distribuera Azure AD Connect på en domänansluten server och begränsa administrativ åtkomst till Domänadministratörer eller andra strikt kontrollerad säkerhetsgrupper.
+
+Du kan läsa mer här: 
+
+* [Att säkra administratörsgrupper](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Skydda inbyggda administratörskonton](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Nya säkerhetsförbättringarna och sustainment genom att minska attack Surface-enheter](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [Minska angreppsytan för Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server som används av Azure AD Connect
 * Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. En SQL Server 2012 Express LocalDB (ett ljust version av SQL Server Express) installeras som standard. SQL Server Express har en gräns på 10GB storlek som hjälper dig att hantera cirka 100 000 objekt. Om du behöver hantera ett ökat antal katalogobjekt, måste du peka guiden Installera på en annan installation av SQL Server.

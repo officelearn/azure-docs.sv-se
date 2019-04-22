@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 54a51c567e8dd655ee3a575d1d4887ec6e094e40
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894686"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684064"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
-Behållaren för Språkförståelse (LUIS) läser in din tränade eller publicerade Language Understanding-modell, det vill säga som en [LUIS-app](https://www.luis.ai), i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API slutpunkter. Du kan samla in fråga loggar från behållaren och ladda upp dessa tillbaka till Azure Language Understanding-modellen för att förbättra appens prognosens noggrannhet.
+Behållaren för Språkförståelse (LUIS) läser in din tränade eller publicerade Language Understanding-modell, det vill säga som en [LUIS-app](https://www.luis.ai), i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API slutpunkter. Du kan samla in fråga loggar från behållaren och ladda upp dessa tillbaka till Language Understanding-appen till appens prognosens noggrannhet kan förbättras.
 
 Följande videoklipp visar hur du använder den här behållaren.
 
-[![Container demonstration för Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Demonstration av behållare för Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna köra LUIS-behållare, måste du ha följande: 
 
@@ -36,7 +36,14 @@ För att kunna köra LUIS-behållare, måste du ha följande:
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
-|Språkresursen för Språkförståelse (LUIS) och tillhörande app |För att kunna använda behållaren måste du ha:<br><br>* A [ _Språkförståelse_ Azure-resurs](luis-how-to-azure-subscription.md), tillsammans med den associerade slutpunktsnyckel och slutpunkt URI (som används som fakturering slutpunkt).<br>* En tränad eller publicerade app paketerad som en monterad indata till behållaren med dess tillhörande App-ID.<br>* På redigering för att hämta app-paket om du gör detta API.<br><br>Dessa krav används för att överföra kommandoradsargument till följande variabler:<br><br>**{AUTHORING_KEY}**: Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp loggarna fråga tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: Detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Den här nyckeln används för att starta behållaren. Du hittar slutpunktsnyckeln på två platser. Först är Azure-portalen inom den _Språkförståelse_ resursens nycklar lista. Slutpunktsnyckeln är också tillgängligt i LUIS-portalen med nycklar och slutpunkten inställningssidan. Använd inte den starter-nyckeln.<br><br>**{BILLING_ENDPOINT}** : Fakturering slutpunktsvärdet är tillgänglig på Azure portal Language Understanding översiktssidan. Ett exempel är: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>Den [redigering nyckel och slutpunktsnyckeln](luis-boundaries.md#key-limits) har olika syften. Använd dem inte synonymt. |
+|Azure `Cognitive Services` resurs och LUIS [paketerad app](/luis-how-to-start-new-app.md#export-app-for-containers) fil |För att kunna använda behållaren måste du ha:<br><br>* A _Cognitive Services_ Azure-resurs och associerade faktureringen nyckel fakturering slutpunkten URI. Båda värdena är tillgängliga på sidorna Översikt och nycklar för resursen och krävs för att starta behållaren. Du måste lägga till den `luis/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI. <br>* En tränad eller publicerade app paketerad som en monterad indata till behållaren med dess tillhörande App-ID. Du kan hämta den paketerade filen från LUIS-portalen eller API: erna redigering. Om du får LUIS paketerad app från den [redigera API: er](#authoring-apis-for-package-file), måste du också din _redigering nyckeln_.<br><br>Dessa krav används för att överföra kommandoradsargument till följande variabler:<br><br>**{AUTHORING_KEY}**: Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp loggarna fråga tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: Detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Den här nyckeln används för att starta behållaren. Du hittar slutpunktsnyckeln på två platser. Först är Azure-portalen inom den _Cognitive Services_ resursens nycklar lista. Slutpunktsnyckeln är också tillgängligt i LUIS-portalen med nycklar och slutpunkten inställningssidan. Använd inte den starter-nyckeln.<br><br>**{BILLING_ENDPOINT}** : Ett exempel är: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>Den [redigering nyckel och slutpunktsnyckeln](luis-boundaries.md#key-limits) har olika syften. Använd dem inte synonymt. |
+
+### <a name="authoring-apis-for-package-file"></a>Redigera API: er för paketfil
+
+Redigera API: er för paketerade appar:
+
+* [Publicerade paketet API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip)
+* [Inte publicerats, endast tränas paketet API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip)
 
 ### <a name="the-host-computer"></a>Värddatorn
 
@@ -114,7 +121,7 @@ Innan du paketerar ett LUIS-program, måste du ha följande:
 
 |Paketering krav|Information|
 |--|--|
-|Azure _Språkförståelse_ resursinstans|Regioner som stöds omfattar<br><br>Västra USA (```westus```)<br>Västeuropa (```westeurope```)<br>Australien, östra (```australiaeast```)|
+|Azure _Cognitive Services_ resursinstans|Regioner som stöds omfattar<br><br>Västra USA (```westus```)<br>Västeuropa (```westeurope```)<br>Australien, östra (```australiaeast```)|
 |Tränade eller publicerade LUIS-app|Utan [stöds inte beroenden](#unsupported-dependencies). |
 |Åtkomst till den [värddatorn](#the-host-computer)'s filsystem |Värddatorn måste tillåta en [inkommande montera](luis-container-configuration.md#mount-settings).|
   
@@ -214,7 +221,7 @@ Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/r
 | Platshållare | Värde |
 |-------------|-------|
 |{ENDPOINT_KEY} | Den här nyckeln används för att starta behållaren. Använd inte den starter-nyckeln. |
-|{BILLING_ENDPOINT} | Fakturering slutpunktsvärdet är tillgänglig på Azure portal Language Understanding översiktssidan.|
+|{BILLING_ENDPOINT} | Fakturering slutpunktsvärdet är tillgänglig på Azure portal `Cognitive Services` översiktssidan. Du måste lägga till den `luis/v2.0` routning till slutpunkten URI som visas i följande exempel: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
 Ersätt parametrarna med dina egna värden i följande exempel `docker run` kommando.
 
@@ -245,7 +252,7 @@ Mer [exempel](luis-container-configuration.md#example-docker-run-commands) av de
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing).
-> ApiKey-värdet är den **nyckel** från nycklar och slutpunkter i LUIS-portalen och är också tillgängliga på sidan nycklar för Azure Language Understanding-resurs.  
+> ApiKey-värdet är den **nyckel** från nycklar och slutpunkter i LUIS-portalen och är även tillgängligt i Azure `Cognitive Services` resurssida nycklar.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -262,7 +269,7 @@ Använd värden `https://localhost:5000`, för behållaren API: er.
 
 Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 
-|Frågeparameter|Type|Syfte|
+|Frågeparameter|Typ|Syfte|
 |--|--|--|
 |`q`|sträng|Användarens uttryck.|
 |`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|
@@ -324,7 +331,7 @@ Om du kör behållaren med ett utgående [montera](luis-container-configuration.
 
 ## <a name="billing"></a>Fakturering
 
-LUIS behållare skickar information till Azure-fakturering, med en _Språkförståelse_ resurs på ditt Azure-konto. 
+LUIS behållare skickar information till Azure-fakturering, med en _Cognitive Services_ resurs på ditt Azure-konto. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

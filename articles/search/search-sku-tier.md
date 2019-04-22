@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270962"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681581"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
@@ -64,35 +64,36 @@ Det finns tre sätt att betala i Aure Search i Azure Search och det är fast och
 
 ### <a name="1-core-service-costs-fixed-and-variable"></a>1. Core-Tjänstekostnader (fast och varierande)
 
-Minimiavgiften är den första sökenheten (1 repliken x 1 partition) för tjänsten, och den här mängden är konstant för livslängden för tjänsten eftersom tjänsten inte kan köras på något mindre än den här konfigurationen. 
+Minimiavgiften är den första sökenheten (1 repliken x 1 partition) för tjänsten, och den mängden har åtgärdats för livslängden för tjänsten eftersom tjänsten inte kan köras på något mindre än den här konfigurationen. 
 
-I följande skärmbild per priser anges för Free, Basic och S1 (S2, S3, L1 och L2 visas inte). Om du har skapat en **grundläggande**, **Standard**, eller **Lagringsoptimerade** tjänsten, din månatliga kostnad skulle genomsnittlig värdet som visas för *pris-1*och *pris-2* respektive. Enhet kostnader gå upp för varje nivå eftersom beräkningskapacitet kraft och lagring är högre på varje efterföljande nivå.
+Utöver minimum och du kan lägga till repliker och partitioner oberoende av varandra. Du kan till exempel lägga till endast repliker eller endast partitioner. Inkrementell ökning av kapacitet via repliker och partitioner utgör komponenten rörlig kostnad. 
+
+Faktureringen bygger på en [formel (repliker x partitioner x rate)](#search-units). Det pris du debiteras beror på prisnivå som du väljer.
+
+I följande skärmbild per priser anges för Free, Basic och S1 (S2, S3, L1 och L2 visas inte). Om du har skapat en **grundläggande**, **Standard**, eller **Lagringsoptimerade** tjänsten, din månatliga kostnad skulle genomsnittlig värdet som visas för *pris-1*och *pris-2* respektive. Enhet kostnader gå upp för varje nivå eftersom beräkningskapacitet kraft och lagring är högre på varje efterföljande nivå. Priserna för Azure Search är publicerade på den [Azure Search sidan med priser](https://azure.microsoft.com/pricing/details/search/).
 
 ![Per pris för basenheten](./media/search-sku-tier/per-unit-pricing.png "Per pris för basenheten")
 
-Ytterligare repliker och partitioner är ett tillägg till den första kostnaden. En söktjänst kräver en replik- och partition så att den lägsta konfigurationen som är en av varje. Utöver minst du lägga till repliker och partitioner oberoende av varandra. Du kan till exempel lägga till endast repliker eller endast partitioner. 
+När kostnadsberäkning ut en söklösning, märker du att priser och kapacitet inte är linjär (vilket fördubblar kapacitet som är mer än kostnaden Double-värden). Ett exempel på hur av formeln fungerar finns i [”så här allokerar du repliker och partitioner”](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
-Ytterligare repliker och partitioner som debiteras baserat på en [formeln](#search-units). Kostnader som är inte linjär (vilket fördubblar kapacitet som är mer än kostnaden Double-värden). Ett exempel på hur av formeln fungerar finns i [”så här allokerar du repliker och partitioner”](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Kostnaderna för utgående datatrafik vid indexering
 
-Användning av [Azure Search-indexerare](search-indexer-overview.md) kan resultera i fakturering effekt beroende där tjänsterna finns. Du kan eliminera kostnaderna för utgående datatrafik helt och hållet om du skapar Azure Search-tjänst i samma region som dina data.
+Användning av [Azure Search-indexerare](search-indexer-overview.md) kan resultera i fakturering effekt beroende på var tjänsterna finns. Du kan eliminera kostnaderna för utgående datatrafik helt och hållet om du skapar Azure Search-tjänst i samma region som dina data. Följande punkter är från den [bandbredd sidan med priser](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-+ Inga avgifter för inkommande data till alla tjänster på Azure.
++ Microsoft debiterar inte för alla inkommande data till alla tjänster på Azure eller för utgående data från Azure Search.
 
-+ Inga avgifter för utgående data från Azure Search.
++ Det finns inga avgifter för Mina data passerar kabeln när alla tjänster som är i samma region i lösningar för flera tjänster.
 
-+ Inga avgifter för data eller filer som utgår från SQL DB, Cosmos, Blob-lagring (inkommande till Azure Search) så länge som alla tjänster som finns i samma region.
-
-+ Gäller avgifterna för utgående data eller filer om storage och Azure Search finns i olika regioner.
-
-När routning data i Azure-regioner, visas bandbredd debiteringar på fakturan för dessa resurser. Dessa ändringar är inte en del av din Azure Search-faktura, men de nämns här om du använder indexerare för att hämta data eller filer i rörelse, ser du den kostnaden i dina kostnader.
-
-Om du inte använder indexerare, kostar det inget bandbredd. 
+Gäller avgifterna för utgående data om tjänster finns i olika regioner. Sådana avgifter är inte en del av din Azure Search-faktura sig självt, men de nämns här om du använder data eller AI-berikats indexerare att hämta data från olika regioner, ser du de kostnader som visas i dina kostnader. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI-utökad indexering med kognitiva tjänster
 
-För [AI-indexering med kognitiva tjänster](cognitive-search-concept-intro.md) , extrahering av avbildningen under dokumentknäckning faktureras baserat på antalet avbildningar som extraheras från dina dokument. Textextrahering är för närvarande kostnadsfritt. Andra enrichments, till exempel bearbetning av naturligt språk, baseras på [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) debiteras mot en resurs för Cognitive Services. Enrichments faktureras enligt samma taxa som om du har utfört uppgiften med Cognitive Services direkt.
+För [AI-indexering med kognitiva tjänster](cognitive-search-concept-intro.md), bör du vill koppla en fakturerbar resurs för Cognitive Services S0 prisnivån för användningsbaserad betalning bearbetning. Det kostar ingenting ”fast” som är associerade med koppla Cognitive Services. Du betalar bara för den bearbetning som du behöver.
+
+Extrahering av avbildningen under dokumentknäckning är en Azure Search-avgift, som debiteras baserat på antalet avbildningar som extraheras från dina dokument. Textextrahering är för närvarande kostnadsfritt. 
+
+Andra enrichments, till exempel bearbetning av naturligt språk, baseras på [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) debiteras mot en resurs för Cognitive Services, enligt samma taxa som om du har utfört uppgiften med Cognitive Services direkt. Mer information finns i [bifoga en Cognitive Services-resurs med en kompetens](cognitive-search-attach-cognitive-services.md).
 
 <a name="search-units"></a>
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541047"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683961"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -29,13 +29,13 @@ Få svar på vanliga frågor och svar om skalningsuppsättningar för virtuella 
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Längst upp vanliga frågor om skalningsuppsättningar
 
-**F.** Hur många virtuella datorer kan man ha i en skalningsuppsättning?
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>Hur många virtuella datorer kan man ha i en skalningsuppsättning?
 
-**S.** En skalningsuppsättning kan innehålla 0 och 1 000 virtuella datorer baserade på plattformsavbildningar eller 0 och 600 virtuella datorer baserade på anpassade avbildningar.
+En skalningsuppsättning kan innehålla 0 och 1 000 virtuella datorer baserade på plattformsavbildningar eller 0 och 600 virtuella datorer baserade på anpassade avbildningar.
 
-**F.** Kan datadiskar användas i skalningsuppsättningar?
+### <a name="are-data-disks-supported-within-scale-sets"></a>Kan datadiskar användas i skalningsuppsättningar?
 
-**S.** Ja. En skalningsuppsättning kan definiera en konfiguration för anslutna datadiskar som gäller för alla virtuella datorer i uppsättningen. Mer information finns i [Azure scale sets and attached data disks (Azure-skalningsuppsättningar och anslutna datadiskar)](virtual-machine-scale-sets-attached-disks.md). Andra alternativ för att lagra data är:
+Ja. En skalningsuppsättning kan definiera en konfiguration för anslutna datadiskar som gäller för alla virtuella datorer i uppsättningen. Mer information finns i [Azure scale sets and attached data disks (Azure-skalningsuppsättningar och anslutna datadiskar)](virtual-machine-scale-sets-attached-disks.md). Andra alternativ för att lagra data är:
 
 * Azure-filer (delade SMB-enheter)
 * OS-enhet
@@ -43,33 +43,33 @@ Få svar på vanliga frågor och svar om skalningsuppsättningar för virtuella 
 * Azure-datatjänst (t.ex. Azure-tabeller, Azure-blobbar)
 * Extern datatjänst (t.ex. fjärrdatabas)
 
-**F.** Vilka Azure-regioner har stöd för skalningsuppsättningar?
+### <a name="which-azure-regions-support-scale-sets"></a>Vilka Azure-regioner har stöd för skalningsuppsättningar?
 
-**S.** Alla regioner stöder skalningsuppsättningar.
+Alla regioner stöder skalningsuppsättningar.
 
-**F.** Hur skapar jag en skalningsuppsättning med en anpassad avbildning?
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>Hur skapar jag en skalningsuppsättning med en anpassad avbildning?
 
-**S.** Skapa och hämta en datoravbildning av virtuell och sedan använda det som källa för din skalningsuppsättning. En självstudiekurs om hur du skapar och använder en anpassad virtuell datoravbildning som du kan använda den [Azure CLI](tutorial-use-custom-image-cli.md) eller [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+Skapa och hämta en datoravbildning av virtuell och sedan använda det som källa för din skalningsuppsättning. En självstudiekurs om hur du skapar och använder en anpassad virtuell datoravbildning som du kan använda den [Azure CLI](tutorial-use-custom-image-cli.md) eller [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-**F.** Vilka virtuella datorer tas bort om jag minskar skalningsuppsättningens kapacitet från 20 till 15?
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Vilka virtuella datorer tas bort om jag minskar skalningsuppsättningens kapacitet från 20 till 15?
 
-**S.** Virtuella datorer tas bort från skalningsuppsättningen jämnt bland uppgraderingsdomäner och feldomäner för att maximera tillgängligheten. Virtuella datorer med högst ID tas bort först.
+Virtuella datorer tas bort från skalningsuppsättningen jämnt bland uppgraderingsdomäner och feldomäner för att maximera tillgängligheten. Virtuella datorer med högst ID tas bort först.
 
-**F.** Hur blir om det om jag sedan ökar kapaciteten från 15 till 18?
+### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>Hur blir om det om jag sedan ökar kapaciteten från 15 till 18?
 
-**S.** Om du ökar kapaciteten till 18 skapas 3 nya virtuella datorer. Varje gång ökas den virtuella datorinstansens ID från det tidigare högsta värdet (t.ex. 20, 21, 22). Virtuella datorer balanseras mellan feldomäner och uppdateringsdomäner.
+Om du ökar kapaciteten till 18 skapas 3 nya virtuella datorer. Varje gång ökas den virtuella datorinstansens ID från det tidigare högsta värdet (t.ex. 20, 21, 22). Virtuella datorer balanseras mellan feldomäner och uppdateringsdomäner.
 
-**F.** Kan jag framtvinga en körning av sekvensen när jag använder flera tillägg i en skalningsuppsättning?
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Kan jag framtvinga en körning av sekvensen när jag använder flera tillägg i en skalningsuppsättning?
 
-**S.** Ja, du kan använda skalningsuppsättning [ordningsföljd för](virtual-machine-scale-sets-extension-sequencing.md).
+Ja, du kan använda skalningsuppsättning [ordningsföljd för](virtual-machine-scale-sets-extension-sequencing.md).
 
-**F.** Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
 
-**S.** Regionala (icke-zonindelad) på skalningsuppsättningen använder *placeringsgrupper*, som fungerar som en implicit tillgänglighetsuppsättning med fem feldomäner och fem uppdateringsdomäner. Skalningsuppsättningar med mer än 100 virtuella datorer sträcker sig över flera placeringsgrupper. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
+Regionala (icke-zonindelad) på skalningsuppsättningen använder *placeringsgrupper*, som fungerar som en implicit tillgänglighetsuppsättning med fem feldomäner och fem uppdateringsdomäner. Skalningsuppsättningar med mer än 100 virtuella datorer sträcker sig över flera placeringsgrupper. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
 
-**F.** Skala uppsättningar fungerar med Azure tillgänglighetszoner?
+### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Skala uppsättningar fungerar med Azure tillgänglighetszoner?
 
-**S.** Visst! Mer information finns i den [scale Sets zon doc](./virtual-machine-scale-sets-use-availability-zones.md).
+Visst! Mer information finns i den [scale Sets zon doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Automatisk skalning

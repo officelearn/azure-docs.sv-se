@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542373"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737309"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: design för hög prestanda
 
@@ -261,7 +261,8 @@ Kom ihåg att Premium Storage-diskar har högre prestanda jämfört med Standard
 Hög skala datorer som använder Azure Premium Storage har en cachelagringsteknik för flera nivåer som kallas BlobCache. BlobCache använder en kombination av den virtuella datorn RAM-minne och lokal SSD-lagring för cachelagring. Det här cacheminnet är tillgängligt för Premium Storage beständiga diskar och de lokala VM-diskarna. Den här cache-inställningen är som standard att läsa/skriva för OS-diskar och skrivskyddad för datadiskar som finns på Premium Storage. Hög skala virtuella datorer kan uppnå extremt höga prestanda som överstiger den underliggande diskprestandan med diskcachelagring aktiverad på Premium Storage-diskar.
 
 > [!WARNING]
-> Disk-cachelagring stöds endast för diskstorlekar på upp till 4 TiB.
+> Disk-cachelagring stöds inte för diskar som är större än 4 TiB. Om flera diskar är anslutna till den virtuella datorn varje disk som är 4 TiB eller mindre har stöd för cachelagring.
+>
 > Om du ändrar cache-inställningen för en Azure-disk kopplas och bifogar måldisken igen. Om det är ingen operativsystemdisk startas den virtuella datorn. Stoppa alla program/tjänster som kan påverkas av den här avbrott innan du ändrar inställningen för disk-cache.
 
 Mer information om hur BlobCache fungerar avser insidan [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blogginlägg.
@@ -353,7 +354,7 @@ En viktig konfigurationsinformation i disken striping är Stripestorleken. Strip
 
 Till exempel om en i/o-begäran som genererats av ditt program är större än den stripe skriver lagringssystemet den över stripe enhet gränser på mer än en disk. När är det dags att komma åt dessa data har att söka i mer än en stripe-enheter för att slutföra begäran. Den ackumulerade effekten av sådant beteende kan leda till betydande prestandaförsämring. Å andra sidan, om i/o-begäran storlek är mindre än stripe-storlek och om det är slumpmässigt i/o-begäranden kan lägga till på samma disk orsakar en flaskhals och slutligen minska i/o-prestanda.
 
-Välj en storlek på lämplig stripe beroende på vilken typ av arbetsbelastning som ditt program körs. Använd en mindre storlek på stripe för slumpmässiga små i/o-begäranden. Medan för stora sekventiella i/o begäranden för att använda en större stripe-storlek. Ta reda på stripe storleksrekommendationer för programmet körs på Premium Storage. SQL Server och konfigurera stripe storlek på 64 KB för OLTP-arbetsbelastningar och 256 KB för Datalagerhantering. Se [prestandametodtips för SQL Server på Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) vill veta mer.
+Välj en storlek på lämplig stripe beroende på vilken typ av arbetsbelastning som ditt program körs. Använd en mindre storlek på stripe för slumpmässiga små i/o-begäranden. För stora sekventiella i/o-begäranden använda en större stripe-storlek. Ta reda på stripe storleksrekommendationer för programmet körs på Premium Storage. SQL Server och konfigurera stripe storlek på 64 KB för OLTP-arbetsbelastningar och 256 KB för Datalagerhantering. Se [prestandametodtips för SQL Server på Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) vill veta mer.
 
 > [!NOTE]
 > Du kan stripe-tillsammans högst 32 premium storage-diskar på virtuella datorer i DS-serien och 64 premium storage-diskar på virtuella datorer i GS-serien.

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df6720d888aae313a2e6ad2ce4df458adba8742f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: f289830fce184f99a0bd2dc7a21bd9457f5183ae
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565367"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>Självstudier: Azure Active Directory-integrering med GreenOrbit
 
@@ -35,7 +35,7 @@ Integrera GreenOrbit med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med GreenOrbit, behöver du följande objekt:
 
@@ -56,7 +56,7 @@ För att konfigurera integrering av GreenOrbit i Azure AD, som du behöver lägg
 
 **Utför följande steg för att lägga till GreenOrbit från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -64,11 +64,11 @@ För att konfigurera integrering av GreenOrbit i Azure AD, som du behöver lägg
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program, klicka på den **nytt program** längst upp i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **GreenOrbit**väljer **GreenOrbit** från panelen resultatet klickar på **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **GreenOrbit**väljer **GreenOrbit** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![GreenOrbit i resultatlistan](common/search-new-app.png)
 
@@ -108,9 +108,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med GreenOr
 
     ![GreenOrbit domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.GreenOrbit.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.yourcompanydomain.extension`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `http://<SUBDOMAIN>.trial.GreenOrbit.com`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.yourcompanydomain.extension`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [GreenOrbit klienten supportteamet](mailto:support@greenorbit.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -195,7 +195,7 @@ När du klickar på panelen GreenOrbit i åtkomstpanelen, bör det vara loggas i
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

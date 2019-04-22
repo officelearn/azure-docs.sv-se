@@ -1,6 +1,6 @@
 ---
-title: Azure Storage Explorer hjälpmedel (förhandsversion) | Microsoft Docs
-description: Azure Storage Explorer hjälpmedel (förhandsgranskning)
+title: Azure Storage Explorer-hjälpmedel (förhandsversion) | Microsoft Docs
+description: Azure Storage Explorer-hjälpmedel (förhandsversion)
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -14,79 +14,98 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
-ms.openlocfilehash: 617a5c35ce059bf13fcf0b5aab415d8e431041e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525952"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698101"
 ---
-# <a name="storage-explorer-accessibility"></a>Lagring Explorer hjälpmedel
-## <a name="screen-readers"></a>Skärmläsare
-Lagringsutforskaren stöder användning av en skärmläsare på Windows och Mac. Följande skärmläsare rekommenderas för varje plattform:
-* Windows: NVDA
-* Mac: Voice-over-
-* Linux: Skärmläsare stöds inte på Linux
+# <a name="storage-explorer-accessibility"></a>Storage Explorer-hjälpmedel
 
-Om du stöter på ett hjälpmedel problem när du använder Lagringsutforskaren [öppna ett problem på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+## <a name="screen-readers"></a>Skärmläsare
+
+Lagringsutforskaren stöder användning av en skärmläsare på Windows och Mac. Följande skärmläsare rekommenderas för varje plattform:
+
+Plattform | Skärmläsaren
+---------|--------------
+Windows  | NVDA
+Mac      | VoiceOver
+Linux    | (skärmläsare stöds inte i Linux)
+
+Om du stöter på ett hjälpmedel problem när du använder Storage Explorer kan du [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="zoom"></a>Zooma
-Du kan göra texten i Lagringsutforskaren större via zoomat in. Klicka på för att zooma in **Zooma In** i Hjälp-menyn. Du kan också använda Hjälp-menyn för att zooma ut och återställning av zoomnivån tillbaka till Standardnivå.
+
+Du kan göra texten i Storage Explorer större via Zooma in. Klicka på för att zooma in **Zooma In** i Hjälp-menyn. Du kan också använda Hjälp-menyn för att zooma ut och återställning av zoomnivån tillbaka till Standardnivå.
 
 ![Zoomalternativ i Hjälp-menyn][0]
 
-Zoominställning ökar storleken på de flesta UI-element. Det rekommenderas också aktivera stora text och zooma inställningarna för ditt operativsystem så att alla UI-element skalas korrekt.
+Zoominställning ökar storleken på de flesta UI-element. Vi rekommenderar att också aktivera stor text och zooma inställningar för ditt operativsystem så att alla gränssnittselement skalas korrekt.
 
-## <a name="high-contrast-theming"></a>Hög kontrast teman
-Lagringsutforskaren har två hög kontrast teman **hög kontrast enstaka** och **hög kontrast mörkt**. Du kan ändra ditt tema genom att gå till undermenyn teman i Hjälp-menyn.
+## <a name="high-contrast-themes"></a>Högkontrast teman
+
+Lagringsutforskaren har två hög kontrast teman, **hög kontrast ljus** och **hög kontrast mörk**. Du kan ändra din tema genom att välja i Hjälp > teman menyn.
 
 ![Teman undermeny][1]
 
-Temat ändrar färg för de flesta UI-element. Det rekommenderas att du även aktivera ditt operativsystem matchar tema med hög kontrast så att alla UI-element är korrekt färgade.
+Temat ändras färgen på de flesta UI-element. Rekommenderar vi att du även aktivera ditt operativsystem matchar högkontrasttema så att alla UI-element är färgade korrekt.
 
 ## <a name="shortcut-keys"></a>Kortkommandon
+
 ### <a name="window-commands"></a>Kommandon
-|Kommando|Kortkommando|
-|--------------|------------------------|
-|Nytt fönster|**CTRL + SKIFT + N**|
-|Stäng redigeraren|**CTRL + F4**|
-|Avsluta|**CTRL + SKIFT + W**|
+
+Kommando       | Kortkommando
+--------------|--------------------
+Nytt fönster    | **CTRL + SKIFT + N**
+Stäng redigeringsprogrammet  | **Kontroll + F4**
+Avsluta          | **CTRL + SKIFT + W**
 
 ### <a name="navigation-commands"></a>Kommandon
-|Kommando|Kortkommando|
-|--------------|------------------------|
-|Fokus nästa Panel|**F6**|
-|Fokus föregående Panel|**SKIFT + F6**|
-|Utforskaren|**CTRL + SKIFT + E**|
-|Kontohantering|**CTRL + SKIFT + A**|
-|Växla sidorutan|**CTRL + B**|
-|Aktivitetslogg|**CTRL + SKIFT + L**|
-|Egenskaper och åtgärder|**CTRL + SKIFT + P**|
-|Aktuella redigeraren|**Ctrl + Home**|
-|Nästa redigeraren|**Ctrl + Page Down**|
-|Tidigare redigeraren|**ALT + PGUP**|
+
+Kommando                | Kortkommando
+-----------------------|----------------------
+Nästa Panel i fokus       | **F6**
+Föregående Panel i fokus   | **SKIFT + F6**
+Utforskaren               | **CTRL + SKIFT + E**
+Kontohantering     | **CTRL + SKIFT + A**
+Visa/Dölj Sidopanel        | **CTRL + B**
+Aktivitetslogg           | **CTRL + SKIFT + L**
+Akce a Vlastnosti | **CTRL + SKIFT + P**
+Aktuella redigeraren         | **Ctrl + Home**
+Nästa redigeraren            | **Ctrl + Page Down**
+Föregående redigeraren        | **Ctrl + Page Up**
 
 ### <a name="zoom-commands"></a>Zooma kommandon
-|Kommando|Kortkommando|
-|--------------|------------------------|
-|Zooma in|**CTRL + =**|
-|Zooma ut|**CTRL +-**|
 
-### <a name="blob-and-file-share-editor-commands"></a>BLOB och dela filredigerare kommandon
-|Kommando|Kortkommando|
-|--------------|------------------------|
-|Tillbaka|**ALT + VÄNSTERPIL**|
-|Vidarebefordra|**ALT + HÖGERPIL**|
-|Upp|**ALT + UPPIL**|
+Kommando  | Kortkommando
+---------|------------------
+Zooma in  | **CTRL + =**
+Zooma ut | **CTRL +-**
+
+### <a name="blob-and-file-share-editor-commands"></a>BLOB- och dela Textfilsredigeraren kommandon
+
+Kommando | Kortkommando
+--------|--------------------
+Tillbaka    | **ALT + VÄNSTERPIL**
+Framåt | **ALT + HÖGERPIL**
+Upp      | **ALT + UPPIL**
+
+### <a name="editor-commands"></a>Redigeraren för kommandon
+
+Kommando | Kortkommando
+--------|------------------
+Kopiera    | **CTRL + C**
+Klipp ut     | **CTRL + X**
+Klistra in   | **CTRL + V**
+Uppdatera  | **Kontroll + R**
 
 ### <a name="other-commands"></a>Andra kommandon
-|Kommando|Kortkommando|
-|--------------|------------------------|
-|Kopiera|**CTRL + C**|
-|Klipp ut|**CTRL + X**|
-|Klistra in|**CTRL + V**|
-|Växla utvecklingsverktygen|**F12**|
-|Läs in igen|**CTRL + R**|
+
+Kommando                | Kortkommando
+-----------------------|------------------
+Visa/Dölj utvecklarverktyg | **F12**
+Läs in igen                 | **ALT + Control + R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

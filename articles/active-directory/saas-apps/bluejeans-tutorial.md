@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b22a7a86862f02c3320b7c14cc1ed878a57bd23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901958"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Självstudier: Azure Active Directory-katalogintegrering med BlueJeans
 
@@ -34,11 +35,11 @@ När du integrerar BlueJeans med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med BlueJeans behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
 * BlueJeans-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -105,14 +106,16 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BlueJ
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![BlueJeans-domän och URL:er med information om enkel inloggning](common/sp-signonurl.png)
+    ![BlueJeans-domän och URL:er med information om enkel inloggning](common/sp-identifier.png)
 
-    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.BlueJeans.com`
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.BlueJeans.com`
+
+    b. I textrutan **Identifierare** skriver du in en URL: `http://samlsp.bluejeans.com`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [BlueJeans-klientens supportteam](https://support.bluejeans.com/contact) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [BlueJeans-klientens supportteam](https://support.bluejeans.com/contact) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -128,15 +131,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BlueJ
 
 ### <a name="configure-bluejeans-single-sign-on"></a>Konfigurera enkel inloggning för BlueJeans
 
-1. Logga in i ett annat webbläsarfönster på **BlueJeans**-företagswebbplatsen som administratör.
+1. I ett annat webbläsarfönster, loggar du in din **BlueJeans** företagets plats som administratör.
 
 2. Gå till **ADMIN \>GRUPPINSTÄLLNINGAR \> SÄKERHET**.
 
-    ![Admin](./media/bluejeans-tutorial/IC785868.png "Admin")
+    ![Admin](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. I avsnittet **SÄKERHET** utför du följande steg:
 
-    ![SAML enkel inloggning](./media/bluejeans-tutorial/IC785869.png "SAML enkel inloggning")
+    ![SAML enkel inloggning](./media/bluejeans-tutorial/ic785869.png "SAML enkel inloggning")
 
     a. Välj **SAML Single Sign On** (SAML enkel inloggning).
 
@@ -144,7 +147,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BlueJ
 
 4. Gå vidare med följande steg:
 
-    ![Certifikatsökväg](./media/bluejeans-tutorial/IC785870.png "Certifikatsökväg")
+    ![Certifikatsökväg](./media/bluejeans-tutorial/ic785870.png "Certifikatsökväg")
 
     a. Klicka på **Välj fil** för att ladda upp det base-64-kodade certifikatet som du har laddat ned från Azure-portalen.
 
@@ -156,9 +159,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BlueJ
 
 5. Gå vidare med följande steg:
 
-    ![Spara ändringar](./media/bluejeans-tutorial/IC785874.png "Spara ändringar")
+    ![Spara ändringar](./media/bluejeans-tutorial/ic785874.png "Spara ändringar")
 
-    a. I textrutan **Användar-ID** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. I den **användar-Id** textrutan typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     b. I textrutan **E-post** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -182,8 +185,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
+    b. I den **användarnamn** fälttyp `brittasimon\@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -221,22 +223,22 @@ Målet med det här avsnittet är att skapa en användare som heter Britta Simon
 
 **Om du behöver skapa användare manuellt så gör du följande:**
 
-1. Logga in på din **BlueJeans**-företagswebbplats som administratör.
+1. Logga in på din **BlueJeans** företagets plats som administratör.
 
 2. Gå till **ADMIN \> HANTERA ANVÄNDARE \> LÄGG TILL ANVÄNDARE**.
 
-    ![Admin](./media/bluejeans-tutorial/IC785877.png "Admin")
+    ![Admin](./media/bluejeans-tutorial/ic785877.png "Admin")
 
-    >[!IMPORTANT]
-    >Fliken **LÄGG TILL ANVÄNDARE** är endast tillgänglig om **Aktivera automatisk etablering** är avmarkerat på fliken **SÄKERHET**. 
+    > [!IMPORTANT]
+    > Fliken **LÄGG TILL ANVÄNDARE** är endast tillgänglig om **Aktivera automatisk etablering** är avmarkerat på fliken **SÄKERHET**.
 
 3. I avsnittet **LÄGG TILL ANVÄNDARE** utför du följande steg:
 
-    ![Lägg till användare](./media/bluejeans-tutorial/IC785886.png "Lägg till användare")
+    ![Lägg till användare](./media/bluejeans-tutorial/ic785886.png "Lägg till användare")
 
     a. I textrutan **Förnamn** anger du förnamnet på användaren som **Britta**.
 
-    b. I textrutan **Efternamn** anger du efternamnet på användaren som **simon**.
+    b. I textrutan **Efternamn** anger du efternamnet på användaren som **Simon**.
 
     c. I textrutan för att **välja ett BlueJeans-användarnamn** anger du användarnamnet för användaren, som **Brittasimon**
 
@@ -244,7 +246,7 @@ Målet med det här avsnittet är att skapa en användare som heter Britta Simon
 
     e. I textrutan **Företag** skriver du ditt företag.
 
-    f. I **e-postadress** text, ange den e-postadressen för användaren som **brittasimon\@contoso.com**.
+    f. I **e-postadress** text, ange den e-postadressen för användaren som `brittasimon\@contoso.com`.
 
     g. I textrutan för att **skapa ett ID för BlueJeans-möte** anger du ditt mötes-ID.
 
@@ -252,7 +254,7 @@ Målet med det här avsnittet är att skapa en användare som heter Britta Simon
 
     i. Klicka på **FORTSÄTT**.
 
-    ![Lägg till användare](./media/bluejeans-tutorial/IC785887.png "Lägg till användare")
+    ![Lägg till användare](./media/bluejeans-tutorial/ic785887.png "Lägg till användare")
 
     J. Klicka på **LÄGG TILL ANVÄNDARE**.
 
@@ -272,4 +274,3 @@ När du klickar på BlueJeans-panelen i åtkomstpanelen bör du automatiskt logg
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

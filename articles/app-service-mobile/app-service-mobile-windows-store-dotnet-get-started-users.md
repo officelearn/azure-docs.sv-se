@@ -1,6 +1,6 @@
 ---
 title: Lägg till autentisering i din app för Universal Windows Platform (UWP) | Microsoft Docs
-description: 'Lär dig hur du använder Azure App Service Mobile Apps för att autentisera användare i appen Universal Windows Platform (UWP) med olika identitetsprovidrar, till exempel: AAD, Google, Facebook, Twitter och Microsoft.'
+description: 'Lär dig hur du använder Azure App Service Mobile Apps för att autentisera användare i appen Universal Windows Platform (UWP) med olika identitetsleverantörer, inklusive: AAD, Google, Facebook, Twitter och Microsoft.'
 services: app-service\mobile
 documentationcenter: windows
 author: conceptdev
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306582"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698690"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Lägg till autentisering i din Windows-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -35,15 +35,13 @@ Den här självstudien är baserad på Mobile Apps-Snabbstart. Du måste slutfö
 
 Säker autentisering måste du definiera en ny URL-schema för din app. På så sätt kan autentiseringssystem att omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder vi URL-schema _appname_ i hela. Du kan dock använda alla URL-schema som du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på serversidan:
 
-1. Välj din App Service i [Azure-portalen].
+1. I den [Azure-portalen](https://ms.portal.azure.com), Välj din App Service.
 
 2. Klicka på den **autentisering / auktorisering** menyalternativ.
 
 3. I den **tillåtna externa omdirigerings-URL: er**, ange `url_scheme_of_your_app://easyauth.callback`.  Den **url_scheme_of_your_app** i den här strängen är URL-schemat för din mobilapp.  Den bör följa den normala URL specifikationen för ett protokoll (Använd bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer eftersom du behöver ändra programkoden mobila med URL-schema på flera platser.
 
-4. Klicka på **OK**.
-
-5. Klicka på **Spara**.
+4. Klicka på **Spara**.
 
 ## <a name="permissions"></a>Begränsa behörighet för autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

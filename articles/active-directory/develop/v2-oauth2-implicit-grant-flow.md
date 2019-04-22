@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453a3316288cbc0b07d82e2fad9ecc7c3d353e9b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501322"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698460"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft identity-plattformen och Implicit beviljat flöde
 
@@ -52,7 +52,7 @@ Följande diagram visar hur det hela implicita inloggning flödet ser ut och avs
 
 ## <a name="send-the-sign-in-request"></a>Skicka begäran inloggning
 
-Om du vill logga först in användaren i din app, kan du skicka en [OpenID Connect](v2-protocols-oidc.md) auktoriseringsbegäran och få en `id_token` från slutpunkten för Microsoft identity-plattformen.
+Om du vill logga först in användaren i din app, kan du skicka en [OpenID Connect](v2-protocols-oidc.md) autentiseringsbegäran och få en `id_token` från slutpunkten för Microsoft identity-plattformen.
 
 > [!IMPORTANT]
 > Att begära appregistreringen i en ID-token har den [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan måste ha implicit beviljande av flödet aktiverats korrekt, genom att välja **åtkomsttoken** och **ID-token** under den **Implicit beviljande** avsnittet. Om den inte är aktiverad, en `unsupported_response` fel returneras: **Det angivna värdet för Indataparametern 'response_type ”är inte tillåtet för den här klienten. Förväntat värde är ”code”**

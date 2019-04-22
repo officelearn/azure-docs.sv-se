@@ -4,20 +4,20 @@ description: Lär dig att hitta kostnaden för begäran om enheten för alla åt
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: e3175ee136057c695ceef3cd1976b447a529c803
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053169"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683842"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>Hitta begäransenhet (RU) kostnad i Azure Cosmos DB
 
 Den här artikeln beskrivs olika sätt att hitta den [begäransenhet](request-units.md) förbrukningen för alla åtgärder som körs mot en Azure Cosmos-behållare. Det går för närvarande att mäta den här användning med hjälp av Azure portal eller genom att kontrollera de svar som skickas tillbaka från Azure Cosmos DB via en av SDK: erna.
 
-## <a name="core-api"></a>Core API
+## <a name="sql-core-api"></a>SQL (kärna) API
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
@@ -25,13 +25,13 @@ Azure-portalen kan för närvarande du hitta kostnad för begäran för en SQL-f
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. [Skapa ett nytt Azure Cosmos DB-konto](create-sql-api-dotnet.md#create-account) och feed med data, eller välja ett befintligt konto som redan innehåller data.
+1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account) och feed med data, eller välja ett befintligt Azure Cosmos-konto som redan innehåller data.
 
 1. Öppna den **Datautforskaren** rutan och välj den behållare som du vill arbeta med.
 
 1. Klicka på **ny SQL-fråga**.
 
-1. Ange en giltig fråga och klicka sedan på **Kör fråga**.
+1. Ange en giltig fråga och sedan på **Kör fråga**.
 
 1. Klicka på **fråga Stats** att visa den faktiska begäran kostnaden för den begäran som du precis har genomfört.
 
@@ -147,7 +147,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## <a name="azure-cosmos-dbs-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
-Begär avgiften för lyssnarenheten exponeras av en anpassad [databasen kommandot](https://docs.mongodb.com/manual/reference/command/) med namnet `getLastRequestStatistics`. Det här kommandot returnerar ett dokument som innehåller namnet på den senaste åtgärden som utfördes, dess kostnad för begäran och dess varaktighet.
+Begäran avgiften för lyssnarenheten exponeras av en anpassad [databasen kommandot](https://docs.mongodb.com/manual/reference/command/) med namnet `getLastRequestStatistics.` det här kommandot returnerar ett dokument som innehåller namnet på den senaste åtgärden som utfördes, dess kostnad för begäran och dess varaktighet.
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
@@ -155,7 +155,7 @@ Azure-portalen kan för närvarande du hitta kostnad för begäran för enbart e
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. [Skapa ett nytt Azure Cosmos DB-konto](create-mongodb-dotnet.md#create-a-database-account) och feed med data, eller välja ett befintligt konto som redan innehåller data.
+1. [Skapa ett nytt Azure Cosmos-konto](create-mongodb-dotnet.md#create-a-database-account) och feed med data, eller välja ett befintligt konto som redan innehåller data.
 
 1. Öppna den **Datautforskaren** rutan och välj den samling som du vill arbeta med.
 
@@ -195,7 +195,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>MongoDB Node.js-drivrutinen
 
-När du använder den [officiella MongoDB Node.js-drivrutinen](https://mongodb.github.io/node-mongodb-native/) (se [den här snabbstarten](create-mongodb-nodejs.md) rörande användningen), kommandon kan köras genom att anropa den `command` metod på en `Db` objekt.
+När du använder den [officiella MongoDB Node.js-drivrutinen](https://mongodb.github.io/node-mongodb-native/) (se [den här snabbstarten](create-mongodb-nodejs.md) rörande användningen), kommandon kan köras genom att anropa den `command` metod på en `db` objekt.
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -267,5 +267,9 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 Se följande artiklar för att lära dig om hur du optimerar dina enhet användningen av begäran:
 
+* [Begärandeenheter och dataflöde i Azure Cosmos DB](request-units.md)
 * [Optimera kostnader för etablerat dataflöde i Azure Cosmos DB](optimize-cost-throughput.md)
 * [Optimera kostnader för frågan i Azure Cosmos DB](optimize-cost-queries.md)
+* [Skala globalt etablerat dataflöde](scaling-throughput.md)
+* [Etablera dataflöde på behållare och databaser](set-throughput.md)
+* [Etablera dataflöde för en container](how-to-provision-container-throughput.md)

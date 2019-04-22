@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0b2d242519e7e8981a905d6adb1f3c0f091afe38
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491594"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698953"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Förbättra prestanda för Azure-program med Azure Advisor
 
@@ -74,6 +74,25 @@ Migrera din modell för distribution av Storage-konto till Azure Resource Manage
 
 > [!NOTE]
 > Klassiska aviseringar i Azure Monitor är schemalagda att dra tillbaka i juni 2019. Vi rekommenderar att du uppgraderar ditt klassiska storage-konto om du vill använda Resource Manager till behåller aviseringsdata funktioner med den nya plattformen. Mer information finns i [klassiska aviseringar tillbakadragande](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Utforma dina lagringskonton för att förhindra nått prenumerationsgränsen för högsta
+
+En Azure-region har stöd för upp till 250 lagringskonton per prenumeration. När gränsen har nåtts, kan du inte skapa några fler storage-konton i den region eller prenumeration på kombinationen. Advisor kontrollerar dina prenumerationer och surface rekommendationer att designa för färre storage-konton för alla som ligger nära når maxgränsen.
+
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optimera prestandan för dina Azure MySQL och Azure PostgreSQL Azure MariaDB-servrar 
+
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Åtgärda CPU-belastning servrarnas Azure MySQL och Azure PostgreSQL Azure MariaDB med processorflaskhalsar
+Mycket hög användning av Processorn under en längre period kan orsaka långsam frågeprestanda för din arbetsbelastning. Öka storleken på CPU hjälpa på att optimera körningen för databasfrågorna och förbättra prestandan. Azure Advisor identifierar servrar med en hög processoranvändning som körs troligen begränsad processorarbetsbelastningar och rekommenderar att skala din databearbetning.
+
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Minska minnesbegränsningar på din Azure MySQL och Azure PostgreSQL Azure MariaDB-servrar eller flytta till ett minne optimerade SKU
+Ett låga cache träffar förhållande kan medföra långsammare prestanda för frågor och ökad IOPS. Detta kan bero på en felaktig frågeplan eller kör en minne-intensiv arbetsbelastning. Åtgärda frågeplanen eller [ökar minnet](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) i Azure Database för PostgreSQL-databasserver, Azure MySQL database-server eller Azure MariaDB server kommer att optimera körningen av databas-arbetsbelastning. Azure Advisor identifierar servrar påverkas på grund av hög bufferten pool dataomsättningen och rekommenderar åtgärda frågeplanen, flyttar till en högre SKU med mer minne eller öka lagringsstorleken för att få fler IOPS.
+
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Använd en Azure MySQL- eller Azure PostgreSQL Läs replik för att skala ut läsningar för Läs-intensiva arbetsbelastningar
+Azure Advisor utnyttjar arbetsbelastning-baserade heuristik, till exempel antalet läsåtgärder och skrivåtgärder på servern under de senaste sju dagarna att identifiera läsintensiva arbetsbelastningar. Din Azure database för PostgreSQL-resurs eller en Azure database för MySQL-resursen med mycket hög läsning/skrivning förhållandet kan resultera i processor och/eller minne contentions leda till långsamma prestanda för frågor. Att lägga till en [repliken](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) gör det lättare att skala ut läsningar till replikservern, förhindrar begränsningar för CPU och/eller minne på den primära servern. Advisor ska identifiera servrar med sådan hög läsintensiva arbetsbelastningar och rekommenderar att du lägger en [Läs replik](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) att omfördela några av de skrivskyddade arbetsbelastningarna.
+
+
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skala din Azure MySQL, Azure PostgreSQL eller Azure MariaDB-server till en högre SKU för att förhindra att anslutningsbegränsningar
+Varje ny anslutning till din databasserver upptar minne. Databas-serverns prestanda försämras om anslutningar till servern misslyckas grund av ett [övre gräns för](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) i minnet. Azure Advisor ska identifiera servrar som kör med många anslutningsfel och rekommenderar att du uppgraderar din server anslutningar gränser för att ge mer minne till servern genom att skala upp beräkning eller använda minne Beräkningsoptimerade SKU: er, som har mer databearbetning per kärna.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Hur du kommer åt prestandarekommendationer i Advisor
 

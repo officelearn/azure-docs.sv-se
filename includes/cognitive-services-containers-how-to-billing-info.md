@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2019
-ms.openlocfilehash: 200e2dfd2dd4f9aedd9256b307491a0b207ea124
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/16/2019
+ms.openlocfilehash: e92d1c65d9601c23e7e785f07e2de3e43ea6612b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57964293"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684658"
 ---
 Frågor till behållaren debiteras enligt prisnivån för Azure-resursen används för den `<ApiKey>`.
 
@@ -26,7 +26,7 @@ Alla tre av följande alternativ måste anges med giltiga värden för den `dock
 | Alternativ | Beskrivning |
 |--------|-------------|
 | `ApiKey` | API-nyckel för den Cognitive Service-resursen som används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till en API-nyckel för den etablerade resursen som anges i `Billing`. |
-| `Billing` | Slutpunkten för den Cognitive Service-resursen som används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till slutpunkten för en etablerad LUIS Azure-resurs-URI.|
+| `Billing` | Slutpunkten för den Cognitive Service-resursen som används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till en etablerade Azure-resurs-URI-slutpunkten.|
 | `Eula` | Anger att du har godkänt licensen för behållaren.<br/>Värdet för det här alternativet måste anges till `accept`. |
 
 

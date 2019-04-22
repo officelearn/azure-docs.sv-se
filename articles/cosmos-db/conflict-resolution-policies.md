@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 24201cfd657d4f23eb962b7407ed20262d780cf7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407427"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684233"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Konflikttyper och matchningsprinciper
 
@@ -37,11 +37,11 @@ Azure Cosmos DB erbjuder en flexibel principstyrda mekanism för att lösa konfl
   > [!NOTE]
   > Senaste skriva Wins är standardprincipen för konfliktlösning. Den är tillgänglig för följande API: er: SQL, MongoDB, Cassandra, Gremlin och tabellen.
 
-  Mer information finns i [exempel som använder LWW står i konflikt upplösning principer](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Mer information finns i [exempel som använder LWW står i konflikt upplösning principer](how-to-manage-conflicts.md).
 
 - **Anpassat**: Den här principen är utformat för programdefinierade semantik för avstämningen av konflikter. När du anger den här principen på din Azure Cosmos-behållare kan du också behöva registrera en *sammanfoga lagrade proceduren*. Den här proceduren anropas automatiskt när konflikter upptäcks under en databastransaktion på servern. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande.  
 
-  Om du konfigurerar din behållare med alternativet anpassad lösning och du inte kan registreras en merge-procedur på behållaren eller merge-procedur genereras ett undantag vid körning, det är i konflikt har skrivits till den *konflikter feed*. Sedan ditt program måste manuellt lösa konflikter i konflikter feed. Mer information finns i [exempel på hur du använder den anpassade principen och hur du använder det orsakar en konflikt feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Om du konfigurerar din behållare med alternativet anpassad lösning och du inte kan registreras en merge-procedur på behållaren eller merge-procedur genereras ett undantag vid körning, det är i konflikt har skrivits till den *konflikter feed*. Sedan ditt program måste manuellt lösa konflikter i konflikter feed. Mer information finns i [exempel på hur du använder den anpassade principen och hur du använder det orsakar en konflikt feed](how-to-manage-conflicts.md).
 
   > [!NOTE]
   > Principen för anpassad konfliktlösning är endast tillgänglig för SQL-API-konton.
@@ -51,6 +51,5 @@ Azure Cosmos DB erbjuder en flexibel principstyrda mekanism för att lösa konfl
 Lär dig hur du konfigurerar principer för lösning av konflikt:
 
 * [Så här konfigurerar du multimaster i dina program](how-to-multi-master.md)
-* [Hur du använder principen för konfliktlösning LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Hur du använder principen för anpassad konfliktlösning](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Hantera principer för lösning av konflikt](how-to-manage-conflicts.md)
 * [Läsa från står i konflikt feed](how-to-manage-conflicts.md#read-from-conflict-feed)

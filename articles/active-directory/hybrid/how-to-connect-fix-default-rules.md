@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f524e8cef3878816cec53575217bdb6d0fd9be7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501263"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698172"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Åtgärda ändrade standardregler i Azure AD Connect
 
@@ -76,12 +76,12 @@ Inkommande synkroniseringsregel innebär källan för attributet är en anslutar
 
  ![Standardregler](media/how-to-connect-fix-default-rules/default3a.png)
 
-Följer din egen namngivningskonvention för att nämna regeln, här vi använde **anpassade i från AD - användare**, det innebär att regeln är en anpassad regel och en regel för inkommande från AD-anslutningsappens utrymme till metaversum. 
+Följer din egen namngivningskonvention för att nämna regeln, här vi använde **anpassade i från AD - användare**, det innebär att regeln är en anpassad regel och en regel för inkommande från AD-anslutningsappens utrymme till metaversum.   
 
  ![Standardregler](media/how-to-connect-fix-default-rules/default3b.png)
 
 Ge dina egna beskrivning av regeln så att framtida underhåll av regeln är enkelt, t.ex. Vad är syftet med den här regeln och varför det behövdes.
-Valt anslutna system (skog) källan för attributet. Objekttyp för anslutna System och metaversum-objekttyp.
+Välj ett anslutna System (skog) - attributet källan. Välj objekttyp för anslutna System och metaversum-objekttyp.
 
 Ange prioritetsvärde mellan 0 – 99 (lägre nummer, högre prioritet). Håll andra fält som ”tagg”, ”aktivera Lösenordssynkronisering' och inaktiverad som standard.
 

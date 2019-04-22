@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856030"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699055"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer – jämförelser och skillnader
 Den här artikeln analyserar både skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: Storage-köer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -84,7 +84,7 @@ Det här avsnittet jämför några av de grundläggande funktioner för meddelan
 * Garanterad FIFO-mönstret i Service Bus-köer måste du använda meddelanden sessioner. I händelse av att programmet kraschar vid bearbetning av ett meddelande tas emot i den **Granska & låsa** läge, nästa gång en kö mottagare tar emot en meddelandesession, den börjar med misslyckade meddelandet efter dess time to live (TTL) period har löpt ut.
 * Storage-köer är utformade för att stödja standard queuing scenarier, t.ex. Frikoppling programkomponenter att öka skalbarheten och tolerans för fel, läsa in Utjämning och utveckling av processarbetsflöden.
 * Stöd för Service Bus-köer i *på minst en gång* garanti om leverans. 
-* Inkonsekvenser avseende meddelandehantering i samband med Service Bus-sessioner kan undvikas genom att använda sessionstillstånd för att lagra programtillstånd i förhållande till förloppet hantera sessionens Meddelandeordningen och genom att använda transaktioner runt reglera emot meddelanden och uppdatera sessionens tillstånd. Den här typen av konsekvens funktionen klassificerades ibland *exakt-bearbetning av en gång* i andra leverantörens produkter, men transaktion meddelanden ska redeliveried naturligtvis leder till fel och därför termen är inte exakt tillräckligt.
+* Inkonsekvenser avseende meddelandehantering i samband med Service Bus-sessioner kan undvikas genom att använda sessionstillstånd för att lagra programtillstånd i förhållande till förloppet hantera sessionens Meddelandeordningen och genom att använda transaktioner runt reglera emot meddelanden och uppdatera sessionens tillstånd. Den här typen av konsekvens funktionen klassificerades ibland *exakt-bearbetning av en gång* fel leder naturligtvis meddelanden som levereras i andra leverantörens produkter, men transaktion och därför termen är inte exakt tillräckligt.
 * Storage-köer ger en enhetlig och konsekvent programmeringsmodell på köer, tabeller och Blobbar – både för utvecklare och för driftteam.
 * Service Bus-köer ger stöd för lokala transaktioner i kontexten för en enskild kö.
 * Den **ta emot och ta bort** läge som stöds av Service Bus gör möjligheten att minska antal meddelanden (och associerade kostnader) i utbyte mot sänkt leverans assurance.

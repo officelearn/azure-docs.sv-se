@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579350"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698783"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -342,8 +342,8 @@ Azure Storage tillhandahåller följande kapacitet i Azure Monitor.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| BlobCapacity | Summan av Blob-lagring som används i lagringskontot. <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 <br/> Dimensioner: BlobType ([Definition](#metrics-dimensions)) |
-| BlobCount    | Antal blob-objekt som lagras i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 <br/> Dimensioner: BlobType ([Definition](#metrics-dimensions)) |
+| BlobCapacity | Summan av Blob-lagring som används i lagringskontot. <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 <br/> Dimensioner: **BlobType**, och **BlobTier** ([Definition](#metrics-dimensions)) |
+| BlobCount    | Antal blob-objekt som lagras i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 <br/> Dimensioner: **BlobType**, och **BlobTier** ([Definition](#metrics-dimensions)) |
 | ContainerCount    | Antalet behållare i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
 | IndexCapacity     | Mängden lagringsutrymme som används av ADLS Gen2 hierarkiska Index <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
 
@@ -392,11 +392,12 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 
 | Dimensionsnamn | Beskrivning |
 | ------------------- | ----------------- |
-| BlobType | Typen av blobb endast Blob-mått. Godkända värden är **BlockBlob** och **PageBlob**. Lägg till Blob som ingår i BlockBlob. |
-| ResponseType | Transaktionstyp vid svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla andra fel på serversidan förutom de beskrivna </li> <li> ServerBusyError: Autentiseringsbegäran som returnerat statuskoden HTTP 503. </li> <li> ServerTimeoutError: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li> AuthorizationError: Autentiseringsbegäran som misslyckats på grund av obehörig åtkomst till data eller ett autentiseringsfel. </li> <li> NetworkError: Autentiseringsbegäran som misslyckats på grund av nätverksfel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li> <li>    ClientThrottlingError: Nätverksbegränsningsfel på klientsidan. </li> <li> ClientTimeoutError: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li> ClientOtherError: Alla andra fel på klientsidan förutom de beskrivna. </li> <li> Klart: Lyckad begäran.|
-| GeoType | Transaktionen från primär eller sekundär kluster. Tillgängliga värden är primär och sekundär. Den gäller Read Access Geo Redundant Storage(RA-GRS) vid läsning av objekt från sekundär klient. |
-| ApiName | Namnet på åtgärden. Exempel: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Namn på åtgärden, se [dokumentet](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| Authentication | Autentiseringstypen som används i transaktioner. Tillgängliga värden är: <br/> <li>AccountKey: Transaktionen har verifierats med din lagringskontonyckel.</li> <li>SAS: Transaktionen har verifierats med signaturer för delad åtkomst.</li> <li>OAuth: Transaktionen har verifierats med OAuth-åtkomsttoken.</li> <li>Anonym: Transaktionen har begärts anonymt. De omfattar inte preflight-begäranden.</li> <li>AnonymousPreflight: Transaktionen är preflight-begäran.</li> |
+| **BlobType** | Typen av blobb endast Blob-mått. Godkända värden är **BlockBlob**, **PageBlob**, och **Azure Data Lake Storage**. Lägg till Blob som ingår i BlockBlob. |
+| **BlobTier** | Azure storage erbjuder olika åtkomstnivåer som du kan lagra data i blob-objekt på det mest kostnadseffektiva sättet. Mer information i [Azure Storage blob-nivå](../blobs/storage-blob-storage-tiers.md). Värdena som stöds är: <br/> <li>**Frekvent**: Frekvent nivå</li> <li>**Lågfrekvent**: Den lågfrekventa nivån</li> <li>**Arkivera**: Arkivnivån</li> <li>**Premium**: Premium-nivån för blockblob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Typer av nivån för premium-sidblob</li> <li>**Standard**: Nivåtyp för standard sidan Blob</li> <li>**Untiered**: Nivåtyp för lagringskonto för generell användning v1</li> |
+| **GeoType** | Transaktionen från primär eller sekundär kluster. Tillgängliga värden är **primära** och **sekundära**. Den gäller Read Access Geo Redundant Storage(RA-GRS) vid läsning av objekt från sekundär klient. |
+| **ResponseType** | Transaktionstyp vid svar. Tillgängliga värden är: <br/><br/> <li>**ServerOtherError**: Alla andra fel på serversidan förutom de beskrivna </li> <li>**ServerBusyError**: Autentiseringsbegäran som returnerat statuskoden HTTP 503. </li> <li>**ServerTimeoutError**: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li>**AuthorizationError**: Autentiseringsbegäran som misslyckats på grund av obehörig åtkomst till data eller ett autentiseringsfel. </li> <li>**NetworkError**: Autentiseringsbegäran som misslyckats på grund av nätverksfel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li> <li>**ClientThrottlingError**: Nätverksbegränsningsfel på klientsidan. </li> <li>**ClientTimeoutError**: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li>**ClientOtherError**: Alla andra fel på klientsidan förutom de beskrivna. </li> <li>**Success**: Förfrågan utfördes</li> |
+| **ApiName** | Namnet på åtgärden. Exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Namn på åtgärden, se [dokumentet](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Autentisering** | Autentiseringstypen som används i transaktioner. Tillgängliga värden är: <br/> <li>**AccountKey**: Transaktionen har verifierats med din lagringskontonyckel.</li> <li>**SAS**: Transaktionen har verifierats med signaturer för delad åtkomst.</li> <li>**OAuth**: Transaktionen har verifierats med OAuth-åtkomsttoken.</li> <li>**Anonym**: Transaktionen har begärts anonymt. De omfattar inte preflight-begäranden.</li> <li>**AnonymousPreflight**: Transaktionen är preflight-begäran.</li> |
 
 Du måste ange dimensionsvärde för att se de motsvarande mått för stödjande dimensioner mått. Exempel: Om du tittar på **transaktioner** värde för lyckade svar du behöver att filtrera de **ResponseType** med **lyckades**. Eller om du tittar på **BlobCount** värdet för Blockblob, måste du filtrera den **BlobType** med **BlockBlob**.
 

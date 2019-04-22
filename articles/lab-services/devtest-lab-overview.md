@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: e07149865d2dda52e33003964c2852a8aaccf76f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b7cd6bb1fd0377ca1440d9c667453df922aacbd4
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493203"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698664"
 ---
 # <a name="about-azure-devtest-labs"></a>Om Azure DevTest Labs
 Azure DevTest Labs kan utvecklare på team effektivt själv hantera virtuella datorer (VM) och PaaS-resurser utan att behöva vänta godkännanden.
@@ -33,8 +33,6 @@ Genom att använda DevTest Labs kan testa du de senaste versionerna av dina prog
 - Skala upp dina belastningstester genom att etablera flera testagenter och skapa företablerade miljöer för utbildning och demonstrationer.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Azure-DevTest-Labs/player]
-> 
-> 
 
 ## <a name="capabilities"></a>Funktioner
 DevTest Labs erbjuder följande funktioner för utvecklare som arbetar med virtuella datorer:
@@ -42,7 +40,7 @@ DevTest Labs erbjuder följande funktioner för utvecklare som arbetar med virtu
 - Skapa virtuella datorer snabbt genom att följa mindre än fem enkla steg.
 - Välj bland en granskad lista över VM-databaser som är konfigurerad, godkända och auktoriserats av gruppledare eller central IT.
 - Skapa virtuella datorer från färdiga anpassade avbildningar som har den programvara och verktyg som installerats. 
-- Skapa virtuella datorer från anpassade avbildningar som kombineras med de senaste versioner av programvaran installeras när de virtuella datorerna skapas.
+- Skapa virtuella datorer från formler som är i stort sett anpassade avbildningar som kombineras med de senaste versioner av programvaran som installeras när de virtuella datorerna skapas. 
 - Installera artefakter som är tillägg distribuerade på virtuella datorer när de är etablerade.
 - Ställa in automatisk avstängning och scheman för virtuella datorer med automatisk start.
 - Gör anspråk på en förskapad virtuell dator utan att gå via skapandeprocessen.
@@ -50,10 +48,10 @@ DevTest Labs erbjuder följande funktioner för utvecklare som arbetar med virtu
 DevTest Labs erbjuder följande funktioner för utvecklare som arbetar med PaaS-miljöer:
 
 - Använd Resource Manager för att snabbt skapa PaaS-miljöer med färre än tre enkla steg.
-- Välj bland en granskad lista över Resource Manager-mallar, som konfigureras och auktoriserats av gruppledare eller central IT.
+- Välj bland en granskad lista över Resource Manager-mallar som är konfigurerad och auktoriserats av gruppledare eller central IT.
 - Skapa en tom resursgrupp (sandbox) med hjälp av Resource Manager-mall för att utforska Azure inom ramen för ett labb.
 
-DevTest Labs kan också centrala IT-avdelningen att kontrollera avfall, optimera kostnader för resurser och stannar inom budgetar genom att göra följande uppgifter: 
+DevTest Labs kan också centrala IT-avdelningen att kontrollera avfall, optimera kostnader för resurser och stannar inom budgetar genom att göra följande uppgifter:  
 
 - Ställa in automatisk avstängning och automatisk start på virtuella datorer.
 - Ange principer för hur många virtuella datorer som användare kan skapa.
@@ -63,33 +61,31 @@ DevTest Labs kan också centrala IT-avdelningen att kontrollera avfall, optimera
 
 DevTest Labs ger följande fördelar skapa, konfigurera och hantera miljöer i molnet.
 
-## <a name="control-costs-and-governance"></a>Kontrollera kostnader och styrning
+## <a name="cost-control-and-governance"></a>Kostnad kontroll och styrning
 DevTest Labs gör det lättare att kontrollera kostnaderna genom att du kan utföra följande uppgifter:
 
-- Ange principer för dina labb, till exempel antal virtuella datorer per användare eller per labb. 
-- Skapa principer för att automatiskt stänga av och starta virtuella datorer.
-- Spåra kostnader på virtuella datorer och PaaS-resurser kunde i labb att budgeten.
+- [Ange principer för dina labb](devtest-lab-get-started-with-lab-policies.md), till exempel antal virtuella datorer per användare eller per labb. 
+- Skapa [principer för att automatiskt stänga ned](devtest-lab-set-lab-policy.md) och starta virtuella datorer.
+- Spåra kostnader på virtuella datorer och PaaS-resurser kunde i labb för hålla dig inom [din budget](devtest-lab-configure-cost-management.md).
 - Håll dig inom ramen för dina labb så att du inte få fram resurser utanför dem.
 
 ## <a name="quickly-get-to-ready-to-test"></a>Få snabb tillgång till redo att testa
-DevTest Labs kan du skapa företablerade miljöer som är utrustade med allt ditt team behöver för att utveckla och testa program. Bara hämta miljöerna där det senaste framgångsrika bygget i programmet är installerat och börjar arbeta. Eller Använd behållare för att skapa en ännu snabbare, mer slimmade miljö.
+DevTest Labs kan du skapa företablerade miljöer som är utrustade med allt ditt team behöver för att utveckla och testa program. Bara [hämta miljöerna](devtest-lab-add-claimable-vm.md) där det senaste framgångsrika bygget i programmet är installerat och börja arbeta. Eller Använd behållare för att skapa en ännu snabbare, mer slimmade miljö.
 
 ## <a name="create-once-use-everywhere"></a>Skapa en gång, använd överallt
-Samla in och dela PaaS miljömallar och artefakter inom gruppen eller organisationen – allt inom källkontroll – lätt kan skapa developer-och testmiljöer.
+Samla in och dela PaaS [miljömallar](devtest-lab-create-environment-from-arm.md) och [artefakter](add-artifact-repository.md) inom gruppen eller organisationen – allt inom källkontroll – lätt kan skapa developer-och testmiljöer.
 
-## <a name="save-time-on-setup"></a>Spara tid på konfiguration  
-Du kan enkelt skapa virtuella IaaS-datorer och PaaS-resurser med hjälp av en uppsättning förkonfigurerade resurser.
+## <a name="worry-free-self-service"></a>Problemfri självbetjäning
+DevTest Labs kan dina utvecklare och testare att snabbt och enkelt [skapa virtuella IaaS-datorer](devtest-lab-add-vm.md) och [PaaS-resurser](devtest-lab-create-environment-from-arm.md) med hjälp av en uppsättning förkonfigurerade resurser.
 
 ## <a name="use-iaas-and-paas-resources"></a>Använda IaaS och PaaS-resurser 
-Utvecklare kan också skapa PaaS-resurser, till exempel Azure Service Fabric-kluster, funktionen Web Apps i Azure App Service och SharePoint-grupper, med hjälp av Resource Manager-mallar. Om du vill komma igång med PaaS i labs, använder mallar från offentliga miljön databasen eller Anslut labbet till din egen Git-lagringsplats. Du kan också spåra kostnader på dessa resurser för att hålla sig inom din budget.
+Utvecklare kan också skapa PaaS-resurser, till exempel Azure Service Fabric-kluster, funktionen Web Apps i Azure App Service och SharePoint-grupper, med hjälp av Resource Manager-mallar. Kom igång på PaaS i labs genom att använda mallar från den [offentliga miljön databasen](devtest-lab-configure-use-public-environments.md) eller [ansluta labbet till din egen Git-lagringsplats](devtest-lab-create-environment-from-arm.md#configure-your-own-template-repositories). Du kan också spåra kostnader på dessa resurser för att hålla sig inom din budget.
 
 ## <a name="integrate-with-your-existing-toolchain"></a>Integreras med din befintliga verktygskedja
-Använda fördefinierade plugin-program eller API för att etablera utveckling/testning miljöer direkt från ditt önskade kontinuerlig integrering (CI)-verktyg, integrated development environment (IDE) eller automatiserade releasepipeline. Du kan också använda omfattande kommandoradsverktyget.
+Använd färdiga plugin-program eller API: et att etablera miljöer för utveckling/testning direkt från ditt önskade [verktyg för kontinuerlig integrering (CI)](devtest-lab-integrate-ci-cd-vsts.md), integrated development environment (IDE) eller automatiserade releasepipeline. Du kan också använda omfattande kommandoradsverktyget.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
 - Läs mer om DevTest Labs i [DevTest Labs-koncept](devtest-lab-concepts.md).
 - En genomgång med stegvisa instruktioner finns i [självstudien: Konfigurera ett labb med hjälp av Azure DevTest Labs](tutorial-create-custom-lab.md).
-
-

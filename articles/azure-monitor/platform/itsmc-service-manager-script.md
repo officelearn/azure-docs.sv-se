@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.openlocfilehash: 64769ebb1bd9a5fb0f051cc6eca4e59cd41fccc9
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903111"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785235"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med hjälp av automatiserade skript
 
@@ -39,7 +39,7 @@ Spara värdena behöver du dessa värden när du skapar en anslutning med IT Ser
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
  Windows Management Framework 5.0 eller senare.
 Windows 10 har 5.1 som standard. Du kan hämta framework från [här](https://www.microsoft.com/download/details.aspx?id=50395):

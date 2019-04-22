@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ea409b1726e82557b564f93fbd35898e9cf2cb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372462"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699123"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -74,7 +74,7 @@ När NPS-tillägget för Azure är integrerad med NPS, resulterar ett flöde fö
 7. När anslutningsförsöket både autentiseras och auktoriseras NPS där tillägget installeras skickar en RADIE *nekad* meddelandet till VPN-server (RADIUS-klient).
 8. Användaren beviljas åtkomst till den virtuella porten på VPN-servern och upprättar en krypterad VPN-tunnel.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det här avsnittet beskrivs de krav som måste slutföras innan du kan integrera MFA med fjärrskrivbordsgateway. Innan du börjar måste du ha följande krav på plats:
 
@@ -374,7 +374,7 @@ Om du vill använda skriptet, ger du tillägget med dina administrativa autentis
 
 2. Ange i PowerShell-kommandotolken **cd ”c:\Program Files\Microsoft\AzureMfa\Config”**, och tryck sedan på RETUR.
 
-3. I nästa kommandotolk, ange **.\AzureMfsNpsExtnConfigSetup.ps1**, och tryck sedan på RETUR. Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om det inte är installerat installerar skriptet modulen åt dig.
+3. I nästa kommandotolk, ange **.\AzureMfaNpsExtnConfigSetup.ps1**, och tryck sedan på RETUR. Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om det inte är installerat installerar skriptet modulen åt dig.
 
     ![Kör konfigurationsskriptet AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 

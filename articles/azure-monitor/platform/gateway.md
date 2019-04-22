@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437347"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699278"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internetåtkomst med hjälp av Log Analytics-gateway i Azure Monitor
 
@@ -124,9 +124,9 @@ eller
 1. I bladet för arbetsytan under **inställningar**väljer **avancerade inställningar**.
 1. Gå till **anslutna källor** > **Windows-servrar** och välj **ladda ned Log Analytics gateway**.
 
-## <a name="install-the-log-analytics-gateway"></a>Installera Log Analytics-gateway
+## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Installera Log Analytics-gateway med hjälp av installationsguiden
 
-Följ dessa steg om du vill installera en gateway.  (Om du har installerat en tidigare version som kallas vidarebefordrare för Log Analytics, det kommer att uppgraderas till den här versionen.)
+Följ dessa steg om du vill installera en gateway med hjälp av installationsguiden. 
 
 1. Målmappen, dubbelklicka på **Log Analytics gateway.msi**.
 1. På sidan **Välkommen** klickar du på **Nästa**.
@@ -152,6 +152,40 @@ Följ dessa steg om du vill installera en gateway.  (Om du har installerat en ti
 
    ![Skärmbild av lokala tjänster som visar att OMS-gatewayen körs](./media/gateway/gateway-service.png)
 
+## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Installera gatewayen Log Analytics med hjälp av kommandoraden
+Den hämta filen för gatewayen är ett Windows Installer-paket som har stöd för tyst installation från kommandoraden eller andra automatiserad metod. Om du inte är bekant med standard kommandoradsalternativ för Windows Installer [kommandoradsalternativ](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
+
+Följande tabell visar de parametrar som stöds av installationsprogrammet.
+
+|Parametrar| Anteckningar|
+|----------|------| 
+|PORTNUMMER | TCP-portnummer för gateway att lyssna på |
+|PROXY | IP-adressen för proxyservern |
+|INSTALLDIR | Fullständigt kvalificerad sökväg till ange installationskatalogen för gateway-programvarufiler |
+|ANVÄNDARNAMN | Användar-Id för autentisering med proxyservern |
+|LÖSENORD | Lösenordet för användar-Id för att autentisera med proxy |
+|LicenseAccepted | Ange ett värde av **1** att verifiera att du godkänner licensavtalet |
+|HASAUTH | Ange ett värde av **1** när användarnamn/lösenord parametrar anges |
+|HASPROXY | Ange ett värde av **1** när du anger IP-adress för **PROXY** parameter |
+
+Om du vill utföra tyst installation gatewayen och konfigurera den med en specifik proxy-adress, portnummer, skriver du följande:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+```
+
+Använda kommandoradsalternativet /qn döljer installationsprogrammet, /qb visar installation under tyst installation.  
+
+Om du vill ange autentiseringsuppgifter för att autentisera med proxyn skriver du följande:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+```
+
+Efter installationen kan du bekräfta inställningarna är godkänt (exlcuding användarnamn och lösenord) med hjälp av följande PowerShell-cmdletar:
+
+- **Get-OMSGatewayConfig** – returnerar gatewayen har konfigurerats för att lyssna på TCP-porten.
+- **Get-OMSGatewayRelayProxy** – returnerar IP-adressen för proxyservern som du har konfigurerat den kan kommunicera med.
 
 ## <a name="configure-network-load-balancing"></a>Konfigurera Utjämning av nätverksbelastning 
 Du kan konfigurera gatewayen för hög tillgänglighet med hjälp av Utjämning av nätverksbelastning (NLB) med hjälp av antingen Microsoft [nätverk (Utjämning av nätverksbelastning)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), eller maskinvarubaserade belastningsutjämnare. Belastningsutjämnaren hanterar trafik genom att omdirigera begärda anslutningarna från Log Analytics-agenter eller Operations Manager-hanteringsservrar för dess noder. Om en Gateway-servern slutar fungera kan omdirigeras trafiken till andra noder.

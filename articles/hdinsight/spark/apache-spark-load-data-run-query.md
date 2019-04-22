@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 04/03/2019
 ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274016"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudier: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > * Skapa en dataram från en csv-fil
 > * Köra frågor i dataramen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Slutför [Skapa ett Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 

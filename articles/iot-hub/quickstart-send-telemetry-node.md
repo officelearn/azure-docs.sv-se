@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.openlocfilehash: a4f0761af7da1add6a295b7627783daae6fac07c
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007098"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läsa den med ett serverdelsprogram (Node.js)
@@ -29,7 +29,7 @@ Snabbstarten använder två färdiga Node.js-program – ett för att skicka tel
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 De två exempelprogram som du kör i den här snabbstarten är skrivna i Node.js. Du behöver ha Node.js v4.x.x eller senare installerat på utvecklingsdatorn.
 
@@ -148,4 +148,4 @@ I den här snabbstarten har du konfigurerat en IoT-hubb, registrerat en enhet, s
 Om du vill veta hur du kan styra den simulerade enheten från ett serverdelsprogram fortsätter du till nästa snabbstart.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Kontroll som en enhet som är kopplad till en IoT hub](quickstart-control-device-node.md)
+> [Snabbstart: Kontrollera en enhet ansluten till en IoT Hub](quickstart-control-device-node.md)

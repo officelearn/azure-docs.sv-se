@@ -11,17 +11,17 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269120"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Snabbstart: Utforska Azure Search REST API: er med Postman
 > [!div class="op_single_selector"]
 > * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Portalen](search-get-started-portal.md)
+> * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
@@ -37,7 +37,7 @@ En av de enklaste sätten att utforska den [Azure Search REST API](https://docs.
 
 Om du inte har en Azure-prenumeration kan du innan du börjar först skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) och sedan [registrera dig för Azure Search](search-create-service-portal.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande tjänster och verktyg som används i den här snabbstarten. 
 
@@ -274,7 +274,7 @@ Följande exempelfråga kommer från artikeln om [sökindexåtgärder (Azure Sea
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
-**När blankstegen har ersatts med + (i lastRenovationDate + desc):**
+**Efter att blankstegen har ersatts med + (i lastRenovationDate+desc):**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263289"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Använda Azure Machine Learning-tjänsten på en bärbar dator
@@ -48,8 +48,8 @@ Azure-datorer är förkonfigurerad med nödvändiga miljö att arbeta med [Azure
 Dokumentation för Azure Machine Learning Services innehåller en mängd andra resurser som hjälper dig att arbeta med Machine Learning-tjänsten i anteckningsböcker:
 
 - [Snabbstart: Använda Python för att komma igång med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [Självstudie #1: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [Självstudie #2: Distribuera en avbildning klassificeringsmodellen i Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Självstudie nr 1: Träna en modell för klassificering av avbildning med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Självstudie 2: Distribuera en avbildning klassificeringsmodellen i Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
 - [Självstudier: Träna en modell för klassificering med automatiserade machine learning i Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 Även finns i dokumentationen för den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

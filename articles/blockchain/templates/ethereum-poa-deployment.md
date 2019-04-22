@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274798"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
@@ -252,7 +252,7 @@ En detaljerad beskrivning av varje parameter visas nedan:
   Verifieraren noden lagringsprestanda|Typ av hanterad disk säkerhetskopiering varje distribuerade verifieraren nod.|Standard SSD- eller Premium|Standard SSD
   Verifieraren nodstorlek för virtuell dator|VM-storleken som används för systemhälsoverifierarens noder.|Standard A Standard D, Standard D-v2, Standard F-serien, Standard DS och Standard FS|Standard D1 v2
 
-[Prisinformation om Lagring](https://azure.microsoft.com/pricing/details/managed-disks/)
+[Prisinformation om lagring](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 [Prisinformation för virtuell dator](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 

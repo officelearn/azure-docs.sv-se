@@ -11,16 +11,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/08/2019
 ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269052"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Snabbstart: 1 – skapa ett Azure Search-index iC#
 > [!div class="op_single_selector"]
 > * [C#](search-create-index-dotnet.md)
-> * [Portalen](search-get-started-portal.md)
+> * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 > * [Postman](search-fiddler.md)
 >*
@@ -32,7 +32,7 @@ Den här artikeln vägleder dig genom processen för att skapa [ett Azure Search
 > * Skapa en [ `Index` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) objekt ska skickas som en parameter till `Indexes.Create`.
 > * Anropa den `Indexes.Create` metoden på `SearchServiceClient` att skicka den `Index` till en tjänst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande tjänster, verktyg och data som används i den här snabbstarten. 
 

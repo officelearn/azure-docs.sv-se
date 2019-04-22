@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
 ms.openlocfilehash: 6fac6531ea0a39796de13f95aee33b30dc91f131
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274458"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>Så här flyttar du begränsad utvärderingsversion projektet till Azure
@@ -27,7 +27,7 @@ Mer information, inklusive viktiga tidsgränser i begränsad utvärderingsversio
 
 Den [migreringsskriptet](https://github.com/Azure-Samples/custom-vision-move-project) kan du skapa ett projekt genom att hämta och överföra alla taggar, regioner, och bilder i din aktuella iteration. Den lämnar du med ett nytt projekt i din nya prenumeration som du kan sedan träna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du behöver ett giltig Azure-prenumeration som är associerade med Microsoft-konto eller Azure Active Directory (AAD)-konto som du vill använda för att logga in på den [Custom Vision webbplats](https://customvision.ai). 
     - Om du inte har ett Azure-konto, [skapa ett konto](https://azure.microsoft.com/free/) utan kostnad.

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/03/2019
 ms.openlocfilehash: a3f72c2a55acfc53d7d8a07bd10250c6ed6102ea
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006894"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb (iOS)
@@ -28,7 +28,7 @@ I den här artikeln används ett färdigt Swift-program till att skicka telemetr
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Ladda ned kodexemplet från [Azure-exemplen](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)
 - Den senaste versionen av [XCode](https://developer.apple.com/xcode/) med den senaste versionen av iOS SDK. Denna Snabbstart har testats med XCode 10.2 och iOS 12.2.
@@ -140,7 +140,7 @@ I den här artikeln konfigurerade du en IoT-hubb, registrerade en enhet, skickad
 Om du vill veta hur du kan styra den simulerade enheten från ett serverdelsprogram fortsätter du till nästa snabbstart.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Kontroll som en enhet som är kopplad till en IoT hub](quickstart-control-device-node.md)
+> [Snabbstart: Kontrollera en enhet ansluten till en IoT Hub](quickstart-control-device-node.md)
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: tutorial-routing.md

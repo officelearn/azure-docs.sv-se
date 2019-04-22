@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278833"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
@@ -31,7 +31,7 @@ Hämta den senaste appen (version 1.8) för att undvika det här problemet.
 - Du kan visa rapporter över valv och prenumerationer, om samma lagringskonto har konfigurerats för varje valv. Det valda lagringskontot måste vara i samma region som Recovery Services-valvet.
 - Frekvensen för schemalagd uppdatering för rapporterna är 24 timmar i Power BI. Du kan också utföra en ad hoc-uppdatering av rapporter i Power BI. I det här fallet används den senaste informationen i kundens lagringskonto för att återge rapporter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 - Skapa en [Azure storage-konto](../storage/common/storage-quickstart-create-account.md) konfigureras för rapporter. Det här lagringskontot används för att lagra rapporter-relaterade data.
 - [Skapa en Power BI-konto](https://powerbi.microsoft.com/landing/signin/) för att visa, anpassa och skapa egna rapporter med hjälp av Power BI-portalen.
 - Registrera resursprovidern **Microsoft.insights**, om den inte redan har registrerats. Använd prenumerationerna för lagringskontot och Recovery Services-valv så att rapportering av data kan flöda till lagringskontot. Om du vill göra det här steget, gå till Azure portal, Välj **prenumeration** > **resursprovidrar**, och markera den här leverantören att registrera den.

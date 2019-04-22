@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2018
 ms.author: diberry
 ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273846"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integrera Speech-tjänsten med din Language Understanding-app
@@ -66,7 +66,7 @@ Den här artikeln använder ljudenheten på datorn. Det kan vara ett headset med
 
 Speech SDK ingår redan som referens. 
 
-[![Screenshot av Visual Studio 2017 visar Microsoft.CognitiveServices.Speech NuGet-paketet](./media/luis-tutorial-speech-to-intent/nuget-package.png "Skärmbild av Visual Studio 2017 med Microsoft.CognitiveServices.Speech NuGet-paketet")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Skärmbild av Visual Studio 2017 med Microsoft.CognitiveServices.Speech NuGet-paketet](./media/luis-tutorial-speech-to-intent/nuget-package.png "Skärmbild av Visual Studio 2017 med Microsoft.CognitiveServices.Speech NuGet-paketet")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Ändra C#-koden
 Öppna filen `Program.cs` och ändra följande variabler:
@@ -74,7 +74,7 @@ Speech SDK ingår redan som referens.
 |Variabelnamn|Syfte|
 |--|--|
 |LUIS_assigned_endpoint_key|Motsvarar slutpunkt-URL:ens tilldelade prenumerationsnyckelvärde från sidan Publicera|
-|LUIS_endpoint_key_region|Motsvarar första underdomänen för slutpunkts-URL, till exempel `westus`|
+|LUIS_endpoint_key_region|Motsvarar slutpunkt-URL:ens första underdomän, till exempel `westus`|
 |LUIS_app_ID|Motsvarar slutpunkt-URL:ens väg efter **apps/**|
 
 Filen `Program.cs` har redan Human Resources-avsikterna mappade.
@@ -98,6 +98,6 @@ Kom ihåg att ta bort katalogen när du är klar med exempelkoden.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Integrera LUIS med en BOT](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [Integrera LUIS med en robot](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

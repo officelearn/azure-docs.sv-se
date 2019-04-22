@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276420"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbetsytor i Azure Monitor
@@ -83,7 +83,7 @@ De data som en användare har tillgång till bestäms av flera faktorer som list
 | Faktor | Beskrivning |
 |:---|:---|
 | [Åtkomstläge](#access-modes) | Metoden som användaren använder för att får åtkomst till arbetsytan.  Definierar vilka data som är tillgängliga och kontroll åtkomstläge som används. |
-| [Åtkomstkontrolläge](#access-control-mode) | Inställningen på den arbetsyta som definierar om behörigheter tillämpas på arbetsytan- eller resursen. |
+| [Åtkomstläge för kontroll](#access-control-mode) | Inställningen på den arbetsyta som definierar om behörigheter tillämpas på arbetsytan- eller resursen. |
 | [Behörigheter](#manage-accounts-and-users) | Behörigheter som tillämpas på enskilda eller grupper av användare för arbetsytan eller resurs. Definierar vilka data som användaren har åtkomst till. |
 | [Tabellen nivå RBAC](#table-level-rbac) | Valfritt detaljerade behörigheter som gäller för alla användare oavsett deras åtkomst eller åtkomstkontroll läge. Definierar vilka datatyper som en användare kan komma åt. |
 

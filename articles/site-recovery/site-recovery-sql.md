@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270990"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera haveriberedskap för SQL Server
@@ -59,12 +59,12 @@ De här SQL Server-versioner som stöds för scenarierna som stöds:
 
 Site Recovery kan integreras med SQL Server BCDR-teknik som sammanfattas i tabellen för att tillhandahålla en lösning för haveriberedskap.
 
-**Funktion** | **Information** | **SQL Server** |
+**Funktion** | **Detaljer** | **SQL Server** |
 --- | --- | ---
 **Always On-tillgänglighetsgrupp** | Flera fristående instanser av SQL Server körs i ett redundanskluster med flera noder.<br/><br/>Databaser kan grupperas i redundansgrupper som kan kopieras (speglad) på SQL Server-instanser så att ingen delad lagring krävs.<br/><br/>Erbjuder haveriberedskap mellan en primär plats och en eller flera sekundära platser. Två noder kan ställas in i en delad inget kluster med SQL Server-databaser som konfigurerats i en tillgänglighetsgrupp med synkron replikering och automatisk redundans. | SQL Server 2016, SQL Server 2014 och SQL Server 2012 Enterprise edition
 **Failover-kluster (alltid på FCI)** | SQL Server använder Windows-redundanskluster för hög tillgänglighet för en lokal SQL Server-arbetsbelastningar.<br/><br/>Noder som kör instanser av SQL Server med delade diskar konfigureras i ett failover-kluster. Om en instans inte är igång klustret som redundansväxlar till annan.<br/><br/>Klustret skydda inte mot strömavbrott eller avbrott i den delade lagringen. Den delade disken kan implementeras med iSCSI, fibre channel, eller delat vhdx-diskar. | SQL Server Enterprise-utgåvor<br/><br/>SQL Server Standard edition (begränsat till två noder)
 **Databasspegling (hög säkerhet läge)** | Skyddar en enkel databas på en sekundär kopia. Tillgängliga i både hög säkerhet (synkron) och höga prestanda (asynkrona) replikeringslägen. Du behöver ett redundanskluster. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise alla utgåvor
-**Fristående SQL Server** | SQL-servern och databasen finns på en enskild server (fysisk eller virtuell). Värden klustring används för hög tillgänglighet om servern är virtuell. Ingen hög tillgänglighet på gästnivå. | Enterprise eller Standard edition
+**Standalone SQL Server** | SQL-servern och databasen finns på en enskild server (fysisk eller virtuell). Värden klustring används för hög tillgänglighet om servern är virtuell. Ingen hög tillgänglighet på gästnivå. | Enterprise eller Standard edition
 
 ## <a name="deployment-recommendations"></a>Distributionsrekommendationer
 
@@ -101,7 +101,7 @@ Här är vad du behöver göra:
 
 1. Importera skript till ditt Azure Automation-konto. Innehåller skript att redundansväxla SQL-tillgänglighetsgrupp i en [Resource Manager-dator](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) och en [klassisk virtuell dator](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Deploy till Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Distribuera till Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Lägg till ASR-SQL-FailoverAG som en pre-åtgärd i den första gruppen av återställningsplanen.

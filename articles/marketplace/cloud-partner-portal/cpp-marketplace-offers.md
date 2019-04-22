@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010591"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure och AppSource Marketplace-erbjudanden
@@ -39,7 +39,7 @@ Läs mer om dessa marknadsplatser [publiceringsguide för Azure Marketplace och 
 Processen för att skapa ett nytt erbjudande skiljer sig avsevärt mellan olika typer av erbjudanden, till exempel mellan en [Azure-program erbjudandet](./azure-applications/cpp-azure-app-offer.md) och en [konsult tjänsterbjudande](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Däremot många av de andra åtgärderna du utföra på ett erbjudande i den [Cloud Partner Portal](https://cloudpartner.azure.com) är ganska standardiserade över typer av erbjudanden.  Dessa vanliga åtgärder, inklusive publicera, visa status, uppdatera och ta bort – beskrivs i avsnittet [hantera erbjudanden](./manage-offers/cpp-manage-offers.md)
 
 
-## <a name="test-drive"></a>Test Drive
+## <a name="test-drive"></a>Provkörning
 
 *Testkör* är en marketplace-funktion som ger kunderna ett ”testa innan du köper” demonstration alternativ för varje erbjudande möjlighet.  Test Drive-funktionen är begränsad till följande delmängden av typer av erbjudanden: [Azure-program](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 för kundengagemang](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 för Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ SaaS-program](./saas-app/cpp-saas-offer.md), och [virtuella datorer](./virtual-machine/cpp-virtual-machine-offer.md).  Den här funktionen kräver utgivaren för att skapa en Test Drive-mall som är anpassad efter dess erbjudandet.  Mer information finns i avsnittet [Test Drive](./test-drive/what-is-test-drive.md).
 
@@ -54,12 +54,12 @@ I följande tabell visas de aktuella erbjudandetyper som stöds av den [Cloud Pa
 |                ----------                |  -----------  |   -----------                                                           |
 | [Azure-program](./azure-applications/cpp-azure-app-offer.md) | Azure | Lösningen består av en eller flera virtuella datorer (VM), valfri anpassad Azure kod, distribueras via en Azure Resource Manager-mall.  Distributionen kan vara antingen av en lösningsmall kunden eller hanteras av utgivaren. Den här typen används för att ge mer flexibilitet än den angivna virtuella datorn erbjudandetypen.  |
 | [Konsulttjänst](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Båda | Microsoft kvalificerade konsulter kan visa sina domänspecifika tjänster på Azure Marketplace eller AppSource.  Sin expertis hjälper kunder bedöma deras problem eller skapa och distribuera lösningar för rätt att uppfylla sina affärsmål.  |
-| [Container](./containers/cpp-containers-offer.md)  | Azure | Lösningen är en Docker-behållaravbildning som tillhandahålls som en Kubernetes-baserad tjänst eller Azure Container instances. |
+| [Behållare](./containers/cpp-containers-offer.md)  | Azure | Lösningen är en Docker-behållaravbildning som tillhandahålls som en Kubernetes-baserad tjänst eller Azure Container instances. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Ett paket som utökar den här Sage (Företagsresursplanering) och företag hanteringssystemet. |
-| [Dynamics 365 för Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Ett paket som utökar den här kunden resurs (CRM) hanteringssystemet via dess försäljning, service, projekt-tjänsten och fältet service-moduler  |
+| [Dynamics 365 för kundengagemang](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Ett paket som utökar den här kunden resurs (CRM) hanteringssystemet via dess försäljning, service, projekt-tjänsten och fältet service-moduler  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Ett paket som utökar den här Företagsresursplanering service (Företagsresursplanering) som har stöd för avancerade ekonomi, åtgärder, tillverkning och hantering av leverantörskedja |
 | [IoT Edge-modul](./iot-edge-module/cpp-offer-process-parts.md) | Azure | En Docker-kompatibla behållare som körs på en IoT Edge-enhet.  Den innehåller små databaserad moduler som använder en kombination av anpassad kod, andra Azure-tjänster och tjänster 3 part. |
-| [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | En Power BI-appen som paket anpassningsbara Power BI-innehåll, inklusive datauppsättningar, rapporter och instrumentpaneler |
+| [Power BI-appen](./power-bi/cpp-power-bi-offer.md) | AppSource | En Power BI-appen som paket anpassningsbara Power BI-innehåll, inklusive datauppsättningar, rapporter och instrumentpaneler |
 | [SaaS-app](./saas-app/cpp-saas-offer.md) | Azure | Lösningen är en programvara som tjänst-prenumeration som hanteras av utgivare, vilka användare logga in via ett anpassat gränssnitt som använder Azure Active Directory. |
 | [Virtuell dator](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Lösningen ingår i en virtuell dator distribueras till kundens prenumeration.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |

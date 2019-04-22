@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 69e6797e91fc645e3bd3e3b300cea6852a662214
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007392"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudier: Skapa en Flask-app med Azure Cognitive Services
@@ -44,7 +44,7 @@ Här följer några användbara länkar för dig som vill djupdykning efter den 
 * [Flask-dokumentation](http://flask.pocoo.org/)
 * [Flask för provdockor som placerats – en Nybörjarguide till Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Nu ska vi se tangenterna programvara och prenumeration som du behöver för den här självstudien.
 
@@ -59,7 +59,7 @@ Nu ska vi se tangenterna programvara och prenumeration som du behöver för den 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>Skapa ett konto och prenumererar på resurser
 
 Som tidigare nämnts bör kommer du att behöva tre prenumerationsnycklar för den här självstudiekursen. Det innebär att du behöver skapa en resurs i ditt Azure-konto för:
-* Translator Text
+* Translator för textöversättning
 * Textanalys
 * Taltjänster
 
@@ -107,7 +107,7 @@ Nu ska vi skapa en virtuell miljö för vår Flask-app med `virtualenv`. Med hj�
    |----------|-------|---------|
    | macOS/Linux | Bash/zsh | `source venv/bin/activate` |
    | Windows | Bash | `source venv/Scripts/activate` |
-   | | Kommandorad | `venv\Scripts\activate.bat` |
+   | | Kommandoraden | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
    När du har kört det här kommandot din kommandorad eller en terminalsession ska föregås av `venv`.
@@ -960,5 +960,5 @@ Källkoden för det här projektet är tillgängligt på [GitHub](https://github
 ## <a name="next-steps"></a>Nästa steg
 
 * [Referens för Translator Text API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
-* [Referens för API för textanalys](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
+* [API för textanalys – referens](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 * [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)

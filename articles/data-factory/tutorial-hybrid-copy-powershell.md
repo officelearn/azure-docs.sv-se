@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
 ms.openlocfilehash: adec7b90d5c38ed85f4b6f9ada8a530eff3846b9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272520"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Självstudier: Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
@@ -365,7 +365,7 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
     > [!IMPORTANT]
     > Välj rätt avsnitt baserat på vilken autentisering du använder när du ansluter till SQL Server.
 
-    **Med SQL-autentisering (sa):**
+    **Anslut med SQL-autentisering (sa):**
 
     ```json
     {
@@ -386,7 +386,7 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
     }
    ```    
 
-    **Med Windows-autentisering:**
+    **Använd Windows-autentisering:**
 
     ```json
     {
@@ -679,4 +679,4 @@ Se [Datalager som stöds](copy-activity-overview.md#supported-data-stores-and-fo
 Fortsätt till följande självstudie för att lära dig att masskopiera data från en källa till ett mål:
 
 > [!div class="nextstepaction"]
->[Masskopiera data](tutorial-bulk-copy.md)
+>[Masskopiera data i molnet](tutorial-bulk-copy.md)

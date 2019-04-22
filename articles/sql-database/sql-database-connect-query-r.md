@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: cgronlun
 ms.date: 04/04/2019
 ms.openlocfilehash: f5d43794ba80e4791c8bf24ad404069a8329518e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051231"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Snabbstart: Använda Machine Learning Services (med R) i Azure SQL Database (förhandsversion)
@@ -36,7 +36,7 @@ Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.mi
 >
 > [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att köra exempelkoden i de här övningarna behöver du först ha en SQL-databas med Machine Learning Services (med R) aktiverat. Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
 
@@ -104,7 +104,7 @@ Följande övning fokuserar på den första interaktionsmodellen: hur du skickar
 
 2. Förutsatt att du har konfigurerat allt på rätt sätt beräknas det korrekt resultatet, och `print`-funktionen för R returnerar resultatet till fönstret **Meddelanden**.
 
-    **Resultat**
+    **Results**
 
     ```text
     STDOUT message(s) from external script: 
@@ -139,7 +139,7 @@ Just nu tittar vi bara på standardvariablerna för indata och utdata i sp_execu
     SELECT * FROM RTestData
     ```
 
-    **Resultat**
+    **Results**
 
     ![Innehållet i tabellen RTestData](./media/sql-database-connect-query-r/select-rtestdata.png)
 
@@ -155,7 +155,7 @@ Just nu tittar vi bara på standardvariablerna för indata och utdata i sp_execu
     WITH RESULT SETS (([NewColName] INT NOT NULL));
     ```
 
-    **Resultat**
+    **Results**
 
     ![Utdata från R-skript som returnerar data från en tabell](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
@@ -192,7 +192,7 @@ Just nu tittar vi bara på standardvariablerna för indata och utdata i sp_execu
     WITH RESULT SETS (([Col1] CHAR(20) NOT NULL));
     ```
 
-    **Resultat**
+    **Results**
 
     ![Köra frågor mot resultat med hjälp av @script som indata](./media/sql-database-connect-query-r/r-data-generated-output.png)
 
@@ -211,7 +211,7 @@ Om du vill se vilken version av R som är installerad i din SQL-databas gör du 
 
 2. R-funktionen `print` returnerar versionen till fönstret **Meddelanden**. I exempelutdata nedan ser du att SQL-databasen i det här fallet har R-version 3.4.4 installerad.
 
-    **Resultat**
+    **Results**
 
     ```text
     STDOUT message(s) from external script:
@@ -248,7 +248,7 @@ Microsoft tillhandahåller ett antal R-paket som är förinstallerade med Machin
 
 2. Utdata kommer från `installed.packages()` i R och returneras som en resultatuppsättning.
 
-    **Resultat**
+    **Results**
 
     ![Installerade paket i R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
@@ -359,7 +359,7 @@ Du kan träna en modell med hjälp av R och spara modellen till en tabell i SQL-
     VALUES ('latest model', @model)
     ```
 
-    **Resultat**
+    **Results**
 
     ![Tränad modell med ytterligare utdata](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
 
@@ -414,7 +414,7 @@ Använd den modell som du skapade i föregående avsnitt för att bedöma förut
 
    + De kolumnnamn som använs i R-skriptet skickas inte nödvändigtvis till utdata för den lagrade proceduren. Här har vi använt satsen WITH RESULTS för att definiera några nya kolumnnamn.
 
-     **Resultat**
+     **Results**
 
      ![Resultatmängd för att förutsäga bromssträcka](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
@@ -473,7 +473,7 @@ Om du behöver använda ett paket som inte redan är installerat i din SQL-datab
     View(r)
     ```
 
-    **Resultat**
+    **Results**
 
     ![Innehållet i tabellen RTestData](./media/sql-database-connect-query-r/r-verify-package-install.png)
 
@@ -497,7 +497,7 @@ Om du behöver använda ett paket som inte redan är installerat i din SQL-datab
 
     Följande resultat visas på fliken Meddelanden.
 
-    **Resultat**
+    **Results**
 
     ```text
     STDOUT message(s) from external script:
@@ -520,8 +520,8 @@ Om du behöver använda ett paket som inte redan är installerat i din SQL-datab
 
 Mer information om Machine Learning Services finns i artiklarna nedan. En del av de här artiklarna handlar om SQL Server, men det mesta av informationen gäller även för Machine Learning Services (med R) i Azure SQL Database.
 
-- [Azure SQL Database Machine Learning-tjänster (med R)](sql-database-machine-learning-services-overview.md)
+- [Azure SQL Database Machine Learning Services (med R)](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Självstudier: Lär dig i databasen analytics med hjälp av R i SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [Slutpunkt till slutpunkt data science genomgång för R och SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [Självstudier: Lär dig databasanalys med hjälp av R i SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [Datavetenskapsgenomgång med slutpunkt till slutpunkt för R och SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
 - [Självstudier: Använda RevoScaleR R-funktioner med SQL Server-data](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

@@ -17,10 +17,10 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007154"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
@@ -348,7 +348,7 @@ Det här avsnittet innehåller exempel SCIM begäranden som orsakats av Azure AD
 #### <a name="update-user-multi-valued-properties"></a>Uppdatera användare [med flera värden egenskaper]
 
 ##### <a name="request"></a>Förfrågan
-*KORRIGERA/användare/6764549bef60420686bc HTTP/1.1*
+*PATCH /Users/6764549bef60420686bc HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -617,7 +617,7 @@ Så fungerar här det:
 ### <a name="code-samples"></a>Kodexempel
 Att göra den här processen enklare, [kodexempel](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) har angett, vilket skapar en SCIM web service-slutpunkt och visa Automatisk etablering. I exemplet är av en leverantör som underhåller en fil med rader med kommaavgränsade värden som representerar användare och grupper.    
 
-**Förutsättningar**
+**Krav**
 
 * Visual Studio 2013 eller senare
 * [Azure SDK för .NET](https://azure.microsoft.com/downloads/)
@@ -1265,7 +1265,7 @@ Gruppera resurser identifieras av schema-ID `urn:ietf:params:scim:schemas:core:2
 * [Skriva uttryck för attributmappningar](functions-for-customizing-application-data.md)
 * [Omfångsfilter för etableringen av användare](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Kontoetableringsmeddelanden](user-provisioning.md)
-* [Lista över guider om hur man integrerar SaaS-appar](../saas-apps/tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

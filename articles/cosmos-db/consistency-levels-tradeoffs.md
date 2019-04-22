@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266434"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda 
@@ -22,9 +22,9 @@ Azure Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ. Den h
 
 - *Stark*
 - *Begränsad föråldring*
-- *Session*
+- *Sessionen*
 - *Konsekvent prefix*
-- *Eventuell*
+- *Slutlig*
 
 Varje modell ger tillgänglighet och prestanda kompromisser och backas upp av omfattande serviceavtal.
 
@@ -50,7 +50,7 @@ I en globalt distribuerad databas för miljön att det finns en direkt relation 
 
 Tabellen nedan definierar relationen mellan konsekvens modell och data hållbarhet när det finns många avbrott i regionen. Det är viktigt att Observera att i ett distribuerat system, även med stark konsekvens är det omöjligt att ha en distribuerad databas med en RPO och RTO noll på grund av CAP-satsen. Mer information om varför finns [konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
 
-|**Region(er)**|**Replikeringsläge**|**Konsekvensnivå**|**Mål för återställningspunkt**|**MÅL FÖR ÅTERSTÄLLNINGSTID**|
+|**Region(s)**|**Replikeringsläge**|**Konsekvensnivå**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|En eller flera huvudservrar|Alla konsekvensnivå|< 240 minuter|< 1 vecka|
 |>1|Single Master|Session, konsekventa Prefix, eventuell|< 15 minuter|< 15 minuter|
@@ -69,4 +69,4 @@ Läs mer om global distribution och allmän konsekvens kompromisser i distribuer
 
 - [Konsekvens kompromisser i moderna distribuerad databas systemdesign](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Hög tillgänglighet](high-availability.md)
-- [Azure Cosmos DB-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

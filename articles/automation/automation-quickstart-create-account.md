@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009520"
 ---
 # <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
@@ -32,7 +32,7 @@ Logga in i Azure på https://portal.azure.com
 
 1. Välj **Hanteringsverktyg** och välj sedan **Automation**.
 
-1. Ange kontoinformation. För **Skapa Kör som-konto i Azure**, väljer du **Ja** så att artefakterna för att förenkla autentisering till Azure aktiveras automatiskt. Observera att du inte kan ändra namnet på ett Automation-konto som du skapar i efterhand. *Namn är unikt för varje region och resursgrupp. Namn för Automation-konton som har tagits bort är kanske inte omedelbart tillgängligt.* Ett Automation-konto kan hantera resurser i alla regioner och prenumerationer för en viss klientorganisation. När du är färdig klickar du på **Skapa** för att starta distributionen av Automation-kontot.
+1. Ange kontoinformation. För **Skapa Kör som-konto i Azure**, väljer du **Ja** så att artefakterna för att förenkla autentisering till Azure aktiveras automatiskt. Observera att du inte kan ändra namnet på ett Automation-konto som du skapar i efterhand. *Automation-kontonamn unika för varje region och resursgrupp. Namn på Automation-konton som har tagits bort är kanske inte tillgängliga omedelbart.* Ett Automation-konto kan hantera resurser i alla regioner och prenumerationer för en viss klientorganisation. När du är färdig klickar du på **Skapa** för att starta distributionen av Automation-kontot.
 
     ![Ange information om ditt Automation-konto på sidan](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
@@ -66,5 +66,5 @@ Kör en självstudierunbook.
 I den här snabbstarten har du distribuerat ett Automation-konto, startat ett runbook-jobb och sett jobbresultaten. Om du vill veta mer om Azure Automation kan du fortsätta att använda snabbstarten för att skapa din första runbook.
 
 > [!div class="nextstepaction"]
-> [Automation-Snabbstart – skapa Runbook](./automation-quickstart-create-runbook.md)
+> [Snabbstart för Automation – Skapa Runbook](./automation-quickstart-create-runbook.md)
 

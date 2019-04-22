@@ -9,10 +9,10 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010404"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
@@ -80,7 +80,7 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 |:---|:---|
 | alertId | GUID som unikt identifierar aviseringsinstansen. |
 | alertRule | Namnet på den varningsregel som genererade aviseringen instansen. |
-| Severity | Allvarlighetsgrad för aviseringen. Möjliga värden: Sev0, Sev1, Sev2, Sev3, Sev4 |
+| Allvarsgrad | Allvarlighetsgrad för aviseringen. Möjliga värden: Sev0, Sev1, Sev2, Sev3, Sev4 |
 | signalType | Identifierar signalen där varningsregeln har definierats. Möjliga värden: Mått, Log, aktivitetsloggen |
 | monitorCondition | När en avisering utlöses anges aviseringens övervakningsvillkor till 'Fired'. När det underliggande villkoret som orsakade aviseringen utlöses rensar har övervakarens villkor angetts till ”löst'.   |
 | monitoringService | Övervakningstjänsten eller lösning som skapade aviseringen. Fälten för kontexten fastställs av övervakningstjänsten. |
@@ -200,7 +200,7 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 }
 ```
 
-### <a name="activity-log-alerts"></a>Aktivitetsloggaviseringar
+### <a name="activity-log-alerts"></a>Aktivitetsloggsaviseringar
 
 #### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = 'Aktivitetsloggen – administrativa'
 

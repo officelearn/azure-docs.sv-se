@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009605"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare som använder Azure Active Directory
@@ -83,7 +83,7 @@ När du har lagt till användarna, kan du utföra följande basic-processer:
 
 - [Tilldela roller till användare](active-directory-users-assign-role-azure-portal.md)
 
-- [Skapa en basgrupp och lägg till medlemmar](active-directory-groups-create-azure-portal.md)
+- [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md)
 
 - [Arbeta med dynamiska grupper och användare](../users-groups-roles/groups-create-rule.md)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
 ms.openlocfilehash: 2da6e46ad4866ad624ff6bc8aa61a96e41568ca2
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006552"
 ---
 # <a name="service-bus-messaging-samples"></a>Meddelandetjänsten Service Bus-exempel
@@ -38,6 +38,6 @@ Dessutom kan den [Service Bus Explorer](https://github.com/paolosalvatori/Servic
 
 Finns i följande avsnitt konceptuell översikt över Service Bus.
 
-* [Översikt över meddelandetjänsten i Service Bus](service-bus-messaging-overview.md)
+* [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
 * [Service Bus-arkitektur](service-bus-architecture.md)
 

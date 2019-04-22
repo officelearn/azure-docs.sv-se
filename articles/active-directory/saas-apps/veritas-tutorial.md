@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 59012bf32a4e1f0532b4d42e510d431180c35730
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Självstudier: Azure Active Directory-integrering med Veritas Enterprise Vault.cloud SSO
@@ -34,7 +34,7 @@ Integrera Veritas Enterprise Vault.cloud enkel inloggning med Azure AD ger dig f
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Veritas Enterprise Vault.cloud SSO, behöver du följande objekt:
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Veritas
 
     ![Veritas Enterprise Vault.cloud SSO domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
 
     b. I den **identifierare** använder URL: en enligt datacentret:
 
@@ -206,7 +206,7 @@ När du klickar på panelen Veritas Enterprise Vault.cloud SSO i åtkomstpanelen
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

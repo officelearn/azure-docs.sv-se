@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
 ms.openlocfilehash: 55fc671d926880375b0420e0eafb6dc63f170ba6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012201"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Objective-C på macOS med hjälp av tal-SDK
@@ -23,7 +23,7 @@ ms.locfileid: "59012201"
 
 I den här artikeln lär du dig att skapa en macOS-app i Objective-C med hjälp av Cognitive Services tal SDK för att transkribera tal som registrerats från en mikrofon till text.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 
@@ -92,5 +92,5 @@ I dialogrutorna som följer gör du följande val:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Utforska Objective-C-exempel på GitHub](https://aka.ms/csspeech/samples)
+> [Utforska Objektive-C-exempel på GitHub](https://aka.ms/csspeech/samples)
 

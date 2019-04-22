@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: edfc1f0b2d49510926cfbc306dacf6715225c5c1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Självstudier: Azure Active Directory-integrering med Learningpool Act
@@ -34,7 +34,7 @@ Integreringen av Learningpool Act med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Learningpool Act behöver du följande:
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Learn
 
     ![Information om enkel inloggning med Learningpool Act-domän och URL:er](common/sp-identifier.png)
 
-    a. I den **inloggnings-URL** text skriver du URL: en: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+    a. I rutan **Inloggnings-URL** anger du följande URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
     
@@ -237,7 +237,7 @@ När du klickar på Learningpool Act-panelen i åtkomstpanelen bör du automatis
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

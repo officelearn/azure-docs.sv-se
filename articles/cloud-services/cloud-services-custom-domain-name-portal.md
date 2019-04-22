@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267154"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domännamn för en Azure cloud Services
@@ -64,11 +64,11 @@ Om du vill skapa en CNAME-post, du måste lägga till en ny post i tabellen DNS 
 
 1. Använd någon av följande metoder för att hitta den **. cloudapp.net** domännamn som tilldelats till din molntjänst.
 
-   * Logga in på den [Azure-portalen], Välj din molntjänst, titta på den **översikt** avsnittet och hitta den **webbplatsens URL** posten.
+   * Logga in på den [Azure Portal], Välj din molntjänst, titta på den **översikt** avsnittet och hitta den **webbplatsens URL** posten.
 
        ![snabböversikten avsnitt som visar webbplatsens URL][csurl]
 
-       **ELLER**
+       **OR**
    * Installera och konfigurera [Azure Powershell](/powershell/azure/overview), och Använd sedan följande kommando:
 
        ```powershell
@@ -97,11 +97,11 @@ Om du vill skapa en A-post, måste du först hitta den virtuella IP-adressen fö
 
 1. Använd någon av följande metoder för att hämta IP-adressen för din molntjänst.
 
-   * Logga in på den [Azure-portalen], Välj din molntjänst, titta på den **översikt** avsnittet och hitta den **offentliga IP-adresser** posten.
+   * Logga in på den [Azure Portal], Välj din molntjänst, titta på den **översikt** avsnittet och hitta den **offentliga IP-adresser** posten.
 
        ![snabböversikten avsnitt som visar VIP][vip]
 
-       **ELLER**
+       **OR**
    * Installera och konfigurera [Azure Powershell](/powershell/azure/overview), och Använd sedan följande kommando:
 
        ```powershell

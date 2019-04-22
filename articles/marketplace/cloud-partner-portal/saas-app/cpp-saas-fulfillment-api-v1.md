@@ -16,10 +16,10 @@ ms.date: 03/28/2019
 ms.author: pbutlerm
 ROBOTS: NOINDEX
 ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009742"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Techtrends API: er Version 1 (inaktuell)
@@ -67,7 +67,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 |  |  |
 
 
-*Rubriker*
+*Headers*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -75,7 +75,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Detta kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 | innehållstyp       | Ja          | `application/json`                                        |
 | Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
-| x-ms-marketplace-token| Ja| Token Frågeparametern i URL: en när användaren omdirigeras till SaaS ISV-webbplats från Azure. **Obs!** Den här variabeln är endast giltig för 1 timme. Dessutom kan avkoda URL: en token-värde från webbläsaren innan du använder den.|
+| x-ms-marketplace-token| Ja| Token Frågeparametern i URL: en när användaren omdirigeras till SaaS ISV-webbplats från Azure. **Obs:** Den här variabeln är endast giltig för 1 timme. Dessutom kan avkoda URL: en token-värde från webbläsaren innan du använder den.|
 |  |  |  |
   
 
@@ -92,7 +92,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 
 | **Parameternamn** | **Datatyp** | **Beskrivning**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | String        | ID för SaaS-prenumerationen.          |
+| ID                 | String        | ID för SaaS-prenumerationen.          |
 | subscriptionName| String| Namnet på SaaS-prenumeration som anges av användaren i Azure när du prenumererar på SaaS-tjänsten.|
 | OfferId            | String        | Erbjudande-ID som du prenumererar. |
 | planId             | String        | Plan-ID som du prenumererar.  |
@@ -136,7 +136,7 @@ Prenumerera-slutpunkten tillåter användare att starta en prenumeration på en 
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Rubriker*
+*Headers*
 
 |  **Huvud-nyckel**        | **Krävs** |  **Beskrivning**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
@@ -148,7 +148,7 @@ Prenumerera-slutpunkten tillåter användare att starta en prenumeration på en 
 | x-ms-marketplace-session-mode| Nej | Flagga för att aktivera kontrolläge när du prenumererar på ett SaaS-erbjudande. Om har angetts prenumerationen inte debiteras. Detta är användbart för ISV testscenarier. Ange det **'blobbar i kontrolläge har ”**|
 |  |  |  |
 
-*Innehåll*
+*Brödtext*
 
 ``` json
 {
@@ -201,7 +201,7 @@ Följ upp på begäran-åtgärdens status på åtgärd-location-rubriken för en
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Rubriker*
+*Headers*
 
 | **Huvud-nyckel**          | **Krävs** | **Beskrivning**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
@@ -212,7 +212,7 @@ Följ upp på begäran-åtgärdens status på åtgärd-location-rubriken för en
 | Auktorisering           | Ja          | JSON web token (JWT) ägartoken.                    |
 |  |  |  |
 
-*Innehåll*
+*Brödtext*
 
 ```json
 {
@@ -265,7 +265,7 @@ Borttagningsåtgärden på slutpunkten för prenumerera låter en användare tar
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Rubriker*
+*Headers*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
@@ -305,9 +305,9 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 
 *Förfrågan*
 
-**HÄMTA**
+**GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{Åtgärds-ID}*?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -315,7 +315,7 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Rubriker*
+*Headers*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -338,7 +338,7 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 
 | **Parameternamn** | **Datatyp** | **Beskrivning**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | String        | ID för åtgärden.                                                                      |
+| ID                 | String        | ID för åtgärden.                                                                      |
 | status             | Enum          | Åtgärdsstatus något av följande: `In Progress`, `Succeeded`, eller `Failed`.          |
 | resourceLocation   | String        | Länka till den prenumeration som skapades eller ändrades. Detta hjälper klienten att hämta uppdaterade tillståndet post-åtgärd. Det här värdet har inte angetts för `Unsubscribe` åtgärder. |
 | skapad            | DateTime      | Åtgärden Skapandetid i UTC.                                                           |
@@ -373,7 +373,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 
 *Förfrågan*
 
-**HÄMTA**
+**GET**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
@@ -383,7 +383,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Rubriker*
+*Headers*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
@@ -408,7 +408,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
+| ID                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
 | offerId                | String        | Erbjudande-ID som du prenumererar.         |
 | planId                 | String        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
@@ -446,7 +446,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 
 *Förfrågan*
 
-**HÄMTA**
+**GET**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
@@ -455,7 +455,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 | API-versionen         | Versionen av åtgärden för den här begäran. |
 |  |  |
 
-*Rubriker*
+*Headers*
 
 | **Huvud-nyckel**     | **Krävs** | **Beskrivning**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -480,7 +480,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
+| ID                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
 | offerId                | String        | Erbjudande-ID som du prenumererar.         |
 | planId                 | String        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
@@ -515,7 +515,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 
 En SaaS-webhook används för att Avisera ändringar proaktivt SaaS tjänsten. Det här INLÄGGET API förväntas vara icke-autentiserade och kommer att anropas av tjänsten Microsoft. SaaS-tjänsten förväntas du anropar API för att validera och auktorisera innan åtgärd vidtas på webhook-meddelandet. 
 
-*Innehåll*
+*Brödtext*
 
 ``` json
   {
@@ -530,7 +530,7 @@ En SaaS-webhook används för att Avisera ändringar proaktivt SaaS tjänsten. D
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | String       | Unikt ID för den åtgärd som utlöste.                |
+| ID  | String       | Unikt ID för den åtgärd som utlöste.                |
 | Aktivitets-ID   | String        | En unik sträng som värde för spårning av förfrågan från tjänsten. Det här används för alla avstämning.               |
 | subscriptionId                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
 | offerId                | String        | Erbjudande-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.        |

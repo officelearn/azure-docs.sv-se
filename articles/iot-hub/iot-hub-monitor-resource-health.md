@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274050"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
@@ -343,7 +343,7 @@ IoT Hub registrerar den här loggen när ett meddelande som innehåller egenskap
 
 Här kan `durationMs` beräknas inte som IoT-hubbens klockan inte är synkroniserade med enhetens klocka och därför en beräkning för varaktighet kan vara vilseledande. Vi rekommenderar att skriva logik med tidsstämplar i den `properties` avsnitt för att avbilda toppar i svarstid för enhet-till-moln.
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Integer | Storlek för enhet-till-moln-meddelande i byte |
 | **deviceId** | Sträng med ASCII 7 bitar alfanumeriska tecken | Identiteten för enheten |
@@ -377,7 +377,7 @@ IoT Hub registrerar den här loggen när meddelandet som innehåller egenskaper 
 
 I den `properties` avsnittet, den här loggfilen innehåller mer information om inkommande meddelande.
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | True eller false, anger huruvida meddelanderoutning är aktiverad i IoT Hub |
 | **parentSpanId** | String | Den [span-id](https://w3c.github.io/trace-context/#parent-id) meddelandets överordnade som i det här fallet är spårningen för D2C-meddelande |
@@ -409,9 +409,9 @@ IoT Hub poster detta logga när [routning](iot-hub-devguide-messages-d2c.md) är
 
 I den `properties` avsnittet, den här loggfilen innehåller mer information om inkommande meddelande.
 
-| Egenskap  | Typ | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **EndpointName** | String | Namnet på slutpunkten som Routning |
+| **endpointName** | String | Namnet på slutpunkten som Routning |
 | **EndpointType** | String | Vilken typ av Routning slutpunkten |
 | **parentSpanId** | String | Den [span-id](https://w3c.github.io/trace-context/#parent-id) meddelandets överordnade som i det här fallet är IoT Hub inkommande meddelande spårningen |
 

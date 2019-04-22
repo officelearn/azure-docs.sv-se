@@ -10,10 +10,10 @@ ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008983"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exempel: Lägga till synonymer för Azure Search i C#
@@ -31,14 +31,14 @@ Du kan skapa flera synonymmappningar, publicera dem som en resurs på tjänstniv
 > [!NOTE]
 > Det finns stöd för synonymer i de senaste API- och SDK-versionerna (API-version 2017-11-11, SDK-version 5.0.0). Funktionen stöds för närvarande inte på Azure Portal. Om du skulle ha nytta av funktionen Synonymer på Azure Portal vill vi gärna att du skickar din feedback via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I den här självstudien behöver du följande:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Search-tjänst](search-create-service-portal.md)
+* [Azure Search-tjänsten](search-create-service-portal.md)
 * [.NET-biblioteket Microsoft.Azure.Search](https://aka.ms/search-sdk)
-* [Hur du använder Azure Search från .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk) (Så använder du Azure Search från .NET-program)
 
 ## <a name="overview"></a>Översikt
 
@@ -175,4 +175,4 @@ Det snabbaste sättet att rensa upp efter ett exempel är genom att ta bort resu
 Det här exemplet visas den [synonymer REST API](https://aka.ms/rgm6rq) i C# kod för att skapa och publicera regler för mappning av och sedan anropa synonymmappningen på en fråga. Mer information finns i referensdokumentationen för [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) och [REST-API:t](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
-> [Hur du använder synonymer i Azure Search](search-synonyms.md)
+> [Använda synonymer i Azure Search](search-synonyms.md)

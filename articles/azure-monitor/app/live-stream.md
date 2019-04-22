@@ -14,10 +14,10 @@ ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009973"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
@@ -34,7 +34,7 @@ Med Live Metrics Stream kan du:
 * Övervaka alla Windows prestanda räknaren live.
 * Enkelt identifiera en server som har problem och filtrera alla de KPI/live-flöde till bara den servern.
 
-[![Livt Metrics Stream-video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Live Metrics Stream-video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 Livemått stöds för närvarande för ASP.NET, ASP.NET Core, Azure Functions, Java och Node.js-appar.
 
@@ -63,7 +63,7 @@ Kontrollera den [utgående portar för Live Metrics Stream](../../azure-monitor/
 |Inga kvarhållning|Data kvarstår medan den i diagrammet och sedan tas bort|[Data bibehålls i 90 dagar](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |På begäran|Data som strömmas medan du öppna Live Metrics|Informationen skickas när SDK är installerat och aktiverat|
 |Kostnadsfri|Det kostar inget Live Stream-data|Lyder [priser](../../azure-monitor/app/pricing.md)
-|Samling|Alla valda mått och räknare överförs. Fel och stackspår samplas. TelemetryProcessors tillämpas inte.|Händelser kan vara [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
+|Sampling|Alla valda mått och räknare överförs. Fel och stackspår samplas. TelemetryProcessors tillämpas inte.|Händelser kan vara [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
 |Kontrollkanal|Filterkontroll signaler skickas till SDK: N. Vi rekommenderar att du skyddar den här kanalen.|Kommunikationen är enkelriktade på portalen|
 
 
@@ -209,5 +209,5 @@ Ser du inga data? Om programmet är i ett skyddat nätverk: Live Metrics Stream 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervakning med Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Med hjälp av Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md)
-* [Profilerare](../../azure-monitor/app/profiler.md)
-* [Felsökningsprogram för ögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md)
+* [Profiler](../../azure-monitor/app/profiler.md)
+* [Felsökning av ögonblicksbild](../../azure-monitor/app/snapshot-debugger.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268440"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Begränsa åtkomsten till ett Azure container registry med Azure-nätverk eller brandväggsregler
@@ -34,7 +34,7 @@ Den här artikeln visar två scenarier för att skapa regler för nätverksåtko
 
 * Varje register stöder högst 100 virtuella Nätverksregler.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Du använder Azure CLI stegen i den här artikeln, Azure CLI version 2.0.58 eller senare krävs. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
@@ -375,7 +375,7 @@ Flera virtuella nätverksresurser och funktioner beskrivs i den här artikeln, �
 
 * [Virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
 * [Undernät](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
-* [Tjänstslutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+* [Serviceslutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 <!-- IMAGES -->
 

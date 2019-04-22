@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
 ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269630"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
@@ -27,7 +27,7 @@ Den här artikeln beskriver vanliga problem i Azure Site Recovery när replikera
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problem med kvoten på Azure-resurs (felkod 150097)
 Prenumerationen måste vara aktiverat för att skapa virtuella Azure-datorer i målregionen som du tänker använda som din region för disaster recovery. Din prenumeration bör också ha tillräckligt många aktiverat för att skapa virtuella datorer med specifik storlek. Som standard väljer Site Recovery samma storlek för den Virtuella måldatorn som virtuella datorn. Om matchande storleken är inte tillgängligt plockas närmaste möjliga storlek automatiskt. Om det finns ingen matchande storlek som stöder Virtuella källdatorkonfigurationen, visas det här felmeddelandet:
 
-**Felkod** | **Möjliga orsaker** | **Rekommendation**
+**Felkod** | **Möjliga orsaker** | **Rekommendationen**
 --- | --- | ---
 150097<br></br>**Meddelandet**: Att det gick inte aktivera replikering för den virtuella datorn VmName. | -Ditt prenumerations-ID kanske inte är aktiverat för att skapa virtuella datorer på målplatsen för regionen.</br></br>-Ditt prenumerations-ID kanske inte är aktiverat eller har inte tillräcklig kvot för att skapa specifika VM-storlekar på målplatsen för regionen.</br></br>– En lämplig VM-storlek som matchar källan VM NIC antalet (2) är inte att hitta målet för prenumerations-ID på målplatsen för regionen.| Kontakta [Azure faktureringshjälp](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) att skapa virtuella datorer med storlekarna som krävs på målplatsen för din prenumeration. När den är aktiverad, försök igen.
 
@@ -157,7 +157,7 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problem 1: Det gick inte att registrera Azure-dator med Site Recovery (151195) </br>
 - **Möjlig orsak** </br>
   - Det går inte att upprätta anslutning till site recovery-slutpunkter på grund av DNS-matchningsfel.
-  - Detta visas oftare vid återskydd när du har redundansväxlat den virtuella datorn men DNS-servern inte kan nås från regionen för haveriberedskap.
+  - Detta visas oftare vid nytt skydd när du har misslyckats under den virtuella datorn men DNS-servern kan inte nås från regionen för Haveriberedskap.
 
 - **Lösning**
    - Om du använder anpassade DNS Se till att är DNS-servern tillgänglig från regionen för Haveriberedskap. Kontrollera om du har en anpassad DNS går du till den virtuella datorn > Disaster Recovery-nätverket > DNS-servrar. Försök att öppna DNS-servern från den virtuella datorn. Om den inte är tillgänglig sedan när du gör det tillgängligt genom att antingen växling över DNS-server eller skapa verksamhetsspecifika plats mellan DR-nätverk och DNS.
@@ -194,11 +194,11 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
   1. Mobilitetstjänstagenten identifierar proxyinställningar från Internet Explorer på Windows och /etc/environment i Linux.
   2. Om du föredrar att ställa in proxy endast för ASR-Mobilitetstjänsten kan ange du proxyinformationen i ProxyInfo.conf som finns på:</br>
      - ``/usr/local/InMage/config/`` på ***Linux***
-     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` på ***Windows***
   3. ProxyInfo.conf ska ha rätt proxyinställningar har följande INI-format.</br>
                 *[proxy]*</br>
-                *Address=http://1.2.3.4*</br>
-                *Port=567*</br>
+                *Adress =http://1.2.3.4*</br>
+                *Port = 567*</br>
   4. ASR mobilitetstjänstagenten stöder endast ***oautentiserade proxyservrar***.
 
 

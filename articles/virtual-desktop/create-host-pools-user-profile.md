@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276396"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Skapa en användarprofilresurs för en värdpool
@@ -62,7 +62,7 @@ För att konfigurera de virtuella datorerna med FSLogix-programvara, gör du fö
 6. Skapa en nyckel med namnet **profiler**.
 7. Skapa följande värden för nyckeln profiler:
 
-| Namn                | Type               | Data/värde                        |
+| Namn                | Typ               | Data/värde                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Multisträngvärde | ”Nätverkssökväg för filresursen”     |

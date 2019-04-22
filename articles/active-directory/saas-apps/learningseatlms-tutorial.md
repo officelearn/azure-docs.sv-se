@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e4e564a8c41065f6f68d93735d441ba6c69479a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Självstudier: Azure Active Directory-integrering med Learning Seat LMS
@@ -34,7 +34,7 @@ Integreringen av Learning Seat LMS med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Learning Seat LMS behöver du följande:
 
@@ -51,7 +51,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integreringen av Learning Seat LMS i Azure AD behöver du lägga till Learning Seat LMS från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till LMS-Learning plats från galleriet:**
+**Utför följande steg för att lägga till Learning Seat LMS från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Learn
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.learningseatlms.com`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -199,7 +199,7 @@ När du klickar på Learning Seat LMS-panelen i åtkomstpanelen bör du automati
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048766"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda infångade paket för proaktiv nätverksövervakning med varningar och Azure Functions
@@ -36,7 +36,7 @@ Genom att använda Network Watcher, aviseringar och funktioner från inom Azure-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Den senaste versionen av [Azure PowerShell](/powershell/azure/install-Az-ps).
 * En befintlig instans av Network Watcher. Om du inte redan har en, [skapa en instans av Network Watcher](network-watcher-create.md).
@@ -75,9 +75,9 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
 
 2. På den **Funktionsapp** bladet anger du följande värden och välj sedan **OK** att skapa appen:
 
-    |**Inställning** | **Värde** | **Information** |
+    |**Inställning** | **Värde** | **Detaljer** |
     |---|---|---|
-    |**Appnamn**|PacketCaptureExample|Namnet på funktionsappen.|
+    |**Appens namn**|PacketCaptureExample|Namnet på funktionsappen.|
     |**Prenumeration**|[Din prenumeration] Den prenumeration som du vill skapa funktionsappen.||
     |**Resursgrupp**|PacketCaptureRG|Resursgruppen som innehåller funktionsappen.|
     |**Värdplan**|Förbrukningsplan| Vilken typ av planera din app använder för funktionen. Alternativen är förbrukning eller Azure App Service-plan. |
@@ -88,7 +88,7 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
 
 4. Välj **HttpTrigger-Powershell**, och ange sedan återstående information. Välj slutligen, om du vill skapa funktionen **skapa**.
 
-    |**Inställning** | **Värde** | **Information** |
+    |**Inställning** | **Värde** | **Detaljer** |
     |---|---|---|
     |**Scenario**|Experimentell|Typen av scenario|
     |**Namnge din funktion**|AlertPacketCapturePowerShell|Namnet på funktionen|
@@ -344,12 +344,12 @@ Aviseringar kan konfigureras för att meddela personer när en viss mått övers
 
 Gå till en befintlig virtuell dator och sedan lägga till en varningsregel. Mer detaljerad dokumentation om hur du konfigurerar aviseringar finns på [skapa aviseringar i Azure Monitor för Azure-tjänster – Azure-portalen](../monitoring-and-diagnostics/insights-alerts-portal.md). Ange följande värden i den **varningsregel** bladet och välj sedan **OK**.
 
-  |**Inställning** | **Värde** | **Information** |
+  |**Inställning** | **Värde** | **Detaljer** |
   |---|---|---|
   |**Namn**|TCP_Segments_Sent_Exceeded|Namnet på regeln.|
   |**Beskrivning**|TCP-segment skickas överskridit tröskelvärdet|Beskrivning för regeln.|
   |**Mått**|TCP-segment som skickas| Mått som ska använda för att utlösa aviseringen. |
-  |**Tillstånd**|Större än| Villkoret du vill använda vid utvärdering av måttet.|
+  |**villkor**|Större än| Villkoret du vill använda vid utvärdering av måttet.|
   |**Tröskelvärde**|100| Värdet för det mått som utlöser aviseringen. Det här värdet sättas till ett giltigt värde för din miljö.|
   |**Period**|Under de senaste fem minuterna| Anger den period som du söker efter tröskelvärdet för måttet.|
   |**Webhook**|[webhook-URL från funktionsapp]| Webhook-URL från funktionsappen som skapades i föregående steg.|

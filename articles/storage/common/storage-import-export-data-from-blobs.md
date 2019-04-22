@@ -9,16 +9,16 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263850"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att exportera data från Azure Blob storage
 Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du kan leverera tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagringskonto till enheterna och sedan levereras enheter tillbaka.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du skapar en export-jobbet för att överföra data från Azure Blob Storage måste du noggrant granska och slutför följande lista över kraven för den här tjänsten. Måste du:
 
@@ -146,7 +146,7 @@ Detta *valfritt* steg hjälper till att du bestämmer hur många enheter som kr�
     |**/sk:**|Krävs endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
     |**/csas:**|Krävs endast om en lagringskontonyckel inte har angetts. Behållaren SAS för att lista blobbar exporteras i export-jobbet.|  
     |**/ExportBlobListFile:**|Krävs. Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet som används i den `BlobListBlobPath` elementet i den [placera jobbet](/rest/api/storageimportexport/jobs) driften av REST-API för Import/Export-tjänsten.|  
-    |**/DriveSize:**|Krävs. Storleken på enheter som ska användas för ett exportjobb *t.ex.*, 500 GB, 1,5 TB.|  
+    |**/ DriveSize:**|Krävs. Storleken på enheter som ska användas för ett exportjobb *t.ex.*, 500 GB, 1,5 TB.|  
 
     Se en [exempel på kommandot PreviewExport](#example-of-previewexport-command).
  

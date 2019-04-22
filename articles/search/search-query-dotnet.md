@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264955"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Snabbstart: 3 – fråga ett Azure Search-index iC#
@@ -25,7 +25,7 @@ Den här artikeln visar hur du frågar [ett Azure Search-index](search-what-is-a
 > * Skapa en [ `SearchParameters` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet) objekt som innehåller definitionen för söka och filtrera.
 > * Anropa den `Documents.Search` metoden på `SearchIndexClient` att skicka frågor till ett index.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [Läsa in ett Azure Search-index](search-import-data-dotnet.md) med exempeldata hotell.
 

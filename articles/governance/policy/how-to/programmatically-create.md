@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276498"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
@@ -252,4 +252,4 @@ Granska följande artiklar för mer information om kommandon och frågor i den h
 - [Azure PowerShell-moduler](/powershell/module/az.resources/#policies)
 - [Azure CLI-kommandon för principen](/cli/azure/policy?view=azure-cli-latest)
 - [Princip för resursprovidern för Insights REST API-referens](/rest/api/policy-insights)
-- [Ordna resurser med hanteringsgrupper i Azure](../../management-groups/overview.md)
+- [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)

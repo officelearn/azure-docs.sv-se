@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268525"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core i Service Fabric Reliable Services
@@ -511,7 +511,7 @@ Tillståndskänsliga tjänster som endast anropas från i klustret ska använda 
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Den här inställningen förhindrar felaktiga identitet problemet som beskrivs ovan med dynamisk porttilldelning. |
 
 ## <a name="next-steps"></a>Nästa steg
-[Felsöka Service Fabric-program med hjälp av Visual Studio](service-fabric-debugging-your-application.md)
+[Felsöka ditt Service Fabric-program med Visual Studio](service-fabric-debugging-your-application.md)
 
 <!--Image references-->
 [0]:./media/service-fabric-reliable-services-communication-aspnetcore/webhost-standalone.png

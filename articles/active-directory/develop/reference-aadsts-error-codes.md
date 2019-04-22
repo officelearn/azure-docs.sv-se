@@ -18,10 +18,10 @@ ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271806"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
@@ -153,7 +153,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS70007 | UnsupportedResponseMode - appen returnerade ett värde som inte stöds av `response_mode` när du begär en token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - uppdateringstoken har upphört att gälla på grund av inaktivitet. Token har utfärdats på XXX och har varit inaktiv under en viss tidsperiod. |
 | AADSTS70011 | InvalidScope - med appen begärda omfång är ogiltig. |
-| AADSTS70012 | MsaServerError - ett serverfel uppstod när en MSA (konsument)-användare. Försök igen. Om det fortfarande misslyckas [skapar du ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - ett serverfel uppstod när en MSA (konsument)-användare. Försök igen. Om det fortsättningsvis misslyckas, [öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - flöde för OAuth 2.0 enhetsfel. Auktorisering är väntande. Enheten försöker avsökning begäran. |
 | AADSTS70018 | BadVerificationCode - ogiltig Verifieringskod på grund av användare att skriva in fel användarkod för kodflöde för enheten. Auktorisering godkänns inte. |
 | AADSTS70019 | CodeExpired - Verifieringskod har upphört att gälla. Låt användaren försök logga in. |

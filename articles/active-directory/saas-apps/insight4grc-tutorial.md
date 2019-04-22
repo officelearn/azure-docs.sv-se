@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 1ad101d209415acdceb0091dba5fbedeb8b0aa4b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Självstudier: Azure Active Directory-integrering med Insight4GRC
@@ -34,7 +34,7 @@ Integrera Insight4GRC med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Insight4GRC, behöver du följande objekt:
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Insight
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.Insight4GRC.com/SAML`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.Insight4GRC.com/Public/SAML/ACS.aspx`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.Insight4GRC.com/Public/SAML/ACS.aspx`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -193,7 +193,7 @@ När du klickar på panelen Insight4GRC i åtkomstpanelen, bör det vara loggas 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: adfd8c5849cfee69805715378a3f56ec9f685b00
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050755"
 ---
 # <a name="message-counters"></a>Meddelanderäknare
@@ -48,6 +48,6 @@ Om ett program vill skala resurser baserat på längden på kön, det bör göra
 
 Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
 
-* [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md)
+* [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
-* [Använda Service Bus-ämnen och -prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+* [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

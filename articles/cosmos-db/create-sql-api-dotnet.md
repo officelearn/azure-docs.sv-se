@@ -9,16 +9,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/05/2019
 ms.openlocfilehash: 7ecb2269243ae96b629a20a26956e6220a2e616c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280850"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Snabbstart: Skapa en .NET-webbapp med SQL API-konto i Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [NET](create-sql-api-dotnet.md)
 > * [.NET (förhandsversion)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
@@ -33,7 +33,7 @@ Den här snabbstarten visar hur du använder Azure-portalen för att skapa ett A
 
 I den här snabbstarten använder du Datautforskaren i Azure-portalen för att skapa databasen och samlingen. Du kan också skapa databas och samling med hjälp av .NET-exempelkod. Mer information finns i [granska .NET-kod](#review-the-net-code). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Visual Studio 2017 med Azure-utveckling arbetsflödet installerad
 - Du kan hämta och använda den **kostnadsfria** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio. 
@@ -64,7 +64,7 @@ Du kan använda Datautforskaren i Azure-portalen för att skapa en databas och s
     |---|---|---|
     |**Databas-id**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg.|
     |**Samlings-id**|Objekt|Ange *Objekt* som namnet på din nya samling. Samlings-ID har samma teckenkrav gäller som databasnamn.|
-    |**Partitionsnyckeln**| /category| I exemplet som beskrivs i den här artikeln används */category* som partitionsnyckel.|
+    |**Partitionsnyckel**| /category| I exemplet som beskrivs i den här artikeln används */category* som partitionsnyckel.|
     |**Dataflöde**|400|Vill du lämna dataflödet på 400 begäransenheter per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
     
     Lägg inte till **unika nycklar** i det här exemplet. Unika nycklar kan du lägga till ett lager med dataintegritet till databasen genom att se till att ett eller flera värden per partitionsnyckel är unikt. Mer information finns i [unika nycklar i Azure Cosmos DB](unique-keys.md).

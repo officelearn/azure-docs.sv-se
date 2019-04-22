@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: diberry
 ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261436"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kulturen i LUIS-modellen
@@ -30,7 +30,7 @@ Språkförståelse (LUIS) tillhandahåller förskapade entiteter. När en entite
 |Franska|[fr-CA (Kanada)](#french-canadian-entity-support), [fr-FR (Frankrike)](#french-france-entity-support), ||
 |Tyska|[de-DE](#german-entity-support)||
 |Italienska|[IT-IT](#italian-entity-support)||
-|Japanska|[ja-JP](#japanese-entity-support)||
+|Japanska|[Ja-JP](#japanese-entity-support)||
 |Koreanska|[ko-KR](#korean-entity-support)||
 |Portugisiska|[pt-BR (Brasilien)](#portuguese-brazil-entity-support)||
 |Spanska|[es-ES (Spanien)](#spanish-spain-entity-support), [es-MX (Mexiko)](#spanish-mexico-entity-support)||
@@ -49,8 +49,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -70,8 +70,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -91,8 +91,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -112,8 +112,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |   -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -133,8 +133,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -154,8 +154,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -175,8 +175,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -196,8 +196,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -217,8 +217,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    -   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -238,8 +238,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -259,8 +259,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -280,8 +280,8 @@ Följande enheter stöds:
 [E-post](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Tal](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Nummer](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [Procent](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Telefonnummer](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 

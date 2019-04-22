@@ -17,17 +17,17 @@ ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268610"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Cerner Central för automatisk användaretablering
 
 Målet med den här självstudien är att visa dig vad du behöver för att utföra i Cerner Central och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till en lista med användare i Cerner Central.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 

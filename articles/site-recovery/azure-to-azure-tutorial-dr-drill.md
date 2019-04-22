@@ -10,10 +10,10 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 16c791287cc50b5ac8992a86f6de1e3eeb5e329e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260280"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Kör ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region
@@ -29,7 +29,7 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 > [!NOTE]
 > Den här självstudiekursen är avsedd att guida användaren genom stegen att utföra ett programåterställningstest med minimalt antal steg. Mer information om de olika aspekterna som förknippas med att utföra ett programåterställningstest, till exempel nätverksöverväganden, automatisering eller felsökning, finns i dokumenten under instruktionerna för virtuella Azure-datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Innan du kör ett redundanstest rekommenderar vi att du kontrollerar VM-egenskaperna så att allt är som förväntat.  VM-egenskaper finns i **Replikerade objekt**. På bladet **Information** finns information om datorinställningar och status.
 - **Vi rekommenderar att du använder ett separat nätverk för virtuella Azure-datorer när du testar redundans**, i stället för det standardnätverk som skapades när du aktiverade replikeringen.

@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008846"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Etablera en Geo artificiell intelligens virtuell dator på Azure 
@@ -42,14 +42,14 @@ Här följer stegen för att skapa en instans av Geo AI Data Science VM:
 
 1. Navigera till den virtuella datorn på [Azure-portalen](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows).
 2. Välj den **skapa** längst ned för att gå till en guide.
-![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
+![Skapa-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 3. I guiden som används för att skapa Geo-DSVM kräver **indata** för var och en av de **fyra steg** räknas upp till höger i den här bilden. Här följer de indata som behövs för att konfigurera var och en av de här stegen:
 
 
 
    - **Grundläggande inställningar**
 
-      1. **Namn**: Namnet på data science-server som du skapar.
+      1. **Namn på**: Namnet på data science-server som du skapar.
 
       2. **Användarnamn**: Admin-konto inloggnings-id.
 
@@ -64,7 +64,7 @@ Här följer stegen för att skapa en instans av Geo AI Data Science VM:
 
    - **Inställningar för**: Välj en av NC-serien GPU VM-storlek om du planerar att köra deep learning på GPU på Geo-DSVM. I annat fall kan du välja någon av Processorn baserad instans.  Skapa ett lagringskonto för den virtuella datorn. 
    
-   - **Sammanfattning**: Kontrollera att all information du angett är korrekt.
+   - **Sammanfattning av**: Kontrollera att all information du angett är korrekt.
 
    - **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till användningsvillkor. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
  

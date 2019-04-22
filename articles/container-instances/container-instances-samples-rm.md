@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
 ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006480"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager-mallar för Azure Container Instances
@@ -24,7 +24,7 @@ Distributionsalternativ finns i den [distribution](#deployment) avsnittet. Om du
 
 | | |
 |-|-|
-| **Appar** ||
+| **Program** ||
 | [WordPress][app-wp] | Skapar en WordPress-webbplats och dess MySQL-databas i en behållargrupp. WordPress webbplatsens innehåll och MySQL-databas har sparats till en Azure Files dela. Skapar även en application gateway om du vill exponera offentliga nätverksåtkomst till WordPress. |
 | [MS NAV med SQLServer och IIS][app-nav] | Distribuerar en enkel Windows-behållare med en komplett funktionalitet självständigt Dynamics NAV / Dynamics 365 Business Central miljö. |
 | **Volymer** ||

@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279519"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Kontroll över transaktioner och optimistisk samtidighet
@@ -34,7 +34,7 @@ Databasmotorn i Azure Cosmos DB stöder fullständig ACID (Atomicitet, konsekven
 | System initierade körningen av en merge-procedur | Skriva | Flera objekt transaktion |
 | System initierade körning av att ta bort objekt baserat på upphör att gälla (TTL) för ett objekt | Skriva | Flera objekt transaktion |
 | Läsa | Läsa | Single-item transaktion |
-| Ändringsfeed | Läsa | Flera objekt transaktion |
+| Ändringsflöde | Läsa | Flera objekt transaktion |
 | Sidnumrerade Läs | Läsa | Flera objekt transaktion |
 | Sidnumrerade fråga | Läsa | Flera objekt transaktion |
 | Köra UDF som en del av sidnumrerade frågan | Läsa | Flera objekt transaktion |
@@ -63,5 +63,5 @@ Läs mer om databastransaktioner och optimistisk samtidighetskontroll i följand
 
 - [Arbeta med Azure Cosmos-databaser, behållare och objekt](databases-containers-items.md)
 - [Konsekvensnivåer](consistency-levels.md)
-- [Konflikttyper och matchningsprinciper](conflict-resolution-policies.md)
+- [Konflikt typer och principer för lösning](conflict-resolution-policies.md)
 - [Lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md)

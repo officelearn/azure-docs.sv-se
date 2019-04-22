@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268678"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Skapa en interaktiv sökkarta med hjälp av Azure Maps
@@ -73,12 +73,12 @@ Självstudierna förklarar hur du använder och konfigurerar Azure Maps med ditt
 I den här snabbstarten skapade du ditt Azure Maps-konto och en demonstrationsapp. Ta en titt på följande självstudiekurser och lär dig mer om Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Söka efter Orienteringspunkter i närheten med hjälp av Azure Maps](tutorial-search-location.md)
+> [Söka efter orienteringspunkter i närheten med hjälp av Azure Maps](tutorial-search-location.md)
 
 Fler kodexempel och en interaktiv kodningsupplevelse finns i dessa guider:
 
 > [!div class="nextstepaction"]
-> [Hitta en adress med hjälp av Azure Maps search-tjänsten](how-to-search-for-address.md)
+> [Hitta en adress med hjälp av söktjänsten i Azure Maps](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Använda Kartkontrollen Azure Maps](how-to-use-map-control.md)
+> [Använda kartkontrollen i Azure Maps](how-to-use-map-control.md)

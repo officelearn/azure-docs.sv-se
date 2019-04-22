@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
 ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009407"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Känna igen tal med Speech Service SDK för Java
@@ -26,7 +26,7 @@ I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SD
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För den här snabbstarten krävs:
 
@@ -43,7 +43,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Om du kör Windows (64-bitars) se till att du har installerat Microsoft Visual C++ Redistributable för din plattform.
-* [Ladda ned Microsoft Visual C++ Redistributable för Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+* [Ladda ned Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 
 ## <a name="create-and-configure-project"></a>Skapa och konfigurera projektet
@@ -77,13 +77,13 @@ Följande 15 sekunder av talindata från mikrofonen identifieras och loggas i ko
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare exempel, till exempel hur man läser tal från en ljudfil, finns på GitHub.
+Ytterligare exempel, till exempel att läsa tal från en ljudfil, finns på GitHub.
 
 > [!div class="nextstepaction"]
 > [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se också
 
-- [Snabbstart: Omvandla tal, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Snabbstart: Översätta tal, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

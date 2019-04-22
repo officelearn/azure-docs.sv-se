@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277809"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Självstudier: Azure Active Directory-integrering med Infogix Data3Sixty styr
@@ -34,7 +34,7 @@ Integrera Infogix Data3Sixty styr med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Infogix Data3Sixty styr, behöver du följande objekt:
 
@@ -106,9 +106,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Infogix
 
     ![Infogix Data3Sixty styr domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL: `https://data3sixty.com/ui`
+    a. I textrutan **Identifierare** skriver du in en URL: `https://data3sixty.com/ui`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.data3sixty.com/sso/acs`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.data3sixty.com/sso/acs`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -233,7 +233,7 @@ När du klickar på panelen Infogix Data3Sixty styr i åtkomstpanelen, bör det 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

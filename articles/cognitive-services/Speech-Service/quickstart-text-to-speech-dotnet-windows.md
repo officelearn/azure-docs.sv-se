@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012250"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Snabbstart: Syntetisera tal med Speech-SDK för .NET Framework (Windows)
@@ -25,7 +25,7 @@ För en snabb demonstration (utan att skapa Visual Studio-projektet på egen han
 
 Få senaste [Cognitive Services tal SDK-exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk) från GitHub.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra det här projektet behöver du:
 
@@ -66,9 +66,9 @@ För att slutföra det här projektet behöver du:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Utforska C# exemplen på GitHub](https://aka.ms/csspeech/samples)
+> [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se också
 
 - [Anpassa rösttyper](how-to-customize-voice-font.md)
-- [Spela in röstexempel](record-custom-voice-samples.md)
+- [Post voice-exempel](record-custom-voice-samples.md)

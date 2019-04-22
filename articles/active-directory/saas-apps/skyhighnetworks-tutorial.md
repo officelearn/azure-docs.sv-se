@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 4836cdec546b7da7351d18d5217e4f87d749aa79
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275002"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Självstudier: Azure Active Directory-integrering med Skyhigh nätverk
@@ -34,7 +34,7 @@ Integrera Skyhigh nätverk med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Skyhigh nätverk, behöver du följande objekt:
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Skyhigh
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<ENV>.myshn.net/shndash/response/saml-postlogin`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<ENV>.myshn.net/shndash/response/saml-postlogin`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -199,7 +199,7 @@ När du klickar på panelen Skyhigh nätverk i åtkomstpanelen, bör det vara lo
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

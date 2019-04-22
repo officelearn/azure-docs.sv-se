@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
 ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264462"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
@@ -286,9 +286,9 @@ Nej, Avere vFXT kluster kräver ”alltid på” service. Klustren kan stängas 
 
 Kom igång med Avere vFXT för Azure genom dessa artiklar innehåller information om hur du planerar och distribuerar ditt system:
 
-* [Planera för ditt Avere vFXT-system](avere-vfxt-deploy-plan.md)
+* [Planera din Avere vFXT system](avere-vfxt-deploy-plan.md)
 * [Distributionsöversikt](avere-vfxt-deploy-overview.md)
 * [Förbereda för att skapa ett Avere vFXT-kluster](avere-vfxt-prereqs.md)
-* [Distribuera Avere vFXT kluster](avere-vfxt-deploy.md)
+* [Distribuera Avere vFXT-klustret](avere-vfxt-deploy.md)
 
 Mer information om funktioner och användningsfall för Avere vFXT genom att gå till [Avere vFXT för Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

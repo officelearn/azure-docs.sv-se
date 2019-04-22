@@ -8,10 +8,10 @@ ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275461"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
@@ -57,15 +57,15 @@ Med Azure Migrate får du hjälp med att:
 
 Utvärderingsinställningarna kan anpassas efter dina behov. Utvärderingsegenskaperna sammanfattas i tabellen nedan.
 
-**Egenskap ** | **Information**
+**Egenskap** | **Detaljer**
 --- | ---
 **Målplats** | Azure-platsen du vill migrera till.<br/><br/>Azure Migrate stöder för närvarande 33 regioner som målplatser för migrering. [Se regioner](https://azure.microsoft.com/global-infrastructure/services/). Målregionen är som standard angiven som USA, östra.
 **Lagringstyp** | Typen av de hanterade diskar som du vill allokera för alla virtuella datorer som ingår i utvärderingen. Om storlekskriteriet är *som lokal storleksbestämning* kan du ange måldisktypen som antingen premium-diskar (standard), standard-SSD-diskar eller standardhårddiskar. För *prestandabaserad storleksbestämning* har du utöver alternativen ovan även möjligheten att välja Automatiskt, vilket ser till att rekommendationen för storleksbestämning sker automatiskt baserat på prestandadata för de virtuella datorerna. Om du till exempel vill uppnå ett [serviceavtal för enskild virtuell datorinstans på 99,9 %](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) kan du ange lagringstypen som hanterade Premium-diskar, vilket säkerställer att alla diskar i utvärderingen rekommenderas som hanterade Premium-diskar. Observera att Azure Migrate endast stöder hanterade diskar för migreringsutvärdering.
 **Reserverade instanser** |  Om du har [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure. Azure Migrate beräknar kostnaden enligt detta.
-**Kriterium för storleksändring** | Storleken kan baseras på **prestandahistorik** för lokala virtuella datorer (standard) eller **som lokalt**, utan att ta hänsyn till prestandahistorik.
+**Ändra storlek på kriterium** | Storleken kan baseras på **prestandahistorik** för lokala virtuella datorer (standard) eller **som lokalt**, utan att ta hänsyn till prestandahistorik.
 **Prestandahistorik** | Som standard utvärderar Azure Migrate prestanda för lokala datorer med prestandahistoriken för den sista dagen, med ett percentilvärde på 95 %.
 **Komfortfaktor** | Azure Migrate överväger en buffert (komfortfaktor) under utvärderingen. Bufferten tillämpas utöver datorns användningsdata för virtuella datorer (CPU, minne, disk och nätverk). Komfortfaktorn väger in problem som säsongsbaserad användning, kort prestandahistorik och troliga ökningar i kommande användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20 % användning vanligen i en virtuell dator med 2 kärnor. Med en komfortfaktor på 2.0x blir resultatet istället en virtuell dator med 4 kärnor. Standardkomfortinställningen är 1,3x.
-**Virtuell datorserie** | Den virtuell dator-serie som används för storleksuppskattningar. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-seriens virtuella datorer i Azure kan du utesluta A-serien från listan eller serien. Storleken baseras bara på den valda serien.   
+**VM-serie** | Den virtuell dator-serie som används för storleksuppskattningar. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-seriens virtuella datorer i Azure kan du utesluta A-serien från listan eller serien. Storleken baseras bara på den valda serien.   
 **Valuta** | Faktureringsvalutan. Standardvärdet är USD.
 **Rabatt (%)** | Prenumerationsspecifika rabatter som du får utöver Azure-erbjudandet. Standardinställningen är 0%.
 **VM-drifttid** | Om dina virtuella datorer inte längre kommer att köra dygnet runt i Azure kan du ange hur länge (antalet dagar per månad och antalet timmar per dag) de kommer att köras så sker kostnadsuppskattningen i enlighet med detta. Standardvärdet är 31 dagar per månad och 24 timmar per dag.

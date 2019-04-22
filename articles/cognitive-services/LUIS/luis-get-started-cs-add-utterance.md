@@ -12,17 +12,17 @@ ms.topic: quickstart
 ms.date: 04/08/2019
 ms.author: diberry
 ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273472"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snabbstart: Ändra modell med hjälp av C#
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
@@ -140,4 +140,4 @@ När du är klar med snabbstarten tar du bort alla filer som skapas i den här s
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Skapa en LUIS-app via programmering](luis-tutorial-node-import-utterances-csv.md) 
+> [Skapa en LUIS-app programmässigt](luis-tutorial-node-import-utterances-csv.md) 

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
 ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009279"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med hjälp av Speech SDK
@@ -23,7 +23,7 @@ ms.locfileid: "59009279"
 
 I den här artikeln lär du dig att skapa en iOS-app i Objective-C med hjälp av Cognitive Services tal SDK för att transkribera tal till text från mikrofon eller från en fil med ljud.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 
@@ -58,10 +58,10 @@ I dialogrutorna som följer gör du följande val:
     1. Inaktivera skapandet av en Git-lagringsplats för det här exempelprojektet.
     1. Justera sökvägarna till SDK:et i *Project Settings* (Projektinställningar).
         1. Lägg till SDK-biblioteket som ett ramverk under rubriken **Embedded Binaries** (Inbäddade binära) på fliken **General** (Allmänt): **Add embedded binaries** > **Add other...** (Lägg till inbäddade binära > Lägg till annan) > navigera till arbetskatalogen och välj filen `MicrosoftCognitiveServicesSpeech.framework`. Det här lägger även automatiskt till SDK-biblioteket i rubriken **Länkat ramverk och bibliotek**.
-        ![Har lagts till Framework](media/sdk/qs-objectivec-framework.png)
+        ![Tillagt ramverk](media/sdk/qs-objectivec-framework.png)
         1. Gå till fliken **Build Settings** (Versionsinställningar) och aktivera **All** (Alla).
         1. Lägg till katalogen `$(SRCROOT)/..` i *Framework Search Paths* (Sökvägar för ramverket) under rubriken **Search Paths** (Sökvägar).
-        ![Framework-inställningen för sökvägen](media/sdk/qs-objectivec-framework-search-paths.png)
+        Inställning för ![Framework Search Path](media/sdk/qs-objectivec-framework-search-paths.png) (Sökväg för ramverket)
 
 ## <a name="set-up-the-ui"></a>Konfigurera användargränssnittet
 
@@ -102,5 +102,5 @@ Ersätt den automatiskt genererade XML:en med följande kod:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Utforska Objective-C-exempel på GitHub](https://aka.ms/csspeech/samples)
+> [Utforska Objektive-C-exempel på GitHub](https://aka.ms/csspeech/samples)
 

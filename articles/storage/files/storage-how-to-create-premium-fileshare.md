@@ -9,10 +9,10 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288433"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Så här skapar du en Azure premium-filresurs
@@ -21,7 +21,7 @@ Lagringskontotypen FileStorage (förhandsversion) representerar en ny nivå för
 
 Den här artikeln visar hur du skapar det här nya kontot typ med [Azure-portalen](https://portal.azure.com/), Azure PowerShell och Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -156,7 +156,7 @@ az login
 
 För att interagera med premium-filer med hjälp av CLI måste du lägga till ett tillägg till gränssnittet.
 
-Om du vill göra det anger du följande kommando med hjälp av Cloud Shell eller ett lokalt gränssnitt: `az extension add --name storage-preview`
+Det gör du genom att ange följande kommando i Cloud Shell eller ett lokalt gränssnitt: `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
 ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274697"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
@@ -43,7 +43,7 @@ Du kan också använda Apache Ambari-Gränssnittet eller Ambari REST API för at
 
 Program eller komponenter som var tillgängliga i lokala kluster men inte ingår i HDInsight-kluster kan läggas på en kantnod eller på en virtuell dator i samma virtuella nätverk som HDInsight-kluster. Ett tredje parts Hadoop-program som inte är tillgänglig på Azure HDInsight kan installeras med alternativet ”program” i HDInsight-kluster. Anpassade Hadoop-program kan installeras på HDInsight-kluster med ”skriptåtgärder”. I följande tabell visas några av de vanliga program och deras alternativ för integrering av HDInsight:
 
-|**Program**|**Integrering**
+|**Programmet**|**Integrering**
 |---|---|
 |Luftflödet|IaaS eller HDInsight kantnoden
 |Alluxio|IaaS  
@@ -169,7 +169,7 @@ HDInsight kan antingen läggas till en ny eller befintlig Azure-nätverk. Om HDI
 Mer information finns i följande artiklar:
 
 - [Azure-nätverk – översikt över virtuell](../../virtual-network/virtual-networks-overview.md)
-- [Utöka Azure HDInsight med hjälp av Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md)
+- [Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Anslut säkert till Azure-tjänster med Azure Virtual Network-tjänstslutpunkter
 

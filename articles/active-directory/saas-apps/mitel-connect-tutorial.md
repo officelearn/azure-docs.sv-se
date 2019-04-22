@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 4b022d3a51a6a1ef16c7d02aa76c5313e1a94e7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59287422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-connect"></a>Självstudier: Azure Active Directory-integrering med Mitel ansluta
@@ -33,7 +33,7 @@ Integrera Mitel ansluta med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Mitel ansluta, behöver du följande objekt:
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Mitel a
 
     ![Mitel ansluta domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://auth.mitel.io/authorize?client_id=<CLIENT ID>`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://auth.mitel.io/authorize?client_id=<CLIENT ID>`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://authentication.api.mitel.io/2017-09-01/saml2/<account-uui>`
 
@@ -191,7 +191,7 @@ När du klickar på panelen Mitel ansluta i åtkomstpanelen, bör det vara logga
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

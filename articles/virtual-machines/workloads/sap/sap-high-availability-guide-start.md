@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265074"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver
@@ -196,7 +196,7 @@ Den här artikelserien innehåller:
     > Vi rekommenderar starkt att du använder Azure Resource Manager-distributionsmodellen för dina SAP-installationer. Den erbjuder många fördelar som inte är tillgängliga i den klassiska distributionsmodellen. Läs mer om Azure [distributionsmodeller][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
     >
 * SAP hög tillgänglighet på:
-  * ![Windows][Logo_Windows]**Windows**med hjälp av **Windows Server-redundanskluster (WSFC)** 
+  * ![Windows][Logo_Windows]**Windows**med hjälp av **Windows Server-redundanskluster (WSFC)**
   * ![Linux][Logo_Linux] **Linux**med hjälp av **Framework för Linux-kluster**
 
 Lär dig hur du kan skydda felkritisk fel (SPOF)-komponenter, till exempel SAP Central Services (ASCS/SCS) och system för databashantering (DBMS) i de här artiklarna. Här beskrivs också hur redundanta komponenter i Azure, till exempel SAP-programservern.

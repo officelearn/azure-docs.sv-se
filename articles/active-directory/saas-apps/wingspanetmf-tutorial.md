@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Självstudier: Azure Active Directory-integrering med Wingspan eTMF
@@ -34,7 +34,7 @@ Integrera Wingspan eTMF med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Wingspan eTMF, behöver du följande objekt:
 
@@ -105,11 +105,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Wingspa
 
     ![Wingspan eTMF domän och URL: er enkel inloggning för information](common/sp-identifier-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<customer name>.<instance name>.mywingspan.com/saml`
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster: `http://saml.<instance name>.wingspan.com/shibboleth`
 
-    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<customer name>.<instance name>.mywingspan.com/`
+    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Wingspan eTMF klienten supportteamet](http://www.wingspan.com/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -194,7 +194,7 @@ När du klickar på panelen Wingspan eTMF i åtkomstpanelen bör det vara loggas
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
 ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264564"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services-valv
@@ -162,7 +162,7 @@ Den första säkerhetskopieringen kommer att köras i enlighet med schemat, men 
 
 Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett tillägg till Azure VM-agenten som körs på datorn. Om den virtuella datorn har skapats från en Azure Marketplace-avbildning, är agenten installerad och körs. Om du skapar en anpassad virtuell dator eller om du migrerar en lokal virtuell dator, kan du behöva installera agenten manuellt, som sammanfattas i tabellen.
 
-**Virtuell dator** | **Information**
+**VM** | **Detaljer**
 --- | ---
 **Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agenten MSI-filen.<br/><br/> 2. Installera med administratörsbehörighet på datorn.<br/><br/> 3. Verifiera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på **WaAppAgent.exe** > **egenskaper**. På den **information** fliken **produktversion** ska vara 2.6.1198.718 eller högre.<br/><br/> Om du uppdaterar agenten, se till att inga säkerhetskopieringsåtgärder körs, och [installera om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Installera med hjälp av en RPM- eller DEB-paketet från paketdatabasen för din distribution. Det här är den bästa metoden för att installera och uppgradera Azure Linux-agent. Alla de [godkända distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrera Azure Linux-agenten i sina avbildningar och databaser. Agenten är tillgängligt på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att installera därifrån.<br/><br/> Om du uppdaterar agenten kan du kontrollera att inga säkerhetskopieringsåtgärder kör och uppdatera binärfilerna.
@@ -175,7 +175,7 @@ Säkerhetskopieringstillägget som körs på den virtuella datorn behöver utgå
 - Om du stöter på problem med virtuella datorer ansluter, eller om du ser felet **ExtensionSnapshotFailedNoNetwork** vid försök att ansluta, bör du uttryckligen tillåta åtkomst så att säkerhetskopieringstillägget kan kommunicera med Azure offentlig IP-adress adresser för säkerhetskopieringen. Åtkomstmetoder sammanfattas i tabellen nedan.
 
 
-**Alternativ** | **Åtgärd** | **Information** 
+**Alternativ** | **Åtgärd** | **Detaljer** 
 --- | --- | --- 
 **Konfigurera NSG-regler** | Tillåt den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> I stället för att tillåta och hanterar varje adressintervall, kan du lägga till en regel som tillåter åtkomst till Azure Backup-tjänsten med en [servicetagg](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Läs mer](../virtual-network/security-overview.md#service-tags) om tjänsttaggar.<br/><br/> Tjänster taggar förenkla hantering och innebära inte ytterligare kostnader.
 **Distribuera en proxy** | Distribuera en HTTP-proxyserver dirigeras trafiken. | Ger åtkomst till hela Azure och inte bara lagring.<br/><br/> Detaljerad kontroll över storage-URL: er tillåts.<br/><br/> Enskild punkt för Internetåtkomst för virtuella datorer.<br/><br/> Ytterligare kostnader för proxy.

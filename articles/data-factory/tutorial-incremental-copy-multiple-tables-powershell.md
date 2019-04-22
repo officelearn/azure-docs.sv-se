@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ms.openlocfilehash: 244779e647c4b184b036b1a5ea77aac199be5994
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269409"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
@@ -63,7 +63,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md). 
 
@@ -730,7 +730,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 ## <a name="review-the-results"></a>Granska resultaten
 Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för att verifiera att data har kopierats från källtabellerna till måltabellerna: 
 
-**Söka i data** 
+**Fråga** 
 ```sql
 select * from customer_table
 ```
@@ -747,7 +747,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Söka i data**
+**Fråga**
 
 ```sql
 select * from project_table
@@ -764,7 +764,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Söka i data**
+**Fråga**
 
 ```sql
 select * from watermarktable
@@ -816,7 +816,7 @@ VALUES
 ## <a name="review-the-final-results"></a>Granska de slutliga resultaten
 Kör följande frågor mot måldatabasen i SQL Server Management Studio för att verifiera att nya/uppdaterade data har kopierats från källtabellerna till måltabellerna. 
 
-**Söka i data** 
+**Fråga** 
 ```sql
 select * from customer_table
 ```
@@ -835,7 +835,7 @@ PersonID    Name    LastModifytime
 
 Lägg märke till de nya värdena för **Name** och **LastModifytime** för **PersonID** för nummer 3. 
 
-**Söka i data**
+**Fråga**
 
 ```sql
 select * from project_table
@@ -855,7 +855,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Observera att posten **NewProject** har lagts till i project_table. 
 
-**Söka i data**
+**Fråga**
 
 ```sql
 select * from watermarktable
@@ -892,6 +892,6 @@ I den här självstudien har du fått:
 Fortsätt till följande självstudie och lär dig att transformera data med ett Spark-kluster på Azure:
 
 > [!div class="nextstepaction"]
->[Läsa in data stegvis från Azure SQL Database till Azure Blob storage med ändringsspårningsteknik](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+>[Läs in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsteknik](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 

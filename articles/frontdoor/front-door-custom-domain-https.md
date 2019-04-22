@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
 ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050985"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Front Door-domän
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudie: Lägg till en anpassad domän i din Front Door](front-door-custom-domain.md).
 
@@ -245,7 +245,7 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
     Ett dedikerat/enskilt certifikat som tillhandahålls av Digicert används för din anpassade domän. 
 
-2. *Använder du IP-baserad eller SNI-baserad TLS/SSL?*
+2. *Använder du IP- eller SNI-baserad TLS/SSL?*
 
     Azure Front Door Service använder SNI TLS/SSL.
 
@@ -253,11 +253,11 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
     Om du har en CNAME-post för din anpassade domän som pekar direkt på slutpunktens värdnamn (och du inte använder afdverify-underdomännamnet) får du inget domänverifieringsmeddelande. Verifieringen sker i så fall automatiskt. Om du inte har en CNAME-post och inte har fått något e-postmeddelande inom 24 timmar kontaktar du Microsoft-supporten.
 
-4. *Använder ett SAN-certifikat som är mindre säkert än ett dedikerat certifikat?*
+4. *Är det mindre säkert att använda ett SAN-certifikat än att använda ett dedikerat certifikat?*
     
     Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade SSL-certifikat använder SHA-256 för förbättrad serversäkerhet.
 
-5. *Behöver jag en Caa-post med min DNS-provider?*
+5. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
 
     Nej, en CAA-post krävs inte för närvarande. Men om du har en sådan måste den innehålla DigiCert som en giltig certifikatutfärdare.
 

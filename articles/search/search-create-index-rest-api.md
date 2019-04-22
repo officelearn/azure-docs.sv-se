@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268032"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Snabbstart: Skapa ett Azure Search-index med PowerShell och REST API
@@ -22,12 +22,12 @@ ms.locfileid: "59268032"
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-fiddler.md)
-> * [Portalen](search-create-index-portal.md)
+> * [Portal](search-create-index-portal.md)
 > 
 
 Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga ett Azure Search [index](search-what-is-an-index.md) med hjälp av PowerShell och [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). Definition av index och sökbart innehåll tillhandahålls som välformulerad JSON-innehåll i begärandetexten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande tjänster och verktyg som används i den här snabbstarten. 
 

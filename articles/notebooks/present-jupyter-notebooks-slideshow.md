@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280476"
 ---
 # <a name="run-a-notebook-slideshow"></a>Kör en notebook bildspel
@@ -104,5 +104,5 @@ Eftersom bildspelet renderas fragment med mer lodrätt avstånd än när alla pu
 
 - [Anvisningar: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
 - [Anvisningar: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
-- [Anvisningar: Arbeta med datafiler](work-with-project-data-files.md)
-- [Anvisningar: Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
+- [Anvisningar: Arbeta med filer](work-with-project-data-files.md)
+- [Anvisningar: Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)

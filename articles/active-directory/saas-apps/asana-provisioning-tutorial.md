@@ -18,17 +18,17 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a763b2516f88e8c92efc321db50dc15881f54c9b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265651"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Asana för automatisk användaretablering
 
 Målet med den här självstudien är att visa dig de steg som du behöver utföra i Asana och Azure Active Directory (Azure AD) för att automatiskt etablera och avetablera användarkonton från Azure AD till Asana.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 

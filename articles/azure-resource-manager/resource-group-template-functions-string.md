@@ -13,17 +13,17 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278793"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Strängfunktioner för Azure Resource Manager-mallar
 
 Resource Manager tillhandahåller följande funktioner för att arbeta med strängar:
 
-* [Base64](#base64)
+* [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
@@ -36,13 +36,13 @@ Resource Manager tillhandahåller följande funktioner för att arbeta med strä
 * [Format](#format)
 * [GUID](#guid)
 * [indexOf](#indexof)
-* [senaste](#last)
+* [last](#last)
 * [lastIndexOf](#lastindexof)
 * [Längd](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [Ersätt](#replace)
-* [hoppa över](#skip)
+* [skip](#skip)
 * [split](#split)
 * [startsWith](#startswith)
 * [sträng](#string)
@@ -52,7 +52,7 @@ Resource Manager tillhandahåller följande funktioner för att arbeta med strä
 * [toUpper](#toupper)
 * [trim](#trim)
 * [uniqueString](#uniquestring)
-* [URI](#uri)
+* [uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 * [utcNow](#utcnow)

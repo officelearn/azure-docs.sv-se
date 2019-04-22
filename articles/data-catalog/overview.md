@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: cd20fc6ae71a0dd96a0006de8c81050bb0646905
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59287436"
 ---
 # <a name="what-is-azure-data-catalog"></a>Vad är Azure Data Catalog?
@@ -59,12 +59,12 @@ På samma gång kan användarna bidra till katalogen genom att tagga, dokumenter
 Här finns mer information om funktionerna i Data Catalog:
 
 * [Så här registrerar du datakällor](data-catalog-how-to-register.md)
-* [Så här identifierar du datakällor](data-catalog-how-to-discover.md)
-* [Så här kommenterar du datakällor](data-catalog-how-to-annotate.md)
+* [Så här upptäcker du datakällor](data-catalog-how-to-discover.md)
+* [Så här skapar du anteckningar om datakällor](data-catalog-how-to-annotate.md)
 * [Så här dokumenterar du datakällor](data-catalog-how-to-documentation.md)
-* [Så här ansluter du till datakällor](data-catalog-how-to-connect.md)
+* [Så här skapar ansluter du till datakällor](data-catalog-how-to-connect.md)
 * [Så här arbetar du med stordata](data-catalog-how-to-big-data.md)
-* [Så här hanterar du datatillgångar](data-catalog-how-to-manage.md)
+* [Hantera datatillgångar](data-catalog-how-to-manage.md)
 * [Så här konfigurerar du företagsordlistan](data-catalog-how-to-business-glossary.md)
 * [Vanliga frågor och svar](data-catalog-frequently-asked-questions.md)
 

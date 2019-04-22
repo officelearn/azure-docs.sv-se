@@ -16,10 +16,10 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e37b35f87920016f81bda60fe8a9b6f1714eaae
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277274"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Självstudier: Azure Active Directory-integrering med MobileIron
@@ -34,7 +34,7 @@ Genom att integrera MobileIron med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med MobileIron behöver du följande:
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.mobileiron.com/<key>`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -194,7 +194,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 Om du vill ge Azure AD-användare möjlighet att logga in på MobileIron måste de först etableras i MobileIron.  
 När det gäller MobileIron är etablering en manuell aktivitet.
 
-**Gör följande för att etablera ett användarkonto:**
+**Utför följande steg för att etablera ett användarkonto:**
 
 1. Logga in som administratör på företagswebbplatsen för MobileIron.
 
@@ -222,7 +222,7 @@ När du klickar på MobileIron-panelen i åtkomstpanelen så borde du automatisk
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

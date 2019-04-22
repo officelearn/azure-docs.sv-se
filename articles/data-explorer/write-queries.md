@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: b1a7e64cf6b85b517bc027d6541d63c9be729734
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274642"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Skriv frågor för Azure Data Explorer
 
 I den här artikeln får du lära dig hur du använder frågespråket i Azure Data Explorer för att utföra grundläggande frågor med de vanligaste operatorer. Du kan även få exponeringen för några av de mer avancerade funktionerna för språket.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du kan köra frågor i den här artikeln på något av två sätt:
 

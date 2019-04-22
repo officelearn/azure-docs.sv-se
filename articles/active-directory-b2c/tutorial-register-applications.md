@@ -11,10 +11,10 @@ ms.date: 02/05/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278402"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Självstudier: Registrera ett program i Azure Active Directory B2C
@@ -29,7 +29,7 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte redan har skapat dina egna [Azure AD B2C-klient](tutorial-create-tenant.md), skapa en nu. Du kan använda en befintlig Azure AD B2C-klient.
 

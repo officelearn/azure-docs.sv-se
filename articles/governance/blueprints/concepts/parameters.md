@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279983"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska skisser genom parametrar
@@ -76,7 +76,7 @@ Ett parametervärde som definierats i definitionen av en skiss kallas en **Stati
 
 I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
 
-- `{YourMG}` – Ersätt med namnet på hanteringsgruppen
+- `{YourMG}` – Ersätt med namnet på din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 ##### <a name="blueprint-level-parameter"></a>Nivån skissparametern

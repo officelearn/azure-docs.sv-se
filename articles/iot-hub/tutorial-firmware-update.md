@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008910"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudier: Implementera en uppdateringsprocess för enhetens inbyggda programvara
@@ -39,7 +39,7 @@ I den här självstudien slutför du följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver ha Node.js v4.x.x eller senare installerat på utvecklingsdatorn.
 
@@ -115,10 +115,10 @@ Serverdelsprogrammet skapar följande konfiguration:
 
 Konfigurationen innehåller följande avsnitt:
 
-* `content` Anger de inbyggd programvara önskade egenskaper som skickas till de valda enheterna.
-* `metrics` Anger om frågorna för att köra rapporten status för uppdateringen av inbyggd programvara.
-* `targetCondition` väljer enheter ska ta emot uppdateringen av inbyggd programvara.
-* `priorty` Anger den relativa prioriteten för den här konfigurationen till andra konfigurationer.
+* `content` anger önskade egenskaper för den inbyggda programvara som ska skickas till de valda enheterna.
+* `metrics` anger vilka frågor som ska köras för att rapportera status för uppdateringen.
+* `targetCondition` väljer vilka enheter som ska få uppdateringen.
+* `priorty` sätter den prioriteten för den här konfigurationen i relation till andra konfigurationer.
 
 Serverdelsprogrammet använder följande kod för att skapa konfigurationen för att ange de önskade egenskaperna:
 
@@ -209,4 +209,4 @@ az group delete --name tutorial-iot-hub-rg
 I den här självstudien har du lärt dig att implementera en uppdateringsprocess för den inbyggda programvaran för dina anslutna enheter. Fortsätt med nästa självstudie för att lära dig att använda Azure IoT Hub-portalverktyg och Azure CLI-kommandon för att testa anslutningen för enheten.
 
 > [!div class="nextstepaction"]
-> [Använda en simulerad enhet för att testa anslutningen med din IoT-hubb](tutorial-connectivity.md)
+> [Använda en simulerad enhet för att testa anslutningen till din IoT-hubb](tutorial-connectivity.md)

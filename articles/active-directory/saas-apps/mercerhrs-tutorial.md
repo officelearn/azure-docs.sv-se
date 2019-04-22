@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 8944e4533448f5787f5c85c12e4ab2747eb96e4e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Självstudier: Azure Active Directory-integrering med Mercer BenefitsCentral (av MBC)
@@ -33,7 +33,7 @@ Integrera Mercer BenefitsCentral (av MBC) med Azure AD ger dig följande fördel
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Mercer BenefitsCentral (av MBC), behöver du följande objekt:
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Mercer 
 
     ![Mercer BenefitsCentral (av MBC)-domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL: `stg.mercerhrs.com/saml2.0`
+    a. I textrutan **Identifierare** skriver du in en URL: `stg.mercerhrs.com/saml2.0`
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
@@ -192,7 +192,7 @@ När du klickar på panelen Mercer BenefitsCentral (av MBC) i åtkomstpanelen b�
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

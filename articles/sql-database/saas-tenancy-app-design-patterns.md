@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260552"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS innehavare mönster
@@ -130,7 +130,7 @@ En annan tillgänglig mönster är att lagra många klienter i en databas för f
 
 *Bearbetar:*&nbsp; En databas för flera klienter delar resurser för beräkning och lagring över alla klienter.  Databasen som helhet kan övervakas för att se till att den fungerar bra.  Azure-systemet har dock inget inbyggt sätt att övervaka eller hantera användningen av dessa resurser genom att en enskild klientorganisation.  Databas för flera innehavare innebär därför löper ökad risk för bort störande grannar, där arbetsbelastningen på en overactive klientorganisation påverkar prestandaupplevelse med andra klienter i samma databas.  Ytterligare programnivå övervakning kan övervaka på klientnivå prestanda.
 
-#### <a name="lower-cost"></a>Lägre kostnader
+#### <a name="lower-cost"></a>Lägre kostnad
 
 I allmänhet har flera klientdatabaser den lägsta per-klient kostnad.  Resurskostnader för en enskild databas är lägre än för en equivalently storlekar elastisk pool.  Dessutom för scenarier där klienter behöver endast begränsad lagring, kan potentiellt miljontals klienter lagras i en enskild databas.  Ingen elastisk pool kan innehålla miljontals databaser.  En lösning som innehåller 1000 databaser per pool, med 1000 pooler kan dock nå skala av flera miljoner dess risk bli svårhanterlig att hantera.
 

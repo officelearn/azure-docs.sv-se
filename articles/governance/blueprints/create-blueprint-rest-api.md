@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273166"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definiera och tilldela en Azure-skiss med REST API
@@ -70,7 +70,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
 I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
 
-- `{YourMG}` – Ersätt med din hanteringsgrupp-ID
+- `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 > [!NOTE]
@@ -336,8 +336,8 @@ När en skiss har publicerats med hjälp av REST API kan den tilldelas till en p
 
 I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
 
-- `{tenantId}` – Ersätt med din klient-ID
-- `{YourMG}` – Ersätt med din hanteringsgrupp-ID
+- `{tenantId}` – Ersätt med ditt klientorganisations-ID
+- `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är statiska (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men ID för tjänstens huvudnamn varierar beroende på klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.

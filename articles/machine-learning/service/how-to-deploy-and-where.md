@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280901"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
@@ -623,7 +623,7 @@ Andra metoder för att registrera en enhet är:
 
 * [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
 * [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
-* [Visual Studio-koden](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
 ### <a name="deploy-the-model-to-the-device"></a>Distribuera modellen till enheten
 
@@ -649,7 +649,7 @@ Mer information finns i referensdokumentationen för [WebService.delete()](https
 * [Hur du kör batch-förutsägelser](how-to-run-batch-predictions.md)
 * [Övervaka dina Azure Machine Learning-modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
-* [Azure Machine Learning-tjänst-SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Använda Azure Machine Learning-tjänsten med Azure-nätverk](how-to-enable-virtual-network.md)
 * [Metodtips för att bygga rekommendationssystem](https://github.com/Microsoft/Recommenders)
 * [Skapa en i realtid rekommendation API på Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

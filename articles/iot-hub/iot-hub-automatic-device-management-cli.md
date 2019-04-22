@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012972"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Automatisk IoT-enhetshantering i stor skala med Azure CLI
@@ -196,8 +196,8 @@ az iot hub configuration delete --config-id [configuration id] \
 
 I den här artikeln lärde du dig att konfigurera och övervaka IoT-enheter i stor skala. Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT Hub:
 
-* [Hantera din IoT Hub-enhetsidentiteter i grupp](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
+* [Hantera dina IoT Hub-enhetsidentiteter i grupp](iot-hub-bulk-identity-mgmt.md)
+* [IoT Hub-mått](iot-hub-metrics.md)
 * [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 
 Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:

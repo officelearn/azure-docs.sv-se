@@ -9,10 +9,10 @@ ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 328edac78624c192ee139c40fe0ed1853423c639
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051376"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
@@ -164,12 +164,12 @@ En serverslutpunkt kan inte logga synkronisering av följande skäl:
 Det här problemet förväntas om du skapar en molnslutpunkt och använder en Azure-filresurs som innehåller data. Ändra uppräkning jobbet som söker efter ändringar i Azure-filresursen måste slutföras innan filer kan synkroniseras mellan molnet och servern slutpunkter. Tid att slutföra jobbet är beroende av storleken på namnområdet i Azure-filresursen. Serverhälsa för slutpunkten bör uppdatera när ändringen uppräkning jobbet har slutförts.
 
 ### <a id="broken-sync"></a>Hur övervakar hälsan för synkronisering?
-# [<a name="portal"></a>Portalen](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Inom varje synkroniseringsgrupp kan du granska nedåt i dess enskilda serverslutpunkter att se status för senaste slutförda synkroniseringssessioner. En grön Health-kolumn och filer synkroniseras inte värdet 0 anger att synkroniseringen fungerar som förväntat. Om detta inte är fallet nedan finns en lista över vanliga synkroniseringsfel och hur du hanterar filer som inte synkroniseras. 
 
 ![En skärmbild av Azure-portalen](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
-# [<a name="server"></a>Server](#tab/server)
+# <a name="servertabserver"></a>[Server](#tab/server)
 Gå till serverns telemetri loggarna, vilket kan vara finns i Loggboken på `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Händelsen 9102 motsvarar en slutförd sync-session. Leta efter den senaste händelsen med ID 9102 för den senaste statusen för synkroniseringen. SyncDirection visar om det här sessionen var en överföring eller hämtning. Om HResult 0, lyckades synkroniseringssessionen. Ett noll HResult innebär att det uppstod ett fel under synkronisering; nedan finns en lista över vanliga fel. Det innebär att vissa filer eller mappar inte synkroniserades korrekt om PerItemErrorCount är större än 0. Det är möjligt att ha HResult 0 men en PerItemErrorCount som är större än 0.
 
 Nedan visas ett exempel på en lyckad överföring. Av utrymmesskäl visas endast vissa av värdena i varje 9102 händelse nedan. 
@@ -201,10 +201,10 @@ Ibland synkroniseringssessioner misslyckas övergripande eller har en noll PerIt
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Hur övervakar förloppet för aktuella synkroniseringssession?
-# [<a name="portal"></a>Portalen](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Gå till Serverslutpunkten i fråga inom din synkroniseringsgruppen och titta på avsnittet synkroniseringsaktivitet för att visa antalet filer som laddas upp eller ned i den aktuella synkroniseringssessionen. Observera att denna status ska fördröjas med cirka 5 minuter och om din synkroniseringssessionen är tillräckligt liten för att slutföras inom denna period, den kanske inte rapporteras i portalen. 
 
-# [<a name="server"></a>Server](#tab/server)
+# <a name="servertabserver"></a>[Server](#tab/server)
 Titta på det senaste 9302 i telemetrin i händelseloggen på servern (i Loggboken, gå till program och tjänster Logs\Microsoft\FileSync\Agent\Telemetry). Den här händelsen anger tillståndet för den aktuella sync-sessionen. TotalItemCount anger hur många filer är att synkronisera AppliedItemCount antalet filer som har synkroniserats hittills och PerItemErrorCount antalet filer som inte kan synkronisera (se nedan att hantera detta).
 
 ```
@@ -219,14 +219,14 @@ PerItemErrorCount: 1006.
 ---
 
 ### <a name="how-do-i-know-if-my-servers-are-in-sync-with-each-other"></a>Hur vet jag om Mina servrar är synkroniserade med varandra?
-# [<a name="portal"></a>Portalen](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Kontrollera att för varje server i en viss synkroniseringsgrupp:
 - Tidsstämplar för den senaste försök synkroniseringen för både överföring och hämtning är de senaste.
 - Statusen är grön för både överföring och hämtning.
 - Fältet synkroniseringsaktivitet visar mycket få eller inga filer återstår att synkronisera.
 - Fältet inte synkroniserar filer är 0 för både överföring och hämtning.
 
-# [<a name="server"></a>Server](#tab/server)
+# <a name="servertabserver"></a>[Server](#tab/server)
 Titta på de slutförda synkroniseringssessioner som markerats av 9102 händelser i händelseloggen för telemetri för varje server (i Loggboken, går du till `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
 
 1. På en server, som du vill kontrollera att den senaste ladda upp och ladda ned sessioner som har slutförts. Om du vill göra detta måste du kontrollera att HResult och PerItemErrorCount är 0 för både uppladdning och nedladdning (fältet SyncDirection anger om en viss session är en överföring eller hämtning session). Observera att om du inte ser en nyligen utförda synkroniseringssessionen är det sannolikt synkroniseringssession pågår, som kan förväntas om du bara läggs till eller ändras av en stor mängd data.
@@ -608,14 +608,14 @@ Det här felet uppstår på grund av ett internt problem med av synkroniseringsd
 
 ### <a name="common-troubleshooting-steps"></a>Vanliga åtgärder för felsökning
 <a id="troubleshoot-storage-account"></a>**Kontrollera att lagringskontot finns.**  
-# [<a name="portal"></a>Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Gå till synkroniseringsgruppen inom Storage Sync-tjänsten.
 2. Välj molnslutpunkten i synkroniseringsgruppen.
 3. Observera Azure filresursens namn i fönstret öppnade.
 4. Välj det länkade storage-kontot. Om den här länken inte har refererade storage-konto tagits bort.
     ![En skärmbild som visar fönstret cloud endpoint detaljerad med en länk till lagringskontot.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -713,12 +713,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Kontrollera att lagringskontot inte innehåller några Nätverksregler.**  
-# [<a name="portal"></a>Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. En gång i storage-konto, väljer **brandväggar och virtuella nätverk** på vänster sida av storage-konto.
 2. I storage-konto i **tillåta åtkomst från alla nätverk** alternativknappen måste väljas.
     ![En skärmbild som visar storage-konto brandväggs- och regler inaktiveras.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -729,12 +729,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Kontrollera Azure-filresursen finns.**  
-# [<a name="portal"></a>Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Klicka på **översikt** på den vänstra innehållsförteckningen att återgå till sidan för huvudsakliga lagringskontot.
 2. Välj **filer** att visa en lista över filresurser.
 3. Kontrollera filresursen som refereras av molnslutpunkten visas i listan över filresurser (du bör ha antecknat detta i steg 1 ovan).
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
@@ -748,7 +748,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Kontrollera Azure File Sync har åtkomst till lagringskontot.**  
-# [<a name="portal"></a>Portalen](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Klicka på **åtkomstkontroll (IAM)** på den vänstra innehållsförteckningen.
 1. Klicka på den **rolltilldelningar** fliken i listan med användare och program (*tjänsthuvudnamn*) som har åtkomst till ditt lagringskonto.
 1. Kontrollera **Hybrid Filsynkroniseringstjänstens** visas i listan med de **läsare och dataåtkomst** roll. 
@@ -761,7 +761,7 @@ if ($fileShare -eq $null) {
     - I den **rollen** väljer **läsare och dataåtkomst**.
     - I den **Välj** skriver **Hybrid Filsynkroniseringstjänstens**, markerar du rollen och klickar på **spara**.
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
 $foundSyncPrincipal = $false
 Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
@@ -908,4 +908,4 @@ Om problemet kvarstår kör du verktyget AFSDiag:
 - [Övervaka Azure File Sync](storage-sync-files-monitoring.md)
 - [Vanliga och frågor svar om Azure Files](storage-files-faq.md)
 - [Felsöka Azure Files-problem i Windows](storage-troubleshoot-windows-file-connection-problems.md)
-- [Felsöka problem i Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md)
+- [Felsöka Azure Files-problem i Linux](storage-troubleshoot-linux-file-connection-problems.md)

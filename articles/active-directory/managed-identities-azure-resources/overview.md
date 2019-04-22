@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261470"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
@@ -58,7 +58,7 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 ![Hanterade tjänstidentiteter och virtuella datorer i Azure](media/overview/msi-vm-vmextension-imds-example.png)
 
-|  Egenskap     | Systemtilldelade hanterad identitet | Användartilldelad hanterad identitet |
+|  Egenskap    | Systemtilldelade hanterad identitet | Användartilldelad hanterad identitet |
 |------|----------------------------------|--------------------------------|
 | Skapa |  Skapat som en del av en Azure-resurs (till exempel virtuella Azure-datorer eller Azure App Service) | Skapade som ett fristående Azure-resurs |
 | Livscykel | Delat livscykeln med Azure-resursen som hanterad identitet skapas med. <br/> När den överordnade resursen tas bort så raderas även hanterad identitet. | Oberoende livscykel. <br/> Måste uttryckligen tas bort. |
@@ -118,17 +118,17 @@ Lär dig hur du använder en hanterad identitet med en virtuell Windows-dator:
 * [Få åtkomst till Azure Data Lake Store](tutorial-windows-vm-access-datalake.md)
 * [Få åtkomst till Azure Resource Manager](tutorial-windows-vm-access-arm.md)
 * [Få åtkomst till Azure SQL](tutorial-windows-vm-access-sql.md)
-* [Få åtkomst till Azure Storage med hjälp av en åtkomstnyckel](tutorial-windows-vm-access-storage.md)
-* [Få åtkomst till Azure Storage med hjälp av signaturer för delad åtkomst](tutorial-windows-vm-access-storage-sas.md)
-* [Åtkomst till en icke-Azure AD-resurs med Azure Key Vault](tutorial-windows-vm-access-nonaad.md)
+* [Få åtkomst till Azure Storage med en åtkomstnyckel](tutorial-windows-vm-access-storage.md)
+* [Få åtkomst till Azure Storage med signaturer för delad åtkomst](tutorial-windows-vm-access-storage-sas.md)
+* [Få åtkomst till en resurs utanför Azure AD med Azure Key Vault](tutorial-windows-vm-access-nonaad.md)
 
 Lär dig hur du använder en hanterad identitet med en virtuell Linux-dator:
 
 * [Få åtkomst till Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
 * [Få åtkomst till Azure Resource Manager](tutorial-linux-vm-access-arm.md)
-* [Få åtkomst till Azure Storage med hjälp av en åtkomstnyckel](tutorial-linux-vm-access-storage.md)
-* [Få åtkomst till Azure Storage med hjälp av signaturer för delad åtkomst](tutorial-linux-vm-access-storage-sas.md)
-* [Åtkomst till en icke-Azure AD-resurs med Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
+* [Få åtkomst till Azure Storage med en åtkomstnyckel](tutorial-linux-vm-access-storage.md)
+* [Få åtkomst till Azure Storage med signaturer för delad åtkomst](tutorial-linux-vm-access-storage-sas.md)
+* [Få åtkomst till en resurs utanför Azure AD med Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
 
 Lär dig hur du använder en hanterad identitet med andra Azure-tjänster:
 
@@ -149,4 +149,4 @@ Hanterade identiteter för Azure-resurser kan användas för att autentisera til
 Kom igång med funktionen Hanterade identiteter för Azure-resurser med följande snabbstarter:
 
 * [Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Resource Manager](tutorial-windows-vm-access-arm.md)
-* [Använda en Linux VM systemtilldelade hanterad identitet för åtkomst till Resource Manager](tutorial-linux-vm-access-arm.md)
+* [Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Resource Manager](tutorial-linux-vm-access-arm.md)

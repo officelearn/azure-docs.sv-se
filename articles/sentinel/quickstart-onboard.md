@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276651"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Integrera Azure Sentinel-förhandsversion
@@ -49,7 +49,7 @@ När du ansluter dina datakällor kan du välja från ett galleri med flytta ska
 1. Gå till Azure-portalen.
 2. Kontrollera att den prenumeration som Azure Sentinel skapas, har valts. 
 3. Sök efter Azure Sentinel. 
-   ![sök](./media/quickstart-onboard/search-product.png)
+   ![search](./media/quickstart-onboard/search-product.png)
 
 1. Klicka på **+ Lägg till**.
 1. Välj den arbetsyta som du vill använda eller skapa en ny. Du kan köra Azure Sentinel på fler än en arbetsyta, men data är isolerade i en enda arbetsyta.

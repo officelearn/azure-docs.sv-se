@@ -80,7 +80,7 @@ I följande tabell beskrivs egenskaperna för runbooks.
 | runbookType |Anger vilka typer av runbook. <br><br> Skript - PowerShell-skript <br>PowerShell – PowerShell-arbetsflöde <br> GraphPowerShell - grafiska PowerShell script-runbook <br> GraphPowerShellWorkflow - grafiskt PowerShell-Arbetsflödesbaserade runbook |
 | logProgress |Anger om [vidare poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbook. |
 | logVerbose |Anger om [utförliga poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbook. |
-| beskrivning |Valfri beskrivning för runbook. |
+| description |Valfri beskrivning för runbook. |
 | publishContentLink |Anger innehållet i runbooken. <br><br>URI - Uri för att innehållet i runbooken.  Det här är en .ps1-fil för runbooks med PowerShell och skript och en exporterade grafiska runbook-fil för en runbook i diagrammet.  <br> version - versionen av runbooken för dina egna spårning. |
 
 
@@ -113,7 +113,7 @@ I följande tabell beskrivs egenskaperna för automation-jobb.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Runbook |Namn på enskild entitet med namnet på runbook att starta. |
+| runbook |Namn på enskild entitet med namnet på runbook att starta. |
 | parameters |Entitet för varje parametervärde som krävs av runbook. |
 
 Jobbet innehåller namn på runbook och alla parametervärden som ska skickas till runbooken.  Jobbet ska [beror på]( solutions-solution-file.md#resources) runbooken som startar sedan runbook måste skapas innan jobbet.  Om du har flera runbooks som ska startas kan du definiera deras inbördes ordning genom att använda ett jobb som är beroende av andra jobb som ska köras första.
@@ -171,8 +171,8 @@ Egenskaper för autentiseringsuppgifter resurser beskrivs i följande tabell.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Användarnamn |Användarnamn för autentiseringsuppgifter. |
-| lösenord |Lösenordet för autentiseringsuppgifterna. |
+| userName |Användarnamn för autentiseringsuppgifter. |
+| password |Lösenordet för autentiseringsuppgifterna. |
 
 
 ## <a name="schedules"></a>Scheman
@@ -199,7 +199,7 @@ Egenskaper för schema resurser beskrivs i följande tabell.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| beskrivning |Valfri beskrivning för schemat. |
+| description |Valfri beskrivning för schemat. |
 | startTime |Anger starttiden för ett schema som ett datum/tid-objekt. En sträng kan anges om den kan konverteras till en giltig DateTime. |
 | isEnabled |Anger om schemat är aktiverad. |
 | interval |Typ av intervall för schemat.<br><br>dag<br>timme |
@@ -242,8 +242,8 @@ I följande tabell beskrivs egenskaperna för scheman för datalagerjobb.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Namn på schema |Enkel **namn** entitet med namnet på schemat. |
-| runbook-namn  |Enkel **namn** entitet med namnet på runbooken.  |
+| schedule name |Enkel **namn** entitet med namnet på schemat. |
+| runbook name |Enkel **namn** entitet med namnet på runbooken.  |
 
 
 
@@ -269,10 +269,10 @@ I följande tabell beskrivs egenskaperna för variabeln resurser.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| beskrivning | Valfri beskrivning för variabeln. |
+| description | Valfri beskrivning för variabeln. |
 | isEncrypted | Anger om variabeln ska vara krypterat. |
-| typ | Den här egenskapen har för närvarande ingen effekt.  Datatypen för variabeln bestäms av det inledande värdet. |
-| värde | Värdet för variabeln. |
+| type | Den här egenskapen har för närvarande ingen effekt.  Datatypen för variabeln bestäms av det inledande värdet. |
+| value | Värdet för variabeln. |
 
 > [!NOTE]
 > Den **typ** egenskapen har ingen effekt på variabeln som skapas.  Datatypen för variabeln bestäms av värdet.  
@@ -281,9 +281,9 @@ Om du ställer in det initiala värdet för variabeln måste den konfigureras so
 
 | Datatyp | Beskrivning | Exempel | Matchar |
 |:--|:--|:--|:--|
-| sträng   | Ange värdet inom dubbla citattecken.  | ”\"Hello world\"” | ”Hello world” |
-| numeriskt  | Numeriskt värde med enkla citattecken.| "64" | 64 |
-| boolesk  | **SANT** eller **FALSKT** inom citattecken.  Observera att det här värdet måste vara gemener. | ”true” | true |
+| string   | Ange värdet inom dubbla citattecken.  | ”\"Hello world\"” | ”Hello world” |
+| numeric  | Numeriskt värde med enkla citattecken.| "64" | 64 |
+| boolean  | **SANT** eller **FALSKT** inom citattecken.  Observera att det här värdet måste vara gemener. | ”true” | true |
 | datetime | Serialiserade datumvärdet.<br>Du kan använda cmdleten ConvertTo-Json i PowerShell för att skapa det här värdet för ett visst datum.<br>Exempel: get-date ”5/24/2017 13:14:57” \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduler

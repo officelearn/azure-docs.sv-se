@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495336"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Referensguide till Vydesigner paneler i Azure Monitor
@@ -33,9 +33,9 @@ Tillgängliga Vydesigner paneler beskrivs i följande tabell:
 
 | Upprepa | Beskrivning |
 |:--- |:--- |
-| [Tal](#number-tile) |Totalt antal poster från en fråga. |
+| [Nummer](#number-tile) |Totalt antal poster från en fråga. |
 | [Två tal](#two-numbers-tile) |Antalet poster från två olika frågor. |
-| [Toroid](#donut-tile) | Ett diagram som baseras på en fråga med ett summary-värde i mitten. |
+| [Ringdiagram](#donut-tile) | Ett diagram som baseras på en fråga med ett summary-värde i mitten. |
 | Linjediagram och bildtext | Ett linjediagram som baseras på en fråga och en bildtext med ett summary-värde. |
 | [Linjediagram](#line-chart-tile) |Ett linjediagram som baseras på en fråga. |
 | [Två tidslinjer](#two-timelines-tile) | Ett stapeldiagram med två serier, var och en baserat på en separat fråga. |
@@ -54,10 +54,10 @@ Den **nummer** panelen visar både antalet poster från en loggfråga och en eti
 |:--- |:--- |
 | Namn |Den text som visas överst i panelen. |
 | Beskrivning |Den text som visas under namnet på panelen. |
-| **Upprepa** | |
+| **panelen** | |
 | Teckenförklaring |Den text som visas under värdet. |
 | Fråga |Den fråga som körs. Antalet poster som returneras av frågan visas. |
-| **Avancerat** |**> Verifiering av dataflöde** |
+| **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
 | Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
@@ -78,7 +78,7 @@ Den här panelen visar antal poster från två olika loggfrågor och en etikett 
 | **Panel 2** | |
 | Teckenförklaring |Den text som visas under värdet. |
 | Fråga |Den fråga som körs. Antalet poster som returneras av frågan visas. |
-| **Avancerat** |**> Verifiering av dataflöde** |
+| **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
 | Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
@@ -93,16 +93,16 @@ Den **ringdiagram** panelen visar ett enda tal som sammanfattar en värdekolumn 
 |:--- |:--- |
 | Namn |Den text som visas överst i panelen. |
 | Beskrivning |Den text som visas under namnet på panelen. |
-| **Toroid** | |
+| **Ringdiagram** | |
 | Fråga |Den fråga som körs för ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. |
-| **Toroid** |**> Center** |
+| **Ringdiagram** |**> Center** |
 | Text |Den text som visas under värdet mellan ringen. |
 | Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enda värde.<ul><li>Sum: Lägg till värdena för alla poster med egenskapens värde.</li><li>Procent: Procentandel av summerade värden från poster med egenskapsvärdet jämfört med de samlade värdena i alla poster.</li></ul> |
 | Resultatvärden som används i mittåtgärd |Du kan också klicka på plustecknet (+) att lägga till ett eller flera värden. Frågans resultat är begränsade till poster med egenskapsvärden som du anger. Om inga värden har lagts till, ingår alla poster i frågan. |
-| **Toroid** |**> Ytterligare alternativ** |
+| **Ringdiagram** |**> Ytterligare alternativ** |
 | Färger |Färgen som visas för var och en av de tre översta egenskaperna. Om du vill ange alternativa färger för speciella egenskapsvärden, använda *avancerade färg mappning*. |
 | Avancerad färgmappning |Visar en färg som representerar speciella egenskapsvärden. Om det angivna värdet finns i tre översta, visas alternativa färg istället för standard färg. Om egenskapen inte är i övre tre, visas inte färg. |
-| **Avancerat** |**> Verifiering av dataflöde** |
+| **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
 | Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
@@ -123,7 +123,7 @@ Den här panelen är ett linjediagram som visar flera serier från en loggfråga
 | Använda logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheter för de värden som returneras av frågan. Den här informationen används för att visa etiketter i diagrammet som anger vilka värde och om du vill för att konvertera värden. Den **enhetstyp** anger kategorin för enheten och definierar de **aktuella enhetstypen** värden som är tillgängliga. Om du väljer ett värde i **konvertera till** och sedan de numeriska värdena konverteras från den **aktuella enheten** skriver till den **konvertera till** typen. |
 | Anpassad etikett |Den text som visas för y-axeln bredvid etiketten för den *enhet* typen. Om ingen etikett anges endast den *enhet* visas. |
-| **Avancerat** |**> Verifiering av dataflöde** |
+| **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
 | Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
@@ -148,7 +148,7 @@ Den här panelen har både en rad diagram som visar flera serier från en logg f
 | Använda logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa diagrammet etiketter som beskriver värdetyperna och du kan också konvertera värdena. Den *enhet* typen anger kategorin för enheten och definierar de tillgängliga *aktuella enheten* skriver värden. Om du väljer ett värde i *konvertera till*, de numeriska värdena konverteras från den *aktuella enheten* skriver till den *konvertera till* typen. |
 | Anpassad etikett |Den text som visas för y-axeln bredvid etiketten för den *enhet* typen. Om ingen etikett anges endast den *enhet* visas. |
-| **Avancerat** |**> Verifiering av dataflöde** |
+| **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
 | Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |
@@ -173,7 +173,7 @@ Den **två tidslinjer** panelen visar resultatet av två loggfrågor över tid s
 | Färg |Färg som används för kolumnerna i den andra serien. |
 | Diagramfråga |Den fråga som körs för den andra serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
 | Åtgärd |Den åtgärd som utförs på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Medelvärde: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet poster som returneras av frågan.</li><li>Senaste exempel: Värdet på det sista intervallet som ingår i diagrammet.</li><li>Max: Det högsta värdet för de intervall som ingår i diagrammet. |
-| **Avancerat** |**> Verifiering av dataflöde** |
+| **Avancerade** |**> Verifiering av dataflöde** |
 | Enabled |Välj den här länken om verifiering av dataflöde ska aktiveras för panelen. Den här metoden ger ett alternativ meddelande om data inte är tillgänglig. Du kan normalt använda metoden för att tillhandahålla ett meddelande under den period när vyn har installerats och data blir tillgängliga. |
 | Fråga |Den fråga som körs för att avgöra om data är tillgänglig för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för huvudfrågan. |
 | Meddelande |Meddelandet som visas om dataflödet verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utvärdering körs* statusmeddelande visas. |

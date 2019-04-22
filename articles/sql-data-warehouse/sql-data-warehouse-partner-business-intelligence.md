@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a0c675ac9c8a782b94d127e877646bf37af1371
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621489"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678674"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partner
 Välj från ett brett utbud av branschledande verktyg för att skapa ditt informationslager-lösning från slutpunkt till slutpunkt.  Den här artikeln visar Microsoft partnerföretag med officiella business intelligence (BI)-lösningar stöd för Azure SQL Data Warehouse.
@@ -26,7 +26,7 @@ Välj från ett brett utbud av branschledande verktyg för att skapa ditt inform
 | ![Birst][1] |**Birst**<br>Birst ansluter hela organisationen via ett nätverk med sammanflätad virtualiserade BI instanser överst i en delad vanliga analytiska infrastrukturresurs|[Produktsida][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![ClearStory Data][2] |**ClearStory Data (kontinuerlig Affärsinsikter)**<br>ClearStory Data möjliggör snabb cykel analys i olika data som lagras i SQL Data Warehouse. Clearstorys integrerat Spark-baserad plattform och analytics hastighet data programåtkomst och samordning av olika datauppsättningar. De gör snabba, samarbetsfunktioner utforskning som hjälper användare att vara oberoende insikter. |[Produktsida][clearstory_website]<br> |
 | ![Dundas][4] |**Dundas BI**<br>Dundas datavisualisering är en ledande, global leverantör av Business Intelligence och datavisualisering.  Dundas instrumentpaneler, rapporter och visuella data analytics ger sömlös integrering i affärsprogram, aktivera bättre beslut och snabbare insikter.|[Produktsida][dundas_bi_website]<br>[Azure Marketplace][dundas_bi_marketplace]<br> |
-| ![IBM Cognos][3] |**IBM Cognos Analytics**< brCognos Analytics innehåller smart självbetjäning funktioner som gör det enkelt, rensa och lätt att använda om du är en erfaren affärsanalytiker undersöka kinks i en omfattande leveranskedja eller marknadsförare optimera en enkel kampanj. Cognos Analytics använder AI och andra intelligenta funktioner för att göra grovjobbet för att stödja datagranskning och gör det enklare för användarna att få de svar som de behöver|[Produktsida][cognosanalytics_website]<br>|
+| ![IBM Cognos][3] |**IBM Cognos Analytics**<br>Cognos Analytics innehåller smart självbetjäning funktioner som gör det enkelt, rensa och lätt att använda om du är en erfaren affärsanalytiker undersöka kinks i en omfattande leveranskedja eller marknadsförare optimera en enkel kampanj. Cognos Analytics använder AI och andra intelligenta funktioner för att göra grovjobbet för att stödja datagranskning och gör det enklare för användarna att få de svar som de behöver|[Produktsida][cognosanalytics_website]<br>|
 | ![Information Builders][13] |**Information Builders (WebFOCUS)**<br>WebFOCUS business intelligence hjälper företag att använda data mer strategiskt i och utanför företaget. Det låter användare och administratörer att snabbt skapa instrumentpaneler som kombinerar innehåll från flera datakällor och format och ger robust säkerhet och omfattande styrning som möjliggör sömlös, skydda diverly och delning av alla BI och analyser innehåll|[Produktsida][informationbuilders_website]<br> |
 ![Jinfonet][5] |**Jinfonet JReport**<br>JReport är en inbäddade BI-lösning för företaget. Lösningen gör att användare kan skapa rapporter, instrumentpaneler och analys av data i molnet, stordata och transaktionell datakällor. Du kan utföra egna rapportering och identifiering för snabb, på direkt beslutsfattande genom att visualisera data. |[Produktsida][jinfonet_website]<br> |
 | ![LogiAnalytics][6] |**Logi Analytics**<br>Tillsammans kan Logi Analytics och Azure SQL Data Warehouse din organisation för att samla in, analysera och agera omedelbart på datauppsättningar största och mest skilda i hela världen. |[Produktsida][logianalytics_website]<br>|

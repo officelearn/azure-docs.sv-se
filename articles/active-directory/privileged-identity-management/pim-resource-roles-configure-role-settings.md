@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494875"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Konfigurera Azure-resurs rollinställningar i PIM
@@ -62,7 +62,7 @@ Du kan välja någon av dessa **berättigade** tilldelningsalternativ varaktighe
 
 | | |
 | --- | --- |
-| **Tillåt permanent berättigad tilldelning** | Resurs-administratörer kan tilldela permanent berättigad medlemskap. |
+| **Tillåt permanent berättigad uppgift** | Resurs-administratörer kan tilldela permanent berättigad medlemskap. |
 | **Upphör att gälla berättigad uppgift efter** | Resurs-administratörer kan kräva att alla berättigade uppgifter har ett visst datum för start- och slutdatum. |
 
 Och du kan välja någon av dessa **active** tilldelningsalternativ varaktighet:

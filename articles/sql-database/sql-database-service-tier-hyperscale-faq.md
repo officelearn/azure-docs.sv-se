@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540677"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680917"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -216,7 +216,7 @@ Nej. Du kan inte flytta en storskalig databas till en annan tjänstenivå i offe
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Jag förlora några funktioner eller funktioner efter migrering till hyperskala tjänstnivån
 
-Ja. Vissa av Azure SQL Database-funktioner stöds inte i hyperskala allmänt tillgängliga förhandsversionen, inklusive men inte begränsat till long term kvarhållning backup. När du har migrerat dina databaser till hyperskala dessa funktioner att sluta fungera.
+Ja. Långsiktig kvarhållning av säkerhetskopior i Azure SQL Database stöds inte i hyperskala allmänt tillgängliga förhandsversionen. När du har migrerat dina databaser till hyperskala slutar fungera i den här funktionen.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Jag kan flytta min lokala SQL Server-databas eller SQL Server VM-databasen till hyperskala
 
@@ -295,7 +295,7 @@ Nej. Lagringsformat för storskaliga databaser skiljer sig från traditionella S
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Jag förlora några funktioner eller funktioner efter migrering till hyperskala tjänstnivån
 
-Ja. Vissa av Azure SQL Database-funktioner stöds inte i hyperskala för allmänt tillgängliga förhandsversionen, inklusive men inte begränsat till TDE och lång sikt kvarhållning säkerhetskopiering. När du har migrerat dina databaser till hyperskala dessa funktioner att sluta fungera.
+Ja. Långsiktig kvarhållning av säkerhetskopior i Azure SQL Database stöds inte i hyperskala allmänt tillgängliga förhandsversionen. När du har migrerat dina databaser till hyperskala slutar fungera i den här funktionen.
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>Will Polybase fungerar med SQL Database hyperskala
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494182"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Principer för tjänstslutpunkter för virtuella nätverk (förhandsversion)
@@ -35,13 +35,13 @@ De mest uppdaterade meddelandena för förhandsversionen finns på sidan för [A
 
 Principer för tjänstslutpunkter för virtuella nätverk ger följande fördelar:
 
-- __Förbättrad säkerhet för dina virtuella nätverkstrafiken till Azure-tjänster__
+- __Förbättrad säkerhet för dina virtuella nätverkstrafik till Azure-tjänster__
 
   [Azure-tjänsttaggar för nätverkssäkerhetsgrupper](https://aka.ms/servicetags) gör att du kan begränsa utgående trafik i virtuella nätverk till specifika Azure-tjänster. Detta tillåter dock bara trafik till resurser från den Azure-tjänsten. 
   
   Med slutpunktsprinciper kan du nu begränsa utgående åtkomst för virtuella nätverk till endast specifika Azure-resurser. Detta ger mycket mer detaljerad säkerhetskontroll för att skydda data som används i ditt virtuella nätverk. 
 
-- __Skalbar, högtillgänglig principer för att filtrera trafik för Azure-tjänst__
+- __Skalbara principer med hög tillgänglighet för att filtrera Azure-tjänsttrafik__
 
    Slutpunktsprinciperna ger en horisontellt skalbar lösning med hög tillgänglighet för att filtrera Azure-tjänsttrafik från virtuella nätverk över tjänstslutpunkter. Det krävs inget ytterligare arbete för att upprätthålla centrala nätverksinstallationer för den här trafiken i ditt virtuella nätverk.
 

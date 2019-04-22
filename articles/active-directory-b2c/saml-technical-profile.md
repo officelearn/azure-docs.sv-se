@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d5120b7569acbe9735ea1a70fcb609d322d60793
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154379"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680544"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska SAML-profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -81,21 +81,6 @@ I följande exempel visas avsnittet Azure AD B2C tekniska profilen kryptering i 
   </KeyInfo>
 </KeyDescriptor>
 ```
-
-## <a name="identity-provider-initiated-flow"></a>Identitet providern initierade flöde
-
-I en enda inloggning för session (oombedda) initieras av IDP: N, skickas ett oombedda SAML-svar till tjänstleverantören, i det här fallet en Azure AD B2C-tekniska profilen. I det här flödet användaren går inte via det webbaserade programmet först, men dirigeras till identitetsleverantören. När begäran skickas har en autentiseringssida angetts för användaren av identitetsleverantören. Användaren Slutför inloggningen och sedan begäran omdirigeras till Azure AD B2C med ett SAML-svar som innehåller intyg. Azure AD B2C läser intyg och utfärdar en ny SAML-token och sedan omdirigeras användaren till förlitande part-programmet. Om omdirigeringarna utförs av den **AssertionConsumerService** elementets **plats** egenskapen.
-
-
-![SAML IDP-initierad](media/saml-technical-profile/technical-profile-idp-saml-idp-initiated.png) 
-
-Beakta följande principkrav när du skapar en identitetsprovider initierade flödet:
-
-- Det första steget i orchestration måste vara ett enda anspråk exchange som pekar på en tekniska SAML-profilen.
-- Den tekniska profilen måste ha en metadata för objektet med namnet **IdpInitiatedProfileEnabled** inställd `true`.
-- Principen för förlitande part måste vara en SAML-förlitande part.
-- Principen för förlitande part måste ha en metadata för objektet med namnet **IdpInitiatedProfileEnabled** inställd `true`.
-- Oombedda svaret måste skickas till den `/your-tenant/your-policy/samlp/sso/assertionconsumer` slutpunkt. Alla vidarebefordransstatus som ingår i svaret vidarebefordras till den förlitande parten. Ersätt följande värden: **din klient** med klientnamnet på din. **din princip** med namnet på din förlitande part.
     
 ## <a name="protocol"></a>Protokoll
 

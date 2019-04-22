@@ -4,61 +4,47 @@ description: Använd Azure Cosmos DB-ändringsflödet med Azure Functions
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 04/12/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 35639dac0eacd5eae04b7848bdbbc1bc30fbf214
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469489"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680782"
 ---
-# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Utlös Azure Functions från Azure Cosmos DB
+# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Serverlös händelsebaserad arkitektur med Azure Cosmos DB och Azure Functions
 
-Om du använder Azure Functions, det enklaste sättet att ansluta till ändringsflödet är att lägga till en [Azure Cosmos DB-utlösare](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) till din Azure Functions-app. När du skapar en Cosmos DB-utlösare i en Azure Functions-app, väljer du Cosmos-behållare för att ansluta till och funktionen som utlöses när du ändrar något i behållaren.
+Azure Functions erbjuder det enklaste sättet att ansluta till den [ändringsflödet](). Du kan skapa små reaktiv Azure Functions som ska utlösas automatiskt på varje ny händelse i din Azure Cosmos-behållare ändringsfeed.
 
-Utlösare kan skapas i Azure Functions-portalen eller i Azure Cosmos DB-portalen eller via programmering. Mer information finns i [databas utan Server databehandling med Azure Cosmos DB och Azure Functions](serverless-computing-database.md).
+![Funktioner utan Server händelsebaserad arbeta med Azure Cosmos DB-utlösare](./media/change-feed-functions/functions.png)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+Med den [Azure Cosmos DB-utlösare](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), kan du utnyttja den [Change Feed Processor](./change-feed-processor.md)är skalning och tillförlitlig händelse identifiering funktioner utan att behöva underhålla någon [worker infrastruktur](./change-feed-processor.md#implementing-the-change-feed-processor-library). Bara fokusera på din Azure-funktion logic utan att oroa resten av händelsekällor pipelinen. Du kan även blanda utlösaren med andra [Azure Functions-bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
-### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region"></a>Hur konfigurerar jag Azure functions för att läsa från en viss region?
+> [!NOTE]
+> Azure Cosmos DB-utlösare stöds för närvarande för användning med de grundläggande SQL-API endast.
 
-Det är möjligt att definiera den [PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations) när du använder Azure Cosmos DB-utlösare för att ange en lista över regioner. Det är samma när du anpassar ConnectionPolicy om du vill att utlösaren ska läsa från ditt önskade regioner. Vi rekommenderar att du vill läsa från den närmaste regionen där dina Azure-funktioner har distribuerats.
+## <a name="requirements"></a>Krav
 
-### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>Vad är standardstorleken för batchar i Azure Functions?
+För att implementera en serverlös händelsebaserad flödet, måste du:
 
-Standardstorleken är 100 objekten för varje anrop av Azure Functions. Det här talet kan dock konfigureras i function.json-filen. Här är klar [lista med konfigurationsalternativ](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Om du utvecklar lokalt måste du uppdatera programinställningar i filen local.settings.json.
+* **Övervakade behållaren**: Övervakade behållaren är Azure Cosmos-behållaren som övervakas, och den lagrar data som genereras ändringsflöde. Alla infogningar och ändringar (t.ex. CRUD) till behållaren för övervakade återspeglas i ändringsflödet på behållaren.
+* **Behållaren lånet**: Behållaren lånet upprätthåller tillstånd på flera och dynamiska vår serverlösa Azure Function instanser och gör att dynamisk skalning. Den här behållaren för lånet kan manuellt eller automatiskt skapas med Azure Cosmos DB Trigger.To automatiskt skapa lånet behållaren genom att ange den *CreateLeaseCollectionIfNotExists* flagga i den [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Partitionerade lånet behållare är måste ha en `/id` partitions-definitionen.
 
-### <a name="i-am-monitoring-a-container-and-reading-its-change-feed-however-i-dont-get-all-the-inserted-documents-some-items-are-missing"></a>Jag övervakar en behållare och läsa dess ändringsfeed, men jag får alla infogade dokument, saker saknas?
+## <a name="create-your-azure-cosmos-db-trigger"></a>Skapa din Azure Cosmos DB-utlösare
 
-Se till att det finns inga andra Azure-funktion läser samma behållare med samma lånet behållare. Saknas dokumenten bearbetas av de andra Azure-funktioner som också använder samma lånet.
+Skapa din Azure-funktion med en Azure Cosmos DB-utlösare stöds nu i alla Azure Functions IDE och CLI integreringar:
 
-Om du skapar flera Azure Functions om du vill läsa samma ändringsflödet måste de därför använda olika lånet behållare eller använder konfigurationen ”leasePrefix” för att dela samma behållare. När du använder biblioteket change feed processor du kan starta flera instanser av din Azure-funktion och SDK: N delar dokument mellan olika instanser automatiskt åt dig.
+* [Visual Studio-tillägget](../azure-functions/functions-develop-vs.md) för Visual Studio-användare.
+* [Visual Studio Core-tillägget](https://code.visualstudio.com/tutorials/functions-extension/create-function) för Visual Studio Code-användare.
+* Och slutligen [Core CLI-verktyg](../azure-functions/functions-run-local.md#create-func) för en plattformsoberoende IDE oberoende upplevelse.
 
-### <a name="azure-cosmos-item-is-updated-every-second-and-i-dont-get-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Azure Cosmos-objekt uppdateras varje sekund och jag inte får alla ändringar i Azure Functions lyssna på ändringsflödet?
+## <a name="run-your-azure-cosmos-db-trigger-locally"></a>Kör Azure Cosmos DB-utlösare lokalt
 
-Azure Functions avsöker ändringsflödet ändringar kontinuerligt med en standard för maximal fördröjning på 5 sekunder. Om det finns några väntande ändringar som ska läsas, eller om det finns väntande ändringar när utlösaren används, läses funktionen dem direkt. Men om det finns några väntande ändringar, ska funktionen vänta fem sekunder och söka efter fler ändringar.
+Du kan köra dina [Azure-funktion lokalt](../azure-functions/functions-develop-local.md) med den [Azure Cosmos DB-emulatorn](./local-emulator.md) du skapar och utvecklar dina serverlösa händelsebaserad flöden utan en Azure-prenumeration och utan kostnad.
 
-Om dokumentet tar emot flera ändringar i samma intervall som tog utlösare för att söka efter nya ändringar, kan du få den senaste versionen av dokumentet och inte det mellanliggande.
-
-Om du vill söka i ändringsflödet för mindre än 5 sekunder till exempel för varje sekund, du kan konfigurera avsökningstiden ”feedPollDelay”, se [hela konfigurationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Den har definierats i millisekunder med standardvärdet 5000. Avsökning för mindre än 1 sekund är möjligt, men det rekommenderas inte eftersom du ska börja använda mer CPU-minne.
-
-### <a name="can-multiple-azure-functions-read-one-containers-change-feed"></a>Flera Azure Functions kan läsa ändringsfeed för en behållare?
-
-Ja. Flera Azure Functions kan läsa samma behållare ändringsfeed. Azure Functions måste dock ha en separat ”leaseCollectionPrefix” definierats.
-
-### <a name="if-i-am-processing-change-feed-by-using-azure-functions-in-a-batch-of-10-documents-and-i-get-an-error-at-seventh-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-document-ie-seventh-document-in-my-next-feed"></a>Om jag är bearbetning ändringsflödet med Azure Functions, i en batch med 10 dokument, och det uppstår ett fel vid sjunde dokumentet. I så fall bearbetas inte de tre sista dokument hur startar jag bearbetning från det misslyckade dokumentet (dvs, sjunde dokument) i mitt nästa flödet?
-
-Om du vill hantera felet är rekommenderat mönster att omsluta din kod med trycatch-block och, om du iterera över listan med dokument, omsluter varje iteration i sin egen trycatch-block. Fånga felet och placera det dokumentet i en kö (förlorade) och sedan definiera logik för att hantera dokument som fel. Med den här metoden om du har en 200-dokumentet batch och ett enda dokument som misslyckades och behöver du inte slänga hela batchen.
-
-Om felet, inte bör du bakåt kontrollpunkt tillbaka till början kommer annars du kan ständigt dessa dokument från ändringsfeed. Kom ihåg att ändra feed är fortfarande den senaste sista snapin som visar dokument, på grund av det du kan förlora tidigare ögonblicksbild på dokumentet. ändringsfeed ser till att endast en senaste versionen av dokumentet och mellan andra processer kan komma och ändra dokumentet.
-
-Som du hålla åtgärda koden, hittar du snart inga dokument på obeställbara meddelanden. Azure Functions kallas automatiskt genom att ändra feed system och kontrollpunkt underhålls internt av Azure-funktion. Om du vill återställa kontrollpunkt och styra alla aspekter av det, bör du med hjälp av ändringen feed Processor SDK.
-
-### <a name="are-there-any-extra-costs-for-using-the-azure-cosmos-db-trigger"></a>Finns det någon extra kostnader för att använda Azure Cosmos DB-utlösare?
-
-Azure Cosmos DB-utlösare använder biblioteket Change Feed Processor internt. Därför krävs ett extra samling som heter lånsamlingen, för att upprätthålla tillstånd och partiella kontrollpunkter. Den här tillståndshantering krävs för att kunna dynamiskt skala och Fortsätt om du vill stoppa dina Azure-funktioner och fortsätta bearbetningen vid ett senare tillfälle. Mer information finns i [hur du arbetar med ändringen feed processor-biblioteket](change-feed-processor.md).
+Om du vill testa live scenarier i molnet, kan du [testa Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan kreditkort eller Azure-prenumeration krävs.
 
 ## <a name="next-steps"></a>Nästa steg
 

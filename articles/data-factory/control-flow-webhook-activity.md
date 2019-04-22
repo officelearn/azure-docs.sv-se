@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495916"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktiviteten i Azure Data Factory
@@ -75,9 +75,9 @@ Web hook aktiviteten själva inte bara när anropet till den anpassa slutpunkten
 Se andra kontrollflödesaktiviteter som stöds av Data Factory:
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
-- [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
+- [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
-- [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
+- [Lookup-aktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)
-- [Tills-aktivitet](control-flow-until-activity.md)
+- [Until-aktivitet](control-flow-until-activity.md)

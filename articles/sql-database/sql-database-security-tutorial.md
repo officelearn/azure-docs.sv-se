@@ -12,10 +12,10 @@ manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496445"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudier: Skydda en enkel databas eller en pooldatabas
@@ -350,4 +350,4 @@ I den här självstudien har du lärt dig att förbättra säkerheten för din d
 I nästa självstudie får du lära dig hur du implementerar en geo-distribution.
 
 > [!div class="nextstepaction"]
->[Implementera en geo-distribuerad databas](sql-database-implement-geo-distributed-database.md)
+>[Implementera en geodistribuerad databas](sql-database-implement-geo-distributed-database.md)

@@ -1,21 +1,21 @@
 ---
 title: Lär dig hur du hantera konflikter mellan regioner i Azure Cosmos DB
 description: Lär du hur du hanterar konflikter i Azure Cosmos DB
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: c7edc9bd20b42725903201fae6349a37a8c0d9eb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: 6f4e6fce88815490ceffd7456cde045b38e32b29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548835"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680221"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Hantera principer för konfliktlösning i Azure Cosmos DB
 
-Med skrivningar till flera regioner kan du lösa en konflikt som inträffar genom att ändra konfliktlösningsprinciper. Den här artikeln beskriver hur du hanterar konfliktlösningsprinciper med hjälp av olika språkplattformar.
+Med flera regioner skrivningar när flera klienter skriver till samma enhet, kan det uppstå konflikter. När en konflikt uppstår kan kan du lösa konflikten genom att använda principer för olika konflikt lösning. Den här artikeln beskriver hur du hanterar principer för lösning av konflikt.
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Skapa en anpassad konfliktlösningsprincip
 
@@ -82,9 +82,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Skapa en anpassad konfliktlösningsprincip med en lagrad procedur
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Skapa principen för en anpassad konfliktlösning med hjälp av en lagrad procedur
 
-De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip med en lagrad procedur för att lösa konflikten. De här konflikterna visas inte i konfliktflödet såvida det inte finns ett fel i din lagrade procedur.
+De här exemplen visar hur du ställer in en behållare med principen för en anpassad konfliktlösning med hjälp av en lagrad procedur för att lösa konflikten. De här konflikterna visas inte i konfliktflödet såvida det inte finns ett fel i din lagrade procedur.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -162,9 +162,9 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 När containern har skapats måste du skapa den lagrade proceduren `resolver`.
 
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Skapa en senaste skrivning vinner-konfliktlösningsprincip
+## <a name="create-a-last-writer-wins-lww-conflict-resolution-policy"></a>Skapa en principen för konfliktlösning senaste skrivare vinner (LWW)
 
-De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Om sökvägen inte har angetts eller är ogiltig används som standard egenskapen `_ts`. Den här egenskapen är tidsstämpelfältet. De här konflikterna visas inte i konfliktflödet.
+De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Om sökvägen inte har angetts eller är ogiltig används som standard egenskapen `_ts`. Den här egenskapen är tidsstämpelfältet. Dessa konflikter visas inte i konflikt feeden.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -233,7 +233,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="read-from-conflict-feed"></a>Läsa från konfliktflödet
 
-De här exemplen visar hur du läser från en containers konfliktflöde. Konflikter visas endast in konfliktflödet om de inte har lösts automatiskt.
+De här exemplen visar hur du läser från en containers konfliktflöde. Konflikter som visas i konflikt feed endast om de inte matchades automatiskt, t.ex. du har valt en principen för manuell konfliktlösning och kunde inte registrera den lagrade proceduren.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
@@ -285,6 +285,10 @@ while conflict:
 
 Läs mer om följande Azure Cosmos DB-begrepp:
 
+* [Global distribution – under huven](global-dist-under-the-hood.md)
+* [Så här konfigurerar du multimaster i dina program](how-to-multi-master.md)
+* [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Lägg till eller ta bort regioner från ditt Azure Cosmos DB-konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Så här konfigurerar du flera original i dina program](how-to-multi-master.md).
 * [Partitionering och datadistribution](partition-data.md)
 * [Indexering i Azure Cosmos DB](indexing-policies.md)

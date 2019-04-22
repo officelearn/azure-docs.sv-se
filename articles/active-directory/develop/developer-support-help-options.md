@@ -19,10 +19,10 @@ ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501603"
 ---
 # <a name="support-and-help-options-for-developers"></a>Support och hjälper dig att alternativ för utvecklare
@@ -55,7 +55,7 @@ Där *{Your söktermer}* motsvarar dina sökord.
 | Verktyg  | Beskrivning  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Klistra in ett ID eller åtkomsttoken att avkoda de anspråk namn och värden. |
-| [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer)| Verktyg som låter dig göra begäranden och se svar mot Microsoft Graph API. |
+| [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Verktyg som låter dig göra begäranden och se svar mot Microsoft Graph API. |
 
 ## <a name="post-a-question-to-stack-overflow"></a>Ställa en fråga till Stack Overflow
 
@@ -70,7 +70,7 @@ Om du inte hittar svar på din fråga via sökning kan skicka en ny fråga att S
 | OWIN-mellanprogrammet  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 | [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
+| [Microsoft Graph-API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
 | Annat område som rör autentisering eller auktorisering ämnen | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
 I följande inlägg från Stack Overflow innehåller tips om hur du ställer frågor och hur du lägger till källkoden. Följ dessa riktlinjer för att öka risken för community-medlemmar att utvärdera och svara snabbt på din fråga:

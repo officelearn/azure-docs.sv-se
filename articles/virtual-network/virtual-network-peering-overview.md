@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489989"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678487"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -63,8 +63,7 @@ När virtuella nätverk har peer-kopplats kan du också konfigurera gatewayen i 
 
 ![Överföring vid VNET-peering](./media/virtual-networks-peering-overview/figure04.png)
 
-Gatewayöverföring stöds för både VNet-Peering och Global VNet-Peering (förhandsversion). Du kan Använd fjärrgateway eller Tillåt gatewayöverföring i globalt peer-kopplade virtuella nätverk i förhandsversion. Förhandsgranskningen är tillgänglig i alla Azure-regioner, Kina-molnområden och Government cloud-regioner. Det krävs ingen lista över tillåtna. Du kan testa förhandsversion via CLI, PowerShell, mallar eller API: et. Portal stöds inte i förhandsversionen.
-Gateway-överföring mellan virtuella nätverk som skapats via olika distributionsmodeller (Resource Manager och klassisk) stöds endast om gatewayen är i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
+Gatewayöverföring stöds för både VNet-Peering och Global VNet-Peering. Gateway-överföring mellan virtuella nätverk som skapats via olika distributionsmodeller (Resource Manager och klassisk) stöds endast om gatewayen är i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
 
 När de virtuella nätverken som delar samma Azure ExpressRoute-anslutning är peer-kopplade går trafiken mellan dem genom peering-relationen (dvs. genom Azures stamnätverk). Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Du kan även använda en delad gateway och konfigurera överföringen för lokala anslutningar.
 
@@ -100,9 +99,9 @@ Gatewayöverföring är en egenskap i peer-kopplade virtuella nätverk som gör 
     |Azure-distributionsmodell             | Prenumeration  |
     |---------                          |---------|
     |Båda Resource Manager              |[Samma](tutorial-connect-virtual-networks-portal.md)|
-    |                                   |[Annorlunda](create-peering-different-subscriptions.md)|
+    |                                   |[Olika](create-peering-different-subscriptions.md)|
     |En Resource Manager, en klassisk  |[Samma](create-peering-different-deployment-models.md)|
-    |                                   |[Annorlunda](create-peering-different-deployment-models-subscriptions.md)|
+    |                                   |[Olika](create-peering-different-deployment-models-subscriptions.md)|
 
 * Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Lär dig mer om alla [peering-inställningar för virtuella nätverk och hur du ändrar dem](virtual-network-manage-peering.md).

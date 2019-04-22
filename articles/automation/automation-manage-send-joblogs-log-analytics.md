@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496598"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Vidarebefordra jobbstatus och jobbströmmar från Automation till Azure Monitor-loggar
@@ -68,8 +68,7 @@ Om du behöver att hitta den *namn* ditt Automation-konto i Azure-portalen välj
 
 Det kan ta en timme innan du börjar Se poster i Azure Monitor-loggarna för nya JobLogs eller JobStreams skrivs när du har kört det här skriptet.
 
-Kör följande fråga i log analytics-loggsökning för att visa loggarna:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Kör följande fråga i log analytics-loggsökning för att visa loggarna: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verifiera konfigurationen
 
@@ -90,7 +89,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 ### <a name="job-logs"></a>Jobbloggar
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
 | RunbookName_s |Anger namnet på runbooken. |
@@ -112,7 +111,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 
 ### <a name="job-streams"></a>Jobbströmmar
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
 | RunbookName_s |Anger namnet på runbooken. |
@@ -137,8 +136,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 Nu när du igång med att skicka dina loggar för Automation-jobb till Azure Monitor-loggar, låt oss se vad du kan göra med de här loggarna i Azure Monitor-loggar.
 
-Kör följande fråga för att visa loggarna:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Kör följande fråga för att visa loggarna: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Skicka ett e-postmeddelande när ett runbook-jobb misslyckas eller pausar
 En av de viktiga kunden som ber avser möjligheten att skicka ett e-postmeddelande eller ett meddelande om något går fel med ett runbook-jobb.   

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7cca9d9c91f35c30bbd71ae82b9f02447051078d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e7cb9f4750fc26d4e03d255c8614e42a42944fd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983176"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678113"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig aviseringar och övervakning i Azure Monitor ersätter klassiska aviseringar och övervakning
 
@@ -23,7 +23,7 @@ Med den nya Azure-övervakning och avisering plattform på plats kan vi tas ur b
 
  ![Klassiska avisering i Azure-portalen](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-Vi uppmanar dig att komma igång och återskapa dina aviseringar i den nya plattformen. För kunder som har ett stort antal aviseringar kan vi arbetar för att ge en automatiserad metod för att flytta befintliga klassiska aviseringar till det nya aviseringar systemet utan avbrott eller lagt till kostnader.
+Vi uppmanar dig att komma igång och återskapa dina aviseringar i den nya plattformen. För kunder som har ett stort antal aviseringar kan vi kan [löpande ut i faser](alerts-understand-migration.md#roll-out-phases), ett [frivillig Migreringsverktyget](alerts-using-migration-tool.md) att flytta befintliga klassiska aviseringar till det nya aviseringar systemet utan avbrott eller extra kostnader.
 
 > [!IMPORTANT]
 > Klassiska aviseringsregler skapade i aktivitetsloggen inaktuella eller migreras inte. Alla klassiska aviseringsregler skapade i aktivitetsloggen kan nås och användas som – från den nya Azure Monitor - aviseringar. Mer information finns i [skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md). På samma sätt aviseringar om Service Health kan nås och användas som – från det nya Service Health-avsnittet. Mer information finns i [aviseringar för tjänstmeddelanden hälsotillstånd](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
@@ -60,13 +60,14 @@ Alla klassiska övervakning och avisering system, inklusive motsvarande [API](ht
 
 I slutet av juni 2019 i Azure Monitor:
 
-- Klassiska tjänsten för övervakning och aviseringar kommer att dras tillbaka och inte längre tillgänglig för att skapa nya Varningsregler
+- Klassiska tjänsten för övervakning och aviseringar kommer att dras tillbaka och inte längre tillgänglig för att skapa nya Varningsregler.
 - Varningsregler som förblir desamma i aviseringar (klassisk) utöver juni 2019 fortsätter att köra och utlösa aviseringar, men inte är tillgängliga för ändring av.
-- Startar juli 2019 flyttas Varningsregler i klassiska övervakning och avisering automatiskt av Microsoft till motsvarande i den nya Azure monitor-plattformen. Processen att sömlös utan någon avbrottstid och kunder kommer att ha någon minskad övervakning täckning.
-- Avisera regler migreras till den nya aviseringar plattformen ger övervakning täckning som tidigare men utlöses meddelande med nya nyttolaster. Alla e-postadress, webhook-slutpunkt eller logic app-länk associerad med klassisk aviseringsregel överförs när migreras, men kanske inte fungerar korrekt när aviseringen nyttolast kommer att bli annorlunda i den nya plattformen
+- Startar juli 2019, aviseringsregler i klassiska övervakning och avisering som kan migreras flyttas automatiskt av Microsoft till motsvarande i den nya Azure monitor-plattformen. Processen att sömlös utan någon avbrottstid och kunder kommer att ha någon minskad övervakning täckning.
+- Avisera regler migreras till den nya aviseringar plattformen ger övervakning täckning som tidigare men utlöses meddelande med nya nyttolaster. Alla e-postadress, webhook-slutpunkt eller logic app-länk associerad med klassisk aviseringsregel överförs när migreras, men kanske inte fungerar korrekt när aviseringen nyttolast kommer att bli annorlunda i den nya plattformen.
+- Vissa [klassiska Varningsregler som inte kan migreras automatiskt](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) och kräver manuella åtgärder från användarens sida fortsätter att köras till juni 2020.
 
 > [!IMPORTANT]
-> Microsoft Azure Monitor får du Verktyg för kunder att automatiskt migrera klassiska notifieringsregler in på den nya plattformen snart. Och kör den automatiskt för alla klassiska Varningsregler som fortfarande finns, startar juli 2019. Kunderna måste se till att automation konsumerande klassisk aviseringsregel nyttolasten är anpassad för att hantera nya nyttolast från [Unified mått och aviseringar i Application Insights](#unified-metrics-and-alerts-in-application-insights) eller [Unified mått och aviseringar för andra Azure resurser](#unified-metrics-and-alerts-for-other-azure-resources), efter migreringen av de klassiska varningsreglerna. 
+> Microsoft Azure Monitor har distribuerat i faser [verktyg för att migrera frivilligt](alerts-using-migration-tool.md) klassiska notifieringsregler in på den nya plattformen snart. Och kör den automatiskt för alla klassiska Varningsregler som fortfarande finns och som kan migreras från juli 2019. Kunderna måste se till att automation konsumerande klassisk aviseringsregel nyttolasten är anpassad för att hantera nya nyttolast från [Unified mått och aviseringar i Application Insights](#unified-metrics-and-alerts-in-application-insights) eller [Unified mått och aviseringar för andra Azure resurser](#unified-metrics-and-alerts-for-other-azure-resources), efter migreringen av de klassiska varningsreglerna. Mer information finns i [förbereda för migrering av klassisk aviseringsregel](alerts-prepare-migration.md)
 
 Vi kommer snart med verktyg så att du kan migrera dina aviseringar från frivilligt [aviseringar (klassisk) avsnittet](../../azure-monitor/platform/alerts-classic.overview.md) Azure-portalen till de nya Azure-aviseringarna. Alla regler som konfigurerats i aviseringar (klassisk) som har migrerats till den nya Azure Monitor fortsätter att vara kostnadsfria och inte att debiteras. Migrerade klassiska Varningsregler bär också inte någon avgift för push-meddelanden via e-post, webhook eller LogicApp. Användning av typen nyare meddelande eller åtgärd (till exempel SMS, röstsamtal, ITSM-integration, osv.) är dock debiterbar om lagts till i en migrerade eller ny avisering. Mer information finns i [priser för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -84,4 +85,3 @@ Den här artikeln uppdateras kontinuerligt med länkar och information om den ny
 
 * Lär dig mer om den [nya enhetliga Azure Monitor](../../azure-monitor/overview.md).
 * Mer information om den nya [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
-

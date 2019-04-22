@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496717"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure AD-roller i PIM
@@ -39,10 +39,10 @@ Det här avsnittet listar alla säkerhetsaviseringar för Azure AD-roller, samt 
 
 | | |
 | --- | --- |
-| **Allvarsgrad** | Låg |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Användare som har tilldelats Privilegierade roller som de inte behöver ökar risken för angrepp. Det är även lättare för angripare att förbli oupptäckt i konton som inte används aktivt. |
 | **Så här åtgärdar du?** | Granska användare i listan och ta bort dem från Privilegierade roller som de inte behöver. |
-| **Prevention (Skydd)** | Endast tilldela Privilegierade roller till användare som har en motivering. </br>Schemalägga regular [åtkomstgranskningar](pim-how-to-start-security-review.md) att verifiera att användare behöver fortfarande ha sin åtkomst. |
+| **Dataförlustskydd** | Endast tilldela Privilegierade roller till användare som har en motivering. </br>Schemalägga regular [åtkomstgranskningar](pim-how-to-start-security-review.md) att verifiera att användare behöver fortfarande ha sin åtkomst. |
 | **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |
 | **Utlösare** | Utlöses om en användare går en viss tidsperiod utan att aktivera en roll. |
 | **Antal dagar** | Den här inställningen anger hur många dagar från 0 till 100, som en användare kan gå utan att aktivera en roll.|
@@ -51,17 +51,17 @@ Det här avsnittet listar alla säkerhetsaviseringar för Azure AD-roller, samt 
 
 | | |
 | --- | --- |
-| **Allvarsgrad** | Låg |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Utan MFA, kan komprometterade användare aktivera Privilegierade roller. |
 | **Så här åtgärdar du?** | Granska listan över roller och [kräva MFA](pim-how-to-change-default-settings.md) för varje roll. |
-| **Prevention (Skydd)** | [Kräva MFA](pim-how-to-change-default-settings.md) för varje roll.  |
+| **Dataförlustskydd** | [Kräva MFA](pim-how-to-change-default-settings.md) för varje roll.  |
 | **I portalen minskning åtgärd** | Gör MFA krävs för aktivering av Privilegierade roller. |
 
 ### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>Klienten har inte Azure AD Premium P2
 
 | | |
 | --- | --- |
-| **Allvarsgrad** | Låg |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Aktuell klient har inte Azure AD Premium P2. |
 | **Så här åtgärdar du?** | Granska informationen om [Azure AD-versioner](../fundamentals/active-directory-whatis.md). Uppgradera till Azure AD Premium P2. |
 
@@ -69,10 +69,10 @@ Det här avsnittet listar alla säkerhetsaviseringar för Azure AD-roller, samt 
 
 | | |
 | --- | --- |
-| **Allvarsgrad** | Medel |
+| **Allvarlighetsgrad** | Medel |
 | **Varför får jag den här aviseringen?** | Konton i en privilegierad roll som inte har ändrat sitt lösenord under de senaste 90 dagarna. Dessa konton kan vara service eller delade konton som inte är som underhålls och är sårbara för angripare. |
 | **Så här åtgärdar du?** | Granska kontona i listan. Om de inte längre behöver åtkomst kan du ta bort dem från sina Privilegierade roller. |
-| **Prevention (Skydd)** | Se till att konton som delas rotera starka lösenord när det finns en ändring i de användare som känner till lösenordet. </br>Granska regelbundet konton med Privilegierade roller med hjälp av [åtkomstgranskningar](pim-how-to-start-security-review.md) och ta bort rolltilldelningar som inte längre behövs. |
+| **Dataförlustskydd** | Se till att konton som delas rotera starka lösenord när det finns en ändring i de användare som känner till lösenordet. </br>Granska regelbundet konton med Privilegierade roller med hjälp av [åtkomstgranskningar](pim-how-to-start-security-review.md) och ta bort rolltilldelningar som inte längre behövs. |
 | **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |
 | **Bästa praxis** | Delad tjänst, och konton för åtkomst vid akutfall som autentiseras med ett lösenord och har tilldelats mycket Privilegierade administrativa roller som Global administratör eller säkerhetsadministratör ska ha sina lösenord roteras för följande fall:<ul><li>När du har en säkerhetsincident som involverar missbruk eller förlikning gällande administrativa åtkomstbehörigheter</li><li>När en användares behörigheter ändras så att de inte längre är en administratör (till exempel efter en medarbetare som har en administratör lämnar kvar IT eller lämnar organisationen)</li><li>Med jämna mellanrum (till exempel varje kvartal eller år), även om det finns inga kända intrång eller ändring av IT databehandlingskraften</li></ul>Eftersom flera personer har åtkomst till dessa konton autentiseringsuppgifter, ska autentiseringsuppgifterna roteras för att säkerställa att personer som har lämnat deras roller inte längre kan komma åt kontona. [Läs mer](https://aka.ms/breakglass) |
 
@@ -80,20 +80,20 @@ Det här avsnittet listar alla säkerhetsaviseringar för Azure AD-roller, samt 
 
 | | |
 | --- | --- |
-| **Allvarsgrad** | Hög |
+| **Allvarlighetsgrad** | Hög |
 | **Varför får jag den här aviseringen?** | Privilegierade rolltilldelningar som skapats utanför PIM övervakas inte korrekt och kan tyda på ett pågående angrepp. |
 | **Så här åtgärdar du?** | Granska användare i listan och ta bort dem från Privilegierade roller som tilldelats utanför PIM. |
-| **Prevention (Skydd)** | Undersök där användare som tilldelas Privilegierade roller utanför PIM och förhindra framtida tilldelningar därifrån. |
+| **Dataförlustskydd** | Undersök där användare som tilldelas Privilegierade roller utanför PIM och förhindra framtida tilldelningar därifrån. |
 | **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |
 
 ### <a name="there-are-too-many-global-administrators"></a>Det finns för många globala administratörer
 
 | | |
 | --- | --- |
-| **Allvarsgrad** | Låg |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Global administratör är den högsta Privilegierade rollen. Om en Global administratör komprometteras får angripare åtkomst till alla sina behörigheter, vilket innebär hela systemet utsatt för risk. |
 | **Så här åtgärdar du?** | Granska användare i listan och tar bort alla som inte behöver är absolut rollen Global administratör. </br>Tilldela dessa användare lägre Privilegierade roller. |
-| **Prevention (Skydd)** | Tilldela användare till den minst Privilegierade roller som de behöver. |
+| **Dataförlustskydd** | Tilldela användare till den minst Privilegierade roller som de behöver. |
 | **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |
 | **Utlösare** | Utlöses om två olika villkor är uppfyllda och du kan konfigurera båda. Du måste först når ett visst tröskelvärde för globala administratörer. En viss procentandel av din totala rolltilldelningar måste dessutom vara globala administratörer. Om du bara uppfyller något av de här mätningarna visas aviseringen inte. |
 | **Minsta antal globala administratörer** | Den här inställningen anger antal globala administratörer från 2 till 100, att du överväger belopp som osäkra. |
@@ -103,13 +103,13 @@ Det här avsnittet listar alla säkerhetsaviseringar för Azure AD-roller, samt 
 
 | | |
 | --- | --- |
-| **Allvarsgrad** | Låg |
+| **Allvarlighetsgrad** | Låg |
 | **Varför får jag den här aviseringen?** | Flera aktiveringar till samma privilegierad roll av samma användare är ett tecken på en attack. |
 | **Så här åtgärdar du?** | Granska användare i listan och se till att den [aktiveringsvaraktighet](pim-how-to-change-default-settings.md) för sina Privilegierade roller är inställd tillräckligt länge för att utföra sina uppgifter. |
-| **Prevention (Skydd)** | Se till att den [aktiveringsvaraktighet](pim-how-to-change-default-settings.md) för privilegierade roller har angetts tillräckligt länge för användare att utföra sina uppgifter.</br>[Kräva MFA](pim-how-to-change-default-settings.md) för privilegierade roller som har ett konto som delas av flera administratörer. |
+| **Dataförlustskydd** | Se till att den [aktiveringsvaraktighet](pim-how-to-change-default-settings.md) för privilegierade roller har angetts tillräckligt länge för användare att utföra sina uppgifter.</br>[Kräva MFA](pim-how-to-change-default-settings.md) för privilegierade roller som har ett konto som delas av flera administratörer. |
 | **I portalen minskning åtgärd** | Gäller inte |
 | **Utlösare** | Utlöses om en användare aktiverar rollen för samma Privilegierade flera gånger inom en angiven tidsperiod. Du kan konfigurera både hur lång tid och antalet aktiveringar. |
-| **Tidsram för aktiveringsförnyelse** | Den här inställningen anger i dagar, timmar, minuter och andra hur lång tid som du vill använda för att spåra misstänkta förnyelser. |
+| **Aktiveringsförnyelse** | Den här inställningen anger i dagar, timmar, minuter och andra hur lång tid som du vill använda för att spåra misstänkta förnyelser. |
 | **Antal förnyelser för aktivering** | Den här inställningen anger antalet aktiveringar från 2 till 100, som du anser vara värt aviseringens under den tidsperiod som du har valt. Du kan ändra den här inställningen genom att flytta skjutreglaget eller ange ett värde i textrutan. |
 
 ## <a name="configure-security-alert-settings"></a>Konfigurera säkerhetsaviseringsinställningar

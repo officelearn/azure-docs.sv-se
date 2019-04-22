@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755259"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681037"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Förhandsversion – skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder i Azure portal
 
@@ -32,6 +32,16 @@ Följande regioner har stöd för virtuell nod distributioner:
 * USA, västra centrala (västra)
 * Västeuropa (westeurope)
 * Västra USA (westus)
+
+## <a name="known-limitations"></a>Kända begränsningar
+Funktionen för virtuella noder är kraftigt beroende på ACIS funktionsuppsättning. Följande scenarier stöds inte ännu med virtuella noder
+
+* Med hjälp av tjänstens huvudnamn till pull ACR-avbildningar. [Lösning](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) är att använda [Kubernetes-hemligheter](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Virtuella nätverksbegränsningar](../container-instances/container-instances-vnet.md) inklusive VNet-peering, Kubernetes-nätverksprinciper och utgående trafik till internet med nätverkssäkerhetsgrupper.
+* Init behållare
+* [Alias för värd](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Argument](../container-instances/container-instances-exec.md#restrictions) för exec i ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) distribuerar inte poddar till virtuell nod
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

@@ -9,15 +9,15 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497376"
 ---
-Functions gör det enkelt att lägga till Application Insights-integrering i en funktionsapp från den [Azure-portalen].
+Functions gör det enkelt att lägga till Application Insights-integrering i en funktionsapp från den [Azure Portal].
 
-1. I den [portal][Azure-portalen]väljer **alla tjänster > Funktionsappar**, markera din funktionsapp och välj sedan den **Application Insights** banderoll överst i fönstret
+1. I den [portal][azure portal]väljer **alla tjänster > Funktionsappar**, markera din funktionsapp och välj sedan den **Application Insights** banderoll överst i fönstret
 
     ![Aktivera Application Insights från portalen](media/functions-connect-new-app-insights/enable-application-insights.png)
 

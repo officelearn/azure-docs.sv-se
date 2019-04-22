@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492096"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
@@ -62,7 +62,7 @@ För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte en
 
 Information om antalet grupperade fysiska anslutningar finns i följande egenskaper för posten för att redovisa effekten av gruppering:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 |LinksEstablished |Antal fysiska nätverksanslutningar som har upprättats under tidsperioden för rapportering |
 |LinksTerminated |Antal fysiska nätverksanslutningar som har avslutats under tidsperioden för rapportering |
@@ -73,7 +73,7 @@ Information om antalet grupperade fysiska anslutningar finns i följande egenska
 
 Förutom antalet anslutningsmått, information om mängden data som skickas och tas emot på en viss logisk anslutning eller nätverksport ingår även i följande egenskaper för posten:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 |BytesSent |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
 |BytesReceived |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
@@ -108,7 +108,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="malicious-ip"></a>Skadlig IP
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 |MaliciousIp |RemoteIp-adress |
 |IndicatorThreadType |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
@@ -134,7 +134,7 @@ Portar på en dator som aktivt acceptera inkommande trafik eller potentiellt kan
 
 Varje post i VMBoundPort identifieras med följande fält: 
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
 |Process | Identiteten för processen (eller grupper av processer) som porten som är associerad med.|
 |IP | Port IP-adress (kan vara IP-adress med jokertecken *0.0.0.0*) |

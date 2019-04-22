@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497091"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare konfigurationsschema
@@ -614,11 +614,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Valfri. Anger den maximala mängden lagringsutrymme för filsystem som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|**sträng**|Valfri. Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
-|**scheduledTransferPeriod**|**varaktighet**|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
+|**scheduledTransferPeriod**|**Varaktighet**|Valfri. Anger intervallet mellan schemalagda överföring av data, avrundat uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
 |**mottagare** |**sträng**| Har lagts till i 1.5. Valfri. Pekar på en plats för mottagaren att också skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
+ *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
 
  Har lagts till i 1.9.
 
@@ -627,16 +627,16 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Statistik**|Anger att samla in statistik för Docker-behållare|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig Element  
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+ *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
 
  En lista över platser för att skicka diagnostikdata till och den konfiguration som associeras med dessa platser.  
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**Kanalmottagare**|Se beskrivning någon annanstans på den här sidan.|  
+|**mottagare**|Se beskrivning någon annanstans på den här sidan.|  
 
 ## <a name="sink-element"></a>Sink Element
- *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
+ *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - mottagare*
 
  Har lagts till i version 1.5.  
 
@@ -644,12 +644,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**namn**|sträng|En sträng som identifierar sinkname.|  
+|**Namn**|sträng|En sträng som identifierar sinkname.|  
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
 |**Application Insights**|sträng|Används endast när data skickas till Application Insights. Innehåller Instrumenteringsnyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
-|**Kanaler**|sträng|En för varje ytterligare filtrering som strömmar som du|  
+|**kanaler**|sträng|En för varje ytterligare filtrering som strömmar som du|  
 
 ## <a name="channels-element"></a>Channels Element  
  *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -672,7 +672,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
 |**logLevel**|**sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
-|**namn**|**sträng**|Ett unikt namn för kanalen att referera till|  
+|**Namn**|**sträng**|Ett unikt namn för kanalen att referera till|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element

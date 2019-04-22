@@ -15,18 +15,21 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094618"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679269"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ta emot händelser från Event Hubs med Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) är en distribuerad beräkningssystem i realtid som förenklar tillförlitliga bearbetningen av obundna dataströmmar. Det här avsnittet visar hur du använder en Azure Event Hubs Storm-kanal för att ta emot händelser från Event Hubs. Med Apache Storm kan du dela upp händelser över flera processer som ligger på olika noder. Event Hubs-integrering med Storm förenklar händelsekonsumtion genom att transparent kontrollpunkter förloppet använder Storm's Zookeeper-installation, hantera permanenta kontrollpunkter och parallella mottaganden från Event Hubs.
 
 Mer information om Händelsehubbar får mönster, finns i den [översikt av Händelsehubbar][Event Hubs overview].
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+Innan du börjar med snabbstarten **skapa ett Event Hubs-namnområde och en event hub**. Använd den [Azure-portalen](https://portal.azure.com) att skapa ett namnområde av typen Event Hubs och hämta autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Skapa projektet och Lägg till kod
 

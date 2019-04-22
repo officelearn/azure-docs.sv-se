@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 4/05/2019
 ms.author: scottwhi
 ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493883"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Använd en insights-token för att få insikter för en avbildning
@@ -476,7 +476,7 @@ if __name__ == '__main__':
 ## <a name="next-steps"></a>Nästa steg
 
 [Skapa en enda sida i Visual Search webbapp](tutorial-bing-visual-search-single-page-app.md)  
-[Vad är API:et för visuell sökning i Bing?](overview.md)  
-[Testa Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
-[Hämta en kostnadsfri utvärderingsversion åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Vad är Bing Visual Search API?](overview.md)  
+[Prova Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
+[Skaffa en åtkomstnyckel för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Bilder - Visual Search](https://aka.ms/bingvisualsearchreferencedoc)

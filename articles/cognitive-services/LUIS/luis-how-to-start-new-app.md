@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: daffbe3f3158bb232f7db7ac90d766661e937643
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891437"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679660"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i den [LUIS](https://www.luis.ai) portal, eller via LUIS redigering [API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -67,10 +67,19 @@ Möjliga fel är:
 
 * Det finns redan en app med det namnet. Importera appen och ange den **valfritt namn** till ett nytt namn. 
 
-## <a name="export-app"></a>Exportera app
+## <a name="export-app-for-backup"></a>Exportera app för säkerhetskopiering
 
-1. På **Mina appar** väljer **importera ny app**.
-1. I den **importera ny app** dialogrutan Välj JSON-fil som definierar LUIS-app.
+1. På **Mina appar** väljer **exportera**.
+1. Välj **exportera som JSON**. Webbläsaren laddar ned den aktiva versionen av appen.
+1. Lägga till den här filen i ditt system för säkerhetskopiering att arkivera modellen.
+
+## <a name="export-app-for-containers"></a>Exportera app för behållare
+
+1. På **Mina appar** väljer **exportera**.
+1. Välj **exportera som behållare** sedan välja vilka publicerade fack (produktion eller scenen) som du vill exportera.
+1. Använd den här filen med din [LUIS behållare](luis-container-howto.md). 
+
+    Om du vill exportera en tränad men inte ännu publicerade modell ska använda med LUIS-behållaren, går du till den **versioner** sidan och exportera därifrån. 
 
 ## <a name="delete-app"></a>Ta bort app
 

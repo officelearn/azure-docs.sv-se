@@ -11,13 +11,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 9fac8291799216b4ca4527b482aefee169f7fc59
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/16/2019
+ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361273"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680394"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -88,6 +88,9 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
     ![Navigeringsfönster][3]
 
 5. **Nya** – nu har du flera alternativ för att konfigurera där granskningsloggar ska skrivas. Du kan skriva loggar till ett Azure storage-konto, till en Log Analytics-arbetsyta för användning av Azure Monitor-loggar eller till event hub för förbrukning med händelsehubben. Du kan konfigurera en kombination av dessa alternativ och granskningsloggar skrivs till var och en.
+
+   > [!WARNING]
+   > Aktivera granskning till Log Analytics kommer resultera i kostnader beroende på enligt datainmatningsfrekvensen. Tänk på den associerade kostnaden med detta [alternativet](https://azure.microsoft.com/en-us/pricing/details/monitor/), eller överväga att lagra granskningen loggar i ett Azure storage-konto.
 
     ![lagringsalternativ](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

@@ -7,10 +7,10 @@ ms.topic: hub-page
 featureFlags:
 - clicktale
 ms.openlocfilehash: 3b35608c30262f633af073daacc8795f8eca1e7e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496513"
 ---
 <div id="main" class="v2">
@@ -176,7 +176,7 @@ Go</a>
                                                <h4>Appmodeller</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-functions/">Serverlösa funktioner</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-functions/">Funktioner utan server</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">Containrar</a></li>
                                                     <li><a class="barLink" href="/azure/aks/">Mikrotjänster med Kubernetes</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Mikrotjänster med Service Fabric</a></li>
@@ -315,7 +315,7 @@ Titta på Azure-tjänster och -funktioner </a>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/principles-cloud-computing.svg" alt="">
-Principer för molnbaserad databehandling </a>
+Principer för molnbaserad databehandling</a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
@@ -328,7 +328,7 @@ Kontrollera Azure-tjänster med CLI </a>
 Automatisera Azure-uppgifter med hjälp av skript med PowerShell </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/learn/browse/?products=azure">Mer interaktiv inlärning...</a>
+                                                        <a class="barLink" href="/learn/browse/?products=azure">Mer interaktiv utbildning...</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -5948,10 +5948,10 @@ Automatisera Azure-uppgifter med hjälp av skript med PowerShell </a>
                 </ul>
             </li>
              <li>
-                <a href="#sdkstools">SDK:er/verktyg</a>
+                <a href="#sdkstools">SDK:er/Tools</a>
                 <ul id="sdkstools">
                     <li>
-                        <a href="#sdkstools-all">all</a>
+                        <a href="#sdkstools-all">alla</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
@@ -6288,7 +6288,7 @@ Java-verktyg </h3>
                                                     <a href="https://docs.microsoft.com/java/azure/java-azure-tools">IntelliJ och Eclipse</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://code.visualstudio.com/docs/languages/java">Visual Studio-koden</a>
+                                                    <a href="https://code.visualstudio.com/docs/languages/java">Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6312,7 +6312,7 @@ Java-verktyg </h3>
                                                     <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://code.visualstudio.com/docs/languages/python">Visual Studio-koden</a>
+                                                    <a href="https://code.visualstudio.com/docs/languages/python">Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6335,7 +6335,7 @@ Azure Resource Manager </h3>
                                                     <a href="https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy">Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code">Visual Studio-koden</a>
+                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code">Visual Studio Code</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/templates/">Exempelmallar</a>

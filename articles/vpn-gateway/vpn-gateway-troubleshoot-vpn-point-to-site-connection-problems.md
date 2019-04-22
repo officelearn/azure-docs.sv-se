@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2018
 ms.author: genli
 ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492387"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Problem med Azure punkt-till-plats-anslutning
@@ -31,7 +31,7 @@ Den här artikeln innehåller vanliga anslutningsproblem med punkt-till-plats-so
 
 När du försöker ansluta till ett Azure-nätverk med hjälp av VPN-klienten, visas följande felmeddelande visas:
 
-**Det gick inte att hitta ett certifikat som kan användas med Extensible Authentication Protocol. (Fel 798)**
+**Det gick inte att hitta ett certifikat som kan användas med Extensible Authentication Protocol. (Error 798)**
 
 ### <a name="cause"></a>Orsak
 

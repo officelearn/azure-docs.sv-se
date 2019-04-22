@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357244"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680867"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk – träna en prognosmodell med tidsserie
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du tränar en time series-regression p
 * Konfigurera specifika time series-parametrar i en [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) objekt
 * Kör förutsägelser med time series-data
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En arbetsyta för Azure Machine Learning-tjänsten. Om du vill skapa arbetsytan [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md).
 * Den här artikeln förutsätter grundläggande kunskaper om hur du konfigurerar en automatiserad machine learning-experiment. Följ den [självstudien](tutorial-auto-train-models.md) eller [how-to](how-to-configure-auto-train.md) att se de grundläggande automatiserade machine learning-experiment designmönster.
@@ -34,27 +34,27 @@ I den här artikeln får du lära dig hur du tränar en time series-regression p
 
 Den viktigaste skillnaden mellan en prognosmodellen regression Uppgiftstyp och regression Uppgiftstyp inom automatiserade maskininlärning omfattar en funktion i dina data som representerar en giltig tidsserie. En vanlig tidsserie har en väldefinierad och konsekvent frekvens och har ett värde i alla exempel steg i en kontinuerlig tidsrymd. Överväg följande ögonblicksbild av en fil `sample.csv`.
 
-    week_starting,store,sales_quantity,week_of_year
+    day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
     9/3/2018,B,600,36
-    9/10/2018,A,2300,37
-    9/10/2018,B,550,37
-    9/17/2018,A,2100,38
-    9/17/2018,B,650,38
-    9/24/2018,A,2400,39
-    9/24/2018,B,700,39
-    10/1/2018,A,2450,40
-    10/1/2018,B,650,40
+    9/4/2018,A,2300,36
+    9/4/2018,B,550,36
+    9/5/2018,A,2100,36
+    9/5/2018,B,650,36
+    9/6/2018,A,2400,36
+    9/6/2018,B,700,36
+    9/7/2018,A,2450,36
+    9/7/2018,B,650,36
 
-Den här datamängden är ett enkelt exempel på varje vecka försäljningsdata för ett företag som har två olika butiker, A och B. Dessutom finns det en funktion för `week_of_year` som gör att modellen ska kunna identifiera veckovisa säsongsberoende. Fältet `week_starting` representerar en ren tidsserie med veckofrekvens och fältet `sales_quantity` är målkolumnen för körning av förutsägelser. Läsa in datan i en Pandas-dataframe och sedan använda den `to_datetime` funktion för att tillse tidsserien är en `datetime` typen.
+Den här datamängden är ett enkelt exempel på dagliga försäljningsdata för ett företag som har två olika butiker, A och B. Dessutom finns det en funktion för `week_of_year` som gör att modellen ska kunna identifiera veckovisa säsongsberoende. Fältet `day_datetime` representerar en ren tidsserie med dagliga frekvens och fältet `sales_quantity` är målkolumnen för körning av förutsägelser. Läsa in datan i en Pandas-dataframe och sedan använda den `to_datetime` funktion för att tillse tidsserien är en `datetime` typen.
 
 ```python
 import pandas as pd
 data = pd.read_csv("sample.csv")
-data["week_starting"] = pd.to_datetime(data["week_starting"])
+data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-I det här fallet data är redan sorterad stigande efter fältet `week_starting`. När du konfigurerar ett experiment, se till att den önskade tid kolumnen är sorterad i stigande ordning för att skapa en giltig tidsserie. Anta att data innehåller 1 000 poster och gör en deterministisk delning i datakällan för att skapa utbildning och testa datauppsättningar. Avgränsa målfältet `sales_quantity` att skapa förutsägelser träna och testa anger.
+I det här fallet data är redan sorterad stigande efter fältet `day_datetime`. När du konfigurerar ett experiment, se till att den önskade tid kolumnen är sorterad i stigande ordning för att skapa en giltig tidsserie. Anta att data innehåller 1 000 poster och gör en deterministisk delning i datakällan för att skapa utbildning och testa datauppsättningar. Avgränsa målfältet `sales_quantity` att skapa förutsägelser träna och testa anger.
 
 ```python
 X_train = data.iloc[:950]
@@ -84,14 +84,18 @@ Den `AutoMLConfig` objektet definierar de inställningar och data som behövs f�
 |`time_column_name`|Används för att ange datetime-kolumn i indata som används för att skapa tidsserier och härledning av frekvensen.|✓|
 |`grain_column_names`|Namnen definiera enskilda Seriegrupper i indata. Om grain inte har definierats, antas datauppsättningen är en tidsserie.||
 |`max_horizon`|Maximalt önskade prognoser horizon i enheter för time series-frekvens.|✓|
+|`target_lags`|*n* perioder att vidarebefordra fördröjning målvärden innan modellen.||
+|`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera förväntade värden < = utbildning storlek. Om det utelämnas används *n* anges fullständig utbildningen storlek.||
 
-Skapa time series-inställningar som ett katalogobjekt. Ange den `time_column_name` till den `week_starting` i datauppsättningen. Definiera den `grain_column_names` parametern för att se till att **två separata grupper för time series-** skapas för våra data, en för store A och slutligen B. den `max_horizon` att 50 för att förutsäga för hela testet.
+Skapa time series-inställningar som ett katalogobjekt. Ange den `time_column_name` till den `day_datetime` i datauppsättningen. Definiera den `grain_column_names` parametern för att se till att **två separata grupper för time series-** skapas för data, en för store A och slutligen B. den `max_horizon` att 50 för att förutsäga för hela testet. Ange ett prognoser fönster för 10 perioder med `target_rolling_window_size`, och fördröjning målet värden 2 punkter framåt med den `target_lags` parametern.
 
 ```python
 time_series_settings = {
-    "time_column_name": "week_starting",
+    "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50
+    "max_horizon": 50,
+    "target_lags": 2,
+    "target_rolling_window_size": 10
 }
 ```
 
@@ -141,11 +145,11 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Nu när totala modellens Precision har fastställts, mest realistisk nästa steg är att använda modellen framtida okänd framtida värden. Bara ange en uppsättning data i samma format som testmängd `X_test` men med framtida datum och tid och den resulterande förutsägelsen är förväntade värden för varje tidsserie-steg. Anta att de senaste time series-posterna i datauppsättningen har för start av vecka 12/31 januari 2018. Till att prognostisera efterfrågan för de kommande veckorna (eller så många punkter som du behöver att skapa prognoser, < = `max_horizon`), skapa en enda time series-post för varje butik för start av veckan 01/07/2019.
+Nu när totala modellens Precision har fastställts, mest realistisk nästa steg är att använda modellen framtida okänd framtida värden. Bara ange en uppsättning data i samma format som testmängd `X_test` men med framtida datum och tid och den resulterande förutsägelsen är förväntade värden för varje tidsserie-steg. Anta att de senaste time series-posterna i datauppsättningen har för 12/31 januari 2018. Till att prognostisera efterfrågan för nästa dag (eller så många punkter som du behöver att skapa prognoser, < = `max_horizon`), skapa en enda time series-post för varje butik för 01/01/2019.
 
-    week_starting,store,week_of_year
-    01/07/2019,A,2
-    01/07/2019,A,2
+    day_datetime,store,week_of_year
+    01/01/2019,A,1
+    01/01/2019,A,1
 
 Upprepa de nödvändiga stegen för att läsa in den här framtida data till en dataram och kör sedan `best_run.predict(X_test)` att förutsäga framtida värden.
 

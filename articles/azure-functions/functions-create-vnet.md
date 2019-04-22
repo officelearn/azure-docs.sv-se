@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 749e211c9844f644e04d5135f99d71918d65b66b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523740"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680362"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Integrera en funktionsapp med en Azure-nätverk
 
-Den här stegvisa självstudien visar hur du använder Azure Functions för att ansluta till resurser i ett virtuellt Azure nätverk.
+Den här självstudien visar hur du använder Azure Functions för att ansluta till resurser i ett virtuellt Azure nätverk.
 
 Den här självstudien ska vi distribuera en WordPress-webbplats på en virtuell dator i en privat, icke-åtkomlig via internet, virtuellt nätverk. Vi sedan distribuerar en funktion med åtkomst till både internet och det virtuella nätverket. Vi använder funktionen för att komma åt resurser från WordPress-webbplats som är distribuerat i det virtuella nätverket.
 

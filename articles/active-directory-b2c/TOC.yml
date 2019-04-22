@@ -85,8 +85,8 @@ items:
     href: add-native-application.md
   - name: Konfigurera åldershantering
     href: basic-age-gating.md
-  - name: Konfigurera token
-    href: active-directory-b2c-token-session-sso.md
+  - name: Konfigurera sessionsbeteende
+    href: session-behavior.md
   - name: Anpassa språk
     href: active-directory-b2c-reference-language-customization.md
   - name: Anpassa lösenord
@@ -111,8 +111,6 @@ items:
       href: active-directory-b2c-ui-customization-custom.md
     - name: Anpassa användargränssnittet dynamiskt
       href: active-directory-b2c-ui-customization-custom-dynamic.md
-    - name: Anpassa token
-      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: Definiera anpassade attribut
       href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
     - name: Aktivera ”Håll mig inloggad”
@@ -147,8 +145,6 @@ items:
         href: active-directory-b2c-custom-setup-twitter-idp.md
     - name: Sidkontrakt
       href: page-contract.md
-    - name: Skicka genom åtkomsttoken
-      href: idp-pass-through-custom.md
     - name: Lösenordskomplexitet
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: Lösenordsändring
@@ -159,6 +155,12 @@ items:
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Token
+      items:
+      - name: Anpassa token
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: Skicka genom åtkomsttoken
+        href: idp-pass-through-custom.md
     - name: Spåra användarbeteende
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Referens
@@ -272,10 +274,6 @@ items:
       href: active-directory-b2c-devquickstarts-ios.md
     - name: Android med App Auth
       href: active-directory-b2c-devquickstarts-android.md
-  - name: Hämta åtkomsttoken
-    href: active-directory-b2c-access-tokens.md
-  - name: Skicka genom åtkomsttoken
-    href: idp-pass-through-user-flow.md
   - name: Rapportanvändning
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Autentiseringsuppgifter för lösenord för resursägare
@@ -284,6 +282,14 @@ items:
     href: direct-signin.md
   - name: Konfigurera återställning av lösenord för självbetjäning
     href: active-directory-b2c-reference-sspr.md
+  - name: Token
+    items:
+    - name: Konfigurera token
+      href: configure-tokens.md
+    - name: Skicka genom åtkomsttoken
+      href: idp-pass-through-user-flow.md
+    - name: Begära åtkomsttoken
+      href: active-directory-b2c-access-tokens.md
   - name: Använda b2clogin.com
     href: b2clogin.md
   - name: Använd Azure AD Graph API:n
@@ -326,9 +332,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: cebc59a7d10ce669fd8187687b80f291a07d1c06
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: de9ae82220bd464cbee7345b7f2421d02f0fc545
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886581"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681139"

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278555"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680000"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -28,7 +28,7 @@ Pipelines Använd remote beräkningsmål för beräkning och lagring av mellanli
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Konfigurera utvecklingsmiljön](how-to-configure-environment.md) att installera Azure Machine Learning-SDK.
 
@@ -253,8 +253,8 @@ trainStep = PythonScriptStep(
 
 När du har definierat dina steg skapar du pipelinen med hjälp av en eller flera av de här stegen.
 
->[!NOTE]
->Ingen fil eller data har överförts till Azure Machine Learning-tjänsten när du definierar stegen eller skapa pipelinen.
+> [!NOTE]
+> Ingen fil eller data har överförts till Azure Machine Learning-tjänsten när du definierar stegen eller skapa pipelinen.
 
 ```python
 # list of steps to run
@@ -289,8 +289,12 @@ Mer information finns i den [azure-pipeline-stegen paketet](https://docs.microso
 
 ## <a name="submit-the-pipeline"></a>Skicka pipelinen
 
-När du skickar pipelinen, Azure Machine Learning-tjänsten kontrollerar beroenden för varje steg och överför en ögonblicksbild av källkatalogen som du har angett. Om ingen källkatalog har angetts, laddas den aktuella lokala katalogen.
+När du skickar pipelinen, Azure Machine Learning-tjänsten kontrollerar beroenden för varje steg och överför en ögonblicksbild av källkatalogen som du har angett. Om ingen källkatalog har angetts, laddas den aktuella lokala katalogen. Ögonblicksbilden lagras också som en del av experiment i din arbetsyta.
 
+> [!IMPORTANT]
+> Om du vill förhindra att filer som ingår i ögonblicksbilden, skapa en [.gitignore](https://git-scm.com/docs/gitignore) eller `.amlignore` filen i katalogen och Lägg till filer till den. Den `.amlignore` filen använder samma syntax och mönster som den [.gitignore](https://git-scm.com/docs/gitignore) fil. Om båda filerna finns i `.amlignore` filen företräde.
+>
+> Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run

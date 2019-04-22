@@ -18,10 +18,10 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495319"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
@@ -33,7 +33,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 ![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
-> **Nödvändiga komponenter**
+> **Förutsättningar**
 > * Android Studio 3+
 > * Android 21 + krävs 
 
@@ -70,14 +70,14 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
 > För att kodexemplet för den här snabbstarten ska fungera behöver du lägga till en svars-URL som **msal{AppId}://auth** (där {AppId} är program-ID för din app).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen för mig]()
+> > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerat](media/quickstart-v2-android/green-check.png) ditt program har konfigurerats med dessa attribut
+> > ![Redan konfigurerad](media/quickstart-v2-android/green-check.png) appen konfigureras med de här attributen
 
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet
 
-* [Ladda ned Android Studio-projekt](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Ladda ned Android Studio-projektet](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Steg 3: Konfigurera projektet
 
@@ -175,7 +175,7 @@ Initiera sedan MSAL med hjälp av följande kod:
 
 ### <a name="requesting-tokens"></a>Begära token
 
-MSAL har två metoder som används hämta token: `acquireToken` och `acquireTokenSilentAsync`
+MSAL har två metoder som används för att hämta token: `acquireToken` och `acquireTokenSilentAsync`
 
 #### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
@@ -221,7 +221,7 @@ if (sample.size() == 1) {
 Prova att använda Android-självstudien för en komplett stegvis guide till att skapa appar och nya funktioner, bland annat en fullständig förklaring av den här snabbstarten.
 
 > [!div class="nextstepaction"]
-> [Anropa Graph API Android självstudien](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
+> [Självstudie: Anropa Graph API för Android](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
 
 ### <a name="msal-for-android-library-wiki"></a>Wiki: MSAL för Android-bibliotek
 

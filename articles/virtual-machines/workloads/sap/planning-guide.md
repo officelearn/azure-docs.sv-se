@@ -18,10 +18,10 @@ ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501339"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
@@ -691,8 +691,8 @@ Ovanstående bild visar två Azure-prenumerationer har IP-adress underintervall 
 Punkt-till-plats-VPN måste varje klientdatorn ansluter med sin egen VPN till Azure. Vi tittar på, punkt-till-plats-anslutning är inte praktiskt för SAP-scenarier. Därför kan hänvisningar inga ytterligare till punkt-till-plats VPN-anslutning.
 
 Mer information finns här
-* [Konfigurera en punkt-till-plats-anslutning till ett VNet med Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
-* [Konfigurera en punkt-till-plats-anslutning till ett VNet med hjälp av PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
+* [Konfigurera en punkt-till-plats-anslutning till ett VNet med Azure-portalen](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
+* [Konfigurera en punkt-till-plats-anslutning till ett VNet med PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 
 #### <a name="multi-site-vpn"></a>Flera plats-VPN
 
@@ -722,8 +722,7 @@ Expressroute kan flera Azure-prenumerationer via en ExpressRoute-krets som dokum
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>Tvingad tunneltrafik vid flera platser
 Du måste se till att internetproxyinställningarna komma att distribueras för alla användare i dessa virtuella datorer samt för virtuella datorer ansluta till den lokala domäner via plats-till-plats, punkt-till-plats eller ExpressRoute. Som standard programvara som körs på dessa virtuella datorer eller användare som använder en webbläsare för att ansluta till internet inte skulle gå igenom företagets proxy, men ska ansluta direkt via Azure till internet. Men även Proxyinställningen är inte en 100%-lösning för att dirigera trafik via proxy företagets eftersom det är ansvar i programvara och tjänster för att söka efter proxyn. Om programvara som körs på den virtuella datorn inte gör detta eller en administratör ändrar inställningarna kan trafik till Internet kan vara detoured igen direkt via Azure till Internet.
 
-För att undvika sådana en direkt Internetanslutning, kan du konfigurera Tvingad tunneltrafik med plats-till-plats-anslutning mellan lokala och Azure. Detaljerad beskrivning av funktionen Tvingad tunneltrafik publiceras här
-<https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
+För att undvika sådana en direkt Internetanslutning, kan du konfigurera Tvingad tunneltrafik med plats-till-plats-anslutning mellan lokala och Azure. Detaljerad beskrivning av funktionen Tvingad tunneltrafik publiceras här <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
 Framtvingad Tunneling med ExpressRoute aktiveras av kunder annonserar en standardväg via ExpressRoute BGP-peeringsessioner.
 
@@ -754,8 +753,7 @@ Som en ungefärlig beslutsträd att bestämma om ett SAP-system som passar in i 
 
 **Steg 1**: Den viktigaste informationen är att börja med SAP-krav för ett visst SAP-system. SAP-krav måste delas in den DBMS och SAP-program delen, även om SAP-system är redan distribueras lokalt i en nivå 2-konfiguration. För befintliga system SAP relaterad till maskinvara som används ofta fastställt eller beräknat baserat på befintliga SAP prestandamått. Resultaten finns här: <https://sap.com/about/benchmark.html>.
 För nyligen distribuerade SAP-system, bör du har gått igenom en storlek Övning som bestämmer SAP-kraven i systemet.
-Se även den här bloggen och bifogade dokumentet för SAP storlek på Azure:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Se även den här bloggen och bifogade dokumentet för SAP storlek på Azure: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 **Steg 2**: För befintliga system ska i/o-volym och i/o-åtgärder per sekund på DBMS-servern mätas. För nyligen planerad system bör storlek Övning för det nya systemet även ge grov idéer av i/o-kraven på DBMS-sida. Om du är osäker, måste du så småningom att genomföra en Proof of Concept.
 
@@ -800,8 +798,7 @@ Mer detaljerade anvisningar om hur du installerar, uppdatera och konfigurera Azu
 
 Kundupplevelsen har hittills varit att PowerShell (PS) är däremot mer kraftfulla verktyget för att distribuera virtuella datorer och skapa anpassade steg i distributionen av virtuella datorer. Alla kunder som kör SAP-instanser i Azure använder PS-cmdletar för att komplettera hanteringsuppgifter de i Azure-portalen eller använder även PS-cmdletar exklusivt för att hantera sina distributioner i Azure. Eftersom Azure-specifika cmdletar delar samma namngivningskonvention som över 2 000 Windows-relaterade cmdlets, är en enkel åtgärd för Windows-administratörer kan använda dessa cmdletar.
 
-Se exempel här:
-<https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+Se exempel här: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
 Distribution av Azure Monitoring-tillägg för SAP (finns i kapitlet [Övervakningslösningen för Azure för SAP] [ planning-guide-9.1] i det här dokumentet) är bara kan utföras via PowerShell eller CLI. Därför är det obligatoriskt att installera och konfigurera PowerShell eller CLI när du distribuerar eller administrera ett SAP NetWeaver-system i Azure.  
@@ -1326,8 +1323,7 @@ Se arkitektur skillnaden mellan klassiska modellen och ARM enligt beskrivningen 
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Konfigurationen av SAP-System och SAP GUI-anslutning via internet
 
-Den här artikeln som beskriver information till det här avsnittet finns på:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Den här artikeln som beskriver information till det här avsnittet finns på: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Ändra brandväggsinställningar på virtuell dator
 
@@ -2021,12 +2017,10 @@ Men under loppet av förra året data center partner som har utvecklats delad pl
 Beroende på hur SAP valt (nivå 2 eller 3 nivåer) det kan vara nödvändigt att säkerhetskopiera. Innehållet i Virtuellt datorn plus ha en säkerhetskopia av databasen. DBMS-relaterade säkerhetskopieringarna förväntas göras med metoderna i databasen. En detaljerad beskrivning för olika databaser finns i [DBMS-Guide][dbms-guide]. Å andra sidan, kan SAP-data säkerhetskopieras i ett offline sätt (inklusive databasinnehåll samt) enligt beskrivningen i det här avsnittet eller online enligt beskrivningen i nästa avsnitt.
 
 Offlinesäkerhetskopiering kräver i praktiken stänga av den virtuella datorn via Azure portal och en kopia av grundläggande VM-disken plus alla anslutna diskar till den virtuella datorn. Detta skulle bevarar en tidpunkt i tid bild av den virtuella datorn och dess associerade diskar. Det rekommenderas att kopiera säkerhetskopior av till en annan Azure Storage-konto. Därför proceduren som beskrivs i kapitlet [kopierar diskar mellan Azure Storage-konton] [ planning-guide-5.4.2] i det här dokumentet skulle tillämpas.
-Förutom avstängningen kan med Azure-portalen en också göra det via Powershell eller CLI enligt nedan:
-<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+Förutom avstängningen kan med Azure-portalen en också göra det via Powershell eller CLI enligt nedan: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 En återställning av det aktuella tillståndet skulle består av att ta bort grundläggande VM samt de ursprungliga diskarna för den grundläggande virtuella datorn och monterade diskar, kopiera sparade diskarna till den ursprungliga Storage-konto eller resurs-gruppen för hanterade diskar och omdistribuera på systemet.
-Den här artikeln visar ett exempel så den här processen i Powershell-skript:
-<http://www.westerndevs.com/azure-snapshots/>
+Den här artikeln visar ett exempel så den här processen i Powershell-skript: <http://www.westerndevs.com/azure-snapshots/>
 
 Kontrollera att du installerar en ny licens för SAP eftersom när du återställer en säkerhetskopiering av virtuella datorer enligt beskrivningen ovan skapas en ny maskinvarunyckel.
 
@@ -2050,8 +2044,7 @@ Andra virtuella datorer i SAP-system kan säkerhetskopieras med hjälp av Azure 
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Det finns ingen motsvarighet till Windows VSS i Linux. Endast filkonsekvent säkerhetskopiering är därför möjligt men inte programkonsekventa säkerhetskopior. SAP DBMS-säkerhetskopieringen ska göras med hjälp av DBMS-funktioner. Filsystem som omfattar alla SAP-relaterade data kan sparas, till exempel använder tar som beskrivs här:
-> <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Det finns ingen motsvarighet till Windows VSS i Linux. Endast filkonsekvent säkerhetskopiering är därför möjligt men inte programkonsekventa säkerhetskopior. SAP DBMS-säkerhetskopieringen ska göras med hjälp av DBMS-funktioner. Filsystem som omfattar alla SAP-relaterade data kan sparas, till exempel använder tar som beskrivs här: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 

@@ -18,10 +18,10 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496137"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en intern iOS-app
@@ -46,14 +46,14 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett internt iOS-p
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
 > För kodexempel för den här snabbstarten ska fungera måste du lägga till en svars-URL som `msal<AppId>://auth` (där msal\<AppId > är den här program-Id).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör den här ändringen för mig]()
+> > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerat](media/quickstart-v2-ios/green-check.png) ditt program har konfigurerats med det här attributet
+> > ![Redan konfigurerad](media/quickstart-v2-ios/green-check.png) appen konfigureras med det här attributet
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Steg 2: Ladda ned webbservern eller projektet
 
-- [Ladda ned XCode-projekt](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Ladda ned XCode-projektet](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Steg 3: Konfigurera projektet
 
@@ -190,6 +190,6 @@ Prova att använda iOS-självstudien för en komplett stegvis guide till att ska
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
 
 > [!div class="nextstepaction"]
-> [Anropa Graph API iOS-självstudier](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Självstudie om att anropa Graph API för iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

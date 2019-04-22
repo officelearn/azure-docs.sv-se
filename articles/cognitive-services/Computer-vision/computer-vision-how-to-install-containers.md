@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 3/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: aba8f9b2b4e62420ed5d318be40bbc4ada544866
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520657"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679609"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installera och köra Identifiera Text behållare
 
@@ -26,7 +26,7 @@ Identifiera Text-delen av visuellt innehåll är också tillgängligt som en Doc
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste uppfylla följande krav innan du använder identifiera Text behållare:
 
@@ -34,7 +34,7 @@ Du måste uppfylla följande krav innan du använder identifiera Text behållare
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
-|Identifiera Text resurs |För att kunna använda behållaren måste du ha:<br><br>En [ _identifiera Text_ ](vision-api-how-to-topics/howtosubscribe.md) Azure-resurs att hämta associerade krypteringsnyckeln och fakturering slutpunkt URI. Båda värdena är tillgängliga på Azure portal identifiera Text översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{BILLING_KEY}** : Resursnyckeln<br><br>**{BILLING_ENDPOINT_URI}** : endpoint URI exempel är: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Azure `Cognitive Services` resurs |För att kunna använda behållaren måste du ha:<br><br>En _Cognitive Services_ Azure-resurs och associerade faktureringen nyckel fakturering slutpunkten URI. Båda värdena är tillgängliga på sidorna Översikt och nycklar för resursen och krävs för att starta behållaren. Du måste lägga till den `vision/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : Resursnyckeln<br><br>**{BILLING_ENDPOINT_URI}** : endpoint URI exempel är: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
@@ -91,8 +91,10 @@ Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/r
 
 | Platshållare | Värde |
 |-------------|-------|
-|{BILLING_KEY} | Den här nyckeln används för att starta behållaren och är tillgänglig på sidan för Azure-portalens identifiera Text nycklar.  |
-|{BILLING_ENDPOINT_URI} | Fakturering slutpunkten URI-värdet.|
+|{BILLING_KEY} | Den här nyckeln används för att starta behållaren och är tillgängligt på Azure `Cognitive Services` sidan nycklar.  |
+|{BILLING_ENDPOINT_URI} | Fakturering slutpunkten URI-värdet. Exempel är: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+
+Du måste lägga till den `vision/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI.
 
 Ersätt parametrarna med dina egna värden i följande exempel `docker run` kommando.
 

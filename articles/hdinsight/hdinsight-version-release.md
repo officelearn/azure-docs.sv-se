@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure HDInsight 4.0
+title: Översikt över HDInsight 4.0 – Azure
 description: Jämför HDInsight 3.6 med HDInsight 4.0 när det gäller funktioner, begränsningar och uppgraderingsrekommendationer.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -7,18 +7,18 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: overview
 ms.date: 04/15/2019
-ms.openlocfilehash: af9f8a9e4d67c74910f60c70a0aee5c2439d6209
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 553f50897afaaf9c677e84f9cfffbff7d2c1e607
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609208"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679687"
 ---
-# <a name="azure-hdinsight-40-overview"></a>Översikt över Azure HDInsight 4.0
+# <a name="hdinsight-40-overview"></a>Översikt över HDInsight 4.0
 
-Azure HDInsight är en av de mest populära tjänsterna bland företagskunder för analys med Apache Hadoop med öppen källkod och Apache Spark på Azure. HDInsight (HDI) 4.0 är en molndistribution av Apache Hadoop-komponenter från [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Den här artikeln innehåller information om den senaste versionen av Azure HDInsight och hur du uppgraderar.
+Azure HDInsight är en av de mest populära tjänsterna bland företagskunder för analys med Apache Hadoop med öppen källkod och Apache Spark på Azure. HDInsight 4.0 är en molndistribution av Apache Hadoop-komponenterna från den [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Den här artikeln innehåller information om den senaste versionen av Azure HDInsight och hur du uppgraderar.
 
-## <a name="whats-new-in-hdi-40"></a>Vad är nytt i HDI 4.0?
+## <a name="whats-new-in-hdinsight-40"></a>Vad är nytt i HDInsight 4.0?
 
 ### <a name="apache-hive-30-and-llap"></a>Apache Hive 3.0 och LLAP
 
@@ -67,7 +67,7 @@ Med Apache Spark i HDInsight 4.0 kan du:
 * köra ett Spark-strömningsjobb på ändringsflödet från en Hive-strömningstabell
 * skapa ORC-filer direkt från ett strukturerat Spark-strömningsjobb.
 
-Du behöver inte längre oroa dig över att av misstag komma åt Hive-transaktionstabeller direkt från Spark, vilket kan ge motsägande resultat, duplicerade data eller skadade data. I HDI 4.0 förvaras Spark-tabeller och Hive-tabeller i separata metaarkiv. Använd anslutningsappen för Hive-informationslager för att registrera Hive-transaktionstabeller som externa Spark-tabeller.
+Du behöver inte längre oroa dig över att av misstag komma åt Hive-transaktionstabeller direkt från Spark, vilket kan ge motsägande resultat, duplicerade data eller skadade data. I HDInsight 4.0 hålls tabeller för Spark och Hive-tabeller i separata Metastores. Använd anslutningsappen för Hive-informationslager för att registrera Hive-transaktionstabeller som externa Spark-tabeller.
 
 Läs mer om [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
@@ -82,22 +82,19 @@ Apache Oozie 4.3.1 ingår i HDI 4.0 med följande ändringar:
 
 Läs mer om [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/patch_oozie.html).
 
-## <a name="how-to-upgrade-to-hdi-40"></a>Uppgradera till HDI 4.0
+## <a name="how-to-upgrade-to-hdinsight-40"></a>Uppgradera till HDInsight 4.0
 
-Som vid alla större uppdateringar är det viktigt att du testar dina komponenter innan du implementerar den senaste versionen i en produktionsmiljö. HDI 4.0 är tillgängligt och du kan börja uppgradera, men HDI 3.6 är standardalternativet för att förhindra oavsiktliga missöden.
+Som vid alla större uppdateringar är det viktigt att du testar dina komponenter innan du implementerar den senaste versionen i en produktionsmiljö. HDInsight 4.0 är tillgängliga för dig för att påbörja uppgraderingen, men HDInsight 3.6 är alternativet för att förhindra oavsiktlig missöden.
 
-Det finns ingen uppgraderingsväg som stöds från tidigare versioner av HDI till HDI 4.0. Eftersom metaarkivet och blobdataformatet har ändrats är HDI 4.0 inte kompatibelt med tidigare versioner. Det är viktigt att du håller den nya HDI 4.0-miljön avskild från din befintliga produktionsmiljö. Om du distribuerar HDI 4.0 till din aktuella miljö uppgraderas ditt metaarkiv, och uppgraderingen kan inte ångras.  
+Det finns inga uppgraderingsvägen som stöds från tidigare versioner av HDInsight till HDInsight 4.0. HDInsight 4.0 är inte kompatibel med tidigare versioner eftersom Metaarkiv och blob dataformat har ändrats. Det är viktigt att du behåller den nya miljön HDInsight 4.0 separat från den befintliga produktionsmiljön. Om du distribuerar HDInsight 4.0 till din aktuella miljö din Metaarkiv uppgraderas och kan inte ångras.  
 
 ## <a name="limitations"></a>Begränsningar
 
-* HDI 4.0 stöder inte MapReduce. Använd Apache Tez i stället. Läs mer om [Apache Tez](https://tez.apache.org/).
-
-* Hive-vyn finns inte längre i HDI 4.0. 
-
+* HDInsight 4.0 har inte stöd för MapReduce. Använd Apache Tez i stället. Läs mer om [Apache Tez](https://tez.apache.org/).
+* HDInsight 4.0 har inte stöd för Apache Storm. 
+* Hive-vyn finns inte längre i HDInsight 4.0. 
 * Shell-tolken i Apache Zeppelin stöds inte i Spark och i Interaktiva frågekluster.
-
 * Det går inte att *inaktivera* LLAP i ett Spark-LLAP-kluster. Du kan bara inaktivera LLAP.
-
 * Azure Data Lake Storage Gen2 kan inte spara Juypter-anteckningsböcker i ett Spark-kluster.
 
 ## <a name="next-steps"></a>Nästa steg

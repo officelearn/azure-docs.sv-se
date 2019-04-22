@@ -13,18 +13,18 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed328b29c853e5ff75d64332f0228277cff90d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203683"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679116"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostisera fel med den Azure Active Directory Connected Service
 
 Vid identifiering av föregående Autentiseringskod, ett Azure Active Directory connect-servern upptäckte ett inkompatibelt autentiseringstyp.
 
-För att korrekt identifiera tidigare Autentiseringskod i ett projekt, skapas projektet.  Om du har stött på det här felet och du inte har en tidigare Autentiseringskod i ditt projekt, återskapa och försök igen.
+För att korrekt identifiera tidigare Autentiseringskod i ett projekt, skapas projektet.  Om du ser detta fel och du inte har en tidigare Autentiseringskod i ditt projekt, återskapa och försök igen.
 
 ## <a name="project-types"></a>Projekttyper
 
@@ -32,7 +32,7 @@ Anslutna tjänsten kontrollerar vilken typ av projekt som du utvecklar så att d
 
 ## <a name="compatible-authentication-code"></a>Kompatibel Autentiseringskod
 
-Tjänsten anslutna söker också efter autentiseringsinställningar som tidigare har konfigurerats eller som är kompatibel med tjänsten. Om alla inställningar finns, anses det Reentrant fall och anslutna tjänsten öppnas visningsinställningar.  Om det bara vissa inställningar, anses en felsituation.
+Tjänsten anslutna söker också efter autentiseringsinställningar som tidigare har konfigurerats eller som är kompatibel med tjänsten. Om alla inställningar finns den betraktas som ett Reentrant ärende och anslutna tjänsten öppnas visningsinställningar.  Om det bara vissa inställningar, den betraktas som en felsituation.
 
 I ett MVC-projekt anslutna tjänsten kontrollerar för någon av följande inställningar, som tidigare användning av tjänsten:
 
@@ -41,7 +41,7 @@ I ett MVC-projekt anslutna tjänsten kontrollerar för någon av följande inst�
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Anslutna tjänsten kontrollerar dessutom för någon av följande inställningar i ett webb-API-projekt som tidigare användning av tjänsten:
+Anslutna tjänsten kontrollerar också för någon av följande inställningar i ett webb-API-projekt som tidigare användning av tjänsten:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
@@ -60,7 +60,7 @@ För att identifiera Windows-autentisering i ett MVC-projekt som den är anslute
 ```xml
 <configuration>
     <system.web>
-        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+        <authentication mode="Windows" />
     </system.web>
 </configuration>
 ```
@@ -70,7 +70,7 @@ För att identifiera Windows-autentisering i ett webb-API-projekt, anslutna tjä
 ```xml
 <Project>
     <PropertyGroup>
-        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+        <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     </PropertyGroup>
 </Project>
 ```
@@ -79,7 +79,7 @@ För att identifiera enskilda användarkonton autentisering, anslutna tjänsten 
 
 ```xml
 <packages>
-    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+    <package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" />
 </packages>
 ```
 
@@ -88,7 +88,7 @@ För att identifiera en gamla form av autentisering av Organisationskonto, anslu
 ```xml
 <configuration>
     <appSettings>
-        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+        <add key="ida:Realm" value="***" />
     </appSettings>
 </configuration>
 ```

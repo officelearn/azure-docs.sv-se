@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500472"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680884"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -28,9 +28,9 @@ Den här guiden innehåller viktiga begrepp och instruktioner för Java-utveckla
 
 ## <a name="deploying-your-app"></a>Distribuera din app
 
-Du kan använda Maven-pluginprogrammet för att distribuera WAR- och .jar-filer. Se [den här dokumentationen](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) mer information om Maven-pluginprogrammet.
+Du kan använda [Maven-pluginprogrammet för Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) att distribuera WAR- och .jar-filer. Distribution med populära IDE: er stöds även med [Azure Toolkit för IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) eller [Azure Toolkit för Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
-Om du inte använder Maven, beror din distributionsmetod på din Arkivtyp:
+I annat fall beror distributionsmetod på din Arkivtyp:
 
 - Distribuera WAR-filerna till Tomcat genom att använda den `/api/wardeploy/` slutpunkt för att publicera arkivfilen. Mer information om detta API finns i [den här dokumentationen](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 - Om du vill distribuera .jar-filerna på Java SE-avbildningar, använda den `/api/zipdeploy/` slutpunkten för Kudu-webbplatsen. Mer information om detta API finns i [den här dokumentationen](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
@@ -79,7 +79,7 @@ De inbyggda Java-avbildningarna är baserade på den [Alpine Linux](https://alpi
 
 ## <a name="customization-and-tuning"></a>Anpassning och justering
 
-Azure App Service för Linux stöder från box justering och anpassning genom Azure Portal och CLI. Granska följande artiklar för icke-Java-specifika web app-konfiguration:
+Azure App Service för Linux stöder från box justering och anpassning genom Azure portal och CLI. Granska följande artiklar för icke-Java-specifika web app-konfiguration:
 
 - [Konfigurera inställningar för App Service](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Konfigurera en anpassad domän](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -93,7 +93,7 @@ Ange allokerat minne eller andra alternativ för körning av JVM i Tomcat- och J
 
 I Azure-portalen under **programinställningar** för webbappen, skapa en ny appinställning med namnet `JAVA_OPTS` som omfattar ytterligare inställningar som `-Xms512m -Xmx1204m`.
 
-Om du vill konfigurera appinställningen från Maven-pluginprogrammet lägger du till inställningen/värde-taggar i avsnittet Azure-plugin-programmet. I följande exempel anger en specifik heapsize för lägsta och högsta Java:
+Om du vill konfigurera appinställningen från Maven-pluginprogrammet lägger du till inställningen/värde-taggar i avsnittet Azure-plugin-programmet. I följande exempel anger en viss lägsta och högsta Java heap storlek:
 
 ```xml
 <appSettings>
@@ -297,7 +297,7 @@ För att ansluta till datakällor i Spring Boot-program, föreslår vi att skapa
 
     Den här anslutningssträngen är tillgänglig för vårt program som en miljövariabel som heter `CUSTOMCONNSTR_<your-string-name>`. Till exempel den anslutningssträng som vi skapade ovan får namnet `CUSTOMCONNSTR_exampledb`.
 
-2. I din `application.properties` fil, referera till den här connction strängen med miljövariabeln. I vårt exempel använder vi följande.
+2. I din `application.properties` fil, referera till den här anslutningssträngen med miljövariabeln. I vårt exempel använder vi följande.
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}

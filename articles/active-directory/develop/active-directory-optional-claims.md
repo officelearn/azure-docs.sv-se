@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501067"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app
@@ -103,7 +103,7 @@ Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returnera
 | Egenskapsnamn  | Ytterligare egenskapsnamn | Beskrivning |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Kan användas för både SAML- och JWT-svar och för v1.0 och v2.0-token. |
-|                | `include_externally_authenticated_upn`  | Innehåller gästen UPN som lagras i resurs-klient. Exempel: `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn`  | Innehåller gästen UPN som lagras i resurs-klient. Till exempel, `foo_hometenant.com#EXT#@resourcetenant.com` |             
 |                | `include_externally_authenticated_upn_without_hash` | Samma som ovan, förutom att hashen markerar (`#`) ersätts med understreck (`_`), till exempel `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Ytterligare egenskaper-exempel
@@ -247,5 +247,5 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
 
 Mer information om standard anspråk som tillhandahålls av Azure AD.
 
-- [ID-tokens](id-tokens.md)
-- [Åtkomsttokens](access-tokens.md)
+- [ID-token](id-tokens.md)
+- [Åtkomsttoken](access-tokens.md)

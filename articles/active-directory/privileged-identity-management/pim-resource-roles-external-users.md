@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493101"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Bjud in gästanvändare och tilldela Azure-resursroller i PIM
@@ -168,4 +168,4 @@ Du kan visa granskningsloggarna för att hålla reda på vad gäster gör precis
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tilldela administratörsroller i Azure AD i PIM](pim-how-to-add-role-to-user.md)
-- [Vad är gästanvändaråtkomst i Azure Active Directory B2B?](../b2b/what-is-b2b.md)
+- [Vad är gästanvändares åtkomst i Azure Active Directory B2B?](../b2b/what-is-b2b.md)

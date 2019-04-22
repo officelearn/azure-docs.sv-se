@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009203"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678555"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkartan: Hantera distribuerade program
 
@@ -90,9 +90,9 @@ Om du vill visa aktiva varningar och de underliggande reglerna som orsakar att a
 
 ![Skärmbild av analytics](media/app-map/alerts-view.png)
 
-## <a name="set-cloudrolename"></a>Ställ in cloud_RoleName
+## <a name="set-cloud-role-name"></a>Ställ in molnrollnamn
 
-Programavbildning använder den `cloud_RoleName` egenskapen att identifiera komponenterna på kartan. Application Insights SDK lägger automatiskt till den `cloud_RoleName` egenskapen till telemetri som genereras av komponenter. Till exempel SDK kommer att lägga till en webbplatsens namn eller tjänstnamnet som rollen ska den `cloud_RoleName` egenskapen. Men finns det fall där kan du åsidosätta standardvärdet. Att åsidosätta cloud_RoleName och ändra det hämtar visas på kartan för programmet:
+Programavbildning använder den **molnrollnamn** egenskapen att identifiera komponenterna på kartan. Application Insights SDK lägger automatiskt till molnet rollen namnegenskapen telemetri som genereras av komponenter. Till exempel SDK: N kommer lägger till en webbplatsens namn eller tjänstnamnet i roll namnegenskapen för cloud-rollen. Men finns det fall där kan du åsidosätta standardvärdet. Att åsidosätta molnrollnamn och ändra det hämtar visas på kartan för programmet:
 
 ### <a name="net"></a>.NET
 
@@ -171,9 +171,9 @@ Om du använder Spring Boot med Application Insights Spring Boot starter är den
 
 `spring.application.name=<name-of-app>`
 
-Spring Boot starter tilldelas automatiskt cloudRoleName till värdet du anger för egenskapen spring.application.name.
+Spring Boot starter tilldelas automatiskt molnrollnamn till värdet du anger för egenskapen spring.application.name.
 
-Mer information om Java korrelation och hur du konfigurerar cloudRoleName för icke-SpringBoot program utcheckning detta [avsnittet](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) på korrelation.
+Ytterligare information om Java Korrelations- och hur du konfigurerar molnroll namn för icke-SpringBoot program checka ut detta [avsnittet](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) på korrelation.
 
 ### <a name="clientbrowser-side-javascript"></a>Klientens/webbläsaren JavaScript
 
@@ -186,15 +186,15 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Förstå Cloud.RoleName inom ramen för Programkartan
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Förstå molnrollnamn inom ramen för Programkartan
 
-När det gäller hur tänka Cloud.RoleName kan det vara bra att titta på en karta för program som har flera Cloud.RoleNames finns:
+Vad gäller hur du förhåller dig **molnrollnamn**, det kan vara bra att titta på en karta för program som har flera moln rollnamn finns:
 
 ![Skärmbild av programmet karta](media/app-map/cloud-rolename.png)
 
-Är Cloud.RoleName/role värden för olika aspekter av det aktuella distribuerade programmet i programavbildning ovan vart och ett av namnen i gröna rutorna. Så för den här appen dess roller består av: `Authentication`, `acmefrontend`, `Inventory Management`, ett `Payment Processing Worker Role`. 
+I programavbildning ovan vart och ett av namnen i gröna rutorna är molnet rollen värden för olika aspekter av det aktuella distribuerade programmet. Så för den här appen dess roller består av: `Authentication`, `acmefrontend`, `Inventory Management`, ett `Payment Processing Worker Role`. 
 
-När det gäller den här appen varje av dessa `Cloud.RoleNames` också representerar en annan unik Application Insights-resurs med sina egna instrumenteringsnycklar. Eftersom ägaren av det här programmet har åtkomst till var och en av de fyra olika Application Insights-resurserna, kan Programkartan en karta över underliggande relationerna sätta ihop.
+När det gäller den här appen representerar var och en av dessa rollnamn för molnet också en annan unik Application Insights-resurs med sina egna instrumenteringsnycklar. Eftersom ägaren av det här programmet har åtkomst till var och en av de fyra olika Application Insights-resurserna, kan Programkartan en karta över underliggande relationerna sätta ihop.
 
 För den [officiella definitioner](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
@@ -208,15 +208,17 @@ För den [officiella definitioner](https://github.com/Microsoft/ApplicationInsig
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-Du kan också kan Cloud.RoleInstance vara användbart för scenarier där Cloud.RoleName talar om problemet är någonstans i din webbservergrupp, men du kanske kör din webbservergrupp över flera belastningsutjämnade servrar så att kunna öka detaljnivån i ett lager som är djupare via Kusto-frågor och att känna till om problemet påverkar kan alla web servrar/klientdelsinstanserna eller bara en vara mycket viktigt.
+Du kan också **molnet rollinstans** kan vara användbart för scenarier där **molnrollnamn** talar om problemet är någonstans i din Webbklient, men du kan köra dina webbklient över flera belastningsutjämnade servrar så att kunna öka detaljnivån i ett lager som är djupare via Kusto-frågor och att känna till om problemet påverkar alla web servrar/klientdelsinstanserna eller bara en kan vara mycket viktigt.
 
-Ett scenario där du kanske vill åsidosätta värdet för Cloud.RoleInstance uppstå om din app körs i en miljö med behållare där bara att känna till den enskilda servern kanske inte tillräckligt med information för att hitta ett visst problem.
+Ett scenario där du kanske vill åsidosätta värdet för molnet rollinstans kan vara om din app körs i en miljö med behållare där bara att känna till den enskilda servern kanske inte tillräckligt med information för att hitta ett visst problem.
 
-Mer information om hur du åsidosätter egenskapen cloud_RoleName med telemetri-initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Mer information om hur du åsidosätter namnegenskapen molnet rollen med telemetri-initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Felsökning
 
 Om du har problem med att få Programkartan som fungerar som förväntat, kan du prova de här stegen:
+
+### <a name="general"></a>Allmänt
 
 1. Kontrollera att du använder en SDK som stöds officiellt. SDK:er som inte stöds eller community-SDK:er har kanske inte stöd för korrelation.
 
@@ -226,9 +228,23 @@ Om du har problem med att få Programkartan som fungerar som förväntat, kan du
 
 3. Om du använder Azure Functions med C#, uppgradera till [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Bekräfta [cloud_RoleName](#set-cloud_rolename) är korrekt konfigurerad.
+4. Bekräfta [molnrollnamn](#set-cloud-role-name) är korrekt konfigurerad.
 
 5. Om du saknar ett beroende kontrollerar du att det finns i listan över [automatiskt insamlade beroenden](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Om inte så kan du ändå spåra det manuellt med ett [beroendespårningsanrop](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+
+### <a name="too-many-nodes-on-the-map"></a>För många noderna på kartan
+
+Programavbildning skapar en programnod för varje unikt molnrollnamn finns i din begärandetelemetri och en beroendenod för varje unik kombination av typen, mål och molnrollnamn i din telemetri om beroenden. Om det finns fler än 10 000 noder i telemetrin visas Programkartan inte hämta alla noder och länkar, så att kartan är ofullständig. Om det händer visas ett varningsmeddelande när du visar kartan.
+
+Dessutom Programkartan endast har stöd för upp till 1 000 separat uppdelade noder återges på samma gång. Programavbildning minskar visual komplexiteten genom att gruppera beroenden som har samma typ och anropare, men om din telemetri har för många unika molnet rollnamn eller för många Beroendetyper, gruppen kommer att vara otillräckliga och kartan kommer inte att återge.
+
+Lös problemet genom måste du ändra din instrumentering för att ange korrekt molnrollnamn, beroendetyp och beroende målfälten.
+
+* Beroendemål ska motsvara det logiska namnet för ett beroende. I många fall är det motsvarar servern eller resursnamnet för beroendet. Till exempel är den inställd på värdnamnet för HTTP-beroenden. Det får inte innehålla unika ID: N eller parametrar som ändrar från en begäran till en annan.
+
+* Beroendetyp ska motsvara den logiska typen för ett beroende. Till exempel är HTTP-, SQL- eller Azure Blob typiska Beroendetyper. Det får inte innehålla unika ID: N.
+
+* Syftet med molnrollnamn beskrivs i den [ovan avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Portalen feedback
 

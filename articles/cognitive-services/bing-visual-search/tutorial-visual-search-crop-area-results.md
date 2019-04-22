@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: rosh
 ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491142"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Självstudier: Beskär en bild med Bing Visual Search SDK förC#
@@ -113,4 +113,4 @@ Att hämta de faktiska bild-URL:erna kräver en omvandling som läser en `Action
 > [Skapa en enda sida i Visual Search webbapp](tutorial-bing-visual-search-single-page-app.md)
 
 ## <a name="see-also"></a>Se också
-> [Vad är API:et för visuell sökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)
+> [Vad är Bing Visual Search API?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

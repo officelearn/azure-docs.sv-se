@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ffd7207367d0bbdd670fb8402775b26952ae5d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852601"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Självstudier: Azure Active Directory-integrering med Apex-portalen
 
@@ -34,7 +35,7 @@ Integreringen av Apex-portalen med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Apex-portalen behöver du följande:
 
@@ -68,7 +69,7 @@ För att konfigurera integreringen av Mimecast Personal Portal med Apex-portalen
 
 4. I sökrutan skriver du **Apex-portalen**, väljer **Apex-portalen** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-     ![Apex-portalen i resultatlistan](common/search-new-app.png)
+    ![Apex-portalen i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
@@ -106,9 +107,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Apex-
 
     ![Information om enkel inloggning med Apex Portal-domäner och -URL:er](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [supportteamet för Apex Portal-klienten](mailto:support@apexanalytix.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -120,7 +121,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Apex-
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
     | Namn | Källattribut|
-    | ------------------- | -------------------- |
+    | -------- | --------- |
     | FÖRNAMN | user.givenname |
     | EFTERNAMN | user.surname |
     | E-POST | user.mail |
@@ -180,8 +181,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
+    b. I den **användarnamn** fälttyp `brittasimon\@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -233,4 +233,3 @@ När du klickar på Apex Portal-panelen i åtkomstpanelen bör du automatiskt lo
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

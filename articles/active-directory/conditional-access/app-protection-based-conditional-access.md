@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496938"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Kräv appskyddsprincip för cloud app-åtkomst med villkorlig åtkomst (förhandsversion)
@@ -312,7 +312,7 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
    - **Kräv appskyddsprincip (förhandsversion)**
 
-   - **Begär alla de valda kontrollerna**   
+   - **Kräv de valda kontrollerna**   
  
      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/13.png)
 
@@ -344,7 +344,7 @@ För den villkorliga åtkomstprincipen i det här steget konfigurerar du följan
 
    - **Kräv appskyddsprincip (förhandsversion)**
 
-   - **Begär alla de valda kontrollerna**   
+   - **Kräv de valda kontrollerna**   
  
      ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/13.png)
 

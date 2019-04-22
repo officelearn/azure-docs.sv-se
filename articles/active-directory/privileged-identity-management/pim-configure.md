@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496086"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
@@ -87,19 +87,19 @@ För Azure-resursroller kan endast prenumerationsadministratörer, resursägare 
 
 PIM stöder följande scenarier:
 
-**Som en privilegierad Rolladministratör kan du:**
+**Som Privilegierad rolladministratör kan du:**
 
 - aktivera godkännande för specifika roller
 - specificera godkända användare och grupper för att godkänna begäranden
 - visa historik för begäranden och godkännanden för alla privilegierade roller.
 
-**Granskare kan du:**
+**Som granskare kan du:**
 
 - visa väntande godkännanden (begäranden)
 - godkänna och avvisa begäranden om att upphöja roller (en i taget eller i grupp)
 - ange en motivering för godkännandet/avvisandet. 
 
-**Som en berättigad roll-användare kan du:**
+**Som berättigad rollanvändare kan du:**
 
 - begära aktivering av roller som kräver godkännande
 - visa status för begäran att aktivera
@@ -107,6 +107,6 @@ PIM stöder följande scenarier:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Licenskrav gäller för att använda PIM](subscription-requirements.md)
-- [Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Licenskrav för användning av PIM](subscription-requirements.md)
+- [Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Distribuera PIM](pim-deployment-plan.md)

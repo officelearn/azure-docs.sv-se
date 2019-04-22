@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
 ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496103"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
@@ -28,7 +28,7 @@ Andra matriser för support:
 
 Här är hur du kan säkerhetskopiera och återställa virtuella Azure-datorer med Azure Backup-tjänsten.
 
-**Scenario** | **Backup** | **Agent** |**Återställ**
+**Scenario** | **Säkerhetskopiering** | **Agent** |**Återställ**
 --- | --- | --- | ---
 Direkt säkerhetskopiering av virtuella Azure-datorer  | Säkerhetskopiera hela VM.  | Ingen agent krävs för virtuella Azure-datorn. Azure Backup installerar och använder ett tillägg till den [Virtuella Azure-datoragenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) som körs på den virtuella datorn. | Återställa på följande sätt:<br/><br/> - **Skapa en grundläggande virtuell dator**. Detta är användbart om den virtuella datorn har ingen särskild konfiguration, till exempel flera IP-adresser.<br/><br/> - **Återställa den Virtuella datordisken**. Återställ disken. Sedan kan du koppla den till en befintlig virtuell dator eller skapa en ny virtuell dator från disken med hjälp av PowerShell.<br/><br/> - **Ersätt virtuell disk**. Om en virtuell dator finns och den använder hanterade diskar (okrypterat), kan du återställa en disk och använda den för att ersätta en befintlig disk på den virtuella datorn.<br/><br/> - **Återställa specifika filer/mappar**. Du kan återställa filer/mappar från en virtuell dator i stället för från en hel virtuell dator.
 Direkt säkerhetskopiering av virtuella Azure-datorer (endast Windows)  | Säkerhetskopiera specifika filer/mappar/volym. | Installera den [Azure Recovery Services-agenten](backup-azure-file-folder-backup-faq.md).<br/><br/> Du kan köra MARS-agenten tillsammans med säkerhetskopieringstillägget för Azure VM-agenten för säkerhetskopiering av den virtuella datorn på filen/mappen nivå. | Återställa specifika mappar/filer.
@@ -100,7 +100,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 ## <a name="supported-restore-methods"></a>Stöds restore-metoder
 
-**Restore-metod** | **Information**
+**Restore-metod** | **Detaljer**
 --- | ---
 Skapa en ny virtuell dator | Du kan skapa en virtuell dator under återställningsprocessen. <br/><br/> Det här alternativet får en grundläggande virtuell dator igång. Du kan ange den virtuella datorn namnet, resursgrupp, virtuellt nätverk, undernät, och storage.  
 Återställa en disk | Du kan återställa en disk och använda den för att skapa en virtuell dator.<br/><br/> När du väljer det här alternativet kan kopierar Azure Backup data från valvet till ett lagringskonto som du väljer. Återställningsjobbet genererar en mall. Du kan hämta den här mallen, använda för att ange anpassade inställningar för virtuell dator och skapa en virtuell dator.<br/><br/> Det här alternativet kan du ange fler inställningar som du tidigare möjlighet att skapa en virtuell dator.<br/><br/>

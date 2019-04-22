@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496411"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsöka lösenordsåterställning via självbetjäning
@@ -285,14 +285,14 @@ För att hjälpa dig korrekt ombeds ange så mycket information som möjligt nä
 
 I följande artiklar innehåller ytterligare information om lösenordsåterställning via Azure AD:
 
-* [Hur jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
-* [Återställa eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registrera för återställning av lösenord med självbetjäning](../user-help/active-directory-passwords-reset-register.md)
+* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
+* [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md)
 * [Har du en fråga om licensiering?](concept-sspr-licensing.md)
-* [Vilka data som används av SSPR och vilka data bör du fylla för dina användare?](howto-sspr-authenticationdata.md)
-* [Vilka autentiseringsmetoder är tillgängliga för användare?](concept-sspr-howitworks.md#authentication-methods)
-* [Vad är principalternativ finns SSPR?](concept-sspr-policy.md)
-* [Vad är tillbakaskrivning av lösenord och varför behöver jag bry mig om det?](howto-sspr-writeback.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)
+* [Vilka principalternativ finns för SSPR?](concept-sspr-policy.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
 * [Hur gör jag för att rapportera på aktivitet i SSPR?](howto-sspr-reporting.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)

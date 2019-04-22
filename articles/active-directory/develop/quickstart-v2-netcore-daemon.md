@@ -18,10 +18,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491329"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet
@@ -75,14 +75,14 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app på Azure Portal
 > För att kodexemplet för den här snabbstarten ska fungera måste du skapa en klienthemlighet och lägga till Graph-API:ts programbehörighet **User.Read.All**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Gör dessa ändringar för mig]()
+> > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerat](media/quickstart-v2-windows-desktop/green-check.png) ditt program har konfigurerats med dessa attribut.
+> > ![Redan konfigurerad](media/quickstart-v2-windows-desktop/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
-[Ladda ned Visual Studio-projekt](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
+[Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
@@ -100,9 +100,9 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
     
     > [!div renderon="docs"]
     >> Där:
-    >> * `Enter_the_Application_Id_Here` -är den **(klient)-ID: T** för programmet som du har registrerat.
-    >> * `Enter_the_Tenant_Id_Here` -Ersätt detta värde med den **klient-Id** eller **klientnamn** (till exempel contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here` -Ersätt detta värde med klienthemlighet som skapats i steg 1.
+    >> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
+    >> * `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
+    >> * `Enter_the_Client_Secret_Here` – ersätt det här värdet med klienthemligheten som skapades i steg 1.
 
     > [!div renderon="docs"]
     > > [!TIP]
@@ -132,8 +132,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Där:
->> * `Enter_the_Tenant_Id_Here` -Ersätt detta värde med den **klient-Id** eller **klientnamn** (till exempel contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` -är den **(klient)-ID: T** för programmet som du har registrerat.
+>> * `Enter_the_Tenant_Id_Here` – ersätt det här värdet med **klient-ID** eller **klientnamn** (t.ex. contoso.microsoft.com)
+>> * `Enter_the_Application_Id_Here` – är **program-ID (klient)** för programmet som du har registrerat.
 
 > [!NOTE]
 > Du kan se felet *”AADSTS50011: Ingen svarsadress registrerad för programmet”* när du har beviljat åtkomst till appen med föregående URL. Det här händer eftersom den här appen och URL:en inte har en omdirigerings-URI – ignorera felet.
@@ -230,7 +230,7 @@ Lär dig mer om behörigheter och medgivande:
 Mer information om autentiseringsflödet för det här scenariot finns i Oauth 2.0-flödet för klientautentiseringsuppgifter:
 
 > [!div class="nextstepaction"]
-> [Oauth flödet](v2-oauth2-client-creds-grant-flow.md)
+> [Oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)
 
 > [!div class="nextstepaction"]
-> [Autentiseringsuppgifter för klienten flöden med MSAL.NET](https://aka.ms/msal-net-client-credentials)
+> [Flöden för klientautentiseringsuppgifter med MSAL.NET](https://aka.ms/msal-net-client-credentials)

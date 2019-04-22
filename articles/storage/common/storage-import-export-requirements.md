@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 47ecfc2ae1352ad24b5cfd7fc39bca26bae09df7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457793"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679734"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systemkrav
 
@@ -74,7 +74,7 @@ Följande lista över diskar stöds för användning med Import/Export-tjänsten
 
 |Disktyp  |Storlek  |Stöds |Stöds inte  |
 |---------|---------|---------|---------|
-|SSD    |   2,5-tums      |         |         |
+|SSD    |   2,5-tums      |SATA III          |  USB       |
 |HDD     |  2,5-tums<br>3,5-tums       |SATA II, SATA III         |Externa hårddiskar med inbyggd USB-adapter <br> Disk på versaler och gemener i en extern Hårddisk         |
 
 

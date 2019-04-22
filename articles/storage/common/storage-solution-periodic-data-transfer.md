@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58801989"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Lösningar för periodiska dataöverföring
@@ -42,13 +42,13 @@ I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Skripta/Programmatic network-dataöverföringar
 
-| Funktion                  | AzCopy                                 | Azure Storage REST API: er       |
+| Kapacitet                  | AzCopy                                 | Azure Storage REST API: er       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Formfaktor                 | Kommandoradsverktyget från Microsoft       | Kunder som utvecklar mot Storage <br> REST API: er med hjälp av Azure-klientbiblioteken |
 | Enstaka installationen     | Minimalt                                | Måttlig, variabla utvecklingsarbete    |
 | Data Format                 | Azure-Blobs, Azure Files, Azure-tabeller | Azure-Blobs, Azure Files, Azure-tabeller   |
 | Prestanda                 | Redan optimerats                      | Optimera när du utvecklar                  |
-| Prissättning                     | Kostnadsfri, kostnaderna för utgående datatrafik gäller      | Kostnadsfri, kostnaderna för utgående datatrafik gäller        |
+| Priser                     | Kostnadsfri, kostnaderna för utgående datatrafik gäller      | Kostnadsfri, kostnaderna för utgående datatrafik gäller        |
 
 ### <a name="continuous-data-ingestion-over-network"></a>Kontinuerlig datainmatning över nätverk
 
@@ -61,7 +61,7 @@ I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 | Förbearbetning av data                           | Nej                         | Ja, via Edge-beräkning    | Ja                                                           |
 | Lokal cache<br>(för att lagra data på plats)    | Ja                        | Ja                      | Nej                                                            |
 | Överföra från andra moln                    | Nej                         | Nej                       | Ja                                                           |
-| Prissättning                                       | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
+| Priser                                       | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.openlocfilehash: 1e02eaeae4757a9a41ec59be81c3d9510d035232
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273829"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Självstudier: Apache Kafka Streams-API
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera Kafka-ämnen
 > * Kör koden
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Kafka på HDInsight 3.6-klustret. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 

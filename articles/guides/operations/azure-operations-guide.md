@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
 ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051178"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
@@ -473,7 +473,7 @@ Du kan ansluta ett lokalt nätverk till ett Azure-nätverk med hjälp av Express
 Eftersom Azure-nätverket är anslutet till ditt lokala nätverk, mellan lokala virtuella nätverk måste använda ett unikt delen av adressutrymmet som används i din organisation. På samma sätt som olika företagsplatser har tilldelats ett specifikt IP-undernät, blir Azure en annan plats när du utökar ditt nätverk.
 Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 
-- [Portalen](../..//virtual-network/quick-create-portal.md)
+- [Portal](../..//virtual-network/quick-create-portal.md)
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
@@ -491,5 +491,5 @@ Du kan hjälpa att säkra Azure-nätverk med hjälp av en nätverkssäkerhetsgru
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en virtuell Windows-dator](../../virtual-machines/windows/quick-create-portal.md)
+- [Skapa en Windows VM](../../virtual-machines/windows/quick-create-portal.md)
 - [Skapa en virtuell Linux-dator](../../virtual-machines/linux/quick-create-portal.md)

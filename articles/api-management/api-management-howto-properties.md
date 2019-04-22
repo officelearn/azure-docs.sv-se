@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58791634"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Hur du använder med namnet värden i Azure API Management-principer
@@ -25,7 +25,7 @@ API Management-principer är en kraftfull funktion i systemet som tillåter Azur
 
 Varje API Management-tjänstinstans har en egenskapssamling för nyckel/värde-par, som kallas med namnet värden, som är globala för tjänstinstansen. Dessa värden med namnet kan användas för att hantera konstant strängvärden i alla API-konfiguration och principer. Varje egenskap kan ha följande attribut:
 
-| Attribut | Type | Beskrivning |
+| Attribut | Typ | Beskrivning |
 | --- | --- | --- |
 | Visningsnamn |sträng |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
 | Värde |sträng |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
@@ -38,9 +38,9 @@ Egenskapsvärden kan innehålla literala strängar och [principuttryck](/azure/a
 
 | Namn | Värde | Hemlighet | Taggar |
 | --- | --- | --- | --- |
-| ContosoHeader |TrackingId |False |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
+| ContosoHeader |TrackingId |Falskt |Contoso |
+| ContosoHeaderValue |•••••••••••••••••••••• |Sant |Contoso |
+| ExpressionProperty |@(DateTime.Now.ToString()) |Falskt | |
 
 ## <a name="to-add-and-edit-a-property"></a>Lägga till och redigera en egenskap
 
@@ -100,7 +100,7 @@ När den här principen utvärderas `{{ExpressionProperty}}` ersätts med värde
 
 Du kan testa detta i developer-portalen genom att anropa en åtgärd som har en princip med namngivna värden i omfånget. I följande exempel kallas en åtgärd med två föregående exempel `set-header` principer med namngivna värden. Observera att svaret innehåller två anpassade sidhuvuden som konfigurerades med med namngivna värden.
 
-![Utvecklarportalen][api-management-send-results]
+![Utvecklarportal][api-management-send-results]
 
 Om du tittar på den [API Inspector trace](api-management-howto-api-inspector.md) för samtal som innehåller de två föregående exempel principerna med namngivna värden, kan du se två `set-header` principer med egenskapsvärden infogas samt Principuttrycket utvärdering för egenskapen som innehöll Principuttrycket.
 

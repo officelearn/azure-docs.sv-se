@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490747"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Skapa en anpassad avbildning fabrik i Azure DevTest Labs
@@ -25,9 +25,9 @@ Den här artikeln beskriver ställa in en bevarandeprincip rensar fabriken och t
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Kontrollera att du har följt de här artiklarna innan du fortsätter:
 
-- [Skapa en avbildningsfabrik](image-factory-create.md)
-- [Köra en avbildningsfabrik från Azure DevOps](image-factory-set-up-devops-lab.md)
-- [Spara anpassade avbildningar och distribuera till flera labb](image-factory-save-distribute-custom-images.md)
+- [Skapa en avbildning datafabrik](image-factory-create.md)
+- [Kör en datafabrik avbildning från Azure DevOps](image-factory-set-up-devops-lab.md)
+- [Spara anpassade avbildningar och distribuera till flera labs](image-factory-save-distribute-custom-images.md)
 
 Följande objekt ska redan finnas:
 

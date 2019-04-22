@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793788"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
 
 Den här guiden visar hur du distribuerar lösningsacceleratorn för fjärrövervakning. Du kan distribuera lösningen med hjälp av CLI. Du kan också distribuera lösningen med webbaserat gränssnitt på azureiotsolutions.com, om du vill veta mer om det här alternativet finns i den [distribuerar lösningsacceleratorn för fjärrövervakning](quickstart-remote-monitoring-deploy.md) Snabbstart.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver en aktiv Azure-prenumeration om du vill distribuera lösningsacceleratorn för fjärrövervakning.
 
@@ -52,7 +52,7 @@ När du distribuerar solution accelerator, finns det flera alternativ som konfig
 | Alternativ | Värden | Beskrivning |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | En _grundläggande_ distribution är avsedd för testning och demonstrationer, alla mikrotjänster distribueras till en virtuell dator. En _standard_ distribution är avsedd för produktion, mikrotjänster distribueras till flera virtuella datorer. En _lokala_ distribution konfigurerar en Docker-behållare för att köra mikrotjänster på den lokala datorn och använder Azure molntjänster, till exempel lagring och Cosmos DB. |
-| Körmiljö | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
+| Körning | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
 
 Läs hur du använder alternativet för lokal distribution i [körs av lösningen för fjärrövervakning lokalt](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -68,7 +68,7 @@ Basic-distributionen är anpassad för att visa upp lösningen. För att minska 
 
 En grundläggande distribution skapar följande tjänster i Azure-prenumerationen:
 
-| Antal | Resurs                       | Type         | Används för |
+| Antal | Resurs                       | Typ         | Används för |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Som är värd för mikrotjänster |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Standard-nivån | Enhetshantering och kommunikation |

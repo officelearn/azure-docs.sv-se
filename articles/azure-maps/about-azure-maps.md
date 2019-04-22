@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268780"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
@@ -139,7 +139,7 @@ Kontrollera att platsen för din aktuella IP-adress som inte är i något av ova
 Mer information om de nya funktionerna i Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Väg matris, Isochrones, IP-sökning och mycket mer](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
+> [Ruttmatris, isokroner, IP-sökning med mera](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
 Prova att använda en exempelapp med Azure Maps:
 

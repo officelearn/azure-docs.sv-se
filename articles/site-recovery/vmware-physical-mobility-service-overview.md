@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 3b354492778426d1e3c31e53e277fd9be1e22c93
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048120"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitetstjänsten för VMware-datorer och fysiska servrar
@@ -113,7 +113,7 @@ Följande steg utförs under push-installation av mobilitetsagenten
     ```
 
 #### <a name="installation-settings"></a>Inställningar för klientinstallationer
-**Inställning** | **Information**
+**Inställning** | **Detaljer**
 --- | ---
 Användning | UnifiedAgent.exe/role < MS|MT > /InstallLocation  <Install Location> /Platform ”VmWare” / silent
 Installationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
@@ -123,7 +123,7 @@ Installationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller
 / Tyst| Valfri. Anger om du vill köra installationsprogrammet i tyst läge.
 
 #### <a name="registration-settings"></a>Registreringsinställningar
-**Inställning** | **Information**
+**Inställning** | **Detaljer**
 --- | ---
 Användning | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Agenten konfigurationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
@@ -152,7 +152,7 @@ Agenten konfigurationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgent
     ```
 
 #### <a name="installation-settings"></a>Inställningar för klientinstallationer
-**Inställning** | **Information**
+**Inställning** | **Detaljer**
 --- | ---
 Användning | . / install -d \<installationsplats > - r < MS|MT> -v VmWare -q
 -r | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmål (MT) ska installeras.
@@ -161,7 +161,7 @@ Användning | . / install -d \<installationsplats > - r < MS|MT> -v VmWare -q
 -q | Valfri. Anger om du vill köra installationsprogrammet i tyst läge.
 
 #### <a name="registration-settings"></a>Registreringsinställningar
-**Inställning** | **Information**
+**Inställning** | **Detaljer**
 --- | ---
 Användning | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP > -P \<PassphraseFilePath >
 -i | Obligatorisk parameter. Anger IP-adressen för konfigurationsservern. Använd en giltig IP-adress.

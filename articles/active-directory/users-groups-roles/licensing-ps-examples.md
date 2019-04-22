@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70e4e56742f45e0f6bfd80455e4d7545523a478b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265788"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-exempel för gruppbaserad licensiering i Azure AD
@@ -26,7 +26,7 @@ ms.locfileid: "59265788"
 Alla funktioner för gruppbaserad licensiering är tillgänglig via den [Azure-portalen](https://portal.azure.com), och för närvarande stöd för PowerShell och Microsoft Graph är begränsad. Det finns dock några användbara uppgifter som kan utföras med hjälp av befintliga [MSOnline PowerShell-cmdletar](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) och Microsoft Graph. Det här dokumentet innehåller exempel på vad som är möjligt.
 
 > [!NOTE]
-> Innan du kör cmdlet: ar, se till att du ansluter till din organisation börja genom att köra den `Connect-MsolService` cmdlet.
+> Innan du kör cmdlet: ar, se till att du ansluter till din organisation börja genom att köra den `Connect-MsolService`  cmdlet.
 
 > [!WARNING]
 > Den här koden finns som ett exempel i demonstrationssyfte. Överväg att testa det först i liten skala eller i en separat test-klient om du planerar att använda den i din miljö. Du kan behöva justera koden för att uppfylla de specifika behoven i din miljö.
@@ -628,5 +628,5 @@ Mer information om funktionen för hantering av programvarulicenser via grupper 
 * [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](licensing-groups-migrate-users.md)
 * [Så här migrerar du användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Azure Active Directory gruppbaserad licensiering ytterligare scenarier](licensing-group-advanced.md)
+* [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](licensing-group-advanced.md)
 * [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

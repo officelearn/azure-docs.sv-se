@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046690"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina VHD: er
@@ -62,7 +62,7 @@ När den virtuella datorn har distribuerats kan du är redo att [certifiera din 
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parameter**              |   **Beskrivning**                                                            |
+   |  **Parametern**              |   **Beskrivning**                                                            |
    |  -------------              |   ---------------                                                            |
    | Användaren Lagringskontonamn   | Lagringskontonamn där den generaliserade virtuella Hårddisken finns                    |
    | Namnet på användaren lagringsbehållaren | Behållarens namn där den generaliserade virtuella Hårddisken finns                          |
@@ -70,7 +70,7 @@ När den virtuella datorn har distribuerats kan du är redo att [certifiera din 
    | Systemadministratörsanvändarens namn             | Användarnamn för administratörskontot för nya virtuella datorn                                  |
    | Administratörslösenord              | Lösenordet för administratörskontot för nya virtuella datorn                                  |
    | OS-typ                     | VM-operativsystem: `Windows` \| `Linux`                                    |
-   | Prenumerations-ID:t             | Identifierare för den valda prenumerationen                                      |
+   | Prenumerations-ID             | Identifierare för den valda prenumerationen                                      |
    | Plats                    | Geografisk plats för distributionen                                        |
    | Storlek på virtuell dator                     | [Azure VM-storlek](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), till exempel `Standard_A2` |
    | Offentliga IP-adressnamn      | Namnet på din offentliga IP-adress                                               |

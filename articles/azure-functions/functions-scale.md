@@ -14,10 +14,10 @@ ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266949"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
@@ -42,7 +42,7 @@ När du skapar en funktionsapp kan välja du värdplanen för funktioner i appen
 
 När du använder förbrukningsplanen är dynamiskt instanser av Azure Functions-värden har lagts till och tas bort baserat på antalet inkommande händelser. Den här serverlösa planen skalas automatiskt och du debiteras för beräkningsresurser bara när dina funktioner körs. I en förbrukningsplan gör körning av en funktion timeout när en konfigurerbar tidsperiod.
 
-Fakturering baseras på antalet körningar, körningstid och minne som används. Fakturering slås samman över alla funktioner i en funktionsapp. Mer information finns i den [Azure Functions sidan med priser].
+Fakturering baseras på antalet körningar, körningstid och minne som används. Fakturering slås samman över alla funktioner i en funktionsapp. Mer information finns i den [Azure Functions-priserna sidan].
 
 Med förbrukningsplanen är standard värdplan och har följande fördelar:
 
@@ -75,7 +75,7 @@ I stället för fakturering per körning och minne som förbrukas baseras faktur
 
 När du kör JavaScript-funktioner på en premiumplan, bör du välja en instans som har färre virtuella processorer. Mer information finns i den [väljer enkel kärna premiumplaner](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## <a name="app-service-plan"></a>App Service-plan
+## <a name="app-service-plan"></a>Apptjänstavtal
 
 Dina funktionsappar kan också köra på samma dedikerade virtuella datorer som andra App Service-appar (Basic, Standard, Premium och isolerade SKU: er). App Service-planer har stöd för Linux.
 
@@ -157,7 +157,7 @@ Det finns många aspekter av en funktionsapp som påverkar hur väl den skalas, 
 
 ### <a name="billing-model"></a>Faktureringsmodell
 
-Faktureringen för förbrukningsplanen beskrivs i detalj på den [Azure Functions sidan med priser]. Användning sammanställs på funktionen app-nivå och räknar bara den tid som Funktionskoden körs. Här följer några enheter för fakturering:
+Faktureringen för förbrukningsplanen beskrivs i detalj på den [Azure Functions-priserna sidan]. Användning sammanställs på funktionen app-nivå och räknar bara den tid som Funktionskoden körs. Här följer några enheter för fakturering:
 
 * **Resursförbrukning i gigabyte-sekunder (GB-s)**. Beräknad som en kombination av minnesstorlek och körningstid för alla funktioner i en funktionsapp. 
 * **Körningar**. Räknas varje gång en funktion körs som svar på en händelseutlösare.

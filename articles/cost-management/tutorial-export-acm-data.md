@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496802"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678147"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Självstudier: Skapa och hantera exporterade data
 
@@ -45,7 +45,13 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-daily-export"></a>Skapa en daglig export
 
-Att skapa eller visa en export av data eller för att schemalägga en export, öppna det önskade omfånget i Azure portal och väljer **analys av kostnader** på menyn. Till exempel Gå till **prenumerationer**, Välj en prenumeration i listan och välj sedan **analys av kostnader** på menyn. Längst upp på sidan Cost analysis, klickar du på **exportera** och välj sedan ett exportalternativ för. Klicka till exempel **schemalägga export**. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
+Att skapa eller visa en export av data eller för att schemalägga en export, öppna det önskade omfånget i Azure portal och väljer **analys av kostnader** på menyn. Till exempel Gå till **prenumerationer**, Välj en prenumeration i listan och välj sedan **analys av kostnader** på menyn. Längst upp på sidan Cost analysis, klickar du på **exportera** och välj sedan ett exportalternativ för. Klicka till exempel **schemalägga export**.  
+
+> [!NOTE]
+> Förutom prenumerationer, kan du skapa export på resursgrupper, konton, avdelningar och registreringar. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
+> 
+> 
+
 
 Klicka på **Lägg till**, Skriv ett namn för exporten och välj sedan den **dagliga export av månad hittills kostnader** alternativet. Klicka på **Nästa**.
 
@@ -63,7 +69,7 @@ Först kan det ta en till två timmar innan exporten körs. Dock kan det ta upp 
 
 ### <a name="export-schedule"></a>Exportera schema
 
-Schemalagda exporter påverkas av tiden och dagen i veckan då du först skapade exporten. När du skapar en schemalagd export körs exporten samma tid på dagen för varje efterföljande export. Anta exempelvis att du skapar en daglig export klockan 13:00. Nästa export körs klockan 13:00 följande dag. Den aktuella tiden påverkar alla andra exporttyper på samma sätt – de körs alltid samma tid på dagen som då du först skapade exporten. I ett annat exempel skapar du en veckovis export kl. 16:00 på måndag. Nästa rapport körs kl. 16:00 följande måndag. *Exporterade data är tillgängliga inom fyra timmar efter körning.*
+Schemalagda exporter påverkas av tiden och dagen i veckan då du först skapade exporten. När du skapar en schemalagd export körs exporten samma tid på dagen för varje efterföljande export. Anta exempelvis att du skapar en daglig export klockan 13:00. Nästa export körs klockan 13:00 följande dag. Den aktuella tiden påverkar alla andra exporttyper på samma sätt – de körs alltid samma tid på dagen som då du först skapade exporten. I ett annat exempel skapar du en veckovis export kl. 16:00 på måndag. Nästa rapport körs kl. 16:00 följande måndag. *Exporterade data är tillgängliga inom fyra timmar efter körningstiden.*
 
 Varje export skapar en ny fil, vilket betyder att äldre exporter inte skrivs över.
 
@@ -73,7 +79,7 @@ Det finns tre typer av exportalternativ:
 
 **Veckokostnader för export de senaste 7 dagarna** – Den första exporten körs direkt. Efterföljande exporter körs på samma dag i veckan och vid samma tid som den första exporten. Kostnaderna avser de senaste sju dagarna.
 
-**Anpassad** – Gör att du kan schemalägga vecko- och månadsexporter med alternativ för ”hittills den här veckan” och ”hittills den här månaden”. *Den första exporten ska köras omedelbart.*
+**Anpassad** – Gör att du kan schemalägga vecko- och månadsexporter med alternativ för ”hittills den här veckan” och ”hittills den här månaden”. *Den första exporten körs direkt.*
 
 Om du har en betala per användning, MSDN eller Visual Studio-prenumeration, kanske inte din faktura faktureringsperiod justeras per kalendermånad. Du kan skapa en export som justeras till din faktureringsperiod eller kalendermånaderna för dessa typer av prenumerationer och resursgrupper. Skapa en export justeras till din Fakturamånad, gå till **anpassade**och välj sedan **fakturering-punkt-till-date**.  Om du vill skapa en export justerad per kalendermånad, Välj **månad hittills**.
 >
@@ -113,4 +119,4 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudie för att optimera och förbättra effektiviteten genom att identifiera inaktiva och underutnyttjade resurser.
 
 > [!div class="nextstepaction"]
-> [Granska och vidta åtgärder för optimering rekommendationer](tutorial-acm-opt-recommendations.md)
+> [Granska och arbeta med optimeringsrekommendationer](tutorial-acm-opt-recommendations.md)

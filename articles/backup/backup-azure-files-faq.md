@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: backup
 manager: carmonm
 ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426621"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
@@ -112,6 +112,6 @@ När en ny princip tillämpas på en eller flera filresurser följs schemat och 
 
 ## <a name="see-also"></a>Se också
 Den här informationen handlar bara om säkerhetskopiering av Azure Files. Om du vill veta mer om andra användningsområden i Azure Backup kan du läsa andra vanliga frågor och svar om säkerhetskopiering:
--  [Vanliga frågor och svar för Recovery Services-valv](backup-azure-backup-faq.md)
--  [Azure VM backup vanliga frågor och svar](backup-azure-vm-backup-faq.md)
--  [Azure Backup-agenten vanliga frågor och svar](backup-azure-file-folder-backup-faq.md)
+-  [Recovery Services-valv – vanliga frågor och svar](backup-azure-backup-faq.md)
+-  [Säkerhetskopiering av virtuella Azure-datorer – vanliga frågor och svar ](backup-azure-vm-backup-faq.md)
+-  [Azure Backup-agent – vanliga frågor och svar](backup-azure-file-folder-backup-faq.md)

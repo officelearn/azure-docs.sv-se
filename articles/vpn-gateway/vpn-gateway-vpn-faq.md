@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
 ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281057"
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
@@ -182,7 +182,7 @@ Det här avsnittet gäller distributionsmodellen i Resource Manager.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Kan jag använda Azures VPN-gateway till att överföra trafik mellan mina lokala platser eller till ett annat virtuellt nätverk?
 
-**Distributionsmodell med Resource Manager**<br>
+**Distributionsmodell för Resource Manager**<br>
 Ja. Mer information finns i avsnittet om [BGP](#bgp).
 
 **Klassisk distributionsmodell**<br>

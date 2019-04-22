@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258784"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
@@ -129,8 +129,8 @@ A. Verktygsuppsättningen som är tillgänglig med Data Box-diskar består av tr
  - **Verktyget Data Box Disk Split Copy**: Använd det här verktyget om du använder flera diskar och har en stor datauppsättning som behöver delas upp och kopieras över alla diskar. Det här verktyget är för närvarande tillgängligt för Windows. Det här verktyget stöds inte med hanterade diskar. Det här verktyget validerar också som data kopieras, därför du kan hoppa över verifieringen steg när du använder det här verktyget.
 
 Verktygsuppsättningen är tillgänglig både för Windows och Linux. Du kan hämta verktygen här:
-- [Hämta Data Box-Disk-verktygen för Windows](https://aka.ms/databoxdisktoolswin) 
-- [Hämta Data Box-Disk-verktygen för Linux](https://aka.ms/databoxdisktoolslinux)
+- [Ladda ned Data Box Disk-verktyg för Windows](https://aka.ms/databoxdisktoolswin) 
+- [Ladda ned Data Box Disk-verktyg för Linux](https://aka.ms/databoxdisktoolslinux)
  
 ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>F. Kan jag använda Data Box Disk för att överföra data till Azure Files och sedan använda data med Azure File Sync? 
 A. Azure Files stöds med Data Box-Disk, men kommer inte att fungera bra med Azure File Sync. Metadata sparas inte om fildata som används med Azure File Sync.

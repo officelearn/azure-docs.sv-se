@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489630"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
@@ -101,7 +101,7 @@ Riktar in sig på fullständiga framework från .NET Core, fristående distribut
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Värde: `true`
+     Värde:`true`
 
    * **Spara** inställningarna och **starta om** din app.
 
@@ -120,7 +120,7 @@ Om du av någon anledning skulle du vilja inaktivera övervakning på klientsida
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Värde: `false`
+     Värde:`false`
 
    * **Spara** inställningarna och **starta om** din app.
 
@@ -137,7 +137,7 @@ Endast programinställningarna måste anges för att aktivera telemetriinsamling
 |App inställningsnamn |  Definition | Värde |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Viktigaste tillägg som styr realtidsövervakning. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  I är läge, men viktiga funktioner aktiverade för att säkerställa optimala prestanda. | `default` Eller `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  I är läge, men viktiga funktioner aktiverade för att säkerställa optimala prestanda. | `default` eller `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Styr om motorn för binary-omskrivning `InstrumentationEngine` aktiveras. Den här inställningen har prestanda och påverkar kalla start/starttiden. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Kontrollerar om SQL och Azure table text ska hämtas tillsammans med beroendeanrop. Prestandavarning: den här inställningen kräver det `InstrumentationEngine`. | `~1` |
 

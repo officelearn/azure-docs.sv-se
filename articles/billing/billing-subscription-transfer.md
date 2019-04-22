@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8baa5f10aeba179ef141cfea86fded8cf44dfc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878218"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678827"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -30,7 +30,7 @@ ms.locfileid: "57878218"
 
 > [!IMPORTANT]
 > 
-> Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till Målklienten.
+> Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till Målklienten. Du måste manuellt återskapa hanterade identiteter för Azure-resurser. Mer information finns i [vanliga frågor och kända problem med hanterade identiteter](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Överföra ägarskapet för en Azure-prenumeration
 
@@ -52,7 +52,7 @@ ms.locfileid: "57878218"
 
    > [!IMPORTANT]
    > 
-   > Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till Målklienten.
+   > Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till Målklienten. Du måste manuellt återskapa hanterade identiteter för Azure-resurser. Mer information finns i [vanliga frågor och kända problem med hanterade identiteter](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Överför prenumeration dialogrutan](./media/billing-subscription-transfer/image2.PNG)
 

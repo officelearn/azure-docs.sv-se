@@ -10,10 +10,10 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 ms.openlocfilehash: 4c759462d603a35e738f76a505abd04b832afc3f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426349"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Komma igång med Azure Dev Spaces med .NET Core
@@ -105,7 +105,7 @@ Hittills har du en grundläggande webbapp som kan köras lokalt. Du kommer nu an
     ```
 
 Kommandot `azds prep` i Azure CLI genererar Docker- och Kubernetes-tillgångar med standardinställningarna:
-* `./Dockerfile` Beskriver appens behållaravbildning och hur källkoden bygger och körs i behållaren.
+* `./Dockerfile` beskriver appens containeravbildning och hur källkoden byggs och körs i containern.
 * Ett [Helm-diagram](https://docs.helm.sh) under `./charts/webfrontend` beskriver hur du distribuerar containern till Kubernetes.
 
 För tillfället är det inte nödvändigt att förstå det fullständiga innehållet i dessa filer. Det är dock värt att påpeka att **samma Kubernetes- och Docker-konfiguration som kod-tillgångar kan användas från utveckling till produktion, vilket ger bättre konsekvens mellan olika miljöer.**
@@ -145,7 +145,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
-1. Leta upp filen `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Till exempel ändra raden 70 `<h2>Application uses</h2>` till något som liknar: `<h2>Hello k8s in Azure!</h2>`
+1. Leta upp filen `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Ändra till exempel rad 70, `<h2>Application uses</h2>`, till något som: `<h2>Hello k8s in Azure!</h2>`
 1. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva containern har uppdaterats.
 1. Gå till webbläsaren och uppdatera sidan. Den uppdaterade HTML-koden bör visas på webbsidan.
 
@@ -155,7 +155,7 @@ Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompil
 Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måste återskapas och skapa uppdaterade binärfiler för programmet.
 
 1. Tryck på `Ctrl+C` (för att stoppa `azds up`) i terminalfönstret.
-1. Öppna kodfilen `Controllers/HomeController.cs`, och redigera meddelandet som visas sidan om: `ViewData["Message"] = "Your application description page.";`
+1. Öppna kodfilen `Controllers/HomeController.cs` och ändra meddelandet som ska visas på sidan Om: `ViewData["Message"] = "Your application description page.";`
 1. Spara filen.
 1. Kör `azds up` i terminalfönstret. 
 
@@ -226,7 +226,7 @@ I stället för att återskapa och distribuera om en ny containeravbildning varj
 
 Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade meddelande visas i användargränssnittet.
 
-**Nu har du en metod för att snabbt iterera på koden och felsöka direkt i Kubernetes!** Nu ska vi gå vidare och se hur du kan skapa och anropa en andra container.
+**Nu vet du hur du snabbt kan arbeta med kod och felsöka direkt i Kubernetes!** Nu ska vi gå vidare och se hur du kan skapa och anropa en andra container.
 
 ## <a name="next-steps"></a>Nästa steg
 

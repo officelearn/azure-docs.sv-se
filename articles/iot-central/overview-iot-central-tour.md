@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 4908130cc0d59e42adb4f7ab2239e5b57dc08b89
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774310"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678657"
 ---
-# <a name="take-a-tour-of-the-azure-iot-central-ui-new-ui-design"></a>Ta en rundtur i Azure IoT Central-användargränssnittet (Ny UI-design)
+# <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
 
 Den här artikeln beskriver Microsoft Azure IoT Central-användargränssnittet. Du kan använda gränssnittet till att skapa, hantera och använda en Azure IoT Central-lösning och dess anslutna enheter.
 

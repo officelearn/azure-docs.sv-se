@@ -16,10 +16,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260909"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Självstudier: Azure Active Directory-katalogintegrering med Appraisd
@@ -34,7 +34,7 @@ När du integrerar Appraisd med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Appraisd behöver du följande objekt:
 
@@ -107,9 +107,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Apprais
 
     a. Klicka på **Ange ytterligare URL:er**.
 
-    b. I den **Vidarebefordransstatus** text skriver en URL: `<TENANTCODE>`
+    b. Skriv en URL i textrutan **Vidarebefordransstatus**: `<TENANTCODE>`
 
-    c. Om du vill konfigurera programmet i **SP** har initierat läge, den **inloggnings-URL** text skriver en URL med hjälp av följande mönster: `https://app.appraisd.com/saml/<TENANTCODE>`
+    c. Om du vill konfigurera programmet i **SP**-initierat läge skriver du en URL med hjälp av följande mönster i textrutan **Inloggnings-URL**: `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
     > Du får det faktiska värdet för inloggnings-URL och värdet för vidarebefordransstatus på konfigurationssidan för Appraisd SSO som beskrivs senare i självstudien.
@@ -242,7 +242,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 För att Azure AD-användare ska kunna logga in på Appraisd måste de etableras till Appraisd. I Appraisd är etablering en manuell aktivitet.
 
-**Gör följande för att etablera ett användarkonto:**
+**Utför följande steg för att etablera ett användarkonto:**
 
 1. Logga in på Appraisd som administratör.
 
@@ -274,7 +274,7 @@ När du klickar på Appraisd-panelen i åtkomstpanelen bör du automatiskt logga
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

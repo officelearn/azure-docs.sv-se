@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7c84a5c39b1a3b4a52505c053fdcfc92030237c3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3f15b6bf5ff3cc1949794ebc1ee2a5f62158cede
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575786"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698630"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabbstart: Skapa en .NET Core-app med App-konfiguration
 
@@ -27,7 +27,7 @@ Azure App Configuration är en hanterad konfigurationstjänst i Azure. Du kan an
 
 Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](https://dotnet.microsoft.com/download).
 
@@ -110,4 +110,4 @@ Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.micros
 I den här snabbstarten har du skapat en ny konfiguration appbutik och används med en .NET Core-konsolapp via den [App konfigurationsprovidern](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
-> [Hanterade identiteter för integrering av Azure-resurser](./integrate-azure-managed-service-identity.md)
+> [Hanterade identiteter för integrering av Azure-resurser](./howto-integrate-azure-managed-service-identity.md)

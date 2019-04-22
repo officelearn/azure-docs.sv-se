@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273115"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: Beroendespårning
@@ -167,5 +167,5 @@ Se tabellen nedan och se till att du har valt rätt konfiguration för att aktiv
 
 ## <a name="next-steps"></a>Nästa steg
 * [Undantag](../../azure-monitor/app/asp-net-exceptions.md)
-* [Användar- och siddata](../../azure-monitor/app/javascript.md)
+* [Användar-och siddata](../../azure-monitor/app/javascript.md)
 * [Tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)

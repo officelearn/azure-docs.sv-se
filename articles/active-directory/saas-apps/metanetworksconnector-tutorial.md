@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279677"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Självstudier: Azure Active Directory-integrering med Meta Networks Connector
@@ -33,7 +33,7 @@ Integreringen av Meta Networks Connector med Azure AD medför följande fördela
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Meta Networks Connector behöver du följande:
 
@@ -52,7 +52,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integreringen av Meta Networks Connector i Azure AD behöver du lägga till Meta Networks Connector från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till metadata nätverk Connector från galleriet:**
+**Utför följande steg för att lägga till Meta Networks Connector från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -108,15 +108,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Information om enkel inloggning med Meta Networks Connector-domän och URL:er](common/both-advanced-urls.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
-    b. I den **Vidarebefordransstatus** textrutan anger du ett URL med hjälp av följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
+    b. I textrutan **Vidarebefordransstatus** skriver du en URL med följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk identifierare, svars-URL och inloggnings-URL. Detta förklaras senare i självstudien.
@@ -276,7 +276,7 @@ När du klickar på Meta Networks Connector-panelen i åtkomstpanelen bör du au
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

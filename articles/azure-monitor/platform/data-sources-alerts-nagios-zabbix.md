@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426197"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Azure Monitor från Log Analytics-agenten för Linux 
@@ -30,7 +30,7 @@ ms.locfileid: "59426197"
 > [Aviseringar som skapats av Azure Monitor](alerts-overview.md) lagras separat från loggdata och inte kan nås från loggfrågor.
 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Samla in varningar från Nagios versionen har stöd för Log Analytics-agenten för Linux 4.2.x och Zabbix upp till version 2.x.
 
 ## <a name="configure-alert-collection"></a>Konfigurera varningssamlingen
@@ -90,9 +90,9 @@ Du kan hämta aviseringsposter från Nagios och Zabbix med [logga frågor](../lo
 
 Avisera poster som samlas in av Nagios har en **typ** av **avisering** och en **SourceSystem** av **Nagios**.  De har egenskaperna i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| `Type` |*Varning* |
+| `Type` |*Avisera* |
 | `SourceSystem` |*Nagios* |
 | `AlertName` |Namnet på aviseringen. |
 | `AlertDescription` | Beskrivning av aviseringen. |
@@ -106,9 +106,9 @@ Avisera poster som samlas in av Nagios har en **typ** av **avisering** och en **
 ### <a name="zabbix-alert-records"></a>Aviseringsposter som Zabbix
 Avisera poster som samlas in av Zabbix har en **typ** av **avisering** och en **SourceSystem** av **Zabbix**.  De har egenskaperna i följande tabell.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| `Type` |*Varning* |
+| `Type` |*Avisera* |
 | `SourceSystem` |*Zabbix* |
 | `AlertName` | Namnet på aviseringen. |
 | `AlertPriority` | Allvarlighetsgrad för aviseringen.<br><br>inte klassificerats<br>information<br>varning<br>genomsnittligt<br>Hög<br>haveriberedskap  |

@@ -9,10 +9,10 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045721"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Skapa och ändra peering för en ExpressRoute-krets (klassisk)
@@ -32,7 +32,7 @@ Dessa anvisningar gäller endast för kretsar som skapats med tjänstleverantör
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Om Azures distributionsmodeller**
+**Om distributionsmodeller för Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -335,7 +335,7 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
    * Annonserade prefix: Du måste ange en lista över alla prefix som du planerar att annonsera i BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Du kan skicka en kommaavgränsad lista om du planerar att skicka en uppsättning prefix. Dessa prefix måste vara registrerade åt dig i ett RIR/IR.
    * Kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS number, kan du ange det AS-nummer som de är registrerade. **Valfritt**.
    * Routningens registernamn: Du kan ange RIR / IR mot vilken AS-numret och prefixet är registrerade.
-   * En MD5-hash om du väljer att använda en. **Valfri.**
+   * En MD5-hash om du väljer att använda en. **Valfritt.**
      
    Kör följande cmdlet för att konfigurera Microsoft-peering för din krets:
  

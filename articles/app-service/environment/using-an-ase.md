@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a9a6c7c47a6ea81f682f453a85ee6f8e214a09a7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630673"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678096"
 ---
 # <a name="use-an-app-service-environment"></a>Använda en App Service environment #
 
@@ -120,8 +120,8 @@ URL: en contoso.scm.external-ase.p.azurewebsites.net används för att få åtko
 
 I en ILB ASE måste fastställa du domänen vid tidpunkten för distribution. Läs mer om hur du skapar en ILB ASE, [skapa och använda en ILB ASE][MakeILBASE]. Om du anger domännamnet _ilb-ase.info_, för appar i denna ASE använder domänen under skapa appar. För appen med namnet _contoso_, URL: er är:
 
-- Contoso.ilb ase.info
-- Contoso.SCM.ilb ase.info
+- contoso.ilb-ase.info
+- contoso.scm.ilb-ase.info
 
 ## <a name="publishing"></a>Publicering ##
 
@@ -137,7 +137,7 @@ Med en extern ASE fungerar dessa alla publiceringsalternativ på samma sätt. Me
 
 Den största skillnaden publicering är med avseende på en ILB ASE. Med en ILB ASE publiceringsslutpunkterna alla bara är tillgängliga via den interna Belastningsutjämnaren. Den interna Belastningsutjämnaren finns på en privat IP-adress i ASE-undernät i det virtuella nätverket. Om du inte har åtkomst till den interna Belastningsutjämnaren kan publicera du inte alla appar i denna ASE. Enligt vad som anges i [skapa och använda en ILB ASE][MakeILBASE], måste du konfigurera DNS för appar i systemet. Det omfattar SCM-slutpunkten. Om de inte har definierats korrekt kan publicera du inte. Din IDE: er måste också ha nätverksåtkomst till den interna Belastningsutjämnaren för att publicera direkt till den.
 
-Internet-baserad CI-system, till exempel GitHub och Azure DevOps, fungerar inte med en ILB ASE eftersom publiceringsslutpunkten inte är åtkomlig via Internet. Istället måste du använda ett CI-system som använder en pull-modell, som Dropbox.
+Direkt fungerar Internet-baserad CI-system, t.ex GitHub och Azure DevOps, inte med en ILB ASE eftersom publiceringsslutpunkten inte är åtkomlig via Internet. För Azure DevOps, kan du undvika detta genom att installera en lokal version-agent i det interna nätverket där den kan nå den interna Belastningsutjämnaren. Alternativt kan du också använda ett CI-system som använder en pull-modell, till exempel Dropbox.
 
 Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se det i appens publiceringsprofil och i appens portalblad (i **översikt** > **Essentials** och även i **egenskaper**). 
 

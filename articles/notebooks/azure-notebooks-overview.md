@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280119"
 ---
 # <a name="overview-of-azure-notebooks"></a>Översikt över Azure Notebooks
 
 Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. [Jupyter](https://jupyter.org/) (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera Markdown-text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbetsyta, *notebook-filen* (bilden tillhör jupyter.org):
 
-[![Examples för Jupyter-anteckningsböcker](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exempel på Jupyter-anteckningsböcker](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Tack vare den här kraftfulla kombinationen av kod, grafik och förklarande text har Jupyter blivit populärt för många användningsområden, däribland datavetenskapsinstruktion, datarensning och transformering, numerisk simulering, statistisk modellering och utveckling av maskininlärningsmodeller.
 
@@ -97,25 +97,25 @@ Om du vill diskutera frågor om Azure Notebooks kan du rapportera ett problem p�
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Utforska exempelanteckningsböcker](azure-notebooks-samples.md)
+- [Utforska notebook-exempelfiler](azure-notebooks-samples.md)
 
 - Snabbstarter:
 
   - [Skapa och dela en notebook-fil](quickstart-create-share-jupyter-notebook.md)
-  - [Skapa en notebook-fil](quickstart-clone-jupyter-notebook.md)
+  - [Klona en notebook-fil](quickstart-clone-jupyter-notebook.md)
   - [Migrera en lokal Jupyter Notebook](quickstart-migrate-local-jupyter-notebook.md)
   - [Använda en anpassad miljö](quickstart-create-jupyter-notebook-project-environment.md)
   - [Logga in och ange ett användar-ID](quickstart-sign-in-azure-notebooks.md)
 
 - Självstudier:
 
-  - [Skapa och kör en notebook-fil](tutorial-create-run-jupyter-notebook.md  )
+  - [Skapa och köra en notebook-fil](tutorial-create-run-jupyter-notebook.md  )
 
 - Instruktionsartiklar:
   
   - [Skapa och klona projekt](create-clone-jupyter-notebooks.md)
   - [Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-  - [Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
+  - [Installera paket inifrån en notebook-fil](install-packages-jupyter-notebook.md)
   - [Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
   - [Arbeta med datafiler](work-with-project-data-files.md)
   - [Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)

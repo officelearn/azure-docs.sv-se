@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754908"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678550"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Använda versioner för att redigera och testa utan att påverka mellanlagring eller produktion appar
 
@@ -67,5 +67,5 @@ Välj en version i listan och välj sedan **göra Active** från verktygsfältet
 
 * Att **ta bort** en version, Välj en version i listan och välj sedan **ta bort** från verktygsfältet. Välj **OK**. 
 * Att **Byt namn på** en version, Välj en version i listan och välj sedan **Byt namn på** från verktygsfältet. Ange ett nytt namn och välj **klar**. 
-* Att **exportera** en version, Välj en version i listan och välj sedan **Export app** från verktygsfältet. Filen laddas ned till den lokala datorn. 
+* Att **exportera** en version, Välj en version i listan och välj sedan **Export app** från verktygsfältet. Välj JSON till Exportera för säkerhetskopiering, Välj **exportera för behållaren** till [använda den här appen i en LUIS-behållare](luis-container-howto.md).  
 

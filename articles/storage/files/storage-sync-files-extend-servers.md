@@ -9,10 +9,10 @@ ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049157"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Självstudier: Utöka Windows-filservrar med Azure File Sync
@@ -253,7 +253,7 @@ Du har distribuerat Azure-synkroniseringstjänsten och installerat agenten på d
 
 När du registrerar Windows-servern med en tjänst för synkronisering av lagring etableras en förtroenderelation mellan din server (eller ditt kluster) och tjänsten för synkronisering av lagring. En server kan bara registreras till en tjänst för synkronisering av lagring. Den kan synkronisera med andra servrar och Azure-filresurser som är associerade med den tjänsten för synkronisering av lagring.
 
-Användargränssnittet för serverregistrering bör öppnas automatiskt när du har installerat Azure File Sync-agenten. Om det inte öppna kan du öppna det manuellt från dess filplats: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
+Användargränssnittet för serverregistrering bör öppnas automatiskt när du har installerat Azure File Sync-agenten. Om det inte öppnas kan du öppna det manuellt från dess filplats: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
 
 1. När användargränssnittet för serverregistrering öppnas på den virtuella datorn väljer du **OK**.
 1. Välj **Logga in** för att börja.
@@ -285,7 +285,7 @@ En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning
 
    | Värde | Beskrivning |
    | ----- | ----- |
-   | **Synkroniseringsgruppsnamn** | Det här namnet måste vara unikt i tjänsten för synkronisering av lagring men kan vara vilket namn som helst som är logiskt för dig. Använd *afssyncgroup* för den här självstudien.|
+   | **Namn på synkroniseringsgrupp** | Det här namnet måste vara unikt i tjänsten för synkronisering av lagring men kan vara vilket namn som helst som är logiskt för dig. Använd *afssyncgroup* för den här självstudien.|
    | **Prenumeration** | Prenumerationen där du har distribuerat tjänsten för synkronisering av lagring för den här kursen. |
    | **Lagringskonto** | Välj **Välj lagringskonto**. I det fönster som visas väljer du det lagringskonto som har den Azure-filresurs du har skapade. Använd *afsstoracct101918* för den här självstudien. |
    | **Azure-filresurs** | Namnet på den Azure-filresurs som du skapade. Använd *afsfileshare* för den här självstudien. |
@@ -327,4 +327,4 @@ Dina filer är nu synkroniserade i Azure-filresursen och Windows Server.
 I den här självstudien har du lärt dig de grundläggande stegen för att utöka lagringskapaciteten för en Windows-server med hjälp av Azure File Sync. En mer utförlig genomgång av planering av en Azure File Sync-distribution finns i följande:
 
 > [!div class="nextstepaction"]
-> [Planera för distribution av Azure File Sync](./storage-sync-files-planning.md)
+> [Planera för Azure File Sync-distribution](./storage-sync-files-planning.md)

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
 ms.openlocfilehash: d530ed3710a3406e5cd8115d615e91d5056a5f8c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047661"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Snabbstart: Mata in data med hjälp av Node-biblioteket i Azure Data Explorer
@@ -20,11 +20,11 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Förutom en Azure-prenumeration behöver du följande för att slutföra den här snabbstarten:
 
-* [En testkluster och databas](create-cluster-database-portal.md)
+* [Ett testkluster och en databas](create-cluster-database-portal.md)
 
 * [Node.js](https://nodejs.org/en/download/) installerat på utvecklingsdatorn
 
@@ -167,4 +167,4 @@ Om du planerar att följa våra andra snabbstarter och självstudier kan du spar
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriva frågor](write-queries.md)
+> [Skriv frågor](write-queries.md)

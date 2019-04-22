@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339014"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678895"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Måttaviseringar med dynamiska tröskelvärden i Azure Monitor (förhandsversion)
 
@@ -40,6 +40,9 @@ Aviseringar med dynamiska tröskelvärden kan konfigureras via aviseringar för 
 Dynamiska tröskelvärden kontinuerligt lär sig av data för mått-serien och försöker att modellera den med hjälp av en uppsättning algoritmer och metoder. Den identifierar mönster i data, till exempel säsongsvärdet (per timme / dag / vecka) och kan hantera bort störande mått (till exempel dator CPU eller minne) samt mått med låg spridning (till exempel tillgänglighet och fel-pris).
 
 Tröskelvärdena som är markerade så att en avvikelse från de här tröskelvärdena visar avvikelser i måttbeteendet.
+
+> [!NOTE]
+> Identifiering av säsongsknutet mönster är inställd på timme, dag eller vecka intervall. Det innebär att andra mönster som bihourly mönster eller semiweekly inte kan identifieras.
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>Vad kostar ' känslighetsinställningen ' i dynamiska tröskelvärden medelvärdet?
 
@@ -73,13 +76,23 @@ Om du vill utlösa en avisering när det har en överträdelse från en dynamisk
 
 **Ignorera data före** -användare kan även definiera ett startdatum som systemet bör börja räkna tröskelvärden från. Ett vanligt användningsfall kan uppstå när en resurs har en körs i ett läge för testning och höjs nu för att leverera en produktionsarbetsbelastning och därför beteendet för vilka mått som helst under testfasen bör ignoreras.
 
+## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Hur tar du reda på varför en dynamiska tröskelvärden aviseringen utlöstes?
+
+Du kan utforska utlösta aviseringsinstanser i aviseringsvyn antingen genom att klicka på länken i e-post eller SMS: et eller webbläsaren så visas aviseringarna visa i Azure-portalen. [Mer information om varningar](alerts-overview.md#alerts-experience).
+
+I aviseringsvyn visas:
+
+- Måttinformation för tillfället dynamiska tröskelvärden-avisering utlöses.
+- Ett diagram över den punkt där aviseringen var utlösare som innehåller den dynamiska tröskelvärden som används i det här läget i tid.
+- Möjlighet att ge feedback om dynamiska tröskelvärden aviseringen och aviseringarna visa upplevelse som kunde förbättra framtida identifieringar.
+
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Långsam beteendet ändras i måttutlösaren en avisering?
 
 Förmodligen inte. Dynamiska tröskelvärden är bra för identifiering av betydande avvikelser i stället för att långsamt utvecklas problem.
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Hur mycket data används för att förhandsgranska och sedan beräkna tröskelvärden?
 
-De tröskelvärden som visas i diagrammet, innan en varningsregel skapas på måttet beräknas baserat tillräckligt historiska data för att beräkna timme eller varje dag säsongens mönster (10 dagar). Trycka på Visa veckovisa mönster skaffar tillräckligt med historiska data för att beräkna varje vecka säsongens mönster (28 dagar). När en varningsregel har skapats kan använder den dynamiska tröskelvärden alla nödvändiga historiska data som är tillgänglig och kontinuerligt lära dig och skickliga baserat på nya data för att göra det mer exakta tröskelvärdena.
+De tröskelvärden som visas i diagrammet, innan en varningsregel skapas på måttet beräknas baserat tillräckligt historiska data för att beräkna timme eller varje dag säsongens mönster (10 dagar). När en varningsregel har skapats kan använder den dynamiska tröskelvärden alla nödvändiga historiska data som är tillgänglig och kontinuerligt lära dig och skickliga baserat på nya data för att göra det mer exakta tröskelvärdena. Det innebär att när den här beräkningen diagrammet visas också veckovisa mönster.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Hur mycket data krävs för att utlösa en avisering?
 

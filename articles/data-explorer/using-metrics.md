@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050625"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Övervaka prestanda, hälsotillstånd och användning med mått i Azure Data Explorer
 
 Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. Azure Data Explorer mätvärden är viktiga indikatorer om hälsotillstånd och prestanda för klusterresurserna. Använda mått som beskrivs i den här artikeln att övervaka Azure Data Explorer klusterhälsa och prestanda i ditt specifika scenario som fristående mått. Du kan också använda mått som grund för operativa [Azure-instrumentpaneler](/azure/azure-portal/azure-portal-dashboards) och [Azure Alerts](/azure/azure-monitor/platform/alerts-metric-overview).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -40,7 +40,7 @@ I fönstret mått:
 
 1. Om du vill skapa ett måttdiagram, Välj **mått** namn och relevanta **aggregering** per mått som beskrivs nedan. Den **Resource** och **mått Namespace** datumväljare är förvalda i Datautforskaren i Azure-klustret.
 
-    **Mått** | **Enhet** | **Sammansättning** | **Metrisk beskrivning**
+    **Mått** | **Enhet** | **Aggregering** | **Metrisk beskrivning**
     |---|---|---|---|
     | Cache-användning | Procent | AVG, Max, Min | Procentandel tilldelade cache-resurser som används av klustret. Cache refererar till storleken på SSD som allokerats för användaraktivitet enligt definierade cache-principen. En genomsnittlig cache-användning på 80% eller mindre är en hållbar status för ett kluster. Om den genomsnittliga cache-användningen är över 80%, klustret bör vara [skalas upp](manage-cluster-scale-up.md) till en storage optimerat prisnivå eller [utskalad](manage-cluster-scale-out.md) till fler instanser. Du kan också anpassa princip (färre dagar i cacheminnet). Om cachen användningen är över 100%, storleken på data som ska cachelagras enligt principen för cachelagring är större som den totala storleken på cacheminnet på klustret. |
     | Processor | Procent | AVG, Max, Min | Procentandel tilldelade beräkningsresurser som används av datorer i klustret. En Genomsnittlig CPU med 80% eller mindre är hållbar för ett kluster. Det högsta värdet för processor är 100%, vilket innebär att det finns inga fler beräkningsresurser för att bearbeta data. När ett kluster inte presterar bra, kontrollerar du det maximala värdet för processor och se om det finns specifika CPU: er som har blockerats. |

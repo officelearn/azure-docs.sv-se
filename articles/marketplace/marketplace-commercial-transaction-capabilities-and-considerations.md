@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731097"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678912"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace affärstransaktion funktioner och överväganden
 
@@ -44,7 +44,7 @@ Förutom i listan och utvärderingsversion publiceringsalternativ är transact p
 
 ## <a name="transact-general-overview"></a>Transact allmän översikt
 
-När du använder transact-publiceringsalternativ, kan Microsoft försäljning och distribution av programvara från tredje part till kundens Azure-prenumeration. Utgivare måste ta hänsyn till att faktureringen för Azure-infrastrukturavgifter och de utgivarens egna licensavgifter, när du väljer en fakturering modellera och erbjudandetyp på Azure Marketplace. 
+När du använder transact publicera alternativet, kan Microsoft försäljningen av programvara från tredje part och distribution av vissa typer av erbjudanden till kundens Azure-prenumeration. Utgivare måste ta hänsyn till att faktureringen för Azure-infrastrukturavgifter och de utgivarens egna licensavgifter, när du väljer en fakturering modellera och erbjudandetyp på Azure Marketplace.
 
 Transact publiceringsalternativ på Azure Marketplace stöds för tillfället för följande typer av erbjudanden: Virtuella datorer, Azure-program eller SaaS-appar.
 
@@ -58,7 +58,7 @@ För virtuella datorer och program i Azure faktureras Användningsavgift Azure-i
 
 **För SaaS-appar**
 
-För SaaS-appar på utgivaren måste ta hänsyn till avgifter för användning av Azure-infrastrukturen och licensavgifter som ett enda kostnaden-objekt.  Det representeras som en fast månadsavgift för kunden. Azure-infrastrukturen användningen hanteras och debiteras för partnern direkt.  Faktisk användning infrastrukturavgifter ses inte av kunden.  Utgivare välja vanligtvis för att bifoga avgifter för användning av Azure-infrastrukturen i deras programvara licens priser.  Programvara för licensavgifter inte förbrukade eller konsumtionsbaserat.
+För SaaS-appar på utgivaren måste ta hänsyn till avgifter för användning av Azure-infrastrukturen och licensavgifter som ett enda kostnaden-objekt.  Det representeras som en fast avgift för kunden. Azure-infrastrukturen användningen hanteras och debiteras för partnern direkt.  Faktisk användning infrastrukturavgifter ses inte av kunden.  Utgivare välja vanligtvis för att bifoga avgifter för användning av Azure-infrastrukturen i deras programvara licens priser.  Programvara för licensavgifter inte förbrukade eller konsumtionsbaserat.
 
 ## <a name="transact-billing-models"></a>Transact faktureringsmodeller
 

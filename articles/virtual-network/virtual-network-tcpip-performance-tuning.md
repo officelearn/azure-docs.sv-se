@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426451"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestandajustering för virtuella Azure-datorer
@@ -140,7 +140,7 @@ Nätverksfördröjningen regleras av hastigheten för ljus över ett fiberoptisk
 
 | | | | |
 |-|-|-|-|
-|**Routa**|**Avstånd**|**Enkelriktad tid**|**RTT**|
+|**väg**|**avstånd**|**Enkelriktad tid**|**RTT**|
 |New York till San Francisco|4,148 km|21 ms|42 ms|
 |New York to London|5,585 km|28 ms|56 ms|
 |New York till Sydney|15,993 km|80 ms|160 ms|
@@ -236,7 +236,7 @@ Dessa är de effektiva TCP-inställningarna för `AutoTuningLevel`:
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**Skalningsfaktor**|**Skala multiplikatorn**|**Formel för att<br/>Beräkna maximal fönsterstorlek**|
+|**AutoTuningLevel**|**Skalningsfaktor**|**Skala multiplikatorn**|**Formeln till<br/>beräkna maximal fönsterstorlek**|
 |Disabled|Ingen|Ingen|Fönsterstorlek|
 |Begränsat|4|2^4|Fönsterstorlek * (2 ^ 4)|
 |Mycket begränsad|2|2^2|Fönsterstorlek * (2 ^ 2)|
@@ -376,7 +376,7 @@ Mer information finns i dessa artiklar:
 
 - [Felsökning av nätverksprestanda för Expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
-- [Hur du validerar VPN-dataflöde till ett virtuellt nätverk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
+- [Verifiera VPN-dataflöde till ett virtuellt nätverk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Identifiera ineffektiv TCP-beteenden
 

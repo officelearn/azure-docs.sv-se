@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.openlocfilehash: eae9dc6447dd8211a3919c52beaea64274fc0ec5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58801087"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
@@ -23,7 +23,7 @@ Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende p
 
 Den här snabbstarten hjälper dig att lägga till Application Insights SDK i en befintlig ASP.NET Core-webbapp. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -85,7 +85,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-   ![Programkarta](./media/dotnetcore-quick-start/5appmap.png)
+   ![Programavbildning](./media/dotnetcore-quick-start/5appmap.png)
 
 3. Klicka på den **Appanalys** ikonen ![Programkartan ikonen](./media/dotnetcore-quick-start/006.png) **visa i analys**. Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 

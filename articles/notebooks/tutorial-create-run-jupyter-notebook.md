@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258546"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och köra en Jupyter-anteckningsbok med Python
@@ -128,7 +128,7 @@ Du kan nu skapa och öppna anteckningsboken med redo datafilen och projekt milj�
 1. Eftersom du har en *requirements.txt* filen i miljöinställningarna för visas meddelandet ”väntar på din behållare till Slutför förbereds”. Du kan välja **OK** att stänga meddelandet och fortsätta arbeta i anteckningsboken; du kan inte köra kod celler, men tills miljön är fullständigt konfigurerad.
 1. Anteckningsboken öppnas i Jupyter-gränssnitt med en enda tom kodcell som standard.
 
-    [![Initial vy av en ny anteckningsbok i Azure anteckningsböcker](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Inledande vy av en ny anteckningsbok i Azure-anteckningsböcker](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Tour bärbar dator-gränssnitt
 
@@ -144,7 +144,7 @@ Med den bärbara datorn körs, kan du lägga till kod och Markdown-celler kör c
 (F) indikator för om anteckningsboken är betrodd (standardvärdet är **ej betrodd**).
 (G) kernel som används för att köra anteckningsboken tillsammans med en indikator för aktiviteten.
 
-[![Primär UI-delar av gränssnittet Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Delar av Användargränssnittet för Jupyter-gränssnittet](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter innehåller en inbyggd genomgång av de primära UI-element. Starta den guidade visningen genom att välja den **hjälpa** > **användaren gränssnittet rundtur** kommando och klicka på via de popup-fönster.
 
@@ -427,7 +427,7 @@ Instruktionsartiklar:
 
 - [Skapa och klona projekt](create-clone-jupyter-notebooks.md)
 - [Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
+- [Installera paket inifrån en notebook-fil](install-packages-jupyter-notebook.md)
 - [Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
 - [Arbeta med datafiler](work-with-project-data-files.md)
 - [Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)

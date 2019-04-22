@@ -12,24 +12,24 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263884"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Självstudier: Skapa en QnA-roboten med Azure Bot Service v4
 
 Skapa en chattrobot för frågor och svar från den **publicera** för en befintlig kunskapsbas. Den här bot använder Bot Framework SDK-v4. Du inte behöver skriva någon kod för att skapa roboten tillhandahålls all kod åt dig.
 
-**I den här guiden får du lära dig att:**
+**I den här självstudiekursen får du lära du dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Skapa en Azure Bot Service från en befintlig kunskapsbas
 > * Chatta med roboten att kontrollera koden fungerar 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha en publicerad kunskapsbas för den här självstudiekursen. Om du inte har någon, följer du stegen i [skapa och svaret från KB](create-publish-query-in-portal.md) självstudie om du vill skapa en QnA Maker kunskapsbas med frågor och svar.
 

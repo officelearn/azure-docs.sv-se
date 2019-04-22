@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82b2b75d5505ddda91232bf1055bd70a68d333d0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58792407"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680289"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funktioner i tjänsten Azure AD Connect-synkronisering
 
@@ -96,7 +96,7 @@ Historiskt sett uppdateringar till attributet UserPrincipalName med synkroniseri
 
 Mer information finns i [användarnamn i Office 365, Azure eller Intune matchar inte den lokala UPN eller alternativa inloggnings-ID](https://support.microsoft.com/kb/2523192).
 
-Den här funktionen aktiveras kan Synkroniseringsmotorn att uppdatera userPrincipalName när det är ändrade lokalt och du använder lösenordets hash-synkronisering. Den här funktionen stöds inte om du använder federation.
+Den här funktionen aktiveras kan Synkroniseringsmotorn att uppdatera userPrincipalName när det är ändrade lokalt och du använder hash-synkronisering eller direktautentisering lösenordsautentisering. Den här funktionen stöds inte om du använder federation.
 
 Den här funktionen är på som standard för nyligen skapade Azure AD-kataloger. Du kan se om den här funktionen är aktiverad för dig genom att köra:  
 

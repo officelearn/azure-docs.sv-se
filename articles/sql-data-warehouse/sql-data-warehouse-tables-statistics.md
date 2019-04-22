@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279779"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabellstatistik i Azure SQL Data Warehouse
@@ -78,7 +78,7 @@ Här följer några rekommendationer som uppdaterar statistik:
 |||
 |-|-|
 | **Hur ofta den uppdateras stats**  | Konservativ: Dagligen </br> När du läser in eller omvandla dina data |
-| **Samling** |  Mindre än 1 miljard rader, Använd standard sampling (20 procent). </br> Använd sampling av två procent med fler än 1 miljard rader. |
+| **Sampling** |  Mindre än 1 miljard rader, Använd standard sampling (20 procent). </br> Använd sampling av två procent med fler än 1 miljard rader. |
 
 En av de första frågorna när du felsöker en fråga är **”är statistik uppdaterad”?**
 
@@ -409,7 +409,7 @@ Dessa data innehåller information om statistik:
 | Katalogvy | Beskrivning |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |En rad för varje kolumn. |
-| [sys.Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje objekt i databasen. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje objekt i databasen. |
 | [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje schema i databasen. |
 | [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |En rad för varje objekt i statistik. |
 | [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |En rad för varje kolumn i objektet statistik. Länkar tillbaka till sys.columns. |

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: hrasheed
 ms.openlocfilehash: 37d4c4dbbe623d68edf1de5454d7752a81fc2bd2
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58801897"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
@@ -25,7 +25,7 @@ Lär dig hur du använder Apache Ambari REST API för att hantera och övervaka 
 ## <a id="whatis"></a>Vad är Apache Ambari
 [Apache Ambari](https://ambari.apache.org) förenklar hantering och övervakning av Hadoop-kluster genom att tillhandahålla en lättanvänd webbgränssnittet backas upp av dess [REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari är som standard med Linux-baserade HDInsight-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Ett Hadoop-kluster på HDInsight**. Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 * **Bash på Ubuntu på Windows 10**.  Exemplen i den här artikeln använder Bash-gränssnittet i Windows 10. Se [Windows-undersystem for Linux Installation Guide för Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installationssteg.  Andra [Unix gränssnitt](https://www.gnu.org/software/bash/) fungerar också.  Exempel, med några små ändringar kan arbeta i en kommandotolk i Windows.  Du kan också använda Windows PowerShell.

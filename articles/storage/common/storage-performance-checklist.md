@@ -9,10 +9,10 @@ ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793976"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
@@ -38,15 +38,15 @@ Den här artikeln organiserar beprövade metoder i följande grupper. Beprövade
 | &nbsp; | Alla tjänster |Nätverk |[Klientprogrammet finns ”” storage-konto?](#subheading4) |
 | &nbsp; | Alla tjänster |Innehållsdistribution |[Använder du ett CDN för innehållsdistribution?](#subheading5) |
 | &nbsp; | Alla tjänster |Dirigera klientåtkomst |[Använder du SAS- och CORS för direkt åtkomst till lagring i stället för proxy?](#subheading6) |
-| &nbsp; | Alla tjänster |Cachelagring |[Är din cachelagring programdata som används flera gånger och ändringar sällan?](#subheading7) |
-| &nbsp; | Alla tjänster |Cachelagring |[Ditt program är grupperade uppdateringar (cachelagring på klientsidan av dem och sedan laddas upp i större sets)?](#subheading8) |
+| &nbsp; | Alla tjänster |Cachning |[Är din cachelagring programdata som används flera gånger och ändringar sällan?](#subheading7) |
+| &nbsp; | Alla tjänster |Cachning |[Ditt program är grupperade uppdateringar (cachelagring på klientsidan av dem och sedan laddas upp i större sets)?](#subheading8) |
 | &nbsp; | Alla tjänster |.NET Configuration |[Har du konfigurerat din klient som använder ett tillräckligt antal samtidiga anslutningar](#subheading9) |
 | &nbsp; | Alla tjänster |.NET Configuration |[Har du konfigurerat .NET för att använda ett tillräckligt antal trådar?](#subheading10) |
 | &nbsp; | Alla tjänster |.NET Configuration |[Du använder .NET 4.5 eller senare, vilket har förbättrat skräpinsamling?](#subheading11) |
 | &nbsp; | Alla tjänster |Parallellitet |[Har du sett att parallellitet avgränsas på lämpligt sätt så att du inte överbelasta dina klientfunktioner eller det för skalbarhetsmål?](#subheading12) |
 | &nbsp; | Alla tjänster |Verktyg |[Är du med hjälp av den senaste versionen av Microsoft tillhandahöll klientbibliotek och verktyg?](#subheading13) |
-| &nbsp; | Alla tjänster |Antal försök |[Är du med hjälp av en exponentiell backoff återförsöksprincip för begränsning av fel och tidsgränser?](#subheading14) |
-| &nbsp; | Alla tjänster |Antal försök |[Är dina program Undvik återförsök för icke-återförsöksbar fel?](#subheading15) |
+| &nbsp; | Alla tjänster |Återförsök |[Är du med hjälp av en exponentiell backoff återförsöksprincip för begränsning av fel och tidsgränser?](#subheading14) |
+| &nbsp; | Alla tjänster |Återförsök |[Är dina program Undvik återförsök för icke-återförsöksbar fel?](#subheading15) |
 | &nbsp; | Blobar |Skalbarhetsmål |[Har du ett stort antal klienter som ansluter till ett enda objekt samtidigt?](#subheading46) |
 | &nbsp; | Blobar |Skalbarhetsmål |[Är programmet dig inom skalbarhetsmålen bandbredd eller åtgärder för en enda blob?](#subheading16) |
 | &nbsp; | Blobar |Kopiera BLOB |[Är du kopiera blobar på ett effektivt sätt?](#subheading17) |
@@ -159,7 +159,7 @@ Mer information om SAS finns i [signaturer för delad åtkomst, del 1: Förstå 
 
 Läs mer om CORS [Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
-### <a name="caching"></a>Cachelagring
+### <a name="caching"></a>Cachning
 #### <a name="subheading7"></a>Hämta Data
 I allmänhet är hämtar data från en tjänst en gång bättre än att få den två gånger. Studera exemplet med en MVC-webbprogram som körs i en webbroll som redan har hämtat en 50 MB blob från storage-tjänst som fungerar som innehåll till en användare. Programmet kan sedan hämta den samma blobben varje gång en användare begär det eller den cachelagra den lokalt till hårddisken och återanvända den cachelagrade versionen för efterföljande användarbegäranden. Dessutom när en användare begär data, programmet kan problemet komma med en villkorlig rubrik för ändring av tiden, vilket skulle undvika att få hela blobben om den inte har ändrats. Du kan använda det här samma mönster för att arbeta med tabellentiteter.  
 
@@ -208,7 +208,7 @@ Parallellitet kan vara bra för prestanda, var försiktig med obegränsade paral
 ### <a name="subheading13"></a>Storage-klientbibliotek och verktyg
 Använd alltid den senaste av Microsoft tillhandahållna klientbibliotek och verktyg. Vid tidpunkten för skrivning finns klientbibliotek som är tillgängliga för .NET, Windows Phone, Windows Runtime, Java och C++ samt preview-bibliotek för andra språk. Microsoft har också publicerat PowerShell-cmdletar och Azure CLI-kommandon för att arbeta med Azure Storage. Microsoft aktivt utvecklar dessa verktyg med prestanda, håller dem uppdaterade med de senaste versionerna för tjänsten och garanterar de hanterar många av de beprövade prestanda internt.  
 
-### <a name="retries"></a>Antal försök
+### <a name="retries"></a>Återförsök
 #### <a name="subheading14"></a>Begränsning/ServerBusy
 I vissa fall kan tjänsten storage kan begränsa ditt program eller kan helt enkelt inte hantera begäran på grund av vissa tillfälliga villkor och returnerar ett meddelande om ”503 Server upptagen” eller ”500 löper ut”.  Detta kan inträffa om programmet närmar sig något av det för skalbarhetsmål, eller om systemet är ombalansering av dina partitionerade data för högre dataflöde.  Klientprogrammet bör vanligtvis försök som orsakar ett sådant fel: försök samma begäran senare kan lyckas. Men om lagringstjänsten begränsar ditt program eftersom det överskrider skalbarhetsmål, eller även om tjänsten kunde inte hantera begäran av någon anledning, att aggressiva återförsök vanligtvis problemet sämre. Därför bör du använda en exponentiell backoff (klienten bibliotek standard till det här beteendet). Exempelvis kan programmet försöka igen efter 2 sekunder, och sedan 4 sekunder sedan 10 sekunder sedan 30 sekunder och ger sedan upp helt. Detta resulterar i ditt program avsevärt minska belastningen på tjänsten i stället exacerbating eventuella problem.  
 

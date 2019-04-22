@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 66165a196c8b934df948f1d88b09a5859d3e792f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58804504"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Felsöka fel med delade resurser
@@ -31,7 +31,7 @@ En modul har fastnat i den **importera** tillstånd när du importerar eller upp
 
 Importera PowerShell-moduler är en komplicerad process i flera steg. Den här processen introducerar möjligheten att en modul importeras inte korrekt. Om det här problemet inträffar kan modulen som du importerar ha fastnat i ett tillfälligt tillstånd. Mer information om den här processen finns [importera en PowerShell-modul]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 För att lösa problemet måste du ta bort den modul som har fastnat i den **importera** tillstånd med hjälp av den [Remove-AzureRmAutomationModule](/powershell/module/azurerm.automation/remove-azurermautomationmodule) cmdlet. Du kan sedan göra om modulen importerades.
 
@@ -53,7 +53,7 @@ Azure modules are being updated
 
 Det finns ett känt problem med uppdatering AzureRM-moduler i ett Automation-konto som tillhör en resursgrupp med det numeriska namn som börjar med 0.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Om du vill uppdatera din Azure-moduler i ditt Automation-konto, måste den vara i en resursgrupp som har ett alfanumeriskt namn. Resursgrupper med numeriska namn som börjar med 0 kan inte uppdatera AzureRM-moduler just nu.
 
@@ -72,7 +72,7 @@ Några vanliga orsaker som en modul inte kan importera till Azure Automation är
 * Modulen saknar dess beroenden i mappen.
 * Den `New-AzureRmAutomationModule` cmdlet som används för att ladda upp modulen, och du har inte beviljat fullständig lagringssökväg eller har inte lästs in modulen med hjälp av en offentligt tillgänglig URL.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Någon av följande lösningar problemet på:
 
@@ -90,7 +90,7 @@ När du använder den [uppdatering AzureModule.ps1](https://github.com/azureauto
 
 Standardinställningen för att avgöra hur många moduler uppdateras samtidigt är 10 när du använder den `Update-AzureModule.ps1` skript. Uppdateringen är känslig för fel när för många-modulerna uppdateras samtidigt.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Det är inte vanligt att alla AzureRM-moduler krävs i samma Automation-kontot. Vi rekommenderar att du bara importera de AzureRM-moduler som du behöver.
 
@@ -132,7 +132,7 @@ You do not have permissions to create…
 
 Du har inte de behörigheter som du behöver skapa eller uppdatera kör som-kontot eller resursen är låst på en resursgruppsnivå.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Du måste ha behörighet till de olika resurserna som används av kör som-kontot för att skapa eller uppdatera en Kör som-konto. Läs om de behörigheter som krävs för att skapa eller uppdatera en Kör som-konto i [kör som-kontobehörighet](../manage-runas-account.md#permissions).
 
@@ -152,7 +152,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 Det här felet beror sannolikt på grund av en felaktigt konfigurerad [kör som-konto](../manage-runas-account.md).
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Kontrollera att din [kör som-konto](../manage-runas-account.md) är korrekt konfigurerad. När den har konfigurerats korrekt kan du kontrollera att du har rätt kod i din runbook för att autentisera med Azure. I följande exempel visas ett kodfragment till att autentisera till Azure i en runbook med en Kör som-konto.
 

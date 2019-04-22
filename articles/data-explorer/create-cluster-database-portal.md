@@ -8,16 +8,16 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
 ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046044"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas
 
 > [!div class="op_single_selector"]
-> * [Portalen](create-cluster-database-portal.md)
+> * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -54,7 +54,7 @@ Skapa ett Azure Data Explorer-kluster med en definierad uppsättning beräknings
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för klustret.|
     | Resursgrupp | *test-resource-group* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
     | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Exempel: *mydataexplorercluster*. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 3 och 22 tecken.
-    | Plats | *Västra USA* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
+    | Plats | *USA, västra* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
     | Beräkningsspecifikationer | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
     | | |
 
@@ -122,6 +122,6 @@ Om du planerar att följa andra snabbstarter och självstudier kan du behålla a
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
+> [Snabbstart: Mata in data från Event Hub till Azure Data Explorer](ingest-data-event-hub.md)
 
 

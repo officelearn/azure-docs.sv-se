@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045492"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD-identitetsstyrning?
@@ -69,13 +69,13 @@ Azure AD Privileged Identity Management (PIM) ger ytterligare kontroller som är
 Även om det finns ingen perfekt lösning eller en rekommendation för varje kund, tillhandahåller följande konfigurationer en guide till vilka baslinjen principer som Microsoft rekommenderar för att säkerställa en säkrare och mer produktiva personal.
 
 - [Konfigurationer för identitets- och Enhetsåtkomst](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Skydda privilegierad åtkomst](../users-groups-roles/directory-admin-roles-secure.md)
+- [Säker privilegierad åtkomst](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Åtkomstgranskningar
 
 - [Vad är en åtkomstgranskning?](access-reviews-overview.md)
-- [Hantera användarnas åtkomst med åtkomstgranskningar](manage-user-access-with-access-reviews.md)
+- [Hantera användaråtkomst med åtkomstgranskningar](manage-user-access-with-access-reviews.md)
 - [Hantera gäståtkomst med åtkomstgranskningar](manage-guest-access-with-access-reviews.md)
 - [Starta en åtkomstgranskning i Azure AD-roller](../privileged-identity-management/pim-how-to-start-security-review.md)
 

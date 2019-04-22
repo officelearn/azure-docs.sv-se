@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051571"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Skapa en Azure Network Watcher-instans
@@ -108,8 +108,8 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 Nu när du har en instans av Network Watcher lär du dig mer om tillgängliga funktioner:
 
 * [Topologi](network-watcher-topology-overview.md)
-* [Paketinsamling](network-watcher-packet-capture-overview.md)
-* [Kontrollera IP-flöde](network-watcher-ip-flow-verify-overview.md)
+* [Paketfångsten](network-watcher-packet-capture-overview.md)
+* [Verifiera IP-flöde](network-watcher-ip-flow-verify-overview.md)
 * [Nästa hopp](network-watcher-next-hop-overview.md)
 * [Säkerhetsgruppvy](network-watcher-security-group-view-overview.md)
 * [NSG-flödesloggar](network-watcher-nsg-flow-logging-overview.md)

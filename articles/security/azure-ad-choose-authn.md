@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: active-directory
 ms.workload: identity
 ms.openlocfilehash: 1f950841946b65d618c7335ea3d8d42993a89481
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58805269"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
@@ -173,7 +173,7 @@ Följande diagram visas de övergripande arkitektur komponenter som krävs för 
 
 |Beräkningen|Synkronisering av lösenordshash + sömlös SSO|Direktautentisering + sömlös SSO|Federation med AD FS|
 |:-----|:-----|:-----|:-----|
-|Var sker autentisering?|I molnet|I molnet när du har ett säkert lösenord verifiering exchange med lokala autentiseringsagent|Lokal|
+|Var sker autentisering?|I molnet|I molnet när du har ett säkert lösenord verifiering exchange med lokala autentiseringsagent|Lokalt|
 |Vad är en lokal server-krav utöver etablering systemet: Azure AD Connect?|Ingen|En server för varje ytterligare autentisering-agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverk|
 |Vilka är kraven för den lokala Internet och nätverk utöver etablering systemet?|Ingen|[Utgående Internetåtkomst](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) från servrarna som kör autentiseringsagenter|[Inkommande Internetåtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande åtkomst till AD FS-servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
 |Finns det ett krav för SSL-certifikat?|Nej|Nej|Ja|

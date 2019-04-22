@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261402"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Utveckla för begränsad enheter med hjälp av Azure IoT C SDK
@@ -27,7 +27,7 @@ C SDK är tillgänglig i form av paketet från apt-get, NuGet och MBED. Om du vi
 
 Bygga SDK för C för begränsad enheter.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följ den här [C SDK installationsguide](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) till Förbered din utvecklingsmiljö för att skapa C SDK. Innan du kommer till steget för att bygga med cmake, kan du anropa cmake flaggorna för att ta bort oanvända funktioner.
 

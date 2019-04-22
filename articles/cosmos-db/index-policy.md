@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278572"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Index principen i Azure Cosmos DB
@@ -70,7 +70,7 @@ Följande är vanliga användningsområden när du vill uppdatera en indexerings
 
 Läs mer om indexering i följande artiklar:
 
-* [Indexering, översikt](index-overview.md)
+* [Indexeringsöversikt](index-overview.md)
 * [Indextyper](index-types.md)
 * [Indexsökvägar](index-paths.md)
 * [Så här hanterar du indexeringsprincip](how-to-manage-indexing-policy.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762692"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680812"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -56,7 +56,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag skapa en VHD-avbildning från en SQL Server VM?**
 
-   Ja, men det finns några saker. Om du distribuerar den här virtuella Hårddisken till en ny virtuell dator i Azure kan göra du inte ge konfiguration av SQL Server-avsnittet i portalen. Du måste sedan hantera SQL Server-konfigurationsalternativ via PowerShell. Dessutom debiteras du för frekvensen för SQL-VM din avbildning ursprungligen baserades på. Detta gäller även om du tar bort SQL Server från den virtuella Hårddisken innan du distribuerar. 
+   Ja, men det finns några saker. Om du distribuerar den här virtuella Hårddisken till en ny virtuell dator i Azure får du inte konfiguration av SQL Server-avsnittet i portalen. Du måste sedan hantera SQL Server-konfigurationsalternativ via PowerShell. Dessutom debiteras du för frekvensen för SQL-VM din avbildning ursprungligen baserades på. Detta gäller även om du tar bort SQL Server från den virtuella Hårddisken innan du distribuerar. 
 
 1. **Är det möjligt att ställa in konfigurationer som inte visas i galleriet för virtuella datorer (till exempel Windows 2008 R2 + SQL Server 2012)?**
 

@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
 ms.openlocfilehash: 33348e637143b923719425b9674f99a475d848d9
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58806670"
 ---
-# <a name="specify-a-face-recognition-model"></a>Ange en modell för igenkänning av ansikte
+# <a name="specify-a-face-recognition-model"></a>Ange en ansiktsigenkänningsmodell
 
 Den här guiden visar hur du anger en ansikte erkännande modell för ansiktsigenkänning, identifiering och likhet sökning med hjälp av Ansikts-API i Azure.
 
@@ -25,7 +25,7 @@ Ansikts-API använder machine learning-modeller för att utföra åtgärder på 
 
 Om du är en ny användare, rekommenderar vi att du använder den senaste modellen. Läs vidare för att Lär dig hur du anger den i olika ansikte åtgärder samtidigt som du undviker modellkonflikter. Om du är en avancerad användare och inte är säker på om du ska gå att växla till den senaste modellen, gå vidare till den [utvärdera olika modeller](#evaluate-different-models) avsnitt för att utvärdera den nya modellen och jämföra resultat med hjälp av dina aktuella data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du bör känna till begreppet AI ansiktsigenkänning och identifiering. Om du inte se dessa instruktionsguider först:
 

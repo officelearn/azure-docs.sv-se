@@ -8,21 +8,21 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047117"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Snabbstart: Mata in data från Kafka i Azure Data Explorer
  
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Kafka. Kafka är en distribuerad strömningsplattform som gör det möjligt att skapa realtidsbaserade datapipelines som på ett tillförlitligt sätt flyttar data mellan system och program.
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
  
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar. 
  
-* [En testkluster och databas](create-cluster-database-portal.md)
+* [Ett testkluster och en databas](create-cluster-database-portal.md)
  
 * [En exempelapp](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) som genererar data och skickar dem till Kafka
 
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Utveckla
+#### <a name="build"></a>Version
 
 Skapa lokalt med Maven för att bilda en `.jar` komplett med beroenden.
 

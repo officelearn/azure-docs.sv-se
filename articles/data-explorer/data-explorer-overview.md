@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 02b239922f481240341225ea68d8d0ee7492c48b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044182"
 ---
 # <a name="what-is-azure-data-explorer"></a>Vad är Azure Data Explorer?
@@ -46,7 +46,7 @@ Arbetet i Azure Data Explorer följer vanligtvis det här mönstret:
 
 1. **Skapa databas:** Skapa ett *kluster* och skapa sedan en eller flera *databaser* i klustret. [Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas](create-cluster-database-portal.md)
 
-1. **Mata in data:** Läs in data i databastabeller så att du kan köra frågor mot dem. [Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
+1. **Mata in data:** Läs in data i databastabeller så att du kan köra frågor mot dem. [Snabbstart: Mata in data från Event Hub till Azure Data Explorer](ingest-data-event-hub.md)
 
 1. **Köra frågor mot databas:** Använd vår webbapp för att köra, granska och dela frågor och resultat. Webbprogrammet är tillgängligt i Azure-portalen och som ett fristående program. Du kan också skicka frågor via programmering (med ett SDK) eller till en REST API-slutpunkt. [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
 
@@ -66,12 +66,12 @@ Vi vill gärna ha dina synpunkter på Azure Data Explorer och dess frågespråk.
   - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-explorer)
   - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
   - [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
-- [Föreslå produkt i User Voice](https://aka.ms/AzureDataExplorer.UserVoice)
+- [Ger produktförslag i User Voice](https://aka.ms/AzureDataExplorer.UserVoice)
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas](create-cluster-database-portal.md)
 
-[Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
+[Snabbstart: Mata in data från Event Hub till Azure Data Explorer](ingest-data-event-hub.md)
 
 [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)

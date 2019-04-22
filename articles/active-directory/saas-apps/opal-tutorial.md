@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 05be19ba59c5e392ce75d465a90b0946a9160c00
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Självstudier: Azure Active Directory-integrering med Opal
@@ -34,7 +34,7 @@ Integrera Opal med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Opal, behöver du följande objekt:
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Opal:
 
     ![Opal domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL: `Opal`
+    a. I textrutan **Identifierare** skriver du in en URL: `Opal`
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.ouropal.com/auth/saml/callback`
 
@@ -222,7 +222,7 @@ När du klickar på panelen Opal i åtkomstpanelen, bör det vara loggas in auto
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

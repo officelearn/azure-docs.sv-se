@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: 7b5df31c3e1d07cc9ac93f73362e853fab728fa9
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793806"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveriberedskap med hjälp av service-säkerhetskopiering och återställning i Azure API Management
@@ -63,7 +63,7 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 6. Ange en URL-platshållaren som `http://resources` för den **omdirigerings-URI**, eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka på kryssrutan för att spara programmet.
 7. Klicka på **Skapa**.
 
-### <a name="add-an-application"></a>Lägga till ett program
+### <a name="add-an-application"></a>Lägg till ett program
 
 1. När programmet har skapats klickar du på **inställningar**.
 2. Klicka på **behörigheter som krävs för**.
@@ -72,7 +72,7 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 5. Välj **Windows** **Azure Service Management API**.
 6. Tryck på **Välj**.
 
-    ![Lägga till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![Lägg till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryssrutan för **åtkomst till Azure Service Management (förhandsversion)**.
 8. Tryck på **Välj**.

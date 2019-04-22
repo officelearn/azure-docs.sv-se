@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426230"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Agenthälsolösning i Azure Monitor
 Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta i Azure Monitor eller en System Center Operations Manager-hanteringsgrupp som är anslutna till Azure Monitor, som är inte svarar och Skicka användningsdata.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du distribuerar den här lösningen kan du bekräfta att du har för närvarande [Windows-agenter](../../log-analytics/log-analytics-windows-agent.md) rapporterar till Log Analytics-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) integrerad med din arbetsyta.
 
 ## <a name="solution-components"></a>Lösningskomponenter
@@ -74,7 +74,7 @@ Lösningen skapar en typ av post i Log Analytics-arbetsytan.
 ### <a name="heartbeat-records"></a>Pulsslagsposter
 En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt följande tabell.  
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | `Type` | *Pulsslag*|
 | `Category` | Värdet är *Direct Agent*, *SCOM Agent* eller *SCOM Management Server*.|

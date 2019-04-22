@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: heidist
 ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273421"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Skapa och hantera api-nycklar för en Azure Search-tjänst
@@ -34,7 +34,7 @@ Två typer av nycklar som används för att få åtkomst till din söktjänst: a
 |Nyckel|Beskrivning|Begränsningar|  
 |---------|-----------------|------------|  
 |Administratör|Bevilja fullständiga rättigheter för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor.<br /><br /> Två administratörsnycklar kallas *primära* och *sekundära* nycklar i portalen genereras när tjänsten har skapats och individuellt kan återskapas på begäran. Har två nycklar kan du förnyar en nyckel medan den andra nyckeln för fortsatt åtkomst till tjänsten.<br /><br /> Administratörsnycklar endast anges i HTTP-begärans sidhuvud. Du kan inte placera en admin api-nyckel i en URL.|Högst 2 per tjänst|  
-|Söka i data|Ger läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.<br /><br /> Frågenycklar skapas på begäran. Du kan skapa dem manuellt i portalen eller via programmering via den [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Frågenycklar kan anges i en HTTP-frågehuvudet vid sökning, förslag eller lookup-åtgärden. Du kan också skicka en frågenyckel som en parameter på en URL. Beroende på hur ditt klientprogram formulates begäran, kan det vara enklare att överföra nyckeln som frågeparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|50 per tjänst|  
+|Fråga|Ger läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.<br /><br /> Frågenycklar skapas på begäran. Du kan skapa dem manuellt i portalen eller via programmering via den [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Frågenycklar kan anges i en HTTP-frågehuvudet vid sökning, förslag eller lookup-åtgärden. Du kan också skicka en frågenyckel som en parameter på en URL. Beroende på hur ditt klientprogram formulates begäran, kan det vara enklare att överföra nyckeln som frågeparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|50 per tjänst|  
 
  Visuellt, görs ingen åtskillnad mellan en admin-nyckel eller en frågenyckel. Båda nycklarna är strängar som består av 32 slumpmässigt genererade alfanumeriska tecken. Om du förlorar reda på vilken typ av nyckel har angetts i ditt program kan du [Kontrollera nyckelvärdena i portalen](https://portal.azure.com) eller Använd den [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) att returnera värdet och nyckeltyp.  
 
@@ -98,5 +98,5 @@ Medlemmar i följande roller kan visa och återskapa nycklar: Ägare, deltagare,
 ## <a name="see-also"></a>Se också
 
 + [Rollbaserad åtkomstkontroll i Azure Search](search-security-rbac.md)
-+ [Hantera med hjälp av PowerShell](search-manage-powershell.md) 
++ [Hantera med PowerShell](search-manage-powershell.md) 
 + [Prestanda och optimering artikeln](search-performance-optimization.md)

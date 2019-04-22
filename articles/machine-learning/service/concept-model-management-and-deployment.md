@@ -12,10 +12,10 @@ ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275450"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten
@@ -33,7 +33,7 @@ Arbetsflödet innehåller följande steg:
 
 Varje steg kan utföras separat eller som en del av en enskild distribution-kommando. Dessutom kan du integrera distribution i en **CI/CD-arbetsflöde** enligt beskrivningen i den här bilden.
 
-[!['Utvärderingscykel för kontinuerlig integrering/kontinuerlig distribution (CI/CD) i Azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[![”Azure Machine Learning kontinuerlig integrering/kontinuerlig distribution (CI/CD) cykel'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Steg 1: Registrera modellen
 
@@ -75,7 +75,7 @@ Du kan distribuera registrerade avbildningar till molnet eller edge-enheter. Dis
 
 Webbtjänstdistributioner är också sökbara. Du kan exempelvis söka efter alla distributioner för en viss modell eller en bild.
 
-[![Inferencing mål](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Inferensjobb mål](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Du kan distribuera dina avbildningar till följande distribution i molnet:
 

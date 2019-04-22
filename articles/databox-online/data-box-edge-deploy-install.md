@@ -10,10 +10,10 @@ ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278487"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Självstudier: Installera Azure Data Box Edge
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Rackmontera enheten
 > * Kabelansluta enheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
@@ -86,7 +86,7 @@ Enheten måste installeras i ett 19-tums standardrack. Använd följande procedu
 > Data Box Edge-enheter måste rackmonteras för att fungera korrekt.
 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Innan du kan läsa anvisningarna säkerhet i din säkerhet, miljö och föreskrifter broschyr. Den här häfte levererades med enheten.
 - Används för att börja installeras rails det tilldelade utrymmet som är närmast längst ned på höljet rack.
@@ -221,6 +221,6 @@ I den här självstudien har du lärt dig om Data Box Edge-ämnen som att:
 Gå vidare till nästa självstudie och lär dig hur du ansluter, konfigurerar och aktiverar enheten.
 
 > [!div class="nextstepaction"]
-> [Ansluta och ställa in Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
+> [Ansluta och konfigurera Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
 
 

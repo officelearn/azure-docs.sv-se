@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272214"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database Managed Instance med Azure Data Factory
@@ -35,7 +35,7 @@ Mer specifikt stöder den här anslutningen för Azure SQL Database Managed Inst
 
 SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) stöds inte nu. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att använda data från en Azure SQL Database Managed Instance som befinner sig i ett virtuellt nätverk måste du konfigurera en lokal integration runtime som har åtkomst till databasen. Mer information finns i [integration runtime med egen värd](create-self-hosted-integration-runtime.md).
 
@@ -51,7 +51,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **SqlServer**. | Ja. |
 | connectionString |Den här egenskapen anger connectionString information som behövs för att ansluta till den hanterade instansen med hjälp av SQL-autentisering eller Windows-autentisering. Mer information finns i följande exempel. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault, och om den är SQL-autentisering pull den `password` konfiguration av anslutningssträngen. Se JSON-exemplet nedan i tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja. |
@@ -176,7 +176,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för an
 
 För att kopiera data från Azure SQL Database Managed Instance kan du ange typ av datakälla i kopieringsaktiviteten till **SqlSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitet källa:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SqlSource**. | Ja. |
 | sqlReaderQuery |Den här egenskapen använder anpassade SQL-fråga för att läsa data. Ett exempel är `select * from MyTable`. |Nej. |
@@ -279,7 +279,7 @@ GO
 
 Om du vill kopiera data till Azure SQL Database Managed Instance, ange Mottagartyp i kopieringsaktiviteten till **SqlSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitet mottagare:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SqlSink**. | Ja. |
 | writeBatchSize |Antalet rader som tillägg i SQL-tabell **per batch**.<br/>Tillåtna värden är heltal för hur många rader. |Nej (standard: 10,000). |
@@ -513,29 +513,29 @@ När data kopieras till och från Azure SQL Database Managed Instance, används 
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
+| Datetimeoffset |Datetimeoffset |
 | Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| FILESTREAM-attributet (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeriskt |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
-| rowversion |Byte[] |
-| smalldatetime |DateTime |
+| ROWVERSION |Byte[] |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+| tidsstämpel |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |

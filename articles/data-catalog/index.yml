@@ -39,6 +39,6 @@ sections:
         className: cardsD
         items:
           - title: REST
-            html: <p><a href="/rest/api/datacatalog/">Referens för REST API</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Sök i syntaxreferens</a></p>
+            html: <p><a href="/rest/api/datacatalog/">REST API-referens</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Sök i syntaxreferens</a></p>
           - title: Resource Manager
-            html: <p><a href="/azure/templates/microsoft.datacatalog/catalogs">Mallar för Resurshanteraren</a></p>
+            html: <p><a href="/azure/templates/microsoft.datacatalog/catalogs">Resource Manager-mallar</a></p>

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050738"
 ---
 # <a name="upload-files-with-iot-hub"></a>Ladda upp filer med IoT Hub
@@ -97,7 +97,7 @@ När en enhet meddelas IoT Hub att ladda upp är klar, genererar du kan också e
 
 Enligt beskrivningen i [slutpunkter](iot-hub-devguide-endpoints.md), IoT-hubb levererar filen ladda upp meddelanden via en tjänst-riktade slutpunkt (**/messages/servicebound/fileuploadnotifications**) som meddelanden. Ta emot-semantik för filmeddelanden för uppladdning är desamma som för meddelanden från moln till enhet och har samma [meddelande livscykel](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Varje meddelande som hämtas från filen uppladdning aviseringsslutpunkten är en JSON-post med följande egenskaper:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | EnqueuedTimeUtc |Tidsstämpel som visar när meddelandet skapades. |
 | DeviceId |**DeviceId** på den enhet som du laddade upp filen. |
@@ -123,7 +123,7 @@ Enligt beskrivningen i [slutpunkter](iot-hub-devguide-endpoints.md), IoT-hubb le
 
 Varje IoT-hubb har följande konfigurationsalternativ för filen överföra meddelanden:
 
-| Egenskap  | Beskrivning | Intervall- och standard |
+| Egenskap | Beskrivning | Intervall- och standard |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Styr om meddelanden för uppladdning av filen skrivs till slutpunkten för fil-meddelanden. |Bool. Standard: SANT. |
 | **fileNotifications.ttlAsIso8601** |Standard-TTL för filen ladda upp meddelanden. |ISO_8601 intervall upp till 48 H (minst 1 minut). Standard: 1 timme. |

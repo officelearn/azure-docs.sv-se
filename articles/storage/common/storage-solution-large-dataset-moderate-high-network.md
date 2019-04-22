@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58805596"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Dataöverföringen för stora datauppsättningar med måttlig till hög nätverksbandbredd
@@ -62,7 +62,7 @@ Följande tabeller sammanfattar skillnaderna i viktiga funktioner för alternati
 
 Om du använder offline dataöverföring, information om skillnaderna i viktiga funktioner med hjälp av följande tabell.
 
-|                                     |    Data Box Disk      |    Data Box                                      |    Data Box – tung            |    Import/Export                       |
+|                                     |    Data Box-disk      |    Data Box                                      |    Data Box – tung            |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Datastorlek                        |    Upp till 35 TB                 |    Upp till 80 TB per enhet                       |    Upp till 800 TB per enhet               |    Variabel                            |
 |    Datatyp                        |    Azure-Blobar                  |    Azure-Blobar<br>Azure Files                    |    Azure-Blobar<br>Azure Files            |    Azure-Blobar<br>Azure Files          |
@@ -76,7 +76,7 @@ Om du använder offline dataöverföring, information om skillnaderna i viktiga 
 |    Partnerintegration              |    Vissa                         |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Vissa                                |
 |    Fraktas                         |    Hanteras av Microsoft            |    Hanteras av Microsoft                             |    Hanteras av Microsoft                     |    Hanteras av kunden                    |
 | Använd när data flyttas         |Inom ett handel|Inom ett handel|Inom ett handel|Över geografiska gränser, t.ex. Vi kan EU|
-|    Prissättning                          |    [Prissättning](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prissättning](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    Priser                          |    [Prissättning](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prissättning](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 Om du använder online dataöverföring, Använd tabell i följande avsnitt för hög nätverksbandbredd.
@@ -91,7 +91,7 @@ Om du använder online dataöverföring, Använd tabell i följande avsnitt för
 |    Förbearbetning av data              |    Nej                                        |    Nej                                        |    Ja (med Edge-beräkning)                               |    Ja                                                                |
 |    Överföra från andra moln       |    Nej                                        |    Nej                                        |    Nej                                                    |    Ja                                                                |
 |    Användartyp                        |    IT Pro eller utveckling                                       |    Dev                                       |    IT-proffs                                                |    IT-proffs                                                             |
-|    Prissättning                          |    Kostnadsfri, kostnaderna för utgående datatrafik gäller         |    Kostnadsfri, kostnaderna för utgående datatrafik gäller         |    [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
+|    Priser                          |    Kostnadsfri, kostnaderna för utgående datatrafik gäller         |    Kostnadsfri, kostnaderna för utgående datatrafik gäller         |    [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
 ## <a name="next-steps"></a>Nästa steg
 

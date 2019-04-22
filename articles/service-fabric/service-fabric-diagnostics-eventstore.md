@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b8e1958947ced5ea2d0bd8b34667210bf935072d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662915"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681530"
 ---
 # <a name="eventstore-service-overview"></a>Översikt över EventStore-tjänsten
 
@@ -72,7 +72,7 @@ I [fabricSettings.json i klustret](service-fabric-cluster-fabric-settings.md), l
 
 ### <a name="azure-cluster"></a>Azure-kluster
 
-I Azure Resource Manager-mall för ditt kluster, du kan aktivera EventStore-tjänsten genom att utföra en [config uppgradering av kluster](service-fabric-cluster-config-upgrade-azure.md) och lägga till följande kod. Den `upgradeDescription` avsnittet konfigurerar config uppgraderingen för att utlösa en omstart på noderna. Du kan ta bort avsnittet i en annan uppdatering.
+I Azure Resource Manager-mall för ditt kluster, du kan aktivera EventStore-tjänsten genom att utföra en [config uppgradering av kluster](service-fabric-cluster-config-upgrade-azure.md) och lägger till följande kod kan du använda PlacementConstraints för att placera repliker av EventStore tjänsten på en specifik NodeType t.ex. en NodeType för systemtjänster. Den `upgradeDescription` avsnittet konfigurerar config uppgraderingen för att utlösa en omstart på noderna. Du kan ta bort avsnittet i en annan uppdatering.
 
 ```json
     "fabricSettings": [
@@ -89,6 +89,10 @@ I Azure Resource Manager-mall för ditt kluster, du kan aktivera EventStore-tjä
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              }
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049888"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Självstudier: Visualisera data från Azure Data Explorer i Power BI
@@ -29,11 +29,11 @@ I den här guiden får du lära dig att:
 > * Skapa en rapport med visuella objekt
 > * Publicera och dela rapporten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Förutom Azure- och Power BI-prenumerationer så behöver du följande för att slutföra den här självstudien:
 
-* [En testkluster och databas](create-cluster-database-portal.md)
+* [Ett testkluster och en databas](create-cluster-database-portal.md)
 
 * [StormEvents exempeldata](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -228,4 +228,4 @@ Om du inte vill behålla den rapport som du skapade, tar du helt enkelt bort fil
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriva frågor](write-queries.md)
+> [Skriv frågor](write-queries.md)

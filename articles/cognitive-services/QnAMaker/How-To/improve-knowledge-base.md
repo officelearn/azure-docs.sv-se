@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522204"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678997"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda active learning för att förbättra din kunskapsbas
 
@@ -156,7 +156,7 @@ Visar alla frågor i klientprogrammet med ett alternativ för att användaren v�
 
 När användaren väljer en av de befintliga frågorna, skickar klientprogrammet användarens val som feedback med QnA Maker träna API. Denna feedback är klar med aktivt learning feedback-loop. 
 
-Använd den [Azure Bot C# exempel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) att se aktiv inlärning i ett scenario för slutpunkt till slutpunkt.
+Använd den [Azure Bot exempel](https://aka.ms/activelearningsamplebot) att se aktiv inlärning i ett scenario för slutpunkt till slutpunkt.
 
 ## <a name="train-api"></a>Träna API
 
@@ -169,7 +169,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Egenskapen för HTTP-begäran|Namn|Type|Syfte|
+|Egenskapen för HTTP-begäran|Namn|Typ|Syfte|
 |--|--|--|--|
 |URL-parameter för väg|Kunskapsbas-ID|sträng|GUID för kunskapsbasen.|
 |Host subdomain|Resursnamnet för QnAMaker|sträng|Värdnamnet för din QnA Maker i Azure-prenumerationen. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
@@ -179,7 +179,7 @@ Content-Type: application/json
 
 JSON-texten har flera inställningar:
 
-|Brödtext JSON-egenskap|Type|Syfte|
+|Brödtext JSON-egenskap|Typ|Syfte|
 |--|--|--|--|
 |`feedbackRecords`|matris|Lista över feedback.|
 |`userId`|sträng|Användar-ID för den person som tar emot de föreslagna frågorna. Format för användar-ID är upp till dig. En e-postadress kan till exempel vara ett giltigt användar-ID i din arkitektur. Valfri.|

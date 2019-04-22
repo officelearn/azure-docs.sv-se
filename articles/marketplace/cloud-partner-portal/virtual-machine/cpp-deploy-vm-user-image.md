@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046743"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuera en virtuell Azure-dator från en användare VHD
@@ -31,7 +31,7 @@ Den här artikeln förklarar hur du distribuerar en generaliserad avbildning av 
 
 Kopiera Azure Resource Manager-mall för [VHD distribution](cpp-deploy-json-template.md) till en lokal fil med namnet `VHDtoImage.json`.  Redigera den här filen för att ange värden för följande parametrar. 
 
-|  **Parameter**             |   **Beskrivning**                                                              |
+|  **Parametern**             |   **Beskrivning**                                                              |
 |  -------------             |   ---------------                                                              |
 | ResourceGroupName          | Befintliga Azure resursgruppens namn.  Vanligtvis Använd samma RG som är associerade med ditt nyckelvalv  |
 | TemplateFile               | Fullständig sökväg till filen `VHDtoImage.json`                                    |

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Självstudier: Azure Active Directory-integrering med SAP Fiori
@@ -34,7 +34,7 @@ Integrera SAP Fiori med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med SAP Fiori, behöver du följande objekt:
 
@@ -135,7 +135,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SAP Fio
 6. Ersätt **providernamn** från T01122 till `http://T01122` och klicka på **Spara**.
 
     > [!NOTE]
-    > Som standard providernamn medföljer som <sid><client> formatet, men Azure AD förväntar sig namnet i formatet <protocol>://<name>rekommendationer att underhålla providernamn som https://<sid><client> så att flera SAP Fiori ABAP-motorer att konfigurera i Azure AD .
+    > Som standard providernamn medföljer som <sid> <client> formatet, men Azure AD förväntar sig namnet i formatet <protocol>://<name>rekommendationer att underhålla providernamn som https://<sid> <client> så att flera SAP Fiori ABAP-motorer för att konfigurera i Azure AD.
 
     ![Länk för nedladdning av certifikatet](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
@@ -175,8 +175,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SAP Fio
 
     ![SAP Fiori-domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
 
-    d. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
-    `https://<your company instance of SAP Fiori>`
+    d. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<your company instance of SAP Fiori>`
 
     > [!NOTE]
     > Vi har fått rapporter från några kunder om ett fel med felaktig svars-URL som har konfigurerats för deras instans. Om du får ett sådant fel kan du använda följande PowerShell-skript som en tillfällig åtgärd för att ange rätt svars-URL för din instans:
@@ -376,7 +375,7 @@ I det här avsnittet skapar du en användare som kallas Britta Simon i SAP Fiori
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

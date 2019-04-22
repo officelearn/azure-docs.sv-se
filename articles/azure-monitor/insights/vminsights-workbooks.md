@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288718"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Skapa interaktiva rapporter med Azure Monitor-arbetsböcker
@@ -121,7 +121,7 @@ Varje avsnitt har sin egen avancerade inställningar är tillgängliga via inst�
 | **Villkorligt synligt** | Ange om du vill dölja stegen utifrån en parameter i läsläge. |
 | **Exportera en parameter**| Tillåt en vald rad i rutnätet eller diagrammet kan orsaka senare steg för att ändra värden eller bli synliga.  |
 | **Visa fråga när du inte redigerar** | Visar frågan ovanför diagrammet eller tabellen även när du i läsläge.
-| **Visa Öppna i Analytics när du inte redigerar** | Lägger till ikonen Analytics i det högra hörnet i diagrammet för att tillåta åtkomst med ett klick.|
+| **Visa öppna i analytics knappen när du inte redigerar** | Lägger till ikonen Analytics i det högra hörnet i diagrammet för att tillåta åtkomst med ett klick.|
 
 De flesta av de här inställningarna är ganska intuitiva, men att förstå **exportera en parameter** är det bättre att undersöka en arbetsbok som använder den här funktionen.
 
@@ -167,7 +167,7 @@ Det finns fyra olika typer av parametrar som stöds för närvarande:
 |                  |      |
 | ---------------- |:-----|
 | **Text**    | Tillåter användare att redigera en textruta och du kan också ange en fråga för att fylla i standardvärdet. |
-| **Listmeny** | Gör att användaren kan välja mellan en uppsättning värden. |
+| **Nedrullningsbar listruta** | Gör att användaren kan välja mellan en uppsättning värden. |
 | **Tidsintervallsväljare**| Gör att användaren kan välja från en fördefinierad uppsättning tidsvärden för intervallet, eller välj från ett anpassat tidsintervall.|
 | **Resursväljare** | Gör att användaren kan välja bland de resurser som valts för arbetsboken.|
 

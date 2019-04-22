@@ -11,10 +11,10 @@ ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259825"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
@@ -98,7 +98,7 @@ az account management-group create --name ContosoSubGroup --parent Contoso
 Läs mer om hanteringslösningar här:
 
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
-- [Ändra, ta bort eller hantera dina hanteringsgrupper](manage.md)
-- [Granska av hanteringsgrupper i Azure PowerShell-modulen för resurser](/powershell/module/az.resources#resources)
-- [Granska hanteringsgrupper i REST-API](/rest/api/resources/managementgroups)
-- [Granska av hanteringsgrupper i Azure CLI](/cli/azure/account/management-group)
+- [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
+- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](/powershell/module/az.resources#resources)
+- [Granska hanteringsgrupper i REST API](/rest/api/resources/managementgroups)
+- [Granska hanteringsgrupper i Azure CLI](/cli/azure/account/management-group)

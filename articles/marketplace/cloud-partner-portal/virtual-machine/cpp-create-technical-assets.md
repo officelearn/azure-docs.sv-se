@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050109"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Skapa tekniska resurser till en virtuell dator
@@ -57,8 +57,8 @@ Välj en eller båda av följande skript miljöer för att hantera virtuella hå
 
 Vi rekommenderar dessutom att lägga till följande verktyg i utvecklingsmiljön: 
 
--   [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio-koden](https://code.visualstudio.com/)
+-   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Visual Studio Code](https://code.visualstudio.com/)
     *   Anknytning: [Verktyget Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Anknytning: [Tjärgropar](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   Anknytning: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)

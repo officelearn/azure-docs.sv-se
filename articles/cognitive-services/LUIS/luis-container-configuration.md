@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883125"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678572"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurera Language Understanding Docker-behållare 
 
@@ -30,23 +30,23 @@ Den här behållaren har följande konfigurationsinställningar:
 |--|--|--|
 |Ja|[ApiKey](#apikey-setting)|Används för att spåra faktureringsinformation.|
 |Nej|[ApplicationInsights](#applicationinsights-setting)|Du kan lägga till [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetri stöd till behållaren.|
-|Ja|[Fakturering](#billing-setting)|Anger URI för tjänstresursen på Azure.|
+|Ja|[Billing](#billing-setting)|Anger URI för tjänstresursen på Azure.|
 |Ja|[Eula](#eula-setting)| Anger att du har godkänt licensen för behållaren.|
 |Nej|[Fluentd](#fluentd-settings)|Skriva log och eventuellt måttdata till en Fluentd-server.|
 |Nej|[HTTP-Proxy](#http-proxy-credentials-settings)|Konfigurera en HTTP-proxy för utgående förfrågningar.|
 |Nej|[Loggning](#logging-settings)|Ger ASP.NET Core loggning stöd för din behållare. |
-|Ja|[Monterar](#mount-settings)|Läsa och skriva data från värddatorn till behållaren och från behållaren tillbaka till värddatorn.|
+|Ja|[Mounts](#mount-settings)|Läsa och skriva data från värddatorn till behållaren och från behållaren tillbaka till värddatorn.|
 
 > [!IMPORTANT]
 > Den [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), och [ `Eula` ](#eula-setting) inställningar används tillsammans, och du måste ange giltiga värden för alla tre av dem, annars din behållare startar inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](luis-container-howto.md#billing).
 
 ## <a name="apikey-setting"></a>ApiKey inställningen
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Språkförståelse_ resurs som angetts för den [ `Billing` ](#billing-setting) konfigurationsinställning.
+Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för den [ `Billing` ](#billing-setting) konfigurationsinställning.
 
 Den här inställningen kan hittas på följande platser:
 
-* Azure-portalen: **Language Understanding** resurshantering under **nycklar**
+* Azure-portalen: **Cognitive Services** resurshantering under **nycklar**
 * LUIS-portalen: **Nycklar och slutpunktsinställningarna** sidan. 
 
 Använd inte starter-nyckel eller nyckeln för redigering. 
@@ -57,12 +57,15 @@ Använd inte starter-nyckel eller nyckeln för redigering.
 
 ## <a name="billing-setting"></a>Inställningen för fakturering
 
-Den `Billing` inställningen anger URI för den _Språkförståelse_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _Språkförståelse_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
+Den `Billing` inställningen anger URI för den _Cognitive Services_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _Cognitive Services_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
 
 Den här inställningen kan hittas på följande platser:
 
-* Azure-portalen: **Language Understanding** översikt, märkt `Endpoint`
+* Azure-portalen: **Cognitive Services** översikt, märkt `Endpoint`
 * LUIS-portalen: **Nycklar och slutpunktsinställningarna** sidan som en del av URI-slutpunkten.
+
+Kom ihåg att inkludera den `luis/v2.0` routning i URL: en som visas i följande tabell:
+
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
@@ -109,16 +112,18 @@ I följande exempel används konfigurationsinställningarna som illustrerar hur 
 * **Fortsättning på raden tecknet**: Docker-kommandon i följande avsnitt använder det omvända snedstrecket `\`, som en fortsättning tecknet. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
 * **Argumentet order**: Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
 
+Kom ihåg att inkludera den `luis/v2.0` routning i URL: en som visas i följande tabell.
+
 Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | Slutpunktsnyckeln av tränade LUIS-programmet. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | Fakturering slutpunktsvärdet är tillgänglig på Azure portal Language Understanding översiktssidan.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{BILLING_ENDPOINT} | Fakturering slutpunktsvärdet är tillgänglig på Azure `Cognitive Services` översiktssidan. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](luis-container-howto.md#billing).
-> ApiKey-värdet är den **nyckel** från nycklar och slutpunkter i LUIS-portalen och är också tillgängliga på sidan nycklar för Azure Language Understanding-resurs. 
+> ApiKey-värdet är den **nyckel** från nycklar och slutpunkter i LUIS-portalen och är även tillgängligt i Azure `Cognitive Services` resurssida nycklar. 
 
 ### <a name="basic-example"></a>Grundläggande exempel
 

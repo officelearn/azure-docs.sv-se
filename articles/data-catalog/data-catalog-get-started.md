@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure Data Catalog
+title: Skapa Azure Data Catalog
 description: En Snabbstart om hur du skapar en Azure Data Catalog.
 author: markingmyname
 ms.author: maghan
@@ -7,13 +7,13 @@ ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 04/05/2019
 ms.openlocfilehash: 66d178497f3403579990340b88a1153905b2a2bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271041"
 ---
-# <a name="quickstart-create-an-azure-data-catalog"></a>Snabbstart: Skapa en Azure Data Catalog
+# <a name="quickstart-create-an-azure-data-catalog"></a>Snabbstart: Skapa Azure Data Catalog
 
 Azure Data Catalog är en helt hanterad molntjänst som fungerar som ett registrerings- och identifieringssystem för datatillgångar på ett företag. En detaljerad översikt finns i [Vad är Azure Data Catalog?](overview.md)
 
@@ -21,7 +21,7 @@ Den här snabbstarten hjälper dig att komma igång med att skapa en Azure Data 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha för att komma igång:
 

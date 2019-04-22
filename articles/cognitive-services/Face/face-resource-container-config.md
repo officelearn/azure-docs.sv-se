@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 73fc17ae5c65cd1a6ce47a18cbe17e6c338b7aaf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882131"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677790"
 ---
 # <a name="configure-face-docker-containers"></a>Konfigurera ansikte Docker-behållare
 
@@ -31,11 +31,11 @@ Den **ansikte** behållare körningsmiljö konfigureras med hjälp av den `docke
 
 ## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _ansikte_ resurs som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
+Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
 
 Den här inställningen kan hittas på följande plats:
 
-* Azure-portalen: **Ansiktes** resurshantering under **nycklar**
+* Azure-portalen: **Cognitive Services** resurshantering under **nycklar**
 
 ## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
 
@@ -43,11 +43,13 @@ Den här inställningen kan hittas på följande plats:
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Den `Billing` inställningen anger URI för den _ansikte_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _ansikte_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
+Den `Billing` inställningen anger URI för den _Cognitive Services_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _Cognitive Services_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
 
 Den här inställningen kan hittas på följande plats:
 
-* Azure-portalen: **Ansiktes** översikt, märkt `Endpoint`
+* Azure-portalen: **Cognitive Services** översikt, märkt `Endpoint`
+
+Kom ihåg att lägga till den _ansikte_ routning till slutpunkten URI som du ser i exemplet. 
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
@@ -136,12 +138,12 @@ Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{BILLING_KEY} | Slutpunktsnyckeln av Ansikts-resurs. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet inklusive region.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_KEY} | Slutpunkt-nyckel för resurs för Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet inklusive region och ansikte routning.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](face-how-to-install-containers.md#billing).
-> ApiKey-värdet är den **nyckel** från sidan nycklar för Azure Ansikts-resurs. 
+> ApiKey-värdet är den **nyckel** från Azure `Cognitive Services` resurssida nycklar. 
 
 ## <a name="face-container-docker-examples"></a>Står inför behållare Docker-exempel
 

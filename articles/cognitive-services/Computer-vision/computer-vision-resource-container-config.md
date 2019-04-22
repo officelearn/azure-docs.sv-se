@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: db33ce748928b954f5447a82550c6ecde2188abf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877133"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678691"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Konfigurera identifiera Text Docker-behållare
 
@@ -31,11 +31,11 @@ Den **identifiera Text** behållare körningsmiljö konfigureras med hjälp av d
 
 ## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _visuellt_ resurs som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
+Den `ApiKey` inställningen anger Azure `Cognitive Services` Resursnyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
 
 Den här inställningen kan hittas på följande plats:
 
-* Azure-portalen: **Datorn Vision** resurshantering under **nycklar**
+* Azure-portalen: **Cognitive Services** resurshantering under **nycklar**
 
 ## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
 
@@ -43,11 +43,13 @@ Den här inställningen kan hittas på följande plats:
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Den `Billing` inställningen anger URI för den _visuellt_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _visuellt_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
+Den `Billing` inställningen anger URI för den _Cognitive Services_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig URI-slutpunkt för en _Cognitive Services_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
 
 Den här inställningen kan hittas på följande plats:
 
-* Azure-portalen: **Datorn Vision** översikt, märkt `Endpoint`
+* Azure-portalen: **Cognitive Services** översikt, märkt `Endpoint`
+
+Kom ihåg att lägga till den `vision/v1.0` routning till slutpunkten URI som du ser i följande tabell. 
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
@@ -89,16 +91,18 @@ I följande exempel används konfigurationsinställningarna som illustrerar hur 
 * **Fortsättning på raden tecknet**: Docker-kommandon i följande avsnitt använder det omvända snedstrecket `\`, som en fortsättning tecknet. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
 * **Argumentet order**: Ändra inte argumentens ordning om du inte är bekant med Docker-behållare.
 
+Kom ihåg att lägga till den `vision/v1.0` routning till slutpunkten URI som du ser i följande tabell. 
+
 Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{BILLING_KEY} | Slutpunktsnyckeln för visuellt innehåll-resurs. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_KEY} | Slutpunkt-nyckel för resurs för Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet inklusive region.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](computer-vision-how-to-install-containers.md#billing).
-> ApiKey-värdet är den **nyckel** från sidan nycklar för Azure datorresurs för visuellt innehåll. 
+> ApiKey-värdet är den **nyckel** från Azure `Cognitive Services` resurssida nycklar. 
 
 ## <a name="recognize-text-container-docker-examples"></a>Identifiera text behållare Docker-exempel
 

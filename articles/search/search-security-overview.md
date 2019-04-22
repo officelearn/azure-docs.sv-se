@@ -10,10 +10,10 @@ ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269562"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Säkerhet och sekretess i Azure Search
@@ -31,7 +31,7 @@ Azure Search är certifierad för följande standarder som [tillkännagav i juni
 + [Health Insurance Portability and Accountability Act (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
 + [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
-+ [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
++ [PCI DSS nivå 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
 + [Australien IRAP oklassificerade DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 Överensstämmelse med standarder gäller för allmänt tillgängliga funktioner. Förhandsversionsfunktioner är certifierade när de övergång till allmän tillgänglighet och får inte användas i lösningar med strikta standarder för krav. Efterlevnadscertifiering dokumenteras i [översikt över Microsoft Azure-efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) och [Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter). 

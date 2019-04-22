@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: f90140e9464ee72e9ceae8ca140bd060c51aade8
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762658"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Skala migrering av virtuella datorer med Azure Site Recovery
@@ -23,7 +23,7 @@ Den här artikeln hjälper dig att förstå processen med att använda skript f�
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar måste du göra följande:
 - Se till att Site Recovery-valvet har skapats i din Azure-prenumeration
 - Se till att konfigurationsservern och Processervern är installerade i källmiljön och valvet är inte identifiera miljön

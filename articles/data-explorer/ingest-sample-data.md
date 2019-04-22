@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050636"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Mata in exempeldata i Azure Data Explorer
@@ -21,9 +21,9 @@ Den här artikeln visar hur du mata in (load) exempeldata i en Azure Data Explor
 > [!NOTE]
 > Du redan har dessa data om du har slutfört [Snabbstart: Mata in data med hjälp av Azure Data Explorer Python-klientbiblioteket](python-ingest-data.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-[En testkluster och databas](create-cluster-database-portal.md)
+[Ett testkluster och en databas](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>Mata in data
 
@@ -60,7 +60,7 @@ I exempeldatauppsättningen **StormEvents** finns väderrelaterade data från [N
 > [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
 
 > [!div class="nextstepaction"]
-> [Skriva frågor](write-queries.md)
+> [Skriv frågor](write-queries.md)
 
 > [!div class="nextstepaction"]
 > [Azure Data Explorer-datainmatning](ingest-data-overview.md)

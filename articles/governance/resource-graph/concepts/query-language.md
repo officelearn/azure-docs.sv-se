@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276685"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå Azure Resource Graph-frågespråk
@@ -25,16 +25,16 @@ Det bästa sättet att lära dig frågespråket som används av resursen Graph �
 
 Här är listan över tabular operatorer som stöds i resursen Graph:
 
-- [count](/azure/kusto/query/countoperator)
+- [antal](/azure/kusto/query/countoperator)
 - [distinct](/azure/kusto/query/distinctoperator)
 - [Utöka](/azure/kusto/query/extendoperator)
-- [Gränsen](/azure/kusto/query/limitoperator)
+- [limit](/azure/kusto/query/limitoperator)
 - [order by-](/azure/kusto/query/orderoperator)
-- [Projekt](/azure/kusto/query/projectoperator)
+- [project](/azure/kusto/query/projectoperator)
 - [project-away](/azure/kusto/query/projectawayoperator)
-- [Exemplet](/azure/kusto/query/sampleoperator)
+- [sample](/azure/kusto/query/sampleoperator)
 - [sample-distinct](/azure/kusto/query/sampledistinctoperator)
-- [sortera efter](/azure/kusto/query/sortoperator)
+- [Sortera efter](/azure/kusto/query/sortoperator)
 - [Sammanfatta](/azure/kusto/query/summarizeoperator)
 - [ta](/azure/kusto/query/takeoperator)
 - [längst upp](/azure/kusto/query/topoperator)
@@ -50,8 +50,8 @@ Här är listan över funktioner som stöds i resursen Graph:
 - [buildschema()](/azure/kusto/query/buildschema-aggfunction)
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
-- [toString)](/azure/kusto/query/tostringfunction)
-- [ZIP()](/azure/kusto/query/zipfunction)
+- [tostring()](/azure/kusto/query/tostringfunction)
+- [zip()](/azure/kusto/query/zipfunction)
 
 ## <a name="next-steps"></a>Nästa steg
 

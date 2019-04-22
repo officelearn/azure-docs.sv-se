@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278147"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Självstudier: Azure Active Directory-integrering med Grovo
@@ -33,7 +33,7 @@ Integrera Grovo med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Grovo, behöver du följande objekt:
 
@@ -108,11 +108,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Grovo:
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     c. Klicka på **Ange ytterligare URL:er**.
 
-    d. I den **Vidarebefordransstatus** text skriver en URL med hjälp av följande mönster: `https://<subdomain>.grovo.com`
+    d. Skriv en URL med följande mönster i textrutan **Vidarebefordransstatus**: `https://<subdomain>.grovo.com`
 
 5. Om du vill konfigurera programmet i **SP** initierade läge, utföra följande steg:
 
@@ -260,7 +260,7 @@ När du klickar på panelen Grovo i åtkomstpanelen, bör det vara loggas in aut
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

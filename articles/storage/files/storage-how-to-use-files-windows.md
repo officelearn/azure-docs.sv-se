@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
 ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048851"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
@@ -43,7 +43,7 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 * **Lagringskontonamn**: Om du vill montera en Azure-filresurs behöver du namnet på lagringskontot.
 
 * **Lagringskontonyckel**: Om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
@@ -298,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 När du har skapat den här registernyckeln måste du starta om servern för att inaktivera SMB 1.
 
 ### <a name="smb-resources"></a>SMB-resurser
-- [Sluta använda SMB-1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [SMB-1 produkt Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [Sluta använda SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [Clearinghouse för SMB 1-produkt](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
 - [Identifiera SMB 1 i din miljö med DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [Inaktivera SMB 1 via en Grupprincip](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Inaktivera SMB 1 via en grupprincip](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:
-- [Planera för distribution av Azure Files](storage-files-planning.md)
-- [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
+- [Planera för en Azure Files-distribution](storage-files-planning.md)
+- [Vanliga frågor och svar](../storage-files-faq.md)
 - [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      

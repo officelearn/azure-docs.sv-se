@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/30/2019
 ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051860"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Snabbstart: Mata in blobar i Azure Data Explorer genom att prenumerera på meddelanden för Event Grid
@@ -20,7 +20,7 @@ Azure Data Explorer är en snabb och skalbar tjänst för Kunskapsutveckling fö
 
 I den här snabbstarten får du lära dig hur du ställer in en [Azure Event Grid](/azure/event-grid/overview) prenumeration och dirigera händelser till Datautforskaren i Azure via en händelsehubb. Om du vill börja, bör du ha ett lagringskonto med en event grid-prenumeration som skickar meddelanden till Azure Event Hubs. Sedan skapar en Event Grid-dataanslutning och se data flödet i hela systemet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 * [Ett kluster och databasen](create-cluster-database-portal.md).
@@ -42,8 +42,8 @@ I den här snabbstarten får du lära dig hur du ställer in en [Azure Event Gri
     | Händelseschema | *Event Grid-schema* | Schemat som ska användas för event grid. |
     | Typ av ämne | *Lagringskonto* | Typ av Event Grid-ämne. |
     | Ämnesresurs | *gridteststorage* | Namnet på ditt lagringskonto. |
-    | Prenumerera på alla händelsetyper | *rensa* | Få inte meddelanden vid alla händelser. |
-    | Definierade händelsetyper | *Blob skapas* | Vilka specifika händelser du ska meddelas om. |
+    | Prenumerera på alla händelsetyper | *clear* | Få inte meddelanden vid alla händelser. |
+    | Definierade händelsetyper | *BLOB skapas* | Vilka specifika händelser du ska meddelas om. |
     | Typ av slutpunkt | *Händelsehubbar* | Typ av slutpunkt som du skickar händelserna till. |
     | Slutpunkt | *test-hub* | Händelsehubben som du skapade. |
     | | |

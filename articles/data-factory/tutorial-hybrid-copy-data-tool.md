@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/09/2018
 ms.author: abnarain
 ms.openlocfilehash: 26bc6861602cae349c8ebaafefe070c119a93e87
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261535"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data
@@ -35,7 +35,7 @@ I den här självstudien får du göra följande:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -285,4 +285,4 @@ Se [Datalager som stöds](copy-activity-overview.md#supported-data-stores-and-fo
 Fortsätt till följande självstudie för att lära dig att masskopiera data från en källa till ett mål:
 
 > [!div class="nextstepaction"]
->[Masskopiera data](tutorial-bulk-copy-portal.md)
+>[Masskopiera data i molnet](tutorial-bulk-copy-portal.md)

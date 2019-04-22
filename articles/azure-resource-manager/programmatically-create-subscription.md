@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256931"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)
@@ -26,7 +26,7 @@ När du skapar en Azure-prenumeration från detta API kan regleras den prenumera
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha en ägarrollen på konto för Enhetsregistreringshanterare som du vill skapa prenumerationer under. Det finns två sätt att få dessa roller:
 
@@ -40,7 +40,7 @@ När du har lagt till en Azure EA-registrering kontots ägare kan använder Azur
 
 För att köra följande kommandon, måste du vara inloggad på den Kontoägare *hemkatalog*, vilket är den katalog som prenumerationer skapas som standard.
 
-# [<a name="rest"></a>REST](#tab/rest)
+# <a name="resttabrest"></a>[REST](#tab/rest)
 
 Begäran att lista alla registreringskonton:
 
@@ -73,7 +73,7 @@ Azure svarar med en lista över alla registreringskonton som du har åtkomst til
 }
 ```
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Använd den [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet för att lista alla registreringskonton som du har åtkomst till.
 
@@ -89,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Använd den [az fakturering konto för enhetsregistreringshanterare lista](https://aka.ms/EASubCreationPublicPreviewCLI) kommando för att lista alla registreringskonton som du har åtkomst till.
 
@@ -130,7 +130,7 @@ Använd den `principalName` egenskapen att identifiera det konto som du vill pre
 
 I följande exempel skapas en begäran om att skapa prenumeration med namnet *Dev-teamet prenumeration* och erbjudandet är *MS-AZR - 0017P* (regelbundna EA). Konto för enhetsregistreringshanterare är `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (platshållarvärdet, det här värdet är ett GUID), vilket är registreringskontot för SignUpEngineering@contoso.com. Det även lägger till två användare som ägare av RBAC för prenumerationen.
 
-# [<a name="rest"></a>REST](#tab/rest)
+# <a name="resttabrest"></a>[REST](#tab/rest)
 
 Använd den `id` av den `enrollmentAccount` i sökvägen för begäran om att skapa prenumerationen.
 
@@ -159,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 I svaret, få tillbaka en `subscriptionOperation` objekt för övervakning. När prenumerationen datafabriken har skapats i `subscriptionOperation` objektet kommer att returnera en `subscriptionLink` objekt som har prenumerations-ID.
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 För att använda den här förhandsversionsmodulen måste du installera det genom att köra `Install-Module Az.Subscription -AllowPrerelease` första. Kontrollera `-AllowPrerelease` fungerar, installera en ny version av PowerShellGet från [hämta PowerShellGet-modul](/powershell/gallery/installing-psget).
 
@@ -180,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 En fullständig lista över alla parametrar finns i [New AzSubscription](/powershell/module/az.subscription.preview).
 
-# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 För att använda det här preview-tillägget måste du installera det genom att köra `az extension add --name subscription` första.
 

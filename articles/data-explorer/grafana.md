@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048324"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualisera data från Azure Data Explorer i Grafana
 
 Grafana är en analysplattform som gör det möjligt att fråga och visualisera data, sedan skapa och dela instrumentpaneler som baseras på dina visualiseringar. Grafana ger en Azure Data Explorer *plugin-programmet*, vilket gör att du kan ansluta till och visualisera data från Azure Data Explorer. Du lär dig hur du konfigurerar Datautforskaren i Azure som en datakälla för Grafana och visualisera data från ett kluster i exemplet i den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för att slutföra den här så här:
 
@@ -121,7 +121,7 @@ Nu när du har ett huvudnamn för tjänsten kan du lägga till den till den *vis
 
 1. Gå till Datautforskaren i Azure-kluster i Azure-portalen och välj **fråga**.
 
-    ![Söka i data](media/grafana/query.png)
+    ![Fråga](media/grafana/query.png)
 
 1. Kör följande kommando i frågefönstret. Använd det program-ID och klient-ID från Azure-portalen eller CLI.
 
@@ -155,7 +155,7 @@ Med tjänstens huvudnamn som tilldelats den *visningsprogram* roll du nu ange eg
     | --- | --- | --- |
     | Prenumeration-ID | PRENUMERATIONS-ID | SubscriptionId |
     | Klient-ID | Katalog-ID | klient |
-    | Klient-ID | Program-ID:t | appId |
+    | Klient-ID | Program-ID | appId |
     | Klienthemlighet | Lösenord | lösenord |
     | | | |
 
@@ -181,7 +181,7 @@ Nu du har konfigurerat Datautforskaren i Azure som en datakälla för Grafana, �
 
 1. Markera längst ned på panelen **datakälla** väljer du datakällan som du har konfigurerat.
 
-    ![Välja datakälla](media/grafana/select-data-source.png)
+    ![Välj datakälla](media/grafana/select-data-source.png)
 
 1. Kopiera i följande fråga i frågefönstret och välj sedan **kör**. Frågan buckets antal händelser per dag för exempeldata.
 
@@ -208,6 +208,6 @@ Nu du har konfigurerat Datautforskaren i Azure som en datakälla för Grafana, �
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skriv frågor för Azure Data Explorer](write-queries.md)
+[Skriva frågor för Azure Data Explorer](write-queries.md)
 
 [Självstudier: Visualisera data från Azure Data Explorer i Power BI](visualize-power-bi.md)

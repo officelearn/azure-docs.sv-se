@@ -16,10 +16,10 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259209"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en Windows SQL Server-dator i Azure portal
@@ -158,10 +158,10 @@ På den **SQL Server-inställningar** konfigurerar specifika inställningar och 
 | Inställning |
 | --- |
 | [Anslutning](#connectivity) |
-| [Authentication](#authentication) |
+| [Autentisering](#authentication) |
 | [Azure Key Vault-integrering](#azure-key-vault-integration) |
 | [Storage-konfiguration](#storage-configuration) |
-| [Automatisk korrigering](#automated-patching) |
+| [Automatisk uppdatering](#automated-patching) |
 | [Automatisk säkerhetskopiering](#automated-backup) |
 | [R Services (avancerad analys)](#r-services-advanced-analytics) |
 

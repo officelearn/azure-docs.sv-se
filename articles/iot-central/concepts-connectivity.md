@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425975"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
@@ -181,7 +181,7 @@ I följande tabell sammanfattas hur Azure IoT Central enhetsfunktioner mappas ti
 
 Mer information om hur du använder SDK: er för enheter finns i följande artiklar exempelkod:
 
-- [Ansluta en allmän Node.js-klient till Azure IoT Central programmet](howto-connect-nodejs.md)
+- [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs.md)
 - [Ansluta en Raspberry Pi-enhet till Azure IoT Central programmet](howto-connect-raspberry-pi-python.md)
 - [Ansluta en DevDiv kit enhet till Azure IoT Central programmet](howto-connect-devkit.md).
 
@@ -207,5 +207,5 @@ Nu när du har lärt dig om enhetsanslutning i Azure IoT Central, är här näst
 
 - [Förbereda och ansluta en DevKit-enhet](howto-connect-devkit.md)
 - [Förbereda och ansluta en Raspberry Pi](howto-connect-raspberry-pi-python.md)
-- [Ansluta en allmän Node.js-klient till Azure IoT Central programmet](howto-connect-nodejs.md)
+- [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs.md)
 - [C SDK: Etablering Enhetsklienten SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

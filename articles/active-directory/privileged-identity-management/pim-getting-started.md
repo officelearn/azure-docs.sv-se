@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488640"
 ---
 # <a name="start-using-pim"></a>Börja använda PIM
@@ -106,7 +106,7 @@ Du kan utföra dina identitetshanteringsaktiviteter när PIM har ställts in.
 | --- | --- |
 | **Mina roller**  | Visar en lista över tillgängliga och aktiva roller som är tilldelade till dig. Här kan du aktivera tilldelade berättigade roller. |
 | **Mina begäranden** | Visar väntande förfrågningar om att aktivera kvalificerade rolltilldelningar. |
-| **Godkänn förfrågningar** | Visar en lista över förfrågningar om att aktivera berättigade roller av användare i din katalog som du är gjorda för att godkänna. |
+| **Godkänna förfrågningar** | Visar en lista över förfrågningar om att aktivera berättigade roller av användare i din katalog som du är gjorda för att godkänna. |
 | **Granska åtkomst** | Visar en lista över aktiva åtkomstgranskningar som du har tilldelats slutföra, oavsett om du granskar åtkomst åt dig själv eller någon annan. |
 | **Azure AD-roller** | Visar en instrumentpanel och inställningar för privilegierade rolladministratörer att hantera rolltilldelningar i Azure AD. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |
 | **Azure-resurser** | Visar en instrumentpanel och inställningar för privilegierade rolladministratörer att hantera rolltilldelningar i Azure-resurs. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |

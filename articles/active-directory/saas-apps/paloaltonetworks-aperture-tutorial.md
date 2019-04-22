@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 375b58f47454a7f5904bcdbd132b8318091e9ebd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Självstudier: Azure Active Directory-integrering med Palo Alto Networks - öppning
@@ -34,7 +34,7 @@ Integrera Palo Alto Networks - öppning med Azure AD ger dig följande fördelar
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Palo Alto Networks - öppning, behöver du följande objekt:
 
@@ -107,7 +107,7 @@ Om du vill konfigurera Azure AD utför enkel inloggning med Palo Alto Networks -
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -223,7 +223,7 @@ När du klickar på Palo Alto Networks - Öppning panel i åtkomstpanelen, bör 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

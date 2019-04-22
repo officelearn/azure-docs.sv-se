@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: abnarain
 ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275418"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
@@ -156,5 +156,5 @@ Varje transformeringsaktivitet har en länkad målberäkningstjänst, som pekar 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Skapa Integration Runtime med lokal installation](create-self-hosted-integration-runtime.md)
+- [Skapa Integration Runtime med egen värd](create-self-hosted-integration-runtime.md)
 - [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL Database Managed Instance och ansluter IR till ett virtuellt nätverk. 

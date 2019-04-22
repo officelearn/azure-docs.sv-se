@@ -8,10 +8,10 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490330"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
@@ -105,7 +105,7 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 
   För OVA version 1.0.10.11
 
-  **Algoritmen** | **Hash-värde**
+  **Algoritm** | **Hash-värde**
     --- | ---
     MD5 | 5f6b199d8272428ccfa23543b0b5f600
     SHA1 | daa530de6e8674a66a728885a7feb3b0a2e8ccb0
@@ -113,7 +113,7 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 
   För OVA-version 1.0.10.9
 
-  **Algoritmen** | **Hash-värde**
+  **Algoritm** | **Hash-värde**
   --- | ---
   MD5 | 169f6449cc1955f1514059a4c30d138b
   SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
@@ -121,7 +121,7 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 
   För OVA-version 1.0.10.4
 
-  **Algoritmen** | **Hash-värde**
+  **Algoritm** | **Hash-värde**
   --- | ---
   MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
   SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
@@ -134,7 +134,7 @@ Den här modellen är nu inaktuell. Stöd för befintliga installationer kommer 
 
   För OVA-version 1.0.9.15
 
-  **Algoritmen** | **Hash-värde**
+  **Algoritm** | **Hash-värde**
   --- | ---
   MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
   SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
@@ -142,7 +142,7 @@ Den här modellen är nu inaktuell. Stöd för befintliga installationer kommer 
 
   För OVA-version 1.0.9.14
 
-  **Algoritmen** | **Hash-värde**
+  **Algoritm** | **Hash-värde**
   --- | ---
   MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
   SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
@@ -150,7 +150,7 @@ Den här modellen är nu inaktuell. Stöd för befintliga installationer kommer 
 
   För OVA-version 1.0.9.12
 
-  **Algoritmen** | **Hash-värde**
+  **Algoritm** | **Hash-värde**
   --- | ---
   MD5 | d0363e5d1b377a8eb08843cf034ac28a
   SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
@@ -270,7 +270,7 @@ Varje prestandabaserade utvärdering i Azure Migrate är kopplad till ett säker
 
 För prestandabaserade storleksändringar behöver Azure Migrate användningsdata för CPU, minne och den virtuella datorn. För varje disk som är ansluten till den virtuella datorn krävs dessutom information om IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till en virtuell dator så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
 
-   **Tillgängligheten av datapunkter** | **Säkerhetsomdöme**
+   **Tillgänglighet för datapunkter** | **Säkerhetsomdöme**
    --- | ---
    0 %–20 % | 1 stjärna
    21 %–40 % | 2 stjärnor

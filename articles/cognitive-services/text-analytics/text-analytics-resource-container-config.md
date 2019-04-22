@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3cb6f4563cf45b9ccd377dec3db4ebab095c8a09
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 137d7aa48595e3f21ee99c6ebe23babd7a2d32b5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885442"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677773"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Konfigurera textanalys docker-behållare
 
@@ -31,11 +31,11 @@ Textanalys ger varje behållare med ett gemensamt ramverk för konfiguration, s�
 
 ## <a name="apikey-configuration-setting"></a>ApiKey konfigurationsinställning
 
-Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _textanalys_ resurs som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
+Den `ApiKey` inställningen anger du Azure-resurs-nyckeln som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för den [ `Billing` ](#billing-configuration-setting) konfigurationsinställning.
 
 Den här inställningen kan hittas på följande plats:
 
-* Azure-portalen: **Text Analytics** resurshantering under **nycklar**
+* Azure-portalen: **Cognitive Services** resurshantering under **nycklar**
 
 ## <a name="applicationinsights-setting"></a>Inställningen för ApplicationInsights
 
@@ -43,11 +43,13 @@ Den här inställningen kan hittas på följande plats:
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Den `Billing` inställningen anger URI för den _textanalys_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig slutpunkt URI för ett __textanalys_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
+Den `Billing` inställningen anger URI för den _Cognitive Services_ resurs på Azure som används för att läsa av faktureringsinformation för behållaren. Du måste ange ett värde för den här inställningen och värdet måste vara en giltig slutpunkt URI för ett __Cognitive Services_ resurs på Azure. Behållaren rapporterar användning ungefär var 10 – 15 minuter.
 
 Den här inställningen kan hittas på följande plats:
 
-* Azure-portalen: **Text Analytics** översikt, märkt `Endpoint`
+* Azure-portalen: **Cognitive Services** översikt, märkt `Endpoint`
+
+Du måste lägga till den `text/analytics/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI.
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
@@ -89,16 +91,18 @@ I följande exempel används konfigurationsinställningarna som illustrerar hur 
 * **Fortsättning på raden tecknet**: Docker-kommandon i följande avsnitt använder det omvända snedstrecket `\`, som en fortsättning tecknet. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
 * **Argumentet order**: Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
 
+Du måste lägga till den `text/analytics/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI.
+
 Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-|{BILLING_KEY} | Slutpunktsnyckeln för textanalys resursen finns på sidan för Azure-portalens Text Analytics nycklar. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet är tillgänglig på Azure portal Text Analytics översiktssidan.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_KEY} | Slutpunktsnyckeln av den `Cognitive Services` resurs som är tillgängliga på Azure `Cognitive Services` sidan nycklar. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet är tillgänglig på Azure `Cognitive Services` översiktssidan.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
-> ApiKey-värdet är den **nyckel** från sidan nycklar för Azure Text Analytics-resursen. 
+> ApiKey-värdet är den **nyckel** från Azure `Cognitive Services` resurssida nycklar. 
 
 ## <a name="keyphrase-extraction-container-docker-examples"></a>Keyphrase extrahering behållare docker-exempel
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/02/2019
 ms.author: aljo
 ms.openlocfilehash: 45d5d1b4e050d01b003b6321e1af44c0da762e19
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275512"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
@@ -31,7 +31,7 @@ ms.locfileid: "59275512"
 
 För att kunna skapa och köra [Azure Service Fabric-program][1] på en Windows-utvecklingsdator måste du installera Service Fabric-körmiljön, SDK och verktyg. Du måste även [aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK:n.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 ### <a name="supported-operating-system-versions"></a>Operativsystemversioner som stöds
 Följande operativsystemversioner stöds för utveckling:
 

@@ -11,10 +11,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c421d99f1071c7a38cfe315cc3054136f81598e0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265976"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är ”cognitive search” i Azure Search?
@@ -76,7 +76,7 @@ Index som ska genereras från ett indexschema som definierar fälten, attribut, 
 
 | Begrepp | Beskrivning| Länkar |
 |---------|------------|-------|
-| Skillset | En på översta nivån med namnet resurs som innehåller en samling av kunskaper. En kompetens är berikande pipelinen. Den anropas under indexering av en indexerare. | [Definiera en kunskapsuppsättning](cognitive-search-defining-skillset.md) |
+| Skillset | En på översta nivån med namnet resurs som innehåller en samling av kunskaper. En kompetens är berikande pipelinen. Den anropas under indexering av en indexerare. | [Definiera en kompetens](cognitive-search-defining-skillset.md) |
 | Kognitiva kunskaper | En atomisk omvandling i en berikande pipeline. Ofta är det en komponent som extraherar eller härleder struktur och därför förstärker din förståelse av indata. Nästan alltid utdata är textbaserade och bearbetningen är naturlig språkbearbetning eller bildbehandling som extraherar eller genererar text från avbildningen indata. Utdata från en färdighet kan mappas till ett fält i ett index eller används som indata för en underordnad berikande. En färdighet antingen fördefinierade och tillhandahålls av Microsoft eller anpassade: skapas och distribueras av dig. | [Fördefinierade kunskaper](cognitive-search-predefined-skills.md) |
 | Extrahering av data | Omfattar ett brett utbud av bearbetning, men hör till kognitiv sökning, namngiven entitet erkännande färdighet mest normalt används för att extrahera data (en entitet) från en källa som inte tillhandahåller denna information internt. | [Namngiven entitet erkännande färdighet](cognitive-search-skill-named-entity-recognition.md)| 
 | Bearbetning av avbildning | Härleder text från en avbildning, till exempel möjligheten att identifiera en landmärken eller extraherar text från en bild. Vanliga exempel är OCR för att lyfta tecken från en skannade dokument (JPEG)-fil eller känna igen en gatuadress i ett foto som innehåller en gatuadress. | [Bild Analysis färdighet](cognitive-search-skill-image-analysis.md) eller [OCR färdighet](cognitive-search-skill-ocr.md)
@@ -106,11 +106,11 @@ Vi rekommenderar den kostnadsfria tjänsten i utbildningssyfte, men tänk på at
 
 För närvarande finns endast REST API: er. Använd `api-version=2017-11-11-Preview` för alla förfrågningar. Använd följande API: er för att skapa ett cognitive search-lösning. Endast två API: er läggs till eller utökats för kognitiv sökning. API: er har samma syntax som är allmänt tillgängliga versioner.
 
-| REST-API | Beskrivning |
+| REST API | Beskrivning |
 |-----|-------------|
 | [Skapa datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | En resurs som identifierar en extern datakälla att tillhandahålla källdata som används för att skapa avancerad och dokument.  |
 | [Skapa kompetens (api-version = 2017-11-11-förhandsversion)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som samordna användningen av [fördefinierade kunskaper](cognitive-search-predefined-skills.md) och [anpassade kognitiva kunskaper](cognitive-search-custom-skill-interface.md) används i en pipeline för berikande under indexering. |
-| [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Ett schema som uttrycker ett Azure Search-index. Fält i indexet mappar till fält i datakällan eller fält som tillverkade under fasen för berikande (t.ex, ett fält för organisationsnamn som skapats av entitetsidentifiering). |
+| [Skapa Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Ett schema som uttrycker ett Azure Search-index. Fält i indexet mappar till fält i datakällan eller fält som tillverkade under fasen för berikande (t.ex, ett fält för organisationsnamn som skapats av entitetsidentifiering). |
 | [Skapa indexerare (api-version = 2017-11-11-förhandsversion)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | En resurs som definierar komponenter som används under indexering: som en datakälla, en kompetens, fältkopplingar från käll- och mellanliggande datastrukturer till målindex och indexet själva. Köra indexeraren är en utlösare för datainmatning och funktioner. Utdata är en sökkorpus baserat på indexschemat fylls med källdata, berikats via kompetens.  |
 
 **Checklista: Ett vanligt arbetsflöde**
@@ -137,6 +137,6 @@ Mer information om specifika frågor eller problem finns i [felsökningstips](co
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Dokumentation om kognitiv sökning](cognitive-search-resources-documentation.md)
++ [Dokumentation om cognitive search](cognitive-search-resources-documentation.md)
 + [Snabbstart: Prova cognitive search i en genomgång av portalen](cognitive-search-quickstart-blob.md)
 + [Självstudier: Lär dig kognitiv sökning API: er](cognitive-search-tutorial-blob.md)

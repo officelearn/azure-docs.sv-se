@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Självstudier: Azure Active Directory-integrering med AuditBoard
@@ -34,7 +34,7 @@ Genom att integrera AuditBoard med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med AuditBoard måste du ha följande objekt:
 
@@ -51,7 +51,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 Om du vill konfigurera integrering av AuditBoard i Azure AD måste du lägga till AuditBoard från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till AuditBoard från galleriet:**
+**Lägg till AuditBoard från galleriet genom att göra följande:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -107,11 +107,11 @@ Konfigurera enkel inloggning i Azure AD med AuditBoard genom att göra följande
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    d. I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.auditboardapp.com/`
+    d. Skriv en URL med följande mönster i textrutan **Inloggnings-URL**: `https://<SUBDOMAIN>.auditboardapp.com/`
 
     ![Information om AuditBoard-domänen och URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
@@ -188,7 +188,7 @@ När du klickar på AuditBoard-panelen i åtkomstpanelen bör du automatiskt log
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

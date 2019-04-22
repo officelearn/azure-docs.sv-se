@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256812"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
@@ -42,7 +42,7 @@ I följande diagram är gröna linjer begäranden för resurser som slutar med D
 
 ![Diagram över hur DNS-förfrågningar har lösts i konfigurationen i det här dokumentet](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * Om du använder PowerShell, måste den [AZ modulen](https://docs.microsoft.com/powershell/azure/overview).
@@ -94,7 +94,7 @@ De här stegen används den [Azure-portalen](https://portal.azure.com) att skapa
     | --- | --- |
     |Virtuellt nätverk | Välj det virtuella nätverket som du skapade tidigare.|
     |Undernät | Välj standardundernät för det virtuella nätverket som du skapade tidigare. Gör __inte__ välja det undernät som används av VPN-gatewayen.|
-    |Offentlig IP-adress | Använd autopopulated-värdet.  |
+    |Offentlig IP | Använd autopopulated-värdet.  |
 
     ![Inställningar för virtuella nätverk](./media/connect-on-premises-network/virtual-network-settings.png)
 

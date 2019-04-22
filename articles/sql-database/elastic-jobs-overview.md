@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264428"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
@@ -99,4 +99,4 @@ På liknande sätt måste ett skript kunna lyckas köra genom att logiskt testa 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa och hantera elastiska jobb med PowerShell](elastic-jobs-powershell.md)
-- [Skapa och hantera elastiska jobb med hjälp av Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Skapa och hantera elastiska jobb med Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

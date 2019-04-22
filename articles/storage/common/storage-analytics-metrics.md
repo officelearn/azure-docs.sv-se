@@ -9,10 +9,10 @@ ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489297"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics-mått (klassisk)
@@ -148,7 +148,7 @@ Du hittar fullständig information om scheman för dessa tabeller på [Schema ö
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**Tidsstämpel**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Tillgänglighet**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
+|**partitionKey**|**RowKey**|**Tidsstämpel**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Tillgänglighet**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|användaren. Alla|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  

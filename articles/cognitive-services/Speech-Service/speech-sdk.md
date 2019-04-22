@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: wolfma
 ms.openlocfilehash: bb28972469ca33a7fb33a50a8ce2e9bf326222b8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425805"
 ---
 # <a name="about-the-speech-sdk"></a>Om tal SDK
@@ -91,5 +91,5 @@ Java SDK är också en del av den [tal Devices SDK](speech-devices-sdk.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Få en kostnadsfri prenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
 * [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)

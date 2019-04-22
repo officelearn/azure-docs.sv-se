@@ -11,12 +11,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475456"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677824"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Snabbare återställning av databas (förhandsversion)
 
@@ -42,11 +42,11 @@ Databasåterställning i SQL Server följer den [ARIES](https://people.eecs.berk
 
 - **Analysfasen**
 
-  Vidarebefordra avsökning av transaktionsloggen från början av den senaste kontrollpunkten (eller sidan äldsta LSN) tills du är klar att bestämma tillståndet för varje transaktion när SQL Server har stoppats.
+  Vidarebefordra avsökning av transaktionsloggen från början av den senaste kontrollpunkten (eller äldsta dirty sidan LSN) tills du är klar att bestämma tillståndet för varje transaktion när SQL Server har stoppats.
 
 - **Gör om fas**
 
-  Vidarebefordra avsökning av transaktionsloggen från den äldsta ogenomförda transaktionen, tills att databasen till tillståndet den var vid tidpunkten för kraschen genom att göra om alla åtgärder.
+  Vidarebefordra avsökning av transaktionsloggen från den äldsta ogenomförda transaktionen, tills att databasen till tillståndet den var vid tidpunkten för kraschen genom att göra om alla allokerade åtgärder.
 
 - **Ångra fas**
 
@@ -56,13 +56,13 @@ Baserat på den här designen kan är den tid det tar SQL database engine att å
 
 Dessutom kan avbryter/återställa en stor transaktion baserat på den här designen också ta lång tid eftersom den använder samma recovery ångringsfasen enligt beskrivningen ovan.
 
-Dessutom kan SQL database engine kan inte trunkera transaktionsloggen när det är långa körs transaktioner eftersom deras motsvarande poster krävs för återställning och rollback-processer. Vissa kunder står inför problemet att storleken på transaktionsloggen växer mycket stora och förbrukar stora mängder loggutrymmet till följd av den här designen av SQL database engine.
+Dessutom kan SQL database engine kan inte trunkera transaktionsloggen när det är långa körs transaktioner eftersom deras motsvarande poster krävs för återställning och rollback-processer. Till följd av den här designen av SQL database engine inför vissa kunder problemet att storleken på transaktionsloggen växer mycket stora och förbrukar stora mängder diskutrymme.
 
 ## <a name="the-accelerated-database-recovery-process"></a>Processen accelererad databasåterställning
 
 ADR löser dessa frågor genom att helt ny design återställningsprocessen för SQL database engine till:
 
-- Gör det konstanta tid/snabbmeddelanden genom att inte behöva skanna loggen från/till början av den äldsta aktiva transaktionen. Transaktionsloggen bearbetas med ADR, endast från den senaste kontrollpunkten (eller äldsta dirty sidan Log sekvens Number(LSN). Därför återställningstid påverkas inte av långa köra transaktioner.
+- Gör det konstanta tid/snabbmeddelanden genom att inte behöva skanna loggen från/till början av den äldsta aktiva transaktionen. Med automatisk Distributionsregel bearbetas bara transaktionsloggen från den senaste kontrollpunkten (eller äldsta dirty sidan Log Sequence Number (LSN)). Därför återställningstid påverkas inte av långa köra transaktioner.
 - Minimera krävs transaktionsloggutrymmet eftersom det finns inte längre behöver bearbeta loggen för hela transaktionen. Därför transaktionsloggen kan trunkeras aggressivt som kontrollpunkter och säkerhetskopieras.
 
 På en hög nivå uppnår ADR snabb databasåterställning genom versionshantering alla ändringar av den fysiska databasen och bara ångra logiska åtgärder, som är begränsade och går att ångra nästan omedelbart. Alla transaktioner som var aktiv vid tidpunkten havererade är markerade som avbrutits och därför alla versioner som genereras av de här transaktionerna kan ignoreras av samtidiga användarfrågor.
@@ -73,16 +73,19 @@ Den automatiska Distributionsregel återställningsprocessen har samma tre faser
 
 - **Analysfasen**
 
-  Processen är densamma som i dag med hjälp av rekonstruera sLog och kopiering av loggposter för inte är versionshanterat ops.
+  Processen är densamma som i dag med hjälp av rekonstruera sLog och kopiering av loggposter för åtgärder som inte är versionshanterat.
+  
 - **Gör om** fas
 
   Uppdelat i två faser (P)
   - Fas 1
 
       Gör om från sLog (äldsta ogenomförda transaktioner upp till senaste kontrollpunkten). Gör om-åtgärd är en snabb åtgärd som bara behöver bearbetas några poster från sLog.
+      
   - Fas 2
 
      Gör om från transaktionsloggen startar från senaste kontrollpunkten (i stället för äldsta ogenomförda transaktioner)
+     
 - **Ångra fas**
 
    Ångringsfasen med ADR har slutförts nästan omedelbart med hjälp av sLog för att ångra åtgärder som inte är versionshanterat och beständiga Version Store (PVS) med logiska återgå till att utföra rad nivå version-baserade ångra.
@@ -97,7 +100,7 @@ Det finns fyra viktiga komponenter i ADR:
 
 - **Logiska återgå**
 
-  Logisk återställa ansvarar asynkrona processen för utför rad versionen baserat Ångra - med omedelbar transaktionsåterställning och ångra för alla versioner åtgärder.
+  Logisk återställa ansvarar asynkrona processen för att utföra på radnivå baserat på version Ångra – vilket ger omedelbar transaktionsåterställning och ångra för alla åtgärder som en ny version.
 
   - Håller reda på alla avbrutna transaktioner
   - Utför återställning med hjälp av PVS för alla användartransaktioner

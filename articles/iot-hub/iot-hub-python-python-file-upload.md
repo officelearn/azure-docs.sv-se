@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: kgremban
 ms.openlocfilehash: 6195c37780acaf8c8f432fa09c5ac01a75363c04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265534"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
@@ -155,7 +155,7 @@ Nu är du redo att köra programmet.
 
 I den här självstudien beskrivs hur du använder filen ladda upp funktionerna i IoT Hub för att förenkla filöverföringar från enheter. Du kan fortsätta att utforska IoT hub funktioner och scenarier i följande artiklar:
 
-* [Skapa en IoT Hub programmässigt](iot-hub-rm-template-powershell.md)
+* [Skapa en IoT hub programmässigt](iot-hub-rm-template-powershell.md)
 
 * [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
 

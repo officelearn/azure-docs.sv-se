@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490454"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med REST API och PHP
@@ -291,4 +291,4 @@ Du måste uppdatera fältet `subscriptionKey` med värdet för din prenumeration
 Utforska de ansikts-API:er som används för att identifiera ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
 
 > [!div class="nextstepaction"]
-> [Ansikts-API: er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Ansikts-API:er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

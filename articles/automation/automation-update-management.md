@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/09/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426499"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679082"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -208,9 +208,9 @@ Om du vill köra en loggsökning som returnerar information om datorn, uppdateri
 
 ## <a name="install-updates"></a>Installera uppdateringar
 
-När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbetsyta, kan du installera nödvändiga uppdateringar genom att skapa en *uppdateringsdistribution*. En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du kan ange datum och tid för distributionen och en dator eller grupp av datorer som ska ingå i omfattningen för en distribution. Läs mer om datorgrupper i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md).
+När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbetsyta, kan du installera nödvändiga uppdateringar genom att skapa en *uppdateringsdistribution*. Om du vill skapa en Uppdateringsdistribution måste du ha skrivbehörighet till Automation-kontot och skrivåtkomst till alla virtuella Azure-datorer som omfattas i distributionen. En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du kan ange datum och tid för distributionen och en dator eller grupp av datorer som ska ingå i omfattningen för en distribution. Läs mer om datorgrupper i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md).
 
- När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång när schemat skapas. Efterföljande ändringar i en grupp syns inte. Att komma runt denna [dynamiska grupper](#using-dynamic-groups), dessa grupper har lösts vid tidpunkten för distribution och definieras av en fråga.
+När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång när schemat skapas. Efterföljande ändringar i en grupp syns inte. Att komma runt denna [dynamiska grupper](#using-dynamic-groups), dessa grupper har lösts vid tidpunkten för distribution och definieras av en fråga för virtuella Azure-datorer eller en sparad sökning för icke-Azure virtuella datorer.
 
 > [!NOTE]
 > Windows-datorer som distribueras från Azure Marketplace som standard är inställda på att ta emot automatiska uppdateringar från Windows Update-tjänsten. Det här beteendet ändras inte när du lägger till den här lösningen eller lägga till Windows-datorer i din arbetsyta. Om du inte aktivt hantera uppdateringar med hjälp av den här lösningen, gäller standardbeteendet (för att automatiskt tillämpa uppdateringar).
@@ -219,13 +219,13 @@ Konfigurera om Unattended Upgrade-paketet om du vill inaktivera automatiska uppd
 
 Virtuella datorer som har skapats från Red Hat Enterprise Linux (RHEL) på begäran-avbildningar som är tillgängliga i Azure Marketplace är registrerade åtkomst till den [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) som har distribuerats i Azure. Andra Linux-distribution måste du uppdatera från den distributionsplatsen online filens centrallager genom att följa distributionsmetoder som stöds.
 
-Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny Uppdateringsdistribution** öppnas fönstret. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
+Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny Uppdateringsdistribution** öppnas. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
-| Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
+| Grupper för att uppdatera |För datorer i Azure, definierar du en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. </br></br>För icke-Azure-datorer, väljer du en befintlig sparad sökning för att välja en grupp med icke-Azure-datorer som ska ingå i distributionen. </br></br>Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
 | Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
 |Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras och finns i [inkluderingsbeteende](automation-update-management.md#inclusion-behavior) |
@@ -567,7 +567,14 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Med dynamiska grupper
 
-Uppdateringshantering ger möjlighet att fokusera på en dynamisk grupp av virtuella Azure-datorer för distributioner av uppdateringar. De här grupperna definieras av en fråga, när en uppdateringsdistribution börjar medlemmar i gruppen utvärderas. Dynamiska grupper fungerar inte med klassiska virtuella datorer. När du definierar din fråga måste kan följande objekt användas tillsammans att fylla i den dynamiska gruppen
+Uppdateringshantering ger möjlighet att fokusera på en dynamisk grupp av Azure- eller icke-Azure-datorer för distributioner av uppdateringar. Dessa grupper utvärderas vid tidpunkten för distributionen så att du inte behöver redigera din distribution för att lägga till datorer.
+
+> [!NOTE]
+> Du måste ha rätt behörigheter när du skapar en distribution. Mer information finns i [installera uppdateringar](#install-updates).
+
+### <a name="azure-machines"></a>Datorer i Azure
+
+De här grupperna definieras av en fråga, när en uppdateringsdistribution börjar medlemmar i gruppen utvärderas. Dynamiska grupper fungerar inte med klassiska virtuella datorer. När du definierar din fråga måste kan följande objekt användas tillsammans att fylla i den dynamiska gruppen
 
 * Prenumeration
 * Resursgrupper
@@ -579,6 +586,12 @@ Uppdateringshantering ger möjlighet att fokusera på en dynamisk grupp av virtu
 Om du vill förhandsgranska resultaten av en dynamisk grupp klickar du på den **förhandsversion** knappen. Den här förhandsgranskningen visar gruppmedlemskapet vid den tiden, i det här exemplet vi söker efter datorer med taggen **rollen** är lika med **BackendServer**. Om flera virtuella datorer har den här taggen har lagts till, läggs de till alla framtida distributioner mot den gruppen.
 
 ![förhandsversion av grupper](./media/automation-update-management/preview-groups.png)
+
+### <a name="non-azure-machines"></a>Icke-Azure-datorer
+
+För icke-Azure-kallat datorer, sparade sökningar även datorgrupper används för att skapa den dynamiska gruppen. Läs hur du skapar en sparad sökning i [skapar en datorgrupp](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). När gruppen har skapats kan du välja den från listan över sparade sökningar. Klicka på **förhandsversion** att förhandsgranska datorerna i den sparade sökningen vid den tidpunkten.
+
+![Välj grupper](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrera med System Center Configuration Manager
 
@@ -628,7 +641,7 @@ Ta bort en virtuell dator från hantering av uppdateringar:
 Vill du fortsätta till självstudien om hur du hanterar uppdateringar för din Windows-datorer.
 
 > [!div class="nextstepaction"]
-> [Hantera uppdateringar och korrigeringar för dina virtuella Windows-datorer i Azure](automation-tutorial-update-management.md)
+> [Hantera uppdateringar och korrigeringar för virtuella datorer i Windows Azure](automation-tutorial-update-management.md)
 
 * Använd loggsökningar i [Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md) att visa detaljerad uppdateringsinformation.
 * [Skapa aviseringar](automation-tutorial-update-management.md#configure-alerts) för status för uppdateringsdistributionen.

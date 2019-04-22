@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050568"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Snabbstart: Fråga efter data i Azure Data Explorer
@@ -20,7 +20,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Förutom en Azure-prenumeration behöver du ett [testkluster och en databas](create-cluster-database-portal.md) för att slutföra den här snabbstarten.
 
@@ -192,4 +192,4 @@ Du inte har skapat några resurser i den här snabbstarten, men om du vill ta bo
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriv frågor för Azure Data Explorer](write-queries.md)
+> [Skriva frågor för Azure Data Explorer](write-queries.md)

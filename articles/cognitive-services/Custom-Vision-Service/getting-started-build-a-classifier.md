@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051486"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Hur du skapar en klassificerare med anpassad visuellt innehåll
 
 Om du vill använda Custom Vision Service för klassificering av avbildning måste du först skapa en klassificerare-modell. I den här guiden lär du dig att skapa en klassificerare via Custom Vision-webbplatsen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En giltig Azure-prenumeration. [Skapa ett konto](https://azure.microsoft.com/free/) utan kostnad.
 - En uppsättning avbildningar som kan lära din klassificerare. Nedan finns tips om hur du väljer bilder.
@@ -53,9 +53,9 @@ I din webbläsare, navigerar du till den [Custom Vision-webbsida](https://custom
     |Domain|Syfte|
     |---|---|
     |__Generisk__| Optimerat för en mängd olika aktiviteter för klassificering av avbildning. Om ingen av de andra domänerna är lämpligt, eller du är osäker på vilken domän som du väljer, väljer du den allmänna domänen. |
-    |__Livsmedel__|Optimerat för fotografier av disk som du ser dem på en restaurang-meny. Om du vill klassificera fotografier av enskilda frukter och grönsaker använda mat domänen.|
+    |__Mat__|Optimerat för fotografier av disk som du ser dem på en restaurang-meny. Om du vill klassificera fotografier av enskilda frukter och grönsaker använda mat domänen.|
     |__Landmärken__|Optimerat för identifierbara landmärken, både naturliga och konstgjorda. Den här domänen fungerar bäst när landmärken syns tydligt i fotot. Den här domänen fungerar även om landmärken något hindras av personer framför den.|
-    |__Detaljhandeln__|Optimerat för avbildningar som finns i en i katalogen eller Shopping. Om du vill hög precision klassificera mellan klänningar, byxor och skjortor, Använd den här domänen.|
+    |__Detaljhandel__|Optimerat för avbildningar som finns i en i katalogen eller Shopping. Om du vill hög precision klassificera mellan klänningar, byxor och skjortor, Använd den här domänen.|
     |__Compact domäner__| Optimerat för begränsningar i realtid klassificeringen på mobila enheter. Modeller som genererats av compact domäner kan exporteras för att köras lokalt.|
 
 1. Välj slutligen __skapa projekt__.
@@ -130,5 +130,5 @@ Varje gång du lära din klassificerare kan du skapa en ny _iteration_ med sin e
 
 I den här handboken beskrivs hur du skapar och träna en modell för klassificering av avbildning med hjälp av Custom Vision-webbplats. Nu ska få mer information om iterativ process för att förbättra din modell.
 
-[Testa och tränar en modell](test-your-model.md)
+[Testa och träna om en modell](test-your-model.md)
 

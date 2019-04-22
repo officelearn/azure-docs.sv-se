@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045704"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Skapa certifikat för Azure Key Vault
@@ -39,7 +39,7 @@ Du kan använda en ny eller en befintlig Azure-resursgrupp för arbetet.  Den ti
 
 Redigera och kör följande Azure Powershell-skript för att skapa certifikatfilen (.pfx) i en lokal mapp.  Du måste ersätta värdena för följande parametrar:
 
-|  **Parameter**        |   **Beskrivning**                                                               |
+|  **Parametern**        |   **Beskrivning**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | Lokal mapp för att spara den .pfx-fil till  |
 | `$location`    | En av Azure standard geografiska platser  |
@@ -85,7 +85,7 @@ Redigera och kör följande Azure Powershell-skript för att skapa certifikatfil
 
 Kopiera innehållet i den [nyckelvalv Distributionsmall](./cpp-key-vault-deploy-template.md) till en fil på den lokala datorn. (i exemplet skriptet nedan för den här resursen är `C:\certLocation\keyvault.json`.)  Redigera och kör följande Azure Powershell-skript för att skapa en Azure Key Vault-instans och den associerade resursgruppen.  Du måste ersätta värdena för följande parametrar:
 
-|  **Parameter**        |   **Beskrivning**                                                               |
+|  **Parametern**        |   **Beskrivning**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | Valfri numerisk sträng som läggs till distribution identifierare                     |
 | `$rgName`             | Azure-resurs (RG) gruppnamn för att skapa                                        |

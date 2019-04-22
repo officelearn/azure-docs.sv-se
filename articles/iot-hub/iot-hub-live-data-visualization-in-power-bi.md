@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 5349a8a81c1d1361637b4fc9cf83e1ee83f5276a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265516"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677994"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualisera sensordata i realtid från Azure IoT Hub med Power BI
 
@@ -37,7 +37,7 @@ Du lär dig att visualisera sensordata i realtid som din Azure-IoT-hubb tar emot
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-* Självstudien [konfigurera enheten](iot-hub-raspberry-pi-kit-node-get-started.md) slutförts som omfattar följande krav:
+* Slutför den [Raspberry Pi onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md) självstudien eller någon av enheten självstudiekurser; exempelvis [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Dessa omfattar följande krav:
   
   * En aktiv Azure-prenumeration.
   * Azure IoT hub i din prenumeration.

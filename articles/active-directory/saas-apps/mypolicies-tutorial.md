@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 240291c7ec1d989e52a2896dc696f69afbee0093
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Självstudier: Azure Active Directory-integrering med myPolicies
@@ -33,7 +33,7 @@ Integrera myPolicies med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med myPolicies, behöver du följande objekt:
 
@@ -106,7 +106,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med myPolic
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<tenantname>.mypolicies.com/`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<tenantname>.mypolicies.com/users/auth/saml/callback`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<tenantname>.mypolicies.com/users/auth/saml/callback`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [myPolicies klienten supportteam](mailto:support@mypolicies.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -192,7 +192,7 @@ När du klickar på panelen myPolicies i åtkomstpanelen, bör det vara loggas i
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

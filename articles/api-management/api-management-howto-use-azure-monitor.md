@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622203"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680255"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
@@ -98,7 +98,7 @@ Så här konfigurerar du varningar:
 
 8. Ange ett namn, beskrivning av regeln och välj allvarlighetsgraden. 
 9. Tryck på **skapa varningsregel**.
-10. Prova att anropa konferens-API utan API-nyckel. Aviseringen utlöses skickas ett e-postmeddelande till administratörer. 
+10. Prova att anropa konferens-API utan API-nyckel. Aviseringen utlöses och e-postmeddelandet skickas till administratörerna. 
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 

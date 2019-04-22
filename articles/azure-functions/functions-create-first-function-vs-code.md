@@ -13,21 +13,21 @@ ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490541"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Skapa din första funktion med Visual Studio Code
 
 Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/solutions/serverless/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp.
 
-I den här artikeln får du lära dig hur du använder [Azure Functions-tillägget för Visual Studio Code] för att skapa och testa en ”Hello World”-funktion på din lokala dator med Microsoft Visual Studio Code. Du publicerar sedan funktionskoden till Azure från Visual Studio Code.
+I den här artikeln får du lära dig hur du använder [Azure Functions-tillägg för Visual Studio Code] för att skapa och testa en ”Hello World”-funktion på din lokala dator med Microsoft Visual Studio Code. Du publicerar sedan funktionskoden till Azure från Visual Studio Code.
 
 ![Azure Functions-kod i ett Visual Studio-projekt](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-För närvarande har tillägget fullständigt stöd för C#-, JavaScript- och Java-funktioner. Python stöds för närvarande som en förhandsversion. Stegen i den här artikeln kan variera beroende på ditt val av språk för Azure Functions-projektet. Tillägget finns för närvarande i en förhandsversion. Mer information finns på sidan om [Azure Functions-tillägget för Visual Studio Code].
+För närvarande har tillägget fullständigt stöd för C#-, JavaScript- och Java-funktioner. Python stöds för närvarande som en förhandsversion. Stegen i den här artikeln kan variera beroende på ditt val av språk för Azure Functions-projektet. Tillägget finns för närvarande i en förhandsversion. Mer information finns på sidan om [Azure Functions-tillägg för Visual Studio Code].
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -42,8 +42,8 @@ För att slutföra den här snabbstarten behöver du:
     | Språk | Anknytning |
     | -------- | --------- |
     | **C#** | [C# för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI-verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **Java** | [Felsökare för Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 +](https://maven.apache.org/) |
-    | **JavaScript** | [Noden 8.0 +](https://nodejs.org/)  |
+    | **Java** | [Felsökningsprogram för Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
+    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
 
     \* Krävs också av Core Tools.
 
@@ -121,4 +121,4 @@ Du har nu använt Visual Studio Code för att skapa en funktionsapp med en enkel
 > [Aktivera Application Insights-integrering](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Functions Core Tools]: functions-run-local.md
-[Azure Functions-tillägget för Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
+[Azure Functions-tillägg för Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

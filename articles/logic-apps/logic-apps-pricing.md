@@ -11,10 +11,10 @@ ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
 ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58805184"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prismodellen för Azure Logic Apps
@@ -47,7 +47,7 @@ Basenheten ISE har fast kapacitet, så om du behöver större dataflöde, kan du
 
 <a name="connectors"></a>
 
-## <a name="connectors"></a>Anslutningar
+## <a name="connectors"></a>Anslutningsprogram
 
 Azure Logic Apps-anslutningsprogram att logic app åtkomst till appar, tjänster och system i molnet eller lokalt genom att tillhandahålla [utlösare](#triggers), [åtgärder](#actions), eller båda. Kopplingar klassificeras som Standard eller Enterprise. En översikt om dessa anslutningsappar finns i [Anslutningsappar för Azure Logic Apps](../connectors/apis-list.md). Följande avsnitt innehåller mer information om hur faktureringen för utlösare och åtgärder fungerar.
 

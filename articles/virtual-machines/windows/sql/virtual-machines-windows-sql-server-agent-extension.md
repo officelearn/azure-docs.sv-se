@@ -17,10 +17,10 @@ ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 71878d5d033f0005d2c8c36d9f59799e125a19dd
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762709"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure virtuella datorer med SQL Server Agent-tillägget (Resource Manager)
@@ -45,7 +45,7 @@ SQL Server IaaS Agent-tillägget har stöd för följande administrationsuppgift
 
 När installerad och igång, tillgängliggör SQL Server IaaS Agent-tillägget dessa funktioner för administration på den SQL Server-panelen för den virtuella datorn i Azure-portalen och via Azure PowerShell för SQL Server marketplace-avbildningar och via Azure PowerShell för manuella installationer av tillägget. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Krav för att använda SQL Server IaaS Agent-tillägget på den virtuella datorn:
 
 **Operativsystemet**:

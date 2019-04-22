@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271636"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
@@ -197,7 +197,7 @@ Om du vill aktivera sökning efter efternamn med entitetsstruktur som anges ovan
 * Skapa index entiteter i samma partition som anställdas enheter.  
 * Skapa index entiteter i en separat partition eller tabellen.  
 
-<u>Alternativ #1: Använda Blob Storage</u>  
+<u>Alternativ #1: Använda blob storage</u>  
 
 För det första alternativet, du skapa en blob för varje unikt efternamn och varje blob store en lista över de **PartitionKey** (avdelning) och **RowKey** (anställnings-ID) värden för anställda som har det senaste namnet. När du lägger till eller ta bort en medarbetare bör du kontrollera att innehållet i den relevanta blobben är konsekvent med enheterna som anställda.  
 
@@ -1108,7 +1108,7 @@ Klientprogrammet kan anropa flera asynkrona metoder som det här och varje metod
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Modellera relationer](table-storage-design-modeling.md)
-- [Utforma för frågor](table-storage-design-for-query.md)
-- [Kryptera tabelldata](table-storage-design-encrypt-data.md)
-- [Utforma för dataändring](table-storage-design-for-modification.md)
+- [Modellering relationer](table-storage-design-modeling.md)
+- [Design för frågor](table-storage-design-for-query.md)
+- [Kryptering av tabelldata som](table-storage-design-encrypt-data.md)
+- [Design för dataändringar](table-storage-design-for-modification.md)

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050604"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Snabbstart: Visualisera data med hjälp av en fråga som importerats till Power BI
@@ -22,13 +22,13 @@ Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: an
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för att slutföra den här snabbstarten:
 
 * En organisations e-postkonto som är medlem i Azure Active directory, så att du kan ansluta till [Azure Data Explorer-hjälpklustret](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (välj **DOWNLOAD FREE**) (Ladda ned kostnadsfritt)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (klicka på **DOWNLOAD FREE**) (LADDA NED KOSTNADSFRITT)
 
 * [Azure Data Explorer-skrivbordsapp](/azure/kusto/tools/kusto-explorer)
 

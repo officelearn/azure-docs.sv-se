@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: c5d4299d2d391a25bfab579f5f78da3718afc24c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6b1029c5532e106c269b47e6e184b9c93faf8d09
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043015"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681428"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Använd IoT-tillägget för Azure CLI för Azure IoT Hub-enhetshantering
 
@@ -49,7 +49,7 @@ Kör Azure CLI och IoT-tillägget för Azure CLI med olika alternativ.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-* I självstudiekursen [konfigurera enheten](iot-hub-raspberry-pi-kit-node-get-started.md) som omfattar följande krav:
+* Slutför den [Raspberry Pi onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md) självstudien eller någon av enheten självstudiekurser; exempelvis [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Dessa omfattar följande krav:
 
   - En aktiv Azure-prenumeration.
   - Azure IoT hub i din prenumeration.

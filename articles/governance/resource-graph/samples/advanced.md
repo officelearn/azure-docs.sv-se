@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256829"
 ---
 # <a name="advanced-resource-graph-queries"></a>Avancerade frågor för Resource Graph
@@ -22,15 +22,15 @@ Det första steget mot att förstå frågor med Azure Resource Graph är en grun
 Vi går igenom följande avancerade frågor:
 
 > [!div class="checklist"]
-> - [Hämta VMSS kapacitet och storlek](#vmss-capacity)
-> - [Lista över alla taggnamn](#list-all-tags)
-> - [Virtuella datorer som matchas av regex](#vm-regex)
+> - [Hämta VMSS-kapacitet och storlek](#vmss-capacity)
+> - [Lista alla taggnamn](#list-all-tags)
+> - [Virtuella datorer matchade av regex](#vm-regex)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="language-support"></a>Stöd för språk
+## <a name="language-support"></a>Språkstöd
 
 Azure CLI (via ett tillägg) och Azure PowerShell (via en modul) har stöd för Azure Resource Graph. Kontrollera att din miljö är redo innan du kör någon av nedanstående frågor. Se [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) och [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) för anvisningar om hur du installerar och validerar din valda gränssnittsmiljö.
 
@@ -75,14 +75,14 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 Den här frågan söker efter virtuella datorer som matchar ett [reguljärt uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference) (även kallat _regex_).
 Den **matchar regex \@**  ger oss möjlighet att definiera regex så att de matchar, vilket är `^Contoso(.*)[0-9]+$`. Den regex-definitionen förklaras så här:
 
-- `^` -Matchning måste börja i början av strängen.
-- `Contoso` -Den skiftlägeskänsliga strängen.
-- `(.*)` -En underuttryck matchning:
-  - `.` -Matchar ett enskilt tecken (förutom en ny rad).
-  - `*` -Matchar föregående element noll eller flera gånger.
-- `[0-9]` -Tecknet grupp matchning för siffrorna 0-9.
-- `+` -Matchar föregående element en eller flera gånger.
-- `$` -Matchning av föregående element måste ske i slutet av strängen.
+- `^` – Matchningen måste börja i början av strängen.
+- `Contoso` – Skiftlägeskänslig sträng.
+- `(.*)` – En matchning av underuttryck:
+  - `.` – Matchar varje enskilt tecken (förutom ny rad).
+  - `*` – Matchar föregående element noll eller flera gånger.
+- `[0-9]` – Teckengruppsmatchning för siffrorna 0-9.
+- `+` – Matchar föregående element en eller flera gånger.
+- `$` – Matchning av föregående element måste ske i slutet av strängen.
 
 När matchningen efter namn är klar projicerar frågan namnet och sorterar efter namn, i stigande ordning.
 

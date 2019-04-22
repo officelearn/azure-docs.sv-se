@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: dc3543af0a10c83d8ca212957a6345c8a70cd58b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279949"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678232"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Självstudier: Anpassa operatörsvyn i Azure IoT Central (Ny UI-design)
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Självstudier: Anpassa operatörsvyn i Azure IoT Central
 
 Den här självstudien visar hur du som är byggare anpassar operatörsvyn för programmet. När du som byggare gör en ändring i programmet kan du förhandsgranska operatörsvyn i Microsoft Azure IoT Central.
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera standardinstrumentpanelen för program
 > * Förhandsgranska standardinstrumentpanelen för program som en operatör
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar bör du slutföra de två föregående självstudierna:
 
@@ -160,5 +160,5 @@ I självstudien har du lärt dig att anpassa operatörsvyn för programmet.
 
 Nu när du har lärt dig att anpassa operatörsvyn för programmet kan du gå vidare för att:
 
-* [Övervaka dina enheter (som en operatör)](tutorial-monitor-devices.md)
-* [Lägga till en ny enhet i ditt program (som en operatör och enheten utvecklare)](tutorial-add-device.md)
+* [Övervaka dina enheter (som operatör)](tutorial-monitor-devices.md)
+* [Lägga till en ny enhet i programmet (som operatör och enhetsutvecklare)](tutorial-add-device.md)

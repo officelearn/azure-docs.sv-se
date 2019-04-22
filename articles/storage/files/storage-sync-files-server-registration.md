@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 0f18467bfefdb27f2cb9c2c3f56942f679673c16
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048454"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
@@ -25,7 +25,7 @@ I följande artikel visar hur du kan registrera och hantera en server med en Lag
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrera/avregistrera en server med Storage Sync-tjänsten
 Registrera en server med Azure File Sync upprättar en förtroenderelation mellan Windows Server och Azure. Den här relationen kan sedan användas för att skapa *serverslutpunkter* på servern, som visar specifika mappar som ska synkroniseras med en Azure-filresurs (även kallat en *Molnets slutpunkt*). 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill registrera en server med en Lagringssynkroniseringstjänst, måste du förbereda de nödvändiga förutsättningarna för servern:
 
 * Servern måste köra en version av Windows Server stöds. Mer information finns i [Azure File Sync-systemkrav och samverkan](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).

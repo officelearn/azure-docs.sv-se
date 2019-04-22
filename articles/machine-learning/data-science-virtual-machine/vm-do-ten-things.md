@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046199"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker som du kan göra på den Windows virtuell dator för datavetenskap
@@ -311,7 +311,7 @@ När du kör AzCopy-kommandot för att kopiera till en Azure-blob, visas din fil
 
 ![Skärmbild av Storage-konto, visar den uppladdade CSV-filen](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**Flytta data från virtuell dator till Azure Blob: Azure Lagringsutforskaren**
+**Flytta data från virtuell dator till Azure Blob: Azure Storage Explorer**
 
 Du kan också ladda upp data från den lokala filen i den virtuella datorn med Azure Storage Explorer:
 

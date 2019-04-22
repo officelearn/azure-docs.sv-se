@@ -12,12 +12,12 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 363803e9276a8356b52438f251391378c54f1655
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549703"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678946"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktionsmässigt konsekvent kopia av en Azure SQL database
 
@@ -25,7 +25,7 @@ Azure SQL Database erbjuder flera metoder för att skapa en transaktionsmässigt
 
 ## <a name="overview"></a>Översikt
 
-En databaskopia är en ögonblicksbild av källdatabasen vid tidpunkten för kopiera begäran. Du kan välja samma server eller en annan server, dess tjänstnivå och beräkningsstorleken eller en annan beräkningsstorleken inom samma tjänstnivå (edition). När kopieringen är klar, blir det en fullt fungerande databas för oberoende. Nu kan du uppgradera eller nedgradera den till en utgåva. Inloggningar, användare och behörigheter kan hanteras oberoende av varandra.  
+En databaskopia är en ögonblicksbild av källdatabasen vid tidpunkten för kopiera begäran. Du kan välja samma server eller en annan server. Du kan också välja att behålla dess tjänstnivå och beräkna storleken eller använda en annan beräkningsstorleken inom samma tjänstnivå (edition). När kopieringen är klar, blir det en fullt fungerande databas för oberoende. Nu kan du uppgradera eller nedgradera den till en utgåva. Inloggningar, användare och behörigheter kan hanteras oberoende av varandra.  
 
 > [!NOTE]
 > [Automatisk säkerhetskopiering av databaser](sql-database-automated-backups.md) används när du skapar en databaskopia.

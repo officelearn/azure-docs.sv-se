@@ -11,17 +11,17 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489955"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
 Läs mer om arkitekturen, begrepp och arbetsflöde för Azure Machine Learning-tjänsten. De viktigaste komponenterna i tjänsten och det allmänna arbetsflödet för att använda tjänsten visas i följande diagram:
 
-[![Aarkitektur för zure Machine Learning-tjänsten och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning-service-arkitektur och arbetsflöde](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -68,7 +68,7 @@ När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som anvä
 
 En taxonomi för arbetsytan illustreras i följande diagram:
 
-[![Workspace taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Experiment
 
@@ -234,7 +234,7 @@ När du utvecklar din lösning kan du använda Azure Machine Learning Python SDK
 
 Kom igång med Azure Machine Learning-tjänsten, se:
 
-* [Vad är tjänsten Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [Vad är Azure Machine Learning Service?](overview-what-is-azure-ml.md)
 * [Skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md)
 * [Självstudier: Träna en modell](tutorial-train-models-with-aml.md)
 * [Skapa en arbetsyta med en Resource Manager-mall](how-to-create-workspace-template.md)

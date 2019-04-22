@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
 ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58792430"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify gå tillägget för Linux-Agent
@@ -38,7 +38,7 @@ Gå är det endast som innehåller alla av följande funktioner över alla milj�
 
 Det här tillägget tillhandahåller en installationssökvägen för Linux-agenten för gå. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="operating-system"></a>Operativsystem 
 

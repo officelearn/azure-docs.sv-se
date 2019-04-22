@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259464"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Översikt över tjänsten Azure Policy
@@ -21,7 +21,7 @@ Styrning validerar att din organisation kan nå sina mål via effektiv användni
 Har ditt företag ett stort antal IT-problem som aldrig verkar bli lösta?
 God IT-styrning omfattar att planera dina initiativ och ange prioritet på en strategisk nivå för att underlätta hantering och förebyggande av problem. Det är för det här strategiska behovet som Azure Policy kommer in i bilden.
 
-Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principer. De här principerna tillämpar olika regler och effekter på dina resurser så att resurserna efterlever dina företagsstandarder och serviceavtal. Azure Policy uppfyller detta behov genom att utvärdera dina resurser för icke-kompatibilitet med tilldelade principer. Du kan till exempel ha en princip som endast tillåter en viss SKU-storlek för virtuella datorer i din miljö. När den här principen har implementerats utvärderas nya och befintliga standardresurser för kompatibilitet. Med rätt typ av princip kan befintliga resurser bli kompatibla. Senare i den här dokumentationen går vi igenom mer information om hur man skapar och implementerar principer med Azure Policy.
+Azure Policy är en tjänst i Azure som används till att skapa, tilldela och hantera principer. De här principerna tillämpar olika regler och effekter på dina resurser så att resurserna efterlever dina företagsstandarder och serviceavtal. Azure Policy uppfyller detta behov genom att utvärdera dina resurser för icke-kompatibilitet med tilldelade principer. Du kan till exempel ha en princip som endast tillåter en viss SKU-storlek för virtuella datorer i din miljö. När den här principen har implementerats utvärderas nya och befintliga standardresurser för kompatibilitet. Med rätt typ av princip kan befintliga resurser bli kompatibla. Senare i den här dokumentationen går vi igenom mer information om hur man skapar och implementerar principer med Azure Policy.
 
 > [!IMPORTANT]
 > Azure Policy:s kompatibilitetsutvärdering tillhandahålls nu för alla tilldelningar oavsett prisnivå. Om dina tilldelningar inte visar kompatibilitetsdata, ser du till att prenumerationen är registrerad med resursprovidern Microsoft.PolicyInsights.
@@ -145,7 +145,7 @@ Följande översikt över Azure Policy är från Build 2018. För nedladdning av
 Nu när du har en översikt över Azure Policy och några av de centrala begreppen föreslår vi följande som nästa steg:
 
 - [Tilldela en principdefinition med hjälp av portalen](assign-policy-portal.md)
-- [Tilldela en principdefinition med Azure CLI](assign-policy-azurecli.md)
+- [Tilldela en principdefinition med hjälp av Azure CLI](assign-policy-azurecli.md)
 - [Tilldela en principdefinition med hjälp av PowerShell](assign-policy-powershell.md)
 - Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](..//management-groups/overview.md)
 - Visa sidan om att [styra Azure-miljön via Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) på Channel 9

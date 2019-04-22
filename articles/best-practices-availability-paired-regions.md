@@ -2,16 +2,17 @@
 title: 'Företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner | Microsoft Docs'
 description: Läs mer om Azure regional länkning, för att säkerställa att programmen är elastisk vid data center haverier.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
-ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792330"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678878"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner
 
@@ -37,6 +38,7 @@ Bild 1 – Azure regionala par
 | Europa |Nordeuropa |Västra Europa |
 | Frankrike |Centrala Frankrike|Frankrike, södra|
 | Tyskland |Centrala Tyskland |Nordöstra Tyskland |
+| Tyskland |Tyskland, norra | Tyskland, västra centrala
 | Indien |Indien, centrala |Södra Indien |
 | Indien |Indien, västra |Södra Indien |
 | Japan |Östra Japan |Västra Japan |
@@ -45,7 +47,14 @@ Bild 1 – Azure regionala par
 | Nordamerika |USA, östra 2 |Centrala USA |
 | Nordamerika |Norra centrala USA |Södra centrala USA |
 | Nordamerika |Västra USA 2 |Västra centrala USA 
+| Nordamerika |Västra USA 3 |Östra USA
+| Norge |Norge, östra |Norge, västra
+| Sydafrika | Sydafrika, norra | Sydafrika, västra
+| Sverige |Sverige Central |Sverige södra
+| Schweiz | Schweiz, norra | Schweiz, västra
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
+| Storbritannien |Storbritannien, norra |Storbritannien, södra 2
+| Förenade Arabemiraten | Förenade Arabemiraten, norra | UAE Center
 | USA:s försvarsdepartement |US DoD, östra |US DoD, centrala |
 | Amerikanska myndigheter |Arizona (USA-förvaltad region) |Texas (USA-förvaltad region) |
 | Amerikanska myndigheter |US Gov, Iowa |Virginia (USA-förvaltad region) |
@@ -53,10 +62,11 @@ Bild 1 – Azure regionala par
 
 Tabell 1 - mappning av Azure regionala par
 
-- Västra Indien skiljer sig eftersom den är kopplad till en annan region i en riktning. Västra Indien sekundär region är södra Indien, men södra Indien sekundär region är centrala Indien.
-- Södra Brasilien är unikt eftersom den är kopplad till en region utanför sin egen geografi. Södra Brasilien sekundär region är USA, södra centrala och södra centrala USA sekundär region inte södra Brasilien.
-- USA Gov Iowa sekundär region är Virginia (USA-förvaltad region), men USA-förvaltad region Virginia sekundära regionen är inte Iowa (USA-förvaltad region).
-- USA-förvaltad region Virginia sekundär region är US Gov Texas men US Gov Texas sekundära regionen är inte Virginia (USA-förvaltad region).
+- Västra Indien är länkad i en riktning. Västra Indien sekundär region är södra Indien, men södra Indien sekundär region är centrala Indien.
+- Södra Brasilien är unikt eftersom den är kopplad till en region utanför sin egen geografi. Södra Brasilien sekundär region är södra centrala USA. Södra centrala USA sekundära regionen är inte södra Brasilien.
+- USA Gov Iowa sekundär region är Virginia (USA-förvaltad region).
+- USA-förvaltad region Virginia sekundär region är US Gov Texas.
+- USA Gov Texas sekundär region är Arizona (USA-förvaltad region).
 
 
 Vi rekommenderar att du konfigurerar kontinuitet för företag-haveriberedskap (BCDR) över regionala par kan dra nytta av Azures principer för isolering och tillgänglighet. För program som stöder flera aktiva regioner, bör du använda båda regionerna i regionparet där det är möjligt. Det säkerställer optimala tillgänglighet för program och minimerade återställningstid vid ett haveri. 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58794027"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
@@ -33,7 +33,7 @@ Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Azur
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs innan den här lösningen som den installeras och konfigureras.
 
@@ -515,7 +515,7 @@ Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn visar 
 | Kolumn | Beskrivning |
 |:--|:--|
 | Åtgärder | Innehåller information om de aktiva användarna från alla övervakade Office 365-prenumerationer. Du kommer även att kunna se antalet aktiviteter som sker över tid.
-| Exchange | Visar fördelningen av Exchange Server-aktiviteter, till exempel Lägg till postlåda behörighet eller Set-postlåda. |
+| Utbyt | Visar fördelningen av Exchange Server-aktiviteter, till exempel Lägg till postlåda behörighet eller Set-postlåda. |
 | SharePoint | Visar de översta aktiviteterna att användarna kan utföra för SharePoint-dokument. När du går nedåt från den här panelen visar sidan Sök efter information om dessa aktiviteter, till exempel måldokumentet och platsen för den här aktiviteten. Till exempel för en fil åt händelse, du kommer att kunna se dokumentet som används, associerade kontonamn och IP-adress. |
 | Azure Active Directory | Innehåller översta användaraktiviteter, till exempel återställa användarlösenord och inloggningsförsök. När du detaljnivån, kommer du att kunna se information om dessa aktiviteter som resultat. Det här är mest användbart om du vill övervaka misstänkta aktiviteter på Azure Active Directory. |
 
@@ -530,11 +530,11 @@ Alla poster som skapats i Log Analytics-arbetsyta i Azure Monitor med hjälp av 
 
 Följande egenskaper är gemensamma för alla Office 365-poster.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| Typ | *OfficeActivity* |
 | ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
-| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
+| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Utbyt<br>SharePoint|
 | Åtgärd | Namnet på användarens eller administratörens aktivitet.  |
 | OrganizationId | GUID för organisationens Office 365-klient. Det här värdet kommer alltid att samma för din organisation, oavsett Office 365-tjänst där det inträffar. |
 | RecordType | Typ av åtgärder som utförs. |
@@ -548,7 +548,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 
 Följande egenskaper är gemensamma för alla poster i Azure Active Directory.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -560,12 +560,12 @@ Följande egenskaper är gemensamma för alla poster i Azure Active Directory.
 
 Dessa poster skapas när en Active Directory-användare försöker logga in.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
 | Program | Programmet som utlöser händelsen konto inloggning, till exempel Office 15. |
-| Client | Information om klienten enhet, enhetens operativsystem och enhetens webbläsare som användes för den händelsens konto logga in. |
+| Klient | Information om klienten enhet, enhetens operativsystem och enhetens webbläsare som användes för den händelsens konto logga in. |
 | LoginStatus | Den här egenskapen är direkt från OrgIdLogon.LoginStatus. Mappningen av olika intressanta inloggningsfel kan göras av avisering algoritmer. |
 | UserDomain | Klient ID-Information (TII). | 
 
@@ -574,7 +574,7 @@ Dessa poster skapas när en Active Directory-användare försöker logga in.
 
 Dessa poster skapas för att ändra eller tillägg har gjorts i Azure Active Directory-objekt.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -592,7 +592,7 @@ Dessa poster skapas för att ändra eller tillägg har gjorts i Azure Active Dir
 
 Dessa poster skapas från Data Center Security granskningsdata.  
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | EffectiveOrganization | Namnet på den klient som varit mål för höjning/cmdleten på. |
 | ElevationApprovedTime | Tidsstämpel för när höjningen har godkänts. |
@@ -608,13 +608,13 @@ Dessa poster skapas från Data Center Security granskningsdata.
 
 Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyt |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Anger om cmdleten kördes av en användare i din organisation, av Microsoft datacenter-personal eller ett tjänstkonto för datacenter eller genom en delegerad administratör. Värdet falskt anger att cmdleten kördes av någon i din organisation. Värdet True anger att cmdleten kördes av datacenter personal, ett tjänstkonto för datacenter eller en delegerad administratör. |
 | ModifiedObjectResolvedName |  Det här är användarvänligt namn på det objekt som har ändrats av cmdlet: en. Detta loggas endast om cmdleten ändrar objektet. |
-| OrganizationName | Namnet på klienten. |
+| Organisationsnamn | Namnet på klienten. |
 | OriginatingServer | Namnet på den server där cmdleten kördes. |
 | Parametrar | Namn och värde för alla parametrar som användes med cmdlet: en som identifieras i Operations-egenskapen. |
 
@@ -623,9 +623,9 @@ Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 
 Dessa poster skapas när ändringar eller tillägg görs till Exchange-postlådor.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyt |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Information om e-postklienten som användes för att utföra åtgärden, till exempel en webbläsarversion, Outlook-version och information om mobila enheter. |
 | Client_IPAddress | IP-adressen för den enhet som användes när åtgärden har loggats. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
@@ -646,9 +646,9 @@ Dessa poster skapas när ändringar eller tillägg görs till Exchange-postlådo
 
 Dessa poster skapas när en postlåda granskningspost skapas.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyt |
 | RecordType     | ExchangeItem |
 | Objekt | Representerar det objektet som åtgärden utfördes | 
 | SendAsUserMailboxGuid | Exchange-GUID för postlådan som användes för att skicka e-post. |
@@ -661,9 +661,9 @@ Dessa poster skapas när en postlåda granskningspost skapas.
 
 Dessa poster skapas när ändringar eller tillägg som görs till Exchange-grupper.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyt |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Information om varje objekt i gruppen. |
 | CrossMailboxOperations | Anger om åtgärden involverad mer än en postlåda. |
@@ -680,7 +680,7 @@ Dessa poster skapas när ändringar eller tillägg som görs till Exchange-grupp
 
 Dessa egenskaper är gemensamma för alla poster i SharePoint.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -697,7 +697,7 @@ Dessa egenskaper är gemensamma för alla poster i SharePoint.
 
 Dessa poster skapas när ändringar görs i SharePoint.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -710,7 +710,7 @@ Dessa poster skapas när ändringar görs i SharePoint.
 
 Dessa poster skapas som svar på filåtgärder i SharePoint.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -731,7 +731,7 @@ Dessa poster skapas som svar på filåtgärder i SharePoint.
 
 Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 | --- | --- |
 |Uppräkning av alla åtgärder på Office 365-prenumerationen |OfficeActivity &#124; sammanfatta antal() efter åtgärd |
 |Användningen av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ ”sharepoint” &#124; sammanfatta antal() efter SiteUrl \| sortera efter antal asc|

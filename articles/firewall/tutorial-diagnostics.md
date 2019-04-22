@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044869"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudier: Övervaka Azure Firewall-loggar och mått
@@ -60,9 +60,9 @@ Det kan ta några minuter innan data visas i loggarna när du har aktiverat diag
 9. På sidan **Log Analytics-arbetsyta** anger du **firewall-oms** som namn för den nya **Log Analytics-arbetsytan**.
 10. Välj din prenumeration, använd den befintliga resursgruppen för brandväggen (**Test-FW-RG**), välj **USA, östra** som plats och välj prisnivån **Kostnadsfri**.
 11. Klicka på **OK**.
-   ![Börjar konfigurationsprocessen][1] OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
+   ![Starta konfigurationsprocessen][1] OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
 12. Under **Logg** klickar du på **AzureFirewallApplicationRule** och **AzureFirewallNetworkRule** så att du samlar in loggar för både program- och nätverksregler.
-   ![Spara inställningarna för startdiagnostik][2]
+   ![Spara diagnostikinställningar][2]
 13. Klicka på **Spara**.
 
 ## <a name="enable-logging-with-powershell"></a>aktivera loggning med PowerShell
@@ -116,7 +116,7 @@ Bläddra till en Azure-brandvägg. Under **Övervakning** klickar du på **Mått
 Nu när du har konfigurerat brandväggen för insamling av loggar kan du utforska hur du visar dina data i Azure Monitor-loggar.
 
 > [!div class="nextstepaction"]
-> [Nätverk övervakningslösningar i Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md)
+> [Lösningar för nätverksövervakning i Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

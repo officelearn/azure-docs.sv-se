@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b797c7d49495aac90abb31a9214bf2928784a866
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Självstudier: Azure Active Directory-integrering med Proxyclick
@@ -34,7 +34,7 @@ Integrera Proxyclick med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Proxyclick, behöver du följande objekt:
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Proxycl
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://saml.proxyclick.com/init/<companyId>`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://saml.proxyclick.com/consume/<companyId>`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://saml.proxyclick.com/consume/<companyId>`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -216,7 +216,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 Om du vill aktivera Azure AD-användare att logga in på Proxyclick, måste de etableras i Proxyclick. När det gäller Proxyclick är etablering en manuell aktivitet.
 
-**Gör följande för att etablera ett användarkonto:**
+**Utför följande steg för att etablera ett användarkonto:**
 
 1. Logga in på webbplatsen Proxyclick företag som administratör.
 
@@ -248,7 +248,7 @@ När du klickar på panelen Proxyclick i åtkomstpanelen, bör det vara loggas i
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 6f12a4973f2c3427d9d44de625f9e987e836d4b7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Självstudier: Azure Active Directory-integrering med Oneteam
@@ -34,7 +34,7 @@ Integrera Oneteam med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Oneteam, behöver du följande objekt:
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Oneteam
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://api.one-team.io/teams/<team name>`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -204,7 +204,7 @@ När du klickar på panelen Oneteam i åtkomstpanelen, bör det vara loggas in a
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

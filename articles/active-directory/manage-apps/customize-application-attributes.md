@@ -16,10 +16,10 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267216"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attributmappningar för Användaretablering för SaaS-program i Azure Active Directory
@@ -157,6 +157,6 @@ Det här alternativet tvingar effektivt en omsynkronisering av alla användare m
 * [Skriva uttryck för attributmappningar](functions-for-customizing-application-data.md)
 * [Omfångsfilter för etableringen av användare](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md)
-* [Lista över guider om hur man integrerar SaaS-appar](../saas-apps/tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
 
 

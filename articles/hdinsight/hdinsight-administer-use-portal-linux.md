@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 80c27d588bb8b4c60ae8432fbd3a2ac3d2db1394
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58802668"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
@@ -22,7 +22,7 @@ ms.locfileid: "58802668"
 
 Med hjälp av den [Azure-portalen][azure-portal], du kan hantera [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight. Använd flikväljaren ovan för information om hur du hanterar Hadoop-kluster i HDInsight med andra verktyg.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 - En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Ett befintligt Apache Hadoop-kluster i HDInsight.  Se [skapa Linux-baserade kluster i HDInsight med Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -90,8 +90,8 @@ Välj klusternamnet från den [ **HDInsight-kluster** ](#showClusters) sidan.  D
 
     | Objekt| Beskrivning |
     |---|---|
-    |Resurshälsa|Se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).|
-    |Ny supportbegäran|Kan du skapa ett supportärende hos Microsoft support.|
+    |Resource Health|Se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).|
+    |Ny supportförfrågan|Kan du skapa ett supportärende hos Microsoft support.|
 
 ## <a name="properties"></a> Egenskaper för klustret
 
@@ -99,14 +99,14 @@ Från den [kluster startsida](#homePage)under **inställningar** Välj **egenska
 
 |Objekt | Beskrivning |
 |---|---|
-|Värdnamn|Klustrets namn.|
+|Värddatornamn|Klustrets namn.|
 |Kluster-URL|URL till Ambari-webbgränssnittet.|
 |Secure shell (SSH)|Användarnamn och värden namnet ska användas i åtkomst till klustret via SSH.|
 |Status|En av: Avbröts, godkända ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, kör, fel, tar bort, tas bort, nådde sin tidsgräns, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, eller ClusterCustomization.|
 |Region|Azure-plats. En lista över platser som stöds Azure finns i den **Region** nedrullningsbara listrutan på [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |Skapad den|Det datum som klustret har distribuerats.|
 |Operativsystem|Antingen **Windows** eller **Linux**.|
-|Type|Hadoop, HBase, Storm, Spark.|
+|Typ|Hadoop, HBase, Storm, Spark.|
 |Version|Se [HDInsight versioner](hdinsight-component-versioning.md).|
 |Prenumeration|Prenumerationsnamn.|
 |Standarddatakälla|Standardfilsystemet för klustret.|

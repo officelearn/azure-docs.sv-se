@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/14/2019
 ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046418"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Snabbstart: Mata in data från Logstash i Azure Data Explorer
 
 [Logstash](https://www.elastic.co/products/logstash) är en databearbetningspipeline för serversidan med öppen källkod som matar in data från många källor samtidigt, transformerar data och sedan skickar data till din favoritlagring. I den här snabbstarten skickar du dessa data till Azure Data Explorer, som är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Först skapar du en tabell och datamappning i ett testkluster, och sedan instruerar du Logstash att skicka data till tabellen och verifiera resultatet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * Ett Azure Data Explorer-[testkluster och en databas](create-cluster-database-portal.md)
@@ -108,11 +108,11 @@ output {
 
 | Parameternamn | Beskrivning |
 | --- | --- |
-| **sökväg** | Logstash-plugin-programmet skriver händelser till tillfälliga filer innan de skickas till Azure Data Explorer. Den här parametern innehåller en sökväg dit filerna ska skrivas och ett tidsuttryck för filrotation för att utlösa en uppladdning till Azure Data Explorer-tjänsten.|
+| **path** | Logstash-plugin-programmet skriver händelser till tillfälliga filer innan de skickas till Azure Data Explorer. Den här parametern innehåller en sökväg dit filerna ska skrivas och ett tidsuttryck för filrotation för att utlösa en uppladdning till Azure Data Explorer-tjänsten.|
 | **ingest_url** | Kusto-slutpunkten för inmatningsrelaterad kommunikation.|
 | **app_id**, **app_key** och **app_tenant**| Autentiseringsuppgifter som krävs för att ansluta till Azure Data Explorer. Se till att använda ett program med inmatningsbehörighet. |
-| **databas**| Databasnamnet för att placera händelser. |
-| **tabell** | Måltabellnamnet för att placera händelser. |
+| **database**| Databasnamnet för att placera händelser. |
+| **table** | Måltabellnamnet för att placera händelser. |
 | **mapping** | Mappning används för att mappa json-strängen för en inkommande händelse till rätt radformat (definierar vilken egenskap som hamnar i vilken kolumn). |
 
 ## <a name="run-logstash"></a>Köra Logstash
@@ -147,4 +147,4 @@ Kör du följande kommando i databasen för att rensa tabellen `logs`:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriva frågor](write-queries.md)
+> [Skriv frågor](write-queries.md)

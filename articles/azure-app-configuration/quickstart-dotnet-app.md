@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b4cb571653cbe69939a1cbdc92338663e4e7125f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d71e08a548809ef0de47c4a865af531732a88a4b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576080"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697285"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Snabbstart: Skapa en .NET Framework-app med Azure App Configuration
 
@@ -27,7 +27,7 @@ Azure App Configuration är en hanterad konfigurationstjänst i Azure. Du kan an
 
 ![Snabbstart för fullständig lokal](./media/quickstarts/dotnet-fx-app-run.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill göra den här snabbstarten, installera [Visual Studio 2017](https://visualstudio.microsoft.com/vs) och [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) eller senare om du inte redan har gjort.
 
@@ -106,4 +106,4 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2017](https://
 I den här snabbstarten du skapade en ny konfiguration appbutik och använder den med en .NET Framework-konsolapp. Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
-> [Hanterade identiteter för integrering av Azure-resurser](./integrate-azure-managed-service-identity.md)
+> [Hanterade identiteter för integrering av Azure-resurser](./howto-integrate-azure-managed-service-identity.md)

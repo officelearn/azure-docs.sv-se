@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 04/07/2019
 ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262915"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Självstudier: Mata in data i Azure Data Explorer utan en enda kodrad
@@ -268,7 +268,7 @@ Azure-diagnostikloggar möjliggör export av mått till ett lagringskonto eller 
 
 1. Skapa en händelsehubb med hjälp av en Azure Resource Manager-mall i Azure-portalen. Följ resten av stegen i den här artikeln genom att högerklicka på knappen **Distribuera till Azure** och sedan välja **Öppna i nytt fönster**. Knappen **Distribuera till Azure** tar dig till Azure-portalen.
 
-    [![Deploy till Azure knappen](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Knappen Distribuera till Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Skapa en Event Hubs-namnrymd och en händelsehubb för diagnostikloggarna.
 
@@ -281,9 +281,9 @@ Azure-diagnostikloggar möjliggör export av mått till ett lagringskonto eller 
     | **Prenumeration** | *Din prenumeration* | Välj den Azure-prenumeration som ska användas för händelsehubben.|
     | **Resursgrupp** | *test-resource-group* | Skapa en ny resursgrupp. |
     | **Plats** | Välj den region som bäst uppfyller dina behov. | Skapa Event Hubs-namnrymden på samma plats som andra resurser.
-    | **Namn på namnområde** | *AzureMonitoringData* | Välj ett unikt namn som identifierar namnområdet.
+    | **Namn på namnrymd** | *AzureMonitoringData* | Välj ett unikt namn som identifierar namnområdet.
     | **Namn på händelsehubb** | *DiagnosticLogsData* | Händelsehubben finns under namnområdet, som tillhandahåller en unik omfångscontainer. |
-    | **Konsumentgruppens namn** | *adxpipeline* | Skapa ett konsumentgruppsnamn. Konsumentgrupper gör att flera konsumerande program kan ha en separat vy över händelseströmmen. |
+    | **Namn på konsumentgrupp** | *adxpipeline* | Skapa ett konsumentgruppsnamn. Konsumentgrupper gör att flera konsumerande program kan ha en separat vy över händelseströmmen. |
     | | |
 
 ## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Ansluta Azure Monitor-loggar till händelsehubben
@@ -367,7 +367,7 @@ Nu behöver du skapa dataanslutningarna för diagnostikloggarna och aktivitetslo
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | **Namn på dataanslutning** | *DiagnosticsLogsConnection* | Namnet på anslutningen som du vill skapa i Azure Data Explorer.|
-    | **Namnområde för händelsehubb** | *AzureMonitoringData* | Namnet som du valde tidigare, som identifierar ditt namnområde. |
+    | **Namnrymd för händelsehubb** | *AzureMonitoringData* | Namnet som du valde tidigare, som identifierar ditt namnområde. |
     | **Händelsehubb** | *diagnosticlogsdata* | Händelsehubben som du skapade. |
     | **Konsumentgrupp** | *adxpipeline* | Konsumentgruppen som definierades i hubben som du skapade. |
     | | |
@@ -396,9 +396,9 @@ Upprepa stegen i avsnittet Skapa dataanslutningen för diagnostikloggar för att
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | **Namn på dataanslutning** | *ActivityLogsConnection* | Namnet på anslutningen som du vill skapa i Azure Data Explorer.|
-    | **Namnområde för händelsehubb** | *AzureMonitoringData* | Namnet som du valde tidigare, som identifierar ditt namnområde. |
-    | **Händelsehubb** | *Insights-operational-logs* | Händelsehubben som du skapade. |
-    | **Konsumentgrupp** | *$Standard* | Den förinställda konsumentgruppen. Om det behövs kan du skapa en annan konsumentgrupp. |
+    | **Namnrymd för händelsehubb** | *AzureMonitoringData* | Namnet som du valde tidigare, som identifierar ditt namnområde. |
+    | **Händelsehubb** | *insights-operational-logs* | Händelsehubben som du skapade. |
+    | **Konsumentgrupp** | *$Default* | Den förinställda konsumentgruppen. Om det behövs kan du skapa en annan konsumentgrupp. |
     | | |
 
     Måltabell:
@@ -460,4 +460,4 @@ Frågeresultat:
 Lär dig att skriva många fler frågor för de data som du extraherade från Azure Data Explorer med hjälp av följande artikel:
 
 > [!div class="nextstepaction"]
-> [Skriv frågor för Azure Data Explorer](write-queries.md)
+> [Skriva frågor för Azure Data Explorer](write-queries.md)

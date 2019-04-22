@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
 ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047525"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resource health-aviseringar med hjälp av Resource Manager-mallar
@@ -24,14 +24,14 @@ Azure Resource Health håller dig informerad om aktuell och historisk hälsotill
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa anvisningarna på den här sidan måste du konfigurera några saker i förväg:
 
 1. Du måste installera den [Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Du behöver [skapa eller återanvända en åtgärdsgrupp](../azure-monitor/platform/action-groups.md) konfigurerad för att meddela dig
 
-## <a name="instructions"></a>Instruktioner
+## <a name="instructions"></a>Anvisningar
 1. Med hjälp av PowerShell, logga in på Azure med ditt konto och välj den prenumeration som du vill interagera med
 
         Login-AzAccount

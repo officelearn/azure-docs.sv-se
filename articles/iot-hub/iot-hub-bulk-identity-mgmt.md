@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049980"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importera och exportera IoT Hub-enhetsidentiteter i grupp
@@ -260,7 +260,7 @@ Använd det valfria **ImportMode %** -egenskapen i serialiseringsdata importera 
 | **update** |Om det finns redan en enhet med det angivna **ID**, befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
 | **updateIfMatchETag** |Om det finns redan en enhet med det angivna **ID**, befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. |
 | **createOrUpdateIfMatchETag** |Om en enhet inte finns med det angivna **ID**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
-| **delete** |Om det finns redan en enhet med det angivna **ID**, tas den bort utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
+| **ta bort** |Om det finns redan en enhet med det angivna **ID**, tas den bort utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
 | **deleteIfMatchETag** |Om det finns redan en enhet med det angivna **ID**, raderas bara om det finns en **ETag** matchar. Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns ett ETag-Typfel, skrivs ett fel till loggfilen. |
 
 > [!NOTE]
@@ -419,7 +419,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 I den här artikeln lärde du dig att utföra massåtgärder mot identitetsregistret i IoT-hubb. Du kan följa dessa länkar om du vill veta mer om hur du hanterar Azure IoT Hub:
 
-* [IoT Hub metrics](iot-hub-metrics.md)
+* [IoT Hub-mått](iot-hub-metrics.md)
 * [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 
 Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:

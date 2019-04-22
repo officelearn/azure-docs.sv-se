@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267777"
 ---
 # <a name="starter-resource-graph-queries"></a>Startfrågor för Azure Resource Graph
@@ -23,15 +23,15 @@ Vi går igenom följande startfrågor:
 
 > [!div class="checklist"]
 > - [Antal Azure-resurser](#count-resources)
-> - [Lista resurser sorterade efter namn](#list-resources)
-> - [Visa alla virtuella datorer ordnade efter namn i fallande ordning](#show-vms)
-> - [Visa den första fem virtuella datorer efter namn och sina OS-typ](#show-sorted)
-> - [Antal virtuella datorer enligt OS-typ](#count-os)
-> - [Visa resurser med storage](#show-storage)
+> - [Lista över resurser sorterade efter namn](#list-resources)
+> - [Visning av alla virtuella datorer sorterade efter namn i fallande ordning](#show-vms)
+> - [Visning av de första fem virtuella datorerna efter namn och OS-typ](#show-sorted)
+> - [Antal virtuella datorer efter OS-typ](#count-os)
+> - [Visning av resurser med lagring](#show-storage)
 > - [Lista över alla offentliga IP-adresser](#list-publicip)
-> - [Antal resurser som har IP-adresser som konfigurerats av prenumeration](#count-resources-by-ip)
-> - [Lista resurser med en specifik tagg-värde](#list-tag)
-> - [Lista alla lagringskonton med specifika Taggvärde](#list-specific-tag)
+> - [Antal resurser som har IP-adresser konfigurerade efter prenumeration](#count-resources-by-ip)
+> - [Lista över resurser med ett specifikt tagg-värde](#list-tag)
+> - [Lista över alla lagringskonton med ett specifikt taggvärde](#list-specific-tag)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
@@ -94,7 +94,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>Visning av de första fem virtuella datorerna efter namn och OS-typ
 
-Den här frågan använder `limit` för att bara hämta fem matchande poster som sorteras efter namn. Typen av Azure-resurs är `Microsoft.Compute/virtualMachines`. `project` talar om Azure Resource Graph vilka egenskaper du vill inkludera.
+Den här frågan använder `limit` för att bara hämta fem matchande poster som sorteras efter namn. Typen av Azure-resurs är `Microsoft.Compute/virtualMachines`. `project` talar om Azure Resource Graph vilka egenskaper som ska inkluderas.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -167,7 +167,7 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 
 Hittar på ett liknande sätt som för den föregående frågan allt som är en typ med ordet **publicIPAddresses**.
 Den här frågan kan utökas med mönstret som bara inkluderar resultat där **properties.ipAddress**
-`isnotempty`, för att endast returnera de **properties.ipAddress**, och `limit` resultaten efter upp
+`isnotempty`, för att endast returnera de **properties.ipAddress**, och `limit` den resultaten efter upp
 100. Du kan behöva hoppa över citattecknen beroende på valt gränssnitt.
 
 ```Query

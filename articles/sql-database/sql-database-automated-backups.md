@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/12/2019
-ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545832"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678606"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
-SQL Database automatiskt skapar säkerhetskopior sparas mellan 7 och 35 dagar och använder Azure read-access geo-redundant lagring (RA-GRS) för att säkerställa att de bevaras även om Datacenter är inte tillgänglig. Dessa säkerhetskopior skapas automatiskt och utan extra kostnad. Du behöver inte göra något för att det ska hända och du kan [ändra kvarhållningsperiod](#how-to-change-the-pitr-backup-retention-period). Säkerhetskopior av databasen är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom de skyddar dina data från oavsiktliga skador eller tas bort. Om din säkerhetsregler kräver att dina säkerhetskopior som är tillgängliga under en längre tid (upp till 10 år), kan du konfigurera en [långsiktig kvarhållning](sql-database-long-term-retention.md).
+SQL Database automatiskt skapar säkerhetskopior sparas mellan 7 och 35 dagar och använder Azure read-access geo-redundant lagring (RA-GRS) för att säkerställa att de bevaras även om datacentret är tillgänglig. Dessa säkerhetskopior skapas automatiskt och utan extra kostnad. Du behöver inte göra något för att det ska hända och du kan [ändra kvarhållningsperiod](#how-to-change-the-pitr-backup-retention-period). Säkerhetskopior av databasen är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom de skyddar dina data från oavsiktliga skador eller tas bort. Om din säkerhetsregler kräver att dina säkerhetskopior som är tillgängliga under en längre tid (upp till 10 år), kan du konfigurera en [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

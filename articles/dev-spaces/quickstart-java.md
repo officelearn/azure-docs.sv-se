@@ -12,10 +12,10 @@ description: Snabb Kubernetes-utveckling med behållare, mikrotjänster och Java
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Java, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
 ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425754"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Utveckla med Java i Kubernetes med Azure Dev blanksteg
@@ -27,7 +27,7 @@ I den här guiden får du lära dig hur du:
 - Felsöka kod i ditt dev-adressutrymmet från Visual Studio Code.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Visual Studio Code installerat](https://code.visualstudio.com/download).
@@ -212,4 +212,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 Lär dig hur Azure Dev blanksteg hjälper dig att utveckla mer komplexa program över flera behållare och du kan förenkla samarbetsfunktioner utveckling genom att arbeta med olika versioner eller grenar av din kod i olika blanksteg.
 
 > [!div class="nextstepaction"]
-> [Arbeta med flera behållare och Grupputveckling](multi-service-java.md)
+> [Arbeta med flera containrar och utveckling i team](multi-service-java.md)

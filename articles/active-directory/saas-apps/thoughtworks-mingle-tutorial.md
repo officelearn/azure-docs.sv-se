@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 5acf02c021fdfd9f85eeb2b6b1c697ce92c48a15
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Självstudier: Azure Active Directory-integrering med Thoughtworks Mingle
@@ -34,7 +34,7 @@ Integrera Thoughtworks Mingle med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Thoughtworks Mingle, behöver du följande objekt:
 
@@ -194,7 +194,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 För Azure AD-användare för att kunna logga in, måste de etableras till programmet Thoughtworks Mingle med deras Azure Active Directory-användarnamn. När det gäller Thoughtworks Mingle är etablering en manuell aktivitet.
 
-**Konfigurera användaretablering genom att utföra följande steg:**
+**Utför följande steg för att konfigurera användarförsörjning:**
 
 1. Logga in på webbplatsen Thoughtworks Mingle företag som administratör.
 
@@ -232,7 +232,7 @@ När du klickar på panelen Thoughtworks Mingle i åtkomstpanelen, bör det vara
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

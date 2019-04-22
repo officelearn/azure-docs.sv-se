@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e52c14051d038ae36af9f31f1ab13da11d032a17
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050517"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699295"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Snabbstart: Skapa en Java Spring-app med App Configuration
 
@@ -27,7 +27,7 @@ Azure App Configuration är en hanterad konfigurationstjänst i Azure. Du kan an
 
 Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill göra den här snabbstarten, installera en stödd [Java Development Kit (JDK)](https://aka.ms/azure-jdks) med version 8 och [Apache Maven](https://maven.apache.org/) version 3.0 eller senare.
 
@@ -48,7 +48,7 @@ Om du vill göra den här snabbstarten, installera en stödd [Java Development K
     | **Resursnamn** | Globalt unikt namn | Ange ett unikt resursnamn som ska användas för appkonfigurationsarkivets resurs. Namnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och `-`-tecknet. Namnet får inte börja eller sluta med den `-` tecknet eller efterföljande `-` tecken är ogiltiga.  |
     | **Prenumeration** | Din prenumeration | Välj den Azure-prenumeration du vill använda för att testa App Configuration. Om ditt konto bara har en prenumeration, det väljs automatiskt och **prenumeration** inte visas i listrutan. |
     | **Resursgrupp** | *AppConfigTestResources* | Välj eller skapa en resursgrupp för appkonfigurationsarkivets resurs. Den här gruppen är användbart för att ordna flera resurser som du kanske vill ta bort samtidigt genom att ta bort resursgruppen. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-    | **Plats** | *Centrala USA* | Använd **Plats** till att ange den geografiska plats där SignalR-resursen finns. Skapa resursen i samma region som andra komponenter i ditt program för bästa prestanda. |
+    | **Plats** | *USA, centrala* | Använd **Plats** till att ange den geografiska plats där SignalR-resursen finns. Skapa resursen i samma region som andra komponenter i ditt program för bästa prestanda. |
 
     ![Skapa ett appkonfigurationsarkiv](./media/quickstarts/azure-app-configuration-create.png)
 
@@ -172,4 +172,4 @@ I den här snabbstarten har du skapade en ny konfiguration appbutik och används
 Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
-> [Hanterade identiteter för integrering av Azure-resurser](./integrate-azure-managed-service-identity.md)
+> [Hanterade identiteter för integrering av Azure-resurser](./howto-integrate-azure-managed-service-identity.md)

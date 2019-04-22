@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277791"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Ange RBAC-roller för administrativ åtkomst
@@ -38,6 +38,6 @@ Roller bevilja inte åtkomsträttigheter till tjänsteslutpunkt. Search service�
 
 ## <a name="see-also"></a>Se också
 
-+ [Hantera med hjälp av PowerShell](search-manage-powershell.md) 
++ [Hantera med PowerShell](search-manage-powershell.md) 
 + [Prestanda och optimering i Azure Search](search-performance-optimization.md)
 + [Kom igång med rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).

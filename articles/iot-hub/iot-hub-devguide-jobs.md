@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044380"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
@@ -113,7 +113,7 @@ Du kan fråga efter jobbstatus för körning på varje enhet med hjälp av den [
 
 I följande lista visar egenskaper och motsvarande beskrivningar som kan användas vid fråga för jobb eller jobbresultat.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 | --- | --- |
 | **jobId** |Programmet ange ID för jobbet. |
 | **startTime** |Program tillhandahålls Starttid (ISO 8601-) för jobbet. |
@@ -154,4 +154,4 @@ Andra referensavsnitten i IoT Hub developer guide inkluderar:
 
 Se följande självstudie för IoT Hub för att prova några av de koncept som beskrivs i den här artikeln:
 
-* [Schemalägga och sända jobb](iot-hub-node-node-schedule-jobs.md)
+* [Schemalägg och Sänd jobb](iot-hub-node-node-schedule-jobs.md)

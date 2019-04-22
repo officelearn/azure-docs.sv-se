@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58802971"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
@@ -75,7 +75,7 @@ Behörigheter för ett objekt i filsystemet är **Läs**, **skriva**, och **kör
 | 7            | `RWX`        | Läsa + skriva + köra |
 | 5            | `R-X`        | Läsa + köra         |
 | 4            | `R--`        | Läsa                   |
-| 0            | `---`        | Inga behörigheter         |
+| 0            | `---`        | Ingen behörighet         |
 
 ### <a name="permissions-inheritance"></a>Arv av behörigheter
 

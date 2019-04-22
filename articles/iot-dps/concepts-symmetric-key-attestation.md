@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050952"
 ---
 # <a name="symmetric-key-attestation"></a>Symmetrisk nyckelattestering
@@ -49,7 +49,7 @@ Här följer komponenterna i varje token:
 | Värde | Beskrivning |
 | --- | --- |
 | {signature} |En HMAC-SHA256 signatur-sträng. För enskilda registreringar skapas signaturen med hjälp av den symmetriska nyckeln (primära eller sekundära) för att utföra hash-värdet. För registreringsgrupper för en nyckel som härleds från gruppnyckel registrering att utföra hash-värdet. Hash-värdet utförs på ett meddelande i formatet: `URL-encoded-resourceURI + "\n" + expiry`. **Viktiga**: Nyckeln måste avkodas från base64 innan som används för att utföra HMAC-SHA256-beräkningen. Signaturen resultatet måste dessutom vara URL-kodade. |
-| {resourceURI} |URI för profilslutpunkt som kan användas med denna token från och med scope-ID för Device Provisioning Service-instans. Exempel: `{Scope ID}/registrations/{Registration ID}` |
+| {resourceURI} |URI för profilslutpunkt som kan användas med denna token från och med scope-ID för Device Provisioning Service-instans. Till exempel, `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |UTF8-strängar för antal sekunder sedan epoch 00:00:00 UTC på 1 januari 1970. |
 | {URL-encoded-resourceURI} |Lägre fall URL-kodning av gemen resurs-URI |
 | {policyName} |Namnet på den princip för delad åtkomst som denna token refererar. Namnet på principen som används vid etableringen av med symmetriska nyckelattestering är **registrering**. |

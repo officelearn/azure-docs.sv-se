@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59043889"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Ansluta till Azure Data Explorer med ODBC
@@ -22,7 +22,7 @@ I bakgrunden program anropa i gränssnittet ODBC-funktioner som är implementera
 
 I den här artikeln får du lära dig hur du använder ODBC-drivrutinen så att du kan ansluta till Datautforskaren i Azure från alla program som har stöd för ODBC. Du kan också ansluta till Azure Data Explorer från Tableau, och importera data från en exempel-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för att slutföra den här så här:
 
@@ -100,6 +100,6 @@ Nu du har konfigurerat ODBC kan du sätta exempeldata i Tableau.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skriv frågor för Azure Data Explorer](write-queries.md)
+[Skriva frågor för Azure Data Explorer](write-queries.md)
 
 [Självstudier: Visualisera data från Azure Data Explorer i Power BI](visualize-power-bi.md)

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277025"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Självstudier: Azure Active Directory-integrering med Perception USA (icke-UltiPro)
@@ -34,7 +34,7 @@ Integrera Perception USA (icke-UltiPro) med Azure AD ger dig följande fördelar
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Perception USA (icke-UltiPro), behöver du följande objekt:
 
@@ -105,9 +105,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Percept
 
     ![Perception USA (icke-UltiPro)-domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL: `https://perception.kanjoya.com/sp`
+    a. I textrutan **Identifierare** skriver du in en URL: `https://perception.kanjoya.com/sp`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     c. Den **Perception USA (icke-UltiPro)** programmet kräver den **Azure AD-identifierare** värde som < entity_id >, där du får från den **konfigurera Perception USA ( Non-UltiPro)** så att uri-kodas. Om du vill få uri-kodas, använder du följande länk: **http://www.url-encode-decode.com/**.
 
@@ -229,7 +229,7 @@ När du klickar på panelen Perception USA (icke-UltiPro) i åtkomstpanelen bör
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

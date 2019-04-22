@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
 ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269273"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Läs in data till Azure Data Lake Storage Gen2 med Azure Data Factory
@@ -31,7 +31,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 >[!TIP]
 >Kopierar data från Azure Data Lake Storage Gen1 till Gen2, finns i [den här specifika genomgången](load-azure-data-lake-storage-gen2-from-gen1.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure Storage-konto med Data Lake Storage Gen2 aktiverat: Om du inte har ett lagringskonto [skapa ett konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).

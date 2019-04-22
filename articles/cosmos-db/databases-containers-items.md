@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du skapar och använder Azure Cosmo
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762913"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678810"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Arbeta med databaser, containrar och objekt
 
@@ -61,7 +61,7 @@ Du kan ange [Time To Live (TTL)](time-to-live.md) för markerade objekt i en Azu
 
 Med hjälp av [Change Feed](change-feed.md), du kan prenumerera åtgärdsloggen som hanteras för var och en av de logiska partitionerna för dina behållare. Change Feed innehåller en logg för alla uppdateringar som utförs på behållaren tillsammans med de före och efter-bilder av objekten. Se [skapa reaktiva program med hjälp av Change Feed](serverless-computing-database.md). Du kan också konfigurera kvarhållning varaktigheten för ändra Feed med ändringsflödet i principen för behållaren. 
 
-Du kan registrera [lagrade procedurer, utlösare, användardefinierade funktioner (UDF)](stored-procedures-triggers-udfs.md) och [sammanfoga procedurer](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) med din Azure Cosmos-behållare. 
+Du kan registrera [lagrade procedurer, utlösare, användardefinierade funktioner (UDF)](stored-procedures-triggers-udfs.md) och [sammanfoga procedurer](how-to-manage-conflicts.md) med din Azure Cosmos-behållare. 
 
 Du kan ange en [unika nyckelvillkor](unique-keys.md) på din Azure Cosmos-behållare. Genom att skapa en unik nyckel princip kan kontrollera du unikhet för ett eller flera värden per logisk partitionsnyckel. När du har skapat en behållare med en unik nyckel princip förhindrar skapande av alla nya eller uppdaterade objekt med värden som duplicerar värdena som anges av den unika key-begränsningen. Mer information finns i [unika nyckelvillkor](unique-keys.md).
 
@@ -117,7 +117,7 @@ Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende p
 |_etag | Systemgenererad | Enhetstagg som används för optimistisk samtidighetskontroll | Ja | Nej | Nej | Nej | Nej |
 |_ts | Systemgenererad | Tidsstämpel för senaste uppdateringen av objektet | Ja | Nej | Nej | Nej | Nej |
 |_self | Systemgenererad | Adresserbara URI: N för objektet | Ja | Nej | Nej | Nej | Nej |
-|id | Antingen | Användardefinierade unikt namn inom en logisk partition. Om användaren inte anger id, systemet automatiskt att generera en. | Ja | Ja | Ja | Ja | Ja |
+|id | Antingen | Användardefinierade unikt namn inom en logisk partition. Om användaren inte anger ID, systemet automatiskt att generera en. | Ja | Ja | Ja | Ja | Ja |
 |Godtycklig användardefinierade egenskaper | Användardefinierade | Användardefinierade egenskaper som visas i API-intern representation (JSON, BSON, CQL osv.) | Ja | Ja | Ja | Ja | Ja |
 
 ### <a name="operations-on-items"></a>Åtgärder på objekt

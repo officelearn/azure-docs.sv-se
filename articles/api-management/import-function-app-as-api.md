@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
 ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046061"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
@@ -35,7 +35,7 @@ Du lär dig hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i utvecklarportalen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Slutför snabbstarten [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 * Se till att du har en Azure Funktions-app i din prenumeration. Mer information finns i [Skapa en Azure-funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Det måste innehålla funktioner med HTTP-utlösare och inställningar för auktoriseringsnivå inställda på *Anonym* eller *Funktion*.
@@ -184,4 +184,4 @@ Du kan även anropa åtgärder från utvecklarportalen för att testa API:er.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Transformera och skydda ett publicerat API](transform-api.md)
+> [Omvandla och skydda ett publicerat API](transform-api.md)

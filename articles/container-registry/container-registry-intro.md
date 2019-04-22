@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270531"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduktion till privata Docker-containerregister i Azure
@@ -45,8 +45,8 @@ Azure tillhandahåller verktyg, t.ex. Azure-kommandoradsgränssnittet, Azure-por
 * **Databasen** – ett register innehåller en eller flera databaser som är virtuella grupper med behållaravbildningar med samma namn men olika taggar eller sammandrag. Azure Container Registry har stöd för namnområden för lagringsplatser på flera nivåer. Med namnområden för flera nivåer kan du gruppera samlingar med avbildningar relaterade till en viss app, eller en samling appar för specifika utvecklingsgrupper eller operativa team. Exempel:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` representerar en företagsomfattande avbildning
-  * `myregistry.azurecr.io/warrantydept/dotnet-build` representerar en avbildning som används för att skapa .NET-appar som delas på garantiavdelningen.
-  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representerar en webbavbildning, grupperad i appen för kundöverföringar, ägs av garantiavdelningen.
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` representerar en avbildning som används för att skapa .NET-appar, som delas på garantiavdelningen.
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representerar en webbavbildning, grupperad i appen för kundöverföringar, som ägs av garantiavdelningen.
 
 * **Avbildning** – Lagras på en lagringsplats. Varje avbildning är en skrivskyddad ögonblicksbild av en Docker-kompatibel container. Azure-containerregister kan innehålla både Windows- och Linux-avbildningar. Du styr avbildningsnamnen för alla containerdistributioner. Använd [Docker-standardkommandon](https://docs.docker.com/engine/reference/commandline/) för att skicka avbildningar till en lagringsplats, eller för att hämta en avbildning från en lagringsplats. Förutom containeravbildningar lagrar Azure Container Registry [relaterade innehållsformat](container-registry-image-formats.md) som [Helm-diagram](container-registry-helm-repos.md) som används för att distribuera program till Kubernetes.
 
@@ -62,4 +62,4 @@ Azure tillhandahåller verktyg, t.ex. Azure-kommandoradsgränssnittet, Azure-por
 
 * [Skapa ett containerregister med hjälp av Azure Portal](container-registry-get-started-portal.md)
 * [Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md)
-* [Automatisera framework uppdatering med ACR uppgifter av operativsystem och](container-registry-tasks-overview.md)
+* [Automatisera korrigering av operativsystem och ramverk med ACR Tasks](container-registry-tasks-overview.md)

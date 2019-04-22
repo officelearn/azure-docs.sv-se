@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: yizhon
 ms.openlocfilehash: 8e36cee9857c00fcb618a8491595432fb0fd60fd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264581"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Utveckla för Android saker plattform med hjälp av Azure IoT SDK: er
@@ -20,7 +20,7 @@ ms.locfileid: "59264581"
 
 Den här självstudien beskriver steg för att skapa ett sida-program för enhet på Android saker med Azure IoT-Java-SDK.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Android saker stöds maskinvara med Android saker operativsystem som körs.  Du kan följa [Android saker dokumentation](https://developer.android.com/things/get-started/kits#flash-at) om hur du flash Android saker OS.  Kontrollera att enheten Android saker som är ansluten till internet med viktiga kringutrustning som tangentbord, bildskärm och mus.  Den här självstudien använder Raspberry Pi 3.
 

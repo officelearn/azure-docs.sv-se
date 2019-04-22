@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052364"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
@@ -126,7 +126,7 @@ När du har skapat ditt dokument för användningsvillkor använder du följande
     | **Åtkomst till molnappar för alla gäster** | Principer för villkorlig åtkomst kommer att skapas för alla gäster och alla molnappar. Den här principen påverkar Azure-portalen. När den har skapats kan du bli ombedd att logga ut och logga in. |
     | **Åtkomst till molnappar för alla användare** | Principer för villkorlig åtkomst kommer att skapas för alla användare och alla molnappar. Den här principen påverkar Azure-portalen. När den har skapats, kommer du att behöva logga ut och logga in. |
     | **Anpassad princip** | Välj de användare, grupper och appar som de här användningsvillkoren ska gälla för. |
-    | **Skapa princip för villkorsstyrd åtkomst senare** | Det här användningsvillkoret visas i kontrollistan för beviljande när du skapar en princip för villkorsstyrd åtkomst. |
+    | **Skapa princip för villkorlig åtkomst senare** | Det här användningsvillkoret visas i kontrollistan för beviljande när du skapar en princip för villkorsstyrd åtkomst. |
 
     >[!IMPORTANT]
     >Kontrollerna för principer för villkorlig åtkomst (inklusive användningsvillkoren) stöder inte tvingande för tjänstkonton. Vi rekommenderar att du exkluderar alla tjänstkonton från principen för villkorlig åtkomst.
@@ -387,4 +387,4 @@ S: Om du har konfigurerat båda Azure AD-användningsvillkor och [Intune villkor
 ## <a name="next-steps"></a>Nästa steg
 
 - [Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar](require-tou.md)
-- [Metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md)
+- [Best practices for conditional access in Azure Active Directory](best-practices.md) (Metodtips för villkorlig åtkomst i Azure Active Directory)

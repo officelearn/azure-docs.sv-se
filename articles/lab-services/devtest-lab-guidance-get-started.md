@@ -14,10 +14,10 @@ ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272398"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Populära scenarier för att använda Azure DevTest Labs
@@ -85,5 +85,5 @@ En **funktionstest av** distribution fokuserar på en topp arbete från en grupp
 Läs följande artiklar:
 
 - [DevTest Labs-koncept](devtest-lab-concepts.md)
-- [Vanliga frågor om DevTest Labs](devtest-lab-faq.md)
+- [DevTest Labs vanliga frågor och svar](devtest-lab-faq.md)
 

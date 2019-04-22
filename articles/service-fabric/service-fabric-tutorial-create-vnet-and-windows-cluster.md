@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050014"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric-kluster som kör Windows till en Azure-nätverk
@@ -46,14 +46,14 @@ I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * skapa ett säkert kluster i Azure
 > * [Övervaka ett kluster](service-fabric-tutorial-monitor-cluster.md)
-> * [Skala in eller ut ett kluster](service-fabric-tutorial-scale-cluster.md)
+> * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 
@@ -154,7 +154,7 @@ Som standard den [Windows Defender antivirusprogram](/windows/security/threat-pr
 
 Parameterfilen [azuredeploy.parameters.json][parameters] deklarerar många värden som används till att distribuera klustret och associerade resurser. Här följer några parametrar för att ändra för distributionen:
 
-**Parameter** | **Exempelvärde** | **Anteckningar** 
+**Parametern** | **Exempelvärde** | **Anteckningar** 
 |---|---|---|
 |adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. [Krav för användarnamn för den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret. [Lösenordskrav för VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|

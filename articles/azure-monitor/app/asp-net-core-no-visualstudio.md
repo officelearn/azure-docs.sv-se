@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: cithomas
 ms.openlocfilehash: 8243523887ec9861459b2d196126237cf89bad97
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288373"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core-program
@@ -27,7 +27,7 @@ Den här artikeln beskriver steg för att aktivera Application Insights för en 
 
 Application Insights SDK (Software Development Kit) för ASP.NET Core kan övervaka dina program oavsett var eller hur programmet körs. Om ditt program körs och har nätverksanslutning till Application Insights-tjänsten, förväntas telemetri samlas in. Detta stöd inkluderar, men är inte begränsat till alla operativsystem (Windows, Linux, Mac), värdmetoden (pågående vs out-of-process), distributionsmetod (framework-beroende eller fristående), webbserver (IIS, Kestrel), plattform (Azure Web Apps, Azure VM Docker, AKS och så vidare.) eller IDE (Visual Studio, VS Code kommandoraden).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En fungerande ASP.NET Core-program. Följ [detta](https://docs.microsoft.com/aspnet/core/getting-started/) guide för att skapa ett ASP.NET Core-program, om det behövs.
 - En giltig Application Insights instrumentationsnyckel, vilket krävs för att skicka någon telemetri till Application Insights-tjänsten. Följ [dessa](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) anvisningar för att skapa en ny Application Insights-resurs, om det behövs och hämta en instrumenteringsnyckel.

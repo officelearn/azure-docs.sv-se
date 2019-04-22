@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881196"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699312"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Förbättra tillgängligheten för ditt program med Azure Advisor
 
@@ -65,6 +65,10 @@ Aktivera [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/stora
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Konfigurera din VPN-gateway till aktiv-aktiv för anslutningsåterhämtning
 
 I aktiv-aktiv konfiguration, kommer båda instanserna av en VPN-gateway upprätta S2S VPN-tunnlar till din lokala VPN-enhet. När ett planerat underhåll eller en oplanerad händelse inträffar för en gatewayinstans växlar trafiken till den andra aktiva IPsec-tunneln automatiskt. Azure Advisor ska identifiera VPN-gatewayer som inte har konfigurerats som aktiv-aktiv och föreslår att du konfigurerar dem för hög tillgänglighet.
+
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Använd produktion VPN-gatewayer för att köra dina produktionsarbetsbelastningar
+
+Azure Advisor söker efter alla VPN-gatewayer som är en grundläggande SKU och rekommenderar att du använder en produktion SKU i stället. Grundläggande SKU: N är utformat för utveckling och testning. Produktion-SKU: er erbjuder ett högre antal tunnlar, BGP-stöd, aktiv-aktiv konfigurationsalternativ, anpassade Ipsec/IKE-principer och högre stabilitet och tillgänglighet.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer för hög tillgänglighet i Advisor
 

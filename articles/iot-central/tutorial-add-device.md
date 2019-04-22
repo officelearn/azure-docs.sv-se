@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425941"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Självstudier: Lägga till en riktig enhet till Azure IoT Central-programmet
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > * Förstå hur klientkod mappas till programmet
 > * Konfigurera klientkod för den riktiga enheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar bör byggaren skapa Azure IoT Central-programmet genom att slutföra åtminstone den första självstudien för byggare:
 
@@ -354,12 +354,12 @@ Som operatör lär du dig att:
 
 * [Hantera dina enheter](howto-manage-devices.md)
 * [Använda enhetsuppsättningar](howto-use-device-sets.md)
-* [Skapa anpassad analys](howto-use-device-sets.md)
+* [Skapa anpassade analyser](howto-use-device-sets.md)
 
 Som enhetsutvecklare lär du dig att:
 
 * [Förbereda och ansluta en DevKit enhet (C)](howto-connect-devkit.md)
-* [Förbereda och ansluta Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
-* [Förbereda och ansluta Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Förbereda och ansluta en Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Förbereda och ansluta en Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
 * [Förbereda och Anslut en Windows 10 IoT core-enhet (C#)](howto-connect-windowsiotcore.md)
-* [Ansluta en allmän Node.js-klient till Azure IoT Central programmet](howto-connect-nodejs.md)
+* [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs.md)

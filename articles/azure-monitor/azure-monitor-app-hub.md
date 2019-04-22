@@ -11,10 +11,10 @@ ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
 ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426281"
 ---
 <div id="main" class="v2">
@@ -85,7 +85,7 @@ ms.locfileid: "59426281"
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
                                                             <a href="./learn/java-quick-start.md">Java</a><br>
-                                                            <a href="./learn/mobile-center-quickstart.md">Mobil</a><br>
+                                                            <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
                                                             <a href="./app/website-monitoring.md">Webbläsaren-/ klientsidan</a>
                                                         </p>
                                                         <br><br>
@@ -103,7 +103,7 @@ ms.locfileid: "59426281"
                                                             <a href="./app/distributed-tracing.md">Vad är distribuerad spårning?</a><br>
                                                             <a href="./app/opencensus-python.md">OpenCensus för Python</a><br>
                                                             <a href="./app/opencensus-go.md">OpenCensus för Go</a><br>
-                                                            <a href="./app/opencensus-local-forwarder.md">Lokal vidarebefordrare</a>
+                                                            <a href="./app/opencensus-local-forwarder.md">Lokala vidarebefordrare</a>
                                                             </p>
                                                         <br><br>
                                                         <h3>Automatisk smart identifiering</h3>
@@ -121,7 +121,7 @@ ms.locfileid: "59426281"
                                                         <br><br>
                                                         <h3>Referens</h3>
                                                         <p>
-                                                            <a href="./app/auto-collect-dependencies.md">Automatisk insamling för beroenden</a><br>
+                                                            <a href="./app/auto-collect-dependencies.md">Beroende Automatisk insamling</a><br>
                                                             <a href="./app/correlation.md">Telemetrikorrelation</a><br>
                                                             <a href="./app/nuget.md">NuGet-paket</a><br>
                                                             <a href="./app/azure-functions-supported-features.md">Azure Functions</a>
@@ -146,7 +146,7 @@ ms.locfileid: "59426281"
                                                             <a href="./app/java-agent.md">Agent-konfiguration för beroendespårning</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Anpassade händelser och mätvärden</a><br>
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
-">Config .xml</a><br>
+">Config-XML</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-Java">Öppen källkod Java SDK på GitHub-lagringsplats</a>
                                                         </p>
                                                         <br><br>

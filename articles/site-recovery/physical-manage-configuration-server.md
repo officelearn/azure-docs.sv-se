@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050143"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server disaster recovery
@@ -20,7 +20,7 @@ Du ställer in en konfigurationsservern lokalt när du använder den [Azure Site
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I tabell sammanfattas kraven för att distribuera den lokala configuration server-datorn.
 
@@ -71,7 +71,7 @@ Den senaste versionen av installationsfilen för configuration server är tillg�
      ![Brandvägg](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
 
-    ![Förutsättningar](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Nödvändiga komponenter](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -108,7 +108,7 @@ Kör installationsfilen på följande sätt:
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameternamn| Type | Beskrivning| Värden|
+|Parameternamn| Typ | Beskrivning| Värden|
 |-|-|-|-|
 | /ServerMode|Krävs|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
 |/InstallLocation|Krävs|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|

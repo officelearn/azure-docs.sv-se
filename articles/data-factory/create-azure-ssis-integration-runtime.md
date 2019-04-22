@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361485"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa Azure-SSIS Integration Runtime i Azure Data Factory
@@ -41,7 +41,7 @@ När du skapar Azure-SSIS IR ansluts ADF-tjänsten till din Azure SQL Database-s
 
 När du etablerar Azure-SSIS IR installeras också Azure Feature Pack för SSIS och Access Redistributable. Dessa komponenter upprättar anslutning till Excel/Access-filer och olika Azure-datakällor, utöver de datakällor som stöds av inbyggda komponenterna. Du kan också installera ytterligare komponenter. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,8 +68,8 @@ I följande tabell jämförs vissa funktioner i Azure SQL Database-server och ha
 
 | Funktion | enkel databas/elastisk pool| Managed Instance |
 |---------|--------------|------------------|
-| **Schemaläggning** | SQL Server Agent är inte tillgänglig.<br/><br/>Se [schemalägga en körning av paket i ADF pipeline](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Hanterad instans-Agent är tillgänglig. |
-| **Authentication** | Du kan skapa SSISDB med en oberoende databasanvändare som representerar alla AAD-grupp med den hanterade identitet för din ADF som en medlem i den **db_owner** roll.<br/><br/>Se [aktivera Azure AD-autentisering för att skapa SSISDB i Azure SQL Database-server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Du kan skapa SSISDB med en oberoende databasanvändare som representerar din ADF hanterad identitet. <br/><br/>Se [aktivera Azure AD-autentisering för att skapa SSISDB i Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
+| **Scheduling** | SQL Server Agent är inte tillgänglig.<br/><br/>Se [schemalägga en körning av paket i ADF pipeline](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Hanterad instans-Agent är tillgänglig. |
+| **Autentisering** | Du kan skapa SSISDB med en oberoende databasanvändare som representerar alla AAD-grupp med den hanterade identitet för din ADF som en medlem i den **db_owner** roll.<br/><br/>Se [aktivera Azure AD-autentisering för att skapa SSISDB i Azure SQL Database-server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Du kan skapa SSISDB med en oberoende databasanvändare som representerar din ADF hanterad identitet. <br/><br/>Se [aktivera Azure AD-autentisering för att skapa SSISDB i Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Tjänstenivå** | När du skapar Azure-SSIS IR med din Azure SQL Database-server kan välja du tjänstnivå för SSISDB. Det finns flera tjänstnivåer. | När du skapar Azure-SSIS IR med din hanterade instans kan välja du inte tjänstnivå för SSISDB. Alla databaser i din hanterade instans delar samma resurs allokeras till instansen. |
 | **Virtuellt nätverk** | Stöder endast Azure Resource Manager virtuellt nätverk för din Azure-SSIS IR att ansluta till om du använder Azure SQL Database-server med virtuella nätverksslutpunkter eller kräver åtkomst till lokala datalager. | Stöder endast Azure Resource Manager virtuellt nätverk för din Azure-SSIS IR att ansluta till. Det virtuella nätverket krävs alltid.<br/><br/>Om du ansluter din Azure-SSIS IR till samma virtuella nätverk som din hanterade instans, se till att din Azure-SSIS IR är i ett annat undernät än din hanterade instans. Om du ansluter din Azure-SSIS IR till ett annat virtuellt nätverk än din hanterade instans, rekommenderar vi en virtuell nätverkspeering eller i virtuella nätverk till virtuell nätverksanslutning. Se [Anslut ditt program till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Distribuerade transaktioner** | Stöds via elastiska transaktioner. Microsoft Distributed Transaction Coordinator (MSDTC) transaktioner stöds inte. Om SSIS-paketen använder MSDTC koordinera distribuerade transaktioner, Överväg att migrera till elastiska transaktioner för Azure SQL Database. Mer information finns i [distribuerade transaktioner över molndatabaser](../sql-database/sql-database-elastic-transactions-overview.md). | Stöds ej. |

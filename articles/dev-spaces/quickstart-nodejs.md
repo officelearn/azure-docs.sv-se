@@ -12,10 +12,10 @@ description: Snabb Kubernetes-utveckling med behållare, mikrotjänster och Node
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
 ms.openlocfilehash: bc18a06405c0fe620136642a409df576c8e8d8b3
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361713"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Utveckla med Node.js på Kubernetes med Azure Dev blanksteg
@@ -26,7 +26,7 @@ I den här guiden får du lära dig hur du:
 - Utveckla iterativt koden i behållare med hjälp av Visual Studio Code och kommandoraden.
 - Felsöka kod i ditt dev-adressutrymmet från Visual Studio Code.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Visual Studio Code installerat](https://code.visualstudio.com/download).
@@ -210,4 +210,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 Lär dig hur Azure Dev blanksteg hjälper dig att utveckla mer komplexa program över flera behållare och du kan förenkla samarbetsfunktioner utveckling genom att arbeta med olika versioner eller grenar av din kod i olika blanksteg.
 
 > [!div class="nextstepaction"]
-> [Arbeta med flera behållare och Grupputveckling](multi-service-nodejs.md)
+> [Arbeta med flera containrar och utveckling i team](multi-service-nodejs.md)

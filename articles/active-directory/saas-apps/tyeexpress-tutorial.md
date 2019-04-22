@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: d3459f7bcfc0e2e61cb55b38a05b7b6a21ea3e9e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Självstudier: Azure Active Directory-integrering med d & E Express
@@ -34,7 +34,7 @@ Integrera d & E Express med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med d & E Express, behöver du följande objekt:
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med d & E E
 
     a. I den **identifierare** text skriver värdet som URL med hjälp av följande mönster: `https://<domain>.tyeexpress.com`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [d & E Express klienten supportteam](http://www.tyeexpress.com/contacto.aspx) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -195,7 +195,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 För att aktivera Azure AD-användare att logga in på d & E Express, måste de etableras i T & E Express. När det gäller T & E Express är etablering en manuell aktivitet.
 
-**Utför följande steg för att tillhandahålla ett användarkonto:**
+**Utför följande steg för att etablera ett användarkonto:**
 
 1. Logga in på webbplatsen d & E Express företagets som administratör.
 
@@ -221,7 +221,7 @@ När du klickar på panelen d & E Express i åtkomstpanelen, bör det vara logga
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

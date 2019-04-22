@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
 ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359645"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio-webbtjänster: Distribution och användning
@@ -36,7 +36,7 @@ Följande länkar ger allmän Information om hur du distribuerar en ny webbtjän
 * Börja med en fullständig genomgång om hur du skapar och distribuerar en webbtjänst [självstudie 1: Förutsäga kreditrisken](tutorial-part1-credit-risk.md).
 * Specifika exempel som distribuerar en webbtjänst finns:
 
-  * [Självstudie 3: Distribuera en kreditriskmodell](tutorial-part3-credit-risk-deploy.md)
+  * [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md)
   * [Hur du distribuerar en webbtjänst till flera regioner](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Med web services-resursprovidern API: er (Azure Resource Manager API: er)
@@ -89,7 +89,7 @@ Du kan testa din webbtjänst från Azure Machine Learning Web Services-portalen.
 
 * [Distribuera en ny webbtjänst](publish-a-machine-learning-web-service.md)
 * [Distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md)
-* [Självstudie 3: Distribuera en kreditriskmodell](tutorial-part3-credit-risk-deploy.md)
+* [Självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Från Excel
 

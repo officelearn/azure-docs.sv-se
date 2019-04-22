@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357973"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
@@ -59,7 +59,7 @@ Välj vad och vart du vill replikera.
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-**Scenario** | **Information**
+**Scenario** | **Detaljer**
 --- | --- 
 VMware | Konfigurera den [källmiljö](vmware-azure-set-up-source.md), och Ställ in den [konfigurationsservern](vmware-azure-deploy-configuration-server.md).
 Fysisk dator | [Konfigurera](physical-azure-set-up-source.md) miljön och konfigurationen för källservern.
@@ -78,7 +78,7 @@ Välj och kontrollera målresurserna.
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
-**Scenario** | **Information**
+**Scenario** | **Detaljer**
 --- | --- 
 VMware | Konfigurera en [replikeringsprincip](vmware-azure-set-up-replication.md) för virtuella VMware-datorer.
 Fysisk dator | Konfigurera en [replikeringsprincip](physical-azure-disaster-recovery.md#create-a-replication-policy) för fysiska datorer.
@@ -86,7 +86,7 @@ Hyper-V | Konfigurera en [replikeringsprincip](hyper-v-azure-tutorial.md#set-up-
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-**Scenario** | **Information**
+**Scenario** | **Detaljer**
 --- | --- 
 VMware | [Aktivera replikering](vmware-azure-enable-replication.md) för virtuella VMware-datorer.
 Fysisk dator | [Aktivera replikering](physical-azure-disaster-recovery.md#enable-replication) för fysiska datorer.

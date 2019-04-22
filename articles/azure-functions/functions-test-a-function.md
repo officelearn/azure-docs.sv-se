@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357639"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
@@ -377,6 +377,6 @@ Nu ska vi konfigurera en brytpunkt i test- och tryck på **F5**.
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du skriver automatiska tester för dina funktioner, fortsätter du med dessa resurser:
-- [Köra en funktion som inte utlösts av HTTP manuellt](./functions-manually-run-non-http.md)
+- [Manuellt köra en icke HTTP-utlöst funktion](./functions-manually-run-non-http.md)
 - [Azure Functions-felhantering](./functions-bindings-error-pages.md)
 - [Azure-funktion Event Grid utlösa lokal felsökning](./functions-debug-event-grid-trigger-local.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361351"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Kör Azure Site Recovery deployment planner för Hyper-V haveriberedskap till Azure
@@ -256,12 +256,12 @@ Den genererade rapporten i Microsoft Excel innehåller följande information:
 
 * [Lokal sammanfattning](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Rekommendationer](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [Placering av VM-lagring](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
-* [Compatible VMs (Kompatibla virtuella datorer)](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
-* [Incompatible VMs (Inkompatibla virtuella datorer)](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
-* [Krav för lokal lagring](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
-* [IR-batchbearbetning](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
-* [Kostnadsuppskattning](hyper-v-deployment-planner-cost-estimation.md)
+* [VM-Storage Placement](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) (VM-lagringsplacering)
+* [Compatible VMs](hyper-v-deployment-planner-analyze-report.md#compatible-vms) (Kompatibla virtuella datorer)
+* [Incompatible VMs](hyper-v-deployment-planner-analyze-report.md#incompatible-vms) (Inkompatibla virtuella datorer)
+* [On-premises storage requirement](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement) (Krav för lokal lagring)
+* [IR batching](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching) (IR-batchbearbetning)
+* [Cost estimation](hyper-v-deployment-planner-cost-estimation.md) (Kostnadsberäkning)
 
 ![Rapport för kapacitetsplaneraren](media/hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
 

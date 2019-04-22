@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361799"
 ---
 # <a name="what-is-azure-backup"></a>Vad är Azure Backup?
@@ -58,9 +58,9 @@ De här två tjänsterna innehåller kompletterande men också olika funktioner.
 
 Bestäm dina behov för affärskontinuitet och haveriberedskap med hjälp av tabellen nedan.
 
-**Mål** | **Information** | **Jämförelse**
+**Mål** | **Detaljer** | **Jämförelse**
 --- | --- | ---
-**Säkerhetskopiering/datakvarhållning** | Säkerhetskopierade data kan bevaras och lagras i flera dagar, månader eller år, om det behövs i efterlevnadssyfte. | Med säkerhetskopieringslösningar som Azure Backup kan du välja vilka data som ska säkerhetskopieras och skräddarsy principer för säkerhetskopiering och kvarhållning.<br/><br/> Site Recovery kan inte samma finjustera.
+**Säkerhetskopiera/bevara data** | Säkerhetskopierade data kan bevaras och lagras i flera dagar, månader eller år, om det behövs i efterlevnadssyfte. | Med säkerhetskopieringslösningar som Azure Backup kan du välja vilka data som ska säkerhetskopieras och skräddarsy principer för säkerhetskopiering och kvarhållning.<br/><br/> Site Recovery kan inte samma finjustera.
 **Mål för återställningspunkt (RPO)** | Mängden godtagbar dataförlust om en återställning krävs. | Säkerhetskopieringar har större variation vad gäller mål för återställningspunkter.<br/><br/> Säkerhetskopieringar av virtuella datorer har vanligtvis ett återställningspunktmål på en dag, medan säkerhetskopieringar av databaser har återställningspunktmål på så lite som 15 minuter.<br/><br/> Site Recovery tillhandahåller låga återställningspunktmål eftersom replikeringen är kontinuerlig eller frekvent, vilket innebär att deltat mellan källa och replikering är litet.
 **Mål för återställningstid (RTO)** |Hur lång tid det tar att slutföra en återställning. | På grund av det större återställningspunktmålet är mängden data som en säkerhetskopieringslösning behöver bearbeta normalt mycket högre, vilket leder till längre mål för återställningstid. Det kan till exempel ta dagar att återställa data från band, beroende på hur lång tid det tar att överföra bandet från den externa platsen.
 
@@ -68,7 +68,7 @@ Bestäm dina behov för affärskontinuitet och haveriberedskap med hjälp av tab
 
 Azure Backup kan säkerhetskopiera både lokala datorer och virtuella Azure-datorer.
 
-**Dator** | **Säkerhetskopiera scenario**
+**Dator** | **Säkerhetskopieringsscenario**
 --- | ---
 **Lokal säkerhetskopiering** |  1) Kör Azure Backup Microsoft Azure Recovery Services-agenten (MARS) på lokala Windows-datorer för att säkerhetskopiera enskilda filer och systemtillstånd. <br/><br/>2) säkerhetskopiering av lokala datorer till en sekundär server (System Center Data Protection Manager (DPM) eller Microsoft Azure Backup Server (MABS)) och sedan konfigurera backup-servern att säkerhetskopiera till ett Azure Backup Recovery Services-valv i Azure.
 **Virtuella Azure-datorer** | 1) Aktivera säkerhetskopiering av enskilda virtuella Azure-datorer. När du aktiverar säkerhetskopiering installerar Azure Backup ett tillägg på Azure VM-agenten som körs på den virtuella datorn. Agenten säkerhetskopierar hela den virtuella datorn.<br/><br/> 2) Kör MARS-agenten på en virtuell Azure-dator. Detta är användbart om du vill säkerhetskopiera enskilda filer och mappar på den virtuella datorn.<br/><br/> 3) Säkerhetskopiera en virtuell Azure-dator till en DPM-server eller MABS som körs i Azure. Säkerhetskopiera sedan DPM-servern eller MABS till ett valv med hjälp av Azure Backup.
@@ -86,7 +86,7 @@ Läs mer om [hur säkerhetskopiering fungerar](backup-architecture.md#architectu
 
 ## <a name="what-can-i-back-up"></a>Vad kan jag säkerhetskopiera?
 
-**Dator** | **Metod för säkerhetskopiering** | **Säkerhetskopiera**
+**Dator** | **Säkerhetskopieringsmetod** | **Säkerhetskopiera**
 --- | --- | ---
 **Lokala virtuella Windows-datorer** | Köra MARS-agenten | Säkerhetskopiera filer, mappar och systemtillstånd.<br/><br/> Linux-datorer stöds inte.
 **Lokala datorer** | Säkerhetskopiera till DPM/MABS | Säkerhetskopiera allt som skyddas av [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) eller [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), inklusive filer/mappar/filresurser/volymer och programspecifika data.
@@ -99,20 +99,20 @@ Läs mer om [hur säkerhetskopiering fungerar](backup-architecture.md#architectu
 **Scenario** | **Agent**
 --- | ---
 **Säkerhetskopiera virtuella Azure-datorer** | Ingen agent behövs. Azure VM-tillägget för säkerhetskopiering installeras på Azure VM när du kör den första virtuella Azure-säkerhetskopieringen.<br/><br/> Stöd för Windows och Linux.
-**Säkerhetskopiering av lokala Windows-datorer** | Hämta, installera och kör MARS-agenten direkt på datorn.
+**Säkerhetskopiera lokala Windows-datorer** | Hämta, installera och kör MARS-agenten direkt på datorn.
 **Säkerhetskopiera virtuella Azure-datorer med MARS-agenten** | Hämta, installera och kör MARS-agenten direkt på datorn. MARS-agenten kan köras tillsammans med säkerhetskopieringstillägget.
-**Säkerhetskopiera lokala datorer och virtuella Azure-datorer till DPM/MABS** | DPM- eller MABS-skyddsagenten körs på de datorer som du vill skydda. MARS-agenten körs på DPM-servern/MABS för att säkerhetskopiera till Azure.
+**Säkerhetskopiering av lokala datorer och virtuella Azure-datorer till DPM/MABS** | DPM- eller MABS-skyddsagenten körs på de datorer som du vill skydda. MARS-agenten körs på DPM-servern/MABS för att säkerhetskopiera till Azure.
 
 ## <a name="which-backup-agent-should-i-use"></a>Vilken säkerhetskopieringsagent ska jag använda?
 
-**Backup** | **Lösning** | **Begränsning**
+**Säkerhetskopiering** | **Lösning** | **Begränsning**
 --- | --- | ---
-**Jag vill säkerhetskopiera en hel Azure virtuell dator** | Aktivera säkerhetskopiering för den virtuella datorn. Säkerhetskopieringstillägget konfigureras automatiskt på den virtuella Azure-datorn, både för Windows och Linux. | Hela den virtuella datorn säkerhetskopieras <br/><br/> Säkerhetskopior är programkonsekventa för virtuella Windows-datorer. Säkerhetskopior är filkonsekventa för Linux-datorer. Du måste konfigurera med anpassade skript om dessa ska vara programmedvetna.
+**Jag vill säkerhetskopiera en hel virtuell Azure-dator** | Aktivera säkerhetskopiering för den virtuella datorn. Säkerhetskopieringstillägget konfigureras automatiskt på den virtuella Azure-datorn, både för Windows och Linux. | Hela den virtuella datorn säkerhetskopieras <br/><br/> Säkerhetskopior är programkonsekventa för virtuella Windows-datorer. Säkerhetskopior är filkonsekventa för Linux-datorer. Du måste konfigurera med anpassade skript om dessa ska vara programmedvetna.
 **Jag vill säkerhetskopiera specifika filer/mappar på Azure VM** | Distribuera MARS-agenten på den virtuella datorn.
-**Jag vill säkerhetskopiera lokala Windows-datorer direkt** | Installera MARS-agenten på datorn. | Du kan säkerhetskopiera filer, mappar och systemtillstånd till Azure. Säkerhetskopior är inte programmedvetna.
-**Jag vill direkt säkerhetskopiera lokala Linux-datorer** | Du behöver distribuera DPM eller MABS för att kunna säkerhetskopiera till Azure. | Säkerhetskopiering av Linux-värden stöds inte, kan du endast säkerhetskopiering Linux gästdatorn finns på Hyper-V eller VMWare.
-**Jag vill säkerhetskopiera appar som körs på den lokala** | Datorer måste skyddas av DPM eller MABS för att kunna genomföra programmedvetna säkerhetskopieringar.
-**Jag vill ha detaljerad och flexibel säkerhetskopiering och återställning inställningar för virtuella Azure-datorer** | Skydda virtuella Azure-datorer med MABS/DPM som körs i Azure för extra flexibilitet vid schemaläggning av säkerhetskopiering, och fullständig flexibilitet för att skydda och återställa filer, mappar, volymer, program och systemtillstånd.
+**Jag vill säkerhetskopiera direkt till lokala Windows-datorer** | Installera MARS-agenten på datorn. | Du kan säkerhetskopiera filer, mappar och systemtillstånd till Azure. Säkerhetskopior är inte programmedvetna.
+**Jag vill säkerhetskopiera direkt till lokala Linux-datorer** | Du behöver distribuera DPM eller MABS för att kunna säkerhetskopiera till Azure. | Säkerhetskopiering av Linux-värden stöds inte, kan du endast säkerhetskopiering Linux gästdatorn finns på Hyper-V eller VMWare.
+**Jag vill säkerhetskopiera program som körs lokalt** | Datorer måste skyddas av DPM eller MABS för att kunna genomföra programmedvetna säkerhetskopieringar.
+**Jag vill ha detaljerade och flexibla säkerhetskopierings- och återställningsinställningar för virtuella Azure-datorer** | Skydda virtuella Azure-datorer med MABS/DPM som körs i Azure för extra flexibilitet vid schemaläggning av säkerhetskopiering, och fullständig flexibilitet för att skydda och återställa filer, mappar, volymer, program och systemtillstånd.
 
 
 ## <a name="next-steps"></a>Nästa steg

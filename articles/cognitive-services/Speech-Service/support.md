@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358064"
 ---
 # <a name="support-and-help-options"></a>Alternativ för support och hjälp
@@ -82,7 +82,7 @@ Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att
 Exempel är ofta publiceras med öppen källkod. För frågor och problem, skapar du en *problemet* i respektive GitHub-lagringsplatsen. Du kan skicka en pull-begäran för. Följande lista innehåller länkar till exempel databaser.
 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [SDK för enheter](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Du kan skapa en felrapport, funktionsförfrågan, eller be en allmän fråga och dela bästa praxis. Följ den angivna mallen för buggrapporter:
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.openlocfilehash: 671d76b6c0a5a2cdac5797668fb0e5651b5823e0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281751"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Lägg till en skyddad Sharepoint-datakälla till din kunskapsbas
@@ -103,11 +103,11 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Sök efter `QnAMakerPortalSharepoint` Välj QnA Maker-app. 
 
-    [![Sök efter QnAMakerPortalSharepoint i Enterprise-applista](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![Sök efter QnAMakerPortalSharepoint i listan över Enterprise-appar](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
 1. Under **Security**går du till **behörigheter**. Välj **bevilja administratörens godkännande för organisation**. 
 
-    [![Svälja autentiserade användaren för Active Directory-administratör](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+    [![Välj autentiserade användare för Active Directory-administratör](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
 1. Välj en inloggnings-konto med behörighet att bevilja behörigheter för Active Directory. 
 

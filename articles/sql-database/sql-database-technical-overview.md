@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358331"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten
@@ -254,10 +254,10 @@ SQL-databaskunder har följande rättigheter som är associerade med Azure Hybri
 - Se [Prissidan](https://azure.microsoft.com/pricing/details/sql-database/) för en kostnadsjämförelse och kostnadsberäknare för enskilda databaser och elastiska pooler.
 - Läs följande snabbstarter innan du börjar:
 
-  - [Skapa en SQL-databas i Azure portal](sql-database-single-database-get-started.md)  
+  - [Skapa en SQL-databas i Azure Portal](sql-database-single-database-get-started.md)  
   - [Skapa en SQL-databas med Azure CLI](sql-database-get-started-cli.md)
-  - [Skapa en SQL-databas med hjälp av PowerShell](sql-database-get-started-powershell.md)
+  - [Skapa en SQL Database med PowerShell](sql-database-get-started-powershell.md)
 
 - En uppsättning Azure CLI- och PowerShell-exempel finns här:
-  - [Azure CLI-exempel för SQL-databas](sql-database-cli-samples.md)
-  - [Azure PowerShell-exempel för SQL-databas](sql-database-powershell-samples.md)
+  - [Azure CLI-exempel för SQL Database](sql-database-cli-samples.md)
+  - [Azure PowerShell-exempel för SQL Database](sql-database-powershell-samples.md)

@@ -10,10 +10,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425958"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box-disken och verifiera datauppladdning till Azure
@@ -25,7 +25,7 @@ Detta är den sista självstudien i serien: Distribuera Azure Data Box Disk. I d
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box-disk
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en Azure Data Box-disk och verifiera](data-box-disk-deploy-copy-data.md).
 
@@ -200,6 +200,6 @@ I den här självstudien om Azure Data Box Disk har du bland annat lärt dig att
 Nu kan du gå vidare och titta på hur du hanterar Data Box-diskar via Azure-portalen.
 
 > [!div class="nextstepaction"]
-> [Använda Azure-portalen för att administrera Azure Data Box-Disk](./data-box-portal-ui-admin.md)
+> [Administrera Azure Data Box-disk via Azure-portalen](./data-box-portal-ui-admin.md)
 
 

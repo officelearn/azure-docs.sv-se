@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360154"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
@@ -28,7 +28,7 @@ Den här artikeln sammanfattar vad som stöds när du använder den [Azure Site 
 
 ## <a name="host-servers"></a>Värdservrar
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 vCenter Server | vCenter 5.5, 6.0 och 6.5<br/><br/> Om du kör 6.0 eller 6.5, Observera att endast 5.5 funktioner som stöds.
 
@@ -37,7 +37,7 @@ vCenter Server | vCenter 5.5, 6.0 och 6.5<br/><br/> Om du kör 6.0 eller 6.5, Ob
 
 I följande tabell sammanfattas operativsystem för datorer som replikeras med Site Recovery. Alla arbetsbelastningar kan köras på operativsystemet som stöds.
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 Windows Server | 64-bitars Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1.
 Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
@@ -110,7 +110,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper (inom ell
 
 Mobilitetstjänsten samordnar replikering mellan lokala VMware-servrar eller fysiska servrar och den sekundära platsen. När du konfigurerar replikering ska du kontrollera att du har den senaste versionen av mobilitetstjänsten och andra komponenter.
 
-| **Uppdatering** | **Information** |
+| **Uppdatering** | **Detaljer** |
 | --- | --- |
 |Scout uppdateringar | Scout uppdateringar är kumulativa. <br/><br/> [Lär dig och ladda ned](vmware-physical-secondary-disaster-recovery.md#updates) de senaste uppdateringarna för Scout |
 |Komponentuppdateringar | Scout uppdateringar innehåller uppdateringar för alla komponenter, inklusive RX server, konfigurationsservern, process och huvudmålservrar, vContinuum servrar och källservrar som du vill skydda.<br/><br/> [Läs mer](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|

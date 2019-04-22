@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281649"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs – diagnostisera utelämnade meddelanden
@@ -111,7 +111,7 @@ Eftersom plattformarnas meddelandetjänster är robust, brukar meddelanden att n
 
 Om en push-meddelandetjänst försöker leverera ett meddelande, men enheten är offline, lagras meddelandet av push-meddelandetjänst för en begränsad tidsperiod. Meddelandet skickas till enheten när enheten blir tillgänglig.
 
-Endast en senaste meddelande lagras för varje app. Om flera meddelanden skickas när en enhet är offline, gör varje nytt meddelande tidigare meddelandet om du vill att tas bort. Att hålla endast senaste meddelandet kallas *buffertsammanslagning meddelanden* i APN, och *komprimera* i FCM (som använder en komprimera nyckel). Om enheten är offline under en längre tid, ignoreras alla meddelanden som sparades för enheten. Mer information finns i [APN översikt] och [om FCM meddelanden].
+Endast en senaste meddelande lagras för varje app. Om flera meddelanden skickas när en enhet är offline, gör varje nytt meddelande tidigare meddelandet om du vill att tas bort. Att hålla endast senaste meddelandet kallas *buffertsammanslagning meddelanden* i APN, och *komprimera* i FCM (som använder en komprimera nyckel). Om enheten är offline under en längre tid, ignoreras alla meddelanden som sparades för enheten. Mer information finns i [APN översikt] och [Om FCM-meddelanden].
 
 Med Azure Notification Hubs skickar du en buffertsammanslagning nyckel via ett HTTP-huvud med hjälp av generiska SendNotification-API. Till exempel för .NET-SDK använder du `SendNotificationAsync`. API: et SendNotification tar också HTTP-huvuden som skickas som – är att respektive push-meddelandetjänst.
 
@@ -261,7 +261,7 @@ I portalen får du en snabb överblick över alla aktiviteter i din meddelandehu
 
 **Programmässig åtkomst**
 
-Läs mer om Programmeringsåtkomst [programmässiga telemetri åtkomst].
+Läs mer om Programmeringsåtkomst [Telemetri för programmässig åtkomst].
 
 > [!NOTE]
 > Flera telemetri-relaterade funktioner, som exporterar och importerar registreringar och telemetri åtkomst via API: er, är endast tillgängliga på Standard-tjänstnivå. Om du försöker använda dessa funktioner från kostnadsfritt eller Basic-tjänstnivån, meddelande om ett undantag om du använder SDK: N och felmeddelandet HTTP 403 (förbjudet) om du använder funktionerna direkt från REST-API: er.

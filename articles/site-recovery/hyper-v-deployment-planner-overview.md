@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360270"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Om Azure Site Recovery Deployment Planner för Hyper-V haveriberedskap till Azure
@@ -30,7 +30,7 @@ Du kan se följande information i verktyget:
 
 * En utvärdering av om den virtuella datorn stöds, baserat på antal diskar, diskstorlek, IOPS, dataomsättning och några egenskaper hos den virtuella datorn.
 
-**Nätverkets bandbreddsbehov kontra utvärdering av Återställningspunktmål**
+**Nätverkets bandbreddsbehov kontra utvärdering av återställningspunktmål**
 
 * Beräknad nätverksbandbredd som krävs för deltareplikering
 * Dataflödet som Azure Site Recovery kan få från lokala datorer till Azure
@@ -38,7 +38,7 @@ Du kan se följande information i verktyget:
 * Påverkan på det önskade återställningspunktmålet vid lägre brandbredder.
 
     
-**Krav för Azure-infrastrukturen**
+**Krav på infrastruktur för Azure**
 
 * Typ av lagringsutrymme (Standard Storage- eller Premium Storage-konto) som krävs för varje virtuell dator
 * Totalt antal Standard Storage- och Premium Storage-konton som ska konfigureras för replikering
@@ -47,7 +47,7 @@ Du kan se följande information i verktyget:
 * Antalet Azure-kärnor som ska etableras innan redundanstest/redundansväxling för prenumerationen
 * Den rekommenderade storleken på den virtuella Azure-datorn för varje lokal virtuell dator
 
-**Kraven på lokal infrastruktur**
+**Krav på lokal infrastruktur**
 * Den mängd ledigt lagringsutrymme som krävs för varje Hyper-V-lagringsvolym för en lyckad initial replikering och deltareplikering, för att garantera att replikeringen av virtuella datorer inte orsakar några oönskade driftstopp för dina produktionsprogram.
 * Maximal kopieringsfrekvens måste ställas in för Hyper-V-replikering
 
@@ -57,7 +57,7 @@ Du kan se följande information i verktyget:
 * Ordningen som varje batch ska skyddas i
 * Uppskattad tidsåtgång för fullständig inledande replikering av varje batch
 
-**Beräknad kostnad för Haveriberedskap till Azure**
+**Beräknad kostnad för haveriberedskap till Azure**
 * Uppskattad total kostnad för haveriberedskap till Azure: databearbetning, lagring, nätverk och Azure Site Recovery-licenskostnader
 * Detaljerad analys av kostnader per virtuell dator
 
@@ -79,7 +79,7 @@ Antalet servrar som kan profileras per körningsinstans av Distributionshanterar
 
 * Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, utför profilering och generera rapporten. Det finns också ett fjärde alternativ som endast beräknar dataflödet. I följande tabell visas kraven för den server där de olika faserna ska köras:
 
 | Serverkrav | Beskrivning |

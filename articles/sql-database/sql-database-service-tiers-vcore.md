@@ -13,10 +13,10 @@ ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357942"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid-förmånen och migrering
@@ -37,7 +37,7 @@ VCore-modellen innehåller tre tjänstnivåer generell användning, hyperskala o
 
 Tabellen nedan hjälper dig att förstå skillnaderna mellan de tre nivåerna:
 
-||**Generellt syfte**|**Affärskritisk**|**Hyperskala (förhandsversion)**|
+||**Generell användning**|**Affärskritisk**|**Hyperskala (förhandsversion)**|
 |---|---|---|---|
 |Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|De flesta företags arbetsbelastningar med mycket skalbar lagring och läs-och skalningskrav|
 |Compute|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
@@ -76,10 +76,10 @@ Med Azure Hybrid-förmånen kan du betalar bara för underliggande Azure-infrast
 
 - Att ställa in eller uppdatera licenstypen med Azure CLI:
 
-  - [Skapa AZ sql db](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [AZ sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
   - [Skapa AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [uppdatering av AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
 - Att ställa in eller uppdatera licenstypen med hjälp av REST-API:
 

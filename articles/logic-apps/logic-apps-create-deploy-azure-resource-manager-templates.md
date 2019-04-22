@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357060"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Distribuera logic apps i Azure Resource Manager-mallar
@@ -33,7 +33,7 @@ När du har skapat en Azure Resource Manager-mall för att distribuera logikappe
 
 För att automatiskt distribuera en mall för logikapp till Azure, kan du välja följande **distribuera till Azure** knapp, som loggar du in på Azure-portalen och du uppmanas att ange information om din logikapp. Du kan sedan göra nödvändiga ändringar till mall för logikapp eller parametrar.
 
-[![Deploy till Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Distribuera till Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Till exempel uppmanas du för den här informationen när du loggar in på Azure Portal:
 

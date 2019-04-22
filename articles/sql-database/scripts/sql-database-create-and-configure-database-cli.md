@@ -13,10 +13,10 @@ ms.author: carlrab
 ms.reviewer: ''
 ms.date: 02/08/2019
 ms.openlocfilehash: 9ed1512053c06108178275b0523beede470325a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361436"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Använd CLI för att skapa en enda Azure SQL-databas och konfigurera en brandväggsregel
@@ -47,11 +47,11 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ-grupp](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
-| [Skapa AZ SQLServer](/cli/azure/sql/server#az-sql-server-create) | Skapar en SQL Database-server som är värd för en enkel databas eller en elastisk pool. |
-| [Skapa AZ sql server-brandväggen](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Skapar en brandväggsregel för att tillåta åtkomst till alla enkla databaser och elastiska pooler på SQL Database-servern från det angivna IP-adressintervallet. |
-| [Skapa AZ sql db](/cli/azure/sql/db#az-sql-db-create) | Skapar en enkel databas eller en elastisk pool. |
-| [ta bort AZ-grupp](/cli/azure/resource#az-resource-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Skapa en SQL Database-server som är värd för en enskild databas eller en elastisk pool. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Skapar en brandväggsregel för att tillåta åtkomst till alla enkla databaser och elastiska pooler på SQL Database-servern från det angivna IP-adressintervallet. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Skapar en enkel databas eller en elastisk pool. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

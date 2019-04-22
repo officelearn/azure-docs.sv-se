@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
 ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358225"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
@@ -32,7 +32,7 @@ Azure Backup kan säkerhetskopiera och återställa virtuella Azure-datorer med 
 
 **Typ av virtuell datordisk** | **ADE (BEK/dm-crypt)** | **ADE och KEK**
 --- | --- | ---
-**Ohanterad** | Ja | Ja
+**Ohanterade** | Ja | Ja
 **Hanterad**  | Ja | Ja
 
 - Läs mer om [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md), och [KeyExchange-nycklar](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).

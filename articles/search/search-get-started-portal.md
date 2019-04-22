@@ -11,15 +11,15 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282669"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Snabbstart: Använda inbyggda portalverktyg för Azure Search-import, -indexering och -frågor
 > [!div class="op_single_selector"]
-> * [Portalen](search-get-started-portal.md)
+> * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 > * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
@@ -38,7 +38,7 @@ Om verktygen är för begränsade kan du prova en [kodbaserad introduktion till 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. Du kan också titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i den här [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten. 
 
@@ -273,5 +273,5 @@ Om den här självstudien var den första gången du använde Azure Search-tjän
 Du kan utforska mer av Azure Search med hjälp av programmässiga verktyg:
 
 * [Skapa ett index med .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Skapa ett index med REST API: er](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Skapa ett index med Postman eller Fiddler och Azure Search REST-API: er](search-fiddler.md)
+* [Skapa ett index med REST API:er](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Skapa ett index med Postman eller Fiddler och Azure Search REST API:er](search-fiddler.md)

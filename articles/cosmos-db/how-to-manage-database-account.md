@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283009"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
@@ -285,9 +285,9 @@ Läs följande artiklar:
 
 * [Hantera konsekvens](how-to-manage-consistency.md)
 * [Hantera konflikter mellan regioner](how-to-manage-conflicts.md)
-* [Global distribution](global-dist-under-the-hood.md)
+* [Global distribution – under huven](global-dist-under-the-hood.md)
 * [Så här konfigurerar du multimaster i dina program](how-to-multi-master.md)
 * [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Lägg till eller ta bort regioner från ditt Azure Cosmos DB-konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Skapa en anpassad konfliktlösningsprincip](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* [Skapa principen för en anpassad konfliktlösning](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 

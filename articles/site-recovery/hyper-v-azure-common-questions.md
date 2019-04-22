@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357988"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Hyper-V till Azure-haveriberedskap
@@ -33,9 +33,9 @@ Data replikeras till Azure-lagring under replikering, och du behöver inte betal
 
 Vad du behöver för Hyper-V-värdservern beror på distributionsscenariot. Du hittar kraven för Hyper-V i:
 
-* [Replikera virtuella Hyper-V-datorer (utan VMM) till Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replikera virtuella Hyper-V-datorer (med VMM) till Azure](site-recovery-vmm-to-azure.md)
-* [Replikera virtuella Hyper-V-datorer till ett sekundärt datacenter](site-recovery-vmm-to-vmm.md)
+* [Replikera Hyper-V-datorer (utan VMM) till Azure](site-recovery-hyper-v-site-to-azure.md)
+* [Replikera Hyper-V-datorer (med VMM) till Azure](site-recovery-vmm-to-azure.md)
+* [Replikera Hyper-V-datorer till ett sekundärt datacenter](site-recovery-vmm-to-vmm.md)
 * Om du replikerar till ett sekundärt datacenter Läs mer om [gästoperativsystem som stöds för Hyper-V-datorer](https://technet.microsoft.com/library/mt126277.aspx).
 * Om du replikerar till Azure Site Recovery stöder alla gästoperativsystem som är [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 

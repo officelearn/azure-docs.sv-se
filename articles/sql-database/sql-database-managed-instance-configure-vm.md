@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360499"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabbstart: Konfigurera virtuell Azure-dator att ansluta till en Azure SQL Database Managed Instance
@@ -48,11 +48,11 @@ Följande steg skapar ett nytt undernät i den hanterade instansen i virtuella n
    | Inställning| Föreslaget värde | Beskrivning |
    | ---------------- | ----------------- | ----------- |
    | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   | **Adressutrymme (CIDR-block)** | Ett giltigt intervall | Standardvärdet är bra för den här snabbstarten.|
+   | **Adressintervall (CIDR-block)** | Ett giltigt intervall | Standardvärdet är bra för den här snabbstarten.|
    | **Nätverkssäkerhetsgrupp** | Ingen | Standardvärdet är bra för den här snabbstarten.|
    | **Routningstabell** | Ingen | Standardvärdet är bra för den här snabbstarten.|
-   | **Tjänstslutpunkter** | 0 som valts | Standardvärdet är bra för den här snabbstarten.|
-   | **Delegering av undernät** | Ingen | Standardvärdet är bra för den här snabbstarten.|
+   | **Serviceslutpunkter** | 0 som valts | Standardvärdet är bra för den här snabbstarten.|
+   | **Undernät delegering** | Ingen | Standardvärdet är bra för den här snabbstarten.|
 
    ![Den nya Managed Instance undernät för Virtuella klientdatorer](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
@@ -80,9 +80,9 @@ Det enklaste sättet att skapa en virtuell dator för klienten med alla nödvän
    | **Resursgrupp** |Den resursgrupp som du angav i den [skapa Managed Instance](sql-database-managed-instance-get-started.md) Snabbstart.|Den här resursgruppen måste vara det där det virtuella nätverket finns.|
    | **Plats** | Platsen för resursgruppen. | Det här värdet har fyllts i baserat på den valda resursgruppen. |
    | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Användarnamn för administratör**|Valfritt giltigt användarnamn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder den här användarnamn när du [ansluta till den virtuella datorn](#connect-to-virtual-machine).|
+   |**Administratörens användarnamn**|Valfritt giltigt användarnamn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder den här användarnamn när du [ansluta till den virtuella datorn](#connect-to-virtual-machine).|
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösenordet varje gång du [ansluta till den virtuella datorn](#connect-to-virtual-machine).|
-   | **Storlek för virtuell dator** | Valfri giltig storlek | Standard i den här mallen för **Standard_B2s** är tillräcklig för den här snabbstarten. |
+   | **Storlek på virtuell dator** | Valfri giltig storlek | Standard i den här mallen för **Standard_B2s** är tillräcklig för den här snabbstarten. |
    | **Plats**|[resourceGroup () .location].| Ändra inte det här värdet. |
    | **Namn på virtuellt nätverk**|Det virtuella nätverket där du skapade den hanterade instansen.|
    | **Namn på undernät**|Namnet på det undernät som du skapade i föregående procedur| Välj inte undernätet där du skapade den hanterade instansen.|

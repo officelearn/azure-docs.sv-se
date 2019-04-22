@@ -9,10 +9,10 @@ ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283655"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>SQL-Språkreferens för Azure Cosmos DB 
@@ -126,7 +126,7 @@ Båda `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker” och du 
   
 **Se även**  
   
-[Skalära uttryck](#bk_scalar_expressions)  
+[Skaläruttryck](#bk_scalar_expressions)  
 [SELECT-satsen](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM-satsen  
@@ -162,11 +162,11 @@ FROM <from_specification>
   
   -  Om uttrycket är `<container_expression>`, %{Property_Name/ och %{Property_Name/ används som ett alias. Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
   
-- AS `input_alias`  
+- PRECIS SOM `input_alias`  
   
   Anger att den `input_alias` är en uppsättning värden som returneras av det underliggande container-uttrycket.  
  
-- `input_alias` IN  
+- `input_alias` INDIEN  
   
   Anger att den `input_alias` bör representerar uppsättningen med värden som hämtas av iterera över alla matriselement av varje matrisen som returneras av det underliggande container-uttrycket. Ett värde som returneras av underliggande container-uttryck som inte är en matris ignoreras.  
   
@@ -304,7 +304,7 @@ Låt oss titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JO
   > [!NOTE]
   > Detta resulterade i kryssprodukten mellan `<from_source2>` och `<from_source3>` eftersom båda är begränsade till samma `<from_source1>`.  Detta resulterade i 4 (2 × 2) tupplar som har värdet A, 0 tupplar som har värdet B (1 x 0) och 2 (2 x 1) tupplar som har värdet C.  
   
-**Se också**  
+**Se även**  
   
  [SELECT-satsen](#bk_select_query)  
   
@@ -471,47 +471,47 @@ ORDER BY <sort_specification>
   
  **Operatorn kategorier:**  
   
-|**Kategori**|**Information**|  
+|**Kategori**|**Detaljer**|  
 |-|-|  
 |**Aritmetiska**|Operatorn förväntar sig indata ska vara sin. Utdata är också ett tal. Om någon av indata är **odefinierat** eller annan typ än antalet sedan resultatet är **odefinierat**.|  
 |**Bitvis**|Operatorn förväntar sig indata ska vara 32-bitars heltal sin. Utdata är också 32-bitars heltal tal.<br /><br /> Alla heltalsvärde ska avrundas. Positiv avrundas nedåt, negativa värden avrundas uppåt.<br /><br /> Ett värde som är utanför intervallet för 32-bitars heltal omvandlas med sista 32-bitar i dess två visas.<br /><br /> Om någon av indata är **odefinierat** eller annan typ än tal, och sedan resultatet är **odefinierat**.<br /><br /> **Obs!** Beteendet ovan är kompatibel med JavaScript bitvis operator-beteende.|  
-|**logical**|Operatorn förväntar sig indata ska vara Boolean(s). Utdata är också ett booleskt värde.<br />Om någon av indata är **odefinierat** eller annan typ än Boolean, så resultatet kommer att vara **odefinierat**.|  
+|**Logiska**|Operatorn förväntar sig indata ska vara Boolean(s). Utdata är också ett booleskt värde.<br />Om någon av indata är **odefinierat** eller annan typ än Boolean, så resultatet kommer att vara **odefinierat**.|  
 |**Jämförelse**|Operatorn förväntar sig indata ska ha samma typ och inte är odefinierad. Resultatet är ett booleskt värde.<br /><br /> Om någon av indata är **odefinierat** eller indata har olika typer och resultatet är **odefinierat**.<br /><br /> Se **gruppering av värden för jämförelse** tabellen för värdet ordning information.|  
 |**sträng**|Operatorn förväntar sig indata ska vara strängarna. Utdata är också en sträng.<br />Om någon av indata är **odefinierat** eller annan typ än sträng och sedan resultatet är **odefinierat**.|  
   
  **Unära operatorer:**  
   
-|**Namn**|**Operator**|**Information**|  
+|**Namn**|**Operator**|**Detaljer**|  
 |-|-|-|  
 |**Aritmetiska**|+<br /><br /> -|Returnerar det numeriska värdet.<br /><br /> Binär negation. Returnerar negated numeriskt värde.|  
 |**Bitvis**|~|Sådana komplementet. Returnerar en uppsättning ett numeriskt värde.|  
-|**Logiska**|**NOT**|Negation. Returnerar negated booleskt värde.|  
+|**Logiska**|**INTE**|Negation. Returnerar negated booleskt värde.|  
   
  **De binära operatorerna som:**  
   
-|**Namn**|**Operator**|**Information**|  
+|**Namn**|**Operator**|**Detaljer**|  
 |-|-|-|  
 |**Aritmetiska**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Tillägg.<br /><br /> Subtraktion.<br /><br /> Multiplikation.<br /><br /> Division.<br /><br /> Modulering.|  
 |**Bitvis**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Logiskt eller.<br /><br /> Binärt AND.<br /><br /> Bitvis XOR.<br /><br /> Vänsterskift.<br /><br /> Högerskift.<br /><br /> Noll fyllning högerskift.|  
-|**logical**|**AND**<br /><br /> **ELLER**|Logisk konjunktion. Returnerar **SANT** om båda argumenten är **SANT**, returnerar **FALSKT** annars.<br /><br /> Logisk disjunktion. Returnerar **SANT** om alla argument är **SANT**, returnerar **FALSKT** annars.|  
+|**Logiska**|**OCH**<br /><br /> **OR**|Logisk konjunktion. Returnerar **SANT** om båda argumenten är **SANT**, returnerar **FALSKT** annars.<br /><br /> Logisk disjunktion. Returnerar **SANT** om alla argument är **SANT**, returnerar **FALSKT** annars.|  
 |**Jämförelse**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Är lika med. Returnerar **SANT** om argument är lika med, returnerar **FALSKT** annars.<br /><br /> Inte lika med. Returnerar **SANT** om argumenten inte är lika med, returnerar **FALSKT** annars.<br /><br /> Större än. Returnerar **SANT** om det första argumentet är större än det andra returnerar **FALSKT** annars.<br /><br /> Större än eller lika med. Returnerar **SANT** om det första argumentet är större än eller lika med den andra mallen, returnerar **FALSKT** annars.<br /><br /> Mindre än. Returnerar **SANT** om det första argumentet är mindre än en sekund, avkastningen **FALSKT** annars.<br /><br /> Mindre än eller lika med. Returnerar **SANT** om det första argumentet är mindre än eller lika med den andra mallen, returnerar **FALSKT** annars.<br /><br /> Slå samman. Returnerar det andra argumentet om det första argumentet är en **odefinierat** värde.|  
-|**String**|**&#124;&#124;**|Sammanfogning. Returnerar en sammansättning av båda argumenten.|  
+|**Sträng**|**&#124;&#124;**|Sammanfogning. Returnerar en sammansättning av båda argumenten.|  
   
  **Diagram-Ternär operatorer:**  
 
-|**Namn**|**Operator**|**Information**| 
+|**Namn**|**Operator**|**Detaljer**| 
 |-|-|-|  
 |Ternär operator|?|Returnerar det andra argumentet om det första argumentet utvärderas till **SANT**; annars returneras det tredje argumentet.|  
 
   
  **Sorteringen av värden för jämförelse**  
   
-|**Type**|**Värden ordning**|  
+|**Typ**|**Värden ordning**|  
 |-|-|  
-|**Undefined (Odefinierad)**|Inte jämförbar.|  
+|**Odefinierad**|Inte jämförbar.|  
 |**Null**|Enstaka värde: **null**|  
-|**Tal**|Naturliga tal.<br /><br /> Negativt oändligt värde är mindre än andra numeriskt värde.<br /><br /> Positivt oändligt värde är större än andra numeriskt värde. **NaN** värdet är inte jämförbar. Jämföra med **NaN** leder **odefinierat** värde.|  
-|**String**|Lexicographical ordning.|  
+|**Nummer**|Naturliga tal.<br /><br /> Negativt oändligt värde är mindre än andra numeriskt värde.<br /><br /> Positivt oändligt värde är större än andra numeriskt värde. **NaN** värdet är inte jämförbar. Jämföra med **NaN** leder **odefinierat** värde.|  
+|**Sträng**|Lexicographical ordning.|  
 |**Matris**|Ingen ordning, men rättvis.|  
 |**Objekt**|Ingen ordning, men rättvis.|  
   
@@ -534,13 +534,13 @@ ORDER BY <sort_specification>
   
  **Skalära datatyper som stöds:**  
   
-|**Type**|**Värden ordning**|  
+|**Typ**|**Värden ordning**|  
 |-|-|  
-|**Undefined (Odefinierad)**|Enstaka värde: **Odefinierad**|  
+|**Odefinierad**|Enstaka värde: **Odefinierad**|  
 |**Null**|Enstaka värde: **null**|  
 |**Boolesk**|Värden: **FALSKT**, **SANT**.|  
-|**Tal**|Ett dubbel precision Flyttalsnummer, IEEE-754 som standard.|  
-|**String**|En sekvens med noll eller flera Unicode-tecken. Strängar måste stå inom enkla eller dubbla citattecken.|  
+|**Nummer**|Ett dubbel precision Flyttalsnummer, IEEE-754 som standard.|  
+|**Sträng**|En sekvens med noll eller flera Unicode-tecken. Strängar måste stå inom enkla eller dubbla citattecken.|  
 |**Matris**|En sekvens med noll eller flera element. Varje element kan vara ett värde av alla skalära datatypen, utom odefinierad.|  
 |**Objekt**|En osorterad uppsättning noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av olika skalära datatyper, utom **Undefined**.|  
   
@@ -682,7 +682,7 @@ ORDER BY <sort_specification>
 |[Funktioner för typkontroll](#bk_type_checking_functions)|Med funktionerna för typkontroll kan du kontrollera typen av ett uttryck i SQL-frågor.|  
 |[Strängfunktioner](#bk_string_functions)|Strängfunktioner utföra en åtgärd på ett strängvärde för indata och returnerar en sträng, numeriskt eller booleskt värde.|  
 |[Matrisfunktioner](#bk_array_functions)|Matrisfunktioner kan du utföra en åtgärd på en matris indatavärdet och returnera numeriska, booleskt värde eller Matrisvärde.|  
-|[Spatiella funktioner](#bk_spatial_functions)|Funktionerna spatial utföra en åtgärd på en spatialobjektet indatavärdet och returnerar ett numeriskt eller booleskt värde.|  
+|[Spatial funktioner](#bk_spatial_functions)|Funktionerna spatial utföra en åtgärd på en spatialobjektet indatavärdet och returnerar ett numeriskt eller booleskt värde.|  
   
 ###  <a name="bk_mathematical_functions"></a> Matematiska funktioner  
  Följande funktioner utför en beräkning, vanligtvis baserat på indatavärden som tillhandahålls som argument och returnerar ett numeriskt värde.  
@@ -690,13 +690,13 @@ ORDER BY <sort_specification>
 ||||  
 |-|-|-|  
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
-|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
+|[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[TAK](#bk_ceiling)|  
 |[COS](#bk_cos)|[COT](#bk_cot)|[GRADER](#bk_degrees)|  
-|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
+|[EXP](#bk_exp)|[VÅNING](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
 |[RADIANER](#bk_radians)|[AVRUNDA](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
-|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
+|[SQRT](#bk_sqrt)|[RUTA](#bk_square)|[INLOGGNING](#bk_sign)|  
+|[TAN](#bk_tan)|[AVKORTA](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  Returnerar det absoluta (positiva) värdet för det angivna numeriska uttrycket.  
@@ -1844,12 +1844,12 @@ SELECT
 |-|-|-|  
 |[CONCAT](#bk_concat)|[INNEHÅLLER](#bk_contains)|[ENDSWITH](#bk_endswith)|  
 |[INDEX_OF](#bk_index_of)|[VÄNSTER](#bk_left)|[LÄNGD](#bk_length)|  
-|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[ERSÄTT](#bk_replace)|  
-|[REPLIKERA](#bk_replicate)|[OMVÄND](#bk_reverse)|[HÖGER](#bk_right)|  
+|[LÄGRE](#bk_lower)|[LTRIM](#bk_ltrim)|[ERSÄTT](#bk_replace)|  
+|[Replikera](#bk_replicate)|[OMVÄND](#bk_reverse)|[HÖGER](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
-|[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
-|[TRIM](#bk_trim)|[UPPER](#bk_upper)||
+|[StringToObject](#bk_stringtoobject)|[DELSTRÄNGEN](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[ÖVRE](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
  Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden.  

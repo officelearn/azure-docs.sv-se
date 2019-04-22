@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283485"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN-regelmotor matchar de villkor 
@@ -45,7 +45,7 @@ Matchningsvillkor enhet identifierar begäranden som görs från en mobil enhet 
 
 Namn | Syfte
 -----|--------
-[Enhet](#device) | Identifierar begäranden som görs från en mobil enhet baserat på dess egenskaper.
+[enheten](#device) | Identifierar begäranden som görs från en mobil enhet baserat på dess egenskaper.
 
 ## <a name="location-match-conditions"></a>Plats matchningsvillkor
 
@@ -71,7 +71,7 @@ Matchningsvillkor begäran identifiera förfrågningar baserat på deras egenska
 
 Namn | Syfte
 -----|--------
-[IP-adress för klient](#client-ip-address) | Identifierar förfrågningar som kommer från en viss IP-adress.
+[Klientens IP-adress](#client-ip-address) | Identifierar förfrågningar som kommer från en viss IP-adress.
 [Cookie-Parameter](#cookie-parameter) | Kontrollerar de cookies som är associerade med varje begäran för det angivna värdet.
 [Cookie parametern Regex](#cookie-parameter-regex) | Kontrollerar de cookies som är associerade med varje begäran för det angivna reguljära uttrycket.
 [Edge Cname](#edge-cname) | Identifierar begäranden som pekar på en specifik edge CNAME.
@@ -306,7 +306,7 @@ Viktig information:
 #### <a name="string-type"></a>Strängtyp
 En WURFL funktion accepterar vanligtvis en kombination av siffror, bokstäver och symboler. På grund av flexibla typen av den här funktionen måste du välja hur tolkas det värdet som är associerade med den här matchningsvillkor. I följande tabell beskrivs de tillgängliga uppsättningen alternativ:
 
-Type     | Beskrivning
+Typ     | Beskrivning
 ---------|------------
 Literal  | Välj det här alternativet för att förhindra att de flesta tecken tar på särskild innebörd med hjälp av deras [literalvärde](cdn-rules-engine-reference.md#literal-values).
 Wildcard | Välj det här alternativet för att dra nytta av alla [jokertecken] ([jokertecken värden](cdn-rules-engine-reference.md#wildcard-values).

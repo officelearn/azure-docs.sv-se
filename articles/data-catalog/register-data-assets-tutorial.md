@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.openlocfilehash: e89bd4806e2bb2369c100e948be51dcf32f2e123
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362506"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Självstudier: Registrera datatillgångar i Azure Data Catalog
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Hantera datatillgångar
 > * Ta bort datatillgångar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kom igång genom att slutföra den [snabbstarten](register-data-assets-tutorial.md).
 

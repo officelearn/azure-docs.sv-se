@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362119"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Självstudier: Utföra en pilotlansering av självbetjäning av lösenordsåterställning för Azure AD
@@ -28,7 +28,7 @@ Det är viktigt att all testning av självåterställning av lösenord utförs m
 > * Aktivera lösenordsåterställning via självbetjäning
 > * Testa SSPR som användare
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett konto som global administratör
 
@@ -60,7 +60,7 @@ Självåterställning av lösenord har nu konfigurerats för molnanvändarna i d
 
 ## <a name="test-sspr-as-a-user"></a>Testa SSPR som användare
 
-Testa självåterställning av lösenord med hjälp av en testanvändare som inte är administratör och som är medlem i pilotgruppen. **Tänk på att om du använder ett konto som har alla administratörsroller tilldelade autentiseringsmetoder och tal kan skilja sig från det du valt som Microsoft hanterar administratörsprincipen.**
+Testa självåterställning av lösenord med hjälp av en testanvändare som inte är administratör och som är medlem i pilotgruppen. **Tänk på att om du använder ett konto som har administratörsroller tilldelade så kan autentiseringsmetoderna och numren skilja sig från det som du valde eftersom Microsoft hanterar administratörsprincipen.**
 
 1. Öppna ett nytt webbläsarfönster i InPrivate- eller inkognitoläge.
 1. Använd en testanvändare för att registrera dig för självåterställning av lösenord med hjälp av registreringsportalen på [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
@@ -81,4 +81,4 @@ Om du inte längre vill använda funktioner som du har konfigurerat i den här s
 I den här självstudien har du aktiverat självåterställning av lösenord med Azure AD. Fortsätt till nästa självstudie för att se hur en lokal Active Directory Domain Services-infrastruktur kan integreras i självåterställningen av lösenord.
 
 > [!div class="nextstepaction"]
-> [Aktivera SSPR lokal tillbakaskrivning av integrering](tutorial-enable-writeback.md)
+> [Aktivera lokal SSPR-tillbakaskrivningsintegration](tutorial-enable-writeback.md)

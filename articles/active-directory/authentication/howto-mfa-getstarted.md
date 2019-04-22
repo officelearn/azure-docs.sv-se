@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358110"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planera en molnbaserad Azure Multi-Factor Authentication
@@ -24,7 +24,7 @@ Personer som ansluter till organisationens resurser i allt mer komplicerade scen
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) hjälper dig att skydda åtkomsten till data och program. Det ger ett extra lager av säkerhet med hjälp av en andra formen av autentisering. Organisationer kan använda [villkorlig åtkomst](../conditional-access/overview.md) göra lösningen efter deras specifika behov.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det finns nödvändiga problem som du bör överväga innan du startar en distribution av Azure Multi-Factor Authentication.
 

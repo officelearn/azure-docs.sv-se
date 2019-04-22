@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361234"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3-API – .NET
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK med hjälp av metoden huvudsaklig inloggning på tjänsten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md). Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto
 - Installera ett verktyg som du vill använda för .NET-utveckling. Stegen i den här artikeln visar hur du använder [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Du kan använda Visual Studio Code, se [arbeta med C# ](https://code.visualstudio.com/docs/languages/csharp). Eller du kan använda en annan Kodredigerare.
@@ -226,16 +226,16 @@ namespace ConsoleApp1
 ## <a name="next-steps"></a>Nästa steg
 
 - [Självstudier: Ladda upp, koda och strömma videor – .NET](stream-files-tutorial-with-api.md) 
-- [Självstudier: Stream live med Media Services v3 - .NET](stream-live-tutorial-with-api.md)
-- [Självstudier: Analysera videoklipp med Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
-- [Skapa en jobbindata från en lokal fil - .NET](job-input-from-local-file-how-to.md)
-- [Skapa en jobbindata från en HTTPS-URL - .NET](job-input-from-http-how-to.md)
+- [Självstudier: Strömma live med Media Services v3 – .NET](stream-live-tutorial-with-api.md)
+- [Självstudier: Analysera videor med Media Services v3 – .NET](analyze-videos-tutorial-with-api.md)
+- [Skapa jobbindata från en lokal fil – .NET](job-input-from-local-file-how-to.md)
+- [Skapa jobbindata från en HTTPS-URL – .NET](job-input-from-http-how-to.md)
 - [Koda med en anpassad transformering – .NET](customize-encoder-presets-how-to.md)
-- [Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst – .NET](protect-with-aes128.md)
-- [Använda DRM dynamisk kryptering och licens för video-on-demand - .NET](protect-with-drm.md)
+- [Använda dynamisk AES-128-kryptering och tjänsten för nyckelleverans – .NET](protect-with-aes128.md)
+- [Använda dynamisk DRM-kryptering och tjänsten för licensleverans – .NET](protect-with-drm.md)
 - [Hämta en signeringsnyckel från den befintliga principen – .NET](get-content-key-policy-dotnet-howto.md)
 - [Skapa filter med Media Services – .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Avancerade video på begäran-exempel på Azure Functions v2 med Media Services v3](https://aka.ms/ams3functions)
+- [Avancerad exempel på video på begäran för Azure Functions v2 med Media Services v3](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>Se också
 

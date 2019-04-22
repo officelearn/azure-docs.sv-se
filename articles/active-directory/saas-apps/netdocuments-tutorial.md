@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: cc5d8e4791bc109f4a804aad33bfc258eed97a25
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Självstudier: Azure Active Directory-integrering med NetDocuments
@@ -33,7 +33,7 @@ Integrera NetDocuments med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med NetDocuments, behöver du följande objekt:
 
@@ -104,9 +104,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med NetDocu
 
     ![NetDocuments domän och URL: er med enkel inloggning för information](common/sp-reply.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och svars-URL. Kontakta [NetDocuments klienten supportteamet](https://support.netdocuments.com/hc/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -205,7 +205,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 Om du vill aktivera Azure AD-användare att logga in på NetDocuments, måste de etableras i NetDocuments.  
 När det gäller NetDocuments är etablering en manuell aktivitet.
 
-**Gör följande för att etablera ett användarkonto:**
+**Utför följande steg för att etablera ett användarkonto:**
 
 1. Registrerar in på din **NetDocuments** företagets plats som administratör.
 
@@ -232,7 +232,7 @@ När du klickar på panelen NetDocuments i åtkomstpanelen, bör det vara loggas
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

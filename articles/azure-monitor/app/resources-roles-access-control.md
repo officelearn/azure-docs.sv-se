@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361871"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resurser, roller och åtkomstkontroll i Application Insights
@@ -89,14 +89,14 @@ Tillämpliga länkar vi till den associerade officiella referensdokumentationen.
 | [Läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Kan visa men inte ändra något. |
 | [Application Insights Snapshot Debugger](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Ger användarbehörighet att använda Application Insights Snapshot Debugger funktioner. Observera att den här rollen ingår i varken ägare eller deltagare roller. |
 | Deltagare för versionshantering av Azure Service-distributionen | Deltagarrollen för tjänster som distribuerar via Azure Service-distributionen. |
-| [Datarensaren](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Särskilda krav på roll för att rensa personliga data. Se våra [vägledning för personuppgifter](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) för mer information.   |
+| [Data Purger](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Särskilda krav på roll för att rensa personliga data. Se våra [vägledning för personuppgifter](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) för mer information.   |
 | ExpressRoute-administratör | Skapa ta bort och hantera expressvägarna.|
 | [Log Analytics Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics Contributor kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Redigera övervakningsinställningarna omfattar att lägga till VM-tillägget för virtuella datorer; läsa lagringskontonycklar för att kunna konfigurera loggsamlingar från Azure-lagring. Skapa och konfigurera automationskonton; lägga till lösningar och konfigurera Azure diagnostics på alla Azure-resurser.  |
 | [Log Analytics Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom visa övervakningsinställningar, bl.a. konfigurationen av Azure Diagnostics på alla Azure-resurser. |
 | masterreader | Användaren kan visa allt, men inte göra några ändringar. |
-| [Övervakningsdeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Kan läsa alla övervakningsdata och uppdatera inställningarna för övervakning. |
-| [Övervakningsmåttutgivare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Aktiverar publicering av måtten mot Azure-resurser. |
-| [Övervakningsläsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Kan läsa alla övervakningsdata. |
+| [Övervaka deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Kan läsa alla övervakningsdata och uppdatera inställningarna för övervakning. |
+| [Övervaka mått utgivare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Aktiverar publicering av måtten mot Azure-resurser. |
+| [Övervaka läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Kan läsa alla övervakningsdata. |
 | Deltagare för resursprincip (förhandsversion) | Användare från EA med behörighet att skapa/ändra resursprinciper, skapa ett supportärende och läsa resurser/hierarkier.  |
 | [Administratör för användaråtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | Låter en användare att hantera åtkomsten för andra användare till Azure-resurser.|
 | [Webbplatsdeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | Låter dig hantera webbplatser (inte webbplaner), men inte tillgång till dem....|

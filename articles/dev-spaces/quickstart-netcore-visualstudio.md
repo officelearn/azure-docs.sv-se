@@ -14,10 +14,10 @@ manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361254"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Snabbstart: Utveckla med .NET Core på Kubernetes med Azure Dev blanksteg (Visual Studio 2017)
@@ -28,7 +28,7 @@ I den här guiden får du lära dig hur du:
 - Utveckla iterativt koden i behållare med hjälp av Visual Studio 2017.
 - Felsöka kod som körs i klustret med hjälp av Visual Studio 2017.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - Visual Studio 2017 för Windows med arbetsbelastningen webbutveckling installerad. Om du inte har installerat den kan du hämta den [här](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -130,4 +130,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Arbeta med flera behållare och Grupputveckling](multi-service-netcore-visualstudio.md)
+> [Arbeta med flera containrar och utveckling i team](multi-service-netcore-visualstudio.md)

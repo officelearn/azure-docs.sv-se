@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358412"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera din enda och delade databaser i Azure SQL Database
@@ -83,7 +83,7 @@ SQL Database tar allvar säkerhet och sekretess. Säkerheten i SQL-databas är t
 
 Det finns [två autentiseringsmetoder](sql-database-control-access.md#authentication) erbjuds i SQL-databas:
 
-- [Azure Active Directory-autentisering](sql-database-aad-authentication.md)
+- [Azure Active Directory Authentication](sql-database-aad-authentication.md)
 - SQL-autentisering
 
 Traditionella windows-autentisering stöds inte. Azure Active Directory (AD) är en centraliserad tjänst för identitets- och åtkomsthantering. Med detta kan du mycket bekvämt tillhandahålla en enkel inloggning för åtkomst (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna som är gemensamma för alla Azure-tjänster för enklare autentisering. Har stöd för AAD [MFA (Multifaktorautentisering)](sql-database-ssms-mfa-authentication.md) och med en [få klick](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan integreras med Windows Server Active Directory. SQL-autentisering fungerar på exakt samma sätt som du har använt den tidigare. Du anger ett användarnamn/lösenord och du kan autentisera användare till valfri databas på en viss SQL Database-server. Detta kan också SQL Database och SQL Data Warehouse att erbjuda Multi-Factor authentication och Gäst användarkonton i en Azure AD-domän. Om du redan har en Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
@@ -227,7 +227,7 @@ SQL Database ger handlingsbara rekommendationer för att skydda dina data och ho
 
 Med Azure Security Center kan du identifiera säkerhetsrekommendationerna på tavlan och koppla dem med ett enda klick.
 
-### <a name="cost-optimization"></a>Kostnad optimering
+### <a name="cost-optimization"></a>Kostnadsoptimering
 
 Azure SQL-plattformen analyserar användning historiken över databaser på en server för att utvärdera och rekommenderar kostnadsoptimeringar alternativ för dig. Den här analysen tar vanligtvis en tvåveckorsperiod att analysera och bygga upp användbara rekommendationer. Elastisk pool är ett alternativ. Rekommendationen visas på portalen som en banderoll:
 

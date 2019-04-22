@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/5/2019
 ms.author: banders
 ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281989"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Självbetjäning utbyte och återbetalningar för Azure-reservationer
@@ -86,7 +86,7 @@ Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://port
 
 - Läs hur du hanterar en reservation i [hantera Azure-reservationer](billing-manage-reserved-vm-instance.md).
 - Om du vill veta mer om Azure reservationer, finns i följande artiklar:
-    - [Vad är Azure Reservations?](billing-save-compute-costs-reservations.md)
+    - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
     - [Hantera reservationer i Azure](billing-manage-reserved-vm-instance.md)
     - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
     - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)

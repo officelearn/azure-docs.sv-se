@@ -12,10 +12,10 @@ description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azu
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
 ms.openlocfilehash: 1c07ebae02232e8c86a58c11b23f6e1fbdb3a4bd
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357317"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Snabbstart: Utveckla med .NET Core på Kubernetes med Azure Dev blanksteg (Visual Studio Code)
@@ -26,7 +26,7 @@ I den här guiden får du lära dig hur du:
 - Utveckla iterativt koden i behållare med hjälp av Visual Studio Code och kommandoraden.
 - Felsöka kod i ditt dev-adressutrymmet från Visual Studio Code.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Visual Studio Code installerat](https://code.visualstudio.com/download).
@@ -208,4 +208,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 Lär dig hur Azure Dev blanksteg hjälper dig att utveckla mer komplexa program över flera behållare och du kan förenkla samarbetsfunktioner utveckling genom att arbeta med olika versioner eller grenar av din kod i olika blanksteg. 
 
 > [!div class="nextstepaction"]
-> [Arbeta med flera behållare och Grupputveckling](multi-service-netcore.md)
+> [Arbeta med flera containrar och utveckling i team](multi-service-netcore.md)

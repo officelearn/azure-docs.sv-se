@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Självstudier: Azure Active Directory-integrering med ClickUp Productivity Platform
@@ -33,7 +33,7 @@ Integreringen av ClickUp Productivity Platform med Azure AD medför följande f�
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med ClickUp Productivity Platform behöver du följande:
 
@@ -50,7 +50,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integreringen av ClickUp Productivity Platform i Azure AD behöver du lägga till ClickUp Productivity Platform från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till ClickUp produktivitet plattform från galleriet:**
+**Utför följande steg för att lägga till ClickUp Productivity Platform från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Click
 
     ![Information om enkel inloggning med ClickUp Productivity Platform-domän och URL:er](common/sp-identifier.png)
 
-    a. I den **inloggnings-URL** text skriver en URL: `https://app.clickup.com/login/sso`
+    a. I rutan **Inloggnings-URL** anger du en URL: `https://app.clickup.com/login/sso`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://api.clickup.com/v1/team/<team_id>/microsoft`
 
@@ -213,7 +213,7 @@ När du klickar på ClickUp Productivity Platform-panelen i åtkomstpanelen bör
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

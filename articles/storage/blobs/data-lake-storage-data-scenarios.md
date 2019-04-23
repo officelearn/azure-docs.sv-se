@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 9deaa2f1e381dffbd85b0ee150c5782098a9db6b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889604"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006819"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Med hjälp av Azure Data Lake Storage Gen2 för stordatakrav
 
@@ -142,7 +142,7 @@ Här är en lista över verktyg som du kan använda för att mata in data som ä
 |---|--|
 |Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |AzCopy-verktyget | [Överföra data med AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Kopiera data till och från Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) |
+|Azure Data Factory | [Kopiera data till och från Azure Data Lake Storage Gen2 med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Data som lagras i en lokal eller IaaS Hadoop kluster
 

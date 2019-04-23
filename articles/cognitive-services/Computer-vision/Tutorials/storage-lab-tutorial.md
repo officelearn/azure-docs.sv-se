@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Generera metadata för Azure Storage-bilder'
+title: 'Självstudier: Generera metadata för Azure-avbildningar'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien får du lära dig hur du integrerar Azure-tjänsten Visuellt innehåll i en webbapp för att generera metadata för bilder.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448007"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006008"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Självstudier: Använda Visuellt innehåll för att generera bildmetadata i Azure Storage
 
@@ -31,7 +31,7 @@ I den här självstudiekursen lär du dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) eller senare med arbetsbelastningarna ”ASP.NET and web development” (ASP.NET och webbutveckling) och ”Azure development” (Azure-utveckling) installerade.
 - Ett Azure Storage-konto med en blob-container som allokerats för bilder (följ [övningar 1 i Azure Storage-labbet](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) om du behöver hjälp med det här steget).
@@ -52,11 +52,11 @@ Du behöver skapa en resurs för Visuellt innehåll för ditt Azure-konto. Den h
 
 1. Gå tillbaka till menyn för din resursgrupp och klicka på den prenumeration på API för visuellt innehåll som du nyss skapade. Kopiera URL:en under **Slutpunkt** till en plats där du enkelt kan hämta den om en stund. Klicka sedan på **Visa åtkomstnycklar**.
 
-    ![Visa åtkomstnycklarna](../Images/copy-vision-endpoint.png)
+    ![Azure-portalsidan med slutpunkt-URL och åtkomst till nycklar länken som beskrivs](../Images/copy-vision-endpoint.png)
 
 1. I nästa fönstret kopierar du värdet för **KEY 1** (Nyckel 1) till Urklipp.
 
-    ![Kopiera åtkomstnyckeln](../Images/copy-vision-key.png)
+    ![Hantera nycklar dialogrutan med kopieringsknappen beskrivs](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Lägg till autentiseringsuppgifter för Visuellt innehåll
 
@@ -136,7 +136,7 @@ Spara dina ändringar i Visual Studio och tryck på **Ctrl + F5** för att start
 
 Om du vill visa alla kopplade metadata kan använda Azure Storage Explorer för att visa den lagringscontainer som du använder för bilder. Högerklicka på någon av blobarna i containern och välj **Egenskaper**. I dialogrutan visas en lista över nyckel/värde-par. Den datorgenererade bildbeskrivningen lagras i objektet ”Caption” (Bildtext), och sökorden lagras i ”Tag0”, ”tagg1” och så vidare. När du är klar klickar du på **Avbryt** för att stänga dialogrutan.
 
-![Blob-metadata](../Images/blob-metadata.png)
+![Bild dialogrutan egenskapsfönstret med metadatataggar som anges](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

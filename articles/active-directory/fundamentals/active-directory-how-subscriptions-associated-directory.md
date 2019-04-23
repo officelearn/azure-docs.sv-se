@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788641"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009862"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppla eller lägga till en Azure-prenumeration till din Azure Active Directory-klient
 
@@ -76,7 +76,7 @@ När du har associerat en prenumeration på en annan katalog, kan det finnas ytt
 
 1. Om du har alla viktiga valv, måste du ändra nyckelvalv klient-ID. Mer information finns i [ändra en nyckelvalvsklient-ID efter en prenumerationsflytt](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Om du har registrerat ett Azure Stack med hjälp av den här prenumerationen måste du omregistrera. Mer information finns i [registrera Azure Stack med Azure](../../azure-stack/azure-stack-registration.md).
+2. Om du har registrerat ett Azure Stack med hjälp av den här prenumerationen måste du omregistrera. Mer information finns i [registrera Azure Stack med Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

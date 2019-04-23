@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b97d21503e8dcd75906581faf1851533bcd69fa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681224"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009352"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -399,22 +399,29 @@ Läs mer om hur du använder PolyBase för att effektivt läsa in SQL Data Wareh
 
 Med hjälp av [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) är ett effektivt sätt att läsa in en stor mängd data till Azure SQL Data Warehouse med högt dataflöde. Du ser en stor vinst i dataflödet med PolyBase i stället för BULKINSERT standardmekanismen. Se [Prestandareferens](copy-activity-performance.md#performance-reference) en detaljerad jämförelse. En genomgång med ett användningsfall finns i [läsa in 1 TB i Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
-* Om dina källdata finns i Azure Blob storage eller Azure Data Lake Store och formatet är kompatibel med PolyBase, kopiera direkt till Azure SQL Data Warehouse med PolyBase. Mer information finns i  **[dirigera kopiera genom att använda PolyBase](#direct-copy-by-using-polybase)**.
+* Om dina källdata finns i **Azure Blob, Azure Data Lake Storage Gen1 eller Azure Data Lake Storage Gen2**, och **format är PolyBase kompatibel**, du kan använda Kopieringsaktivitet för att anropa direkt PolyBase för att låta Azure SQL Data Warehouse kan du hämta data från källan. Mer information finns i  **[dirigera kopiera genom att använda PolyBase](#direct-copy-by-using-polybase)**.
 * Om dina källdatalagret och format ursprungligen inte stöds av PolyBase, använder du den **[mellanlagrad kopiering genom att använda PolyBase](#staged-copy-by-using-polybase)** funktionen i stället. Funktionen mellanlagrad kopiering ger dig också bättre genomströmning. Den konverterar automatiskt data till PolyBase-kompatibelt format. Och den lagrar data i Azure Blob storage. Det hämtar sedan data till SQL Data Warehouse.
 
 ### <a name="direct-copy-by-using-polybase"></a>Direct kopiera genom att använda PolyBase
 
-SQL Data Warehouse PolyBase stöder direkt Azure Blob och Azure Data Lake Store. Den använder tjänstens huvudnamn som källa och har viss fil formatkraven. Om dina källdata uppfyller kriterierna som beskrivs i det här avsnittet, kan du använda PolyBase för att kopiera direkt från källans datalager till Azure SQL Data Warehouse. Annars kan du använda [mellanlagrad kopiering genom att använda PolyBase](#staged-copy-by-using-polybase).
+SQL Data Warehouse PolyBase stöder direkt Azure Blob, Azure Data Lake Storage Gen1 och Gen2 för Azure Data Lake Storage. Om dina källdata uppfyller kriterierna som beskrivs i det här avsnittet, kan du använda PolyBase för att kopiera direkt från källans datalager till Azure SQL Data Warehouse. Annars kan du använda [mellanlagrad kopiering genom att använda PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Om du vill kopiera data effektivt från Data Lake Store till SQL Data Warehouse, Läs mer i [Azure Data Factory gör det ännu enklare och praktiskt att få fram insikter från data när du använder Data Lake Store med SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> För att kopiera data effektivt till SQL Data Warehouse, Läs mer i [Azure Data Factory gör det ännu enklare och praktiskt att få fram insikter från data när du använder Data Lake Store med SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
 Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och faller automatiskt tillbaka till BULKINSERT mekanism för dataförflyttning.
 
-1. Den **källa länkad tjänst** typen är Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) med **konto nyckelautentisering**  eller Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) med **tjänstobjektautentisering**.
-2. Den **indatauppsättningen** typen är **AzureBlob** eller **AzureDataLakeStoreFile**. Formattyp under `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat**, med följande konfigurationer:
+1. Den **källa länkad tjänst** är med följande typer och autentiseringsmetoder:
 
-   1. `fileName` inte innehåller jokertecken-filtret.
+    | Stöds datalagertyp | Typ av autentisering som stöds |
+    |:--- |:--- |
+    | [Azure Blob](connector-azure-blob-storage.md) | Konto-nyckelautentisering |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Autentisering av tjänstens huvudnamn |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Konto-nyckelautentisering |
+
+2. Den **datauppsättning källformatet** är av **ParquetFormat**, **OrcFormat**, eller **TextFormat**, med följande konfigurationer:
+
+   1. `folderPath` och `fileName` inte innehåller jokertecken-filtret.
    2. `rowDelimiter` måste vara **\n**.
    3. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` är lämnas som standard eller angetts till true.
    4. `encodingName` anges till **utf-8**, vilket är standardvärdet.
@@ -423,7 +430,7 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
 
       ```json
       "typeProperties": {
-        "folderPath": "<blobpath>",
+        "folderPath": "<path>",
         "format": {
             "type": "TextFormat",
             "columnDelimiter": "<any delimiter>",
@@ -431,10 +438,6 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
             "nullValue": "",
             "encodingName": "utf-8",
             "firstRowAsHeader": <any>
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
         }
       },
       ```
@@ -592,7 +595,7 @@ När du kopierar data från eller till Azure SQL Data Warehouse, används följa
 | tidsstämpel | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
-| varbinary | Byte[] |
+| Varbinary | Byte[] |
 | varchar | String, Char[] |
 | xml | Xml |
 

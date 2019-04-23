@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313234"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006037"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -142,7 +142,7 @@ Om din organisation inte har äldre klienter, bör du inte tillåta användarna 
 > [!NOTE]
 > Modern autentisering för Office 2013-klienter
 >
-> Applösenord krävs endast för appar som inte stöder modern autentisering. Office 2013 klienter stöder moderna autentiseringsprotokoll, men måste konfigureras. Nyare Office-klienter har automatiskt stöd för moderna autentiseringsprotokoll. Mer information finns i den [Office 2013 meddelande om offentlig förhandsversion av modern autentisering](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Applösenord krävs endast för appar som inte stöder modern autentisering. Office 2013 klienter stöder moderna autentiseringsprotokoll, men måste konfigureras. Modern autentisering är nu tillgängligt för alla kunder som kör update mars 2015 eller senare för Office 2013. Mer information finns i den [Office 2013 offentlig förhandsgranskning av modern autentisering](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **F: Mina användare säger att ibland de inte fått textmeddelandet, eller de svarar på dubbelriktade textmeddelanden men tidsgränsen uppnås för verifiering.**
 

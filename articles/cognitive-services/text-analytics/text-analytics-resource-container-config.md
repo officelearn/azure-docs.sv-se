@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 137d7aa48595e3f21ee99c6ebe23babd7a2d32b5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677773"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011766"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Konfigurera textanalys docker-behållare
 
@@ -53,7 +53,7 @@ Du måste lägga till den `text/analytics/v2.0` routning till slutpunkten URI so
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+|Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## <a name="eula-setting"></a>Licensvillkor för inställningen
 
@@ -79,7 +79,7 @@ Text Analytics-behållare använder inte indata eller utdata monterar för att l
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter. 
 
-|Valfri| Namn | Datatyp | Beskrivning |
+|Valfri| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
 |Inte tillåtet| `Input` | String | Text Analytics behållare Använd inte detta.|
 |Valfri| `Output` | String | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggarna. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -98,15 +98,15 @@ Ersätt {_argument_name_} med dina egna värden:
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
 |{BILLING_KEY} | Slutpunktsnyckeln av den `Cognitive Services` resurs som är tillgängliga på Azure `Cognitive Services` sidan nycklar. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet är tillgänglig på Azure `Cognitive Services` översiktssidan.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_ENDPOINT_URI} | Fakturering slutpunktsvärdet är tillgänglig på Azure `Cognitive Services` översiktssidan.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
 > ApiKey-värdet är den **nyckel** från Azure `Cognitive Services` resurssida nycklar. 
 
-## <a name="keyphrase-extraction-container-docker-examples"></a>Keyphrase extrahering behållare docker-exempel
+## <a name="key-phrase-extraction-container-docker-examples"></a>Diskussionsämne extrahering behållare docker-exempel
 
-I följande exempel docker är avsedda för keyphrase extraheringsbehållaren. 
+I följande exempel docker är för behållaren för extrahering av diskussionsämne. 
 
 ### <a name="basic-example"></a>Grundläggande exempel 
 

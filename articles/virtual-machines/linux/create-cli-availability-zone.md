@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: cdd9910bfef96f56cfa8c8e81363ff9bdb40f444
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700629"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005510"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Skapa en Linux-dator i en tillgänglighetszon med Azure CLI
 
 Den här artikeln beskriver hur använder Azure CLI för att skapa en Linux-VM i en Azure-tillgänglighetszon. En [tillgänglighetszon](../../availability-zones/az-overview.md) är en fysiskt separat zon i en Azure-region. Använd tillgänglighetszoner för att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter.
 
-Om du vill använda en tillgänglighetszon skapar du din virtuella dator i en [Azure-region som stöds](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+Om du vill använda en tillgänglighetszon skapar du din virtuella dator i en [Azure-region som stöds](../../availability-zones/az-overview.md#services-support-by-region).
 
 Se till att du har installerat senast [Azure CLI](/cli/azure/install-az-cli2) och inloggad på ett Azure-konto med [az-inloggning](/cli/azure/reference-index).
 
@@ -102,7 +102,7 @@ Det kan ta några minuter att skapa den virtuella datorn. När den virtuella dat
 
 När den virtuella datorn har distribuerats i en tillgänglighetszon, skapas en hanterad disk för den virtuella datorn i samma tillgänglighetszon. Som standard skapas också en offentlig IP-adress i zonen. I följande exempel få information om dessa resurser.
 
-Kontrollera att den Virtuella datorns hanterad disk i tillgänglighetszon genom att använda den [az vm show](/cli/azure/vm) kommando för att hämta diskens ID. I det här exemplet lagras disk-id i en variabel som används i ett senare steg. 
+Kontrollera att den Virtuella datorns hanterad disk i tillgänglighetszon genom att använda den [az vm show](/cli/azure/vm) kommando för att returnera disk-ID. I det här exemplet lagras disk-ID i en variabel som används i ett senare steg. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

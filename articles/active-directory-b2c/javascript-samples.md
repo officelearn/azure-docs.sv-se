@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1b4bd904a9936c401f6b0ea6ac9663c20bc92b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400051"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009998"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel för användning i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "58400051"
 
 Du kan lägga till egna klientens JavaScript-kod till din Azure Active Directory (Azure AD) B2C-program. Den här artikeln beskrivs hur du kan ändra din [användarflödet](user-flow-javascript-overview.md) eller [anpassad princip](active-directory-b2c-overview-custom.md) att aktivera körning av skript.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Välj en [sidan kontrakt](page-contract.md) för användargränssnittets delar av ditt program. Om du tänker använda JavaScript som du behöver definiera en sida kontrakt-version för alla dina innehållsdefinitioner i ditt användarflöde eller en anpassad princip.
 
@@ -140,7 +140,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-I koden, Ersätt `terms-of-use-url` med länken till din villkor för användning. Skapa ett nytt användarattribut som kallas för din katalog **termsOfUse** och inkludera **termsOfUse** som ett användarattribut för ditt användarflöde.
+I koden, Ersätt `termsOfUseUrl` med länken till din villkor för användning. Skapa ett nytt användarattribut som kallas för din katalog **termsOfUse** och inkludera **termsOfUse** som ett användarattribut för ditt användarflöde.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 2eabe0c234df6165b78e2dc55dcdc73067aabaa6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273234"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009051"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor om Marketplace
 
@@ -488,7 +488,7 @@ Beroenden hanteras inte automatiskt för Azure Marketplace-erbjudanden. Noga ige
 
 Azure Marketplace är tillgängligt för Microsoft Azure-kunder i följande länder/regioner:
 
-Algeriet, Argentina, Australien, Bahrain, Belgien, Brasilien, Bulgarien, Chile, Colombia, Costa Rica, Cypern, Danmark, Dominikanska republiken, Ecuador, Egypten, El Salvador, Estland, Filippinerna, Finland, Frankrike, Förenade Arabemiraten, Grekland, Guatemala, Hongkong SAR, Indien, Indonesien, Irland, Island, Israel, Italien, Japan, Jordanien, Kanada, Kazakstan, Kenya, Kroatien, Kuwait, Lettland, Liechtenstein, Litauen, Luxemburg, Nordmakedonien, Malaysia, Malta, Marocko, Mexiko, Montenegro, Nederländerna, Nigeria, Norge, Nya Zeeland, Oman, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico*, Qatar, Rumänien, Ryssland, Saudiarabien, Schweiz, Serbien, Singapore, Slovakien, Slovenien, Spanien, Sri Lanka, Storbritannien, Sverige, Sydafrika, Sydkorea, Taiwan, Thailand, Tjeckien, Trinidad och Tobago, Tunisien, Turkiet, Tyskland, Ukraina, Ungern, Uruguay, USA, Venezuela, Vitryssland, Österrike.
+Algeriet, Argentina, Australien, Österrike, Bahrain, Vitryssland, Belgien, Brasilien, Bulgarien, Kanada, Chile, Colombia, Costa Rica, Kroatien, Cypern, Tjeckien, Danmark, Dominikanska republiken, Ecuador, Egypten, El Salvador, Estland, Finland, Frankrike, Tyskland, Grekland , Guatemala, Hongkong SAR, Ungern, Island, Indien, Indonesien, Irland, Israel, Italien, Japan, Jordanien, Kazakstan, Kenya, Kuwait, Lettland, Liechtenstein, Litauen, Luxemburg, norra Makedonien, Malaysia, Malta, Mexiko, Montenegro, Marocko, Nederländerna, nya Zeeland, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Puerto Rico, Qatar, Rumänien, Ryssland, Saudiarabien, Serbien, Singapore, Slovakien, Slovenien, Sydafrika, Sydkorea, Spanien, Sri Lanka, Sverige, Schweiz, Taiwan, Thailand, Trinidad och Tobago, Tunisien, Turkiet, Ukraina, Förenade Arabemiraten, Storbritannien, USA, Uruguay, Venezuela.
 
 **Hur definierar jag min geografisk tillgänglighet att sälja i olika länder?**
 

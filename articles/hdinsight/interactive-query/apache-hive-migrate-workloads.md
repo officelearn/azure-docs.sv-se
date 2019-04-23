@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/15/2019
-ms.openlocfilehash: 708df64802ace17fa77b4e0a695c9f1c3bd18a77
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 958a3249fd2e8af9faeb827f07efc21c8184a100
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610266"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006989"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3.6 Hive-arbetsbelastningar till HDInsight 4.0
 
@@ -54,7 +54,31 @@ Hive-arbetsbelastningar kan innehålla en blandning av ACID- och icke-ACID-tabel
 alter table myacidtable compact 'major';
 ```
 
-Den här komprimeringen är nödvändigt eftersom HDInsight 3.6-och HDInsight 4.0 ACID förstå ACID deltan olika. Komprimering framtvingar grunden som garanterar tabell konsekvens. När komprimering är klar, blir de föregående stegen för metaarkiv och tabell migrering tillräckligt för att använda alla HDInsight 3.6 ACID-tabeller i HDInsight 4.0.
+Den här komprimeringen är nödvändigt eftersom HDInsight 3.6-och HDInsight 4.0 ACID förstå ACID deltan på olika sätt. Komprimering framtvingar grunden som garanterar konsekvens. Avsnitt 4 i den [Hive migreringsdokumentationen](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html) innehåller vägledning för bulk-komprimering av HDInsight 3.6 ACID-tabeller.
+
+När du har slutfört stegen för metaarkiv migrering och komprimering, kan du migrera faktiska lagret. När du har slutfört migreringen Hive warehouse har HDInsight 4.0-lagret följande egenskaper:
+
+* Externa tabeller i HDInsight 3.6 kommer att externa tabeller i HDInsight 4.0
+* Icke-transaktionell hanterade tabeller i HDInsight 3.6 kommer att externa tabeller i HDInsight 4.0
+* Transaktionell hanterade tabeller i HDInsight 3.6 kommer att hanterade tabeller i HDInsight 4.0
+
+Du kan behöva justera egenskaperna för ditt informationslager innan du kör migreringen. Till exempel om du förväntar dig att vissa tabell kan användas av en tredje part (till exempel en HDInsight 3.6-klustret) måste tabellen vara externa när migreringen är klar. Alla hanterade tabeller är transaktionell i HDInsight 4.0. Hanterade tabeller i HDInsight 4.0 bör därför bara användas av 4.0 HDInsight-kluster.
+
+När din Tabellegenskaper är korrekt inställda, kör du Migreringsverktyget för Hive-datalager från en av med hjälp av SSH-skal-klustrets huvudnoder:
+
+1. Anslut till din klustrets huvudnod via SSH. Anvisningar finns i [Anslut till HDInsight med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Öppna ett inloggningsgränssnitt som Hive-användare genom att köra `sudo su - hive`
+1. Fastställa Hortonworks Data Platform stack versionen genom att köra `ls /usr/hdp`. Detta visar en versionssträng som du ska använda i nästa kommando.
+1. Kör följande kommando i gränssnittet. Ersätt `${{STACK_VERSION}}` med versionssträng från föregående steg:
+
+```bash
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+```
+
+När Migreringsverktyget är klar strax Hive lagret redo för HDInsight 4.0. 
+
+> [!Important]
+> Hanterade tabeller i HDInsight 4.0 (inklusive tabeller som har migrerats från 3.6) bör inte användas av andra tjänster eller program, inklusive HDInsight 3.6-kluster.
 
 ## <a name="secure-hive-across-hdinsight-versions"></a>Skydda Hive i HDInsight-versioner
 
@@ -74,9 +98,9 @@ I HDInsight 4.0 har HiveCLI ersatts med Beeline. HiveCLI är en thrift-klient f�
 
 GUI-klienten för att interagera med Hive-servern är i HDInsight 3.6, Ambari Hive-vy. HDInsight 4.0 ersätter Hive-vy med Hortonworks Data Analytics Studio (DAS). DAS medföljer inte HDInsight-kluster out of box och är inte ett paket som stöds. Dock kan DAS installeras i klustret på följande sätt:
 
-1. Ladda ned den [DAS paketera installationsskriptet](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-mpack.sh) och kör den på båda-klustrets huvudnoder. Inte köra det här skriptet som en skriptåtgärd.
-2. Ladda ned den [DAS tjänsten installationsskriptet](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh) och köra den som en skriptåtgärd. Välj **Huvudnoderna** som nodtyp valt från skriptet åtgärd-gränssnittet.
-3. När skriptåtgärd har slutförts går du till Ambari och välj **Data Analytics Studio** från listan över tjänster. Alla DAS-tjänster stoppas. I det övre högra hörnet väljer **åtgärder** och **starta**. Du kan nu köra och felsöka frågor med DAS.
+Starta en skriptåtgärd mot ditt kluster med ”huvudnoder” som nodtyp av för körning. Klistra in följande URI: N i textrutan markeras ”Bash-skript-URI”: https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+
 
 När DAS är installerad, om du inte ser de frågor som du har kört i visningsprogrammet för frågor, gör du följande steg:
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 352bc20bb4082dd14b810a6afe85653cfd67e7e1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224477"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011290"
 ---
 # <a name="key-value-store"></a>Nyckelvärdeslagring
 
@@ -106,4 +106,5 @@ Som lagras i en appbutik för konfigurationen som innehåller alla nycklar och v
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Begrepp: Ögonblicksbild av lagring vid olika tidpunkter](concept-point-time-snapshot.md)  
+> [!div class="nextstepaction"]
+> [Point-in-time-ögonblicksbild](./concept-point-time-snapshot.md)  

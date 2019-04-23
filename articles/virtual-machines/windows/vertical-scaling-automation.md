@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Automation för att skala lodrätt virtuella Windows-datorer | Microsoft Docs
-description: Lodrätt skala en virtuell Windows-dator för att övervaka aviseringar med Azure Automation
+title: Använd Azure Automation för att lodrätt skalning av Windows-datorer | Microsoft Docs
+description: Lodrätt skalning av en Windows-dator som svar på övervakning av aviseringar med Azure Automation
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
@@ -13,83 +13,112 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2016
+ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abbbcce2ae72ac77ba6f6c21e626b34bcded7909
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 44243f97b6c431578185fcdeb1ddcabc548d927f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918429"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011749"
 ---
-# <a name="vertically-scale-windows-vms-with-azure-automation"></a>Lodrätt skala virtuella Windows-datorer med Azure Automation
+# <a name="vertically-scale-windows-vms-with-azure-automation"></a>Lodrätt skalning av Windows virtuella datorer med Azure Automation
 
-Lodrät skalning är processen att öka eller minska resurser för en dator som svar på arbetsbelastningen. I Azure kan detta åstadkommas genom att ändra storleken på den virtuella datorn. Detta hjälper i följande scenarier
+Vertikal skalning är processen för att öka eller minska resurser på en dator som svar på arbetsbelastningen. I Azure kan detta åstadkommas genom att ändra storleken på den virtuella datorn. Det kan hjälpa dig i följande scenarier
 
-* Om den virtuella datorn inte används ofta, du kan ändra storlek på den till en mindre storlek för att minska kostnaderna för varje månad
-* Om den virtuella datorn ser en belastning, kan den ändras till en större kapacitet
+* Om den virtuella datorn inte används ofta, du kan ändra storlek på den till en mindre storlek för att minska dina månatliga kostnader
+* Om den virtuella datorn ser en hög belastning, kan storleken ändras till en större kapacitet
 
-Disposition stegen för att åstadkomma detta är som nedan
+Kantlinje för stegen för att åstadkomma detta är som nedan
 
 1. Konfigurera Azure Automation för att komma åt dina virtuella datorer
-2. Importera Lodrät skala för Azure Automation-runbooks till din prenumeration
-3. Lägga till en webhook i din runbook
-4. Lägga till en avisering till den virtuella datorn
+2. Importera vertikal skalning i Azure Automation-runbooks till din prenumeration
+3. Lägg till en webhook i din runbook
+4. Lägga till en avisering till din virtuella dator
 
 > [!NOTE]
-> På grund av storleken på den första virtuella datorn, storleken kan skalas till, kan begränsas på grund av den aktuella virtuella datorn är distribuerad i tillgängligheten för andra storlekar i klustret. I publicerade automation-runbooks som används i denna artikel vi tar hand om det här fallet och kan endast skalas inom den nedan par för VM-storlek. Det innebär att en virtuell dator för Standard_D1v2 inte plötsligt ska skalas till Standard_G5 eller skalas till Basic_A0.
+> På grund av storleken på den första virtuella datorn, storlekar kan den skalas till, kan begränsas på grund av den aktuella virtuella datorn har distribuerats i tillgängligheten för andra storlekar i klustret. I den publicerade automation-runbooks som används i den här artikeln vi tar hand om det här fallet och kan endast skalas inom den nedan par för VM-storlek. Det innebär att en virtuell dator för Standard_D1v2 inte plötsligt ska skalas upp till Standard_G5 eller skalas till Basic_A0. Också stöds begränsad VM storlekar skala upp och ned inte. Du kan välja att skala mellan de följande paren storlekar:
 > 
-> | VM-storlekar skalning par |  |
+> | VM-storlekar som skalning par |  |
 > | --- | --- |
 > | Basic_A0 |Basic_A4 |
 > | Standard_A0 |Standard_A4 |
 > | Standard_A5 |Standard_A7 |
 > | Standard_A8 |Standard_A9 |
 > | Standard_A10 |Standard_A11 |
+> | Standard_A1_v2 |Standard_A8_v2 |
+> | Standard_A2m_v2 |Standard_A8m_v2  |
+> | Standard_B1s |Standard_B2s |
+> | Standard_B1ms |Standard_B8ms |
 > | Standard_D1 |Standard_D4 |
 > | Standard_D11 |Standard_D14 |
 > | Standard_DS1 |Standard_DS4 |
 > | Standard_DS11 |Standard_DS14 |
-> | Standard_D1v2 |Standard_D5v2 |
-> | Standard_D11v2 |Standard_D14v2 |
+> | Standard_D1_v2 |Standard_D5_v2 |
+> | Standard_D11_v2 |Standard_D14_v2 |
+> | Standard_DS1_v2 |Standard_DS5_v2 |
+> | Standard_DS11_v2 |Standard_DS14_v2 |
+> | Standard_D2_v3 |Standard_D64_v3 |
+> | Standard_D2s_v3 |Standard_D64s_v3 |
+> | Standard_DC2s |Standard_DC4s |
+> | Standard_E2v3 |Standard_E64v3 |
+> | Standard_E2sv3 |Standard_E64sv3 |
+> | Standard_F1 |Standard_F16 |
+> | Standard_F1s |Standard_F16s |
+> | Standard_F2sv2 |Standard_F72sv2 |
 > | Standard_G1 |Standard_G5 |
 > | Standard_GS1 |Standard_GS5 |
+> | Standard_H8 |Standard_H16 |
+> | Standard_H8m |Standard_H16m |
+> | Standard_L4s |Standard_L32s |
+> | Standard_L8s_v2 |Standard_L80s_v2 |
+> | Standard_M8ms  |Standard_M128ms |
+> | Standard_M32ls  |Standard_M64ls |
+> | Standard_M64s  |Standard_M128s |
+> | Standard_M64  |Standard_M128 |
+> | Standard_M64m  |Standard_M128m |
+> | Standard_NC6 |Standard_NC24 |
+> | Standard_NC6s_v2 |Standard_NC24s_v2 |
+> | Standard_NC6s_v3 |Standard_NC24s_v3 |
+> | Standard_ND6s |Standard_ND24s |
+> | Standard_NV6 |Standard_NV24 |
+> | Standard_NV6s_v2 |Standard_NV24s_v2 |
 > 
 > 
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Konfigurera Azure Automation för att komma åt dina virtuella datorer
-Det första du behöver göra är att skapa ett Azure Automation-konto som ska vara värd för runbooks som används för att anpassa en virtuell dator. Automation-tjänsten introducerade nyligen funktionen ”Kör som-konto” som gör att du kan konfigurera tjänstens huvudnamn för att automatiskt köra runbooks för användarens räkning mycket enkelt. Mer information finns i artikeln nedan:
+Det första du behöver göra är att skapa ett Azure Automation-konto som är värd för runbooks som används för att anpassa en virtuell dator. Automation-tjänsten införde nyligen funktionen ”Kör som-konto” som gör att du kan konfigurera tjänstens huvudnamn för att automatiskt köra runbooks på användarens vägnar lättare än någonsin. Mer information finns i artikeln nedan:
 
 * [Autentisera runbooks med ett ”Kör som”-konto i Azure](../../automation/automation-sec-configure-azure-runas-account.md)
 
-## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importera Lodrät skala för Azure Automation-runbooks till din prenumeration
-Runbooks som behövs för att skala lodrätt den virtuella datorn har redan publicerats i Azure Automation Runbook-galleriet. Du behöver importera dem till din prenumeration. Du kan lära dig hur man importerar runbooks genom att läsa följande artikel.
+## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importera vertikal skalning i Azure Automation-runbooks till din prenumeration
+Runbooks som behövs för lodrätt skalning av den virtuella datorn har redan publicerats i Azure Automation Runbook-galleriet. Du måste importera dem till din prenumeration. Du kan lära dig hur man importerar runbooks genom att läsa följande artikel.
 
-* [Azure Automation Runbook- och stänga](../../automation/automation-runbook-gallery.md)
+* [Runbook- och modulgallerier för Azure Automation](../../automation/automation-runbook-gallery.md)
 
 I bilden nedan visas de runbooks som ska importeras
 
 ![Importera runbooks](./media/vertical-scaling-automation/scale-runbooks.png)
 
-## <a name="add-a-webhook-to-your-runbook"></a>Lägga till en webhook i din runbook
-När du har importerat förse runbooks måste du en webhook runbook så att den kan aktiveras av en avisering från en virtuell dator. Information om hur du skapar en webhook för din Runbook kan läsas här
+## <a name="add-a-webhook-to-your-runbook"></a>Lägg till en webhook i din runbook
+När du har importerat runbooks måste du lägga till en webhook för runbooken så att den kan aktiveras via en avisering från en virtuell dator. Information om att skapa en webhook för din Runbook kan läsas här
 
-* [Azure Automation-webhooks](../../automation/automation-webhooks.md)
+* [Azure Automation-webhookar](../../automation/automation-webhooks.md)
 
-Kontrollera att du kopierar webhooken innan du stänger dialogrutan webhook som du behöver det i nästa avsnitt.
+Kontrollera att du kopierar webhooken innan du stänger dialogrutan webhook eftersom du behöver det i nästa avsnitt.
 
-## <a name="add-an-alert-to-your-virtual-machine"></a>Lägga till en avisering till den virtuella datorn
-1. Välj inställningar för virtuell dator
+## <a name="add-an-alert-to-your-virtual-machine"></a>Lägga till en avisering till din virtuella dator
+1. Välj inställningar för virtuella datorer
 2. Välj ”Varningsregler”
 3. Välj ”Lägg till avisering”
-4. Markera ett mått för att utlösa en avisering på
-5. Välj ett villkor som under uppfyllda kan orsaka att aviseringen ska utlösa
+4. Välj ett mått för utlöses aviseringen i
+5. Välj ett villkor som under uppfyllda kommer orsaka aviseringen utlöses
 6. Välj ett tröskelvärde för villkoret i steg 5. uppfylls
-7. Välj en period under vilken övervakningstjänsten kontrollerar för villkoret och tröskelvärde i steg 5 och 6
-8. Klistra in i webhooken som du kopierade i föregående avsnitt.
+7. Välj en period som kontrollerar övervakningstjänsten för villkoret och tröskelvärdet i steg 5 och 6
+8. Klistra in webhook som du kopierade i föregående avsnitt.
 
-![Lägga till en avisering till den virtuella datorn 1](./media/vertical-scaling-automation/add-alert-webhook-1.png)
+![Lägg till avisering till den virtuella datorn 1](./media/vertical-scaling-automation/add-alert-webhook-1.png)
 
 ![Lägg till avisering till virtuell dator 2](./media/vertical-scaling-automation/add-alert-webhook-2.png)
 

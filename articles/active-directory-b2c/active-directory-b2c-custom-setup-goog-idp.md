@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a958650a80df9eba27b99e11cce72a1ad62db14c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 30f3301fd404f23705e8ba04dc750cb82eed89b7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153070"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009267"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Google-konto med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55153070"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från ett Google-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Utför stegen i den [Kom igång med anpassade principer i Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Om du inte redan har ett Google-konto, skapa en på [skapa ditt Google-konto](https://accounts.google.com/SignUp).
@@ -48,8 +48,8 @@ Om du vill aktivera inloggning för användare från ett Google-konto, måste du
 Du behöver lagra klienthemlighet som tidigare registrerades i din Azure AD B2C-klient.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din klient.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
 5. Välj **Principnycklar** och välj sedan **Lägg till**.
 6. För **alternativ**, Välj `Manual`.
@@ -90,7 +90,7 @@ Du kan definiera ett Google-konto som en anspråksprovider genom att lägga till
             <Key Id="client_secret" StorageReferenceId="B2C_1A_GoogleSecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
@@ -147,13 +147,13 @@ Den **ClaimsProviderSelection** element är detsamma som en identitet provider-k
 Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Åtgärden, i det här fallet är för Azure AD B2C att kommunicera med ett Google-konto för att ta emot en token.
 
 1. Hitta den **OrchestrationStep** som innehåller `Order="2"` i användarresan.
-2. Lägg till följande **ClaimsExchange** element att se till att du använder samma värde för **Id** som du använde för **TargetClaimsExchangeId**:
+2. Lägg till följande **ClaimsExchange** element att se till att du använder samma värde för ID du använde för **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
     
-    Uppdatera värdet för **TechnicalProfileReferenceId** till den **Id** för den tekniska profilen du skapade tidigare. Till exempel `Google-OAuth`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** -ID: t för den tekniska profilen du skapade tidigare. Till exempel `Google-OAuth`.
 
 3. Spara den *TrustFrameworkExtensions.xml* fil och ladda upp den igen för att bekräfta.
 
@@ -162,9 +162,9 @@ Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Å
 Kommunikation med Azure AD B2c sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
-4. Välj **program**, och välj sedan **Lägg till**.
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din klient.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn för programmet, till exempel *testapp1*.
 6. För **Webbapp / webb-API**väljer `Yes`, och ange sedan `https://jwt.ms` för den **svars-URL**.
 7. Klicka på **Skapa**.

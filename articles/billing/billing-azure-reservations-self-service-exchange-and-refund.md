@@ -1,7 +1,6 @@
 ---
 title: Självbetjäning utbyte och återbetalningar för Azure-reservationer | Microsoft Docs
 description: Lär dig hur du kan byta eller återbetala Azure reservationer.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,20 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281989"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009318"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Självbetjäning utbyte och återbetalningar för Azure-reservationer
 
 Azure reservationer ger flexibilitet för att möta dina växande behov. Du kan byta en reservation för en annan reservation av samma typ. Du kan också återbetala en reservation, upp till 50 000 USD per år, om du inte längre behöver den.
 
 Självbetjäning kapaciteten för exchange och Avbryt är inte tillgängligt för US Government Enterprise Agreement-kunder. Andra typer av US Government prenumerationer, inklusive betala per användning och CSP stöds.
+
+Du måste ha ägaråtkomst på Reservationsbeställning att byta ut eller ersätta en befintlig reservation.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Byta en befintlig reserverad instans
 
@@ -39,7 +40,7 @@ Du kan byta din reservation med tre enkla steg i den [Azure-portalen](https://po
 
 Gå till att ersätta en reservation **reservationsinformation** och klicka på **återbetalning**.
 
-## <a name="how-return-and-exchange-transactions-are-processed"></a>Hur tillbaka och transaktioner bearbetas
+## <a name="how-transactions-are-processed"></a>Hur transaktioner bearbetas
 
 Först Microsoft avbryter den befintliga reservationen och återbetalningar proportionellt beloppet för den reservationen. Om det finns ett utbyte, bearbetas det nya köpet. Microsoft bearbetar återbetalningar med någon av följande metoder, beroende på vilken typ av konto och betalningsmetod:
 
@@ -49,7 +50,7 @@ Pengar läggs till i Summa utbyten och återbetalningar om det ursprungliga köp
 
 Om det ursprungliga köpet gjordes som överförbrukning, skickar Microsoft en kreditnota.
 
-### <a name="pay-as-you-go-invoice-payment-customers-and-cloud-solution-provider-program"></a>Betala per användning faktura betalning kunder och Cloud solution provider-programmet
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Betala per användning faktura och CSP-programmet
 
 Den ursprungliga reservation inköpsfakturan avbryts och sedan en ny faktura skapas för återbetalning. Den nya fakturan visar bidraget och ny för utbyten. Återbetalningsbeloppet justeras mot köpet. Om du bara återbetalas en reservation, proportionell beloppet förblir med Microsoft och den har justerats mot framtida reservationsköp.
 
@@ -74,7 +75,7 @@ Den ursprungliga fakturan avbryts och en ny faktura skapas. Pengarna tillbaka ti
 - Endast reservation ägare kan bearbeta en återbetalning. [Lär dig hur du lägga till eller ändra användare som kan hantera en reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Microsoft förbehåller sig rätten att debitera en 12% särskilda avgifter för alla returnerar även om den särskilda avgifter för närvarande inte debiteras.
 
-## <a name="exchange-a-non-premium-storage-vm-reservation-for-a-premium-storage-reservation"></a>Byta en icke-premium storage VM-reservation för en premium storage-reservation
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Exchange-premium storage för premium storage
 
 Du kan byta en reservation för en VM-storlek som inte stöder premium storage till en VM-storlek som har köpt. Till exempel en _F1_ för en _F1s_. Om du vill göra exchange, gå till information om Reservation och klicka **Exchange**. Exchange inte återställa att perioden för den reserverade instansen eller skapa en ny transaktion.
 

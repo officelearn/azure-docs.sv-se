@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784900"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006496"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -28,7 +28,7 @@ Från och med version 2, innehåller den grundläggande Webbadressen widget kont
 
 En **insikts**widget innehåller alla visuella insikter som extraherades från videoindexeringsprocessen. Insiktswidgeten har stöd för följande valfria URL-parametrar:
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Beskrivning|
 |---|---|---|
 |widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs!** URL-param widgetar stöds inte i version 2. |
 
@@ -36,7 +36,7 @@ En **insikts**widget innehåller alla visuella insikter som extraherades från v
 
 Med en **spelar**widget kan du strömma videon med anpassningsbar bithastighet. Spelarwidgeten har stöd för följande valfria URL-parametrar:
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Beskrivning|
 |---|---|---|
 |t|Sekunder från början|Gör att spelaren börjar spela upp från angiven tidpunkt.<br/>Exempel: t=60|
 |captions|Språkkod|Hämtar textningen på det angivna språket under inläsning av widgeten så att den blir tillgänglig på textningsmenyn.<br/>Exempel: captions=sv-SE|
@@ -69,9 +69,9 @@ Om du vill bädda in en **privat** video måste du skicka en åtkomsttoken i **i
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-Använd API:t för [**Hämta insikter-widgeten**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) för att hämta innehållet i insiktswidgeten, eller använd [**Hämta videoåtkomsttoken**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) och lägg till den som en frågeparameter i URL:en, enligt ovan. Ange den här URL:en som **iframe**-taggens **src**-värde.
+Använd API:t för [**Hämta insikter-widgeten**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) för att hämta innehållet i insiktswidgeten, eller använd [**Hämta videoåtkomsttoken**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) och lägg till den som en frågeparameter i URL:en, enligt ovan. Ange den här URL:en som **iframe**-taggens **src**-värde.
 
-Om du vill tillhandahålla funktioner för redigering av insikter (som i vår webbapp) i den inbäddade widgeten måste du skicka en åtkomsttoken med redigeringsbehörigheter. Använd [**Hämta insikter-widgeten**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) eller [**Hämta videoåtkomsttoken**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) med **&allowEdit=true**. 
+Om du vill tillhandahålla funktioner för redigering av insikter (som i vår webbapp) i den inbäddade widgeten måste du skicka en åtkomsttoken med redigeringsbehörigheter. Använd [**Hämta insikter-widgeten**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) eller [**Hämta videoåtkomsttoken**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) med **&allowEdit=true**. 
 
 ## <a name="widgets-interaction"></a>Interaktion med widgetar
 

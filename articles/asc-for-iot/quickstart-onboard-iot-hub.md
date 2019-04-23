@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862394"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010568"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Snabbstart: Aktivera tjänsten i IoT Hub
 
@@ -45,7 +45,7 @@ Den här artikeln innehåller en förklaring på hur du aktiverar Azure Security
 Om du vill aktivera säkerheten på din IoT-hubb, gör du följande: 
 
 1. Öppna din **IoT Hub** i Azure-portalen. 
-2. Välj och öppna **Security** menyn till vänster. 
+2. Under den **Security** -menyn klickar du på **översikt**, klicka sedan på **Start förhandsversion**. 
 3. Välj **aktivera IoT-säkerhet**. 
 4. Ange information om din Log Analytics-arbetsytan. 
    - Välja att lagra **råhändelser** utöver typerna av information för lagring genom att låta den **raw händelse** växla **på**. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: aa4fd391aef3acf8e72513d91b62c7f16a13062d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889445"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005051"
 ---
 # <a name="azure-service-fabric-support-options"></a>Supportalternativ för Azure Service Fabric
 
@@ -33,6 +33,11 @@ Läs mer om:
  
 - [Support från Microsoft för Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
+
+> [!Note]
+> Kluster som körs på en Brons tillförlitlighetsnivån kan du köra test-arbetsbelastningar. Om det uppstår problem med ett kluster som körs på Brons tillförlitlighet Microsoft support-teamet hjälper dig att åtgärda problemet, men kommer inte att utföra en Rotorsaksanalys. Se [tillförlitlighetsegenskaper för klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) för mer information.
+>
+> Mer information om vad som krävs för ett produktionsklart kluster finns i den [produktion beredskap checklista](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -49,7 +54,7 @@ Läs mer om:
 
 Vi har ställt in en GitHub-lagringsplatsen för reporting Service Fabric-problem.  Vi övervakar också aktivt följande forum.
 
-### <a name="github-repo"></a>GitHub-lagringsplatsen 
+### <a name="github-repo"></a>GitHub-lagringsplats 
 
 Rapportera problem som Azure Service Fabric på [Service-Fabric-problem med git-lagringsplats](https://github.com/Azure/service-fabric-issues). Den här lagringsplatsen är avsedd för rapportering och spåra problem med Azure Service Fabric och för att göra små funktionsförfrågningar. **Använd detta inte att rapportera live-webbplatser problem**.
 

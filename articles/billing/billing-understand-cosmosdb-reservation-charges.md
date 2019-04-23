@@ -6,19 +6,25 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648545"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010304"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Förstå hur reservationsrabatten tillämpas på Azure Cosmos DB
 
 När du köper en Azure Cosmos DB reserverad kapacitet tillämpas reservationsrabatten automatiskt till Azure Cosmos DB-resurser som matchar de attribut och mängden reservationen. En reservation täcker dataflödet som tillhandahållits för Azure Cosmos DB-resurser. Den tas upp inte i programvara, nätverk, lagring, eller fördefinierade behållare avgifter.
+
+## <a name="how-reservation-discount-is-applied"></a>Hur reservationsrabatten tillämpas
+
+En reservationsrabatten är ”*användning – it-eller-förlora-it*”. Så om du inte har matchande resurser för en timme, förlorar sedan du en Reservationskvantitet för den timmen. Du kan inte utföra vidarebefordra oanvända reserverade timmar.
+
+När du stänger en resurs kan tillämpas reservationsrabatten automatiskt till en annan matchande resurs i det specificerade omfånget. Om inga matchande resurser finns i det specificerade omfånget så är de reserverade timmarna *förlorad*.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Reservationsrabatten tillämpas på Azure Cosmos DB-konton
 

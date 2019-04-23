@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548841"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010389"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Konfigurera automatisk machine learning-experiment
 
@@ -179,7 +179,7 @@ Se den [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tr
 
 ## <a name="configure-your-experiment-settings"></a>Konfigurera inställningarna för experiment
 
-Det finns flera alternativ som du kan använda för att konfigurera dina automatiserade machine learning-experiment. Dessa parametrar anges av instansiera en `AutoMLConfig` objekt. Se den [AutoMLConfig klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) för en fullständig lista över parametrar.  
+Det finns flera alternativ som du kan använda för att konfigurera dina automatiserade machine learning-experiment. Dessa parametrar anges av instansiera en `AutoMLConfig` objekt. Se den [AutoMLConfig klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) för en fullständig lista över parametrar.  
 
 Några exempel är:
 
@@ -210,7 +210,7 @@ Några exempel är:
         n_cross_validations=5)
     ```
 
-Tre olika `task` parametervärden avgörs av algoritmer för att tillämpa.  Använd den `whitelist` eller `blacklist` parametrar för att ändra ytterligare iterationer med de tillgängliga algoritmerna för att inkludera eller exkludera. Listan över modeller som stöds finns på [SupportedAlgorithms-klass](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+Tre olika `task` parametervärden avgörs av algoritmer för att tillämpa.  Använd den `whitelist` eller `blacklist` parametrar för att ändra ytterligare iterationer med de tillgängliga algoritmerna för att inkludera eller exkludera. Listan över modeller som stöds finns på [SupportedAlgorithms klass](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
 
 ## <a name="primary-metric"></a>Primär mått
 Det primära metriskt; som du ser i exemplen ovan anger mått som ska användas när modellen för optimering. Den primära mått som du kan välja bestäms av Uppgiftstyp som du väljer. Nedan visas en lista över tillgängliga mått.
@@ -240,43 +240,6 @@ Om du använder `preprocess=True`, följande data Förbearbeta stegen utförs au
 
 ## <a name="ensemble-models"></a>Ensemble modeller
 Ensemble learning förbättrar machine learning resultat och förutsägbar prestanda genom att nyhetsnotiser genomsöks många modeller till skillnad från med enkel modeller. När du använder automatisk maskininlärning, kan du träna ensemble modeller med hjälp av den [Caruana ensemble val av algoritmen med sorterade Ensemble initieringen](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). Ensemble iteration visas som den senaste iterationen av din körning.
-
-## <a name="time-series-forecasting"></a>Time Series prognoser
-Time series prognosmodellen Uppgiftstyp har ytterligare parametrar för att definiera.
-1. time_column_name – det här är en obligatorisk parameter som definierar namnet på kolumnen i din utbildning som innehåller datum/tid dataserien. 
-1. max_horizon - detta definierar hur lång tid som du vill förutsäga ut baserat på periodiciteten för träningsdata. Till exempel om du har träningsdata till dagliga tid kärnor kan du definiera hur långt ut i dagar som du vill att modellen för att träna för.
-1. grain_column_names - detta definierar namnet på kolumner som innehåller enskilda time series-data i dina utbildningsdata. Om du försäljningsprognoser för ett visst varumärke per butik, skulle du till exempel definiera store och varumärke kolumner som grain-kolumner.
-
-Se exempel på dessa inställningar som används nedan, notebook-exempel finns [här](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
-
-```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
-
-# View the number of time series data with defined grains
-print('Data contains {0} individual time-series.'.format(nseries))
-```
-
-```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
-    'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task='forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
-                             X=X_train,
-                             y=y_train,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
-```
 
 ## <a name="run-experiment"></a>Kör experimentet
 

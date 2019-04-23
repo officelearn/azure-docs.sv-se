@@ -1,23 +1,23 @@
 ---
 title: Skapa och hantera Azure Database för PostgreSQL-VNet-tjänstslutpunkter och regler med hjälp av Azure CLI
 description: Den här artikeln beskriver hur du skapar och hanterar Azure Database for PostgreSQL-VNet-tjänstslutpunkter och regler med hjälp av Azure CLI-kommandoraden.
-author: mbolz
+author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 67ca81e385bbb7aaddddc6af9aa9bcbd45005e20
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: MT
+ms.openlocfilehash: 7dc5a49e8b27d1a4e4126bef1cce638373e056fb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416742"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008740"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>Skapa och hantera Azure Database för PostgreSQL-VNet-tjänstslutpunkter med Azure CLI
 Virtuella nätverk (VNet) services-slutpunkter och regler kan du utöka det privata adressutrymmet för ett virtuellt nätverk till Azure Database för PostgreSQL-server. Med praktiska Azure kommandoradsgränssnitt (CLI) kommandon kan du skapa, uppdatera, ta bort, lista och visa tjänstslutpunkter för virtuellt nätverk och regler för att hantera servern. En översikt över Azure Database för PostgreSQL-VNet-tjänstslutpunkter, inklusive begränsningar, finns i [Azure Database for PostgreSQL Server VNet-tjänstslutpunkter](concepts-data-access-and-security-vnet.md). VNet-tjänstslutpunkter är tillgängliga i alla regioner som stöds för Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom den här guiden, måste du:
 - Installera [Azure CLI](/cli/azure/install-azure-cli) eller använda Azure Cloud Shell i webbläsaren.
 - En [Azure Database for PostgreSQL-server och databas](quickstart-create-server-database-azure-cli.md).

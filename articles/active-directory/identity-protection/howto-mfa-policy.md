@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/17/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698970"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008604"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Instruktioner: Konfigurera registreringsprincip för multi-Factor authentication
 
-Azure AD Identity Protection hjälper dig att hantera lansering av registrering för multifaktorautentisering (MFA) genom att konfigurera en princip för att kräva MFA-registrering. Den här artikeln förklarar vad principen kan användas för ett så här konfigurerar du den.
+Azure AD Identity Protection hjälper dig att hantera lansering av registrering för multifaktorautentisering (MFA) genom att konfigurera en princip för att kräva MFA-registrering. Den här artikeln förklarar vad principen kan användas för och hur du konfigurerar den.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Vad är registreringsprincip för multi-Factor authentication?
 

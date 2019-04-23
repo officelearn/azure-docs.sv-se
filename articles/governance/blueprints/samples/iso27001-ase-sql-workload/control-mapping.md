@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: fa7dfbf9e535d010675942900bad208d3f15e556
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b0a2d81d2490ded460f4bbb98ebce0b943ba91df
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698393"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010917"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mappning av kontroll av ISO 27001 ASE/SQL arbetsbelastning skissen exemplet
 
@@ -71,7 +71,7 @@ Den här skissen tilldelas tre [Azure Policy](../../../policy/overview.md) defin
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 granskning av användarbehörigheter
 
-Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access-control/overview.md) (RBAC) för hjälper till att du hanterar vem som har åtkomst till resurser i Azure. Med Azure-portalen kan granska du vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelas fyra [Azure Policy](../../../policy/overview.md) definitioner för att granska konton som ska prioriteras för granskning, inklusive avskriven konton och externa konton med förhöjd behörighet.
+Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med Azure-portalen kan granska du vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelas fyra [Azure Policy](../../../policy/overview.md) definitioner för att granska konton som ska prioriteras för granskning, inklusive avskriven konton och externa konton med förhöjd behörighet.
 
 - [Förhandsversion]: Audit deprecated accounts on a subscription
 - [Förhandsversion]: Audit deprecated accounts with owner permissions on a subscription
@@ -80,7 +80,7 @@ Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 borttagning eller inställning av behörighet
 
-Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access-control/overview.md) (RBAC) för hjälper till att du hanterar vem som har åtkomst till resurser i Azure. Med hjälp av [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) och RBAC, kan du uppdatera användarroller organisatoriska förändringar. När de behövs kan konton blockeras från att logga in (eller tas bort), som direkt tar bort åtkomsträttigheter till Azure-resurser. Den här skissen tilldelas två [Azure Policy](../../../policy/overview.md) definitioner för att granska avskriven konto som du bör överväga att tas bort.
+Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) och RBAC, kan du uppdatera användarroller organisatoriska förändringar. När de behövs kan konton blockeras från att logga in (eller tas bort), som direkt tar bort åtkomsträttigheter till Azure-resurser. Den här skissen tilldelas två [Azure Policy](../../../policy/overview.md) definitioner för att granska avskriven konto som du bör överväga att tas bort.
 
 - [Förhandsversion]: Audit deprecated accounts on a subscription
 - [Förhandsversion]: Audit deprecated accounts with owner permissions on a subscription
@@ -155,7 +155,7 @@ Den här skissen hjälper dig att säkerställa händelser loggas genom att till
 
 ## <a name="a1244-clock-synchronization"></a>Synkronisering av datorklocka A.12.4.4
 
-Den här skissen hjälper dig att säkerställa händelser loggas genom att tilldela sju Azure principdefinitioner som granska loggar inställningar på Azure-resurser. Azure loggar är beroende av synkroniserade interna klockor för att skapa en tid korrelerad post av händelser över resurser.
+Den här skissen hjälper dig att säkerställa händelser loggas genom att tilldela sju Azure principdefinitioner som gransknings-och inställningar på Azure-resurser. Azure loggar är beroende av synkroniserade interna klockor för att skapa en tid korrelerad post av händelser över resurser.
 
 - [Förhandsversion]: Granska beroende Agentdistribution - VM Image (OS) inte finns i listan
 - [Förhandsversion]: Granska beroende Agentdistribution i VMSS - VM Image (OS) inte finns i listan

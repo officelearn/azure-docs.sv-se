@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fb7302497d4331a9e39c8a3c50393646b663f7d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 81aa38c1c7783c7e0357f8f69f4d4484d26873e9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283145"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006962"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Självstudier: Azure Active Directory-integrering med RealtimeBoard
 
@@ -131,7 +131,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Realtim
 
 ### <a name="configure-realtimeboard-single-sign-on"></a>Konfigurera RealtimeBoard Single Sign-On
 
-Att konfigurera enkel inloggning på **RealtimeBoard** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [RealtimeBoard support team](). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **RealtimeBoard** sida, som du behöver skicka de hämtade **Federation Metadata XML** och lämpliga kopieras URL: er från Azure-portalen till RealtimeBoard support-teamet. De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 

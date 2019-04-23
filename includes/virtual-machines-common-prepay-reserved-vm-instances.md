@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 04/13/2019
+ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671843"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118894"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser
 
@@ -35,6 +35,12 @@ Du kan använda reservationen rekommendationer för att avgöra de ska du köpa 
 - Azure Advisor tillhandahåller rekommendationer för köp för enskilda prenumerationer.  
 - Du kan använda API: erna för att hämta rekommendationer för köp för både delade scope och scope för enskild prenumeration. Mer information finns i [reserverad instans köp rekommendation API: er för företagskunder](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - För EA-kunder kan köpa rekommendationer för delade och enstaka prenumeration scope är tillgängliga med den [Azure Consumption Insights Power BI-Innehållspaketet](/power-bi/service-connect-to-azure-consumption-insights).
+
+### <a name="classic-vms-and-cloud-services"></a>Klassiska virtuella datorer och molntjänster
+
+Reserverade instanser av virtuella datorer gäller för både klassiska virtuella datorer och molntjänster när instansen storlek flexibilitet aktiveras automatiskt. Det finns inte någon särskild SKU: er för klassiska virtuella datorer eller molntjänster. Samma VM SKU: er gäller för dem.
+
+Exempelvis kan du konvertera ditt klassiska virtuella datorer eller molntjänster till Azure Resource Manager-baserade virtuella datorer. I det här exemplet tillämpas reservationsrabatten automatiskt på matchande virtuella datorer. Det finns inget behov av att *exchange* en befintlig reserverad instans – den tillämpas automatiskt.
 
 ### <a name="analyze-your-usage-information"></a>Analysera din användningsinformation
 Du ska analysera dina användningsinformation för att bestämma vilka ska du köpa reservationer.
@@ -66,7 +72,7 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
 
     | Fält      | Beskrivning|
     |------------|--------------|
-    |Namn        |Namnet på den här reservationen.|
+    |Name        |Namnet på den här reservationen.|
     |Prenumeration|Den prenumeration som används för att betala för reservationen. Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller betala per användning (erbjuder siffror: MS-AZR-0003P eller MS-AZR - 0023 P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|    
     |Scope       |Den reservationsomfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - reservationsrabatten tillämpas på virtuella datorer i den här prenumerationen. </li><li>Delad – tillämpas reservationsrabatten på virtuella datorer som körs i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
     |Region    |Azure-regionen som omfattas av reservationen.|    
@@ -74,14 +80,8 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
     |Optimera för     |Flexibilitet för Virtuella datorinstanser storlek tillämpas reservationsrabatten på andra virtuella datorer i samma [VM storleksgruppen](https://aka.ms/RIVMGroups). Prioritet för datacenterkapacitet prioriterar datacentrets kapacitet för dina distributioner. Det ger ytterligare förtroende i din möjlighet att starta VM-instanser när så behövs. Kapacitetsprioritet är bara tillgänglig när reservationsomfånget är enstaka prenumeration. |
     |Period        |Ett eller tre år.|
     |Kvantitet    |Antalet instanser som köpts i reservationen. Antalet är antalet VM-instanser som kan få fakturering rabatten som körs. Till exempel om du kör 10 Standard_D2 virtuella datorer i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
-5. Du kan visa kostnaden för reservationen när du väljer **beräkna kostnaden**.
 
-    ![Skärmbild innan du skickar reservationsköp](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. Välj **Köp**.
-7. Välj **visa den här reservationen** att se status för ditt köp.
-
-    ![Skärmbild efter att ha skickat reservationsköp](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="change-a-reservation-after-purchase"></a>Ändra en reservation efter köpet
 

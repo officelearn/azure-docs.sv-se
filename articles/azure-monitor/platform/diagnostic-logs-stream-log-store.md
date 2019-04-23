@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630793"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006802"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Stream, Azure-diagnostikloggar till Log Analytics-arbetsyta i Azure Monitor
 
@@ -107,7 +107,7 @@ Eftersom många resurser skicka datatyper skickas till samma tabell (_AzureDiagn
  
 Tabellen AzureDiagnostics ut enligt följande, med lite exempeldata:  
  
-| ResourceProvider | Kategori | A | B | C | D | E | F | G | H | I |
+| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
 | Microsoft.Resource2 | Felvillkoren | | | | q1 | W1 | e1 |
@@ -124,7 +124,7 @@ Azure Data Factory, på grund av en mycket detaljerad uppsättning med loggar, �
 - *Användarparametrar som definierats mot alla aktiviteter i din pipeline*: det blir en ny kolumn som skapats för varje unikt med namnet user-parameter mot alla aktiviteter. 
 - *Aktivitetens indata och utdata*: dessa variera aktivitet till aktiviteten och generera en stor mängd kolumner på grund av deras utförlig natur. 
  
-Som med bredare lösning förslagen nedan, rekommenderas att isolera ADF loggar i deras egen arbetsyta för att minimera risken för de här loggarna som påverkar andra loggtyper som samlas in i dina arbetsytor. Vi räknar med att du har samlat ihop loggar för Azure Data Factory tillgängligt genom mitten April 2019.
+Som med bredare lösning förslagen nedan, rekommenderas att isolera ADF loggar i deras egen arbetsyta för att minimera risken för de här loggarna som påverkar andra loggtyper som samlas in i dina arbetsytor. Vi räknar med att du har samlat ihop loggar för Azure Data Factory tillgänglig snart.
  
 #### <a name="workarounds"></a>Lösningar
 Kort sikt, tills den 500 kolumngräns omdefinieras, rekommenderar vi att du separera utförlig datatyper i olika arbetsytor att minska risken att du nått gränsen.

@@ -1,76 +1,109 @@
 ---
 title: Azure Cosmos DB indexeringsprinciper
-description: Förstå hur indexering fungerar i Azure Cosmos DB. Lär dig mer om att konfigurera och ändra indexeringsprincip för automatisk indexering och bättre prestanda.
-author: rimman
+description: Lär dig mer om att konfigurera och ändra standard indexeringspolicy för automatisk indexering och bättre prestanda i Azure Cosmos DB.
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278572"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005102"
 ---
-# <a name="index-policy-in-azure-cosmos-db"></a>Index principen i Azure Cosmos DB
+# <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
-Du kan åsidosätta standardinställningen indexeringspolicy på en Azure Cosmos-behållare genom att konfigurera följande parametrar:
+I Azure Cosmos DB har en indexeringsprincip som bestämmer hur behållarens objekt ska indexeras i behållare. Standard indexeringspolicy för nyligen skapade behållare index varje egenskap för varje artikel, tillämpa intervallet index för en sträng eller en siffra, och spatialindex för alla GeoJSON-objekt i Skriv punkt. På så sätt kan du få hög frågeprestanda utan att behöva tänka indexering och indexhantering förskott.
 
-* **Inkludera eller exkludera objekt och sökvägar från indexet**: Du kan exkludera eller innehålla vissa objekt i indexet, när du infoga eller ersätta objekt i en behållare. Du kan även inkludera eller exkludera specifika sökvägar/egenskaper som ska indexeras över behållare. Sökvägar kan innehålla jokerteckensmönster, till exempel *.
+I vissa situationer kan du åsidosätta detta automatiskt så att den bättre passar dina behov. Du kan anpassa indexeringsprincip för en behållare genom att ange dess *indexering läge*, och inkludera eller exkludera *egenskapen sökvägar*.
 
-* **Konfigurera index typer**: Dessutom för att vara indexerade sökvägar, du kan lägga till andra typer av index, till exempel spatial.
+## <a name="indexing-mode"></a>Indexering läge
 
-* **Konfigurera index lägen**: Med indexprincip i en behållare kan du konfigurera olika lägen för indexering som *konsekvens* eller *ingen*.
+Azure Cosmos DB stöder två lägen för indexering:
 
-## <a name="indexing-modes"></a>Indexering lägen
+- **Konsekvent**: Om en behållare indexeringsprincip anges för konsekvens, uppdateras indexet synkront när du skapar, uppdatera eller ta bort objekt. Det innebär att dina skrivskyddade frågor konsekvens är den [konsekvens som konfigurerats för kontot](consistency-levels.md).
 
-Azure Cosmos DB stöder två indexering lägen som du kan konfigurera i en Azure Cosmos-behållare via indexeringsprincip:
+- **Ingen**: Om en behållare indexeringsprincip har angetts till None, inaktiveras effektivt indexering på behållaren. Detta används vanligtvis när en behållare används som en ren nyckel / värdelagring utan att behöva sekundära index. Det kan också snabbare bulk infogningsåtgärder.
 
-* **Konsekvent**: Om en Azure Cosmos-behållare principen är konfigurerad att *konsekvens*, frågor på en specifik behållare följer samma konsekvensnivå som angav för punkt-läsningar (exempel: stark, bunden utgång, session eller eventuell). 
+## <a name="including-and-excluding-property-paths"></a>Inkludera och exkludera egenskapen sökvägar
 
-  Indexet har uppdaterats synkront när du uppdaterar objekt. Till exempel resulterar infoga, Ersätt, uppdatera och ta borttagningsåtgärder på ett objekt i index-uppdateringen. Konsekvent indexering stöder konsekvent frågor bekostnad påverkar genomströmning för skrivning. Minskad genomströmning för skrivning är beroende av de ”sökvägar som ingår i indexet” och ”konsekvensnivå”. Konsekvent indexering läge är avsett att hålla index uppdaterade med alla uppdateringar och att direkt hantera frågor.
+En anpassad indexeringsprincip kan ange egenskapen sökvägar som är uttryckligen inkluderas eller uteslutas från indexering. Du kan minska mängden lagringsutrymme som används av din behållare och förbättra svarstiden för skrivåtgärder genom att optimera antalet sökvägar som indexeras. Dessa sökvägar definieras efter [den metod som beskrivs i avsnittet indexering översikt](index-overview.md#from-trees-to-property-paths) med följande tillägg:
 
-* **Ingen**: En behållare som har en ingen indexläge har inget index som är kopplade till den. Detta används ofta om Azure Cosmos-databasen används som en nyckel / värde-lagring och objekt används endast av deras ID-egenskap.
+- en sökväg som leder till ett skalärt värde (sträng eller en siffra) slutar med `/?`
+- element från en matris behandlas tillsammans via den `/[]` notation (i stället för `/0`, `/1` osv.)
+- den `/*` med jokertecken kan användas för att matcha alla element under noden
 
-  > [!NOTE]
-  > Konfigurera indexering läge som en *ingen* har att släppa alla befintliga index. Du bör använda det här alternativet om din åtkomstmönster kräver ID eller självlänken endast.
+Med det här exemplet igen:
 
-Fråga konsekvensnivåer bevaras liknar regelbundna läsåtgärder. Azure Cosmos-databasen returnerar ett fel om du frågar behållaren som innehåller en *ingen* indexering läge. Du kan köra frågor som genomsökningar via den explicita **x-ms-documentdb-enable-genomsökning** huvud i REST API eller **EnableScanInQuery** begära alternativet med hjälp av .NET SDK. Vissa fråga funktioner, som ORDER BY inte stöds för närvarande med **EnableScanInQuery**, eftersom de utförda ett motsvarande index.
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 }
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
+
+- den `headquarters`'s `employees` sökvägen är `/headquarters/employees/?`
+- den `locations`' `country` sökvägen är `/locations/[]/country/?`
+- sökvägen till något under `headquarters` är `/headquarters/*`
+
+En sökväg uttryckligen tas med i indexprincip finns det också att definiera vilka typer av index som ska kopplas till denna sökväg och för varje Indextyp av måste datatypen indexet gäller för:
+
+| Indextyp | Tillåtna mål-datatyper |
+| --- | --- |
+| Intervall | Strängen eller talvärdet |
+| Spatial | Point, LineString eller Polygon |
+
+Vi kan till exempel innehålla den `/headquarters/employees/?` sökvägen och ange att en `Range` index ska tillämpas på samma sökväg för både `String` och `Number` värden.
+
+### <a name="includeexclude-strategy"></a>Inkludera/exkludera strategi
+
+Alla indexeringsprincip måste inkludera rotsökvägen `/*` som en inkluderad eller en Undantagen sökväg.
+
+- Inkludera rotsökvägen för att selektivt undanta sökvägar som inte behöver indexeras. Detta är den rekommenderade metoden eftersom det kan användas av Azure Cosmos DB proaktivt Indexera nya egenskaper som kan läggas till i din modell.
+- Undanta rotsökvägen för att selektivt ta med sökvägar som måste indexeras.
+
+Se [i det här avsnittet](how-to-manage-indexing-policy.md#indexing-policy-examples) för indexering av exempel på.
 
 ## <a name="modifying-the-indexing-policy"></a>Ändra indexprincip
 
-Du kan uppdatera indexeringsprincip för en behållare när som helst i Azure Cosmos DB. En ändring i indexeringsprincip på en Azure Cosmos-behållare kan leda till en ändring i form av indexet. Den här ändringen påverkar sökvägarna som kan indexeras, deras precision och konsekvensmodell indexets själva. En ändring i indexeringspolicy effektivt kräver en omvandling av gamla index till ett nytt index.
+Indexeringsprincip för en behållare kan uppdateras när som helst [med hjälp av Azure-portalen eller en av de stödda SDK: erna](how-to-manage-indexing-policy.md). En uppdatering av indexprincip utlöser en omvandling från det gamla indexet till den nya, vilket utförs och på plats (så att inget ytterligare utrymme förbrukas under åtgärden). Gamla principens index omvandlas effektivt till den nya principen utan att påverka tillgängligheten för skrivning eller dataflödet som tillhandahållits för behållaren. Index omvandlingen är en asynkron åtgärd och den tid det tar för att slutföra beror på det etablerade dataflödet, antalet objekt och deras storlek. 
 
-### <a name="index-transformations"></a>Index omvandlingar
+> [!NOTE]
+> Medan omindexering pågår, frågor kan inte returnera alla matchande resultat och gör det utan att returnera eventuella fel. Det innebär att frågeresultatet inte kanske är konsekvent tills indexet omvandlingen har slutförts. Det är möjligt att spåra förloppet för index omvandling [med någon av de SDK: erna](how-to-manage-indexing-policy.md).
 
-Alla omvandlingar index online. De objekt som indexeras per gamla principen omvandlas effektivt per den nya principen utan att påverka tillgängligheten för skrivning eller dataflödet som tillhandahållits för behållaren. Konsekvens läsa och skriva åtgärderna som utförs med hjälp av REST-API, SDK: er, eller med hjälp av lagrade procedurer och utlösare påverkas inte under index omvandling.
+Om den nya indexprincip läge är inställt på konsekvens, kan inga andra indexering principändringen tillämpas när indexet transformeringen pågår. En pågående index omvandling kan avbrytas genom att ange den indexprincip läge None (som kommer omedelbart att släppa indexet).
 
-Ändra indexeringsprincip är en asynkron åtgärd och tiden för att slutföra åtgärden beror på hur många objekt, dataflöde och storleken på objekt. Medan omindexering pågår, frågan kanske inte returnerar alla matchande resultat om frågorna råkar använda indexet som ändras och frågorna som inte returnerar eventuella fel/fel. Medan omindexering pågår, är frågorna konsekvent oavsett hur indexering läge. När indexet fortsätter omvandlingen är klar, du att se enhetliga resultat. Detta gäller för frågor som utfärdats av gränssnitt som REST-API, SDK: er, eller lagrade procedurer och utlösare. Omvandling av indexet utförs asynkront, i bakgrunden på repliker med hjälp av ledig resurserna som är tillgängliga för specifika repliker.
+## <a name="indexing-policies-and-ttl"></a>Principer för indexering och TTL
 
-Alla index transformeringar görs på plats. Azure Cosmos DB har inte två kopior av indexet. Inga ytterligare diskutrymme är så krävs eller konsumeras i dina behållare medan index omvandling inträffar.
+Den [Time-to-Live (TTL) funktionen](time-to-live.md) kräver indexering för att vara aktiv för behållaren som den är påslagen. Detta innebär att:
 
-När du ändrar indexprincip ändringar tillämpas för att flytta från det gamla indexet till det nya indexet och baserat främst på indexering läge konfigurationer. Indexering läge konfigurationer spelar en stor roll jämfört med andra egenskaper som inkluderad/exkluderad sökvägar, index-typer och precision.
+- Det går inte att aktivera TTL-värdet från en behållare där indexering läge är inställt på Ingen,
+- Det går inte att ange läget som indexering NONE för en behållare där TTL är aktiverad.
 
-Om både gamla och nya indexering principer **konsekvens** indexering, Azure Cosmos-databasen utför en omvandling med online-index. Du kan inte använda en annan indexering ändring som har konsekventa indexering läge medan transformeringen pågår. När du flyttar till ingen indexering läge på indexet togs bort omedelbart. Flytta till ingen är användbart när du vill avbryta en pågående omvandling och börja från början med en annan indexeringsprincip.
+Du kan använda en indexeringsprincip med scenarier där ingen egenskapssökväg måste indexeras, men TTL-värde krävs:
 
-## <a name="modifying-the-indexing-policy---examples"></a>Ändra indexeringsprincip - exempel
+- en indexering inställd på konsekvens, och
+- Ingen inkluderade sökväg och
+- `/*` eftersom den enda exkluderade sökvägen.
 
-Följande är vanliga användningsområden när du vill uppdatera en indexeringsprincip:
+## <a name="obsolete-attributes"></a>Föråldrade attribut
 
-* Om du vill ha enhetliga resultat under normal drift, men återställde den **ingen** indexering läge under bulk dataimporter.
+När du arbetar med principer för indexering, du kan stöta på följande attribut som är nu föråldrade:
 
-* Om du vill börja använda indexering funktioner på dina aktuella Azure-Cosmos-behållare. Du kan till exempel använda geospatiala frågor, vilket kräver spatialindexet typ eller ORDER BY / sträng intervallfrågor som kräver sträng intervallet index typ.
-
-* Om du vill manuellt väljer du egenskaperna som ska indexeras och ändra dem över tid för att justera dina arbetsbelastningar.
-
-* Om du vill justera indexering precisionen att förbättra prestanda för frågor eller minska förbrukad lagring.
+- `automatic` är ett booleskt värde som definierats i roten av en princip för indexering. Den ignoreras nu och kan ställas in på `true`, när du använder verktyget kräver den.
+- `precision` ett tal har definierats på nivån index för sökvägar som tas med. Den ignoreras nu och kan ställas in på `-1`, när du använder verktyget kräver den.
+- `hash` är en typ av index som har ersatts av typ av intervall.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om indexering i följande artiklar:
 
-* [Indexeringsöversikt](index-overview.md)
-* [Indextyper](index-types.md)
-* [Indexsökvägar](index-paths.md)
-* [Så här hanterar du indexeringsprincip](how-to-manage-indexing-policy.md)
+- [Indexering, översikt](index-overview.md)
+- [Så här hanterar du indexeringsprincip](how-to-manage-indexing-policy.md)

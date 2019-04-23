@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497074"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006139"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database
 
@@ -97,7 +97,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatorisk inkommande säkerhetsregler
 
-| Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+| Name       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI – UNDERNÄT  |Tillåt |
 |mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
@@ -105,7 +105,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatorisk utgående säkerhetsregler
 
-| Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+| Name       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
 |hantering  |80, 443, 12000|TCP     |MI – UNDERNÄT        |AzureCloud |Tillåt |
 |mi_subnet   |Alla           |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
@@ -122,7 +122,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 ### <a name="user-defined-routes"></a>Användardefinierade vägar
 
-|Namn|Adressprefix|Nästa hopp|
+|Name|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI – UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

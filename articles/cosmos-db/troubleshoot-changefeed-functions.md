@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685958"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010898"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostisera och felsöka problem när du använder Azure Cosmos DB-utlösare i Azure Functions
 
@@ -31,7 +31,7 @@ Den här artikeln kommer alltid att referera till Azure Functions V2 när körni
 
 Viktiga funktioner för tillägget paketet är att ge stöd för Azure Cosmos DB-utlösare och bindningar. Den innehåller också de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), vilket är användbart om du vill interagera med Azure Cosmos DB programmässigt utan att använda utlösare och bindningar.
 
-Om vill till Azure Cosmos DB SDK måste du kontrollera att du inte lägger till ditt projekt en annan referens för NuGet-paketet. I stället **låta SDK-referens lösa via Azure Functions-tilläggspaket**.
+Om vill använda Azure Cosmos DB SDK, se till att du inte lägger till ditt projekt en annan referens för NuGet-paketet. I stället **låta SDK-referens lösa via Azure Functions-tilläggspaket**.
 
 Även om du manuellt skapar en egen instans av den [Azure Cosmos DB SDK-klienten](./sql-api-sdk-dotnet-core.md), bör du följa mönstret för att ha endast en instans av klienten [med hjälp av en metod för Singleton-mönster](../azure-functions/manage-connections.md#documentclient-code-example-c) . Den här processen undviker de potentiella socket problemen i din verksamhet.
 

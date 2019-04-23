@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 16f684674e69113a869346d5de9ef1d50734f01b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271823"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009165"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -482,7 +482,7 @@ Följande fält ändras Audit schemat:
 
 |Fältnamn|Vad som ändrats|Gamla värden|Nya värden|
 |----------|------------|----------|----------|
-|Kategori|Det var den **tjänstnamn** fält. Nu är det den **Audit kategorier** fält. **Tjänstnamnet** har bytt namn till den **loggedByService** fält.|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Lösenordsåterställning via självbetjäning</li></ul>|<ul><li>Användarhantering</li><li>Grupphantering</li><li>Apphantering</li></ul>|
+|Category|Det var den **tjänstnamn** fält. Nu är det den **Audit kategorier** fält. **Tjänstnamnet** har bytt namn till den **loggedByService** fält.|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Lösenordsåterställning via självbetjäning</li></ul>|<ul><li>Användarhantering</li><li>Grupphantering</li><li>Apphantering</li></ul>|
 |targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Princip</li><li>App</li><li>Användare</li><li>Grupp</li></ul>|
 |loggedByService|Innehåller namnet på tjänsten som genererade granskningsloggen.|Null|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Återställning av lösenord för självbetjäning</li></ul>|
 |Resultat|Ger resultatet för granskningsloggar. Tidigare var detta räknades upp, men vi nu visar det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Lyckades</li><li>Fel</li></ul>|
@@ -552,7 +552,7 @@ Mer information om roller och behörigheter finns i [Tilldela administratörsrol
 **Tjänstekategori:** Hantering och registrering av enhet  
 **Produkten kapacitet:** Hantering av enhetslivscykel
 
-Vi förstår att tiden du måste uppdatera och dra tillbaka din organisations enheter i Azure AD för att förhindra att inaktuella enheter hängande i din miljö. För att hjälpa till med den här processen, uppdaterar Azure AD nu dina enheter med en ny aktivitet tidsstämpel, vilket hjälper dig att hantera enhetslivscykeln för din.
+Vi förstår att tiden du måste uppdatera och dra tillbaka din organisations enheter i Azure AD för att förhindra att inaktuella enheter i din miljö. För att hjälpa till med den här processen, uppdaterar Azure AD nu dina enheter med en ny aktivitet tidsstämpel, vilket hjälper dig att hantera enhetslivscykeln för din.
 
 Läs mer om hur du hämtar och använder den här tidsstämpeln [How To: Hantera inaktuella enheter i Azure AD](https://docs.microsoft.com/azure/active-directory/devices/manage-stale-devices)
 

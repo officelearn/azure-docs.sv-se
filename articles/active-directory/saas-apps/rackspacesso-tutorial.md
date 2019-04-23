@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: ca6667a5353d253743a45d5db742811d8e15ed31
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682125"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Självstudier: Azure Active Directory-integrering med Rackspace SSO
 
@@ -72,7 +72,7 @@ Om du vill konfigurera integreringen av Rackspace SSO till Azure AD, som du beh�
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Rackspace SSO baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Rackspace SSO ska upprättas.
+När du använder enkel inloggning med Rackspace, skapas Rackspace användare automatiskt första gången de loggar in på portalen Rackspace. 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Rackspace SSO, måste du utföra följande byggblock:
 
@@ -80,8 +80,8 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Rackspace SSO, m�
 2. **[Konfigurera enkel inloggning för Rackspace-SSO](#configure-rackspace-sso-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Rackspace SSO testanvändare](#create-rackspace-sso-test-user)**  – du har en motsvarighet för Britta Simon i Rackspace SSO som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+1. **[Konfigurera attributmappning i Kontrollpanelen Rackspace](#set-up-attribute-mapping-in-the-rackspace-control-panel)**  – om du vill tilldela Rackspace roller till Azure AD-användare.
+1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -121,21 +121,21 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Rackspa
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. På den **konfigurera Rackspace SSO** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
-
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-    a. Inloggnings-URL
-
-    b. Azure AD-identifierare
-
-    c. Utloggnings-URL
+Den här filen ska överföras till Rackspace att fylla i nödvändiga konfigurationsinställningar för identitetsfederation.
 
 ### <a name="configure-rackspace-sso-single-sign-on"></a>Konfigurera enkel inloggning Rackspace enkel inloggning
 
-Att konfigurera enkel inloggning på **Rackspace SSO** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Rackspace SSO-supportteamet ](https://support.rackspace.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **Rackspace SSO** sida:
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+1. Finns i dokumentationen på [lägga till en identitetsprovider i Kontrollpanelen](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/)
+1. Det leder dig igenom stegen för att:
+    1. Skapa en ny identitetsprovider
+    1. Ange en e-postdomän som användarna ska använda för att identifiera ditt företag när du loggar in.
+    1. Ladda upp den **XML-Metadata för Federation** tidigare hämtade från Azure-Kontrollpanelen.
+
+Detta konfigureras korrekt de grundläggande SSO-inställningar som krävs för Azure och Rackspace för att ansluta.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
@@ -185,15 +185,58 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-rackspace-sso-test-user"></a>Skapa Rackspace SSO testanvändare
+### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Konfigurera attributmappning Rackspace på Kontrollpanelen
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Rackspace SSO. Arbeta med [Rackspace SSO-supportteamet](https://support.rackspace.com/) att lägga till användare i Rackspace SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+Rackspace använder en **attributet mappning princip** tilldela Rackspace roller och grupper till dina användare för enkel inloggning. Den **attributet mappning princip** översätter Azure AD SAML anspråk till användaren konfigurationsfält Rackspace kräver. Mer dokumentation finns i Rackspace [attributet mappning grunderna dokumentation](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/). Vissa förutsättningar:
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+* Om du vill tilldela olika behörighetsnivåer Rackspace åtkomst med hjälp av Azure AD-grupper, behöver du vill aktivera anspråket grupper i Azure **Rackspace SSO** inställningar för enkel inloggning. Den **attributet mappning princip** används sedan för att matcha grupperna till önskad Rackspace roller och grupper:
+
+    ![Grupperna anspråk inställningar](common/sso-groups-claim.png)
+
+* Som standard skickar Azure AD UID för Azure AD-grupper i SAML-anspråket jämfört med namnet på gruppen. Om du synkroniserar din lokala Active Directory till Azure AD har du möjlighet att skicka de faktiska namnen på grupperna:
+
+    ![Grupperna anspråk inställningar](common/sso-groups-claims-names.png)
+
+I följande exempel **attributet mappning princip** visar:
+1. Ställa in Rackspace användarens namn i `user.name` SAML-anspråk. Några anspråk kan användas, men det är vanligt att ställa in detta på ett fält som innehåller användarens e-postadress.
+1. Ange rollerna Rackspace `admin` och `billing:admin` för en användare genom att matcha en Azure AD-grupp, efter namn eller grupp UID. En *ersättningen* av `"{0}"` i den `roles` fältet används och kommer att ersättas av resultatet av den `remote` regel uttryck.
+1. Med hjälp av den `"{D}"` *standard ersättningen* så att Rackspace hämta ytterligare SAML-fält genom att söka efter standard och välkänd SAML-anspråk i SAML-exchange.
+
+```yaml
+---
+mapping:
+    rules:
+    - local:
+        user:
+          domain: "{D}"
+          name: "{At(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)}"
+          email: "{D}"
+          roles:
+              - "{0}"
+          expire: "{D}"
+      remote:
+          - path: |
+              (
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='7269f9a2-aabb-9393-8e6d-282e0f945985') then ('admin', 'billing:admin') else (),
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='MyAzureGroup') then ('admin', 'billing:admin') else ()
+              )
+            multiValue: true
+  version: RAX-1
+```
+> [!TIP]
+> Kontrollera att du använder en textredigerare som validerar YAML syntax när du redigerar principfilen.
+
+Se Rackspace [attributet mappning grunderna dokumentation](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) fler exempel.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på panelen Rackspace SSO i åtkomstpanelen bör du vara automatiskt inloggad på Rackspace SSO som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+Du kan också använda den **verifiera** knappen i den **Rackspace SSO** enkel inloggning inställningar:
+
+   ![Verifieringsknapp för enkel inloggning](common/sso-validate-sign-on.png)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

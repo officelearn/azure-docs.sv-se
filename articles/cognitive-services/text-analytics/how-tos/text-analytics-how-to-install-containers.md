@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd2f257119595311e9d31ad2068fd12c8cf51ee
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: e0e8b9f767376db8028a3ac4a2d8659bab69268b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683384"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005884"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och köra textanalys behållare
 
@@ -36,7 +36,7 @@ Du måste uppfylla följande krav innan du kan använda textanalys behållare:
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
-|`Cognitive Services` resurs |För att kunna använda behållaren måste du ha:<br><br>En [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) Azure-resurs att hämta associerade krypteringsnyckeln och fakturering slutpunkt URI. Båda värdena är tillgängliga på Azure portal-sidorna för Cognitive Services-översikt och nycklar och krävs för att starta behållaren. Du måste lägga till den `text/analytics/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}** : Resursnyckeln<br><br>**{BILLING_ENDPOINT_URI}** : endpoint URI exempel är: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|`Cognitive Services` resurs |För att kunna använda behållaren måste du ha:<br><br>En [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) Azure-resurs att hämta associerade krypteringsnyckeln och fakturering slutpunkt URI. Båda värdena är tillgängliga på Azure portal-sidorna för Cognitive Services-översikt och nycklar och krävs för att starta behållaren. Du måste lägga till den `text/analytics/v2.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}** : Resursnyckeln<br><br>**{BILLING_ENDPOINT_URI}** : endpoint URI exempel är: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### <a name="the-host-computer"></a>Värddatorn
 
@@ -110,7 +110,7 @@ När behållaren är på den [värddatorn](#the-host-computer), använder du fö
 
 Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando för att köra någon av tre behållarna. Kommandot använder följande parametrar:
 
-| Platshållare | Värde |
+| Platshållare | Value |
 |-------------|-------|
 |{BILLING_KEY} | Den här nyckeln används för att starta behållaren och är tillgänglig på Azure portal `Cognitive Services` sidan nycklar.  |
 |{BILLING_ENDPOINT_URI} | Fakturering slutpunkten URI-värdet är tillgänglig på Azure `Cognitive Services` översiktssidan. <br><br>Exempel:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|

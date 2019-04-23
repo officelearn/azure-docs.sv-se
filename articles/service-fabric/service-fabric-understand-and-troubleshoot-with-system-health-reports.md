@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528194"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007465"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter a. systemtillståndsrapporter på alla entiteter i klustret kompletta Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
@@ -29,7 +29,7 @@ Azure Service Fabric-komponenter a. systemtillståndsrapporter på alla entitete
 > 
 > 
 
-Systemhälsorapporter ger bättre inblick i klustret och programfunktioner och flaggan problem. För program och tjänster Kontrollera systemhälsorapporter att entiteter implementeras och fungerar korrekt från Service Fabric-perspektivet. Rapporterna innehåller inte några hälsoövervakning av affärslogiken i tjänsten eller detekteringen av låsta processer. Tjänster som kan utöka health-data med information som är specifika för deras logik.
+Systemhälsorapporter ger bättre inblick i klustret och programfunktioner och flaggan problem. För program och tjänster Kontrollera systemhälsorapporter att entiteter implementeras och fungerar korrekt från Service Fabric-perspektivet. Rapporterna innehåller inte några hälsoövervakning av affärslogiken i tjänsten eller detekteringen av processer som inte svarar. Tjänster som kan utöka health-data med information som är specifika för deras logik.
 
 > [!NOTE]
 > Hälsorapporter som skickas av användaren watchdogs syns bara *när* systemkomponenter skapar en entitet. När en entitet tas bort, tar hälsoarkivet automatiskt bort alla hälsorapporter som är kopplade till den. Samma sak gäller när en ny instans av entiteten har skapats. Ett exempel är när en ny tillståndskänsliga beständiga repliken tjänstinstans har skapats. Alla rapporter som är associerade med den gamla instansen tas bort och rensas från arkivet.

@@ -2,18 +2,18 @@
 title: Vanliga scenarier för Azure Data Catalog
 description: En översikt över vanliga scenarier för Azure Data Catalog, inklusive registrering och upptäckt värdefulla datakällor, aktivera självbetjäningslösning för business intelligence och samla in befintliga kunskaper om datakällor och processer.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 531c5890cb2164b51d7b383d0b1fdd1b92d9e8eb
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405037"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010814"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Vanliga scenarier för Azure Data Catalog
 Den här artikeln innehåller vanliga scenarier där Azure Data Catalog kan hjälpa organisationen att få ut mer av sina befintliga datakällor.
@@ -34,7 +34,7 @@ Om du har kommit igång med Azure Data Catalog, kan identifiera och registrera v
 
 Det här scenariot presenterar även möjlighet att kommentera värdefulla datakällor så att de blir lättare att förstå och komma åt. En viktig aspekt av det är att inkludera information om hur användarna kan begära åtkomst till datakällan. Med Azure Data Catalog kan ange du den e-postadressen för den användare eller grupp som ansvarar för åtkomstkontroll till datakällan, länkar till befintliga verktyg eller dokumentation eller fri text som beskriver hur du åtkomstbegäran. Den här informationen hjälper medlemmar som upptäcka registrerade datakällor, men som inte har behörighet att komma åt data så att du enkelt begära åtkomst med hjälp av de processer som definieras och styrs av datakällan ägare.
 
-## <a name="scenario-2-self-service-business-intelligence"></a>Scenario 2: Självbetjäningslösning för business intelligence
+## <a name="scenario-2-self-service-business-intelligence"></a>Scenario 2: Affärsinformation med självbetjäning
 Även om traditionella business intelligence-lösningar som företagets fortsätter att vara en ovärderliga del av många organisationer datalandskap kan har ändra takten verksamhet gjort Självservice fler och fler viktiga. Med hjälp av BI av självbetjäningstyp kan informationsarbetare och analytiker skapa sina egna rapporter, arbetsböcker och instrumentpaneler utan att behöva en central IT-avdelningen eller begränsas av för att IT-teamet schema och tillgänglighet.
 
 I BI självbetjäningsscenarier kombinera användare ofta data från flera källor, som inte kanske har tidigare använts för BI och analys. Även om vissa av dessa datakällor kan redan är känd, kan det vara svårt för att identifiera vad som ska göras för att hitta och utvärdera potentiella datakällor för en viss uppgift.

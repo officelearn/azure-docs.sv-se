@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: c3c5484d865c73a6f478ffc9ad4c3fc86c2c8170
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59619209"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005374"
 ---
-# <a name="copy-data-from-azure-data-factory-to-azure-data-explorer"></a>Kopiera data från Azure Data Factory till Azure Data Explorer
+# <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till Datautforskaren i Azure med Azure Data Factory 
 
 Azure Data Explorer är en analystjänst för snabba, fullständigt hanterade data för realtidsanalys på stora mängder data som strömmas från många källor, exempelvis program, webbplatser och IoT-enheter. Upprepade gånger utforska data och identifiera mönster och avvikelser för att förbättra produkter, förbättra kundupplevelser, övervakning av enheter och öka åtgärder. Utforska nya frågor och få svar på några minuter. Azure Data Factory är en fullständigt hanterad molnbaserad dataintegreringstjänst. Du kan använda tjänsten för att fylla i Azure Data Explorer databasen med data från ditt befintliga system och spara tid när du skapar Analyslösningar.
 
@@ -32,7 +32,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Ett Azure Data Explorer-kluster och databas](create-cluster-database-portal.md)
-* Amazon S3.
+* Datakällan.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -147,10 +147,6 @@ Azure Data Explorer ny länkad tjänst har skapats för att kopiera data i målt
 
     ![ADX måldatalager](media/data-factory-load-data/destination-data-store.png)
 
-1. I **Välj utdatafil eller mapp**, ange mappnamn utdata, inställningar och välj **nästa**.
-
-    ![Ange Utdatamappen](media/data-factory-load-data/specify-path.png)
-
 1. I **tabellmappning**, ange tabellnamnet mål och välj **nästa**.
 
     ![Tabellmappning för mål-datauppsättning](media/data-factory-load-data/destination-dataset-table-mapping.png)
@@ -186,6 +182,8 @@ Azure Data Explorer ny länkad tjänst har skapats för att kopiera data i målt
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om hur du redigerar länkade tjänster, datauppsättningar och pipeliner i den [Data Factory-användargränssnitt](/azure/data-factory/quickstart-create-data-factory-portal)
+* Lär dig mer om den [Datautforskaren i Azure anslutning](/azure/data-factory/connector-azure-data-explorer) i Azure Data Factory.
+
+* Läs mer om hur du redigerar länkade tjänster, datauppsättningar och pipeliner i den [Användargränssnittet för Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
 
 * Lär dig mer om [Datautforskaren i Azure-frågor](/azure/data-explorer/web-query-data) för att fråga data.

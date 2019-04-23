@@ -1,6 +1,6 @@
 ---
-title: Stream Azure Active Directory-loggar till Azure Monitor-loggar (förhandsversion) | Microsoft Docs
-description: Lär dig att integrera Azure Active Directory-loggar med Azure Monitor-loggar (förhandsversion)
+title: Stream Azure Active Directory-loggar till Azure Monitor-loggar | Microsoft Docs
+description: Lär dig att integrera Azure Active Directory-loggar med Azure Monitor-loggar
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 056a529101ffc39170ea057832bcd50b283505be
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436277"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010943"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Integrera Azure AD-loggar med Azure Monitor-loggar (förhandsversion)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrera Azure AD-loggar med Azure Monitor-loggar
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Du kan köra frågor mot data att söka efter specifika händelser, analysera trender och utföra korrelationen mellan olika datakällor i Azure Monitor-loggar. Med integreringen av Azure AD-aktivitetsloggar i Azure Monitor-loggar, du kan utföra uppgifter, t.ex.:
 
@@ -38,8 +40,6 @@ Följande videoklipp från en Ignite-sessionen visar fördelarna med att använd
 
 I den här artikeln får du lära dig hur du integrerar Azure Active Directory (Azure AD) loggar med Azure Monitor.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 ## <a name="supported-reports"></a>Rapporter som stöds
 
 Du kan dirigera aktiviteten granskningsloggar och logga in aktivitetsloggar till Azure Monitor-loggar för vidare analys. 
@@ -51,7 +51,7 @@ Du kan dirigera aktiviteten granskningsloggar och logga in aktivitetsloggar till
 > B2C-relaterade spårnings- och inloggningsaktivitetsloggar stöds inte just nu.
 >
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 Om du vill använda den här funktionen behöver du:
 
@@ -60,7 +60,7 @@ Om du vill använda den här funktionen behöver du:
 * En användare som är *global administratör* eller *säkerhetsadministratör* för Azure AD-klientorganisationen.
 * En Log Analytics-arbetsyta i Azure-prenumerationen. Lär dig hur du [skapa en Log Analytics-arbetsyta](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-azure-monitor-logs"></a>Skicka loggar till Azure Monitor-loggar
+## <a name="send-logs-to-azure-monitor"></a>Skicka loggar till Azure Monitor
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 

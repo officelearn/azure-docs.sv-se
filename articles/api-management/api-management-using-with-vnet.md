@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527956"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006054"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Om du vill veta börjar mer om Azure Virtual Networks med den här informationen: [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -74,7 +74,8 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 
      ![Välj VPN][api-management-setup-vpn-select]
 
-5. Klicka på **spara** överst på skärmen.
+5. Klicka på **spara** i det övre navigeringsfältet.
+6. Klicka på **tillämpa nätverkskonfiguration** i det övre navigeringsfältet.
 
 > [!NOTE]
 > VIP-adressen för API Management-instans ändrar varje gång VNET är aktiverat eller inaktiverat.
@@ -108,7 +109,7 @@ Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 <a name="required-ports"> </a> När en instans för API Management finns i ett virtuellt nätverk, används portarna i följande tabell.
 
-| Källa / målportar | Riktning          | Transport-protokoll |   [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) <br> Källa / mål   | Syfte (*)                                                 | Typ av virtuellt nätverk |
+| Källa / målportar | Direction          | Transport-protokoll |   [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) <br> Källa / mål   | Syfte (*)                                                 | Typ av virtuellt nätverk |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Extern             |
 | * / 3443                     | Inkommande            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Hanteringsslutpunkten för Azure-portalen och Powershell         | Externa och interna  |

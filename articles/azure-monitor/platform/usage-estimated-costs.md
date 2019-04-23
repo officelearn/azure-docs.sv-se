@@ -5,16 +5,16 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/11/2018
+ms.date: 04/18/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754252"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007703"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Övervaka användning och uppskattade kostnader i Azure Monitor
 
@@ -102,155 +102,14 @@ En översikt visar effekterna av dessa ändringar.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Flytta till den nya prismodellen
 
-Om du har valt att införa den nya prismodellen för en prenumeration, Välj den **val av Prissättningsmodell** alternativet överst i den **användning och uppskattade kostnader** sidan:
+Om du har bestämt dig att införa den nya prismodellen för en viss prenumeration går du till varje Application Insights-resurs, öppna den **användning och uppskattade kostnader** och se till att det är den Grundprissättningsnivån och gå till varje Log Analytics arbetsytan, öppna den **prisnivå** sidan och ändra till den **Per GB (2018)** prisnivå. 
 
-![Övervaka användning och uppskattade kostnader i nya prissättning modell-skärmbild](./media/usage-estimated-costs/006.png)
-
-Den **val av Prissättningsmodell** öppnas. Den visar en lista över alla prenumerationer som du visade på föregående sida:
-
-![Priser för modellen val av skärmbild](./media/usage-estimated-costs/007.png)
-
-Om du vill flytta en prenumeration till den nya prismodellen, markera kryssrutan och välj sedan **spara**. Du kan flytta tillbaka till den gamla prissättningsmodellen på samma sätt. Tänk på att Prenumerationens ägare eller deltagare behörigheter som krävs för att ändra prissättningsmodellen.
+> [!NOTE]
+> Kravet på att alla Application Insights-resurser och Log Analytics-arbetsytor inom en viss prenumeration införa den senaste prissättningsmodellen har nu tagits bort, vilket ger större flexibilitet och enklare konfiguration. 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Automatisera flyttas till den nya prismodellen
 
-Skripten nedan kräver Azure PowerShell-modulen. Kontrollera om du har den senaste versionen finns i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
+Enligt vad som anges ovan är den inte längre ett krav att flytta alla övervakning resurser i en prenumeration till den nya prismodellen på samma gång, och kan därför den ``migratetonewpricingmodel`` åtgärd har inte längre någon effekt. Nu kan du flytta Application Insights-resurser och Log Analytics-arbetsytor separat till de senaste prisnivåerna.  
 
-När du har den senaste versionen av Azure PowerShell kan du först behöva köra ``Connect-AzAccount``.
+Automatisera den här ändringen dokumenteras för Application Insights med hjälp av [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) med ``-PricingPlan "Basic"`` och Log Analytics med hjälp av [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) med ``-sku "PerGB2018"``. 
 
-``` PowerShell
-# To check if your subscription is eligible to adjust pricing models.
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-Ett resultat av True under isGrandFatherableSubscription anger att den här prenumerationen prismodellen kan flyttas mellan prismodeller. Bristen på ett värde under optedInDate innebär att den här prenumerationen är för närvarande inställd på den gamla prismodellen.
-
-```
-isGrandFatherableSubscription optedInDate
------------------------------ -----------
-                         True            
-```
-
-Om du vill migrera prenumerationen till den nya prismodellen kör:
-
-```powershell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-```
-
-Kontrollera att ändringen har lyckats kör:
-
-```powershell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-Om migreringen lyckades, ditt resultat bör nu se ut:
-
-```
-isGrandFatherableSubscription optedInDate                      
------------------------------ -----------                      
-                         True 2018-05-31T13:52:43.3592081+00:00
-```
-
-OptInDate innehåller nu en tidsstämpel för när den här prenumerationen har valt att den nya prismodellen.
-
-Om du vill återgå till den gamla prismodellen kör du:
-
-```powershell
- $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action rollbacktolegacypricingmodel `
- -Force
-```
-
-Om du kör sedan föregående skript som har ``-Action listmigrationdate``, du bör nu se en tom optedInDate värde som anger din prenumeration har returnerats till den äldre prismodellen.
-
-Om du har flera prenumerationer som du vill migrera som finns under samma klient kan du skapa en egen variant med hjälp av delar av följande skript:
-
-```powershell
-#Query tenant and create an array comprised of all of your tenants subscription IDs
-$TenantId = <Your-tenant-id>
-$Tenant =Get-AzSubscription -TenantId $TenantId
-$Subscriptions = $Tenant.Id
-```
-
-Om du vill kontrollera om alla prenumerationer i din klient är berättigad till den nya prismodellen, kan du köra:
-
-```powershell
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-}
-```
-
-Skriptet kan anpassas ytterligare genom att skapa ett skript som genererar tre matriser. En matris som består av alla prenumerations-ID som har ```isGrandFatherableSubscription``` SANT och optedInDate inte har ett värde. En andra uppsättning några prenumerationer för närvarande på den nya prismodellen. Och en tredje matris som innehåller bara prenumerations-ID i din klient som inte är berättigade till den nya prismodellen:
-
-```powershell
-[System.Collections.ArrayList]$Eligible= @{}
-[System.Collections.ArrayList]$NewPricingEnabled = @{}
-[System.Collections.ArrayList]$NotEligible = @{}
-
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-$Result= Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-
-     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
-     {
-     $Eligible.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
-     {
-     $NewPricingEnabled.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $False)
-     {
-     $NotEligible.add($id)
-     }
-}
-```
-
-> [!NOTE]
-> Beroende på antalet prenumerationer kan skriptet ovan ta lite tid att köra. På grund av användningen av metoden .add() echo PowerShell-fönstret stegvis ökande värden när objekt läggs till varje matris.
-
-Nu när du har dina prenumerationer som är uppdelad i tre matriser bör du noggrant granska dina resultat. Du kanske vill göra en säkerhetskopia av innehållet i matriser så att du kan enkelt återställa ändringarna skulle du behöva i framtiden. Om du valt som du vill konvertera alla berättigade prenumerationer som för närvarande på den gamla prismodellen till den nya prismodellen den här uppgiften kan nu uppnås med:
-
-```powershell
-Foreach ($id in $Eligible)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-}
-
-```

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680714"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008706"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Mer specifikt stöder den här Salesforce-anslutningen:
 - Salesforce-utvecklare, Professional, Enterprise eller obegränsad-utgåvor.
 - Kopiera data från och till Salesforce produktion, sandbox-miljön och anpassad domän.
 
-Salesforce-anslutningen har byggts ovanpå Salesforce REST-API med [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) för kopieringsdata från och [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) för kopieringsdata till.
+Salesforce-anslutningsprogrammet bygger på API: et för Salesforce REST/grupp med [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) för kopieringsdata från och [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) för kopieringsdata till.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -65,7 +65,7 @@ Följande egenskaper har stöd för Salesforce-länkade tjänsten.
 | typ |Type-egenskapen måste anges till **Salesforce**. |Ja |
 | environmentUrl | Ange URL: en för Salesforce-instans. <br> – Standardvärdet är `"https://login.salesforce.com"`. <br> – Om du vill kopiera data från sandbox, ange `"https://test.salesforce.com"`. <br> – Om du vill kopiera data från anpassad domän, ange, till exempel `"https://[domain].my.salesforce.com"`. |Nej |
 | användarnamn |Ange ett användarnamn för användarkontot. |Ja |
-| lösenord |Ange ett lösenord för användarkontot.<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| password |Ange ett lösenord för användarkontot.<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | securityToken |Ange en säkerhetstoken för användarkontot. Instruktioner om hur du återställer och hämta en säkerhetstoken finns [hämta en säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Läs mer om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Inte för källa har Ja för kanalmottagare om källan länkade tjänsten inte integreringskörning |
 
@@ -235,9 +235,9 @@ För att kopiera data till Salesforce, ange Mottagartyp i kopieringsaktiviteten 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SalesforceSink**. | Ja |
-| WriteBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **infoga** och **Upsert**. | Nej (standard är Insert) |
+| writeBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **infoga** och **Upsert**. | Nej (standard är Insert) |
 | externalIdFieldName | Namnet på det externa ID-fältet för upsert-åtgärden. Det angivna fältet måste definieras som ”externa Id-fältet” i Salesforce-objekt. Det kan inte ha NULL-värden i motsvarande indata. | Ja för ”Upsert” |
-| WriteBatchSize | Antal rader för data som skrivs till Salesforce i varje batch. | Nej (standardvärdet är 5 000) |
+| writeBatchSize | Antal rader för data som skrivs till Salesforce i varje batch. | Nej (standardvärdet är 5 000) |
 | ignoreNullValues | Anger om du vill ignorera NULL-värden från indata vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **True**: Lämna data i målobjektet oförändrade när du gör en upsert eller update-åtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **False**: Uppdatera data i målobjektet till NULL när du gör en upsert eller update-åtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
 
 **Exempel: Salesforce-mottagare i en Kopieringsaktivitet**
@@ -316,10 +316,10 @@ När du kopierar data från Salesforce, används följande mappningar från Sale
 | Salesforce-datatypen | Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | Automatisk numrering |String |
-| Kryssrutan |Boolesk |
+| Kryssrutan |Boolean |
 | Valuta |Decimal |
-| Date |DateTime |
-| Datum/tid |DateTime |
+| Date |Datetime |
+| Datum/tid |Datetime |
 | E-post |String |
 | Id |String |
 | Uppslagsrelation |String |

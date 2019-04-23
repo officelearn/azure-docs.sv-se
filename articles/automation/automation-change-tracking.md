@@ -10,18 +10,21 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 5e997d9e9f38fee52cd9fc007fe12cac68e3aa5a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443053"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008689"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
 Den här artikeln hjälper dig att använda ändringsspårning-lösning lätt kan identifiera ändringar i miljön. Lösningen spårar ändringar i Windows och Linux, Windows och Linux-filer, registernycklar för Windows, Windows-tjänster och Linux-daemon. Identifiera konfigurationsändringar kan hjälpa dig att precisera Driftproblem.
 
 Ändringar av installerad programvara, tjänster för Windows, Windows-registret och filer och Linux-Daemon på de övervakade servrarna skickas till Azure Monitor-tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data. Du kan enkelt se ändringar som gjorts i din serverinfrastruktur med hjälp av informationen på instrumentpanelen för ändringsspårning.
+
+> [!NOTE]
+> Azure Automation Change Tracking spårar ändringar i virtuella datorer. Om du vill spåra egenskapsändringar för Azure Resource Manager finns i Azure Resource Graph [ändringshistorik](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
 
@@ -74,7 +77,7 @@ Använd följande steg för att konfigurera filspårning på Linux-datorer:
 2. På den **ändringsspårning** väljer **Linux-filer**, klicka sedan på **+ Lägg till** att lägga till en ny fil och spåra.
 3. På den **Lägg till Linux-fil för ändringsspårning**, anger du informationen för filen eller katalogen som ska spåras och klickar på **spara**.
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
@@ -97,7 +100,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 2. På den **ändringsspårning** väljer **Windows filer**, klicka sedan på **+ Lägg till** att lägga till en ny fil och spåra.
 3. På den **Lägg till Windows-fil för ändringsspårning**, anger du informationen för den fil som ska spåras och klickar på **spara**.
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
@@ -129,7 +132,7 @@ Använd följande steg för att konfigurera viktiga registerspårning på Window
 2. På den **ändringsspårning** väljer **Windows-registret**, klicka sedan på **+ Lägg till** att lägga till en ny registernyckel för att spåra.
 3. På den **lägga till Windows-registret för ändringsspårning**, anger du information för nyckeln som ska spåras och klickar på **spara**.
 
-|Egenskap   |Beskrivning  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn för registernyckeln som ska spåras.        |
@@ -268,7 +271,7 @@ Förutom den information som tillhandahålls i portalen, kan du göra sökningar
 
 Följande tabell innehåller exempel på loggsökningar för ändra poster som samlas in av den här lösningen:
 
-|Söka i data  |Beskrivning  |
+|Fråga  |Beskrivning  |
 |---------|---------|
 |ConfigurationData<br>&#124;där ConfigDataType == ”WindowsServices” och SvcStartupType == ”automatisk”<br>&#124;där SvcState == ”stoppad”<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar senaste lagerposter för Windows-tjänster som har ställts in på automatisk men har rapporterats som stoppas<br>Frågeresultaten har begränsats till den senaste posten för den SoftwareName och Computer      |
 |ConfigurationChange<br>&#124;där ConfigChangeType == ”programvara” och ChangeCategory == ”borttagen”<br>&#124;order by-TimeGenerated fall|Visar ändringsposter för borttagna program|
@@ -297,7 +300,7 @@ Efter alla parametrar och logik ställs in, kan vi använda aviseringen för mil
 
 Varna vid ändringar i värdfilen är en bra tillämpning av aviseringar för ändringsspårning och inventering data, finns men det många fler scenarier för avisering, inklusive fall som definierats tillsammans med deras exempelfrågor i avsnittet nedan.
 
-|Söka i data  |Beskrivning  |
+|Fråga  |Beskrivning  |
 |---------|---------|
 |ConfigurationChange <br>&#124;där ConfigChangeType == ”filer” och FileSystemPath innehåller ”c:\\windows\\system32\\drivrutiner\\”|Användbart för att spåra ändringar av kritiska systemfiler|
 |ConfigurationChange <br>&#124;där FieldsChanged innehåller ”FileContentChecksum” och FileSystemPath == ”c:\\windows\\system32\\drivrutiner\\osv\\värdar”|Användbart för att spåra ändringar av viktiga konfigurationsfiler|

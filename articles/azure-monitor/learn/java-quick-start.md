@@ -1,22 +1,22 @@
 ---
 title: Snabbstart med Azure Application Insights | Microsoft Docs
-description: Innehåller instruktioner för att snabbt konfigurera en Java-webbapp för övervakning med Application Insights
+description: Innehåller instruktioner för att snabbt konfigurera en Java-Webbapp för övervakning med Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.reviewer: lagayhar
-ms.date: 07/11/2018
+ms.date: 04/18/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 25335081e594c64b8d8cee02eebec6119e609618
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891506"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006904"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -36,23 +36,25 @@ Om du inte har ett dynamiskt Java-webbprojekt kan du skapa ett med [snabbstarten
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Om du föredrar Spring-ramverket, testa [Guiden konfigurera en Spring Boot-startapp att använda Application Insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+Om du föredrar Spring framework prova den [konfigurerar en Spring Boot-initieringsapp om du vill använda Application Insights-guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
 Application Insights kan samla in telemetridata från alla internetanslutna appar, oavsett om de körs lokalt eller i molnet. Gör så här om du vill börja granska dessa data:
 
-1. Välj **Skapa en resurs** > **Övervakning och hantering**  > **Application Insights**.
+1. Välj **Skapa en resurs** > **Utvecklarverktyg** > **Application Insights**.
 
-   ![lägg till en Application Insights-resurs](./media/java-quick-start/001-j.png)
+   ![lägg till en Application Insights-resurs](./media/java-quick-start/1createresourseappinsights.png)
+
+   ![lägg till en Application Insights-resurs](./media/java-quick-start/2createjavaapp.png)
 
    En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
-    | Inställningar        | Värde           | Beskrivning  |
+    | Inställningar        | Value           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
    | **Programtyp** | Java-webapp | Typen av app du övervakar |
@@ -90,21 +92,21 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 
-1. Nu kan du öppna sidan **Översikt** i Application Insights i Azure-portalen, där du hämtade instrumenteringsnyckeln, för att visa information om den app som körs.
+1. Nu kan du öppna Application Insights **översikt** sida i Azure portal för att visa information om programmet som körs för närvarande.
 
-   ![översiktsvyn för Application Insights](./media/java-quick-start/overview-001.png)
+   ![översiktsvyn för Application Insights](./media/java-quick-start/3overview.png)
 
 2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-   ![Programkarta](./media/java-quick-start/application-map-001.png)
+   ![Programkarta](./media/java-quick-start/4appmap.png)
 
-3. Klicka på **Analys**-ikonen![](./media/java-quick-start/006.png). Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3.  Klicka på den **Appanalys** ikonen ![Programkartan ikonen](./media/java-quick-start/006.png) **visa i analys**.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
-   ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/java-quick-start/0010-j.png)
+   ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/java-quick-start/5analytics.png)
 
-4. Gå tillbaka till sidan **Översikt** och undersök KPI-diagrammen.  På den här instrumentpanelen visas statistik om appens hälsotillstånd, inklusive antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar.
+4. Gå tillbaka till sidan **Översikt** och undersök KPI-diagrammen. På den här instrumentpanelen visas statistik om appens hälsotillstånd, inklusive antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar.
 
-   ![diagram med hälsotillståndsöversiktens tidslinje](./media/java-quick-start/overview-perf.png)
+   ![diagram med hälsotillståndsöversiktens tidslinje](./media/java-quick-start/6kpidashboards.png)
 
    Om du vill möjliggör att diagrammet **Inläsningstid för sidvisning** fylls i med data för **telemetri på klientsidan** lägger du till den här skriptet på varje sida som du vill spåra:
 
@@ -130,13 +132,13 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 5. Klicka på **Live Stream**. Här hittar du livemått relaterade till Java-webbappens prestanda. **Live Metrics Stream** innehåller data om antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. Du kan även övervaka kritiska prestandavärden, till exempel processor och minne i realtid.
 
-   ![Diagram för servermått](./media/java-quick-start/livemetricsjava.png)
+   ![Diagram för servermått](./media/java-quick-start/7livemetrics.png)
 
 Mer information om övervakning av Java finns i den [ytterligare App Insights Java-dokumentationen](./../../azure-monitor/app/java-get-started.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du tänker fortsätta med efterföljande snabbstarter eller självstudier ska du inte rensa resurserna du har skapat i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure Portal.
+När du är klar testning bör du ta bort resursgruppen och alla relaterade resurser. Att så att följa stegen nedan.
 
 1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver **myResourceGroup** i textrutan och klickar sedan på **Ta bort**.

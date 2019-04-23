@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194716"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006870"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -47,13 +47,13 @@ Ohanterade diskar för virtuella datorer (VM) är beroende av den inaktiverade A
 
 API: erna för Blob Storage och Azure Data Lake Gen2 API: er är inte kompatibla med varandra.
 
-Om du har verktyg, program, tjänster eller skript som använder Blob-API: er och du vill använda dem för att arbeta med allt det innehåll som du överför till ditt konto, inte aktivera ett hierarkiskt namnområde på Blob storage-kontot förrän Blob API: er blir kompatibel med Azure Data Lake Gen2 API: er. Med hjälp av ett lagringskonto utan ett hierarkiskt namnområde åtkomstkontrollistor innebär att du kan sedan inte har åtkomst till Data Lake Storage Gen2 specifika funktioner, till exempel katalogen och filsystem.
+Om du har verktyg, program, tjänster eller skript som använder Blob-API: er och du vill använda dem för att arbeta med allt det innehåll som du överför till ditt konto, inte aktivera ett hierarkiskt namnområde på Blob storage-kontot förrän Blob API: er blir kompatibel med Azure Data Lake Gen2 API: er. Med hjälp av ett lagringskonto utan ett hierarkiskt namnområde innebär att du kan sedan inte har åtkomst till Data Lake Storage Gen2 specifika funktioner, till exempel katalog och ett filnamn systemets åtkomstkontrollistor.
 
 ## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
 
 Om du vill visa eller hantera Data Lake Storage Gen2 konton med hjälp av Azure Storage Explorer, du måste ha minst version `1.6.0` i verktyget som är tillgängligt som en [kostnadsfri nedladdning](https://azure.microsoft.com/features/storage-explorer/).
 
-Observera att versionen av Storage Explorer som är inbäddad i Azure Portal har för närvarande inte stöd för Visa eller hantera Gen2 för Data Lake Storage-konton med funktionen för hierarkiskt namnområde aktiverad.
+Observera att versionen av Storage Explorer som är inbäddad i Azure-portalen har för närvarande inte stöd för Visa eller hantera Gen2 för Data Lake Storage-konton med funktionen för hierarkiskt namnområde aktiverad.
 
 ## <a name="blob-viewing-tool"></a>Verktyget för visning av BLOB
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439340"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006468"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Hantera åtkomst till Azure-resurser med RBAC och REST API
 
@@ -28,7 +28,7 @@ ms.locfileid: "57439340"
 
 ## <a name="list-access"></a>Visar åtkomst
 
-I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar. Vill se rolltilldelningar kan du använda en av de [rolltilldelningar – lista](/rest/api/authorization/roleassignments/list) REST API: er. För att förfina dina resultat, anger du ett scope och eventuellt ett filter. För att anropa API: et, måste du ha åtkomst till den `Microsoft.Authorization/roleAssignments/read` igen i det specificerade omfånget. Flera [inbyggda roller för Azure-resurser](built-in-roles.md) beviljas åtkomst till den här åtgärden.
+I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar. Vill se rolltilldelningar kan du använda en av de [rolltilldelningar – lista](/rest/api/authorization/roleassignments/list) REST API: er. För att förfina dina resultat, anger du ett scope och eventuellt ett filter.
 
 1. Börja med följande begäran:
 

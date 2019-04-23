@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009427"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009471"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ Tidigare hade molnbaserad analys att angripa i delar av prestanda, hantering och
 
 -   **Kostnadseffektiv**: Data Lake Storage Gen2 erbjuder låg kostnad lagringskapacitet och transaktioner. Som data övergångar genom livscykeln klar, faktureringstaxor ändra kostnader för att se till att latensbidrag via de inbyggda funktionerna för till exempel [Azure Blob storage livscykel](storage-lifecycle-management-concepts.md).
 
--   **Optimerad drivrutinen**: Abfs-drivrutinen är [optimerats specifikt](data-lake-storage-abfs-driver.md) för analys av stordata. De motsvarande REST-API: erna exponeras via dfs-slutpunkt, dfs.core.windows.net.
+-   **Optimerad drivrutinen**: ABFS-drivrutinen är [optimerats specifikt](data-lake-storage-abfs-driver.md) för analys av stordata. De motsvarande REST-API: erna exponeras via slutpunkten `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Skalbarhet
 

@@ -7,17 +7,17 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/20/2019
-ms.openlocfilehash: c6dc49204c0a7e1cb0d1116e29746eed2fe52f8d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 471ded9cd94623929630155f1a3c613bf00576a8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286269"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006258"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala resurser för enkel databas i Azure SQL Database
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som 
 > [!IMPORTANT]
 > Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
-## <a name="change-compute-resources-vcores-or-dtus"></a>Ändra beräkningsresurser (virtuella kärnor eller dtu: er)
+## <a name="change-compute-size-vcores-or-dtus"></a>Ändra beräkningsstorleken (virtuella kärnor eller dtu: er)
 
 När du har valt antalet virtuella kärnor eller dtu: er, du kan skala en enskild databas upp eller ned dynamiskt utifrån det faktiska resultatet med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [ PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
@@ -67,6 +67,37 @@ Fördröjning för att ändra tjänstnivå eller skala om beräkningsstorleken f
 > [!TIP]
 > För att övervaka åtgärder som pågår, se: [Hantera åtgärder med hjälp av REST-API SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [hantera åtgärder med hjälp av CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
+### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Avbryter tjänsten nivåändringar eller beräkning som skalas om åtgärder
+
+En tjänstnivå ändra eller compute skalas om åtgärden som kan avbrytas.
+
+#### <a name="azure-portal"></a>Azure Portal
+
+I översiktsbladet går du till **meddelanden** och klickar på ikonen som anger om det finns en pågående åtgärd:
+
+![Pågående åtgärd](media/sql-database-single-database-scale/ongoing-operations.png)
+
+Klicka på knappen **avbryta den här åtgärden**.
+
+![Avbryta pågående åtgärd](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
+
+#### <a name="powershell"></a>PowerShell
+
+Från en PowerShell-kommandotolk, ange den `$ResourceGroupName`, `$ServerName`, och `$DatabaseName`, och kör sedan följande kommando:
+
+```PowerShell
+$OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
+if(-not [string]::IsNullOrEmpty($OperationName))
+    {
+        (az sql db op cancel --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --name $OperationName)
+        "Operation " + $OperationName + " has been canceled"
+    }
+    else
+    {
+        "No service tier change or compute rescaling operation found"
+    }
+```
+
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Ytterligare överväganden när du ändrar tjänsten nivå eller skalas om beräkningsstorleken
 
 - Om du uppgraderar till en högre tjänstnivå eller compute storlek ökar den maximala databasstorleken inte såvida du inte uttryckligen anger en större storlek (maxsize).
@@ -77,7 +108,7 @@ Fördröjning för att ändra tjänstnivå eller skala om beräkningsstorleken f
 - Erbjudandena för återställningstjänsterna är olika för de olika tjänstnivåerna. Om du nedgraderar till den **grundläggande** nivå, finns det en lägre kvarhållningsperiod. Se [Azure SQL Database-säkerhetskopior](sql-database-automated-backups.md).
 - De nya egenskaperna för databasen tillämpas inte förrän ändringarna har slutförts.
 
-### <a name="billing-during-rescaling"></a>Fakturering under skalas om
+### <a name="billing-during-compute-rescaling"></a>Fakturering under beräkning skulle skalas om
 
 Du debiteras för varje timme som det finns en databas med hjälp av den högsta tjänstenivå + compute storlek som gällde under den timmen, oavsett användning eller om databasen var aktiv under mindre än en timme. Om du skapar en enkel databas och raderar den fem minuter senare visar din faktura en avgift för en databastimme.
 
@@ -102,9 +133,9 @@ Du debiteras för varje timme som det finns en databas med hjälp av den högsta
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>DTU-baserade inköpsmodellen: Begränsningar för P11 och P15 när maximalt storleken är större än 1 TB
+## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>P11 och P15 begränsningar när det maximala storlek är större än 1 TB
 
-Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB. Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb). Följande överväganden och begränsningar gäller för P11 och P15-databaser med en maximal storlek som är större än 1 TB:
+Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB. Följande överväganden och begränsningar gäller för P11 och P15-databaser med en maximal storlek som är större än 1 TB:
 
 - Om den maximala storleken för en databas för P11 eller P15 någonsin angavs ett värde större än 1 TB, kan sedan den endast återställas eller kopieras till en P11 eller P15-databas.  Därefter kan skala databasen till en annan beräkningsstorleken förutsatt att mängden utrymme som tilldelas när den skulle skalas om åtgärden inte överskrider maxstorleken gränserna för den nya beräkningsstorleken.
 - För scenarier med aktiv geo-replikering:

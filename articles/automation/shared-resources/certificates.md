@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab8a231d4d44cfe2bfaf7c003ca57772a7a1814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896538"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010287"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certifikattillgångar i Azure Automation
 
@@ -33,7 +33,7 @@ För AzureRM används cmdletar i följande tabell för att skapa och hantera inl
 |[New-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Skapar ett nytt certifikat till Azure Automation.|
 [Remove-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Tar bort ett certifikat från Azure Automation.|
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Anger egenskaperna för ett befintligt certifikat, inklusive överföring av certifikatfilen och inställning av lösenordet för PFX-fil.|
-|[Add-AzureCertificate](/previous-versions/azure/dn495214)|Överför ett tjänstcertifikat för den angivna Molntjänsten.|
+|[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Överför ett tjänstcertifikat för den angivna Molntjänsten.|
 
 ## <a name="activities"></a>Aktiviteter
 

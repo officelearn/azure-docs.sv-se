@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879700"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007635"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hög tillgänglighet och disaster recovery
 
@@ -82,8 +82,6 @@ Alternativet för manuell växling vid fel är alltid tillgänglig för användn
 > - Testa tester bör inte utföras på IoT-hubbar som används i produktionsmiljöerna.
 >
 > - Manuell redundans bör inte användas som en mekanism för att migrera din hubb mellan regionerna som Azure geo ihop permanent. Detta skulle orsaka en ökad latens för åtgärder som utförs mot hubben från enheter homed i den gamla primära regionen.
->
-> - Manuell redundans är en förhandsversion och är inte tillgänglig i följande Azure-regioner. Östra USA, västra USA, Norra Europa, västra Europa, södra Brasilien, södra centrala USA.
 
 ### <a name="failback"></a>Återställning efter fel
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7e21d4c6705213cb57f058c062fff0ff4957a52a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681870"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004966"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -140,4 +140,4 @@ Använda Azure AD-säkerhetsgrupper som det tilldelade huvudnamnet i ACL: er fö
 ## <a name="next-steps"></a>Nästa steg
 
 * [Uppdatera Azure HDInsight-integrering med Data Lake Storage Gen2 förhandsgranskning - ACL och säkerhet](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
-* [Introduktion till Azure Data Lake Storage Gen2 – förhandsversion](../storage/blobs/data-lake-storage-introduction.md)
+* [Introduktion till Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)

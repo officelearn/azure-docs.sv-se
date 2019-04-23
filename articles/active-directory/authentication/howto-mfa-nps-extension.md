@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564539"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009724"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -43,7 +43,7 @@ Du kan skapa så många Azure MFA-aktiverade NPS-servrar som du behöver. Om du 
 
 VPN-servrar vidarebefordra autentiseringsbegäranden, så att de behöver känna till de nya Azure MFA-aktiverade NPS-servrarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 NPS-tillägget är avsedda att fungera med din befintliga infrastruktur. Kontrollera att du har följande krav innan du börjar.
 
@@ -76,14 +76,14 @@ När du installerar tillägget måste katalog-ID och administratörsautentiserin
 
 NPS-servern måste kunna kommunicera med följande webbadresser över portarna 80 och 443.
 
-* https://adnotifications.windowsazure.com  
-* https://login.microsoftonline.com
+* https:\//adnotifications.windowsazure.com  
+* https:\//login.microsoftonline.com
 
 Dessutom kan anslutningen till följande URL: er för att slutföra den [installationen av kortet använder tillhandahållna PowerShell-skript](#run-the-powershell-script)
 
-- https://login.microsoftonline.com
-- https://provisioningapi.microsoftonline.com
-- https://aadcdn.msauth.net
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -207,7 +207,7 @@ När du aktiverar MFA för en RADIUS-klient som använder NPS-tillägget, måste
 
 Om du har användare som inte har registrerats för MFA, kan du bestämma vad som händer när de försöker att autentisera. Använda registerinställningen *REQUIRE_USER_MATCH* i registersökvägen *HKLM\Software\Microsoft\AzureMFA* att styra hur funktionen. Den här inställningen har ett enda konfigurationsalternativ:
 
-| Nyckel | Värde | Standard |
+| Nyckel | Value | Standard |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | SANT/FALSKT | Inte har angetts (motsvarar SANT) |
 

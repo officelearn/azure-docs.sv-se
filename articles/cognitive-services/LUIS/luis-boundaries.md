@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897528"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006836"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
@@ -47,16 +47,16 @@ Om din app överskrider LUIS-modellen begränsningar och gränser, bör du anvä
 
 * Standard tecknet max är 50 tecken. 
 
-## <a name="intent-and-entity-naming"></a>Avsikt och namngivning av entiteten
-Använd inte följande tecken i avsikt och entiteten namn:
+<a name="intent-and-entity-naming"></a>
 
-|Tecken|Namn|
+## <a name="object-naming"></a>Objekt-namngivning
+
+Använd inte följande tecken i följande namn.
+
+|Object|Utesluta tecken|
 |--|--|
-|`{`|Vänster klammer|
-|`}`|Höger klammer|
-|`[`|Vänster hakparentes|
-|`]`|Högerparentes|
-|`\`|Omvänt snedstreck|
+|Avsikten-, entitets-och roll|`:`<br>`$`|
+|Versionsnamn|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Nyckelanvändning
 

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: fa0edaaa3ee785f89faceb51419d360752bb9825
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 4f59f68c1598f737ea7cb3a0e8046fc0779ed9d3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58051664"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118892"
 ---
 Azure File Sync-agenten uppdateras regelbundet att lägga till nya funktioner och för att lösa problem. Vi rekommenderar att du konfigurerar Microsoft Update för att hämta uppdateringar för Azure File Sync-agenten när de är tillgängliga.
 
@@ -25,11 +25,16 @@ Det finns fyra godkända och testats sätt att installera uppdateringar för Azu
     AfsUpdater.exe finns i installationskatalogen för agenten. Dubbelklicka på den körbara filen för att ladda ned och installera agentuppdateringar. 
 3. **Korrigera ett befintligt Azure File Sync-agenten med hjälp av en korrigeringsfil för Microsoft Update eller en körbar .msp. Det senaste uppdateringspaketet för Azure File Sync kan laddas ned från den [Microsoft Update-katalogen](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Köra en körbar .msp uppgraderar Azure File Sync-installationen med samma metod som används automatiskt av Microsoft Update i den föregående uppgraderingsvägen. Tillämpa en korrigering för Microsoft Update utför en uppgradering på plats av en Azure File Sync-installation.
-4. **Hämta installationsprogrammet för den senaste Azure File Sync-agenten från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Installationsprogrammet hämtningen är en Microsoft Installer-paket eller en körbar .msi.**  
+4. **Hämta installationsprogrammet för den senaste Azure File Sync-agenten från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).**  
     Uppgradera en befintlig installation av Azure File Sync-agenten genom avinstallera den äldre versionen och installera den senaste versionen från det nedladdade installationsprogrammet. Registrera servern synkroniseringsgrupper och eventuella andra inställningar underhålls av Azure File Sync-installationsprogrammet.
 
+#### <a name="automatic-agent-lifecycle-management"></a>Livscykelhantering för automatisk agenthantering
+Med agent-version 6, har file sync-teamet infört en funktion för automatisk uppgradering av agent. Du kan välja något av två lägen och ange en underhållsperiod som uppgraderingen ska göras på servern. Den här funktionen är avsedd att hjälpa dig med livscykelhantering agent med antingen en guardrail hindrar din agent från upphör att gälla eller vilket ger en smidig, stannar aktuella inställningen.
+1. Den **standardinställningen** försöker att förhindra att agenten från upphör att gälla. Inom 21 dagar före bokförda utgångsdatumet för en agent försöker agenten lokal uppgradera. Ett försök att uppgradera en gång i veckan i 21 dagar före förfallodatum och i den valda underhållsperioden startas. **Det här alternativet inte behöver för att utföra regelbundna Microsoft Update-korrigeringar.**
+2. Du kan också markera att agenten kommer att automatiskt uppgradera själva så fort en ny agentversion blir tillgänglig. Det även inträffa under det valda underhållsfönstret och tillåter du att din server kan dra nytta av nya funktioner och förbättringar så fort de blir allmänt tillgänglig. Detta är den rekommendera och problemfri inställningen som ger större agentversioner samt vanlig uppdatering korrigeringar till servern.
+
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Livscykel och ändra agenthantering garanterar
-Azure File Sync är en molnbaserad tjänst som gör att kontinuerligt med nya funktioner och funktionalitet. Det innebär att en specifik version av Azure File Sync-agenten kan bara användas under en begränsad tid. Följande regler för att garantera att du har tillräckligt med tid och ett meddelande för agenten uppdateringar/uppgraderingar i din process för ändringshantering för att underlätta distributionen:
+Azure File Sync är en molntjänst som kontinuerligt introducerar nya funktioner och förbättringar. Det innebär att en specifik version av Azure File Sync-agenten kan bara användas under en begränsad tid. För att underlätta distributionen av garanterar följande regler att du har tillräckligt med tid och ett meddelande för agenten uppdateringar/uppgraderingar i din process för ändringshantering:
 
 - Större agentversioner som stöds för minst sex månader från dagen för första versionen.
 - Vi garanterar att det finns en överlappning av minst tre månader mellan stöd för större agentversioner. 

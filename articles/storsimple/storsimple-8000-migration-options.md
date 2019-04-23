@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 78508c1227c0b278041b86c3fdd698c6ad27c132
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 1e637f58b392b2de67a5ead9d57a6a87ab705b93
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608226"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007246"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
 
@@ -43,7 +43,7 @@ Mer information om hur du migrerar data med hjälp av en StorSimple 8000-serien,
 
 Den här helt nya migreringsalternativ ger kunder möjlighet att lagra sin organisations filresurser i Azure-filer. Dessa filresurser är sedan centraliserade för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Faktiska datamigreringen utförs sedan som en värd kopia eller med hjälp av migreringsverktyget.
 
-Mer information om hur du migrerar data till Azure File Sync går du till [migrera data från StorSimple 5000-7000-serien till Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
+Mer information om hur du migrerar data till Azure File Sync går du till [migrera data från StorSimple 5000-7000-serien till Azure File Sync](storsimple-5000-7000-afs-migration.md).
 
 ### <a name="third-party-options"></a>Tredjeparts-alternativ
 

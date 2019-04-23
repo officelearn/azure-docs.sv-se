@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 93be58ac231ff2b88c6618c549c9d1975977b91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799158"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009386"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Hur du använder en hanterad instans i Azure SQL Database
 
@@ -36,7 +36,7 @@ I den här artikeln kan du hitta olika guider, skript och som kan hjälpa dig at
 - [Konfigurera befintligt virtuellt nätverk och undernät för en hanterad instans](sql-database-managed-instance-configure-vnet-subnet.md) – om du vill konfigurera din befintliga VNet och undernät för att distribuera hanterade instanser i här hittar du det skript som kontrollerar den [krav på](sql-database-managed-instance-connectivity-architecture.md#network-requirements) och kontrollera konfigurerar ditt undernät enligt kraven.
 - [Konfigurera anpassad DNS](sql-database-managed-instance-custom-dns.md) – du måste konfigurera anpassad DNS om du vill komma åt externa resurser på anpassade domäner från din hanterade instans via länkade servern av db e-profiler.
 - [Synkronisera nätverkskonfiguration](sql-database-managed-instance-sync-network-configuration.md) – det kan hända att även om du [integrerat din app med Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), kan du&#39;t upprätta anslutning till en hanterad instans. En sak som du ska uppdatera nätverkskonfigurationen för din serviceplan.
-- [Hitta IP-adress för hantering av slutpunkten](sql-database-managed-instance-find-management-endpoint-ip-address.md) – den hanterade instansen använder offentlig slutpunkt management-endast för. Du kan fastställa IP-adressen för hanteringsslutpunkten med hjälp av skript som beskrivs här.
+- [Hitta IP-adress för hantering av slutpunkten](sql-database-managed-instance-find-management-endpoint-ip-address.md) – den hanterade instansen använder offentliga slutpunkten för management-ändamål. Du kan fastställa IP-adressen för hanteringsslutpunkten med hjälp av skript som beskrivs här.
 - [Kontrollera inbyggda brandväggsskydd](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) – hanterad instans är skyddad med inbyggda brandväggen som tillåter trafik på portar som behövs. Du kan kontrollera och de inbyggda brandväggsregler med hjälp av skript som beskrivs i den här guiden.
 - [Anslut program](sql-database-managed-instance-connect-app.md) – den hanterade instansen placeras i ditt eget privata virtuella Azure-nätverket med privata IP-adress. Läs mer om olika mönster för att ansluta program till din hanterade instans.
 

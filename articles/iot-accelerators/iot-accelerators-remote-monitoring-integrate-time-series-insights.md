@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085158"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007482"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
 
@@ -24,7 +24,7 @@ Lösningsacceleratorn för fjärrövervakning tillhandahåller nu automatisk dis
 > [!NOTE]
 > Time Series Insights är inte tillgänglig för tillfället i Azure i Kina-molnet. Nya fjärrövervakning solution accelerator distributioner i Azure i Kina-molnet använder Cosmos DB för lagring av alla.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här anvisningen, måste du redan har distribuerat en lösning för fjärrövervakning:
 
@@ -57,12 +57,12 @@ Sedan distribuerar Time Series Insights som ytterligare en resurs i lösningen f
 
 1. Skapa din Time Series Insights-miljö använda värdena i tabellen nedan:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
     | Miljönamn | Följande skärmbild använder namnet **contorosrmtsi**. Välj ditt eget unika namn när du har slutfört det här steget. |
     | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
     | Resursgrupp | **Använd befintlig**. Välj namnet på en befintlig resursgrupp för fjärrövervakning. |
-    | Plats | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
+    | Location | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
     | Sku |**S1** |
     | Kapacitet | **1** |
 
@@ -86,7 +86,7 @@ Skapa en ny händelsekälla att ansluta till din IoT-hubb. Se till att du använ
 
 1. Om du vill konfigurera din IoT-hubb som en ny händelsekälla, använda värdena i tabellen nedan:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | ------- | ----- |
     | Namn på händelsekälla | Följande skärmbild använder namnet **contosorm-iot-hub**. Använd ditt eget unika namn när du har slutfört det här steget. |
     | Källa | **IoT Hub** |
@@ -236,6 +236,9 @@ Konfigurera miljön för `basic` distributionen för den uppdaterade mikrotjäns
 1. Navigera till den **ASA manager-tjänsten** och redigera docker compose-fil genom att lägga till `PCS_TELEMETRY_STORAGE_TYPE`.
 
 1. Starta om docker-behållare med hjälp av `sudo ./start.sh` från den virtuella datorn.
+
+> [!NOTE]
+> Ovanstående konfiguration av miljövariabler är giltig för fjärrövervakning versioner före 1.0.2
 
 ### <a name="standard-deployments"></a>Standard-distributioner
 

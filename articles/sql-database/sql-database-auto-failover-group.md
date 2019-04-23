@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848390"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009080"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -40,7 +40,7 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>Automatisk redundans grupp terminologi och funktioner
 
-- **Redundansgrupp**
+- **Redundansgruppen (DIMMA)**
 
   Redundansgruppen är en grupp med databaser som hanteras av en enda SQL Database-server eller i en hanterad instans som kan ha redundans som en enhet till en annan region om alla eller vissa primära databaser blir otillgänglig på grund av ett avbrott i den primära regionen.
 
@@ -77,11 +77,11 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
   - **SQL Database-server DNS CNAME-post för Läs-och lyssnare**
 
-     På en SQL Database-server, DNS CNAME-post för redundansgruppen som pekar på den aktuella primära URL: en har formaterats som `failover-group-name.database.windows.net`.
+     På en SQL Database-server, DNS CNAME-post för redundansgruppen som pekar på den aktuella primära URL: en har formaterats som `<fog-name>.database.windows.net`.
 
   - **Hanterad instans DNS CNAME-post för Läs-och lyssnare**
 
-     På en hanterad instans DNS CNAME-post för redundansgruppen som pekar på den aktuella primära URL: en har formaterats som `failover-group-name.zone_id.database.windows.net`.
+     På en hanterad instans DNS CNAME-post för redundansgruppen som pekar på den aktuella primära URL: en har formaterats som `<fog-name>.zone_id.database.windows.net`.
 
 - **Redundans skrivskyddad lyssnare**
 
@@ -89,11 +89,11 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
   - **SQL Database-server DNS CNAME-post för skrivskyddade lyssnare**
 
-     På en SQL Database-server, DNS CNAME-post för den skrivskyddade lyssnare som pekar på den sekundära URL: en har formaterats som `failover-group-name.secondary.database.windows.net`.
+     På en SQL Database-server, DNS CNAME-post för den skrivskyddade lyssnare som pekar på den sekundära URL: en har formaterats som `'.secondary.database.windows.net`.
 
   - **Hanterad instans DNS CNAME-post för skrivskyddade lyssnare**
 
-     På en hanterad instans DNS CNAME-post för den skrivskyddade lyssnare som pekar på den sekundära URL: en har formaterats som `failover-group-name.zone_id.database.windows.net`.
+     På en hanterad instans DNS CNAME-post för den skrivskyddade lyssnare som pekar på den sekundära URL: en har formaterats som `<fog-name>.zone_id.database.windows.net`.
 
 - **Princip för automatisk redundans**
 
@@ -156,11 +156,11 @@ Följ dessa allmänna riktlinjer när du utformar en tjänst med verksamhetskont
 
 - **Använd Skriv-lyssnare för OLTP-arbetsbelastning**
 
-  När du utför åtgärder för OLTP, använda `failover-group-name.database.windows.net` som servern URL och anslutningarna automatiskt dirigeras till primärt. Denna URL ändras inte efter redundansen. Obs växling vid fel innebär att uppdatera DNS-posten så klientanslutningarna omdirigeras till den nya primärt först när klienten DNS-cacheminnet har uppdaterats.
+  När du utför åtgärder för OLTP, använda `<fog-name>.database.windows.net` som servern URL och anslutningarna automatiskt dirigeras till primärt. Denna URL ändras inte efter redundansen. Obs växling vid fel innebär att uppdatera DNS-posten så klientanslutningarna omdirigeras till den nya primärt först när klienten DNS-cacheminnet har uppdaterats.
 
 - **Använd skrivskyddade lyssnare för skrivskyddade arbetsbelastningar**
 
-  Om du har en logiskt avskild skrivskyddad arbetsbelastning som är tolerant för vissa föråldring av data kan använda du den sekundära databasen i programmet. Skrivskyddad sessioner, använda `failover-group-name.secondary.database.windows.net` som servern URL och anslutningen automatiskt dirigeras till sekundärt. Vi rekommenderar också att du anger i anslutningssträngen läsa avsikten med hjälp av **ApplicationIntent = ReadOnly**.
+  Om du har en logiskt avskild skrivskyddad arbetsbelastning som är tolerant för vissa föråldring av data kan använda du den sekundära databasen i programmet. Skrivskyddad sessioner, använda `<fog-name>.secondary.database.windows.net` som servern URL och anslutningen automatiskt dirigeras till sekundärt. Vi rekommenderar också att du anger i anslutningssträngen läsa avsikten med hjälp av **ApplicationIntent = ReadOnly**.
 
 - **Förberedas för perf försämring**
 
@@ -206,7 +206,7 @@ Om ditt program använder Managed Instance som datanivån, följer du dessa allm
 
 - **Använd Skriv-lyssnare för OLTP-arbetsbelastning**
 
-  När du utför åtgärder för OLTP, använda `failover-group-name.zone_id.database.windows.net` som servern URL och anslutningarna automatiskt dirigeras till primärt. Denna URL ändras inte efter redundansen. Växling vid fel innebär att uppdatera DNS-posten så klientanslutningarna omdirigeras till den nya primärt först när klienten DNS-cacheminnet har uppdaterats. Eftersom den sekundära instansen delar DNS-zon med primärt, kommer klientprogrammet att kunna återansluta till den med samma SAN-certifikat.
+  När du utför åtgärder för OLTP, använda `<fog-name>.zone_id.database.windows.net` som servern URL och anslutningarna automatiskt dirigeras till primärt. Denna URL ändras inte efter redundansen. Växling vid fel innebär att uppdatera DNS-posten så klientanslutningarna omdirigeras till den nya primärt först när klienten DNS-cacheminnet har uppdaterats. Eftersom den sekundära instansen delar DNS-zon med primärt, kommer klientprogrammet att kunna återansluta till den med samma SAN-certifikat.
 
 - **Ansluta direkt till geo-replikerad sekundär för skrivskyddade frågor**
 
@@ -214,8 +214,8 @@ Om ditt program använder Managed Instance som datanivån, följer du dessa allm
 
   > [!NOTE]
   > I vissa tjänstnivåer, Azure SQL Database stöder användning av [skrivskyddade repliker](sql-database-read-scale-out.md) att läsa in saldo skrivskyddat arbetsbelastningar med hjälp av kapaciteten för en skrivskyddad replik och använder den `ApplicationIntent=ReadOnly` parameter i anslutningen sträng. När du har konfigurerat en geo-replikerad sekundär, använder du den här funktionen för att ansluta till antingen en skrivskyddad replik på den primära platsen eller i geo-replikerade platsen.
-  > - Om du vill ansluta till en skrivskyddad replik på den primära platsen, `failover-group-name.zone_id.database.windows.net`.
-  > - Om du vill ansluta till en skrivskyddad replik på den sekundära platsen `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Om du vill ansluta till en skrivskyddad replik på den primära platsen, `<fog-name>.zone_id.database.windows.net`.
+  > - Om du vill ansluta till en skrivskyddad replik på den sekundära platsen `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Förberedas för perf försämring**
 
@@ -306,7 +306,7 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Hantera redundans för SQL-databas med enskilda databaser och elastiska pooler
 
-| Cmdlet: | Beskrivning |
+| Cmdlet | Beskrivning |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Det här kommandot skapar en redundansgrupp och registrerar den på både primära och sekundära servrar|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Tar bort redundansgruppen från servern och tar bort alla sekundära databaser ingår i gruppen |

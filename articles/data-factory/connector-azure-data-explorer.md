@@ -1,5 +1,5 @@
 ---
-title: Kopiera data till och från Azure Data Explorer med Azure Data Factory | Microsoft Docs
+title: Kopiera data till och från Azure Data Explorer med Azure Data Factory
 description: Lär dig hur du kopierar data till eller från Azure Data Explorer genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: orspod
-ms.openlocfilehash: 756ede9cc90655163d6d53aa3ca920d2a15fb43d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.author: orspodek
+ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682499"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009369"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till och från Azure Data Explorer med Azure Data Factory
 
@@ -219,4 +219,7 @@ För att kopiera data till Azure Data Explorer, ange egenskapen type i Kopiera a
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Läs mer om [kopiera data från Azure Data Factory till Azure Data Explorer](/azure/data-explorer/data-factory-load-data).

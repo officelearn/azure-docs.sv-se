@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 44b9e592d60c541e6b1e7f0e8c639b641af414e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118365"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007516"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordrade portar med Azure Load Balancer med portalen
 
@@ -47,11 +47,11 @@ Börja med att skapa en offentlig standardbelastningsutjämnare som kan belastni
 1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Lastbalanserare**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställning                 | Value                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
-    | Namn                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
     | Type          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
@@ -60,7 +60,7 @@ Börja med att skapa en offentlig standardbelastningsutjämnare som kan belastni
     |Tillgänglighetszon| Välj **Zonredundant**.    |
      
     >[!NOTE]
-     >Se till att skapa en belastningsutjämnare och alla resurser för den på en plats som har stöd för tillgänglighetszoner. Mer information finns i [regioner som har stöd för tillgänglighetszoner](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+     >Se till att skapa en belastningsutjämnare och alla resurser för den på en plats som har stöd för tillgänglighetszoner. Mer information finns i [regioner som har stöd för tillgänglighetszoner](../availability-zones/az-overview.md#services-support-by-region). 
 
 3. På fliken **Granska + skapa** klickar du på **Skapa**.  
   

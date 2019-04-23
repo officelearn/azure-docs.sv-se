@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 00752e0b42b907699e9f314c2f216b69c9d3b2e8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506744"
 documentType: LandingData
 title: Dokumentation om Enterprise-användarhantering – Azure Active Directory
 metadata:
-  document_id: 
-  title: Dokumentation för användare, grupper, roller och licenser i Azure Active Directory
-  description: Läs om hur du använder användare, grupper, roller och licenser för att hantera åtkomst till Azure-molntjänsterna i din klientorganisation.
+  document_id: null
+  title: 'Dokumentation för användare, grupper, roller och licenser i Azure Active Directory'
+  description: 'Läs om hur du använder användare, grupper, roller och licenser för att hantera åtkomst till Azure-molntjänsterna i din klientorganisation.'
   services: active-directory
   ms.subservice: users-groups-roles
   author: curtand
@@ -20,33 +14,33 @@ metadata:
   ms.date: 01/31/2019
   ms.author: curtand
 abstract:
-  description: Användarhanteringsverktyg i Azure AD som tilldelning av grupper och administratörsroller hjälper dig att utföra dina vanligaste uppgifter snabbare och öka tillväxten. Du kan tilldela licenser eller åtkomst till SaaS-appar till grupper istället för till enskilda användare, eller delegera behörigheter för att distribuera administrationskostnaderna för identitetshanteringen i Azure AD.
+  description: 'Användarhanteringsverktyg i Azure AD som tilldelning av grupper och administratörsroller hjälper dig att utföra dina vanligaste uppgifter snabbare och öka tillväxten. Du kan tilldela licenser eller åtkomst till SaaS-appar till grupper istället för till enskilda användare, eller delegera behörigheter för att distribuera administrationskostnaderna för identitetshanteringen i Azure AD.'
 sections:
-- title: Snabbstarter på fem minuter
-  items:
-  - type: paragraph
-    text: Läs om hur du använder hanteringsverktyg i Azure Active Directory
-  - type: list
-    style: unordered
+  - title: Snabbstarter på fem minuter
     items:
-    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Lägga till användare i Azure AD</a>
-    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Tilldela licenser till användare</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Registrera dig för Azure AD Premium</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Ange utgångsdatum för grupper som skapats av användare</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Ange namnpolicy för grupper som skapats av användare</a>
-- title: Stegvisa självstudier
-  items:
-  - type: paragraph
-    text: Läs om hur du dynamiskt uppdaterar grupper i Azure Active Directory
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Läs om hur du använder hanteringsverktyg i Azure Active Directory
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Lägga till användare i Azure AD</a>
+          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Tilldela licenser till användare</a>
+          - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Registrera dig för Azure AD Premium</a>
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Ange utgångsdatum för grupper som skapats av användare</a>
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Ange namnpolicy för grupper som skapats av användare</a>
+  - title: Stegvisa självstudier
     items:
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Skapa en dynamiskt uppdaterad grupp</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Läs om hur du dynamiskt uppdaterar grupper i Azure Active Directory
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Skapa en dynamiskt uppdaterad grupp</a>
+  - title: Referens
     items:
-    - title: Referenslänkar
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell-cmdletar</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Referenslänkar
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell-cmdletar</a></p>'

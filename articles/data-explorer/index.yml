@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 34de58f7a3f9307714ccc4594d9ac92523c55f69
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482225"
 documentType: LandingData
 title: Dokumentation om Azure Data Explorer
 metadata:
-  title: Dokumentation om Azure Data Explorer – Snabbstarter, självstudier, samt språk- och API-referenser
+  title: 'Dokumentation om Azure Data Explorer – Snabbstarter, självstudier, samt språk- och API-referenser'
   description: Azure Data Explorer är en molnplattform för logganalys som är optimerad för ad hoc-stordatafrågor.
   author: orspod
   ms.author: orspodek
@@ -16,68 +10,68 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/24/2019
 abstract:
-  description: <p>Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. Du kan använda Azure Data Explorer för att samla in, lagra och analysera olika data i syfte att övervaka enheter och förbättra produkter, kundupplevelser och åtgärder.</p><p>Lär dig hur du använder Azure Data Explorer med våra snabbstarter, självstudier och referensinnehåll.</p>
+  description: '<p>Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. Du kan använda Azure Data Explorer för att samla in, lagra och analysera olika data i syfte att övervaka enheter och förbättra produkter, kundupplevelser och åtgärder.</p><p>Lär dig hur du använder Azure Data Explorer med våra snabbstarter, självstudier och referensinnehåll.</p>'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Vad är Azure Data Explorer? (19:47)
-    href: https://youtu.be/D_AJk2lAepw
+    title: 'Vad är Azure Data Explorer? (19:47)'
+    href: 'https://youtu.be/D_AJk2lAepw'
     width: 250
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du etablerar och använder Azure Data Explorer:'
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: /azure/data-explorer/media/index/portal.svg
-      text: Skapa ett kluster och en databas
-      href: /azure/data-explorer/create-cluster-database-portal
-    - image:
-        src: /azure/data-explorer/media/index/portal.svg
-      text: Mata in strömmande data från Event Hubs
-      href: /azure/data-explorer/ingest-data-event-hub
-    - image:
-        src: /azure/data-explorer/media/index/portal.svg
-      text: Fråga efter data med webbgränssnittet
-      href: /azure/data-explorer/web-query-data
-    - image:
-        src: /azure/data-explorer/media/index/logo-python.svg
-      text: Mata in köade data med Python
-      href: /azure/data-explorer/python-ingest-data
-    - image:
-        src: /azure/data-explorer/media/index/logo-python.svg
-      text: Fråga efter data med Python
-      href: /azure/data-explorer/python-query-data
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du skapar lösningar från slutpunkt till slutpunkt:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Lär dig hur du etablerar och använder Azure Data Explorer:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/data-explorer/media/index/portal.svg
+            text: Skapa ett kluster och en databas
+            href: /azure/data-explorer/create-cluster-database-portal
+          - image:
+              src: /azure/data-explorer/media/index/portal.svg
+            text: Mata in strömmande data från Event Hubs
+            href: /azure/data-explorer/ingest-data-event-hub
+          - image:
+              src: /azure/data-explorer/media/index/portal.svg
+            text: Fråga efter data med webbgränssnittet
+            href: /azure/data-explorer/web-query-data
+          - image:
+              src: /azure/data-explorer/media/index/logo-python.svg
+            text: Mata in köade data med Python
+            href: /azure/data-explorer/python-ingest-data
+          - image:
+              src: /azure/data-explorer/media/index/logo-python.svg
+            text: Fråga efter data med Python
+            href: /azure/data-explorer/python-query-data
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/data-explorer/visualize-power-bi">Visualisera data från Azure Data Explorer i Power BI</a>
-- title: Kostnadsfri videoutbildning för Pluralsight
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Lär dig hur du skapar lösningar från slutpunkt till slutpunkt:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/data-explorer/visualize-power-bi">Visualisera data från Azure Data Explorer i Power BI</a>
+  - title: Kostnadsfri videoutbildning för Pluralsight
     items:
-    - title: Frågespråk för Azure Data Explorer
-      href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
-      image:
-        src: /azure/data-explorer/media/index/logo-pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Frågespråk för Azure Data Explorer
+            href: 'https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch'
+            image:
+              src: /azure/data-explorer/media/index/logo-pluralsight.svg
+              href: 'https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch'
+  - title: Referens
     items:
-    - title: Språk och API
-      html: <p><a href="https://aka.ms/kustolangref">Frågespråk, hanteringskommandon och API:er</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Språk och API
+            html: '<p><a href="https://aka.ms/kustolangref">Frågespråk, hanteringskommandon och API:er</a>'

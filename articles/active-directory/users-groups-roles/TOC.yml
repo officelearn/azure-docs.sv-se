@@ -1,181 +1,174 @@
-items:
 - name: Dokumentation för användarhantering
   href: index.yml
 - name: Översikt
   items:
-  - name: Användare, grupper, licenser och roller
-    href: directory-overview-user-model.md
+    - name: 'Användare, grupper, licenser och roller'
+      href: directory-overview-user-model.md
 - name: Snabbstarter
   items:
-  - name: Lägga till användare i Azure AD
-    href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Tilldela licenser till användare
-    href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Ange utgångsdatum för grupper
-    href: groups-quickstart-expiration.md
-  - name: Ange namnpolicy för grupper
-    href: groups-quickstart-naming-policy.md
+    - name: Lägga till användare i Azure AD
+      href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Tilldela licenser till användare
+      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Ange utgångsdatum för grupper
+      href: groups-quickstart-expiration.md
+    - name: Ange namnpolicy för grupper
+      href: groups-quickstart-naming-policy.md
 - name: Självstudier
   items:
-  - name: Skapa en dynamiskt uppdaterad grupp
-    href: groups-dynamic-tutorial.md
+    - name: Skapa en dynamiskt uppdaterad grupp
+      href: groups-dynamic-tutorial.md
 - name: Begrepp
-  items:
-  - name: Delegera administratörsroller i Azure AD
-    href: roles-concept-delegation.md
-  - name: Jämföra standardbehörigheter för användare
-    href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Jämför roller i Azure och Azure AD
-    href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Grunderna i gruppbaserad licensiering
-    href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
   expanded: true
+  items:
+    - name: Delegera administratörsroller i Azure AD
+      href: roles-concept-delegation.md
+    - name: Jämföra standardbehörigheter för användare
+      href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Jämför roller i Azure och Azure AD
+      href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Grunderna i gruppbaserad licensiering
+      href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
 - name: Instruktionsguider
-  items:
-  - name: Hantera användare
-    items:
-    - name: Lägga till nya användare i Azure AD
-      href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Hantera användarprofiler
-      href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Dela användarkonton
-      href: users-sharing-accounts.md
-    - name: Tilldela användare administrativa roller
-      href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Återställa en borttagen användare
-      href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Lägga till B2B-användare
-      href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Tilldela en roll till en B2B-användare
-      href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Dynamiska grupper och B2B
-      href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Hantera din katalog
-    items:
-    - name: Administrera din katalog
-      href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Hantera domännamn
-      href: domains-manage.md
-    - name: Ta bort en katalog
-      href: directory-delete-howto.md
-    - name: Flera kataloger
-      href: licensing-directory-independence.md
-    - name: Registrering av självbetjäning
-      href: directory-self-service-signup.md
-    - name: Ta över en katalog
-      href: domains-admin-takeover.md
-    - name: Azure AD Connect
-      href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Hantera grupper
-    items:
-    - name: Hantera åtkomst med grupper
-      href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Hantera grupper i Azure Portal
-      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Hantera grupper i PowerShell för Graph (v2)
-      href: groups-settings-v2-cmdlets.md
-    - name: Hantera grupper i PowerShell MSOnline
-      href: groups-settings-cmdlets.md
-    - name: Hantera gruppmedlemmar
-      href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Hantera gruppägare
-      href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Hantera grupper i grupper
-      href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Hantera gruppåtkomst till SaaS-appar
-      href: groups-saasapps.md
-    - name: Referens för namngivning av grupper
-      href: groups-naming-policy.md
-    - name: Referens för utgångsdatum för grupper
-      href: groups-lifecycle.md
-    - name: Återställa grupper som har förfallit eller tagits bort
-      href: groups-restore-deleted.md
-    - name: Hantera gruppinställningar
-      href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Konfigurera självbetjäningsgrupper
-      href: groups-self-service-management.md
-    - name: Dynamiska grupper
-      items:
-      - name: Skapa en dynamisk grupp
-        href: groups-create-rule.md
-      - name: Dynamiska gruppregler
-        href: groups-dynamic-membership.md
-      - name: Ändra typ av gruppmedlemskap
-        href: groups-change-type.md
-  - name: Tilldela licenser
-    items:
-    - name: Tilldela licenser till en grupp
-      href: licensing-groups-assign.md
-    - name: Lösa problem med grupplicenser
-      href: licensing-groups-resolve-problems.md
-    - name: Ändra användare till grupplicens
-      href: licensing-groups-migrate-users.md
-    - name: Ändra licenser för en användare
-      href: licensing-groups-change-licenses.md
-    - name: Fler scenarier
-      href: licensing-group-advanced.md
-    - name: Grupplicenser med PowerShell
-      href: licensing-ps-examples.md
-    - name: Tjänstplan-ID:n för licensiering
-      href: licensing-service-plan-reference.md
-  - name: Azure AD-administratörsroller
-    items:
-    - name: Roller och behörigheter
-      href: directory-assign-admin-roles.md
-    - name: Visa och tilldela roller
-      href: directory-manage-roles-portal.md
-    - name: Tilldela roller med PowerShell
-      href: roles-assign-powershell.md
-    - name: Delegera appadministratörsroller
-      href: roles-delegate-app-roles.md
-    - name: Lägsta behörighetsroller efter uppgift
-      href: roles-delegate-by-task.md
-    - name: Microsoft 365-roller
-      href: roles-m365-workload-docs.md
-    - name: Säkerhet för administratörsroll
-      items:
-      - name: Planering av rollsäkerhet
-        href: directory-admin-roles-secure.md
-      - name: Skapa nödkonton
-        href: directory-emergency-access.md
-    - name: Administrativa enheter
-      href: directory-administrative-units.md
-  - name: Hantera inloggning
-    items:
-    - name: Anpassa varumärkesexponering
-      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Inloggningsalternativ
-      href: signin-account-support.md
-    - name: Upptäckt av hemsfär
-      href: signin-realm-discovery.md
-  - name: Integrera tjänster med Azure AD
-    items:
-    - name: Integrera LinkedIn med Azure AD
-      href: linkedin-integration.md
-    - name: Datadelning för LinkedIn
-      href: linkedin-user-consent.md
-  - name: Felsöka
-    items:
-    - name: Få support för Azure AD
-      href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Felsöka grupper
-      href: groups-troubleshooting.md
-    - name: Felsöka grupplicenser
-      href: licensing-groups-resolve-problems.md
   expanded: true
+  items:
+    - name: Hantera användare
+      items:
+        - name: Lägga till nya användare i Azure AD
+          href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera användarprofiler
+          href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Dela användarkonton
+          href: users-sharing-accounts.md
+        - name: Tilldela användare administrativa roller
+          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Återställa en borttagen användare
+          href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Lägga till B2B-användare
+          href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Tilldela en roll till en B2B-användare
+          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Dynamiska grupper och B2B
+          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Hantera din katalog
+      items:
+        - name: Administrera din katalog
+          href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera domännamn
+          href: domains-manage.md
+        - name: Ta bort en katalog
+          href: directory-delete-howto.md
+        - name: Flera kataloger
+          href: licensing-directory-independence.md
+        - name: Registrering av självbetjäning
+          href: directory-self-service-signup.md
+        - name: Ta över en katalog
+          href: domains-admin-takeover.md
+        - name: Azure AD Connect
+          href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Hantera grupper
+      items:
+        - name: Hantera åtkomst med grupper
+          href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera grupper i Azure Portal
+          href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera grupper i PowerShell för Graph (v2)
+          href: groups-settings-v2-cmdlets.md
+        - name: Hantera grupper i PowerShell MSOnline
+          href: groups-settings-cmdlets.md
+        - name: Hantera gruppmedlemmar
+          href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera gruppägare
+          href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera grupper i grupper
+          href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Hantera gruppåtkomst till SaaS-appar
+          href: groups-saasapps.md
+        - name: Referens för namngivning av grupper
+          href: groups-naming-policy.md
+        - name: Referens för utgångsdatum för grupper
+          href: groups-lifecycle.md
+        - name: Återställa grupper som har förfallit eller tagits bort
+          href: groups-restore-deleted.md
+        - name: Hantera gruppinställningar
+          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Konfigurera självbetjäningsgrupper
+          href: groups-self-service-management.md
+        - name: Dynamiska grupper
+          items:
+            - name: Skapa en dynamisk grupp
+              href: groups-create-rule.md
+            - name: Dynamiska gruppregler
+              href: groups-dynamic-membership.md
+            - name: Ändra typ av gruppmedlemskap
+              href: groups-change-type.md
+    - name: Tilldela licenser
+      items:
+        - name: Tilldela licenser till en grupp
+          href: licensing-groups-assign.md
+        - name: Lösa problem med grupplicenser
+          href: licensing-groups-resolve-problems.md
+        - name: Ändra användare till grupplicens
+          href: licensing-groups-migrate-users.md
+        - name: Ändra licenser för en användare
+          href: licensing-groups-change-licenses.md
+        - name: Fler scenarier
+          href: licensing-group-advanced.md
+        - name: Grupplicenser med PowerShell
+          href: licensing-ps-examples.md
+        - name: 'Tjänstplan-ID:n för licensiering'
+          href: licensing-service-plan-reference.md
+    - name: Azure AD-administratörsroller
+      items:
+        - name: Roller och behörigheter
+          href: directory-assign-admin-roles.md
+        - name: Visa och tilldela roller
+          href: directory-manage-roles-portal.md
+        - name: Tilldela roller med PowerShell
+          href: roles-assign-powershell.md
+        - name: Delegera appadministratörsroller
+          href: roles-delegate-app-roles.md
+        - name: Lägsta behörighetsroller efter uppgift
+          href: roles-delegate-by-task.md
+        - name: Microsoft 365-roller
+          href: roles-m365-workload-docs.md
+        - name: Säkerhet för administratörsroll
+          items:
+            - name: Planering av rollsäkerhet
+              href: directory-admin-roles-secure.md
+            - name: Skapa nödkonton
+              href: directory-emergency-access.md
+        - name: Administrativa enheter
+          href: directory-administrative-units.md
+    - name: Hantera inloggning
+      items:
+        - name: Anpassa varumärkesexponering
+          href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Inloggningsalternativ
+          href: signin-account-support.md
+        - name: Upptäckt av hemsfär
+          href: signin-realm-discovery.md
+    - name: Integrera tjänster med Azure AD
+      items:
+        - name: Integrera LinkedIn med Azure AD
+          href: linkedin-integration.md
+        - name: Datadelning för LinkedIn
+          href: linkedin-user-consent.md
+    - name: Felsöka
+      items:
+        - name: Få support för Azure AD
+          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Felsöka grupper
+          href: groups-troubleshooting.md
+        - name: Felsöka grupplicenser
+          href: licensing-groups-resolve-problems.md
 - name: Referens
   items:
-  - name: Graph API
-    href: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview
-  - name: Azure AD CLI
-    href: https://docs.microsoft.com/cli/azure/ad
-  - name: Azure AD PowerShell för Graph
-    href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
-  - name: Begränsningar för Azure AD-tjänsten
-    href: directory-service-limits-restrictions.md
-ms.openlocfilehash: 97c2ebbe65f3382ee59d8c3bdb9dad9060cf31b6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577671"
+    - name: Graph API
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview'
+    - name: Azure AD CLI
+      href: 'https://docs.microsoft.com/cli/azure/ad'
+    - name: Azure AD PowerShell för Graph
+      href: 'https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0'
+    - name: Begränsningar för Azure AD-tjänsten
+      href: directory-service-limits-restrictions.md

@@ -1,81 +1,74 @@
-items:
 - name: Jenkins på Azure
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Jenkins på Azure
-    href: overview.md
+    - name: Om Jenkins på Azure
+      href: overview.md
 - name: Snabbstarter
-  items:
-  - name: Skapa en Jenkins-server
-    href: install-jenkins-solution-template.md
   expanded: true
-- name: Självstudier
   items:
-  - name: 1. Installera
-    items:
     - name: Skapa en Jenkins-server
       href: install-jenkins-solution-template.md
-  - name: 2. Konfigurera
-    items:
-    - name: Skala med Azure Container Instances
-      href: /azure/container-instances/container-instances-jenkins
-      maintainContext: true
-    - name: Skala med Azure VM-agenter
-      href: jenkins-azure-vm-agents.md
-  - name: 3. Implementera CI/CD
-    items:
-    - name: AKS
+- name: Självstudier
+  items:
+    - name: 1. Installera
       items:
-      - name: CI/CD till Kubernetes
-        href: /azure/aks/jenkins-continuous-deployment
-        maintainContext: true
-      - name: Distribuera till AKS med hjälp av blått/grönt mönster
-        href: jenkins-aks-blue-green-deployment.md
-    - name: App Service
+        - name: Skapa en Jenkins-server
+          href: install-jenkins-solution-template.md
+    - name: 2. Konfigurera
       items:
-      - name: Skapa Azure-resurser i ett pipeline-jobb
-        href: execute-cli-jenkins-pipeline.md
-      - name: Distribuera en app från GitHub till App Service
-        href: tutorial-jenkins-deploy-web-app-azure-app-service.md
-    - name: Använd Jenkins med Azure DevOps
-      href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
-      maintainContext: true
-    - name: Distribuera till Azure Functions
-      href: jenkins-azure-functions-deploy.md
-    - name: Publicera till Azure Storage
-      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
-      maintainContext: true
-    - name: CI/CD till virtuella Linux-datorer
-      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
-      maintainContext: true
-    - name: CI/CD till Service Fabric
-      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
-      maintainContext: true
+        - name: Skala med Azure Container Instances
+          href: /azure/container-instances/container-instances-jenkins
+          maintainContext: true
+        - name: Skala med Azure VM-agenter
+          href: jenkins-azure-vm-agents.md
+    - name: 3. Implementera CI/CD
+      items:
+        - name: AKS
+          items:
+            - name: CI/CD till Kubernetes
+              href: /azure/aks/jenkins-continuous-deployment
+              maintainContext: true
+            - name: Distribuera till AKS med hjälp av blått/grönt mönster
+              href: jenkins-aks-blue-green-deployment.md
+        - name: App Service
+          items:
+            - name: Skapa Azure-resurser i ett pipeline-jobb
+              href: execute-cli-jenkins-pipeline.md
+            - name: Distribuera en app från GitHub till App Service
+              href: tutorial-jenkins-deploy-web-app-azure-app-service.md
+        - name: Använd Jenkins med Azure DevOps
+          href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
+          maintainContext: true
+        - name: Distribuera till Azure Functions
+          href: jenkins-azure-functions-deploy.md
+        - name: Publicera till Azure Storage
+          href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+          maintainContext: true
+        - name: CI/CD till virtuella Linux-datorer
+          href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+          maintainContext: true
+        - name: CI/CD till Service Fabric
+          href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+          maintainContext: true
 - name: Så här gör du
   items:
-  - name: Använda App Service-pluginprogrammet
-    href: deploy-jenkins-app-service-plugin.md
+    - name: Använda App Service-pluginprogrammet
+      href: deploy-jenkins-app-service-plugin.md
 - name: Exempel
   items:
-  - name: Exempeljobb och skript
-    href: https://github.com/azure/jenkins
+    - name: Exempeljobb och skript
+      href: 'https://github.com/azure/jenkins'
 - name: Resurser
   items:
-  - name: Jenkins-pluginprogram för Azure
-    href: jenkins-plugins.md
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Jenkins-startsida
-    href: https://jenkins.io/
-  - name: Jenkins X-startsida
-    href: https://jenkins-x.io
-  - name: Jenkins-arkitektur
-    href: /azure/architecture/reference-architectures/jenkins/
-    maintainContext: true
-ms.openlocfilehash: c83891a0037f009d539f2d1101697a554f478b1d
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621370"
+    - name: Jenkins-pluginprogram för Azure
+      href: jenkins-plugins.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Jenkins-startsida
+      href: 'https://jenkins.io/'
+    - name: Jenkins X-startsida
+      href: 'https://jenkins-x.io'
+    - name: Jenkins-arkitektur
+      href: /azure/architecture/reference-architectures/jenkins/
+      maintainContext: true

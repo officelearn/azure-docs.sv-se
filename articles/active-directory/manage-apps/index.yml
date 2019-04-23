@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335886"
 documentType: LandingData
 title: Dokumentation om programhantering
 metadata:
@@ -14,44 +8,44 @@ metadata:
   author: barbkess
   manager: daveba
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Office 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.
+  description: 'Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Office 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Säker åtkomst till dina program med Azure AD (1:47)
-    href: https://youtu.be/BSUuXXcJKCk/
+    title: 'Säker åtkomst till dina program med Azure AD (1:47)'
+    href: 'https://youtu.be/BSUuXXcJKCk/'
     width: 250
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du lägger till ett program så att användarna får tillgång till det genom Azure Active Directory.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Lägga till ett program
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Visa dina program
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du aktiverar en enkel och säker inloggningsprocess för dina program.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Lär dig hur du lägger till ett program så att användarna får tillgång till det genom Azure Active Directory.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Lägga till ett program
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Visa dina program
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Självstudier för SaaS-program</a>
-    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Konfigurera enkel inloggning</a>
+      - type: paragraph
+        text: Lär dig hur du aktiverar en enkel och säker inloggningsprocess för dina program.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Självstudier för SaaS-program</a>'
+          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Konfigurera enkel inloggning</a>

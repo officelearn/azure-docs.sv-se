@@ -1,131 +1,124 @@
-items:
 - name: Översikt
   items:
-  - name: Agentövervakning
-    href: ../monitoring/index.md
+    - name: Agentövervakning
+      href: ../monitoring/index.md
 - name: Kom igång
   items:
-  - name: Azure Monitor-loggar
-    href: ../log-analytics/log-analytics-get-started.md
-  - name: Automation
-    href: /azure/automation/
-  - name: Backup
-    href: ../backup/backup-introduction-to-azure-backup.md
-  - name: Site Recovery
-    href: ../site-recovery/site-recovery-overview.md
+    - name: Azure Monitor-loggar
+      href: ../log-analytics/log-analytics-get-started.md
+    - name: Automation
+      href: /azure/automation/
+    - name: Backup
+      href: ../backup/backup-introduction-to-azure-backup.md
+    - name: Site Recovery
+      href: ../site-recovery/site-recovery-overview.md
 - name: Gör så här för att
   items:
-  - name: Analysera
-    items:
-    - name: Azure Monitor-loggar
-      href: ../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-  - name: Automatisera
-    items:
-    - name: Översikt över Azure Automation
-      href: ../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-  - name: Backup
-    items:
-    - name: Översikt över Backup
-      href: ../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-    - name: Site Recovery-översikt
-      href: ../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-  - name: Skydda
-    items:
-    - name: Övervaka resurser
-      href: ../security-center/security-center-monitoring.md
-    - name: Åtgärda säkerhetsaviseringar
-      href: ../security-center/security-center-managing-and-responding-alerts.md
-    - name: Utvärdering av baslinje
-      href: ../security-center/security-center-customize-os-security-config.md
-    - name: Utvärdering av skadlig kod
-      href: ../security-center/security-center-install-endpoint-protection.md
-    - name: Ansluta säkerhetsprodukter
-      href: ../security-center/quick-security-solutions.md
-    - name: Utvärdering av webbaslinje
-      href: ../security-center/security-center-customize-os-security-config.md
-  - name: Använd lösningar
-    items:
-    - name: Hanteringslösningar
-      href: ../azure-monitor/insights/solutions.md
-    - name: Mållösningar
-      href: ../azure-monitor/insights/solution-targeting.md
-    - name: Information och analyser
+    - name: Analysera
       items:
-      - name: AD-bedömning
-        href: ../azure-monitor/insights/ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: AD-replikeringsstatus
-        href: ../azure-monitor/insights/ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Agenthälsa
-        href: oms-solution-agenthealth.md
-      - name: Varningshantering
-        href: ../azure-monitor/platform/alert-management-solution.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Azure-nätverksanalys
-        href: ../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Containrar
-        href: ../azure-monitor/insights/containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Key Vault-analys
-        href: ../azure-monitor/insights/azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Övervakning av nätverksprestanda
-        href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Office 365
-        href: oms-solution-office-365.md
-      - name: Service Fabric-analys
-        href: ../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Tjänstkarta
-        items:
-        - name: Användning
-          href: ../azure-monitor/insights/service-map.md
-        - name: Konfigurera
-          href: ../azure-monitor/insights/service-map-configure.md
-        - name: Integration med Operations Manager
-          href: ../azure-monitor/insights/service-map-scom.md
-      - name: SQL-bedömning
-        href: ../azure-monitor/insights/sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Surface Hub
-        href: ../azure-monitor/insights/surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Uppgraderingsanalys
-        href: https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396
-      - name: VMware AnalyticsVMware Analytics
-        href: ../azure-monitor/insights/vmware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Wire Data
-        href: ../azure-monitor/insights/wire-data.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-    - name: Automatisering och kontroll
+        - name: Azure Monitor-loggar
+          href: ../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+    - name: Automatisera
       items:
-      - name: Spårning av ändringar
-        href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-      - name: Uppdateringshantering
-        href: oms-solution-update-management.md
-    - name: Säkerhet och efterlevnad
+        - name: Översikt över Azure Automation
+          href: ../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+    - name: Backup
       items:
-      - name: Utvärdering av program mot skadlig kod
-        href: ../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-  - name: Skapa lösningar
-    items:
-    - name: Utforma och skapa
-      href: ../azure-monitor/insights/solutions-creating.md
-    - name: Lösningsfil
-      href: ../azure-monitor/insights/solutions-solution-file.md
-    - name: Automation-resurser
-      href: ../azure-monitor/insights/solutions-resources-automation.md
-    - name: Loggsökningar och aviseringar
-      href: ../azure-monitor/insights/solutions-resources-searches-alerts.md
-    - name: Vyer
-      href: ../azure-monitor/insights/solutions-resources-views.md
-    - name: Bästa praxis
-      href: ../azure-monitor/insights/solutions-best-practices.md
-  - name: Hanteringsscenarier
-    items:
-    - name: Samla in analysdata från runbook
-      href: ../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+        - name: Översikt över Backup
+          href: ../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+        - name: Site Recovery-översikt
+          href: ../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+    - name: Skydda
+      items:
+        - name: Övervaka resurser
+          href: ../security-center/security-center-monitoring.md
+        - name: Åtgärda säkerhetsaviseringar
+          href: ../security-center/security-center-managing-and-responding-alerts.md
+        - name: Utvärdering av baslinje
+          href: ../security-center/security-center-customize-os-security-config.md
+        - name: Utvärdering av skadlig kod
+          href: ../security-center/security-center-install-endpoint-protection.md
+        - name: Ansluta säkerhetsprodukter
+          href: ../security-center/quick-security-solutions.md
+        - name: Utvärdering av webbaslinje
+          href: ../security-center/security-center-customize-os-security-config.md
+    - name: Använd lösningar
+      items:
+        - name: Hanteringslösningar
+          href: ../azure-monitor/insights/solutions.md
+        - name: Mållösningar
+          href: ../azure-monitor/insights/solution-targeting.md
+        - name: Information och analyser
+          items:
+            - name: AD-bedömning
+              href: ../azure-monitor/insights/ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: AD-replikeringsstatus
+              href: ../azure-monitor/insights/ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Agenthälsa
+              href: oms-solution-agenthealth.md
+            - name: Varningshantering
+              href: ../azure-monitor/platform/alert-management-solution.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Azure-nätverksanalys
+              href: ../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Containrar
+              href: ../azure-monitor/insights/containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Key Vault-analys
+              href: ../azure-monitor/insights/azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Övervakning av nätverksprestanda
+              href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Office 365
+              href: oms-solution-office-365.md
+            - name: Service Fabric-analys
+              href: ../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Tjänstkarta
+              items:
+                - name: Användning
+                  href: ../azure-monitor/insights/service-map.md
+                - name: Konfigurera
+                  href: ../azure-monitor/insights/service-map-configure.md
+                - name: Integration med Operations Manager
+                  href: ../azure-monitor/insights/service-map-scom.md
+            - name: SQL-bedömning
+              href: ../azure-monitor/insights/sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Surface Hub
+              href: ../azure-monitor/insights/surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Uppgraderingsanalys
+              href: 'https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396'
+            - name: VMware AnalyticsVMware Analytics
+              href: ../azure-monitor/insights/vmware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Wire Data
+              href: ../azure-monitor/insights/wire-data.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+        - name: Automatisering och kontroll
+          items:
+            - name: Spårning av ändringar
+              href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+            - name: Uppdateringshantering
+              href: oms-solution-update-management.md
+        - name: Säkerhet och efterlevnad
+          items:
+            - name: Utvärdering av program mot skadlig kod
+              href: ../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
+    - name: Skapa lösningar
+      items:
+        - name: Utforma och skapa
+          href: ../azure-monitor/insights/solutions-creating.md
+        - name: Lösningsfil
+          href: ../azure-monitor/insights/solutions-solution-file.md
+        - name: Automation-resurser
+          href: ../azure-monitor/insights/solutions-resources-automation.md
+        - name: Loggsökningar och aviseringar
+          href: ../azure-monitor/insights/solutions-resources-searches-alerts.md
+        - name: Vyer
+          href: ../azure-monitor/insights/solutions-resources-views.md
+        - name: Bästa praxis
+          href: ../azure-monitor/insights/solutions-best-practices.md
+    - name: Hanteringsscenarier
+      items:
+        - name: Samla in analysdata från runbook
+          href: ../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 41e93436c01f527cfd48b0f11c670839a7ed52e4
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340939"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'

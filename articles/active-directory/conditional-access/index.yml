@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 296debefb5597af0c82202993443dc38f48f147a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519569"
 documentType: LandingData
 title: Dokumentation till Azure AD villkorsstyrd åtkomst
 metadata:
-  document_id: 
-  title: Dokumentation för villkorsstyrd åtkomst i Azure Active Directory – självstudier, begrepp, referenser | Microsoft Docs
+  document_id: null
+  title: 'Dokumentation för villkorsstyrd åtkomst i Azure Active Directory – självstudier, begrepp, referenser | Microsoft Docs'
   description: Se hur du konfigurerar och testar villkorsstyrd åtkomst för Azure Active Directory.
   services: active-directory
   ms.subservice: conditional-access
@@ -22,41 +16,41 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: Se hur du klarar balansen mellan säkerhet och produktivitet genom att konfigurera villkorsstyrd åtkomst för Azure AD. Med principer för villkorsstyrd åtkomst kan du ta med åtkomsten till dina molnappar i dina åtkomstbeslut. Du kan till exempel besvara följande frågor inför dina åtkomstbeslut:<ul><li>Vilken är användarens nätverksplats?</li><li>Gjordes åtkomstförsöket från en hanterad enhet?</li><li>Från vilken klientapp gjordes åtkomstförsöket?</li><li>Har ett åtkomstförsök gjorts från en riskabel inloggning?</li></ul>Följande resurser hjälper dig att komma igång snabbt.
+  description: 'Se hur du klarar balansen mellan säkerhet och produktivitet genom att konfigurera villkorsstyrd åtkomst för Azure AD. Med principer för villkorsstyrd åtkomst kan du ta med åtkomsten till dina molnappar i dina åtkomstbeslut. Du kan till exempel besvara följande frågor inför dina åtkomstbeslut:<ul><li>Vilken är användarens nätverksplats?</li><li>Gjordes åtkomstförsöket från en hanterad enhet?</li><li>Från vilken klientapp gjordes åtkomstförsöket?</li><li>Har ett åtkomstförsök gjorts från en riskabel inloggning?</li></ul>Följande resurser hjälper dig att komma igång snabbt.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ./media/index/video.png
       width: 246
     title: Förklaring av villkorsstyrd åtkomst
-    href: https://www.youtube.com/watch?v=XruceejcCKQ
+    href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
     width: 246
 sections:
-- title: Snabbstarter på fem minuter
-  items:
-  - type: paragraph
-    text: Se hur du konfigurerar principer för villkorsstyrd åtkomst för vanliga åtkomstscenarier.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på fem minuter
     items:
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Kräv MFA för specifika appar
-      href: app-based-mfa.md
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Blockera åtkomst när en sessionsrisk identifieras
-      href: app-sign-in-risk.md
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Kräv att användningsvillkoren godkänns
-      href: require-tou.md
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Se hur du migrera dina klassiska principer för villkorsstyrd åtkomst.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Se hur du konfigurerar principer för villkorsstyrd åtkomst för vanliga åtkomstscenarier.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Kräv MFA för specifika appar
+            href: app-based-mfa.md
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Blockera åtkomst när en sessionsrisk identifieras
+            href: app-sign-in-risk.md
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Kräv att användningsvillkoren godkänns
+            href: require-tou.md
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migrera en klassisk princip som kräver multifaktorautentisering</a>
+      - type: paragraph
+        text: Se hur du migrera dina klassiska principer för villkorsstyrd åtkomst.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migrera en klassisk princip som kräver multifaktorautentisering</a>

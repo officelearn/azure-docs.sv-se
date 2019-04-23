@@ -1,235 +1,229 @@
-items:
 - name: Dokumentation om Data Factory V1
+  href: null
 - name: Växla till den aktuella versionen av dokumentationen
   href: ../introduction.md
 - name: Översikt
   items:
-  - name: introduktion till Azure Data Factory
-    href: data-factory-introduction.md
-  - name: Begrepp
-    items:
-    - name: Pipelines och aktiviteter
-      href: data-factory-create-pipelines.md
-    - name: Datauppsättningar
-      href: data-factory-create-datasets.md
-    - name: Schemaläggning och körning
-      href: data-factory-scheduling-and-execution.md
+    - name: introduktion till Azure Data Factory
+      href: data-factory-introduction.md
+    - name: Begrepp
+      items:
+        - name: Pipelines och aktiviteter
+          href: data-factory-create-pipelines.md
+        - name: Datauppsättningar
+          href: data-factory-create-datasets.md
+        - name: Schemaläggning och körning
+          href: data-factory-scheduling-and-execution.md
 - name: Kom igång
-  items:
-  - name: Skapa en pipeline för att kopiera data
-    href: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-    items:
-    - name: Guiden Kopiera
-      href: data-factory-copy-data-wizard-tutorial.md
-    - name: Azure Portal
-      href: data-factory-copy-activity-tutorial-using-azure-portal.md
-    - name: Visual Studio
-      href: data-factory-copy-activity-tutorial-using-visual-studio.md
-    - name: Azure PowerShell
-      href: data-factory-copy-activity-tutorial-using-powershell.md
-    - name: REST-API
-      href: data-factory-copy-activity-tutorial-using-rest-api.md
-    - name: .NET-API
-      href: data-factory-copy-activity-tutorial-using-dotnet-api.md
-  - name: Skapa en pipeline för att omvandla data
-    href: data-factory-build-your-first-pipeline.md
-    items:
-    - name: Azure Portal
-      href: data-factory-build-your-first-pipeline-using-editor.md
-    - name: Visual Studio
-      href: data-factory-build-your-first-pipeline-using-vs.md
-    - name: Azure PowerShell
-      href: data-factory-build-your-first-pipeline-using-powershell.md
-    - name: Azure Resource Manager-mall
-      href: data-factory-build-your-first-pipeline-using-arm.md
-    - name: REST-API
-      href: data-factory-build-your-first-pipeline-using-rest-api.md
-  - name: Flytta data mellan lokalt system och molnet
-    href: data-factory-move-data-between-onprem-and-cloud.md
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: data-factory-faq.md
   expanded: true
+  items:
+    - name: Skapa en pipeline för att kopiera data
+      href: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+      items:
+        - name: Guiden Kopiera
+          href: data-factory-copy-data-wizard-tutorial.md
+        - name: Azure Portal
+          href: data-factory-copy-activity-tutorial-using-azure-portal.md
+        - name: Visual Studio
+          href: data-factory-copy-activity-tutorial-using-visual-studio.md
+        - name: Azure PowerShell
+          href: data-factory-copy-activity-tutorial-using-powershell.md
+        - name: REST-API
+          href: data-factory-copy-activity-tutorial-using-rest-api.md
+        - name: .NET-API
+          href: data-factory-copy-activity-tutorial-using-dotnet-api.md
+    - name: Skapa en pipeline för att omvandla data
+      href: data-factory-build-your-first-pipeline.md
+      items:
+        - name: Azure Portal
+          href: data-factory-build-your-first-pipeline-using-editor.md
+        - name: Visual Studio
+          href: data-factory-build-your-first-pipeline-using-vs.md
+        - name: Azure PowerShell
+          href: data-factory-build-your-first-pipeline-using-powershell.md
+        - name: Azure Resource Manager-mall
+          href: data-factory-build-your-first-pipeline-using-arm.md
+        - name: REST-API
+          href: data-factory-build-your-first-pipeline-using-rest-api.md
+    - name: Flytta data mellan lokalt system och molnet
+      href: data-factory-move-data-between-onprem-and-cloud.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: data-factory-faq.md
 - name: Gör så här för att
   items:
-  - name: Flytta data
-    items:
-    - name: Översikt över kopieringsaktivitet
-      href: data-factory-data-movement-activities.md
-    - name: Data Factory-kopieringsguide
-      href: data-factory-azure-copy-wizard.md
+    - name: Flytta data
       items:
-      - name: Läsa in 1 TB på 15 minuter
-        href: data-factory-load-sql-data-warehouse.md
-    - name: Prestanda- och justeringsguide
-      href: data-factory-copy-activity-performance.md
-    - name: Feltolerans
-      href: data-factory-copy-activity-fault-tolerance.md
-    - name: Säkerhetsöverväganden
-      href: data-factory-data-movement-security-considerations.md
-    - name: Anslutningar
+        - name: Översikt över kopieringsaktivitet
+          href: data-factory-data-movement-activities.md
+        - name: Data Factory-kopieringsguide
+          href: data-factory-azure-copy-wizard.md
+          items:
+            - name: Läsa in 1 TB på 15 minuter
+              href: data-factory-load-sql-data-warehouse.md
+        - name: Prestanda- och justeringsguide
+          href: data-factory-copy-activity-performance.md
+        - name: Feltolerans
+          href: data-factory-copy-activity-fault-tolerance.md
+        - name: Säkerhetsöverväganden
+          href: data-factory-data-movement-security-considerations.md
+        - name: Anslutningar
+          items:
+            - name: Amazon Redshift
+              href: data-factory-amazon-redshift-connector.md
+            - name: Amazon S3
+              href: data-factory-amazon-simple-storage-service-connector.md
+            - name: Azure Blob Storage
+              href: data-factory-azure-blob-connector.md
+            - name: Azure Cosmos DB
+              href: data-factory-azure-documentdb-connector.md
+            - name: Azure Data Lake Storage Gen1
+              href: data-factory-azure-datalake-connector.md
+            - name: Azure Search
+              href: data-factory-azure-search-connector.md
+            - name: Azure SQL Database
+              href: data-factory-azure-sql-connector.md
+            - name: Azure SQL Data Warehouse
+              href: data-factory-azure-sql-data-warehouse-connector.md
+            - name: Azure Table Storage
+              href: data-factory-azure-table-connector.md
+            - name: Cassandra
+              href: data-factory-onprem-cassandra-connector.md
+            - name: DB2
+              href: data-factory-onprem-db2-connector.md
+            - name: Filsystem
+              href: data-factory-onprem-file-system-connector.md
+            - name: FTP
+              href: data-factory-ftp-connector.md
+            - name: HDFS
+              href: data-factory-hdfs-connector.md
+            - name: HTTP
+              href: data-factory-http-connector.md
+            - name: MongoDB
+              href: data-factory-on-premises-mongodb-connector.md
+            - name: MySQL
+              href: data-factory-onprem-mysql-connector.md
+            - name: OData
+              href: data-factory-odata-connector.md
+            - name: ODBC
+              href: data-factory-odbc-connector.md
+            - name: Oracle
+              href: data-factory-onprem-oracle-connector.md
+            - name: PostgreSQL
+              href: data-factory-onprem-postgresql-connector.md
+            - name: Salesforce
+              href: data-factory-salesforce-connector.md
+            - name: SAP Business Warehouse
+              href: data-factory-sap-business-warehouse-connector.md
+            - name: SAP HANA
+              href: data-factory-sap-hana-connector.md
+            - name: SFTP
+              href: data-factory-sftp-connector.md
+            - name: SQL Server
+              href: data-factory-sqlserver-connector.md
+            - name: Sybase
+              href: data-factory-onprem-sybase-connector.md
+            - name: Teradata
+              href: data-factory-onprem-teradata-connector.md
+            - name: Webbtabell
+              href: data-factory-web-table-connector.md
+        - name: Gateway för datahantering
+          href: data-factory-data-management-gateway.md
+    - name: Omvandla data
+      href: data-factory-data-transformation-activities.md
       items:
-      - name: Amazon Redshift
-        href: data-factory-amazon-redshift-connector.md
-      - name: Amazon S3
-        href: data-factory-amazon-simple-storage-service-connector.md
-      - name: Azure Blob Storage
-        href: data-factory-azure-blob-connector.md
-      - name: Azure Cosmos DB
-        href: data-factory-azure-documentdb-connector.md
-      - name: Azure Data Lake Storage Gen1
-        href: data-factory-azure-datalake-connector.md
-      - name: Azure Search
-        href: data-factory-azure-search-connector.md
-      - name: Azure SQL Database
-        href: data-factory-azure-sql-connector.md
-      - name: Azure SQL Data Warehouse
-        href: data-factory-azure-sql-data-warehouse-connector.md
-      - name: Azure Table Storage
-        href: data-factory-azure-table-connector.md
-      - name: Cassandra
-        href: data-factory-onprem-cassandra-connector.md
-      - name: DB2
-        href: data-factory-onprem-db2-connector.md
-      - name: Filsystem
-        href: data-factory-onprem-file-system-connector.md
-      - name: FTP
-        href: data-factory-ftp-connector.md
-      - name: HDFS
-        href: data-factory-hdfs-connector.md
-      - name: HTTP
-        href: data-factory-http-connector.md
-      - name: MongoDB
-        href: data-factory-on-premises-mongodb-connector.md
-      - name: MySQL
-        href: data-factory-onprem-mysql-connector.md
-      - name: OData
-        href: data-factory-odata-connector.md
-      - name: ODBC
-        href: data-factory-odbc-connector.md
-      - name: Oracle
-        href: data-factory-onprem-oracle-connector.md
-      - name: PostgreSQL
-        href: data-factory-onprem-postgresql-connector.md
-      - name: Salesforce
-        href: data-factory-salesforce-connector.md
-      - name: SAP Business Warehouse
-        href: data-factory-sap-business-warehouse-connector.md
-      - name: SAP HANA
-        href: data-factory-sap-hana-connector.md
-      - name: SFTP
-        href: data-factory-sftp-connector.md
-      - name: SQL Server
-        href: data-factory-sqlserver-connector.md
-      - name: Sybase
-        href: data-factory-onprem-sybase-connector.md
-      - name: Teradata
-        href: data-factory-onprem-teradata-connector.md
-      - name: Webbtabell
-        href: data-factory-web-table-connector.md
-    - name: Gateway för datahantering
-      href: data-factory-data-management-gateway.md
-  - name: Omvandla data
-    href: data-factory-data-transformation-activities.md
-    items:
-    - name: HDInsight Hive-aktivitet
-      href: data-factory-hive-activity.md
-    - name: HDInsight-piggningsåtgärd
-      href: data-factory-pig-activity.md
-    - name: HDInsight MapReduce-aktivitet
-      href: data-factory-map-reduce.md
-    - name: HDInsight-strömningsaktivitet
-      href: data-factory-hadoop-streaming-activity.md
-    - name: HDInsight Apache Spark-aktivitet
-      href: data-factory-spark.md
-    - name: Machine Learning Batch-körningsaktivitet
-      href: data-factory-azure-ml-batch-execution-activity.md
-    - name: Machine Learning-uppdateringsresursaktivitet
-      href: data-factory-azure-ml-update-resource-activity.md
-    - name: Lagrad proceduraktivitet
-      href: data-factory-stored-proc-activity.md
-    - name: Data Lake Analytics U-SQL-aktivitet
-      href: data-factory-usql-activity.md
-    - name: .NET-anpassad aktivitet
-      href: data-factory-use-custom-activities.md
-    - name: Anropa R-skript
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample
-    - name: Bearbeta modeller på nytt i Azure Analysis Services
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample
-    - name: Länkade tjänster för Compute
-      href: data-factory-compute-linked-services.md
-  - name: Utveckla
-    items:
-    - name: Azure Resource Manager-mall
-      href: data-factory-how-to-use-resource-manager-templates.md
-    - name: Exempel
-      href: data-factory-samples.md
-    - name: Funktioner och systemvariabler
-      href: data-factory-functions-variables.md
-    - name: Namngivningsregler
-      href: data-factory-naming-rules.md
-    - name: .NET API-ändringslogg
-      href: data-factory-api-change-log.md
-  - name: Övervaka och hantera
-    items:
-    - name: Övervaknings- och hanteringsapp
-      href: data-factory-monitor-manage-app.md
-    - name: Azure Data Factory-pipeliner
-      href: data-factory-monitor-manage-pipelines.md
-    - name: Använda .NET SDK
-      href: data-factory-create-data-factories-programmatically.md
-    - name: Felsök Data Factory-problem
-      href: data-factory-troubleshoot.md
-    - name: Felsöka problem med gateway för datahantering
-      href: data-factory-troubleshoot-gateway-issues.md
-  - name: Anropa SSIS-paket med hjälp av en lagrad proceduraktivitet
-    href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: HDInsight Hive-aktivitet
+          href: data-factory-hive-activity.md
+        - name: HDInsight-piggningsåtgärd
+          href: data-factory-pig-activity.md
+        - name: HDInsight MapReduce-aktivitet
+          href: data-factory-map-reduce.md
+        - name: HDInsight-strömningsaktivitet
+          href: data-factory-hadoop-streaming-activity.md
+        - name: HDInsight Apache Spark-aktivitet
+          href: data-factory-spark.md
+        - name: Machine Learning Batch-körningsaktivitet
+          href: data-factory-azure-ml-batch-execution-activity.md
+        - name: Machine Learning-uppdateringsresursaktivitet
+          href: data-factory-azure-ml-update-resource-activity.md
+        - name: Lagrad proceduraktivitet
+          href: data-factory-stored-proc-activity.md
+        - name: Data Lake Analytics U-SQL-aktivitet
+          href: data-factory-usql-activity.md
+        - name: .NET-anpassad aktivitet
+          href: data-factory-use-custom-activities.md
+        - name: Anropa R-skript
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample'
+        - name: Bearbeta modeller på nytt i Azure Analysis Services
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample'
+        - name: Länkade tjänster för Compute
+          href: data-factory-compute-linked-services.md
+    - name: Utveckla
+      items:
+        - name: Azure Resource Manager-mall
+          href: data-factory-how-to-use-resource-manager-templates.md
+        - name: Exempel
+          href: data-factory-samples.md
+        - name: Funktioner och systemvariabler
+          href: data-factory-functions-variables.md
+        - name: Namngivningsregler
+          href: data-factory-naming-rules.md
+        - name: .NET API-ändringslogg
+          href: data-factory-api-change-log.md
+    - name: Övervaka och hantera
+      items:
+        - name: Övervaknings- och hanteringsapp
+          href: data-factory-monitor-manage-app.md
+        - name: Azure Data Factory-pipeliner
+          href: data-factory-monitor-manage-pipelines.md
+        - name: Använda .NET SDK
+          href: data-factory-create-data-factories-programmatically.md
+        - name: Felsök Data Factory-problem
+          href: data-factory-troubleshoot.md
+        - name: Felsöka problem med gateway för datahantering
+          href: data-factory-troubleshoot-gateway-issues.md
+    - name: Anropa SSIS-paket med hjälp av en lagrad proceduraktivitet
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: Referens
   items:
-  - name: Kodexempel
-    href: https://azure.microsoft.com/resources/samples/?service=data-factory
-  - name: Azure PowerShell
-    href: /powershell/module/az.datafactory
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.datafactories.models
-  - name: REST
-    href: /rest/api/datafactory/
-  - name: JSON
-    href: data-factory-json-scripting-reference.md
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
+    - name: Azure PowerShell
+      href: /powershell/module/az.datafactory
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.datafactories.models
+    - name: REST
+      href: /rest/api/datafactory/
+    - name: JSON
+      href: data-factory-json-scripting-reference.md
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Fallstudier
-    href: data-factory-customer-case-studies.md
-  - name: Utbildningsväg
-    href: https://azure.microsoft.com/documentation/learning-paths/data-factory
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/data-factory/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Viktig information för gateway för datahantering
-    href: data-factory-gateway-release-notes.md
-  - name: Begär en funktion
-    href: https://feedback.azure.com/forums/270578-azure-data-factory
-  - name: Tjänstuppdateringar
-    href: https://azure.microsoft.com/updates/?product=data-factory
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-data-factory
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=data-factory
-  - name: Bearbeta datauppsättningar i stor skala med Data Factory och Batch
-    href: data-factory-data-processing-using-batch.md
-  - name: fallstudier
-    items:
-    - name: Kundprofilering
-      href: data-factory-customer-profiling-usecase.md
-    - name: Produktrekommendationer
-      href: data-factory-product-reco-usecase.md
-ms.openlocfilehash: 3f1f95be4dc6327c97d5553da76529d58f2a7554
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528856"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fallstudier
+      href: data-factory-customer-case-studies.md
+    - name: Utbildningsväg
+      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Viktig information för gateway för datahantering
+      href: data-factory-gateway-release-notes.md
+    - name: Begär en funktion
+      href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=data-factory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=data-factory'
+    - name: Bearbeta datauppsättningar i stor skala med Data Factory och Batch
+      href: data-factory-data-processing-using-batch.md
+    - name: fallstudier
+      items:
+        - name: Kundprofilering
+          href: data-factory-customer-profiling-usecase.md
+        - name: Produktrekommendationer
+          href: data-factory-product-reco-usecase.md

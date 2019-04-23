@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3399ed71635434bc38d0c989118afb68de9fbd4c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338504"
 documentType: LandingData
 title: Dokumentation om Azure Active Directory B2B
 metadata:
-  document_id: 
+  document_id: null
   title: Dokumentation om Azure Active Directory B2B – Azure Active Directory | Microsoft Docs
-  description: Använd våra självstudier, snabbstarter och instruktioner för att lära dig hur du använder B2B-gästanvändaråtkomst för att dela och samarbeta med externa partner.
+  description: 'Använd våra självstudier, snabbstarter och instruktioner för att lära dig hur du använder B2B-gästanvändaråtkomst för att dela och samarbeta med externa partner.'
   services: active-directory
   ms.subservice: authentication
   author: msmimart
@@ -22,7 +16,7 @@ metadata:
   ms.date: 09/10/2018
   ms.author: mimart
 abstract:
-  description: Lär dig hur du använder samarbete i Azure AD B2B (företag till företag) för att på ett säkert sätt dela företagets program och tjänster med gästanvändare och externa partner från valfri organisation, samtidigt som du behåller kontrollen över företagets egna data.  Här följer några viktiga funktioner:<ul><li>Genom en enkel process med inbjudan och inlösning kan gästanvändare börja samarbeta med de resurser du vill att de kan komma åt.</li><li>Dina gästanvändare och externa partner hanterar sina egna identiteter via Azure AD, sociala e-postkonton eller valfri identitetsprovider.</li><li>Du kan skydda företagets resurser med Azure AD-funktioner, till exempel multifaktorautentisering.</li><li>Du kan använda API:er för att anpassa upplevelsen, till exempel via en registreringsportal för självbetjäning.</li></ul>Följande resurser hjälper dig att komma igång snabbt.
+  description: 'Lär dig hur du använder samarbete i Azure AD B2B (företag till företag) för att på ett säkert sätt dela företagets program och tjänster med gästanvändare och externa partner från valfri organisation, samtidigt som du behåller kontrollen över företagets egna data.  Här följer några viktiga funktioner:<ul><li>Genom en enkel process med inbjudan och inlösning kan gästanvändare börja samarbeta med de resurser du vill att de kan komma åt.</li><li>Dina gästanvändare och externa partner hanterar sina egna identiteter via Azure AD, sociala e-postkonton eller valfri identitetsprovider.</li><li>Du kan skydda företagets resurser med Azure AD-funktioner, till exempel multifaktorautentisering.</li><li>Du kan använda API:er för att anpassa upplevelsen, till exempel via en registreringsportal för självbetjäning.</li></ul>Följande resurser hjälper dig att komma igång snabbt.'
   aside:
     image:
       alt: Miniatyrbild av videon Beskrivning av Azure AD B2B
@@ -30,32 +24,32 @@ abstract:
       src: ./media/index/video.png
       width: 246
     title: Beskrivning av Azure AD B2B
-    href: https://www.youtube.com/watch?v=AhwrweCBdsc
+    href: 'https://www.youtube.com/watch?v=AhwrweCBdsc'
     width: 246
 sections:
-- title: Snabbstarter på fem minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du bjuder in gästanvändare och kommer igång med B2B-samarbete.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på fem minuter
     items:
-    - image:
-        alt: 
-        src: ./media/index/i_security-management.png
-      text: Lägga till gästanvändare i Azure Portal
-      href: b2b-quickstart-add-guest-users-portal.md
-    - image:
-        alt: 
-        src: ./media/index/i_security-management.png
-      text: Lägga till en gästanvändare med PowerShell
-      href: b2b-quickstart-invite-powershell.md
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig mer om hur du konfigurerar B2B-samarbete och skyddar företagets resurser.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Lär dig hur du bjuder in gästanvändare och kommer igång med B2B-samarbete.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: null
+              src: ./media/index/i_security-management.png
+            text: Lägga till gästanvändare i Azure Portal
+            href: b2b-quickstart-add-guest-users-portal.md
+          - image:
+              alt: null
+              src: ./media/index/i_security-management.png
+            text: Lägga till en gästanvändare med PowerShell
+            href: b2b-quickstart-invite-powershell.md
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">Massinbjudan av B2B-gästanvändare med PowerShell</a>
-    - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">Använda multifaktorautentisering för B2B-gästanvändare</a>
+      - type: paragraph
+        text: Lär dig mer om hur du konfigurerar B2B-samarbete och skyddar företagets resurser.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">Massinbjudan av B2B-gästanvändare med PowerShell</a>
+          - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">Använda multifaktorautentisering för B2B-gästanvändare</a>

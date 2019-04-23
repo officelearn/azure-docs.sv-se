@@ -1,83 +1,76 @@
-items:
 - name: Identity Protection-dokumentation
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure AD Identity Protection?
-    href: overview.md
+    - name: Vad är Azure AD Identity Protection?
+      href: overview.md
 - name: Snabbstarter
   items:
-  - name: Blockera åtkomst när en sessionsrisk identifieras
-    href: quickstart-sign-in-risk-policy.md
+    - name: Blockera åtkomst när en sessionsrisk identifieras
+      href: quickstart-sign-in-risk-policy.md
 - name: Begrepp
-  items:
-  - name: Vad är sårbarheter?
-    href: vulnerabilities.md
-  - name: Vad är meddelanden?
-    href: notifications.md
-  - name: Hur är din inloggningsupplevelse?
-    href: flows.md
   expanded: false
-- name: Instruktionsguider
   items:
-  - name: Identity Protection
-    items:
-    - name: Aktivera Azure AD Identity Protection
-      href: enable.md
-    - name: Konfigurera MFA-registreringsprincipen
-      href: howto-mfa-policy.md
-    - name: Konfigurera riskprincipen för inloggning
-      href: howto-sign-in-risk-policy.md
-    - name: Konfigurera riskprincipen för användare
-      href: howto-user-risk-policy.md
-    - name: Stäng aktiva riskhändelser
-      href: howto-close-active-risk-events.md
-    - name: Avblockera användare
-      href: howto-unblock-user.md
-    - name: Simulera riskhändelser
-      href: playbook.md
-    - name: Vanliga frågor och svar
-      href: faqs.md
-  - name: Identitetsskydd (Uppdaterad)
-    items:
-    - name: Översikt
-      href: overview-v2.md
-    - name: Säkerhetsöversikt
-      href: security-overview.md
-    - name: Undersöka riskfyllda användare och inloggningar
-      href: howto-investigate-risky-users-signins.md
-    - name: Konfigurera riskprinciper
-      href: howto-configure-risk-policies.md
-    - name: Förbättra noggrannheten för identifiering
-      href: howto-improve-detection-accuracy.md
-    - name: Vanliga frågor och kända problem
-      href: known-issues.md
+    - name: Vad är sårbarheter?
+      href: vulnerabilities.md
+    - name: Vad är meddelanden?
+      href: notifications.md
+    - name: Hur är din inloggningsupplevelse?
+      href: flows.md
+- name: Instruktionsguider
   expanded: true
+  items:
+    - name: Identity Protection
+      items:
+        - name: Aktivera Azure AD Identity Protection
+          href: enable.md
+        - name: Konfigurera MFA-registreringsprincipen
+          href: howto-mfa-policy.md
+        - name: Konfigurera riskprincipen för inloggning
+          href: howto-sign-in-risk-policy.md
+        - name: Konfigurera riskprincipen för användare
+          href: howto-user-risk-policy.md
+        - name: Stäng aktiva riskhändelser
+          href: howto-close-active-risk-events.md
+        - name: Avblockera användare
+          href: howto-unblock-user.md
+        - name: Simulera riskhändelser
+          href: playbook.md
+        - name: Vanliga frågor och svar
+          href: faqs.md
+    - name: Identitetsskydd (Uppdaterad)
+      items:
+        - name: Översikt
+          href: overview-v2.md
+        - name: Säkerhetsöversikt
+          href: security-overview.md
+        - name: Undersöka riskfyllda användare och inloggningar
+          href: howto-investigate-risky-users-signins.md
+        - name: Konfigurera riskprinciper
+          href: howto-configure-risk-policies.md
+        - name: Förbättra noggrannheten för identifiering
+          href: howto-improve-detection-accuracy.md
+        - name: Vanliga frågor och kända problem
+          href: known-issues.md
 - name: Referens
   items:
-  - name: Använda Microsoft Graph API
-    href: graph-get-started.md
-  - name: Riskhändelser
-    href: risk-events-reference.md
-  - name: Ordlista
-    href: glossary.md
+    - name: Använda Microsoft Graph API
+      href: graph-get-started.md
+    - name: Riskhändelser
+      href: risk-events-reference.md
+    - name: Ordlista
+      href: glossary.md
 - name: Resurser
   items:
-  - name: Azures feedbackforum
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Tjänstuppdateringar
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 8c48b383ccd2ac30dc9598cd2da0f043afae43dc
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910954"
+    - name: Azures feedbackforum
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Tjänstuppdateringar
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

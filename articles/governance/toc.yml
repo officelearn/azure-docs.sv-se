@@ -1,62 +1,55 @@
-items:
 - name: Dokumentation om Azure-styrning
   href: index.yml
 - name: Översikt
-  items:
-  - name: Azure-hantering
-    href: azure-management.md
   expanded: true
+  items:
+    - name: Azure-hantering
+      href: azure-management.md
 - name: Komponenter och tjänster
-  items:
-  - name: Hanteringsgrupper
-    items:
-    - name: Översikt
-      href: management-groups/index.md
-    - name: Skapa
-      href: management-groups/create.md
-    - name: Hantera
-      href: management-groups/manage.md
-  - name: Resursdiagram
-    href: resource-graph/overview.md
-  - name: Princip
-    href: policy/overview.md
-  - name: Skisser
-    href: blueprints/overview.md
   expanded: true
+  items:
+    - name: Hanteringsgrupper
+      items:
+        - name: Översikt
+          href: management-groups/index.md
+        - name: Skapa
+          href: management-groups/create.md
+        - name: Hantera
+          href: management-groups/manage.md
+    - name: Resursdiagram
+      href: resource-graph/overview.md
+    - name: Princip
+      href: policy/overview.md
+    - name: Skisser
+      href: blueprints/overview.md
 - name: Implementeringar
-  items:
-  - name: Molnimplementering för företag
-    items:
-    - name: Vad är styrning av molnresurser?
-      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-    - name: Styrning av resursåtkomst i Azure
-      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-    - name: Styrningsdesign för ett enskilt team
-      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-    - name: Styrningsdesign för flera team
-      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-  - name: Azure Enterprise-kodskelett
-    items:
-    - name: Förebyggande prenumerationsåtgärder
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-    - name: Implementera Azure Enterprise-kodskelett
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
   expanded: true
+  items:
+    - name: Molnimplementering för företag
+      items:
+        - name: Vad är styrning av molnresurser?
+          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+        - name: Styrning av resursåtkomst i Azure
+          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
+        - name: Styrningsdesign för ett enskilt team
+          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
+        - name: Styrningsdesign för flera team
+          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
+    - name: Azure Enterprise-kodskelett
+      items:
+        - name: Förebyggande prenumerationsåtgärder
+          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+        - name: Implementera Azure Enterprise-kodskelett
+          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: User Voice
-    href: https://feedback.azure.com/forums/915958-azure-governance
-  - name: Video om styrning
-    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
-  - name: Styrning av YouTube-kanal
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-ms.openlocfilehash: 1d6a62a682762060898d8599c5cee18929ef86e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673912"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: User Voice
+      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+    - name: Video om styrning
+      href: 'https://www.youtube.com/watch?v=MhGbKjlmuRs'
+    - name: Styrning av YouTube-kanal
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'

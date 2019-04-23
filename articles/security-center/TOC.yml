@@ -1,203 +1,196 @@
-items:
 - name: Dokumentation om Security Center
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Security Center
-    href: security-center-intro.md
-  - name: Plattformar och funktioner som stöds av Security Center
-    href: security-center-os-coverage.md
+    - name: Om Security Center
+      href: security-center-intro.md
+    - name: Plattformar och funktioner som stöds av Security Center
+      href: security-center-os-coverage.md
 - name: Snabbstarter
-  items:
-  - name: Azure-prenumerationer
-    href: security-center-get-started.md
-  - name: Windows-datorer
-    href: quick-onboard-windows-computer.md
-  - name: Linux-datorer
-    href: quick-onboard-linux-computer.md
-  - name: Virtuella Azure Stack-datorer
-    href: quick-onboard-azure-stack.md
   expanded: true
+  items:
+    - name: Azure-prenumerationer
+      href: security-center-get-started.md
+    - name: Windows-datorer
+      href: quick-onboard-windows-computer.md
+    - name: Linux-datorer
+      href: quick-onboard-linux-computer.md
+    - name: Virtuella Azure Stack-datorer
+      href: quick-onboard-azure-stack.md
 - name: Självstudier
   items:
-  - name: Skydda dina resurser
-    href: tutorial-protect-resources.md
-  - name: Svara på incidenter
-    href: tutorial-security-incident.md
-  - name: Förbättra regelefterlevnaden
-    href: security-center-compliance-dashboard.md
+    - name: Skydda dina resurser
+      href: tutorial-protect-resources.md
+    - name: Svara på incidenter
+      href: tutorial-security-incident.md
+    - name: Förbättra regelefterlevnaden
+      href: security-center-compliance-dashboard.md
 - name: Begrepp
   items:
-  - name: Behörigheter
-    href: security-center-permissions.md
-  - name: Datasäkerhet
-    href: security-center-data-security.md
-  - name: Använda rekommendationer för att förbättra säkerheten
-    href: security-center-using-recommendations.md
-  - name: Incidenthantering
-    href: security-center-incident-response.md
+    - name: Behörigheter
+      href: security-center-permissions.md
+    - name: Datasäkerhet
+      href: security-center-data-security.md
+    - name: Använda rekommendationer för att förbättra säkerheten
+      href: security-center-using-recommendations.md
+    - name: Incidenthantering
+      href: security-center-incident-response.md
 - name: Instruktionsguider
   items:
-  - name: Förbättra dina säkerhetspoäng
-    href: security-center-secure-score.md
-  - name: Uppgradera till avancerad säkerhet
-    href: security-center-onboarding.md
-  - name: Serverskydd med Windows Defender ATP
-    href: security-center-wdatp.md
-  - name: Skydda App Service
-    href: security-center-app-services.md
-  - name: Arbeta med säkerhetsprinciper
-    href: tutorial-security-policy.md
-  - name: Anpassa informationsskyddsprincipen
-    href: security-center-info-protection-policy.md
-  - name: Hantera säkerhetslösningar
-    href: security-center-partner-integration.md
-  - name: Automatisera registrering med PowerShell
-    href: security-center-powershell-onboarding.md
-  - name: Security Center-inställningar
-    href: security-center-policies-overview.md
-    items:
-    - name: Datainsamling
-      href: security-center-enable-data-collection.md
-    - name: Inbyggda säkerhetsprinciper
-      href: security-center-policy-definitions.md
-    - name: E-postmeddelanden
-      href: security-center-provide-security-contact-details.md
-    - name: Prisnivå
-      href: security-center-pricing.md
-    - name: Säkerhetskonfigurationer
-      href: security-center-customize-os-security-config.md
-    - name: Synlighet i hela klientorganisationen
-      href: security-center-management-groups.md
-  - name: Implementera säkerhetsrekommendationer
-    href: security-center-recommendations.md
-    items:
-    - name: Förbättra säkerheten
-      href: security-center-monitoring.md
-    - name: Skydda dina datorer och appar
-      href: security-center-virtual-machine-protection.md
-    - name: Skydda nätverksresurser
-      href: security-center-network-recommendations.md
-    - name: Skydda SQL-tjänsten och data
-      href: security-center-sql-service-recommendations.md
-    - name: Skydda identitet och åtkomst
-      href: security-center-identity-access.md
-  - name: Tillämpa molnskydd
-    items:
-    - name: Hantera Just-in-time-åtkomst
-      href: security-center-just-in-time.md
-    - name: Anpassningsbara programkontroller
-      href: security-center-adaptive-application.md
-    - name: Övervakning av filintegritet
-      href: security-center-file-integrity-monitoring.md
-    - name: Anpassningsbar nätverkshärdning
-      href: security-center-adaptive-network-hardening.md
-  - name: Identifiera hot
-    href: security-center-detection-capabilities.md
-    items:
-    - name: Säkerhetsaviseringar
-      href: security-center-managing-and-responding-alerts.md
-    - name: Säkerhetsincidenter
-      href: security-center-incident.md
-    - name: Förstå säkerhetsaviseringar
-      href: security-center-alerts-type.md
-    - name: Aviseringsverifiering
-      href: security-center-alert-validation.md
-    - name: UEBA för Azure-resurser och användare
-      href: security-center-ueba-mcas.md
-  - name: Arkiv
-    items:
-    - name: Tillämpa diskkryptering
-      href: security-center-apply-disk-encryption.md
-    - name: Tillämpa systemuppdateringar
-      href: security-center-apply-system-updates.md
-    - name: Aktivera kryptering för lagringskonto
-      href: security-center-enable-encryption-for-storage-account.md
-    - name: Aktivera VM-Agent
-      href: security-center-enable-vm-agent.md
-    - name: Installera slutpunktsskydd
-      href: security-center-install-endpoint-protection.md
-    - name: Starta om datorn efter uppdateringarna
-      href: security-center-apply-system-updates.md#reboot-after-system-updates
-    - name: Åtgärda säkerhetskonfigurationer
-      href: security-center-remediate-os-vulnerabilities.md
-    - name: Uppdatera OS-versionen
-      href: security-center-update-os-version.md
-    - name: Sårbarhetsbedömning inte installerad
-      href: security-center-vulnerability-assessment-recommendations.md
-    - name: Lägg till en brandvägg för webbappar
-      href: security-center-add-web-application-firewall.md
-    - name: Slutföra programskydd
-      href: security-center-add-web-application-firewall.md#finalize-application-protection
-    - name: Lägg till en nästa generations brandvägg
-      href: security-center-add-next-generation-firewall.md
-    - name: Aktivera nätverkssäkerhetsgrupper
-      href: security-center-enable-network-security-groups.md
-    - name: Begränsa åtkomst via Internet-riktade slutpunkter
-      href: security-center-restrict-access-through-internet-facing-endpoints.md
-    - name: Dirigera trafiken endast via NGFW
-      href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
-    - name: Aktivera granskning och hotidentifiering på SQL-databaser
-      href: security-center-enable-auditing-on-sql-databases.md
-    - name: Aktivera granskning och hotidentifiering på SQL-servrar
-      href: security-center-enable-auditing-on-sql-servers.md
-    - name: Aktivera transparent datakryptering
-      href: security-center-enable-transparent-data-encryption.md
-    - name: Hotrapporter
-      href: security-center-threat-report.md
-    - name: Anpassade aviseringar
-      href: security-center-custom-alert.md
-    - name: Förtroendepoäng för avisering
-      href: security-center-confidence-score.md
-    - name: Säkerhetsvarningsmappning och hotinformation
-      href: security-center-threat-intel.md
-    - name: Undersökning
-      href: security-center-investigation.md
-    - name: Hantera användardata för undersökning
-      href: security-center-investigation-user-data.md
-    - name: Logic Apps-spelböcker
-      href: security-center-playbooks.md
-    - name: Visa händelser
-      href: security-center-events-dashboard.md
-    - name: Search
-      href: security-center-search.md
-    - name: Planering och drift
-      href: security-center-planning-and-operations-guide.md
+    - name: Förbättra dina säkerhetspoäng
+      href: security-center-secure-score.md
+    - name: Uppgradera till avancerad säkerhet
+      href: security-center-onboarding.md
+    - name: Serverskydd med Windows Defender ATP
+      href: security-center-wdatp.md
+    - name: Skydda App Service
+      href: security-center-app-services.md
+    - name: Arbeta med säkerhetsprinciper
+      href: tutorial-security-policy.md
+    - name: Anpassa informationsskyddsprincipen
+      href: security-center-info-protection-policy.md
+    - name: Hantera säkerhetslösningar
+      href: security-center-partner-integration.md
+    - name: Automatisera registrering med PowerShell
+      href: security-center-powershell-onboarding.md
+    - name: Security Center-inställningar
+      href: security-center-policies-overview.md
+      items:
+        - name: Datainsamling
+          href: security-center-enable-data-collection.md
+        - name: Inbyggda säkerhetsprinciper
+          href: security-center-policy-definitions.md
+        - name: E-postmeddelanden
+          href: security-center-provide-security-contact-details.md
+        - name: Prisnivå
+          href: security-center-pricing.md
+        - name: Säkerhetskonfigurationer
+          href: security-center-customize-os-security-config.md
+        - name: Synlighet i hela klientorganisationen
+          href: security-center-management-groups.md
+    - name: Implementera säkerhetsrekommendationer
+      href: security-center-recommendations.md
+      items:
+        - name: Förbättra säkerheten
+          href: security-center-monitoring.md
+        - name: Skydda dina datorer och appar
+          href: security-center-virtual-machine-protection.md
+        - name: Skydda nätverksresurser
+          href: security-center-network-recommendations.md
+        - name: Skydda SQL-tjänsten och data
+          href: security-center-sql-service-recommendations.md
+        - name: Skydda identitet och åtkomst
+          href: security-center-identity-access.md
+    - name: Tillämpa molnskydd
+      items:
+        - name: Hantera Just-in-time-åtkomst
+          href: security-center-just-in-time.md
+        - name: Anpassningsbara programkontroller
+          href: security-center-adaptive-application.md
+        - name: Övervakning av filintegritet
+          href: security-center-file-integrity-monitoring.md
+        - name: Anpassningsbar nätverkshärdning
+          href: security-center-adaptive-network-hardening.md
+    - name: Identifiera hot
+      href: security-center-detection-capabilities.md
+      items:
+        - name: Säkerhetsaviseringar
+          href: security-center-managing-and-responding-alerts.md
+        - name: Säkerhetsincidenter
+          href: security-center-incident.md
+        - name: Förstå säkerhetsaviseringar
+          href: security-center-alerts-type.md
+        - name: Aviseringsverifiering
+          href: security-center-alert-validation.md
+        - name: UEBA för Azure-resurser och användare
+          href: security-center-ueba-mcas.md
+    - name: Arkiv
+      items:
+        - name: Tillämpa diskkryptering
+          href: security-center-apply-disk-encryption.md
+        - name: Tillämpa systemuppdateringar
+          href: security-center-apply-system-updates.md
+        - name: Aktivera kryptering för lagringskonto
+          href: security-center-enable-encryption-for-storage-account.md
+        - name: Aktivera VM-Agent
+          href: security-center-enable-vm-agent.md
+        - name: Installera slutpunktsskydd
+          href: security-center-install-endpoint-protection.md
+        - name: Starta om datorn efter uppdateringarna
+          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+        - name: Åtgärda säkerhetskonfigurationer
+          href: security-center-remediate-os-vulnerabilities.md
+        - name: Uppdatera OS-versionen
+          href: security-center-update-os-version.md
+        - name: Sårbarhetsbedömning inte installerad
+          href: security-center-vulnerability-assessment-recommendations.md
+        - name: Lägg till en brandvägg för webbappar
+          href: security-center-add-web-application-firewall.md
+        - name: Slutföra programskydd
+          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Lägg till en nästa generations brandvägg
+          href: security-center-add-next-generation-firewall.md
+        - name: Aktivera nätverkssäkerhetsgrupper
+          href: security-center-enable-network-security-groups.md
+        - name: Begränsa åtkomst via Internet-riktade slutpunkter
+          href: security-center-restrict-access-through-internet-facing-endpoints.md
+        - name: Dirigera trafiken endast via NGFW
+          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: Aktivera granskning och hotidentifiering på SQL-databaser
+          href: security-center-enable-auditing-on-sql-databases.md
+        - name: Aktivera granskning och hotidentifiering på SQL-servrar
+          href: security-center-enable-auditing-on-sql-servers.md
+        - name: Aktivera transparent datakryptering
+          href: security-center-enable-transparent-data-encryption.md
+        - name: Hotrapporter
+          href: security-center-threat-report.md
+        - name: Anpassade aviseringar
+          href: security-center-custom-alert.md
+        - name: Förtroendepoäng för avisering
+          href: security-center-confidence-score.md
+        - name: Säkerhetsvarningsmappning och hotinformation
+          href: security-center-threat-intel.md
+        - name: Undersökning
+          href: security-center-investigation.md
+        - name: Hantera användardata för undersökning
+          href: security-center-investigation-user-data.md
+        - name: Logic Apps-spelböcker
+          href: security-center-playbooks.md
+        - name: Visa händelser
+          href: security-center-events-dashboard.md
+        - name: Search
+          href: security-center-search.md
+        - name: Planering och drift
+          href: security-center-planning-and-operations-guide.md
 - name: Referens
   items:
-  - name: REST API:er
-    href: https://docs.microsoft.com/rest/api/securitycenter/
-  - name: Tjänstuppdateringar
-    href: https://azure.microsoft.com/updates/?product=security-center
+    - name: 'REST API:er'
+      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
 - name: Resurser
   items:
-  - name: Utveckla dina färdigheter med Microsoft Learn
-    href: /learn/browse/?term=securityS
-  - name: Hantera användardata
-    href: security-center-privacy.md
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: security-center-faq.md
-  - name: Säkerhet i Azure
-    href: /azure/security/
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Beredskapsöversikt
-    href: security-center-readiness-roadmap.md
-  - name: Blogg om säkerhet, sekretess och efterlevnad i Azure
-    href: https://blogs.msdn.com/b/azuresecurity/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=security-center
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=security-center
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/security-center/
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-  - name: Felsöka
-    href: security-center-troubleshooting-guide.md
-ms.openlocfilehash: 702e8fe5f5fec2488135104614936762e054b98c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59520939"
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/?term=securityS
+    - name: Hantera användardata
+      href: security-center-privacy.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: security-center-faq.md
+    - name: Säkerhet i Azure
+      href: /azure/security/
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Beredskapsöversikt
+      href: security-center-readiness-roadmap.md
+    - name: 'Blogg om säkerhet, sekretess och efterlevnad i Azure'
+      href: 'https://blogs.msdn.com/b/azuresecurity/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Felsöka
+      href: security-center-troubleshooting-guide.md

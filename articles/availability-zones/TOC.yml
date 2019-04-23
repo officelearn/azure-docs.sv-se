@@ -1,104 +1,97 @@
-items:
 - name: Azure Resiliency
   items:
-  - name: Funktionssida för Azure Resiliency
-    href: https://azure.microsoft.com/features/resiliency
-  - name: Utforma elastiska program för Azure
-    href: https://docs.microsoft.com/azure/architecture/resiliency/
+    - name: Funktionssida för Azure Resiliency
+      href: 'https://azure.microsoft.com/features/resiliency'
+    - name: Utforma elastiska program för Azure
+      href: 'https://docs.microsoft.com/azure/architecture/resiliency/'
 - name: Hög tillgänglighet
   items:
-  - name: Hög tillgänglighet för Azure-program
-    href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
-  - name: Dokumentation för tillgänglighetszoner
-    items:
-    - name: Vad är tillgänglighetszoner?
-      href: az-overview.md
-    - name: Virtuella datorer
+    - name: Hög tillgänglighet för Azure-program
+      href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+    - name: Dokumentation för tillgänglighetszoner
       items:
-      - name: Skapa en virtuell Linux-dator i en tillgänglighetszon med CLI
-        href: ../virtual-machines/linux/create-cli-availability-zone.md
-      - name: Skapa en virtuell Windows-dator i en tillgänglighetszon med PowerShell
-        href: ../virtual-machines/windows/create-powershell-availability-zone.md
-      - name: Skapa en virtuell Windows-dator i en tillgänglighetszon med Azure-portalen
-        href: ../virtual-machines/windows/create-portal-availability-zone.md
-    - name: Hanterade diskar
-      items:
-      - name: Lägga till en hanterad disk i tillgänglighetszoner med CLI
-        href: ../virtual-machines/linux/add-disk.md#use-managed-disks
-      - name: Lägga till en hanterad disk i tillgänglighetszoner med PowerShell
-        href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
-    - name: Skalningsuppsättningar för virtuella datorer
-      items:
-      - name: Skapa en skalningsuppsättning i en tillgänglighetszon
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
-    - name: Lastbalanserare
-      items:
-      - name: Vad är lastbalanserare?
-        href: ../load-balancer/load-balancer-standard-overview.md
-      - name: Load Balancer Standard och tillgänglighetszoner
-        href: ../load-balancer/load-balancer-standard-availability-zones.md
-      - name: Skapa en zonredundant offentlig Standard Load Balancer
-        href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
-        items:
-        - name: Skapa en zonredundant offentlig Standard Load Balancer (PowerShell)
-          href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
-        - name: Skapa en zonredundant offentlig Standard Load Balancer (CLI)
-          href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
-      - name: Skapa en zonindelad offentlig Standard Load Balancer
-        href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
-        items:
-        - name: Skapa en zonindelad offentlig Standard Load Balancer (PowerShell)
-          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
-        - name: Skapa en zonredundant offentlig Standard Load Balancer (CLI)
-          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
-      - name: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner
-        href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
-        items:
-        - name: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner med Azure (CLI)
-          href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
-    - name: Offentlig IP-adress
-      href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
-    - name: SQL Database
-      items:
-      - name: Tillgänglighetszoner med SQL Database
-        href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
-    - name: Storage
-      items:
-      - name: Zonredundant lagring
-        href: ../storage/common/storage-redundancy-zrs.md
-    - name: Event Hubs
-      items:
-      - name: Geohaveriberedskap för Event Hubs
-        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones-preview
-    - name: Service Bus
-      items:
-      - name: Geohaveriberedskap för Service Bus
-        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview
-    - name: VPN Gateway
-      items:
-      - name: Skapa en zonredundant virtuell nätverksgateway
-        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
-    - name: ExpressRoute
-      items:
-      - name: Skapa en zonredundant virtuell nätverksgateway
-        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: Vad är tillgänglighetszoner?
+          href: az-overview.md
+        - name: Virtuella datorer
+          items:
+            - name: Skapa en virtuell Linux-dator i en tillgänglighetszon med CLI
+              href: ../virtual-machines/linux/create-cli-availability-zone.md
+            - name: Skapa en virtuell Windows-dator i en tillgänglighetszon med PowerShell
+              href: ../virtual-machines/windows/create-powershell-availability-zone.md
+            - name: Skapa en virtuell Windows-dator i en tillgänglighetszon med Azure-portalen
+              href: ../virtual-machines/windows/create-portal-availability-zone.md
+        - name: Hanterade diskar
+          items:
+            - name: Lägga till en hanterad disk i tillgänglighetszoner med CLI
+              href: '../virtual-machines/linux/add-disk.md#use-managed-disks'
+            - name: Lägga till en hanterad disk i tillgänglighetszoner med PowerShell
+              href: '../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine'
+        - name: Skalningsuppsättningar för virtuella datorer
+          items:
+            - name: Skapa en skalningsuppsättning i en tillgänglighetszon
+              href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md
+        - name: Lastbalanserare
+          items:
+            - name: Vad är lastbalanserare?
+              href: ../load-balancer/load-balancer-standard-overview.md
+            - name: Load Balancer Standard och tillgänglighetszoner
+              href: ../load-balancer/load-balancer-standard-availability-zones.md
+            - name: Skapa en zonredundant offentlig Standard Load Balancer
+              href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+              items:
+                - name: Skapa en zonredundant offentlig Standard Load Balancer (PowerShell)
+                  href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+                - name: Skapa en zonredundant offentlig Standard Load Balancer (CLI)
+                  href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+            - name: Skapa en zonindelad offentlig Standard Load Balancer
+              href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+              items:
+                - name: Skapa en zonindelad offentlig Standard Load Balancer (PowerShell)
+                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+                - name: Skapa en zonredundant offentlig Standard Load Balancer (CLI)
+                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+            - name: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner
+              href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+              items:
+                - name: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner med Azure (CLI)
+                  href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+        - name: Offentlig IP-adress
+          href: '../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address'
+        - name: SQL Database
+          items:
+            - name: Tillgänglighetszoner med SQL Database
+              href: '../sql-database/sql-database-high-availability.md#zone-redundant-configuration'
+        - name: Storage
+          items:
+            - name: Zonredundant lagring
+              href: ../storage/common/storage-redundancy-zrs.md
+        - name: Event Hubs
+          items:
+            - name: Geohaveriberedskap för Event Hubs
+              href: '../event-hubs/event-hubs-geo-dr.md#availability-zones-preview'
+        - name: Service Bus
+          items:
+            - name: Geohaveriberedskap för Service Bus
+              href: '../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview'
+        - name: VPN Gateway
+          items:
+            - name: Skapa en zonredundant virtuell nätverksgateway
+              href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: ExpressRoute
+          items:
+            - name: Skapa en zonredundant virtuell nätverksgateway
+              href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
 - name: Haveriberedskap
   items:
-  - name: Använda Azure Site Recovery
-    href: https://docs.microsoft.com/azure/site-recovery/
+    - name: Använda Azure Site Recovery
+      href: 'https://docs.microsoft.com/azure/site-recovery/'
 - name: Azure Backup
   items:
-  - name: Använda Azure Backup
-    href: https://docs.microsoft.com/azure/backup/
+    - name: Använda Azure Backup
+      href: 'https://docs.microsoft.com/azure/backup/'
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Azure-regioner
-    href: https://azure.microsoft.com/regions/
-ms.openlocfilehash: 45a73ec4d5e3649be38133e5ce055f206ecf80ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340684"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Azure-regioner
+      href: 'https://azure.microsoft.com/regions/'

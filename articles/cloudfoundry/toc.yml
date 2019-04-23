@@ -1,40 +1,33 @@
-items:
 - name: Cloud Foundry-dokumentation
   href: index.md
 - name: Snabbstarter
-  items:
-  - name: Marketplace-mall
-    href: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
   expanded: true
+  items:
+    - name: Marketplace-mall
+      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
 - name: Självstudier
   items:
-  - name: Skapa CF i Azure
-    href: /azure/cloudfoundry/create-cloud-foundry-on-azure
-  - name: Distribuera CF-app till Azure
-    href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
-  - name: Använda OSBA med en app på PCF
-    href: /azure/cloudfoundry/use-osba-pcf-app
-  - name: CloudFoundry på Azure
-    href: /azure/virtual-machines/linux/cloudfoundry-get-started
-  - name: Distribuera CF OMS Nozzle
-    href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
-  - name: Integrera Cloud Foundry med Azure
-    href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
+    - name: Skapa CF i Azure
+      href: /azure/cloudfoundry/create-cloud-foundry-on-azure
+    - name: Distribuera CF-app till Azure
+      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+    - name: Använda OSBA med en app på PCF
+      href: /azure/cloudfoundry/use-osba-pcf-app
+    - name: CloudFoundry på Azure
+      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+    - name: Distribuera CF OMS Nozzle
+      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+    - name: Integrera Cloud Foundry med Azure
+      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Cloud Foundry-webbplats
-    href: https://docs.cloudfoundry.org/
-  - name: Installera CF på Azure
-    href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
-  - name: Pivotal och Azure
-    href: https://pivotal.io/partners/microsoft
-  - name: Azure DevOps-pluginprogram för CF
-    href: https://github.com/Microsoft/vsts-cloudfoundry
-ms.openlocfilehash: b702d42142bd809e678792f1f07a3e104f1e21c1
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229225"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Cloud Foundry-webbplats
+      href: 'https://docs.cloudfoundry.org/'
+    - name: Installera CF på Azure
+      href: 'https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html'
+    - name: Pivotal och Azure
+      href: 'https://pivotal.io/partners/microsoft'
+    - name: Azure DevOps-pluginprogram för CF
+      href: 'https://github.com/Microsoft/vsts-cloudfoundry'

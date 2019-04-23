@@ -1,100 +1,93 @@
-items:
 - name: Dokumentation om Privileged Identity Management
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure AD PIM?
-    href: pim-configure.md
+    - name: Vad är Azure AD PIM?
+      href: pim-configure.md
 - name: Begrepp
   items:
-  - name: Licenskrav
-    href: subscription-requirements.md
-  - name: Roller som du inte kan hantera
-    href: pim-roles.md
-  - name: Säker privilegierad åtkomst
-    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: MFA och PIM
-    href: pim-how-to-require-mfa.md
-  - name: Översikt över instrumentpaneler
-    href: pim-resource-roles-overview-dashboards.md
-  - name: E-postmeddelanden
-    href: pim-email-notifications.md
-  - name: Microsoft Graph-API:er
-    href: pim-apis.md
+    - name: Licenskrav
+      href: subscription-requirements.md
+    - name: Roller som du inte kan hantera
+      href: pim-roles.md
+    - name: Säker privilegierad åtkomst
+      href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: MFA och PIM
+      href: pim-how-to-require-mfa.md
+    - name: Översikt över instrumentpaneler
+      href: pim-resource-roles-overview-dashboards.md
+    - name: E-postmeddelanden
+      href: pim-email-notifications.md
+    - name: 'Microsoft Graph-API:er'
+      href: pim-apis.md
 - name: Instruktionsguider
-  items:
-  - name: Distribuera PIM
-    href: pim-deployment-plan.md
-  - name: Börja använda PIM
-    href: pim-getting-started.md
-  - name: Aktivera mina roller
-    items:
-    - name: Aktivera mina Azure AD-roller
-      href: pim-how-to-activate-role.md
-    - name: Aktivera mina Azure-resursroller
-      href: pim-resource-roles-activate-your-roles.md
-  - name: Konfigurera PIM
-    items:
-    - name: Säkerhetsguide
-      href: pim-security-wizard.md
-    - name: Identifiera Azure-resurser
-      href: pim-resource-roles-discover-resources.md
-    - name: Bevilja andra åtkomst att hantera PIM
-      href: pim-how-to-give-access-to-pim.md
-    - name: Utöka åtkomst för att hantera alla prenumerationer
-      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Hantera Azure AD-roller
-    items:
-    - name: Tilldela roller
-      href: pim-how-to-add-role-to-user.md
-    - name: Godkänn förfrågningar
-      href: azure-ad-pim-approval-workflow.md
-    - name: Konfigurera rollinställningar
-      href: pim-how-to-change-default-settings.md
-    - name: Konfigurera varningar
-      href: pim-how-to-configure-security-alerts.md
-    - name: Visa granskningshistorik
-      href: pim-how-to-use-audit-log.md
-  - name: Hantera Azure-resursroller
-    items:
-    - name: Tilldela roller
-      href: pim-resource-roles-assign-roles.md
-    - name: Bjuda in externa användare
-      href: pim-resource-roles-external-users.md
-    - name: Godkänn förfrågningar
-      href: pim-resource-roles-approval-workflow.md
-    - name: Utöka eller förnya roller
-      href: pim-resource-roles-renew-extend.md
-    - name: Konfigurera rollinställningar
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Konfigurera varningar
-      href: pim-resource-roles-configure-alerts.md
-    - name: Visa aktivitets- och granskningshistorik
-      href: azure-pim-resource-rbac.md
-    - name: Använd anpassade roller
-      href: pim-resource-roles-custom-role-policy.md
-  - name: Granska åtkomst
-    items:
-    - name: Azure AD-roller
-      items:
-      - name: Granska mina Azure AD-roller
-        href: pim-how-to-perform-security-review.md
-      - name: Starta en åtkomstgranskning
-        href: pim-how-to-start-security-review.md
-      - name: Slutför en åtkomstgranskning
-        href: pim-how-to-complete-review.md
-    - name: Azure-resursroller
-      items:
-      - name: Granska mina Azure-resursroller
-        href: pim-resource-roles-perform-access-review.md
-      - name: Starta en åtkomstgranskning
-        href: pim-resource-roles-start-access-review.md
-      - name: Slutför en åtkomstgranskning
-        href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 6ccd7b75b356fef6f7c167873e7b00429c6f28a3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575801"
+  items:
+    - name: Distribuera PIM
+      href: pim-deployment-plan.md
+    - name: Börja använda PIM
+      href: pim-getting-started.md
+    - name: Aktivera mina roller
+      items:
+        - name: Aktivera mina Azure AD-roller
+          href: pim-how-to-activate-role.md
+        - name: Aktivera mina Azure-resursroller
+          href: pim-resource-roles-activate-your-roles.md
+    - name: Konfigurera PIM
+      items:
+        - name: Säkerhetsguide
+          href: pim-security-wizard.md
+        - name: Identifiera Azure-resurser
+          href: pim-resource-roles-discover-resources.md
+        - name: Bevilja andra åtkomst att hantera PIM
+          href: pim-how-to-give-access-to-pim.md
+        - name: Utöka åtkomst för att hantera alla prenumerationer
+          href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Hantera Azure AD-roller
+      items:
+        - name: Tilldela roller
+          href: pim-how-to-add-role-to-user.md
+        - name: Godkänn förfrågningar
+          href: azure-ad-pim-approval-workflow.md
+        - name: Konfigurera rollinställningar
+          href: pim-how-to-change-default-settings.md
+        - name: Konfigurera varningar
+          href: pim-how-to-configure-security-alerts.md
+        - name: Visa granskningshistorik
+          href: pim-how-to-use-audit-log.md
+    - name: Hantera Azure-resursroller
+      items:
+        - name: Tilldela roller
+          href: pim-resource-roles-assign-roles.md
+        - name: Bjuda in externa användare
+          href: pim-resource-roles-external-users.md
+        - name: Godkänn förfrågningar
+          href: pim-resource-roles-approval-workflow.md
+        - name: Utöka eller förnya roller
+          href: pim-resource-roles-renew-extend.md
+        - name: Konfigurera rollinställningar
+          href: pim-resource-roles-configure-role-settings.md
+        - name: Konfigurera varningar
+          href: pim-resource-roles-configure-alerts.md
+        - name: Visa aktivitets- och granskningshistorik
+          href: azure-pim-resource-rbac.md
+        - name: Använd anpassade roller
+          href: pim-resource-roles-custom-role-policy.md
+    - name: Granska åtkomst
+      items:
+        - name: Azure AD-roller
+          items:
+            - name: Granska mina Azure AD-roller
+              href: pim-how-to-perform-security-review.md
+            - name: Starta en åtkomstgranskning
+              href: pim-how-to-start-security-review.md
+            - name: Slutför en åtkomstgranskning
+              href: pim-how-to-complete-review.md
+        - name: Azure-resursroller
+          items:
+            - name: Granska mina Azure-resursroller
+              href: pim-resource-roles-perform-access-review.md
+            - name: Starta en åtkomstgranskning
+              href: pim-resource-roles-start-access-review.md
+            - name: Slutför en åtkomstgranskning
+              href: pim-resource-roles-complete-access-review.md

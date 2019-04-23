@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2f8e833088ffdf819e387fd28ae88508d5fe6d00
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519943"
 abstract:
-  description: Lär dig hur du integrerar intelligenta algoritmer i appar och webbplatser med hjälp av dessa Azure Machine Learning-produkter.  Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
+  description: 'Lär dig hur du integrerar intelligenta algoritmer i appar och webbplatser med hjälp av dessa Azure Machine Learning-produkter.  Självstudier, snabbstarter, API-referenser och exempel med anvisningar.'
 documentType: LandingData
 metadata:
   author: j-martens
-  description: Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
+  description: 'Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.'
   ms.author: jmartens
   ms.subservice: core
   ms.date: 12/04/2018
@@ -19,86 +13,86 @@ metadata:
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   services: machine-learning
-  title: Dokumentation om Azure Machine Learning – Självstudier, API-referens | Microsoft Docs
+  title: 'Dokumentation om Azure Machine Learning – Självstudier, API-referens | Microsoft Docs'
 sections:
-- items:
-  - className: cardsM
-    columns: 2
-    items:
-    - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Lär dig hur den här tjänsten hjälper dataforskare att utveckla och hantera AI-lösningar<br/> med hjälp av Azure CLI och Python-verktyg och -bibliotek med en mängd olika tjänster för data och beräkning i Azure. Läs mer...</p>
-      image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning-tjänsten
-    style: cards
-    type: list
-- items:
-  - text: 'Komma igång med tjänsten Azure Machine Learning Service:'
-    type: paragraph
-  - text: <b>Snabbstarter:</b>
-    type: paragraph
   - items:
-    - html: <a href="service/quickstart-run-cloud-notebook">Köra ett experiment i molnet</a> (ingen installation krävs)
-    - html: <a href="service/quickstart-run-local-notebook">Köra ett experiment med hjälp av en lokal notebook-server</a> (installation av lokal SDK)
-    style: unordered
-    type: list
-  - text: <b>Självstudie för avbildningsklassificering med MNIST-data:</b>
-    type: paragraph
+      - className: cardsM
+        columns: 2
+        items:
+          - href: /azure/machine-learning/service/overview-what-is-azure-ml
+            html: <p>Lär dig hur den här tjänsten hjälper dataforskare att utveckla och hantera AI-lösningar<br/> med hjälp av Azure CLI och Python-verktyg och -bibliotek med en mängd olika tjänster för data och beräkning i Azure. Läs mer...</p>
+            image:
+              src: /azure/machine-learning/media/index/i_machine-learning.svg
+            title: Azure Machine Learning-tjänsten
+        style: cards
+        type: list
   - items:
-    - html: 'Del 1: <a href="service/tutorial-train-models-with-aml">Träna din modell</a>'
-    - html: 'Del 2: <a href="service/tutorial-deploy-models-with-aml">Distribuera modellen</a>'
-    style: unordered
-    type: list
-  - text: <b>Självstudie för regressionsmodellering med data från taxibilar i New York:</b>
-    type: paragraph
+      - text: 'Komma igång med tjänsten Azure Machine Learning Service:'
+        type: paragraph
+      - text: '<b>Snabbstarter:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/quickstart-run-cloud-notebook">Köra ett experiment i molnet</a> (ingen installation krävs)
+          - html: <a href="service/quickstart-run-local-notebook">Köra ett experiment med hjälp av en lokal notebook-server</a> (installation av lokal SDK)
+        style: unordered
+        type: list
+      - text: '<b>Självstudie för avbildningsklassificering med MNIST-data:</b>'
+        type: paragraph
+      - items:
+          - html: 'Del 1: <a href="service/tutorial-train-models-with-aml">Träna din modell</a>'
+          - html: 'Del 2: <a href="service/tutorial-deploy-models-with-aml">Distribuera modellen</a>'
+        style: unordered
+        type: list
+      - text: '<b>Självstudie för regressionsmodellering med data från taxibilar i New York:</b>'
+        type: paragraph
+      - items:
+          - html: 'Del 1: <a href="service/tutorial-data-prep">Förbereda data för modellering</a>'
+          - html: 'Del 2: <a href="service/tutorial-auto-train-models">Använd automatiserad maskininlärning för att träna modeller</a>'
+        style: unordered
+        type: list
+      - text: '<b>Förbruka dina modeller:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/how-to-consume-web-service">Förbrukning av begäran-svar-modeller</a>
+          - html: <a href="service/how-to-run-batch-predictions">Batch-förutsägelser med ML-pipelines</a>
+        style: unordered
+        type: list
+    title: Snabbstarter och självstudier
   - items:
-    - html: 'Del 1: <a href="service/tutorial-data-prep">Förbereda data för modellering</a>'
-    - html: 'Del 2: <a href="service/tutorial-auto-train-models">Använd automatiserad maskininlärning för att träna modeller</a>'
-    style: unordered
-    type: list
-  - text: <b>Förbruka dina modeller:</b>
-    type: paragraph
-  - items:
-    - html: <a href="service/how-to-consume-web-service">Förbrukning av begäran-svar-modeller</a>
-    - html: <a href="service/how-to-run-batch-predictions">Batch-förutsägelser med ML-pipelines</a>
-    style: unordered
-    type: list
-  title: Snabbstarter och självstudier
-- items:
-  - className: cardsM
-    columns: 2
-    items:
-    - href: /azure/cognitive-services/
-      html: <p>API:er som tillhandahåller intelligenta algoritmer för dina appar, webbplatser och robotar.</p>
-      image:
-        src: /azure/machine-learning/media/index/cognitive-services.png
-      title: Cognitive Services
-    - href: /azure/machine-learning/studio/
-      html: <p>Ett dra-och-släpp-verktyg där flera användare kan samarbeta för att skapa, testa och distribuera prediktiva analyslösningar utifrån dina data med R eller Python. </p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
-    - href: /sql/advanced-analytics/r/r-services
-      html: <p>Analys i databasen med stöd för både R och Python.</p>
-      image:
-        src: /azure/machine-learning/media/index/logo_sql.png
-      title: SQL Server Machine Learning Services
-    - href: /machine-learning-server/
-      html: <p>En flexibel maskininlärningsplattform för företag med stöd för R- och Python-distributioner på Windows, Linux samt HDInsight Spark- och Hadoop-kluster.</p>
-      image:
-        src: /azure/machine-learning/media/index/ml-server.png
-      title: Microsoft Machine Learning Server
-    - href: /azure/machine-learning/team-data-science-process
-      html: <p>En samarbetsbaserad datavetenskapsmetod som hjälper olika team att leverera förutsägelseanalyslösningar och intelligenta program effektivt.</p>
-      image:
-        src: /azure/machine-learning/media/index/tdsp.png
-      title: TDSP (Team Data Science Process)
-    - href: /azure/machine-learning/data-science-virtual-machine/
-      html: <p>Experimentera utan att installera eller konfigurera programvara med hjälp av virtuella DSVM- och DLVM-datorer. Populära verktyg för dataanalys, maskininlärning och AI är förinstallerade.</p>
-      image:
-        src: /azure/machine-learning/media/index/virtualmachine.svg
-      title: Virtuell dator för datavetenskap
-    style: cards
-    type: list
-  title: Andra Microsoft Machine Learning-tekniker
+      - className: cardsM
+        columns: 2
+        items:
+          - href: /azure/cognitive-services/
+            html: '<p>API:er som tillhandahåller intelligenta algoritmer för dina appar, webbplatser och robotar.</p>'
+            image:
+              src: /azure/machine-learning/media/index/cognitive-services.png
+            title: Cognitive Services
+          - href: /azure/machine-learning/studio/
+            html: "<p>Ett dra-och-släpp-verktyg där flera användare kan samarbeta för att skapa, testa och distribuera prediktiva analyslösningar utifrån dina data med R eller Python.\_</p>"
+            image:
+              src: /azure/machine-learning/media/index/machine-learning-studio.svg
+            title: Azure Machine Learning Studio
+          - href: /sql/advanced-analytics/r/r-services
+            html: <p>Analys i databasen med stöd för både R och Python.</p>
+            image:
+              src: /azure/machine-learning/media/index/logo_sql.png
+            title: SQL Server Machine Learning Services
+          - href: /machine-learning-server/
+            html: '<p>En flexibel maskininlärningsplattform för företag med stöd för R- och Python-distributioner på Windows, Linux samt HDInsight Spark- och Hadoop-kluster.</p>'
+            image:
+              src: /azure/machine-learning/media/index/ml-server.png
+            title: Microsoft Machine Learning Server
+          - href: /azure/machine-learning/team-data-science-process
+            html: <p>En samarbetsbaserad datavetenskapsmetod som hjälper olika team att leverera förutsägelseanalyslösningar och intelligenta program effektivt.</p>
+            image:
+              src: /azure/machine-learning/media/index/tdsp.png
+            title: TDSP (Team Data Science Process)
+          - href: /azure/machine-learning/data-science-virtual-machine/
+            html: '<p>Experimentera utan att installera eller konfigurera programvara med hjälp av virtuella DSVM- och DLVM-datorer. Populära verktyg för dataanalys, maskininlärning och AI är förinstallerade.</p>'
+            image:
+              src: /azure/machine-learning/media/index/virtualmachine.svg
+            title: Virtuell dator för datavetenskap
+        style: cards
+        type: list
+    title: Andra Microsoft Machine Learning-tekniker
 title: Dokumentation om Azure Machine Learning

@@ -1,113 +1,106 @@
-items:
 - name: Dokumentation om användarhjälp
   href: index.md
 - name: Hjälp om tvåstegsverifiering
   items:
-  - name: Översikt
-    href: user-help-two-step-verification-overview.md
-  - name: Konfigurera mitt konto
-    href: multi-factor-authentication-end-user-first-time.md
-  - name: Hantera dina inställningar
-    href: multi-factor-authentication-end-user-manage-settings.md
-  - name: Få hjälp
-    href: multi-factor-authentication-end-user-troubleshoot.md
-  - name: Hantera lösenord för appar
-    href: multi-factor-authentication-end-user-app-passwords.md
-  - name: Logga in
-    href: user-help-sign-in.md?toc=./toc.json
+    - name: Översikt
+      href: user-help-two-step-verification-overview.md
+    - name: Konfigurera mitt konto
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Hantera dina inställningar
+      href: multi-factor-authentication-end-user-manage-settings.md
+    - name: Få hjälp
+      href: multi-factor-authentication-end-user-troubleshoot.md
+    - name: Hantera lösenord för appar
+      href: multi-factor-authentication-end-user-app-passwords.md
+    - name: Logga in
+      href: user-help-sign-in.md?toc=./toc.json
 - name: Hjälp om återställning av lösenord
   items:
-  - name: Översikt
-    href: user-help-password-reset-overview.md
-  - name: Registrera dig för återställning av lösenord
-    href: active-directory-passwords-reset-register.md
-  - name: Återställa lösenordet
-    href: user-help-reset-password.md
+    - name: Översikt
+      href: user-help-password-reset-overview.md
+    - name: Registrera dig för återställning av lösenord
+      href: active-directory-passwords-reset-register.md
+    - name: Återställa lösenordet
+      href: user-help-reset-password.md
 - name: Hjälp om Microsoft Authenticator-appen
   items:
-  - name: Översikt
-    href: user-help-auth-app-overview.md
-  - name: Ladda ned och installera appen
-    href: user-help-auth-app-download-install.md
-  - name: Översikt över att lägga till konton
-    href: user-help-auth-app-add-account-overview.md
-    items:
-    - name: Lägga till ett arbets- eller skolkonto
-      href: user-help-auth-app-add-work-school-account.md
-    - name: Lägga till ett personligt Microsoft-konto
-      href: user-help-auth-app-add-personal-ms-account.md
-    - name: Lägga till ett icke-Microsoft-konto
-      href: user-help-auth-app-add-non-ms-account.md
-    - name: Lägga till ett konto manuellt
-      href: user-help-auth-app-add-account-manual.md
-  - name: Logga in med Microsoft Authenticator-appen
-    href: user-help-auth-app-sign-in.md
-  - name: Säkerhetskopiera och återställa konton
-    href: user-help-auth-app-backup-recovery.md
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: user-help-auth-app-faq.md
+    - name: Översikt
+      href: user-help-auth-app-overview.md
+    - name: Ladda ned och installera appen
+      href: user-help-auth-app-download-install.md
+    - name: Översikt över att lägga till konton
+      href: user-help-auth-app-add-account-overview.md
+      items:
+        - name: Lägga till ett arbets- eller skolkonto
+          href: user-help-auth-app-add-work-school-account.md
+        - name: Lägga till ett personligt Microsoft-konto
+          href: user-help-auth-app-add-personal-ms-account.md
+        - name: Lägga till ett icke-Microsoft-konto
+          href: user-help-auth-app-add-non-ms-account.md
+        - name: Lägga till ett konto manuellt
+          href: user-help-auth-app-add-account-manual.md
+    - name: Logga in med Microsoft Authenticator-appen
+      href: user-help-auth-app-sign-in.md
+    - name: Säkerhetskopiera och återställa konton
+      href: user-help-auth-app-backup-recovery.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: user-help-auth-app-faq.md
 - name: Hjälp för Min profil (förhandsversion) på portalen
   items:
-  - name: Översikt
-    href: myprofile-portal-overview.md
-  - name: Hantera säkerhetsinformation
-    href: user-help-security-info-overview.md
-  - name: Hantera dina organisationer
-    href: myprofile-portal-organizations-page.md
-  - name: Hantera dina anslutna enheter
-    href: myprofile-portal-devices-page.md
-  - name: Visa din sekretessrelaterade information
-    href: myprofile-portal-privacy-page.md
+    - name: Översikt
+      href: myprofile-portal-overview.md
+    - name: Hantera säkerhetsinformation
+      href: user-help-security-info-overview.md
+    - name: Hantera dina organisationer
+      href: myprofile-portal-organizations-page.md
+    - name: Hantera dina anslutna enheter
+      href: myprofile-portal-devices-page.md
+    - name: Visa din sekretessrelaterade information
+      href: myprofile-portal-privacy-page.md
 - name: Hjälp om säkerhetsinformation (förhandsversion)
   items:
-  - name: Översikt
-    href: user-help-security-info-overview.md
-  - name: Lägga till säkerhetsinformation under inloggning
-    href: security-info-setup-signin.md
-  - name: Översikt över att lägga till eller uppdatera säkerhetsinformationsmetoder
-    href: security-info-add-update-methods-overview.md
-    items:
-    - name: Konfigurera en autentiseringsapp
-      href: security-info-setup-auth-app.md
-    - name: Konfigurera textmeddelanden
-      href: security-info-setup-text-msg.md
-    - name: Konfigurera telefonsamtal
-      href: security-info-setup-phone-number.md
-    - name: Konfigurera e-post
-      href: security-info-setup-email.md
-    - name: Konfigurera säkerhetsfrågor
-      href: security-info-setup-questions.md
-  - name: Hantera lösenord för appar
-    href: security-info-app-passwords.md
-  - name: Logga in
-    href: user-help-sign-in.md?toc=./toc.json
+    - name: Översikt
+      href: user-help-security-info-overview.md
+    - name: Lägga till säkerhetsinformation under inloggning
+      href: security-info-setup-signin.md
+    - name: Översikt över att lägga till eller uppdatera säkerhetsinformationsmetoder
+      href: security-info-add-update-methods-overview.md
+      items:
+        - name: Konfigurera en autentiseringsapp
+          href: security-info-setup-auth-app.md
+        - name: Konfigurera textmeddelanden
+          href: security-info-setup-text-msg.md
+        - name: Konfigurera telefonsamtal
+          href: security-info-setup-phone-number.md
+        - name: Konfigurera e-post
+          href: security-info-setup-email.md
+        - name: Konfigurera säkerhetsfrågor
+          href: security-info-setup-questions.md
+    - name: Hantera lösenord för appar
+      href: security-info-app-passwords.md
+    - name: Logga in
+      href: user-help-sign-in.md?toc=./toc.json
 - name: Hjälp om att hantera enheter
   items:
-  - name: Översikt
-    href: user-help-device-mgmt-overview.md
-  - name: Ansluta din arbetsenhet
-    href: user-help-join-device-on-network.md
-  - name: Registrera din personliga arbetsenhet
-    href: user-help-register-device-on-network.md
-  - name: Felsöka meddelande om att du inte får åtkomst
-    href: user-help-device-remediation.md
+    - name: Översikt
+      href: user-help-device-mgmt-overview.md
+    - name: Ansluta din arbetsenhet
+      href: user-help-join-device-on-network.md
+    - name: Registrera din personliga arbetsenhet
+      href: user-help-register-device-on-network.md
+    - name: Felsöka meddelande om att du inte får åtkomst
+      href: user-help-device-remediation.md
 - name: Hjälp om portalen Mina appar
   items:
-  - name: Översikt
-    href: my-apps-portal-end-user-overview.md
-  - name: Komma åt och använda portalen Mina appar
-    href: my-apps-portal-end-user-access.md
-  - name: Uppdatera din profil- och kontoinformation
-    href: my-apps-portal-end-user-update-profile.md
-  - name: Uppdatera din gruppinformation
-    href: my-apps-portal-end-user-groups.md
-  - name: Utföra egna åtkomstgranskningar
-    href: my-apps-portal-end-user-access-reviews.md
-  - name: Felsöka problem
-    href: my-apps-portal-end-user-troubleshoot.md
-ms.openlocfilehash: be7c20053ab6ee3a18f81aec9dc973a3032aa5c6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339560"
+    - name: Översikt
+      href: my-apps-portal-end-user-overview.md
+    - name: Komma åt och använda portalen Mina appar
+      href: my-apps-portal-end-user-access.md
+    - name: Uppdatera din profil- och kontoinformation
+      href: my-apps-portal-end-user-update-profile.md
+    - name: Uppdatera din gruppinformation
+      href: my-apps-portal-end-user-groups.md
+    - name: Utföra egna åtkomstgranskningar
+      href: my-apps-portal-end-user-access-reviews.md
+    - name: Felsöka problem
+      href: my-apps-portal-end-user-troubleshoot.md

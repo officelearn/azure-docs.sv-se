@@ -1,78 +1,71 @@
-items:
 - name: Dokumentation för enhetshantering
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är enhetshantering i Azure AD?
-    href: overview.md
-  - name: Vad är Enterprise State Roaming?
-    href: enterprise-state-roaming-overview.md
+    - name: Vad är enhetshantering i Azure AD?
+      href: overview.md
+    - name: Vad är Enterprise State Roaming?
+      href: enterprise-state-roaming-overview.md
 - name: Självstudier
-  items:
-  - name: Konfigurera Azure AD-anslutningshybrid för hanterade domäner
-    href: hybrid-azuread-join-managed-domains.md
-  - name: Konfigurera Azure AD-anslutningshybrid för federerade domäner
-    href: hybrid-azuread-join-federated-domains.md
-  - name: Konfigurera Azure AD-anslutningshybrid manuellt
-    href: hybrid-azuread-join-manual.md
-  - name: Konfigurera Azure AD-anslutning under första körningen av Windows 10
-    href: azuread-joined-devices-frx.md
   expanded: false
+  items:
+    - name: Konfigurera Azure AD-anslutningshybrid för hanterade domäner
+      href: hybrid-azuread-join-managed-domains.md
+    - name: Konfigurera Azure AD-anslutningshybrid för federerade domäner
+      href: hybrid-azuread-join-federated-domains.md
+    - name: Konfigurera Azure AD-anslutningshybrid manuellt
+      href: hybrid-azuread-join-manual.md
+    - name: Konfigurera Azure AD-anslutning under första körningen av Windows 10
+      href: azuread-joined-devices-frx.md
 - name: Begrepp
-  items:
-  - name: Enkel inloggning till lokala resurser
-    href: azuread-join-sso.md
   expanded: false
-- name: Instruktionsguider
   items:
-  - name: Hantera enheter med Azure Portal
-    href: device-management-azure-portal.md
-  - name: Hantera inaktuella enheter
-    href: manage-stale-devices.md
-  - name: Planera implementeringen av Azure AD-anslutningen
-    href: azureadjoin-plan.md
-  - name: Planera implementering av Azure AD-anslutningshybriden
-    href: hybrid-azuread-join-plan.md
-  - name: Kontrollera Azure AD-anslutningshybriden för dina enheter
-    href: hybrid-azuread-join-control.md
-  - name: Tilldela lokala administratörer till Azure AD-anslutna enheter
-    href: assign-local-admin.md
-  - name: Aktivera Enterprise State Roaming
-    href: enterprise-state-roaming-enable.md
-  - name: Felsöka Azure AD-anslutningshybriden för aktuella Windows-enheter
-    href: troubleshoot-hybrid-join-windows-current.md
-  - name: Felsöka Azure AD-anslutningshybriden för äldre Windows-enheter
-    href: troubleshoot-hybrid-join-windows-legacy.md
-  - name: Felsöka Enterprise State Roaming
-    href: enterprise-state-roaming-troubleshooting.md
-  - name: Vanliga frågor och svar
-    href: faq.md
-  - name: Aktivera vanliga frågor och svar om Enterprise State
-    href: enterprise-state-roaming-faqs.md
+    - name: Enkel inloggning till lokala resurser
+      href: azuread-join-sso.md
+- name: Instruktionsguider
   expanded: true
+  items:
+    - name: Hantera enheter med Azure Portal
+      href: device-management-azure-portal.md
+    - name: Hantera inaktuella enheter
+      href: manage-stale-devices.md
+    - name: Planera implementeringen av Azure AD-anslutningen
+      href: azureadjoin-plan.md
+    - name: Planera implementering av Azure AD-anslutningshybriden
+      href: hybrid-azuread-join-plan.md
+    - name: Kontrollera Azure AD-anslutningshybriden för dina enheter
+      href: hybrid-azuread-join-control.md
+    - name: Tilldela lokala administratörer till Azure AD-anslutna enheter
+      href: assign-local-admin.md
+    - name: Aktivera Enterprise State Roaming
+      href: enterprise-state-roaming-enable.md
+    - name: Felsöka Azure AD-anslutningshybriden för aktuella Windows-enheter
+      href: troubleshoot-hybrid-join-windows-current.md
+    - name: Felsöka Azure AD-anslutningshybriden för äldre Windows-enheter
+      href: troubleshoot-hybrid-join-windows-legacy.md
+    - name: Felsöka Enterprise State Roaming
+      href: enterprise-state-roaming-troubleshooting.md
+    - name: Vanliga frågor och svar
+      href: faq.md
+    - name: Aktivera vanliga frågor och svar om Enterprise State
+      href: enterprise-state-roaming-faqs.md
 - name: Referens
   items:
-  - name: GPO-inställningar för Enterprise State Roaming
-    href: enterprise-state-roaming-group-policy-settings.md
-  - name: Windows-inställningar för Enterprise State Roaming
-    href: enterprise-state-roaming-windows-settings-reference.md
+    - name: GPO-inställningar för Enterprise State Roaming
+      href: enterprise-state-roaming-group-policy-settings.md
+    - name: Windows-inställningar för Enterprise State Roaming
+      href: enterprise-state-roaming-windows-settings-reference.md
 - name: Resurser
   items:
-  - name: Azures feedbackforum
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Tjänstuppdateringar
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: c55f0c43b8af390d95c0dc3b70ff7037793ac7bc
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388290"
+    - name: Azures feedbackforum
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Tjänstuppdateringar
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

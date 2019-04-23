@@ -1,81 +1,74 @@
-items:
 - name: Dokumentation för villkorsstyrd åtkomst
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är villkorsstyrd åtkomst?
-    href: overview.md
+    - name: Vad är villkorsstyrd åtkomst?
+      href: overview.md
 - name: Snabbstarter
   items:
-  - name: Kräv MFA för specifika appar
-    href: app-based-mfa.md
-  - name: Kräv att användningsvillkoren godkänns
-    href: require-tou.md
-  - name: Blockera åtkomst när en sessionsrisk identifieras
-    href: app-sign-in-risk.md
+    - name: Kräv MFA för specifika appar
+      href: app-based-mfa.md
+    - name: Kräv att användningsvillkoren godkänns
+      href: require-tou.md
+    - name: Blockera åtkomst när en sessionsrisk identifieras
+      href: app-sign-in-risk.md
 - name: Självstudier
   items:
-  - name: Migrera en klassisk MFA-princip
-    href: policy-migration-mfa.md
+    - name: Migrera en klassisk MFA-princip
+      href: policy-migration-mfa.md
 - name: Begrepp
-  items:
-  - name: Baslinjeskydd
-    href: baseline-protection.md
-  - name: Villkor
-    href: conditions.md
-  - name: Platsvillkor
-    href: location-condition.md
-  - name: Kontroller
-    href: controls.md
-  - name: Tjänstberoenden
-    href: service-dependencies.md
-  - name: Konsekvensverktyg
-    href: what-if-tool.md
   expanded: false
-- name: Instruktionsguider
   items:
-  - name: Planera distributionen för villkorsstyrd åtkomst
-    href: plan-conditional-access.md
-  - name: Bästa praxis
-    href: best-practices.md
-  - name: Blockera äldre autentisering
-    href: block-legacy-authentication.md
-  - name: Styr åtkomsten till Exchange Online och SharePoint Online
-    href: conditional-access-for-exo-and-spo.md
-  - name: Migrera klassiska principer
-    href: policy-migration.md
-  - name: Kräva godkända klientappar
-    href: app-based-conditional-access.md
-  - name: Kräva appskyddsprincip
-    href: app-protection-based-conditional-access.md
-  - name: Kräv hanterade enheter
-    href: require-managed-devices.md
-  - name: Kräva MFA för åtkomstförsök från ej betrodda nätverk
-    href: untrusted-networks.md
-  - name: Kräva användningsvillkor
-    href: terms-of-use.md
+    - name: Baslinjeskydd
+      href: baseline-protection.md
+    - name: Villkor
+      href: conditions.md
+    - name: Platsvillkor
+      href: location-condition.md
+    - name: Kontroller
+      href: controls.md
+    - name: Tjänstberoenden
+      href: service-dependencies.md
+    - name: Konsekvensverktyg
+      href: what-if-tool.md
+- name: Instruktionsguider
   expanded: true
+  items:
+    - name: Planera distributionen för villkorsstyrd åtkomst
+      href: plan-conditional-access.md
+    - name: Bästa praxis
+      href: best-practices.md
+    - name: Blockera äldre autentisering
+      href: block-legacy-authentication.md
+    - name: Styr åtkomsten till Exchange Online och SharePoint Online
+      href: conditional-access-for-exo-and-spo.md
+    - name: Migrera klassiska principer
+      href: policy-migration.md
+    - name: Kräva godkända klientappar
+      href: app-based-conditional-access.md
+    - name: Kräva appskyddsprincip
+      href: app-protection-based-conditional-access.md
+    - name: Kräv hanterade enheter
+      href: require-managed-devices.md
+    - name: Kräva MFA för åtkomstförsök från ej betrodda nätverk
+      href: untrusted-networks.md
+    - name: Kräva användningsvillkor
+      href: terms-of-use.md
 - name: Referens
   items:
-  - name: Teknisk referens
-    href: technical-reference.md
+    - name: Teknisk referens
+      href: technical-reference.md
 - name: Resurser
   items:
-  - name: Azures feedbackforum
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Tjänstuppdateringar
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 1db270043ea996b72f47ee00dbd07f1bd33a1e48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787040"
+    - name: Azures feedbackforum
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Tjänstuppdateringar
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

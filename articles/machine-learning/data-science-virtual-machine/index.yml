@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 08426b9cb6dee2abd445f2e29eb4bf4d20a6e06d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475692"
 documentType: LandingData
 title: Dokumentation om virtuella Azure-datorer för datavetenskap
 metadata:
   title: Dokumentation om Data Science Virtual Machine – Azure
-  description: Lär dig hur du använder Data Science Virtual Machine, en experimenteringsmiljö i Azure-molnet som har utformats speciellt för datavetenskap. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser.
+  description: 'Lär dig hur du använder Data Science Virtual Machine, en experimenteringsmiljö i Azure-molnet som har utformats speciellt för datavetenskap. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser.'
   services: machine-learning
   author: gopitk
   manager: cgronlun
@@ -23,43 +17,43 @@ metadata:
 abstract:
   description: Virtuella datorer för datavetenskap och djupinlärning är anpassade VM-avbildningar i Azure med verktyg för datavetenskap som används för att skapa intelligenta program för avancerade analyser.
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du konfigurerar en Windows- eller Linux-baserad virtuell dator för datavetenskap:'
-  - type: list
-    style: unordered
+  - title: Snabbstarter på 5 minuter
     items:
-    - html: <a href="provision-vm.md">Windows</a>
-    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
-    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig mer om att etablera och använda virtuella datorer för datavetenskap:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Lär dig hur du konfigurerar en Windows- eller Linux-baserad virtuell dator för datavetenskap:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="provision-vm.md">Windows</a>
+          - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+          - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="provision-vm">Etablera en Windows DSVM</a>
-    - html: <a href="vm-do-ten-things">Använda en Windows DSVM</a>
-    - html: <a href="linux-dsvm-intro">Etablera Linux CentOS DSVM</a>
-    - html: <a href="dsvm-ubuntu-intro">Etablera en Linux Ubuntu DSVM</a>
-    - html: <a href="linux-dsvm-walkthrough">Använda en Linux DSVM</a>
-- title: Fler Azure Machine Learning-tekniker
-  items:
-  - type: paragraph
-    text: 'Andra tekniker som är tillgängliga i Azure Machine Learning:'
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Lär dig mer om att etablera och använda virtuella datorer för datavetenskap:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="provision-vm">Etablera en Windows DSVM</a>
+          - html: <a href="vm-do-ten-things">Använda en Windows DSVM</a>
+          - html: <a href="linux-dsvm-intro">Etablera Linux CentOS DSVM</a>
+          - html: <a href="dsvm-ubuntu-intro">Etablera en Linux Ubuntu DSVM</a>
+          - html: <a href="linux-dsvm-walkthrough">Använda en Linux DSVM</a>
+  - title: Fler Azure Machine Learning-tekniker
     items:
-    - title: Azure Machine Learning-tjänst (förhandsversion)
-      href: /azure/machine-learning/service/
-      image:
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
+      - type: paragraph
+        text: 'Andra tekniker som är tillgängliga i Azure Machine Learning:'
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Machine Learning-tjänst (förhandsversion)
+            href: /azure/machine-learning/service/
+            image:
+              src: media/index/i_machine-learning.svg
+              href: /azure/machine-learning/service/
+          - title: Azure Machine Learning Studio
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/

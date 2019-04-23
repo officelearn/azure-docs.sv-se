@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3052d856d83a7bf7cbb41a90f92b598c8c24cd5e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669157"
 documentType: LandingData
 title: Dokumentation om Avere vFXT för Azure
 metadata:
@@ -17,14 +11,14 @@ metadata:
   ms.date: 10/31/2018
   ms.author: v-erkell
 abstract:
-  description: Avere vFXT för Azure tillhandahåller ett molnbaserat cachelager för dataintensiva uppgifter med databehandling med höga prestanda. Genom att cachelagra filer nära beräkningsnoderna påskyndar Avere vFXT inläsningstiderna så att du kan arbeta smidigare även vid toppbelastning. Avere vFXT fungerar bäst med system som har mellan 1 000 och 40 000 klientkärnor. <p>Avere vFXT kan arbeta med din befintliga lokala datalagring för att ge Azure-baserade beräkningsresurser lokal åtkomst till aktiva filer som lagras långsiktigt i datacentret.
+  description: "Avere vFXT för Azure tillhandahåller ett molnbaserat cachelager för dataintensiva uppgifter med databehandling med höga prestanda. Genom att cachelagra filer nära beräkningsnoderna påskyndar Avere vFXT inläsningstiderna så att du kan arbeta smidigare även vid toppbelastning. Avere vFXT fungerar bäst med system som har mellan 1\_000 och 40\_000 klientkärnor. <p>Avere vFXT kan arbeta med din befintliga lokala datalagring för att ge Azure-baserade beräkningsresurser lokal åtkomst till aktiva filer som lagras långsiktigt i datacentret."
 sections:
-- title: Kom igång med Avere vFXT för Azure
-  items:
-  - type: list
-    style: unordered
+  - title: Kom igång med Avere vFXT för Azure
     items:
-    - html: <a href="avere-vfxt-deploy-plan">Planera för ditt Avere vFXT för Azure-system</a>
-    - html: <a href="avere-vfxt-deploy-overview">Läs om Avere vFXT-distribution</a>
-    - html: <a href="avere-vfxt-prereqs">Uppfyll förhandskraven</a>
-    - html: <a href="avere-vfxt-deploy">Distribuera Avere vFXT-klustret</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="avere-vfxt-deploy-plan">Planera för ditt Avere vFXT för Azure-system</a>
+          - html: <a href="avere-vfxt-deploy-overview">Läs om Avere vFXT-distribution</a>
+          - html: <a href="avere-vfxt-prereqs">Uppfyll förhandskraven</a>
+          - html: <a href="avere-vfxt-deploy">Distribuera Avere vFXT-klustret</a>

@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d5e17b3618d179354c9f2a467250b8eb489827ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460717"
 documentType: LandingData
 title: Dokumentation om Azure Firewall
 metadata:
-  title: Dokumentation om Azure Firewall – Självstudier, API-referens
-  meta.description: Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+  title: 'Dokumentation om Azure Firewall – Självstudier, API-referens'
+  meta.description: 'Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
   services: firewall
   author: vhorne
   ms.service: firewall
@@ -17,37 +11,37 @@ metadata:
   ms.date: 9/24/2018
   ms.author: victorh
 abstract:
-  description: Lär dig att distribuera Azure Firewall, en molnbaserad tjänst för nätverkssäkerhet. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar principer på program- och nätverksnivå för att skydda Azure-resurser på det virtuella nätverket.
+  description: 'Lär dig att distribuera Azure Firewall, en molnbaserad tjänst för nätverkssäkerhet. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar principer på program- och nätverksnivå för att skydda Azure-resurser på det virtuella nätverket.'
 sections:
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig att distribuera Azure Firewall
-  - type: list
-    style: unordered
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Distribuera och konfigurera Azure Firewall med hjälp av Azure-portalen</a>
-    - html: <a href="/azure/firewall/tutorial-hybrid-ps">Distribuera i ett hybridnätverk</a>
-    - html: <a href="/azure/firewall/tutorial-firewall-dnat">Filtrera inkommande trafik med DNAT</a>
-    - html: <a href="/azure/firewall/tutorial-diagnostics">Övervaka Azure Firewall-loggar</a>
-- title: Exempel
-  items:
-  - type: paragraph
-    text: Skriptexempel för vanliga åtgärder.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Lär dig att distribuera Azure Firewall
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Distribuera och konfigurera Azure Firewall med hjälp av Azure-portalen</a>
+          - html: <a href="/azure/firewall/tutorial-hybrid-ps">Distribuera i ett hybridnätverk</a>
+          - html: <a href="/azure/firewall/tutorial-firewall-dnat">Filtrera inkommande trafik med DNAT</a>
+          - html: <a href="/azure/firewall/tutorial-diagnostics">Övervaka Azure Firewall-loggar</a>
+  - title: Exempel
     items:
-    - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Skriptexempel för vanliga åtgärder.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="/powershell/module/az.network/new-azfirewall">Azure PowerShell</a></p><p><a href="/cli/azure/ext/azure-firewall/network/firewall">Azure CLI</a></p>
-    - title: Språk
-      html: <p><a href="/dotnet/api">NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API-referens</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/powershell/module/az.network/new-azfirewall">Azure PowerShell</a></p><p><a href="/cli/azure/ext/azure-firewall/network/firewall">Azure CLI</a></p>
+          - title: Språk
+            html: <p><a href="/dotnet/api">NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API-referens</a></p>'

@@ -34,8 +34,8 @@ Data för geofence-området eller uppsättning geofence-områdena representeras 
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | true | Starta datum-tid för giltigheten tidsperiod. |
 | endTime   | DateTime  | true |  Slutar datum-tid för giltigheten tidsperiod. |
-| värde för recurrenceType | sträng | false |   Intervalltyp är slut. Värdet kan vara `Daily`, `Weekly`, `Monthly`, eller `Yearly`. Standardvärdet är `Daily`.|
-| businessDayOnly | Boolesk | false |  Ange om data är endast giltig under arbetsdagar. Standardvärdet är `false`.|
+| värde för recurrenceType | string | false |   Intervalltyp är slut. Värdet kan vara `Daily`, `Weekly`, `Monthly`, eller `Yearly`. Standardvärdet är `Daily`.|
+| businessDayOnly | Boolean | false |  Ange om data är endast giltig under arbetsdagar. Standardvärdet är `false`.|
 
 
 * Alla koordinaten värden representeras som [latitud, longitud] definierad i `WGS84`.

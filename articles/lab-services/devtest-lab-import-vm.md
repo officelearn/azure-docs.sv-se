@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: cb4a3ec9be82957b4c0366ec232f1147c52d0251
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682316"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148780"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>Importera virtuella datorer från en annan labb i Azure DevTest Labs
-Tjänsten Azure DevTest Labs avsevärt förbättrar hanteringen av virtuella datorer (VM) för utveckling och testning aktiviteter. Du kan flytta en virtuell dator från en lab till en annan som teamet eller ändra krav på nätverksinfrastruktur. Här följer några vanliga scenarier där du kan behöva göra det: 
+Tjänsten Azure DevTest Labs avsevärt förbättrar hanteringen av virtuella datorer (VM) för utveckling och testning aktiviteter. Du kan flytta en virtuell dator från en lab till en annan som teamet eller ändra krav på nätverksinfrastruktur. Här följer några vanliga scenarier där du kan behöva göra det:
 
 - En person i teamet flyttar till en annan grupp i företaget och vill kunna utveckling virtuella datorer till det nya teamet labb.
 - Gruppen har nått kvoten prenumerationsnivå och vill dela upp team till flera prenumerationer.
@@ -42,10 +42,10 @@ Dessutom för att kunna importera en virtuell dator från en labb till en annan,
 Du kan för närvarande kan importera en virtuell dator från en labb till en annan endast med hjälp av Azure PowerShell och REST API.
 
 ### <a name="use-powershell"></a>Använd PowerShell
-Ladda ned PowerShell-skriptet filen ImportVirtualMachines.ps1 från [Azure DevTest Lab Git-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) till din lokala enhet. 
+Ladda ned PowerShell-skriptet filen ImportVirtualMachines.ps1 från [Azure DevTest Lab Git-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) till din lokala enhet.
 
 #### <a name="import-a-single-vm"></a>Importera en enskild virtuell dator
-Kör skriptet ImportVirtualMachines.ps1 för att importera en enskild virtuell dator från ett labb för källa till ett testlabb för målet. Du kan ange ett nytt namn för den virtuella datorn som ska kopieras med hjälp av DestinationVirtualMachineName paramer. 
+Kör skriptet ImportVirtualMachines.ps1 för att importera en enskild virtuell dator från ett labb för källa till ett testlabb för målet. Du kan ange ett nytt namn för den virtuella datorn som ska kopieras med hjälp av DestinationVirtualMachineName paramer.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -58,7 +58,7 @@ Kör skriptet ImportVirtualMachines.ps1 för att importera en enskild virtuell d
 
 
 #### <a name="importing-all-vms"></a>Importera alla virtuella datorer
-När du kör skriptet ImportVirtualMachines.ps1 om du inte anger en virtuell dator i labbet källa, importerar skriptet alla virtuella datorer i labbet källa till mål-labbet. 
+När du kör skriptet ImportVirtualMachines.ps1 om du inte anger en virtuell dator i labbet källa, importerar skriptet alla virtuella datorer i labbet källa till mål-labbet.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -68,7 +68,7 @@ När du kör skriptet ImportVirtualMachines.ps1 om du inte anger en virtuell dat
 ```
 
 ### <a name="use-rest-api"></a>Använda REST-API
-Anropa REST-API: et mot mål-och mål-labb och skicka i källan lab, prenumeration och information om Virtuellt som parametrar som du ser i följande exempel: 
+Anropa REST-API: et mot mål-och mål-labb och skicka i källan lab, prenumeration och information om Virtuellt som parametrar som du ser i följande exempel:
 
 ```json
 POST https://management.azure.com/subscriptions/<ID of the target/destination subscription>/resourceGroups/<Name of the resource group that contains the destination lab>/providers/Microsoft.DevTestLab/labs/<Name of the lab to which the VMs are copied>/ImportVirtualMachine?api-version=2017-04-26-preview
@@ -82,5 +82,3 @@ POST https://management.azure.com/subscriptions/<ID of the target/destination su
 
 - Information om hur du ändrar storlek på en virtuell dator finns i [ändra storlek på en virtuell dator](devtest-lab-resize-vm.md).
 - Information om hur du distribuerar om en virtuell dator finns i [distribuera om en virtuell dator](devtest-lab-redeploy-vm.md).
-
-

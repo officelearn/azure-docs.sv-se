@@ -1,21 +1,21 @@
 ---
 title: 'Snabbstart: Python SDK'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten får du lära dig att använda Python SDK för vanliga uppgifter.
+description: I den här snabbstarten får du lära dig hur du använder Python SDK för vanliga uppgifter, till exempel analysera bild, beskrivning av Erhåll, identifiera text och generera miniatyrbilden.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: c9b30eb89080137e17042feb4458f2601bf48a05
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 95705e7b7a372867e33c86826f44e380407dfee1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617979"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999322"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services-SDK för visuellt innehåll och för Python
 

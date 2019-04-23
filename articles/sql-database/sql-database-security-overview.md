@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523706"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001090"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -88,9 +88,9 @@ SQL Database skyddar kundernas data genom att tillhandahålla granskning och fun
 
 SQL Database-granskning spårar databasaktiviteter och hjälper dig upprätthålla överensstämmelse med säkerhetsstandarder genom att registrera databashändelser till en granskningslogg i ett kundägda Azure storage-konto. Granskning kan du övervaka pågående databasaktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhetsöverträdelser. Mer information finns i Kom igång med [SQL Database Auditing](sql-database-auditing.md).  
 
-### <a name="threat-detection"></a>Hotidentifiering
+### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Threat detection förbättrar granskning genom att analysera granskningsloggarna för ovanlig funktion och potentiellt skadliga försöker komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter eller avvikande åtkomstmönster som SQL-inmatningsattacker, potentiella data intrång och lösenord för råstyrkeattacker. Hotidentifieringsaviseringar som öppnas från den [Azure Security Center](https://azure.microsoft.com/services/security-center/), där finns information om misstänkta aktiviteter och rekommendationer för ytterligare undersökningar anges tillsammans med åtgärder för att minska risken. Hotidentifiering kostar $15/server/månad. Det är kostnadsfritt de första 60 dagarna. Mer information finns i [Kom igång med SQL Database Threat detection](sql-database-threat-detection.md).
+Avancerat skydd analys av dina SQL Server-loggar för att identifiera avvikelser och potentiellt skadliga försök att komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter som SQL-inmatning, potentiella data intrång och brute force angrepp eller efter avvikelser i access mönster för att fånga upp privilegieutökningar och haft intrång autentiseringsuppgifter använder. Aviseringar visas från den [Azure Security Center](https://azure.microsoft.com/services/security-center/), där finns information om misstänkta aktiviteter och rekommendationer för ytterligare undersökningar anges tillsammans med åtgärder för att minska risken. Avancerat skydd kan aktiveras per server för en ytterligare avgift. Mer information finns i [Kom igång med SQL Database Advanced Threat Protection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 

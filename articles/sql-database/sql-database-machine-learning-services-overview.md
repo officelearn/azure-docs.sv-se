@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Machine Learning Services med översikt över R (förhandsversion)
-description: Det här avsnittet beskrivs Azure SQL Database Machine Learning Services (med R) och hur det fungerar.
+description: Den här artikeln beskrivs Azure SQL Database Machine Learning Services (med R) och hur det fungerar.
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: e6d6250da4df6ab267ef28f8f15a73c8cbc68618
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 172bf201e2327f5ae8db0ac3c82f2f07e3f0ffc9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762067"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997486"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning Services med R (förhandsversion)
 
@@ -35,21 +35,23 @@ Machine Learning Services är en funktion i Azure SQL-databas som används för 
 
 ## <a name="what-you-can-do-with-r"></a>Vad du kan göra med R
 
-Använd kraften hos R-språket för att leverera avancerad analys och maskininlärning i databasen. Den här funktionen ger beräkning och bearbetning där data finns, vilket eliminerar behovet av att hämta data över nätverket. Dessutom kan du dra nytta av R-företagspaket och tillhandahålla avancerad analys i stor skala.
+Använd kraften hos R-språket för att leverera avancerad analys och maskininlärning i databasen. Den här funktionen ger beräkning och bearbetning där data finns, vilket eliminerar behovet av att hämta data över nätverket. Du kan också utnyttja kraften i R-paket för företaget att tillhandahålla avancerade analyser i stor skala.
 
 Machine Learning Services innehåller en grundläggande distribution av R med överlägg med R-företagspaket från Microsoft. Microsofts R-funktioner och algoritmer är utformade för både stor skala och nytta. De levererar förutsägelseanalys, statistisk modellering, datavisualiseringar och ledande algoritmer för maskininlärning.
 
 ### <a name="r-packages"></a>R-paket
 
-De vanligaste R med öppen källkod-paket är förinstallerade i Machine Learning Services. Följande R-paket från Microsoft ingår också:
+De vanligaste open source-R-paket är förinstallerade i Machine Learning Services. Följande R-paket från Microsoft ingår också:
 
 | R-paket | Beskrivning|
 |-|-|
-| [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open är de förbättrade R från Microsoft-distributionen. Det är en plattform för fullständig öppen källkod för statistiska analyser och datavetenskap. Den är baserad på och 100% kompatibel med R och omfattar ytterligare funktioner för bättre prestanda och reproducerbarhet. |
+| [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open är de förbättrade R från Microsoft-distributionen. Det är en fullständig plattform för öppen källkod för statistiska analyser och datavetenskap. Den är baserad på och 100% kompatibel med R och omfattar ytterligare funktioner för bättre prestanda och reproducerbarhet. |
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR är primärt bibliotek för skalbar R. funktioner i det här biblioteket är bland de mest använda. Dataomvandlingar och manipulering, Statistisk sammanfattning, visualisering och modellering och analyser på många sätt finns i dessa bibliotek. Dessutom distribuera funktioner i dessa bibliotek automatiskt arbetsbelastningar över tillgängliga kärnor för parallell bearbetning, med möjlighet att arbeta med datasegment som samordnas och hanteras av beräkningsmotorn för. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML lägger till machine learning-algoritmer för att skapa anpassade modeller för textanalys, bildanalys och attitydanalys. |
 
-Förutom de förinstallerade paket kan du [installera ytterligare paket](sql-database-connect-query-r.md#add-package).
+<!-- Add this back when the new package-related article is written
+In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
+-->
 
 <a name="signup"></a>
 
@@ -61,7 +63,7 @@ Om du vill registrera dig för den offentliga förhandsversionen kan du följa d
 
 2. Skicka ett e-postmeddelande till Microsoft på [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) om du vill registrera dig för den offentliga förhandsversionen. Den offentliga förhandsversionen av Machine Learning Services (med R) i SQL Database är inte aktiverad som standard.
 
-När du är registrerad i programmet Microsoft publicerar du så att den allmänna förhandsgranskningen och aktivera R din befintliga eller nya databas.
+När du är anmäld i programmet Microsoft publicerar du så att den allmänna förhandsgranskningen och aktivera R din befintliga eller nya databas.
 
 Machine Learning-tjänster med R rekommenderas inte för produktionsarbetsbelastning den offentliga förhandsversionen.
 

@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/29/2019
+ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755909"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999832"
 ---
-# <a name="what-is-azure-media-services-v3"></a>Vad är Azure Media Services v3?
+# <a name="azure-media-services-v3-overview"></a>Azure Media Services v3-översikt
 
 Azure Media Services är en molnbaserad plattform för att skapa lösningar för videor i sändningskvalitet för direktuppspelning, förbättra tillgängligheten och distributionen, analysera innehållet och mycket mer. Om du är en programutvecklare, ett callcenter, en myndighet eller ett underhållningsföretag kan Media Services hjälpa dig att skapa program som levererar medieupplevelser med fantastisk kvalitet för stora målgrupper på dagens populäraste mobila enheter och webbläsare. 
 
 > [!NOTE]
-> För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), eller någon av stöds [SDK: er](developers-guide.md).
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
 
 ## <a name="what-can-i-do-with-media-services"></a>Vad kan jag göra med Media Services?
 
@@ -46,7 +46,7 @@ Media Services hjälper dig att skapa en mängd olika mediearbetsflöden i molne
 
 ## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3? 
 
-Lär dig mer om att koda och paketera, strömma videor på begäran, sända live, analysera dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
+Lär dig hur du kodar och paketerar innehåll, strömmar videor på begäran, sänder live och analyserar dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
 
 Innan du börjar utveckla granska [grundläggande begrepp](concepts-overview.md)<br/>
 
@@ -74,11 +74,15 @@ Artiklar innehåller exempel som visar hur du utför en uppgift. I det här avsn
 
 * [Skapa ett konto – CLI](create-account-cli-how-to.md)
 * [Använd API:er – CLI](access-api-cli-how-to.md)
-* [Börja utveckla med SDK: er](developers-guide.md)
+* [Börja utveckla med SDK:er](developers-guide.md)
 * [Koda med HTTPS som indata - jobb .NET](job-input-from-http-how-to.md)  
 * [Övervaka händelser – Portal](monitor-events-portal-how-to.md)
 * [Kryptera dynamiskt med multi-DRM - .NET](protect-with-drm.md) 
 * [Koda med en anpassad transformering – CLI](custom-preset-cli-howto.md)
+
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

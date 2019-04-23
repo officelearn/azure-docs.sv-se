@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 61e76369a4d73bd171c9e5c2462b3f261681ba00
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: bcb154f7cffb92ef23fc2606e1f604bb12f8d1a3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551389"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996619"
 ---
 # <a name="azure-devtest-labs---reference-architecture-for-an-enterprise"></a>Azure DevTest Labs - Referensarkitektur för ett företag
 Den här artikeln innehåller en Referensarkitektur för att distribuera en lösning baserad på Azure DevTest Labs i ett företag. Den innehåller en lokal anslutning via Express Route, en gateway för fjärrskrivbord till via en fjärranslutning loggar in på virtuella datorer, Anslut till en artefaktcentrallagret för privata artefakter och andra PaaS-tjänster som används i ett labb.
@@ -37,7 +37,7 @@ De viktigaste elementen i referensarkitekturen är:
     - Tvinga all nätverkstrafik in och ut ur molnmiljö via en lokal brandvägg för säkerhet/efterlevnadsskäl
 - **Nätverkssäkerhetsgrupper**: Ett vanligt sätt att begränsa trafiken till molnmiljön (eller molnmiljön) baserat på källa och mål-IP-adresser är att använda en [nätverkssäkerhetsgrupp](../virtual-network/security-overview.md). Till exempel så att endast den nätverkstrafik som kommer från företagsnätverket till den testmiljön nätverk.
 - **Fjärrskrivbordsgateway**:  Företag vanligtvis blockera utgående anslutningar till fjärrskrivbord på företagets brandvägg. Om du vill aktivera anslutningen till den molnbaserade miljön i DevTest Labs, det finns flera alternativ som att använda en [fjärrskrivbordsgateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) (statisk IP-adress för belastningsutjämnaren på gateway-vitlistan) eller [dirigera all inkommande RDP-trafik](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) via Express Route/plats-till-plats VPN-anslutningen. Det är en vanliga överväganden när du planerar en distribution av DevTest Labs i företaget.
-- **Azure-nätverk (virtuella nätverk, undernät)**:  Den [Azure-nätverk](../networking/networking-overview.md) topologin är en annan nyckelfaktor i den övergripande arkitekturen för DevTest Labs. Det gör det möjligt för resurser från labs kommunicera (eller inte), åtkomst till den lokala (eller inte) och åtkomst till internet (eller inte). Arkitekturdiagrammet innehåller det vanligaste sättet som kunder använder labb (alla labs som är anslutna via [VNet-Peering](../virtual-network/virtual-network-peering-overview.md) med hjälp av en [modell av typen hub-spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke) på Express Route/plats-till-plats VPN-anslutning lokalt), men sedan DevTest Labs med hjälp av Azure Networking direkt det inte finns några begränsningar för hur du ställer in nätverksinfrastrukturen.
+- **Azure-nätverk (virtuella nätverk, undernät)**:  Den [Azure-nätverk](../networking/networking-overview.md) topologin är en annan nyckelfaktor i den övergripande arkitekturen för DevTest Labs. Det gör det möjligt för resurser från labs kommunicera (eller inte), åtkomst till den lokala (eller inte) och åtkomst till internet (eller inte). Arkitekturdiagrammet innehåller det vanligaste sättet som kunder använder labb (alla labs som är anslutna via [VNet-Peering](../virtual-network/virtual-network-peering-overview.md) med hjälp av en [modell av typen hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) på Express Route/plats-till-plats VPN-anslutning lokalt), men sedan DevTest Labs med hjälp av Azure Networking direkt det inte finns några begränsningar för hur du ställer in nätverksinfrastrukturen.
 - **DevTest Labs**:  DevTest Labs är en viktig del av den övergripande arkitekturen. Mer information om tjänsten, se [om DevTest Labs](devtest-lab-overview.md).
 - **Virtuella datorer och andra resurser (SaaS, PaaS, IaaS)**:  En av de viktiga arbetsbelastningar som stöds av DevTest Labs är virtuella datorer tillsammans med andra Azure-resurser.  DevTest Labs gör det enkelt och snabbt för företaget att ge åtkomst till Azure-resurser (inklusive virtuella datorer och andra Azure-resurser).  Mer information om åtkomst till Azure för [utvecklare](devtest-lab-developer-lab.md) och [Testare](devtest-lab-test-env.md).
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791549"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998659"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Hur du ställer in aviseringar för problem med prestanda i Azure Monitor för behållare
 Azure Monitor för behållare övervakar prestanda för arbetsbelastningar som distribueras till Azure Container Instances eller hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS).
@@ -285,5 +285,5 @@ Följ dessa steg för att skapa en avisering om loggen i Azure Monitor med någo
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa [logga fråga exempel](container-insights-analyze.md#search-logs-to-analyze-data) vill veta mer om fördefinierade frågor och exempel för att utvärdera eller anpassa för andra aviseringar scenarier.
-* Läs mer om Azure Monitor och övervaka andra aspekter av AKS-klustret i [visa Azure Kubernetes Service health](container-insights-analyze.md).
+- Visa [logga fråga exempel](container-insights-log-search.md#search-logs-to-analyze-data) att se fördefinierade frågor och exempel för att utvärdera eller anpassa för aviseringar, visualisera och analysera dina kluster.
+- Läs mer om Azure Monitor och övervaka andra aspekter av AKS-klustret i [visa Azure Kubernetes Service health](container-insights-analyze.md).

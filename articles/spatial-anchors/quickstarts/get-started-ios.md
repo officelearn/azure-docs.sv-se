@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a5d34b2964d805cdbeced0d4fad3dd889da9f3e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: b8ee1bdfece35d774cdc79595a495b0b3719a836
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900632"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996653"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Snabbstart: Skapa en iOS-app med Azure Spatial Anchors i antingen Swift eller Objective-C
 
@@ -28,7 +28,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
@@ -88,15 +88,15 @@ Nästa steg är att konfigurera appen att använda ditt konto-ID och kontonyckel
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
-Öppna `iOS/Swift/SampleSwift/ViewController.swift`.
+Öppna `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
+Leta upp fältet `spatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
-Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
+Leta upp fältet `spatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
 # <a name="objective-ctabopenproject-objc"></a>[Objective-C](#tab/openproject-objc)
 
-Öppna `iOS/Objective-C/SampleObjC/ViewController.m`.
+Öppna `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
 Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 

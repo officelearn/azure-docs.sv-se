@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Använda Azure Database Migration Service för att utföra en online-migrering av RDS SQL Server till Azure SQL Database eller en hanterad Azure SQL Database-instans | Microsoft Docs'
-description: Lär dig hur du utför en online-migrering från RDS SQL Server till Azure SQL Database eller en hanterad Azure SQL Database-instans med hjälp av Azure Database Migration Service.
+title: 'Självstudier: Använd Azure Database Migration Service för en online RDS SQL Server till Azure SQL Database eller till en Azure SQL Database managed instance-migrering | Microsoft Docs'
+description: Lär dig hur du utför en online-migrering från RDS SQL Server till Azure SQL Database eller till en Azure SQL Database-hanterad instans med hjälp av Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 04/20/2019
+ms.openlocfilehash: 7294236a7b79ad093480e9063d886dd30ccf7fc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886411"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998982"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Självstudier: Migrera Fjärrskrivbordstjänster SQL Server till Azure SQL Database eller en Azure SQL Database hanterad instans online med DMS
 Du kan använda Azure Database Migration Service för att migrera databaserna från en RDS SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) eller en [Azure SQL Database-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) med minimal avbrottstid. I den här självstudien får du migrera den **Adventureworks2012** databasen återställdes till en RDS SQL Server instans av SQL Server 2012 (eller senare) till Azure SQL Database eller en Azure SQL Database-hanterad instans med hjälp av Azure Database Migration Tjänsten.
@@ -187,7 +187,14 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
  
 3. Välj + **Nytt migreringsprojekt**.
 4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet, i textrutan **Typ av källserver** väljer du **AWS Fjärrskrivbordstjänster för SQLServer** och i textrutan **Målservertyp** väljer du **Azure SQL Database**.
+
+    > [!NOTE]
+    > Typ av målserver, Välj **Azure SQL Database** för att migrera till både en Azure SQL Database-singleton-databas och även om en Azure SQL Database-hanterad instans.
+
 5. I avsnittet **Välj aktivitetstyp** väljer du **Online-datamigrering**.
+
+    > [!IMPORTANT]
+    > Se till att välja **Online datamigrering**; offline migreringar stöds inte för det här scenariot.
 
     ![Skapa Database Migration Service-projekt](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 

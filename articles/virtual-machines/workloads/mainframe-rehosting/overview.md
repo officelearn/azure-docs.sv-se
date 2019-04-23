@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 8b7c2a088dc917c319acf6cad251ad53367a14b6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1d7b52bdce77ca108781a999a8a85b3e3fca0b8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895045"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004422"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Stordatorprogram rehosting på Azure virtual machines
 
@@ -53,7 +53,7 @@ TmaxSoft OpenFrame är en populär stordatorprogram rehosting lösning som anvä
 Så här kommer du igång:
 
 - [Kom igång med TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Ladda ned e-boken](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
+- [Ladda ned e-boken](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
 
 ## <a name="ibm-zdt-120"></a>IBM zD&T 12.0
 
@@ -76,7 +76,7 @@ Kom igång genom att se [IBM DB2 pureScale på Azure](/azure/virtual-machines/li
 
 När du migrerar stordatorprogram arbetsbelastningar till Azure-infrastrukturen som en tjänst (IaaS), kan du välja från flera typer av behovsbaserade och skalbara datorresurser, inklusive Azure virtuella datorer. Azure erbjuder en mängd [Linux](/azure/virtual-machines/linux/overview) och [Windows](/azure/virtual-machines/windows/overview) virtuella datorer.
 
-### <a name="compute"></a>Databearbetning
+### <a name="compute"></a>Compute
 
 Azure beräkningskraft jämför positivt till en stordatorprogram kapacitet. Om du funderar på att flytta en stordatorprogram arbetsbelastning till Azure, jämför stordatorprogram måttet en miljon instruktioner per sekund (MIPS) till virtuella processorer. 
 

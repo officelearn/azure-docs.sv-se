@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b1cae7dc553ce324349e66f1bcb8a281d7c7c7e0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273132"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995616"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Table storage med Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -101,7 +101,7 @@ New-AzStorageTable –Name $tableName –Context $ctx
 
 ## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>Hämta en lista över tabeller i lagringskontot
 
-Hämta en lista över tabeller i storage-konto med [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
+Hämta en lista över tabeller i storage-konto med [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 Get-AzStorageTable –Context $ctx | select Name
@@ -109,7 +109,7 @@ Get-AzStorageTable –Context $ctx | select Name
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Hämta en referens till en viss tabell
 
-För att utföra åtgärder på en tabell, behöver du en referens till tabellen. Hämta en referens med hjälp av [Get-AzStorageTable](/powershell/module/az.storage/Get-AzureStorageTable).
+För att utföra åtgärder på en tabell, behöver du en referens till tabellen. Hämta en referens med hjälp av [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx

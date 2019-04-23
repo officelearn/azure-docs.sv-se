@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679082"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149707"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -208,7 +208,7 @@ Om du vill köra en loggsökning som returnerar information om datorn, uppdateri
 
 ## <a name="install-updates"></a>Installera uppdateringar
 
-När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbetsyta, kan du installera nödvändiga uppdateringar genom att skapa en *uppdateringsdistribution*. Om du vill skapa en Uppdateringsdistribution måste du ha skrivbehörighet till Automation-kontot och skrivåtkomst till alla virtuella Azure-datorer som omfattas i distributionen. En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du kan ange datum och tid för distributionen och en dator eller grupp av datorer som ska ingå i omfattningen för en distribution. Läs mer om datorgrupper i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md).
+När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbetsyta, kan du installera nödvändiga uppdateringar genom att skapa en *uppdateringsdistribution*. Du måste ha skrivbehörighet till Automation-kontot och skrivåtkomst till alla virtuella Azure-datorer som är riktade i distributionen för att skapa en Uppdateringsdistribution. En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du kan ange datum och tid för distributionen och en dator eller grupp av datorer som ska ingå i omfattningen för en distribution. Läs mer om datorgrupper i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md).
 
 När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång när schemat skapas. Efterföljande ändringar i en grupp syns inte. Att komma runt denna [dynamiska grupper](#using-dynamic-groups), dessa grupper har lösts vid tidpunkten för distribution och definieras av en fråga för virtuella Azure-datorer eller en sparad sökning för icke-Azure virtuella datorer.
 
@@ -223,7 +223,7 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
+| Name |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
 | Grupper för att uppdatera |För datorer i Azure, definierar du en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. </br></br>För icke-Azure-datorer, väljer du en befintlig sparad sökning för att välja en grupp med icke-Azure-datorer som ska ingå i distributionen. </br></br>Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
 | Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md) |
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Tredjeparts-korrigeringar i Windows
 
-Hantering av uppdateringar är beroende av WSUS eller Windows Update för att korrigera stöds Windows-System. Verktyg som [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) gör att du kan publicera anpassade uppdateringar i WSUS. Det här scenariot kan uppdateringshantering patch-datorer som använder WSUS som deras uppdateringslagringsplats med programvara från tredje part. Information om hur du konfigurerar Updates Publisher finns i [installera Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Uppdateringshantering förlitar sig på lagringsplatsen lokalt konfigurerade uppdatering att korrigera Windows-system som stöds. Det här är antingen WSUS eller Windows Update. Verktyg som [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) gör att du kan publicera anpassade uppdateringar i WSUS. Det här scenariot kan uppdateringshantering patch-datorer som använder System Center Configuration Manager som deras uppdateringslagringsplats med programvara från tredje part. Information om hur du konfigurerar Updates Publisher finns i [installera Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Planera för nätverk
 

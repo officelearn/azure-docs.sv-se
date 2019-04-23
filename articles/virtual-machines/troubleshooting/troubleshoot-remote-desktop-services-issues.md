@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: c9accf09da240f6d3235edd3c9da1876529d8654
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 5458a02c09a3600875c7300b27c5a87a735b2f1b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650762"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000546"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster är inte startar på en Azure VM
 
@@ -57,7 +57,7 @@ När du försöker ansluta till en virtuell dator händer följande scenarier:
 Det här problemet uppstår eftersom Remote Desktop Services inte körs på den virtuella datorn. Orsaken kan vara beroende av följande scenarier: 
 
 - TermService-tjänsten är inställd på **inaktiverad**. 
-- TermService tjänsten kraschar eller hängande. 
+- TermService tjänsten kraschar eller inte svarar. 
 - TermService startas inte grund av att en felaktig konfiguration.
 
 ## <a name="solution"></a>Lösning

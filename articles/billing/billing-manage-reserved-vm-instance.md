@@ -1,24 +1,23 @@
 ---
 title: Hantera Azure reservationer | Microsoft Docs
 description: Lär dig hur du kan ändra omfång för prenumeration och hantera åtkomst för Azure-reservationer.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904449"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994971"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -29,7 +28,19 @@ Om du har köpt Azure Reserved Virtual Machine Instances kan du ändra inställn
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>Ändra omfattningen för en reservation
+## <a name="reservation-order-and-reservation"></a>Reservationsbeställning och Reservation
+
+När du köper en reservationens skapas två objekt: **Reservationsbeställning** och **Reservation**.
+
+Vid inköpstillfället har en Reservationsbeställning en Reservation under den. Åtgärder som att dela, merge, delvis återbetalning eller exchange skapa nya reservationer under den **Reservationsbeställning**.
+
+Om du vill visa en Reservationsbeställning, går du till **reservationer** > markerar du den och klicka sedan på den **Reservationsbeställnings-ID**.
+
+![Exempel på reservation beställningsinformation som visar Reservationsbeställnings-ID ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+En reservation ärver behörigheter från dess reservationsbeställningen.
+
+## <a name="change-the-reservation-scope"></a>Ändra omfång för reservation
 
  Din reservationsrabatten gäller för virtuella datorer, SQL-databaser, Azure Cosmos DB eller andra resurser som matchar din reservation och kör omfång för reservation. Fakturering kontexten är beroende av den prenumeration som används för att köpa reservationer.
 
@@ -47,9 +58,12 @@ Omfånget gäller endast Pay-As-You-Go-erbjudandet MS-AZR-0003P eller MS-AZR-002
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Lägga till eller ändra användare som kan hantera en reservation
 
-Du kan delegera hantering av en reservation genom att lägga till användare till roller i reservationen. Som standard har personen som köpte reservationen och kontoadministratören rollen som Ägare för reservationen.
+Du kan delegera hantering av reservation genom att lägga till användare till roller på reservationsbeställning eller reservationen. Som standard har den person som placerar reservationsbeställning och kontoadministratören rollen ägare reservationsbeställning och reservationen.
 
-Du kan hantera åtkomst till reservationer oberoende av de prenumerationer som får rabatten. När du ger någon behörighet att hantera en reservation som inte ger dem behörighet att hantera prenumerationen. Och om du ger någon behörighet att hantera en prenumeration inom de reservationsomfånget, som inte ge dem behörighet att hantera reservationen.
+Du kan hantera åtkomst till reservationer order och reservationer oberoende av de prenumerationer som får rabatten. När du ger någon behörighet att hantera en reservation eller reservationen, ge inte den dem behörighet att hantera prenumerationen. På samma sätt, om du ger någon behörighet att hantera en prenumeration i den reservationsomfånget, den inte ge dem behörighet att hantera reservationsbeställning eller reservationen.
+
+Om du vill utföra en exchange- eller återbetalning, måste användaren ha åtkomst till reservationsbeställningen. När du beviljar någon behörighet är det bäst att ge behörighet till reservationsbeställning inte reservationen.
+
 
 Att delegera hantering för en reservation:
 

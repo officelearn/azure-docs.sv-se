@@ -1,6 +1,6 @@
 ---
-title: Stream Azure Active Directory-loggar till Splunk med Azure Monitor (förhandsversion) | Microsoft Docs
-description: Lär dig att integrera Azure Active Directory-loggar med Splunk med hjälp av Azure Monitor (förhandsversion)
+title: Stream Azure Active Directory-loggar till Splunk med Azure Monitor | Microsoft Docs
+description: Lär dig att integrera Azure Active Directory-loggar med Splunk med hjälp av Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94039655a6cbe7878fa1f61ce759485392dc7e98
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 70befad3208f34fe62fbb0a59cea4bf6ea01ce16
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438860"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999526"
 ---
-# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>Integrera Azure AD-loggar med Splunk med Azure Monitor (förhandsversion)
+# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor"></a>Integrera Azure AD-loggar med Splunk med Azure Monitor
 
 I den här artikeln får du lära dig hur du integrerar Azure Active Directory (Azure AD) loggar med Splunk med hjälp av Azure Monitor. Du först dirigera loggarna till en Azure event hub och integrerar event hub med Splunk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda den här funktionen behöver du:
 * En Azure-händelsehubb som innehåller Azure AD activity loggar. Lär dig hur du [strömma din aktivitetsloggar till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md). 

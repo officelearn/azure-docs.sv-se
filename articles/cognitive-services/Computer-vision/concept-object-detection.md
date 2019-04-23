@@ -1,28 +1,28 @@
 ---
 title: Objektidentifiering - visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för objektidentifiering med hjälp av den API för visuellt innehåll.
+description: Lär dig begrepp relaterade till funktionen för identifiering av objekt av den API för visuellt innehåll – användning och gränser.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496946"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001855"
 ---
-# <a name="object-detection"></a>Objektidentifiering
+# <a name="detect-common-objects-in-images"></a>Identifiera vanliga objekt i bilder
 
 Objektidentifiering liknar [taggning](concept-tagging-images.md), men API: et returnerar de omgivande koordinaterna för avgränsningsfält (i bildpunkter) för varje objekt hittades. Om en bild exempelvis innehåller en hund, en katt och en person, kommer identifieringsåtgärden visa en lista över dessa objekt tillsammans med deras koordinater i bilden. Du kan använda den här funktionen för att bearbeta relationerna mellan objekt i en bild. Du kan också kontrollera om det finns flera instanser av samma tagg i en bild.
 
-Identifiera API: et gäller taggar baserat på antalet objekt eller en levande saker som identifierats i avbildningen. Då finns det ingen formell relation mellan de taggning taxonomin och taxonomi för objekt-identifiering. På en konceptuell nivå hittar API: et identifiera endast objekt och levande saker, medan tagg-API kan även inkludera sammanhangsberoende termer som ”inom”, som inte går att lokalisera med avgränsar rutorna.
+Identifiera API: et gäller taggar baserat på antalet objekt eller en levande saker som identifierats i avbildningen. Det finns för närvarande ingen formella relation mellan de taggning taxonomin och taxonomi för objekt-identifiering. På en konceptuell nivå hittar API: et identifiera endast objekt och levande saker, medan tagg-API kan även inkludera sammanhangsberoende termer som ”inom”, som inte går att lokalisera med avgränsar rutorna.
 
 ## <a name="object-detection-example"></a>Exempel för identifiering av objekt
 

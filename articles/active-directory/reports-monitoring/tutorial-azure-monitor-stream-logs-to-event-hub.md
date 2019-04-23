@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Strömma Azure Active Directory-loggar till en Azure-händelsehubb (förhandsversion) | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure Diagnostics för att skicka Azure Active Directory-loggar till en händelsehubb (förhandsversion)
+title: Självstudie – Stream Azure Active Directory-loggar till en Azure event hub | Microsoft Docs
+description: Lär dig hur du ställer in Azure-diagnostik för att skicka Azure Active Directory-loggar till en händelsehubb
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436939"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995610"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Självstudier: Strömma Azure Active Directory-loggar till en Azure-händelsehubb (förhandsversion)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Självstudier: Stream Azure Active Directory-loggar till en Azure event hub
 
 I den här självstudien får du lära dig hur du konfigurerar Azure Monitor-diagnostikinställningar för att strömma Azure Active Directory-loggar (Azure AD) till en Azure-händelsehubb. Använd den här mekanismen för att integrera dina loggar med SIEM-verktyg (Säkerhetsinformation och händelsehantering) från tredje part, till exempel Splunk och QRadar.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: e52c14051d038ae36af9f31f1ab13da11d032a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699295"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000036"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Snabbstart: Skapa en Java Spring-app med App Configuration
 
@@ -35,30 +35,11 @@ Om du vill göra den här snabbstarten, installera en stödd [Java Development K
 
 ## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
-1. Om du vill skapa en ny konfiguration appbutik, logga in på den [Azure-portalen](https://aka.ms/azconfig/portal). I det övre vänstra hörnet på sidan Välj **+ skapa en resurs**. I den **Sök på Marketplace** anger **Appkonfiguration** och tryck på RETUR.
-
-    ![Sök efter App Configuration](./media/quickstarts/azure-app-configuration-new.png)
-
-2. Välj **Appkonfiguration** sökresultat och välj sedan **skapa**.
-
-3. På den **Appkonfiguration** > **skapa** anger du följande inställningar.
-
-    | Inställning | Föreslaget värde | Beskrivning |
-    |---|---|---|
-    | **Resursnamn** | Globalt unikt namn | Ange ett unikt resursnamn som ska användas för appkonfigurationsarkivets resurs. Namnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och `-`-tecknet. Namnet får inte börja eller sluta med den `-` tecknet eller efterföljande `-` tecken är ogiltiga.  |
-    | **Prenumeration** | Din prenumeration | Välj den Azure-prenumeration du vill använda för att testa App Configuration. Om ditt konto bara har en prenumeration, det väljs automatiskt och **prenumeration** inte visas i listrutan. |
-    | **Resursgrupp** | *AppConfigTestResources* | Välj eller skapa en resursgrupp för appkonfigurationsarkivets resurs. Den här gruppen är användbart för att ordna flera resurser som du kanske vill ta bort samtidigt genom att ta bort resursgruppen. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-    | **Plats** | *USA, centrala* | Använd **Plats** till att ange den geografiska plats där SignalR-resursen finns. Skapa resursen i samma region som andra komponenter i ditt program för bästa prestanda. |
-
-    ![Skapa ett appkonfigurationsarkiv](./media/quickstarts/azure-app-configuration-create.png)
-
-4. Välj **Skapa**. Distributionen kan ta några minuter att slutföra.
-
-5. När distributionen är klar, Välj **inställningar** > **åtkomstnycklar**. Notera antingen eller primära skrivskyddade primärnyckelns anslutningssträng. Du kan använda den här anslutningssträngen senare för att konfigurera ditt program kan kommunicera med appbutiken för konfigurationen som du skapade.
+[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
 6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
 
-    | Nyckel | Värde |
+    | Nyckel | Value |
     |---|---|
     | /application/config.message | Hello |
 
@@ -172,4 +153,4 @@ I den här snabbstarten har du skapade en ny konfiguration appbutik och används
 Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
-> [Hanterade identiteter för integrering av Azure-resurser](./howto-integrate-azure-managed-service-identity.md)
+> [Hanterad identitet integration](./howto-integrate-azure-managed-service-identity.md)

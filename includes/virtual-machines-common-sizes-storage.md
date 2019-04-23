@@ -5,22 +5,27 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c5e6a44409e082f10a532759e3403f6b5801fdca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 6c83298b102d6782647f3baebf6f98e43cb3ad7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551599"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011851"
 ---
 Lagring optimerad VM-storlekar ger högt diskgenomflöde och I/O och är perfekt för Stordata, SQL, NoSQL-databaser, informationslagerhantering och stora transaktionsdatabaser.  Exempel är Cassandra, MongoDB, Cloudera och Redis. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lokal lagring dataflöde och nätverket bandbredden för varje optimerad storlek.
 
 Den Lsv2-serien funktioner med stora dataflöden och låg latens, direkt mappade lokala NVMe-lagring som körs på den [AMD EPYC &trade; 7551 processor](https://www.amd.com/en/products/epyc-7000-series) med en alla kärnor förstärkningen på 2.55 GHz och en max förstärkningen på 3.0 GHz. Virtuella datorer i Lsv2-serien finns i storlekar mellan 8 och 80 vCPU:er i en konfiguration med simultan flertrådskörning.  Det finns 8 GiB minne per vCPU och en NVMe SSD M.2-enhet på 1,92 TB per 8 vCPU:er, med upp till 19,2 TB (10 x 1,92 TB) tillgängligt på L80s v2.
 
 > [!NOTE]
-> De virtuella datorerna Lsv2-serien är optimerade för att använda den lokala disken på den nod som är direkt ansluten till den virtuella datorn i stället för att använda beständiga datadiskar. Detta möjliggör större IOPs / dataflöde för dina arbetsbelastningar. Lsv2-serien stöder inte skapandet av en lokal cache för att öka IOPS kan uppnås genom beständiga datadiskar. Gör de virtuella datorerna Lsv2-serien perfekt för NoSQL, till exempel Apache Cassandra och MongoDB som replikerar data mellan flera virtuella datorer att uppnå beständighet i händelse av fel på en enskild virtuell dator högt dataflöde och IOPS för den lokala disken.
+> De virtuella datorerna Lsv2-serien är optimerade för att använda den lokala disken på den nod som är direkt ansluten till den virtuella datorn i stället för att använda beständiga datadiskar. Detta möjliggör större IOPs / dataflöde för dina arbetsbelastningar. Lsv2 och Ls-serien stöder inte skapandet av en lokal cache för att öka IOPs kan uppnås genom beständiga datadiskar.
+>
+> Högt dataflöde och IOPs för den lokala disken gör Lsv2 och virtuella datorer i Ls-serien perfekt för NoSQL, till exempel Apache Cassandra och MongoDB som replikerar data mellan flera virtuella datorer att uppnå beständighet i händelse av fel på en enskild virtuell dator.
+>
+> Mer information finns i [optimera prestanda på de virtuella datorerna Lsv2-serien](../articles/virtual-machines/linux/storage-performance.md).  
+
 
 ## <a name="lsv2-series"></a>Lsv2-serien
 

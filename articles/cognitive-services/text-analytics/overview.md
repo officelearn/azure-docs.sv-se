@@ -1,7 +1,7 @@
 ---
 title: Vad är API för textanalys? -Funktioner –
 titleSuffix: Azure Cognitive Services
-description: API för textanalys i Azure Cognitive Services för attitydanalys, extrahering av diskussionsämne, språkidentifiering och entitetslänkning.
+description: Använd API för textanalys från Azure Cognitive Services för attitydanalys, extrahering av diskussionsämne, språkidentifiering och igenkänning av entiteter.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 054f0cf91904497b77fd08165808f9b4c381ecca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ae1d8f18705b1058c10d4720c64f624ed0ef4a3d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500390"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999067"
 ---
 # <a name="what-is-text-analytics-api"></a>Vad är API för textanalys?
 
-API för textanalys är en molnbaserad tjänst som ger avancerad och naturlig språkbearbetning för texter och som innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, språkidentifiering och entitetslänkning.
+API för textanalys är en molnbaserad tjänst som tillhandahåller avancerad bearbetning av rå text naturligt språk och som innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, språkidentifiering och igenkänning av entiteter.
 
 API:et är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), en samling maskininlärnings- och AI-algoritmer i molnet för dina utvecklingsprojekt.
 
@@ -28,16 +28,16 @@ API:et är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure
 Textanalys kan innebära olika saker, men i Cognitive Services Text Analytics API innehåller fyra typer av analyser som beskrivs nedan.
 
 ## <a name="sentiment-analysis"></a>Attitydanalys
-Använd [attitydanalys](how-tos/text-analytics-how-to-sentiment-analysis.md) att ta reda på vad kunderna tycker om ditt märke eller ämne genom att analysera rå text efter ledtrådar om positiv eller negativ attityd. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva.<br /> Analysmodellen tränas i förväg med hjälp av en omfattande textmängd och tekniker för naturligt språk från Microsoft. För [utvalda språk](text-analytics-supported-languages.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet. Du kan använda den [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) API eller [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Använd [attitydanalys](how-tos/text-analytics-how-to-sentiment-analysis.md) att ta reda på vad kunderna tycker om ditt märke eller ämne genom att analysera rå text efter ledtrådar om positiv eller negativ attityd. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva.<br /> Analysmodellen tränas i förväg med hjälp av en omfattande textmängd och tekniker för naturligt språk från Microsoft. För [utvalda språk](text-analytics-supported-languages.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet. Du kan använda den [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API eller [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
-Automatiskt [extrahera nyckelfraser](how-tos/text-analytics-how-to-keyword-extraction.md) att snabbt identifiera huvudändamålen. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. Du kan använda den [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) API här eller [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Automatiskt [extrahera nyckelfraser](how-tos/text-analytics-how-to-keyword-extraction.md) att snabbt identifiera huvudändamålen. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. Du kan använda den [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API här eller [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## <a name="language-detection"></a>Språkidentifiering
-Du kan [identifiera vilka språk som indatatexten är skriven i](how-tos/text-analytics-how-to-language-detection.md) och rapportera en enda språkkod för varje dokument som skickats på begäran för upp till 120 språk. Språkkoden paras med poäng som anger styrkan hos poängen. Du kan använda den [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) API eller [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Du kan [identifiera vilka språk som indatatexten är skriven i](how-tos/text-analytics-how-to-language-detection.md) och rapportera en enda språkkod för varje dokument som skickats på begäran för upp till 120 språk. Språkkoden paras med poäng som anger styrkan hos poängen. Du kan använda den [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API eller [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
-## <a name="entity-recognition-preview"></a>Igenkänning av entiteter (förhandsversion)
-[Identifiera och klassificera entiteter](how-tos/text-analytics-how-to-entity-linking.md) i texten som personer, platser, organisationer, datum/tid, mängd, procentsatser, valutor och mer. Välkända entiteter identifieras även länkas till mer information på webben. Du kan använda den [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) API.
+## <a name="named-entity-recognition"></a>Igenkänning av namngiven enhet
+[Identifiera och klassificera entiteter](how-tos/text-analytics-how-to-entity-linking.md) i texten som personer, platser, organisationer, datum/tid, mängd, procentsatser, valutor och mer. Välkända entiteter identifieras även länkas till mer information på webben. Du kan använda den [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API.
 
 ## <a name="use-containers"></a>Använda containrar
 
@@ -83,7 +83,7 @@ Det här avsnittet har flyttats till en separat artikel för bättre synlighet. 
 
 Alla av slutpunkterna för API för textanalys accepterar råtextdata. Den aktuella gränsen är 5 120 tecken för varje dokument. Om du behöver analysera större dokument kan du dela upp dem i mindre bitar. Om du fortfarande kräver en högre gräns kan du [kontakta oss](https://azure.microsoft.com/overview/sales-number/) så att vi kan diskutera dina krav.
 
-| Gräns | Värde |
+| Gräns | Value |
 |------------------------|---------------|
 | Maximal storlek på ett enskilt dokument | 5 120 tecken enligt [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximal storlek på hela begäran | 1 MB |

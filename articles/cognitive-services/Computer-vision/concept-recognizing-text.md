@@ -1,5 +1,5 @@
 ---
-title: 'Känner igen utskrivna, handskriven text: visuellt innehåll'
+title: Känner igen utskrivna/handskriven text för visuellt innehåll
 titleSuffix: Azure Cognitive Services
 description: Begrepp att känna igen utskrivna och handskriven text i bilder med den API för visuellt innehåll.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588983"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998251"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
 
-Visuellt innehåll ger ett antal tjänster som kan identifiera och extrahera utskrivna eller handskriven text som visas i bilder. Detta är användbart i en mängd olika scenarier, till exempel notetaking, medicinska journaler, säkerhet och banktjänster. I följande tre avsnitt detalj tre olika textigenkänning API: er, som var och en optimerad för olika användningsfall.
+Visuellt innehåll ger ett antal tjänster som kan identifiera och extrahera utskrivna eller handskriven text som visas i bilder. Detta är användbart i en mängd olika scenarier, till exempel Anteckningar, medicinska journaler, säkerhet och banktjänster. I följande tre avsnitt detalj tre olika textigenkänning API: er, som var och en optimerad för olika användningsfall.
 
 ## <a name="read-api"></a>Få tillgång till API
 
@@ -45,13 +45,11 @@ Om du använder en prenumeration på kostnadsfri nivå, bearbetar Läs API endas
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR (optisk teckenläsning) API
 
-API för visuellt innehåll optisk teckenläsning (OCR) liknar Läs-API, men det körs synkront och inte har optimerats för stora dokument. Det använder en tidigare igenkänningsfunktion för men fungerar med fler språk.
-
-OCR stöder 25 olika språk: arabiska, förenklad kinesiska, traditionell kinesiska, tjeckiska, danska, nederländska, engelska, finska, franska, tyska, grekiska, ungerska, italienska, japanska, koreanska, norska, polska, portugisiska, rumänska, ryska, serbiska (kyrillisk och latinsk) slovakiska, spanska, svenska och turkiska. OCR identifierar automatiskt språket för den identifierade texten.
+API för visuellt innehåll optisk teckenläsning (OCR) liknar Läs-API, men det körs synkront och inte har optimerats för stora dokument. Den använder en tidigare igenkänningsfunktion för men fungerar med flera språk. Se [språkstöd](language-support.md#text-recognition) för en fullständig lista över språk som stöds.
 
 Om det behövs, korrigerar OCR rotationen av den tolkade texten genom att returnera rotational förskjutningen i grader om axeln vågrät bild. OCR innehåller också ramens koordinaterna i varje ord som visas i följande bild.
 
-![Ett diagram som illustrerar en bild roteras och texten som Läs- och avgränsad rader](./Images/vision-overview-ocr.png)
+![En bild roteras och texten som Läs- och avgränsad rader](./Images/vision-overview-ocr.png)
 
 Se den [OCR referensdokument](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) vill veta mer.
 

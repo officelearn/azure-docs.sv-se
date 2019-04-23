@@ -9,14 +9,17 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994931"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003708"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>I realtid Twitter-attitydanalys i Azure Stream Analytics
+
+> [!IMPORTANT] 
+> Skapa för Twitter-program inte längre är tillgänglig via [apps.twitter.com](https://apps.twitter.com/). Den här självstudiekursen är håller på att uppdateras för att inkludera den nya Twitter-API.
 
 Lär dig hur du skapar en lösning för sentiment för analys av sociala medier genom att föra händelser i realtid Twitter till Azure Event Hubs. Du kan sedan skriva en Azure Stream Analytics-fråga för att analysera data och antingen lagrar resultatet för senare använda eller använda en instrumentpanel och [Power BI](https://powerbi.com/) att ge insikter i realtid.
 
@@ -30,7 +33,7 @@ Ett företag som har en nyhetsmedier webbplats är intresserad av att få en fö
 
 Företaget måste analys i realtid om tweet volym och sentiment för viktiga ämnen för att identifiera populära ämnen i realtid på Twitter. Med andra ord är behovet av en sentiment analysis-Analysmotorn som baseras på den här sociala medier feed.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 I den här självstudien använder du ett klientprogram som ansluter till Twitter och söker efter tweets som innehåller vissa hashtaggar (som du kan ställa in). För att köra programmet och analysera tweets med hjälp av Azure Streaming Analytics, måste du ha följande:
 
 * En Azure-prenumeration

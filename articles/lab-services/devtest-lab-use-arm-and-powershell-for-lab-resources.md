@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c15cac7897e25018057aa47cc2043050ed0ae5b
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: MT
+ms.openlocfilehash: cb5a08730b47cb5df3116aa4a54554ef0ee6f260
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413208"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149758"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Skapa eller ändra labb automatiskt med Azure Resource Manager-mallar och PowerShell
 
@@ -28,7 +28,7 @@ DevTest Labs innehåller många Azure Resource Manager-mallar och PowerShell-skr
 Den här artikeln hjälper till att guida dig genom processen för att använda dessa mallar och skript för att automatisera den skapas, ändras eller distribution av dina labb. Den här artikeln visar även där du hittar mer information om hur du använder PowerShell för att utföra vissa vanliga uppgifter i DevTest Labs.
 
 ## <a name="step-1-gather-your-templates-and-scripts"></a>Steg 1: Samla in dina mallar och skript
-Du kan hitta färdiga [Azure Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) och [PowerShell-skript](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) på vårt offentliga [GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab). Använda dem som – är, eller anpassa dem efter dina behov och lagra dem i din egen [privata Git-lagringsplats](devtest-lab-add-artifact-repo.md).
+Du kan hitta färdiga [Azure Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) och [PowerShell-skript](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts) på vårt offentliga [GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab). Använda dem som – är, eller anpassa dem efter dina behov och lagra dem i din egen [privata Git-lagringsplats](devtest-lab-add-artifact-repo.md).
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Steg 2: Ändra din Azure Resource Manager-mall
 Du kan följa stegen i [skapa din första Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) om du aldrig har skapat en mall innan.

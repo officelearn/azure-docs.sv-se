@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886799"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002280"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Exempel: Hur man identifierar språk i Textanalys
 
-[Språkidentifiering-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) utvärderar textindata och för varje dokument och returnerar språkidentifierare med ett värde som anger styrkan hos analysen. Textanalysen kan identifiera upp till 120 språk.
+[Språkidentifiering-API:et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) utvärderar textindata och för varje dokument och returnerar språkidentifierare med ett värde som anger styrkan hos analysen. Textanalysen kan identifiera upp till 120 språk.
 
 Den här funktionen är användbar för innehållslager samlar in godtycklig text, där språket är okänt. Du kan parsa resultatet av den här analysen för att avgöra vilket språk som används i dokumentet. Svaret returnerar också ett resultat som återspeglar modellens förtroende (ett värde mellan 0 och 1).
 
@@ -27,7 +27,7 @@ Den här funktionen är användbar för innehållslager samlar in godtycklig tex
 
 ## <a name="preparation"></a>Förberedelse
 
-Du måste ha JSON-dokument i följande format: id, text
+Du måste ha JSON-dokument i det här formatet: Text-ID
 
 Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. Följande är ett exempel på innehåll som du kan skicka in för språkidentifiering.
 
@@ -62,16 +62,16 @@ Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha up
 
 Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
-+ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [Språkidentifierings-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [Språkidentifierings-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 
-+ Ange HTTP-slutpunkten för språkidentifiering, med hjälp av en Textanalys-resurs på Azure eller en instansierad [Textanalys-container](text-analytics-how-to-install-containers.md). Den måste innehålla `/languages`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Ange HTTP-slutpunkten för språkidentifiering, med hjälp av en Textanalys-resurs på Azure eller en instansierad [Textanalys-container](text-analytics-how-to-install-containers.md). Den måste innehålla `/languages`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
 
 + Ange en begäransrubrik som inkluderar åtkomstnyckeln för textanalysåtgärder. Mer information finns i [Hitta slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 
 + Ange den JSON-dokumentsamling som du har förberett för den här analysen i begärandetexten
 
 > [!Tip]
-> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API-testkonsolen** i [dokumentationen](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) för att strukturera en begäran och skicka den till tjänsten.
+> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API-testkonsolen** i [dokumentationen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) för att strukturera en begäran och skicka den till tjänsten.
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
@@ -206,12 +206,12 @@ Resulterande utdata består av dominerande språket, med ett resultat på mindre
 
 I den här artikeln har du lärt känna begrepp och arbetsflöden för språkidentifiering med hjälp av textanalys i Cognitive Services. Det följande är en snabb påminnelse om de viktiga aspekter som förklarats och beskrivits tidigare:
 
-+ [Språkidentifierings-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) är tillgänglig för 120 språk.
-+ JSON-dokument i begärandetexten innehåller ID och text.
-+ POST-begäran riktas till en `/languages`-slutpunkt, med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för prenumerationen.
++ [Språkidentifierings-API:et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) är tillgänglig för 120 språk.
++ JSON-dokument i begärandetexten innehåller ID: T och text.
++ POST-begäran riktas till en `/languages`-slutpunkt med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för din prenumeration.
 + Svarsutdata, vilka består av språkidentifierare för varje dokument-ID, kan strömmas till vilken app som helst som tar emot JSON, inklusive Excel och Power BI bara för att nämna några.
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)</br>

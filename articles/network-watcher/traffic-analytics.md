@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545407"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150021"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -130,14 +130,6 @@ Information om hur du kontrollerar användarbehörigheter finns i [Traffic analy
 ### <a name="enable-network-watcher"></a>Aktivera Network Watcher
 
 Om du vill analysera trafik, måste du ha en befintlig nätverksbevakaren eller [aktivera en network watcher](network-watcher-create.md) i varje region där NSG: er som du vill analysera trafik, för. Trafikanalys kan aktiveras för NSG: er som finns i någon av de [regioner som stöds](#supported-regions).
-
-### <a name="re-register-the-network-resource-provider"></a>Omregistrera provider för nätverksresurser
-
-Innan du kan använda trafikanalys, måste du omregistrera din provider för nätverksresurser. Klicka på **prova** i kodrutan följande för att öppna Azure Cloud Shell. Cloud Shell loggar du in på din Azure-prenumeration. När Cloud Shell är öppet, anger du följande kommando för att registrera nätverksresursprovidern:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-```
 
 ### <a name="select-a-network-security-group"></a>Välj en grupp
 

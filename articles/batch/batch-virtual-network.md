@@ -6,15 +6,15 @@ author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5d725cdac93ebdb39437c0b9bcb619488fade0f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090669"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003521"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch-pool i ett virtuellt nätverk
 
@@ -24,7 +24,7 @@ När du skapar ett Azure Batch-pool kan du etablera poolen i ett undernät för 
 
 Ett Azure Batch-pool har inställningar för compute-noder att kommunicera med varandra – till exempel, för att köra aktiviteter med flera instanser. De här inställningarna kräver inte ett separat virtuellt nätverk. Noderna inte kan dock kommunicera med virtuella datorer som inte är en del av Batch-pool, till exempel en server eller en server som standard. Du kan etablera poolen i ett undernät för ett virtuellt Azure nätverk för att tillåta compute-noder i poolen kan kommunicera säkert med andra virtuella datorer eller med ett lokalt nätverk. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Autentisering**. Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory). 
 

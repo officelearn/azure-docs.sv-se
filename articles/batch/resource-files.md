@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501098"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995633"
 ---
 # <a name="creating-and-using-resource-files"></a>Skapa och använda resursfiler
 
@@ -72,7 +72,7 @@ Ett alternativ till att generera en SAS-URL är att aktivera anonym, offentlig l
 
 Du kan använda namnet på ditt Azure storage-behållare att få åtkomst till blob-data i stället för att konfigurera och skapa en SAS-URL. Lagringsbehållaren används måste i Azure storage-kontot som är kopplad till ditt Batch-konto, kallas autostorage-konto. Med hjälp av namnet på lagringsbehållaren för ett autostorage-konto kan du kringgå konfigurerar och skapar en SAS-URL för att komma åt en lagringsbehållare.
 
-I det här exemplet förutsätter vi att data som ska användas för att skapa en resurs filen redan är i ett Azure Storage-konto som är kopplat till ditt Batch-konto. Om du inte har ett autostorage-konto, hittar du i [skapa ett Batch-konto](/create-a-batch-account.md) mer information om hur du skapar och länkar ett konto.
+I det här exemplet förutsätter vi att data som ska användas för att skapa en resurs filen redan är i ett Azure Storage-konto som är kopplat till ditt Batch-konto. Om du inte har ett autostorage-konto, hittar du i [skapa ett Batch-konto](batch-account-create-portal.md) mer information om hur du skapar och länkar ett konto.
 
 Genom att använda ett länkat storage-konto kan behöver du inte skapa och konfigurera en SAS-URL till en lagringsbehållare. I stället ange namnet på storage-behållare i länkade storage-konto.
 

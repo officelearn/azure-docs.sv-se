@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788843"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997707"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Visa behållarens loggar realtid med Azure Monitor för behållare (förhandsgranskning)
 Den här funktionen, som finns för närvarande i förhandsversion, tillhandahåller en vy i realtid i Azure Kubernetes Service (AKS)-behållarloggarna (stdout/stderr) utan att behöva köra kubectl-kommandon. När du väljer det här alternativet kan nya rutan visas nedan datatabell för behållare prestanda på den **behållare** vy.  Den visar live loggning som genererats av motorn för behållaren för bättre hjälp vid felsökning av problem i realtid. **Deltagare** åtkomst till klusterresursen krävs för den här funktionen ska fungera.
@@ -65,7 +65,7 @@ Om du har aktiverat Kubernetes RBAC-auktorisering kan behöver du tillämpa klus
 2. Skapa kluster regeln bindningen genom att köra följande kommando: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Konfigurera AKS med Azure Active Directory
-AKS kan konfigureras för att använda Azure Active Directory (AD) för autentisering av användare. Om du konfigurerar detta för första gången, se [integrera Azure Active Directory med Azure Kubernetes Service](../../aks/aad-integration.md). Under stegen för att skapa den [klientprogram](../../aks/aad-integration.md#create-client-application) och ange den **omdirigerings-URI**, du måste lägga till en annan URI i listan `https://ininprodeusuxbase.microsoft.com/*`.  
+AKS kan konfigureras för att använda Azure Active Directory (AD) för autentisering av användare. Om du konfigurerar detta för första gången, se [integrera Azure Active Directory med Azure Kubernetes Service](../../aks/azure-ad-integration.md). Under stegen för att skapa den [klientprogram](../../aks/azure-ad-integration.md#create-client-application) och ange den **omdirigerings-URI**, du måste lägga till en annan URI i listan `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >Konfigurera autentisering med Azure Active Directory för enkel inloggning kan bara utföras under första distributionen av ett nytt AKS-kluster. Du kan inte konfigurera enkel inloggning på för ett AKS-kluster som redan har distribuerats.  
@@ -92,4 +92,5 @@ Om du vill inaktivera automatisk rullning och styra beteendet för fönstret så
 ![Live loggar fönstret pausa live-vyn](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill lära dig hur du använder Azure Monitor och övervaka andra aspekter av AKS-klustret går [visa Azure Kubernetes Service health](container-insights-analyze.md).
+- Om du vill lära dig hur du använder Azure Monitor och övervaka andra aspekter av AKS-klustret går [visa Azure Kubernetes Service health](container-insights-analyze.md).
+- Visa [logga fråga exempel](container-insights-log-search.md#search-logs-to-analyze-data) att se fördefinierade frågor och exempel för att utvärdera eller anpassa för aviseringar, visualisera och analysera dina kluster.

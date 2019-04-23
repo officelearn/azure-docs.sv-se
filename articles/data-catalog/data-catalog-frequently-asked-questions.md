@@ -2,18 +2,18 @@
 title: Vanliga och frågor svar om Azure Data Catalog
 description: Vanliga frågor och svar om Azure Data Catalog, inklusive funktioner för identifiering av datakällor, anteckning och hantering.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231472"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998469"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Data Catalog
 Den här artikeln innehåller svar på vanliga frågor som rör Azure Data Catalog-tjänsten.
@@ -27,10 +27,10 @@ Data Catalog adresser utmaningarna med identifiering av datakällor och ”undan
 ## <a name="what-are-its-target-audiences"></a>Vad är dess målgrupper?
 Data Catalog är utformat för teknisk och icke-teknisk användare, inklusive:
 
-* Data-utvecklare och experter för BI och analysverktyg: personer som ansvarar för att producera och analys innehåll så att andra kan använda.
-* Data förvaltare: personer som har kunskapen om data, vad det innebär och hur den är avsedd att användas.
-* Datakonsumenterna: personer som behöver kunna enkelt upptäcka, förstå och Anslut till data som de behöver för att utföra sitt arbete med hjälp av verktyget för valfri.
-* Central IT: personer som behöver för att hundratals datakällor kunna identifieras av användare i verksamheten, och som behöver underhålla översikt över hur data används och av vem.
+* Data-utvecklare och experter för BI och analysverktyg: Personer som ansvarar för att producera och analys innehåll så att andra kan använda.
+* Data förvaltare: Personer som har kunskapen om data, vad det innebär och hur den är avsedd att användas.
+* Datakonsumenterna: Personer som behöver kunna enkelt upptäcka, förstå och Anslut till data som de behöver för att utföra sitt arbete med hjälp av verktyget för valfri.
+* Central IT: Personer som behöver för att hundratals datakällor kunna identifieras av användare i verksamheten, och som behöver underhålla översikt över hur data används och av vem.
 
 ## <a name="what-is-its-availability-by-region"></a>Vad är dess tillgänglighet efter region?
 Data Catalog-tjänster är tillgängliga i följande datacenter:

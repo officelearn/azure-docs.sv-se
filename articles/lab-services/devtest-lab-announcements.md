@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fca78c86849ef8210bb3aaeb8ad96e1fba3d7c05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542496"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148976"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicera ett meddelande till ett labb i Azure DevTest Labs
 
@@ -37,8 +37,8 @@ Meddelande-funktionen är avsedd att användas för tillfälliga meddelanden.  N
 
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Om det behövs väljer **alla tjänster**, och välj sedan **DevTest Labs** i listan. (Labbet kanske redan visas på instrumentpanelen under **alla resurser**).
-1. I listan över labbar Välj labb där du vill publicera ett meddelande.  
-1. På testmiljön **översikt** Välj **konfiguration och principer**.  
+1. I listan över labbar Välj labb där du vill publicera ett meddelande.
+1. På testmiljön **översikt** Välj **konfiguration och principer**.
 
     ![Knappen för konfiguration och principer](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -83,7 +83,7 @@ När du inte längre vill visa det här meddelandet till labbanvändare tillbaka
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
-Du kan ange ett meddelande som en del av en Azure Resource Manager-mall som du ser i följande exempel: 
+Du kan ange ett meddelande som en del av en Azure Resource Manager-mall som du ser i följande exempel:
 
 ```json
 {
@@ -119,7 +119,7 @@ Du kan ange ett meddelande som en del av en Azure Resource Manager-mall som du s
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -167,4 +167,4 @@ Du kan distribuera en Azure Resource Manager-mall med hjälp av något av följa
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du ändrar eller skapa en princip för labbet, kanske du vill publicera ett meddelande för att informera användare. [Ange principer och scheman](devtest-lab-set-lab-policy.md) innehåller information om hur du tillämpar begränsningar och konventioner i hela prenumerationen genom att använda anpassade principer.
-* Utforska den [DevTest Labs Azure Resource Manager QuickStart mallgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Utforska den [DevTest Labs Azure Resource Manager QuickStart mallgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

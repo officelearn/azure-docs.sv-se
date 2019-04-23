@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 9d52114f5d01beca53ed48ee2114dc98cc20f3a2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682432"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994613"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Skriv om HTTP-begäran och svarshuvuden med Azure Application Gateway – Azure-portalen
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du måste ha en Application Gateway-v2 SKU eftersom möjlighet till omskrivning av rubriken inte stöds för v1-SKU. Om du inte har v2-SKU, skapar du en [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) innan du börjar.
+Du måste ha en Application Gateway-v2 SKU eftersom möjlighet till omskrivning av rubriken inte stöds för v1-SKU. Om du inte har v2-SKU, skapar du en [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) innan du börjar.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>Vad som krävs för att skriva om en rubrik
 

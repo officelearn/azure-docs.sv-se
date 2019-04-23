@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: dc8d3c2d400204f53b05bb5536af95679541f3f6
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305224"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632754"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Skapa en Spatial Anchors-resurs
 
@@ -25,7 +25,7 @@ Välj **Spatial ankare**. I dialogrutan Välj **skapa**.
 
 I den **Spatial ankare konto** dialogrutan:
 
-- Ange ett unikt resursnamn.
+- Ange ett unikt resursnamn, med hjälp av vanliga alfanumeriska tecken.
 - Välj den prenumeration som du vill koppla till resursen.
 - Skapa en resursgrupp genom att välja **Skapa ny**. Ge den namnet **myResourceGroup** och välj **OK**.
       [!INCLUDE [resource group intro text](resource-group.md)]
@@ -34,7 +34,11 @@ I den **Spatial ankare konto** dialogrutan:
 
    ![Skapa en resurs](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-När resursen har skapats kan visa du egenskaper för resursen. Kopiera resursens **konto-ID** värde i en textredigerare, eftersom du behöver senare.
+När resursen har skapats visar Azure-portalen att distributionen har slutförts. Klicka på **Gå till resurs**.
+
+![Distributionen är klar](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
+
+Du kan sedan visa egenskaper för resursen. Kopiera resursens **konto-ID** värde i en textredigerare, eftersom du behöver senare.
 
    ![Resursegenskaper](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 

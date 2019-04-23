@@ -1,6 +1,6 @@
 ---
-title: Hur du integrerar Azure Active Directory-loggar med ArcSight med Azure Monitor (förhandsversion) | Microsoft Docs
-description: Lär dig att integrera Azure Active Directory-loggar med ArcSight med Azure Monitor (förhandsversion)
+title: Hur du integrerar Azure Active Directory-loggar med ArcSight med Azure Monitor | Microsoft Docs
+description: Lär dig att integrera Azure Active Directory-loggar med ArcSight med Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2018
+ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd7101c641cf69112975cd0431a08ec74f99aac
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438112"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996314"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Integrera Azure Active Directory-loggar med ArcSight med Azure Monitor (förhandsversion)
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrera Azure Active Directory-loggar med ArcSight med Azure Monitor
 
 [Micro fokus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) är en säkerhet och händelsehantering (SIEM) hanteringslösning som hjälper dig att identifiera och svara på säkerhetshot i din plattform. Du kan nu vidarebefordra Azure Active Directory (Azure AD)-loggar till ArcSight med Azure Monitor med ArcSight connector för Azure AD. Den här funktionen kan du övervaka din klient för säkerhetsintrång med ArcSight.  
 
 I den här artikeln lär du dig hur du dirigerar Azure AD-loggar till ArcSight med Azure Monitor. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda den här funktionen behöver du:
 * En Azure-händelsehubb som innehåller Azure AD activity loggar. Lär dig hur du [strömma din aktivitetsloggar till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
@@ -59,4 +59,4 @@ Ladda ned och öppna den [konfigurationsguide för ArcSight SmartConnector för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurationsguide för ArcSight SmartConnector för Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Konfigurationsguide för ArcSight SmartConnector för Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/18/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d6e53c055f3c15c585aeb806c0c243eabdc0f00d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268729"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000835"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Vad är Tillgänglighetszoner i Azure?
 Tillgänglighetszoner är en hög tillgänglighet erbjudande som skyddar dina program och data från datacenter havererar. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zonredundant tjänster replikera dina program och data i olika Tillgänglighetszoner och skydda från single punkter av fel. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
@@ -37,36 +37,34 @@ Skapa programarkitekturen med hjälp av en kombination av Tillgänglighetszoner 
  
 ![Konceptuell visning av en zon som slutar fungera i en region](./media/az-overview/az-graphic-two.png)
 
-## <a name="regions-that-support-availability-zones"></a>Regioner som har stöd för Tillgänglighetszoner
+## <a name="services-support-by-region"></a>Support för tjänster efter region
 
-- Centrala USA
-- Östra USA
-- USA, östra 2
-- Frankrike, centrala
-- Norra Europa
-- Sydostasien 
-- Storbritannien, södra&#42;
-- Västra Europa
-- Västra USA 2
+Kombinationer av Azure-tjänster och regioner som har stöd för Tillgänglighetszoner är:
 
 
+|                                 |Nord- och Sydamerika |              |           |           | Europa |              |          |              | Asien och stillahavsområdet |                 |
+|----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
+|          |Centrala USA|Östra USA|USA, östra 2|Västra USA 2|Frankrike, centrala|Norra Europa|Storbritannien, södra|Västra Europa|Östra Japan|Sydostasien|
+| **Compute**                         |            |              |           |           |                |              |          |             |            |                |
+| Virtuella Linux-datorer          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Virtuella Windows-datorer        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Virtual Machine Scale Sets      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| **Storage**   |            |              |           |           |                |              |          |             |            |                |
+| Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Zone-redundant Storage          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| **Nätverk**                     |            |              |           |           |                |              |          |             |            |                |
+| IP-standardadress        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| VPN Gateway                     | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| ExpressRoute                    | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| Application Gateway (förhandsversion)   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| **Databaser**                     |            |              |           |           |                |              |          |             |            |                |
+| SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
+| **Analys**                       |            |              |           |           |                |              |          |             |            |                |
+| Event Hubs                      | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| **Integrering**                     |            |              |           |           |                |              |          |             |            |                |
+| Service Bus (endast Premiumnivån) | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 
-## <a name="services-that-support-availability-zones"></a>Tjänster som stöder Tillgänglighetszoner
-Azure-tjänster som stöd för Tillgänglighetszoner är:
-
-- Virtuella Linux-datorer
-- Virtuella Windows-datorer
-- Virtual Machine Scale Sets
-- Managed Disks
-- Standard Load Balancer&#42;
-- Offentlig IP-adress&#42;
-- Zonredundant lagring
-- SQL Database
-- Event Hubs
-- Service Bus (endast Premiumnivån)
-- VPN Gateway
-- ExpressRoute
-- Application Gateway (förhandsversion)
 
 &#42;Resurser som skapats i Storbritannien, södra innan den 25 mars 2019 kommer snart att konvertera vara zonredundant. Resurser som skapats efter den 25 mars 2019 är zonredundant omedelbart.
 

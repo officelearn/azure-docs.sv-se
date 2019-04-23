@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339019"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994494"
 ---
 # <a name="detect-domain-specific-content"></a>Identifiera domänspecifika innehåll
 
@@ -30,7 +30,7 @@ Du kan analysera en bild med endast valda domänspecifika-modellen genom att anr
 
 Följande är ett exempel på JSON-svaret som returnerades av den **modeller/kändisar/analysera** API för den angivna avbildningen:
 
-![Satya Nadella standing](./images/satya.jpeg)
+![Satya Nadella Ständiga, Leende](./images/satya.jpeg)
 
 ```json
 {
@@ -100,7 +100,7 @@ Följande JSON-svar visar hur domänspecifika analys kan ingå som den `detail` 
 
 Visuellt stöder för närvarande följande domänspecifika modeller:
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------|-------------|
 | kändisar | Kändisigenkänning stöds för bilder klassificeras i den `people_` kategori |
 | Landmärken | Igenkänning av landmärken, stöds för bilder klassificeras i den `outdoor_` eller `building_` kategorier |

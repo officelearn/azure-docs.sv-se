@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2019
+ms.date: 04/18/2019
 ms.author: tomfitz
-ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492209"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004439"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 
@@ -129,7 +129,7 @@ Tillgängliga egenskaper för en parameter är:
 | maxValue |Nej |Det maximala värdet för parametrar av typen int det här värdet är inkluderande. |
 | minLength |Nej |Den minsta längden för string, säker sträng och matris typparametrar det här värdet är inkluderande. |
 | maxLength |Nej |Den maximala längden för string, säker sträng och matris typparametrar det här värdet är inkluderande. |
-| beskrivning |Nej |Beskrivning av den parameter som visas för användarna via portalen. Mer information finns i [kommentarer i mallar](#comments). |
+| description |Nej |Beskrivning av den parameter som visas för användarna via portalen. Mer information finns i [kommentarer i mallar](#comments). |
 
 ### <a name="define-and-use-a-parameter"></a>Definiera och Använd en parameter
 
@@ -495,8 +495,8 @@ Du definierar resurser med följande struktur:
 |:--- |:--- |:--- |
 | villkor | Nej | Booleskt värde som anger om resursen ska etableras under den här distributionen. När `true`, där resursen skapas under distributionen. När `false`, resursen är hoppades över för den här distributionen. Se [villkor](#condition). |
 | apiVersion |Ja |Version av REST-API för att använda för att skapa resursen. Information om tillgängliga värden finns [mallreferensen](/azure/templates/). |
-| typ |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (till exempel **Microsoft.Storage/storageAccounts**). Information om tillgängliga värden finns [mallreferensen](/azure/templates/). |
-| namn |Ja |Resursens namn. Namnet måste följa URI-komponent begränsningar som definierats i RFC3986. Dessutom är Azure-tjänster som exponerar resursnamnet externa parter Kontrollera namnet och kontrollera att det inte ett försök att imitera en annan identitet. |
+| typ |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (till exempel **Microsoft.Storage/storageAccounts**). Information om tillgängliga värden finns [mallreferensen](/azure/templates/). För en underordnad resurs, formatet för typ som beror på om den har bäddas in i den överordnade resursen eller definierats utanför den överordnade resursen. Se [underordnade resurser](#child-resources). |
+| namn |Ja |Resursens namn. Namnet måste följa URI-komponent begränsningar som definierats i RFC3986. Dessutom är Azure-tjänster som exponerar resursnamnet externa parter Kontrollera namnet och kontrollera att det inte ett försök att imitera en annan identitet. Formatet på namnet beror på om den kapslade i den överordnade resursen eller definierats utanför den överordnade resursen för en underordnad resurs. Se [underordnade resurser](#child-resources). |
 | location |Varierar |Geo-platser som stöds för den angivna resursen. Du kan välja någon av de tillgängliga platserna, men vanligtvis det vara bra att välja ett som är nära användarna. Vanligtvis är det också vara bra att placera resurser som interagerar med varandra i samma region. De flesta typer av resurser kräver en plats, men vissa typer (till exempel en rolltilldelning) kräver inte en plats. |
 | tags |Nej |Taggar som är kopplade till resursen. Lägga till taggar för att organisera resurser logiskt i din prenumeration. |
 | kommentarer |Nej |Dina anteckningar för att dokumentera resurserna i mallen. Mer information finns i [kommentarer i mallar](resource-group-authoring-templates.md#comments). |
@@ -506,11 +506,11 @@ Du definierar resurser med följande struktur:
 | sku | Nej | Vissa resurser kan värden som definierar SKU för att distribuera. Du kan till exempel ange typen av redundans för ett lagringskonto. |
 | typ | Nej | Vissa resurser kan ett värde som definierar typ av resurs som du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB för att skapa. |
 | plan | Nej | Vissa resurser kan värden som definierar planerar att distribuera. Du kan till exempel ange marketplace-avbildning för en virtuell dator. | 
-| resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts av schemat för den överordnade resursen. Den fullständigt kvalificerade typ av den underordnade resursen omfattar resurstyp överordnade som **Microsoft.Web/sites/extensions**. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. |
+| resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts av schemat för den överordnade resursen. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. Se [underordnade resurser](#child-resources). |
 
 ### <a name="condition"></a>Tillstånd
 
-När du måste bestämma under distributionen om du vill skapa en resurs eller inte, använda den `condition` element. Värdet för det här elementet matchas till true eller false. När värdet är true, skapas resursen. När värdet är false är inte resursen skapas. Värdet kan bara tillämpas på hela resursen.
+När du måste bestämma under distributionen om du vill skapa en resurs, använda den `condition` element. Värdet för det här elementet matchas till true eller false. När värdet är true, skapas resursen. När värdet är false är inte resursen skapas. Värdet kan bara tillämpas på hela resursen.
 
 Normalt använder du det här värdet när du vill skapa en ny resurs eller Använd en befintlig. Till exempel vill ange om ett nytt lagringskonto har distribuerats eller ett befintligt lagringskonto används, använder du:
 
@@ -652,45 +652,57 @@ Du kan också definiera en uppsättning underordnade resurser inom vissa typer a
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   ...
   "resources": [
     {
-      "name": "exampledatabase",
+      "apiVersion": "2017-10-01-preview",
       "type": "databases",
-      "apiVersion": "2014-04-01",
+      "name": "exampledatabase",
       ...
     }
   ]
 }
 ```
 
-När kapslade, vilken anges till `databases` men dess fullständiga resurstypen är `Microsoft.Sql/servers/databases`. Du inte anger `Microsoft.Sql/servers/` eftersom det antas från den överordnade resurstypen. Namnet på underordnade resursen är inställd `exampledatabase` men det fullständiga namnet innehåller namnet på överordnade. Du inte anger `exampleserver` eftersom det antas från den överordnade resursen.
-
-Formatet för den underordnade resurstypen är: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
-
-Formatet på namnet på underordnade resursen är: `{parent-resource-name}/{child-resource-name}`
-
 Men du behöver definiera databasen på servern. Du kan definiera den underordnade resursen på den översta nivån. Du kan använda den här metoden om den överordnade resursen inte är distribuerat i samma mall, eller om vill använda `copy` att skapa fler än en underordnad resurs. Med den här metoden måste du ange fullständig resurstypen och inkludera namnet på överordnade resursen i namnet på underordnade resursen.
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   "resources": [ 
   ],
   ...
 },
 {
-  "name": "exampleserver/exampledatabase",
+  "apiVersion": "2017-10-01-preview",
   "type": "Microsoft.Sql/servers/databases",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver/exampledatabase",
   ...
 }
 ```
+
+De värden som du anger för typ av och namn varierar beroende på om den underordnade resursen har definierats i den överordnade resursen eller utanför den överordnade resursen.
+
+Använd när kapslade i den överordnade resursen:
+
+```json
+"type": "{child-resource-type}",
+"name": "{child-resource-name}",
+```
+
+När definierats utanför den överordnade resursen kan använda:
+
+```json
+"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
+"name": "{parent-resource-name}/{child-resource-name}",
+```
+
+När kapslade, vilken anges till `databases` men dess fullständiga resurstypen är fortfarande `Microsoft.Sql/servers/databases`. Du inte anger `Microsoft.Sql/servers/` eftersom det antas från den överordnade resurstypen. Namnet på underordnade resursen är inställd `exampledatabase` men det fullständiga namnet innehåller namnet på överordnade. Du inte anger `exampleserver` eftersom det antas från den överordnade resursen.
 
 När en fullständiga referens till en resurs, inte bara en sammanfogning av två den för att kombinera segment från typ och namn. Använd i stället en sekvens med efter namnområdet, *typnamn/* par från minst specifika att mest specifika:
 
@@ -724,8 +736,8 @@ I följande exempel visar strukturen för en utdata-definition:
 |:--- |:--- |:--- |
 | outputName |Ja |Namnet på värdet. Måste vara en giltig JavaScript-identifierare. |
 | villkor |Nej | Booleskt värde som anger om utdata detta värde returneras. När `true`, värdet ingår i utdata för distributionen. När `false`, hoppas över värdet för den här distributionen. Om inget värde anges är standardvärdet `true`. |
-| typ |Ja |Typ av utdatavärde. Utdatavärden stöder samma datatyper som mall indataparametrar. |
-| värde |Ja |Mallspråksuttrycket som utvärderas och returneras som utdatavärde. |
+| typ |Ja |Typ av utdatavärde. Utdatavärden stöder samma datatyper som mall indataparametrar. Om du anger **securestring** för utdatatypen värdet inte visas i distributionshistoriken och kan inte hämtas från en annan mall. Om du vill använda ett hemligt värde i mer än en mall, lagra hemligheten i Key Vault och referera till hemligheten i parameterfilen. Mer information finns i [använda Azure Key Vault för att skicka säkra parametervärdet under distributionen](resource-manager-keyvault-parameter.md). |
+| value |Ja |Mallspråksuttrycket som utvärderas och returneras som utdatavärde. |
 
 ### <a name="define-and-use-output-values"></a>Definiera och Använd utdatavärden
 

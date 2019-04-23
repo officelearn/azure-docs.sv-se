@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf777917bc2e09f08cbfaac6334bf9bda198f01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439404"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996177"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggningsaktivitet rapport 
 
@@ -174,9 +174,11 @@ Du kan även programmässigt komma åt inloggningsdata med hjälp av den [report
 |81012|Detta är inte ett feltillstånd. Anger den användare som försöker logga in på Azure AD skiljer sig från användaren som har loggat in på enheten. Du kan ignorera den här koden i loggarna.|
 |90010|Begäran stöds inte av olika anledningar. Till exempel begäran görs med hjälp av en metod för begäran stöds inte (endast POST-metoden stöds) eller token Signeringsalgoritm som begärdes stöds inte. Kontakta apputvecklaren.|
 |90014| Ett obligatoriskt fält för ett protokollmeddelande var saknas, Kontakta programmets ägare. Om du är programmets ägare kan du kontrollera att du har alla nödvändiga parametrar för inloggningsbegäran. |
+|90051| Ogiltig Delegeringstoken. Ogiltig nationella moln-ID ({cloudId}) har angetts.|
 |90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med en annan Azure AD konto.|
 |90094| Beviljande måste ha administratörsbehörighet. Be klientorganisationens administratör att ge medgivande för det här programmet.|
 |500133| Kontrollen är inte inom räckvidden giltig tid. Se till att den åtkomst-token inte har gått ut innan du använder den för användaren assertion eller begära en ny token.|
+|530021|Programmet uppfyller inte kraven för villkorlig åtkomst som godkänd app.|
 
 ## <a name="next-steps"></a>Nästa steg
 

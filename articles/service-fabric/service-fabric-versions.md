@@ -1,6 +1,6 @@
 ---
-title: Lär dig mer om Azure Service Fabric-kluster-versioner | Microsoft Docs
-description: Azure Service Fabric-kluster-versioner som stöds
+title: Klusterversioner som stöds i Azure Service Fabric | Microsoft Docs
+description: Läs mer om i Azure Service Fabric-kluster-versioner.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 75e95737eecb9407a80103d1cad00d4987fe7091
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681615"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998829"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric-versioner som stöds
 
-Kontrollera att klustret alltid körs på en Service Fabric-version som stöds. Och när vi presentera en ny version av Service Fabric, markeras den tidigare versionen för support upphör efter 60 dagar efter att minst. De nya versionerna tillkännages [på Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Kontrollera att klustret körs alltid en Azure Service Fabric-version som stöds. Minst 60 dagar efter att vi presentera en ny version av Service Fabric, stöd för den tidigare versionen slutar. Du hittar nyheterna om nya versioner om den [Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
-Se följande dokument på information om hur du håller ditt kluster som kör en Service Fabric-version som stöds.
+Se följande dokument för information om hur du håller ditt kluster som kör en Service Fabric-version som stöds:
 
-- [Uppgradera Service Fabric-versionen på ett Azure-kluster](service-fabric-cluster-upgrade.md)
-- [Uppgradera Service Fabric-versionen på ett fristående windows server-kluster](service-fabric-cluster-upgrade-windows-server.md)
+- [Uppgradera ett Azure Service Fabric-kluster](service-fabric-cluster-upgrade.md)
+- [Uppgradera Service Fabric-versionen som körs på ditt fristående Windows Server-kluster](service-fabric-cluster-upgrade-windows-server.md)
 
 ## <a name="supported-versions"></a>Versioner som stöds
 
-I följande tabell visas de Service Fabric-versioner som stöds och deras slutdatum för support.
+I följande tabell visas vilka versioner av Service Fabric och deras slutdatum för support.
 
-| **Service Fabric-körning i klustret** | **Kan uppgradera direkt från klusterversion** |**Kompatibla SDK / NuGet paket versioner** | **Slutet av supportperioden** |
+| Service Fabric-körning i klustret | Kan uppgradera direkt från klusterversion |Kompatibla SDK eller NuGet Paketversion | Support upphör |
 | --- | --- |--- | --- |
-| Alla klusterversioner före 5.3.121 | 5.1.158* |Mindre än eller lika med version 2.3 |20 januari 2017 |
+| Alla klusterversioner före 5.3.121 | 5.1.158.* |Mindre än eller lika med version 2.3 |20 januari 2017 |
 | 5.3.* | 5.1.158.* |Mindre än eller lika med version 2.3 |24 februari 2017 |
-| 5.4.* | 5.1.158.* |Mindre än eller lika med version 2.4 |Kan 10,2017       |
+| 5.4.* | 5.1.158.* |Mindre än eller lika med version 2.4 |10 maj 2017       |
 | 5.5.* | 5.4.164.* |Mindre än eller lika med version 2.5 |Augusti 10,2017    |
 | 5.6.* | 5.4.164.* |Mindre än eller lika med version 2.6 |Oktober 13,2017   |
-| 5.7.* | 5.4.164.* |Mindre än eller lika med version 2.7 |December 15,2017  |
-| 6.0.* | 5.6.205.* |Mindre än eller lika med version 2.8 |Mars 30,2018     |
-| 6.1.* | 5.7.221.* |Mindre än eller lika med version 3.0 |Juli 15,2018      |
-| 6.2.* | 6.0.232.* |Mindre än eller lika med version 3.1 |Oktober 26,2018   |
-| 6.3.* | 6.1.480.* |Mindre än eller lika med version 3.2 |Mars 31,2019  |
-| 6.4.* | 6.2.301.* |Mindre än eller lika med version 3.3 |Aktuell version och så inget slutdatum |
+| 5.7.* | 5.4.164.* |Mindre än eller lika med version 2.7 |15 december 2017  |
+| 6.0.* | 5.6.205.* |Mindre än eller lika med version 2.8 |Den 30 mars 2018     |
+| 6.1.* | 5.7.221.* |Mindre än eller lika med version 3.0 |15 juli 2018      |
+| 6.2.* | 6.0.232.* |Mindre än eller lika med version 3.1 |Den 26 oktober 2018   |
+| 6.3.* | 6.1.480.* |Mindre än eller lika med version 3.2 |Den 31 mars 2019  |
+| 6.4.* | 6.2.301.* |Mindre än eller lika med version 3.3 |Aktuell version, så ingen slutdatum |
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
- I följande tabell visas operativsystem som stöds för Service Fabric-versioner som stöds.
+I följande tabell visas operativsystem som stöds för Service Fabric-versioner som stöds.
 
-| **Operativsystem** | **Tidigaste stöds Service Fabric-Version** |
+| Operativsystem | Tidigaste Service Fabric-version som stöds |
 | --- | --- |
 | Windows Server 2012 R2 | Alla versioner |
 | Windows Server 2016 | Alla versioner |

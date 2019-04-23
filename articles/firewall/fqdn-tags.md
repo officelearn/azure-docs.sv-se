@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/1/2018
+ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 897ea3856516b5429ffb770164f863d71e7ae0dd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: MT
+ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419018"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149775"
 ---
 # <a name="fqdn-tags-overview"></a>Översikt över FQDN-taggar
 
@@ -26,17 +26,20 @@ Du kan inte skapa dina egna FQDN-taggar och inte heller kan du ange vilka FQDN: 
 
 I följande tabell visas de aktuella FQDN-taggar som du kan använda. Microsoft underhåller dessa taggar och du kan förvänta dig ytterligare taggar som ska läggas till med jämna mellanrum.
 
+## <a name="current-fqdn-tags"></a>Aktuella FQDN-taggar
+
 |FQDN-tagg  |Beskrivning  |
 |---------|---------|
 |Windows Update     |Tillåter utgående åtkomst till Microsoft Update enligt beskrivningen i [hur du konfigurerar en brandvägg för programuppdateringar](https://technet.microsoft.com/library/bb693717.aspx).|
 |Windows-diagnostik|Tillåt utgående åtkomst till alla [Windows diagnostik slutpunkter](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |MAPS (Microsoft Active Protection Service)|Tillåter utgående åtkomst till [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
-|App Service-miljö (ASE)|Tillåter utgående åtkomst till ASE plattform-trafik. Den här taggen täcker inte kundspecifika-lagring och SQL-slutpunkter som skapats av ASE. Dessa ska aktiveras [tjänstslutpunkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller läggs till manuellt.<br><br>Mer information om hur du integrerar Azure-brandvägg med ASE finns i [låsa en App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
-|Azure Backup|Tillåter utgående åtkomst till tjänsterna Azure Backup.
+|App Service Environment (ASE)|Tillåter utgående åtkomst till ASE plattform-trafik. Den här taggen täcker inte kundspecifika-lagring och SQL-slutpunkter som skapats av ASE. Dessa ska aktiveras [tjänstslutpunkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller läggs till manuellt.<br><br>Mer information om hur du integrerar Azure-brandvägg med ASE finns i [låsa en App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
+|Azure Backup|Tillåter utgående åtkomst till tjänsterna Azure Backup.|
+|Azure HDInsight<br>(Förhandsversion)|Tillåter utgående åtkomst för trafik för HDInsight-plattformen. Den här taggen täcker inte kundspecifika lagrings- eller SQL-trafik från HDInsight. De aktiveras [tjänstslutpunkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller läggs till manuellt.|
 
 > [!NOTE]
 > När du väljer FQDN-tagg i en regel för programmet, fältet protocol: port måste anges till **https**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du distribuerar en Azure-brandvägg i [självstudie: distribuera och konfigurera Azure-brandväggen med hjälp av Azure-portalen](tutorial-firewall-deploy-portal.md).
+Läs hur du distribuerar en Azure-brandvägg i [självstudien: Distribuera och konfigurera Azure-brandväggen med hjälp av Azure-portalen](tutorial-firewall-deploy-portal.md).

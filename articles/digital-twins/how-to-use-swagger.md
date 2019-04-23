@@ -9,21 +9,18 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: MT
+ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120962"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001991"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Referensdokumentation för Azure Digital Twins Swagger
 
 Varje etablerade Azure Digital Twins-instans innehåller en egen automatiskt genererade Swagger-referensdokumentation.
 
 [Swagger](https://swagger.io/), eller [OpenAPI](https://www.openapis.org/), unites komplex API-information till en resurs för interaktiva och språkoberoende referens. Swagger innehåller viktiga referensmaterial om vilken JSON-nyttolaster, HTTP-metoder och slutpunkter du använder för att utföra åtgärder mot ett API.
-
-> [!IMPORTANT]
-> Stöd för Swagger-autentisering är tillfälligt inaktiverad under den allmänna förhandsvisningen.
 
 ## <a name="swagger-summary"></a>Swagger-sammanfattning
 
@@ -98,7 +95,42 @@ Exemplen omfattar också felkoder för att felsöka eller förbättra misslyckas
 Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.0 finns i [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/).
 
 > [!NOTE]
-> Stöd för OAuth 2.0-autentisering är tillfälligt inaktiverad under den allmänna förhandsvisningen.
+> Huvudnamn användaren som skapade Azure Digital Twins resursen har en rolltilldelning för utrymme administratör och kommer att kunna skapa ytterligare rolltilldelningar för andra användare.
+
+1. Följ stegen i [snabbstarten](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) att skapa ett Azure AD-program av typen ***webbapp / API***. Eller du kan återanvända en befintlig appregistrering.
+
+2. Lägg till följande svars-url i appregistreringen:
+
+    ```plaintext
+    https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
+    ```
+    | Name  | Ersätt med | Exempel |
+    |---------|---------|---------|
+    | YOUR_SWAGGER_URL | Din URL för Management REST API-dokumentationen som finns i portalen  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+
+3. Bevilja behörigheter för din app åtkomst till Azure Digital Twins. Under **nödvändiga behörigheter**, ange `Azure Digital Twins` och välj **delegerade behörigheter**. Välj sedan **bevilja behörigheter**.
+
+    ![Azure AD app-registreringar Lägg till api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+
+4. Konfigurera applikationsmanifestet för att tillåta implicit OAuth 2.0-flöde. Klicka på **Manifest** att öppna programmanifestet för din app. Ange *oauth2AllowImplicitFlow* till `true`.
+
+    ![Azure AD implicit flöde](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
+
+5. Kopiera ID för din Azure AD-app.
+
+6. Klicka på auktorisera på sidan med swagger.
+
+    ![Swagger auktorisera knappen](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+
+7. Klistra in program-ID i fältet client_id.
+
+    ![Swagger client_id fält](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+
+    ![Swagger bevilja programbehörigheter](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+
+8. Du bör nu se ägar-token för autentisering skickas i auktoriseringsrubriken och identiteten för den inloggade användaren visas i resultatet.
+
+    ![Swagger token resultat](../../includes/media/digital-twins-permissions/swagger-token-example.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

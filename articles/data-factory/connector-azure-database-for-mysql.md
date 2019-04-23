@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 99a29536ccf9d4ad87bcd0aa29659306c3553972
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4c388f012cd52f0adea93ae62cc31832488fca74
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119402"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997639"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Kopiera data från Azure Database for MySQL med Azure Data Factory
 
@@ -39,9 +39,9 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Azure Database för MySQL länkad tjänst:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **AzureMySql** | Ja |
+| type | Type-egenskapen måste anges till: **AzureMySql** | Ja |
 | connectionString | Ange information som behövs för att ansluta till Azure Database for MySQL-instans. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `password` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -110,7 +110,7 @@ För att kopiera data från Azure Database för MySQL, ange typegenskapen på da
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **AzureMySqlTable** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **AzureMySqlTable** | Ja |
 | tableName | Namnet på tabellen i MySQL-databas. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -141,8 +141,9 @@ För att kopiera data från Azure Database för MySQL, ange typ av datakälla i 
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AzureMySqlSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AzureMySqlSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| queryCommandTimeout | Väntetid innan frågebegäran når sin tidsgräns. Standardvärdet är 120 minuter (02: 00:00) | Nej |
 
 **Exempel:**
 

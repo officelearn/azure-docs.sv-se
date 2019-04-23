@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833439"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999475"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Felsöka återställning efter fel till den lokala från Azure
 
@@ -33,7 +33,7 @@ Det här felet uppstår när:
 * Azure VM kan inte nå den lokala konfigurationsservern. Den virtuella datorn kan inte identifieras och registrerad på konfigurationsservern.
 * InMage Scout application service körs inte på den virtuella Azure-datorn efter redundans. Tjänsten krävs för kommunikation med den lokala konfigurationsservern.
 
-Att lösa problemet:
+Gör så här för att lösa problemet:
 
 * Kontrollera att det Virtuella Azure-nätverket tillåter virtuella Azure-datorn att kommunicera med den lokala konfigurationsservern. Du kan konfigurera en plats-till-plats VPN-anslutning till ditt lokala datacenter, eller så kan du konfigurera en Azure ExpressRoute-anslutning med privat peering i det virtuella nätverket för den virtuella Azure-datorn.
 * Om den virtuella datorn kan kommunicera med den lokala konfigurationsservern kan du logga in på den virtuella datorn. Kontrollera sedan tjänsten InMage Scout. Om du ser att den inte körs kan du starta tjänsten manuellt. Kontrollera att tjänsten startar typ har angetts till **automatisk**.
@@ -44,7 +44,7 @@ Att lösa problemet:
 
 Det här problemet kan inträffa om det finns redan en virtuell dator med samma namn på huvudmålservern som du växlar tillbaka.
 
-Att lösa problemet:
+Gör så här för att lösa problemet:
 
 * Välj en annan huvudmålserver på en annan värd så att återaktivering av skydd skapar datorn på en annan värd, där namnen inte står i konflikt.
 * Du kan också använda vMotion för att flytta Huvudmålet till en annan värd där namnet kollision inte sker. Om den befintliga virtuella datorn är en avvikande dator, Byt namn på den så att den nya virtuella datorn kan skapas på samma ESXi-värd.
@@ -54,9 +54,9 @@ Att lösa problemet:
 
 **Den virtuella datorn körs inte i ett låst tillstånd och inte kan nås.**
 
-Att lösa problemet:
+Gör så här för att lösa problemet:
 
-Om du vill återaktivera skyddet en redundansväxlade virtuella datorn, måste du köra Azure VM så att Mobilitetstjänsten registreras med configuration server lokalt och kan börja replikera genom att kommunicera med processervern. Om datorn är på en felaktig nätverks- eller inte körs (avstannat tillstånd eller stänga ned), kan inte konfigurationsservern nå Mobilitetstjänsten på den virtuella datorn ska börja återaktivera skyddet.
+Om du vill återaktivera skyddet en redundansväxlade virtuella datorn, måste du köra Azure VM så att Mobilitetstjänsten registreras med configuration server lokalt och kan börja replikera genom att kommunicera med processervern. Om datorn är i ett felaktigt nätverk eller inte körs (inte svarar eller Stäng av), kan inte konfigurationsservern nå Mobilitetstjänsten på den virtuella datorn ska börja återaktivera skyddet.
 
 * Starta om den virtuella datorn så att den kan starta kommunicera tillbaka lokalt.
 * Starta om jobbet återaktivering av skydd när du startar den virtuella Azure-datorn.
@@ -78,7 +78,7 @@ Det här avsnittet beskrivs vanliga fel som kan uppstå under återställning ef
 
 Det här problemet inträffar när en lokal virtuell dator tas på en värd som inte har tillräckligt med minne som har etablerats. 
 
-Att lösa problemet:
+Gör så här för att lösa problemet:
 
 * Etablera mer minne på ESXi-värden.
 * Du kan dessutom använda vMotion för att flytta den virtuella datorn till en annan ESXi-värd som har tillräckligt med minne för att starta den virtuella datorn.

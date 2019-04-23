@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579132"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002498"
 ---
 # <a name="call-a-function-from-powerapps"></a>Anropa en funktion från PowerApps
 Den [PowerApps](https://powerapps.microsoft.com) -plattformen är utformad för företagsexperter för att skapa appar utan traditionell programkod. Professionella utvecklare kan använda Azure Functions för att utöka funktionerna i PowerApps, samtidigt PowerApps app builders från de tekniska detaljerna.
@@ -39,7 +39,10 @@ I det här avsnittet lär du dig hur du:
 > * Lägga till kontroller för att anropa funktionen och visa data.
 > * Kör appen för att avgöra om en reparation är kostnadseffektiv.
 
-## <a name="prerequisites"></a>Förutsättningar
+> [!IMPORTANT]
+> OpenAPI-funktionen är för närvarande i förhandsversion och är endast tillgänglig för version 1.x av Azure Functions-körningen.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + En aktiv [PowerApps-konto](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) med samma tecken i autentiseringsuppgifter som din Azure-konto. 
 + Excel och [Excel-exempelfilen](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) som du vill använda som en datakälla för din app.

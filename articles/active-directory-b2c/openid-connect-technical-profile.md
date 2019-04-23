@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8bfa5a3e60efe860b5e7197d96ebe5ce3a86030
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916775"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001413"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OpenId Connect tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C har stöd för den [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protokollet identitetsprovider. OpenID Connect 1.0 definierar en identity-läger ovanpå OAuth 2.0 och representerar avancerade i moderna autentiseringsprotokoll.  Med OpenId Connect baserat tekniska profilen som du kan federera med en OpenId Connect identitetsprovider, t.ex Azure AD så att du användare kan logga in med sina befintliga sociala eller företagsidentiteter.
+Azure Active Directory (Azure AD) B2C har stöd för den [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protokollet identitetsprovider. OpenID Connect 1.0 definierar en identity-läger ovanpå OAuth 2.0 och representerar avancerade i moderna autentiseringsprotokoll. Med en OpenId Connect tekniska profil, kan du federera med OpenId Connect baserat identitetsprovider, t.ex Azure AD. Federera med en identitetsprovider tillåter användare att logga in med sina befintliga sociala eller företagsidentiteter.
 
 ## <a name="protocol"></a>Protokoll
 
@@ -52,7 +52,7 @@ Den **OutputClaimsTransformations** element kan innehålla en uppsättning **Out
 
 I följande exempel visar de anspråk som returneras av identitetsprovider Account:
 
-- Den **sub** anspråk som är mappad till den **socialIdpUserId** anspråk.
+- Den **sub** anspråk som är mappad till den **issuerUserId** anspråk.
 - Den **namn** anspråk som är mappad till den **displayName** anspråk.
 - Den **e-post** utan mappning av användarnamn.
 
@@ -65,7 +65,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
   <OutputClaim ClaimTypeReferenceId="email" />
 </OutputClaims>
@@ -81,7 +81,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 | ProviderName | Nej | Namnet på identitetsprovidern. |
 | response_types | Nej | Svarstypen enligt OpenID Connect Core 1.0-specifikation. Möjliga värden: `id_token`, `code`, eller `token`. |
 | response_mode | Nej | Den metod som identitetsprovidern använder för att skicka resultatet tillbaka till Azure AD B2C. Möjliga värden: `query`, `form_post` (standard), eller `fragment`. |
-| omfång | Nej | Omfattning förfrågan anges i enlighet OpenID Connect Core 1.0-specifikation. Till exempel `openid`, `profile`, och `email`. |
+| omfång | Nej | Omfattningen för den begäran som definieras enligt OpenID Connect Core 1.0-specifikation. Till exempel `openid`, `profile`, och `email`. |
 | HttpBinding | Nej | Den förväntade HTTP-bindningen till åtkomst-token och anspråk token slutpunkterna. Möjliga värden: `GET` eller `POST`.  |
 | ValidTokenIssuerPrefixes | Nej | En nyckel som kan användas för att logga in på var och en av innehavarna som när du använder en identitetsprovider för flera innehavare, till exempel Azure Active Directory. |
 | UsePolicyInRedirectUri | Nej | Anger om du vill använda en princip när omdirigeringen-URI. När du konfigurerar ditt program i identitetsprovidern som du behöver ange omdirigerings-URI. Omdirigerings-URI som pekar på Azure AD B2C `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com kan ändras med din klient name.b2clogin.com).  Om du anger `false`, du måste lägga till en omdirigerings-URI för varje princip som du använder. Till exempel: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
@@ -98,7 +98,7 @@ Den **CryptographicKeys** elementet innehåller följande attribut:
 
 ## <a name="redirect-uri"></a>Omdirigerings-Uri
  
-När du konfigurerar omdirigeringen-URI för din identitetsprovider, ange `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Ersätt **klient** med klientens namn (exempel: contosob2c.onmicrosoft.com) eller den klient-Id. Omdirigerings-URI måste vara i alla gemener.
+När du konfigurerar omdirigeringen-URI för din identitetsprovider, ange `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Ersätt **klient** med klientens namn (exempel: contosob2c.onmicrosoft.com) eller den klient-ID. Omdirigerings-URI måste vara i alla gemener.
 
 Om du använder den **b2clogin.com** domänen i stället för **login.microsoftonline.com** se till att använda b2clogin.com i stället för login.microsoftonline.com.
 

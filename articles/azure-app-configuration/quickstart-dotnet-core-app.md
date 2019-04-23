@@ -14,18 +14,20 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3f15b6bf5ff3cc1949794ebc1ee2a5f62158cede
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 34eafe8a13d126ebdbb08084d8820646ca43534a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698630"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998098"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabbstart: Skapa en .NET Core-app med App-konfiguration
 
 Azure App Configuration är en hanterad konfigurationstjänst i Azure. Du kan använda den för att enkelt lagra och hantera alla programinställningarna på ett ställe som är avgränsade från din kod. Den här snabbstarten visar hur du införlivar tjänsten i en .NET Core-konsolapp.
 
 Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
+
+![Snabbstart för appkörning](./media/quickstarts/dotnet-core-app-run.png)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -36,6 +38,14 @@ Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](
 ## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
+
+    | Nyckel | Value |
+    |---|---|
+    | TestApp:Settings:Message | Data från Azure App Configuration |
+
+    Lämna **etikett** och **innehållstyp** tom för tillfället.
 
 ## <a name="create-a-net-core-console-app"></a>Skapa en .NET Core-konsolapp
 
@@ -99,8 +109,6 @@ Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.micros
 
         dotnet run
 
-    ![Snabbstart för appkörning](./media/quickstarts/dotnet-core-app-run.png)
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
@@ -110,4 +118,4 @@ Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.micros
 I den här snabbstarten har du skapat en ny konfiguration appbutik och används med en .NET Core-konsolapp via den [App konfigurationsprovidern](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
-> [Hanterade identiteter för integrering av Azure-resurser](./howto-integrate-azure-managed-service-identity.md)
+> [Hanterad identitet integration](./howto-integrate-azure-managed-service-identity.md)

@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: d90f23f52ca4c0cce3d853114acf673aa085d3c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889797"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995018"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hub och Node.js
 
@@ -63,20 +63,19 @@ Om du vill använda Azure Notification Hubs, du behöver att hämta och använda
 > Du kan lära dig mer om att installera NPM på officiellt [NPM blogg](https://blog.npmjs.org/post/85484771375/how-to-install-npm).
 
 ### <a name="import-the-module"></a>Importera modulen
-
 Använd en textredigerare och Lägg till följande överst i `server.js` i appen:
 
-    ```javascript
-    var azure = require('azure');
-    ```
+```javascript
+var azure = require('azure-sb');
+```
 
 ### <a name="set-up-an-azure-notification-hub-connection"></a>Skapa en anslutning med Azure Notification Hub
 
 Den `NotificationHubService` objekt kan du arbeta med meddelandehubbar. Följande kod skapar en `NotificationHubService` objekt för meddelandehubben med namnet `hubname`. Lägga till den i den övre delen av den `server.js` filen efter instruktionen för att importera azure-modulen:
 
-    ```javascript
-    var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
-    ```
+```javascript
+var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+```
 
 Hämta anslutningen `connectionstring` värdet från den [Azure Portal] genom att utföra följande steg:
 
@@ -111,18 +110,18 @@ Mer information om nyttolastformatet finns i den **nyttolast** delen av den [imp
 
 I följande kod används den `GcmService` instans som exponeras av den `NotificationHubService` att skicka ett push-meddelande till alla registrerade klienter.
 
-    ```javascript
-    var payload = {
-      data: {
-        message: 'Hello!'
-      }
-    };
-    notificationHubService.gcm.send(null, payload, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = {
+  data: {
+    message: 'Hello!'
+  }
+};
+notificationHubService.gcm.send(null, payload, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>Anvisningar: Skicka push-meddelanden till iOS-program
 
@@ -136,16 +135,16 @@ Läs mer om nyttolastformatet den **Meddelandenyttolasten** delen av den [lokala
 
 I följande kod används den `ApnsService` instans som exponeras av den `NotificationHubService` att skicka ett aviseringsmeddelande till alla klienter:
 
-    ```javascript
-    var payload={
-        alert: 'Hello!'
-      };
-    notificationHubService.apns.send(null, payload, function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload={
+    alert: 'Hello!'
+  };
+notificationHubService.apns.send(null, payload, function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Anvisningar: Skicka push-meddelanden till Windows Phone-program
 
@@ -162,14 +161,14 @@ En lista över giltiga `TargetName`, `NotificationClass` och Rubrikalternativ, K
 
 Följande exempel på kod använder den `MpnsService` instans som exponeras av den `NotificationHubService` att skicka ett popup-push-meddelande:
 
-    ```javascript
-    var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
-    notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Anvisningar: Skicka push-meddelanden till program för Universal Windows Platform (UWP)
 
@@ -185,14 +184,14 @@ En lista över giltiga typer och begärandehuvuden finns i [Push notification se
 
 I följande kod används den `WnsService` instans som exponeras av den `NotificationHubService` att skicka ett popup-push-meddelande till en UWP-app:
 
-    ```javascript
-    var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-    notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

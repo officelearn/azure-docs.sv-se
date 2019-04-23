@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c067d6f02ceeca9bf390ab5421dcfe463e9f758d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699089"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002586"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsöka Desired State Configuration (DSC)
 
@@ -41,6 +41,31 @@ Det här felet är ett tillfälligt fel som ska matchas.
 * Använd cmdleten ”Remove-AzAutomationDscConfiguration” Az för att ta bort konfigurationen.
 * I dokumentationen för denna cmdlet har inte uppdaterats ännu.  Fram till dess, finns i dokumentationen för AzureRM-modulen.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+
+### <a name="failed-to-register-agent"></a>Scenario: Det gick inte att registrera Dsc-agenten
+
+#### <a name="issue"></a>Problem
+
+När du försöker köra `Set-DscLocalConfigurationManager` eller en annan DSC-cmdlet som du får felet:
+
+```error
+Registration of the Dsc Agent with the server
+https://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000 failed. The
+underlying error is: Failed to register Dsc Agent with AgentId 00000000-0000-0000-0000-000000000000 with the server htt
+ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000/Nodes(AgentId='00000000-0000-0000-0000-000000000000'). .
+    + CategoryInfo          : InvalidResult: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : RegisterDscAgentCommandFailed,Microsoft.PowerShell.DesiredStateConfiguration.Commands.Re
+   gisterDscAgentCommand
+    + PSComputerName        : <computerName>
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet orsakas normalt av en brandvägg, datorn är bakom en proxyserver eller andra nätverksfel.
+
+#### <a name="resolution"></a>Lösning
+
+Kontrollera att datorn har åtkomst till rätt slutpunkterna för Azure Automation DSC och försök igen. En lista över portar och adresser som behövs finns i [nätverksplanering](../automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>Scenario: Noden är i ett misslyckat tillstånd med ett ”kunde inte hittas”-fel
 

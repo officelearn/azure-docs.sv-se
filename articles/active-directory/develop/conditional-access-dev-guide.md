@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 3346f7a5af2a22cb7b7ece312fc367a874095668
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543194"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001056"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorlig åtkomst i Azure Active Directory
 
@@ -88,7 +88,7 @@ Utvecklare kan dra denna utmaning och lägger till dem till en ny begäran till 
 
 ## <a name="scenarios"></a>Scenarier
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Azure AD villkorlig åtkomst är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Du kan lära dig mer om Licensieringskrav i den [olicensierad användningsrapporten](../active-directory-conditional-access-unlicensed-usage-report.md). Utvecklare kan ansluta till den [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), vilket omfattar en kostnadsfri prenumeration på Enterprise Mobility Suite, som innehåller Azure AD Premium.
 
@@ -104,7 +104,7 @@ I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. De grundlä
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App fungerar on-behalf-of-flöde
 
-I detta scenario går vi igenom fall där en inbyggd app anropar ett webb-/ API. I sin tur har den här tjänsten [he ”on-behalf-of” flöde för att anropa en underordnad tjänst. I vårt fall vi har tillämpat vår princip för villkorlig åtkomst till tjänsten underordnade (Web API 2) och använder en inbyggd app i stället för en server/daemon-app. 
+I detta scenario går vi igenom fall där en inbyggd app anropar ett webb-/ API. Den här tjänsten gör i sin tur ”on-behalf-of” flödet för att anropa en underordnad tjänst. I vårt fall vi har tillämpat vår princip för villkorlig åtkomst till tjänsten underordnade (Web API 2) och använder en inbyggd app i stället för en server/daemon-app. 
 
 ![App fungerar on-behalf-of-flödesdiagram](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -145,7 +145,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![Appen åtkomst till flera tjänster som begär en ny token](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Om appen använder ADAL-biblioteket, görs om det gick inte att hämta token alltid ett nytt interaktivt. När den här interaktiva begäran sker, har användaren möjlighet att uppfylla villkorlig åtkomst. Detta är SANT om inte begäran är en `AcquireTokenSilentAsync` eller `PromptBehavior.Never` då appen behöver utföra en interaktiv ```AcquireToken``` begäran och ge slutanvändningen möjlighet att följa principen.
+Om appen använder ADAL-biblioteket, görs om det gick inte att hämta token alltid ett nytt interaktivt. När den här interaktiva begäran sker, har användaren möjlighet att uppfylla villkorlig åtkomst. Detta är SANT om inte begäran är en `AcquireTokenSilentAsync` eller `PromptBehavior.Never` då appen behöver utföra en interaktiv ```AcquireToken``` begäran och ge användaren möjlighet att följa principen.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: Ensidesapp (SPA) med hjälp av ADAL.js
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
-ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789730"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002875"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Skapa anpassade fält i en Log Analytics-arbetsyta i Azure Monitor
 
@@ -81,7 +81,7 @@ Du kan visa en lista över alla anpassade fält i hanteringsgruppen från den **
 Det finns två sätt att ta bort ett anpassat fält.  Först är det **ta bort** alternativ för varje fält när du visar den fullständiga listan enligt beskrivningen ovan.  Det andra sättet är att hämta en post och klicka på knappen till vänster om fältet.  Menyn har ett alternativ för att ta bort det anpassade fältet.
 
 ## <a name="sample-walkthrough"></a>Exempelgenomgång
-Följande avsnitt beskriver ett komplett exempel för att skapa ett anpassat fält.  Det här exemplet extraherar tjänstnamnet i Windows-händelser som indikerar att en tjänst som ändrar tillstånd.  Detta är beroende av händelser som skapats av Service Control Manager i System-inloggning på Windows-datorer.  Om du vill följa det här exemplet måste du vara [samla in händelser med Information om systemloggen](data-sources-windows-events.md).
+Följande avsnitt beskriver ett komplett exempel för att skapa ett anpassat fält.  Det här exemplet extraherar tjänstnamnet i Windows-händelser som indikerar att en tjänst som ändrar tillstånd.  Detta är beroende av händelser som skapats av Service Control Manager vid systemstart på Windows-datorer.  Om du vill följa det här exemplet måste du vara [samla in händelser med Information om systemloggen](data-sources-windows-events.md).
 
 Vi anger du följande fråga för att returnera alla händelser från Service Control Manager som har händelse-ID 7036 som är den händelse som anger en tjänst som startar eller stoppar.
 

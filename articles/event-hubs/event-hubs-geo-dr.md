@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562215"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002705"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
@@ -107,7 +107,7 @@ Observera följande överväganden att tänka på med den här versionen:
 Har stöd för Event Hubs Standard-SKU [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom en Azure-region. 
 
 > [!NOTE]
-> Tillgänglighetszoner support för Azure Event Hubs Standard ingår endast i [Azure-regioner](../availability-zones/az-overview.md#regions-that-support-availability-zones) där tillgänglighetszoner finns.
+> Tillgänglighetszoner support för Azure Event Hubs Standard ingår endast i [Azure-regioner](../availability-zones/az-overview.md#services-support-by-region) där tillgänglighetszoner finns.
 
 Du kan aktivera Tillgänglighetszoner på nya namnområden, med hjälp av Azure portal. Event Hubs stöder inte migreringen av befintliga namnområden. Du kan inte inaktivera redundans när du har aktiverat i namnområdet.
 

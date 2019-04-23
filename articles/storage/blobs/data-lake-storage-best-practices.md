@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: sachins
-ms.openlocfilehash: ad77204f0c5d916b4006ffa68a9608429f93f87a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: MT
+ms.openlocfilehash: e371ac848eff0e66390fe17bc23934725fca35f9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246066"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000614"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Metodtips för Azure Data Lake Storage Gen2
 
@@ -35,7 +35,7 @@ När du eller dina användare behöver åtkomst till data i ett lagringskonto me
 
 ### <a name="security-for-service-principals"></a>Säkerhet för tjänstens huvudnamn
 
-Azure Active Directory-tjänstobjekt som vanligtvis används av tjänster som Azure Databricks för att komma åt data i Data Lake Storage Gen2. En enda Azure Active Directory-tjänstens huvudnamn kan vara lämplig för många kunder och den kan ha fullständig behörighet i roten för Data Lake Lagringsfilsystem Gen2. Andra kunder kan kräva flera kluster med olika tjänsthuvudnamn där ett kluster har fullständig åtkomst till data och ett annat kluster med bara läsbehörighet. 
+Azure Active Directory-tjänstobjekt som vanligtvis används av tjänster som Azure Databricks för att komma åt data i Data Lake Storage Gen2. En enda Azure Active Directory-tjänstens huvudnamn kan vara lämplig för många kunder och den kan ha fullständig behörighet i roten för Data Lake Storage Gen2 filsystemet. Andra kunder kan kräva flera kluster med olika tjänsthuvudnamn där ett kluster har fullständig åtkomst till data och ett annat kluster med bara läsbehörighet. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Aktivera Data Lake Storage Gen2-brandväggen med Azure-tjänståtkomst
 

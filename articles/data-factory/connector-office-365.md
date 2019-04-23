@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: MT
+ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297497"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995820"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Kopiera data från Office 365 till Azure med hjälp av Azure Data Factory (förhandsversion) 
 
@@ -27,7 +27,7 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-För närvarande i en enda Kopieringsaktivitet du kan bara **kopiera data från Office 365 till [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), och [Azure Data Lake Storage Gen2 ( Förhandsversion)](connector-azure-data-lake-storage.md) i JSON-format** (typen setOfObjects). Om du vill att läsa in Office 365 till andra typer av datalager eller i andra format, du kan länka första kopieringsaktiviteten med en efterföljande Kopieringsaktivitet ytterligare läsa in data i någon av de [stöds ADF målarkiv](copy-activity-overview.md#supported-data-stores-and-formats) (finns i ” stöds som en mottagare ”kolumn i tabellen” stöds datalager och format ”).
+För närvarande i en enda Kopieringsaktivitet du kan bara **kopiera data från Office 365 till [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), och [Azure Data Lake Storage Gen2 ](connector-azure-data-lake-storage.md) i JSON-format** (typen setOfObjects). Om du vill att läsa in Office 365 till andra typer av datalager eller i andra format, du kan länka första kopieringsaktiviteten med en efterföljande Kopieringsaktivitet ytterligare läsa in data i någon av de [stöds ADF målarkiv](copy-activity-overview.md#supported-data-stores-and-formats) (finns i ” stöds som en mottagare ”kolumn i tabellen” stöds datalager och format ”).
 
 >[!IMPORTANT]
 >- Azure-prenumerationen som innehåller data factory och det mottagande datalagren måste vara under samma Azure Active Directory (Azure AD)-klient som Office 365-klient.
@@ -35,7 +35,7 @@ För närvarande i en enda Kopieringsaktivitet du kan bara **kopiera data från 
 >-  Om du läser in Office 365-data i **Azure Blob Storage** som mål, se till att du använder **[tjänstobjektautentisering](connector-azure-blob-storage.md#service-principal-authentication)** när du definierar länkat Tjänsten till Azure Blob Storage och inte använder [kontonyckel](connector-azure-blob-storage.md#account-key-authentication), [signatur för delad åtkomst](connector-azure-blob-storage.md#shared-access-signature-authentication) eller [hanterade identiteter för Azure-resurser](connector-azure-blob-storage.md#managed-identity) autentiseringar.
 >-  Om du läser in Office 365-data i **Azure Data Lake Storage Gen1** som mål, se till att du använder [ **tjänstobjektautentisering** ](connector-azure-data-lake-store.md#use-service-principal-authentication) när du definierar den Länkad tjänst till Azure Data Lake Storage Gen1 och inte använder [hanterade identiteter för Azure-resurser autentisering](connector-azure-data-lake-store.md#managed-identity).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill kopiera data från Office 365 till Azure, måste du utföra följande nödvändiga steg:
 
@@ -77,9 +77,9 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Office 365-länkade tjänsten:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Office365** | Ja |
+| type | Type-egenskapen måste anges till: **Office365** | Ja |
 | office365TenantId | Azure klient-ID som Office 365-kontot tillhör. | Ja |
 | servicePrincipalTenantId | Ange klient som din Azure AD-webbappen finns. | Ja |
 | servicePrincipalId | Ange programmets klient-ID. | Ja |
@@ -117,9 +117,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Office 365, stöds följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **Office365Table** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **Office365Table** | Ja |
 | tableName | Namn på datauppsättning för att extrahera från Office 365. Se [här](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) lista över tillgängliga för extrahering av Office 365-datauppsättningar. | Ja |
 | Predikatet | Ett predikat uttryck som kan användas för att filtrera specifika rader att extrahera från Office 365.  Se [här](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) att ta reda på vilka kolumner som kan användas för filtrering med predikat för varje tabell och uttrycksformatet filter. | Nej<br>(Om ingen predikatet anges är standardvärdet att extrahera data för de senaste 30 dagarna) |
 

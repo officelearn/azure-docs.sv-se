@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 81adf643541b5a4486694026acec49129ef8e5a6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861901"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000631"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -48,8 +48,8 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
      |Anslutningsläge  |Protokoll som stöds  |Stödda SDK: erna  |API/Service-port  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Direkt    |    HTTPS     |  .NET och Java SDK    |   Portar i intervallet 20 10 000 000    |
-     |Direkt    |     TCP    |  .NET SDK    | Portar i intervallet 20 10 000 000 |
+     |Direct    |    HTTPS     |  .NET och Java SDK    |   Portar i intervallet 20 10 000 000    |
+     |Direct    |     TCP    |  .NET SDK    | Portar i intervallet 20 10 000 000 |
 
      Azure Cosmos DB erbjuder en enkel och öppna RESTful-programmeringsmiljö via HTTPS. Dessutom finns det en effektiv TCP-protokollet som är också RESTful i sin modell och är tillgänglig via SDK för .NET-klient. Använda SSL för den inledande autentiseringen och kryptering trafik direkt TCP- och HTTPS. Använda TCP-protokollet när det är möjligt för bästa prestanda.
 
@@ -85,6 +85,11 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 4. **Öka antalet trådar/uppgifter**
 
     Eftersom anrop till Azure Cosmos DB görs över nätverket, kan du behöva variera graden av parallellitet över dina önskemål så att klientprogrammet använder mycket lite tid att vänta mellan begäranden. Exempel: Om du använder. NET'S [parallella Uppgiftsbibliotek](https://msdn.microsoft.com//library/dd460717.aspx), skapa i den ordning som 100-tal uppgifter läsning eller skrivning till Azure Cosmos DB.
+
+5. **Aktivera accelererat nätverk**
+
+   För att minska latens och jitter för CPU, rekommenderar vi att virtuella klientdatorer accelererat nätverk aktiverat. Se den [skapa en Windows-dator med Accelererat nätverk](../virtual-network/create-vm-accelerated-networking-powershell.md) eller [skapa en Linux-dator med Accelererat nätverk](../virtual-network/create-vm-accelerated-networking-cli.md) artiklar för att aktivera accelererat nätverk.
+
 
 ## <a name="sdk-usage"></a>SDK-användning
 1. **Installera den senaste SDK**

@@ -1,7 +1,6 @@
 ---
-title: Förstå SUSE reservationsrabatten plan och användning – Azure | Microsoft Docs
-description: Lär dig hur SUSE plan rabatter tillämpas SUSE-programvara på virtuella datorer.
-services: billing
+title: Programvara plan rabatt – Azure | Microsoft Docs
+description: Lär dig hur programvaran plan rabatter tillämpas på ett program på virtuella datorer.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,22 +10,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2018
+ms.date: 04/12/2019
 ms.author: banders
-ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917795"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002739"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Förstå hur SUSE Linux Enterprise software reservationsrabatten plan tillämpas för Azure
+# <a name="azure-software-plan-discount"></a>Azure-programvara plan rabatt
 
-När du köper en plan för SUSE Linux rabatten automatiskt till distribuerade SUSE virtuella datorer (VM) som matchar reservationen. En plan för SUSE Linux täcker kostnaden för att köra SUSE-programvara på en Azure VM.
+Azure-programvara är för SUSE och RedHat reservationer som gäller för distribuerade virtuella datorerna. Programvara rabatten plan till användningen av programvara över distribuerade virtuella datorer som matchar reservationen.
 
-Om du vill köpa en lämplig SUSE Linux-plan, måste du förstå vilka SUSE virtuella datorer som du kör och antalet virtuella processorer på de virtuella datorerna. Använd följande avsnitt för att identifiera från en CSV-fil från din användning vad planerar att köpa.
+När du stänger en virtuell dator, används automatiskt rabatten till en annan matchande virtuell dator, om det är tillgängligt. En plan för programvara täcker kostnaden för att köra programvaran på en virtuell dator. Andra avgifter, till exempel beräkning, lagring och nätverk debiteras separat.
 
-## <a name="discount-applies-to-different-vm-sizes"></a>Rabatten gäller för olika storlekar på Virtuella datorer
+Om du vill köpa rätt plan, måste du förstå din VM-användning och antalet virtuella processorer på de virtuella datorerna. Använd följande avsnitt för att identifiera vad planerar att köpa, baserat på användningsdata.
+
+## <a name="how-reservation-discount-is-applied"></a>Hur reservationsrabatten tillämpas
+
+En reservationsrabatten är ”*användning – it-eller-förlora-it*”. Så om du inte har matchande resurser för en timme, förlorar sedan du en Reservationskvantitet för den timmen. Du kan inte utföra vidarebefordra oanvända reserverade timmar.
+
+När du stänger en resurs kan tillämpas reservationsrabatten automatiskt till en annan matchande resurs i det specificerade omfånget. Om inga matchande resurser finns i det specificerade omfånget så är de reserverade timmarna *förlorad*.
+
+## <a name="review-redhat-vm-usage-before-you-buy"></a>Granska RedHat VM användning innan du köper
+
+Hämtar produktnamnet på från användningsdata och köp RedHat-plan med samma typ och storlek.
+
+Exempel: om din användning har produkten **Red Hat Enterprise Linux - 1-4 vCPU VM-licens**, ska du köpa **Red Hat Enterprise Linux** för **1-4 vCPU VM**.
+
+<!--ADD RHEL SCREENSHOT -->
+
+## <a name="review-suse-vm-usage-before-you-buy"></a>Granska SUSE VM användning innan du köper
+
+Hämtar produktnamnet på från användningsdata och köp SUSE-plan med samma typ och storlek.
+
+Exempel: om din användning är för produkten **SUSE Linux Enterprise serverprioritet – 2 – 4 vCPU Support för virtuella datorer**, ska du köpa **SUSE Linux Enterprise serverprioritet** för **2 – 4 vCPU**.
+
+![Exempel på hur du väljer att köpa produkten](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+
+## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>Rabatten gäller för olika VM-storlekar för SUSE-planer
 
 Som om reserverade VM-instanser, SUSE planera erbjuda inköp instans storlek flexibilitet. Det innebär att rabatten gäller även när du distribuerar en virtuell dator med ett antal olika virtuella processorer. Rabatten gäller för olika storlekar på Virtuella datorer i plan för programvara.
 
@@ -38,9 +61,7 @@ Om du köper en plan för SUSE Linux Enterprise Server för HPC prioritet för e
 - 1 distribuerat med 3 eller 4 virtuella processorer,
 - eller 0.77 eller om 77% av en virtuell dator med 5 eller flera virtuella processorer.
 
-Kvoten för 5 eller flera virtuella processorer är 2.6. Så innehåller en reservation för SUSE med en virtuell dator med 5 eller flera virtuella processorer en enda andel av kostnaden för programvara, vilket är ungefär 77%.
-
-## <a name="understand-suse-vm-usage-before-you-buy"></a>Förstå användningen av SUSE VM innan du köper
+Kvoten för 5 eller flera virtuella processorer är 2.6. En reservation för SUSE med en virtuell dator med 5 eller flera virtuella processorer täcker så en enda del av kostnad för programvara med cirka 77%.
 
 Följande tabeller visar programvaruplaner som du kan köpa en reservation för, deras associerade användningsnivå mätare och förhållandena för var och en.
 
@@ -122,6 +143,10 @@ Azure portal marketplace-namn:
 |SLES 3 – 4 kärnor virtuella processorer |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
 |SLES 5 + vcpu: er |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
+
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om reservationer, finns i följande artiklar:
@@ -132,7 +157,3 @@ Mer information om reservationer, finns i följande artiklar:
 - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
-
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
-
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

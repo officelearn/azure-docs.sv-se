@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546599"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148908"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importera virtuella datorer från en annan labb i Azure DevTest Labs
-Den här artikeln innehåller information om hur du importerar virtuella datorer från en annan lab till labbet. 
+Den här artikeln innehåller information om hur du importerar virtuella datorer från en annan lab till labbet.
 
 ## <a name="scenarios"></a>Scenarier
-Här följer några scenarier där du behöver importera virtuella datorer från en labb till en annan Labb: 
+Här följer några scenarier där du behöver importera virtuella datorer från en labb till en annan Labb:
 
 - En person i gruppen flyttas till en annan grupp i företaget och vill ta developer skrivbordet till det nya teamet DevTest Labs.
 - Gruppen har nått en [prenumerationsnivå kvot](../azure-subscription-service-limits.md) och vill dela upp team i några prenumerationer
@@ -34,8 +34,8 @@ Den här funktionen kan du importera virtuella datorer i en labb (källa) till e
 
 Processen tar lite tid och påverkas av följande faktorer:
 
-- Antal/storlek på diskarna som är kopplade till källdatorn (eftersom det är en kopieringsåtgärd och inte en flyttningsåtgärd) 
-- Avståndet till mål (till exempel USA, östra region till Sydostasien).  
+- Antal/storlek på diskarna som är kopplade till källdatorn (eftersom det är en kopieringsåtgärd och inte en flyttningsåtgärd)
+- Avståndet till mål (till exempel USA, östra region till Sydostasien).
 
 När processen är klar, förblir den virtuella källdatorn avstängning och den nya en körs i laboratoriet mål.
 
@@ -47,12 +47,12 @@ Det finns två viktiga begränsningar vara medvetna om när du planerar att impo
 - Den här funktionen stöds för närvarande endast via Powershell och REST API.
 
 ## <a name="use-powershell"></a>Använd PowerShell
-Ladda ned ImportVirtualMachines.ps1 filen från den [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Du kan använda skriptet för att importera en enskild virtuell dator eller alla virtuella datorer i labbet källa till mål-labbet. 
+Ladda ned ImportVirtualMachines.ps1 filen från den [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Du kan använda skriptet för att importera en enskild virtuell dator eller alla virtuella datorer i labbet källa till mål-labbet.
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>Använd PowerShell för att importera en enskild virtuell dator
 Kör det här powershell-skriptet måste identifiera den Virtuella källdatorn och målet labbet och du kan också ange ett nytt namn för måldatorn:
 
-```powershell 
+```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
                             -SourceVirtualMachineName "<Name of the VM to be imported from the source lab> " `
@@ -63,7 +63,7 @@ Kör det här powershell-skriptet måste identifiera den Virtuella källdatorn o
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Använd PowerShell för att importera alla virtuella datorer i labbet källa
 Om den virtuella källdatorn inte anges importerar skriptet automatiskt alla virtuella datorer i DevTest Labs.  Exempel:
- 
+
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
@@ -83,7 +83,7 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar: 
+Se följande artiklar:
 
 - [Ange principer för ett labb](devtest-lab-get-started-with-lab-policies.md)
 - [Vanliga frågor och svar](devtest-lab-faq.md)

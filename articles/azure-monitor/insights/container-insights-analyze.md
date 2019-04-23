@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426400"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004048"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare 
 Med Azure Monitor för behållare kan använda du prestandadiagram och hälsostatus för att övervaka arbetsbelastningen för dina Azure Kubernetes Service (AKS) kluster ur två perspektiv, direkt från ett AKS-kluster eller alla AKS-kluster i en prenumeration från Azure Övervaka. Visa Azure Container Instances (ACI) är också möjligt när du övervakar ett specifikt AKS-kluster.
@@ -40,8 +40,9 @@ Om du vill visa alla AKS-kluster som distribueras hälsostatus, Välj **övervak
 På den **övervakas kluster** fliken du kan lära dig följande:
 
 1. Hur många kluster är i ett kritiskt eller dåligt tillstånd, jämfört med hur många är felfri eller inte reporting (kallas ett okänt tillstånd)?
-1. Är alla mina [Azure Kubernetes-motor (AKS-motor)](https://github.com/Azure/aks-engine) distributioner felfria?
-1. Hur många noder, användare och system poddar distribueras per kluster.  
+2. Är alla mina [Azure Kubernetes-motor (AKS-motor)](https://github.com/Azure/aks-engine) distributioner felfria?
+3. Hur många noder, användare och system poddar distribueras per kluster?
+4. Hur mycket diskutrymme som är tillgängligt och finns det ett problem med kapacitet?
 
 Den hälsotillstånd statusen som ingår är: 
 
@@ -55,7 +56,7 @@ Den hälsotillstånd statusen som ingår är:
 * **MIS konfigurerats** – Azure Monitor för behållare har inte konfigurerats korrekt i den angivna arbetsytan.
 * **Inga data** -Data inte har rapporterat till arbetsytan under de senaste 30 minuterna.
 
-Hälsotillståndet beräknar övergripande klusterstatus som *beräkning av sämsta*”de tre tillstånd med ett undantag – om något av tre tillstånd är *okänd*, visar övergripande klustertillstånd **okänd**.  
+Hälsotillståndet beräknar övergripande klusterstatus som *beräkning av sämsta* de tre tillstånd med ett undantag – om något av tre tillstånd är *okänd*, visar övergripande klustertillstånd **okänd**.  
 
 Följande tabell innehåller en detaljerad analys av beräkningen Kontrollera hälsotillstånd för ett övervakade kluster för flera kluster-vyn.
 
@@ -131,9 +132,9 @@ När du växlar till **noder**, **domänkontrollanter**, och **behållare** flik
 
 ![Egenskapsrutan för exempel Kubernetes perspektiv](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-När du expanderar objekt inom hierarkin egenskaper fönstret uppdateringar baserat på de objekt som valts. Fönstret kan du också visa Kubernetes-händelser med fördefinierade loggsökningar genom att klicka på den **visa Kubernetes-händelseloggar** länken längst upp i fönstret. Mer information om hur du visar loggdata för Kubernetes finns i [söka loggarna för att analysera data](#search-logs-to-analyze-data). När du granskar dina behållare i den **behållare** kan visas behållarens loggar i realtid. Läs mer om den här funktionen och den konfiguration som krävs för att bevilja och styra åtkomsten [visa behållarens loggar realtid med Azure Monitor för behållare](container-insights-live-logs.md). 
+När du expanderar objekt inom hierarkin egenskaper fönstret uppdateringar baserat på de objekt som valts. Fönstret kan du också visa Kubernetes-händelser med fördefinierade loggsökningar genom att klicka på den **visa Kubernetes-händelseloggar** länken längst upp i fönstret. Mer information om hur du visar loggdata för Kubernetes finns i [söka loggarna för att analysera data](container-insights-log-search.md). När du granskar dina behållare i den **behållare** kan visas behållarens loggar i realtid. Läs mer om den här funktionen och den konfiguration som krävs för att bevilja och styra åtkomsten [visa behållarens loggar realtid med Azure Monitor för behållare](container-insights-live-logs.md). 
 
-Använd den **+ Lägg till Filter** alternativet högst upp på sidan om du vill filtrera resultatet för vyn av **Service**, **nod**, eller **Namespace** och efter att välja vilka filter du sedan välja en av de värden som visas i den **Välj värde(n)** fält.  När filtret har konfigurerats kan tillämpas globalt medan du visar alla perspektiv AKS-klustret.  Formeln har endast stöd för likhetstecknet.  Du kan lägga till ytterligare filter på den första mallen för att ytterligare begränsa dina resultat.  Om du har angett ett filter genom att exempelvis **nod**, andra filtret skulle bara kan du välja **Service** eller **Namespace**.  
+Använd den **+ Lägg till Filter** alternativet högst upp på sidan om du vill filtrera resultatet för vyn av **Service**, **nod**, **Namespace**, eller  **Nodpool** och när du har valt vilka filter du sedan välja en av de värden som visas i den **Välj värde(n)** fält.  När filtret har konfigurerats kan tillämpas globalt medan du visar alla perspektiv AKS-klustret.  Formeln har endast stöd för likhetstecknet.  Du kan lägga till ytterligare filter på den första mallen för att ytterligare begränsa dina resultat.  Om du har angett ett filter genom att exempelvis **nod**, andra filtret skulle bara kan du välja **Service** eller **Namespace**.  
 
 ![Exempel med filtret för att begränsa resultaten](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -258,49 +259,6 @@ Ikonen i statusfältet anger online status för poddar, enligt beskrivningen i f
 | ![Avslutade statusikon](./media/container-insights-analyze/containers-terminated-icon.png) | Har stoppats eller gick inte att stoppa|  
 | ![Misslyckade statusikon](./media/container-insights-analyze/containers-failed-icon.png) | Felaktigt tillstånd |  
 
-
-## <a name="container-data-collection-details"></a>Insamling av data-behållarinformation
-Behållareinsikter samlar in olika mått och loggfiler prestandadata från behållare-värdar och behållare. Data som samlas in var tredje minut.
-
-### <a name="container-records"></a>Behållarposter
-
-Exempel på poster som samlas in av Azure Monitor för behållare och vilka datatyper av som visas i sökresultaten för loggen visas i följande tabell:
-
-| Datatyp | Datatypen i Loggsökning | Fält |
-| --- | --- | --- |
-| Prestanda för värdar och behållare | `Perf` | Datorn, objektnamn, CounterName &#40;läser MB tid i procent för Processor, Disk, Disk skriver MB, MB för användning av minne, nätverk ta emot byte, nätverk skicka byte, Processor användning sek, Network&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem |
-| Behållare-inventering | `ContainerInventory` | TimeGenerated, dator, behållarnamn ContainerHostname, bild, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommandot, CreatedTime, StartedTime, FinishedTime, SourceSystem, behållar-ID, ImageID |
-| Behållaravbildningar | `ContainerImageInventory` | TimeGenerated, dator, bild, ImageTag, ImageSize, VirtualSize, drift, pausad, stoppas, misslyckades, SourceSystem, ImageID, TotalContainer |
-| Behållarloggen | `ContainerLog` | TimeGenerated, dator, avbildnings-ID, namn, LogEntrySource, LogEntry, SourceSystem, behållar-ID |
-| Container service-logg | `ContainerServiceLog`  | TimeGenerated, dator, TimeOfCommand, bild, kommandot, SourceSystem, behållar-ID |
-| Behållarnodslager | `ContainerNodeInventory_CL`| TimeGenerated, dator, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Behållarprocess | `ContainerProcess_CL` | TimeGenerated, dator, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Inventering av poddar i ett Kubernetes-kluster | `KubePodInventory` | TimeGenerated, dator, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, Behållar-ID, ContainerName, namn, PodLabel, Namespace, PodStatus, klusternamn, PodIp, SourceSystem |
-| Inventering av noder tillhör ett Kubernetes-kluster | `KubeNodeInventory` | TimeGenerated, dator, klusternamn, ClusterId, LastTransitionTimeReady, etiketter, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
-| Kubernetes-händelser | `KubeEvents_CL` | TimeGenerated, dator, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, meddelande, SourceSystem | 
-| Tjänster i Kubernetes-kluster | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Prestandamått för noder som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SNode” | Datorn, objektnamn, CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem | 
-| Prestandamått för behållare som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SContainer” | CounterName &#40;cpuUsageNanoCores memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, räknarsökväg, SourceSystem | 
-
-## <a name="search-logs-to-analyze-data"></a>Sök i loggar att analysera data
-Log Analytics kan hjälpa dig att söka trender, diagnostisera flaskhalsar, prognoser och korrelera data som kan hjälpa dig att avgöra om den aktuella klusterkonfigurationen presterar optimalt. Fördefinierade loggsökningar tillhandahålls för du omedelbart börja använda eller anpassa för att returnera informationen som du vill. 
-
-Du kan utföra interaktiva analyser av data på arbetsytan genom att välja den **visa Kubernetes-händelseloggar** eller **visa behållarloggarna** alternativet i förhandsgranskningsfönstret. Den **Loggsökning** visas till höger om Azure portal sidan som du var på.
-
-![Analysera data i Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
-
-Utdata för container-loggar som vidarebefordras till logganalys är STDOUT och STDERR. Eftersom Azure Monitor övervakar Azure-hanterade Kubernetes (AKS), Kube system som inte samlas in idag på grund av den stora mängden skapas. 
-
-### <a name="example-log-search-queries"></a>Exempel loggsökningsfrågor
-Det är ofta bra att skapa frågor som börjar med ett exempel eller två och ändra dem efter dina behov. För att skapa mer avancerade frågor kan experimentera du med följande exempelfrågor:
-
-| Söka i data | Beskrivning | 
-|-------|-------------|
-| ContainerInventory<br> &#124;projektet dator, namn, bild, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124;Rendera tabell | Visa en lista över information om en behållarens livslängd| 
-| KubeEvents_CL<br> &#124;där not(isempty(Namespace_s))<br> &#124;Sortera efter TimeGenerated fall<br> &#124;Rendera tabell | Kubernetes-händelser|
-| ContainerImageInventory<br> &#124;Sammanfatta AggregatedValue = antal() efter bild, ImageTag, körs | Avbildningslager | 
-| **Välj Visa diagramalternativet**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”cpuUsageNanoCores” &#124; sammanfatta AvgCPUUsageNanoCores = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Processorprestanda för behållare | 
-| **Välj Visa diagramalternativet**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”memoryRssBytes” &#124; sammanfatta AvgUsedRssMemoryBytes = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Behållare-minne |
-
 ## <a name="next-steps"></a>Nästa steg
-Azure Monitor för behållare inkluderar inte en fördefinierad uppsättning aviseringar för att kopiera och ändra enligt dina stödjande processer och procedurer. Granska den [skapa aviseringar med Azure Monitor för behållare](container-insights-alerts.md) att lära dig hur du skapar rekommenderade aviseringar för hög användning av processor och minne.  
+- Granska den [skapa aviseringar med Azure Monitor för behållare](container-insights-alerts.md) och lär dig att skapa aviseringar för hög användning av processor och minne för dina DevOps eller operativa processer och procedurer. 
+- Visa [logga fråga exempel](container-insights-log-search.md#search-logs-to-analyze-data) att se fördefinierade frågor och exempel för att utvärdera eller anpassa för aviseringar, visualisera och analysera dina kluster.

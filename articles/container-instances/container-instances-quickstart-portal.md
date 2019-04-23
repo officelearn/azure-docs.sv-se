@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 008d6d2a9a4a20e9fd083e9e2f009396a7f14df2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369453"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995923"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Snabbstart: Distribuera en behållarinstans i Azure med hjälp av Azure-portalen
 
@@ -35,31 +35,29 @@ Välj **Skapa en resurs** > **Behållare** > **Behållarinstanser**.
 
 ![Skapa en ny containerinstans i Azure Portal][aci-portal-01]
 
-Ange följande värden i textfälten **Containernamn**, **Containeravbildning** och **Resursgrupp**. Lämna de övriga standardvärdena oförändrade och välj **OK**.
+På den **grunderna** anger du följande värden i den **resursgrupp**, **behållarnamn**, och **behållaravbildning** textrutor. Lämna de övriga standardvärdena oförändrade och välj **OK**.
 
+* Resursgrupp: **Skapa ny** > `myresourcegroup`
 * Containernamn: `mycontainer`
 * Containeravbildning: `mcr.microsoft.com/azuredocs/aci-helloworld`
-* Resursgrupp: **Skapa ny** > `myResourceGroup`
 
 ![Konfigurera grundläggande inställningar för en ny containerinstans i Azure Portal][aci-portal-03]
 
-Lämna standardinställningen för den här snabbstarten **offentliga** att distribuera offentliga Microsoft `aci-helloworld` bild. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
+I den här snabbstarten använder du standardvärdet **bildtyp** inställningen för den **offentliga** att distribuera offentliga Microsoft `aci-helloworld` bild. Den här Linux-avbildning paket en liten webbapp som skrivits i Node.js som har en statisk HTML-sida.
 
-Under **Konfiguration** anger du en **DNS-namnetikett** för din container. Namnet måste vara unikt inom Azure-region där du skapar behållarinstansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
-
-Lämna de övriga standardinställningarna i **Konfiguration** oförändrade och klicka sedan på **OK** att bekräfta konfigurationen.
+På den **nätverk** anger en **DNS-Namnetiketten** för behållaren. Namnet måste vara unikt inom Azure-region där du skapar behållarinstansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
 ![Konfigurera en ny containerinstans i Azure Portal][aci-portal-04]
 
-När verifieringen är klar visas en sammanfattning av containerinställningarna. Välj **OK** för att skicka din begäran om distribution av container.
+Lämna de andra inställningarna oförändrade och välj sedan **granska + skapa**.
+
+När verifieringen är klar visas en sammanfattning av containerinställningarna. Välj **skapa** att skicka din begäran om distribution av behållare.
 
 ![Sammanfattning av inställningar för en ny containerinstans i Azure Portal][aci-portal-05]
 
 När distributionen inleds visas ett meddelande som indikerar att distributionen pågår. Ett nytt meddelande visas när containergruppen har distribuerats.
 
-![Förloppsindikator under tillkomsten av en ny containerinstans i Azure Portal][aci-portal-08]
-
-Öppna översikten för containergruppen genom att gå till **Resursgrupper** > **myResourceGroup** > **mycontainer**. Anteckna den **FQDN** (fullständigt kvalificerade domännamn) på containerinstansen samt dess **Status**.
+Öppna översikten för behållargruppen genom att gå till **resursgrupper** > **myresourcegroup** > **mycontainer**. Anteckna den **FQDN** (fullständigt kvalificerade domännamn) på containerinstansen samt dess **Status**.
 
 ![Översikt över gruppcontainer i Azure-portalen][aci-portal-06]
 

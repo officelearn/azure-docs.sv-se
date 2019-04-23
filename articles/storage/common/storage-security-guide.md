@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650129"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006020"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
@@ -302,7 +302,7 @@ För krypteringen, kan du generera och hantera egna krypteringsnycklar. Du kan o
   Den här artikeln ger en förklaring av client side encryption och innehåller exempel på hur du använder storage-klientbiblioteket för att kryptera och dekryptera resurser från de fyra storage-tjänsterna. Den berättar även om Azure Key Vault.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Med Azure Disk Encryption för att kryptera diskar som används av dina virtuella datorer
-Azure Disk Encryption är en ny funktion. Den här funktionen kan du kryptera OS-diskar och datadiskar som används av en IaaS-dator. För Windows krypteras enheterna som med BitLocker-kryptering branschstandard. För Linux krypteras diskar med hjälp av teknik för DM-Crypt. Detta är integrerat med Azure Key Vault så att du kan styra och hantera krypteringsnycklar för disken.
+Azure Disk Encryption kan du kryptera OS-diskar och datadiskar som används av en IaaS-dator. För Windows krypteras enheterna som med BitLocker-kryptering branschstandard. För Linux krypteras diskar med hjälp av teknik för DM-Crypt. Detta är integrerat med Azure Key Vault så att du kan styra och hantera krypteringsnycklar för disken.
 
 Lösningen stöder följande scenarier för virtuella IaaS-datorer när de är aktiverade i Microsoft Azure:
 

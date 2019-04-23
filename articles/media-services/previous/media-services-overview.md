@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a98d3acc3f45772f9e28c23a639f495b75bea0a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: efdc3f657712794325f8af6f1b0178915e7a8e6b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850059"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000308"
 ---
 # <a name="azure-media-services-overview"></a>Översikt över Azure Media Services 
 
@@ -75,12 +75,6 @@ Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
 Detaljerad information finns i [AMS-scenarier och tillgänglighet för funktioner och tjänster över datacenter](scenarios-and-availability.md).
 
 ## <a name="service-level-agreement-sla"></a>Serviceavtal (SLA)
-
-* Vi garanterar 99,9 % tillgänglighet för REST API-transaktioner för Media Services Encoding.
-* För Streaming svarar vi på serviceförfrågningar med 99,9 % tillgänglighet för befintligt medieinnehåll när en Standard- eller Premium-slutpunkt för direktuppspelning har köpts.
-* För live-kanaler garanterar vi att kanaler som körs ska ha extern anslutning minst 99,9 % av tiden.
-* För Content Protection garanterar vi att minst 99,9 % av tiden utföra viktiga begäranden.
-* När det gäller Indexer ska vi utföra service för indexeringsuppgifter som bearbetas med en kodningsreserverad enhet 99,9 % av tiden.
 
 Mer information finns i [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485160"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000733"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du visa dina servrar på samma sätt som du ser på dem: som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
@@ -297,37 +297,37 @@ Poster i tabellerna genereras från data som rapporteras av beroendeagenten. Var
 
 För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar är grupperade i en logisk anslutning, som sedan visas i respektive tabell.  Betydelse, registrerar i *VMConnection* tabell representerar en logisk gruppering och inte de enskilda fysiska anslutningar som är som observeras. Fysiska nätverksanslutningen som delar samma värde för följande attribut under ett visst minuts intervall, slås ihop till en enskild logisk post i *VMConnection*. 
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
-|Riktning |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
-|Dator |Datorn FQDN |
-|Process |Identiteten för processen eller grupper av processer, initierar/godkänna anslutningen |
-|SourceIp |IP-adressen för källan |
-|DestinationIp |IP-adressen för målet |
-|DestinationPort |Portnumret för mål |
-|Protokoll |Protokoll som används för anslutningen.  Värden är *tcp*. |
+| `Direction` |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
+| `Machine` |Datorn FQDN |
+| `Process` |Identiteten för processen eller grupper av processer, initierar/godkänna anslutningen |
+| `SourceIp` |IP-adressen för källan |
+| `DestinationIp` |IP-adressen för målet |
+| `DestinationPort` |Portnumret för mål |
+| `Protocol` |Protokoll som används för anslutningen.  Värden är *tcp*. |
 
 Information om antalet grupperade fysiska anslutningar finns i följande egenskaper för posten för att redovisa effekten av gruppering:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
-|LinksEstablished |Antal fysiska nätverksanslutningar som har upprättats under tidsperioden för rapportering |
-|LinksTerminated |Antal fysiska nätverksanslutningar som har avslutats under tidsperioden för rapportering |
-|LinksFailed |Antal fysiska nätverksanslutningar som har misslyckats under tidsperioden för rapportering. Den här informationen är endast tillgänglig för utgående anslutningar. |
-|LinksLive |Antal fysiska nätverksanslutningar som var öppna längst ned i tidsfönstret|
+| `LinksEstablished` |Antal fysiska nätverksanslutningar som har upprättats under tidsperioden för rapportering |
+| `LinksTerminated` |Antal fysiska nätverksanslutningar som har avslutats under tidsperioden för rapportering |
+| `LinksFailed` |Antal fysiska nätverksanslutningar som har misslyckats under tidsperioden för rapportering. Den här informationen är endast tillgänglig för utgående anslutningar. |
+| `LinksLive` |Antal fysiska nätverksanslutningar som var öppna längst ned i tidsfönstret|
 
 #### <a name="metrics"></a>Mått
 
 Förutom antalet anslutningsmått, information om mängden data som skickas och tas emot på en viss logisk anslutning eller nätverksport ingår även i följande egenskaper för posten:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
-|BytesSent |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
-|BytesReceived |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
-|Svar |Antal svar som observerats under tidsperioden för rapportering. 
-|ResponseTimeMax |Den största svarstid (millisekunder) observerats under tidsperioden för rapportering.  Egenskapen är tomt om inget värde.|
-|ResponseTimeMin |Den minsta svarstid (millisekunder) observerats under tidsperioden för rapportering.  Egenskapen är tomt om inget värde.|
-|ResponseTimeSum |Summan av alla svarstider (millisekunder) som observerats under tidsperioden för rapportering.  Om inget värde är egenskapen tomt|
+| `BytesSent` |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
+| `BytesReceived` |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
+| `Responses` |Antal svar som observerats under tidsperioden för rapportering. 
+| `ResponseTimeMax` |Den största svarstid (millisekunder) observerats under tidsperioden för rapportering.  Egenskapen är tomt om inget värde.|
+| `ResponseTimeMin` |Den minsta svarstid (millisekunder) observerats under tidsperioden för rapportering.  Egenskapen är tomt om inget värde.|
+| `ResponseTimeSum` |Summan av alla svarstider (millisekunder) som observerats under tidsperioden för rapportering.  Om inget värde är egenskapen tomt|
 
 Den tredje typ av data som rapporteras svarstid – hur länge en anropare ägna åt att vänta på en begäran som skickas via en anslutning som ska bearbetas och besvarats av fjärrslutpunkten. Svarstiden som rapporteras är en uppskattning av SANT svarstiden för det underliggande protokollet. Det beräknas med hjälp av heuristik baserat på observationer av flödet av data mellan käll- och slutet av en fysisk anslutning. Den övergripande är skillnaden mellan den tid som den sista byten av en begäran lämnar avsändaren och tid när den sista byten av svaret kommer tillbaka till den. Dessa två tidsstämplar används för att ge en bild av händelser som begäranden och svar på en viss fysisk anslutning. Skillnaden mellan dem representerar svarstiden för en enskild begäran. 
 
@@ -346,28 +346,28 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="geolocation"></a>Geoplats
 *VMConnection* innehåller även geoplats information för den fjärranslutna datorn för varje post för anslutning av följande egenskaper för posten: 
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
-|RemoteCountry |Namnet på det land som är värd för RemoteIp.  Till exempel *USA* |
-|RemoteLatitude |Geoplats latitud.  Till exempel *47.68* |
-|RemoteLongitude |Geoplats longitud.  Till exempel *-122.12* |
+| `RemoteCountry` |Namnet på det land som är värd för RemoteIp.  Till exempel *USA* |
+| `RemoteLatitude` |Geoplats latitud.  Till exempel *47.68* |
+| `RemoteLongitude` |Geoplats longitud.  Till exempel *-122.12* |
 
 #### <a name="malicious-ip"></a>Skadlig IP
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--|:--|
-|MaliciousIp |RemoteIp-adress |
-|IndicatorThreadType |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
-|Beskrivning |Beskrivning av observerade hotet. |
-|TLPLevel |Trafikljus Protocol (TLP) är en av de definierade värdena *White*, *grönt*, *gul*, *Red*. |
-|Konfidensbedömning |Värden är *0 – 100*. |
-|Severity |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
-|FirstReportedDateTime |Första gången providern rapporterade indikatorn. |
-|LastReportedDateTime |Senast indikatorn har setts av Interflow. |
-|IsActive |Anger indikatorer inaktiveras med *SANT* eller *FALSKT* värde. |
-|ReportReferenceLink |Länkar till rapporter som rör en viss övervakas. |
-|AdditionalInformation |Tillhandahåller ytterligare information om det är tillämpligt, om observerade hotet. |
+| `MaliciousIp` |RemoteIp-adress |
+| `IndicatorThreadType` |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
+| `Description` |Beskrivning av observerade hotet. |
+| `TLPLevel` |Trafikljus Protocol (TLP) är en av de definierade värdena *White*, *grönt*, *gul*, *Red*. |
+| `Confidence` |Värden är *0 – 100*. |
+| `Severity` |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
+| `FirstReportedDateTime` |Första gången providern rapporterade indikatorn. |
+| `LastReportedDateTime` |Senast indikatorn har setts av Interflow. |
+| `IsActive` |Anger indikatorer inaktiveras med *SANT* eller *FALSKT* värde. |
+| `ReportReferenceLink` |Länkar till rapporter som rör en viss övervakas. |
+| `AdditionalInformation` |Tillhandahåller ytterligare information om det är tillämpligt, om observerade hotet. |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL poster
 Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar med Service Map agenter. Dessa poster har egenskaper i följande tabell:
@@ -399,7 +399,7 @@ Poster med en typ av *ServiceMapProcess_CL* ha inventeringsdata för TCP-anslutn
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| `Type | *ServiceMapProcess_CL* |
+| `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
 | `ResourceId` | Den unika identifieraren för en process i arbetsytan |
 | `ResourceName_s` | Den unika identifieraren för en process på datorn där den körs|

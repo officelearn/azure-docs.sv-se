@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0826614c22809eba7a86f683aa970a664ed9825
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438571"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997673"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -37,7 +37,7 @@ Rapporteringsarkitekturen i Azure Active Directory (Azure AD) består av följan
 
 Det här avsnittet ger en översikt över rapporten inloggningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 * Användare i rollerna säkerhetsadministratör, Säkerhetsläsare och rapportläsare
@@ -189,7 +189,7 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Program-ID:t
 - Program
 - Client
-- Plats
+- Location
 - IP-adress
 - Date
 - MFA krävs

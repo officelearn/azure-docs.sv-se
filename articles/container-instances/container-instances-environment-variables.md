@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606896"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994783"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Ange miljövariabler i container instances
 
@@ -143,14 +143,11 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Exempel på Azure portal
 
-Om du vill ange miljövariabler när du startar en behållare i Azure-portalen, kan du ange dem i den **Configuration** när du skapar behållaren.
+Om du vill ange miljövariabler när du startar en behållare i Azure-portalen, kan du ange dem i den **Avancerat** när du skapar behållaren.
 
-När du distribuerar med portalen, du är för närvarande begränsad till tre variablerna och du måste ange dem i det här formatet: `"variableName":"value"`
-
-Om du vill se ett exempel kan starta den [aci wordcount] [ aci-wordcount] behållaren med den *NumWords* och *MinLength* variabler.
-
-1. I **Configuration**, ange den **omstartsprincip** till *vid fel*
-2. Ange `"NumWords":"5"` för den första variabeln, väljer **Ja** under **lägga till ytterligare miljövariabler**, och ange `"MinLength":"8"` för den andra variabeln. Välj **OK** att verifiera och sedan distribuerar du behållaren.
+1. På den **Avancerat** ställer du in den **omstartsprincip** till *vid fel*
+2. Under **miljövariabler**, ange `NumWords` med värdet `5` för den första variabeln, och ange `MinLength` med värdet `8` för den andra variabeln. 
+1. Välj **granska + skapa** att verifiera och sedan distribuerar du behållaren.
 
 ![Portal-sida som visar miljö variabeln aktivera-knappen och textrutor][portal-env-vars-01]
 

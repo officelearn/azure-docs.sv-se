@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: c54acd4da9f595f3c8cb37651c3804f23d53d063
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014669"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006122"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Uppgradera din big data analytics-lösningar från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2
 
@@ -90,9 +90,9 @@ Det här avsnittet beskriver vilka Data Lake Storage Gen1 plattformsfunktioner s
 
 ### <a name="programming-interfaces"></a>Programmeringsgränssnitt
 
-Den här tabellen beskriver som API som är tillgängliga för dina anpassade program. Om du vill göra det lite tydligare, har vi avgränsade dessa API-uppsättningarna i 2 typer: hantering av API: er och filesystem API: er.
+Den här tabellen beskriver som API som är tillgängliga för dina anpassade program. Om du vill göra det lite tydligare, har vi avgränsade dessa API-uppsättningarna i 2 typer: management API: er och filsystemet API: er.
 
-Management-API: er hjälper dig att hantera konton, medan filesystem API: er hjälper dig att arbeta med filer och mappar.
+Management-API: er hjälper dig att hantera konton, samtidigt som filsystem som API: erna hjälpa dig att arbeta på filer och mappar.
 
 |  API: n                           |  Data Lake Storage Gen1                                                                                                                                                                                                                                                                                                   | Tillgänglighet för Data Lake Storage Gen2 - med autentisering med delad nyckel | Tillgänglighet för Data Lake Storage Gen2 - med OAuth-autentisering                                                                                                  |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -106,7 +106,7 @@ Management-API: er hjälper dig att hantera konton, medan filesystem API: er hj�
 | Python - filsystem                    | [Länk](https://azure-datalake-store.readthedocs.io/en/latest/)                                                                                                                                                                                                                                                                 | *Ännu inte tillgänglig*                                                | *Ännu inte tillgänglig*                                                                                                                                             |
 | REST API - hantering                  | [Länk](https://docs.microsoft.com/rest/api/datalakestore/accounts)                                                                                                                                                                                                                                                      | *Stöds inte*                                                      | *Tillgängligt nu-*                                                                                                                                               |
 | REST API - filsystem                  | [Länk](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis)                                                                                                                                                                                                                                       | *Tillgängligt nu*                                                    | *Tillgängligt för tillfället -* [länk](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2)                                                      |
-| PowerShell – hantering och filsystem | [Länk](https://docs.microsoft.com/powershell/module/az.datalakestore)                                                                                                                                                                                                                        | Hantering – har inte stöd för filsystem - *ännu inte tillgänglig*        | Hantering – *tillgängligt för tillfället -* [länk](https://docs.microsoft.com/powershell/module/az.storage) <br><br>Filsystem - *ännu inte tillgänglig* |
+| PowerShell – hantering och filsystemet | [Länk](https://docs.microsoft.com/powershell/module/az.datalakestore)                                                                                                                                                                                                                        | Hantering – har inte stöd för filsystem - *ännu inte tillgänglig*        | Hantering – *tillgängligt för tillfället -* [länk](https://docs.microsoft.com/powershell/module/az.storage) <br><br>Filsystem - *ännu inte tillgänglig* |
 | CLI-hantering                       | [Länk](https://docs.microsoft.com/cli/azure/dls/account?view=azure-cli-latest)                                                                                                                                                                                                                                          | *Stöds inte*                                                      | *Tillgängligt för tillfället -* [länk](https://docs.microsoft.com/cli/azure/storage?view=azure-cli-latest)                                                              |
 | CLI - filsystem                       | [Länk](https://docs.microsoft.com/cli/azure/dls/fs?view=azure-cli-latest)                                                                                                                                                                                                                                               | *Ännu inte tillgänglig*                                                | *Ännu inte tillgänglig*                                                                                                                                             |
 | Azure Resource Manager-mallar - hantering             | [Mall1](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/)  [Template2](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/)  [Template3](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/)  | *Stöds inte*                                                      | *Tillgängligt för tillfället -* [länk](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts)                                         |
@@ -235,7 +235,7 @@ Observera att det finns en tredje part som kan hantera Data Lake Storage Gen1 ti
 
 * Om du använder ett verktyg som inte kopierar ACL: er eller om du inte vill kopiera över ACL: er så kommer du behöver ange ACL: er på målet manuellt på den översta nivån som är lämpliga. Du kan göra det genom att använda Storage Explorer. Kontrollera att dessa ACL: er är standard-ACL: er så att de filer och mappar som du kopierar du över ärver dem.
 
-* I Data Lake Storage Gen1 är den högsta nivån som du kan ange ACL: er i roten för kontot. I Data Lake Storage Gen2, men är den högsta nivån som du kan ange ACL: er i rotmappen i ett filsystem, inte hela kontot. Om du vill använda standard-ACL: er på kontonivå, måste du därför att duplicera de över alla filsystem i ditt Data Lake Storage Gen2-konto.
+* I Data Lake Storage Gen1 är den högsta nivån som du kan ange ACL: er i roten för kontot. I Data Lake Storage Gen2 är den högsta nivån som du kan ange ACL: er dock i rotmappen i ett filsystem, inte hela kontot. Om du vill använda standard-ACL: er på kontonivå, måste du därför att duplicera de över alla filsystem i ditt Data Lake Storage Gen2-konto.
 
 * Filen namngivningsbegränsningar skiljer sig mellan de två systemen för lagring. Dessa skillnader särskilt om när du kopierar från Data Lake Storage Gen2 till Data Lake Storage Gen1 eftersom det senare har mer begränsad begränsningar.
 
@@ -245,11 +245,11 @@ När du vill skapa program på Data Lake Storage Gen1 eller Data Lake Storage Ge
 
 #### <a name="uri-changes"></a>URI-ändringar
 
-Den huvudsakliga uppgiften här är att översätta adl: / / URI som användes i de befintliga arbetsbelastningarna till en abfss: / / URI.
+Den huvudsakliga uppgiften här är att översätta URI: er som har ett prefix på `adl://` i URI: er som har en `abfss://` prefix.
 
 URI-schemat för Data Lake Storage Gen1 nämns [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) i detalj, men i stora drag, är det *adl://mydatalakestore.azuredatalakestore.net/\<filsökväg\>.*
 
-URI-schemat för att komma åt Data Lake Storage Gen2 filer förklaras [här](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) i detalj, men i stora drag, är det *abfss: / /\<FILE_SYSTEM_NAME\> \@ \< ACCOUNT_NAME\>.dfs.core.widows.net/\<SÖKVÄGEN\>.*
+URI-schemat för att komma åt Data Lake Storage Gen2 filer förklaras [här](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) i detalj, men i stora drag, är det `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 Du behöver gå igenom dina befintliga program och se till att du har ändrat URI: er på rätt sätt för att peka till Data Lake Storage Gen2 sådana. Dessutom måste du lägga till rätt autentiseringsuppgifter. Slutligen måste hur du dra tillbaka de ursprungliga program och Ersätt med det nya programmet justeras nära till din strategi för övergripande uppgradering.
 
@@ -327,7 +327,7 @@ Beroende på vilken strategi du väljer och komplexiteten i din lösning, den h�
 
 ### <a name="post-upgrade"></a>Efter uppgraderingen
 
-När du är klar med åtgärden övergången, kommer att omfatta noggrann kontroll det sista steget. Detta skulle inkludera men inte begränsas till verifiera data har kopierats över på ett tillförlitligt sätt, verifierar ACL: er har ställts in korrekt, verifiera e2e pipelines fungerar som de ska osv. När kontrollerna har slutförts, kan du nu inaktivera dina gamla pipelines, ta bort källa Gen1 för Data Lake Storage-konton och gå full hastighet på dina lösningar baserade på Data Lake Storage Gen2.
+När du är klar med åtgärden övergången, kommer att omfatta noggrann kontroll det sista steget. Detta skulle inkludera men inte begränsas till verifiera data har kopierats över på ett tillförlitligt sätt, verifiera ACL: er har ställts in korrekt, verifiera slutpunkt till slutpunkt-pipelines fungerar som de ska osv. När kontrollerna har slutförts, kan du nu inaktivera dina gamla pipelines, ta bort källa Gen1 för Data Lake Storage-konton och gå full hastighet på dina lösningar baserade på Data Lake Storage Gen2.
 
 ## <a name="conclusion"></a>Sammanfattning
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802971"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001600"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -75,7 +75,7 @@ Behörigheter för ett objekt i filsystemet är **Läs**, **skriva**, och **kör
 | 7            | `RWX`        | Läsa + skriva + köra |
 | 5            | `R-X`        | Läsa + köra         |
 | 4            | `R--`        | Läsa                   |
-| 0            | `---`        | Ingen behörighet         |
+| 0            | `---`        | Inga behörigheter         |
 
 ### <a name="permissions-inheritance"></a>Arv av behörigheter
 
@@ -126,7 +126,7 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 
 ### <a name="the-owning-group"></a>Ägande grupp
 
-I POSIX ACL: er är varje användare som är associerad med en *primär grupp*. Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi". Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
+I POSIX ACL: er är varje användare som är associerad med en *primär grupp*. Användaren ”Alice” kan tillhöra gruppen ”Ekonomi”. Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi". Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Tilldela den ägande gruppen för en ny fil eller katalog
 
@@ -285,7 +285,7 @@ En GUID visas om posten representerar en användare och att användaren finns in
 
 När du definierar ACL: er för tjänstens huvudnamn är det viktigt att använda det objekt-ID (OID) för den *tjänstens huvudnamn* för registreringen som du skapade. Det är viktigt att Observera att registrerade appar har en separat tjänstens huvudnamn i specifikt Azure AD-klient. Registrerade appar har en OID som visas i Azure-portalen, men *tjänstens huvudnamn* har en annan (olika) OID.
 
-Du kan använda för att få OID för tjänstens huvudnamn som motsvarar en appregistrering kan den `az ad sp show` kommando. Ange program-ID som parameter. Här är ett exempel på hur du skaffar OID för tjänstens huvudnamn som motsvarar en appregistrering med App-Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Kör följande kommando i Azure CLI:
+Du kan använda för att få OID för tjänstens huvudnamn som motsvarar en appregistrering kan den `az ad sp show` kommando. Ange program-ID som parameter. Här är ett exempel på hur du skaffar OID för tjänstens huvudnamn som motsvarar en appregistrering med App-ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Kör följande kommando i Azure CLI:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 2372f49c7280ee5c817f3d2f98cc80a196dae5f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879207"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000597"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Serverdelar och backend-pooler i Azure ytterdörren Service
 Den här artikeln beskriver begrepp om hur du ansluter din distribution med Azure ytterdörren Service. Den förklarar också olika villkoren i ytterdörren konfiguration runt serverdelar.
@@ -43,7 +43,7 @@ Ytterdörren Service serverdelar avser värdnamnet eller offentlig IP-adress fö
 
 Begäranden som vidarebefordras av åtkomsten till en serverdel innehåller en värd header-fält som serverdelen använder för att hämta resurs. Värdet för det här fältet normalt kommer från serverdelen URI och har värd och port.
 
-Till exempel en begäran för www\.contoso.com har värden rubrik www\.contoso.com. Om du använder Azure-portalen för att konfigurera din serverdel, är standardvärdet för det här fältet namnet på serverdelen. Om din serverdel är contoso-westus.azurewebsites.net i Azure-portalen att autopopulated värdet för serverdelen värdhuvudet contoso westus.azurewebsites.net. Men om du använder Azure Resource Manager-mallar eller någon annan metod utan att explicit ange det här fältet skickar ytterdörren Service inkommande värdnamnet som värde för värdhuvudet. Om en begäran har gjorts för www\.contoso.com och serverdelen är contoso-westus.azurewebsites.net som har ett tomt header-fält, ytterdörren tjänsten anger du värdhuvudet som www\.contoso.com.
+Till exempel en begäran för www\.contoso.com har värden rubrik www\.contoso.com. Om du använder Azure-portalen för att konfigurera din serverdel, är standardvärdet för det här fältet namnet på serverdelen. Om din serverdel är contoso-westus.azurewebsites.net i Azure-portalen att autopopulated värdet för backend-värdhuvudet contoso westus.azurewebsites.net. Men om du använder Azure Resource Manager-mallar eller någon annan metod utan att explicit ange det här fältet skickar ytterdörren Service inkommande värdnamnet som värde för värdhuvudet. Om en begäran har gjorts för www\.contoso.com och serverdelen är contoso-westus.azurewebsites.net som har ett tomt header-fält, ytterdörren tjänsten anger du värdhuvudet som www\.contoso.com.
 
 De flesta serverdelar (Azure Web Apps, Blob storage och Cloud Services) kräver att värdhuvudet matchar domänen för serverdelen. Dock frontend-värden som dirigerar till serverdelen kommer att använda ett annat värdnamn, till exempel www\.contoso.azurefd.net.
 
@@ -64,7 +64,7 @@ En serverdelspool framför dörren tjänsten hänvisar till uppsättning servrar
 
 En serverdelspool definierar hur olika serverdelar bör utvärderas via hälsoavsökningar. Den definierar även hur belastningsutjämning mellan dem sker.
 
-### <a name="health-probes"></a>Hälsoavsökningar
+### <a name="health-probes"></a>Hälsotillståndsavsökningar
 Ytterdörren Service skickar regelbundna begäranden för HTTP/HTTPS-avsökning till var och en av dina konfigurerade serverdelar. Avsökningen begäranden avgör närhet och hälsotillståndet för varje serverdel så att läsa in balansera din förfrågningar från slutanvändare. Inställningar för avsökning av hälsotillstånd för en serverdelspool definierar hur vi avsöka hälsostatus för serverdelar. Följande inställningar är tillgängliga för belastnings-utjämnande konfiguration:
 
 - **Sökvägen**. Den URL som används för avsökning begäranden för alla serverdelar i serverdelspoolen. Till exempel om en av serverdelen är contoso-westus.azurewebsites.net och sökvägen anges till /probe/test.aspx, sedan ytterdörren Service-miljöer, förutsatt att protokollet som har angetts till HTTP, skickar hälsotillstånd avsökningen begäranden till http\:/ / contoso-westus.azurewebsites.net/probe/test.aspx.
@@ -83,7 +83,7 @@ Belastningsutjämning inställningarna för serverdelspoolen definierar hur vi u
 
 - **Exempel på storlek**. Anger hur många exempel på hälsoavsökningar som vi behöver tänka på för utvärdering för backend-hälsotillstånd.
 
-- **Lyckad exempelstorlek**. Definierar den exempelstorlek som tidigare nämnts antalet lyckade exempel som behövs för att anropa serverdelen felfritt. Anta exempelvis att en ytterdörren hälsotillstånd avsökningsintervallet är 30 sekunder, exempelstorlek är 5 sekunder och lyckade exempelstorlek är 3 sekunder. Varje gång det utvärdera hälsan avsökningar för din serverdel, vi tittar på de sista fem exempel över 150 sekunder (5 x 30). Minst tre lyckad avsökningar krävs för att deklarera serverdel som felfri.
+- **Lyckad exempelstorlek**. Definierar den exempelstorlek som tidigare nämnts antalet lyckade exempel som behövs för att anropa serverdelen felfritt. Anta exempelvis att en ytterdörren hälsotillstånd avsökningsintervallet är 30 sekunder, exempelstorlek är 5 och lyckade exempelstorlek är 3. Varje gång det utvärdera hälsan avsökningar för din serverdel, vi tittar på de sista fem exempel över 150 sekunder (5 x 30). Minst tre lyckad avsökningar krävs för att deklarera serverdel som felfri.
 
 - **Svarstid känslighet (ytterligare fördröjning)**. Definierar om du vill att dörren att skicka begäran till serverdelar i svarstidsintervallet mätning känslighet eller vidarebefordra begäran till den närmaste serverdelen.
 

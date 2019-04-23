@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075040"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002042"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassa en språkmodell med API: er för Video Indexer
 
@@ -47,17 +47,17 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 --data-ascii "{body}" 
 ```
 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
 ### <a name="request-parameters"></a>Begäranparametrar
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-|modelName|sträng|Ja|Namn för språkmodellen|
-|language|sträng|Ja|Språket i språkmodellen. <br/>Den **språk** parametern måste anges språket i BCP-47 formatet ”språk tagg-regioner” (t.ex.: ”en-US”). Språk som stöds är engelska (en-US), tyska (de-DE), spanska (es-SP), arabiska (ar-t.ex.), franska (fr-FR), Hindi (Hej-HI), italienska (it-IT), japanska (ja-JP), portugisiska (pt-BR), ryska (ru-RU) och kinesiska (zh-CN).  |
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|modelName|string|Ja|Namn för språkmodellen|
+|language|string|Ja|Språket i språkmodellen. <br/>Den **språk** parametern måste anges språket i BCP-47 formatet ”språk tagg-regioner” (t.ex.: ”en-US”). Språk som stöds är engelska (en-US), tyska (de-DE), spanska (es-SP), arabiska (ar-t.ex.), franska (fr-FR), Hindi (Hej-HI), italienska (it-IT), japanska (ja-JP), portugisiska (pt-BR), ryska (ru-RU) och kinesiska (zh-CN).  |
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -118,16 +118,16 @@ Nedan visas begäran i Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Train?accessToken={accessToken}"
 ```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5bac3cf761779a6c2ab27?).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train).
 
 ### <a name="request-parameters"></a>Begäranparametrar
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|sträng|Ja|Globalt unik identifierare för kontot|
-|modelId|sträng|Ja|Språk modell-id (genereras när språkmodellen skapas)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountID|string|Ja|Globalt unik identifierare för kontot|
+|modelId|string|Ja|Språk modell-id (genereras när språkmodellen skapas)|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -183,16 +183,16 @@ Nedan visas begäran i Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5ba53782606e91f65be9d?).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete).
 
 ### <a name="request-parameters"></a>Begäranparametrar 
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|sträng|Ja|Globalt unik identifierare för kontot|
-|modelId|sträng|Ja|Språk modell-id (genereras när språkmodellen skapas)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountID|string|Ja|Globalt unik identifierare för kontot|
+|modelId|string|Ja|Språk modell-id (genereras när språkmodellen skapas)|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -225,18 +225,18 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 --data-ascii "{body}" 
 ```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b3ce85f4684240bdb78f?).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update).
 
 ### <a name="request-parameters"></a>Begäranparametrar 
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|sträng|Ja|Globalt unik identifierare för kontot|
-|modelId|sträng|Ja|Språk modell-id (genereras när språkmodellen skapas)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-|modelName|sträng|Nej|Nytt namn som du kan ge modellen|
-|aktivera|boolesk|Nej|Välj om alla filer under den här modellen är aktiverad (SANT) eller inaktiverad (FALSKT)|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountID|string|Ja|Globalt unik identifierare för kontot|
+|modelId|string|Ja|Språk modell-id (genereras när språkmodellen skapas)|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|modelName|string|Nej|Nytt namn som du kan ge modellen|
+|aktivera|boolean|Nej|Välj om alla filer under den här modellen är aktiverad (SANT) eller inaktiverad (FALSKT)|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -294,19 +294,19 @@ Nedan visas begäran i Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}?fileName={string}&enable={string}"
 ```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b60547f33c1c2b2d1375?).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update).
 
 ### <a name="request-parameters"></a>Begäranparametrar 
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|modelId|sträng|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
-|fileId|sträng|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-|fileName|sträng|Nej|Namn för att uppdatera filnamnet för att|
-|aktivera|boolesk|Nej|Uppdatera om den här filen är aktiverad (SANT) eller inaktiverad (FALSKT) i språkmodellen|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|modelId|string|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
+|fileId|string|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|fileName|string|Nej|Namn för att uppdatera filnamnet för att|
+|aktivera|boolean|Nej|Uppdatera om den här filen är aktiverad (SANT) eller inaktiverad (FALSKT) i språkmodellen|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -344,16 +344,16 @@ Nedan visas begäran i Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4fcbd9b437d27d53f16).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get).
 
 ### <a name="request-parameters-and-request-body"></a>Parametrar för begäran och begärandetexten
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|sträng|Ja|Globalt unik identifierare för kontot|
-|modelId|sträng|Ja|Språk modell-id (genereras när språkmodellen skapas)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountID|string|Ja|Globalt unik identifierare för kontot|
+|modelId|string|Ja|Språk modell-id (genereras när språkmodellen skapas)|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -409,15 +409,15 @@ Nedan visas begäran i Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}"
 ```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4979e6ecbd30faa6f75?).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get).
 
 ### <a name="request-parameters"></a>Begäranparametrar
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|sträng|Ja|Globalt unik identifierare för kontot|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountID|string|Ja|Globalt unik identifierare för kontot|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -480,17 +480,17 @@ Nedan visas begäran i Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b57b5de51e64ee52242e).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete).
 
 ### <a name="request-parameters"></a>Begäranparametrar 
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|sträng|Ja|Globalt unik identifierare för kontot|
-|modelId|sträng|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
-|fileId|sträng|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountID|string|Ja|Globalt unik identifierare för kontot|
+|modelId|string|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
+|fileId|string|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -517,17 +517,17 @@ Nedan visas begäran i Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b73f9e6416d7a9965b42).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model).
 
 ### <a name="request-parameters"></a>Begäranparametrar 
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|sträng|Ja|Globalt unik identifierare för kontot|
-|modelId|sträng|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
-|fileId|sträng|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountID|string|Ja|Globalt unik identifierare för kontot|
+|modelId|string|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
+|fileId|string|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -566,17 +566,17 @@ Nedan visas begäran i Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}"
 ```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b99e522cb47bd9679122).
+[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?).
 
 ### <a name="request-parameters"></a>Begäranparametrar 
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|sträng|Ja|Globalt unik identifierare för kontot|
-|modelId|sträng|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
-|fileId|sträng|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountID|string|Ja|Globalt unik identifierare för kontot|
+|modelId|string|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
+|fileId|string|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext 
 

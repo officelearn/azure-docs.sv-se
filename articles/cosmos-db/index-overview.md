@@ -1,64 +1,99 @@
 ---
 title: Indexering i Azure Cosmos DB
 description: Förstå hur indexering fungerar i Azure Cosmos DB.
-author: rimman
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265703"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996738"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – översikt
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB - översikt
 
-Azure Cosmos DB är en schemaoberoende databas och gör att du kan iterera på dina snabbt utan att behöva bry dig om schema- eller indexhantering. Som standard indexerar Azure Cosmos DB automatiskt alla objekt i din behållare utan schema eller sekundära index från utvecklare.
+Azure Cosmos DB är en schemaoberoende databas där du kan iterera på ditt program utan att behöva bry dig om schema- eller indexhantering. Azure Cosmos DB indexerar automatiskt varje egenskap för alla objekt i din [behållare](databases-containers-items.md#azure-cosmos-containers) utan att behöva definiera ett schema eller konfigurera sekundära index.
 
-## <a name="items-as-trees"></a>Objekt som träd
+Målet med den här artikeln är att förklara hur Azure Cosmos DB indexerar data och hur den används index för att förbättra frågeprestanda. Det rekommenderas att gå igenom det här avsnittet innan du börjar utforska hur du anpassar [indexeringsprinciper](index-policy.md).
 
-Genom projicerar objekt i en behållare som JSON-dokument och som representerar dem som träd, Azure Cosmos DB normaliserar både struktur och instansvärden över objekt i förena konceptet med en **dynamiskt kodad sökvägen** . I den här representation blir varje etikett i ett JSON-dokument som innehåller både egenskapsnamn och deras värden, en nod i trädet. Blad för trädet som innehåller de faktiska värdena och mellanliggande noderna innehålla schemainformationen. Följande bild visar träd som skapats för två objekt (1 och 2) i en Azure Cosmos-behållare:
+## <a name="from-items-to-trees"></a>Från objekt att träd
 
-![Trädrepresentation för två olika objekt i en Azure Cosmos-behållare](./media/index-overview/indexing-as-tree.png)
+Varje gång ett objekt lagras i en behållare, dess innehåll är planerat som ett JSON-dokument och sedan konverteras till en trädrepresentation. Det innebär att varje egenskap om det här objektet hämtar representeras som en nod i ett träd. En pseudo-rotnod skapas som en överordnad till alla första nivån egenskaperna för objektet. Lövnoderna innehåller de faktiska skalära värden som utförs av ett objekt.
 
-En pseudo-rotnod skapas som en överordnad till de faktiska noder som motsvarar etiketter i JSON-dokument under. De kapslade datastrukturerna enhet hierarkin i trädet. Mellanliggande artificiella noder som är märkt med numeriska värden (exempelvis 0, 1,...) används för att representera uppräkningar och matrisen index.
+Överväg det här objektet som ett exempel:
 
-## <a name="index-paths"></a>Indexsökvägar
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
 
-Azure Cosmos DB-projekt objekt i en Azure Cosmos-behållare som JSON-dokument och index som träd. Du kan sedan finjustera index principerna för sökvägar i trädet. Du kan välja att inkludera eller exkludera sökvägar från indexering. Detta kan erbjuda bättre skrivprestanda och sänka index-lagring för scenarier där frågemönstren är kända vidare. Mer information finns i [Index sökvägar](index-paths.md).
+Det representeras av följande träd:
 
-## <a name="indexing-under-the-hood"></a>Indexering: Under huven
+![Föregående objekt visas som ett träd](./media/index-overview/item-as-tree.png)
 
-Azure Cosmos-databasen gäller *automatisk indexering* till data, där varje sökväg i ett träd indexeras, såvida du inte konfigurerar för att undanta vissa sökvägar.
+Observera hur matriser kodas i trädet: hämtar en mellanliggande nod som är märkt med index för den posten inom matrisen för varje post i en matris (0, 1 osv.).
 
-Azure Cosmos-databas inverterad index datastruktur för lagring av information för varje objekt och för att underlätta effektiv representation för frågor. Trädet index är ett dokument som har konstruerats med summan av alla träd som representerar enskilda objekt i en behållare. Trädet index ökar med tiden när nya objekt läggs till eller uppdateras befintliga objekt i behållaren. Till skillnad från relationsdatabas indexering, Azure Cosmos DB inte starta om indexering från början, som introduceras nya fält. Nya objekt läggs till i den befintliga index-strukturen. 
+## <a name="from-trees-to-property-paths"></a>Från träd till egenskapen sökvägar
 
-Varje nod i trädet index är en indexpost som innehåller värdena etikett och läge, som kallas den *termen*, och ID: N för de objekt som kallas den *anslag*. Anslag inom klammerparenteser (till exempel {1,2}) i vägar i inverterad indextal motsvarar objekt som *Dokument1* och *Dokument2* som innehåller det angivna etikettvärdet. Ett viktigt konsekvenserna av ett enhetligt sätt behandla både schema-etiketter och instansvärden är att allt är packat inuti ett stort index. En Instansvärde som är fortfarande i bladen upprepas inte, det kan vara i olika roller över objekt med olika schemat etiketter, men det är samma värde. Följande bild visar vägar i inverterad indexering för två olika objekt:
+Anledningen till varför Azure Cosmos DB omvandlar objekt till träd är eftersom den tillåter egenskaper refereras av deras sökvägar i dessa träd. För att hämta sökvägen för en egenskap, vi passerar trädet från rotnoden till egenskapen och sammanfoga etiketter för varje tvärgående nod.
 
-![Indexering under huven, inverterad Index](./media/index-overview/inverted-index.png)
+Här följer sökvägarna för varje egenskap från exempel-objektet som beskrivs ovan:
 
-> [!NOTE]
-> Vägar i inverterad indexet kan se ut ungefär så indexering konstruktioner som används i en sökmotor i informationshämtning-domän. Den här metoden gör kan Azure Cosmos DB du söka i din databas för alla objekt, oavsett dess schema-struktur.
+    /locations/0/country: "Germany"
+    /locations/0/city: "Berlin"
+    /locations/1/country: "France"
+    /locations/1/city: "Paris"
+    /headquarters/country: "Belgium"
+    /headquarters/employees: 250
+    /exports/0/city: "Moscow"
+    /exports/1/city: "Athens"
 
-För sökvägen till normaliserade kodar indexet väg framåt hela vägen från roten till-värdet, tillsammans med informationen för värdet. Sökvägen och värdet kodas för att tillhandahålla olika typer av indexering spatial adressintervall, t.ex. Det värde som kodning är utformad att ge unikt värde eller en sammansättning av en uppsättning sökvägar.
+När ett objekt skrivs indexerar Azure Cosmos DB effektivt varje egenskap sökväg och dess motsvarande värde.
+
+## <a name="index-kinds"></a>Index-typer
+
+Azure Cosmos DB stöder för närvarande två typer av index:
+
+Den **intervallet** index typ används till:
+
+- likhetsfrågor: `SELECT * FROM container c WHERE c.property = 'value'`
+- intervall frågor: `SELECT * FROM container c WHERE c.property > 'value'` (fungerar för `>`, `<`, `>=`, `<=`, `!=`)
+- `ORDER BY` frågor: `SELECT * FROM container c ORDER BY c.property`
+- `JOIN` frågor: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+
+Intervallet index kan användas på skalära värden (sträng eller en siffra).
+
+Den **spatial** index typ används till:
+
+- geospatial avståndet frågor: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+- geospatial i frågor: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+
+Spatialindex kan användas på korrekt formaterad [GeoJSON](geospatial.md) objekt. Punkter, LineStrings och polygoner stöds för närvarande.
 
 ## <a name="querying-with-indexes"></a>Frågor med index
 
-Vägar i inverterad indexet kan en fråga för att identifiera de dokument som matchar frågepredikatet snabbt. Vägar i inverterad indexet är också ett träd genom att behandla både schemat och instans värdena ett enhetligt sätt när det gäller sökvägar. Indexet och resultaten kan därför serialiserat till ett giltigt JSON-dokument och returneras som själva dokumenten som de returneras i trädrepresentation. Den här metoden kan recursing över resultat för ytterligare frågor. Följande bild illustrerar ett exempel på indexering i en återställningspunkt-fråga:  
+Sökvägar som extraheras vid indexering av data gör det enkelt att söka efter indexet vid bearbetning av en fråga. Genom att matcha den `WHERE` -satsen för en fråga med i listan över indexerade sökvägar, är det möjligt att identifiera de objekt som matchar frågepredikatet mycket snabbt.
 
-![Exempel på sökfråga punkt](./media/index-overview/index-point-query.png)
+Tänk dig följande fråga: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Frågepredikatet (filtrering med objekt där vilken plats som har ”France” som dess land) matchar den sökväg som är markerat i rött nedan:
 
-För en rad fråga *GermanTax* är en [användardefinierad funktion](stored-procedures-triggers-udfs.md#udfs) körs som en del av frågebearbetning. Den användardefinierade funktionen är alla registrerade, JavaScript-funktion som kan ge omfattande programmeringslogik integreras i frågan. Följande bild illustrerar ett exempel på indexering i en fråga för intervall:
+![Matchar en angiven sökväg i ett träd](./media/index-overview/matching-path.png)
 
-![Exempel på intervallet sökfråga](./media/index-overview/index-range-query.png)
+> [!NOTE]
+> En `ORDER BY` satsen *alltid* måste flera index- och kommer att misslyckas om sökvägen den refererar till inte har något.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om indexering i följande artiklar:
 
 - [Indexeringspolicy](index-policy.md)
-- [Indextyper](index-types.md)
-- [Indexsökvägar](index-paths.md)
 - [Så här hanterar du indexeringsprincip](how-to-manage-indexing-policy.md)

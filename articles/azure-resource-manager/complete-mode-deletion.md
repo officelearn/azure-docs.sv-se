@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: b38b1af8c72b814813804a49642668c28f3898d6
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: MT
+ms.openlocfilehash: fded37fee844a01f4d51518f2ca56dcf575704b2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302717"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150157"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för distributioner av klar
 Den här artikeln beskrivs hur resurstyper hanterar borttagning när inte i en mall som har distribuerats i fullständiga läge.
@@ -23,24 +23,24 @@ Resurstyperna som markerats med `No` inte bort automatiskt när inte i mallen, m
 För att få samma data som en fil med kommaavgränsade värden kan hämta [slutföra-läge-deletion.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | DomainServices | Ja | 
 | DomainServices/oucontainer | Nej | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | diagnosticSettings | Nej | 
 | diagnosticSettingsCategories | Nej | 
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | supportProviders | Nej | 
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | aadsupportcases | Nej | 
 | addsservices | Nej | 
@@ -52,7 +52,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | services | Nej | 
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Konfigurationer | Nej | 
 | generateRecommendations | Nej | 
@@ -60,7 +60,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | suppressions | Nej | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | actionRules | Nej | 
 | aviseringar | Nej | 
@@ -72,24 +72,24 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | smartGroups | Nej | 
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | servrar | Ja | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | reportFeedback | Nej | 
 | tjänst | Ja | 
 | validateServiceName | Nej | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | attestationProviders | Nej | 
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | classicAdministrators | Nej | 
 | denyAssignments | Nej | 
@@ -104,7 +104,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | roleDefinitions | Nej | 
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | automationAccounts | Ja | 
 | automationAccounts/configurations | Ja | 
@@ -114,7 +114,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | automationAccounts/webhooks | Nej | 
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Miljöer | Nej | 
 | miljöer/konton | Nej | 
@@ -122,24 +122,24 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | miljöer/konton/namnområden/konfigurationer | Nej | 
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | b2cDirectories | Ja | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | registreringar | Ja | 
 | registreringar/customerSubscriptions | Nej | 
 | registreringar/produkter | Nej | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | batchAccounts | Ja | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | billingAccounts | Nej | 
 | billingAccounts/billingProfiles | Nej | 
@@ -193,18 +193,18 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | usagePlans | Nej | 
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | mapApis | Ja | 
 | updateCommunicationPreference | Nej | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | BizTalk | Ja | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | blueprintAssignments | Nej | 
 | blueprintAssignments/assignmentOperations | Nej | 
@@ -215,20 +215,20 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | blueprints/versions/artifacts | Nej | 
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | botServices | Ja | 
 | botServices/channels | Nej | 
 | botServices/anslutningar | Nej | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Redis | Ja | 
 | RedisConfigDefinition | Nej | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | appliedReservations | Nej | 
 | calculatePrice | Nej | 
@@ -247,7 +247,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | validateReservationOrder | Nej | 
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | edgenodes | Nej | 
 | Profiler | Ja | 
@@ -257,14 +257,14 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | validateProbe | Nej | 
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | certificateOrders | Ja | 
 | certificateOrders/certifikat | Nej | 
 | validateCertificateRegistrationInformation | Nej | 
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Funktioner | Nej | 
 | domainNames | Nej | 
@@ -283,12 +283,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | virtualMachines/diagnosticSettings | Nej | 
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | classicInfrastructureResources | Nej | 
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Funktioner | Nej | 
 | expressRouteCrossConnections | Nej | 
@@ -302,7 +302,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | virtualNetworks/virtualNetworkPeerings | Nej | 
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Funktioner | Nej | 
 | Diskar | Nej | 
@@ -318,18 +318,18 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | vmImages | Nej | 
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | RateCard | Nej | 
 | UsageAggregates | Nej | 
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | availabilitySets | Ja | 
 | Diskar | Ja | 
@@ -350,7 +350,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | virtualMachineScaleSets/virtualMachines/networkInterfaces | Nej | 
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | AggregatedCost | Nej | 
 | Saldon | Nej | 
@@ -373,13 +373,13 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | UsageDetails | Nej | 
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | containerGroups | Ja | 
 | serviceAssociationLinks | Nej | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | register | Ja | 
 | register/versioner | Nej | 
@@ -405,24 +405,24 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | register-webhooks-ping | Nej | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | containerServices | Ja | 
 | managedClusters | Ja | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | program | Ja | 
 | updateCommunicationPreference | Nej | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Aviseringar | Nej | 
 | billingAccounts | Nej | 
@@ -430,13 +430,13 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | Avdelningar | Nej | 
 | Dimensioner | Nej | 
 | EnrollmentAccounts | Nej | 
-| Söka i data | Nej | 
+| Fråga | Nej | 
 | Registrera dig | Nej | 
 | Reportconfigs | Nej | 
 | Rapporter | Nej | 
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | hubbar | Ja | 
 | hubs/authorizationPolicies | Nej | 
@@ -453,33 +453,33 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | hubs/widgetTypes | Nej | 
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | jobb | Ja | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Ja | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | arbetsytor | Ja | 
 | workspaces/virtualNetworkPeerings | Nej | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | kataloger | Ja | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | connectionManagers | Ja | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | dataFactories | Ja | 
 | dataFactories/diagnosticSettings | Nej | 
@@ -488,7 +488,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | fabriker/integrationRuntimes | Nej | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 | accounts/dataLakeStoreAccounts | Nej | 
@@ -496,34 +496,34 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | konton/storageAccounts/behållare | Nej | 
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 | accounts/eventGridFilters | Nej | 
 | konton/firewallRules | Nej | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | services | Ja | 
 | Services-projekt | Ja | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | servrar | Ja | 
 | servrar/recoverableServers | Nej | 
 | servers/virtualNetworkRules | Nej | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | servrar | Ja | 
 | servrar/recoverableServers | Nej | 
 | servers/virtualNetworkRules | Nej | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | servrar | Ja | 
 | servers/advisors | Nej | 
@@ -534,7 +534,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | servers/waitStatistics | Nej | 
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | IotHubs | Ja | 
 | IotHubs/eventGridFilters | Nej | 
@@ -542,12 +542,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | Användningar | Nej | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Domänkontrollanter | Ja | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Labs | Ja | 
 | labs/serviceRunners | Ja | 
@@ -555,13 +555,13 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | Scheman | Ja | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | databaseAccountNames | Nej | 
 | databaseAccounts | Ja | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | domäner | Ja | 
 | domains/domainOwnershipIdentifiers | Nej | 
@@ -570,14 +570,14 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | validateDomainRegistrationInformation | Nej | 
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | lcsprojects | Nej | 
 | lcsprojects/clouddeployments | Nej | 
 | lcsprojects/anslutningar | Nej | 
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | domäner | Ja | 
 | domäner/ämnen | Nej | 
@@ -587,7 +587,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | topicTypes | Nej | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Kluster | Ja | 
 | namnrymder | Ja | 
@@ -598,13 +598,13 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | namnområden/eventhubs/consumergroups | Nej | 
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | funktioner | Nej | 
 | Providers | Nej | 
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | registrera | Nej | 
 | galleryitems | Nej | 
@@ -620,29 +620,29 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | retrieveresourcesbyid | Nej | 
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | guestConfigurationAssignments | Nej | 
 | Programvara | Nej | 
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | hanaInstances | Ja | 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
-| Kluster | Ja | 
+| Kluster | Nej | 
 | kluster/program | Nej | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | jobb | Ja | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | labelGroups | Nej | 
 | labelGroups/labels | Nej | 
@@ -651,7 +651,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | labelGroups/labels/subLabels/conditions | Nej | 
 
 ## <a name="microsoftinsights"></a>microsoft.insights
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | actiongroups | Ja | 
 | activityLogAlerts | Ja | 
@@ -683,23 +683,23 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | arbetsböcker | Ja | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | diagnosticSettings | Nej | 
 | diagnosticSettingsCategories | Nej | 
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | IoTApps | Ja | 
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Graph | Ja | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | deletedVaults | Nej | 
 | Valv | Ja | 
@@ -707,7 +707,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | Valv/hemligheter | Nej | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Kluster | Ja | 
 | kluster/databaser | Nej | 
@@ -715,41 +715,41 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | kluster/databaser/eventhubconnections | Nej | 
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | labaccounts | Ja | 
 | användare | Nej | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | loggar | Nej | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | integrationAccounts | Ja | 
 | Arbetsflöden | Ja | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | commitmentPlans | Ja | 
 | webServices | Ja | 
 | Arbetsytor | Ja | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 | konton/arbetsytor | Ja | 
@@ -759,24 +759,24 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | teamAccounts-arbetsytor-projekt | Ja | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | arbetsytor | Ja | 
 | arbetsytor/beräkningar | Nej | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Identiteter | Nej | 
 | userAssignedIdentities | Ja | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | getEntities | Nej | 
 | managementGroups | Nej | 
@@ -785,13 +785,13 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | tenantBackfillStatus | Nej | 
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 | accounts/eventGridFilters | Nej | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Erbjudanden | Nej | 
 | offerTypes | Nej | 
@@ -805,19 +805,19 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | produkter | Nej | 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | classicDevServices | Ja | 
 | updateCommunicationPreference | Nej | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Avtal | Nej | 
 | offertypes | Nej | 
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | mediaservices | Ja | 
 | mediaservices/accountFilters | Nej | 
@@ -837,12 +837,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | mediaservices-transformeringar-jobb | Nej | 
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | projekt | Ja | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | applicationGateways | Ja | 
 | applicationSecurityGroups | Ja | 
@@ -868,7 +868,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | dnszones/TXT | Nej | 
 | expressRouteCircuits | Ja | 
 | expressRouteServiceProviders | Nej | 
-| frontdoors | Ja | 
+| ytterdörrar | Ja | 
 | frontdoorWebApplicationFirewallPolicies | Ja | 
 | getDnsResourceReference | Nej | 
 | interfaceEndpoints | Ja | 
@@ -903,13 +903,13 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | webApplicationFirewallPolicies | Ja | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | namnrymder | Ja | 
 | namespaces/notificationHubs | Ja | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | enheter | Nej | 
 | linkTargets | Nej | 
@@ -920,7 +920,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | arbetsytor/fråga | Nej | 
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | managementassociations | Nej | 
 | managementconfigurations | Ja | 
@@ -928,7 +928,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | visningar | Ja | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | policyEvents | Nej | 
 | policyStates | Nej | 
@@ -936,35 +936,35 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | reparationer | Nej | 
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konsoler | Nej | 
 | Instrumentpaneler | Ja | 
 | Användarinställningarna | Nej | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | workspaceCollections | Ja | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Kapaciteter | Ja | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konton | Ja | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | backupProtectedItems | Nej | 
 | Valv | Ja | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | namnrymder | Ja | 
 | namnområden/authorizationrules | Nej | 
@@ -974,13 +974,13 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | namnområden/wcfrelays/authorizationrules | Nej | 
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | resurser | Nej | 
 | subscriptionsStatus | Nej | 
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | availabilityStatuses | Nej | 
 | childAvailabilityStatuses | Nej | 
@@ -990,7 +990,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | meddelanden | Nej | 
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | distributioner | Nej | 
 | Distributioner/operations | Nej | 
@@ -1009,25 +1009,25 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | Klienter | Nej | 
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | program | Ja | 
 | saasresources | Nej | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | flöden | Ja | 
 | förfrågningsåtgärder | Ja | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | resourceHealthMetadata | Nej | 
 | searchServices | Ja | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | advancedThreatProtectionSettings | Nej | 
 | aviseringar | Nej | 
@@ -1062,13 +1062,13 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | workspaceSettings | Nej | 
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | diagnosticSettings | Nej | 
 | diagnosticSettingsCategories | Nej | 
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | namnrymder | Ja | 
 | namnområden/authorizationrules | Nej | 
@@ -1083,13 +1083,13 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | premiumMessagingRegions | Nej | 
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Kluster | Ja | 
 | kluster/program | Nej | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | program | Ja | 
 | Gateways | Ja | 
@@ -1098,12 +1098,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | volumes | Ja | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | SignalR | Ja | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | applianceDefinitions | Ja | 
 | installationer | Ja | 
@@ -1112,7 +1112,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | jitRequests | Ja | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | managedInstances | Ja |
 | managedInstances/databaser | Ja (Se kommentaren nedan) |
@@ -1140,14 +1140,14 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | SqlVirtualMachineGroups | Ja | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Nej | 
 | SqlVirtualMachines | Ja | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | storageAccounts | Ja | 
 | storageAccounts/blobServices | Nej | 
@@ -1158,7 +1158,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | Användningar | Nej | 
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | storageSyncServices | Ja | 
 | storageSyncServices/registeredServers | Nej | 
@@ -1168,12 +1168,12 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | storageSyncServices/workflows | Nej | 
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | chefer | Ja | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | streamingjobs | Ja (Se kommentaren nedan) | 
 | streamingjobs/diagnosticSettings | Nej | 
@@ -1182,25 +1182,25 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 > Du kan inte lägga till en tagg när streamingjobs körs. Stoppa resurs för att lägga till en tagg.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | CreateSubscription | Nej | 
 | SubscriptionDefinitions | Nej | 
 | SubscriptionOperations | Nej | 
 
 ## <a name="microsoftsupport"></a>microsoft.support
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | supporttickets | Nej | 
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | providerRegistrations | Ja | 
 | resurser | Ja | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Miljöer | Ja | 
 | miljöer/accessPolicies | Nej | 
@@ -1208,14 +1208,14 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | miljöer/referenceDataSets | Ja | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | konto | Ja | 
 | tillägget och Account | Ja | 
 | kontot/projektet | Ja | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | apiManagementAccounts | Nej | 
 | apiManagementAccounts/apiAcls | Nej | 
@@ -1245,7 +1245,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | körningar | Nej | 
 | serverFarms | Ja | 
 | serverFarms/workers | Nej | 
-| Platser | Ja | 
+| webbplatser | Ja | 
 | sites/domainOwnershipIdentifiers | Nej | 
 | sites/hostNameBindings | Nej | 
 | platser/instanser | Nej | 
@@ -1262,18 +1262,18 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [slut
 | verifyHostingEnvironmentVnet | Nej | 
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | diagnosticSettings | Nej | 
 | diagnosticSettingsCategories | Nej | 
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | DeviceServices | Ja | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
-| Resurstyp | Fullständig läge borttagning |
+| Resurstyp | Borttagning i complete-läget |
 | ------------- | ----------- |
 | Komponenter | Nej | 
 | componentsSummary | Nej | 

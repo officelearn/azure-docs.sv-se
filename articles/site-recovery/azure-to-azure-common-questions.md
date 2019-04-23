@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649891"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149741"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Vanliga frågor: Azure till Azure replikering
 
@@ -67,7 +67,7 @@ Med Site Recovery kan du replikera och återställa virtuella datorer mellan all
 
 Site Recovery kräver Nej, inte ansluten till internet. Men det kräver åtkomst till Site Recovery-webbadresser och IP-intervall som anges i [i den här artikeln](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Kan jag replikera program med separat resursgrupp för separata nivåer? 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Kan jag replikera program med separat resursgrupp för separata nivåer?
 Ja, kan du replikera programmet och hålla katastrofberedskapskonfigurationen i separat resursgrupp för.
 Till exempel om du har ett program med var och en nivåerna, db och webb i separat resursgrupp och du måste klicka på den [guiden replikering](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) tre gånger om för att skydda alla nivåer. ASR replikeras dessa tre nivåer i tre olika resursgrupp.
 
@@ -89,11 +89,12 @@ Idag är kan de flesta program återställas från kraschkonsekventa ögonblicks
 ### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Vad är frekvensen för kraschkonsekventa recovery point generation?
 Skapar site Recovery en kraschkonsekvent återställningspunkt var femte minut.
 
-### <a name="what-is-an-application-consistent-recovery-point"></a>Vad är en programkonsekvent återställningspunkt? 
-Programkonsekventa återställningspunkter skapas från programkonsekventa ögonblicksbilder. Programkonsekventa återställningspunkter avbilda samma data som kraschkonsekventa ögonblicksbilder, och Lägg till alla data i minnet och alla pågående transaktioner. På grund av deras extra innehåll programkonsekventa ögonblicksbilder är den vanligaste och tar den längsta för att utföra. Vi rekommenderar programkonsekventa återställningspunkter för databas-operativsystem och program som SQL Server.
+### <a name="what-is-an-application-consistent-recovery-point"></a>Vad är en programkonsekvent återställningspunkt?
+Programkonsekventa återställningspunkter skapas från programkonsekventa ögonblicksbilder. Programkonsekventa återställningspunkter avbilda samma data som kraschkonsekventa ögonblicksbilder, och Lägg till alla data i minnet och alla pågående transaktioner.
+På grund av deras extra innehåll programkonsekventa ögonblicksbilder är den vanligaste och tar den längsta för att utföra. Vi rekommenderar programkonsekventa återställningspunkter för databas-operativsystem och program som SQL Server.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Vad är effekten av programkonsekventa återställningspunkter på programmets prestanda?
-Överväger programkonsekventa återställningspunkter samlar in alla data i minnet och pågående kräver den framework som VSS i windows för att inaktivera programmet. Detta, kan om gjort ofta ha prestandapåverkan om arbetsbelastningen är redan mycket upptagen. Vanligtvis rekommenderas inte för att använda låg frekvens för appkonsekvent återställningspunkter för icke-databasarbetsbelastningar och även för databas-arbetsbelastning 1 timme räcker. 
+Överväger programkonsekventa återställningspunkter samlar in alla data i minnet och pågående kräver den framework som VSS i windows för att inaktivera programmet. Detta, kan om gjort ofta ha prestandapåverkan om arbetsbelastningen är redan mycket upptagen. Vanligtvis rekommenderas inte för att använda låg frekvens för appkonsekvent återställningspunkter för icke-databasarbetsbelastningar och även för databas-arbetsbelastning 1 timme räcker.
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Vad är den lägsta frekvensen för programkonsekventa recovery point generation?
 Skapar site Recovery kan en programkonsekvent återställningspunkt med en minimifrekvens på under timmen.
@@ -216,7 +217,11 @@ Det beror på situationen. Till exempel om källregionen VM finns synkroniseras 
 När återaktiveringen av skyddet liknar tiden för återställning efter fel vanligtvis tid för redundans från den primära regionen till en sekundär region.
 
 ## <a name="capacity"></a>Kapacitet
-### <a name="does-site-recovery-work-with-reserved-instance"></a>Fungerar Site Recovery med reserverad instans?
+
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Hur kan kapacitet garanteras i målregionen för virtuella Azure-datorer?
+Azure Site Recovery (ASR)-teamet arbetar med Azure-kapacitet management-teamet att planera för tillräckligt med infrastrukturkapacitet för, i ett försök att se till att virtuella datorer som skyddas av ASR för disaster recovery distribueras har i regionen disaster recovery (DR) När åtgärder för ASR-redundans initieras.
+
+### <a name="does-site-recovery-work-with-reserved-instances"></a>Fungerar Site Recovery med reserverade instanser?
 Ja, du kan köpa [reservera instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i DR region och ASR redundans åtgärder använder dem för. </br> Det krävs ingen ytterligare konfiguration från kunderna.
 
 

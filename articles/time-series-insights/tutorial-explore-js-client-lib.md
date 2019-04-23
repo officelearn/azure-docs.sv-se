@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812080"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150089"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Självstudie: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
 
@@ -28,6 +28,9 @@ I den här självstudien lär du dig:
 > * TSI-exempelprogrammet.
 > * JavaScript-klientbiblioteket i TSI.
 > * Hur exempelprogrammet använder biblioteket för att visualisera TSI-data.
+
+> [!NOTE]
+> Time Series Insights exempel appens källfiler finns i den angivna [GitHub-exempellagringsplats](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 
 ## <a name="video"></a>Video: 
 
@@ -57,7 +60,7 @@ I hela den här självstudien används exempelprogrammet Time Series Insights f�
 
 ### <a name="page-source-and-structure"></a>Sidkälla och struktur
 
-Låt oss först se på HTML- och JavaScript-källkoden bakom sidan som renderades i din webbläsare. Vi går inte igenom alla element, men du lär dig mer om viktiga avsnitt vilket ger dig en uppfattning om hur sidan fungerar:
+Först ska vi visa den [HTML och JavaScript-källkoden](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) som ligger bakom den sida som renderas i webbläsaren. Vi går inte igenom alla element, men du lär dig mer om viktiga avsnitt vilket ger dig en uppfattning om hur sidan fungerar:
 
 1. Öppna **Utvecklingsverktyg** i webbläsaren. Inspektera HTML-elementen som utgör den aktuella sidan (även kallade HTML- eller DOM-träd).
 
@@ -101,7 +104,7 @@ Låt oss först se på HTML- och JavaScript-källkoden bakom sidan som renderade
 
 Följande begrepp är universella och gäller för TSI-klientbibliotekets API:er i allmänhet.
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 Som nämnts tidigare är det här exemplet ett SPA som använder sig av OAuth 2.0-stöd i ADAL för användarautentisering. Nedan visas några viktiga delar i det här avsnittet av skriptet:
 
@@ -109,7 +112,7 @@ Som nämnts tidigare är det här exemplet ett SPA som använder sig av OAuth 2.
 
 2. Programmet begär senare en ”åtkomsttoken” från Azure AD. Denna åtkomsttoken utfärdas för en begränsad uppsättning behörigheter och för en specifik tjänst/API-identifierare https://api.timeseries.azure.com. Tjänst/API-identifieraren kallas även för token-målgruppen. Tokenbehörigheterna utfärdas åt den inloggade användaren. Identifieraren för tjänsten/API:n är en annan egenskap som finns i programmets Azure AD-registrering. Efter att ADAL har returnerat åtkomsttoken till programmet, skickas den som en ägartoken vid åtkomst till TSI-tjänstens API:er.
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
 ### <a name="control-identification"></a>Kontrollidentifiering
 
@@ -191,7 +194,7 @@ Titta på koden bakom vissa av de standarddiagramkontroller som visas i programm
 
 Som det visades i steg 3 i [avsnittet Sidkälla och struktur](#page-source-and-structure) är diagramkontrollerna ordnade i rader på sidan, där var och en har en beskrivande rubrikrad. I det här exemplet finns de tre diagrammen som fylls i under rubrik`<div>`-elementet Flera diagramtyper från samma data och binds till de tre `<div>`-elementen under rubriken:
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 Följande avsnitt av JavaScript-koden använder mönster som beskrevs tidigare för att skapa TSI-mängduttryck, använda dem för att fråga efter TSI-data och rendera de tre diagrammen. Observera de tre typerna som används av `tsiClient.ux`-namnområdet, `LineChart`, `BarChart` och `PieChart` för att skapa och rendera respektive diagram. Observera även att alla tre diagram kan använda samma data i mängduttrycket `transformedResult`:
 
@@ -283,9 +286,12 @@ I den här självstudiekursen lärde du dig att:
 > * Använd API:er i TSI JavaScript-klientbiblioteket.
 > * Använd JavaScript för att skapa och fylla i diagramkontrollerna med TSI-data.
 
-Som vi nämnt tidigare använder TSI-exempelprogrammet en demo-datamängd. Om du vill veta hur du kan skapa din egen TSI-miljö och datamängd, fortsätter du till följande artikel:
+Enligt, använder TSI exempelprogrammet en demo-datauppsättning. Om du vill veta hur du kan skapa din egen TSI-miljö och datamängd, fortsätter du till följande artikel:
 
 > [!div class="nextstepaction"]
 > [Självstudie: Skapa en Azure Time Series Insights-miljö](tutorial-create-populate-tsi-environment.md)
 
+Eller visa TSI exempel appens källfiler:
 
+> [!div class="nextstepaction"]
+> [TSI databasen för exempelappen](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)

@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518052"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998302"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Använda Azure Data Box för att migrera data från en lokal HDFS-databas till Azure Storage
 
@@ -27,7 +27,7 @@ Den här artikeln hjälper dig att utföra dessa uppgifter:
 
 :heavy_check_mark: Flytta data till ditt Data Lake Storage Gen2 storage-konto.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver dessa saker att slutföra migreringen.
 
@@ -133,4 +133,4 @@ Det här kommandot kopierar både data och metadata från ditt lagringskonto til
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur Data Lake Storage Gen2 fungerar med HDInsight-kluster. Se [Använd Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/Azure/storage/blobs/data-lake-storage-use-hdi-cluster?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+Lär dig hur Data Lake Storage Gen2 fungerar med HDInsight-kluster. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).

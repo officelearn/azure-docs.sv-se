@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 68cf4561d24a84c5aacefbe5fbd11bcd7e0576aa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 01a64345285149a50c226ebb344982425a813156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878561"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995089"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS
 Du kan använda Azure Database Migration Service till att utföra en offlinemigrering (en gång) av databaser från en lokal instans eller en molninstans av MongoDB till Azure Cosmos DB:s API för MongoDB.
@@ -32,6 +32,7 @@ I den här självstudien migrerar du en datamängd i MongoDB på en virtuell Azu
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här kursen behöver du:
+- [Slutföra före migreringen](../cosmos-db/mongodb-pre-migration.md) steg, till exempel uppskatta dataflöde, välja en partitionsnyckel och indexeringsprincipen.
 - [Skapa ett Azure Cosmos DB-API för MongoDB-konto](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Skapa ett virtuellt Azure-nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
@@ -175,6 +176,10 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 - När migreringen är klar kan du kontrollera ditt Azure Cosmos DB-konto för att se om alla samlingar migrerades korrekt.
 
     ![Aktivitetsstatus Slutförd](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+
+## <a name="post-migration-optimization"></a>Uppgifter efter migrering optimering
+
+När du har migrerat data som lagras i MongoDB-databas till Azure Cosmos DB-API för MongoDB kan du ansluta till Azure Cosmos DB och hantera data. Du kan också utföra andra uppgifter efter migrering optimering steg som – optimera indexeringsprincipen uppdatera standardkonsekvensnivå eller konfigurera global distribution för Azure Cosmos DB-kontot. Mer information finns i den [efter migrering optimering](../cosmos-db/mongodb-post-migration.md) artikeln. 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

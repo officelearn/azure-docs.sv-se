@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361819"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002756"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Använda avancerad datasäkerhet med virtuella nätverk och nästan 100% kompatibilitet SQL-databas
 
@@ -126,7 +126,7 @@ Distributionsalternativ för hanterad instans kombinerar avancerade säkerhetsfu
 En hanterad instans ger ytterligare säkerhetsisolering från andra klienter i Azure-molnet. Säkerhetsisolering innehåller:
 
 - [Intern implementering](sql-database-managed-instance-connectivity-architecture.md) och vara ansluten till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway.
-- SQL-slutpunkten exponeras endast via en privat IP-adress som tillåter säker anslutning från privata Azure eller hybrid-nätverk.
+- I en standarddistribution exponeras SQL slutpunkten endast via en privat IP-adress som tillåter säker anslutning från privata Azure eller hybrid-nätverk.
 - Enda klient med dedikerad underliggande infrastruktur (beräkning, lagring).
 
 Följande diagram illustrerar olika anslutningsalternativ för dina program:
@@ -226,7 +226,7 @@ Distributionsalternativ för hanterad instans kan systemadministratören att äg
 
 I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL, att du kan använda för att identifiera att programmet fungerar med hanterad instans och hämta viktiga egenskaper.
 
-|Egenskap|Värde|Kommentar|
+|Egenskap|Value|Kommentar|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Det här värdet är samma som i SQL-databas.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är samma som i SQL-databas.|

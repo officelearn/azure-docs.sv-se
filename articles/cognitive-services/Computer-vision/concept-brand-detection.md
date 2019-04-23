@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/26/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: abeca204296bcb3933013f2b7434b8c558f62e50
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: d32beaa51471ccab19804122bfbcb33a6b1a5e3d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496595"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003113"
 ---
-# <a name="brand-detection"></a>Varumärke identifiering
+# <a name="detect-popular-brands-in-images"></a>Identifiera populära varumärken i bilder
 
 Varumärke identifiering är ett specialläge av [objekt identifiering](concept-object-detection.md) som använder en databas med tusentals olika globala logotyper för att identifiera varumärken i en video. Du kan använda den här funktionen för att till exempel identifiera vilka varumärken som är mest populära på sociala medier eller förekommer oftast i medieproduktplacering.
 

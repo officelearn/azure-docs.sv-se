@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501645"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996038"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Metodtips för prestandaförbättringar med hjälp av Service Bus-meddelanden
 
@@ -94,6 +94,15 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
 Batchbearbetning påverkar inte antalet faktureringsbara meddelanden åtgärder och är endast tillgänglig för Service Bus klienten protokoll använder den [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) biblioteket. HTTP-protokollet har inte stöd för batchbearbetning.
+
+> [!NOTE]
+> Ange BatchFlushInterval garanterar att den batchbearbetning är implicit från programmets perspektiv. dvs. programmet gör SendAsync() och CompleteAsync() anropar och inte göra specifika Batch-anrop.
+>
+> Explicit klienten sida batchbearbetning kan implementeras genom att använda den nedan metodanrop - 
+> ```csharp
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> ```
+> Här måste den kombinerade storleken av meddelanden vara mindre än den maximala storleken som stöds av prisnivå.
 
 ## <a name="batching-store-access"></a>Batchbearbetning store-åtkomst
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cea8522a9f3eb8fa98821c1cb08d92a9524d5ce4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876807"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002450"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generera beskärs av smarta miniatyrbilder med visuellt innehåll
 
@@ -38,15 +38,15 @@ Du kan också hämta rådata omgivande box koordinaterna för det här samma *in
 
 Den genererade miniatyrbilden varierar beroende på vad du anger för höjd, bredd och smart beskärning enligt följande bild.
 
-![Miniatyrbilder](./Images/thumbnail-demo.png)
+![En avbildning av mountain bredvid olika beskärning konfigurationer](./Images/thumbnail-demo.png)
 
 I följande tabell visas vanliga miniatyrer genereras av visuellt innehåll för exempel-avbildningar. Miniatyrbilderna genererades för ett angivet mål höjden och bredden på 50 bildpunkter med smart beskärning aktiverat.
 
-| Bild | Miniatyr |
+| Image | Miniatyr |
 |-------|-----------|
-|![En person som står på en mountain rock på solnedgång](./Images/mountain_vista.png) | ![Anpassad för utomhusbruk Mountain miniatyr](./Images/mountain_vista_thumbnail.png) |
+|![Anpassad för utomhusbruk Mountain på sunset med en persons silhuett](./Images/mountain_vista.png) | ![Miniatyr av anpassad för utomhusbruk Mountain på sunset med en persons silhuett](./Images/mountain_vista_thumbnail.png) |
 |![En vit blommor med en grön bakgrund](./Images/flower.png) | ![Visuellt innehåll analyserar blommor miniatyr](./Images/flower_thumbnail.png) |
-|![En kvinna under taket i en innesluten byggnad](./Images/woman_roof.png) | ![Kvinna tak miniatyr](./Images/woman_roof_thumbnail.png) |
+|![En kvinna under taket i en innesluten byggnad](./Images/woman_roof.png) | ![miniatyr av en kvinna under taket i en innesluten byggnad](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Nästa steg
 

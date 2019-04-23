@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: c29d2e1df0979481c0c8a1e1f2cd4d22b013212a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227708"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003453"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Distribuera Azure Databricks i ditt virtuella nätverk (förhandsversion)
 
@@ -37,7 +37,7 @@ Du kan använda gränssnittet Azure Databricks-arbetsyta distribution i Azure-po
 
 Det virtuella nätverket som du distribuerar Azure Databricks-arbetsytan till måste uppfylla följande krav:
 
-### <a name="location"></a>Plats
+### <a name="location"></a>Location
 
 Det virtuella nätverket måste finnas på samma plats som Azure Databricks-arbetsytan.
 
@@ -61,7 +61,7 @@ All utgående och inkommande trafik mellan undernät och kontrollplanet Azure Da
 
 Det här avsnittet beskriver hur du skapar en Azure Databricks-arbetsyta i Azure-portalen och distribuerar den i din egen befintliga virtuella nätverket. Azure Databricks uppdaterar det virtuella nätverket med två nya undernät och nätverkssäkerhetsgrupper med hjälp av CIDR-intervall som tillhandahålls av dig, vitlistor inkommande och utgående undernätstrafik är och distribuerar arbetsytan till det uppdaterade virtuella nätverket.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha ett virtuellt nätverk som du distribuerar Azure Databricks-arbetsytan. Du kan använda ett befintligt virtuellt nätverk eller skapa en ny, men det virtuella nätverket måste vara i samma region som Azure Databricks-arbetsytan som du planerar att skapa. CIDR-intervall mellan /16 /24 krävs för det virtuella nätverket.
 
@@ -121,7 +121,7 @@ Om du använder den här mallen utan att också använda mallen network security
 
 Om du inte använder den [Azure-portalen](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) eller [Azure Resource Manager-mallar](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) för att skapa säkerhetsgrupper för ditt nätverk, måste du manuellt godkänna följande trafik på dina undernät.
 
-|Riktning|Protokoll|Källa|Källport|Mål|Målport|
+|Direction|Protokoll|Källa|Källport|Mål|Målport|
 |---------|--------|------|-----------|-----------|----------------|
 |Inkommande|\*|VirtualNetwork|\*|\*|\*|
 |Inkommande|\*|Kontrollen plan NAT IP|\*|\*|22|
@@ -188,7 +188,7 @@ Möjlig orsak: Behållaren kan inte kommunicera med värdbaserade instans eller 
 
 ### <a name="notebook-command-errors"></a>Anteckningsboken kommandot fel
 
-**Kommandot slutar svara**
+**Kommandot svarar inte**
 
 Möjlig orsak: worker-arbetare kommunikation blockeras. Åtgärda genom att kontrollera att de inkommande säkerhetsreglerna uppfyller kraven.
 

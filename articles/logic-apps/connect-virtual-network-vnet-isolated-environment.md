@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522323"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996007"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
@@ -37,7 +37,7 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
 Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-resurser från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
@@ -67,30 +67,31 @@ Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-res
 
 För att fungera korrekt och håll tillgänglig, måste din integration service-environment (ISE) ha specifika portar som är tillgängliga i det virtuella nätverket. Annars, om något av de här portarna är inte tillgänglig, du kan förlora åtkomst till din ISE som kan sluta fungera. När du använder en ISE i ett virtuellt nätverk ett vanligt installationsproblem har en eller flera blockerade portar. Den koppling som du använder kan också ha en egen portkraven för anslutningar mellan dina ISE och målsystemet. Till exempel om du kommunicera med en FTP-system med hjälp av FTP-anslutningen kontrollerar du den port som du använder på att FTP-system, till exempel port 21 för att skicka kommandon och är tillgänglig.
 
-Om du vill styra trafiken över det virtuella nätverkets undernät där du distribuerar din ISE kan du ställa in [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) för dessa undernät av [filtrerar nätverkstrafik mellan undernät](../virtual-network/tutorial-filter-network-traffic.md). Dessa tabeller beskrivs portarna i ditt virtuella nätverk som använder din ISE och där de portarna som får användas. Den [servicetagg](../virtual-network/security-overview.md#service-tags) representerar en grupp med IP-adressprefix som syfte att minska komplexiteten när du skapar säkerhetsregler.
+Om du vill styra trafiken över det virtuella nätverkets undernät där du distribuerar din ISE kan du ställa in [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) för dessa undernät av [filtrerar nätverkstrafik mellan undernät](../virtual-network/tutorial-filter-network-traffic.md). Dessa tabeller beskrivs portarna i ditt virtuella nätverk som använder din ISE och där de portarna som får användas. Den [Resource Manager-tjänsttaggar](../virtual-network/security-overview.md#service-tags) representerar en grupp med IP-adressprefix som syfte att minska komplexiteten när du skapar säkerhetsregler.
 
 > [!IMPORTANT]
 > För intern kommunikation inom dina undernät kräver ISE att du öppnar alla portar i dessa undernät.
 
-| Syfte | Riktning | Portar | Källtjänsttagg | Måltjänsttagg | Anteckningar |
+| Syfte | Direction | Portar | Källtjänsttagg | Måltjänsttagg | Anteckningar |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| Kommunikation från Azure Logic Apps | Utgående | 80 & 443 | VIRTUAL_NETWORK | INTERNET | Porten är beroende av den externa tjänsten som Logic Apps-tjänsten kommunicerar |
-| Azure Active Directory | Utgående | 80 & 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
-| Beroende av Azure Storage | Utgående | 80 & 443 | VIRTUAL_NETWORK | Storage | |
-| Intersubnet kommunikation | Inkommande och utgående | 80 & 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | För kommunikation mellan undernät |
-| Kommunikation till Azure Logic Apps | Inkommande | 443 | INTERNET  | VIRTUAL_NETWORK | IP-adressen för datorn eller tjänsten som anropar en begäransutlösare eller en webhook som finns i din logikapp. Stänga eller blockerar den här porten förhindrar att HTTP-anrop till logikappar med frågeutlösare.  |
-| Historik för logikappskörningen | Inkommande | 443 | INTERNET  | VIRTUAL_NETWORK | IP-adressen för den dator där du se logikappen körningshistorik. Även om stänga eller blockerar den här porten inte hindra dig från att visa körningshistoriken, du kan inte visa indata och utdata för varje steg i som körningshistorik. |
-| Anslutningshanteringen | Utgående | 443 | VIRTUAL_NETWORK  | INTERNET | |
-| Publicera diagnostikloggar och mått | Utgående | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
-| Logikappdesigner – dynamiska egenskaper | Inkommande | 454 | INTERNET  | VIRTUAL_NETWORK | Begäranden som kommer från Logic Apps [åt slutpunkten för inkommande IP-adresser i den regionen](../logic-apps/logic-apps-limits-and-config.md#inbound). |
-| Service Management-appberoendet | Inkommande | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| Connector-distribution | Inkommande | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Krävs för att distribuera och uppdatera kopplingar. Stänga eller blockerar den här porten orsakar ISE distributioner misslyckas och förhindrar anslutningen uppdateringar och korrigeringar. |
-| Azure SQL-beroenden | Utgående | 1433 | VIRTUAL_NETWORK | SQL |
-| Azure Resource Health | Utgående | 1886 | VIRTUAL_NETWORK | INTERNET | För att publicera hälsostatus till Resource Health |
-| API Management - hanteringsslutpunkt | Inkommande | 3443 | APIManagement  | VIRTUAL_NETWORK | |
-| Beroende från loggen till Event Hub-principen och övervakningsagent | Utgående | 5672 | VIRTUAL_NETWORK  | EventHub | |
-| Få åtkomst till Azure Cache för Redis-instanser mellan Rollinstanser | Inkommande <br>Utgående | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | Dessutom för ISE för att arbeta med Azure Cache för Redis, måste du öppna dessa [utgående och inkommande portar som beskrivs i Azure Cache för Redis vanliga frågor och svar](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Inkommande | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
+| Kommunikation från Azure Logic Apps | Utgående | 80 & 443 | VirtualNetwork | Internet | Porten är beroende av den externa tjänsten som Logic Apps-tjänsten kommunicerar |
+| Azure Active Directory | Utgående | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
+| Beroende av Azure Storage | Utgående | 80 & 443 | VirtualNetwork | Storage | |
+| Intersubnet kommunikation | Inkommande och utgående | 80 & 443 | VirtualNetwork | VirtualNetwork | För kommunikation mellan undernät |
+| Kommunikation till Azure Logic Apps | Inkommande | 443 | Internet  | VirtualNetwork | IP-adressen för datorn eller tjänsten som anropar en begäransutlösare eller en webhook som finns i din logikapp. Stänga eller blockerar den här porten förhindrar att HTTP-anrop till logikappar med frågeutlösare.  |
+| Historik för logikappskörningen | Inkommande | 443 | Internet  | VirtualNetwork | IP-adressen för den dator där du se logikappen körningshistorik. Även om stänga eller blockerar den här porten inte hindra dig från att visa körningshistoriken, du kan inte visa indata och utdata för varje steg i som körningshistorik. |
+| Anslutningshanteringen | Utgående | 443 | VirtualNetwork  | Internet | |
+| Publicera diagnostikloggar och mått | Utgående | 443 | VirtualNetwork  | AzureMonitor | |
+| Kommunikation från Azure Traffic Manager | Inkommande | 443 | AzureTrafficManager | VirtualNetwork | |
+| Logikappdesigner – dynamiska egenskaper | Inkommande | 454 | Internet  | VirtualNetwork | Begäranden som kommer från Logic Apps [åt slutpunkten för inkommande IP-adresser i den regionen](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Service Management-appberoendet | Inkommande | 454 & 455 | AppServiceManagement | VirtualNetwork | |
+| Connector-distribution | Inkommande | 454 & 3443 | Internet  | VirtualNetwork | Krävs för att distribuera och uppdatera kopplingar. Stänga eller blockerar den här porten orsakar ISE distributioner misslyckas och förhindrar anslutningen uppdateringar och korrigeringar. |
+| Azure SQL-beroenden | Utgående | 1433 | VirtualNetwork | SQL |
+| Azure Resource Health | Utgående | 1886 | VirtualNetwork | Internet | För att publicera hälsostatus till Resource Health |
+| API Management - hanteringsslutpunkt | Inkommande | 3443 | APIManagement  | VirtualNetwork | |
+| Beroende från loggen till Event Hub-principen och övervakningsagent | Utgående | 5672 | VirtualNetwork  | EventHub | |
+| Få åtkomst till Azure Cache för Redis-instanser mellan Rollinstanser | Inkommande <br>Utgående | 6379-6383 | VirtualNetwork  | VirtualNetwork | Dessutom för ISE för att arbeta med Azure Cache för Redis, måste du öppna dessa [utgående och inkommande portar som beskrivs i Azure Cache för Redis vanliga frågor och svar](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Inkommande | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
 
 <a name="create-environment"></a>
@@ -114,7 +115,7 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
    ![Ange information om miljön](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Egenskap  | Krävs | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumeration för din miljö |
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Azure-resursgrupp där du vill skapa en miljö |

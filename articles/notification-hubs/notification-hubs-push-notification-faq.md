@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524199"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998931"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
@@ -53,17 +53,6 @@ För nivåerna Basic och Standard Meddelandehubbar kan korrekt konfigurerade pro
 
 > [!NOTE]
 > Eftersom push-meddelanden är beroende av tredje parts plattformsspecifika meddelandesystem (till exempel Apple APNS och Google FCM), finns det ingen garanti för serviceavtal (SLA) för leverans av dessa meddelanden. När Meddelandehubbar skickar batcharna till plattformsspecifika meddelandesystem (SLA garanterad), är det ansvar plattformsspecifika meddelandesystem att leverera push-meddelanden (inget serviceavtal som garanterar).
-
-### <a name="which-customers-are-using-notification-hubs"></a>Vilka kunder använder Notification Hubs?
-
-Många kunder använder Notification Hubs. Vissa viktiga som finns här:
-
-* Sochi 2014: Hundratals intressegrupper, 3 + miljoner enheter och 150 + miljoner meddelanden som skickas inom två veckor. [Fallstudie: Sochi]
-* Skanska: [Fallstudie: Skanska]
-* Seattle gånger: [Fallstudie: Seattle gånger]
-* Mural.LY: [Fallstudie: Mural.LY]
-* 7Digital: [Fallstudie: 7Digital]
-* Bing-appar: Tiotals miljoner enheter skicka 3 miljoner meddelanden per dag.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hur jag för att uppgradera eller nedgradera min hubb eller namnområdet till en annan nivå?
 
@@ -219,11 +208,6 @@ Du kan även programmässigt komma åt mätvärden. Mer information finns i föl
 [Azure Portal]: https://portal.azure.com
 [Prisinformation om Notification hub]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Fallstudie: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Fallstudie: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Fallstudie: Seattle gånger]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Fallstudie: Mural.LY]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Fallstudie: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hub REST API: er]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs komma igång-Självstudier]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Självstudier för Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/

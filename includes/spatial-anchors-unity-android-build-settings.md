@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 33c932c36cd6de730d3768d596a214c442d74ae1
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 228f445dda2724985154723a292adb8215a5ad68
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632855"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012138"
 ---
 Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** > **Build Settings** (Bygginställningar).
 
@@ -23,4 +23,4 @@ Stäng fönstret **Build Settings** (Bygginställningar).
 
 ### <a name="download-and-import-the-arcore-sdk-for-unity"></a>Ladda ned och importera ARCore SDK för Unity
 
-Ladda ned den `unitypackage` fil från den [ARCore SDK för Unity 1.5 släpper](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.5.0). Tillbaka i Unity-projekt väljer **tillgångar** > **Importera paket** > **anpassade paketet** och välj sedan den `unitypackage` filen som du tidigare hämtade. I den **importera Unity-paketet** dialogrutan, kontrollera att alla filer har valts och välj sedan **Import**.
+Ladda ned den `unitypackage` fil från den [ARCore SDK för Unity 1.7 släpper](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.7.0). Tillbaka i Unity-projekt väljer **tillgångar** > **Importera paket** > **anpassade paketet** och välj sedan den `unitypackage` filen som du tidigare hämtade. I den **importera Unity-paketet** dialogrutan, kontrollera att alla filer har valts och välj sedan **Import**.

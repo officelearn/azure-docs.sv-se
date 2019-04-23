@@ -17,18 +17,18 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526392"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997605"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Universell Windows-plattform) kan logga in användare med ett personligt konto eller arbets- och skolkonto, hämta en åtkomsttoken samt anropa Microsoft Graph API.
+Den här snabbstarten innehåller ett kodexempel som visar hur ett program för Universal Windows Platform (UWP) kan logga in användare med personliga konton eller och skolkonton, få en åtkomsttoken och anropa Microsoft Graph API.
 
 ![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-uwp/uwp-intro.svg)
 
@@ -72,7 +72,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
- - [Ladda ned Visual Studio 2017-projektet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+ - [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
@@ -89,7 +89,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 >
 > > [!TIP]
-> > Att hitta värdena för *program-ID*går du till den **översikt** sidan
+> > Hitta värdet för *program-ID*går du till den **översikt** avsnitt i portalen
 
 #### <a name="step-4-run-your-application"></a>Steg 4: Köra ditt program
 
@@ -119,7 +119,7 @@ Du kan lägga till referensen för MSAL genom att lägga till följande kod:
 using Microsoft.Identity.Client;
 ```
 
-Initiera sedan MSAL med hjälp av följande kod:
+Sedan initieras MSAL med följande kod:
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
@@ -133,11 +133,11 @@ PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
 
 ### <a name="requesting-tokens"></a>Begära token
 
-MSAL har två metoder som används för att hämta token interaktivt: `AcquireTokenInteractive` och `AcquireTokenSilent`.
+MSAL har två metoder för att hämta token i en UWP-app: `AcquireTokenInteractive` och `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Vissa situationer kräver framtvingar användare interagera med Microsoft identity-plattformen slutpunkten via ett popup-fönster för att antingen verifiera autentiseringsuppgifterna eller för att ge ditt medgivande. Några exempel är:
+Vissa situationer kräver att användare interagerar med Microsoft identity-plattformen slutpunkten via ett popup-fönster för att antingen verifiera autentiseringsuppgifterna eller för att ge ditt medgivande. Några exempel är:
 
 - De första gången en användarna logga in till programmet
 - När användarna kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla
@@ -155,7 +155,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-Du vill inte kräva att användarna verifierar sina autentiseringsuppgifter varje gång de behöver komma åt en resurs. I de flesta fall vill du ha hämtning och förnyelse av token utan någon användarinteraktion. Du kan använda metoden `AcquireTokenSilent` för att hämta token för att komma åt skyddade resurser efter den inledande metoden `AcquireTokenAsync`:
+Använd den `AcquireTokenSilent` metod för att hämta token för att komma åt skyddade resurser efter inledande `AcquireTokenAsync` metod. Du vill inte kräva att användaren att verifiera sina autentiseringsuppgifter varje gång som de behöver för att komma åt en resurs. I de flesta fall som du vill token anskaffning och förnyelse utan någon användarinteraktion
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

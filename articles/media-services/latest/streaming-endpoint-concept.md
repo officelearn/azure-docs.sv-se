@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881026"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999458"
 ---
 # <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning
 
@@ -39,7 +39,7 @@ Det finns två typer av **slutpunkter för direktuppspelning**: **Standard** och
 
 I tabellen beskrivs typerna:  
 
-|Typ|Skalningsenheter|Beskrivning|
+|Type|Skalningsenheter|Beskrivning|
 |--------|--------|--------|  
 |**Standardslutpunkt för direktuppspelning** (rekommenderas)|0|Standard-slutpunkt för direktuppspelning är en **Standard** Skriv, men kan ändras till typen Premium.<br/> Standardtypen är det rekommenderade alternativet för i stort sett alla strömmande scenarier och Publiker. Typen **Standard** skalar utgående bandbredd automatiskt. Dataflödet från den här typen av slutpunkt för direktuppspelning är upp till 600 Mbit/s. Video fragment som cachelagras i CDN, Använd inte bandbredden som slutpunkt för direktuppspelning.<br/>För kunder med mycket stora krav erbjuder Media Services **Premium**-slutpunkter för direktuppspelning, som kan användas för att skala ut kapacitet för de största Internet-publikerna. Om du förväntar dig stora målgrupper och samtidiga läsare du kontakta oss på amsstreaming\@microsoft.com anvisningar om du behöver flytta till den **Premium** typen. |
 |**Premium-slutpunkt för direktuppspelning**|> 0|**Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Du flyttar till en **Premium** typ genom att justera `scaleUnits`. `scaleUnits` ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. När du använder typen **Premium** ger varje aktiverad enhet ytterligare bandbreddskapacitet till programmet. |
@@ -52,7 +52,6 @@ Funktion|Standard|Premium
 ---|---|---
 Kostnadsfria första 15 dagarna| Ja |Nej
 Dataflöde |Upp till 600 Mbit/s när Azure CDN inte används. Skalning med CDN.|200 Mbit/s per enhet (SU) för strömning. Skalning med CDN.
-SLA | 99.9|99,9 (200 Mbit/s per SU).
 CDN|Azure CDN från tredje part CDN eller inga CDN.|Azure CDN från tredje part CDN eller inga CDN.
 Fakturering beräknas| Dagligen|Dagligen
 Dynamisk kryptering|Ja|Ja
@@ -86,7 +85,7 @@ Det här avsnittet innehåller information om några av slutpunkt för direktupp
 
     Följande är de förväntade DNS-zonerna som ska användas i Kontrollera posten för olika Azure-regioner.
   
-  - North America, Europe, Singapore, Hong Kong, Japan:
+  - Nordamerika, Europa, Singapore, Hongkong, Japan:
       
     - `media.azure.net`
     - `verifydns.media.azure.net`

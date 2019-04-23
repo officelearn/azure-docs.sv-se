@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313083"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998625"
 ---
 # <a name="detect-color-schemes-in-images"></a>Identifiera färgscheman i bilder
 
@@ -30,7 +30,7 @@ Visuellt innehåll returnerar också ett booleskt värde som anger om en bild ä
 
 I följande exempel visas JSON-svaret som returnerades av visuellt innehåll när du söker efter färgschema på bilden. I det här fallet på bilden är inte en svart och bild, men dominerande förgrunds- och bakgrundsfärger är svarta och dominanta färger för avbildningen som helhet är svart och vit.
 
-![Berg utomhus](./Images/mountain_vista.png)
+![Anpassad för utomhusbruk Mountain på sunset med en persons silhuett](./Images/mountain_vista.png)
 
 ```json
 {
@@ -54,7 +54,7 @@ I följande exempel visas JSON-svaret som returnerades av visuellt innehåll nä
 
 I följande tabell visas den returnerade förgrund, bakgrund och avbildning färger för varje exempelbild.
 
-| Bild | Dominanta färger |
+| Image | Dominanta färger |
 |-------|-----------------|
 |![En vit blommor med en grön bakgrund](./Images/flower.png)| Förgrund: Svart<br/>Bakgrund: Vit<br/>Färger: Black, White, Green|
 ![Ett flygplan som körs via en station](./Images/train_station.png) | Förgrund: Svart<br/>Bakgrund: Svart<br/>Färger: Svart |
@@ -63,7 +63,7 @@ I följande tabell visas den returnerade förgrund, bakgrund och avbildning fär
 
  I följande tabell visas de returnerade accentfärg som ett hexadecimalt HTML-färgvärde, för varje exempelbild.
 
-| Bild | Accentfärg |
+| Image | Accentfärg |
 |-------|--------------|
 |![En person som står på en mountain rock på solnedgång](./Images/mountain_vista.png) | #BB6D10 |
 |![En vit blommor med en grön bakgrund](./Images/flower.png) | #C6A205 |
@@ -73,7 +73,7 @@ I följande tabell visas den returnerade förgrund, bakgrund och avbildning fär
 
 I följande tabell visas datorn Vision svart och utvärdering i exempelbilderna.
 
-| Bild | Svartvit? |
+| Image | Svartvit? |
 |-------|----------------|
 |![En svart och bild av byggnader i Manhattan](./Images/bw_buildings.png) | true |
 |![En blå house och framsida](./Images/house_yard.png) | false |

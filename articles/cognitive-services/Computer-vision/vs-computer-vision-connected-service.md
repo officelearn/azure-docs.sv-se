@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450954"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995072"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Använda Connected Services i Visual Studio för att ansluta till API för visuellt innehåll
 
@@ -24,7 +24,7 @@ Genom att använda Cognitive Services API för visuellt innehåll kan du extrahe
 
 Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services API för visuellt innehåll. Funktionen är tillgänglig i Visual Studio 2017 15.7 och senare med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2017 version 15.7** med arbetsbelastningen **Webbutveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -38,15 +38,15 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
 1. I **Solution Explorer** väljer du **Lägg till** > **Ansluten tjänst**.
    Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
 
-   ![Skärmbild av en snabbmeny för ett Visual Studio-projekt: Lägg till > Ansluten tjänst](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Högerklicka på menyn i Visual Studio-projekt: Lägg till > Ansluten tjänst](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. På menyn med tillgängliga tjänster väljer du **Cognitive Services API för visuellt innehåll**.
 
-   ![menyn Anslutna tjänster, markera Analysera bilder med visuellt innehåll](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Anslutna tjänster-menyn: Analysera bilder... beskrivs](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerad med ditt konto, visas en sida med en listruta med dina prenumerationer.
 
-   ![Ett Visual Studio-fönster för ”API för visuellt innehåll” med listrutan Prenumeration markerad](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![API för visuellt innehåll datorfönstret med markerade listrutan prenumeration](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Välj den prenumeration som du vill använda, välj ett namn för API:et för visuellt innehåll och välj sedan länken Redigera för att ändra det automatiskt genererade namnet. Välj sedan resursgrupp och prisnivå.
 
@@ -98,7 +98,7 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
 
 1. Högerklicka på bildfilen, välj Egenskaper och välj sedan **Kopiera om nyare**. 
 
-   ![Ett fönster för avbildningsegenskaper; Kopiera till utdatakatalog har ställts in på Kopiera om nyare](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![bild egenskapsfönstret; Kopiera till utdatakatalog inställd på Kopiera om nyare](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Ersätt konfigurationsmetoden med följande kod för att komma åt API:et för visuellt innehåll och testa en bild.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94ecf05272ecb29f914bb00fa407a564fef96c17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562087"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148840"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Kopiera data från Marketo med Azure Data Factory (förhandsversion)
 
@@ -33,7 +33,7 @@ Du kan kopiera data från Marketo till alla datalager för mottagare som stöds.
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
 
 >[!NOTE]
->Den här Marketo-kopplingen är byggt på Marketo REST API. Tänk på att Marketo har [samtidiga begäranden överskridits](http://developers.marketo.com/rest-api/) på serversidan. Om du stöter på fel som säger ”fel vid försök att använda REST-API: Maximal hastighet har överskridits ”100” med ”20” sekunder (606) ”eller” fel vid försök att använda REST-API: Samtidig åtkomst begränsa '10' nått (615) ”, Överväg för att minska samtidiga kopiera aktivitetskörningar för att minska antalet begäranden till tjänsten.
+>Den här Marketo-kopplingen är byggt på Marketo REST API. Tänk på att Marketo har [samtidiga begäranden överskridits](https://developers.marketo.com/rest-api/) på serversidan. Om du stöter på fel som säger ”fel vid försök att använda REST-API: Maximal hastighet har överskridits ”100” med ”20” sekunder (606) ”eller” fel vid försök att använda REST-API: Samtidig åtkomst begränsa '10' nått (615) ”, Överväg för att minska samtidiga kopiera aktivitetskörningar för att minska antalet begäranden till tjänsten.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -47,7 +47,7 @@ Följande egenskaper har stöd för Marketo länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Marketo** | Ja |
+| type | Type-egenskapen måste anges till: **Marketo** | Ja |
 | slutpunkt | Slutpunkten för Marketo-server. (i.e. 123-ABC-321.mktorest.com)  | Ja |
 | ClientId | Klient-Id för din Marketo-tjänst.  | Ja |
 | ClientSecret | Klienthemlighet för din Marketo-tjänst. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -82,7 +82,7 @@ För att kopiera data från Marketo, ange typegenskapen på datauppsättningen t
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **MarketoObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **MarketoObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -111,7 +111,7 @@ För att kopiera data från Marketo, ange typ av datakälla i kopieringsaktivite
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MarketoSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MarketoSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Activitiy_Types"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

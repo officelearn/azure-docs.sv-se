@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a5b4d9fac1d2fb3ec1a45f34784552b2d41f2cf1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679337"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003861"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
 Den här artikeln innehåller vanliga frågor för felsökning.
@@ -33,7 +33,7 @@ Den här artikeln innehåller vanliga frågor för felsökning.
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio-Objektutforskaren saknar AAD-användare           | Det här är ett känt problem.  Som en lösning kan du visa användarna i [sys.database_principals][sys.database_principals].  Se [autentisera till Azure SQL Data Warehouse] [ Authentication to Azure SQL Data Warehouse] mer information om hur du använder Azure Active Directory med SQL Data Warehouse. |
-| Manuell scripting, med hjälp av guiden skript eller ansluta via SSMS är långsam, låsta eller berörda fel | Se till att användarna har skapats i huvuddatabasen. I skriptalternativ, också se till att versionen av motorn har angetts som ”Microsoft Azure SQL Data Warehouse Edition” och motortyp är ”Microsoft Azure SQL Database”. |
+| Manuell scripting, med hjälp av guiden skript eller ansluta via SSMS är långsam, inte svarar eller ger upphov till fel | Se till att användarna har skapats i huvuddatabasen. I skriptalternativ, också se till att versionen av motorn har angetts som ”Microsoft Azure SQL Data Warehouse Edition” och motortyp är ”Microsoft Azure SQL Database”. |
 | Generera skript misslyckas i SSMS                             | Generera ett skript för SQL data warehouse misslyckas om alternativet ”generera skript för beroende objekt”-alternativet är inställt på ”True”. Som en lösning kan användare manuellt måste gå till Verktyg -> Alternativ -> SQL Server Object Explorer -> Generera skript för beroende alternativ och inställd på false |
 
 ## <a name="performance"></a>Prestanda

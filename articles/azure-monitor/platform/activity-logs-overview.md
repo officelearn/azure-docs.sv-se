@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496887"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995667"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -65,6 +65,9 @@ Här följer några av de saker som du kan göra med aktivitetsloggen:
 * Fråga den via PowerShell-cmdleten, CLI eller REST API.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Fråga i aktivitetsloggen i Azure portal
+
+> [!NOTE] 
+> Aktivitetsloggen lagrar loggarna i serverdelen i 90 dagar. Om du vill behålla data utöver detta konfigurerar du en **Loggprofil** enligt beskrivningen nedan. 
 
 Du kan visa din aktivitetslogg på flera platser i Azure-portalen:
 * Den **aktivitetsloggen** som du kan komma åt genom att söka efter aktivitetsloggen under **alla tjänster** i det vänstra navigeringsfönstret.

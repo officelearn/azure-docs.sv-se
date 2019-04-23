@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 733d27549542d3ebdd0cfba429aeaaab9f8be473
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370320"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000937"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Täckning för geokodning för Azure Maps
 
@@ -106,14 +106,14 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Fiji                                                |                  |                |              |      ✓     |          ✓         |
 | Franska Polynesien                                    |                 |                |              |      ✓     |          ✓         |
 | Heardön och McDonaldöarna                   |                 |                |              |      ✓     |          ✓         |
-| Hongkong SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hongkong SAR                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesien                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indien                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macao SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaysia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mikronesien                                          |                 |                |              |      ✓     |          ✓         |
 | Mongoliet                                            |                 |                |              |      ✓     |          ✓         |
@@ -138,7 +138,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Södra Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Spratlyöarna i Oceanien och Västindien                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
-| Taiwan SAR                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Taiwan (Taiwan)                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Thailand                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Tokelauöarna                                             |                 |                |              |      ✓     |          ✓         |
 | Tonga                                               |                 |                |              |      ✓     |          ✓         |
@@ -189,7 +189,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Litauen                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Irland                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Nordmakedonien                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldavien                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

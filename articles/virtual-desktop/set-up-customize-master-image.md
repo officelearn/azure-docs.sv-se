@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aff96931f95442c67d08521e72952dd79dad44e2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698323"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999883"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -204,7 +204,7 @@ Här är hur du installerar OneDrive i per dator-läge:
 5. Kör detta kommando för att installera OneDrive i per dator-läge:
 
     ```batch
-    Run "[staged location]\OneDriveSetup.exe /allusers"
+    Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Kör detta kommando för att konfigurera OneDrive för att starta vid inloggning för alla användare:
@@ -313,7 +313,7 @@ Det här avsnittet beskriver program- och operativsystemets konfiguration. All k
 För feedback hub insamlingen av dessa data på flera session för Windows 10 Enterprise kan du köra det här kommandot:
 
 ```batch
-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v AllowTelemetry /d 3
 ```
 

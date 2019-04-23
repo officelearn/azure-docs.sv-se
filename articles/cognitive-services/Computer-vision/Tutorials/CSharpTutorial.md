@@ -1,22 +1,22 @@
 ---
 title: 'Exempel: Utforska en bildbearbetningsapp i C#'
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Utforska en grundläggande Windows-app som använder API för visuellt innehåll i Microsoft Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella egenskaper i en bild.
+titleSuffix: Azure Cognitive Services
+description: Utforska en grundläggande Windows-app som använder den API för visuellt innehåll i Azure Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310957"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004031"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exempel: Utforska en bildbearbetningsapp med C#
 
@@ -33,7 +33,7 @@ Utforska ett grundläggande Windows-program som använder Visuellt innehåll fö
 Innan du utforskar exempelappen ska du uppfylla följande förutsättningar:
 
 * Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare.
-* Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
 
 ## <a name="get-the-sample-app"></a>Hämta exempelappen
 

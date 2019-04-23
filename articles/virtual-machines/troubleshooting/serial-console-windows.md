@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 57b20f9d694ae0581988762735c35cb65012fd8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e50243c15b5b783976374bc8b8861a0245ce1b05
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992378"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996381"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Seriekonsol för virtuell dator för Windows
 
@@ -123,7 +123,7 @@ Om du vill aktivera Windows boot loader anvisningarna för att visa i seriekonso
     ![Öppna PowerShell-instans](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Använd seriekonsolen för NMI-anrop
-Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som programvara på en virtuell dator inte ignorera. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider. Idag, programmerare och systemadministratörer använder ofta NMI som en mekanism för att felsöka eller felsöka avstannat system.
+Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som programvara på en virtuell dator inte ignorera. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider. Idag, programmerare och systemadministratörer använder ofta NMI som en mekanism för att felsöka eller felsöka system som inte svarar.
 
 Seriell konsol kan användas för att skicka en NMI till en Azure virtuell dator med hjälp av tangentbordsikonen i kommandofältet. När NMI är på plats, ska konfigurationen av virtuella datorn styra hur systemet svarar. Windows kan konfigureras att krascher och skapa en minnesdump när du tar emot en NMI.
 

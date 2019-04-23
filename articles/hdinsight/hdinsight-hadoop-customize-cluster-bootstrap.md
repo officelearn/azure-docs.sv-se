@@ -1,24 +1,31 @@
 ---
-title: Anpassa HDInsight-kluster med bootstrap - Azure
-description: Lär dig mer om att anpassa HDInsight-kluster med bootstrap.
-services: hdinsight
+title: Anpassa Azure HDInsight klusterkonfigurationer med bootstrap
+description: Lär dig att anpassa HDInsight-kluster-konfigurationen programmässigt med .net, PowerShell och Resource Manager mallar.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: hrasheed
-ms.openlocfilehash: 66c3345c1387e5f1535bbe2bc9a8eafdbb7423d2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: b1bc0a68a9cf52e886c0664a474a4dbb75126698
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447803"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003538"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med Bootstrap
 
-Ibland kan vill du konfigurera konfigurationsfiler, bland annat:
+Bootstrap-skript kan du installera och konfigurera komponenterna i Azure HDInsight programmässigt. 
+
+Det finns tre sätt att ange inställningar för konfigurationsfiler som har skapat ett HDInsight-kluster:
+
+* Använda Azure PowerShell
+* Använd .NET SDK
+* Använd Azure Resource Manager-mallar
+
+Till exempel konfigurera med dessa programmeringsmetoder kan du alternativ i dessa filer:
 
 * clusterIdentity.xml
 * core-site.xml
@@ -37,22 +44,19 @@ Ibland kan vill du konfigurera konfigurationsfiler, bland annat:
 * yarn-site.xml
 * Server.Properties (konfiguration av kafkas asynkrona meddelandekö)
 
-Det finns tre olika metoder för att använda bootstrap:
+Information om hur du installerar ytterligare komponenter på HDInsight-kluster under tiden för skapandet finns i [anpassa HDInsight-kluster med skriptåtgärd (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-* Använda Azure PowerShell
-* Använd .NET SDK
-* Använd Azure Resource Manager-mallar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
-Information om hur du installerar ytterligare komponenter på HDInsight-kluster under tiden för skapandet finns i:
-
-* [Anpassa HDInsight-kluster med skriptåtgärd (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
+* Om du använder PowerShell, måste den [Az modulen](https://docs.microsoft.com/powershell/azure/overview).
 
 ## <a name="use-azure-powershell"></a>Använda Azure PowerShell
+
 Följande PowerShell-kod anpassar en [Apache Hive](https://hive.apache.org/) konfiguration:
+
+> [!IMPORTANT]  
+> Parametern `Spark2Defaults` kanske måste användas med [Lägg till AzHDInsightConfigValues](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalues). Du kan skicka tomma värden till parametrarna som visas i exemplet nedan.
+
 
 ```powershell
 # hive-site.xml configuration
@@ -63,7 +67,8 @@ $config = New-AzHDInsightClusterConfig `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
     | Add-AzHDInsightConfigValues `
-        -HiveSite $hiveConfigValues 
+        -HiveSite $hiveConfigValues `
+        -Spark2Defaults @{}
 
 New-AzHDInsightCluster `
     -ResourceGroupName $existingResourceGroupName `
@@ -74,7 +79,7 @@ New-AzHDInsightCluster `
     -OSType Linux `
     -Version "3.6" `
     -HttpCredential $httpCredential `
-    -Config $config 
+    -Config $config
 ```
 
 En fullständig fungerande PowerShell-skript finns i [bilaga](#appendix-powershell-sample).
@@ -108,7 +113,6 @@ $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 # oozie-site.xml configuration
 $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 ```
-Mer information finns i Azim Uddin blogg benämnt [anpassa HDInsight-klustret har skapats](https://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
 ## <a name="use-net-sdk"></a>Använd .NET SDK
 Se [skapa Linux-baserade kluster i HDInsight med .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
@@ -118,7 +122,6 @@ Du kan använda bootstrap i Resource Manager-mall:
 
 ```json
 "configurations": {
-    �
     "hive-site": {
         "hive.metastore.client.connect.retry.delay": "5",
         "hive.execution.engine": "mr",
@@ -144,7 +147,15 @@ Du kan använda bootstrap i Resource Manager-mall:
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Steg när klustret skapas"
 
 ## <a name="appendix-powershell-sample"></a>Tillägg: PowerShell-exempel
-Det här PowerShell-skriptet skapar ett HDInsight-kluster och anpassar en Hive-inställning:
+
+Det här PowerShell-skriptet skapar ett HDInsight-kluster och anpassar en Hive-inställning. Se till att ange värden för `$nameToken`, `$httpPassword`, och `$sshPassword`.
+
+> [!IMPORTANT]  
+> Värdena för `DefaultStorageAccount`, och `DefaultStorageContainer` returneras inte från [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) när [säker överföring](../storage/common/storage-require-secure-transfer.md) är aktiverat för lagringskontot.
+
+> [!WARNING]  
+> Storage-kontotyp `BlobStorage` kan inte användas för HDInsight-kluster.
+
 
 ```powershell
 ####################################
@@ -156,10 +167,10 @@ $nameToken = "<ENTER AN ALIAS>"
 
 #region - cluster user accounts
 $httpUserName = "admin"  #HDInsight cluster username
-$httpPassword = "<ENTER A PASSWORD>" #"<Enter a Password>"
+$httpPassword = '<ENTER A PASSWORD>' 
 
 $sshUserName = "sshuser" #HDInsight ssh user name
-$sshPassword = "<ENTER A PASSWORD>" #"<Enter a Password>"
+$sshPassword = '<ENTER A PASSWORD>' 
 #endregion
 
 ####################################
@@ -173,19 +184,24 @@ $hdinsightClusterName = $namePrefix + "hdi"
 $defaultStorageAccountName = $namePrefix + "store"
 $defaultBlobContainerName = $hdinsightClusterName
 
-$location = "East US 2"
+$location = "East US"
 #endregion
 
-# Treat all errors as terminating
-$ErrorActionPreference = "Stop"
 
 ####################################
 # Connect to Azure
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-try{Get-AzContext}
-catch{Connect-AzAccount}
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
 #endregion
 
 #region - Create an HDInsight cluster
@@ -202,14 +218,18 @@ New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $defaultStorageAccountName `
     -Location $location `
-    -Type Standard_GRS
+    -SkuName Standard_LRS `
+    -Kind StorageV2 `
+    -EnableHttpsTrafficOnly 1
 
 $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
+
 $defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
+
 New-AzStorageContainer `
     -Name $defaultBlobContainerName `
     -Context $defaultStorageContext #use the cluster name as the container name
@@ -217,14 +237,15 @@ New-AzStorageContainer `
 ####################################
 # Create a configuration object
 ####################################
-$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
+$hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
 
 $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
     | Add-AzHDInsightConfigValues `
-        -HiveSite $hiveConfigValues 
+        -HiveSite $hiveConfigValues `
+        -Spark2Defaults @{}
 
 ####################################
 # Create an HDInsight cluster
@@ -250,7 +271,8 @@ New-AzHDInsightCluster `
 ####################################
 # Verify the cluster
 ####################################
-Get-AzHDInsightCluster -ClusterName $hdinsightClusterName
+Get-AzHDInsightCluster `
+    -ClusterName $hdinsightClusterName
 
 #endregion
 ```

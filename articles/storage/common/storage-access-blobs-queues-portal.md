@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5eba650ac2a052f264d82260e9fc07bf195235da
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846386"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148942"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Använda Azure portal för att få åtkomst till blob eller kön data
 
@@ -41,13 +41,13 @@ När du försöker komma åt data blob eller kön i Azure-portalen, kontrollerar
 Om du vill komma åt blob eller kön data från Azure portal med din Azure AD-konto, vara båda av följande uttryck sanna för du:
 
 - Du har tilldelats Azure Resource Manager [läsare](../../role-based-access-control/built-in-roles.md#reader) roll, som ett minimum begränsade till nivån av storage-konto eller högre. Den **läsare** rollen ger de mest begränsade behörigheterna, men en annan Azure Resource Manager-roll som ger åtkomst till hantering av lagringsresurser-konto är också tillåtet.
-- Du har tilldelats antingen den inbyggda eller anpassade roll som ger åtkomst till BLOB-objekt eller data i kön.
+- Du har tilldelats antingen den inbyggda eller anpassade roll som ger åtkomst till blob-eller kön.
 
 Den **läsare** rolltilldelningen eller en annan Azure Resource Manager-rolltilldelning krävs så att användaren kan visa och navigera management lagringskontoresurserna i Azure-portalen. RBAC-roller som ger åtkomst till blob-eller kön ger inte åtkomst till hantering av lagringsresurser-konto. Om du vill komma åt data blob eller kö i portalen, måste användaren behörighet att navigera lagringskontoresurserna. Mer information om det här kravet finns i [tilldela rollen Läsare för portalåtkomst](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 De inbyggda roller som har stöd för åtkomst till dina data i blob eller kön är:
 
-- [Storage Blob Data ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): För POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2 (förhandsversion).
+- [Storage Blob Data ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): För POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2.
 - [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Läs/Skriv/ta bort behörigheter för blobar.
 - [Storage Blob Data-läsare](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Läsbehörighet för blobar.
 - [Lagringsködata-deltagare](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Läs/Skriv/ta bort behörigheter för köer.

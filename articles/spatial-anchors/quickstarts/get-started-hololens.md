@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 42528038b5744f001422620031a1e5300bb4146d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7a9eedfe851bb8b5519d0831f47cf6787345a1f8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898269"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996296"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Snabbstart: Skapa en HoloLens-app med Azure Spatial Anchors, i C++/WinRT och DirectX
 
@@ -28,7 +28,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
@@ -58,6 +58,8 @@ Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med konto-ID.
 ## <a name="deploy-the-app-to-your-hololens"></a>Distribuera appen till din HoloLens
 
 Ändra **Lösningskonfiguration** till **Version**, ändra **Lösningsplattform** till **x86** och välj **Enhet** bland alternativen för distributionsmål.
+
+Om du använder HoloLens 2, använda **ARM** som den **Lösningsplattform**, i stället för **x86**.
 
 ![Visual Studio-konfiguration](./media/get-started-hololens/visual-studio-configuration.png)
 

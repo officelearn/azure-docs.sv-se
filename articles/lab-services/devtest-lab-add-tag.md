@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247049"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148925"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Lägga till taggar i ett labb i Azure DevTest Labs
 
@@ -42,8 +42,8 @@ Varje tagg består av en **namn**/**värdet** par. Du kan till exempel skapa en 
 
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Om det behövs väljer **alla tjänster**, och välj sedan **DevTest Labs** i listan. Labbet kanske redan visas på instrumentpanelen under **alla resurser**.
-1. I listan över labbar Välj labb där du vill lägga till eller hantera taggar.  
-1. På testmiljön **översikt** Välj **konfiguration och principer**.  
+1. I listan över labbar Välj labb där du vill lägga till eller hantera taggar.
+1. På testmiljön **översikt** Välj **konfiguration och principer**.
 
     ![Knappen för konfiguration och principer](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
@@ -56,7 +56,7 @@ Varje tagg består av en **namn**/**värdet** par. Du kan till exempel skapa en 
 
 Följande begränsningar gäller för taggar:
 
-* Varje resurs eller resursgrupp kan innehålla upp till 15 taggnamn-/taggvärdepar. Den här begränsningen gäller endast för taggar som tillämpas direkt på resursgruppen eller resursen. En resursgrupp kan innehålla många resurser som var och en har 15 taggnamn-/taggvärdepar. 
+* Varje resurs eller resursgrupp kan innehålla upp till 15 taggnamn-/taggvärdepar. Den här begränsningen gäller endast för taggar som tillämpas direkt på resursgruppen eller resursen. En resursgrupp kan innehålla många resurser som var och en har 15 taggnamn-/taggvärdepar.
 * Taggnamnet är begränsat till 512 tecken och taggvärdet är begränsat till 256 tecken. För lagringskonton är taggnamnet begränsat till 128 tecken och taggvärdet till 256 tecken.
 * Taggar som lagts till för en resursgrupp ärvs inte av resurserna i den resursgruppen.
 
@@ -66,4 +66,4 @@ Följande begränsningar gäller för taggar:
 
 ## <a name="next-steps"></a>Nästa steg
 * Du kan använda begränsningar och konventioner på din prenumeration med hjälp av anpassade principer. En princip som du definierar kan kräva att alla resurser har ett värde för en viss tagg. Mer information finns i [ange principer och scheman](devtest-lab-set-lab-policy.md).
-* Utforska den [DevTest Labs Azure Resource Manager QuickStart mallgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Utforska den [DevTest Labs Azure Resource Manager QuickStart mallgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337147"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995582"
 ---
-# <a name="categorize-images"></a>Kategorisera bilder
+# <a name="categorize-images-by-subject-matter"></a>Kategorisera bilder av ämnet
 
 Förutom taggar och en beskrivning returnerar för visuellt innehåll taxonomi-baserade kategorier som har identifierats i en bild. Till skillnad från taggar, kategorier är ordnade i en överordnad/underordnad ärftliga hierarki och det finns färre (till skillnad från tusentals taggar 86). Alla kategorinamn som är på engelska. Kategorisering kan göras av sig själv eller tillsammans med den nya taggar-modellen.
 
@@ -53,7 +53,7 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar när kategorise
 
 I följande tabell visas en typisk bild-uppsättning och den kategori som returneras av visuellt innehåll för varje bild.
 
-| Bild | Kategori |
+| Image | Category |
 |-------|----------|
 | ![Fyra personer lösenordsbaserat tillsammans som en serie](./Images/family_photo.png) | people_group |
 | ![En Hundvalp som sitter i ett grassy fält](./Images/cute_dog.png) | animal_dog |

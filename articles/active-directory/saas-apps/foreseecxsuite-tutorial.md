@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 14732b02e56d56baa032b8a3728ca892f4ad7d2f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563611"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Självstudier: Azure Active Directory-integrering med förutser CX Suite
 
@@ -34,7 +34,7 @@ Integrera förutser CX Suite med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med förutser CX Suite, behöver du följande objekt:
 
@@ -119,7 +119,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med föruts
 
     a. I rutan **Inloggnings-URL** anger du en URL: `https://cxsuite.foresee.com/`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: https://www.okta.com/saml2/service-provider/<UniqueID>
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: https:\//www.okta.com/saml2/service-provider/<UniqueID>
 
     > [!Note]
     > Om den **identifierare** värde får inte automatisk polulated, sedan fyller du i värdet manuellt enligt ovan mönster. Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [förutser CX Suite klienten supportteamet](mailto:support@foresee.com) att hämta det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

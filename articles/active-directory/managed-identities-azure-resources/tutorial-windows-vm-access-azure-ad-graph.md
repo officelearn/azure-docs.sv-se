@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523366"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997792"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure AD Graph API
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Microsoft Graph API för att hämta dess gruppmedlemskap. Hanterade identiteter för Azure-resurser hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden.  I den här självstudien kör du frågor om medlemskapet för din virtuella dators identitet i Azure AD-grupper. Gruppinformation används ofta i, till exempel, auktoriseringsbeslut. Under ytan representeras den virtuella datorns identitet av **tjänstens huvudnamn** i Azure AD. Innan du kör gruppfrågan lägger du till tjänsthuvudnamnet som representerar den virtuella datorns identitet till en grupp i Azure AD. Du kan använda detta med Azure PowerShell, Azure AD PowerShell eller Azure CLI.
+Den här självstudien visar hur du använder en automatiskt genererad hanterad identitet för en Windows virtuell dator (VM) för att få åtkomst till Azure AD Graph API för att hämta dess gruppmedlemskap. Hanterade identiteter för Azure-resurser hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden.  I den här självstudien kör du frågor om medlemskapet för din virtuella dators identitet i Azure AD-grupper. Gruppinformation används ofta i, till exempel, auktoriseringsbeslut. Under ytan representeras den virtuella datorns identitet av **tjänstens huvudnamn** i Azure AD. Innan du kör gruppfrågan lägger du till tjänsthuvudnamnet som representerar den virtuella datorns identitet till en grupp i Azure AD. Du kan använda detta med Azure PowerShell, Azure AD PowerShell eller Azure CLI.
 
 > [!div class="checklist"]
 > * Anslut till Azure AD

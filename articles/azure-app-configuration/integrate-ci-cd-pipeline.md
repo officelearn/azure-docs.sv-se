@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a92c00148d4b612a4360e3843d66503d528928cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7db796b33bab941f038afab1b80127aded50b54a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700150"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000033"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrera med en CI/CD-pipeline
 
@@ -92,4 +92,7 @@ Om du vill göra en cloud-version med Azure DevOps till exempel kontrollera att 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hanterade identiteter för integrering av Azure-resurser](./howto-integrate-azure-managed-service-identity.md)
+I den här självstudien får exporterade du konfiguration av Azure data som ska användas i en pipeline för distribution. Om du vill veta mer om hur du använder Appkonfiguration, fortsätter du att Azure CLI-exempel.
+
+> [!div class="nextstepaction"]
+> [Hanterad identitet integration](./howto-integrate-azure-managed-service-identity.md)

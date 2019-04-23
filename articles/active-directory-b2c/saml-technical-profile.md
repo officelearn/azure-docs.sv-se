@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b0d1722df2bfe5116de2676dfc930d6050731bbd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680544"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005034"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska SAML-profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -96,7 +96,7 @@ Den **OutputClaimsTransformations** element kan innehålla en uppsättning **Out
  
 I följande exempel visar de anspråk som returneras av identitetsleverantören. Facebook:
 
-- Den **socialIdpUserId** anspråk har mappats till den **assertionSubjectName** anspråk.
+- Den **issuerUserId** anspråk har mappats till den **assertionSubjectName** anspråk.
 - Den **first_name** anspråk har mappats till den **givenName** anspråk.
 - Den **efternamn** anspråk har mappats till den **efternamn** anspråk.
 - Den **displayName** anspråk utan mappning av användarnamn.
@@ -109,7 +109,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
  
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="assertionSubjectName" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="assertionSubjectName" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -124,7 +124,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | PartnerEntity | Ja | URL för metadata för SAML-identitetsprovider. Kopiera identitet providerrns metadata och lägga till den i CDATA-element `<![CDATA[Your IDP metadata]]>` |
-| WantsSignedRequests | Nej | Anger om den tekniska profilen måste innehålla utgående autentiseringsbegäranden signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. När värdet anges till `true`, **SamlMessageSigning** kryptografisk nyckel måste anges och alla utgående autentiseringsbegäranden signeras. Om värdet anges till `false`, **SigAlg** och **signatur** parametrar (frågesträng eller publicera parametern) har utelämnats från begäran. Dessa metadata styr även metadata **AuthnRequestsSigned** attribut, som är utdata i metadata för den tekniska profilen för Azure AD B2C som delas med identitetsprovidern. Azure AD B2C inte signera begäran om **WantsSignedRequests** i den tekniska profilen metadata anges till `false` och identitet providerrns metadata **WantAuthnRequestsSigned** är inställd på `false` eller inte har angetts. |
+| WantsSignedRequests | Nej | Anger om den tekniska profilen måste innehålla utgående autentiseringsbegäranden signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. När värdet anges till `true`, **SamlMessageSigning** kryptografisk nyckel måste anges och alla utgående autentiseringsbegäranden signeras. Om värdet anges till `false`, **SigAlg** och **signatur** parametrar (frågesträng eller publicera parametern) har utelämnats från begäran. Dessa metadata styr även metadata **AuthnRequestsSigned** attribut, som är utdata i metadata för den tekniska profilen för Azure AD B2C som delas med identitetsprovidern. Azure AD B2C inte signera begäran om värdet för **WantsSignedRequests** i den tekniska profilen metadata anges till `false` och identitet providerrns metadata **WantAuthnRequestsSigned** är Ange `false` eller inte har angetts. |
 | XmlSignatureAlgorithm | Nej | Den metod som Azure AD B2C använder för att signera SAML-begäran. Dessa metadata styr värdet för den **SigAlg** parametern (frågesträng eller publicera parameter) i SAML-begäran. Möjliga värden: `Sha256`, `Sha384`, `Sha512`, eller `Sha1`. Kontrollera att du konfigurerar signaturalgoritmen på båda sidorna med samma värde. Använd bara den algoritm som har stöd för ditt certifikat. | 
 | WantsSignedAssertions | Nej | Anger om den tekniska profilen kräver alla inkommande intyg signeras. Möjliga värden: `true` eller `false`. Standardvärdet är `true`. Om värdet anges till `true`, alla intyg avsnittet `saml:Assertion` skickas av identiteten provider för att Azure AD B2C måste signeras. Om värdet anges till `false`, identitetsprovidern bör inte registrera intyg, men även om den finns, Azure AD B2C kommer inte att verifiera signaturen. Dessa metadata styr också metadataflaggan **WantsAssertionsSigned**, vilket är utdata i metadata för den tekniska profilen för Azure AD B2C som delas med identitetsprovidern. Om du inaktiverar intyg verifieringen, du kan också inaktivera signaturverifiering svar (Mer information finns i **ResponsesSigned**). |
 | ResponsesSigned | Nej | Möjliga värden: `true` eller `false`. Standardvärdet är `true`. Om värdet anges till `false`, identitetsprovidern bör inte signera SAML-svar, men även om den finns, Azure AD B2C kommer inte att verifiera signaturen. Om värdet anges till `true`, SAML-svar som skickas av identitetsleverantören till Azure AD B2C har registrerat och måste verifieras. Om du inaktiverar valideringen av SAML-svar, du kan också inaktivera signaturverifiering försäkran (Mer information finns i **WantsSignedAssertions**). |

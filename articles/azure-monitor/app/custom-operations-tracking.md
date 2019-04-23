@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 8e082f15cff616b9dc63fbf4ad51e94d078a04f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: MT
+ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811298"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995548"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights SDK för .NET
 
@@ -384,12 +384,13 @@ Med vissa köer kan du kan ta bort från kön flera meddelanden med en begäran.
 Varje meddelande som ska bearbetas i sin egen asynkrona Kontrollflöde. Mer information finns i den [utgående beroenden spåra](#outgoing-dependencies-tracking) avsnittet.
 
 ## <a name="long-running-background-tasks"></a>Långvariga bakgrundsaktiviteter
+
 Vissa program startar långvariga åtgärder som kan orsakas av användarbegäranden. Ur spårning/instrumentation är det inte skiljer sig från förfrågan eller beroende instrumentation: 
 
 ```csharp
 async Task BackgroundTask()
 {
-    var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>(taskName);
     operation.Telemetry.Type = "Background";
     try
     {
@@ -414,9 +415,9 @@ async Task BackgroundTask()
 }
 ```
 
-I det här exemplet `telemetryClient.StartOperation` skapar `RequestTelemetry` och fyller Korrelations-kontext. Vi antar att du har en överordnad åtgärd som har skapats av inkommande begäranden som schemalagts igen. Så länge `BackgroundTask` startar asynkrona samma Kontrollflöde som en inkommande begäran, det korreleras med den överordnade åtgärden. `BackgroundTask` och alla kapslade telemetri objekt automatiskt kopplas ihop med den begäran som gör att det, även när begäran avslutas.
+I det här exemplet `telemetryClient.StartOperation` skapar `DependencyTelemetry` och fyller Korrelations-kontext. Vi antar att du har en överordnad åtgärd som har skapats av inkommande begäranden som schemalagts igen. Så länge `BackgroundTask` startar asynkrona samma Kontrollflöde som en inkommande begäran, det korreleras med den överordnade åtgärden. `BackgroundTask` och alla kapslade telemetri objekt automatiskt kopplas ihop med den begäran som gör att det, även när begäran avslutas.
 
-När uppgiften startar från den bakgrundstråd som inte har någon åtgärd (`Activity`) som är associerade med den `BackgroundTask` inte har en överordnad. Det kan dock ha kapslade åtgärder. Alla artiklar för telemetri som rapporterats från aktiviteten är korrelerad till den `RequestTelemetry` skapas i `BackgroundTask`.
+När uppgiften startar från den bakgrundstråd som inte har någon åtgärd (`Activity`) som är associerade med den `BackgroundTask` inte har en överordnad. Det kan dock ha kapslade åtgärder. Alla artiklar för telemetri som rapporterats från aktiviteten är korrelerad till den `DependencyTelemetry` skapas i `BackgroundTask`.
 
 ## <a name="outgoing-dependencies-tracking"></a>Utgående beroenden spårning
 Du kan spåra dina egna beroende-typ eller en åtgärd som inte stöds av Application Insights.

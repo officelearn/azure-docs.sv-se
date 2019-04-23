@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 15be0039006d322c3d5e19d4ef141d1543c7b1c0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580680"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995990"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Så här uppdaterar du Azure Monitor för behållare för att aktivera mätvärden
 Azure Monitor för behållare presenterar stöd för att samla in mått från Azure Kubernetes Services (AKS) kluster noder och poddar och sparar dem i arkivet för Azure Monitor-mått. Den här ändringen är avsedd att leverera förbättrad skyndsamhet när du presenterar sammanställd beräkningar (Avg, Count, Max, Min, summan) i prestandadiagram, fästa prestandadiagram i Azure portal-instrumentpaneler, support och stöd för aviseringar för mått.
@@ -34,8 +34,8 @@ Uppdaterar kluster för att stödja de här nya funktionerna kan utföras från 
 
 Antingen bearbetar tilldelar den **övervakning mått Publisher** rollen till klustrets tjänstens huvudnamn, så att data som samlas in av agenten kan publiceras till kluster-resursen. Övervaka mått utgivaren har behörighet att endast push-mått till resursen, den kan inte ändra några tillstånd, uppdatera resursen eller läsa alla data. Mer information om rollen finns i [övervakning mått utgivarroll](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>Förutsättningar 
-Innan du börjar bör du se till att du är medlem i den **[ägare](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** -rollen på AKS-klusterresursen för att aktivera insamling av noden och pod anpassade prestandamått. 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
+Innan du börjar bör du se till att du är medlem i den **[ägare](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** -rollen på AKS-klusterresursen för att aktivera insamling av noden och pod anpassade prestandamått. 
 
 Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.59 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 

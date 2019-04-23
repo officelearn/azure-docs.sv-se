@@ -13,7 +13,7 @@ ms.author: v-jansko
 ms.custom: seodec18
 ms.openlocfilehash: cc795d6b164a97351ec8806c6b7c8bed0c0c1266
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59793997"
@@ -26,7 +26,7 @@ Att ta emot information om justering, använda metoden Översätt och ta med val
 ## <a name="alignment-information-format"></a>Justering informationsformat
 Justering returneras som ett strängvärde i följande format för varje ord i källan. Information för varje ord är avgränsade med blanksteg, inklusive för icke-blankstegsavgränsad språk (skript) som kinesiska:
 
-[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[SourceTextStartIndex]\:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
 Exempel justering sträng: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 

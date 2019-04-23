@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225101"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002688"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -29,7 +29,7 @@ Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -99,7 +99,7 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 
 2. Den vänstra rutan visar nu alla Azure-konton som du har loggat in till. Om du vill ansluta till ett annat konto, Välj **Lägg till ett konto**
 
-3. Om du vill logga in på ett nationella moln eller en Azure Stack, klickar du på den **Azure-miljön** listrutan att välja vilket Azure moln som du vill använda. När du har valt din miljö, klickar du på den **inloggning...**  knappen. Om du loggar in på Azure Stack, se [ansluta Storage Explorer till en Azure stackprenumeration](azure-stack/user/azure-stack-storage-connect-se.md) för mer information.
+3. Om du vill logga in på ett nationella moln eller en Azure Stack, klickar du på den **Azure-miljön** listrutan att välja vilket Azure moln som du vill använda. När du har valt din miljö, klickar du på den **inloggning...**  knappen. Om du loggar in på Azure Stack, se [ansluta Storage Explorer till en Azure stackprenumeration](/azure-stack/user/azure-stack-storage-connect-se) för mer information.
 
     ![Logga In alternativet][2]
 

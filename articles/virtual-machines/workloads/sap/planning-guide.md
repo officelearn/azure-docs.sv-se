@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501339"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999543"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -1141,8 +1141,8 @@ Du kan också kopiera virtuella hårddiskar mellan prenumerationer. Mer informat
 
 Det grundläggande flödet av logik för PS-cmdlet: en ut så här:
 
-* Skapa en kontexten för lagringskontot för den **källa** storage-konto med *New AzStorageContext* -finns i <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
-* Skapa en kontexten för lagringskontot för den **target** storage-konto med *New AzStorageContext* -finns i <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
+* Skapa en kontexten för lagringskontot för den **källa** storage-konto med *New AzStorageContext* -finns i <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Skapa en kontexten för lagringskontot för den **target** storage-konto med *New AzStorageContext* -finns i <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
 * Starta kopieringen med
 
 ```powershell

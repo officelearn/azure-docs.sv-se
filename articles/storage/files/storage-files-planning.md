@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525933"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998472"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -92,20 +92,22 @@ Azure Files erbjuder två prestandanivåer: standard och premium.
 |Norra Europa  | Nej |
 |Västra Europa   | Ja|
 |Sydostasien       | Ja|
+|Östasien     | Nej |
 |Östra Japan    | Nej |
+|Västra Japan    | Nej |
 |Sydkorea, centrala | Nej |
 |Östra Australien| Nej |
 
 ### <a name="provisioned-shares"></a>Etablerade resurser
 
-Premium-filresurser (förhandsversion) har etablerats utifrån ett fast GiB/IOPS/dataflödet-förhållande. För varje GiB som etablerats utfärdas resursen en IOPS och 0,1 MiB/s genomströmning för upp till de maximala gränserna per resurs. Minsta tillåtna etablering är 100 GiB med min IOPS/dataflödet. Filresursens storlek kan ökas vid all tid och minskad när som helst, men kan minskas en gång per dygn sedan den senaste ökningen.
+Premium-filresurser (förhandsversion) har etablerats utifrån ett fast GiB/IOPS/dataflödet-förhållande. För varje GiB som etablerats utfärdas resursen en IOPS och 0,1 MiB/s genomströmning för upp till de maximala gränserna per resurs. Minsta tillåtna etablering är 100 GiB med min IOPS/dataflödet.
 
 Efter bästa förmåga Utöka alla resurser upp till tre IOPS per GiB etablerad lagring i 60 minuter eller längre beroende på storleken på resursen. Nya resurser börjar med den fullständiga burst-krediten baserat på etablerad kapacitet.
 
-Alla resurser kan tillhandahålla upp till minst 100 IOPS och mål dataflöde på 100 MiB/s. Filresurser måste etableras i steg om 1 GiB. Minsta storleken är 100 GiB, nästa storlek är 101 GIB och så vidare.
+Filresurser måste etableras i steg om 1 GiB. Minsta storleken är 100 GiB, nästa storlek är 101 GIB och så vidare.
 
 > [!TIP]
-> Baslinjen IOPS = 100 + 1 * etablerade GiB. (Upp till högst 100 000 IOPS).
+> Baslinjen IOPS = 1 * etablerade GiB. (Upp till högst 100 000 IOPS).
 >
 > Utöka gränsen = 3 * baslinje IOPS. (Upp till högst 100 000 IOPS).
 >
@@ -113,13 +115,13 @@ Alla resurser kan tillhandahålla upp till minst 100 IOPS och mål dataflöde p�
 >
 > ingångshändelser = 40 MiB/s + 0.04 * etablerats GiB
 
-Filresursens storlek kan ökas vid all tid och minskad när som helst, men kan minskas en gång per dygn sedan den senaste ökningen. IOPS/dataflödet ändringar börjar gälla inom 24 timmar efter ändringen storlek.
+Filresursens storlek kan ökas när som helst, men kan minskas endast efter 24 timmar sedan senaste ökningen. Vänta 24 timmar utan storlek ökning, kan du minska resursstorleken så många gånger tills du ökar det igen. IOPS/dataflödet ändringar börjar gälla inom ett par minuter efter ändringen storlek.
 
 I följande tabell visas några exempel på dessa produkter för de etablerade resursen storlekarna:
 
 (Storlekar enligt en * är begränsad offentlig förhandsversion)
 
-|Kapacitet (GiB) | Baslinjen IOPS | Burst-gräns | Utgående (MiB/s) | Inkommande (MiB/s) |
+|Kapacitet (GiB) | Baslinjen IOPS | Burst-IOPS | Utgående (MiB/s) | Inkommande (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Upp till 300     | 66   | 44   |
 |500         | 500     | Upp till 1 500   | 90   | 60   |
@@ -136,20 +138,20 @@ För närvarande filstorlekar dela upp till 5 TiB är i offentlig förhandsversi
 
 Premium-filresurser kan utöka sina IOPS upp till en faktor på tre. Bursting sker automatiskt och fungerar baserat på ett kredit-system. Bursting fungerar på bästa förmåga och burst-gränsen är ingen garanti, filresurser kan öka användningsgraden *upp till* gränsen.
 
-Krediter samlas i en burst-bucket när trafik för den filresurser är understiger baslinje IOPS. Till exempel har en 100 GiB resurs 100 baslinje IOPS. Om faktiska trafik på resursen var 40 IOPS för ett specifikt intervall 1 sekund, krediteras 60 oanvända IOPS till en burst-bucket. Dessa krediter ska sedan användas senare när åtgärder skulle överskrida baslinjen IOPs.
+Krediter samlas i en burst-bucket när trafik för filresursen är lägre än baslinje IOPS. Till exempel har en 100 GiB resurs 100 baslinje IOPS. Om faktiska trafik på resursen var 40 IOPS för ett specifikt intervall 1 sekund, krediteras 60 oanvända IOPS till en burst-bucket. Dessa krediter ska sedan användas senare när åtgärder skulle överskrida baslinjen IOPs.
 
 > [!TIP]
-> Storleken på burst gränsen bucket = Baseline_IOPS * 2 * 3600.
+> Storleken på burst-bucket = Baseline_IOPS * 2 * 3600.
 
-Varje gång en resurs överskrider baslinjen IOPS och har krediter i en burst-bucket, bursting. Resurser kan fortsätta att utöka så länge kredit kvar, även om resurser som är mindre än 50 tiB kommer endast att hålla sig i burst-gränsen för upp till en timme. Resurser som är större än 50 TiB tekniskt sett kan överskrida begränsningen en timme, upp till två timmar men detta baseras på antalet burst-krediter ackumuleras. Varje i/o utöver baslinje IOPS förbrukar en kredit och när alla krediter förbrukas resursen skulle gå tillbaka till baslinje IOPS.
+Varje gång en resurs överskrider baslinjen IOPS och har krediter i en burst-bucket, bursting. Resurser kan fortsätta att utöka så länge kredit kvar, även om resurser som är mindre än 50 TiB kommer endast att hålla sig i burst-gränsen för upp till en timme. Resurser som är större än 50 TiB tekniskt sett kan överskrida begränsningen en timme, upp till två timmar men detta baseras på antalet burst-krediter ackumuleras. Varje i/o utöver baslinje IOPS förbrukar en kredit och när alla krediter förbrukas resursen skulle gå tillbaka till baslinje IOPS.
 
 Dela krediter har tre lägen:
 
 - Betalar om filresursen använder mindre än baslinjen IOPS.
 - Avböja när filresursen bursting.
-- Återstående på noll, när det finns inga krediter eller baslinje används IOPS.
+- Återstående konstant, när det finns inga krediter eller baslinje används IOPS.
 
-Nya start på grund av fil-resurser med fullständig antal krediter i dess burst-bucket.
+Nya start på grund av fil-resurser med fullständig antal krediter i dess burst-bucket. Burst-krediter kommer inte ackumuleras om resursen IOPS understiger baslinje IOPS på grund av begränsningar av servern.
 
 ## <a name="file-share-redundancy"></a>Filen resurs redundans
 

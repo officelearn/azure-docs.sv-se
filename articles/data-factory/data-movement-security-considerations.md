@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099992"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996141"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,9 +137,9 @@ I följande tabell sammanfattas i nätverket och lokal integration runtime-konfi
 
 | Källa      | Mål                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | IPSec-VPN (punkt-till-plats eller plats-till-plats) | Lokal integration runtime kan installeras antingen lokalt eller på en Azure-dator i ett virtuellt nätverk. |
-| Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | ExpressRoute (privat peering)           | Lokal integration runtime kan installeras antingen lokalt eller på en Azure-dator i ett virtuellt nätverk. |
-| Lokal | Azure-baserade tjänster som har en offentlig slutpunkt | ExpressRoute (offentlig peering)            | Den lokala integreringskörningen måste vara installerade på plats. |
+| Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | IPSec-VPN (punkt-till-plats eller plats-till-plats) | Lokal integration runtime ska installeras på en Azure-dator i det virtuella nätverket.  |
+| Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | ExpressRoute (privat peering)           | Lokal integration runtime ska installeras på en Azure-dator i det virtuella nätverket.  |
+| Lokal | Azure-baserade tjänster som har en offentlig slutpunkt | ExpressRoute (Microsoft-peering)            | Lokal integration runtime kan vara installerade på plats eller på virtuella Azure-datorer. |
 
 Följande bilder visar användning av lokal integration runtime för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av ExpressRoute- och IPSec-VPN (med Azure Virtual Network):
 
@@ -174,7 +174,7 @@ Följande tabell innehåller kraven för inkommande port för Windows-brandvägg
 
 | Ingående portar | Beskrivning                              |
 | ------------- | ---------------------------------------- |
-| 8050 (TCP)    | Krävs för kryptering PowerShell-cmdleten enligt beskrivningen i [kryptera autentiseringsuppgifterna för den lokala datalager i Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), och av Autentiseringshanteraren att ange autentiseringsuppgifter för lokala datalager på ett säkert sätt på den lokala integreringskörningen. |
+| 8060 (TCP)    | Krävs för kryptering PowerShell-cmdleten enligt beskrivningen i [kryptera autentiseringsuppgifterna för den lokala datalager i Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), och av Autentiseringshanteraren att ange autentiseringsuppgifter för lokala datalager på ett säkert sätt på den lokala integreringskörningen. |
 
 ![Krav för gateway-port](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -193,7 +193,7 @@ För följande datalager i molnet kräver att du godkänner IP-adressen för den
 
 **Kan den lokala integreringskörningen delas mellan olika datafabriker?**
 
-Vi stöder inte den här funktionen ännu. Vi arbetar på den.
+Ja. Mer information finns [här](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/).
 
 **Vilka är portkraven för den lokala integreringskörningen ska fungera?**
 

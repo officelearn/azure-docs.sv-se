@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081295"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149984"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Träffa IT Service Management Connector ITSM-produkter/tjänster
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -37,7 +37,7 @@ Följande ITSM-produkter/tjänster stöds. Välj produkten som ska visa detaljer
 
 Följande avsnitt innehåller information om hur du ansluter din produkt i System Center Service Manager till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera att följande krav är uppfyllda:
 
@@ -103,7 +103,7 @@ Kör skriptet genom att tillhandahålla följande nödvändiga data:
 
 - Prenumerationsinformation för Azure
 - Namn på resursgrupp
-- Plats
+- Location
 - Service Manager server-information (namn, domän, användarnamn och lösenord)
 - Plats-namnprefixet för din webbapp
 - ServiceBus Namespace.
@@ -182,14 +182,15 @@ Följande exempelbild visar information om en lyckad anslutning:
 
 Följande avsnitt innehåller information om hur du ansluter din ServiceNow-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Kontrollera att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [Att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow-versioner som stöds: Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+- ServiceNow-versioner som stöds: London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins måste göra följande i sina ServiceNow-instans**:
 - Generera klient-ID och klienthemlighet för ServiceNow-produkten. Information om hur du skapar klient-ID och hemlighet finns i följande information som krävs:
 
+    - [Konfigurera OAuth för London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -285,7 +286,7 @@ När användaren har skapats, status för **Kontrollera installationschecklista*
 Följande avsnitt innehåller information om hur du ansluter din Provance produkt till ITSMC i Azure.
 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera att följande krav är uppfyllda:
 
@@ -338,7 +339,7 @@ Läs mer: [Skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monit
 
 Följande avsnitt innehåller information om hur du ansluter din Cherwell produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera att följande krav är uppfyllda:
 

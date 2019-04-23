@@ -7,20 +7,19 @@ ms.service: app-service
 ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
-ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 29f2b725972f5ce92e756cb21621a19850ba9386
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: MT
+ms.author: msangapu-msft
+ms.openlocfilehash: 02ebd0629fed9037054a5c22931f3e99c09073c4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732948"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998608"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Leverera innehåll från Azure Storage i App Service i Linux
 
-Den här guiden visar hur du hantera statiskt innehåll i App Service i Linux med hjälp av [Azure Storage](/azure/storage/common/storage-introduction). Fördelar skyddat innehåll, innehåll portabilitet, åtkomst till flera appar och flera metoder för överföring. I den här guiden kommer du lära dig hur leverans av innehåll på Azure Storage genom att [konfigurera anpassad lagring](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/).
+Den här guiden visar hur du hantera statiskt innehåll i App Service i Linux med hjälp av [Azure Storage](/azure/storage/common/storage-introduction). Fördelar skyddat innehåll, innehåll portabilitet, åtkomst till flera appar och flera metoder för överföring. Du lär dig hur leverans av innehåll på Azure Storage genom att konfigurera anpassad lagring i den här guiden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En befintlig webbapp (App Service på Linux eller Web App for Containers).
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 eller senare).

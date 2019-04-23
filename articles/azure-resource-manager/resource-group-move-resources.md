@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528245"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004065"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -63,7 +63,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Azure-databas för MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
-* Azure DevOps - köper Azure DevOps-organisationer med icke-Microsoft-tillägg måste [Avbryt sina inköp](https://go.microsoft.com/fwlink/?linkid=871160) innan de kan flytta kontot mellan prenumerationer.
+* Azure DevOps - Följ stegen för att [ändra Azure-prenumerationen används för fakturering](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
 * Azure Maps
 * Azure Monitor-loggar
 * Azure Relay
@@ -74,7 +74,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * CDN
 * Molntjänster – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry – ett behållarregister kan inte flyttas när geo-replikering är aktiverat.
+* Container Registry
 * Content Moderator
 * Cost Management
 * Customer Insights

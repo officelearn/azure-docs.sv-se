@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371935"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003510"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
 Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av data från virtuella datorer som kör Microsoft Windows och Linux som ligger i Azure, ditt datacenter eller andra molnleverantörer. Det finns tre typer av agenter som kan övervaka en virtuell dator:
@@ -70,7 +70,7 @@ Tidigare flera Azure-tjänster har tillsammans i den *Operations Management Suit
 * Azure-tjänster som [Programinsikter](https://docs.microsoft.com/azure/application-insights/) och [Azure Security Center](https://docs.microsoft.com/azure/security-center/), som internt lagrar sina data direkt i Log Analytics.  
 
 ## <a name="dependency-agent"></a>Beroendeagent
-Beroendeagenten har utvecklats som en del av lösningen Tjänstkarta som ursprungligen utvecklades för externt från Microsoft. [Tjänstkarta](../insights/service-map.md) och [Azure Monitor för virtuella datorer](../insights/vminsights-overview.md) kräver en beroende-Agent på Windows och Linux virtuella datorer och den kan integreras med Log Analytics-agenten samlar in identifierade data om processer som körs på den virtuella datorn och extern Processberoenden. Den lagrar dessa data i Log Analytics-arbetsytan och hjälper dig att visualisera de identifierade sammankopplade komponenterna.
+Beroendeagenten har utvecklats som en del av lösningen Tjänstkarta, som inte ursprungligen utvecklades av Microsoft. [Tjänstkarta](../insights/service-map.md) och [Azure Monitor för virtuella datorer](../insights/vminsights-overview.md) kräver en beroende-Agent på Windows och Linux virtuella datorer och den kan integreras med Log Analytics-agenten för att samla in identifierade data om processer som körs på den virtuella datorn och extern Processberoenden. Den lagrar dessa data i Log Analytics-arbetsytan och hjälper dig att visualisera de identifierade sammankopplade komponenterna.
 
 Du kan behöva en kombination av dessa agenter att övervaka din virtuella dator. Agenter kan installeras sida vid sida som Azure-tillägg, men på Linux, Log Analytics-agenten *måste* installeras först. Annars installationen misslyckas. 
 

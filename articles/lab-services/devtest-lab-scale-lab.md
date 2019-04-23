@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248256"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149868"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Skala kvoter och begränsningar i DevTest Labs
 När du arbetar i labb kan kanske du märker att det finns vissa standardgränser till vissa Azure-resurser, vilket kan påverka tjänsten DevTest Labs. Dessa gränser kallas **kvoter**.
@@ -28,7 +28,7 @@ När du arbetar i labb kan kanske du märker att det finns vissa standardgränse
 
 Du kan använda varje Azure-resurs tills du når sin kvot. Varje prenumeration har separata kvoter och användning spåras per prenumeration.
 
-Till exempel har varje prenumeration en standardkvot på 20 kärnor. Så om du skapar virtuella datorer i labbet med fyra kärnor, kan du bara skapa fem virtuella datorer. 
+Till exempel har varje prenumeration en standardkvot på 20 kärnor. Så om du skapar virtuella datorer i labbet med fyra kärnor, kan du bara skapa fem virtuella datorer.
 
 [Azure-prenumeration och tjänstbegränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits) listas några av de vanligaste kvoter för Azure-resurser. Resurserna som används oftast i ett labb och för vilket du kan stöta på kvoter, är VM-kärnor, offentliga IP-adresser, nätverksgränssnitt, hanterade diskar, RBAC rolltilldelning och ExpressRoute-kretsar.
 
@@ -67,4 +67,4 @@ De här stegen visar hur du begära en kvot via den [Azure-portalen](https://go.
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>Nästa steg
-* Utforska den [DevTest Labs Azure Resource Manager QuickStart mallgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Utforska den [DevTest Labs Azure Resource Manager QuickStart mallgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

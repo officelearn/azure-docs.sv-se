@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5a985e43c097dbea2861a5eb9fa10c526cbf089a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 29cea7e72d6bd7f64f6cf2a68b7620090ea4eef3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59697876"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995942"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
@@ -38,6 +38,17 @@ Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](
 ## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
+
+    | Nyckel | Value |
+    |---|---|
+    | TestApp:Settings:BackgroundColor | Vit |
+    | TestApp:Settings:FontSize | 24 |
+    | TestApp:Settings:FontColor | Svart |
+    | TestApp:Settings:Message | Data från Azure App Configuration |
+
+    Lämna **etikett** och **innehållstyp** tom för tillfället.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 
@@ -191,4 +202,4 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 I den här snabbstarten har du skapat en ny konfiguration appbutik och används med en ASP.NET Core-webbapp via den [App konfigurationsprovidern](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
-> [Hanterade identiteter för integrering av Azure-resurser](./howto-integrate-azure-managed-service-identity.md)
+> [Hanterad identitet integration](./howto-integrate-azure-managed-service-identity.md)

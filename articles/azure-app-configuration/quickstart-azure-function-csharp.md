@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7d38120c530b89230893b85829d201c14a8cba04
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59697302"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003249"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Snabbstart: Skapa en Azure-funktion med App Configuration
 
@@ -38,6 +38,14 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2017](https://
 ## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
+
+    | Nyckel | Value |
+    |---|---|
+    | TestApp:Settings:Message | Data från Azure App Configuration |
+
+    Lämna **etikett** och **innehållstyp** tom för tillfället.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
@@ -114,4 +122,4 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2017](https://
 I den här snabbstarten har du skapade en ny konfiguration appbutik och använder den med en Azure-funktion. Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
-> [Hanterade identiteter för integrering av Azure-resurser](./howto-integrate-azure-managed-service-identity.md)
+> [Hanterad identitet integration](./howto-integrate-azure-managed-service-identity.md)

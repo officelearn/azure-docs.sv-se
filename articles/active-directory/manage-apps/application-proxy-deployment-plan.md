@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: fe8f9f271599d688878d61aee64273690d02c2b8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685951"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000716"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en distribution av Azure AD Application Proxy
 
@@ -158,7 +158,7 @@ Följande designelement bör öka framgången för implementeringen pilot direkt
 3. Sedan lägger du till SSO-metod för ditt program och testa igen för att verifiera åtkomst.
 4. Använda villkorlig åtkomst och MFA-principer som krävs. Testa och verifiera åtkomst.
 
-**Felsökningsverktyg**: När du felsöker kan alltid börja genom att verifiera åtkomst till det publicerade programmet i webbläsaren på connector-värden och bekräfta att programmet fungerar som förväntat. Den enklare din konfiguration, desto lättare att fastställa rotorsaken, så fundera över försöker återskapa problem med en minimal konfiguration, till exempel med bara en enda anslutning och ingen SSO. I vissa fall bevisa verktyg, till exempel Telerik Fiddler för felsökning av webbplatser oumbärlig för felsökning av problem med åtkomst eller innehåll i program som nås via en proxyserver. Fiddler kan också fungera som en proxy för att spåra och felsöka trafik för mobila plattformar som iOS och Android och praktiskt taget allt som kan konfigureras för dirigering via en proxyserver. Se den [felsökningsguide](/application-proxy-troubleshoot.md) för mer information.
+**Felsökningsverktyg**: När du felsöker kan alltid börja genom att verifiera åtkomst till det publicerade programmet i webbläsaren på connector-värden och bekräfta att programmet fungerar som förväntat. Den enklare din konfiguration, desto lättare att fastställa rotorsaken, så fundera över försöker återskapa problem med en minimal konfiguration, till exempel med bara en enda anslutning och ingen SSO. I vissa fall bevisa verktyg, till exempel Telerik Fiddler för felsökning av webbplatser oumbärlig för felsökning av problem med åtkomst eller innehåll i program som nås via en proxyserver. Fiddler kan också fungera som en proxy för att spåra och felsöka trafik för mobila plattformar som iOS och Android och praktiskt taget allt som kan konfigureras för dirigering via en proxyserver. Se den [felsökningsguide](application-proxy-troubleshoot.md) för mer information.
 
 ## <a name="implement-your-solution"></a>Implementera din lösning
 

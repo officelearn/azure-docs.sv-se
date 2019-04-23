@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 0f066915046e363932652c104fabe96ed0a9d4c4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227192"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012293"
 ---
 1. Om du vill skapa en ny konfiguration appbutik, logga in på den [Azure-portalen](https://aka.ms/azconfig/portal). I det övre vänstra hörnet på sidan Välj **+ skapa en resurs**. I den **Sök på Marketplace** anger **Appkonfiguration** och tryck på RETUR.
 
@@ -35,14 +35,3 @@ ms.locfileid: "58227192"
 4. Välj **Skapa**. Distributionen kan ta några minuter att slutföra.
 
 5. När distributionen är klar, Välj **inställningar** > **åtkomstnycklar**. Notera antingen eller primära skrivskyddade primärnyckelns anslutningssträng. Du kan använda den här anslutningssträngen senare för att konfigurera ditt program kan kommunicera med appbutiken för konfigurationen som du skapade.
-
-6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
-
-    | Nyckel | Värde |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | Vit |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Svart |
-    | TestApp:Settings:Message | Data från Azure App Configuration |
-
-    Lämna **etikett** och **innehållstyp** tom för tillfället.

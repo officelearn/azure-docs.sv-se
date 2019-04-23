@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 2a4c4c7431752ade60161af84b4cc15f010af656
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527990"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995752"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Självstudier: Kopiera data till Azure Data Box Blob-lagring via REST-API:er  
 
@@ -39,9 +39,14 @@ Innan du börjar ska du kontrollera att:
 5. [Ladda ned AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) på värddatorn. Du använder AzCopy för att kopiera data till Azure Data Box Blob-lagring från värddatorn.
 
 
-## <a name="connect-to-data-box-blob-storage"></a>Ansluta till Data Box Blob-lagring
+## <a name="connect-via-http-or-https"></a>Ansluta via http eller https
 
-Du kan ansluta till Data Box Blob-lagring genom *http* eller *https*. I allmänhet är *https* det säkra och rekommenderade sättet att ansluta till Data Box Blob-lagring. *http* används när du ansluter via betrodda nätverk. Beroende på om du ansluter till Data Box-Blob-lagring genom *http* eller *https* kan stegen skilja sig åt.
+Du kan ansluta till Data Box Blob-lagring genom *http* eller *https*.
+
+- *Https* är det säkraste och rekommenderade sättet att ansluta till Data Box Blob storage.
+- *http* används när du ansluter via betrodda nätverk.
+
+Stegen för att ansluta skiljer sig när du ansluter till Data Box Blob storage via *http* eller *https*,.
 
 ## <a name="connect-via-http"></a>Ansluta via http
 
@@ -52,11 +57,11 @@ För anslutning till REST-API:er för Data Box Blob-lagring genom *http* krävs 
 
 Vart och ett av dessa steg beskrivs i följande avsnitt.
 
-#### <a name="add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>Lägga till enhets-IP-adressen och blob-tjänstslutpunkten till fjärrvärden
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Lägga till enhetens IP-adress och blob-tjänsteslutpunkt
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-#### <a name="configure-partner-software-and-verify-connection"></a>Konfigurera partnerprogramvara och verifiera anslutningen
+### <a name="configure-partner-software-and-verify-connection"></a>Konfigurera partnerprogramvara och verifiera anslutningen
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -67,8 +72,8 @@ Vart och ett av dessa steg beskrivs i följande avsnitt.
 För anslutning till REST-API:er för Azure Blob-lagring genom https krävs följande steg:
 
 - Ladda ned certifikatet från Azure-portalen
-- Förbereda värddatorn för fjärrhantering
-- Lägga till enhets-IP-adressen och blob-tjänstslutpunkten till fjärrvärden
+- Importera certifikatet på klienten eller fjärrvärden
+- Lägg till IP-Adressen för enheten och blob-tjänstslutpunkt till klienten eller fjärrvärden
 - Konfigurera programvara från tredje part och verifiera anslutningen
 
 Vart och ett av dessa steg beskrivs i följande avsnitt.
@@ -83,20 +88,15 @@ Använda Azure-portalen för att ladda ned certifikatet.
 
     ![Ladda ned certifikat i Azure-portalen](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
-### <a name="prepare-the-host-for-remote-management"></a>Förbereda värden för fjärrhantering
+### <a name="import-certificate"></a>Importera certifikatet 
 
-Använd följande steg till att förbereda Windows-klienten för en fjärranslutning som använder en *https*-session:
+Åtkomst till Data Box-Blob-lagring över HTTPS kräver ett SSL-certifikat för enheten. Det sätt som det här certifikatet är tillgänglig för klientprogrammet varierar mellan programmen och olika operativsystem och distributioner. Vissa program kan komma åt certifikatet när den importeras till certifikatarkivet för systemets, medan andra program inte gör användning av sådan metod.
 
-- Importera .cer-filen till rotcertifikatarkivet för klienten eller fjärrvärden.
-- Lägg till enhetens IP-adress och blob-tjänstslutpunkten till värdens fil på Windows-klienten.
+Specifik information för vissa program nämns i det här avsnittet. Mer information om andra program finns i dokumentationen för programmet och operativsystemet som används.
 
-Var och en av de föregående procedurerna beskrivs nedan.
+Följ dessa steg för att importera den `.cer` -filen i rotarkivet på en Windows- eller Linux-klient. På ett Windows-system, kan du använda Windows PowerShell eller Användargränssnittet för Windows-servern att importera och installera certifikatet på datorn.
 
-#### <a name="import-the-certificate-on-the-remote-host"></a>Importera certifikatet på fjärrvärden
-
-Du kan använda Windows PowerShell eller Windows Server-användargränssnittet för att importera och installera certifikatet på värdsystemet.
-
-**Använda PowerShell**
+#### <a name="use-windows-powershell"></a>Använd Windows PowerShell
 
 1. Starta en Windows PowerShell-session som administratör.
 2. Skriv följande i kommandotolken:
@@ -105,9 +105,9 @@ Du kan använda Windows PowerShell eller Windows Server-användargränssnittet f
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
-**Använda Windows Server-användargränssnittet**
+#### <a name="use-windows-server-ui"></a>Använda Användargränssnittet för Windows Server
 
-1.  Högerklicka på .cer-filen och välj **Installera certifikat**. Då startas guiden för att importera certifikat.
+1.  Högerklicka på den `.cer` och väljer **installera certifikat**. Den här åtgärden startar guiden Importera certifikat.
 2.  För **Store location** (Lagringsplats) väljer du **Lokal dator** och klickar sedan på **Nästa**.
 
     ![Importera certifikat med hjälp av PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
@@ -120,13 +120,29 @@ Du kan använda Windows PowerShell eller Windows Server-användargränssnittet f
 
     ![Importera certifikat med hjälp av PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
-### <a name="to-add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>För att lägga till enhets-IP-adressen och blob-tjänstslutpunkten till fjärrvärden
+#### <a name="use-a-linux-system"></a>Använd ett Linux-system
 
-Stegen för det här är identiska med dem du använde när du anslöt genom *http*.
+Metoden för att importera ett certifikat varierar efter distribution.
 
-### <a name="configure-partner-software-to-establish-connection"></a>Konfigurera partnerprogramvara för att upprätta anslutningen
+Flera, till exempel Ubuntu och Debian, använder de `update-ca-certificates` kommando.  
 
-Stegen för det här är identiska med dem du använde när du anslöt genom *http*. Den enda skillnaden är att du låter alternativet *Använd http* vara avmarkerat.
+- Byt namn på filen Base64-kodat certifikat har en `.crt` tillägg och kopiera den till den `/usr/local/share/ca-certificates directory`.
+- Kör kommandot `update-ca-certificates`.
+
+De senaste versionerna av RHEL, Fedora och CentOS använder den `update-ca-trust` kommando.
+
+- Kopiera certifikatfilen till den `/etc/pki/ca-trust/source/anchors` directory.
+- Kör `update-ca-trust`.
+
+Mer information finns i dokumentationen som är specifika för din distribution.
+
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Lägga till enhetens IP-adress och blob-tjänsteslutpunkt 
+
+Följ samma steg för att [lägga till enhetens IP-adress och blob-tjänsteslutpunkt när du ansluter via *http*](#add-device-ip-address-and-blob-service-endpoint).
+
+### <a name="configure-partner-software-and-verify-connection"></a>Konfigurera partnerprogramvara och verifiera anslutningen
+
+Följ stegen för att [konfigurera partnerprogram som du använde när du ansluter via *http*](#configure-partner-software-and-verify-connection). Den enda skillnaden är att du låter alternativet *Använd http* vara avmarkerat.
 
 ## <a name="copy-data-to-data-box"></a>Kopiera data till Data Box
 
@@ -199,7 +215,6 @@ Om du bara vill kopiera källresurser som inte finns i målet, så ange båda pa
 #### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
-
 
 Nästa steg är att förbereda enheten för leverans.
 

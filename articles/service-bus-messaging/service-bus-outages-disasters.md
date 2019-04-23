@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: ccf0ddfd42d6617634ce4a230ba88b76552afef3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692870"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003028"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Metodtips för isolering av program mot Service Bus-avbrott och katastrofer
 
@@ -36,7 +36,7 @@ Service Bus Premium har stöd för geohaveriberedskap på namnområdesnivå. Mer
 Har stöd för Service Bus Premium-SKU [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom samma Azure-region.
 
 > [!NOTE]
-> Tillgänglighetszoner-support för Azure Service Bus Premium är bara tillgängliga i [Azure-regioner](../availability-zones/az-overview.md#regions-that-support-availability-zones) där tillgänglighetszoner finns.
+> Tillgänglighetszoner-support för Azure Service Bus Premium är bara tillgängliga i [Azure-regioner](../availability-zones/az-overview.md#services-support-by-region) där tillgänglighetszoner finns.
 
 Du kan aktivera Tillgänglighetszoner på nya namnområden, med hjälp av Azure portal. Service Bus stöder inte migreringen av befintliga namnområden. Du kan inte inaktivera redundans när du har aktiverat i namnområdet.
 

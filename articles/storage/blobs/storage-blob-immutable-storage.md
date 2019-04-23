@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/18/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445692"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996041"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store verksamhetskritiska data i Azure Blob storage
 
@@ -41,7 +41,7 @@ Oföränderlig storage har stöd för följande:
 
 - **Behållare på servernivå configuration**: Användare kan konfigurera tidsbaserad bevarandeprinciper och bevarande av juridiska skäl taggar på behållarenivån. Genom att använda enkla behållarenivån inställningar kan användare skapa och låsa tidsbaserade bevarandeprinciper, utöka kvarhållningsintervaller, uppsättning och rensa bevarande av juridiska skäl med mera. Dessa principer gäller för alla blobar i behållaren, både befintliga och nya.
 
-- **Granska loggningsstöd**: Varje behållare innehåller en granskningslogg. Den visar upp till fem tidsbaserat bevarande kommandon för låst tidsbaserade bevarandeprinciper, med högst tre loggar för kvarhållning intervall tillägg. Loggen innehåller användar-ID, kommandotypen, tidsstämplar och Kvarhållningsintervall för tidsbaserat bevarande. Loggen innehåller användar-ID, kommandotypen, tidsstämplar för bevarande av juridiska skäl och bevarande av juridiska skäl taggar. Den här loggfilen sparas i livslängden för behållare, i enlighet med sek 17a-4(f) föreskrifter. Den [Azure-aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md) visar en mer omfattande logg över alla aktiviteter för kontroll-plan; vid aktivering av [Azure diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) behåller och visar data kontrollplansåtgärder. Det är användarens ansvar att lagra dessa loggar beständigt som kan krävas för regler eller andra ändamål.
+- **Granska loggningsstöd**: Varje behållare innehåller en princip-granskningsloggen. Den visar upp till sju tidsbaserade kvarhållning-kommandon för låst tidsbaserade bevarandeprinciper och innehåller användar-ID, kommandotypen, tidsstämplar och Kvarhållningsintervall. Loggen innehåller användar-ID, kommandotypen, tidsstämplar för bevarande av juridiska skäl och bevarande av juridiska skäl taggar. Den här loggfilen sparas i livslängden för principen, i enlighet med sek 17a-4(f) föreskrifter. Den [Azure-aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md) visar en mer omfattande logg över alla aktiviteter för kontroll-plan; vid aktivering av [Azure diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) behåller och visar data kontrollplansåtgärder. Det är användarens ansvar att lagra dessa loggar beständigt som kan krävas för regler eller andra ändamål.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
@@ -82,15 +82,28 @@ I följande tabell visas typerna av blobåtgärder som är inaktiverade i olika 
 
 <sup>1</sup> programmet tillåter dessa åtgärder att skapa en ny blob en gång. Alla efterföljande skriva över åtgärder på en befintlig blob-sökväg i en oföränderlig behållare tillåts inte.
 
+## <a name="supported-values"></a>Värden som stöds
+
+### <a name="time-based-retention"></a>Tidsbaserat bevarande
+- För ett lagringskonto är det maximala antalet behållare med låsta tidsbaserade oföränderligt principer 1 000.
+- Det minsta Kvarhållningsintervall är 1 dag. Det maximala antalet är 146,000 dagar (400 år).
+- För en behållare är det maximala antalet redigeringar att utöka en Kvarhållningsintervall för låst tidsbaserade oföränderligt principer 5.
+- För en behållare behålls högst 7 tidsbaserat bevarande princip granskningsloggar under av principen.
+
+### <a name="legal-hold"></a>Bevarande av juridiska skäl
+- För ett lagringskonto är det maximala antalet behållare med en inställning för bevarande av juridiska skäl 1 000.
+- För en behållare är det maximala antalet taggar för bevarande av juridiska skäl 10.
+- Den minsta längden på en tagg för bevarande av juridiska skäl är 3 alfanumeriska tecken. Den maximala längden är 23 alfanumeriska tecken.
+- För en behållare innehålla högst 10 juridiska principgranskning loggar bevaras under av principen.
+
 ## <a name="pricing"></a>Prissättning
 
 Det finns ingen extra kostnad för att använda den här funktionen. Oföränderlig data debiteras på samma sätt som vanliga, föränderliga data. Information om priser på Azure Blob Storage finns i den [Azure Storage-prissidan](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Komma igång
-Oföränderlig storage är endast tillgängligt för generell användning v2 och Blob Storage-konton. Dessa postkontot måste hanteras via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Information om hur du uppgraderar ett befintligt lagringskonto för generell användning v1 finns i [uppgradera ett lagringskonto](../common/storage-account-upgrade.md).
+Oföränderlig storage är endast tillgängligt för generell användning v2 och Blob Storage-konton. Dessa konton måste hanteras via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Information om hur du uppgraderar ett befintligt lagringskonto för generell användning v1 finns i [uppgradera ett lagringskonto](../common/storage-account-upgrade.md).
 
 De senaste versionerna av den [Azure-portalen](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), och [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) stöder inte kan ändras lagring för Azure Blob storage. [Bibliotek för klientstöd](#client-libraries) tillhandahålls också.
-
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -152,16 +165,6 @@ Följande klientbibliotek oföränderligt storage har stöd för Azure Blob stor
 - [Python-klientbiblioteket version 2.0.0 Release Candidate 2 och senare](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Java-klientbiblioteket](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## <a name="supported-values"></a>Värden som stöds
-
-- Det minsta Kvarhållningsintervall är en dag. Det maximala antalet är 146,000 dagar (400 år).
-- För ett lagringskonto är det maximala antalet behållare med låsta oföränderligt principer 1 000.
-- För ett lagringskonto är det maximala antalet behållare med en inställning för bevarande av juridiska skäl 1 000.
-- För en behållare är det maximala antalet taggar för bevarande av juridiska skäl 10.
-- Den maximala längden på en tagg för bevarande av juridiska skäl är 23 alfanumeriska tecken. Den minsta längden är tre tecken.
-- För en behållare är det maximala antalet tillåtna kvarhållning intervall tillägg för låst oföränderligt principer tre.
-- För en behållare med en låst oföränderligt princip håller högst fem tidsbaserat bevarande loggar och högst 10 juridiska du principen loggar bevaras under behållaren.
-
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Kan ni ge dokumentation av mask efterlevnad?**
@@ -178,7 +181,7 @@ Nej, du kan använda lagring som inte kan ändras med befintliga eller nya gener
 
 **Kan jag använda ett bevarande av juridiska skäl och en tidsbaserad bevarandeprincip?**
 
-En behållare kan ha både ett bevarande av juridiska skäl och en tidsbaserad bevarandeprincip på samma gång. Alla blobar i behållaren förblir kan ändras statusen tills alla bevarande av juridiska skäl rensas, även om deras effektiva kvarhållningsperiod har upphört att gälla. Omvänt kan är en blob i ett tillstånd som inte kan ändras tills effektiva kvarhållningsperioden upphör att gälla, även om alla bevarande av juridiska skäl har rensats.
+Ja, en behållare har både ett bevarande av juridiska skäl och en tidsbaserad bevarandeprincip på samma gång. Alla blobar i behållaren förblir kan ändras statusen tills alla bevarande av juridiska skäl rensas, även om deras effektiva kvarhållningsperiod har upphört att gälla. Omvänt kan är en blob i ett tillstånd som inte kan ändras tills effektiva kvarhållningsperioden upphör att gälla, även om alla bevarande av juridiska skäl har rensats.
 
 **Bevarande av juridiska skäl principer är endast för talan eller finns det andra scenarier för användning?**
 
@@ -202,13 +205,13 @@ När det gäller utebliven betalning gäller normal datalagringsprinciper som an
 
 **Finns det en utvärderingsversion eller en respitperiod för att bara testa funktionen?**
 
-Ja. När en tidsbaserad bevarandeprincip skapas, det är ett *upplåst* tillstånd. I det här tillståndet kan du göra önskade ändringar Kvarhållningsintervall, till exempel öka eller minska och även ta bort principen. När principen är låst, förblir den låst tills Kvarhållningsintervall som upphör att gälla. Den här låst principen förhindrar borttagning och ändring av Kvarhållningsintervall. Vi rekommenderar starkt att du använder den *upplåst* endast för försöket och låsa principen inom en 24-timmarsperiod. Dessa metoder hjälper dig att uppfylla med sek 17a-4(f) och andra bestämmelser.
+Ja. När en tidsbaserad bevarandeprincip skapas, det är i ett *upplåst* tillstånd. I det här tillståndet kan du göra önskade ändringar Kvarhållningsintervall, till exempel öka eller minska och även ta bort principen. När principen är låst, förblir den låst tills Kvarhållningsintervall som upphör att gälla. Den här låst principen förhindrar borttagning och ändring av Kvarhållningsintervall. Vi rekommenderar starkt att du använder den *upplåst* endast för försöket och låsa principen inom en 24-timmarsperiod. Dessa metoder hjälper dig att uppfylla med sek 17a-4(f) och andra bestämmelser.
 
 **Kan jag använda mjuk borttagning tillsammans med oföränderligt blob principer?**
 
 Ja. [Mjuk borttagning för Azure Blob storage](storage-blob-soft-delete.md) gäller för alla behållare i ett lagringskonto oavsett ett bevarande av juridiska skäl eller tidsbaserad bevarandeprincip. Vi rekommenderar att aktivera mjuk borttagning för ytterligare skydd innan eventuella oföränderligt mask-principer tillämpas och bekräftats. 
 
-**Är funktionen tillgänglig i nationella och offentliga moln?**
+**Var finns funktionen?**
 
 Oföränderlig storage är tillgängligt i offentlig Azure-, Kina och Government-regioner. Om inte kan ändras lagring inte är tillgängligt i din region, kontakta supporten och e-post azurestoragefeedback@microsoft.com.
 

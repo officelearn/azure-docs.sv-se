@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969676"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996058"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Tillgängliga regioner för StorSimple
 
@@ -45,7 +45,7 @@ Du definierar en region eller plats när du skapar StorSimple Device Manager-tj�
 
 Här är en lista över regioner där StorSimple Device Manager-tjänsten är tillgänglig för offentliga Azure-molnet och kan distribueras.
 
-![storsimple-enhet-manager-tjänst-regioner](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 StorSimple Device Manager-tjänsten är tillgänglig i datacenter i Iowa (USA-förvaltad region) och Virginia (USA-förvaltad region) för Azure Government-molnet.
 
@@ -69,7 +69,7 @@ Om du använder en StorSimple 8100 eller 8600 fysisk enhet, är enheten tillgän
 
 | #  | Land/region        | #  | Land/region     | #  | Land/region      | #  | Land/region              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australien      | 16 | Hongkong SAR   | 31 | Nya Zeeland  | 46 | Sydafrika         |
+| 1  | Australien      | 16 | Hongkong SAR| 31 | Nya Zeeland  | 46 | Sydafrika         |
 | 2  | Österrike        | 17 | Ungern     | 32 | Nigeria      | 47 | Sydkorea          |
 | 3  | Bahrain        | 18 | Island     | 33 | Norge       | 48 | Spanien                |
 | 4  | Belgien        | 19 | Indien       | 34 | Peru         | 49 | Sri Lanka            |
@@ -80,7 +80,7 @@ Om du använder en StorSimple 8100 eller 8600 fysisk enhet, är enheten tillgän
 | 9  | Tjeckien | 24 | Japan       | 39 | Qatar        | 54 | Turkiet               |
 | 10 | Danmark        | 25 | Kenya       | 40 | Rumänien      | 55 | Ukraina              |
 | 11 | Egypten          | 26 | Kuwait      | 41 | Ryssland       | 56 | Förenade Arabemiraten |
-| 12 | Finland        | 27 | Macao       | 42 | Saudiarabien | 57 | Storbritannien       |
+| 12 | Finland        | 27 | Macao SAR   | 42 | Saudiarabien | 57 | Storbritannien       |
 | 13 | Frankrike         | 28 | Malaysia    | 43 | Singapore    | 58 | USA        |
 | 14 | Tyskland        | 29 | Mexiko      | 44 | Slovakien     | 59 | Vietnam              |
 | 15 | Grekland         | 30 | Nederländerna | 45 | Slovenien     | 60 | Kroatien              |

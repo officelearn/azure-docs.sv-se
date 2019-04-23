@@ -3,16 +3,16 @@ title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibla, finns det många möjliga orsaker. Lär dig att ta reda på vad som orsakade överträdelsen.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276107"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995021"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -124,6 +124,8 @@ Som en del av en ny **förhandsversion**, de senaste 14 dagarna av ändring hist
    ![Principen ändra historik Visual Diff på sidan för ändra historik](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Den _visual diff_ aides identifiera ändringar till en resurs. Ändringar som har identifierats kan inte vara relaterade till det aktuella tillståndet för efterlevnad för resursen.
+
+Ändra historikdata tillhandahålls av [Azure Resource Graph](../../resource-graph/overview.md). Om du vill fråga efter den här informationen utanför Azure-portalen, se [hämta resursändringar](../../resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

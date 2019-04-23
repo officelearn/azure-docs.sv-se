@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 61f82771e53ac9bb594484b29bb109a03cee674b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554200"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012509"
 ---
 #### <a name="process-automation"></a>Processautomatisering
 
@@ -22,6 +22,7 @@ ms.locfileid: "57554200"
 | Maximalt antal nya jobb som ska skickas med 30 sekunders mellanrum per Azure Automation-konto (nonscheduled jobb) |100 |När den här gränsen har nåtts misslyckas efterföljande förfrågningar för att skapa ett jobb. Klienten får ett felsvar.|
 | Maximalt antal samtidiga jobb som körs på samma instans av tid per Automation-konto (nonscheduled jobb) |200 |När den här gränsen har nåtts misslyckas efterföljande förfrågningar för att skapa ett jobb. Klienten får ett felsvar.|
 | Lagringsstorleken för jobbmetadata för en rullande period på 30 dagar | 10 GB (cirka 4 miljoner jobb)|När den här gränsen har nåtts misslyckas efterföljande förfrågningar för att skapa ett jobb. |
+| Gränsen för högsta jobbet stream|1MB|En enda dataström får inte vara större än 1 MB.|
 | Maximalt antal moduler som kan importeras med 30 sekunders mellanrum per Automation-konto |5 ||
 | Maximal storlek på en modul |100 MB ||
 | Uppgiftskörtid, kostnadsfria nivån |500 minuter per prenumeration per kalendermånad ||

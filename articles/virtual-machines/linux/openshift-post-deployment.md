@@ -4,7 +4,7 @@ description: Ytterligare uppgifter för efter ett OpenShift-kluster har distribu
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903683"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997415"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
@@ -151,30 +151,9 @@ Kontrollera att korrekt justeras texten under identityProviders. Hitta klient-ID
 
 Starta om OpenShift master tjänsterna på alla överordnade noder:
 
-**OpenShift Container Platform (OCP) med flera huvudservrar**
-
 ```bash
-sudo systemctl restart atomic-openshift-master-api
-sudo systemctl restart atomic-openshift-master-controllers
-```
-
-**OpenShift Container Platform med en enda hanterare**
-
-```bash
-sudo systemctl restart atomic-openshift-master
-```
-
-**OKD med flera huvudservrar**
-
-```bash
-sudo systemctl restart origin-master-api
-sudo systemctl restart origin-master-controllers
-```
-
-**OKD med en enda hanterare**
-
-```bash
-sudo systemctl restart origin-master
+sudo /usr/local/bin/master-restart api
+sudo /usr/local/bin/master-restart controllers
 ```
 
 I OpenShift-konsolen visas nu två alternativ för autentisering: htpasswd_auth och [Appregistrering].
@@ -186,7 +165,7 @@ Det finns tre sätt att lägga till Log Analytics-agenten i OpenShift.
 - Aktivera Azure Monitor VM-tillägget på varje nod för OpenShift
 - Installera Log Analytics-agenten som en daemon-set OpenShift
 
-Fullständiga anvisningar finns här: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
+Läs fullständiga [instruktioner](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) för mer information.
 
 ## <a name="configure-metrics-and-logging"></a>Konfigurera mått och loggning
 
@@ -196,74 +175,9 @@ OpenShift Container Platform Marketplace-erbjudandet innehåller också ett alte
 
 Om mått / loggning har inte aktiverats under installationen av klustret, att de enkelt kan aktiveras i efterhand.
 
-### <a name="ansible-inventory-pre-work"></a>Ansible inventering före arbete
-
-Kontrollera filen ansible inventory (/ etc/ansible/värdar) har rätt variablerna för mått / loggning. Fil för programvaruinventering kan hittas på olika värdar baserat på den mall som användes.
-
-Behållarmall och Marketplace-erbjudandet finns finns inventering-filen på Skyddsmiljö-värd. För mallen OKD inventering-fil är lagrad på master-0-värden eller skyddsmiljö-värd baserat på grenen används.
-
-1. Redigera filen /etc/ansible/hosts och Lägg till följande rader efter identitetsavsnittet Provider (# aktivera HTPasswdPasswordIdentityProvider). Om dessa rader redan finns, inte lägga till dem igen.
-
-   OpenShift / OKD version 3,9 och tidigare
-
-   ```yaml
-   # Setup metrics
-   openshift_hosted_metrics_deploy=false
-   openshift_metrics_cassandra_storage_type=dynamic
-   openshift_metrics_start_cluster=true
-   openshift_metrics_hawkular_nodeselector={"type":"infra"}
-   openshift_metrics_cassandra_nodeselector={"type":"infra"}
-   openshift_metrics_heapster_nodeselector={"type":"infra"}
-   openshift_hosted_metrics_public_url=https://metrics.$ROUTING/hawkular/metrics
-
-   # Setup logging
-   openshift_hosted_logging_deploy=false
-   openshift_hosted_logging_storage_kind=dynamic
-   openshift_logging_fluentd_nodeselector={"logging":"true"}
-   openshift_logging_es_nodeselector={"type":"infra"}
-   openshift_logging_kibana_nodeselector={"type":"infra"}
-   openshift_logging_curator_nodeselector={"type":"infra"}
-   openshift_master_logging_public_url=https://kibana.$ROUTING
-   ```
-
-   OpenShift / OKD versioner 3.10 och senare
-
-   ```yaml
-   # Setup metrics
-   openshift_metrics_install_metrics=false
-   openshift_metrics_start_cluster=true
-   openshift_metrics_hawkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
-
-   # Setup logging
-   openshift_logging_install_logging=false
-   openshift_logging_fluentd_nodeselector={"logging":"true"}
-   openshift_logging_es_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_logging_kibana_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_logging_curator_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_logging_master_public_url=https://kibana.$ROUTING
-   ```
-
-3. Ersätt $ROUTING med den sträng som används för alternativet openshift_master_default_subdomain i samma /etc/ansible/hosts-fil.
-
 ### <a name="azure-cloud-provider-in-use"></a>Azure Cloud-providern används
 
 SSH till skyddsmiljö noden eller första huvudnoden (baserat på mallen och grenen som används) med hjälp av autentiseringsuppgifterna som du angav under distributionen. Kör följande kommando:
-
-**OpenShift Container Platform 3,7 och tidigare**
-
-```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True \
--e openshift_metrics_cassandra_storage_type=dynamic
-
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True \
--e openshift_hosted_logging_storage_kind=dynamic
-```
-
-**OpenShift Container Platform 3,9 och senare**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -271,75 +185,17 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metric
 -e openshift_metrics_cassandra_storage_type=dynamic
 
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
--e openshift_logging_install_logging=True \
--e openshift_logging_es_pvc_dynamic=true
-```
-
-**OKD 3,7 och tidigare**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True \
--e openshift_metrics_cassandra_storage_type=dynamic
-
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True \
--e openshift_hosted_logging_storage_kind=dynamic
-```
-
-**OKD 3,9 och senare**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True \
--e openshift_metrics_cassandra_storage_type=dynamic
-
-ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_logging_es_pvc_dynamic=true
 ```
 
 ### <a name="azure-cloud-provider-not-in-use"></a>Azure Cloud-providern inte är i användning
 
-SSH till skyddsmiljö noden eller första huvudnoden (baserat på mallen och grenen som används) med hjälp av autentiseringsuppgifterna som du angav under distributionen. Kör följande kommando:
-
-
-**OpenShift Container Platform 3,7 och tidigare**
-
-```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True
-
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True
-```
-
-**OpenShift Container Platform 3,9 och senare**
-
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
 -e openshift_metrics_install_metrics=True
 
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
--e openshift_logging_install_logging=True
-```
-
-**OKD 3,7 och tidigare**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True
-
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True
-```
-
-**OKD 3,9 och senare**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True
-ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 -e openshift_logging_install_logging=True
 ```
 
@@ -348,8 +204,9 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 Öppna Service Broker för Azure eller OSBA, kan du etablera Azure Cloud Services direkt från OpenShift. OSBA i en Open Service Broker-API-implementering för Azure. Öppna Service Broker API är en spec som definierar ett gemensamt språk för leverantörer som molntjänster interna program kan använda för att hantera molntjänster utan Lås i molnet.
 
 Installera OSBA på OpenShift genom att följa anvisningarna som finns här: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
+> [!NOTE]
+> Följ bara metoden stegen i den projektmall för OpenShift och inte i hela Installing avsnitt.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång med OpenShift Container Platform](https://docs.openshift.com/container-platform)
-- [Komma igång med OKD](https://docs.okd.io/latest)

@@ -16,20 +16,20 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 23d1e53785ece50943d732db12b4cf460ba6752a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: e813b26a91d25fbaa1298acd455f27d2cac705f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767489"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997061"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Skapa en Windows-dator i en tillgänglighetszon med Azure portal
 
 Den här artikeln beskriver hur med Azure portal för att skapa en virtuell dator i en Azure-tillgänglighetszon. En [tillgänglighetszon](../../availability-zones/az-overview.md) är en fysiskt separat zon i en Azure-region. Använd tillgänglighetszoner för att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter.
 
-Om du vill använda en tillgänglighetszon skapar du din virtuella dator i en [Azure-region som stöds](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+Om du vill använda en tillgänglighetszon skapar du din virtuella dator i en [Azure-region som stöds](../../availability-zones/az-overview.md#services-support-by-region).
 
-## <a name="log-in-to-azure"></a>Logga in på Azure 
+## <a name="sign-in-to-azure"></a>Logga in på Azure 
 
 Logga in på Azure Portal på https://portal.azure.com.
 

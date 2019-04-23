@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: MT
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497935"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996517"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
 
@@ -61,7 +61,7 @@ Om delas med andra virtuella datorer, lagringskontot storlek och IOPS-gränser i
 Varje virtuell dator i Azure Stack levereras med lagring på temporär disk, som är tillgänglig för användaren som volym `D:\`. Det lokala mellanlagringsområdet som krävs av Azure Backup kan konfigureras så att det finns i `D:\`, och cacheplatsen kan läggas på `C:\`. På så sätt kan måste ingen lagring vara högg bort från de diskar som är anslutna till den virtuella datorn i Azure Backup Server.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Lagring av säkerhetskopierade data på den lokala disken och i Azure
-Azure Backup Server lagrar säkerhetskopierade data på Azure diskar som är anslutna till den virtuella datorn för driftåterställning. Diskar och lagringsutrymme som är kopplade till den virtuella datorn hanterar lagring i Azure Backup Server åt dig. Mängden säkerhetskopieringsdata lagring beror på antalet och storleken på diskar som är anslutna till var och en [VM i Azure Stack](../azure-stack/user/azure-stack-storage-overview.md). Varje Azure Stack VM-storlek har ett maximalt antal diskar som kan kopplas till den virtuella datorn. A2 är till exempel fyra diskar. A3 är åtta diskar. A4 är 16 diskar. Igen, storlek och antalet diskar som anger den totala lagringspoolen för säkerhetskopiering.
+Azure Backup Server lagrar säkerhetskopierade data på Azure diskar som är anslutna till den virtuella datorn för driftåterställning. Diskar och lagringsutrymme som är kopplade till den virtuella datorn hanterar lagring i Azure Backup Server åt dig. Mängden säkerhetskopieringsdata lagring beror på antalet och storleken på diskar som är anslutna till var och en [VM i Azure Stack](/azure-stack/user/azure-stack-storage-overview). Varje Azure Stack VM-storlek har ett maximalt antal diskar som kan kopplas till den virtuella datorn. A2 är till exempel fyra diskar. A3 är åtta diskar. A4 är 16 diskar. Igen, storlek och antalet diskar som anger den totala lagringspoolen för säkerhetskopiering.
 
 > [!IMPORTANT]
 > Du bör **inte** avinstallationsalternativ driftåterställning (säkerhetskopiering) på Azure Backup Server-anslutna diskar i mer än fem dagar.
@@ -73,7 +73,7 @@ För att lagra säkerhetskopierade data i Azure, skapa eller använda ett Recove
  
 ### <a name="scaling-deployment"></a>Skala distributionen
 Om du vill skala distributionen har följande alternativ:
-  - Skala upp – öka storleken på Azure Backup Server virtuell dator från en serie till D-serien och öka den lokala lagringen [per VM-instruktionerna Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
+  - Skala upp – öka storleken på Azure Backup Server virtuell dator från en serie till D-serien och öka den lokala lagringen [per VM-instruktionerna Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
   - Omfördela data – skicka äldre data till Azure och spara endast senaste data på det lagringsutrymme som är anslutet till Azure Backup Server.
   - Skala ut – lägga till fler Azure Backup-servrar för att skydda arbetsbelastningarna.
 

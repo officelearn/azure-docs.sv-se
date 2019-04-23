@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798937"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996466"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Använd kommandoradsverktygen för att starta och stoppa virtuella datorer i Azure DevTest Labs
 Den här artikeln visar hur du använder Azure PowerShell eller Azure CLI för att starta eller stoppa virtuella datorer i ett labb i Azure DevTest Labs. Du kan skapa PowerShell/CLI-skript för att automatisera de här åtgärderna. 
@@ -34,7 +34,7 @@ Men i vissa situationer kan du automatisera starta och stoppa virtuella datorer 
 - Använda den som en aktivitet i ett CI/CD-arbetsflöde för att starta i början av flödet, använder de virtuella datorerna bygger datorer, testa datorer eller infrastruktur och sedan stoppa de virtuella datorerna när processen är klar. Ett exempel på detta är den anpassa avbildningen fabriken med Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Följande PowerShell-skript startar en virtuell dator i ett labb. [Anropa AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0) är primärt fokus för det här skriptet. Den **ResourceId** parametern är fullständigt kvalificerade resurs-ID för den virtuella datorn i laboratoriet. Den **åtgärd** parametern är där den **starta** eller **stoppa** alternativ ställs in beroende på vad som behövs.
+Följande PowerShell-skript startar en virtuell dator i ett labb. [Anropa AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) är primärt fokus för det här skriptet. Den **ResourceId** parametern är fullständigt kvalificerade resurs-ID för den virtuella datorn i laboratoriet. Den **åtgärd** parametern är där den **starta** eller **stoppa** alternativ ställs in beroende på vad som behövs.
 
 ```powershell
 # The id of the subscription

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fb684a59362e0f7b6ccdc2ca05fda1b89def2835
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351855"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001566"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Analysera videor i realtid
 
@@ -194,7 +194,7 @@ Den andra exempelappen är lite mer intressant kan användas för att välja vil
 
 I de flesta lägen finns en synlig fördröjning mellan den direktströmmade videon till vänster och den visualiserade analysen till höger. Den här fördröjningen är den tid det tar att göra API-anrop. Undantaget till detta är i läget ”EmotionsWithClientFaceDetect”, som utför ansiktsigenkänning lokalt på klientdatorn med hjälp av OpenCV innan bilder skickas till Cognitive Services. Så sätt kan vi visualisera de identifierade ansiktena omedelbart och sedan uppdatera känslorna senare när API-anropet returneras. Detta demonstrerar möjligheten för ”hybridmetod”, där viss enkel bearbetning kan utföras på klienten och API:er för Cognitive Services sedan kan användas för att utöka detta med mer avancerad analys vid behov.
 
-![Skärmbild av appen LiveCameraSample visar en bild där taggar visas](../../Video/Images/FramebyFrame.jpg)
+![Skärmbild av LiveCameraSample app som visar bilden med taggar visas](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>Integrera i din kodbas
 
@@ -216,7 +216,7 @@ Funktionerna för bild, röst, video och textförståelse i VideoFrameAnalyzer a
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här guiden har du lärt dig hur du utför analys i nästan realtid av livevideoströmmar med hjälp av Ansikts-API, API för visuellt innehåll och Känslo-API, och hur du kan komma igång genom att använda vår exempelkod. Du kan börja skapa din app med kostnadsfria API-nycklar på [Microsoft Cognitive Services-registreringssidan](https://azure.microsoft.com/try/cognitive-services/). 
+I den här guiden har du lärt dig hur du utför analys i nästan realtid av livevideoströmmar med hjälp av Ansikts-API, API för visuellt innehåll och Känslo-API, och hur du kan komma igång genom att använda vår exempelkod. Du kan börja skapa din app med kostnadsfria API-nycklar på [Azure Cognitive Services-registreringssidan](https://azure.microsoft.com/try/cognitive-services/). 
 
 Ge oss gärna feedback och förslag i [GitHub-lagringsplatsen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) eller, om det gäller mer allmängilgit API-feedback, på vår  [UserVoice-webbplats](https://cognitive.uservoice.com/).
 

@@ -1,5 +1,5 @@
 ---
-title: Använd Microsoft identity-plattformen för att logga in användare med hjälp av ROPC | Azure
+title: Använd Microsoft identity-plattformen för att logga in användare med hjälp av resource ägare lösenord autentiseringsuppgifter (ROPC) bevilja | Azure
 description: Stöd för webbläsare utan autentisering flöden med resursen ägare lösenord credential grant.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499945"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004949"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft identity-plattformen och OAuth 2.0-resurs för resursägarlösenord
 
-Microsoft identity-plattformen stöder den [resource resursägarlösenord (ROPC) ge](https://tools.ietf.org/html/rfc6749#section-4.3), vilket gör att ett program för att logga in användaren genom att direkt hantera sitt lösenord. Flödet ROPC kräver en hög grad av förtroende och användaren exponering och utvecklare ska bara använda det här flödet när de andra och säkrare, flödena inte kan användas.
+Microsoft identity-plattformen stöder den [resource resursägarlösenord (ROPC) ge](https://tools.ietf.org/html/rfc6749#section-4.3), vilket gör att ett program för att logga in användaren genom att direkt hantera sitt lösenord. Flödet ROPC kräver en hög grad av förtroende och användaren exponering och du bör bara använda det här flödet när andra och säkrare, flöden inte kan användas.
 
 > [!IMPORTANT]
+>
 > * Microsoft identity-plattformen endpoint stöder bara ROPC för Azure AD-klienter, inte personliga konton. Det innebär att du måste använda en klientspecifik slutpunkt (`https://login.microsoftonline.com/{TenantId_or_Name}`) eller `organizations` slutpunkt.
 > * Personliga konton som är välkomna till en Azure AD-klient kan inte använda ROPC.
 > * Konton som inte har lösenord kan inte logga in via ROPC. Det här scenariot rekommenderar vi att du använder ett annat flöde för din app i stället.
@@ -38,7 +39,7 @@ Microsoft identity-plattformen stöder den [resource resursägarlösenord (ROPC)
 
 Följande diagram visar ROPC flödet.
 
-![ROPC flöde](media/v2-oauth2-ropc/v2-oauth-ropc.png)
+![ROPC flöde](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>Begäran om auktorisering
 
@@ -69,11 +70,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type` | Krävs | Måste anges till `password`. |
 | `username` | Krävs | Användarens e-postadress. |
 | `password` | Krävs | Användarens lösenord. |
-| `scope` | Rekommenderas | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md), eller behörigheter som appen kräver. Dessa scope måste vara samtyckt till förbereds i förväg av en administratör eller av användare i en interaktiv flöde. |
+| `scope` | Rekommenderas | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md), eller behörigheter som appen kräver. I en interaktiv flow, måste administratören eller användaren godkänner du dessa scope förbereds i förväg. |
 
 ### <a name="successful-authentication-response"></a>Lyckad autentiseringssvar
 
-Nedan visas ett exempel på ett lyckat svar för token:
+I följande exempel visas ett lyckat svar för token:
 
 ```json
 {
@@ -105,7 +106,7 @@ Om användaren inte har angett rätt användarnamn eller lösenord eller om klie
 |------ | ----------- | -------------|
 | `invalid_grant` | Autentiseringen misslyckades | Autentiseringsuppgifterna är felaktiga eller klienten har inte medgivande för de begärda omfång. Om du inte beviljats scope, en `consent_required` fel returneras. Om detta inträffar kan ska klienten skicka användaren till en interaktiv prompt med hjälp av en webbvy eller webbläsare. |
 | `invalid_request` | Begäran konstruerades felaktigt | Beviljandetypen stöds inte på den `/common` eller `/consumers` kontexter för autentisering.  Använd `/organizations` i stället. |
-| `invalid_client` | Appen konfigureras felaktigt | Detta kan inträffa om den `allowPublicClient` egenskapen är inte inställd på true i den [programmanifestet](reference-app-manifest.md). Den `allowPublicClient` egenskapen är nödvändigt eftersom det ROPC beviljandet inte har en omdirigerings-URI. Azure AD kan inte fastställa om appen är en offentlig klientprogram eller ett konfidentiellt klientprogram, såvida inte egenskapen. Observera att ROPC stöds endast för offentliga klientappar. |
+| `invalid_client` | Appen konfigureras felaktigt | Detta kan inträffa om den `allowPublicClient` egenskapen är inte inställd på true i den [programmanifestet](reference-app-manifest.md). Den `allowPublicClient` egenskapen är nödvändigt eftersom det ROPC beviljandet inte har en omdirigerings-URI. Azure AD kan inte fastställa om appen är en offentlig klientprogram eller ett konfidentiellt klientprogram, såvida inte egenskapen. ROPC stöds endast för offentliga klientappar. |
 
 ## <a name="learn-more"></a>Läs mer
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798954"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003691"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
 
@@ -112,7 +112,7 @@ Azure Monitor kan samla in loggdata från olika källor båda i Azure och lokala
 
 | Data | Beskrivning |
 |:---|:---|
-| Azure Monitor för behållare | Inventerings-och prestanda som samlas in av [Azure Monitor för behållare](../insights/container-insights-overview.md). Se [datainsamling behållarinformation](../insights/container-insights-analyze.md#container-data-collection-details) en lista över tabellerna. |
+| Azure Monitor för containrar | Inventerings-och prestanda som samlas in av [Azure Monitor för behållare](../insights/container-insights-overview.md). Se [datainsamling behållarinformation](../insights/container-insights-log-search.md#container-records) en lista över tabellerna. |
 | Azure Monitor för virtuella datorer | Kartan och prestandadata som samlats in av [Azure Monitor för virtuella datorer](../insights/vminsights-overview.md). Se [så fråga loggar från Azure Monitor för virtuella datorer](../insights/vminsights-log-search.md) mer information om denna datafrågan. |
 
 ### <a name="custom"></a>Anpassat 

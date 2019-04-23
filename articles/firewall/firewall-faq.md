@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: a89a7e3abbb94465a2ea5eb61eda3e967c26d1f0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fcff4ff141dbac84d0b96c166c36018b0cc09d8e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680834"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997571"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor om Azure-brandväggen
 
@@ -137,7 +137,7 @@ Ja. Brandväggen, undernät, virtuella nätverk och den offentliga IP-adressen m
 
 Nej. NAT-regler är implicit lägga till en regel för motsvarande för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](/articles/firewall/rule-processing.md).
 
-## <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Hur till jokertecken fungerar i ett program regelmål FQDN?
+## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Hur fungerar jokertecken i ett program regelmål FQDN?
 
 Om du konfigurerar ***. contoso.com**, tillåter *anyvalue*. contoso.com, men inte contoso.com (domän överst). Om du vill tillåta överst domän måste du uttryckligen konfigurera den som ett FQDN-mål.
 

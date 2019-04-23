@@ -1,24 +1,24 @@
 ---
-title: Skapa en Programgateway som är värd för flera webbplatser – Azure-portalen
-description: Lär dig hur du skapar en Programgateway som är värd för flera webbplatser med hjälp av Azure portal.
+title: Självstudie – skapa en Programgateway som är värd för flera webbplatser med hjälp av Azure portal
+description: I den här självstudien får du lära dig hur du skapar en Programgateway som är värd för flera webbplatser med hjälp av Azure portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080175"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999033"
 ---
-# <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Skapa och konfigurera en Programgateway som värd för flera webbplatser med hjälp av Azure portal
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Självstudier: Skapa och konfigurera en Programgateway som värd för flera webbplatser med hjälp av Azure portal
 
-Du kan använda Azure portal för att [konfigurera den som är värd för flera webbplatser](multiple-site-overview.md) när du skapar en [Programgateway](overview.md). I den här artikeln kan du definiera serverdelsadresspooler med hjälp av virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här artikeln förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.fabrikam.com*.
+Du kan använda Azure portal för att [konfigurera den som är värd för flera webbplatser](multiple-site-overview.md) när du skapar en [Programgateway](overview.md). I den här självstudien definierar du serverdelsadresspooler med hjälp av virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. I den här självstudien förutsätts att du äger flera domäner. Vi använder *www.contoso.com* och *www.fabrikam.com* som exempel.
 
-I den här artikeln kan du se hur du:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en programgateway
@@ -146,7 +146,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 
 Regler bearbetas i ordningen de anges, och trafiken dirigeras med hjälp av den första regel som matchar oavsett särskilda egenskaper. Om du till exempel har en regel med en grundläggande lyssnare och en regel med en lyssnare för flera webbplatser för samma port så måste regeln med lyssnare för flera platser stå innan regeln med den grundläggande lyssnaren om regeln för flera platser ska fungera som förväntat. 
 
-I det här exemplet skapar du två nya regler och tar bort standardregeln som skapades när du skapade programgatewayen. 
+I det här exemplet skapar två nya regler och ta bort Standardregeln skapade när du skapade application gateway.
 
 1. Klicka på **regler** och klicka sedan på **grundläggande**.
 2. Ange *contosoRule* för namnet.
@@ -179,6 +179,18 @@ När du har skapat programgatewayen med dess offentliga IP-adress kan du hämta 
 
     ![Testa fabrikam-webbplatsen i programgatewayen](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du inte längre behöver de resurser som du skapade med programgatewayen kan du ta bort resursgruppen. När du tar bort resursgruppen tas även programgatewayen och alla dess relaterade resurser bort.
+
+Så här tar du bort resursgruppen:
+
+1. Välj **Resursgrupper** på den vänstra menyn på Azure-portalen.
+2. På sidan **Resursgrupper** söker du efter och väljer **myResourceGroupAG**.
+3. Välj **Ta bort resursgrupp** på sidan **Resursgrupp**.
+4. Ange *myResourceGroupAG* för **Skriv resursgruppens namn** och välj sedan **Ta bort**
+
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera App Service med Application Gateway](create-web-app.md)
+> [!div class="nextstepaction"]
+> [Mer information om vad du kan göra med Azure Application Gateway](application-gateway-introduction.md)

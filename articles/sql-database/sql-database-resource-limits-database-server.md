@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093896"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998285"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resursgränser för Azure SQL Database-server
 
@@ -75,7 +75,7 @@ När den påträffar hög användning för sessionen eller arbete, är minskning
 - Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>Transaktionen Log Rate styrning 
-Transaktionen log rate styrning är en process i Azure SQL-databas som används för att begränsa enligt hög datainmatningsfrekvensen för arbetsbelastningar som bulk insert SELECT INTO och indexversioner. Dessa gränser spåras och tillämpas på nivån under en sekund att frekvensen för generering av loggar poster, begränsande dataflöde, oavsett hur många IOs kan utfärdas mot datafiler.  Transaktionspriser log generation för närvarande skalas linjärt upp till en tidpunkt som beror på maskinvaran, log-maximala hastighet tillåts som 48 MB/s med vCore köpa modellen. 
+Transaktionen log rate styrning är en process i Azure SQL-databas som används för att begränsa enligt hög datainmatningsfrekvensen för arbetsbelastningar som bulk insert SELECT INTO och indexversioner. Dessa gränser spåras och tillämpas på nivån under en sekund att frekvensen för generering av loggar poster, begränsande dataflöde, oavsett hur många IOs kan utfärdas mot datafiler.  Transaktionspriser log generation för närvarande skalas linjärt upp till en tidpunkt som beror på maskinvaran, log-maximala hastighet tillåts som 96 MB/s med vCore köpa modellen. 
 
 > [!NOTE]
 > De faktiska fysiska IOs till transaktionsloggfiler är inte regleras eller begränsas. 
@@ -98,7 +98,7 @@ Log rate resursstyrning-Trafikstyrning är visas via följande typer av vänta (
 |||
 
 När den påträffar en hastighetsbegränsning för log som hindrar den önskade skalbarhet, Överväg följande alternativ:
-- Skala upp till en större nivå för att få högsta 48 MB/s log överföringshastighet. 
+- Skala upp till en större nivå för att få högsta 96 MB/s log överföringshastighet. 
 - Om data som läses in är tillfälligt, kan organiserar data i ett ETL-processen dvs., den läsas in i tempdb (som loggas minimalt). 
 - Läs in i en klustrad columnstore som omfattas-tabell för analytiska scenarier. Detta minskar den nödvändiga log hastigheten på grund av komprimering. Den här tekniken ökar CPU-användning och gäller endast för datauppsättningar som används för att dra nytta av grupperade columnstore-index. 
 

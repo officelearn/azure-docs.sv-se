@@ -4,17 +4,17 @@ description: Lär dig hur du felsöker problem med hantering av agenten.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/14/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: MT
+ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813117"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150123"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Förstå Linux-agenten kontrollera resultaten i hantering av uppdateringar
 
@@ -25,6 +25,9 @@ I följande lista är en dator kan vara i för tre beredskapstillstånd:
 * **Redo** -update-agenten har distribuerats och sågs senast mindre än 1 timme sedan.
 * **Frånkopplad** -update-agenten har distribuerats och sågs senast över 1 timme sedan.
 * **Inte konfigurerad** -update-agenten inte hittas eller har inte slutförts onboarding.
+
+> [!NOTE]
+> Det kan finnas en fördröjning mellan Azure-portalen visar och det aktuella tillståndet för datorn.
 
 ## <a name="start-the-troubleshooter"></a>Starta felsökaren
 

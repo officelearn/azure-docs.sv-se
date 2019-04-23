@@ -1,20 +1,19 @@
 ---
-title: Azure Data Factory dataflöde härledda kolumnen omvandling
-description: Azure Data Factory dataflöde härledda kolumnen omvandling
+title: Azure Data Factory mappning dataflödet härledda kolumnen omvandling
+description: Visar hur du omvandlar data i skala med Azure Data Factory mappning Flow härledda kolumnen Dataomvandling
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 1335b86431bcf345f452ead0c95926d295ae185f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: f53e122eb1b2a5b6dabb9a44aef42394d0c7edb6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728768"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999494"
 ---
-# <a name="azure-data-factory-data-flow-derived-column-transformation"></a>Azure Data Factory dataflöde härledda kolumnen omvandling
+# <a name="mapping-data-flow-derived-column-transformation"></a>Mappning av dataflödet härledda kolumnen omvandling
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -27,3 +26,13 @@ Du kan utföra flera åtgärder för härledd kolumn i en enda härledd kolumn o
 Välj en befintlig kolumn att skriva över med ett nytt härledda värde i fältet kolumnen eller klicka på ”Skapa ny kolumn” för att generera en ny kolumn med nyligen härledda värdet.
 
 Textrutan uttryck öppnas Uttrycksverktyget där du kan skapa uttrycket för de härledda kolumner med hjälp av uttryck.
+
+## <a name="column-patterns"></a>Kolumnmönster
+
+Om din kolumnnamn kan variera från dina källor, kan du skapa omvandlingar i den härledda kolumnen med hjälp av kolumnen mönster istället för att använda med namnet kolumner. Se den [schemat Drift](concepts-data-flow-schema-drift.md) nedan för mer information.
+
+![mönster för kolumnen](media/data-flow/columnpattern.png "kolumnen mönster")
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer om den [Data Factory Uttrycksspråk transformeringar](http://aka.ms/dataflowexpressions) och [Uttrycksverktyget](concepts-data-flow-expression-builder.md)

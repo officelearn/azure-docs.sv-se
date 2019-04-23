@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cff3a2ec4d0bed7a030ca430eaa698eb4a7325
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278776"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994715"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalningsuppsättning för virtuella datorer som använder Tillgänglighetszoner
 
@@ -62,7 +62,7 @@ När du distribuerar en skalningsuppsättning för virtuell dator kan välja du 
 
 När du skapar en skalningsuppsättning i en enskild zon, du bestämmer vilken zon dessa VM-instanser som körs i och skalningsuppsättningen är hanterad och skalar endast inom den zonen. En zonredundant skalningsuppsättning kan du skapa en enkel skalningsuppsättning som sträcker sig över flera zoner. När VM-instanser skapas som standard balanseras de jämnt mellan zoner. Om ett avbrott skulle inträffa i någon av zonerna en skalningsuppsättning inte automatiskt skala ut för att öka kapaciteten. Ett bra tips är att konfigurera regler för automatisk skalning baserat på användning av CPU eller minne. Regler för automatisk skalning att skalningsuppsättningen att svara på en förlust av VM-instanser i den en zon genom att skala ut nya instanser i återstående operativa zoner.
 
-Om du vill använda Tillgänglighetszoner, måste din skalningsuppsättning skapas i en [stöds Azure-region](../availability-zones/az-overview.md#regions-that-support-availability-zones). Du kan skapa en skalningsuppsättning som använder Tillgänglighetszoner med någon av följande metoder:
+Om du vill använda Tillgänglighetszoner, måste din skalningsuppsättning skapas i en [stöds Azure-region](../availability-zones/az-overview.md#services-support-by-region). Du kan skapa en skalningsuppsättning som använder Tillgänglighetszoner med någon av följande metoder:
 
 - [Azure Portal](#use-the-azure-portal)
 - Azure CLI

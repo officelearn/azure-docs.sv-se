@@ -6,20 +6,20 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351379"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000665"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållarinstanser som använder GPU-resurser
 
 Om du vill köra vissa beräkningsintensiva arbetsbelastningar på Azure Container Instances, distribuera dina [behållargrupper](container-instances-container-groups.md) med *GPU resurser*. Behållarinstanserna i gruppen kan komma åt en eller flera NVIDIA Tesla-grafikprocessorer vid körning av behållararbetsbelastningar som CUDA och deep learning-program.
 
-Som du ser i den här artikeln kan du kan lägga till GPU-resurser när du distribuerar en behållargrupp med en [YAML-fil](container-instances-multi-container-yaml.md) eller [Resource Manager-mall](container-instances-multi-container-group.md).
+Den här artikeln visar hur du lägger till GPU-resurser när du distribuerar en behållargrupp med en [YAML-fil](container-instances-multi-container-yaml.md) eller [Resource Manager-mall](container-instances-multi-container-group.md). Du kan också ange GPU-resurser när du distribuerar en instans i behållaren med hjälp av Azure portal.
 
 > [!IMPORTANT]
 > Den här funktionen finns för närvarande i förhandsversion och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
@@ -61,7 +61,7 @@ När du distribuerar GPU-resurser kan ange du Processorn och minnesresurser pass
 
 * **Priser** – påminner om behållargrupper utan GPU-resurser, Azure-fakturor för resurser som används över den *varaktighet* för en behållargrupp med GPU-resurser. Varaktigheten beräknas från tidpunkten då att hämta din första behållares avbildning till dess att behållargruppen avslutas. Det inkluderar inte tiden för att distribuera behållargruppen.
 
-  Priserna är högre för behållargrupper med GPU-resurser än för behållargrupper utan. Se [prisinformation](https://azure.microsoft.com/pricing/details/container-instances/).
+  Se [prisinformation](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **CUDA drivrutiner** – Container instances med GPU-resurser är företablerade med NVIDIA CUDA-drivrutiner och behållarkörningar, så du kan använda behållaravbildningar som har utvecklats för CUDA-arbetsbelastningar.
 

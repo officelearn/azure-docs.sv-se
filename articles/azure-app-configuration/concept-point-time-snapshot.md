@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 6238f96c9e8df0431e42caa5e5846af3fc60e681
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 83770e8c5f415670855b5cf2502d02c4d6919440
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484023"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998081"
 ---
 # <a name="point-in-time-snapshot"></a>Tidpunktsbaserad ögonblicksbild
 
@@ -34,4 +34,5 @@ Konfiguration av håller för närvarande sju dagarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart: Skapa en ASP.NET-webbapp](quickstart-aspnet-core-app.md)  
+> [!div class="nextstepaction"]
+> [Skapa en ASP.NET Core-webbapp](./quickstart-aspnet-core-app.md)  

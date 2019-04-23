@@ -2,18 +2,18 @@
 title: Hur du ansluter till datakällor i Azure Data Catalog
 description: Artikel visar hur du ansluter till datakällor som identifierats med Azure Data Catalog.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 973077b56f1a777d917a94f9c1470e6f8c15a489
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405062"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000580"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Så här ansluter du till datakällor
 ## <a name="introduction"></a>Introduktion
@@ -37,11 +37,11 @@ När du använder det ”öppna i...” menyn för datakällor i Azure Data Cata
 
 | Öppna i programmet | Filnamnstillägget / protokoll | Versioner av program som stöds |
 | --- | --- | --- |
-| Excel |ODC |Excel 2010 eller senare |
-| Excel (Top 1000) |ODC |Excel 2010 eller senare |
+| Excel |.odc |Excel 2010 eller senare |
+| Excel (Top 1000) |.odc |Excel 2010 eller senare |
 | Power Query |.xlsx |Excel 2016 eller Excel 2010 eller Excel 2013 med Power Query för Excel-tillägget installerat |
 | Power BI Desktop |.pbix |Power BI Desktop juli 2016 eller senare |
-| SQL Server Data Tools |vsweb: / / |Visual Studio 2013 Update 4 eller senare med SQL Server-verktyg som installerats |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 eller senare med SQL Server-verktyg som installerats |
 | Rapporthanteraren |http:// |Se [Webbläsarkrav för SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Dina data och dina verktyg

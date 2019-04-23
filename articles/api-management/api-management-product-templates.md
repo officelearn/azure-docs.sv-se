@@ -80,9 +80,9 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 |Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Sidindelning|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för samlingen produkter.|  
-|Filtrering|[Filtrering](api-management-template-data-model-reference.md#Filtering) entitet.|Filtrera information för sidan produkter.|  
-|Produkter|Insamling av [produkten](api-management-template-data-model-reference.md#Product) entiteter.|Produkterna som är synliga för den aktuella användaren.|  
+|Paging|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för samlingen produkter.|  
+|Filtering|[Filtrering](api-management-template-data-model-reference.md#Filtering) entitet.|Filtrera information för sidan produkter.|  
+|Products|Insamling av [produkten](api-management-template-data-model-reference.md#Product) entiteter.|Produkterna som är synliga för den aktuella användaren.|  
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  
   
@@ -205,15 +205,15 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 |Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Produkt|[Produkten](api-management-template-data-model-reference.md#Product)|Den angivna produkten.|  
+|Product|[Produkten](api-management-template-data-model-reference.md#Product)|Den angivna produkten.|  
 |IsDeveloperSubscribed|boolesk|Om den aktuella användaren en prenumeration på den här produkten.|  
 |SubscriptionState|nummer|Tillståndet för prenumerationen. Möjliga tillstånd är:<br /><br /> -   `0 - suspended` – prenumerationen blockeras och prenumeranten kan inte anropa alla API: er i produkten.<br />-   `1 - active` – prenumerationen är aktiv.<br />-   `2 - expired` – prenumerationen har nått dess förfallodatum och inaktiverades.<br />-   `3 - submitted` – prenumerationsbegäran har gjorts av utvecklaren, men har ännu inte har godkänts eller avvisats.<br />-   `4 - rejected` – prenumerationsbegäran har nekats av en administratör.<br />-   `5 - cancelled` – prenumerationen har avbrutits av utvecklare eller administratör.|  
-|Begränsningar|matris|Den här egenskapen är inaktuell och ska inte användas.|  
+|Limits|matris|Den här egenskapen är inaktuell och ska inte användas.|  
 |DelegatedSubscriptionEnabled|boolesk|Om [delegering](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) har aktiverats för den här prenumerationen.|  
 |DelegatedSubscriptionUrl|sträng|Om delegering är aktiverat delegerade prenumeration URL: en.|  
 |IsAgreed|boolesk|Om produkten har villkor, oavsett om den aktuella användaren har godkänt villkoren.|  
-|Prenumerationer|Insamling av [prenumerationssammanfattning](api-management-template-data-model-reference.md#SubscriptionSummary) entiteter.|Prenumerationer för produkten.|  
-|API: er|Insamling av [API](api-management-template-data-model-reference.md#API) entiteter.|API: er i den här produkten.|  
+|Subscriptions|Insamling av [prenumerationssammanfattning](api-management-template-data-model-reference.md#SubscriptionSummary) entiteter.|Prenumerationer för produkten.|  
+|Apis|Insamling av [API](api-management-template-data-model-reference.md#API) entiteter.|API: er i den här produkten.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|boolesk|Om den aktuella användaren är berättigade att prenumerera på den här produkten avseende prenumerationsgränsen.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|boolesk|Om den aktuella användaren är berättigade att prenumerera på den här produkten när det gäller flera prenumerationer som tillåts eller inte.|  
   

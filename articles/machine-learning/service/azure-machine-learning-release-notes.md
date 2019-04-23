@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 7fc0d3a2e29a2aaa06d88f25828ff676d615939d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579163"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149573"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -23,12 +23,39 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 + Azure Machine Learning [ **huvudsakliga SDK för Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-04-17"></a>2019-04-17
+
+### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning Data Förbered SDK v1.1.2
+
+Obs! Data Prep Python SDK: N kommer inte längre installera `numpy` och `pandas` paket. Se [uppdateras Installationsinstruktioner](https://aka.ms/aml-data-prep-installation).
+
++ **Nya funktioner**
+  + Du kan nu använda Pivot-transformeringen.
+    + Här guiden: [Pivot-anteckningsbok](https://aka.ms/aml-data-prep-pivot-nb)
+  + Du kan nu använda reguljära uttryck i ursprungliga funktioner.
+    + Exempel:
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + Du kan nu använda `to_upper`  och `to_lower`  funktioner i Uttrycksspråk.
+  + Du kan nu se antalet unika värden för varje kolumn i en dataprofil.
+  + För några av de vanliga läsare steg, kan du nu skicka den `infer_column_types` argumentet. Om den är inställd på `True`, Dataförberedelser kommer att försöka identifiera och automatiskt konvertera kolumntyper.
+    + `inference_arguments` är nu föråldrad.
+  + Nu kan du anropa `Dataflow.shape`.
+
++ **Felkorrigeringar och förbättringar**
+  + `keep_columns` accepterar nu ett valfritt argument `validate_column_exists`, som kontrollerar om resultatet av `keep_columns` innehåller några kolumner.
+  + Alla läsare steg (som läses från en fil) accepterar nu ett valfritt argument `verify_exists`.
+  + Förbättrad prestanda för att läsa från pandas-dataframe och hämta data profiler.
+  + Ett fel har åtgärdats där uppdelning av ett enda steg från ett dataflöde misslyckades med ett enda index.
+
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Azure Portal
++ **Nya funktioner**
   + Du kan nu skicka ett befintligt skript som körs på en befintlig remote beräkningskluster. 
   + Du kan nu köra en publicerade pipeline med nya parametrar på fliken Pipelines. 
   + Körningsinformation har nu stöd för en ny ögonblicksbild-granskaren. Du kan visa en ögonblicksbild av katalogen när du har skickat in en specifik körning. Du kan också hämta anteckningsboken som skickades för att starta körningen.
+   + Nu kan du avbryta överordnade körs från Azure Portal.
 
 ## <a name="2019-04-08"></a>2019-04-08
 

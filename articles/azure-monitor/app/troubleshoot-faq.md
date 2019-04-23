@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521830"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149296"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -134,7 +134,7 @@ Lär dig mer om [ASP.NET](api-filtering-sampling.md) eller [Java](java-filter-te
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Hur beräknas ort, land och andra data för geo-plats?
 
-Vi ser IP-adress (IPv4 eller IPv6) för webbklienten med [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+Vi ser IP-adress (IPv4 eller IPv6) för webbklienten med [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Webbläsartelemetri: Vi samlar in avsändarens IP-adress.
 * Telemetri: Modulen Application Insights samlar in klientens IP-adress. Den har inte samlats in om `X-Forwarded-For` har angetts.

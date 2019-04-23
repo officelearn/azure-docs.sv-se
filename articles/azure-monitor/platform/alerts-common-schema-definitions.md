@@ -1,6 +1,6 @@
 ---
-title: Vanliga avisering schemadefinitioner för Webhooks/Logic Apps/Azure Functions
-description: Förstå vanliga avisering schemadefinitionerna för Webhooks/Logic Apps/Azure Functions
+title: Vanliga avisering schemadefinitioner för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks
+description: Förstå vanliga avisering schemadefinitionerna för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010404"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149418"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
 
-Den här artikeln beskriver den [vanliga avisering schemadefinitioner](https://aka.ms/commonAlertSchemaDocs) för Webhooks/Logic Apps/Azure Functions. 
+Den här artikeln beskriver den [vanliga avisering schemadefinitioner](https://aka.ms/commonAlertSchemaDocs) för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks. 
 
 ## <a name="overview"></a>Översikt
 
@@ -80,7 +80,7 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 |:---|:---|
 | alertId | GUID som unikt identifierar aviseringsinstansen. |
 | alertRule | Namnet på den varningsregel som genererade aviseringen instansen. |
-| Allvarsgrad | Allvarlighetsgrad för aviseringen. Möjliga värden: Sev0, Sev1, Sev2, Sev3, Sev4 |
+| Severity | Allvarlighetsgrad för aviseringen. Möjliga värden: Sev0, Sev1, Sev2, Sev3, Sev4 |
 | signalType | Identifierar signalen där varningsregeln har definierats. Möjliga värden: Mått, Log, aktivitetsloggen |
 | monitorCondition | När en avisering utlöses anges aviseringens övervakningsvillkor till 'Fired'. När det underliggande villkoret som orsakade aviseringen utlöses rensar har övervakarens villkor angetts till ”löst'.   |
 | monitoringService | Övervakningstjänsten eller lösning som skapade aviseringen. Fälten för kontexten fastställs av övervakningstjänsten. |
@@ -88,7 +88,7 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 | originAlertId | ID för aviseringsinstansen som genereras av övervakningstjänsten genererar den. |
 | firedDateTime | Datum tid för när aviseringen instansen har utlösts i UTC |
 | resolvedDateTime | Datum/tid för när övervakarens villkor för avisering-instansen har angetts till löst om du i UTC. För närvarande gäller endast för måttaviseringar.|
-| beskrivning | Beskrivning som definierats i regeln |
+| description | Beskrivning som definierats i regeln |
 |essentialsVersion| Versionsnummer för avsnittet essentials.|
 |alertContextVersion | Versionsnumret för avsnittet alertContext |
 
@@ -200,7 +200,7 @@ Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken 
 }
 ```
 
-### <a name="activity-log-alerts"></a>Aktivitetsloggsaviseringar
+### <a name="activity-log-alerts"></a>Aktivitetsloggaviseringar
 
 #### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = 'Aktivitetsloggen – administrativa'
 

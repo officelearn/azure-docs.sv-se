@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 00c50f95324e18f738740a9bec572ca676ab9165
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f2b459ccfd7e3f513b9b6526864321ce247ae7aa
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010604"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004524"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Skapa en zonredundant virtuell nätverksgateway i Azure Availability Zones
 
@@ -154,7 +154,7 @@ Ja, du kan använda Azure-portalen för att distribuera de nya SKU: er. Dock vis
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Vilka regioner är tillgängliga för mig att använda de nya SKU: er?
 
-Se [Tillgänglighetszoner](../availability-zones/az-overview.md#regions-that-support-availability-zones) för den senaste listan över tillgängliga regioner.
+Se [Tillgänglighetszoner](../availability-zones/az-overview.md#services-support-by-region) för den senaste listan över tillgängliga regioner.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Kan jag ändra/migrera/uppgradera min befintliga virtuella nätverksgatewayer för zonredundant eller zonindelad-gatewayer?
 

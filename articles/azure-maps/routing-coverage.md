@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 718eefc95384dde050a4a25e6850fe6db574d294
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ef62ec78bc7fc01bd2e6dd7c5561b15be85540d2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258937"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007907"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps routning täckning
 
@@ -136,12 +136,12 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | Kambodja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| Hongkong SAR                      |        ✓       |         ✓            |             |
+| Hongkong SAR                  |        ✓       |         ✓            |             |
 | Indien                          |        ✓       |         ✓            |             |
 | Indonesien                      |        ✓       |         ✓            |             |
 | Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
-| Macao SAR                          |        ✓       |         ✓            |             |
+| Macao SAR                      |        ✓       |         ✓            |             |
 | Malaysia                       |        ✓       |         ✓            |             |
 | Myanmar                        |        ✓       |                      |             |
 | Nya Zeeland                    |        ✓       |         ✓            |     ✓       | 
@@ -190,7 +190,7 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | Liechtenstein                  |        ✓       |         ✓            |             |
 | Litauen                      |        ✓       |         ✓            |     ✓      | 
 | Luxemburg                     |        ✓       |         ✓            |     ✓      | 
-| Irland                      |        ✓       |                      |             |
+| Nordmakedonien                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldavien                        |        ✓       |                      |             |
 | Monaco                         |        ✓       |         ✓            |             |

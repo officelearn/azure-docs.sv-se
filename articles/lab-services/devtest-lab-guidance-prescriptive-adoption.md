@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 67bb81675dabd8aef28693a958a0ac39b1b441e7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549260"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149010"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Skapa en Azure DevTest Labs-infrastruktur i ditt företag
-Företag snabbt går över till molnet på grund av dess [fördelar](/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) som omfattar rörlighet, flexibilitet och ekonomin. Vanliga det första steget för kunder att använda molnet är att börja med arbetsbelastningar för utveckling och testning.  DevTest Labs ger [funktioner](devtest-lab-concepts.md) som dra enterprise och support [nyckeln enterprise dev/test-scenarier](devtest-lab-guidance-get-started.md).
+Företag snabbt går över till molnet på grund av dess [fördelar](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) som omfattar rörlighet, flexibilitet och ekonomin. Vanliga det första steget för kunder att använda molnet är att börja med arbetsbelastningar för utveckling och testning.  DevTest Labs ger [funktioner](devtest-lab-concepts.md) som dra enterprise och support [nyckeln enterprise dev/test-scenarier](devtest-lab-guidance-get-started.md).
 
 Det finns en gemensam uppsättning frågor när du migrerar dessa arbetsbelastningar till molnet:
 
@@ -35,6 +35,10 @@ Det finns en gemensam uppsättning frågor när du migrerar dessa arbetsbelastni
 
 ## <a name="intended-audience"></a>Målgrupp
 I dokumentationen för företagsinriktade är avsedd för IT-planerare, arkitekter och chefer som ansvarar för att upprätta och granska övergripande distributioner och övervaka åtgärder metoder. Därför kan det här dokumentet visar den övergripande processen och rekommenderade design-principerna för att främja en miljö med säkra och stabila utveckling/testning, som slutligen styr användningen av Azure DevTest Labs inom en organisation.
+
+## <a name="enterprise-customers"></a>Enterprise-kunder
+
+Många aktuella DevTest Labs-företagskunder använda kunna labb för utveckling och för att testa arbetsbelastningar i sina organisationer. [Läs mer](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Referensarkitektur för ett företag](devtest-lab-reference-architecture.md)

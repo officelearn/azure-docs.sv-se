@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799481"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149137"
 ---
 # <a name="registration-management"></a>Registreringshantering
 
@@ -36,11 +36,11 @@ Enhetsregistrering med en Notification Hub åstadkoms med hjälp av en **registr
 En registrering associerar Platform Notification Service (PNS) referensen för en enhet med taggar och eventuellt en mall. PNS-handtag kan vara en ChannelURI eller enhetstoken FCM registrerings-id. Taggar används för att dirigera meddelanden till rätt uppsättning enhetshandtag. Mer information finns i [Routning och Tagguttryck](notification-hubs-tags-segment-push-message.md). Mallar används för att implementera per registrering omvandling. Mer information finns i [Mallar](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
-> Azure Notification Hubs stöder högst 60 taggar per registrering.
+> Azure Notification Hubs stöder högst 60 taggar per enhet.
 
 ### <a name="installations"></a>Installationer
 
-En Installation är en förbättrad registrering som innehåller en mängd push relaterade egenskaper. Det är den senaste och bästa metoden för att registrera dina enheter. Men det inte stöds av klient-SDK för .NET ([Notification Hub-SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) ännu.  Det innebär att om du registrerar från själva klientenheten, skulle du behöva använda den [Notification Hubs – REST API](https://msdn.microsoft.com/library/mt621153.aspx) metod för att stödja installationer. Om du använder en backend-tjänst du ska kunna använda [Notification Hub-SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+En Installation är en förbättrad registrering som innehåller en mängd push relaterade egenskaper. Det är den senaste och bästa metoden för att registrera dina enheter. Men det inte stöds av klient-SDK för .NET ([Notification Hub-SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) ännu.  Det innebär att om du registrerar från själva klientenheten, skulle du behöva använda den [Notification Hubs – REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) metod för att stödja installationer. Om du använder en backend-tjänst du ska kunna använda [Notification Hub-SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Här följer några viktiga fördelar med att använda installationer:
 
@@ -48,7 +48,7 @@ Här följer några viktiga fördelar med att använda installationer:
 - Modellen installation har stöd för en särskild tagg-format (`$InstallationId:{INSTALLATION_ID}`) som gör att skicka ett meddelande direkt till enheten. Exempel: om appens koden anger ett installations-ID för `joe93developer` för just den här enheten, en utvecklare kan riktas mot den här enheten när du skickar ett meddelande till den `$InstallationId:{joe93developer}` tagg. På så sätt kan du rikta en specifik enhet utan att behöva göra ytterligare kodning.
 - Med hjälp av installationer kan du också göra partiella registreringsuppdateringar. Deluppdatering av en installation begärs med en PATCH-metoden med den [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). Detta är användbart när du vill uppdatera taggar på registreringen. Du behöver hämta hela registreringen och skicka sedan om alla tidigare taggar.
 
-En installation kan innehålla följande egenskaper. En fullständig lista över installationsegenskaper Se [skapa eller skriva över en Installation med REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) eller [installationsegenskaper](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+En installation kan innehålla följande egenskaper. En fullständig lista över installationsegenskaper Se [skapa eller skriva över en Installation med REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) eller [installationsegenskaper](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
 ```json
 // Example installation format to show some supported properties

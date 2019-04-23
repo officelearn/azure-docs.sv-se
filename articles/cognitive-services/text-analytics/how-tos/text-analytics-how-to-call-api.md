@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122883"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011270"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Hur du anropar den REST API för textanalys
 
@@ -26,9 +26,9 @@ Varje begäran måste innehålla din åtkomstnyckel och en HTTP-slutpunkt. Slutp
 Kom ihåg att Text Analytics är tillståndslösa så att det finns inga datatillgångar som du hanterar. Texten har överförts kan analyseras vid mottagning, och resultaten returneras direkt till det anropande programmet.
 
 > [!Tip]
-> För oneoff-anrop och se hur API: et fungerar, kan du skicka POST-förfrågningar från inbyggt **API testkonsolen**, tillgängligt på valfri [API doc-sidan](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Det finns inga inställningar och de enda kraven är att klistra in en åtkomstnyckel och JSON-dokument i begäran. 
+> För oneoff-anrop och se hur API: et fungerar, kan du skicka POST-förfrågningar från inbyggt **API testkonsolen**, tillgängligt på valfri [API doc-sidan](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Det finns inga inställningar och de enda kraven är att klistra in en åtkomstnyckel och JSON-dokument i begäran. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API för textanalys, och [slutpunkt och åtkomstnyckel](text-analytics-how-to-access-key.md) som genererades när du registrerar dig för Cognitive Services. 
 
@@ -60,10 +60,10 @@ Tjänsten tar emot begäran upp till 1 MB i storlek. Om du använder Postman (el
 
    Resursen slutpunkter finns på följande sätt (din region kan variera):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. Ställ in tre begärandehuvuden:
 
@@ -81,10 +81,10 @@ Tjänsten tar emot begäran upp till 1 MB i storlek. Om du använder Postman (el
 
 5. Klistra in några JSON-dokument i ett format som är giltig för den avsedda analysen. Mer information om en viss analys finns i följande avsnitt:
 
-   + [Språkidentifiering](text-analytics-how-to-language-detection.md)  
-   + [Extrahering av diskussionsämne](text-analytics-how-to-keyword-extraction.md)  
-   + [Attitydanalys](text-analytics-how-to-sentiment-analysis.md)  
-   + [Igenkänning av entiteter (förhandsversion)](text-analytics-how-to-entity-linking.md)  
+  + [Språkidentifiering](text-analytics-how-to-language-detection.md)  
+  + [Extrahering av diskussionsämne](text-analytics-how-to-keyword-extraction.md)  
+  + [Attitydanalys](text-analytics-how-to-sentiment-analysis.md)  
+  + [Igenkänning av entiteter](text-analytics-how-to-entity-linking.md)  
 
 
 6. Klicka på **skicka** att skicka begäran. Du kan skicka upp till 100 begäranden per minut. 

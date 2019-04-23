@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651551"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149322"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure replikering
 
@@ -96,13 +96,19 @@ Site Recovery-IP-adressintervall är följande:
    Storbritannien, södra 2 | 13.87.37.4| 13.87.34.139
    Storbritannien, norra | 51.142.209.167 | 13.87.102.68
    Sydkorea, centrala | 52.231.28.253 | 52.231.32.85
-   Sydkorea, södra | 52.231.298.185 | 52.231.200.144
+   Sydkorea, södra | 52.231.198.185 | 52.231.200.144
    Frankrike, centrala | 52.143.138.106 | 52.143.136.55
    Frankrike, södra | 52.136.139.227 |52.136.136.62
    Australien, centrala| 20.36.34.70 | 20.36.46.142
    Australien, centrala 2| 20.36.69.62 | 20.36.74.130
    Sydafrika, västra | 102.133.72.51 | 102.133.26.128
    Sydafrika, norra | 102.133.160.44 | 102.133.154.128
+   Virginia (USA-förvaltad region) | 52.227.178.114 | 23.97.0.197
+   US Gov, Iowa | 13.72.184.23 | 23.97.16.186
+   Arizona (USA-förvaltad region) | 52.244.205.45 | 52.244.48.85
+   Texas (USA-förvaltad region) | 52.238.119.218 | 52.238.116.60
+   US DoD, östra | 52.181.164.103 | 52.181.162.129
+   US DoD, centrala | 52.182.95.237 | 52.182.90.133
 ## <a name="example-nsg-configuration"></a>Exempel NSG-konfiguration
 
 Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator att replikera.

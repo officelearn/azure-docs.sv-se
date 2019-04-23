@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851924"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149384"
 ---
 # <a name="common-alert-schema"></a>Vanligt aviseringsschema
 
@@ -39,14 +39,14 @@ Det gemensamma schemat för avisering visas själva främst i dina aviseringar. 
 |:---|:---|
 | SMS | En konsekvent SMS-mall för alla aviseringstyper. |
 | E-post | En konsekvent och detaljerade e-postmall, så att du kan enkelt diagnostisera problem på ett ögonblick. Inbäddade djup-länkar till aviseringsinstansen på portalen och resurser som påverkas se till att du snabbt kan gå in i processen för reparation. |
-| Webhook/Logic App/Azure-funktion | En konsekvent JSON struktur för alla aviseringstyper, där du kan enkelt skapa integreringar över olika aviseringstyper. |
+| Webhook/Logic App-/ Azure-funktion/Automation-Runbook | En konsekvent JSON struktur för alla aviseringstyper, där du kan enkelt skapa integreringar över olika aviseringstyper. |
 
 Det nya schemat kan också en rikare upplevelse för avisering förbrukning i både Azure-portalen och Azure-mobilappen i den närmaste framtiden. 
 
-[Läs mer om schemadefinitionerna för Webhooks/Logic Apps/Azure Functions.](https://aka.ms/commonAlertSchemaDefinitions)
+[Läs mer om schemadefinitionerna för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> Det gemensamma schemat för aviseringen har inte stöd för följande åtgärder: ITSM-anslutningsprogram, Automation-Runbook.
+> Det gemensamma schemat för aviseringen har inte stöd för följande åtgärder: ITSM-anslutningsprogram.
 
 ## <a name="how-do-i-enable-the-common-alert-schema"></a>Hur aktiverar jag det gemensamma schemat för avisering
 
@@ -54,11 +54,10 @@ Du kan anmäla eller avanmäla dig i det gemensamma aviseringarna schemat via å
 
 > [!NOTE]
 > 1. Följande aviseringstyper stöder det gemensamma schemat som standard (ingen opt i krävs):
->     * Avvikelseidentifiering aviseringar
+>     * Aviseringar för smart identifiering
 > 1. Följande aviseringstyper stöd finns inte för det gemensamma schemat:
->     * Service Health-aviseringar
->     * Aktivitetslogg – säkerhetsaviseringar
 >     * Aviseringar som genereras av [Azure Monitor för virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * Aviseringar som genereras av [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
 ### <a name="through-the-azure-portal"></a>Via Azure portal
 
@@ -69,7 +68,7 @@ Du kan anmäla eller avanmäla dig i det gemensamma aviseringarna schemat via å
 
 ### <a name="through-the-action-groups-rest-api"></a>Via åtgärdsgrupper REST-API
 
-Du kan också använda den [åtgärd grupper API](https://docs.microsoft.com/rest/api/monitor/actiongroups) att välja det gemensamma schemat för aviseringen. När du gör den [skapa eller uppdatera](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API-anrop, kan du ange flaggan ”useCommonAlertSchema” till 'true' (om du vill välja) eller ”FALSKT” (för att välja bort) för någon av följande åtgärder - e-post/webhook/logic app/Azure Function.
+Du kan också använda den [åtgärd grupper API](https://docs.microsoft.com/rest/api/monitor/actiongroups) att välja det gemensamma schemat för aviseringen. När du gör den [skapa eller uppdatera](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API-anrop, kan du ange flaggan ”useCommonAlertSchema” till 'true' (om du vill välja) eller ”FALSKT” (för att välja bort) för någon av följande åtgärder - e-post/webhook/logic app/Azure-funktion/automation-runbook.
 
 Till exempel följande begärandetext görs till den [skapa eller uppdatera](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST-API kommer att göra följande:
 
@@ -125,7 +124,7 @@ Till exempel följande begärandetext görs till den [skapa eller uppdatera](htt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vanliga avisering schemadefinitioner för Webhooks/Logic Apps/Azure Functions.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Vanliga avisering schemadefinitioner för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 

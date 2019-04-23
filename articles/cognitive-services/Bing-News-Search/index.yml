@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0249d47bad38e29e073e86f89d6ad453950bad44
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726116"
 documentType: LandingData
 title: Dokumentation om API för nyhetssökning i Bing
 titleSuffix: Azure Cognitive Services
 metadata:
-  title: Dokumentation om API för nyhetssökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs
-  description: Lär dig hur du använder API:et för nyhetssökning i Bing för att söka efter nyheter på webben.
+  title: 'Dokumentation om API för nyhetssökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs'
+  description: 'Lär dig hur du använder API:et för nyhetssökning i Bing för att söka efter nyheter på webben.'
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -22,85 +16,85 @@ metadata:
   ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: Med API:et för nyhetssökning i Bing kan du integrera Bings nyhetssökningsfunktioner i dina program. Du kan söka efter relevanta nyhetsartiklar från flera kategorier och källor genom att skicka sökfrågor med API:et, på samma sätt som på bing.com/news.
+  description: 'Med API:et för nyhetssökning i Bing kan du integrera Bings nyhetssökningsfunktioner i dina program. Du kan söka efter relevanta nyhetsartiklar från flera kategorier och källor genom att skicka sökfrågor med API:et, på samma sätt som på bing.com/news.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-news-search/search-the-web
+            html: '<p>Läs mer om API:et för nyhetssökning i Bing</p>'
+            image:
+              src: ../media/index/i_overview.svg
+            title: Vad är API för nyhetssökning i Bing?
+          - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
+            html: '<p>Lär dig hur du skickar sökförfrågningar till API:et för nyhetssökning i Bing.</p>'
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Skicka sökfrågor
+          - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
+            html: <p>Lär dig hur du söker efter flera olika typer och kategorier av nyheter.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Söka efter nyheter
+  - title: Snabbstarter på 5 minuter
     items:
-    - href: /azure/cognitive-services/bing-news-search/search-the-web
-      html: <p>Läs mer om API:et för nyhetssökning i Bing</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Vad är API för nyhetssökning i Bing?
-    - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
-      html: <p>Lär dig hur du skickar sökförfrågningar till API:et för nyhetssökning i Bing.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Skicka sökfrågor
-    - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
-      html: <p>Lär dig hur du söker efter flera olika typer och kategorier av nyheter.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Söka efter nyheter
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Sök efter nyheter på webben med hjälp av:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Sök efter nyheter på webben med hjälp av:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: news-search-sdk-quickstart
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: news-sdk-java-quickstart
+            text: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: news-search-sdk-node-quickstart
+            text: Node.js
+          - image:
+              src: media/index/logo_php.svg
+            href: php
+            text: PHP
+          - image:
+              src: media/index/logo_python.svg
+            href: news-sdk-python-quickstart
+            text: Python
+          - image:
+              src: media/index/logo_ruby.svg
+            href: ruby
+            text: Ruby
+  - title: Steg för steg-självstudier
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: news-search-sdk-quickstart
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: news-sdk-java-quickstart
-      text: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: news-search-sdk-node-quickstart
-      text: Node.js
-    - image:
-        src: media/index/logo_php.svg
-      href: php
-      text: PHP
-    - image:
-        src: media/index/logo_python.svg
-      href: news-sdk-python-quickstart
-      text: Python
-    - image:
-        src: media/index/logo_ruby.svg
-      href: ruby
-      text: Ruby
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Utveckla program med hjälp av API för nyhetssökning i Bing:'
-  - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Enkelsidig webbapp</a>
-- title: Exempel
-  items:
-  - type: paragraph
-    text: 'Hitta exempel på API för nyhetssökning i Bing:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Utveckla program med hjälp av API för nyhetssökning i Bing:'
+      - type: paragraph
+        text: <a href="tutorial-bing-news-search-single-page-app">Enkelsidig webbapp</a>
+  - title: Exempel
     items:
-    - html: <a href="sdk.md">Kodexempel</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Hitta exempel på API för nyhetssökning i Bing:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="sdk.md">Kodexempel</a>
+  - title: Referens
     items:
-    - title: API:er
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference">API för nyhetssökning i Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference">API för nyhetssökning i Bing v5</a></p>
-    - title: SDK:er
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet">NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch">Go</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 'API:er'
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference">API för nyhetssökning i Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference">API för nyhetssökning i Bing v5</a></p>'
+          - title: 'SDK:er'
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet">NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-newssearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch">Go</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

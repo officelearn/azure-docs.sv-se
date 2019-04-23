@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 3b354492778426d1e3c31e53e277fd9be1e22c93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048120"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149639"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitetstjänsten för VMware-datorer och fysiska servrar
 
@@ -115,7 +115,7 @@ Följande steg utförs under push-installation av mobilitetsagenten
 #### <a name="installation-settings"></a>Inställningar för klientinstallationer
 **Inställning** | **Detaljer**
 --- | ---
-Användning | UnifiedAgent.exe/role < MS|MT > /InstallLocation  <Install Location> /Platform ”VmWare” / silent
+Användning | UnifiedAgent.exe/role < MS/MT > /InstallLocation  <Install Location> /Platform ”VmWare” / silent
 Installationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 / Role | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmål (MT) ska installeras.
 /InstallLocation| Valfri parameter. Anger installationsplatsen för Mobility service (valfri mapp).
@@ -154,7 +154,7 @@ Agenten konfigurationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgent
 #### <a name="installation-settings"></a>Inställningar för klientinstallationer
 **Inställning** | **Detaljer**
 --- | ---
-Användning | . / install -d \<installationsplats > - r < MS|MT> -v VmWare -q
+Användning | . / install -d <Install Location> - r < MS/MT > - v VmWare - q
 -r | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmål (MT) ska installeras.
 -d | Valfri parameter. Anger installationsplatsen Mobility service: /usr/local/ASR.
 -v | Obligatorisk. Anger plattformen där Mobilitetstjänsten är installerad. **VMware** för VMware-datorer/fysiska servrar. **Azure** för virtuella Azure-datorer.

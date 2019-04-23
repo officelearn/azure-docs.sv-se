@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486326"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011375"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL serverinstansen för Failover-kluster på Azure Virtual Machines
 
@@ -399,7 +399,7 @@ Skapa belastningsutjämnaren:
 
    - **Namn**: Ett namn för hälsoavsökningen.
    - **Protokoll**: TCP.
-   - **Port**: Ange till en tillgänglig TCP-port. Den här porten kräver en öppen brandväggsport. Använd den [samma port](#ports) du angett för hälsoavsökningen i brandväggen.
+   - **Port**: Ange till den port som du skapade i brandväggen för hälsoavsökningen i [det här steget](#ports). I den här artikeln i exemplet används TCP-port `59999`.
    - **Intervall**: 5 sekunder.
    - **Tröskelvärde för Ej felfri**: 2 upprepade fel.
 

@@ -1,29 +1,29 @@
 ---
-title: Kör Azure CLI eller PowerShell-kommandon under en Azure AD-identitet för att komma åt data för blob och kö | Microsoft Docs
-description: Azure CLI och PowerShell stöder loggat in med en Azure AD-identitet för att köra kommandon på Azure Storage blob- och köer. En åtkomsttoken för sessionen och används för att auktorisera anropande åtgärder. Behörigheter är beroende av RBAC-roll som tilldelats Azure AD-identitet.
+title: Kör Azure CLI eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att komma åt data blob eller kön | Microsoft Docs
+description: Azure CLI och PowerShell stöd för logga in med autentiseringsuppgifter för Azure AD för att köra kommandon på Azure Storage blob- och köer. En åtkomsttoken för sessionen och används för att auktorisera anropande åtgärder. Behörigheter är beroende av RBAC-roll som tilldelats Azure AD-säkerhetsobjektet.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96be1e600c8d5895cc0eb5b058ce17f7265fa0a9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787006"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149656"
 ---
-# <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Använda en Azure AD-identitet för att komma åt blob och kö data med CLI eller PowerShell
+# <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Kör Azure CLI eller PowerShell-kommandon med Azure AD-autentiseringsuppgifter på dataåtkomst för blob eller en kö
 
-Azure Storage tillhandahåller tillägg för Azure CLI och PowerShell så att du kan logga in och kör skriptkommandon under en Azure Active Directory (Azure AD)-identitet. Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Du kan tilldela behörigheter för att få åtkomst till blob och kö data till Azure AD-identitet via rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [hantera åtkomsträttigheter till Azure Storage-data med RBAC](storage-auth-aad-rbac.md).
+Azure Storage tillhandahåller tillägg för Azure CLI och PowerShell som gör det möjligt att logga in och kör skriptkommandon med autentiseringsuppgifter för Azure Active Directory (AD Azure). När du loggar in på Azure CLI eller PowerShell med Azure AD-autentiseringsuppgifter, returneras en OAuth 2.0-åtkomsttoken. Den token används automatiskt av CLI eller PowerShell för att auktorisera efterföljande åtgärder mot Blob eller Queue storage. För åtgärder som stöds behöver du inte längre att skicka en nyckel eller en SAS-token med kommandot.
 
-När du loggar in på Azure CLI eller PowerShell med Azure AD-identitet, returneras en åtkomsttoken för att komma åt Azure Storage under den identiteten. Den token används sedan automatiskt av CLI eller PowerShell för att auktorisera åtgärder mot Azure Storage. För åtgärder som stöds behöver du inte längre att skicka en nyckel eller en SAS-token med kommandot.
+Du kan tilldela behörigheter till blob och kö data till en Azure AD-säkerhetsobjekt via rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [hantera åtkomsträttigheter till Azure Storage-data med RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Åtgärder som stöds
 
-Tillägg som stöds för åtgärder på behållare och köer. Vilka åtgärder som du kan anropa beror på behörigheter till Azure AD-identitet som du loggar in på Azure CLI eller PowerShell. Behörigheter till Azure Storage-behållare eller de köer som har tilldelats via rollbaserad åtkomstkontroll (RBAC). Till exempel om en dataläsare roll tilldelas till identitet som kan du köra skriptkommandon som läser data från en behållare eller en kö. Om en Data-deltagare roll tilldelas till identiteten, kan du köra skriptkommandon som läsa, skriva eller ta bort en behållare eller kön eller den data de innehåller. 
+Tillägg som stöds för åtgärder på behållare och köer. Vilka åtgärder som du kan anropa beror på behörigheter till Azure AD-säkerhetsobjekt som du loggar in på Azure CLI eller PowerShell. Behörigheter till Azure Storage-behållare eller de köer som har tilldelats via rollbaserad åtkomstkontroll (RBAC). Exempel: Om du har tilldelats den **Blob Data-läsare** rollen och du kan köra skriptkommandon som läser data från en behållare eller en kö. Om du har tilldelats den **Blob Data-deltagare** rollen och du kan köra skriptkommandon som läsa, skriva eller ta bort en behållare eller kön eller den data de innehåller. 
 
 Mer information om de behörigheter som krävs för varje Azure Storage-åtgärd på en behållare eller kön finns [behörigheter för att anropa REST-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
@@ -129,5 +129,5 @@ I följande exempel visar hur du skapar en behållare i ett nytt lagringskonto f
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om RBAC-roller för Azure storage finns [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
-- Läs om hur du använder hanterade identiteter för Azure-resurser med Azure Storage i [autentisera åtkomst till blobbar och köer med Azure hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md).
+- Läs om hur du använder hanterade identiteter för Azure-resurser med Azure Storage i [autentisera åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md).
 - Läs hur du tillåter åtkomst till behållare och köer från i ditt storage-program i [använda Azure AD med lagring program](storage-auth-aad-app.md).

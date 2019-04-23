@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: a1a931573967f12eb7abc791bd951dc6e1e9e60b
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 8dff81d3f3594798a1b08184af0098f3bd86c12c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607406"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011052"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 
-I den här snabbstarten lär du dig att använda Python för att ladda upp, ladda ned och lista blockblobar i en behållare i Azure Blob storage. BLOB-lagring är bara de objekt som kan innehålla vilken mängd text eller binära data (till exempel bilder, dokument, strömmande media, arkivera data, etc.) och skiljer sig i Azure Storage från filresurser, schemalös tabeller och meddelandeköer. (Mer information finns i [introduktion till Azure Storage](/azure/storage/common/storage-introduction.md).)
+I den här snabbstarten lär du dig att använda Python för att ladda upp, ladda ned och lista blockblobar i en behållare i Azure Blob storage. BLOB-lagring är bara de objekt som kan innehålla vilken mängd text eller binära data (till exempel bilder, dokument, strömmande media, arkivera data, etc.) och skiljer sig i Azure Storage från filresurser, schemalös tabeller och meddelandeköer. (Mer information finns i [introduktion till Azure Storage](/azure/storage/common/storage-introduction).)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -45,7 +45,7 @@ Det här kommandot klonar lagringsplatsen *Azure-Samples/storage-blobs-python-qu
 I programmet måste du ange ditt lagringskontonamn och kontonyckel för att skapa ett `BlockBlobService`-objekt. Öppna filen *example.py* från Solution Explorer i IDE. Ersätt värdena `accountname` och `accountkey` med kontonamnet och nyckeln. 
 
 ```python 
-block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
+block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
 ```
 
 ## <a name="run-the-sample"></a>Kör exemplet
@@ -92,11 +92,11 @@ När du har molnblobcontainern kan du instansiera objektet **CloudBlockBlob** so
 I det här avsnittet skapar du instanser av objekten, skapar en ny container och anger sedan behörigheter för containern så att blobarna är offentliga. Containern heter **quickstartblobs**. 
 
 ```python 
-# Create the BlockBlockService that is used to call the Blob service for the storage account
-block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
+# Create the BlockBlockService that is used to call the Blob service for the storage account.
+block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
  
 # Create a container called 'quickstartblobs'.
-container_name ='quickstartblobs'
+container_name = 'quickstartblobs'
 block_blob_service.create_container(container_name) 
 
 # Set the permission so the blobs are public.
@@ -106,29 +106,29 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är vanligast och används i denna snabbstart.  
 
-Om du vill överföra en fil till en blob hämtar du den fullständiga sökvägen genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan ladda upp filen till angiven sökväg med hjälp av metoden `create\_blob\_from\_path`. 
+Om du vill överföra en fil till en blob hämtar du den fullständiga sökvägen genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan ladda upp filen till angiven sökväg med hjälp av metoden `create_blob_from_path`. 
 
-Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar filen som ska laddas upp som `file\_path\_to\_file` och namnet på bloben som `local\_file\_name`. I följande exempel överförs filen till containern med namnet **quickstartblobs**.
+Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, lagrar filen som ska laddas upp som *full_path_to_file* och namnet på bloben som *local_file_name*. I följande exempel överförs filen till containern med namnet **quickstartblobs**.
 
 ```python
 # Create a file in Documents to test the upload and download.
-local_path=os.path.expanduser("~\Documents")
-local_file_name ="QuickStart_" + str(uuid.uuid4()) + ".txt"
-full_path_to_file =os.path.join(local_path, local_file_name)
+local_path = os.path.expanduser("~\Documents")
+local_file_name = "QuickStart_" + str(uuid.uuid4()) + ".txt"
+full_path_to_file = os.path.join(local_path, local_file_name)
 
 # Write text to the file.
-file = open(full_path_to_file,  'w')
+file = open(full_path_to_file, 'w')
 file.write("Hello, World!")
 file.close()
 
 print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
-# Upload the created file, use local_file_name for the blob name
+# Upload the created file, use local_file_name for the blob name.
 block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
 ```
 
-Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exempel har en minnesström kan du kan använda metoden `create\_blob\_from\_stream` snarare än `create\_blob\_from\_path`. 
+Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exempel har en minnesström kan du kan använda metoden `create_blob_from_stream` snarare än `create_blob_from_path`. 
 
 Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobar används främst för VHD-filer som backar IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta objekt som lagras i Blob Storage är blockblobar.
 
@@ -137,7 +137,7 @@ Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylbl
 Hämta en lista över filer i containern med hjälp av metoden `list_blobs`. Den här metoden returnerar en generator. Följande kod hämtar listan över blobar&mdash; och går sedan igenom dem och&mdash;visar namnen på de blobar som har påträffats i en container.  
 
 ```python
-# List the blobs in the container
+# List the blobs in the container.
 print("\nList blobs in the container")
 generator = block_blob_service.list_blobs(container_name)
 for blob in generator:
@@ -146,21 +146,21 @@ for blob in generator:
 
 ### <a name="download-the-blobs"></a>Ladda ned blobarna
 
-Ladda ned blobar till din lokala disk med hjälp av metoden `the get\_blob\_to\_path`. Följande kod laddar ned bloben som överfördes i föregående avsnitt. *_DOWNLOADED* läggs till som ett suffix på blobnamnet så att du kan se båda filerna på den lokala disken. 
+Ladda ned blobar till din lokala disk med hjälp av den `get_blob_to_path` metoden. Följande kod laddar ned bloben som överfördes i föregående avsnitt. *_DOWNLOADED* läggs till som ett suffix på blobnamnet så att du kan se båda filerna på den lokala disken. 
 
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name ,'.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>Rensa resurser
-Om du inte längre behöver blobarna som laddades upp i denna snabbstart kan du ta bort hela containern med hjälp av metoden `delete\_container`. Om du vill ta bort enskilda filer använder du i stället metoden `delete\_blob`.
+Om du inte längre behöver blobarna som laddades upp i denna snabbstart kan du ta bort hela containern med hjälp av metoden `delete_container`. Om du vill ta bort enskilda filer använder du i stället metoden `delete_blob`.
 
 ```python
-# Clean up resources. This includes the container and the temp files
+# Clean up resources. This includes the container and the temp files.
 block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)

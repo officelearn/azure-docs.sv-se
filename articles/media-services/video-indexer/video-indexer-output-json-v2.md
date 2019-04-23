@@ -1,5 +1,5 @@
 ---
-title: Granska Video Indexer-utdata som genereras av v2 API
+title: Granska Azure Media Services Video Indexer-utdata som genereras av v2 API
 titlesuffix: Azure Media Services
 description: Det här avsnittet undersöker Video Indexer-utdata som genereras av v2 API.
 services: media-services
@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280221"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011335"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer-utdata som genereras av API
 
@@ -32,13 +32,13 @@ Den här artikeln undersöker JSON-innehåll som returneras av den **hämta Vide
 
 ## <a name="root-elements"></a>Rotelement
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |accountId|Till spellistan VI konto-ID.|
 |id|Till spellistan-ID.|
 |namn|Till spellistan namn.|
-|beskrivning|Till spellistan beskrivning.|
-|Användarnamn|Namnet på användaren som skapade listan.|
+|description|Till spellistan beskrivning.|
+|userName|Namnet på användaren som skapade listan.|
 |skapad|Skapandetid för till spellistan.|
 |privacyMode|Till spellistan sekretess-läge (privata/offentliga).|
 |state|Till spellistan (överförda, bearbetning, bearbetade, misslyckades, har satts i karantän).|
@@ -92,7 +92,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 
 ## <a name="videos"></a>videor
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |accountId|Videons VI konto-ID.|
 |id|Videons-ID.|
@@ -197,7 +197,7 @@ instanser|En lista över tidsintervall i det här blocket.|
 
 #### <a name="transcript"></a>avskrift
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Rad-ID.|
 |text|Avskriften.|
@@ -235,7 +235,7 @@ Exempel:
 
 #### <a name="ocr"></a>OCR
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|OCR rad-ID.|
 |text|OCR-text.|
@@ -270,7 +270,7 @@ Exempel:
 
 #### <a name="keywords"></a>nyckelord
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Nyckelordet-ID.|
 |text|Nyckelordstexten.|
@@ -279,50 +279,34 @@ Exempel:
 |instanser|En lista över tidsintervall där det här nyckelordet visas (ett nyckelord kan visas flera gånger).|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
+    id: 0,
+    text: "technology",
+    confidence: 1,
+    language: "en-US",
+    instances: [{
+            adjustedStart: "0:05:15.782",
+            adjustedEnd: "0:05:16.249",
+            start: "0:05:15.782",
+            end: "0:05:16.249"
     },
     {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+            adjustedStart: "0:04:54.761",
+            adjustedEnd: "0:04:55.228",
+            start: "0:04:54.761",
+            end: "0:04:55.228"
+    }]
 }
-] 
 ```
 
 #### <a name="faces"></a>ansikten
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
 |namn|Namnet på ansiktet. Det kan vara ”okänt #0, en identifierade kändisar eller en kund utbildad person.|
 |förtroende|Face ID förtroende.|
-|beskrivning|En beskrivning av kändisar. |
+|description|En beskrivning av kändisar. |
 |thumbnailId|ID för miniatyrbilden för den sida.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
 |referenceId|Om det är en Bing kändisar, dess Bing-ID.|
@@ -362,7 +346,7 @@ Exempel:
 
 #### <a name="labels"></a>etiketter
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Etikett-ID.|
 |namn|Etikettnamn (till exempel ”dator”, ”TV”).|
@@ -421,7 +405,7 @@ Exempel:
 
 #### <a name="scenes"></a>scener
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Scen-ID.|
 |instanser|En lista över tidsintervall i det här scen (en scen kan endast ha 1 instans).|
@@ -454,7 +438,7 @@ Exempel:
 
 #### <a name="shots"></a>skärmbilder
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Som ID.|
 |Nyckelrutor|En lista över nyckelbildrutorna i på nedan (var och en har ett ID och en lista över instanser tidsintervall). Varje instans av bildrutan har ett thumbnailId fält, som innehåller den bildrutan miniatyr-ID.|
@@ -504,13 +488,13 @@ Exempel:
 
 Företag och produkten namn har identifierats i tal till textavskrift och/eller Video OCR. Detta inkluderar inte visuell igenkänning av varumärken eller logotyp identifiering.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Varumärke-ID.|
 |namn|Namnet varumärken.|
 |referenceId | Suffix för varumärke wikipedias url. Till exempel ”Target_Corporation” är suffixet för [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Varumärket är Wikipedias url, om det finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|beskrivning|Varumärken beskrivning.|
+|description|Varumärken beskrivning.|
 |tags|En lista över fördefinierade taggar som är kopplade till den här varumärke.|
 |förtroende|Förtroende-värdet för Video Indexer varumärke detektor (0-1).|
 |instanser|En lista över tidsintervall för den här varumärke. Varje instans har en brandType som anger om den här varumärke visades i avskriften eller OCR.|
@@ -563,7 +547,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 
 #### <a name="statistics"></a>statistik
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |CorrespondenceCount|Antal svaren i videon.|
 |SpeakerWordCount|Antalet ord per talare.|
@@ -573,7 +557,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Ljud effekt-ID.|
 |typ|Typ av ljud effekt (till exempel applåder, tal, tystnad).|
@@ -602,7 +586,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 
 Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ). Till exempel 0 0.1, 0.1 0.2.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
 |averageScore |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
@@ -641,7 +625,7 @@ VisualContentModeration blocket innehåller tidsintervall som Video Indexer hitt
 
 Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga för privata vyn. Användare har möjlighet att skicka en begäran om en mänsklig granskning av innehållet, i vilket fall IsAdult attributet innehåller resultatet av mänsklig granskning.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Visual innehållsmoderering-ID.|
 |adultScore|Poäng för Vuxeninnehåll (från content moderator).|
@@ -677,7 +661,7 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Textbaserade innehållsmoderering-ID.|
 |bannedWordsCount |Antal otillåtna orden.|
@@ -687,7 +671,7 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 
 Video Indexer identifierar känslor baserat på tal- och ljud tips. Identifierade känslor kan vara: nu ett, sorg, ilska eller behöva betala.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Känslo-ID.|
 |typ|Känslo-och som har identifierats utifrån tal- och ljud. Känslan kan vara: glädje, sorg, ilska eller rädsla.|
@@ -777,7 +761,7 @@ Video Indexer identifierar känslor baserat på tal- och ljud tips. Identifierad
 
 Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är möjligt på servernivå 1 [IPTC](https://iptc.org/standards/media-topics/) taxonomi ingår. 
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Avsnittet-ID.|
 |namn|Ämnesnamnet, till exempel: "Pharmaceuticals".|

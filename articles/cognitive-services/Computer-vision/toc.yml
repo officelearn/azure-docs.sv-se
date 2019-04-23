@@ -1,208 +1,201 @@
-items:
 - name: Dokumentation om visuellt API-innehåll
   href: index.yml
 - name: Översikt
-  items:
-  - name: Vad är visuellt innehåll?
-    href: Home.md
   expanded: true
+  items:
+    - name: Vad är visuellt innehåll?
+      href: Home.md
 - name: Snabbstarter
   items:
-  - name: Använda REST API
-    items:
-    - name: Analysera en fjärrbild
+    - name: Använda REST API
       items:
-      - name: cURL
-        href: QuickStarts/curl-analyze.md
-      - name: Go
-        href: QuickStarts/go-analyze.md
-      - name: Java
-        href: QuickStarts/java-analyze.md
-      - name: JavaScript
-        href: QuickStarts/javascript-analyze.md
-      - name: Node.js
-        href: QuickStarts/node-analyze.md
-      - name: PHP
-        href: QuickStarts/php-analyze.md
-      - name: Python
-        href: QuickStarts/python-analyze.md
-      - name: Ruby
-        href: QuickStarts/ruby-analyze.md
-    - name: Analysera en lokal bild
+        - name: Analysera en fjärrbild
+          items:
+            - name: cURL
+              href: QuickStarts/curl-analyze.md
+            - name: Go
+              href: QuickStarts/go-analyze.md
+            - name: Java
+              href: QuickStarts/java-analyze.md
+            - name: JavaScript
+              href: QuickStarts/javascript-analyze.md
+            - name: Node.js
+              href: QuickStarts/node-analyze.md
+            - name: PHP
+              href: QuickStarts/php-analyze.md
+            - name: Python
+              href: QuickStarts/python-analyze.md
+            - name: Ruby
+              href: QuickStarts/ruby-analyze.md
+        - name: Analysera en lokal bild
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-analyze.md
+            - name: Python
+              href: QuickStarts/python-disk.md
+        - name: Skapa en miniatyrbild
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-thumb.md
+            - name: cURL
+              href: QuickStarts/curl-thumb.md
+            - name: Go
+              href: QuickStarts/go-thumb.md
+            - name: Java
+              href: QuickStarts/java-thumb.md
+            - name: JavaScript
+              href: QuickStarts/javascript-thumb.md
+            - name: Node.js
+              href: QuickStarts/node-thumb.md
+            - name: PHP
+              href: QuickStarts/php-thumb.md
+            - name: Python
+              href: QuickStarts/python-thumb.md
+            - name: Ruby
+              href: QuickStarts/ruby-thumb.md
+        - name: Extrahera tryckt text
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-print-text.md
+            - name: cURL
+              href: QuickStarts/curl-print-text.md
+            - name: Go
+              href: QuickStarts/go-print-text.md
+            - name: Java
+              href: QuickStarts/java-print-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-print-text.md
+            - name: Node.js
+              href: QuickStarts/node-print-text.md
+            - name: PHP
+              href: QuickStarts/php-print-text.md
+            - name: Python
+              href: QuickStarts/python-print-text.md
+            - name: Ruby
+              href: QuickStarts/ruby-print-text.md
+        - name: Extrahera handskriven text
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-hand-text.md
+            - name: Java
+              href: QuickStarts/java-hand-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-hand-text.md
+            - name: Python
+              href: QuickStarts/python-hand-text.md
+        - name: Använda en domänmodell
+          items:
+            - name: PHP
+              href: QuickStarts/php-domain.md
+            - name: Python
+              href: QuickStarts/python-domain.md
+    - name: Använda .NET SDK
       items:
-      - name: C#
-        href: QuickStarts/CSharp-analyze.md
-      - name: Python
-        href: QuickStarts/python-disk.md
-    - name: Skapa en miniatyrbild
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-thumb.md
-      - name: cURL
-        href: QuickStarts/curl-thumb.md
-      - name: Go
-        href: QuickStarts/go-thumb.md
-      - name: Java
-        href: QuickStarts/java-thumb.md
-      - name: JavaScript
-        href: QuickStarts/javascript-thumb.md
-      - name: Node.js
-        href: QuickStarts/node-thumb.md
-      - name: PHP
-        href: QuickStarts/php-thumb.md
-      - name: Python
-        href: QuickStarts/python-thumb.md
-      - name: Ruby
-        href: QuickStarts/ruby-thumb.md
-    - name: Extrahera tryckt text
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-print-text.md
-      - name: cURL
-        href: QuickStarts/curl-print-text.md
-      - name: Go
-        href: QuickStarts/go-print-text.md
-      - name: Java
-        href: QuickStarts/java-print-text.md
-      - name: JavaScript
-        href: QuickStarts/javascript-print-text.md
-      - name: Node.js
-        href: QuickStarts/node-print-text.md
-      - name: PHP
-        href: QuickStarts/php-print-text.md
-      - name: Python
-        href: QuickStarts/python-print-text.md
-      - name: Ruby
-        href: QuickStarts/ruby-print-text.md
-    - name: Extrahera handskriven text
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-hand-text.md
-      - name: Java
-        href: QuickStarts/java-hand-text.md
-      - name: JavaScript
-        href: QuickStarts/javascript-hand-text.md
-      - name: Python
-        href: QuickStarts/python-hand-text.md
-    - name: Använda en domänmodell
-      items:
-      - name: PHP
-        href: QuickStarts/php-domain.md
-      - name: Python
-        href: QuickStarts/python-domain.md
-  - name: Använda .NET SDK
-    items:
-    - name: Analysera en bild
-      href: quickstarts-sdk/csharp-analyze-sdk.md
-    - name: Skapa en miniatyrbild
-      href: quickstarts-sdk/csharp-thumb-sdk.md
-    - name: Extrahera text
-      href: quickstarts-sdk/csharp-hand-text-sdk.md
-  - name: Använda Python SDK
-    href: quickstarts-sdk/python-sdk.md
+        - name: Analysera en bild
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Skapa en miniatyrbild
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Extrahera text
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
+    - name: Använda Python SDK
+      href: quickstarts-sdk/python-sdk.md
 - name: Självstudier
   items:
-  - name: Generera metadata för avbildningar
-    href: Tutorials/storage-lab-tutorial.md
+    - name: Generera metadata för avbildningar
+      href: Tutorials/storage-lab-tutorial.md
 - name: Begrepp
   items:
-  - name: Tagga bilder
-    href: concept-tagging-images.md
-  - name: Identifiera objekt
-    href: concept-object-detection.md
-  - name: Identifiera varumärken
-    href: concept-brand-detection.md
-  - name: Kategorisera bilder
-    href: concept-categorizing-images.md
-  - name: Beskriva bilder
-    href: concept-describing-images.md
-  - name: Identifiera ansikten
-    href: concept-detecting-faces.md
-  - name: Identifiera bildtyper
-    href: concept-detecting-image-types.md
-  - name: Identifiera domänspecifikt innehåll
-    href: concept-detecting-domain-content.md
-  - name: Identifiera färgscheman
-    href: concept-detecting-color-schemes.md
-  - name: Generera miniatyrer
-    href: concept-generating-thumbnails.md
-  - name: Känna igen tryckt och handskriven text
-    href: concept-recognizing-text.md
-  - name: Identifiera vuxet eller olämpligt innehåll
-    href: concept-detecting-adult-content.md
+    - name: Tagga bilder
+      href: concept-tagging-images.md
+    - name: Identifiera objekt
+      href: concept-object-detection.md
+    - name: Identifiera varumärken
+      href: concept-brand-detection.md
+    - name: Kategorisera bilder
+      href: concept-categorizing-images.md
+    - name: Beskriva bilder
+      href: concept-describing-images.md
+    - name: Identifiera ansikten
+      href: concept-detecting-faces.md
+    - name: Identifiera bildtyper
+      href: concept-detecting-image-types.md
+    - name: Identifiera domänspecifikt innehåll
+      href: concept-detecting-domain-content.md
+    - name: Identifiera färgscheman
+      href: concept-detecting-color-schemes.md
+    - name: Generera miniatyrer
+      href: concept-generating-thumbnails.md
+    - name: Känna igen tryckt och handskriven text
+      href: concept-recognizing-text.md
+    - name: Identifiera vuxet eller olämpligt innehåll
+      href: concept-detecting-adult-content.md
 - name: Instruktionsguider
   items:
-  - name: Använda Visuellt innehåll
-    items:
-    - name: Java
-      href: Tutorials/java-tutorial.md
-    - name: JavaScript
-      href: Tutorials/javascript-tutorial.md
-    - name: Python
-      href: Tutorials/PythonTutorial.md
-  - name: Hämta prenumerationsnycklar
-    href: Vision-API-How-to-Topics/HowToSubscribe.md
-  - name: Anropa API:et för visuellt innehåll
-    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-  - name: Använda containrar
-    items:
-    - name: Installera och köra containrar
-      href: computer-vision-how-to-install-containers.md
-    - name: Konfigurera containrar
-      href: computer-vision-resource-container-config.md
-  - name: Använda en ansluten tjänst för visuellt innehåll
-    href: vs-computer-vision-connected-service.md
-  - name: Analysera videor i realtid
-    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+    - name: Använda Visuellt innehåll
+      items:
+        - name: Java
+          href: Tutorials/java-tutorial.md
+        - name: JavaScript
+          href: Tutorials/javascript-tutorial.md
+        - name: Python
+          href: Tutorials/PythonTutorial.md
+    - name: 'Anropa API:et för visuellt innehåll'
+      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+    - name: Använda containrar
+      items:
+        - name: Installera och köra containrar
+          href: computer-vision-how-to-install-containers.md
+        - name: Konfigurera containrar
+          href: computer-vision-resource-container-config.md
+    - name: Använda en ansluten tjänst för visuellt innehåll
+      href: vs-computer-vision-connected-service.md
+    - name: Analysera videor i realtid
+      href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referens
   items:
-  - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Azure PowerShell
-    href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: API v2.0 för visuellt innehåll
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
-  - name: API v1.0 för visuellt innehåll
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
-  - name: SDK:er
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
-    - name: Android (Java)
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
-    - name: Swift
-      href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: Azure PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: API v2.0 för visuellt innehåll
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44'
+    - name: API v1.0 för visuellt innehåll
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
+    - name: 'SDK:er'
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python'
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision'
+        - name: Android (Java)
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
+        - name: Swift
+          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
 - name: Resurser
   items:
-  - name: Exempel
-    items:
-    - name: Utforska en bildbearbetningsapp
-      href: Tutorials/CSharpTutorial.md
-    - name: Andra Visuellt innehåll-exempel
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: FAQ.md
-  - name: Priser och begränsningar
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
-  - name: Kategoritaxonomi
-    href: Category-Taxonomy.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 2fc31b518155f49cd17b86780e6accbacc2ba354
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192317"
+    - name: Exempel
+      items:
+        - name: Utforska en bildbearbetningsapp
+          href: Tutorials/CSharpTutorial.md
+        - name: Andra Visuellt innehåll-exempel
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: FAQ.md
+    - name: Kategoritaxonomi
+      href: Category-Taxonomy.md
+    - name: Stöd för språk
+      href: language-support.md
+    - name: Priser och begränsningar
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/430309-computer-vision-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

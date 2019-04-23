@@ -2,18 +2,18 @@
 title: Felsöka Hyper-V till Azure-haveriberedskap med Azure Site Recovery | Microsoft Docs
 description: Beskriver hur du felsöker disaster recovery problem med Hyper-V till Azure med Azure Site Recovery-replikering
 services: site-recovery
-author: Rajeswari-Mamilla
+author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: 14d763126cccadf8042da79b20d15e5c93a8ce62
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/14/2019
+ms.author: rajanaki
+ms.openlocfilehash: 8bb790571e1499bd45fb8bee27f4f1896046cbc2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094185"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149102"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure replikering och redundans
 

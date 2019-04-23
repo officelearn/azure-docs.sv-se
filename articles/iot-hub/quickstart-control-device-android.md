@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: e3b0c0703cb46087db38121055117b50f97ad03f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 4f9f4ccb53f9530122f0a2463f8f45b596856282
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006571"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149690"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (Android)
 
@@ -125,15 +125,13 @@ Exempelprogrammet för enhets-SDK kan köras på en fysisk Android-enhet eller e
    > * Versioner av Android Gradle-plugin-programmet och Gradle som refereras till i projektet har upphört att gälla för din version av Android Studio. Följ [instruktionerna](https://developer.android.com/studio/releases/gradle-plugin) att referera till och installera rätt version av plugin-programmet och Gradle för installationen.
    > * Licensavtalet för Android SDK har inte signerats. Följ instruktionerna i resultatet från att logga i detta avtal och ladda ned SDK.
 
-
 4. När bygget har slutförts klickar du på **Kör** > **Kör app**. Konfigurera appen att köras på en fysisk Android-enhet eller en Android-emulator. Mer information om att köra en Android-app på en fysisk enhet eller emulator finns i [Köra appen](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. När appen har lästs in klickar du på knappen **Starta** för att börja skicka telemetri till din IoT-hubb:
 
-    ![Program](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![Exempel Skärmbild av enheten android-klientappen](media/quickstart-control-device-android/sample-screenshot.png)
 
 Den här appen måste fortsätta köras körs på en fysisk enhet eller emulator medan du kör exemplet för tjänst-SDK för att uppdatera telemetriintervallet under körningen.
-
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
 
@@ -146,12 +144,12 @@ I det här avsnittet använder du Azure Cloud Shell med [IoT-tillägget](https:/
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     Följande skärmbild visar utdata när IoT-hubben tar emot telemetri som skickas av Android-enheten:
 
-      ![Läsa enhetsmeddelanden med hjälp av Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
+      ![Läsa enhetsmeddelanden med hjälp av Azure CLI](media/quickstart-control-device-android/read-data.png)
 
 Som standard skickar telemetriappen telemetri från Android-enheten var 5:e sekund. I nästa avsnitt använder du ett direktmetodsanrop för att uppdatera telemetriintervallet för Android IoT-enheten.
-
 
 ## <a name="call-the-direct-method"></a>Anropa den direkta metoden
 
@@ -180,7 +178,6 @@ Ett IoT-hubbtjänstprogram för serverdel körs vanligtvis i molnet, där det ä
    > * Versioner av Android Gradle-plugin-programmet och Gradle som refereras till i projektet har upphört att gälla för din version av Android Studio. Följ [instruktionerna](https://developer.android.com/studio/releases/gradle-plugin) att referera till och installera rätt version av plugin-programmet och Gradle för installationen.
    > * Licensavtalet för Android SDK har inte signerats. Följ instruktionerna i resultatet från att logga i detta avtal och ladda ned SDK.
 
-
 4. När bygget har slutförts klickar du på **Kör** > **Kör app**. Konfigurera appen att köras på en separat fysisk Android-enhet eller en Android-emulator. Mer information om att köra en Android-app på en fysisk enhet eller emulator finns i [Köra appen](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. När appen har lästs in uppdaterar du värdet **Set Messaging Interval** (Ange meddelandeintervall) till **1000** och klickar på **Invoke** (Anropa).
@@ -192,8 +189,6 @@ Ett IoT-hubbtjänstprogram för serverdel körs vanligtvis i molnet, där det ä
 6. Appen får en bekräftelse som anger huruvida metoden kördes korrekt.
 
     ![Bekräftelse för direktmetod](media/quickstart-control-device-android/direct-method-ack.png)
-
-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

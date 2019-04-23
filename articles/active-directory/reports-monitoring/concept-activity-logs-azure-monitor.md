@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-aktivitetsloggar i Azure Monitor (förhandsversion) | Microsoft Docs
-description: Introduktion till Azure Active Directory-loggarna i Azure Monitor (förhandsversion)
+title: Azure Active Directory-aktivitetsloggar i Azure Monitor | Microsoft Docs
+description: Introduktion till Azure Active Directory-loggarna i Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0469f69f026c578de9598401e69262279669d19f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 7fbb90e95c07c66f45d49076f0570ac028c37244
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436310"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011409"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-aktivitetsloggar i Azure Monitor (förhandsversion)
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure aktivitetsloggar AD i Azure Monitor
 
-Du kan nu vidarebefordra aktivitetsloggar i Azure Active Directory (AD Azure) till flera slutpunkter för länge termen kvarhållning och data insikter. Den offentliga förhandsversionen av Azure AD-loggar i Azure Monitor kan du:
+Du kan dirigera aktivitetsloggar i Azure Active Directory (AD Azure) till flera slutpunkter för länge termen kvarhållning och data insikter. Den här funktionen kan du:
 
 * Arkivera Azure AD-aktivitetsloggar till ett Azure storage-konto att behålla data under en längre tid.
 * Stream Azure AD aktivitetsloggar till en Azure event hub för analys, med hjälp av populära verktyg för säkerhetsinformation och händelsehantering (SIEM), till exempel Splunk och QRadar.
@@ -48,7 +48,7 @@ Du kan dirigera Azure AD granska loggar och logga in med loggar på din Azure st
 > B2C-relaterade spårnings- och inloggningsaktivitetsloggar stöds inte just nu.
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda den här funktionen behöver du:
 

@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d43a223c2c4f655308660925146504d35b9b95cf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728428"
 documentType: LandingData
 title: Dokumentation om Bing-bildsöknings-API
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Dokumentation om API för bildsökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs
-  description: Lär dig hur du använder API:et för bildsökning i Bing för att söka efter bilder på webben.
+  title: 'Dokumentation om API för bildsökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs'
+  description: 'Lär dig hur du använder API:et för bildsökning i Bing för att söka efter bilder på webben.'
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,88 +16,88 @@ metadata:
   ms.date: 1/16/2019
   ms.author: nitinme
 abstract:
-  description: Med API:et för bildsökning i Bing kan du integrera Bings bildsökningsfunktioner i dina program. Genom att skicka användarsökfrågor med API:et kan du söka efter och visa relevanta och högkvalitativa bilder på samma sätt som på bing.com/images.
+  description: 'Med API:et för bildsökning i Bing kan du integrera Bings bildsökningsfunktioner i dina program. Genom att skicka användarsökfrågor med API:et kan du söka efter och visa relevanta och högkvalitativa bilder på samma sätt som på bing.com/images.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-image-search/overview
+            html: <p>Läs mer om API för bildsökning i Bing</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 'Vad är API:et för bildsökning i Bing?'
+          - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries
+            html: '<p>Lär dig att skicka sökfrågor för bilder till API:et för bildsökning i Bing</p>'
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Bildsökfrågor
+          - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+            html: '<p>Förstå svaret från API:et för bildsökning i Bing</p>'
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Svar på bildsökning
+  - title: Snabbstarter på 5 minuter
     items:
-    - href: /azure/cognitive-services/bing-image-search/overview
-      html: <p>Läs mer om API för bildsökning i Bing</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Vad är API:et för bildsökning i Bing?
-    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries
-      html: <p>Lär dig att skicka sökfrågor för bilder till API:et för bildsökning i Bing</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Bildsökfrågor
-    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
-      html: <p>Förstå svaret från API:et för bildsökning i Bing</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Svar på bildsökning
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Sök efter bilder på webben med hjälp av:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Sök efter bilder på webben med hjälp av:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: image-search-sdk-quickstart
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: image-sdk-java-quickstart
+            text: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: image-search-sdk-node-quickstart
+            text: Node.js
+          - image:
+              src: media/index/logo_php.svg
+            href: quickstarts/php
+            text: PHP
+          - image:
+              src: media/index/logo_python.svg
+            href: image-sdk-python-quickstart
+            text: Python
+          - image:
+              src: media/index/logo_ruby.svg
+            href: quickstarts/ruby
+            text: Ruby
+  - title: Steg för steg-självstudier
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: image-search-sdk-quickstart
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: image-sdk-java-quickstart
-      text: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: image-search-sdk-node-quickstart
-      text: Node.js
-    - image:
-        src: media/index/logo_php.svg
-      href: quickstarts/php
-      text: PHP
-    - image:
-        src: media/index/logo_python.svg
-      href: image-sdk-python-quickstart
-      text: Python
-    - image:
-        src: media/index/logo_ruby.svg
-      href: quickstarts/ruby
-      text: Ruby
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig att utveckla program med hjälp av API för bildsökning i Bing:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Lär dig att utveckla program med hjälp av API för bildsökning i Bing:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-bing-image-search-single-page-app">Enkelsidig webbapp</a>
+          - html: <a href="tutorial-image-post">Bilduppladdning i Bing för information</a>
+  - title: Exempel
     items:
-    - html: <a href="tutorial-bing-image-search-single-page-app">Enkelsidig webbapp</a>
-    - html: <a href="tutorial-image-post">Bilduppladdning i Bing för information</a>
-- title: Exempel
-  items:
-  - type: paragraph
-    text: 'Hitta exempel för API för bildsökning i Bing:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Hitta exempel för API för bildsökning i Bing:'
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search">Kodexempel</a>'
+  - title: Referens
     items:
-    - html: <a href="https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search">Kodexempel</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">API för bildsökning i Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">API för bildsökning i Bing v5</p>
-    - title: SDK:er
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet">NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/imagesearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/imagesearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch">Go</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">API för bildsökning i Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">API för bildsökning i Bing v5</p>'
+          - title: 'SDK:er'
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet">NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/imagesearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-imagesearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch">Go</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

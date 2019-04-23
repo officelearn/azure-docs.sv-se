@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 5770cd9a4955013100b7e58698eed77da10c0583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012255"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004575"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Krav för Azure Data Box-Blob-lagring
 
-Den här artikeln innehåller versionerna av Azure API: er, SDK: er och verktyg som stöds med blobblagring för Data Box. Data Box Blob storage tillhandahåller blob hanteringsfunktioner med Azure-konsekventa semantik. Den här artikeln sammanfattas också kända Azure Data Box Blob storage skillnaderna från Azure Storage-tjänsterna.
+Den här artikeln visar versionerna av de API: er för Azure, Azure-klientbiblioteken och verktyg som stöds med blobblagring för Data Box. Data Box Blob storage tillhandahåller blob hanteringsfunktioner med Azure-konsekventa semantik. Den här artikeln sammanfattas också kända Azure Data Box Blob storage skillnaderna från Azure Storage-tjänsterna.
 
 Vi rekommenderar att du läser informationen noggrant innan du ansluter till Data Box-Blob-lagringen och referera tillbaka till det efter behov.
 
@@ -38,7 +38,7 @@ Vi rekommenderar att du läser informationen noggrant innan du ansluter till Dat
 
 Följande versioner av Azure Storage-tjänstens API: er stöds med blobblagring för Data Box:
 
-Offentliga förhandsversionen (Azure Data Box 1.8 och senare)
+Azure Data Box 1.8 och senare
 
 - [2017-11-09](/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](/rest/api/storageservices/version-2017-07-29)
@@ -46,20 +46,7 @@ Offentliga förhandsversionen (Azure Data Box 1.8 och senare)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
 - [2015-07-08](/rest/api/storageservices/version-2015-07-08)
-- [2015-04-05](/rest/api/storageservices/version-2015-04-05)
-
-## <a name="supported-sdk-versions"></a>SDK-versioner som stöds
-
-|     Klientbibliotek     |     Data Box Blob storage-version som stöds     |     Länk             |     Slutpunkt-specifikation         |
-|------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
-|    .NET                |    Från 6.2.0 till 8.7.0.                         |    Nuget-paketet:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>GitHub-version:   https://github.com/Azure/azure-storage-net/releases                                                                      |    filen App.config                 |
-|    Java                |    Från 4.1.0 till 6.1.0                          |    Maven-paketet:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub-version:   https://github.com/Azure/azure-storage-java/releases                                                      |    Anslutningsinställningar för sträng         |
-|    Node.js             |    Från 1.1.0 till 2.7.0                          |    NPM-länk:   https://www.npmjs.com/package/azure-storage   (Till exempel: kör ”npm-installationsprogrammet azure-storage@2.7.0”)   <br>GitHub-version:   https://github.com/Azure/azure-storage-node/releases                            |    Instans tjänstedeklaration    |
-|    C++                 |    Från 2.4.0 till 3.1.0                          |    Nuget-paketet:   https://www.nuget.org/packages/wastorage.v140/   <br>GitHub-version:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Anslutningsinställningar för sträng         |
-|    PHP                 |    Från 0.15.0 till 1.0.0                         |    GitHub-version:   https://github.com/Azure/azure-storage-php/releases   <br>Installera via Composer (se detaljer nedan)                                                                                                   |    Anslutningsinställningar för sträng         |
-|    Python              |    Från 0.30.0 till 1.0.0                         |    GitHub-version:   https://github.com/Azure/azure-storage-python/releases                                                                                                                                              |    Instans tjänstedeklaration    |
-|    Ruby                |    Från 0.12.1 till 1.0.1                         |    RubyGems package:<br>Vanliga:   https://rubygems.org/gems/azure-storage-common/   <br>BLOB: https://rubygems.org/gems/azure-storage-blob/      <br>GitHub-version:   https://github.com/Azure/azure-storage-ruby/releases    |                                   |
-
+- [2015-04-05](/rest/api/storageservices/version-2015-04-05) |
 ## <a name="supported-azure-client-libraries"></a>Azure-klientbiblioteken som stöds
 
 För Data Box-Blob-lagring finns specifika klientbibliotek och viss slutpunkts-suffixkrav. Data Box Blob storage-slutpunkter har inte fullständig paritet med den senaste versionen av Azure Blob Storage REST API, finns i den [versioner som stöds för Azure Data Box 1.8 och senare](#supported-api-versions). Du behöver känna till den version som är kompatibel med REST API för storage-klientbibliotek.
@@ -68,12 +55,12 @@ För Data Box-Blob-lagring finns specifika klientbibliotek och viss slutpunkts-s
 
 | Klientbibliotek     |Data Box Blob storage-version som stöds     | Länk   |     Slutpunkt-specifikation      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
-|    .NET                |    8.7.0                                           |    Nuget-paketet:   https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>GitHub-version:   https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    filen App.config                 |
-|    Java                |    6.1.0                                           |    Maven-paketet:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub-version:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Anslutningsinställningar för sträng         |
-|    Node.js             |    2.7.0                                           |    NPM-länk:   https://www.npmjs.com/package/azure-storage   (Kör: Installera npm azure-storage@2.7.0)   <br>GitHub-version:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    Instans tjänstedeklaration    |
-|    C++                 |    3.1.0                                           |    Nuget-paketet:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>GitHub-version:   https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Anslutningsinställningar för sträng         |
-|    PHP                 |    1.0.0                                           |    GitHub-version:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>Installera via Composer (om du vill veta mer, se information nedan.)                                                                                                             |    Anslutningsinställningar för sträng         |
-|    Python              |    1.0.0                                           |    GitHub-version:<br>Vanliga:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>BLOB:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob                                                                                                                                                                          |    Instans tjänstedeklaration    |
+|    .NET                |    9.2.0                                           |    Nuget-paketet:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>GitHub-version:   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    filen App.config                 |
+|    Java                |    7.0.0                                           |    Maven-paketet:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub-version:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Anslutningsinställningar för sträng         |
+|    Node.js             |    2.8.3                                           |    NPM-länk:   https://www.npmjs.com/package/azure-storage   (Kör: `npm install azure-storage@2.7.0`)   <br>GitHub-version:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Instans tjänstedeklaration    |
+|    C++                 |    5.2.0                                           |    Nuget-paketet:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub-version:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Anslutningsinställningar för sträng         |
+|    PHP                 |    1.2.0                                           |    GitHub-version:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Installera via Composer (om du vill veta mer, se information nedan.)                                                                                                             |    Anslutningsinställningar för sträng         |
+|    Python              |    1.1.0                                           |    GitHub-version:<br>Vanliga:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>BLOB:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Instans tjänstedeklaration    |
 |    Ruby                |    1.0.1                                           |    RubyGems package:<br>Vanliga:   https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>BLOB: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>GitHub-version:<br>Common: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>BLOB: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    Anslutningsinställningar för sträng         |
 
 
@@ -81,22 +68,22 @@ För Data Box-Blob-lagring finns specifika klientbibliotek och viss slutpunkts-s
 ### <a name="install-php-client-via-composer---current"></a>Installera PHP-klienten via Composer - aktuella
 
 Installera via Composer: (gör blob som exempel).
-Skapa en fil med namnet composer.json i roten av projektet med följande kod:
+1. Skapa en fil med namnet composer.json i roten av projektet med följande kod:
 
-```
- {
-   "require": {
-   "Microsoft/azure-storage-blob":"1.0.0"
-   }
-```
+    ```
+    {
+    "require": {
+    "Microsoft/azure-storage-blob":"1.2.0"
+    }
+    ```
 
-Ladda ned `composer.phar` till rot-projekt.
+2. Ladda ned `composer.phar` till rot-projekt.
 
-Kör: Installera php composer.phar.
+3. Kör: Installera php composer.phar.
 
 ### <a name="endpoint-declaration"></a>Slutpunktsdeklarationen
 
-En Azure Data Box Blob storage-slutpunkt innehåller två delar: namnet på en region och Data Box-domänen. I Data Box-Blob-storage SDK är standardslutpunkten \<serienummer. enhetens >. microsoftdatabox.com.  Mer information om blob service-slutpunkt, går du till [Anslut via blobblagring för Data Box](data-box-deploy-copy-data-via-rest.md).
+En Azure Data Box Blob storage-slutpunkt innehåller två delar: namnet på en region och Data Box-domänen. I Data Box-Blob-storage SDK är standardslutpunkten `\<serial no. of the device>.microsoftdatabox.com`.  Mer information om blob service-slutpunkt, går du till [Anslut via blobblagring för Data Box](data-box-deploy-copy-data-via-rest.md).
  
 ## <a name="examples"></a>Exempel
 

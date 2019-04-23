@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cf1bb31614c04d6073bc40c510fc43b2f8e4e189
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796318"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148993"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Skapa en anpassad avbildning fabrik i Azure DevTest Labs
-Den här artikeln visar hur du ställer in en anpassad avbildning fabrik med hjälp av exempelskript som finns tillgängliga i den [Git-lagringsplats](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
+Den här artikeln visar hur du ställer in en anpassad avbildning fabrik med hjälp av exempelskript som finns tillgängliga i den [Git-lagringsplats](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
 
 ## <a name="whats-an-image-factory"></a>Vad är en avbildning factory?
 En bild factory är en konfiguration som kod-lösning som bygger och distribuerar avbildningar automatiskt med jämna mellanrum med alla önskade konfigurationer. Avbildningarna i avbildningen factory är alltid uppdaterade och löpande underhåll är nästan noll när hela processen sker automatiskt. Och eftersom konfigurationerna som krävs redan finns i avbildningen sparas tiden från att manuellt konfigurera systemet när du har skapat en virtuell dator med grundläggande operativsystem.
@@ -39,7 +39,7 @@ Den här lösningen kan hastigheten på virtuella datorer skapas från anpassade
 
 ![Översikt över lösningen](./media/create-image-factory/high-level-view-of-solution.png)
 
-Det finns en [VSTS-tillägg för DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) som gör att du kan köra de här stegen: 
+Det finns en [VSTS-tillägg för DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) som gör att du kan köra de här stegen:
 
 - Skapa anpassad bild
 - Skapa en virtuell dator

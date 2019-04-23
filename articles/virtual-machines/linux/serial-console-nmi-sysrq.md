@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6ca4156c19adbeea72ae268fe62638d40919b08f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: 5a97a40ba48db9f73471d5fd778ceb5cb9070964
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699624"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011355"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Använd Seriekonsol för SysRq och NMI anrop
 
 ## <a name="system-request-sysrq"></a>System Request (SysRq)
-En SysRq är en sekvens av nycklar som tolkas av Linux-åtgärden system kerneln, som kan utlösa en uppsättning fördefinierade åtgärder. Dessa kommandon används ofta vid felsökning av virtuell dator eller återställning inte kan utföras via traditionella administration (till exempel om den virtuella datorn låser sig). Med hjälp av Azure Seriekonsol funktionen SysRq efterliknar trycker på SysRq-nyckeln och tecken som anges på ett fysiskt tangentbord.
+En SysRq är en sekvens av nycklar som tolkas av Linux-åtgärden system kerneln, som kan utlösa en uppsättning fördefinierade åtgärder. Dessa kommandon används ofta vid felsökning av virtuell dator eller återställning inte kan utföras via traditionella administration (till exempel om den virtuella datorn inte svarar). Med hjälp av Azure Seriekonsol funktionen SysRq efterliknar trycker på SysRq-nyckeln och tecken som anges på ett fysiskt tangentbord.
 
 När de SysRq levereras, ska kernel-konfigurationen styra hur systemet svarar. Information om aktivering och inaktivering av SysRq finns i den *SysRq Adminhandbok* [text](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
@@ -99,7 +99,7 @@ Distribution-specifika dokumentation på SysRq och stegen för att konfigurera L
 - [Samla in loggar för krascher](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>Icke-Maskable Interrupt (NMI) 
-Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som inte kommer att ignorera programvara på en virtuell dator. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider.  Idag, programmerare och systemadministratörer använder ofta NMI som en mekanism för att felsöka eller felsöka system som har hängt.
+Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som inte kommer att ignorera programvara på en virtuell dator. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider.  Idag, programmerare och systemadministratörer använder ofta NMI som en mekanism för att felsöka eller felsöka system som inte svarar.
 
 Seriekonsol kan användas för att skicka en NMI till en Azure virtuell dator med hjälp av tangentbordsikonen i kommandofältet visas nedan. När NMI levereras, ska konfigurationen av virtuella datorn styra hur systemet svarar.  Linux-operativsystem kan konfigureras kraschar och skapa en minnesdump operativsystemet tar emot en NMI.
 

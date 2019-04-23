@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 29e64a02cd4af3e1679283ffddb4afab065f8747
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 5a07ea4d1d27dcc054d64cb4ce8893a13adc4aad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609140"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007669"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Geografisk tillgänglighet och support för valuta
 
@@ -42,7 +42,7 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Bolivia                             | BO        | USD          |
 | Bosnien och Hercegovina              | BA        | USD          |
 | Botswana                            | BW        | USD          |
-| Brasilien                              | BR        | BRL          |
+| Brasilien                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgarien                            | BG        | EUR          |
 | Kamerun                            | CM        | USD          |
@@ -164,3 +164,5 @@ Azure Marketplace-erbjudanden kan köpas i 141 geografiska områden som definier
 | Zambia                              | ZM        | USD          |
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
+
+\* För kunder i Brasilien använder Marketplace via Cloud Solution Providers (CSP) USD.

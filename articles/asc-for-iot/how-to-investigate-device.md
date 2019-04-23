@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792225"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007890"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Undersöka en misstänkt IoT-enhet
 
@@ -43,7 +43,7 @@ Som standard lagrar ASC för IoT din säkerhetsaviseringar och rekommendationer 
 Att hitta den Log Analytics-arbetsytan för lagring av data:
 
 1. Öppna din IoT-hubb 
-1. Klicka på **Security**och välj sedan **inställningar**.
+1. Under **Security**, klickar du på **översikt**, och välj sedan **inställningar**.
 1. Ändra din konfigurationsinformation för Log Analytics-arbetsytan. 
 1. Klicka på **Spara**. 
 
@@ -94,7 +94,7 @@ Använd informationen för att identifiera:
 
 ### <a name="open-ports"></a>Öppna portar
 
-Använd följande kql fråga för att hitta ut vilka portar på enheten används eller har använts: 
+Använd följande kql fråga om du vill veta vilka portar på enheten används eller har använts: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -147,12 +147,12 @@ Om du vill ta reda på använder användare som har loggat in på enheten du fö
 
     Use the query results to discover:
   1. Vilka användare som har loggat in på enheten?
-  2. De användare som loggat in ska logga in?
+  2. Är de användare som har loggat in, ska logga in?
   3. Anslöt de användare som loggat in från förväntade eller oväntade IP-adresser?
   
 ### <a name="process-list"></a>Processlistan
 
-Att ta reda på om listan är tänkt att användas kql följande fråga: 
+Om du vill ta reda på om listan är som förväntat, använder du följande kql-fråga: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -188,4 +188,5 @@ Att ta reda på om listan är tänkt att användas kql följande fråga:
   3. Innehöll alla kommandoraden körningar korrekt och förväntade argument?
 
 ## <a name="next-steps"></a>Nästa steg
+
 När du undersöker en enhet och få en bättre förståelse för dina risker, kan du överväga att [konfigurera anpassade varningar](quickstart-create-custom-alerts.md) att förbättra din säkerhetsposition för IoT-lösning. Om du inte redan har en agent för enheten kan du överväga att [distribuerar en säkerhetsagenten](how-to-deploy-agent.md) eller [ändrar konfigurationen för en befintlig enhet agent](how-to-agent-configuration.md) att förbättra dina resultat. 

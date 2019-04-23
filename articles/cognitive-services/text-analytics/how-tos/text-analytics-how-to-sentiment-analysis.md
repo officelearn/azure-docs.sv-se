@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887428"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011307"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exempel: Så identifierar du attityd med Textanalys
 
-[API:et för attitydanalys](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) utvärderar textinmatningen och returnerar ett attitydpoäng för varje dokument som sträcker sig från 0 (negativ) till 1 (positiv).
+[API:et för attitydanalys](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) utvärderar textinmatningen och returnerar ett attitydpoäng för varje dokument som sträcker sig från 0 (negativ) till 1 (positiv).
 
 Den här funktionen är användbar för att upptäcka positiva och negativa åsikter i sociala medier, kundrecensioner och diskussionsforum. Innehållet kommer från modeller, utbildningsdata och tillhandahålls av tjänsten.
 
@@ -35,9 +35,9 @@ Attitydanalys utförs i hela dokumentet, till skillnad från åsiktsextrahering 
 
 ## <a name="preparation"></a>Förberedelse
 
-Attitydanalys ger resultat av högre kvalitet när du ger det mindre segment för att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata på ett lämpligt sätt.
+Attitydanalys ger resultat av högre kvalitet när du ger det mindre segment för att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata därefter.
 
-Du måste ha JSON-dokument i följande format: id, text, språk
+Du måste ha JSON-dokument i det här formatet: ID, text, språk
 
 Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. Följande är ett exempel på innehåll som du kan skicka in för attitydanalys.
 
@@ -77,16 +77,16 @@ Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha up
 
 Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
-+ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för attitydanalys](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för attitydanalys](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Ange HTTP-slutpunkten för attitydanalys, med hjälp av en Textanalys-resurs på Azure eller en instansierad [Textanalys-container](text-analytics-how-to-install-containers.md). Den måste innehålla `/sentiment`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Ange HTTP-slutpunkten för attitydanalys, med hjälp av en Textanalys-resurs på Azure eller en instansierad [Textanalys-container](text-analytics-how-to-install-containers.md). Den måste innehålla `/sentiment`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
 
 + Ange en begäransrubrik som inkluderar åtkomstnyckeln för textanalysåtgärder. Mer information finns i [Hitta slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 
 + Ange den JSON-dokumentsamling som du har förberett för den här analysen i begärandetexten.
 
 > [!Tip]
-> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API-testkonsolen** i [dokumentationen](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) för att strukturera en begäran och skicka den till tjänsten.
+> Använd [Postman](text-analytics-how-to-call-api.md) eller öppna **API-testkonsolen** i [dokumentationen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) för att strukturera en begäran och skicka den till tjänsten.
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
@@ -135,12 +135,12 @@ I följande exempel visas svaret för dokumentsamlingen i den här artikeln.
 
 I den här artikeln har du lärt känna begrepp och arbetsflöden för attitydanalys med hjälp av textanalys i Cognitive Services. Sammanfattning:
 
-+ [Attitydanalys API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) är tillgängligt för utvalda språk.
-+ JSON-dokument i begärandetexten innehåller ID, text och språkkod.
-+ POST-begäran riktas till en `/sentiment`-slutpunkt, med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för prenumerationen.
++ [Attitydanalys API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) är tillgängligt för utvalda språk.
++ JSON-dokument i begärandetexten innehålla ett ID, text och språk-kod.
++ POST-begäran riktas till en `/sentiment`-slutpunkt med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](text-analytics-how-to-access-key.md) som är giltig för din prenumeration.
 + Svarsutdata, vilka består av attitydpoäng för varje dokument-ID, kan strömmas till vilken app som helst som tar emot JSON, inklusive Excel och Power BI bara för att nämna några.
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)</br>

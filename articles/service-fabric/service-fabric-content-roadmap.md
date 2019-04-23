@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: adbe101455bc200bc6be439920736b756f08b695
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667998"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011188"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Så att du vill lära dig om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort utsatt område för dock och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp, programmeringsmodeller, programmets hela livscykel, testning, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande innehållslistan, men länka till översikt och komma igång artiklar för alla områden i Service Fabric. 
@@ -165,7 +165,7 @@ Rapportering kan göras från:
 * Interna watchdogs som körs på Service Fabric-noder, men inte har implementerats som Service Fabric-tjänster.
 * Externa watchdogs som avsökning resursen från utanför Service Fabric-klustret (till exempel övervakningstjänst som Gomez).
 
-Direkt rapport komponenterna för Service Fabric hälsotillstånd för alla entiteter i klustret. [Systemhälsorapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) ger bättre inblick i klustret och programmet funktioner och flaggan problem med hjälp av hälsotillstånd. För program och tjänster Kontrollera systemhälsorapporter att entiteter implementeras och att den fungerar korrekt för Service Fabric-körningen. Rapporterna inte ger någon hälsoövervakning av affärslogiken i tjänsten eller identifiera låsta processer. Att lägga till hälsoinformation som är specifika för din tjänst logic [implementera anpassade tillståndsrapportering](service-fabric-report-health.md) i dina tjänster.
+Direkt rapport komponenterna för Service Fabric hälsotillstånd för alla entiteter i klustret. [Systemhälsorapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) ger bättre inblick i klustret och programmet funktioner och flaggan problem med hjälp av hälsotillstånd. För program och tjänster Kontrollera systemhälsorapporter att entiteter implementeras och att den fungerar korrekt för Service Fabric-körningen. Rapporterna inte ger någon hälsoövervakning av affärslogiken i tjänsten eller identifiera processer som har slutat svara. Att lägga till hälsoinformation som är specifika för din tjänst logic [implementera anpassade tillståndsrapportering](service-fabric-report-health.md) i dina tjänster.
 
 Service Fabric finns flera sätt att [visa hälsorapporter](service-fabric-view-entities-aggregated-health.md) aggregeras i health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) eller andra visualiseringsverktyg för.

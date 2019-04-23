@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563378"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011266"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exempel: Så här anropar du API för visuellt innehåll
 
@@ -25,7 +25,7 @@ Den här guiden visar hur du anropar ett API för visuellt innehåll med hjälp 
 - Hur du hämtar ”taggar”, ”beskrivning” och ”kategorier”.
 - Hur du hämtar ”domänspecifik” information (kändisar).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Bild-URL eller sökvägen till en lokalt lagrad bild.
 - Indatametoder som stöds: Binära rawbildfiler i form av ett program-/oktettflöde eller bild-URL
@@ -47,8 +47,7 @@ Funktionerna kan fördelas mellan:
 
 Varje anrop till ett API för visuellt innehåll kräver en prenumerationsnyckel. Nyckeln måste antingen skickas via en frågesträngparameter eller anges i begärans sidhuvud.
 
-Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+För att få en kostnadsfri utvärderingsversion nyckel kan se [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
 
 1. Skicka prenumerationsnyckeln via en frågesträng. Nedan följer ett exempel med API för visuellt innehåll:
 
@@ -165,12 +164,12 @@ Här är ett exempel:
 }
 ```
 
-Fält | Typ | Innehåll
+Fält | Type | Innehåll
 ------|------|------|
 Taggar  | `object` | Huvudobjekt för taggmatris
 tags[].Name | `string`  | Nyckelord från taggklassificerare
 tags[].Score    | `number`  | Förtroendepoäng, mellan 0 och 1.
-beskrivning  | `object` | Huvudobjekt för beskrivning
+description  | `object` | Huvudobjekt för beskrivning
 description.tags[] |    `string`    | Lista med taggar.  Om det finns inte tillräckligt med förtroende för möjligheten att skapa en etikett, kan taggarna vara den enda informationen tillgänglig för anroparen.
 description.captions[].text | `string`  | En mening som beskriver bilden.
 description.captions[].confidence   | `number`  | Förtroende för frasen.
@@ -227,7 +226,7 @@ För domänspecifika modeller med alternativ två (utökad analys) utökas den r
 
 Kategorifältet är en lista över en eller flera av de [86 kategorierna](../Category-Taxonomy.md) i den ursprungliga taxonomin. Observera också att kategorier som slutar med ett understreck matchar den kategorin och dess underordnade (till exempel personer_ samt personer_grupp för kändismodellen).
 
-Fält   | Typ  | Innehåll
+Fält   | Type  | Innehåll
 ------|------|------|
 kategorier | `object`   | Toppnivåobjekt
 categories[].name    | `string` | Namn från 86-kategoritaxonomi

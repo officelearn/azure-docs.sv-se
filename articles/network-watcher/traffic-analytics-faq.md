@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549379"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149299"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
@@ -130,12 +130,6 @@ Nej. Du kan lagra loggarna i alla lagringskonton där en NSG har aktiverats för
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Vad händer om jag kan inte konfigurera en NSG för trafikanalys pga ett fel som ”hittades inte”?
 
 Välj en region som stöds. Om du väljer ett område som inte stöds visas felmeddelandet ”hittades inte”. Regioner som stöds anges tidigare i den här artikeln.
-
-## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Varför får jag felet ”Det gick inte att uppdatera flödesloggsinställningarna för... InternalServerError... ” När du aktiverar NSG-i Virginia (USA-förvaltad region)?
-
-Detta beror på en bugg där ”Microsoft.Network-resursprovidern inte är registrerade igen för en prenumeration i Virginia (USA-förvaltad region). Den här gruppen arbetar på lösningen. Som en lösning kan du skulle behöva [manuellt Omregistrera 'Microsoft.Network' RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Kontakta supporten om problemet kvarstår. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Vad händer om jag får status, ”det gick inte att läsa in”, under sidan NSG flödet loggar?
 

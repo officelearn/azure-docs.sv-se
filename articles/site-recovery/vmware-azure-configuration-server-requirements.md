@@ -8,18 +8,17 @@ services: site-recovery
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 4f13c1beb23687b46074671fe01a0f42b26c8c03
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 399dcd744819cf4cb5d9f5f9636967c34e186a0e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312928"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004609"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Configuration server-krav för haveriberedskap för VMware till Azure
 
 Du distribuerar en lokal konfigurationsserver när du använder [Azure Site Recovery](site-recovery-overview.md) för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure.
 
-- Den configuration server koordinater kommunikationen mellan lokala VMware- och Azure. Den hanterar också replikering av data.
 - Den configuration server koordinater kommunikationen mellan lokala VMware- och Azure. Den hanterar också replikering av data.
 - [Läs mer](vmware-azure-architecture.md) om konfigurationsserverns komponenter och processer.
 

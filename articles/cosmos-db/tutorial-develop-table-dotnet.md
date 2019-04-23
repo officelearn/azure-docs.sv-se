@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: 0f324d39db38b17d436583277d60d87b2878d131
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880800"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149605"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Komma igång med Azure Cosmos DB Table API och Azure Table storage med .NET SDK
 
@@ -25,7 +25,7 @@ Du kan använda Azure Cosmos DB Table API eller Azure Table storage för att lag
 
 Den här självstudien beskrivs ett exempel som visar hur du använder den [Microsoft Azure Cosmos DB tabell-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) med Azure Cosmo DB Table API och Azure Table storage-scenarier. Du måste använda anslutningen som är specifika för Azure-tjänsten. Dessa scenarier beskrivs med hjälp av C# exempel som visar hur du skapar tabeller, infoga / uppdatera data, fråga efter data och ta bort tabellerna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för att kunna följa med i det här exemplet:
 
@@ -170,7 +170,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 Entiteter mappar till C# objekt med hjälp av en anpassad klass som härleds från [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten.
 
-Högerklicka på projektet **CosmosTableSamples**. Välj **Lägg till**, **ny mapp** och ger den namnet **modellen**. Lägg till en klass med namnet i mappen modellen **CustimerEntity.cs** och Lägg till följande kod till den.
+Högerklicka på projektet **CosmosTableSamples**. Välj **Lägg till**, **ny mapp** och ger den namnet **modellen**. Lägg till en klass med namnet i mappen modellen **CustomerEntity.cs** och Lägg till följande kod till den.
 
 ```csharp
 namespace CosmosTableSamples.Model

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049705"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149503"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Hantera konfigurationsservern för VMware-VM-katastrofåterställning
 
@@ -183,7 +183,7 @@ Kör installationsfilen på följande sätt:
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameternamn| Typ | Beskrivning| Värden|
+|Parameternamn| Type | Beskrivning| Värden|
 |-|-|-|-|
 | /ServerMode|Krävs|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
 |/InstallLocation|Krävs|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|

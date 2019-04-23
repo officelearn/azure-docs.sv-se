@@ -1,7 +1,6 @@
 ---
 title: 'API: er för Azure reservation automation | Microsoft Docs'
 description: 'Läs mer om Azure-API: er som du kan använda för att hämta reservationsinformation om programmässigt.'
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880239"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008227"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API: er för Azure reservation automation
 
@@ -55,7 +54,7 @@ Om du märker att din organisations reservationer som underanvänd:
 
 - Kontrollera att de virtuella datorerna som skapas i din organisation matchar den Virtuella datorstorlek som finns på reservationen.
 - Kontrollera att instansen storlek flexibilitet är på. Mer information finns i [hantera reservationer - ändringen Optimera för reserverade VM-instanser](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
-- Ändra omfång för reservation som delas så att den gäller bredare. Mer information finns i [hantera reservationer – ändra omfattningen för en reservation](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+- Ändra omfång för reservation som delas så att den gäller bredare. Mer information finns i [hantera reservationer – ändra omfattningen för en reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 - Utbyta kvantitet som inte används. Mer information finns i [hantera reservationer - avbokningar och utbyten](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
 
 ## <a name="give-access-to-reservations"></a>Ge åtkomst till reservationer
@@ -68,7 +67,7 @@ Hämta en lista över alla reservationer att en användare har åtkomst till med
 
 ## <a name="split-or-merge-reservation"></a>Delad tunnel eller merge-reservation
 
-När du köper fler än en resursinstans inom en reservation kan du tilldela instanser inom det reserverade till olika prenumerationer. Du kan ändra omfång för reservation så att den gäller för alla prenumerationer i samma kontext för fakturering. Men för cost management eller budgetering, du kanske vill hålla som ”enstaka prenumeration” och tilldela reserverade instanser till en viss prenumeration. 
+När du köper fler än en resursinstans inom en reservation kan du tilldela instanser inom det reserverade till olika prenumerationer. Du kan ändra omfång för reservation så att den gäller för alla prenumerationer i samma kontext för fakturering. Men för cost management eller budgetering, du kanske vill hålla som ”enstaka prenumeration” och tilldela reserverade instanser till en viss prenumeration.
 
 Använd API för att dela upp en reservation [Reservation - dela](/rest/api/reserved-vm-instances/reservation/split). Du kan också dela upp en reservation med hjälp av PowerShell. Mer information finns i [hantera reservationer - Split-reservation i två reservationer](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 
@@ -76,7 +75,7 @@ Använd API för att slå samman två reservationer till en reservation [Reserva
 
 ## <a name="change-scope-for-a-reservation"></a>Ändra omfång för en reservation
 
-En reservationens omfång kan vara enskild prenumeration eller i alla prenumerationer i din faktureringskontexten. Om du ställer in omfånget för enskild prenumeration matchade reservationen att köra resurser i den valda prenumerationen. Om du ställer in omfånget som delas matchar reservationen till resurser som körs i alla prenumerationer i kontexten fakturering i Azure. Fakturering kontexten är beroende av den prenumeration som du använde för att köpa reservationer. Mer information finns i [hantera reservationer – ändra omfattningen](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+En reservationens omfång kan vara enskild prenumeration eller i alla prenumerationer i din faktureringskontexten. Om du ställer in omfånget för enskild prenumeration matchade reservationen att köra resurser i den valda prenumerationen. Om du ställer in omfånget som delas matchar reservationen till resurser som körs i alla prenumerationer i kontexten fakturering i Azure. Fakturering kontexten är beroende av den prenumeration som du använde för att köpa reservationer. Mer information finns i [hantera reservationer – ändra omfattningen](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 Du kan ändra omfånget programmässigt med API: et [Reservation - uppdatering](/rest/api/reserved-vm-instances/reservation/update).
 

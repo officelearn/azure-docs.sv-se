@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d1db228f4c73cc00cd32ca6ae5b86056db68f05b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848702"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148959"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en Linux-dator i Azure med Azure Active Directory-autentisering (förhandsversion)
 
@@ -83,7 +83,7 @@ Det tar några minuter att skapa den virtuella datorn och stödresurser.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installera Azure AD-kontoinloggning VM-tillägg
 
-Om du vill logga in på en Linux VM med Azure AD-autentiseringsuppgifter, installera Azure Active Directory-loggen i VM-tillägget. VM-tillägg är litet program som ger efter distributionen konfiguration och automatisering av uppgifter i Azure virtual machines. Använd [az vm-tilläggsuppsättningen](/cli/azure/vm/extension#az-vm-extension-set) att installera den *AADLoginForLinux* tillägget på den virtuella datorn med namnet *myVM* i den *myResourceGroup* resurs grupp:
+Om du vill logga in på en Linux VM med Azure AD-autentiseringsuppgifter, installera Azure Active Directory-inloggning VM-tillägget. VM-tillägg är litet program som ger efter distributionen konfiguration och automatisering av uppgifter i Azure virtual machines. Använd [az vm-tilläggsuppsättningen](/cli/azure/vm/extension#az-vm-extension-set) att installera den *AADLoginForLinux* tillägget på den virtuella datorn med namnet *myVM* i den *myResourceGroup* resurs grupp:
 
 ```azurecli-interactive
 az vm extension set \

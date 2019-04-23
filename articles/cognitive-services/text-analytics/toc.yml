@@ -1,112 +1,105 @@
-items:
 - name: Dokumentation om API för textanalys
   href: index.yml
 - name: Översikt
-  items:
-  - name: Vad är API för textanalys?
-    href: overview.md
-  - name: Exempel på användarscenarier
-    href: text-analytics-user-scenarios.md
   expanded: true
+  items:
+    - name: Vad är API för textanalys?
+      href: overview.md
+    - name: Exempel på användarscenarier
+      href: text-analytics-user-scenarios.md
 - name: Snabbstarter
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Go
-    href: quickstarts/go.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Go
+      href: quickstarts/go.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
 - name: Självstudier
   items:
-  - name: Integrera Power BI för att analysera kundfeedback
-    href: Tutorials/tutorial-power-bi-key-phrases.md
-  - name: Textanalys i PowerApps
-    href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
-  - name: Sentimentanalys på strömmade data med hjälp av Azure Databricks
-    href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
-    maintainContext: true
-  - name: Använda Flask till att översätta text, analysera sentiment och syntetisera tal
-    href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
-    maintainContext: true
+    - name: Integrera Power BI för att analysera kundfeedback
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Textanalys i PowerApps
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
+    - name: Sentimentanalys på strömmade data med hjälp av Azure Databricks
+      maintainContext: true
+      href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+    - name: 'Använda Flask till att översätta text, analysera sentiment och syntetisera tal'
+      maintainContext: true
+      href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
 - name: Instruktionsguider
   items:
-  - name: Registrera dig
-    href: How-tos/text-analytics-how-to-signup.md
-  - name: Hämta en åtkomstnyckel
-    href: How-tos/text-analytics-how-to-access-key.md
-  - name: Anropa API:t för textanalys
-    href: How-tos/text-analytics-how-to-call-api.md
-  - name: Identifiera språk
-    href: How-tos/text-analytics-how-to-language-detection.md
-  - name: Analysera sentiment
-    href: How-tos/text-analytics-how-to-sentiment-analysis.md
-  - name: Extrahera nyckelfraser
-    href: How-tos/text-analytics-how-to-keyword-extraction.md
-  - name: Anropa igenkänning av teckenentitet
-    href: How-tos/text-analytics-how-to-entity-linking.md
-  - name: Använda containrar
-    items:
-    - name: Installera och köra containrar
-      href: how-tos/text-analytics-how-to-install-containers.md
-    - name: Konfigurera containrar
-      href: text-analytics-resource-container-config.md
-    - name: Anvisningar för att köra på Azure Kubernetes Service
-      href: How-tos/text-analytics-how-to-use-container-instance.md
-  - name: Använda den anslutna tjänsten för textanalys
-    href: vs-text-connected-service.md
+    - name: Registrera dig
+      href: How-tos/text-analytics-how-to-signup.md
+    - name: Hämta en åtkomstnyckel
+      href: How-tos/text-analytics-how-to-access-key.md
+    - name: 'Anropa API:t för textanalys'
+      href: How-tos/text-analytics-how-to-call-api.md
+    - name: Identifiera språk
+      href: How-tos/text-analytics-how-to-language-detection.md
+    - name: Analysera sentiment
+      href: How-tos/text-analytics-how-to-sentiment-analysis.md
+    - name: Extrahera nyckelfraser
+      href: How-tos/text-analytics-how-to-keyword-extraction.md
+    - name: Anropa igenkänning av teckenentitet
+      href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: Använda containrar
+      items:
+        - name: Installera och köra containrar
+          href: how-tos/text-analytics-how-to-install-containers.md
+        - name: Konfigurera containrar
+          href: text-analytics-resource-container-config.md
+        - name: Anvisningar för att köra på Azure Kubernetes Service
+          href: How-tos/text-analytics-how-to-use-container-instance.md
+    - name: Använda den anslutna tjänsten för textanalys
+      href: vs-text-connected-service.md
 - name: Referens
   items:
-  - name: CLI-referens
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: PowerShell-referens
-    href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: API för textanalys
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
-  - name: SDK:er
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
+    - name: CLI-referens
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: PowerShell-referens
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: API för textanalys
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7'
+    - name: 'SDK:er'
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest'
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics'
 - name: Resurser
   items:
-  - name: Identifiera sentiment i kommentarer i en Yammer-grupp med MS Flow
-    href: https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure
-  - name: Externt innehåll och community-innehåll
-    href: text-analytics-resource-external-community.md
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: text-analytics-resource-faq.md
-  - name: Stöd för språk och region
-    href: language-support.md
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/text-analytics-api
-  - name: Prenumerationsnyckel
-    href: https://azure.microsoft.com/try/cognitive-services/?api=text-analytics
-  - name: Prova!
-    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/555922-text-analytics
-ms.openlocfilehash: 6c25fe6b6fa10c592cb9462e9fb712575f61bdd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788147"
+    - name: Identifiera sentiment i kommentarer i en Yammer-grupp med MS Flow
+      href: 'https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure'
+    - name: Externt innehåll och community-innehåll
+      href: text-analytics-resource-external-community.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: text-analytics-resource-faq.md
+    - name: Stöd för språk och region
+      href: language-support.md
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: Prenumerationsnyckel
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=text-analytics'
+    - name: Prova!
+      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

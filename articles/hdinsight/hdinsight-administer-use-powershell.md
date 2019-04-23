@@ -7,40 +7,25 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: 09574647aae8725a614dd20fd0247b0f8cf8b68a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 6cf05437d5fc181a9fadae110a44efd88d06a2da
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446990"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011640"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell kan användas för att styra och automatisera distributionen och hanteringen av dina arbetsbelastningar i Azure. I den här artikeln får du lära dig hur du hanterar [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight med hjälp av Azure PowerShell. Listan över HDInsight PowerShell-cmdlets, se [cmdlet-referens för HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell kan användas för att styra och automatisera distributionen och hanteringen av dina arbetsbelastningar i Azure. I den här artikeln får du lära dig hur du hanterar [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight med hjälp av Azure PowerShell Az-modulen. Lista över HDInsight PowerShell-cmdlets finns i den [Az.HDInsight referens](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
-**Förutsättningar**
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-Innan du påbörjar den här artikeln måste du ha följande objekt:
-
-* **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-## <a name="install-azure-powershell"></a>Installera Azure PowerShell
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
-Om du har installerat Azure PowerShell version 0.9 x, måste du avinstallera den innan du installerar en senare version.
-
-Kontrollera versionen av installerade PowerShell:
-
-```powershell
-Get-Module *Az*
-```
-
-Om du vill avinstallera den äldre versionen, köra program och funktioner på Kontrollpanelen.
+* PowerShell [Az modulen](https://docs.microsoft.com/powershell/azure/overview) installerad.
 
 ## <a name="create-clusters"></a>Skapa kluster
 Se [skapa Linux-baserade kluster i HDInsight med Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -75,9 +60,6 @@ Remove-AzResourceGroup -Name <Resource Group Name>
 ## <a name="scale-clusters"></a>Skala kluster
 Klusterskalning funktionen kan du ändra antalet arbetarnoder som används av ett kluster som körs i Azure HDInsight utan att behöva återskapa klustret.
 
-> [!NOTE]  
-> Endast kluster med HDInsight version 3.1.3 eller högre stöds. Om du är osäker på vilken version av ditt kluster kan kontrollera du egenskapssidan.  Se [lista och visa kluster](hdinsight-administer-use-portal-linux.md#showClusters).
-
 Effekten av att ändra antalet datanoder som för varje typ av kluster som stöds av HDInsight:
 
 * Apache Hadoop
@@ -90,9 +72,9 @@ Effekten av att ändra antalet datanoder som för varje typ av kluster som stöd
     Du kan smidigt lägga till eller ta bort noder till HBase-kluster medan den körs. Regionservrar balanseras automatiskt inom ett par minuter efter att du skalar igen. Du kan dock också manuellt balansera regionservrar genom att logga in till huvudnod i kluster och kör sedan följande kommandon från en kommandotolk:
 
     ```bash
-    >pushd %HBASE_HOME%\bin
-    >hbase shell
-    >balancer
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
     ```
 
 * Apache Storm
@@ -169,6 +151,10 @@ Det är på samma sätt som Grant/revoke HTTP-åtkomst. Om klustret har beviljat
 ## <a name="find-the-default-storage-account"></a>Hitta standardkontot för lagring
 Följande PowerShell-skript visar hur du hämtar standard lagringskontonamn och relaterad information:
 
+> [!IMPORTANT]  
+> Värdena för `DefaultStorageAccount`, och `DefaultStorageContainer` returneras inte från [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) när [säker överföring](../storage/common/storage-require-secure-transfer.md) är aktiverat för lagringskontot.
+
+
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -226,34 +212,14 @@ Se [Använd Apache Sqoop med HDInsight](hadoop/hdinsight-use-sqoop.md).
 Se [Använd Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde i HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure Blob storage
-Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
+
+Se [ladda upp data till HDInsight](hdinsight-upload-data.md).
 
 ## <a name="see-also"></a>Se även
+
 * [Referensdokumentation för HDInsight-cmdlet](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen](hdinsight-administer-use-portal-linux.md)
-* [Administrera HDInsight med ett kommandoradsgränssnitt][hdinsight-admin-cli]
-* [Skapa HDInsight-kluster][hdinsight-provision]
-* [Överföra data till HDInsight][hdinsight-upload-data]
-* [Skicka Apache Hadoop-jobb programmässigt][hdinsight-submit-jobs]
-* [Kom igång med Azure HDInsight][hdinsight-get-started]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
-
-[hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
-
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
+* [Administrera HDInsight med ett kommandoradsgränssnitt](hdinsight-administer-use-command-line.md)
+* [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
+* [Skicka Apache Hadoop-jobb programmässigt](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

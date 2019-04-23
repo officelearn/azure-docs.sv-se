@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0e68958070e9c35e12dd9446b351f880dfea6f69
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a9629cd14c71a163612c2c4ba3c7b109a52b91ad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793257"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008366"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Skapa en virtuell dator med DevTest Labs med Azure PowerShell
 Den här artikeln visar hur du skapar en virtuell dator i Azure DevTest Labs med hjälp av Azure PowerShell. Du kan använda PowerShell-skript för att automatisera skapandet av virtuella datorer i ett labb i Azure DevTest Labs. 
@@ -27,10 +27,10 @@ Den här artikeln visar hur du skapar en virtuell dator i Azure DevTest Labs med
 Innan du börjar:
 
 - [Skapa ett labb](devtest-lab-create-lab.md) om du inte vill använda en befintlig labb för att testa det skript eller kommandon i den här artikeln. 
-- [Installera Azure PowerShell](/powershell/azure/azurerm/other-install) eller använda Azure Cloud Shell som är integrerat i Azure-portalen. 
+- [Installera Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) eller använda Azure Cloud Shell som är integrerat i Azure-portalen. 
 
 ## <a name="powershell-script"></a>PowerShell-skript
-Exempelskriptet i det här avsnittet använder de [Invoke-AzureRmResourceAction](/powershell/module/azurerm.resources/invoke-azurermresourceaction) cmdlet.  Den här cmdleten tar den testmiljön resurs-ID, namnet på åtgärden som ska utföras (`createEnvironment`), och parametrarna som behövs för att utföra åtgärden. Parametrarna är i en hashtabell som innehåller alla egenskaper för VM-beskrivning. 
+Exempelskriptet i det här avsnittet använder de [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) cmdlet.  Den här cmdleten tar den testmiljön resurs-ID, namnet på åtgärden som ska utföras (`createEnvironment`), och parametrarna som behövs för att utföra åtgärden. Parametrarna är i en hashtabell som innehåller alla egenskaper för VM-beskrivning. 
 
 ```powershell
 [CmdletBinding()]
@@ -48,11 +48,11 @@ pushd $PSScriptRoot
 
 try {
     if ($SubscriptionId -eq $null) {
-        $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+        $SubscriptionId = (Get-AzContext).Subscription.SubscriptionId
     }
 
     $API_VERSION = '2016-05-15'
-    $lab = Get-AzureRmResource -ResourceId "/subscriptions/$SubscriptionId/resourceGroups/$LabResourceGroup/providers/Microsoft.DevTestLab/labs/$LabName"
+    $lab = Get-AzResource -ResourceId "/subscriptions/$SubscriptionId/resourceGroups/$LabResourceGroup/providers/Microsoft.DevTestLab/labs/$LabName"
 
     if ($lab -eq $null) {
        throw "Unable to find lab $LabName resource group $LabResourceGroup in subscription $SubscriptionId."
@@ -61,9 +61,9 @@ try {
     #For this example, we are getting the first allowed subnet in the first virtual network
     #  for the lab.
     #If a specific virtual network is needed use | to find it. 
-    #ie $virtualNetwork = @(Get-AzureRmResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION) | Where-Object Name -EQ "SpecificVNetName"
+    #ie $virtualNetwork = @(Get-AzResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION) | Where-Object Name -EQ "SpecificVNetName"
 
-    $virtualNetwork = @(Get-AzureRmResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION)[0]
+    $virtualNetwork = @(Get-AzResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION)[0]
 
     $labSubnetName = $virtualNetwork.properties.allowedSubnets[0].labSubnetName
 
@@ -107,7 +107,7 @@ try {
     #The following line is the same as invoking
     # https://azure.github.io/projects/apis/#!/Labs/Labs_CreateEnvironment rest api
 
-    Invoke-AzureRmResourceAction -ResourceId $lab.ResourceId -Action 'createEnvironment' -Parameters $parameters -ApiVersion $API_VERSION -Force -Verbose
+    Invoke-AzResourceAction -ResourceId $lab.ResourceId -Action 'createEnvironment' -Parameters $parameters -ApiVersion $API_VERSION -Force -Verbose
 }
 finally {
    popd

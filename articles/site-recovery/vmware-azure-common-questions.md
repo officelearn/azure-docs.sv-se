@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360545"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004779"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -111,7 +111,7 @@ Replikering av nya virtuella datorer till ett lagringskonto är endast tillgäng
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Kan jag ändra typ av hanterad disk när datorn är skyddad?
 
-Ja, du kan enkelt [ändra typen av hanterad disk](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Men om typ av hanterad disk kan vänta på ny återställningspunkter som ska genereras om du behöver testa eller redundansväxlingen efter ändringen.
+Ja, du kan enkelt [ändra typen av hanterad disk](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Se till att du återkallar SAS-Webbadress för disken genom att gå till den hanterade diskresursen på Azure-portalen innan du ändrar typen. Avbryt alla pågående export från översiktsbladet. När SAS-Webbadressen har återkallats, ändra typ av disk inom några minuter. Men om du ändrar typ av hanterad disk, vänta tills nya återställningspunkter som ska genereras av Azure Site Recovery. Använd de nya återställningspunkterna för redundanstest eller redundans framöver.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Kan jag byta replikeringen från hanterade diskar till ohanterade diskar?
 

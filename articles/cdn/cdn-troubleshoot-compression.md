@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791002"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149469"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Felsöka CDN-filkomprimering
 Den här artikeln hjälper dig att felsöka problem med [CDN-filkomprimering](cdn-improve-performance.md).
@@ -117,5 +117,5 @@ Ska vara kvalificerat för komprimering, måste en fil uppfylla följande krav f
 Den **Via** HTTP-huvud som anger till webbservern att begäran som skickas av en proxyserver.  Microsoft IIS-webbservrar som standard ska du inte komprimera svar när begäran innehåller en **Via** rubrik.  Om du vill åsidosätta detta beteende, utför du följande:
 
 * **IIS 6**: [Ange egenskaperna HcNoCompressionForProxies = ”FALSE” i egenskaperna för IIS-metabas](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 och senare**: [Ställ in både **noCompressionForHttp10** och **noCompressionForProxies** till False i serverkonfigurationen](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 7 och senare**: [Ställ in både **noCompressionForHttp10** och **noCompressionForProxies** till False i serverkonfigurationen](https://www.iis.net/configreference/system.webserver/httpcompression)
 

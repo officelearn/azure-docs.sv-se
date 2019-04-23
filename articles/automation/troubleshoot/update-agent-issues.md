@@ -4,17 +4,17 @@ description: Lär dig hur du felsöker problem med hantering av agenten.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/14/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: d4331942526b3dbda376605db2618ceeaec3f60a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 864fe70d7702680f21234a1a15c02515b19f770b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166006"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149622"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Förstå Windows-agenten kontrollera resultaten i hantering av uppdateringar
 
@@ -25,6 +25,9 @@ I följande lista är en dator kan vara i för tre beredskapstillstånd:
 * **Redo** -update-agenten har distribuerats och sågs senast mindre än 1 timme sedan.
 * **Frånkopplad** -update-agenten har distribuerats och sågs senast över 1 timme sedan.
 * **Inte konfigurerad** -update-agenten inte hittas eller har inte slutförts onboarding.
+
+> [!NOTE]
+> Det kan finnas en fördröjning mellan Azure-portalen visar och det aktuella tillståndet för datorn.
 
 ## <a name="start-the-troubleshooter"></a>Starta felsökaren
 

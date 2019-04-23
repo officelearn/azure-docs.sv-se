@@ -1,70 +1,63 @@
-items:
 - name: Azure för IT-operatörer
   items:
-  - name: Kom igång med Azure
-    href: azure-operations-guide.md
-  - name: Snabbstarter
-    items:
-    - name: Virtuella datorer
+    - name: Kom igång med Azure
+      href: azure-operations-guide.md
+    - name: Snabbstarter
       items:
-      - name: Virtuella Windows-datorer
-        href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Virtuella Linux-datorer
-        href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-    - name: Virtuella nätverk
+        - name: Virtuella datorer
+          items:
+            - name: Virtuella Windows-datorer
+              href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Virtuella Linux-datorer
+              href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        - name: Virtuella nätverk
+          items:
+            - name: Skapa ett virtuellt nätverk med Azure Portal
+              href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        - name: Säkerhet
+          items:
+            - name: Hantera resurser med hjälp av rolltilldelningar
+              href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        - name: Azure Stack
+          items:
+            - name: Distributionsöversikt för Azure Stack
+              href: /azure-stack/asdk/asdk-download
+        - name: Azure Backup
+          items:
+            - name: Säkerhetskopiera en virtuell dator i Azure-portalen
+              href: ../../backup/quick-backup-vm-portal.md
+        - name: Azure Site Recovery
+          items:
+            - name: Replikera en virtuell Azure-dator till en annan Azure-region
+              href: ../../site-recovery/azure-to-azure-quickstart.md
+    - name: Självstudier
       items:
-      - name: Skapa ett virtuellt nätverk med Azure Portal
-        href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-    - name: Säkerhet
+        - name: Virtuella datorer
+          items:
+            - name: Skapa och hantera en virtuell Windows-dator
+              href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Skapa och hantera virtuella Linux-datorer
+              href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Jenkins CI/CD-pipeliner
+              href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Belastningsutjämna virtuella datorer
+              href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Skapa Azure Resource Manager-mallar
+              href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Säkerhetskopiera virtuella datorer enligt skala
+              href: ../../backup/tutorial-backup-vm-at-scale.md
+    - name: Instruktionsguider
       items:
-      - name: Hantera resurser med hjälp av rolltilldelningar
-        href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-    - name: Azure Stack
+        - name: Ladda ned din Azure-faktura och information om den dagliga användningen
+          href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+    - name: Resurser
       items:
-      - name: Distributionsöversikt för Azure Stack
-        href: ../../azure-stack/azure-stack-deploy-overview.md
-    - name: Azure Backup
-      items:
-      - name: Säkerhetskopiera en virtuell dator i Azure-portalen
-        href: ../../backup/quick-backup-vm-portal.md
-    - name: Azure Site Recovery
-      items:
-      - name: Replikera en virtuell Azure-dator till en annan Azure-region
-        href: ../../site-recovery/azure-to-azure-quickstart.md
-  - name: Självstudier
-    items:
-    - name: Virtuella datorer
-      items:
-      - name: Skapa och hantera en virtuell Windows-dator
-        href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Skapa och hantera virtuella Linux-datorer
-        href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Jenkins CI/CD-pipeliner
-        href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Belastningsutjämna virtuella datorer
-        href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Skapa Azure Resource Manager-mallar
-        href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Säkerhetskopiera virtuella datorer enligt skala
-        href: ../../backup/tutorial-backup-vm-at-scale.md
-  - name: Instruktionsguider
-    items:
-    - name: Ladda ned din Azure-faktura och information om den dagliga användningen
-      href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-  - name: Resurser
-    items:
-    - name: Azure-produktkatalog
-      href: https://docs.microsoft.com/azure/#pivot=products
-    - name: Azure-översikt
-      href: https://azure.microsoft.com/roadmap/
-    - name: Priskalkylator
-      href: https://azure.microsoft.com/pricing/calculator/
-    - name: Översikt över Microsoft Azure Portal
-      href: https://azure.microsoft.com/documentation/articles/azure-portal-overview/
-  - name: Referenser
-ms.openlocfilehash: baa4d388f26c46974c1037c3ecf723a445774591
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341364"
+        - name: Azure-produktkatalog
+          href: 'https://docs.microsoft.com/azure/#pivot=products'
+        - name: Azure-översikt
+          href: 'https://azure.microsoft.com/roadmap/'
+        - name: Priskalkylator
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Översikt över Microsoft Azure Portal
+          href: 'https://azure.microsoft.com/documentation/articles/azure-portal-overview/'
+    - name: Referenser

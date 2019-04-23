@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7c6fda2238aa53c4dc1a0f15ef1aaee263e4a8f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489356"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011704"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Skicka sökfrågor till Bing Visual Search API
 
@@ -73,7 +73,7 @@ Begäranden måste skickas som HTTP POST-begäranden.
 
 Här följer frågeparametrarna som din begäran bör ange. Du bör innehålla minst de `mkt` frågeparameter:
 
-| Namn | Värde | Typ | Krävs |
+| Name | Value | Type | Krävs |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | En två-teckens landskod som representerar var resultatet kommer från.<br /><br /> Om du anger parametern måste du även ange huvudet [Accept-Language](#acceptlanguage). Bing använder det första språket som stöds på listan över språk och kombinerar språket med landskoden som du anger för att fastställa vilken marknad som resultatet som returneras från. Om listan över språk inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran. Eller så kan den använda en sammansatt eller standardmarknad för resultatet i stället för den angivna.<br /><br /> Du bör endast använda den här frågeparametern och `Accept-Language`-frågeparametern om du anger flera språk. I annat fall bör du använda frågeparametrarna `mkt` och `setLang`.<br /><br /> Den här parametern och [mkt](#mkt)-frågeparametern utesluter varandra&mdash;ange inte båda två. | String | Nej       |
 | <a name="mkt" />mkt   | Marknaden som resultatet kommer från. <br /><br /> **Obs!** Du måste alltid ange marknaden, om det är möjligt. Om du anger marknaden gör det enklare för Bing att dirigera begäran och returnera ett lämpligt och optimalt svar.<br /><br /> Den här parametern och [cc](#cc)-frågeparametern utesluter varandra&mdash;ange inte båda två. | String | Ja      |
@@ -98,7 +98,7 @@ Här följer huvudena som din begäran bör ange. Den `Content-Type` och `Ocp-Ap
 | <a name="location" />X-Search-Location   | Valfritt begärandehuvud.<br /><br /> En semikolonavgränsad lista med nyckel/värde-par som beskriver klientens geografiska plats. Bing använder platsinformationen till att fastställa ett säkert sökbeteende och returnera relevant lokalt innehåll. Ange nyckel/värde-par som \<nyckel\>:\<värde\>. Följande är de nycklar som används för att ange användarens plats.<br /><br /><ul><li>lat&mdash;krävs. Latitud för klientens plats i grader. Latituden måste vara större än eller lika med -90.0 och vara mindre än eller lika med +90.0. Negativa värden anger sydliga latituder och positiva värden anger nordliga latituder.<br /><br /></li><li>long&mdash;Required. Longitud för klientens plats i grader. Longituden måste vara större än eller lika med -180.0 och vara mindre än eller lika med +180.0. Negativa värden anger västliga longituder och positiva värden anger östliga longituder.<br /><br /></li><li>re&mdash;Krävs. Radien, i meter, som anger koordinaternas vågräta exakthet. Skicka värdet som returneras av enhetens platstjänst. Typiska värdena kan vara 22 m för GPS/Wi-Fi, 380 m för cellen tower triangulering och 18 000 m för omvänd IP-sökning.<br /><br /></li><li>ts&mdash;Valfritt. UTC-UNIX-tidsstämpel för när klienten befann sig på platsen. (UNIX-tidsstämpeln är antalet sekunder sedan den 1 januari 1970.)<br /><br /></li><li>head&mdash;Optional. Klientens relativa riktning eller färdriktning. Ange färdriktningen som grader från 0 till 360 där du räknar medurs i förhållande till norr. Ange endast den här nyckeln om nyckeln `sp` är nollskiljd.<br /><br /></li><li>sp&mdash;Optional. Den vågräta hastigheten i meter per sekund som klientenheten färdas.<br /><br /></li><li>alt&mdash;Valfritt. Klientenhetens höjd i meter.<br /><br /></li><li>are&mdash;Valfritt. Radien, i meter, som anger koordinaternas lodräta exakthet. Ange den här nyckeln endast om du anger nyckeln `alt`.<br /><br /></li></ul> **Obs!** Även om många av nycklarna som är valfria, den information som du anger, desto mer exakta resultat för platsen är.<br /><br /> **Obs!** Även om det är valfritt, uppmuntras du att alltid ange användarens geografiska plats. Det är särskilt viktigt att ange plats om klientens IP-adress inte exakt avspeglar användarens fysiska plats (till exempel om klienten använder VPN). För bästa resultat bör du inkludera den här rubriken och `X-MSEdge-ClientIP` -huvud, men minst bör du inkludera den här rubriken.       |
 
 > [!NOTE]
-> Kom ihåg att den [i Bing använder och visa kraven](/../bing-web-search/use-display-requirements.md) Kräv efterlevnad med alla tillämpliga lagar, inklusive om användande av dessa rubriker. I till exempel vissa jurisdiktioner, som Europa, finns det krav på att skaffa användarens medgivande innan du placerar vissa spårningsenheter på användarenheter.
+> Kom ihåg att den [i Bing använder och visa kraven](../../bing-web-search/use-display-requirements.md) Kräv efterlevnad med alla tillämpliga lagar, inklusive om användande av dessa rubriker. I till exempel vissa jurisdiktioner, som Europa, finns det krav på att skaffa användarens medgivande innan du placerar vissa spårningsenheter på användarenheter.
 
 <a name="content-form-types" />
 

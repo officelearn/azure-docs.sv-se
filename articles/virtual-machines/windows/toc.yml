@@ -1,472 +1,468 @@
-items:
 - name: Dokumentation för virtuella Windows-datorer
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Virtual Machines
-    href: overview.md
+    - name: Om Virtual Machines
+      href: overview.md
 - name: Snabbstarter
-  items:
-  - name: Skapa VM – Portal
-    href: quick-create-portal.md
-  - name: Skapa VM – PowerShell
-    href: quick-create-powershell.md
-  - name: Skapa VM – Azure CLI
-    href: quick-create-cli.md
   expanded: true
+  items:
+    - name: Skapa VM – Portal
+      href: quick-create-portal.md
+    - name: Skapa VM – PowerShell
+      href: quick-create-powershell.md
+    - name: Skapa VM – Azure CLI
+      href: quick-create-cli.md
 - name: Självstudier
   items:
-  - name: 1 – Skapa/hantera en virtuell dator
-    href: tutorial-manage-vm.md
-  - name: 2 – Skapa/hantera diskar
-    href: tutorial-manage-data-disk.md
-  - name: 3 – Automatisera konfiguration
-    href: tutorial-automate-vm-deployment.md
-  - name: 4 – Skapa avbildningar av virtuella datorer
-    href: tutorial-custom-images.md
-  - name: 5 – Virtuella datorer med hög tillgänglighet
-    href: tutorial-availability-sets.md
-  - name: 6 – Skapa en VM-skalningsuppsättning
-    href: tutorial-create-vmss.md
-  - name: 7 – Belastningsutjämna virtuella datorer
-    href: tutorial-load-balancer.md
-  - name: 8 – Hantera nätverk
-    href: tutorial-virtual-network.md
-  - name: 9 – Säkerhetskopiera virtuella datorer
-    href: tutorial-backup-vms.md
-  - name: 10 – Styra virtuella datorer
-    displayName: scope policy RBAC lock tag
-    href: tutorial-govern-resources.md
-  - name: 11 – Övervaka och uppdatera virtuella datorer
-    href: tutorial-monitoring.md
-  - name: 12 – Hantera VM-säkerhet
-    href: tutorial-azure-security.md
-  - name: 13 – Installera en SQL\IIS\.NET-stack
-    href: tutorial-iis-sql.md
-  - name: 14 – Säker webbserver med SSL
-    href: tutorial-secure-web-server.md
+    - name: 1 – Skapa/hantera en virtuell dator
+      href: tutorial-manage-vm.md
+    - name: 2 – Skapa/hantera diskar
+      href: tutorial-manage-data-disk.md
+    - name: 3 – Automatisera konfiguration
+      href: tutorial-automate-vm-deployment.md
+    - name: 4 – Skapa avbildningar av virtuella datorer
+      href: tutorial-custom-images.md
+    - name: 5 – Virtuella datorer med hög tillgänglighet
+      href: tutorial-availability-sets.md
+    - name: 6 – Skapa en VM-skalningsuppsättning
+      href: tutorial-create-vmss.md
+    - name: 7 – Belastningsutjämna virtuella datorer
+      href: tutorial-load-balancer.md
+    - name: 8 – Hantera nätverk
+      href: tutorial-virtual-network.md
+    - name: 9 – Säkerhetskopiera virtuella datorer
+      href: tutorial-backup-vms.md
+    - name: 10 – Styra virtuella datorer
+      href: tutorial-govern-resources.md
+      displayName: scope policy RBAC lock tag
+    - name: 11 – Övervaka och uppdatera virtuella datorer
+      href: tutorial-monitoring.md
+    - name: 12 – Hantera VM-säkerhet
+      href: tutorial-azure-security.md
+    - name: 13 – Installera en SQL\IIS\.NET-stack
+      href: tutorial-iis-sql.md
+    - name: 14 – Säker webbserver med SSL
+      href: tutorial-secure-web-server.md
 - name: Exempel
   items:
-  - name: PowerShell
-    href: powershell-samples.md
-  - name: Azure CLI
-    href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Begrepp
   items:
-  - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Regioner och tillgänglighet
-    href: regions-and-availability.md
-  - name: VM-typer och storlekar
-    href: sizes.md
-    items:
-    - name: Generellt syfte
-      displayName: Dsv3 Dv3 DSv2 Dv2 Av2
-      href: sizes-general.md
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Regioner och tillgänglighet
+      href: regions-and-availability.md
+    - name: VM-typer och storlekar
+      href: sizes.md
       items:
-      - name: Anpassningsbara B-serien
-        href: b-series-burstable.md
-    - name: Beräkningsoptimerad
-      displayName: Fsv2 Fs F-series
-      href: sizes-compute.md
-    - name: Minnesoptimerad
-      displayName: Esv3 Ev3 M-series GS G-series DSv2 Dv2
-      href: sizes-memory.md
+        - name: Generellt syfte
+          href: sizes-general.md
+          displayName: Dsv3 Dv3 DSv2 Dv2 Av2
+          items:
+            - name: Anpassningsbara B-serien
+              href: b-series-burstable.md
+        - name: Beräkningsoptimerad
+          href: sizes-compute.md
+          displayName: Fsv2 Fs F-series
+        - name: Minnesoptimerad
+          href: sizes-memory.md
+          displayName: Esv3 Ev3 M-series GS G-series DSv2 Dv2
+          items:
+            - name: 'Begränsade vCPU:er'
+              href: constrained-vcpu.md
+        - name: Lagringsoptimerad
+          displayName: ls
+          href: sizes-storage.md
+          items:
+            - name: Optimera prestanda
+              href: storage-performance.md
+        - name: GPU-optimerad
+          displayName: NV NVv2 NC NCv2 NCv3 ND
+          href: sizes-gpu.md
+          items:
+            - name: Konfigurera GPU-drivrutiner
+              href: n-series-driver-setup.md
+        - name: Databehandling med höga prestanda
+          displayName: H-series
+          href: sizes-hpc.md
+        - name: Tidigare generationer
+          href: sizes-previous-gen.md
+          displayName: D-series Ds-series A-series Basic
+        - name: Azure-beräkningsenheter (ACU)
+          href: acu.md
+        - name: Benchmark-poäng
+          href: compute-benchmark-scores.md
+        - name: vCPU-kvoter
+          href: quotas.md
+    - name: Underhåll och uppdateringar
+      href: maintenance-and-updates.md
+    - name: Disklagring
       items:
-      - name: Begränsade vCPU:er
-        href: constrained-vcpu.md
-    - name: Lagringsoptimerad
-      displayName: ls
-      href: sizes-storage.md
-    - name: GPU-optimerad
-      displayName: NV NVv2 NC NCv2 NCv3 ND
-      href: sizes-gpu.md
-      items:
-      - name: Konfigurera GPU-drivrutiner
-        href: n-series-driver-setup.md
-    - name: Databehandling med höga prestanda
-      displayName: H-series
-      href: sizes-hpc.md
-    - name: Tidigare generationer
-      displayName: D-series Ds-series A-series Basic
-      href: sizes-previous-gen.md
-    - name: Azure-beräkningsenheter (ACU)
-      href: acu.md
-    - name: Benchmark-poäng
-      href: compute-benchmark-scores.md
-    - name: vCPU-kvoter
-      href: quotas.md
-  - name: Underhåll och uppdateringar
-    href: maintenance-and-updates.md
-  - name: Disklagring
-    items:
-    - name: Introduktion till hanterade diskar
-      href: managed-disks-overview.md
-    - name: Välja en disktyp för virtuella IaaS-datorer
-      href: disks-types.md
-    - name: Designa för höga prestanda
-      href: premium-storage-performance.md
-    - name: Skalbarhetsmål för diskar
-      href: disk-scalability-targets.md
-    - name: Lagring och haveriberedskap för diskar
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-  - name: Nätverk
-    href: network-overview.md
-  - name: Skala program automatiskt
-    href: autoscale.md
-  - name: Infrastruktur för automatisering
-    href: infrastructure-automation.md
-  - name: Säkerhet och principer
-    href: security-policy.md
-  - name: Tillstånd och livscykel
-    href: states-lifecycle.md
-  - name: Övervakning
-    href: monitor.md
-  - name: Säkerhetskopiering och återställning
-    href: backup-recovery.md
-  - name: Infrastrukturexempel
-    href: infrastructure-example.md
+        - name: Introduktion till hanterade diskar
+          href: managed-disks-overview.md
+        - name: Välja en disktyp för virtuella IaaS-datorer
+          href: disks-types.md
+        - name: Designa för höga prestanda
+          href: premium-storage-performance.md
+        - name: Skalbarhetsmål för diskar
+          href: disk-scalability-targets.md
+        - name: Lagring och haveriberedskap för diskar
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Nätverk
+      href: network-overview.md
+    - name: Skala program automatiskt
+      href: autoscale.md
+    - name: Infrastruktur för automatisering
+      href: infrastructure-automation.md
+    - name: Säkerhet och principer
+      href: security-policy.md
+    - name: Tillstånd och livscykel
+      href: states-lifecycle.md
+    - name: Övervakning
+      href: monitor.md
+    - name: Säkerhetskopiering och återställning
+      href: backup-recovery.md
+    - name: Infrastrukturexempel
+      href: infrastructure-example.md
 - name: Instruktionsguider
   items:
-  - name: Skapa VM:ar
-    items:
-    - name: Använda C#
-      href: csharp.md
-    - name: Använda specialiserad disk
+    - name: 'Skapa VM:ar'
       items:
-      - name: Portalen
-        href: create-vm-specialized-portal.md
-      - name: PowerShell
-        href: create-vm-specialized.md
-    - name: Använda en mall med C#
-      href: csharp-template.md
-    - name: Skapa en virtuell dator med Chef
-      href: chef-automation.md
-    - name: Använda Java
-      href: java.md
-    - name: Använda Python
-      href: python.md
-    - name: Använda en mall
-      displayName: Azure Resource Manager template, ARM
-      href: ps-template.md
-    - name: Ansluta till en virtuell dator
-      href: connect-logon.md
-    - name: Använda licens för Azure Hybrid-förmånen
-      href: hybrid-use-benefit-licensing.md
-    - name: Använda värdrättigheter för flera innehavare för Windows 10
-      href: windows-desktop-multitenant-hosting-deployment.md
-  - name: Säkra virtuella datorer
-    items:
-    - name: Just-in-time-åtkomst
-      href: ../../security-center/security-center-just-in-time.md
-    - name: Kryptera
-      displayName: encryption
-      href: encrypt-disks.md
-    - name: Använda WinRM
-      href: winrm.md
-    - name: Använda åtkomstkontroller
-      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Använda principer
-      href: policy.md
-    - name: Skapa en Key Vault-lösning
-      href: key-vault-setup.md
-  - name: Skydda virtuella datorer
-    items:
-    - name: Säkerhetskopiera virtuella datorer
-      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: 'Använda C#'
+          href: csharp.md
+        - name: Använda specialiserad disk
+          items:
+            - name: Portalen
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
+        - name: 'Använda en mall med C#'
+          href: csharp-template.md
+        - name: Skapa en virtuell dator med Chef
+          href: chef-automation.md
+        - name: Använda Java
+          href: java.md
+        - name: Använda Python
+          href: python.md
+        - name: Använda en mall
+          displayName: 'Azure Resource Manager template, ARM'
+          href: ps-template.md
+        - name: Ansluta till en virtuell dator
+          href: connect-logon.md
+        - name: Använda licens för Azure Hybrid-förmånen
+          href: hybrid-use-benefit-licensing.md
+        - name: Använda värdrättigheter för flera innehavare för Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
+    - name: Säkra virtuella datorer
       items:
-      - name: Säkerhetskopiera en enskild virtuell dator
-        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Säkerhetskopiera flera virtuella datorer
-        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Återställa en disk
-        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Återställa enskilda filer
-        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Konfigurera haveriberedskap för virtuella datorer
-      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Just-in-time-åtkomst
+          href: ../../security-center/security-center-just-in-time.md
+        - name: Kryptera
+          href: encrypt-disks.md
+          displayName: encryption
+        - name: Använda WinRM
+          href: winrm.md
+        - name: Använda åtkomstkontroller
+          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Använda principer
+          href: policy.md
+        - name: Skapa en Key Vault-lösning
+          href: key-vault-setup.md
+    - name: Skydda virtuella datorer
       items:
-      - name: Aktivera haveriberedskap för en virtuell dator
-        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Köra ett programåterställningstest för en virtuell dator
-        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Redundansväxla en virtuell dator till en annan region
-        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Hantera virtuella datorer
-    items:
-    - name: VM-användning
-      href: vm-usage.md
-    - name: Vanliga PowerShell-åtgärder
-      href: ps-common-ref.md
-    - name: Ändra storlek på en virtuell dator
-      href: resize-vm.md
-    - name: Växla OS-disk
-      href: os-disk-swap.md
-    - name: Tagga en virtuell dator
-      href: tag.md
-    - name: Tidssynkronisering
-      href: time-sync.md
-    - name: Köra skript på en virtuell dator
-      href: run-scripts-in-vm.md
+        - name: Säkerhetskopiera virtuella datorer
+          href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          items:
+            - name: Säkerhetskopiera en enskild virtuell dator
+              href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: Säkerhetskopiera flera virtuella datorer
+              href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: Återställa en disk
+              href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: Återställa enskilda filer
+              href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Konfigurera haveriberedskap för virtuella datorer
+          href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          items:
+            - name: Aktivera haveriberedskap för en virtuell dator
+              href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: Köra ett programåterställningstest för en virtuell dator
+              href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: Redundansväxla en virtuell dator till en annan region
+              href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Hantera virtuella datorer
       items:
-      - name: Anpassat skripttillägg
-        href: ../extensions/custom-script-windows.md
-      - name: Kör kommando
-        href: run-command.md
-    - name: Ändra temporär enhetsbeteckning
-      href: change-drive-letter.md
-    - name: Ändra tillgänglighetsuppsättning
-      href: change-availability-set.md
-    - name: Ladda ned mall
-      href: download-template.md
-    - name: Virtuell Azure-datoragent
-      href: ../extensions/agent-windows.md
-    - name: Planerat underhåll
-      href: maintenance-notifications.md
-    - name: Minimera spekulativ körning
-      href: mitigate-se.md
-    - name: Schemalagda händelser
-      href: scheduled-events.md
-    - name: Övervaka metadata
-      href: instance-metadata-service.md
-    - name: Aktivera kapslad virtualisering
-      href: nested-virtualization.md
-  - name: Hantera kostnader
-    items:
-    - name: Förskottsbetala för virtuella datorer – Azure-reservationer
-      href: prepay-reserved-vm-instances.md
-    - name: Vad är Azure-reservationer?
-      href: ../../billing/billing-save-compute-costs-reservations.md
-    - name: Flexibilitet för VM-instansstorlek
-      href: reserved-vm-instance-size-flexibility.md
-  - name: Använda avbildningar
-    items:
-    - name: Delade bilder (förhandsversion)
+        - name: VM-användning
+          href: vm-usage.md
+        - name: Vanliga PowerShell-åtgärder
+          href: ps-common-ref.md
+        - name: Ändra storlek på en virtuell dator
+          href: resize-vm.md
+        - name: Växla OS-disk
+          href: os-disk-swap.md
+        - name: Tagga en virtuell dator
+          href: tag.md
+        - name: Tidssynkronisering
+          href: time-sync.md
+        - name: Köra skript på en virtuell dator
+          href: run-scripts-in-vm.md
+          items:
+            - name: Anpassat skripttillägg
+              href: ../extensions/custom-script-windows.md
+            - name: Kör kommando
+              href: run-command.md
+        - name: Ändra temporär enhetsbeteckning
+          href: change-drive-letter.md
+        - name: Ändra tillgänglighetsuppsättning
+          href: change-availability-set.md
+        - name: Ladda ned mall
+          href: download-template.md
+        - name: Virtuell Azure-datoragent
+          href: ../extensions/agent-windows.md
+        - name: Planerat underhåll
+          href: maintenance-notifications.md
+        - name: Minimera spekulativ körning
+          href: mitigate-se.md
+        - name: Schemalagda händelser
+          href: scheduled-events.md
+        - name: Övervaka metadata
+          href: instance-metadata-service.md
+        - name: Aktivera kapslad virtualisering
+          href: nested-virtualization.md
+    - name: Hantera kostnader
       items:
-      - name: Översikt
-        href: shared-image-galleries.md
-      - name: Skapa delade avbildningar med PowerShell
-        href: shared-images.md
-      - name: Skapa delade bilder med hjälp av CLI
-        href: ../linux/shared-images.md
-      - name: Felsöka delade bilder
-        href: troubleshooting-shared-images.md
-    - name: Hitta och använda avbildningar
-      href: cli-ps-findimage.md
-    - name: Förbereda en virtuell dator för uppladdning
-      href: prepare-for-upload-vhd-image.md
-    - name: Spela in den virtuella datorn till avbildning
-      href: capture-image-resource.md
-    - name: Använda generaliserad avbildning
-      href: create-vm-generalized-managed.md
-    - name: Skapa en avbildning med Packer
-      href: build-image-with-packer.md
-    - name: Använda Windows-klientavbildningar
-      href: client-images.md
-    - name: Ladda ned befintlig disk
-      href: download-vhd.md
-  - name: Tillgänglighet och skalning
-    items:
-    - name: Virtual Machine Scale Sets
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Hög tillgänglighet
-      href: manage-availability.md
-    - name: Lodrätt skalning
-      href: vertical-scaling-automation.md
-    - name: Skapa virtuell dator i tillgänglighetszon
+        - name: Förskottsbetala för virtuella datorer – Azure-reservationer
+          href: prepay-reserved-vm-instances.md
+        - name: Vad är Azure-reservationer?
+          href: ../../billing/billing-save-compute-costs-reservations.md
+        - name: Flexibilitet för VM-instansstorlek
+          href: reserved-vm-instance-size-flexibility.md
+    - name: Använda avbildningar
       items:
-      - name: PowerShell
-        href: create-powershell-availability-zone.md
-      - name: Portalen
-        href: create-portal-availability-zone.md
-  - name: Använda automatiseringsverktyg
-    items:
-    - name: Chef
-      href: chef-automation.md
-    - name: Publicera webbapp från Visual Studio
-      href: publish-web-app-from-visual-studio.md
-  - name: Köra program
-    items:
-    - name: SQL Server
-      href: sql/virtual-machines-windows-sql-server-iaas-overview.md
-    - name: MongoDB
-      href: install-mongodb.md
-    - name: SAP på Azure
-      href: ../workloads/sap/get-started.md
-    - name: MATLAB-kluster
-      href: matlab-mdcs-cluster.md
-    - name: Visual Studio
-      href: using-visual-studio-vm.md
-    - name: Databehandling med höga prestanda (HPC)
-      href: hpcpack-cluster-options.md
+        - name: Delade bilder (förhandsversion)
+          items:
+            - name: Översikt
+              href: shared-image-galleries.md
+            - name: Skapa delade avbildningar med PowerShell
+              href: shared-images.md
+            - name: Skapa delade bilder med hjälp av CLI
+              href: ../linux/shared-images.md
+            - name: Felsöka delade bilder
+              href: troubleshooting-shared-images.md
+        - name: Hitta och använda avbildningar
+          href: cli-ps-findimage.md
+        - name: Förbereda en virtuell dator för uppladdning
+          href: prepare-for-upload-vhd-image.md
+        - name: Spela in den virtuella datorn till avbildning
+          href: capture-image-resource.md
+        - name: Använda generaliserad avbildning
+          href: create-vm-generalized-managed.md
+        - name: Skapa en avbildning med Packer
+          href: build-image-with-packer.md
+        - name: Använda Windows-klientavbildningar
+          href: client-images.md
+        - name: Ladda ned befintlig disk
+          href: download-vhd.md
+    - name: Tillgänglighet och skalning
       items:
-      - name: HPC Pack 2016-kluster
-        href: hpcpack-2016-cluster.md
-      - name: HPC Pack 2016 Azure Active Directory-integrering
-        href: hpcpack-cluster-active-directory.md
-      - name: HPC Pack 2012 R2-huvudnod
-        href: hpcpack-cluster-headnode.md
-      - name: Skicka lokala jobb till HPC Pack 2012 R2
-        href: hpcpack-cluster-submit-jobs.md
-      - name: Excel i HPC Pack
-        href: excel-cluster-hpcpack.md
-  - name: Hantera lagring
-    items:
-    - name: Lägg till en disk
+        - name: Virtual Machine Scale Sets
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Hög tillgänglighet
+          href: manage-availability.md
+        - name: Lodrätt skalning
+          href: vertical-scaling-automation.md
+        - name: Skapa virtuell dator i tillgänglighetszon
+          items:
+            - name: PowerShell
+              href: create-powershell-availability-zone.md
+            - name: Portalen
+              href: create-portal-availability-zone.md
+    - name: Använda automatiseringsverktyg
       items:
-      - name: Azure PowerShell
-        href: attach-disk-ps.md
-      - name: Azure Portal
-        href: attach-managed-disk-portal.md
-    - name: Koppla från en disk
-      href: detach-disk.md
-    - name: Distribuera diskar med mall
-      href: using-managed-disks-template-deployments.md
-    - name: Ändra storlek på en disk
-      href: expand-os-disk.md
-    - name: Ögonblicksbild av en disk
-      href: snapshot-copy-managed-disk.md
-    - name: Säkerhetskopiera ohanterade diskar
-      href: incremental-snapshots.md
-    - name: Migrering och konvertering
+        - name: Chef
+          href: chef-automation.md
+        - name: Publicera webbapp från Visual Studio
+          href: publish-web-app-from-visual-studio.md
+    - name: Köra program
       items:
-      - name: Konvertera en disk mellan Standard och Premium
-        href: convert-disk-storage.md
-      - name: Migrera till Premium Storage med Azure Site Recovery
-        href: migrate-to-premium-storage-using-azure-site-recovery.md
-      - name: Migrera till Managed Disks
-        href: migrate-to-managed-disks.md
-      - name: Ohanterad virtuell dator till Managed Disks
-        href: convert-unmanaged-to-managed-disks.md
-    - name: Prestanda
+        - name: SQL Server
+          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
+        - name: MongoDB
+          href: install-mongodb.md
+        - name: SAP på Azure
+          href: ../workloads/sap/get-started.md
+        - name: MATLAB-kluster
+          href: matlab-mdcs-cluster.md
+        - name: Visual Studio
+          href: using-visual-studio-vm.md
+        - name: Databehandling med höga prestanda (HPC)
+          href: hpcpack-cluster-options.md
+          items:
+            - name: HPC Pack 2016-kluster
+              href: hpcpack-2016-cluster.md
+            - name: HPC Pack 2016 Azure Active Directory-integrering
+              href: hpcpack-cluster-active-directory.md
+            - name: HPC Pack 2012 R2-huvudnod
+              href: hpcpack-cluster-headnode.md
+            - name: Skicka lokala jobb till HPC Pack 2012 R2
+              href: hpcpack-cluster-submit-jobs.md
+            - name: Excel i HPC Pack
+              href: excel-cluster-hpcpack.md
+    - name: Hantera lagring
       items:
-      - name: Aktivera Write Accelerator
-        href: how-to-enable-write-accelerator.md
-      - name: Aktivera Ultra SSD:er
-        href: disks-enable-ultra-ssd.md
-      - name: Beräkna benchmark för en disk
-        href: disks-benchmarks.md
-    - name: Hitta icke anslutna diskar
-      href: find-unattached-disks.md
-    - name: Använda fillagring
-      href: ../../storage/files/storage-files-quick-create-use-windows.md
-    - name: Vanliga frågor och svar om diskar
-      href: faq-for-disks.md
-  - name: Hantera nätverk
-    href: ps-common-network-ref.md
-    items:
-    - name: Skapa det virtuella nätverket
-      href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Öppna portar till en virtuell dator
+        - name: Lägg till en disk
+          items:
+            - name: Azure PowerShell
+              href: attach-disk-ps.md
+            - name: Azure Portal
+              href: attach-managed-disk-portal.md
+        - name: Koppla från en disk
+          href: detach-disk.md
+        - name: Distribuera diskar med mall
+          href: using-managed-disks-template-deployments.md
+        - name: Ändra storlek på en disk
+          href: expand-os-disk.md
+        - name: Ögonblicksbild av en disk
+          href: snapshot-copy-managed-disk.md
+        - name: Säkerhetskopiera ohanterade diskar
+          href: incremental-snapshots.md
+        - name: Migrering och konvertering
+          items:
+            - name: Konvertera en disk mellan Standard och Premium
+              href: convert-disk-storage.md
+            - name: Migrera till Premium Storage med Azure Site Recovery
+              href: migrate-to-premium-storage-using-azure-site-recovery.md
+            - name: Migrera till Managed Disks
+              href: migrate-to-managed-disks.md
+            - name: Ohanterad virtuell dator till Managed Disks
+              href: convert-unmanaged-to-managed-disks.md
+        - name: Prestanda
+          items:
+            - name: Aktivera Write Accelerator
+              href: how-to-enable-write-accelerator.md
+            - name: 'Aktivera Ultra SSD:er'
+              href: disks-enable-ultra-ssd.md
+            - name: Beräkna benchmark för en disk
+              href: disks-benchmarks.md
+        - name: Hitta icke anslutna diskar
+          href: find-unattached-disks.md
+        - name: Använda fillagring
+          href: ../../storage/files/storage-files-quick-create-use-windows.md
+        - name: Vanliga frågor och svar om diskar
+          href: faq-for-disks.md
+    - name: Hantera nätverk
+      href: ps-common-network-ref.md
       items:
-      - name: Azure Portal
-        href: nsg-quickstart-portal.md
-      - name: Azure PowerShell
-        href: nsg-quickstart-powershell.md
-    - name: Tilldela offentlig IP-adress
-      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Använda flera nätverkskort
-      href: multiple-nics.md
-    - name: Använda accelererat nätverk
-      href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Tilldela offentligt DNS-namn
-      href: portal-create-fqdn.md
-    - name: DNS-upplösning
-      href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Konfigurera hanterade identiteter
-    items:
-    - name: Portalen
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
-    - name: CLI
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
-    - name: PowerShell
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
-    - name: Azure Resource Manager-mall
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
-    - name: REST
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
-    - name: Azure-SDK:er
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
-  - name: Använd VM-tillägg
-    href: ../extensions/overview.md
-  - name: Flytta och migrera virtuella datorer
-    items:
-    - name: Ändra prenumeration eller resursgrupp
-      href: move-vm.md
-    - name: Flytta regioner
-      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Flytta till en tillgänglighetszon
-      href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Migrera AWS och lokala virtuella datorer
-      href: on-prem-to-azure.md
+        - name: Skapa det virtuella nätverket
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Öppna portar till en virtuell dator
+          items:
+            - name: Azure Portal
+              href: nsg-quickstart-portal.md
+            - name: Azure PowerShell
+              href: nsg-quickstart-powershell.md
+        - name: Tilldela offentlig IP-adress
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Använda flera nätverkskort
+          href: multiple-nics.md
+        - name: Använda accelererat nätverk
+          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Tilldela offentligt DNS-namn
+          href: portal-create-fqdn.md
+        - name: DNS-upplösning
+          href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Konfigurera hanterade identiteter
       items:
-      - name: Ladda upp lokala virtuella datorer
-        href: upload-generalized-managed.md
-      - name: Från Amazon Web Services (AWS)
-        href: aws-to-azure.md
-      - name: Använda Azure Site Recovery
-        href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Migrera från Klassisk till Azure Resource Manager
-      href: migration-classic-resource-manager-overview.md
+        - name: Portalen
+          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: CLI
+          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: PowerShell
+          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: Azure Resource Manager-mall
+          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: REST
+          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+        - name: 'Azure-SDK:er'
+          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+    - name: Använd VM-tillägg
+      href: ../extensions/overview.md
+    - name: Flytta och migrera virtuella datorer
       items:
-      - name: Djupgående om migrering
-        href: migration-classic-resource-manager-deep-dive.md
-      - name: Planera för migrering
-        href: migration-classic-resource-manager-plan.md
-      - name: Migrera med hjälp av PowerShell
-        href: migration-classic-resource-manager-ps.md
-      - name: Vanliga migreringsfel
-        href: migration-classic-resource-manager-errors.md
-      - name: Community-verktyg för migrering
-        href: migration-classic-resource-manager-community-tools.md
-      - name: VANLIGA FRÅGOR OCH SVAR
-        href: migration-classic-resource-manager-faq.md
+        - name: Ändra prenumeration eller resursgrupp
+          href: move-vm.md
+        - name: Flytta regioner
+          href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Flytta till en tillgänglighetszon
+          href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Migrera AWS och lokala virtuella datorer
+          href: on-prem-to-azure.md
+          items:
+            - name: Ladda upp lokala virtuella datorer
+              href: upload-generalized-managed.md
+            - name: Från Amazon Web Services (AWS)
+              href: aws-to-azure.md
+            - name: Använda Azure Site Recovery
+              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Migrera från Klassisk till Azure Resource Manager
+          href: migration-classic-resource-manager-overview.md
+          items:
+            - name: Djupgående om migrering
+              href: migration-classic-resource-manager-deep-dive.md
+            - name: Planera för migrering
+              href: migration-classic-resource-manager-plan.md
+            - name: Migrera med hjälp av PowerShell
+              href: migration-classic-resource-manager-ps.md
+            - name: Vanliga migreringsfel
+              href: migration-classic-resource-manager-errors.md
+            - name: Community-verktyg för migrering
+              href: migration-classic-resource-manager-community-tools.md
+            - name: VANLIGA FRÅGOR OCH SVAR
+              href: migration-classic-resource-manager-faq.md
 - name: Felsöka
   href: ../troubleshooting/index.md
 - name: Referens
   items:
-  - name: Azure CLI
-    href: /cli/azure/vm
-  - name: Azure PowerShell
-    href: /powershell/azureps-cmdlets-docs
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.compute
-  - name: Java
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: Compute REST
-    href: /rest/api/compute
-  - name: Managed Disks REST
-    href: /rest/api/compute/disks
-  - name: Resource Manager-mall
-    displayName: ARM
-    href: /azure/templates/microsoft.compute/allversions
+    - name: Azure CLI
+      href: /cli/azure/vm
+    - name: Azure PowerShell
+      href: /powershell/azureps-cmdlets-docs
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.compute
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: Compute REST
+      href: /rest/api/compute
+    - name: Managed Disks REST
+      href: /rest/api/compute/disks
+    - name: Resource Manager-mall
+      displayName: ARM
+      href: /azure/templates/microsoft.compute/allversions
 - name: Resurser
   items:
-  - name: Skapa mallar
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Utveckla dina färdigheter med Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Community-mallar
-    href: https://azure.microsoft.com/documentation/templates
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/#Linux
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-virtual-machine
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: faq.md
-ms.openlocfilehash: b6e86980e854e336373907f6aeaba2a72dd29b7c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372562"
+    - name: Skapa mallar
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/?products=azure-virtual-machines
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Community-mallar
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md

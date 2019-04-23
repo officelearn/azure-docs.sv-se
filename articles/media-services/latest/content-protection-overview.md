@@ -140,7 +140,7 @@ Vanliga webbläsare har stöd för följande DRM-klienter:
 |Webbläsare|Kryptering|
 |---|---|
 |Chrome|Widevine|
-|Edge, Internet Explorer 11|PlayReady|
+|Microsoft Edge, Internet Explorer 11|PlayReady|
 |Firefox|Widevine|
 |Opera|Widevine|
 |Safari|FairPlay|

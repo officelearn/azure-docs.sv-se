@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277331"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785589"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Hitta en adress med hjälp av Azure Maps search-tjänst
 
@@ -26,7 +26,7 @@ I den här artikeln som du får lära dig hur du:
 * Gör en [omvänd sökningen efter adresser](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) att söka efter en gatuadress
 * Sök efter en mellan gatuadress med [adress omvänd mellan gatuadress API för webbsökning](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att göra något anrop till API: er för Maps-tjänsten, behöver du en Maps-konto och nyckel. Information om att skapa ett konto och hämta en nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md).
 

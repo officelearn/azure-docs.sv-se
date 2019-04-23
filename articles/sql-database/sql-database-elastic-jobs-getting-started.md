@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6d794fb14b7f581c9e9b92dc581de97e0a236630
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793767"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786480"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Komma igång med Elastic Database-jobb
 
@@ -25,7 +25,7 @@ Elastic Database-jobb (förhandsversion) för Azure SQL Database kan du tillför
 
 Den här artikeln utökar exemplet finns i [komma igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md). När du är klar kan du se hur du skapar och hanterar jobb som hanterar en grupp med relaterade databaser. Du behöver inte använda verktyg för elastisk skalning för att kunna dra nytta av fördelarna med elastiska jobb.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

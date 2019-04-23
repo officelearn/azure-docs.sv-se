@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277780"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785988"
 ---
 # <a name="create-an-environment-from-a-blueprint-sample"></a>Skapa en miljö från ett exempel på skiss
 
@@ -27,7 +27,7 @@ I följande självstudiekursen använder vi den **resursgrupper med RBAC** skiss
 > - Inspektera distribuerade resurser för tilldelningen
 > - Ta bort tilldelning av skissen att ta bort låsen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här kursen krävs en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 

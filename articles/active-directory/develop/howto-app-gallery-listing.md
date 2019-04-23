@@ -19,11 +19,11 @@ ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b5ec950a91f3ed0099873e40c7235a9d59f0cb2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283587"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787398"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -38,7 +38,7 @@ Den här artikeln visar hur du listar ett program i Azure AD-programgalleriet, i
 - Gemensamma kunder få en självstudie med stegvisa konfiguration.
 - Kunder som använder SCIM kan använda etablering för samma app.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - För federerade program (Öppna ID och SAML/WS-Fed), måste programmet stöder SaaS-modellen för att bli listad i Azure AD-galleriet. Galleriet företagsprogram ska ha stöd för kundkonfigurationer med flera och inte en specifik kund.
 

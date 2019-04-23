@@ -82,7 +82,7 @@ När du har din prenumeration-profil, Följ stegen nedan för att konfigurera Az
 6. Klicka på **verifiera konfigurationen**.
 7. När konfigurationen är har verifierats klickar du på **spara**.
 
-## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Konfigurera en mall för virtuell dator för Azure-slavserver plugin-programmet
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Konfigurera en mall för virtuell dator för underordnad Azure-server plugin-programmet
 En virtuell Datormall definierar parametrar som plugin-programmet använder för att skapa en underordnad nod på Azure. I följande steg ska vi skapa mall för en Ubuntu-VM.
 
 1. I Hudson-instrumentpanelen klickar du på **hantera Hudson**.

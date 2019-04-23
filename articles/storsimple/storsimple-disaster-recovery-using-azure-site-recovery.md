@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051945"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797542"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad Disaster Recovery-lösning med Azure Site Recovery för filresurser som finns på StorSimple
 
@@ -37,7 +37,7 @@ Det här dokumentet beskriver i detalj hur du kan skapa en lösning för haverib
 ## <a name="supported-azure-site-recovery-deployment-options"></a>Stöds Azure Site Recovery-distributionsalternativ
 Kunder kan distribuera filservrar som fysiska eller virtuella datorer (VM) som körs på Hyper-V eller VMware och skapa filresurser från volymerna högg av StorSimple-lagring. Azure Site Recovery kan skydda både fysiska och virtuella distributioner till en sekundär plats eller till Azure. Det här dokumentet innehåller information om en katastrofåterställningslösning med Azure som återställningsplats för en filserver som är värd för virtuell dator på Hyper-V och filresurser på StorSimple-lagring. Andra scenarier där filen server-dator är på en VMware-VM eller en fysisk dator kan implementeras på samma sätt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Implementera en lösning för katastrofåterställning med ett klick som använder Azure Site Recovery för filresurser som finns på StorSimple-lagring har följande krav:
 
    - En lokal fil för Windows Server 2012 R2-servern virtuell dator i Hyper-V eller VMware eller en fysisk dator

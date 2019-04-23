@@ -10,11 +10,11 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257765"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797575"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Redundans och återaktivera skyddet av virtuella Azure-datorer mellan regioner
 
@@ -29,7 +29,7 @@ Den här självstudien beskrivs hur du redundansväxlar en virtuell Azure-dator 
 > [!NOTE]
 > Den här självstudien innehåller enklaste sökvägen med standardinställningar och minsta anpassning. För mer komplicerade scenarier kan du använda artiklar under ”hur till” för virtuella Azure-datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Se till att du genomfört ett [programåterställningstest](azure-to-azure-tutorial-dr-drill.md) och kontrollerat att allt fungerar som väntat.
 - Verifiera den virtuella datorns egenskaper innan testet av redundansväxling körs. Den virtuella datorn måste uppfylla [kraven för Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).

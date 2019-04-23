@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006632"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799311"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [log aviseringen har skapats i Azure](alerts-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -25,7 +25,7 @@ Webhook-åtgärder kan du anropa en extern process via en HTTP POST-begäran.  T
 
 Webhook-åtgärder kräver egenskaperna i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Webhook-URL |URL till webhooken. |
 | Anpassad JSON-nyttolast |Anpassad nyttolast ska skicka med webhook, när det här alternativet väljs under skapande av varning. Information som är tillgängliga på [Hantera aviseringar](alerts-log.md) |
@@ -39,7 +39,7 @@ Webhooks är en URL och en nyttolast som formaterats i JSON som är data som ski
 | Parameter | Variabel | Beskrivning |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Namnet på regeln. |
-| Severity |#severity |Allvarlighetsgrad för aviseringen skickades log. |
+| Allvarsgrad |#severity |Allvarlighetsgrad för aviseringen skickades log. |
 | AlertThresholdOperator |#thresholdoperator |Tröskeloperator för regeln.  *Större än* eller *mindre än*. |
 | AlertThresholdValue |#thresholdvalue |Tröskelvärde för regeln. |
 | LinkToSearchResults |#linktosearchresults |Länka till Analytics-portalen som returnerar poster från den fråga som skapade aviseringen. |

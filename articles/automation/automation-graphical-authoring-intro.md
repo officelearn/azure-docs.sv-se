@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918152"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797115"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -139,7 +139,7 @@ Villkor för återförsök är ett PowerShell-uttryck som utvärderas efter varj
 
 Villkor för återförsök kan använda en variabel med namnet $RetryData som ger åtkomst till information om återförsök för aktiviteten. Den här variabeln har egenskaper i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | NumberOfAttempts |Antal gånger som aktiviteten har körts. |
 | Resultat |Utdata från den senaste körningen av aktiviteten. |
@@ -322,11 +322,11 @@ Då öppnas det **indata och utdata** kontroll där du kan redigera en befintlig
 
 Varje indataparameter definieras av egenskaperna i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Namn |Det unika namnet för parametern. Detta får bara innehålla alfanumeriska tecken och får inte innehålla blanksteg. |
 | Beskrivning |En valfri beskrivning av Indataparametern. |
-| Type |Datatypen som förväntat för parametervärdet. Azure-portalen ger en lämplig kontroll för datatypen för varje parameter vid fråga om indata. |
+| Typ |Datatypen som förväntat för parametervärdet. Azure-portalen ger en lämplig kontroll för datatypen för varje parameter vid fråga om indata. |
 | Obligatorisk |Anger om ett värde måste anges för parametern. Runbook kan inte startas om du inte anger ett värde för varje obligatorisk parameter som inte har något definierat standardvärde. |
 | Standardvärde |Anger vilket värde som ska användas för parametern om inget anges. Detta kan antingen vara Null eller ett specifikt värde. |
 

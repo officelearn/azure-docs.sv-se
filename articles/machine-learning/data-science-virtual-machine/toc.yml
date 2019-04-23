@@ -1,81 +1,75 @@
-items:
 - name: Dokumentation om virtuella datorer för datavetenskap
   href: index.yml
+  items: null
 - name: Översikt
   items:
-  - name: Vad är en virtuell dator för datavetenskap?
-    href: overview.md
-  - name: Vad är en virtuell dator för djupinlärning?
-    href: deep-learning-dsvm-overview.md
-  - name: Vad är en virtuell Geo-AI-dator för datavetenskap?
-    href: geo-ai-dsvm-overview.md
+    - name: Vad är en virtuell dator för datavetenskap?
+      href: overview.md
+    - name: Vad är en virtuell dator för djupinlärning?
+      href: deep-learning-dsvm-overview.md
+    - name: Vad är en virtuell Geo-AI-dator för datavetenskap?
+      href: geo-ai-dsvm-overview.md
 - name: Snabbstarter
-  items:
-  - name: Skapa en virtuell Windows-dator för datavetenskap
-    href: provision-vm.md
-  - name: Skapa en virtuell Ubuntu-dator för datavetenskap
-    href: dsvm-ubuntu-intro.md
-  - name: Skapa en virtuell CentOS-dator för datavetenskap
-    href: linux-dsvm-intro.md
-  - name: Skapa en virtuell dator för djupinlärning
-    href: provision-deep-learning-dsvm.md
-  - name: Skapa en virtuell Geo-AI-dator för datavetenskap
-    href: provision-geo-ai-dsvm.md
   expanded: true
+  items:
+    - name: Skapa en virtuell Windows-dator för datavetenskap
+      href: provision-vm.md
+    - name: Skapa en virtuell Ubuntu-dator för datavetenskap
+      href: dsvm-ubuntu-intro.md
+    - name: Skapa en virtuell CentOS-dator för datavetenskap
+      href: linux-dsvm-intro.md
+    - name: Skapa en virtuell dator för djupinlärning
+      href: provision-deep-learning-dsvm.md
+    - name: Skapa en virtuell Geo-AI-dator för datavetenskap
+      href: provision-geo-ai-dsvm.md
 - name: Begrepp
   items:
-  - name: Utforska DSVM
-    href: dsvm-tools-overview.md
-  - name: Ramverk för djupinlärning och AI
-    href: dsvm-deep-learning-ai-frameworks.md
-  - name: Verktyg för ML and datavetenskap
-    href: dsvm-ml-data-science-tools.md
-  - name: Språk
-    href: dsvm-languages.md
-  - name: Utvecklingsverktyg
-    href: dsvm-tools-development.md
-  - name: Verktyg för datainhämtning
-    href: dsvm-tools-ingestion.md
-  - name: Verktyg för utforskning och visualisering av data
-    href: dsvm-tools-explore-and-visualize.md
-  - name: Dataplattformar
-    href: dsvm-data-platforms.md
-  - name: Exempel och genomgångar
-    href: dsvm-samples-and-walkthroughs.md
+    - name: Utforska DSVM
+      href: dsvm-tools-overview.md
+    - name: Ramverk för djupinlärning och AI
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Verktyg för ML and datavetenskap
+      href: dsvm-ml-data-science-tools.md
+    - name: Språk
+      href: dsvm-languages.md
+    - name: Utvecklingsverktyg
+      href: dsvm-tools-development.md
+    - name: Verktyg för datainhämtning
+      href: dsvm-tools-ingestion.md
+    - name: Verktyg för utforskning och visualisering av data
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Dataplattformar
+      href: dsvm-data-platforms.md
+    - name: Exempel och genomgångar
+      href: dsvm-samples-and-walkthroughs.md
 - name: Instruktionsguider
   items:
-  - name: Använd en virtuell Windows-dator för datavetenskap
-    href: vm-do-ten-things.md
-  - name: Använd en virtuell Linux-dator för datavetenskap
-    href: linux-dsvm-walkthrough.md
-  - name: Använd en virtuell dator för djupinlärning
-    href: use-deep-learning-dsvm.md
-  - name: Använda en virtuell Geo-AI-dator för datavetenskap
-    href: use-geo-ai-dsvm.md
-  - name: Riktlinjer för Enterprise
-    items:
-    - name: Översikt
-      href: dsvm-enterprise-overview.md
-    - name: Skalning
-      href: dsvm-pools.md
-    - name: Active Directory-integrering
-      href: dsvm-common-identity.md
-    - name: Skydda autentiseringsuppgifter för resursåtkomst
-      href: dsvm-secure-access-keys.md
+    - name: Använd en virtuell Windows-dator för datavetenskap
+      href: vm-do-ten-things.md
+    - name: Använd en virtuell Linux-dator för datavetenskap
+      href: linux-dsvm-walkthrough.md
+    - name: Använd en virtuell dator för djupinlärning
+      href: use-deep-learning-dsvm.md
+    - name: Använda en virtuell Geo-AI-dator för datavetenskap
+      href: use-geo-ai-dsvm.md
+    - name: Riktlinjer för Enterprise
+      items:
+        - name: Översikt
+          href: dsvm-enterprise-overview.md
+        - name: Skalning
+          href: dsvm-pools.md
+        - name: Active Directory-integrering
+          href: dsvm-common-identity.md
+        - name: Skydda autentiseringsuppgifter för resursåtkomst
+          href: dsvm-secure-access-keys.md
 - name: Resurser
   items:
-  - name: R-utvecklarguide
-    href: /azure/architecture/data-guide/technology-choices/r-developers-guide
-    maintainContext: true
-  - name: Blogg
-    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
-  - name: MSDN-forum
-    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=dsvm
-ms.openlocfilehash: edb96d185e829cfe76eda4a42776e3b5cfea0153
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495608"
+    - name: R-utvecklarguide
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide
+      maintainContext: true
+    - name: Blogg
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: MSDN-forum
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=dsvm'

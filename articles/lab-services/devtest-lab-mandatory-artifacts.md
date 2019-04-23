@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905808"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795414"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Ange obligatoriska artefakter för ditt labb i Azure DevTest Labs
 Ägare av ett labb kan ange du obligatoriska artefakter som tillämpas på varje dator som har skapats i laboratoriet. Tänk dig ett scenario där du vill att varje dator i labbet vara anslutna till företagsnätverket. Varje labb-användaren behöver i det här fallet lägger du till en domän join-artefakt vid skapande av virtuella datorer att kontrollera att deras dator är ansluten till företagsdomänen. Med andra ord behöver labbanvändare i stort sett skapa en virtuell dator om de glömmer att tillämpa obligatoriska artefakter på sin dator. Som labbägare kan göra du den domän join-artefakten som en obligatorisk artefakt i labbet. Det här steget säkerställer att varje dator är ansluten till företagsnätverket och spara tid och arbete för dina labbanvändare.

@@ -1,239 +1,232 @@
-items:
 - name: Översikt
   items:
-  - name: Kom igång
-    href: get-started.md
-  - name: Certifieringar
-    href: sap-certifications.md
+    - name: Kom igång
+      href: get-started.md
+    - name: Certifieringar
+      href: sap-certifications.md
 - name: SAP HANA på Azure (stora instanser)
   items:
-  - name: Översikt
-    items:
-    - name: Vad är SAP HANA på stora Azure-instanser?
-      href: hana-overview-architecture.md
-    - name: Förstå villkoren
-      href: hana-know-terms.md
-    - name: Certifiering
-      href: hana-certification.md
-    - name: Tillgängliga SKU:er för HLI
-      href: hana-available-skus.md
-    - name: Storlekar
-      href: hana-sizing.md
-    - name: Registreringskrav
-      href: hana-onboarding-requirements.md
-    - name: SAP HANA-datanivåer och -tilläggsnoder
-      href: hana-data-tiering-extension-nodes.md
-    - name: Driftmodell och ansvarsområden
-      href: hana-operations-model.md
-  - name: Arkitektur
-    items:
-    - name: Allmän arkitektur
-      href: hana-architecture.md
-    - name: Nätverksarkitektur
-      href: hana-network-architecture.md
-    - name: Lagringsarkitektur
-      href: hana-storage-architecture.md
-    - name: HLI-scenarier som stöds
-      href: hana-supported-scenario.md
-  - name: Infrastruktur och anslutning
-    items:
-    - name: HLI-distribution
-      href: hana-overview-infrastructure-connectivity.md
-    - name: Ansluta virtuella Azure-datorer till HANA – stora instanser
-      href: hana-connect-azure-vm-large-instances.md
-    - name: Ansluta ett virtuellt nätverk till HANA – stora instanser ExpressRoute
-      href: hana-connect-vnet-express-route.md
-    - name: Ytterligare nätverkskrav
-      href: hana-additional-network-requirements.md
-  - name: Installera SAP HANA
-    items:
-    - name: Verifiera konfigurationen
-      href: hana-installation.md
-    - name: Exempel på HANA-installation
-      href: hana-example-installation.md
-  - name: Hög tillgänglighet och haveriberedskap
-    items:
-    - name: Alternativ och överväganden
-      href: hana-overview-high-availability-disaster-recovery.md
-    - name: Säkerhetskopiering och återställning
-      href: hana-backup-restore.md
-    - name: Principer och förberedelse
-      href: hana-concept-preparation.md
-    - name: Redundans för haveriberedskap
-      href: hana-failover-procedure.md
-  - name: Felsök och övervaka
-    items:
-    - name: Övervaka HLI
-      href: troubleshooting-monitoring.md
-    - name: Övervaka och felsöka från HANA-sida
-      href: hana-monitor-troubleshoot.md
-  - name: Gör så här för att
-    items:
-    - name: Kontroll av Azure HANA – stora instanser med Azure Portal
-      href: hana-li-portal.md
-    - name: Konfiguration för hög tillgänglighet med STONITH
-      href: ha-setup-with-stonith.md
-    - name: Säkerhetskopiering av operativsystem för Type II-SKU:er
-      href: os-backup-type-ii-skus.md
-    - name: Uppgradering av operativsystem för HANA på stora instanser
-      href: os-upgrade-hana-large-instance.md
-    - name: Konfigurera SMT-server för SUSE Linux
-      href: hana-setup-smt.md
+    - name: Översikt
+      items:
+        - name: Vad är SAP HANA på stora Azure-instanser?
+          href: hana-overview-architecture.md
+        - name: Förstå villkoren
+          href: hana-know-terms.md
+        - name: Certifiering
+          href: hana-certification.md
+        - name: 'Tillgängliga SKU:er för HLI'
+          href: hana-available-skus.md
+        - name: Storlekar
+          href: hana-sizing.md
+        - name: Registreringskrav
+          href: hana-onboarding-requirements.md
+        - name: SAP HANA-datanivåer och -tilläggsnoder
+          href: hana-data-tiering-extension-nodes.md
+        - name: Driftmodell och ansvarsområden
+          href: hana-operations-model.md
+    - name: Arkitektur
+      items:
+        - name: Allmän arkitektur
+          href: hana-architecture.md
+        - name: Nätverksarkitektur
+          href: hana-network-architecture.md
+        - name: Lagringsarkitektur
+          href: hana-storage-architecture.md
+        - name: HLI-scenarier som stöds
+          href: hana-supported-scenario.md
+    - name: Infrastruktur och anslutning
+      items:
+        - name: HLI-distribution
+          href: hana-overview-infrastructure-connectivity.md
+        - name: Ansluta virtuella Azure-datorer till HANA – stora instanser
+          href: hana-connect-azure-vm-large-instances.md
+        - name: Ansluta ett virtuellt nätverk till HANA – stora instanser ExpressRoute
+          href: hana-connect-vnet-express-route.md
+        - name: Ytterligare nätverkskrav
+          href: hana-additional-network-requirements.md
+    - name: Installera SAP HANA
+      items:
+        - name: Verifiera konfigurationen
+          href: hana-installation.md
+        - name: Exempel på HANA-installation
+          href: hana-example-installation.md
+    - name: Hög tillgänglighet och haveriberedskap
+      items:
+        - name: Alternativ och överväganden
+          href: hana-overview-high-availability-disaster-recovery.md
+        - name: Säkerhetskopiering och återställning
+          href: hana-backup-restore.md
+        - name: Principer och förberedelse
+          href: hana-concept-preparation.md
+        - name: Redundans för haveriberedskap
+          href: hana-failover-procedure.md
+    - name: Felsök och övervaka
+      items:
+        - name: Övervaka HLI
+          href: troubleshooting-monitoring.md
+        - name: Övervaka och felsöka från HANA-sida
+          href: hana-monitor-troubleshoot.md
+    - name: Gör så här för att
+      items:
+        - name: Kontroll av Azure HANA – stora instanser med Azure Portal
+          href: hana-li-portal.md
+        - name: Konfiguration för hög tillgänglighet med STONITH
+          href: ha-setup-with-stonith.md
+        - name: 'Säkerhetskopiering av operativsystem för Type II-SKU:er'
+          href: os-backup-type-ii-skus.md
+        - name: Uppgradering av operativsystem för HANA på stora instanser
+          href: os-upgrade-hana-large-instance.md
+        - name: Konfigurera SMT-server för SUSE Linux
+          href: hana-setup-smt.md
 - name: SAP HANA på Azure Virtual Machines
   items:
-  - name: Enkel instans av SAP HANA-installation
-    href: hana-get-started.md
-  - name: Distributionsguide för S/4 HANA eller BW/4 HANA SAP CAL
-    href: cal-s4h.md
-  - name: Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer
-    href: hana-vm-operations.md
-  - name: SAP HANA-tillgänglighet i Azure Virtual Machines
-    items:
-    - name: Tillgänglighetsöversikt för SAP HANA på Azure
-      href: sap-hana-availability-overview.md
-    - name: Tillgänglighet för SAP HANA på Azure inom en Azure-region
-      href: sap-hana-availability-one-region.md
-    - name: Tillgänglighet för SAP HANA på Azure i flera Azure-regioner
-      href: sap-hana-availability-across-regions.md
-    - name: Konfigurera SAP HANA System Replication på SLES
-      href: sap-hana-high-availability.md
-    - name: Konfigurera SAP HANA System Replication på RHEL
-      href: sap-hana-high-availability-rhel.md
-    - name: Felsöka SAP HANA-utskalning och Pacemaker på SLES
-      href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
-  - name: Översikt över SAP HANA-säkerhetskopiering
-    href: sap-hana-backup-guide.md
-  - name: Säkerhetskopiering av SAP HANA-filnivå
-    href: sap-hana-backup-file-level.md
-  - name: Säkerhetskopior av ögonblicksbilder i SAP HANA-lagring
-    href: sap-hana-backup-storage-snapshots.md
-- name: SAP NetWeaver och Business One på Azure Virtual Machines
-  items:
-  - name: Planera för SAP-arbetsbelastning och checklista för distribution
-    href: sap-deployment-checklist.md
-  - name: Planera och implementera SAP NetWeaver på Azure
-    href: planning-guide.md
-  - name: Distributionsguide för SAP NetWeaver
-    href: deployment-guide.md
-  - name: DBMS-distributionsguider för SAP-arbetsbelastning
-    items:
-    - name: DBMS-distribution för SAP-arbetsbelastning på vanliga Azure Virtual Machines
-      href: dbms_guide_general.md
-    - name: DBMS-distribution för SAP-arbetsbelastning för SQL Server på Azure Virtual Machines
-      href: dbms_guide_sqlserver.md
-    - name: DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines
-      href: dbms_guide_oracle.md
-    - name: DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer
-      href: dbms_guide_ibm.md
-    - name: Hög tillgänglighet för IBM Db2 LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server
-      href: dbms-guide-ha-ibm.md
-    - name: DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines
-      href: dbms_guide_sapase.md
-    - name: Distribution av SAP MaxDB, liveCache och innehållsserver på Azure
-      href: dbms_guide_maxdb.md
+    - name: Enkel instans av SAP HANA-installation
+      href: hana-get-started.md
+    - name: Distributionsguide för S/4 HANA eller BW/4 HANA SAP CAL
+      href: cal-s4h.md
+    - name: Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer
+      href: hana-vm-operations.md
     - name: SAP HANA-tillgänglighet i Azure Virtual Machines
       items:
-      - name: Tillgänglighetsöversikt för SAP HANA på Azure
-        href: sap-hana-availability-overview.md
-      - name: Tillgänglighet för SAP HANA på Azure inom en Azure-region
-        href: sap-hana-availability-one-region.md
-      - name: Tillgänglighet för SAP HANA på Azure i flera Azure-regioner
-        href: sap-hana-availability-across-regions.md
-  - name: SAP Business One på Azure Virtual Machines
-    href: business-one-azure.md
-  - name: Distributionsguide för SAP IDES i Windows/SQL Server SAP CAL
-    href: cal-ides-erp6-erp7-sp3-sql.md
-  - name: SAP LaMa-anslutning för Azure
-    href: lama-installation.md
-  - name: Hög tillgänglighet på Windows och Linux
-    items:
-    - name: Översikt
-      href: sap-high-availability-guide-start.md
-    - name: Arkitektur med hög tillgänglighet
+        - name: Tillgänglighetsöversikt för SAP HANA på Azure
+          href: sap-hana-availability-overview.md
+        - name: Tillgänglighet för SAP HANA på Azure inom en Azure-region
+          href: sap-hana-availability-one-region.md
+        - name: Tillgänglighet för SAP HANA på Azure i flera Azure-regioner
+          href: sap-hana-availability-across-regions.md
+        - name: Konfigurera SAP HANA System Replication på SLES
+          href: sap-hana-high-availability.md
+        - name: Konfigurera SAP HANA System Replication på RHEL
+          href: sap-hana-high-availability-rhel.md
+        - name: Felsöka SAP HANA-utskalning och Pacemaker på SLES
+          href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+    - name: Översikt över SAP HANA-säkerhetskopiering
+      href: sap-hana-backup-guide.md
+    - name: Säkerhetskopiering av SAP HANA-filnivå
+      href: sap-hana-backup-file-level.md
+    - name: Säkerhetskopior av ögonblicksbilder i SAP HANA-lagring
+      href: sap-hana-backup-storage-snapshots.md
+- name: SAP NetWeaver och Business One på Azure Virtual Machines
+  items:
+    - name: Planera för SAP-arbetsbelastning och checklista för distribution
+      href: sap-deployment-checklist.md
+    - name: Planera och implementera SAP NetWeaver på Azure
+      href: planning-guide.md
+    - name: Distributionsguide för SAP NetWeaver
+      href: deployment-guide.md
+    - name: DBMS-distributionsguider för SAP-arbetsbelastning
       items:
-      - name: Arkitektur med hög tillgänglighet och scenarier
-        href: sap-high-availability-architecture-scenarios.md
-      - name: Arkitektur med högre tillgänglighet och scenarier
-        href: sap-higher-availability-architecture-scenarios.md
-      - name: SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
-        href: sap-ha-availability-zones.md
-      - name: Hög tillgänglighet på Windows med delad disk för (A)SCS-instans
-        href: sap-high-availability-guide-wsfc-shared-disk.md
-      - name: Hög tillgänglighet på Windows med SOFS-filresurs för (A)SCS-instans
-        href: sap-high-availability-guide-wsfc-file-share.md
-      - name: Hög tillgänglighet på SUSE Linux för (A)SCS-instans
-        href: high-availability-guide-suse.md
-      - name: Hög tillgänglighet på SUSE Linux för (A)SCS-instans med Azure NetApp Files
-        href: high-availability-guide-suse-netapp-files.md
-      - name: Hög tillgänglighet på Red Hat Enterprise Linux för (A)SCS-instans
-        href: high-availability-guide-rhel.md
-    - name: Förberedelse av Azure-infrastruktur
+        - name: DBMS-distribution för SAP-arbetsbelastning på vanliga Azure Virtual Machines
+          href: dbms_guide_general.md
+        - name: DBMS-distribution för SAP-arbetsbelastning för SQL Server på Azure Virtual Machines
+          href: dbms_guide_sqlserver.md
+        - name: DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines
+          href: dbms_guide_oracle.md
+        - name: DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer
+          href: dbms_guide_ibm.md
+        - name: Hög tillgänglighet för IBM Db2 LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server
+          href: dbms-guide-ha-ibm.md
+        - name: DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines
+          href: dbms_guide_sapase.md
+        - name: 'Distribution av SAP MaxDB, liveCache och innehållsserver på Azure'
+          href: dbms_guide_maxdb.md
+        - name: SAP HANA-tillgänglighet i Azure Virtual Machines
+          items:
+            - name: Tillgänglighetsöversikt för SAP HANA på Azure
+              href: sap-hana-availability-overview.md
+            - name: Tillgänglighet för SAP HANA på Azure inom en Azure-region
+              href: sap-hana-availability-one-region.md
+            - name: Tillgänglighet för SAP HANA på Azure i flera Azure-regioner
+              href: sap-hana-availability-across-regions.md
+    - name: SAP Business One på Azure Virtual Machines
+      href: business-one-azure.md
+    - name: Distributionsguide för SAP IDES i Windows/SQL Server SAP CAL
+      href: cal-ides-erp6-erp7-sp3-sql.md
+    - name: SAP LaMa-anslutning för Azure
+      href: lama-installation.md
+    - name: Hög tillgänglighet på Windows och Linux
       items:
-      - name: Windows med delad disk för (A)SCS-instans
-        href: sap-high-availability-infrastructure-wsfc-shared-disk.md
-      - name: Windows med SOFS-filresurs för (A)SCS-instans
-        href: sap-high-availability-infrastructure-wsfc-file-share.md
-      - name: Hög tillgänglighet för NFS på virtuella Azure-datorer eller SLES
-        href: high-availability-guide-suse-nfs.md
-      - name: GlusterFS på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP NetWeaver
-        href: high-availability-guide-rhel-glusterfs.md
-      - name: Pacemaker på SLES
-        href: high-availability-guide-suse-pacemaker.md
-      - name: Pacemaker på RHEL
-        href: high-availability-guide-rhel-pacemaker.md
-    - name: SAP-installation
-      items:
-      - name: Windows med delad disk för (A)SCS-instans
-        href: sap-high-availability-installation-wsfc-shared-disk.md
-      - name: Windows med SOFS-filresurs för (A)SCS-instans
-        href: sap-high-availability-installation-wsfc-file-share.md
-      - name: SUSE Linux med NFS för (A)SCS-instans
-        href: high-availability-guide-suse.md
-      - name: SUSE Linux med NFS för (A)SCS-instans med Azure NetApp Files
-        href: high-availability-guide-suse-netapp-files.md
-      - name: Hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
-        href: high-availability-guide-rhel.md
-    - name: SAP – flera säkerhetsidentifierare
-      items:
-      - name: Windows med delad disk för (A)SCS-instans
-        href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
-      - name: Windows med SOFS-filresurs för (A)SCS-instans
-        href: sap-ascs-ha-multi-sid-wsfc-file-share.md
-  - name: Haveriberedskap för Azure Site Recovery för SAP
-    href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+        - name: Översikt
+          href: sap-high-availability-guide-start.md
+        - name: Arkitektur med hög tillgänglighet
+          items:
+            - name: Arkitektur med hög tillgänglighet och scenarier
+              href: sap-high-availability-architecture-scenarios.md
+            - name: Arkitektur med högre tillgänglighet och scenarier
+              href: sap-higher-availability-architecture-scenarios.md
+            - name: SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
+              href: sap-ha-availability-zones.md
+            - name: Hög tillgänglighet på Windows med delad disk för (A)SCS-instans
+              href: sap-high-availability-guide-wsfc-shared-disk.md
+            - name: Hög tillgänglighet på Windows med SOFS-filresurs för (A)SCS-instans
+              href: sap-high-availability-guide-wsfc-file-share.md
+            - name: Hög tillgänglighet på SUSE Linux för (A)SCS-instans
+              href: high-availability-guide-suse.md
+            - name: Hög tillgänglighet på SUSE Linux för (A)SCS-instans med Azure NetApp Files
+              href: high-availability-guide-suse-netapp-files.md
+            - name: Hög tillgänglighet på Red Hat Enterprise Linux för (A)SCS-instans
+              href: high-availability-guide-rhel.md
+        - name: Förberedelse av Azure-infrastruktur
+          items:
+            - name: Windows med delad disk för (A)SCS-instans
+              href: sap-high-availability-infrastructure-wsfc-shared-disk.md
+            - name: Windows med SOFS-filresurs för (A)SCS-instans
+              href: sap-high-availability-infrastructure-wsfc-file-share.md
+            - name: Hög tillgänglighet för NFS på virtuella Azure-datorer eller SLES
+              href: high-availability-guide-suse-nfs.md
+            - name: GlusterFS på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP NetWeaver
+              href: high-availability-guide-rhel-glusterfs.md
+            - name: Pacemaker på SLES
+              href: high-availability-guide-suse-pacemaker.md
+            - name: Pacemaker på RHEL
+              href: high-availability-guide-rhel-pacemaker.md
+        - name: SAP-installation
+          items:
+            - name: Windows med delad disk för (A)SCS-instans
+              href: sap-high-availability-installation-wsfc-shared-disk.md
+            - name: Windows med SOFS-filresurs för (A)SCS-instans
+              href: sap-high-availability-installation-wsfc-file-share.md
+            - name: SUSE Linux med NFS för (A)SCS-instans
+              href: high-availability-guide-suse.md
+            - name: SUSE Linux med NFS för (A)SCS-instans med Azure NetApp Files
+              href: high-availability-guide-suse-netapp-files.md
+            - name: Hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
+              href: high-availability-guide-rhel.md
+        - name: SAP – flera säkerhetsidentifierare
+          items:
+            - name: Windows med delad disk för (A)SCS-instans
+              href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
+            - name: Windows med SOFS-filresurs för (A)SCS-instans
+              href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+    - name: Haveriberedskap för Azure Site Recovery för SAP
+      href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
 - name: AAD SAP-identitetsintegrering och enkel inloggning
   items:
-  - name: Integrering med SAP-moln
-    href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: AAD-integrering med identitetsautentisering på SAP-molnplattform
-    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: Konfigurera enkel inloggning med SAP-molnplattform
-    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: AAD-integrering med SAP NetWeaver
-    href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: AAD-integrering med SAP Business ByDesign
-    href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: AAD-integrering med SAP HANA DBMS
-    href: ../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: SAP Fiori Launchpad SAML, enkel inloggning med Azure AD
-    href: https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad
+    - name: Integrering med SAP-moln
+      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: AAD-integrering med identitetsautentisering på SAP-molnplattform
+      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Konfigurera enkel inloggning med SAP-molnplattform
+      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: AAD-integrering med SAP NetWeaver
+      href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: AAD-integrering med SAP Business ByDesign
+      href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: AAD-integrering med SAP HANA DBMS
+      href: ../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: 'SAP Fiori Launchpad SAML, enkel inloggning med Azure AD'
+      href: 'https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad'
 - name: Integrering av Azure-tjänster till SAP
   items:
-  - name: Använda SAP HANA i Power BI Desktop
-    href: https://docs.microsoft.com/power-bi/desktop-sap-hana
-  - name: DirectQuery och SAP HANA
-    href: https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana
-  - name: Använda SAP BW-anslutningsappen i Power BI Desktop
-    href: https://docs.microsoft.com/power-bi/desktop-sap-bw-connector
-  - name: Azure Data Factory erbjuder dataintegrering för SAP HANA och Business Warehouse
-    href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
+    - name: Använda SAP HANA i Power BI Desktop
+      href: 'https://docs.microsoft.com/power-bi/desktop-sap-hana'
+    - name: DirectQuery och SAP HANA
+      href: 'https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana'
+    - name: Använda SAP BW-anslutningsappen i Power BI Desktop
+      href: 'https://docs.microsoft.com/power-bi/desktop-sap-bw-connector'
+    - name: Azure Data Factory erbjuder dataintegrering för SAP HANA och Business Warehouse
+      href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: b91931661ad91f813ca84e0c9b7bef4b22e2e975
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489044"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'

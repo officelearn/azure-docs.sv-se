@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850620"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797850"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Samla in IIS-loggar i Azure Monitor
 Internet Information Services (IIS) lagrar användaraktivitet i loggfilerna som kan samlas in av Azure Monitor och lagras som [logga data över](data-platform.md).
@@ -40,7 +40,7 @@ Azure Monitor samlar in IIS-loggposter från varje agent som skapas varje gång 
 ## <a name="iis-log-record-properties"></a>Egenskaper för IIS-post
 IIS-loggposter har en typ av **W3CIISLog** och har egenskaperna i följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | Dator |Namnet på den dator som händelsen har samlats in från. |
 | cIP |IP-adressen för klienten. |
@@ -67,7 +67,7 @@ IIS-loggposter har en typ av **W3CIISLog** och har egenskaperna i följande tabe
 ## <a name="log-queries-with-iis-logs"></a>Loggfrågor med IIS-loggar
 I följande tabell innehåller olika exempel på loggfrågor som hämtar IIS-loggposter.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 |:--- |:--- |
 | W3CIISLog |Alla IIS-loggposter. |
 | W3CIISLog &#124; där scStatus == 500 |Alla IIS-loggposter med returstatus 500. |

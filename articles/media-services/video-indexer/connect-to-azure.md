@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
 ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894225"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796553"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
@@ -22,7 +22,7 @@ När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärder
 
 Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad till en Azure-prenumeration och ett Azure Media Services-konto. Avsnittet innehåller steg för att ansluta till Azure med hjälp av flödet automatisk (standard). Den visar även hur du ansluter till Azure manuellt (Avancerat).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration.
 

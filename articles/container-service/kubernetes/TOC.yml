@@ -1,94 +1,87 @@
-items:
 - name: Kubernetes på Azure
   href: ./index.yml
 - name: Översikt
   items:
-  - name: Kubernetes på Azure
-    href: container-service-intro-kubernetes.md
+    - name: Kubernetes på Azure
+      href: container-service-intro-kubernetes.md
 - name: Snabbstarter
-  items:
-  - name: Kubernetes på Azure
-    href: container-service-kubernetes-walkthrough.md
   expanded: true
+  items:
+    - name: Kubernetes på Azure
+      href: container-service-kubernetes-walkthrough.md
 - name: Självstudier
   items:
-  - name: 1 – Skapa containeravbildningar
-    href: container-service-tutorial-kubernetes-prepare-app.md
-  - name: 2 – Skapa containerregister
-    href: container-service-tutorial-kubernetes-prepare-acr.md
-  - name: 3 – Skapa Kubernetes-kluster
-    href: container-service-tutorial-kubernetes-deploy-cluster.md
-  - name: 4 – Köra program
-    href: container-service-tutorial-kubernetes-deploy-application.md
-  - name: 5 – Skala program
-    href: container-service-tutorial-kubernetes-scale.md
-  - name: 6 – Uppdatera program
-    href: container-service-tutorial-kubernetes-app-update.md
-  - name: 7 – Övervaka med Log Analytics
-    href: container-service-tutorial-kubernetes-monitor.md
+    - name: 1 – Skapa containeravbildningar
+      href: container-service-tutorial-kubernetes-prepare-app.md
+    - name: 2 – Skapa containerregister
+      href: container-service-tutorial-kubernetes-prepare-acr.md
+    - name: 3 – Skapa Kubernetes-kluster
+      href: container-service-tutorial-kubernetes-deploy-cluster.md
+    - name: 4 – Köra program
+      href: container-service-tutorial-kubernetes-deploy-application.md
+    - name: 5 – Skala program
+      href: container-service-tutorial-kubernetes-scale.md
+    - name: 6 – Uppdatera program
+      href: container-service-tutorial-kubernetes-app-update.md
+    - name: 7 – Övervaka med Log Analytics
+      href: container-service-tutorial-kubernetes-monitor.md
 - name: Begrepp
   items:
-  - name: Tjänstens huvudnamn – Kubernetes
-    href: container-service-kubernetes-service-principal.md
+    - name: Tjänstens huvudnamn – Kubernetes
+      href: container-service-kubernetes-service-principal.md
 - name: Instruktionsguider
   items:
-  - name: Kubernetes med Windows
-    href: container-service-kubernetes-windows-walkthrough.md
-  - name: Kubernetes-webbgränssnitt
-    href: container-service-kubernetes-ui.md
-  - name: Använd Helm-diagram
-    href: container-service-kubernetes-helm.md
-  - name: Spara data med Azure Files
-    href: ../../aks/azure-files.md?toc=%2fazure%2fcontainer-service%2fkubernetes%2ftoc.json
-  - name: Använd Draft med ACS
-    href: container-service-draft-up.md
-  - name: Skala ett kluster
-    href: container-service-scale.md
-  - name: Övervaka
-    items:
-    - name: Övervaka med Log Analytics
-      href: container-service-kubernetes-oms.md
-    - name: Övervaka med Datadog
-      href: container-service-kubernetes-datadog.md
-    - name: Övervaka med Sysdig
-      href: container-service-kubernetes-sysdig.md
-    - name: Övervaka med CoScale
-      href: container-service-kubernetes-coscale.md
-  - name: Distribuera Spring Boot-appar
-    items:
-    - name: Distribuera ett Spring Boot-program på Linux i Azure Container Service
-      href: container-service-deploy-spring-boot-app-on-linux.md
-    - name: Distribuera ett Spring Boot-program på ett Kubernetes-kluster i Azure Container Service
-      href: container-service-deploy-spring-boot-app-on-kubernetes.md
-    - name: Distribuera en Spring Boot-app med fabric8 Maven-pluginprogrammet
-      href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
+    - name: Kubernetes med Windows
+      href: container-service-kubernetes-windows-walkthrough.md
+    - name: Kubernetes-webbgränssnitt
+      href: container-service-kubernetes-ui.md
+    - name: Använd Helm-diagram
+      href: container-service-kubernetes-helm.md
+    - name: Spara data med Azure Files
+      href: ../../aks/azure-files.md?toc=%2fazure%2fcontainer-service%2fkubernetes%2ftoc.json
+    - name: Använd Draft med ACS
+      href: container-service-draft-up.md
+    - name: Skala ett kluster
+      href: container-service-scale.md
+    - name: Övervaka
+      items:
+        - name: Övervaka med Log Analytics
+          href: container-service-kubernetes-oms.md
+        - name: Övervaka med Datadog
+          href: container-service-kubernetes-datadog.md
+        - name: Övervaka med Sysdig
+          href: container-service-kubernetes-sysdig.md
+        - name: Övervaka med CoScale
+          href: container-service-kubernetes-coscale.md
+    - name: Distribuera Spring Boot-appar
+      items:
+        - name: Distribuera ett Spring Boot-program på Linux i Azure Container Service
+          href: container-service-deploy-spring-boot-app-on-linux.md
+        - name: Distribuera ett Spring Boot-program på ett Kubernetes-kluster i Azure Container Service
+          href: container-service-deploy-spring-boot-app-on-kubernetes.md
+        - name: Distribuera en Spring Boot-app med fabric8 Maven-pluginprogrammet
+          href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Referens
   items:
-  - name: Azure CLI
-    href: /cli/azure/acs
-  - name: PowerShell
-    href: /powershell/module/az.compute
-  - name: REST
-    href: /rest/api/container-service
+    - name: Azure CLI
+      href: /cli/azure/acs
+    - name: PowerShell
+      href: /powershell/module/az.compute
+    - name: REST
+      href: /rest/api/container-service
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: container-service-faq.md
-  - name: Mallar – ACS-motor
-    href: https://github.com/Azure/acs-engine
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/container-service/
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-container-service
-  - name: Videoklipp
-    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
-ms.openlocfilehash: 5761772088553029232eca9c8e0fe9ecff30fa43
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850968"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: container-service-faq.md
+    - name: Mallar – ACS-motor
+      href: 'https://github.com/Azure/acs-engine'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

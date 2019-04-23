@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793551"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799192"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Anpassad cachelagring i Azure API Management
 Azure API Management-tjänsten har inbyggt stöd för [cachelagring av HTTP-svar](api-management-howto-cache.md) med resurs-URL som nyckel. Nyckeln kan ändras av begärandehuvuden med hjälp av den `vary-by` egenskaper. Detta är användbart för att cachelagra hela HTTP-svar (även kallat representationer), men ibland är det praktiskt att cachen bara en del av en representation. Den nya [cache-sökning-value](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) och [cache-store-value](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) -principerna förser dig möjligheten att lagra och hämta godtyckliga delar av data inifrån principdefinitioner. Den här möjligheten lägger också till värde till tidigare introducerats [-begäran om att skicka](/azure/api-management/api-management-advanced-policies#SendRequest) principen eftersom du kan nu cachelagra svar från externa tjänster.

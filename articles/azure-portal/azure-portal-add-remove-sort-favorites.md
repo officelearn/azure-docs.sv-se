@@ -11,13 +11,13 @@ ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.openlocfilehash: ff3549ce77a2b691dcaaa94b6a59e9c011ff6e21
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053009"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796111"
 ---
-# <a name="add-remove-and-sort-favorites"></a>Lägga till, ta bort och sortera Favoriter
+# <a name="add-remove-and-sort-favorites"></a>Lägga till, ta bort och sortera favoriter
 
 Lägg till eller ta bort objekt från din **Favoriter** listan så att du snabbt kan gå till de tjänster som du använder oftast. Vi redan lagt till vissa vanliga tjänster till din **Favoriter** lista, men du troligen vill anpassa den. Du är den enda som ser de ändringar du gör att **Favoriter**.
 

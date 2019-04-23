@@ -1,109 +1,102 @@
-items:
 - name: Dokumentation om Custom Vision Service
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Custom Vision?
-    href: home.md
+    - name: Vad är Custom Vision?
+      href: home.md
 - name: Snabbstarter
   items:
-  - name: Använda .NET SDK
-    items:
-    - name: Bildklassificering
-      href: csharp-tutorial.md
-    - name: Objektidentifiering
-      href: csharp-tutorial-od.md
-  - name: Använda Python SDK
-    items:
-    - name: Bildklassificering
-      href: python-tutorial.md
-    - name: Objektidentifiering
-      href: python-tutorial-od.md
-  - name: Använda Java SDK
-    items:
-    - name: Bildklassificering
-      href: java-tutorial.md
-    - name: Objektidentifiering
-      href: java-tutorial-od.md
-  - name: Använda SDK för Node.js
-    items:
-    - name: Bildklassificering
-      href: node-tutorial.md
-    - name: Objektidentifiering
-      href: node-tutorial-object-detection.md
-  - name: Använda SDK för Go
-    items:
-    - name: Bildklassificering
-      href: go-tutorial.md
-    - name: Objektidentifiering
-      href: go-tutorial-object-detection.md
+    - name: Använda .NET SDK
+      items:
+        - name: Bildklassificering
+          href: csharp-tutorial.md
+        - name: Objektidentifiering
+          href: csharp-tutorial-od.md
+    - name: Använda Python SDK
+      items:
+        - name: Bildklassificering
+          href: python-tutorial.md
+        - name: Objektidentifiering
+          href: python-tutorial-od.md
+    - name: Använda Java SDK
+      items:
+        - name: Bildklassificering
+          href: java-tutorial.md
+        - name: Objektidentifiering
+          href: java-tutorial-od.md
+    - name: Använda SDK för Node.js
+      items:
+        - name: Bildklassificering
+          href: node-tutorial.md
+        - name: Objektidentifiering
+          href: node-tutorial-object-detection.md
+    - name: Använda SDK för Go
+      items:
+        - name: Bildklassificering
+          href: go-tutorial.md
+        - name: Objektidentifiering
+          href: go-tutorial-object-detection.md
 - name: Självstudier
   items:
-  - name: Logotypavkännare för mobila enheter
-    href: logo-detector-mobile.md
+    - name: Logotypavkännare för mobila enheter
+      href: logo-detector-mobile.md
 - name: Instruktionsguider
   items:
-  - name: Skapa en klassificerare
-    href: getting-started-build-a-classifier.md
-  - name: Testa din modell
-    href: test-your-model.md
-  - name: Förbättra din klassificerare
-    href: getting-started-improving-your-classifier.md
-  - name: Använd förutsägelse-API:t
-    href: use-prediction-api.md
-  - name: Exportera modeller
-    items:
-    - name: Exportera din modell till mobil
-      href: export-your-model.md
-    - name: Använda ONNX-modellen med Windows ML
-      href: custom-vision-onnx-windows-ml.md
-    - name: Köra TensorFlow-modellen i Python
-      href: export-model-python.md
-  - name: Exportera eller ta bort kontodata
-    href: ./export-delete-data.md
-  - name: Flytta projektet med den begränsade utvärderingsversionen till Azure
-    href: ./move-your-project-to-azure.md
-  - name: Uppdatera din app till API-version 3.0
-    href: ./update-application-to-3.0-sdk.md
+    - name: Skapa en klassificerare
+      href: getting-started-build-a-classifier.md
+    - name: Testa din modell
+      href: test-your-model.md
+    - name: Förbättra din klassificerare
+      href: getting-started-improving-your-classifier.md
+    - name: 'Använd förutsägelse-API:t'
+      href: use-prediction-api.md
+    - name: Exportera modeller
+      items:
+        - name: Exportera din modell till mobil
+          href: export-your-model.md
+        - name: Använda ONNX-modellen med Windows ML
+          href: custom-vision-onnx-windows-ml.md
+        - name: Köra TensorFlow-modellen i Python
+          href: export-model-python.md
+    - name: Exportera eller ta bort kontodata
+      href: ./export-delete-data.md
+    - name: Flytta projektet med den begränsade utvärderingsversionen till Azure
+      href: ./move-your-project-to-azure.md
+    - name: Uppdatera din app till API-version 3.0
+      href: ./update-application-to-3.0-sdk.md
 - name: Referens
   items:
-  - name: API för Custom Vision Training
-    href: https://go.microsoft.com/fwlink/?linkid=865446
-  - name: API för Custom Vision Prediction
-    href: https://go.microsoft.com/fwlink/?linkid=865445
-  - name: Ordlista
-    href: glossary-of-terms.md
-  - name: SDK:er
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
-    - name: Go – träning
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
-    - name: Go – förutsägelse
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
+    - name: API för Custom Vision Training
+      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+    - name: API för Custom Vision Prediction
+      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+    - name: Ordlista
+      href: glossary-of-terms.md
+    - name: 'SDK:er'
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python'
+        - name: Go – träning
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training'
+        - name: Go – förutsägelse
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: Resurser
   items:
-  - name: Exempel
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: Begränsningar och kvoter
-    href: limits-and-quotas.md
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Viktig information
-    href: release-notes.md
-ms.openlocfilehash: df39e49ac586fc8e74a0b94074d94e7a6293e4e5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044767"
+    - name: Exempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: Begränsningar och kvoter
+      href: limits-and-quotas.md
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Viktig information
+      href: release-notes.md

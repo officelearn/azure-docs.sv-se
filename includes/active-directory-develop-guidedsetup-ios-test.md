@@ -16,7 +16,7 @@ ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: e48aaa03463bb968ec366b27308ca908aab30d99
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59805216"

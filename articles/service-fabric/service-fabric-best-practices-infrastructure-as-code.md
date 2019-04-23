@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049628"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793822"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktur som kod
 
@@ -53,7 +53,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Azure Service Fabric resources
 
-Du kan distribuera program och tjänster till ditt Service Fabric-kluster via Azure Resource Manager. Se [hantera program och tjänster som Azure Resource Manager-resurser](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) mer information. Här följer bästa praxis Service Fabric application specifika resurser ska ingå i din Resource Manager-Mallresurser.
+Du kan distribuera program och tjänster på ditt Service Fabric-kluster via Azure Resource Manager. Se [hantera program och tjänster som Azure Resource Manager-resurser](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) mer information. Här följer bästa praxis Service Fabric application specifika resurser ska ingå i din Resource Manager-Mallresurser.
 
 ```json
 {

@@ -16,11 +16,11 @@ ms.author: celested
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360931"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791223"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory-inloggning i beteendet för ett program med hjälp av en princip för identifiering av startsfär
 
@@ -152,7 +152,7 @@ Vi använder Azure AD PowerShell-cmdletar för att gå igenom några scenarier, 
 - Visa en lista över de program som en princip har konfigurerats.
 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 I följande exempel har du skapa, uppdatera, länka och ta bort principer på tjänsthuvudnamn för programmet i Azure AD.
 
 1.  Börja genom att ladda ned den senaste förhandsversionen av Azure AD PowerShell-cmdlet. 

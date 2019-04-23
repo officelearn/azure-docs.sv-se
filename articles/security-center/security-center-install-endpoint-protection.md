@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494038"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789659"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med endpoint protection med Azure Security Center
 Azure Security Center övervakar statusen för skydd mot skadlig kod och rapporterar detta under Endpoint protection problem-bladet. Security Center visar problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer sårbar för program mot skadlig kod hot. Med hjälp av informationen under **problem med Endpoint protection**, du kan identifiera en plan för att åtgärda eventuella problem som identifieras.

@@ -14,11 +14,11 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260314"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791344"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Anvisningar: Anpassa anspråk som släpps i token för en viss app i en klient (förhandsversion)
 
@@ -142,7 +142,7 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| lösenord |
+| password |
 | platf |
 | polids |
 | pop_jwk |
@@ -429,7 +429,7 @@ Anspråksmappning principer kan endast tilldelas objekt för tjänstens huvudnam
 
 Många scenarier kan utföras i Azure AD när du kan anpassa anspråk som genereras i token för specifika tjänstens huvudnamn. I det här avsnittet ska går vi igenom några vanliga scenarier som kan hjälpa dig rapportelementen hur du använder Anspråksmappning Principtyp.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Nödvändiga komponenter
 
 I följande exempel har du skapa, uppdatera, länka och ta bort principer för tjänstens huvudnamn. Om du är nybörjare på Azure AD, rekommenderar vi att du [Lär dig mer om hur du hämtar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.
 

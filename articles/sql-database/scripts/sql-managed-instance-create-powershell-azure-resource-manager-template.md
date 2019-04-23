@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: dfd81735b7dfd95a38caf3934fe9057adbcde5a7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357079"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790017"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Använda PowerShell med Azure Resource Manager-mall för att skapa en hanterad instans i Azure SQL Database
 
@@ -39,7 +39,7 @@ Azure PowerShell-kommandon kan starta distribution med hjälp av en fördefinier
 
 Instansnamn, SQL-administratörsanvändarnamn, virtuellt nätverk/undernät och sortering kan inte ändras senare. Andra instansegenskaper kan ändras.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det här exemplet förutsätter att du har [skapat en giltig nätverksmiljö](../sql-database-managed-instance-create-vnet-subnet.md) eller [ändrat befintligt virtuellt nätverk](../sql-database-managed-instance-configure-vnet-subnet.md) för din hanterade instans. Exemplet använder cmdletarna [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) och [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) så se till att du har installerat följande PowerShell-moduler:
 

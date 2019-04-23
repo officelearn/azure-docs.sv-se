@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: magoedte
 ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282295"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791549"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Hur du ställer in aviseringar för problem med prestanda i Azure Monitor för behållare
 Azure Monitor för behållare övervakar prestanda för arbetsbelastningar som distribueras till Azure Container Instances eller hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS).

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
 ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793353"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789730"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Skapa anpassade fält i en Log Analytics-arbetsyta i Azure Monitor
 
@@ -85,7 +85,7 @@ Följande avsnitt beskriver ett komplett exempel för att skapa ett anpassat fä
 
 Vi anger du följande fråga för att returnera alla händelser från Service Control Manager som har händelse-ID 7036 som är den händelse som anger en tjänst som startar eller stoppar.
 
-![Söka i data](media/custom-fields/query.png)
+![Fråga](media/custom-fields/query.png)
 
 Vi kan sedan markera och utöka en post med händelse-ID 7036.
 

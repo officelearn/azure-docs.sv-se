@@ -16,11 +16,11 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
 ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918526"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792828"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Automatiseringsscenarier för hantering av fakturerings- och kostnad
 
@@ -44,7 +44,7 @@ Du kan använda fakturering och kostnadshantering API: er i flera scenarier för
 
 ## <a name="scenario-to-api-mapping"></a>Scenario-API-mappning
 
-|         API        | Avstämningen av faktura    | Cross-avgifter    | Kostnad optimering    | Kostnadsuppföljning    | Midmonth utgifter    | Aviseringar    |
+|         API        | Avstämningen av faktura    | Cross-avgifter    | Kostnadsoptimering    | Kostnadsuppföljning    | Midmonth utgifter    | Aviseringar    |
 |:---------------------------:|:-------------------------:|:----------------:|:--------------------:|:----------------:|:------------------:|:---------:|
 | Budgetar                     |                           |                  |           X          |                  |                    |     X     |
 | Marketplace-debiteringar                |             X             |         X        |           X          |         X        |          X         |     X     |

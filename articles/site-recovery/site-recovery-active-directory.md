@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358039"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790551"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera haveriberedskap för Active Directory och DNS
 
@@ -24,7 +24,7 @@ Du kan använda [Site Recovery](site-recovery-overview.md) att skapa en haveribe
 
 Den här artikeln beskriver hur du skapar en lösning för haveriberedskap för Active Directory. Den innehåller förutsättningar och instruktioner för redundans. Du bör känna till Active Directory och Site Recovery innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Om du replikerar till Azure, [förbereda Azure-resurser](tutorial-prepare-azure.md), inklusive en prenumeration, Azure Virtual Network, ett lagringskonto och ett Recovery Services-valv.
 * Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.

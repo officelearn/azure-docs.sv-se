@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272282"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791617"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Skydda nya resurser med Azure skisser resurslås
 
@@ -27,7 +27,7 @@ Följande steg beskrivs:
 > - Inspektera den nya resursgruppen
 > - Ta bort tilldelning av skissen att ta bort låsen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här kursen krävs en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 

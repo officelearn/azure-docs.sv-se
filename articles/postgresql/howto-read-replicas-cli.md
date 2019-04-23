@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265296"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789435"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Skapa och hantera skrivskyddade repliker från Azure CLI
 
 I den här artikeln får du lära dig hur du skapar och hanterar skrivskyddade repliker i Azure Database for PostgreSQL med Azure CLI. Läs mer om skrivskyddade repliker i den [översikt](concepts-read-replicas.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 - En [Azure Database for PostgreSQL-server](quickstart-create-server-up-azure-cli.md) vara huvudservern.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]

@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267931"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792409"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuera exemplet ISO 27001 delade tjänster skiss
 
@@ -107,10 +107,10 @@ Följande tabell innehåller en lista över skissen artefakt parametrar:
 
 |Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
-|[Förhandsversion]: Distribuera Log Analytics-agenten för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|[Förhandsversion]: Distribuera Log Analytics-agenten för Linux-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|[Förhandsversion]: Distribuera Log Analytics-agenten för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|[Förhandsversion]: Distribuera Log Analytics-agenten för Windows-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
+|[Förhandsversion]\: Distribuera Log Analytics-agenten för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
+|[Förhandsversion]\: Distribuera Log Analytics-agenten för Linux-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
+|[Förhandsversion]\: Distribuera Log Analytics-agenten för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
+|[Förhandsversion]\: Distribuera Log Analytics-agenten för Windows-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
 |Tillåtna resurstyper|Principtilldelning|Tillåtna resurstyper|Lista över resurstyper som kan distribueras. Den här listan består av alla resurstyper som distribueras i delade tjänster.|
 |Tillåtna SKU:er för lagringskonto|Principtilldelning|Tillåtna lagringsutrymmet SKU: er|Lista över diagnostik loggar storage konto SKU: er tillåts. Standardvärdet är _[”Standard_LRS”]_.|
 |Tillåtna SKU:er för virtuella datorer|Principtilldelning|Lista över SKU: er för virtuell dator har tillåtelse för att distribueras. Default value is _["Standard_DS1_v2", "Standard_DS2_v2"]_.|

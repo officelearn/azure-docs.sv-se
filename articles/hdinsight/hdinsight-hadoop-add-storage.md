@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
 ms.openlocfilehash: 54d7a0bf0474db4a9f9d74a1f694f10ef1be91cc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357751"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792290"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägga till ytterligare lagringskonton till HDInsight
 
@@ -22,7 +22,7 @@ Lär dig hur du använder skriptåtgärder för att lägga till ytterligare Azur
 > [!IMPORTANT]  
 > Informationen i det här dokumentet handlar om att lägga till ytterligare lagringsutrymme i ett kluster när den har skapats. Information om att lägga till lagringskonton när klustret skapas finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Lagringskontonamn och nyckel. Se [hantera inställningarna för lagringskontot i Azure-portalen](../storage/common/storage-account-manage.md).

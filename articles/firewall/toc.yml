@@ -1,84 +1,77 @@
-items:
 - name: Dokumentation om Azure Firewall
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure Firewall?
-    href: overview.md
+    - name: Vad är Azure Firewall?
+      href: overview.md
 - name: Självstudier
-  items:
-  - name: Distribuera och konfigurera
-    href: tutorial-firewall-deploy-portal.md
-  - name: Distribuera i hybridnätverk
-    href: tutorial-hybrid-ps.md
-  - name: Filtrera inkommande trafik med DNAT
-    href: tutorial-firewall-dnat.md
-  - name: Övervaka diagnostikloggar
-    href: tutorial-diagnostics.md
   expanded: true
+  items:
+    - name: Distribuera och konfigurera
+      href: tutorial-firewall-deploy-portal.md
+    - name: Distribuera i hybridnätverk
+      href: tutorial-hybrid-ps.md
+    - name: Filtrera inkommande trafik med DNAT
+      href: tutorial-firewall-dnat.md
+    - name: Övervaka diagnostikloggar
+      href: tutorial-diagnostics.md
 - name: Exempel
   items:
-  - name: Azure PowerShell
-    href: sample-powershell.md
-  - name: Azure Monitor-loggar
-    href: log-analytics-samples.md
+    - name: Azure PowerShell
+      href: sample-powershell.md
+    - name: Azure Monitor-loggar
+      href: log-analytics-samples.md
 - name: Begrepp
   items:
-  - name: FQDN-taggar
-    href: fqdn-tags.md
-  - name: Infrastruktur-FQDN
-    href: infrastructure-fqdns.md
-  - name: Loggar och mått
-    href: logs-and-metrics.md
-  - name: Hotinformation
-    href: threat-intel.md
-  - name: Regelbearbetningslogik
-    href: rule-processing.md
-  - name: Tjänsttaggar
-    href: service-tags.md
+    - name: FQDN-taggar
+      href: fqdn-tags.md
+    - name: Infrastruktur-FQDN
+      href: infrastructure-fqdns.md
+    - name: Loggar och mått
+      href: logs-and-metrics.md
+    - name: Hotinformation
+      href: threat-intel.md
+    - name: Regelbearbetningslogik
+      href: rule-processing.md
+    - name: Tjänsttaggar
+      href: service-tags.md
 - name: Instruktionsguider
   items:
-  - name: Distribuera med hjälp av Azure PowerShell
-    href: deploy-ps.md
-  - name: Distribuera med hjälp av en mall
-    href: deploy-template.md
-  - name: Integrera med lastbalanserare
-    href: integrate-lb.md
+    - name: Distribuera med hjälp av Azure PowerShell
+      href: deploy-ps.md
+    - name: Distribuera med hjälp av en mall
+      href: deploy-template.md
+    - name: Integrera med lastbalanserare
+      href: integrate-lb.md
 - name: Referens
   items:
-  - name: Azure CLI
-    href: /cli/azure/network
-  - name: Azure PowerShell
-    href: /powershell/module/az.network/new-azfirewall
-  - name: .NET
-    href: /dotnet/api
-  - name: Java
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/firewall
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    - name: Azure CLI
+      href: /cli/azure/network
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/new-azfirewall
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/firewall
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
 - name: Resurser
   items:
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: firewall-faq.md
-  - name: Skapa mallar
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Community-mallar
-    href: https://azure.microsoft.com/documentation/templates
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/azure-firewall/
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: a5f0125020cd0ed340127bb39c727bbe070721c6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792191"
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: firewall-faq.md
+    - name: Skapa mallar
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Community-mallar
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'

@@ -1,107 +1,100 @@
-items:
 - name: Dokumentation om Front Door Service
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure Front Door Service?
-    href: front-door-overview.md
+    - name: Vad är Azure Front Door Service?
+      href: front-door-overview.md
 - name: Snabbstarter
   items:
-  - name: Skapa en Front Door
-    href: quickstart-create-front-door.md
+    - name: Skapa en Front Door
+      href: quickstart-create-front-door.md
 - name: Självstudier
   items:
-  - name: Lägg till en anpassad domän i din Front Door
-    href: front-door-custom-domain.md
-  - name: Aktivera HTTPS för en anpassad domän
-    href: front-door-custom-domain-https.md
-  - name: Konfigurera en princip för geo-filtrering för Front Door
-    href: front-door-tutorial-geo-filtering.md
+    - name: Lägg till en anpassad domän i din Front Door
+      href: front-door-custom-domain.md
+    - name: Aktivera HTTPS för en anpassad domän
+      href: front-door-custom-domain-https.md
+    - name: Konfigurera en princip för geo-filtrering för Front Door
+      href: front-door-tutorial-geo-filtering.md
 - name: Exempel
   items:
-  - name: Resource Manager-mallar
-    href: front-door-quickstart-template-samples.md
+    - name: Resource Manager-mallar
+      href: front-door-quickstart-template-samples.md
 - name: Begrepp
   items:
-  - name: Serverdelar och serverdelspooler
-    href: front-door-backend-pool.md
-  - name: Cachelagring med Front Door
-    href: front-door-caching.md
-  - name: Geo-filtrering
-    href: front-door-geo-filtering.md
-  - name: Hälsotillståndsavsökningar
-    href: front-door-health-probes.md
-  - name: Hur Front Door matchar routning för en begäran
-    href: front-door-route-matching.md
-  - name: Stöd för HTTP/2
-    href: front-door-http2.md
-  - name: Protokollstöd för HTTP-huvuden
-    href: front-door-http-headers-protocol.md
-  - name: Belastningsutjämning med Azures paket för programleverans
-    href: front-door-lb-with-azure-app-delivery-suite.md
-  - name: Övervakning
-    href: front-door-diagnostics.md
-  - name: Routningsarkitektur
-    href: front-door-routing-architecture.md
-  - name: Metoder för trafikroutning
-    href: front-door-routing-methods.md
-  - name: URL-omskrivning
-    href: front-door-url-rewrite.md
-  - name: Brandvägg för webbaserade program
-    items:
-    - name: Översikt
-      href: waf-overview.md
-    - name: Anpassade regler
-      href: waf-front-door-custom-rules.md
-    - name: Principinställningar
-      href: waf-front-door-policy-settings.md
-    - name: Övervakning och loggning
-      href: waf-front-door-monitor.md
+    - name: Serverdelar och serverdelspooler
+      href: front-door-backend-pool.md
+    - name: Cachelagring med Front Door
+      href: front-door-caching.md
+    - name: Geo-filtrering
+      href: front-door-geo-filtering.md
+    - name: Hälsotillståndsavsökningar
+      href: front-door-health-probes.md
+    - name: Hur Front Door matchar routning för en begäran
+      href: front-door-route-matching.md
+    - name: Stöd för HTTP/2
+      href: front-door-http2.md
+    - name: Protokollstöd för HTTP-huvuden
+      href: front-door-http-headers-protocol.md
+    - name: Belastningsutjämning med Azures paket för programleverans
+      href: front-door-lb-with-azure-app-delivery-suite.md
+    - name: Övervakning
+      href: front-door-diagnostics.md
+    - name: Routningsarkitektur
+      href: front-door-routing-architecture.md
+    - name: Metoder för trafikroutning
+      href: front-door-routing-methods.md
+    - name: URL-omskrivning
+      href: front-door-url-rewrite.md
+    - name: Brandvägg för webbaserade program
+      items:
+        - name: Översikt
+          href: waf-overview.md
+        - name: Anpassade regler
+          href: waf-front-door-custom-rules.md
+        - name: Principinställningar
+          href: waf-front-door-policy-settings.md
+        - name: Övervakning och loggning
+          href: waf-front-door-monitor.md
 - name: Instruktionsguider
   items:
-  - name: Felsöka
-    items:
-    - name: Felsöka routningsproblem
-      href: front-door-troubleshoot-routing.md
-    - name: Tillåtna certifikatutfärdare
-      href: front-door-troubleshoot-allowed-ca.md
-  - name: Konfigurera brandvägg för webbaserade program
-    items:
-    - name: Konfigurera WAF-princip – portalen
-      href: waf-front-door-create-portal.md
-    - name: Konfigurera WAF princip – Azure PowerShell
-      href: waf-front-door-custom-rules-powershell.md
-    - name: Konfigurera anpassad svarskod
-      href: waf-front-door-configure-custom-response-code.md
-    - name: Konfigurera WAF-hastighetsgräns – Azure PowerShell
-      href: waf-front-door-rate-limit-powershell.md
+    - name: Felsöka
+      items:
+        - name: Felsöka routningsproblem
+          href: front-door-troubleshoot-routing.md
+        - name: Tillåtna certifikatutfärdare
+          href: front-door-troubleshoot-allowed-ca.md
+    - name: Konfigurera brandvägg för webbaserade program
+      items:
+        - name: Konfigurera WAF-princip – portalen
+          href: waf-front-door-create-portal.md
+        - name: Konfigurera WAF princip – Azure PowerShell
+          href: waf-front-door-custom-rules-powershell.md
+        - name: Konfigurera anpassad svarskod
+          href: waf-front-door-configure-custom-response-code.md
+        - name: Konfigurera WAF-hastighetsgräns – Azure PowerShell
+          href: waf-front-door-rate-limit-powershell.md
 - name: VANLIGA FRÅGOR OCH SVAR
   items:
-  - name: Vanliga frågor och svar om Front Door
-    href: front-door-faq.md
-  - name: Vanliga frågor och svar om WAF
-    href: waf-faq.md
+    - name: Vanliga frågor och svar om Front Door
+      href: front-door-faq.md
+    - name: Vanliga frågor och svar om WAF
+      href: waf-faq.md
 - name: Referens
   items:
-  - name: Azure CLI
-    href: /cli/azure/ext/front-door/
-  - name: Azure PowerShell
-    href: /powershell/module/az.frontdoor
-  - name: REST-API
-    href: /rest/api/frontdoor
+    - name: Azure CLI
+      href: /cli/azure/ext/front-door/
+    - name: Azure PowerShell
+      href: /powershell/module/az.frontdoor
+    - name: REST-API
+      href: /rest/api/frontdoor
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/frontdoor/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Tjänstuppdateringar
-    href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: 7ac4e84bf714dabdbfb0c587122287d02b6b3bbe
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680119"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/frontdoor/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=frontdoor'

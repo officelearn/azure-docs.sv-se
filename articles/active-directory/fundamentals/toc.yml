@@ -1,93 +1,86 @@
-items:
 - name: Dokumentation om grunderna
   href: index.yml
 - name: Översikt
-  items:
-  - name: Vad är Azure Active Directory?
-    href: active-directory-whatis.md
-  - name: Nyheter i Azure Active Directory
-    href: whats-new.md
   expanded: true
+  items:
+    - name: Vad är Azure Active Directory?
+      href: active-directory-whatis.md
+    - name: Nyheter i Azure Active Directory
+      href: whats-new.md
 - name: Snabbstarter
   items:
-  - name: Öppna portalen och skapa en klient
-    href: active-directory-access-create-new-tenant.md
-  - name: Visa grupperna med tilldelade medlemmar
-    href: active-directory-groups-view-azure-portal.md
+    - name: Öppna portalen och skapa en klient
+      href: active-directory-access-create-new-tenant.md
+    - name: Visa grupperna med tilldelade medlemmar
+      href: active-directory-groups-view-azure-portal.md
 - name: Begrepp
   items:
-  - name: Identitetssäker poäng
-    href: identity-secure-score.md
-  - name: Grupper och åtkomsthantering
-    href: active-directory-manage-groups.md
-  - name: Gruppbaserad licensiering
-    href: active-directory-licensing-whatis-azure-portal.md
-  - name: Azure AD-arkitekturen
-    href: active-directory-architecture.md
-  - name: Standardinställningar för användarbehörigheter
-    href: users-default-permissions.md
-  - name: Distribution 30, 90 och senare
-    href: active-directory-deployment-checklist-p2.md
-  - name: Identitetsdatalagring för EU
-    href: active-directory-data-storage-eu.md
+    - name: Identitetssäker poäng
+      href: identity-secure-score.md
+    - name: Grupper och åtkomsthantering
+      href: active-directory-manage-groups.md
+    - name: Gruppbaserad licensiering
+      href: active-directory-licensing-whatis-azure-portal.md
+    - name: Azure AD-arkitekturen
+      href: active-directory-architecture.md
+    - name: Standardinställningar för användarbehörigheter
+      href: users-default-permissions.md
+    - name: 'Distribution 30, 90 och senare'
+      href: active-directory-deployment-checklist-p2.md
+    - name: Identitetsdatalagring för EU
+      href: active-directory-data-storage-eu.md
 - name: Instruktionsguider
-  items:
-  - name: Organisation
-    items:
-    - name: Registrera dig för Azure AD som en organisation
-      href: sign-up-organization.md
-    - name: Registrera dig för Azure AD Premium
-      href: active-directory-get-started-premium.md
-    - name: Lägg till ett anpassat domännamn
-      href: add-custom-domain.md
-    - name: Lägg till företagsanpassning
-      href: customize-branding.md
-    - name: Associera en Azure-prenumeration
-      href: active-directory-how-subscriptions-associated-directory.md
-    - name: Lägga till sekretessinformation
-      href: active-directory-properties-area.md
-  - name: Grupper
-    items:
-    - name: Skapa en grupp och lägga till medlemmar
-      href: active-directory-groups-create-azure-portal.md
-    - name: Lägga till eller ta bort gruppmedlemmar
-      href: active-directory-groups-members-azure-portal.md
-    - name: Ta bort en grupp och dess medlemmar
-      href: active-directory-groups-delete-group.md
-    - name: Lägga eller ta bort en grupp från en annan grupp
-      href: active-directory-groups-membership-azure-portal.md
-    - name: Redigera gruppinformation
-      href: active-directory-groups-settings-azure-portal.md
-    - name: Lägga till eller ta bort gruppägare
-      href: active-directory-accessmanagement-managing-group-owners.md
-  - name: Användare
-    items:
-    - name: Lägga till eller ta bort en ny användare
-      href: add-users-azure-active-directory.md
-    - name: Lägga till eller ändra användarprofilinformation
-      href: active-directory-users-profile-azure-portal.md
-    - name: Återställa ett användarlösenord
-      href: active-directory-users-reset-password-azure-portal.md
-    - name: Tilldela roller till användare
-      href: active-directory-users-assign-role-azure-portal.md
-    - name: Tilldela eller ta bort licenser från användare
-      href: license-users-groups.md
-    - name: Återställa en borttagen användare
-      href: active-directory-users-restore.md
   expanded: true
+  items:
+    - name: Organisation
+      items:
+        - name: Registrera dig för Azure AD som en organisation
+          href: sign-up-organization.md
+        - name: Registrera dig för Azure AD Premium
+          href: active-directory-get-started-premium.md
+        - name: Lägg till ett anpassat domännamn
+          href: add-custom-domain.md
+        - name: Lägg till företagsanpassning
+          href: customize-branding.md
+        - name: Associera en Azure-prenumeration
+          href: active-directory-how-subscriptions-associated-directory.md
+        - name: Lägga till sekretessinformation
+          href: active-directory-properties-area.md
+    - name: Grupper
+      items:
+        - name: Skapa en grupp och lägga till medlemmar
+          href: active-directory-groups-create-azure-portal.md
+        - name: Lägga till eller ta bort gruppmedlemmar
+          href: active-directory-groups-members-azure-portal.md
+        - name: Ta bort en grupp och dess medlemmar
+          href: active-directory-groups-delete-group.md
+        - name: Lägga eller ta bort en grupp från en annan grupp
+          href: active-directory-groups-membership-azure-portal.md
+        - name: Redigera gruppinformation
+          href: active-directory-groups-settings-azure-portal.md
+        - name: Lägga till eller ta bort gruppägare
+          href: active-directory-accessmanagement-managing-group-owners.md
+    - name: Användare
+      items:
+        - name: Lägga till eller ta bort en ny användare
+          href: add-users-azure-active-directory.md
+        - name: Lägga till eller ändra användarprofilinformation
+          href: active-directory-users-profile-azure-portal.md
+        - name: Återställa ett användarlösenord
+          href: active-directory-users-reset-password-azure-portal.md
+        - name: Tilldela roller till användare
+          href: active-directory-users-assign-role-azure-portal.md
+        - name: Tilldela eller ta bort licenser från användare
+          href: license-users-groups.md
+        - name: Återställa en borttagen användare
+          href: active-directory-users-restore.md
 - name: Resurser
   items:
-  - name: Få support för Azure Active Directory
-    href: active-directory-troubleshooting-support-howto.md
-  - name: Vanliga frågor och svar om Azure Active Directory
-    href: active-directory-faq.md
-  - name: Azure Active Directory-distributionsplaner
-    href: active-directory-deployment-plans.md
-  - name: Arkivera för Nyheter i Azure AD
-    href: whats-new-archive.md
-ms.openlocfilehash: ac750e329a530978979d3ca580ae1f1407d2fa78
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704418"
+    - name: Få support för Azure Active Directory
+      href: active-directory-troubleshooting-support-howto.md
+    - name: Vanliga frågor och svar om Azure Active Directory
+      href: active-directory-faq.md
+    - name: Azure Active Directory-distributionsplaner
+      href: active-directory-deployment-plans.md
+    - name: Arkivera för Nyheter i Azure AD
+      href: whats-new-archive.md

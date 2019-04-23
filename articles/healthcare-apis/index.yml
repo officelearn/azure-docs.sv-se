@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om förhandsversionen av Azure API för FHIR
+metadata:
+  title: Dokumentation om förhandsversionen av Azure API för FHIR
+  meta.description: Learn how Azure API for FHIR can power healthcare iteroperability in Azure.
+  services: healthcare-apis
+  author: hansenms
+  manager: dougseven
+  ms.author: mihansen
+  ms.service: healthcare-apis
+  ms.topic: landing-page
+  ms.date: 02/07/2019
+abstract:
+  description: 'Förhandsversionen av Azure API för FHIR® är ett fullständigt hanterat, standardbaserat, kompatibelt API för kliniska hälsodata som gör det möjligt att skapa nya system för analys, maskininlärning och intelligens med handlingsbarhet med dina hälsodata.'
+sections:
+  - title: null
+    items:
+      - type: paragraph
+        text: FHIR&reg; är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: Läs om hur förhandsversionen av Azure API för FHIR kan förbättra hälsovårdssamverkan i Azure genom att välja en pillänk <img src="media/index/link.jpg" height="15" width="15"></img>.
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/portal.svg
+            title: Azure Portal
+          - image:
+              src: media/index/powershell.svg
+            title: Azure PowerShell
+          - image:
+              src: media/index/cli.svg
+            title: Azure CLI
+        rows:
+          - title: Distribuera Azure API för FHIR
+            values:
+              - href: fhir-paas-portal-quickstart.md
+              - href: fhir-paas-powershell-quickstart.md
+              - href: fhir-paas-cli-quickstart.md
+          - title: Distribuera FHIR Server med öppen källkod
+            values:
+              - href: fhir-oss-portal-quickstart.md
+              - href: fhir-oss-powershell-quickstart.md
+              - href: fhir-oss-cli-quickstart.md

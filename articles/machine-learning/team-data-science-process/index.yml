@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 193250708b953b2bf2e2db84b3eef2dc4a09834b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451928"
 documentType: LandingData
 title: Dokumentation om Team Data Science Process
 metadata:
   title: Dokumentation om Team Data Science Process
-  description: Lär dig hur du använder Team Data Science Process – en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.
+  description: 'Lär dig hur du använder Team Data Science Process – en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.'
   services: machine-learning
   author: cjgronlund
   ms.service: machine-learning
@@ -20,26 +14,26 @@ metadata:
   ms.date: 01/18/2018
   ms.author: cgronlun
 abstract:
-  description: Team Data Science Process är en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.
+  description: 'Team Data Science Process är en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Läs mer om TDSP (Team Data Science Process):'
-  - type: list
-    style: unordered
+  - title: Snabbstarter på 5 minuter
     items:
-    - html: <a href="overview">Översikt</a>
-    - html: <a href="lifecycle">Livscykel</a>
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du använder TDSP (Team Data Science Process) i olika scenarier:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Läs mer om TDSP (Team Data Science Process):'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="overview">Översikt</a>
+          - html: <a href="lifecycle">Livscykel</a>
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="walkthroughs-spark">Spark med PySpark och Scala</a>
-    - html: <a href="walkthroughs-hdinsight-hadoop">Hive med HDInsight Hadoop</a>
-    - html: <a href="walkthroughs-azure-data-lake">U-SQL med Azure Data Lake</a>
-    - html: <a href="walkthroughs-sql-server">R, Python och T-SQL med SQLServer</a>
-    - html: <a href="walkthroughs-sql-data-warehouse">T-SQL och Python med SQL DW</a>
+      - type: paragraph
+        text: 'Lär dig hur du använder TDSP (Team Data Science Process) i olika scenarier:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="walkthroughs-spark">Spark med PySpark och Scala</a>
+          - html: <a href="walkthroughs-hdinsight-hadoop">Hive med HDInsight Hadoop</a>
+          - html: <a href="walkthroughs-azure-data-lake">U-SQL med Azure Data Lake</a>
+          - html: '<a href="walkthroughs-sql-server">R, Python och T-SQL med SQLServer</a>'
+          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL och Python med SQL DW</a>

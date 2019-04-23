@@ -9,11 +9,11 @@ ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60187689"
 ---
 Om du får problem när du utför åtgärder i delade bildgallerier, eller för bilddefinitioner och bildversioner, kan du köra det misslyckade kommandot igen i felsökningsläge. Felsökningsläge aktiveras genom att skicka den **-felsöka** växla med CLI och **-felsöka** växla med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
 
@@ -107,7 +107,7 @@ Delning av delade bildgalleriet avbildningsdefinitionen och version bildresurser
 
 Använd den **--Expandera ReplicationStatus** flagga för att kontrollera om replikeringen till alla angivna målregioner har slutförts. Annars kan du vänta i upp till 6 timmar för jobbet är klart. Om den inte utlösa kommandot igen för att skapa och replikera versionsnumret för avbildningen. Om det finns en massa målregioner versionsnumret för avbildningen replikeras till, Tänk replikering i faser.
 
-## <a name="azure-limits-and-quotas"></a>Azure-gränser och kvoter 
+## <a name="azure-limits-and-quotas"></a>Begränsningar och kvoter för Azure 
 
 [Azure-gränser och kvoter](https://docs.microsoft.com/azure/azure-subscription-service-limits) gäller för alla delade bildgalleriet avbildningsdefinitionen och bildresurser version. Kontrollera att du är inom gränserna för dina prenumerationer. 
 

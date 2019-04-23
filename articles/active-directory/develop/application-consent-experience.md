@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500489"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59795193"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå medgivande i Azure AD-program
 
@@ -50,7 +50,7 @@ Följande diagram och tabell innehåller information om de olika byggstenarna i 
 | 2 | Rubrik | Rubrik-ändringar baserat på om användarna går igenom godkännandeflöde användare eller administratör. I användarens medgivande flow kommer rubriken att ”behörighet begärt” medan medgivande administratörsflöde rubriken har ytterligare en rad ”acceptera för din organisation”. |
 | 3 | Applogotyp | Den här bilden hjälpa användare som har en visuell ledtråd om den här appen är appen de avsedda att få åtkomst till. Den här bilden kommer från programutvecklare och ägarskap för den här bilden är inte verifieras. |
 | 4 | Appnamn | Det här värdet bör informera användare som begär åtkomst till sina data. Observera att det här namnet kommer från utvecklare och ägarskap för den här appens namn är inte verifieras. |
-| 5 | Publisher-domän | Det här värdet bör ge användare med en domän som de kanske kan utvärdera för tillförlitlighet. Den här domänen tillhandahålls av utvecklare och ägarskap för den här publisher-domänen har verifierats. |
+| 5 | Utgivardomän | Det här värdet bör ge användare med en domän som de kanske kan utvärdera för tillförlitlighet. Den här domänen tillhandahålls av utvecklare och ägarskap för den här publisher-domänen har verifierats. |
 | 6 | Behörigheter | Den här listan innehåller de behörigheter som begärts av klientprogrammet. Användare bör alltid utvärdera vilka behörigheter som har begärts att förstå vilka data som klientprogrammet ska ha behörighet att komma åt å deras vägnar om de godkänner. Det är bäst att begära åtkomst till behörigheterna som med minsta privilegier som programutvecklare av. |
 | 7 | Beskrivning av behörighet | Det här värdet tillhandahålls av tjänsten exponerar behörigheterna. Om du vill se beskrivningarna behörighet, måste du växla ikonen bredvid behörigheten. |
 | 8 | App-villkor | Dessa villkor innehålla länkar till användningsvillkoren och sekretesspolicy för programmet. Utgivaren ansvarar för beskriver deras regler i sina användningsvillkor. Dessutom ansvarar utgivaren för att avslöja på sätt som de använder och delar användardata i deras sekretesspolicy. Om utgivaren inte tillhandahåller länkar till dessa värden för program med flera klienter, kommer det finnas en fetstil varning på medgivandetext. |

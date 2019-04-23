@@ -58,11 +58,11 @@ Följande egenskaper har stöd för en länkad Azure SQL Data Warehouse-tjänst:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till **AzureSqlDW**. | Ja |
+| type | Type-egenskapen måste anges till **AzureSqlDW**. | Ja |
 | connectionString | Ange information som behövs för att ansluta till Azure SQL Data Warehouse-instansen för den **connectionString** egenskapen. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera nyckel för lösenord/tjänstens huvudnamn i Azure Key Vault, och om den är SQL-autentisering pull den `password` konfiguration av anslutningssträngen. Se JSON-exemplet nedan i tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | servicePrincipalId | Ange programmets klient-ID. | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten. |
 | servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten. |
-| klient | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten. |
+| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten. |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller en lokal integration runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. | Nej |
 
 För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel, respektive:
@@ -231,7 +231,7 @@ För att kopiera data från eller till Azure SQL Data Warehouse, ange den **typ*
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskap måste anges till **AzureSqlDWTable**. | Ja |
+| type | Den **typ** egenskap måste anges till **AzureSqlDWTable**. | Ja |
 | tableName | Namnet på tabellen eller vyn i Azure SQL Data Warehouse-instans som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
 
 #### <a name="dataset-properties-example"></a>Exempel med datauppsättningen egenskaper
@@ -263,7 +263,7 @@ Om du vill kopiera data från Azure SQL Data Warehouse, ange den **typ** -egensk
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **SqlDWSource**. | Ja |
+| type | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **SqlDWSource**. | Ja |
 | sqlReaderQuery | Använda anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. | Nej |
 | sqlReaderStoredProcedureName | Namnet på den lagrade proceduren som läser data från källtabellen. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. | Nej |
 | storedProcedureParameters | Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. | Nej |
@@ -366,14 +366,14 @@ Om du vill kopiera data till Azure SQL Data Warehouse, ange Mottagartyp i Kopier
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **SqlDWSink**. | Ja |
+| type | Den **typ** egenskapen för mottagare för Kopieringsaktivitet måste anges till **SqlDWSink**. | Ja |
 | allowPolyBase | Anger om du vill använda PolyBase, när så är tillämpligt, i stället för BULKINSERT mekanism. <br/><br/> Vi rekommenderar att du läser in data i SQL Data Warehouse med PolyBase. Se den [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnittet begränsningar och information.<br/><br/>Tillåtna värden är **SANT** och **FALSKT** (standard).  | Nej |
 | polyBaseSettings | En grupp egenskaper som kan anges när den **allowPolybase** är inställd på **SANT**. | Nej |
 | rejectValue | Anger det tal eller procentandelen rader som kan avvisas innan frågan inte kunde köras.<br/><br/>Läs mer om Polybases avvisningsalternativen i avsnittet argument i [Skapa extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Tillåtna värden är 0 (standard), 1, 2, osv. |Nej |
 | rejectType | Anger om den **rejectValue** alternativet är ett exakt värde eller en procentandel.<br/><br/>Tillåtna värden är **värdet** (standard) och **procent**. | Nej |
 | rejectSampleValue | Anger antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade raden.<br/><br/>Tillåtna värden är 1, 2, osv. | Ja, om den **rejectType** är **procent**. |
 | useTypeDefault | Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Tillåtna värden är **SANT** och **FALSKT** (standard). | Nej |
-| WriteBatchSize | Infogar data i SQL-tabell när buffertstorleken når **writeBatchSize**. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **heltal** (antal rader). | Nej. Standardvärdet är 10 000. |
+| writeBatchSize | Infogar data i SQL-tabell när buffertstorleken når **writeBatchSize**. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **heltal** (antal rader). | Nej. Standardvärdet är 10 000. |
 | writeBatchTimeout | Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. Gäller endast när PolyBase inte används.<br/><br/>Det tillåtna värdet är **timespan**. Exempel: ”00: 30:00” (30 minuter). | Nej |
 | preCopyScript | Ange en SQL-fråga för Kopieringsaktiviteten ska köras innan du skriver data till Azure SQL Data Warehouse i varje körning. Använd den här egenskapen för att rensa förinstallerade data. | Nej |
 
@@ -564,36 +564,36 @@ När du kopierar data från eller till Azure SQL Data Warehouse, används följa
 | Azure SQL Data Warehouse-datatyp | Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint | Int64 |
-| binär | Byte] |
-| bitars | Boolesk |
-| Char | Sträng, Char] |
-| datum | DateTime |
-| DateTime | DateTime |
-| datetime2 | DateTime |
-| DateTimeOffset | DateTimeOffset |
-| decimaltal | decimaltal |
-| FILESTREAM-attributet (varbinary(max)) | Byte] |
-| Flyttal | Double-värde |
-| image | Byte] |
+| binary | Byte[] |
+| bit | Boolean |
+| char | String, Char[] |
+| date | Datetime |
+| Datetime | Datetime |
+| datetime2 | Datetime |
+| Datetimeoffset | Datetimeoffset |
+| Decimal | Decimal |
+| FILESTREAM-attributet (varbinary(max)) | Byte[] |
+| Float | Double |
+| image | Byte[] |
 | int | Int32 |
-| pengar | decimaltal |
-| nchar | Sträng, Char] |
-| ntext | Sträng, Char] |
-| numeriskt | decimaltal |
-| nvarchar | Sträng, Char] |
-| verkliga | Enkel |
-| ROWVERSION | Byte] |
-| smalldatetime | DateTime |
+| money | Decimal |
+| nchar | String, Char[] |
+| ntext | String, Char[] |
+| numeriskt | Decimal |
+| nvarchar | String, Char[] |
+| real | Single |
+| ROWVERSION | Byte[] |
+| smalldatetime | Datetime |
 | smallint | Int16 |
-| smallmoney | decimaltal |
-| sql_variant | Objekt |
-| text | Sträng, Char] |
-| time | Tidsintervall |
-| tidsstämpel | Byte] |
+| smallmoney | Decimal |
+| sql_variant | Object |
+| text | String, Char[] |
+| time | TimeSpan |
+| tidsstämpel | Byte[] |
 | tinyint | Byte |
-| uniqueidentifier | GUID |
-| varbinary | Byte] |
-| varchar | Sträng, Char] |
+| uniqueidentifier | Guid |
+| varbinary | Byte[] |
+| varchar | String, Char[] |
 | xml | Xml |
 
 ## <a name="next-steps"></a>Nästa steg

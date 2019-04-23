@@ -11,11 +11,11 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 41c3db1c9a7295d939aa34a36f86c0dfa9fecd91
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891454"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797132"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Använd anpassade attribut i en anpassad profil Redigera princip
 
@@ -23,7 +23,7 @@ ms.locfileid: "58891454"
 
 I den här artikeln skapar du ett anpassat attribut i din Azure Active Directory (Azure AD) B2C-katalog. Du ska använda den här nya attribut som ett anpassat anspråk i användarresan för profilen redigera.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följ stegen i artikeln [Azure Active Directory B2C: Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md).
 

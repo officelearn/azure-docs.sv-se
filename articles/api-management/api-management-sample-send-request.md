@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505659"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796536"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Använda externa tjänster från Azure API Management-tjänsten
 Principerna som är tillgängliga i Azure API Management-tjänsten kan göra en stor mängd arbete baserat helt och hållet på den inkommande begäranden, utgående svar och grundläggande konfigurationsinformation. Men att kunna interagera med externa tjänster från API Management principer öppnas många fler möjligheter.

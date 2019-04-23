@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903122"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798835"
 ---
 # <a name="download-the-template-for-a-vm"></a>Ladda ned mallen för en virtuell dator
 När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell skapas automatiskt en Resource Manager-mall för dig. Du kan använda den här mallen för att snabbt kopiera en distribution. Mallen innehåller information om alla resurser i en resursgrupp. För en virtuell dator innebär detta att mallen innehåller allt som har skapats som stöd för den virtuella datorn i den resursgruppen, inklusive nätverksresurser.

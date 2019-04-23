@@ -11,11 +11,11 @@ ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b414529d7756812f1e1e16d2d0184c8472c0c55f
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916758"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798068"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "58916758"
 
 [Anpassade principer](active-directory-b2c-overview-custom.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory (Azure AD) B2C-klient. I den här artikeln skapar du en anpassad princip som har stöd för lokalt konto registrerings- eller logga in med en e-postadress och lösenord. Du kan även förbereda din miljö för att lägga till identitetsleverantörer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har ett redan, måste du [skapa en Azure AD B2C-klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 - [Registrera ditt program](tutorial-register-applications.md) i klienten som du skapade så att den kan kommunicera med Azure AD B2C.

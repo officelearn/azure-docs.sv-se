@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879020"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798784"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Network Watcher-Agent-tillägg för virtuell dator för Linux
 
@@ -30,7 +30,7 @@ ms.locfileid: "58879020"
 
 Den här artikeln beskriver de plattformar som stöds och distributionsalternativ för Network Watcher-Agent VM-tillägget för Linux. Installationen av agenten inte störa eller kräver en omstart av den virtuella datorn. Du kan distribuera tillägget till virtuella datorer som du distribuerar. Om den virtuella datorn distribueras av en Azure-tjänst kan du i dokumentationen för tjänsten att avgöra huruvida den tillåter att installera tillägg i den virtuella datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="operating-system"></a>Operativsystem
 

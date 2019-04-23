@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918441"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798767"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Exponera konfigurationsinställningarna för rollen som en miljövariabel med XPath
 I cloud service worker eller tjänstdefinitionsfilen för web-roll, kan du exponera runtime konfigurationsvärden som miljövariabler. Följande XPath-värden stöds (som motsvarar API-värden).
@@ -29,7 +29,7 @@ Dessa XPath-värden är också tillgängliga via den [Microsoft.WindowsAzure.Ser
 ## <a name="app-running-in-emulator"></a>App som körs i emulatorn
 Anger att appen körs i emulatorn.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
 | Kod |var x = RoleEnvironment.IsEmulated; |
@@ -37,7 +37,7 @@ Anger att appen körs i emulatorn.
 ## <a name="deployment-id"></a>Distributions-ID
 Hämtar distributions-ID för instansen.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | Kod |var deploymentId = RoleEnvironment.DeploymentId; |
@@ -45,7 +45,7 @@ Hämtar distributions-ID för instansen.
 ## <a name="role-id"></a>Roll-ID
 Hämtar den aktuella roll-ID för instansen.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | Kod |var id = RoleEnvironment.CurrentRoleInstance.Id; |
@@ -53,7 +53,7 @@ Hämtar den aktuella roll-ID för instansen.
 ## <a name="update-domain"></a>Uppdatera domän
 Hämtar uppdateringsdomän på-instansen.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | Kod |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
@@ -61,7 +61,7 @@ Hämtar uppdateringsdomän på-instansen.
 ## <a name="fault-domain"></a>Feldomän
 Hämtar feldomänen för instansen.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | Kod |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
@@ -69,7 +69,7 @@ Hämtar feldomänen för instansen.
 ## <a name="role-name"></a>Rollnamn
 Hämtar namnet på för instanser.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | Kod |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
@@ -77,7 +77,7 @@ Hämtar namnet på för instanser.
 ## <a name="config-setting"></a>Konfigurationsinställningen
 Hämtar värdet för den angivna Konfigurationsinställningen.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | Kod |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
@@ -85,7 +85,7 @@ Hämtar värdet för den angivna Konfigurationsinställningen.
 ## <a name="local-storage-path"></a>Sökväg för lokal lagring
 Hämtar sökvägen till lokal lagring för instansen.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | Kod |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1"). RootPath; |
@@ -93,7 +93,7 @@ Hämtar sökvägen till lokal lagring för instansen.
 ## <a name="local-storage-size"></a>Lokal lagringsstorlek
 Hämtar storleken på den lokala lagringen för instansen.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | Kod |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1"). MaximumSizeInMegabytes; |
@@ -101,7 +101,7 @@ Hämtar storleken på den lokala lagringen för instansen.
 ## <a name="endpoint-protocol"></a>Slutpunkt-protokollet
 Hämtar endpoint-protokollet för instansen.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | Kod |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
@@ -109,7 +109,7 @@ Hämtar endpoint-protokollet för instansen.
 ## <a name="endpoint-ip"></a>Slutpunkt IP
 Hämtar den angivna slutpunkten IP-adress.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | Kod |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
@@ -117,7 +117,7 @@ Hämtar den angivna slutpunkten IP-adress.
 ## <a name="endpoint-port"></a>Slutpunktsport
 Hämtar slutpunktsport för instansen.
 
-| Type | Exempel |
+| Typ | Exempel |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | Kod |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |

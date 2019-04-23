@@ -1,55 +1,48 @@
-items:
 - name: Dokumentation om Azure Portal
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Azure-portalen
-    href: azure-portal-overview.md
-  - name: Webbläsare och enheter som stöds
-    href: azure-portal-supported-browsers-devices.md
+    - name: Om Azure-portalen
+      href: azure-portal-overview.md
+    - name: Webbläsare och enheter som stöds
+      href: azure-portal-supported-browsers-devices.md
 - name: Begrepp
   items:
-  - name: Skapa och dela Azure-instrumentpaneler
-    href: azure-portal-dashboards.md
-  - name: Dela instrumentpaneler med rollbaserad åtkomstkontroll
-    href: azure-portal-dashboard-share-access.md
-  - name: Skapa Azure-instrumentpaneler programmässigt
-    href: azure-portal-dashboards-create-programmatically.md
+    - name: Skapa och dela Azure-instrumentpaneler
+      href: azure-portal-dashboards.md
+    - name: Dela instrumentpaneler med rollbaserad åtkomstkontroll
+      href: azure-portal-dashboard-share-access.md
+    - name: Skapa Azure-instrumentpaneler programmässigt
+      href: azure-portal-dashboards-create-programmatically.md
 - name: Instruktionsguider
   items:
-  - name: Aktivera hög kontrast eller ändra tema
-    href: azure-portal-change-theme-high-contrast.md
-  - name: Lägga till, ta bort och sortera favoriter
-    href: azure-portal-add-remove-sort-favorites.md
-  - name: Använda en anpassad Markdown-panel
-    href: azure-portal-markdown-tile.md
-  - name: Exportera eller ta bort användarinställningar
-    href: azure-portal-export-delete-settings.md
-  - name: Instruktionsvideoserie om Azure-portalen
-    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
+    - name: Aktivera hög kontrast eller ändra tema
+      href: azure-portal-change-theme-high-contrast.md
+    - name: 'Lägga till, ta bort och sortera favoriter'
+      href: azure-portal-add-remove-sort-favorites.md
+    - name: Använda en anpassad Markdown-panel
+      href: azure-portal-markdown-tile.md
+    - name: Exportera eller ta bort användarinställningar
+      href: azure-portal-export-delete-settings.md
+    - name: Instruktionsvideoserie om Azure-portalen
+      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
 - name: Referens
   items:
-  - name: Kortkommandon
-    href: azure-portal-keyboard-shortcuts.md
-  - name: Azure-instrumentpanelernas struktur
-    href: azure-portal-dashboards-structure.md
+    - name: Kortkommandon
+      href: azure-portal-keyboard-shortcuts.md
+    - name: Azure-instrumentpanelernas struktur
+      href: azure-portal-dashboards-structure.md
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/updates/
-  - name: Utveckla dina färdigheter med Microsoft Learn
-    href: /learn/browse/?products=azure-portal
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Azure-videor
-    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: 3846b9198d79be1a9580919a97e568c6a2467b12
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047993"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/updates/'
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/?products=azure-portal
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
+    - name: Azure-videor
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest'

@@ -1,120 +1,113 @@
-items:
 - name: Dokumentation om Azure Blueprint
   href: index.yml
 - name: Översikt
-  items:
-  - name: Översikt över Azure Blueprint
-    displayName: templates, policy, definition, assignment, rbac
-    href: overview.md
   expanded: true
+  items:
+    - name: Översikt över Azure Blueprint
+      displayName: 'templates, policy, definition, assignment, rbac'
+      href: overview.md
 - name: Snabbstarter
-  items:
-  - name: Skapa en skiss – Portal
-    displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-portal.md
-  - name: Skapa en skiss – REST API
-    displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-rest-api.md
   expanded: true
+  items:
+    - name: Skapa en skiss – Portal
+      displayName: 'publish, assign, track, unassign, delete'
+      href: create-blueprint-portal.md
+    - name: Skapa en skiss – REST API
+      displayName: 'publish, assign, track, unassign, delete'
+      href: create-blueprint-rest-api.md
 - name: Självstudier
-  items:
-  - name: Skapa från en exempelskiss
-    displayName: template, resource group, rbac, role assignment
-    href: ./tutorials/create-from-sample.md
-  - name: Skydda nya resurser med skissresurslås
-    displayName: read only, do not delete, lock assignment
-    href: ./tutorials/protect-new-resources.md
   expanded: true
+  items:
+    - name: Skapa från en exempelskiss
+      displayName: 'template, resource group, rbac, role assignment'
+      href: ./tutorials/create-from-sample.md
+    - name: Skydda nya resurser med skissresurslås
+      displayName: 'read only, do not delete, lock assignment'
+      href: ./tutorials/protect-new-resources.md
 - name: Exempel
-  items:
-  - name: Index
-    displayName: list, examples
-    href: ./samples/index.md
-  - name: ISO 27001 – Delade tjänster
-    items:
-    - name: Översikt
-      displayName: standards, iso, 27001, shared services
-      href: ./samples/iso27001-shared/index.md
-    - name: Kontrollmappning
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001-shared/control-mapping.md
-    - name: Distributionssteg
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001-shared/deploy.md
-  - name: ISO 27001 – ASE/SQL-arbetsbelastning
-    items:
-    - name: Översikt
-      displayName: standards, iso, 27001, shared services
-      href: ./samples/iso27001-ase-sql-workload/index.md
-    - name: Kontrollmappning
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001-ase-sql-workload/control-mapping.md
-    - name: Distributionssteg
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001-ase-sql-workload/deploy.md
   expanded: true
+  items:
+    - name: Index
+      displayName: 'list, examples'
+      href: ./samples/index.md
+    - name: ISO 27001 – Delade tjänster
+      items:
+        - name: Översikt
+          displayName: 'standards, iso, 27001, shared services'
+          href: ./samples/iso27001-shared/index.md
+        - name: Kontrollmappning
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001-shared/control-mapping.md
+        - name: Distributionssteg
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001-shared/deploy.md
+    - name: ISO 27001 – ASE/SQL-arbetsbelastning
+      items:
+        - name: Översikt
+          displayName: 'standards, iso, 27001, shared services'
+          href: ./samples/iso27001-ase-sql-workload/index.md
+        - name: Kontrollmappning
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001-ase-sql-workload/control-mapping.md
+        - name: Distributionssteg
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001-ase-sql-workload/deploy.md
 - name: Begrepp
-  items:
-  - name: Livscykeln för en skiss
-    displayName: publish, edit, delete, assignments
-    href: ./concepts/lifecycle.md
-  - name: Faser i en skissdistribution
-    displayName: assign, managed identity
-    href: ./concepts/deployment-stages.md
-  - name: Dynamiska parametrar i en skiss
-    displayName: secureString, secureObject, static
-    href: ./concepts/parameters.md
-  - name: Sekvensordning för distribution av en skiss
-    displayName: customize
-    href: ./concepts/sequencing-order.md
-  - name: Resurslåsning i skisser
-    displayName: mode, state, read only, edit, denyAssignments
-    href: ./concepts/resource-locking.md
   expanded: true
+  items:
+    - name: Livscykeln för en skiss
+      displayName: 'publish, edit, delete, assignments'
+      href: ./concepts/lifecycle.md
+    - name: Faser i en skissdistribution
+      displayName: 'assign, managed identity'
+      href: ./concepts/deployment-stages.md
+    - name: Dynamiska parametrar i en skiss
+      displayName: 'secureString, secureObject, static'
+      href: ./concepts/parameters.md
+    - name: Sekvensordning för distribution av en skiss
+      displayName: customize
+      href: ./concepts/sequencing-order.md
+    - name: Resurslåsning i skisser
+      displayName: 'mode, state, read only, edit, denyAssignments'
+      href: ./concepts/resource-locking.md
 - name: Instruktionsguider
-  items:
-  - name: Hantera tilldelningar med PowerShell
-    displayName: create, update, remove
-    href: ./how-to/manage-assignments-ps.md
-  - name: Uppdatera befintliga tilldelningar via portalen
-    displayName: lock, errors
-    href: ./how-to/update-existing-assignments.md
-  - name: Hantera Blueprints as Code (community)
-    href: https://github.com/Azure/azure-blueprints/blob/master/README.md
   expanded: true
+  items:
+    - name: Hantera tilldelningar med PowerShell
+      displayName: 'create, update, remove'
+      href: ./how-to/manage-assignments-ps.md
+    - name: Uppdatera befintliga tilldelningar via portalen
+      displayName: 'lock, errors'
+      href: ./how-to/update-existing-assignments.md
+    - name: Hantera Blueprints as Code (community)
+      href: 'https://github.com/Azure/azure-blueprints/blob/master/README.md'
 - name: Felsöka
-  displayName: errors, violation
+  displayName: 'errors, violation'
   href: ./troubleshoot/general.md
 - name: Referenser
-  items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.blueprint/#blueprint
-  - name: Azure SDK för .NET
-    href: /dotnet/api/overview/azure/blueprints/management
-  - name: REST
-    href: /rest/api/blueprints/
-  - name: PSGallery (Az.Blueprint-modul)
-    href: https://www.powershellgallery.com/packages/Az.Blueprint
-  - name: PSGallery (community-modul)
-    href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
   expanded: true
+  items:
+    - name: Azure PowerShell
+      href: '/powershell/module/az.blueprint/#blueprint'
+    - name: Azure SDK för .NET
+      href: /dotnet/api/overview/azure/blueprints/management
+    - name: REST
+      href: /rest/api/blueprints/
+    - name: PSGallery (Az.Blueprint-modul)
+      href: 'https://www.powershellgallery.com/packages/Az.Blueprint'
+    - name: PSGallery (community-modul)
+      href: 'https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint'
 - name: Resurser
   items:
-  - name: GitHub – Azure Blueprints-exempel
-    href: https://github.com/Azure/azure-blueprints
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance
-  - name: Styrning av YouTube-kanal
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - name: Azure Friday – Översikt över Azure Blueprints
-    href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-ms.openlocfilehash: f55ec759cac8ace468bc4216a30aef765f9d213a
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358578"
+    - name: GitHub – Azure Blueprints-exempel
+      href: 'https://github.com/Azure/azure-blueprints'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: UserVoice
+      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+    - name: Styrning av YouTube-kanal
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+    - name: Azure Friday – Översikt över Azure Blueprints
+      href: 'https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints'

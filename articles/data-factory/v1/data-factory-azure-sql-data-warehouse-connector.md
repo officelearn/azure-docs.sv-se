@@ -153,7 +153,7 @@ GO
 | rejectSampleValue |Anger antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade raden. |1, 2, … |Ja, om **rejectType** är **procent** |
 | useTypeDefault |Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |SANT, FALSKT (standard) |Nej |
 | writeBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
-| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel: ”00: 30:00” (30 minuter). |Nej |
+| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |TimeSpan<br/><br/> Exempel: ”00: 30:00” (30 minuter). |Nej |
 
 #### <a name="sqldwsink-example"></a>SqlDWSink example
 
@@ -276,10 +276,10 @@ I följande tabell innehåller exempel på hur du anger den **tableName** egensk
 
 | DB-Schema | Tabellnamn | tableName JSON-egenskap |
 | --- | --- | --- |
-| dbo |MyTable |MyTable eller dbo.MyTable eller [dbo].[Tabell] |
-| dbo1 |MyTable |dbo1.MyTable eller [dbo1].[Tabell] |
-| dbo |My.Table |[My.Table] eller [dbo].[My.Table] |
-| dbo1 |My.Table |[dbo1].[My.Table] |
+| dbo |MyTable |MyTable eller dbo. MyTable eller [dbo]. [Tabell] |
+| dbo1 |MyTable |dbo1. MyTable eller [dbo1]. [Tabell] |
+| dbo |My.Table |[My.Table] eller [dbo]. [My.Table] |
+| dbo1 |My.Table |[dbo1]. [My.Table] |
 
 Om du ser följande fel kan bero det på ett problem med det värde du angav för egenskapen tableName. Se tabellen för det korrekta sättet att ange värden för egenskapen tableName JSON.
 
@@ -310,22 +310,22 @@ Data Factory skapar tabellen i målarkiv med samma tabellnamnet på källdatalag
 | Decimal | Decimal |
 | Numeric | Decimal |
 | Float | Float |
-| Money | Money |
+| money | money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binary | Binary |
+| Binär | Binär |
 | Varbinary | Varbinary (upp till 8000) |
 | Date | Date |
-| DateTime | DateTime |
+| Datetime | Datetime |
 | DateTime2 | DateTime2 |
-| Time | Time |
-| DateTimeOffset | DateTimeOffset |
+| Tid | Tid |
+| Datetimeoffset | Datetimeoffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (upp till 8000) |
 | NText | NVarChar (upp till 4000) |
 | Image | VarBinary (upp till 8000) |
 | UniqueIdentifier | UniqueIdentifier |
-| Char | Char |
+| char | char |
 | NChar | NChar |
 | VarChar | VarChar (upp till 8000) |
 | NVarChar | NVarChar (upp till 4000) |
@@ -349,32 +349,32 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
+| Datetimeoffset |Datetimeoffset |
 | Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| FILESTREAM-attributet (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeriskt |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
-| rowversion |Byte[] |
-| smalldatetime |DateTime |
+| ROWVERSION |Byte[] |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+| tidsstämpel |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
-| varbinary |Byte[] |
+| Varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

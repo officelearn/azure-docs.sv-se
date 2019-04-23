@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895706"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798629"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett certifikat för Azure Service Management
 Hanteringscertifikat kan du autentisera med den klassiska distributionsmodellen som tillhandahålls av Azure. Många program och verktyg (till exempel Visual Studio eller Azure SDK) kan du använda dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 3364ff6bcf824e5f7d925fdb6d0826d5c3c32369
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862258"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794600"
 ---
 # <a name="security-recommendations"></a>Säkerhetsrekommendationer
 
@@ -35,7 +35,7 @@ Du hittar en lista över rekommendationer som kan utlösas på din IoT Hub och/e
 
 Rekommendationer för enhet ger insikter och förslag för att förbättra säkerhetspositionen för enheten. 
 
-| Severity | Namn                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
+| Allvarsgrad | Namn                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Medel   | Öppna portar på enheten                                      | Agent       | En lyssnarslutpunkt hittades på enheten                                                                                                                                                          |
 | Medel   | Tillåtande brandväggsprincipen finns på någon av kedjorna. | Agent       | Tillåtna brandväggsprincipen hittades (indata/utdata). Brandväggsprincip ska neka all trafik som standard, och definiera regler för att tillåta nödvändiga kommunikation till och från enheten.                               |
@@ -47,7 +47,7 @@ Rekommendationer för enhet ger insikter och förslag för att förbättra säke
 
 Operativa rekommendationer ger insikter och förslag för att förbättra säkerhetskonfiguration för agenten.
 
-| Severity | Namn                                    | Datakälla | Beskrivning                                                                       |
+| Allvarsgrad | Namn                                    | Datakälla | Beskrivning                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Låg      | Agenten skickar unutilized meddelanden          | Agent       | minst 10 procent av säkerhetsvarningar var mindre än 4kb under de senaste 24 timmarna.  |
 | Låg      | Twin säkerhetskonfiguration inte optimala | Agent       | Twin säkerhetskonfiguration är inte optimalt.                                        |
@@ -58,7 +58,7 @@ Operativa rekommendationer ger insikter och förslag för att förbättra säker
 
 Rekommendationen aviseringar ger insikt och förslag på åtgärder för att förbättra säkerhetspositionen för din miljö.  
 
-| Severity | Namn                                                     | Datakälla | Beskrivning                                                                                                                                                                                                             |
+| Allvarsgrad | Namn                                                     | Datakälla | Beskrivning                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Hög     | Identiska autentiseringsuppgifter som används av flera enheter | IoT Hub     | IoT Hub-autentiseringsuppgifter som används av flera enheter. Detta kan tyda på en icke-legitimt enhet personifiera en giltig enhet. Duplicerade autentiseringsuppgift ökar risken för enheten personifiering av en skadlig aktör. |
 | Medel   | Standardprincipen för IP-filter ska neka                  | IoT Hub     | IP-filterkonfiguration ska har regler som definierats för tillåten trafik och ska som standard, neka alla andra trafik som standard.                                                                                                     |

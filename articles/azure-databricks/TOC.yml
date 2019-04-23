@@ -1,85 +1,78 @@
-items:
 - name: Dokumentation om Azure Databricks
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure Databricks?
-    href: what-is-azure-databricks.md
+    - name: Vad är Azure Databricks?
+      href: what-is-azure-databricks.md
 - name: Snabbstarter
-  items:
-  - name: Skapa en Databricks-arbetsyta – portalen
-    href: quickstart-create-databricks-workspace-portal.md
-  - name: Skapa en Databricks-arbetsyta – Resource Manager-mall
-    href: quickstart-create-databricks-workspace-resource-manager-template.md
-  - name: Skapa en Databricks-arbetsyta – virtuellt nätverk
-    href: quickstart-create-databricks-workspace-vnet-injection.md
   expanded: true
+  items:
+    - name: Skapa en Databricks-arbetsyta – portalen
+      href: quickstart-create-databricks-workspace-portal.md
+    - name: Skapa en Databricks-arbetsyta – Resource Manager-mall
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
+    - name: Skapa en Databricks-arbetsyta – virtuellt nätverk
+      href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Självstudier
   items:
-  - name: Fråga SQL Server som körs i Docker-container
-    href: vnet-injection-sql-server.md
-  - name: Utföra ETL-åtgärder
-    href: databricks-extract-load-sql-data-warehouse.md
-  - name: Strömma data med Event Hubs
-    href: databricks-stream-from-eventhubs.md
-  - name: Attitydanalys med Cognitive Services
-    href: databricks-sentiment-analysis-cognitive-services.md
-  - name: Strömma data från HDInsight Kafka
-    href: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
+    - name: Fråga SQL Server som körs i Docker-container
+      href: vnet-injection-sql-server.md
+    - name: Utföra ETL-åtgärder
+      href: databricks-extract-load-sql-data-warehouse.md
+    - name: Strömma data med Event Hubs
+      href: databricks-stream-from-eventhubs.md
+    - name: Attitydanalys med Cognitive Services
+      href: databricks-sentiment-analysis-cognitive-services.md
+    - name: Strömma data från HDInsight Kafka
+      href: 'https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html'
 - name: Instruktionsguider
   items:
-  - name: Skapa ett Spark-kluster
-    href: https://docs.azuredatabricks.net/user-guide/clusters/index.html
-  - name: Arbeta med bärbara datorer
-    href: https://docs.azuredatabricks.net/user-guide/notebooks/index.html
-  - name: Köra Spark-jobb
-    href: https://docs.azuredatabricks.net/user-guide/jobs.html
-  - name: Anslut till datakällor
-    href: databricks-connect-to-data-sources.md
-  - name: Använda VNet-inmatning
-    href: vnet-injection.md
-  - name: Använda tillsammans med Azure Data Factory
-    href: ../data-factory/transform-data-using-databricks-notebook.md
-    maintainContext: true
-  - name: Ansluta till Excel, R och Python
-    href: connect-databricks-excel-python-r.md
-  - name: Använda Databricks CLI från Azure Cloud Shell
-    href: databricks-cli-from-azure-cloud-shell.md
-  - name: Använda BI-verktyg
-    href: https://docs.azuredatabricks.net/user-guide/bi/index.html
-  - name: Planera haveriberedskap
-    href: howto-regional-disaster-recovery.md
-  - name: MLflow-guide
-    href: https://docs.azuredatabricks.net/applications/mlflow/index.html
+    - name: Skapa ett Spark-kluster
+      href: 'https://docs.azuredatabricks.net/user-guide/clusters/index.html'
+    - name: Arbeta med bärbara datorer
+      href: 'https://docs.azuredatabricks.net/user-guide/notebooks/index.html'
+    - name: Köra Spark-jobb
+      href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
+    - name: Anslut till datakällor
+      href: databricks-connect-to-data-sources.md
+    - name: Använda VNet-inmatning
+      href: vnet-injection.md
+    - name: Använda tillsammans med Azure Data Factory
+      href: ../data-factory/transform-data-using-databricks-notebook.md
+      maintainContext: true
+    - name: 'Ansluta till Excel, R och Python'
+      href: connect-databricks-excel-python-r.md
+    - name: Använda Databricks CLI från Azure Cloud Shell
+      href: databricks-cli-from-azure-cloud-shell.md
+    - name: Använda BI-verktyg
+      href: 'https://docs.azuredatabricks.net/user-guide/bi/index.html'
+    - name: Planera haveriberedskap
+      href: howto-regional-disaster-recovery.md
+    - name: MLflow-guide
+      href: 'https://docs.azuredatabricks.net/applications/mlflow/index.html'
 - name: Referens
   items:
-  - name: REST-API
-    href: /rest/api/databricks
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.databricks/workspaces
+    - name: REST-API
+      href: /rest/api/databricks
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.databricks/workspaces
 - name: Resurser
   items:
-  - name: Vanliga frågor
-    href: frequently-asked-questions-databricks.md
-  - name: Viktig information
-    href: https://docs.azuredatabricks.net/release-notes/index.html
-  - name: Dokumentation för Databricks
-    href: https://docs.azuredatabricks.net/user-guide/index.html
-  - name: Utvecklarguide för R
-    href: ../machine-learning/r-developers-guide.md
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=analytics
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/databricks/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-databricks
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-  - name: Supportalternativ
-    href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 1f0b7bcc369a3f857fe974f8b8ec68b801516589
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256404"
+    - name: Vanliga frågor
+      href: frequently-asked-questions-databricks.md
+    - name: Viktig information
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
+    - name: Dokumentation för Databricks
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Utvecklarguide för R
+      href: ../machine-learning/r-developers-guide.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/databricks/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Supportalternativ
+      href: 'https://azure.microsoft.com/support/options/'

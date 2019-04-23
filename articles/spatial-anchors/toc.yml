@@ -1,90 +1,83 @@
-items:
 - name: Dokumentation om Spatial Anchors
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Spatial Anchors
-    href: overview.md
+    - name: Om Spatial Anchors
+      href: overview.md
 - name: Snabbstarter
   items:
-  - name: Skapa en Unity-app
-    href: unity-overview.yml
-    items:
-    - name: HoloLens
-      href: quickstarts/get-started-unity-hololens.md
-    - name: Android
-      href: quickstarts/get-started-unity-android.md
-    - name: iOS
-      href: quickstarts/get-started-unity-ios.md
-    expanded: true
-  - name: Skapa en iOS-app
-    href: quickstarts/get-started-ios.md
-  - name: Skapa en Android-app
-    href: quickstarts/get-started-android.md
-  - name: Skapa en HoloLens-app
-    href: quickstarts/get-started-hololens.md
+    - name: Skapa en Unity-app
+      href: unity-overview.yml
+      expanded: true
+      items:
+        - name: HoloLens
+          href: quickstarts/get-started-unity-hololens.md
+        - name: Android
+          href: quickstarts/get-started-unity-android.md
+        - name: iOS
+          href: quickstarts/get-started-unity-ios.md
+    - name: Skapa en iOS-app
+      href: quickstarts/get-started-ios.md
+    - name: Skapa en Android-app
+      href: quickstarts/get-started-android.md
+    - name: Skapa en HoloLens-app
+      href: quickstarts/get-started-hololens.md
 - name: Självstudier
   items:
-  - name: Dela i Unity
-    href: tutorials/tutorial-share-anchors-across-devices.md
-  - name: Dela i Unity med Azure Cosmos DB
-    href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
-  - name: Starta en ny Android-app
-    href: tutorials/tutorial-new-android-app.md
+    - name: Dela i Unity
+      href: tutorials/tutorial-share-anchors-across-devices.md
+    - name: Dela i Unity med Azure Cosmos DB
+      href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+    - name: Starta en ny Android-app
+      href: tutorials/tutorial-new-android-app.md
 - name: Så här gör du
   items:
-  - name: Skapa och hitta fästpunkter
-    href: create-locate-anchors-overview.md
-    items:
-    - name: I Unity
-      href: how-tos/create-locate-anchors-unity.md
-    - name: I Objective-C
-      href: how-tos/create-locate-anchors-objc.md
-    - name: I Swift
-      href: how-tos/create-locate-anchors-swift.md
-    - name: I Java
-      href: how-tos/create-locate-anchors-java.md
-    - name: I C++/NDK
-      href: how-tos/create-locate-anchors-cpp-ndk.md
-    - name: I C++/WinRT
-      href: how-tos/create-locate-anchors-cpp-winrt.md
+    - name: Skapa och hitta fästpunkter
+      href: create-locate-anchors-overview.md
+      items:
+        - name: I Unity
+          href: how-tos/create-locate-anchors-unity.md
+        - name: I Objective-C
+          href: how-tos/create-locate-anchors-objc.md
+        - name: I Swift
+          href: how-tos/create-locate-anchors-swift.md
+        - name: I Java
+          href: how-tos/create-locate-anchors-java.md
+        - name: I C++/NDK
+          href: how-tos/create-locate-anchors-cpp-ndk.md
+        - name: I C++/WinRT
+          href: how-tos/create-locate-anchors-cpp-winrt.md
 - name: Exempel
   items:
-  - name: Azure Spatial Anchors-exempel (GitHub)
-    href: https://github.com/Azure/azure-spatial-anchors-samples
+    - name: Azure Spatial Anchors-exempel (GitHub)
+      href: 'https://github.com/Azure/azure-spatial-anchors-samples'
 - name: Begrepp
   items:
-  - name: Anchor-relationer
-    href: concepts/anchor-relationships-way-finding.md
-  - name: Upplevelseriktlinjer
-    href: concepts/guidelines-effective-anchor-experiences.md
-  - name: Loggning och diagnostik
-    href: concepts/logging-diagnostics.md
+    - name: Anchor-relationer
+      href: concepts/anchor-relationships-way-finding.md
+    - name: Upplevelseriktlinjer
+      href: concepts/guidelines-effective-anchor-experiences.md
+    - name: Loggning och diagnostik
+      href: concepts/logging-diagnostics.md
 - name: Referenser
   items:
-  - name: SDK för Unity
-    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
-  - name: SDK för iOS Objective-C
-    href: https://docs.microsoft.com/objectivec/api/spatial-anchors/
-  - name: SDK för Android Java
-    href: https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors/
-  - name: SDK för Android NDK
-    href: https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/
-  - name: SDK för HoloLens C++/WinRT
-    href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
+    - name: SDK för Unity
+      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/'
+    - name: SDK för iOS Objective-C
+      href: 'https://docs.microsoft.com/objectivec/api/spatial-anchors/'
+    - name: SDK för Android Java
+      href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors/'
+    - name: SDK för Android NDK
+      href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/'
+    - name: SDK för HoloLens C++/WinRT
+      href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
 - name: Resurser
   items:
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: spatial-anchor-faq.md
-  - name: Ge produktfeedback
-    href: https://feedback.azure.com/forums/919252-azure-spatial-anchors
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
-  - name: Support
-    href: spatial-anchor-support.md
-ms.openlocfilehash: 69465b1f2184476f8c18738474a6585fdd681bb2
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915857"
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: spatial-anchor-faq.md
+    - name: Ge produktfeedback
+      href: 'https://feedback.azure.com/forums/919252-azure-spatial-anchors'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-spatial-anchors'
+    - name: Support
+      href: spatial-anchor-support.md

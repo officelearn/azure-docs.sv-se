@@ -1,222 +1,215 @@
-items:
 - name: Dokumentation om Azure IoT Edge
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Azure IoT Edge
-    href: about-iot-edge.md
+    - name: Om Azure IoT Edge
+      href: about-iot-edge.md
 - name: Snabbstarter
-  items:
-  - name: Distribuera kod till en Linux-enhet
-    href: quickstart-linux.md
-  - name: Distribuera kod till en Windows-enhet
-    href: quickstart.md
   expanded: true
+  items:
+    - name: Distribuera kod till en Linux-enhet
+      href: quickstart-linux.md
+    - name: Distribuera kod till en Windows-enhet
+      href: quickstart.md
 - name: Självstudier
   items:
-  - name: Filtrera data med Azure Functions
-    href: tutorial-deploy-function.md
-  - name: Hitta medelvärden med ASA
-    href: tutorial-deploy-stream-analytics.md
-  - name: Bedöma data med Azure Machine Learning Service
-    href: tutorial-deploy-machine-learning.md
-  - name: Klassificera bilder med Custom Vision
-    href: tutorial-deploy-custom-vision.md
-  - name: Lagra data lokalt med SQL
-    href: tutorial-store-data-sql-server.md
-  - name: Utveckla anpassade kodmoduler
-    items:
-    - name: C#
-      href: tutorial-csharp-module.md
-    - name: Python
-      href: tutorial-python-module.md
-    - name: Node.js
-      href: tutorial-node-module.md
-    - name: Java
-      href: tutorial-java-module.md
-    - name: C
-      href: tutorial-c-module.md
+    - name: Filtrera data med Azure Functions
+      href: tutorial-deploy-function.md
+    - name: Hitta medelvärden med ASA
+      href: tutorial-deploy-stream-analytics.md
+    - name: Bedöma data med Azure Machine Learning Service
+      href: tutorial-deploy-machine-learning.md
+    - name: Klassificera bilder med Custom Vision
+      href: tutorial-deploy-custom-vision.md
+    - name: Lagra data lokalt med SQL
+      href: tutorial-store-data-sql-server.md
+    - name: Utveckla anpassade kodmoduler
+      items:
+        - name: 'C#'
+          href: tutorial-csharp-module.md
+        - name: Python
+          href: tutorial-python-module.md
+        - name: Node.js
+          href: tutorial-node-module.md
+        - name: Java
+          href: tutorial-java-module.md
+        - name: C
+          href: tutorial-c-module.md
 - name: Begrepp
   items:
-  - name: IoT Edge-körning
-    href: iot-edge-runtime.md
-  - name: IoT Edge-moduler
-    items:
-    - name: Förstå Azure IoT Edge-moduler
-      href: iot-edge-modules.md
-    - name: Edge-agenten och hubbegenskaper
-      href: module-edgeagent-edgehub.md
-  - name: Utveckling
-    items:
-    - name: Utveckla moduler
-      href: module-development.md
-    - name: Utvecklingsmiljö
-      href: development-environment.md
-  - name: Distribution
-    items:
-    - name: Distributionsmanifest
-      href: module-composition.md
-    - name: Automatiska distributioner
-      href: module-deployment-monitoring.md
-  - name: Offlinefunktioner
-    href: offline-capabilities.md
-  - name: IoT Edge-enhet som en gateway
-    href: iot-edge-as-gateway.md
-  - name: Säkerhet
-    items:
-    - name: Skydda Azure IoT Edge
-      href: security.md
-    - name: Säkerhetshanteraren för IoT Edge
-      href: iot-edge-security-manager.md
-    - name: IoT Edge-certifikat
-      href: iot-edge-certs.md
-  - name: Plattformssupport
-    href: support.md
-  - name: Checklista för produktionsdistribution
-    href: production-checklist.md
-  - name: IoT Edge-ordlista
-    href: iot-edge-glossary.md
+    - name: IoT Edge-körning
+      href: iot-edge-runtime.md
+    - name: IoT Edge-moduler
+      items:
+        - name: Förstå Azure IoT Edge-moduler
+          href: iot-edge-modules.md
+        - name: Edge-agenten och hubbegenskaper
+          href: module-edgeagent-edgehub.md
+    - name: Utveckling
+      items:
+        - name: Utveckla moduler
+          href: module-development.md
+        - name: Utvecklingsmiljö
+          href: development-environment.md
+    - name: Distribution
+      items:
+        - name: Distributionsmanifest
+          href: module-composition.md
+        - name: Automatiska distributioner
+          href: module-deployment-monitoring.md
+    - name: Offlinefunktioner
+      href: offline-capabilities.md
+    - name: IoT Edge-enhet som en gateway
+      href: iot-edge-as-gateway.md
+    - name: Säkerhet
+      items:
+        - name: Skydda Azure IoT Edge
+          href: security.md
+        - name: Säkerhetshanteraren för IoT Edge
+          href: iot-edge-security-manager.md
+        - name: IoT Edge-certifikat
+          href: iot-edge-certs.md
+    - name: Plattformssupport
+      href: support.md
+    - name: Checklista för produktionsdistribution
+      href: production-checklist.md
+    - name: IoT Edge-ordlista
+      href: iot-edge-glossary.md
 - name: Instruktionsguider
   items:
-  - name: Registrera en Edge-enhet
-    items:
-    - name: Azure Portal
-      href: how-to-register-device-portal.md
-    - name: Azure CLI
-      href: how-to-register-device-cli.md
-    - name: Visual Studio-koden
-      href: how-to-register-device-vscode.md
-  - name: Installera och hantera IoT Edge
-    items:
-    - name: Linux X64
-      href: how-to-install-iot-edge-linux.md
-    - name: Linux ARM32
-      href: how-to-install-iot-edge-linux-arm.md
-    - name: Windows X64
-      href: how-to-install-iot-edge-windows.md
-    - name: Virtuell Ubuntu-dator
-      href: how-to-install-iot-edge-ubuntuvm.md
-    - name: Uppdatera körningsversion
-      href: how-to-update-iot-edge.md
-  - name: Automatisk etablering med DPS
-    items:
-    - name: Linux
-      href: how-to-auto-provision-simulated-device-linux.md
-    - name: Windows
-      href: how-to-auto-provision-simulated-device-windows.md
-  - name: Utveckla och felsöka anpassade moduler
-    items:
-    - name: Visual Studio 2017
-      href: how-to-visual-studio-develop-module.md
-    - name: Visual Studio-koden
-      href: how-to-vs-code-develop-module.md
-  - name: Distribuera moduler
-    items:
-    - name: Azure Portal
-      href: how-to-deploy-modules-portal.md
-    - name: Azure CLI
-      href: how-to-deploy-modules-cli.md
-    - name: Visual Studio-koden
-      href: how-to-deploy-modules-vscode.md
-  - name: Distribuera och övervaka i skala
-    items:
-    - name: Azure Portal
-      href: how-to-deploy-monitor.md
-    - name: Azure CLI
-      href: how-to-deploy-monitor-cli.md
-  - name: Använda Edge-enheter som gatewayer
-    items:
-    - name: Konfigurera en transparent gateway
-      href: how-to-create-transparent-gateway.md
-    - name: Ansluta en underordnad enhet
-      href: how-to-connect-downstream-device.md
-    - name: Modbus-protokollgateway
-      href: deploy-modbus-gateway.md
-  - name: Konfigurera proxyinställningar
-    href: how-to-configure-proxy-support.md
-  - name: Lagra data på gränsen
-    items:
-    - name: Azure Blob Storage på IoT Edge
-      href: how-to-store-data-blob.md
-  - name: Hantera med DevOps-verktyg
-    items:
-    - name: Azure DevOps Projects
-      href: how-to-devops-project.md
-    - name: Azure DevOps
-      href: how-to-ci-cd.md
-    - name: IoT Edge-plugin för Jenkins
-      href: how-to-devops-plugins.md
-  - name: Felsöka
-    href: troubleshoot.md
+    - name: Registrera en Edge-enhet
+      items:
+        - name: Azure Portal
+          href: how-to-register-device-portal.md
+        - name: Azure CLI
+          href: how-to-register-device-cli.md
+        - name: Visual Studio-koden
+          href: how-to-register-device-vscode.md
+    - name: Installera och hantera IoT Edge
+      items:
+        - name: Linux X64
+          href: how-to-install-iot-edge-linux.md
+        - name: Linux ARM32
+          href: how-to-install-iot-edge-linux-arm.md
+        - name: Windows X64
+          href: how-to-install-iot-edge-windows.md
+        - name: Virtuell Ubuntu-dator
+          href: how-to-install-iot-edge-ubuntuvm.md
+        - name: Uppdatera körningsversion
+          href: how-to-update-iot-edge.md
+    - name: Automatisk etablering med DPS
+      items:
+        - name: Linux
+          href: how-to-auto-provision-simulated-device-linux.md
+        - name: Windows
+          href: how-to-auto-provision-simulated-device-windows.md
+    - name: Utveckla och felsöka anpassade moduler
+      items:
+        - name: Visual Studio 2017
+          href: how-to-visual-studio-develop-module.md
+        - name: Visual Studio-koden
+          href: how-to-vs-code-develop-module.md
+    - name: Distribuera moduler
+      items:
+        - name: Azure Portal
+          href: how-to-deploy-modules-portal.md
+        - name: Azure CLI
+          href: how-to-deploy-modules-cli.md
+        - name: Visual Studio-koden
+          href: how-to-deploy-modules-vscode.md
+    - name: Distribuera och övervaka i skala
+      items:
+        - name: Azure Portal
+          href: how-to-deploy-monitor.md
+        - name: Azure CLI
+          href: how-to-deploy-monitor-cli.md
+    - name: Använda Edge-enheter som gatewayer
+      items:
+        - name: Konfigurera en transparent gateway
+          href: how-to-create-transparent-gateway.md
+        - name: Ansluta en underordnad enhet
+          href: how-to-connect-downstream-device.md
+        - name: Modbus-protokollgateway
+          href: deploy-modbus-gateway.md
+    - name: Konfigurera proxyinställningar
+      href: how-to-configure-proxy-support.md
+    - name: Lagra data på gränsen
+      items:
+        - name: Azure Blob Storage på IoT Edge
+          href: how-to-store-data-blob.md
+    - name: Hantera med DevOps-verktyg
+      items:
+        - name: Azure DevOps Projects
+          href: how-to-devops-project.md
+        - name: Azure DevOps
+          href: how-to-ci-cd.md
+        - name: IoT Edge-plugin för Jenkins
+          href: how-to-devops-plugins.md
+    - name: Felsöka
+      href: troubleshoot.md
 - name: Relaterat
   items:
-  - name: Lösningar
-    items:
-    - name: IoT-lösningsacceleratorer
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Plattformstjänster
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: Kartor
-      href: /azure/azure-maps
-    - name: Tjänst-SDK:er
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: SDK:er för IoT-enheter
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Lösningar
+      items:
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: Kartor
+          href: /azure/azure-maps
+        - name: 'Tjänst-SDK:er'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
-  - name: Azure IoT-exempel för C# (.NET)
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
-  - name: Azure IoT-exempel för Node.js
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
-  - name: Azure IoT-exempel för Java
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
-  - name: Azure IoT-exempel för Python
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
-  - name: Azure IoT-exempel för iOS-plattform
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: Azure Certified for IoT-enhetskatalog
-    href: https://catalog.azureiotsolutions.com/
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Azure IoT Edge för VS Code
-    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
-  - name: Azure IoT Hub Toolkit för VS Code
-    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
-  - name: DeviceExplorer-verktyg
-    href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
-  - name: iothub-diagnostics tool
-    href: https://github.com/Azure/iothub-diagnostics
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/iot-hub/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Tjänstuppdateringar
-    href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
-  - name: Tekniska fallstudier
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 8cd65cf2752162d2ffe000faf4c94327466edaa5
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850744"
+    - name: 'Azure IoT-exempel för C# (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Azure IoT-exempel för Node.js
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Azure IoT-exempel för Java
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Azure IoT-exempel för Python
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: Azure IoT-exempel för iOS-plattform
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: Azure Certified for IoT-enhetskatalog
+      href: 'https://catalog.azureiotsolutions.com/'
+    - name: Azure IoT Developer Center
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Azure IoT Edge för VS Code
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge'
+    - name: Azure IoT Hub Toolkit för VS Code
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit'
+    - name: DeviceExplorer-verktyg
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: iothub-diagnostics tool
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Tekniska fallstudier
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

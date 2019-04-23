@@ -243,7 +243,7 @@ I följande tabell beskrivs egenskaperna för scheman för datalagerjobb.
 | Egenskap  | Beskrivning |
 |:--- |:--- |
 | schedule name |Enkel **namn** entitet med namnet på schemat. |
-| runbook name |Enkel **namn** entitet med namnet på runbooken.  |
+| runbook name  |Enkel **namn** entitet med namnet på runbooken.  |
 
 
 

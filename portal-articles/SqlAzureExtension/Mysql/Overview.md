@@ -8,12 +8,12 @@ ms.service: mysql
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: a1d5458a2b815591fc7126d429bd16a718910b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ff389f52da0db4e394e8f6a6c37955a5f0c3861
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475760"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>Azure Database för MySQL-dokumentation
 
@@ -21,7 +21,7 @@ Azure Database för MySQL är en relationsdatabastjänst baserad på MySQL-serve
 
 ## <a name="5-minute-quickstarts"></a>Snabbstarter på 5 minuter
 
-Lär dig hur du skapar en MySQL-databas på Azure med hjälp av:
+Lär dig hur du skapar MySQL Database on Azure med hjälp av:
 
 - [Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
 - [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
@@ -30,8 +30,8 @@ Lär dig hur du skapar en MySQL-databas på Azure med hjälp av:
 
 Lär dig hur du utformar din databas och utvecklar appar:
 
-- Utforma en databas: [Azure Portal](/azure/mysql/tutorial-design-database-using-portal) |  [Azure CLI](/azure/mysql/tutorial-design-database-using-cli)
-- Skapa en webbapp: [Wordpress – Portal](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP – Azure CLI](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
+- Utforma en databas: [Azure-portalen](/azure/mysql/tutorial-design-database-using-portal) |  [Azure CLI](/azure/mysql/tutorial-design-database-using-cli)
+- Skapa en webbapp: [Wordpress – portalen](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP – Azure CLI](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
 
 ## <a name="samples"></a>Exempel 
 

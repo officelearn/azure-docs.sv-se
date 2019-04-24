@@ -15,11 +15,20 @@ metadata:
   ms.author: yegu
 abstract:
   description: Azure App Configuration är en hanterad tjänst som hjälper utvecklare att centralisera sina programkonfigurationer enkelt och säkert.
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/videos/getting-started.png
+      width: 250
+    title: 'Komma igång (14:41)'
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    width: 250
 sections:
   - title: Snabbstarter på 5 minuter
     items:
       - type: paragraph
-        text: 'Lär dig hur du utvecklar ditt första webbprogram med hjälp av Azure App Configuration:'
+        text: 'Lär dig hur du utvecklar ditt första program med Azure App Configuration:'
       - type: list
         style: icon48
         items:

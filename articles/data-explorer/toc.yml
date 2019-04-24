@@ -1,149 +1,142 @@
-items:
 - name: Dokumentation om Azure Data Explorer
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Data Explorer?
-    href: data-explorer-overview.md
+    - name: Vad är Data Explorer?
+      href: data-explorer-overview.md
 - name: Snabbstarter
-  items:
-  - name: Skapa ett kluster och en databas
-    items:
-    - name: Azure Portal
-      href: create-cluster-database-portal.md
-    - name: Azure CLI
-      href: create-cluster-database-cli.md
-    - name: PowerShell
-      href: create-cluster-database-powershell.md
-    - name: C#
-      href: create-cluster-database-csharp.md
-    - name: Python
-      href: create-cluster-database-python.md
-  - name: Mata in data
-    items:
-    - name: Strömma data – Event Hub
-      href: ingest-data-event-hub.md
-    - name: Strömma data – Event Grid
-      href: ingest-data-event-grid.md
-    - name: Strömma data – Kafka
-      href: ingest-data-kafka.md
-    - name: Batchbearbeta data – Python
-      href: python-ingest-data.md
-    - name: Batchbearbeta data – Node SDK
-      href: node-ingest-data.md
-    - name: Batchbearbeta data – .NET Standard SDK
-      href: net-standard-ingest-data.md
-    - name: Batchbearbeta data – Logstash
-      href: ingest-data-logstash.md
-  - name: Söka i data
-    items:
-    - name: Webbgränssnitt
-      href: web-query-data.md
-    - name: Python
-      href: python-query-data.md
-  - name: Visualisera data
-    items:
-    - name: Power BI – anslutningsapp
-      href: power-bi-connector.md
-    - name: Power BI – importerad fråga
-      href: power-bi-imported-query.md
-    - name: Power BI – SQL-fråga
-      href: power-bi-sql-query.md
   expanded: true
+  items:
+    - name: Skapa ett kluster och en databas
+      items:
+        - name: Azure Portal
+          href: create-cluster-database-portal.md
+        - name: Azure CLI
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: Mata in data
+      items:
+        - name: Strömma data – Event Hub
+          href: ingest-data-event-hub.md
+        - name: Strömma data – Event Grid
+          href: ingest-data-event-grid.md
+        - name: Strömma data – Kafka
+          href: ingest-data-kafka.md
+        - name: Batchbearbeta data – Python
+          href: python-ingest-data.md
+        - name: Batchbearbeta data – Node SDK
+          href: node-ingest-data.md
+        - name: Batchbearbeta data – .NET Standard SDK
+          href: net-standard-ingest-data.md
+        - name: Batchbearbeta data – Logstash
+          href: ingest-data-logstash.md
+    - name: Söka i data
+      items:
+        - name: Webbgränssnitt
+          href: web-query-data.md
+        - name: Python
+          href: python-query-data.md
+    - name: Visualisera data
+      items:
+        - name: Power BI – anslutningsapp
+          href: power-bi-connector.md
+        - name: Power BI – importerad fråga
+          href: power-bi-imported-query.md
+        - name: Power BI – SQL-fråga
+          href: power-bi-sql-query.md
 - name: Självstudier
   items:
-  - name: Mata in data utan att använda kod
-    href: ingest-data-no-code.md
-  - name: Visualisera data i Power BI
-    href: visualize-power-bi.md
+    - name: Mata in data utan att använda kod
+      href: ingest-data-no-code.md
+    - name: Visualisera data i Power BI
+      href: visualize-power-bi.md
 - name: Begrepp
   items:
-  - name: Översikt över datainmatning
-    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
-    href: ingest-data-overview.md
-  - name: Time Series-analys
-    href: time-series-analysis.md
+    - name: Översikt över datainmatning
+      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+      href: ingest-data-overview.md
+    - name: Time Series-analys
+      href: time-series-analysis.md
 - name: Instruktionsguider
   items:
-  - name: Kom igång
-    items:
-    - name: Skriva frågor
-      href: write-queries.md
-    - name: Mata in exempeldata
-      href: ingest-sample-data.md
-  - name: Hantera
-    items:
-    - name: Hantera databasbehörigheter
-      href: manage-database-permissions.md
-    - name: Kontrollera klusterhälsa
-      href: check-cluster-health.md
-    - name: Hantera klusterutskalning
-      href: manage-cluster-scale-out.md
-    - name: Hantera klusteruppskalning
-      href: manage-cluster-scale-up.md
-    - name: Ta bort data
-      href: delete-data.md
-    - name: Hantera duplicerade data
-      href: dealing-with-duplicates.md
-  - name: Övervakning
-    items:
-    - name: Övervaka hälsotillstånd hos kluster med hjälp av mått
-      href: using-metrics.md
-  - name: Arbeta med andra verktyg
-    items:
-    - name: Ansluta från Databricks med hjälp av Python
-      href: connect-from-databricks.md
-    - name: Analysera data i Jupyter Notebooks och Kqlmagic
-      href: kqlmagic.md
-    - name: Kopiera data i Azure Data Factory
-      href: data-factory-load-data.md
-    - name: Visualisera data i Grafana
-      href: grafana.md
-    - name: Ansluta med ODBC
-      href: connect-odbc.md
-  - name: Felsöka
-    items:
-    - name: Skapa ett kluster
-      href: troubleshoot-create-cluster.md
-    - name: Ansluta till ett kluster
-      href: troubleshoot-connect-cluster.md
-    - name: Arbeta med databaser och tabeller
-      href: troubleshoot-database-table.md
+    - name: Kom igång
+      items:
+        - name: Skriva frågor
+          href: write-queries.md
+        - name: Mata in exempeldata
+          href: ingest-sample-data.md
+    - name: Hantera
+      items:
+        - name: Hantera databasbehörigheter
+          href: manage-database-permissions.md
+        - name: Kontrollera klusterhälsa
+          href: check-cluster-health.md
+        - name: Hantera klusterutskalning
+          href: manage-cluster-scale-out.md
+        - name: Hantera klusteruppskalning
+          href: manage-cluster-scale-up.md
+        - name: Ta bort data
+          href: delete-data.md
+        - name: Hantera duplicerade data
+          href: dealing-with-duplicates.md
+    - name: Övervakning
+      items:
+        - name: Övervaka hälsotillstånd hos kluster med hjälp av mått
+          href: using-metrics.md
+    - name: Arbeta med andra verktyg
+      items:
+        - name: Ansluta från Databricks med hjälp av Python
+          href: connect-from-databricks.md
+        - name: Analysera data i Jupyter Notebooks och Kqlmagic
+          href: kqlmagic.md
+        - name: Kopiera data med Azure Data Factory
+          href: data-factory-load-data.md
+        - name: Visualisera data i Grafana
+          href: grafana.md
+        - name: Ansluta med ODBC
+          href: connect-odbc.md
+    - name: Felsöka
+      items:
+        - name: Skapa ett kluster
+          href: troubleshoot-create-cluster.md
+        - name: Ansluta till ett kluster
+          href: troubleshoot-connect-cluster.md
+        - name: Arbeta med databaser och tabeller
+          href: troubleshoot-database-table.md
 - name: Referens
   items:
-  - name: Frågespråk
-    href: /azure/kusto/query/
-  - name: Kommandon för hantering
-    href: /azure/kusto/management/
-  - name: API:er
-    href: /azure/kusto/api/
-  - name: Verktyg
-    href: /azure/kusto/tools/
-  - name: Begrepp
-    href: /azure/kusto/concepts/
+    - name: Frågespråk
+      href: /azure/kusto/query/
+    - name: Kommandon för hantering
+      href: /azure/kusto/management/
+    - name: 'API:er'
+      href: /azure/kusto/api/
+    - name: Verktyg
+      href: /azure/kusto/tools/
+    - name: Begrepp
+      href: /azure/kusto/concepts/
 - name: Resurser
   items:
-  - name: Blogg
-    href: https://azure.microsoft.com/blog/tag/azure-data-explorer/
-  - name: Forum
-    items:
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-data-explorer
-    - name: Microsoft Tech Community
-      href: https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto
-    - name: MSDN-forum
-      href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
-  - name: Produktfeedback
-    href: https://aka.ms/adefeedback
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/data-explorer/
-  - name: Kostnadsuppskattning
-    href: https://aka.ms/adecostestimator
-  - name: Tjänstuppdateringar
-    href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: c582b82f4b4caf0ee3bb007934cc4d50163fe139
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616823"
+    - name: Blogg
+      href: 'https://azure.microsoft.com/blog/tag/azure-data-explorer/'
+    - name: Forum
+      items:
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-data-explorer'
+        - name: Microsoft Tech Community
+          href: 'https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto'
+        - name: MSDN-forum
+          href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
+    - name: Produktfeedback
+      href: 'https://aka.ms/adefeedback'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
+    - name: Kostnadsuppskattning
+      href: 'https://aka.ms/adecostestimator'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=data-explorer'

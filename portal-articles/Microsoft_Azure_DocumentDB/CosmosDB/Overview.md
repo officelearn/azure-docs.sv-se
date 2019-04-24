@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 13fe8d81c656aeb07947fcd8b2c8a9157b810ca6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bd5951fe86bde7e71c77d5564216421c1d2d1ea4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61227121"
 ---
 # <a name="azure-cosmos-db-documentation"></a>Dokumentation om Azure Cosmos DB
 
@@ -25,27 +25,27 @@ Lär dig hur du använder Azure Cosmos DB för att skapa en globalt distribuerad
 
 ### <a name="sql-api"></a>API för SQL
 
-- [.NET](/azure/cosmos-db/create-sql-api-dotnet)
+- [NET](/azure/cosmos-db/create-sql-api-dotnet)
 - [Java](/azure/cosmos-db/create-sql-api-java)
 - [Node.js](/azure/cosmos-db/create-sql-api-nodejs)
 - [Python](/azure/cosmos-db/create-sql-api-python)
 
 ### <a name="mongodb-api"></a>MongoDB-API
 
-- [.NET](/azure/cosmos-db/create-mongodb-dotnet)
+- [NET](/azure/cosmos-db/create-mongodb-dotnet)
 - [Java](/azure/cosmos-db/create-mongodb-java)
 - [Node.js](/azure/cosmos-db/create-mongodb-nodejs)
 
 ### <a name="graph-api"></a>Graph API
 
-- [.NET](/azure/cosmos-db/create-graph-dotnet)
+- [NET](/azure/cosmos-db/create-graph-dotnet)
 - [Java](/azure/cosmos-db/create-graph-java)
 - [Node.js](/azure/cosmos-db/create-graph-nodejs)
 - [Gremlin](/azure/cosmos-db/create-graph-gremlin-console)
 
 ### <a name="graph-api"></a>Graph API
 
-- [.NET](/azure/cosmos-db/create-table-dotnet)
+- [NET](/azure/cosmos-db/create-table-dotnet)
 
 ## <a name="step-by-step-tutorials"></a>Steg för steg-självstudier
 
@@ -53,7 +53,7 @@ Lär dig hur du utvecklar appar med hjälp av Azure Cosmos DB:
 
 - Utveckla en app med Cosmos DB: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb-nodejs) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
 - Importera data till Cosmos DB [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
-- Kör frågor mot data med Cosmos DB: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
+- Fråga data med Cosmos DB: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
 - Global databasreplikering med Cosmos DB: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table](/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
 - [Utveckla ditt program lokalt med hjälp av emulatorn](/azure/cosmos-db/local-emulator)
 

@@ -1,130 +1,127 @@
-items:
 - name: Azure Data Box-dokumentation – överföring offline
   href: /azure/databox
   items:
-  - name: Data Box
-    items:
-    - name: Översikt
+    - name: Data Box
       items:
-      - name: Vad är Data Box?
-        href: data-box-overview.md
-    - name: Snabbstarter
+        - name: Översikt
+          items:
+            - name: Vad är Data Box?
+              href: data-box-overview.md
+        - name: Snabbstarter
+          expanded: true
+          items:
+            - name: Konfiguration – Azure-portalen
+              href: data-box-quickstart-portal.md
+        - name: Självstudier
+          items:
+            - name: 1 – Beställ
+              href: data-box-deploy-ordered.md
+            - name: 2 – Konfigurera
+              href: data-box-deploy-set-up.md
+            - name: 3 – Anslut och kopiera
+              items:
+                - name: Via SMB
+                  href: data-box-deploy-copy-data.md
+                - name: Via NFS
+                  href: data-box-deploy-copy-data-via-nfs.md
+                - name: Via REST
+                  href: data-box-deploy-copy-data-via-rest.md
+                - name: Via datakopieringstjänst
+                  href: data-box-deploy-copy-data-via-copy-service.md
+                - name: Till hanterade diskar
+                  href: data-box-deploy-copy-data-from-vhds.md
+            - name: '4 – Returnera, ladda upp, bekräfta'
+              href: data-box-deploy-picked-up.md
+        - name: Begrepp
+          items:
+            - name: Läsa riktlinjer för säkerhet
+              href: data-box-safety.md
+            - name: Granska krav
+              items:
+                - name: För Data Box
+                  href: data-box-system-requirements.md
+                - name: För Data Box Blob Storage
+                  href: data-box-system-requirements-rest.md
+            - name: Förstå begränsningar
+              href: data-box-limits.md
+            - name: Granska säkerhet
+              href: data-box-security.md
+            - name: VANLIGA FRÅGOR OCH SVAR
+              href: data-box-faq.md
+        - name: Gör så här för att
+          items:
+            - name: Hantera via Azure Portal
+              href: data-box-portal-admin.md
+            - name: Hantera via lokalt webbgränssnitt
+              href: data-box-local-web-ui-admin.md
+            - name: Flytta data till en blobnivå
+              href: data-box-how-to-set-data-tier.md
+            - name: Kabelansluta enheten
+              href: data-box-cable-options.md
+            - name: Kontakta supporten
+              href: data-box-disk-contact-microsoft-support.md
+            - name: Migrera
+              items:
+                - name: Till SharePoint Online
+                  href: 'https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context'
+                - name: Till Azure File Sync
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: Från HDFS-lagring
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+            - name: Felsöka
+              items:
+                - name: Data Box Blob Storage-problem
+                  href: data-box-troubleshoot-rest.md
+    - name: Data Box Disk
       items:
-      - name: Konfiguration – Azure-portalen
-        href: data-box-quickstart-portal.md
-      expanded: true
-    - name: Självstudier
+        - name: Översikt
+          items:
+            - name: Vad är Data Box Disk?
+              href: data-box-disk-overview.md
+        - name: Snabbstarter
+          expanded: true
+          items:
+            - name: Konfiguration – Azure-portalen
+              href: data-box-disk-quickstart-portal.md
+        - name: Självstudier
+          items:
+            - name: 1 – Beställ
+              href: data-box-disk-deploy-ordered.md
+            - name: 2 – Konfigurera
+              href: data-box-disk-deploy-set-up.md
+            - name: 3 – Kopiera och verifiera
+              href: data-box-disk-deploy-copy-data.md
+            - name: '4 – Returnera, ladda upp, bekräfta'
+              href: data-box-disk-deploy-picked-up.md
+        - name: Begrepp
+          items:
+            - name: Granska krav
+              href: data-box-disk-system-requirements.md
+            - name: Förstå begränsningar
+              href: data-box-disk-limits.md
+            - name: Granska säkerhet
+              href: data-box-disk-security.md
+            - name: VANLIGA FRÅGOR OCH SVAR
+              href: data-box-disk-faq.md
+        - name: Gör så här för att
+          items:
+            - name: Hantera via Azure Portal
+              href: data-box-portal-ui-admin.md
+            - name: Felsök diskproblem
+              href: data-box-disk-troubleshoot.md
+            - name: Kontakta supporten
+              href: data-box-disk-contact-microsoft-support.md
+    - name: Data Box – tung
       items:
-      - name: 1 – Beställ
-        href: data-box-deploy-ordered.md
-      - name: 2 – Konfigurera
-        href: data-box-deploy-set-up.md
-      - name: 3 – Anslut och kopiera
-        items:
-        - name: Via SMB
-          href: data-box-deploy-copy-data.md
-        - name: Via NFS
-          href: data-box-deploy-copy-data-via-nfs.md
-        - name: Via REST
-          href: data-box-deploy-copy-data-via-rest.md
-        - name: Via datakopieringstjänst
-          href: data-box-deploy-copy-data-via-copy-service.md
-        - name: Till hanterade diskar
-          href: data-box-deploy-copy-data-from-vhds.md
-      - name: 4 – Returnera, ladda upp, bekräfta
-        href: data-box-deploy-picked-up.md
-    - name: Begrepp
+        - name: Översikt
+          items:
+            - name: Vad är Data Box – tung?
+              href: data-box-heavy-overview.md
+    - name: Resurser
       items:
-      - name: Läsa riktlinjer för säkerhet
-        href: data-box-safety.md
-      - name: Granska krav
-        items:
-        - name: För Data Box
-          href: data-box-system-requirements.md
-        - name: För Data Box Blob Storage
-          href: data-box-system-requirements-rest.md
-      - name: Förstå begränsningar
-        href: data-box-limits.md
-      - name: Granska säkerhet
-        href: data-box-security.md
-      - name: VANLIGA FRÅGOR OCH SVAR
-        href: data-box-faq.md
-    - name: Gör så här för att
-      items:
-      - name: Hantera via Azure Portal
-        href: data-box-portal-admin.md
-      - name: Hantera via lokalt webbgränssnitt
-        href: data-box-local-web-ui-admin.md
-      - name: Flytta data till en blobnivå
-        href: data-box-how-to-set-data-tier.md
-      - name: Kabelansluta enheten
-        href: data-box-cable-options.md
-      - name: Kontakta supporten
-        href: data-box-disk-contact-microsoft-support.md
-      - name: Migrera
-        items:
-        - name: Till SharePoint Online
-          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context
-        - name: Till Azure File Sync
-          href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
-        - name: Från HDFS-lagring
-          href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
-  - name: Data Box Disk
-    items:
-    - name: Översikt
-      items:
-      - name: Vad är Data Box Disk?
-        href: data-box-disk-overview.md
-    - name: Snabbstarter
-      items:
-      - name: Konfiguration – Azure-portalen
-        href: data-box-disk-quickstart-portal.md
-      expanded: true
-    - name: Självstudier
-      items:
-      - name: 1 – Beställ
-        href: data-box-disk-deploy-ordered.md
-      - name: 2 – Konfigurera
-        href: data-box-disk-deploy-set-up.md
-      - name: 3 – Kopiera och verifiera
-        href: data-box-disk-deploy-copy-data.md
-      - name: 4 – Returnera, ladda upp, bekräfta
-        href: data-box-disk-deploy-picked-up.md
-    - name: Begrepp
-      items:
-      - name: Granska krav
-        href: data-box-disk-system-requirements.md
-      - name: Förstå begränsningar
-        href: data-box-disk-limits.md
-      - name: Granska säkerhet
-        href: data-box-disk-security.md
-      - name: VANLIGA FRÅGOR OCH SVAR
-        href: data-box-disk-faq.md
-    - name: Gör så här för att
-      items:
-      - name: Hantera via Azure Portal
-        href: data-box-portal-ui-admin.md
-      - name: Felsök diskproblem
-        href: data-box-disk-troubleshoot.md
-      - name: Kontakta supporten
-        href: data-box-disk-contact-microsoft-support.md
-  - name: Data Box – tung
-    items:
-    - name: Översikt
-      items:
-      - name: Vad är Data Box – tung?
-        href: data-box-heavy-overview.md
-  - name: Resurser
-    items:
-    - name: Data Box-produkt
-      href: https://azure.microsoft.com/services/storage/databox/data/
-    - name: Data Box-prissättning
-      href: https://azure.microsoft.com/pricing/details/storage/databox/
-    - name: Data Box Disk-prissättning
-      href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: 159fbf5782e51cc316e2b7f4474a5ddc94cf8a59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794014"
+        - name: Data Box-produkt
+          href: 'https://azure.microsoft.com/services/storage/databox/data/'
+        - name: Data Box-prissättning
+          href: 'https://azure.microsoft.com/pricing/details/storage/databox/'
+        - name: Data Box Disk-prissättning
+          href: 'https://azure.microsoft.com/pricing/details/storage/databox/disk/'

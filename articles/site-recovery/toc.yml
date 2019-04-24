@@ -29,6 +29,8 @@
           href: azure-to-azure-tutorial-migrate.md
         - name: Flytta virtuella Azure-datorer till tillgänglighetszoner
           href: move-Azure-VMs-AVset-Azone.md
+        - name: Flytta virtuella Azure-datorer mellan Government-regioner och offentliga regioner
+          href: region-move-cross-geos.md
     - name: Haveriberedskap för virtuell VMware-dator till Azure
       items:
         - name: Förbereda Azure
@@ -175,6 +177,10 @@
               href: azure-to-azure-autoupdate.md
             - name: Uppdateringar i Azure Site Recovery
               href: service-updates-how-to.md
+            - name: Ta bort servrar och inaktivera skydd
+              href: site-recovery-manage-registration-and-protection.md
+            - name: Ta bort ett valv
+              href: delete-vault.md
     - name: Haveriberedskap för VMware till Azure
       items:
         - name: Konfigurera nätverk

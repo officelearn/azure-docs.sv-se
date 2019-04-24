@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 6282acaf165d2f31a1a1ac525dad75ebc64a2a7c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113960"
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>Azure Database för PostgreSQL-dokumentation
 
@@ -30,7 +30,7 @@ Lär dig att skapa en PostgreSQL-databas med:
 
 Lär dig att:
 
-- Utforma en databas: [Azure Portal](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
+- Utforma en databas: [Azure-portalen](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
 - [Skapa en webbapp med Python och CLI](/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 ## <a name="samples"></a>Exempel 

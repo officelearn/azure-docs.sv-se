@@ -17,6 +17,8 @@
   items:
     - name: Fråga SQL Server som körs i Docker-container
       href: vnet-injection-sql-server.md
+    - name: Använda Cosmos DB-tjänstslutpunkt
+      href: service-endpoint-cosmosdb.md
     - name: Utföra ETL-åtgärder
       href: databricks-extract-load-sql-data-warehouse.md
     - name: Strömma data med Event Hubs

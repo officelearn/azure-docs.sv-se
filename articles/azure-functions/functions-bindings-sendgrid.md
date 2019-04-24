@@ -255,12 +255,12 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**|| Krävs – måste vara inställd på `sendGrid`.|
-|**riktning**|| Krävs – måste vara inställd på `out`.|
-|**Namn**|| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
+|**type**|| Krävs – måste vara inställd på `sendGrid`.|
+|**direction**|| Krävs – måste vara inställd på `out`.|
+|**name**|| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
 |**apiKey**|**ApiKey**| Namnet på en appinställning som innehåller din API-nyckel. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsSendGridApiKey”.|
-|**Att**|**Till**| mottagarens e-postadress. |
-|**Från**|**Från**| avsändarens e-postadress. |
+|**to**|**Till**| mottagarens e-postadress. |
+|**from**|**Från**| avsändarens e-postadress. |
 |**subject**|**Ämne**| den e-postmeddelandets ämne. |
 |**text**|**Text**| e-postinnehåll. |
 
@@ -288,7 +288,7 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|från|Saknas|Avsändarens e-postadress över alla funktioner.| 
+|from|Saknas|Avsändarens e-postadress över alla funktioner.| 
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -39,10 +39,10 @@ Du kan använda aktiviteten Filter i en pipeline för att tillämpa ett filterut
 
 Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på den `Filter` aktivitet. | Sträng | Ja
-typ | Måste vara inställt på **filter**. | Sträng | Ja
-villkor | Villkor som ska användas för filtrering av indata. | Uttryck | Ja
-objekt | Indatamatrisen som filtret ska tillämpas. | Uttryck | Ja
+name | Namnet på den `Filter` aktivitet. | Sträng | Ja
+type | Måste vara inställt på **filter**. | Sträng | Ja
+condition | Villkor som ska användas för filtrering av indata. | Uttryck | Ja
+items | Indatamatrisen som filtret ska tillämpas. | Uttryck | Ja
 
 ## <a name="example"></a>Exempel
 

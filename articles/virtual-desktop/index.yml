@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b9f4cd78288d1b9868a823c5e0ccd0b68b324229
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400251"
 documentType: LandingData
 title: Dokumentation om förhandsversionen av Windows Virtual Desktop
 metadata:
-  title: Dokumentation om förhandsversionen av Windows Virtual Desktop – självstudier, snabbstarter, API-referenser | Microsoft Docs
+  title: 'Dokumentation om förhandsversionen av Windows Virtual Desktop – självstudier, snabbstarter, API-referenser | Microsoft Docs'
   description: Förhandsversionen av Windows Virtual Desktop för Azure är en Windows 10 Enterprise-upplevelse för flera användare som är virtualiserad i molnet.
   author: Heidilohr
   manager: daveba
@@ -20,28 +14,28 @@ metadata:
 abstract:
   description: Leverera en virtuell datorupplevelse och fjärrappar till valfri enhet. Sammanför Microsoft 365 och Azure för att ge användarna den enda Windows 10-upplevelsen med flera sessioner – med utomordentlig skala och minskade IT-kostnader.
 sections:
-- title: Översikt
-  items:
-  - type: paragraph
-    text: Läs mer om förhandsversionen av Windows Virtual Desktop och hur den används. Med hjälp av självstudier, instruktioner, referensinnehåll och mer får du lära dig att konfigurera värdpooler och klientorganisationer samt tilldela roller till användare i din Windows Virtual Desktop-miljö.
-  - type: list
-    style: unordered
+  - title: Översikt
     items:
-    - html: <a href="/azure/virtual-desktop/overview">Vad är förhandsversionen av Windows Virtual Desktop?</a>
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du installerar och konfigurerar Windows Virtual Desktop och hur du ansluter till klienten när du är klar.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Läs mer om förhandsversionen av Windows Virtual Desktop och hur den används. Med hjälp av självstudier, instruktioner, referensinnehåll och mer får du lära dig att konfigurera värdpooler och klientorganisationer samt tilldela roller till användare i din Windows Virtual Desktop-miljö.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/virtual-desktop/overview">Vad är förhandsversionen av Windows Virtual Desktop?</a>
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Skapa en klientorganisation i Windows Virtual Desktop</a>
-    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Skapa en värdpool med Azure Marketplace</a>
-    - html: <a href="/azure/virtual-desktop/manage-app-groups">Hantera appgrupper för Windows Virtual Desktop</a>
-    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell</a>
-- title: Referens
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Lär dig hur du installerar och konfigurerar Windows Virtual Desktop och hur du ansluter till klienten när du är klar.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Skapa en klientorganisation i Windows Virtual Desktop</a>
+          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Skapa en värdpool med Azure Marketplace</a>
+          - html: <a href="/azure/virtual-desktop/manage-app-groups">Hantera appgrupper för Windows Virtual Desktop</a>
+          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell</a>
+  - title: Referens
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

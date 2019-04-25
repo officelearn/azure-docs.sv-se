@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8eb7d6e920f09d6ad230813503a7cf942427ea80
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227862"
 documentType: LandingData
 title: Dokumentation om QnA Maker
 metadata:
@@ -21,79 +15,79 @@ metadata:
   ms.date: 12/18/2018
   ms.author: tulasim
 abstract:
-  description: QnA Maker är en molnbaserad API-tjänst som skapar ett konversationsanpassat lager för frågor och svar över dina data. Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker. QnA Maker-tjänsten svarar på dina användares frågor på naturligt språk genom att matcha med det bästa möjliga svaret från vanliga frågor och svar i kunskapsbasen.
+  description: 'QnA Maker är en molnbaserad API-tjänst som skapar ett konversationsanpassat lager för frågor och svar över dina data. Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker. QnA Maker-tjänsten svarar på dina användares frågor på naturligt språk genom att matcha med det bästa möjliga svaret från vanliga frågor och svar i kunskapsbasen.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ../media/index/qnamaker-landing-page-video.png
       width: 250
-    title: Bygg en robot på några minuter med QnA Maker (8:54)
-    href: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+    title: 'Bygg en robot på några minuter med QnA Maker (8:54)'
+    href: 'https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker'
     width: 250
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/qnamaker/overview/overview
+            html: <p>Lär dig mer om QnA Maker.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Vad är QnA Maker?
+          - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
+            html: '<p>Lär dig hur du skapar, tränar och publicerar en kunskapsbas.</p>'
+            image:
+              src: ../media/index/i_tasks.svg
+            title: 'Skapa, träna och publicera en kunskapsbas'
+          - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
+            html: <p>Lär dig hur du publicerar en kunskapsbas.</p>
+            image:
+              src: ../media/index/i_tasks.svg
+            title: Förstå datakällor
+  - title: Snabbstarter på 5 minuter
     items:
-    - href: /azure/cognitive-services/qnamaker/overview/overview
-      html: <p>Lär dig mer om QnA Maker.</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Vad är QnA Maker?
-    - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
-      html: <p>Lär dig hur du skapar, tränar och publicerar en kunskapsbas.</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: Skapa, träna och publicera en kunskapsbas
-    - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
-      html: <p>Lär dig hur du publicerar en kunskapsbas.</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: Förstå datakällor
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Skapa en kunskapsbas för dina frågor och svar:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Skapa en kunskapsbas för dina frågor och svar:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_Csharp.svg
+            text: 'C&#35;'
+            href: Quickstarts/create-new-kb-csharp
+          - image:
+              src: media/index/Go-Logo_Blue.svg
+            text: Go
+            href: Quickstarts/create-new-kb-go
+          - image:
+              src: media/index/logo_java.svg
+            text: Java
+            href: Quickstarts/create-new-kb-java
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node.js
+            href: Quickstarts/create-new-kb-nodejs
+          - image:
+              src: media/index/logo_python.svg
+            text: Python
+            href: Quickstarts/create-new-kb-python
+  - title: Steg för steg-självstudier
     items:
-    - image:
-        src: media/index/logo_Csharp.svg
-      text: C&#35;
-      href: Quickstarts/create-new-kb-csharp
-    - image:
-        src: media/index/Go-Logo_Blue.svg
-      text: Go
-      href: Quickstarts/create-new-kb-go
-    - image:
-        src: media/index/logo_java.svg
-      text: Java
-      href: Quickstarts/create-new-kb-java
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: Quickstarts/create-new-kb-nodejs
-    - image:
-        src: media/index/logo_python.svg
-      text: Python
-      href: Quickstarts/create-new-kb-python
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du utvecklar program med hjälp av QnA Maker:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Lär dig hur du utvecklar program med hjälp av QnA Maker:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">Skapa en kunskapsbas och besvara frågor</a></li>
+          - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">Skapa en QnA Maker-robot</a></li>
+  - title: Referens
     items:
-    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-publish-query-in-portal">Skapa en kunskapsbas och besvara frågor</a></li>
-    - html: <a href="/azure/cognitive-services/qnamaker/tutorials/create-qna-bot">Skapa en QnA Maker-robot</a></li>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: API
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff">API för QnA Maker</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API
+            html: '<p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff">API för QnA Maker</a></p>'

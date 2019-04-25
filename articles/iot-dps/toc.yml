@@ -1,232 +1,225 @@
-items:
 - name: Dokumentation om Azure IoT Hub Device Provisioning-tjänsten
   href: index.yml
 - name: Översikt
   items:
-  - name: Om tjänsten för IoT-enhetsetablering
-    href: about-iot-dps.md
+    - name: Om tjänsten för IoT-enhetsetablering
+      href: about-iot-dps.md
 - name: Snabbstarter
-  items:
-  - name: Konfigurera automatisk etablering – Azure CLI
-    href: quick-setup-auto-provision-cli.md
-  - name: Konfigurera automatisk etablering – portal
-    href: quick-setup-auto-provision.md
-  - name: Konfigurera automatisk etablering – mall
-    href: quick-setup-auto-provision-rm.md
-  - name: Etablera en simulerad enhet automatiskt
-    items:
-    - name: TPM-attestering
-      items:
-      - name: C
-        href: quick-create-simulated-device.md
-      - name: Java
-        href: quick-create-simulated-device-tpm-java.md
-      - name: C#
-        href: quick-create-simulated-device-tpm-csharp.md
-      - name: Node.js
-        href: quick-create-simulated-device-tpm-node.md
-      - name: Python
-        href: quick-create-simulated-device-tpm-python.md
-    - name: X.509-attestering
-      items:
-      - name: C
-        href: quick-create-simulated-device-x509.md
-      - name: Java
-        href: quick-create-simulated-device-x509-java.md
-      - name: C#
-        href: quick-create-simulated-device-x509-csharp.md
-      - name: Node.js
-        href: quick-create-simulated-device-x509-node.md
-      - name: Python
-        href: quick-create-simulated-device-x509-python.md
-    - name: Symmetrisk nyckelattestering
-      items:
-      - name: C
-        href: quick-create-simulated-device-symm-key.md
-  - name: Registrera enheter med hjälp av API:er för etableringstjänster
-    items:
-    - name: TPM-attestering
-      items:
-      - name: Java
-        href: quick-enroll-device-tpm-java.md
-      - name: C#
-        href: quick-enroll-device-tpm-csharp.md
-      - name: Node.js
-        href: quick-enroll-device-tpm-node.md
-      - name: Python
-        href: quick-enroll-device-tpm-python.md
-    - name: X.509-attestering
-      items:
-      - name: Java
-        href: quick-enroll-device-x509-java.md
-      - name: C#
-        href: quick-enroll-device-x509-csharp.md
-      - name: Node.js
-        href: quick-enroll-device-x509-node.md
-      - name: Python
-        href: quick-enroll-device-x509-python.md
   expanded: true
+  items:
+    - name: Konfigurera automatisk etablering – Azure CLI
+      href: quick-setup-auto-provision-cli.md
+    - name: Konfigurera automatisk etablering – portal
+      href: quick-setup-auto-provision.md
+    - name: Konfigurera automatisk etablering – mall
+      href: quick-setup-auto-provision-rm.md
+    - name: Etablera en simulerad enhet automatiskt
+      items:
+        - name: TPM-attestering
+          items:
+            - name: C
+              href: quick-create-simulated-device.md
+            - name: Java
+              href: quick-create-simulated-device-tpm-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-create-simulated-device-tpm-node.md
+            - name: Python
+              href: quick-create-simulated-device-tpm-python.md
+        - name: X.509-attestering
+          items:
+            - name: C
+              href: quick-create-simulated-device-x509.md
+            - name: Java
+              href: quick-create-simulated-device-x509-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-x509-csharp.md
+            - name: Node.js
+              href: quick-create-simulated-device-x509-node.md
+            - name: Python
+              href: quick-create-simulated-device-x509-python.md
+        - name: Symmetrisk nyckelattestering
+          items:
+            - name: C
+              href: quick-create-simulated-device-symm-key.md
+    - name: 'Registrera enheter med hjälp av API:er för etableringstjänster'
+      items:
+        - name: TPM-attestering
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+            - name: 'C#'
+              href: quick-enroll-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
+            - name: Python
+              href: quick-enroll-device-tpm-python.md
+        - name: X.509-attestering
+          items:
+            - name: Java
+              href: quick-enroll-device-x509-java.md
+            - name: 'C#'
+              href: quick-enroll-device-x509-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-x509-node.md
+            - name: Python
+              href: quick-enroll-device-x509-python.md
 - name: Självstudier
   items:
-  - name: 1 – Konfigurera molnresurser
-    href: tutorial-set-up-cloud.md
-  - name: 2 – Konfigurera enhet
-    href: tutorial-set-up-device.md
-  - name: 3 - Etablera en enhet till en IoT-hubb
-    items:
-    - name: C
-      href: tutorial-provision-device-to-hub.md
-    - name: C#
-      href: tutorial-net-provision-device-to-hub.md
-  - name: 4 - Etablera enheter till flera hubbar
-    href: tutorial-provision-multiple-hubs.md
-  - name: 5 – etablera gruppregistreringar
-    href: tutorial-group-enrollments.md
+    - name: 1 – Konfigurera molnresurser
+      href: tutorial-set-up-cloud.md
+    - name: 2 – Konfigurera enhet
+      href: tutorial-set-up-device.md
+    - name: 3 - Etablera en enhet till en IoT-hubb
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
+    - name: 4 - Etablera enheter till flera hubbar
+      href: tutorial-provision-multiple-hubs.md
+    - name: 5 – etablera gruppregistreringar
+      href: tutorial-group-enrollments.md
 - name: Begrepp
   items:
-  - name: Automatisk etablering
-    href: concepts-auto-provisioning.md
-  - name: Omprovisionering
-    href: concepts-device-reprovision.md
-  - name: Enheter
-    href: concepts-device.md
-  - name: Säkerhet
-    href: concepts-security.md
-  - name: Tjänst
-    href: concepts-service.md
-  - name: TPM-attestering
-    href: concepts-tpm-attestation.md
-  - name: Symmetrisk nyckelattestering
-    href: concepts-symmetric-key-attestation.md
+    - name: Automatisk etablering
+      href: concepts-auto-provisioning.md
+    - name: Omprovisionering
+      href: concepts-device-reprovision.md
+    - name: Enheter
+      href: concepts-device.md
+    - name: Säkerhet
+      href: concepts-security.md
+    - name: Tjänst
+      href: concepts-service.md
+    - name: TPM-attestering
+      href: concepts-tpm-attestation.md
+    - name: Symmetrisk nyckelattestering
+      href: concepts-symmetric-key-attestation.md
 - name: Instruktionsguider
   items:
-  - name: Ansluta MXChip IoT DevKit till IoT Hub
-    href: how-to-connect-mxchip-iot-devkit.md
-  - name: Hantera konfiguration av enhetsetableringstjänsten
-    items:
-    - name: Hantera registreringar – portal
-      href: how-to-manage-enrollments.md
-    - name: Hantera registreringar – tjänst-SDK:er
-      href: how-to-manage-enrollments-sdks.md
-    - name: Konfigurera verifierade CA-certifikat
-      href: how-to-verify-certificates.md
-    - name: Löpande enhetscertifikat
-      href: how-to-roll-certificates.md
-    - name: Etablera om enheter
-      href: how-to-reprovision.md
-    - name: Hantera avregistrering
-      href: how-to-revoke-device-access-portal.md
-    - name: Hantera avetablering
-      href: how-to-unprovision-devices.md
-  - name: Hantera enhetsetableringstjänst
-    items:
-    - name: Konfigurera enhetsetableringstjänsten med hjälp av Azure CLI
-      href: how-to-manage-dps-with-cli.md
-    - name: Kontrollera åtkomst till Provisioning Service-API:er
-      href: how-to-control-access.md
-  - name: Etablera IoT Edge-enheter
-    items:
-    - name: Linux
-      href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
-      maintainContext: true
-    - name: Windows
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
-      maintainContext: true
-  - name: Använda attesteringsmekanismer med SDK
-    href: use-hsm-with-sdk.md
-  - name: Etablera för flera innehavare
-    href: how-to-provision-multitenant.md
-  - name: Använd anpassade allokeringsprinciper
-    href: how-to-use-custom-allocation-policies.md
-  - name: Använda symmetriska nycklar med äldre enheter
-    href: how-to-legacy-device-symm-key.md
-  - name: Använda SDK-verktyg för utveckling
-    href: how-to-use-sdk-tools.md
+    - name: Ansluta MXChip IoT DevKit till IoT Hub
+      href: how-to-connect-mxchip-iot-devkit.md
+    - name: Hantera konfiguration av enhetsetableringstjänsten
+      items:
+        - name: Hantera registreringar – portal
+          href: how-to-manage-enrollments.md
+        - name: 'Hantera registreringar – tjänst-SDK:er'
+          href: how-to-manage-enrollments-sdks.md
+        - name: Konfigurera verifierade CA-certifikat
+          href: how-to-verify-certificates.md
+        - name: Löpande enhetscertifikat
+          href: how-to-roll-certificates.md
+        - name: Etablera om enheter
+          href: how-to-reprovision.md
+        - name: Hantera avregistrering
+          href: how-to-revoke-device-access-portal.md
+        - name: Hantera avetablering
+          href: how-to-unprovision-devices.md
+    - name: Hantera enhetsetableringstjänst
+      items:
+        - name: Konfigurera enhetsetableringstjänsten med hjälp av Azure CLI
+          href: how-to-manage-dps-with-cli.md
+        - name: 'Kontrollera åtkomst till Provisioning Service-API:er'
+          href: how-to-control-access.md
+    - name: Etablera IoT Edge-enheter
+      items:
+        - name: Linux
+          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          maintainContext: true
+        - name: Windows
+          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          maintainContext: true
+    - name: Använda attesteringsmekanismer med SDK
+      href: use-hsm-with-sdk.md
+    - name: Etablera för flera innehavare
+      href: how-to-provision-multitenant.md
+    - name: Använd anpassade allokeringsprinciper
+      href: how-to-use-custom-allocation-policies.md
+    - name: Använda symmetriska nycklar med äldre enheter
+      href: how-to-legacy-device-symm-key.md
+    - name: Använda SDK-verktyg för utveckling
+      href: how-to-use-sdk-tools.md
 - name: Referens
   items:
-  - name: REST-API
-    href: /rest/api/iot-dps
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
-  - name: Azure IoT SDK för C
-    href: https://github.com/Azure/azure-iot-sdk-c
-  - name: Azure IoT SDK för Python
-    href: https://github.com/Azure/azure-iot-sdk-python
-  - name: Azure IoT SDK för Node.js
-    href: https://github.com/Azure/azure-iot-sdk-node
-  - name: Azure IoT SDK för Java
-    href: https://github.com/Azure/azure-iot-sdk-java
-  - name: Azure IoT SDK för .NET
-    href: https://github.com/Azure/azure-iot-sdk-csharp
+    - name: REST-API
+      href: /rest/api/iot-dps
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
+    - name: Azure IoT SDK för C
+      href: 'https://github.com/Azure/azure-iot-sdk-c'
+    - name: Azure IoT SDK för Python
+      href: 'https://github.com/Azure/azure-iot-sdk-python'
+    - name: Azure IoT SDK för Node.js
+      href: 'https://github.com/Azure/azure-iot-sdk-node'
+    - name: Azure IoT SDK för Java
+      href: 'https://github.com/Azure/azure-iot-sdk-java'
+    - name: Azure IoT SDK för .NET
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp'
 - name: Relaterat
   items:
-  - name: Lösningar
-    items:
-    - name: IoT-lösningsacceleratorer
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Plattformstjänster
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: Kartor
-      href: /azure/azure-maps
-    - name: Tjänst-SDK:er
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: SDK:er för IoT-enheter
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Lösningar
+      items:
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: Kartor
+          href: /azure/azure-maps
+        - name: 'Tjänst-SDK:er'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
-  - name: Azure IoT-exempel för C# (.NET)
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
-  - name: Azure IoT-exempel för Node.js
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
-  - name: Azure IoT-exempel för Java
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
-  - name: Azure IoT-exempel för Python
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
-  - name: Azure IoT-exempel för iOS-plattform
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: Azure IoT Hub
-    href: https://azure.microsoft.com/services/iot-hub/
-  - name: Azure Certified for IoT-enhetskatalog
-    href: https://catalog.azureiotsolutions.com/
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Kunddataförfrågningar
-    href: iot-dps-customer-data-requests.md
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Device Explorer-verktyg
-    href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
-  - name: iothub-diagnostics tool
-    href: https://github.com/Azure/iothub-diagnostics
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/iot-hub/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Tjänstuppdateringar
-    href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
-  - name: Tekniska fallstudier
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 8b48f3ffa0f647faeb4284ea636b572a2a404e95
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533127"
+    - name: 'Azure IoT-exempel för C# (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Azure IoT-exempel för Node.js
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Azure IoT-exempel för Java
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Azure IoT-exempel för Python
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: Azure IoT-exempel för iOS-plattform
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: Azure IoT Hub
+      href: 'https://azure.microsoft.com/services/iot-hub/'
+    - name: Azure Certified for IoT-enhetskatalog
+      href: 'https://catalog.azureiotsolutions.com/'
+    - name: Azure IoT Developer Center
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Kunddataförfrågningar
+      href: iot-dps-customer-data-requests.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Device Explorer-verktyg
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: iothub-diagnostics tool
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Tekniska fallstudier
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

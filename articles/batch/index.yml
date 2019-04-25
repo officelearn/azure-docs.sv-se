@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cc30c4552cfa672121a5e7fc520fb4412237b7e9
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591699"
 documentType: LandingData
 title: Dokumentation om Batch
 metadata:
-  title: Dokumentation om Batch – Självstudier, API-referens | Microsoft Docs
-  description: Använd Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Definiera Azure-beräkningsresurser för att köra dina program parallellt eller i stor skala utan manuell konfigurering eller hantering av infrastrukturen. Schemalägg beräkningsintensiva uppgifter och lägg till eller ta bort beräkningsresurser dynamiskt utifrån dina krav. Lär dig hur du använder Azure Batch med våra snabbstarter, självstudier och exempel.
+  title: 'Dokumentation om Batch – Självstudier, API-referens | Microsoft Docs'
+  description: 'Använd Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Definiera Azure-beräkningsresurser för att köra dina program parallellt eller i stor skala utan manuell konfigurering eller hantering av infrastrukturen. Schemalägg beräkningsintensiva uppgifter och lägg till eller ta bort beräkningsresurser dynamiskt utifrån dina krav. Lär dig hur du använder Azure Batch med våra snabbstarter, självstudier och exempel.'
   services: batch
   author: czeumault
   manager: carolz
@@ -20,58 +14,58 @@ metadata:
   ms.date: 11/30/2017
   ms.author: carolz
 abstract:
-  description: Använd Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Definiera Azure-beräkningsresurser för att köra dina program parallellt eller i stor skala utan manuell konfigurering eller hantering av infrastrukturen. Schemalägg beräkningsintensiva uppgifter och lägg till eller ta bort beräkningsresurser dynamiskt utifrån dina krav. Lär dig hur du använder Azure Batch med våra snabbstarter, självstudier och exempel.
+  description: 'Använd Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Definiera Azure-beräkningsresurser för att köra dina program parallellt eller i stor skala utan manuell konfigurering eller hantering av infrastrukturen. Schemalägg beräkningsintensiva uppgifter och lägg till eller ta bort beräkningsresurser dynamiskt utifrån dina krav. Lär dig hur du använder Azure Batch med våra snabbstarter, självstudier och exempel.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du kör ditt första Batch-jobb i Azure.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: Azure CLI
-      href: quick-create-cli
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: quick-create-portal
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_NET.svg
-      text: .NET
-      href: quick-run-dotnet
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_python.svg
-      text: Python
-      href: quick-run-python
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du kör beräkningsintensiva arbetsbelastningar på Batch.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Lär dig hur du kör ditt första Batch-jobb i Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Azure CLI
+            href: quick-create-cli
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure Portal
+            href: quick-create-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_NET.svg'
+            text: .NET
+            href: quick-run-dotnet
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_python.svg'
+            text: Python
+            href: quick-run-python
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="tutorial-parallel-dotnet">Parallell filbearbetning med .NET SDK</a>
-    - html: <a href="tutorial-parallel-python">Parallell filbearbetning med Python SDK</a>
-    - html: <a href="tutorial-rendering-cli">Scenrendering med Arnold</a>
-    - html: <a href="tutorial-r-doazureparallel">Parallell R-simulering</a>
-- title: Exempel
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Lär dig hur du kör beräkningsintensiva arbetsbelastningar på Batch.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-parallel-dotnet">Parallell filbearbetning med .NET SDK</a>
+          - html: <a href="tutorial-parallel-python">Parallell filbearbetning med Python SDK</a>
+          - html: <a href="tutorial-rendering-cli">Scenrendering med Arnold</a>
+          - html: <a href="tutorial-r-doazureparallel">Parallell R-simulering</a>
+  - title: Exempel
     items:
-    - html: <a href="cli-samples">Azure CLI</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="cli-samples">Azure CLI</a>
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="/cli/azure/batch">Azure CLI</a></p><p><a href="/powershell/module/az.batch">Azure PowerShell</a></p>
-    - title: Språk
-      html: <p><a href="/dotnet/api/overview/azure/batch">NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/batchservice">REST API för Batch-tjänsten</a></p><p><a href="/rest/api/batchmanagement/">REST API för Batch Management</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/cli/azure/batch">Azure CLI</a></p><p><a href="/powershell/module/az.batch">Azure PowerShell</a></p>
+          - title: Språk
+            html: <p><a href="/dotnet/api/overview/azure/batch">NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/batchservice">REST API för Batch-tjänsten</a></p><p><a href="/rest/api/batchmanagement/">REST API för Batch Management</a></p>

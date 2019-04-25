@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199877"
 documentType: LandingData
 title: Dokumentation om Azure Search
 metadata:
-  document_id: 
-  title: Dokumentation om Azure Search – självstudier, snabbstarter, API-referenser
-  description: Lär dig hur du skapar en söklösning för företag med privat, heterogent innehåll med hjälp av Azure Search. Självstudier, API-referenser och andra dokument visar dig hur du konsoliderar sökbart innehåll till ett enda snabbt frågningsbart index med hjälp av enkel-till-avancerad syntax för en mängd olika scenarier.
+  document_id: null
+  title: 'Dokumentation om Azure Search – självstudier, snabbstarter, API-referenser'
+  description: 'Lär dig hur du skapar en söklösning för företag med privat, heterogent innehåll med hjälp av Azure Search. Självstudier, API-referenser och andra dokument visar dig hur du konsoliderar sökbart innehåll till ett enda snabbt frågningsbart index med hjälp av enkel-till-avancerad syntax för en mängd olika scenarier.'
   services: search
   author: HeidiSteen
   manager: cgronlun
@@ -20,55 +14,55 @@ metadata:
   ms.date: 01/18/2019
   ms.author: heidist
 abstract:
-  description: Lär dig hur du skapar en söklösning för företag med privat, heterogent innehåll med hjälp av Azure Search. Självstudier, API-referenser och andra dokument visar dig hur du konsoliderar sökbart innehåll till ett enda snabbt frågningsbart index med hjälp av enkel-till-avancerad syntax för en mängd olika scenarier. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Ny kognitiv förhandsversion för sökning.</b></a> Använd en förhandsversion av REST API för att binda AI-drivna algoritmer för indexering av pipeline. Extrahera data och anropa bearbetning av naturligt språk och bilder för att omvandla ostrukturerat innehåll i råformat till sökbart innehåll i ett Azure Search-index. <p/>Utforska kognitiv sökning med <a href="/azure/search/cognitive-search-quickstart-blob">resurser och exempeldata</a> eller läs mer i <a href="/azure/search/cognitive-search-concept-intro">Koncept</a>.
+  description: 'Lär dig hur du skapar en söklösning för företag med privat, heterogent innehåll med hjälp av Azure Search. Självstudier, API-referenser och andra dokument visar dig hur du konsoliderar sökbart innehåll till ett enda snabbt frågningsbart index med hjälp av enkel-till-avancerad syntax för en mängd olika scenarier. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Ny kognitiv förhandsversion för sökning.</b></a> Använd en förhandsversion av REST API för att binda AI-drivna algoritmer för indexering av pipeline. Extrahera data och anropa bearbetning av naturligt språk och bilder för att omvandla ostrukturerat innehåll i råformat till sökbart innehåll i ett Azure Search-index. <p/>Utforska kognitiv sökning med <a href="/azure/search/cognitive-search-quickstart-blob">resurser och exempeldata</a> eller läs mer i <a href="/azure/search/cognitive-search-concept-intro">Koncept</a>.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png
+      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
       width: 250
-    title: Vad är Azure Search (1:27)
-    href: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+    title: 'Vad är Azure Search (1:27)'
+    href: 'https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player'
     width: 250
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Börja med en söktjänst i portalen och definiera, läs in och fråga sedan index i C# eller REST.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: /azure/search/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/azure/search/search-create-service-portal
-    - image:
-        src: /azure/search/media/index/logo_Csharp.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
-    - image:
-        src: /azure/search/media/index/rest.svg
-      text: REST
-      href: https://docs.microsoft.com/azure/search/search-fiddler
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Koda i .NET eller REST, eller använd portalen för snabb koncepttestning.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Börja med en söktjänst i portalen och definiera, läs in och fråga sedan index i C# eller REST.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/search/media/index/portal.svg
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/azure/search/search-create-service-portal'
+          - image:
+              src: /azure/search/media/index/logo_Csharp.svg
+            text: .NET
+            href: 'https://docs.microsoft.com/azure/search/search-create-index-dotnet'
+          - image:
+              src: /azure/search/media/index/rest.svg
+            text: REST
+            href: 'https://docs.microsoft.com/azure/search/search-fiddler'
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexera med AI (Cognitive Services)</a>
-    - html: <a href="/azure/search/search-howto-dotnet-sdk">Så här använder du Azure Search med .NET</a>
-    - html: <a href="/azure/search/search-indexer-tutorial">Indexera Azure SQL Database-innehåll med .NET</a>
-    - html: <a href="/azure/search/search-semi-structured-data">Indexera halvstrukturerade data i Azure Blob Storage med REST</a>
-    - html: <a href="/azure/search/search-get-started-portal">Använda portalen för indexering och frågetestning</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Koda i .NET eller REST, eller använd portalen för snabb koncepttestning.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexera med AI (Cognitive Services)</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">Så här använder du Azure Search med .NET</a>
+          - html: <a href="/azure/search/search-indexer-tutorial">Indexera Azure SQL Database-innehåll med .NET</a>
+          - html: <a href="/azure/search/search-semi-structured-data">Indexera halvstrukturerade data i Azure Blob Storage med REST</a>
+          - html: <a href="/azure/search/search-get-started-portal">Använda portalen för indexering och frågetestning</a>
+  - title: Referens
     items:
-    - title: Språk
-      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (hantering)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (hantering)</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/searchservice">Referens för API för tjänst</a></p><p><a href="/rest/api/searchmanagement">Referens för API för hantering</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Språk
+            html: '<p><a href="/dotnet/api/?term=microsoft.azure.search">NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (hantering)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (hantering)</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/searchservice">Referens för API för tjänst</a></p><p><a href="/rest/api/searchmanagement">Referens för API för hantering</a></p>

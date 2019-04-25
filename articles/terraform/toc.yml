@@ -1,96 +1,89 @@
-items:
 - name: Dokumentation om Terraform på Azure
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Terraform på Azure
-    href: terraform-overview.md
+    - name: Om Terraform på Azure
+      href: terraform-overview.md
 - name: Snabbstarter
-  items:
-  - name: Skapa ett program med flera tjänster
-    href: terrafom-quickstart.md
-  - name: Installera och konfigurera Terraform
-    href: /azure/virtual-machines/linux/terraform-install-configure
-    maintainContext: true
-  - name: Skapa en virtuell Linux-dator
-    href: /azure/virtual-machines/linux/terraform-create-complete-vm
-    maintainContext: true
   expanded: true
+  items:
+    - name: Skapa ett program med flera tjänster
+      href: terrafom-quickstart.md
+    - name: Installera och konfigurera Terraform
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Skapa en virtuell Linux-dator
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
 - name: Självstudier
   items:
-  - name: App Service
-    items:
-    - name: Distributionsfack för Terraform- och Azure-provider
-      href: terraform-slot-walkthru.md
-  - name: Containrar
-    items:
-    - name: Skapa ett Kubernetes-kluster med AKS
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: Skapa ett Kubernetes-kluster med Application Gateway som en inkommande kontrollant med AKS
-      href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
-  - name: Infrastruktur
-    items:
-    - name: Skapa en virtuell Terraform-dator med MSI aktiverat
-      href: terraform-vm-msi.md
-    - name: Skapa ett VM-kluster med Terraform-moduler
-      href: terraform-create-vm-cluster-module.md
-    - name: Skapa ett VM-kluster med Terraform och HCL
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: Etablera virtuella skalningsuppsättningar med infrastruktur
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
-  - name: Nätverk
-    items:
-    - name: Topologi av typen hub-spoke
+    - name: App Service
       items:
-      - name: 1. Skapa topologi av typen hub-spoke
-        href: terraform-hub-spoke-introduction.md
-      - name: 2. Skapa ett lokalt virtuellt nätverk
-        href: terraform-hub-spoke-on-prem.md
-      - name: 3. Skapa ett virtuellt hub-nätverk
-        href: terraform-hub-spoke-hub-network.md
-      - name: 4. Skapa en installation för ett virtuellt hub-nätverk
-        href: terraform-hub-spoke-hub-nva.md
-      - name: 5. Skapa ett spoke-nätverk
-        href: terraform-hub-spoke-spoke-network.md
-      - name: 6. Verifiera nätverksanslutning för topologi
-        href: terraform-hub-spoke-validation.md
-  - name: Verktyg
-    items:
-    - name: Installera Terraform Visual Studio Code-tillägget
-      href: terraform-vscode-extension.md
-    - name: Skapa en grundläggande Terraform-mall med hjälp av Yeoman
-      href: terraform-vscode-module-generator.md
-    - name: Testa Terraform-moduler med hjälp av Terratest
-      href: terratest-in-terraform-modules.md
+        - name: Distributionsfack för Terraform- och Azure-provider
+          href: terraform-slot-walkthru.md
+    - name: Containrar
+      items:
+        - name: Skapa ett Kubernetes-kluster med AKS
+          href: terraform-create-k8s-cluster-with-tf-and-aks.md
+        - name: Skapa ett Kubernetes-kluster med Application Gateway som en inkommande kontrollant med AKS
+          href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
+    - name: Infrastruktur
+      items:
+        - name: Skapa en virtuell Terraform-dator med MSI aktiverat
+          href: terraform-vm-msi.md
+        - name: Skapa ett VM-kluster med Terraform-moduler
+          href: terraform-create-vm-cluster-module.md
+        - name: Skapa ett VM-kluster med Terraform och HCL
+          href: terraform-create-vm-cluster-with-infrastructure.md
+        - name: Etablera virtuella skalningsuppsättningar med infrastruktur
+          href: terraform-create-vm-scaleset-network-disks-hcl.md
+        - name: Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning
+          href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+    - name: Nätverk
+      items:
+        - name: Topologi av typen hub-spoke
+          items:
+            - name: 1. Skapa topologi av typen hub-spoke
+              href: terraform-hub-spoke-introduction.md
+            - name: 2. Skapa ett lokalt virtuellt nätverk
+              href: terraform-hub-spoke-on-prem.md
+            - name: 3. Skapa ett virtuellt hub-nätverk
+              href: terraform-hub-spoke-hub-network.md
+            - name: 4. Skapa en installation för ett virtuellt hub-nätverk
+              href: terraform-hub-spoke-hub-nva.md
+            - name: 5. Skapa ett spoke-nätverk
+              href: terraform-hub-spoke-spoke-network.md
+            - name: 6. Verifiera nätverksanslutning för topologi
+              href: terraform-hub-spoke-validation.md
+    - name: Verktyg
+      items:
+        - name: Installera Terraform Visual Studio Code-tillägget
+          href: terraform-vscode-extension.md
+        - name: Skapa en grundläggande Terraform-mall med hjälp av Yeoman
+          href: terraform-vscode-module-generator.md
+        - name: Testa Terraform-moduler med hjälp av Terratest
+          href: terratest-in-terraform-modules.md
 - name: Exempel
   items:
-  - name: Konfigurationsmallar
-    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
+    - name: Konfigurationsmallar
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
 - name: Begrepp
   items:
-  - name: Azure Cloud Shell-integrering
-    href: terraform-cloud-shell.md
+    - name: Azure Cloud Shell-integrering
+      href: terraform-cloud-shell.md
 - name: Instruktionsguider
   items:
-  - name: Lagra tillstånd i Azure Storage
-    href: terraform-backend.md
+    - name: Lagra tillstånd i Azure Storage
+      href: terraform-backend.md
 - name: Referens
   items:
-  - name: Azure-modulregister
-    href: https://registry.terraform.io/modules/Azure
-  - name: Terraform-referens
-    href: https://aka.ms/terraform
+    - name: Azure-modulregister
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Terraform-referens
+      href: 'https://aka.ms/terraform'
 - name: Resurser
   items:
-  - name: Azure och Terraform
-    href: https://azure.microsoft.com/solutions/devops/terraform/
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d83e1cbd4f3cd5d8a0a9ec167e197b53f20e0630
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999440"
+    - name: Azure och Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'

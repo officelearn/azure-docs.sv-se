@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ed169d248fce28a668c1c93fe2d9796b59547bd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619228"
 documentType: LandingData
 title: Dokumentation om Azure Portal
 metadata:
@@ -23,29 +17,29 @@ metadata:
   ms.date: 10/08/2018
   ms.author: kfollis
 abstract:
-  description: Azure-portalen är en webbaserad enhetlig konsol som du kan använda för att bygga, hantera och styra allt från enkla webbappar till komplexa molnprogram. Den innehåller en anpassningsbar instrumentpanel och hjälpmedelsalternativ.
+  description: 'Azure-portalen är en webbaserad enhetlig konsol som du kan använda för att bygga, hantera och styra allt från enkla webbappar till komplexa molnprogram. Den innehåller en anpassningsbar instrumentpanel och hjälpmedelsalternativ.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/azure-preview-portal-supported-browsers-devices
-      html: <p>Du kan köra Azure-portalen på alla moderna skrivbords- och surfplatteenheter och webbläsare.</p>
-      title: Webbläsare och enheter som stöds
-    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-      html: <p>Ändra kontrast- eller färgschema i Azure-portalen.</p>
-      title: Aktivera högkontrast
-    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-      html: <p>Läs mer om kortkommandon som fungerar i hela Azure-portalen.</p>
-      title: Kortkommandon
-    - href: /azure/azure-portal/azure-portal-dashboards
-      html: <p>Skapa flera instrumentpaneler och dela dem med andra som har åtkomst till dina Azure-prenumerationer.</p>
-      title: Skapa och dela Azure-instrumentpaneler
-    - href: /azure/azure-portal/azure-portal-dashboard-share-access
-      html: <p>Publicera och dela en instrumentpanel med andra användare i din organisation.</p>
-      title: Dela instrumentpaneler med hjälp av RBAC
-    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-      html: <p>Skapa och publicera instrumentpaneler programmässigt i organisationen</p>
-      title: Skapa Azure-instrumentpaneler programmässigt
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/azure-preview-portal-supported-browsers-devices
+            html: <p>Du kan köra Azure-portalen på alla moderna skrivbords- och surfplatteenheter och webbläsare.</p>
+            title: Webbläsare och enheter som stöds
+          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+            html: <p>Ändra kontrast- eller färgschema i Azure-portalen.</p>
+            title: Aktivera högkontrast
+          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+            html: <p>Läs mer om kortkommandon som fungerar i hela Azure-portalen.</p>
+            title: Kortkommandon
+          - href: /azure/azure-portal/azure-portal-dashboards
+            html: <p>Skapa flera instrumentpaneler och dela dem med andra som har åtkomst till dina Azure-prenumerationer.</p>
+            title: Skapa och dela Azure-instrumentpaneler
+          - href: /azure/azure-portal/azure-portal-dashboard-share-access
+            html: <p>Publicera och dela en instrumentpanel med andra användare i din organisation.</p>
+            title: Dela instrumentpaneler med hjälp av RBAC
+          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+            html: <p>Skapa och publicera instrumentpaneler programmässigt i organisationen</p>
+            title: Skapa Azure-instrumentpaneler programmässigt

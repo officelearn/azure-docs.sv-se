@@ -1,80 +1,73 @@
-items:
 - name: Azure Blockchain Workbench (offentlig förhadsversion)
   href: index.yml
 - name: Översikt
-  items:
-  - name: Om Azure Blockchain Workbench
-    href: overview.md
   expanded: true
+  items:
+    - name: Om Azure Blockchain Workbench
+      href: overview.md
 - name: Självstudier
-  items:
-  - name: Skapa en blockkedjeapp
-    href: create-app.md
-  - name: Använda en blockkedjeapp
-    href: use.md
   expanded: true
+  items:
+    - name: Skapa en blockkedjeapp
+      href: create-app.md
+    - name: Använda en blockkedjeapp
+      href: use.md
 - name: Begrepp
   items:
-  - name: Arkitektur
-    href: architecture.md
-  - name: Integreringsmönster
-    href: integration-patterns.md
+    - name: Arkitektur
+      href: architecture.md
+    - name: Integreringsmönster
+      href: integration-patterns.md
 - name: Instruktionsguider
-  items:
-  - name: Distribuera Workbench
-    href: deploy.md
-  - name: Hantera Workbench-användare
-    href: manage-users.md
-  - name: Versionshantering av appar
-    href: version-app.md
-  - name: Använda Workbench-API
-    href: use-api.md
-  - name: Felsöka appar
-    href: troubleshooting.md
-  - name: Använda Workbench-data
-    items:
-    - name: Konfigurera DB-brandväggen
-      href: database-firewall.md
-    - name: Hämta information om DB
-      href: getdb-details.md
-    - name: Använda data i Excel
-      href: data-excel.md
-    - name: Använda data i Power BI
-      href: data-powerbi.md
-    - name: Använda data i SQL Management Studio
-      href: data-sql-management-studio.md
   expanded: true
+  items:
+    - name: Distribuera Workbench
+      href: deploy.md
+    - name: Hantera Workbench-användare
+      href: manage-users.md
+    - name: Versionshantering av appar
+      href: version-app.md
+    - name: Använda Workbench-API
+      href: use-api.md
+    - name: Felsöka appar
+      href: troubleshooting.md
+    - name: Använda Workbench-data
+      items:
+        - name: Konfigurera DB-brandväggen
+          href: database-firewall.md
+        - name: Hämta information om DB
+          href: getdb-details.md
+        - name: Använda data i Excel
+          href: data-excel.md
+        - name: Använda data i Power BI
+          href: data-powerbi.md
+        - name: Använda data i SQL Management Studio
+          href: data-sql-management-studio.md
 - name: Referens
   items:
-  - name: Konfiguration
-    href: configuration.md
-  - name: Databasvyer
-    href: database-views.md
-  - name: Meddelande-API
-    href: messages-overview.md
-  - name: REST-API
-    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+    - name: Konfiguration
+      href: configuration.md
+    - name: Databasvyer
+      href: database-views.md
+    - name: Meddelande-API
+      href: messages-overview.md
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: Resurser
   items:
-  - name: Blogg
-    href: https://azure.microsoft.com/blog/topics/blockchain/
-  - name: Kodexempel
-    href: https://github.com/Azure-Samples/blockchain
-  - name: Community
-    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
-  - name: Forum
-    href: https://aka.ms/workbenchforum
-  - name: Produktfeedback
-    href: https://aka.ms/blockchainuservoice
+    - name: Blogg
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Kodexempel
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: Community
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Forum
+      href: 'https://aka.ms/workbenchforum'
+    - name: Produktfeedback
+      href: 'https://aka.ms/blockchainuservoice'
 - name: Lösningsmallar
   items:
-  - name: Konsortium för bevis på auktoritet för Ethereum
-    href: ../templates/ethereum-poa-deployment.md
-  - name: Konsortium för Hyperledger Fabric
-    href: ../templates/hyperledger-fabric-consortium-blockchain.md
-ms.openlocfilehash: b0426cc5dfbac62657ad172f5fa73586e6214601
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001924"
+    - name: Konsortium för bevis på auktoritet för Ethereum
+      href: ../templates/ethereum-poa-deployment.md
+    - name: Konsortium för Hyperledger Fabric
+      href: ../templates/hyperledger-fabric-consortium-blockchain.md

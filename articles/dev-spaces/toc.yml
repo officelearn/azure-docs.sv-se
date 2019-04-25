@@ -1,79 +1,72 @@
-items:
 - name: Azure Dev Spaces
   items:
-  - name: Översikt
-    href: index.yml
-  - name: Snabbstarter
-    items:
-    - name: Java (VS-kod och CLI)
-      href: quickstart-java.md
-    - name: .NET Core (VS Code och CLI)
-      href: quickstart-netcore.md
-    - name: .NET Core (Visual Studio 2017)
-      href: quickstart-netcore-visualstudio.md
-    - name: Node.js (VS Code & CLI)
-      href: quickstart-nodejs.md
-  - name: Självstudier
-    items:
-    - name: Java (VS-kod och CLI)
+    - name: Översikt
+      href: index.yml
+    - name: Snabbstarter
       items:
-      - name: 1 – Kom igång
-        href: get-started-java.md
-      - name: 2 – Utveckling för flera tjänster
-        href: multi-service-java.md
-      - name: 3 – Teamutveckling
-        href: team-development-java.md
-    - name: .NET Core (VS Code och CLI)
+        - name: Java (VS-kod och CLI)
+          href: quickstart-java.md
+        - name: .NET Core (VS Code och CLI)
+          href: quickstart-netcore.md
+        - name: .NET Core (Visual Studio 2017)
+          href: quickstart-netcore-visualstudio.md
+        - name: Node.js (VS Code & CLI)
+          href: quickstart-nodejs.md
+    - name: Självstudier
       items:
-      - name: 1 – Kom igång
-        href: get-started-netcore.md
-      - name: 2 – Utveckling för flera tjänster
-        href: multi-service-netcore.md
-      - name: 3 – Teamutveckling
-        href: team-development-netcore.md
-    - name: .NET Core (Visual Studio 2017)
+        - name: Java (VS-kod och CLI)
+          items:
+            - name: 1 – Kom igång
+              href: get-started-java.md
+            - name: 2 – Utveckling för flera tjänster
+              href: multi-service-java.md
+            - name: 3 – Teamutveckling
+              href: team-development-java.md
+        - name: .NET Core (VS Code och CLI)
+          items:
+            - name: 1 – Kom igång
+              href: get-started-netcore.md
+            - name: 2 – Utveckling för flera tjänster
+              href: multi-service-netcore.md
+            - name: 3 – Teamutveckling
+              href: team-development-netcore.md
+        - name: .NET Core (Visual Studio 2017)
+          items:
+            - name: 1 – Kom igång
+              href: get-started-netcore-visualstudio.md
+            - name: 2 – Utveckling för flera tjänster
+              href: multi-service-netcore-visualstudio.md
+            - name: 3 – Teamutveckling
+              href: team-development-netcore-visualstudio.md
+        - name: Node.js (VS Code & CLI)
+          items:
+            - name: 1 – Kom igång
+              href: get-started-nodejs.md
+            - name: 2 – Utveckling för flera tjänster
+              href: multi-service-nodejs.md
+            - name: 3 – Teamutveckling
+              href: team-development-nodejs.md
+    - name: Begrepp
       items:
-      - name: 1 – Kom igång
-        href: get-started-netcore-visualstudio.md
-      - name: 2 – Utveckling för flera tjänster
-        href: multi-service-netcore-visualstudio.md
-      - name: 3 – Teamutveckling
-        href: team-development-netcore-visualstudio.md
-    - name: Node.js (VS Code & CLI)
+        - name: Så här fungerar Dev Spaces
+          href: how-dev-spaces-works.md
+    - name: Gör så här för att
       items:
-      - name: 1 – Kom igång
-        href: get-started-nodejs.md
-      - name: 2 – Utveckling för flera tjänster
-        href: multi-service-nodejs.md
-      - name: 3 – Teamutveckling
-        href: team-development-nodejs.md
-  - name: Begrepp
-    items:
-    - name: Så här fungerar Dev Spaces
-      href: how-dev-spaces-works.md
-  - name: Gör så här för att
-    items:
-    - name: Skapa ett Kubernetes-kluster med Azure Cloud Shell
-      href: how-to/create-cluster-cloud-shell.md
-    - name: Dela Azure Dev Spaces
-      href: how-to/share-dev-spaces.md
-    - name: Hantera hemligheter
-      href: how-to/manage-secrets.md
-    - name: Använda en anpassad NuGet-feed
-      href: how-to/use-custom-nuget-feed.md
-    - name: Använda kubectl med Azure Dev Spaces
-      href: how-to/use-kubectl-with-azure-dev-spaces.md
-    - name: Uppgradera verktyg för Azure Dev Spaces
-      href: how-to/upgrade-tools.md
-    - name: Använda CI/CD med Azure Dev Spaces
-      href: how-to/setup-cicd.md
-    - name: Affärskontinuitet och haveriberedskap för Azure Dev Spaces
-      href: how-to/dev-spaces-business-continuity.md
-  - name: Felsökning
-    href: troubleshooting.md
-ms.openlocfilehash: 2584af119ba13e87d4249ce7cc7f605d88baa88e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341330"
+        - name: Skapa ett Kubernetes-kluster med Azure Cloud Shell
+          href: how-to/create-cluster-cloud-shell.md
+        - name: Dela Azure Dev Spaces
+          href: how-to/share-dev-spaces.md
+        - name: Hantera hemligheter
+          href: how-to/manage-secrets.md
+        - name: Använda en anpassad NuGet-feed
+          href: how-to/use-custom-nuget-feed.md
+        - name: Använda kubectl med Azure Dev Spaces
+          href: how-to/use-kubectl-with-azure-dev-spaces.md
+        - name: Uppgradera verktyg för Azure Dev Spaces
+          href: how-to/upgrade-tools.md
+        - name: Använda CI/CD med Azure Dev Spaces
+          href: how-to/setup-cicd.md
+        - name: Affärskontinuitet och haveriberedskap för Azure Dev Spaces
+          href: how-to/dev-spaces-business-continuity.md
+    - name: Felsökning
+      href: troubleshooting.md

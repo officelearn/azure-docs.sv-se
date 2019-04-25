@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4428bf710df5eae3b06c8abd38eb85d6128a574d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959433"
 documentType: LandingData
 title: Dokumentation om Machine Learning Studio
 metadata:
-  title: Dokumentation om Azure Machine Learning Studio – självstudier, referens | Microsoft Docs
-  description: Machine Learning Studio är ett dra-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Självstudier, videor och exempelmodeller visar hur du använder Studio för att skapa och distribuera Machine Learning-modeller.
+  title: 'Dokumentation om Azure Machine Learning Studio – självstudier, referens | Microsoft Docs'
+  description: 'Machine Learning Studio är ett dra-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Självstudier, videor och exempelmodeller visar hur du använder Studio för att skapa och distribuera Machine Learning-modeller.'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: studio
@@ -20,44 +14,44 @@ metadata:
   ms.devlang: na
   ms.date: 02/24/2019
 abstract:
-  description: Azure Machine Learning Studio är ett dra-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Självstudier, videor och exempelmodeller visar hur du använder Studio för att skapa och distribuera Machine Learning-modeller.
+  description: 'Azure Machine Learning Studio är ett dra-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Självstudier, videor och exempelmodeller visar hur du använder Studio för att skapa och distribuera Machine Learning-modeller.'
 sections:
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Ta del av utökade självstudier som hjälper dig att skapa och distribuera modeller:'
-  - type: list
-    style: unordered
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="create-experiment">Skapa ditt första Studio-experiment</a>
-    - html: <a href="tutorial-part1-credit-risk">Skapa och distribuera en förutsägelselösning för kreditrisk</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Ta del av utökade självstudier som hjälper dig att skapa och distribuera modeller:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="create-experiment">Skapa ditt första Studio-experiment</a>
+          - html: <a href="tutorial-part1-credit-risk">Skapa och distribuera en förutsägelselösning för kreditrisk</a>
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="powershell-module">PowerShell-moduler</a></p>
-    - title: Moduler
-      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algoritm- och modulreferens</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">Hantering av REST API:er</a></p><p><a href="web-service-error-codes">Felkoder för webbtjänst</a></p>
-- title: Fler Azure Machine Learning-tekniker
-  items:
-  - type: paragraph
-    text: 'Andra tekniker som är tillgängliga i Azure Machine Learning:'
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="powershell-module">PowerShell-moduler</a></p>
+          - title: Moduler
+            html: '<p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algoritm- och modulreferens</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/machinelearning/">Hantering av REST API:er</a></p><p><a href="web-service-error-codes">Felkoder för webbtjänst</a></p>'
+  - title: Fler Azure Machine Learning-tekniker
     items:
-    - title: Azure Machine Learning-tjänst
-      href: /azure/machine-learning/service/
-      image:
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/
-    - title: Virtuell dator för datavetenskap
-      href: /azure/machine-learning/data-science-virtual-machine/
-      image:
-        src: media/index/virtual-machines.svg
-        href: /azure/machine-learning/data-science-virtual-machine/
+      - type: paragraph
+        text: 'Andra tekniker som är tillgängliga i Azure Machine Learning:'
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Machine Learning-tjänst
+            href: /azure/machine-learning/service/
+            image:
+              src: media/index/i_machine-learning.svg
+              href: /azure/machine-learning/service/
+          - title: Virtuell dator för datavetenskap
+            href: /azure/machine-learning/data-science-virtual-machine/
+            image:
+              src: media/index/virtual-machines.svg
+              href: /azure/machine-learning/data-science-virtual-machine/

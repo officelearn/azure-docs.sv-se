@@ -1,103 +1,96 @@
-items:
 - name: Azure Migrate-dokumentation
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Azure Migrate
-    href: migrate-overview.md
+    - name: Om Azure Migrate
+      href: migrate-overview.md
 - name: Självstudier
   items:
-  - name: Utforska och utvärdera virtuella VMware-datorer
-    href: tutorial-assessment-vmware.md
+    - name: Utforska och utvärdera virtuella VMware-datorer
+      href: tutorial-assessment-vmware.md
 - name: Begrepp
   items:
-  - name: Om insamlaren
-    href: concepts-collector.md
-  - name: Versionsuppgraderingar för insamlaren
-    href: concepts-collector-upgrade.md
-  - name: Utvärderingsberäkningar
-    href: concepts-assessment-calculation.md
-  - name: Om visualisering av beroenden
-    href: concepts-dependency-visualization.md
+    - name: Om insamlaren
+      href: concepts-collector.md
+    - name: Versionsuppgraderingar för insamlaren
+      href: concepts-collector-upgrade.md
+    - name: Utvärderingsberäkningar
+      href: concepts-assessment-calculation.md
+    - name: Om visualisering av beroenden
+      href: concepts-dependency-visualization.md
 - name: Instruktionsguider
   items:
-  - name: Metodtips för migrering
-    items:
-    - name: Metodtips för säkerhet och hantering efter migrering
-      href: migrate-best-practices-security-management.md
-    - name: Metodtips för nätverk efter migrering
-      href: migrate-best-practices-networking.md
-    - name: Metodtips för kostnad och storleksändring efter migrering
-      href: migrate-best-practices-costs.md
-  - name: Contoso-migreringsserie
-    items:
-    - name: 1. Contoso-migreringsöversikt
-      href: contoso-migration-overview.md
-    - name: 2. Contoso – Distribuera en Azure-infrastruktur
-      href: contoso-migration-infrastructure.md
-    - name: 3. Contoso – utvärdera lokala resurser för migrering till Azure
-      href: contoso-migration-assessment.md
-    - name: 4. Contoso – Byta värd för en app på virtuella Azure-datorer och Azure SQL Database Managed Instance
-      href: contoso-migration-rehost-vm-sql-managed-instance.md
-    - name: 5. Contoso – Byta värd för en app på virtuella Azure-datorer
-      href: contoso-migration-rehost-vm.md
-    - name: 6. Contoso – Byta värd för en app på virtuella Azure-datorer och AlwaysOn-tillgänglighetsgrupper i Azure SQL Server
-      href: contoso-migration-rehost-vm-sql-ag.md
-    - name: 7. Contoso – Byta värd för en Linux-app på virtuella Azure-datorer
-      href: contoso-migration-rehost-linux-vm.md
-    - name: 8. Contoso – Byta värd för en Linux-app på virtuella Azure-datorer och Azure MySQL
-      href: contoso-migration-rehost-linux-vm-mysql.md
-    - name: 9. Contoso – Omstrukturera en app på Azure Web Apps och Azure SQL Database
-      href: contoso-migration-refactor-web-app-sql.md
-    - name: 10. Contoso – Omstrukturera en Linux-app på Azure Web Apps och Azure MySQL
-      href: contoso-migration-refactor-linux-app-service-mysql.md
-    - name: 11. Contoso-Migrera TFS till Azure DevOps Services
-      href: contoso-migration-tfs-vsts.md
-    - name: 12. Contoso – Omforma en app på Azure Containers och Azure SQL Database
-      href: contoso-migration-rearchitect-container-sql.md
-    - name: 13. Contoso – Återskapa en app i Azure
-      href: contoso-migration-rebuild.md
-    - name: 14. Contoso – skala en migrering
-      href: contoso-migration-scale.md
-  - name: Utforska och utvärdera en stor miljö
-    href: how-to-scale-assessment.md
-  - name: Gruppera datorer
-    href: how-to-create-a-group.md
-  - name: Gruppera datorer med datorberoenden
-    href: how-to-create-group-machine-dependencies.md
-  - name: Förfina grupper med gruppberoenden
-    href: how-to-create-group-dependencies.md
-  - name: Anpassa en utvärdering
-    href: how-to-modify-assessment.md
-  - name: Migrera datorer efter utvärdering
-    href: how-to-get-migration-tool.md
-  - name: Automatisera migrering av ett stort antal virtuella datorer
-    href: how-to-migrate-at-scale.md
-  - name: Felsöka Azure Migrate
-    href: troubleshooting-general.md
+    - name: Metodtips för migrering
+      items:
+        - name: Metodtips för säkerhet och hantering efter migrering
+          href: migrate-best-practices-security-management.md
+        - name: Metodtips för nätverk efter migrering
+          href: migrate-best-practices-networking.md
+        - name: Metodtips för kostnad och storleksändring efter migrering
+          href: migrate-best-practices-costs.md
+    - name: Contoso-migreringsserie
+      items:
+        - name: 1. Contoso-migreringsöversikt
+          href: contoso-migration-overview.md
+        - name: 2. Contoso – Distribuera en Azure-infrastruktur
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso – utvärdera lokala resurser för migrering till Azure
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso – Byta värd för en app på virtuella Azure-datorer och Azure SQL Database Managed Instance
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso – Byta värd för en app på virtuella Azure-datorer
+          href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso – Byta värd för en app på virtuella Azure-datorer och AlwaysOn-tillgänglighetsgrupper i Azure SQL Server
+          href: contoso-migration-rehost-vm-sql-ag.md
+        - name: 7. Contoso – Byta värd för en Linux-app på virtuella Azure-datorer
+          href: contoso-migration-rehost-linux-vm.md
+        - name: 8. Contoso – Byta värd för en Linux-app på virtuella Azure-datorer och Azure MySQL
+          href: contoso-migration-rehost-linux-vm-mysql.md
+        - name: 9. Contoso – Omstrukturera en app på Azure Web Apps och Azure SQL Database
+          href: contoso-migration-refactor-web-app-sql.md
+        - name: 10. Contoso – Omstrukturera en Linux-app på Azure Web Apps och Azure MySQL
+          href: contoso-migration-refactor-linux-app-service-mysql.md
+        - name: 11. Contoso-Migrera TFS till Azure DevOps Services
+          href: contoso-migration-tfs-vsts.md
+        - name: 12. Contoso – Omforma en app på Azure Containers och Azure SQL Database
+          href: contoso-migration-rearchitect-container-sql.md
+        - name: 13. Contoso – Återskapa en app i Azure
+          href: contoso-migration-rebuild.md
+        - name: 14. Contoso – skala en migrering
+          href: contoso-migration-scale.md
+    - name: Utforska och utvärdera en stor miljö
+      href: how-to-scale-assessment.md
+    - name: Gruppera datorer
+      href: how-to-create-a-group.md
+    - name: Gruppera datorer med datorberoenden
+      href: how-to-create-group-machine-dependencies.md
+    - name: Förfina grupper med gruppberoenden
+      href: how-to-create-group-dependencies.md
+    - name: Anpassa en utvärdering
+      href: how-to-modify-assessment.md
+    - name: Migrera datorer efter utvärdering
+      href: how-to-get-migration-tool.md
+    - name: Automatisera migrering av ett stort antal virtuella datorer
+      href: how-to-migrate-at-scale.md
+    - name: Felsöka Azure Migrate
+      href: troubleshooting-general.md
 - name: Resurser
   items:
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: resources-faq.md
-  - name: REST-API
-    href: https://docs.microsoft.com/rest/api/migrate/
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.migrate/allversions
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/azure-migrate/
-  - name: UserVoice
-    href: https://aka.ms/AzureMigrateUservoice
-  - name: Forum
-    href: https://aka.ms/AzureMigrateForum
-  - name: Blogg
-    href: https://azure.microsoft.com/blog/tag/azure-migrate/
-  - name: Azure Migrate
-    href: https://azure.microsoft.com/migrate
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d07d8e94f15dc6ba549d96c5950931963e5bbfc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837678"
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: resources-faq.md
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/migrate/'
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.migrate/allversions
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/azure-migrate/'
+    - name: UserVoice
+      href: 'https://aka.ms/AzureMigrateUservoice'
+    - name: Forum
+      href: 'https://aka.ms/AzureMigrateForum'
+    - name: Blogg
+      href: 'https://azure.microsoft.com/blog/tag/azure-migrate/'
+    - name: Azure Migrate
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'

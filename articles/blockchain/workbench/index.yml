@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a42db3dd4af0e02e001b3a4fbcc5f3b126606a6f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239787"
 documentType: LandingData
 title: Dokumentation om Azure Blockchain Workbench
 metadata:
-  title: Dokumentation om Azure Blockchain Workbench – Självstudier, API-referens | Microsoft Docs
-  description: Lär dig hur du skapar blockkedjeprogram. Självstudierna, API-referenserna och övrig dokumentation visar hur du distribuerar Azure Blockchain Workbench och skapar och hanterar blockkedjeprogram i Azure.
+  title: 'Dokumentation om Azure Blockchain Workbench – Självstudier, API-referens | Microsoft Docs'
+  description: 'Lär dig hur du skapar blockkedjeprogram. Självstudierna, API-referenserna och övrig dokumentation visar hur du distribuerar Azure Blockchain Workbench och skapar och hanterar blockkedjeprogram i Azure.'
   services: blockchain-workbench
   author: patricka
   manager: femila
@@ -20,23 +14,23 @@ metadata:
   ms.date: 04/17/2018
   ms.author: patricka
 abstract:
-  description: Lär dig hur du skapar blockkedjeprogram. Självstudierna, API-referenserna och övrig dokumentation visar hur du distribuerar Azure Blockchain Workbench och skapar för att skapa och använda blockkedjeprogram i Azure.
+  description: 'Lär dig hur du skapar blockkedjeprogram. Självstudierna, API-referenserna och övrig dokumentation visar hur du distribuerar Azure Blockchain Workbench och skapar för att skapa och använda blockkedjeprogram i Azure.'
 sections:
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du distribuerar, skapar och använder blockkedjeprogram i Azure.
-  - type: list
-    style: ordered
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Distribuera Azure Blockchain Workbench</a>
-    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">Skapa en blockkedjeapp</a>
-    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">Använda en blockkedjeapp</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Lär dig hur du distribuerar, skapar och använder blockkedjeprogram i Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Distribuera Azure Blockchain Workbench</a>
+          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">Skapa en blockkedjeapp</a>
+          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">Använda en blockkedjeapp</a>
+  - title: Referens
     items:
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">REST API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">REST-API</a></p>'

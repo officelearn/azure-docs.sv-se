@@ -1,55 +1,48 @@
-items:
 - name: Dokumentation om Chef Software på Azure
   href: ./index.yml
 - name: Översikt
   items:
-  - name: Om Chef på Azure
-    href: ./chef-overview.md
-  - name: Om Habitat på Azure
-    href: ./chef-habitat-overview.md
-  - name: Om InSpec på Azure
-    href: ./chef-inspec-overview.md
+    - name: Om Chef på Azure
+      href: ./chef-overview.md
+    - name: Om Habitat på Azure
+      href: ./chef-habitat-overview.md
+    - name: Om InSpec på Azure
+      href: ./chef-inspec-overview.md
 - name: Snabbstarter
-  items:
-  - name: Chef
-    items:
-    - name: Installera Chef med hjälp av Azure Portal
-      href: ./chef-extension-portal.md
-    expanded: true
   expanded: true
+  items:
+    - name: Chef
+      expanded: true
+      items:
+        - name: Installera Chef med hjälp av Azure Portal
+          href: ./chef-extension-portal.md
 - name: Självstudier
   items:
-  - name: Chef
-    items:
-    - name: Skapa en virtuell Windows-dator
-      href: /azure/virtual-machines/windows/chef-automation
+    - name: Chef
+      items:
+        - name: Skapa en virtuell Windows-dator
+          href: /azure/virtual-machines/windows/chef-automation
 - name: Referens
   items:
-  - name: Azure Chef-tillägg
-    href: https://docs.chef.io/azure_portal.html#azure-chef-extension
+    - name: Azure Chef-tillägg
+      href: 'https://docs.chef.io/azure_portal.html#azure-chef-extension'
 - name: Resurser
   items:
-  - name: Chef Automate
-    items:
-    - name: Översikt över Chef Automate
-      href: https://docs.chef.io/chef_automate.html
-    - name: Installationsguide för Chef Automate
-      href: https://docs.chef.io/install_chef_automate.html
-    - name: Chef Automate på Azure Marketplace
-      href: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate
-  - name: Nyheter om Chef Software
-    items:
-    - name: Blogg om Chef Software
-      href: https://blog.chef.io/
+    - name: Chef Automate
+      items:
+        - name: Översikt över Chef Automate
+          href: 'https://docs.chef.io/chef_automate.html'
+        - name: Installationsguide för Chef Automate
+          href: 'https://docs.chef.io/install_chef_automate.html'
+        - name: Chef Automate på Azure Marketplace
+          href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate'
+    - name: Nyheter om Chef Software
+      items:
+        - name: Blogg om Chef Software
+          href: 'https://blog.chef.io/'
 - name: Verktyg
   items:
-  - name: Chef Azure DevOps Services-tillägg
-    href: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks
-  - name: Habitat Azure DevOps Services-tillägg
-    href: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks
-ms.openlocfilehash: 11d516e487ac2328da1ad397e127d61cf3da9c3b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300927"
+    - name: Chef Azure DevOps Services-tillägg
+      href: 'https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks'
+    - name: Habitat Azure DevOps Services-tillägg
+      href: 'https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks'

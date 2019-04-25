@@ -1,288 +1,281 @@
-items:
 - name: Dokumentation om Virtual Machines Scale Sets
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är VM-skalningsuppsättningar?
-    href: overview.md
+    - name: Vad är VM-skalningsuppsättningar?
+      href: overview.md
 - name: Snabbstarter
-  items:
-  - name: Skapa på Azure Portal
-    href: quick-create-portal.md
-  - name: Skapa med Azure CLI
-    href: quick-create-cli.md
-  - name: Skapa med Azure PowerShell
-    href: quick-create-powershell.md
-  - name: Skapa med en mall
-    items:
-    - name: Linux-skalningsuppsättning
-      href: quick-create-template-linux.md
-    - name: Windows-skalningsuppsättning
-      href: quick-create-template-windows.md
   expanded: true
+  items:
+    - name: Skapa på Azure Portal
+      href: quick-create-portal.md
+    - name: Skapa med Azure CLI
+      href: quick-create-cli.md
+    - name: Skapa med Azure PowerShell
+      href: quick-create-powershell.md
+    - name: Skapa med en mall
+      items:
+        - name: Linux-skalningsuppsättning
+          href: quick-create-template-linux.md
+        - name: Windows-skalningsuppsättning
+          href: quick-create-template-windows.md
 - name: Självstudier
   items:
-  - name: 1 – Skapa/hantera skalningsuppsättningar
-    items:
-    - name: Azure CLI
-      href: tutorial-create-and-manage-cli.md
-    - name: Azure PowerShell
-      href: tutorial-create-and-manage-powershell.md
-  - name: 2 – Använda datadiskar
-    items:
-    - name: Azure CLI
-      href: tutorial-use-disks-cli.md
-    - name: Azure PowerShell
-      href: tutorial-use-disks-powershell.md
-  - name: 3 – Använda anpassade VM-avbildningar
-    items:
-    - name: Azure CLI
-      href: tutorial-use-custom-image-cli.md
-    - name: Azure PowerShell
-      href: tutorial-use-custom-image-powershell.md
-  - name: 4 – Distribuera appar till en skalningsuppsättning
-    items:
-    - name: Azure CLI
-      href: tutorial-install-apps-cli.md
-    - name: Azure PowerShell
-      href: tutorial-install-apps-powershell.md
-    - name: Mall
-      href: tutorial-install-apps-template.md
-  - name: 5 – Autoskala skalningsuppsättningar
-    items:
-    - name: Azure CLI
-      href: tutorial-autoscale-cli.md
-    - name: Azure PowerShell
-      href: tutorial-autoscale-powershell.md
-    - name: Mall
-      href: tutorial-autoscale-template.md
+    - name: 1 – Skapa/hantera skalningsuppsättningar
+      items:
+        - name: Azure CLI
+          href: tutorial-create-and-manage-cli.md
+        - name: Azure PowerShell
+          href: tutorial-create-and-manage-powershell.md
+    - name: 2 – Använda datadiskar
+      items:
+        - name: Azure CLI
+          href: tutorial-use-disks-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-disks-powershell.md
+    - name: 3 – Använda anpassade VM-avbildningar
+      items:
+        - name: Azure CLI
+          href: tutorial-use-custom-image-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-custom-image-powershell.md
+    - name: 4 – Distribuera appar till en skalningsuppsättning
+      items:
+        - name: Azure CLI
+          href: tutorial-install-apps-cli.md
+        - name: Azure PowerShell
+          href: tutorial-install-apps-powershell.md
+        - name: Mall
+          href: tutorial-install-apps-template.md
+    - name: 5 – Autoskala skalningsuppsättningar
+      items:
+        - name: Azure CLI
+          href: tutorial-autoscale-cli.md
+        - name: Azure PowerShell
+          href: tutorial-autoscale-powershell.md
+        - name: Mall
+          href: tutorial-autoscale-template.md
 - name: Exempel
   items:
-  - name: Azure CLI
-    href: cli-samples.md
-  - name: PowerShell
-    href: powershell-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
 - name: Begrepp
   items:
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
-    maintainContext: true
-  - name: Regioner och tillgänglighet
-    href: ../virtual-machines/windows/regions-and-availability.md
-    items:
-    - name: Hantera feldomäner i skalningsuppsättningar
-      href: virtual-machine-scale-sets-manage-fault-domains.md
-    maintainContext: true
-  - name: VM-typer och storlekar
-    href: ../virtual-machines/windows/sizes.md
-    items:
-    - name: Generellt syfte
-      href: ../virtual-machines/windows/sizes-general.md
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+      maintainContext: true
+    - name: Regioner och tillgänglighet
+      href: ../virtual-machines/windows/regions-and-availability.md
+      maintainContext: true
       items:
-      - name: Anpassningsbara B-serien
-        href: ../virtual-machines/windows/b-series-burstable.md
-        maintainContext: true
+        - name: Hantera feldomäner i skalningsuppsättningar
+          href: virtual-machine-scale-sets-manage-fault-domains.md
+    - name: VM-typer och storlekar
+      href: ../virtual-machines/windows/sizes.md
       maintainContext: true
-    - name: Beräkningsoptimerad
-      href: ../virtual-machines/windows/sizes-compute.md
-      maintainContext: true
-    - name: Minnesoptimerad
-      href: ../virtual-machines/windows/sizes-memory.md
       items:
-      - name: Begränsade vCPU:er
-        href: ../virtual-machines/windows/constrained-vcpu.md
-        maintainContext: true
+        - name: Generellt syfte
+          href: ../virtual-machines/windows/sizes-general.md
+          maintainContext: true
+          items:
+            - name: Anpassningsbara B-serien
+              href: ../virtual-machines/windows/b-series-burstable.md
+              maintainContext: true
+        - name: Beräkningsoptimerad
+          href: ../virtual-machines/windows/sizes-compute.md
+          maintainContext: true
+        - name: Minnesoptimerad
+          href: ../virtual-machines/windows/sizes-memory.md
+          maintainContext: true
+          items:
+            - name: 'Begränsade vCPU:er'
+              href: ../virtual-machines/windows/constrained-vcpu.md
+              maintainContext: true
+        - name: Lagringsoptimerad
+          href: ../virtual-machines/windows/sizes-storage.md
+          maintainContext: true
+        - name: GPU-optimerad
+          href: ../virtual-machines/windows/sizes-gpu.md
+          maintainContext: true
+          items:
+            - name: Konfigurera GPU-drivrutiner
+              href: ../virtual-machines/windows/n-series-driver-setup.md
+              maintainContext: true
+        - name: Databehandling med höga prestanda
+          href: ../virtual-machines/windows/sizes-hpc.md
+          maintainContext: true
+        - name: Azure-beräkningsenheter (ACU)
+          href: ../virtual-machines/windows/acu.md
+          maintainContext: true
+        - name: Benchmark-poäng
+          href: ../virtual-machines/windows/compute-benchmark-scores.md
+          maintainContext: true
+    - name: Godkända Linux-distributioner
+      href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
-    - name: Lagringsoptimerad
-      href: ../virtual-machines/windows/sizes-storage.md
+    - name: Underhåll och uppdateringar
+      href: ../virtual-machines/windows/maintenance-and-updates.md
       maintainContext: true
-    - name: GPU-optimerad
-      href: ../virtual-machines/windows/sizes-gpu.md
+    - name: Disklagring
       items:
-      - name: Konfigurera GPU-drivrutiner
-        href: ../virtual-machines/windows/n-series-driver-setup.md
-        maintainContext: true
+        - name: Managed Disks
+          href: ../virtual-machines/windows/managed-disks-overview.md
+          maintainContext: true
+        - name: Välja en disktyp
+          href: ../virtual-machines/windows/disks-types.md
+          maintainContext: true
+        - name: Premium-lagringsprestanda
+          href: ../virtual-machines/windows/premium-storage-performance.md
+          maintainContext: true
+        - name: Skalbarhetsmål för diskar
+          href: ../virtual-machines/windows/disk-scalability-targets.md
+          maintainContext: true
+        - name: Lagring och haveriberedskap för diskar
+          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          maintainContext: true
+    - name: Nätverk
+      href: ../virtual-machines/windows/network-overview.md
       maintainContext: true
-    - name: Databehandling med höga prestanda
-      href: ../virtual-machines/windows/sizes-hpc.md
+    - name: Infrastruktur för automatisering
+      href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: Azure-beräkningsenheter (ACU)
-      href: ../virtual-machines/windows/acu.md
+    - name: Säkerhet och principer
+      href: ../virtual-machines/windows/security-policy.md
       maintainContext: true
-    - name: Benchmark-poäng
-      href: ../virtual-machines/windows/compute-benchmark-scores.md
+    - name: Övervakning
+      href: ../virtual-machines/windows/monitor.md
       maintainContext: true
-    maintainContext: true
-  - name: Godkända Linux-distributioner
-    href: ../virtual-machines/linux/endorsed-distros.md
-    maintainContext: true
-  - name: Underhåll och uppdateringar
-    href: ../virtual-machines/windows/maintenance-and-updates.md
-    maintainContext: true
-  - name: Disklagring
-    items:
-    - name: Managed Disks
-      href: ../virtual-machines/windows/managed-disks-overview.md
-      maintainContext: true
-    - name: Välja en disktyp
-      href: ../virtual-machines/windows/disks-types.md
-      maintainContext: true
-    - name: Premium-lagringsprestanda
-      href: ../virtual-machines/windows/premium-storage-performance.md
-      maintainContext: true
-    - name: Skalbarhetsmål för diskar
-      href: ../virtual-machines/windows/disk-scalability-targets.md
-      maintainContext: true
-    - name: Lagring och haveriberedskap för diskar
-      href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
-      maintainContext: true
-  - name: Nätverk
-    href: ../virtual-machines/windows/network-overview.md
-    maintainContext: true
-  - name: Infrastruktur för automatisering
-    href: ../virtual-machines/windows/infrastructure-automation.md
-    maintainContext: true
-  - name: Säkerhet och principer
-    href: ../virtual-machines/windows/security-policy.md
-    maintainContext: true
-  - name: Övervakning
-    href: ../virtual-machines/windows/monitor.md
-    maintainContext: true
-  - name: Distributionsöverväganden
-    items:
-    - name: vCPU-kvoter
-      href: ../virtual-machines/windows/quotas.md
-      maintainContext: true
+    - name: Distributionsöverväganden
+      items:
+        - name: vCPU-kvoter
+          href: ../virtual-machines/windows/quotas.md
+          maintainContext: true
 - name: Gör så här för att
   items:
-  - name: Planera och designa
-    items:
-    - name: Designöverväganden
-      href: virtual-machine-scale-sets-design-overview.md
-    - name: 'Förstå instans-ID: n'
-      href: virtual-machine-scale-sets-instance-ids.md
-  - name: Skapa en mall
-    items:
-    - name: Läs mer om skalningsuppsättningsmallar
-      href: virtual-machine-scale-sets-mvss-start.md
-    - name: Använda ett befintligt virtuellt nätverk
-      href: virtual-machine-scale-sets-mvss-existing-vnet.md
-    - name: Använda en anpassad avbildning
-      href: virtual-machine-scale-sets-mvss-custom-image.md
-    - name: Använda gästbaserad autoskalning med en Linux-mall för skalningsuppsättning
-      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
-  - name: Distribuera
-    items:
-    - name: Skapa med Visual Studio
-      href: virtual-machine-scale-sets-vs-create.md
-    - name: Använda tillgänglighetszoner
-      href: virtual-machine-scale-sets-use-availability-zones.md
-    - name: Autoskala en skalningsuppsättning
-      href: virtual-machine-scale-sets-autoscale-overview.md
+    - name: Planera och designa
       items:
-      - name: Använda Azure-portalen
-        href: virtual-machine-scale-sets-autoscale-portal.md
-      - name: Avancerad automatisk skalning
-        href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
-    - name: Program i skalningsuppsättningar
-      href: virtual-machine-scale-sets-deploy-app.md
-    - name: Tillägg i skalningsuppsättningar
+        - name: Designöverväganden
+          href: virtual-machine-scale-sets-design-overview.md
+        - name: 'Förstå instans-ID: n'
+          href: virtual-machine-scale-sets-instance-ids.md
+    - name: Skapa en mall
       items:
-      - name: Tilläggssekvensering på skalningsuppsättningar
-        href: virtual-machine-scale-sets-extension-sequencing.md
-      - name: Tillägg för programmets hälsotillstånd
-        href: virtual-machine-scale-sets-health-extension.md
-    - name: Använda datadiskar med skalningsuppsättningar
-      href: virtual-machine-scale-sets-attached-disks.md
-    - name: Kryptera diskar i skalningsuppsättningar
+        - name: Läs mer om skalningsuppsättningsmallar
+          href: virtual-machine-scale-sets-mvss-start.md
+        - name: Använda ett befintligt virtuellt nätverk
+          href: virtual-machine-scale-sets-mvss-existing-vnet.md
+        - name: Använda en anpassad avbildning
+          href: virtual-machine-scale-sets-mvss-custom-image.md
+        - name: Använda gästbaserad autoskalning med en Linux-mall för skalningsuppsättning
+          href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Distribuera
       items:
-      - name: Använd PowerShell
-        href: virtual-machine-scale-sets-encrypt-disks-ps.md
-      - name: Använda Azure CLI
-        href: virtual-machine-scale-sets-encrypt-disks-cli.md
-    - name: Arbeta med stora skalningsuppsättningar
-      href: virtual-machine-scale-sets-placement-groups.md
-    - name: Konvertera en skalningsuppsättningsmall för användning av hanterad disk
-      href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Använda låg prioritet
-      href: virtual-machine-scale-sets-use-low-priority.md
-  - name: Hantera
-    items:
-    - name: Vanliga administrativa uppgifter
+        - name: Skapa med Visual Studio
+          href: virtual-machine-scale-sets-vs-create.md
+        - name: Använda tillgänglighetszoner
+          href: virtual-machine-scale-sets-use-availability-zones.md
+        - name: Autoskala en skalningsuppsättning
+          href: virtual-machine-scale-sets-autoscale-overview.md
+          items:
+            - name: Använda Azure-portalen
+              href: virtual-machine-scale-sets-autoscale-portal.md
+            - name: Avancerad automatisk skalning
+              href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+        - name: Program i skalningsuppsättningar
+          href: virtual-machine-scale-sets-deploy-app.md
+        - name: Tillägg i skalningsuppsättningar
+          items:
+            - name: Tilläggssekvensering på skalningsuppsättningar
+              href: virtual-machine-scale-sets-extension-sequencing.md
+            - name: Tillägg för programmets hälsotillstånd
+              href: virtual-machine-scale-sets-health-extension.md
+        - name: Använda datadiskar med skalningsuppsättningar
+          href: virtual-machine-scale-sets-attached-disks.md
+        - name: Kryptera diskar i skalningsuppsättningar
+          items:
+            - name: Använd PowerShell
+              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+            - name: Använda Azure CLI
+              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        - name: Arbeta med stora skalningsuppsättningar
+          href: virtual-machine-scale-sets-placement-groups.md
+        - name: Konvertera en skalningsuppsättningsmall för användning av hanterad disk
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Använda låg prioritet
+          href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Hantera
       items:
-      - name: Använda Azure CLI
-        href: virtual-machine-scale-sets-manage-cli.md
-      - name: Använda Azure PowerShell
-        href: virtual-machine-scale-sets-manage-powershell.md
-    - name: Delade bildgallerier (förhandsversion)
-      href: shared-image-galleries.md
+        - name: Vanliga administrativa uppgifter
+          items:
+            - name: Använda Azure CLI
+              href: virtual-machine-scale-sets-manage-cli.md
+            - name: Använda Azure PowerShell
+              href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Delade bildgallerier (förhandsversion)
+          href: shared-image-galleries.md
+          items:
+            - name: CLI
+              href: shared-images-cli.md
+            - name: PowerShell
+              href: shared-images-powershell.md
+            - name: Felsöka delade bilder
+              href: troubleshooting-shared-images.md
+        - name: Vertikal skalning i en skalningsuppsättning
+          href: virtual-machine-scale-sets-vertical-scale-reprovision.md
+        - name: Automatiska uppgraderingar av operativsystem
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Ändra en skalningsuppsättning
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Använda DSC och skalningsuppsättningar
+          href: virtual-machine-scale-sets-dsc.md
+        - name: Nätverk för skalningsuppsättningar
+          href: virtual-machine-scale-sets-networking.md
+        - name: Konvertera en mall till hanterade diskar
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Planerat underhåll
+          href: virtual-machine-scale-sets-maintenance-notifications.md
+    - name: Använda Ansible
       items:
-      - name: CLI
-        href: shared-images-cli.md
-      - name: PowerShell
-        href: shared-images-powershell.md
-      - name: Felsöka delade bilder
-        href: troubleshooting-shared-images.md
-    - name: Vertikal skalning i en skalningsuppsättning
-      href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-    - name: Automatiska uppgraderingar av operativsystem
-      href: virtual-machine-scale-sets-automatic-upgrade.md
-    - name: Ändra en skalningsuppsättning
-      href: virtual-machine-scale-sets-upgrade-scale-set.md
-    - name: Använda DSC och skalningsuppsättningar
-      href: virtual-machine-scale-sets-dsc.md
-    - name: Nätverk för skalningsuppsättningar
-      href: virtual-machine-scale-sets-networking.md
-    - name: Konvertera en mall till hanterade diskar
-      href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Planerat underhåll
-      href: virtual-machine-scale-sets-maintenance-notifications.md
-  - name: Använda Ansible
-    items:
-    - name: Skapa och hantera skalningsuppsättningar
-      href: /azure/ansible/ansible-create-configure-vmss
-      maintainContext: true
-    - name: Distribuera appar till skalningsuppsättningar
-      href: /azure/ansible/ansible-deploy-app-vmss
-      maintainContext: true
-    - name: Autoskala en skalningsuppsättning
-      href: /azure/ansible/ansible-auto-scale-vmss
-      maintainContext: true
-  - name: Felsöka
-    items:
-    - name: Automatisk skalning
-      href: virtual-machine-scale-sets-troubleshoot.md
-  - name: VANLIGA FRÅGOR OCH SVAR
-    items:
-    - name: Vanliga frågor och svar om skalningsuppsättningar
-      href: virtual-machine-scale-sets-faq.md
+        - name: Skapa och hantera skalningsuppsättningar
+          href: /azure/ansible/ansible-create-configure-vmss
+          maintainContext: true
+        - name: Distribuera appar till skalningsuppsättningar
+          href: /azure/ansible/ansible-deploy-app-vmss
+          maintainContext: true
+        - name: Autoskala en skalningsuppsättning
+          href: /azure/ansible/ansible-auto-scale-vmss
+          maintainContext: true
+    - name: Felsöka
+      items:
+        - name: Automatisk skalning
+          href: virtual-machine-scale-sets-troubleshoot.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      items:
+        - name: Vanliga frågor och svar om skalningsuppsättningar
+          href: virtual-machine-scale-sets-faq.md
 - name: Referens
   items:
-  - name: Azure PowerShell
-    href: /powershell/azure/overview
-  - name: Azure CLI
-    href: ../virtual-machines/azure-cli-arm-commands.md
-  - name: REST
-    href: /rest/api/virtualmachinescalesets/
-  - name: Azure-mallar
-    href: /azure/templates/microsoft.compute/virtualmachinescalesets
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: Azure CLI
+      href: ../virtual-machines/azure-cli-arm-commands.md
+    - name: REST
+      href: /rest/api/virtualmachinescalesets/
+    - name: Azure-mallar
+      href: /azure/templates/microsoft.compute/virtualmachinescalesets
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Prissättning
-    items:
-    - name: Linux
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/
-    - name: Windows
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: 98945ec03fafe5789f580ba70d4b0ae922ad8c65
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666638"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Prissättning
+      items:
+        - name: Linux
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
+        - name: Windows
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-vm-scale-set'

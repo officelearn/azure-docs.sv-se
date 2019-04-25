@@ -1,87 +1,80 @@
-items:
 - name: Azure for Containers
   href: index.yml
   items:
-  - name: Kubernetes Service (AKS)
-    href: https://docs.microsoft.com/azure/aks/
-    items:
-    - name: Introduktion till AKS
-      href: ../aks/intro-kubernetes.md
-    - name: Snabbstart – Distribuera ett AKS-kluster
-      href: ../aks/kubernetes-walkthrough.md
-    expanded: true
-  - name: Container Instances (ACI)
-    href: https://docs.microsoft.com/azure/container-instances/
-    items:
-    - name: Snabbstart – Skapa en containerinstans
-      href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-    - name: Självstudie – Skapa och distribuera en container
+    - name: Kubernetes Service (AKS)
+      href: 'https://docs.microsoft.com/azure/aks/'
+      expanded: true
       items:
-      - name: 1 – Skapa containeravbildning
-        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app
-      - name: 2 – Skapa containerregister
-        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr
-      - name: 3 – Distribuera app
-        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-deploy-app
-  - name: Container Registry (ACR)
-    href: https://docs.microsoft.com/azure/container-registry/
-    items:
-    - name: Snabbstart – Skapa ett register
-      href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-    - name: Självstudie – Skapa containeravbildningar
+        - name: Introduktion till AKS
+          href: ../aks/intro-kubernetes.md
+        - name: Snabbstart – Distribuera ett AKS-kluster
+          href: ../aks/kubernetes-walkthrough.md
+    - name: Container Instances (ACI)
+      href: 'https://docs.microsoft.com/azure/container-instances/'
       items:
-      - name: 1 – Skapa avbildningar i Azure
-        href: ../container-registry/container-registry-tutorial-quick-task.md
-      - name: 2 – Automatisera skapandet av avbildningar
-        href: ../container-registry/container-registry-tutorial-build-task.md
-      - name: 3 – Grundläggande uppdateringar av avbildningar
-        href: ../container-registry/container-registry-tutorial-base-image-update.md
-  - name: Web App for Containers
-    href: https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro
-    items:
-    - name: Använda en anpassad Docker-avbildning för Azure Web App for Containers
-      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image
-    - name: Självstudie – App med flera behållare
-      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app
-  - name: Service Fabric
-    href: https://docs.microsoft.com/azure/service-fabric/
-    items:
-    - name: Översikt – Service Fabric och containrar
-      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview
-    - name: Gör så här för att
+        - name: Snabbstart – Skapa en containerinstans
+          href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+        - name: Självstudie – Skapa och distribuera en container
+          items:
+            - name: 1 – Skapa containeravbildning
+              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app'
+            - name: 2 – Skapa containerregister
+              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr'
+            - name: 3 – Distribuera app
+              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-deploy-app'
+    - name: Container Registry (ACR)
+      href: 'https://docs.microsoft.com/azure/container-registry/'
       items:
-      - name: Skapa ett containerprogram på Windows
-        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers
-      - name: Skapa ett containerprogram på Linux
-        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux
-      - name: Använd ett befintligt .NET-program i containrar
-        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container
-  - name: Windows-container
-    href: https://docs.microsoft.com/azure/virtual-machines/windows/overview
-    items:
-    - name: Snabbstart – Windows-containrar på Windows Server
-      href: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server
-    - name: Om Windows-containrar
-      href: https://docs.microsoft.com/virtualization/windowscontainers/about/index
-  - name: Referens
-    items:
-    - name: Azure Container Instances (az container)
-      href: https://docs.microsoft.com/cli/azure/container
-    - name: Azure Container Service (az acs)
-      href: https://docs.microsoft.com/cli/azure/acs
-    - name: Azure Container Registry (az acr)
-      href: https://docs.microsoft.com/cli/azure/acr
-    - name: Web App for Containers (az appservice)
-      href: https://docs.microsoft.com/cli/azure/appservice
-    - name: Azure App Service Web App (az webapp)
-      href: https://docs.microsoft.com/cli/azure/webapp
-    - name: Azure Service Fabric (az sf)
-      href: https://docs.microsoft.com/cli/azure/sf
-    - name: Azure Virtual Machines (az vm)
-      href: https://docs.microsoft.com/cli/azure/vm
-ms.openlocfilehash: 9ee48a00784c0ca9fa00507e2956e34e7e6792d5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486239"
+        - name: Snabbstart – Skapa ett register
+          href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+        - name: Självstudie – Skapa containeravbildningar
+          items:
+            - name: 1 – Skapa avbildningar i Azure
+              href: ../container-registry/container-registry-tutorial-quick-task.md
+            - name: 2 – Automatisera skapandet av avbildningar
+              href: ../container-registry/container-registry-tutorial-build-task.md
+            - name: 3 – Grundläggande uppdateringar av avbildningar
+              href: ../container-registry/container-registry-tutorial-base-image-update.md
+    - name: Web App for Containers
+      href: 'https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro'
+      items:
+        - name: Använda en anpassad Docker-avbildning för Azure Web App for Containers
+          href: 'https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image'
+        - name: Självstudie – App med flera behållare
+          href: 'https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app'
+    - name: Service Fabric
+      href: 'https://docs.microsoft.com/azure/service-fabric/'
+      items:
+        - name: Översikt – Service Fabric och containrar
+          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
+        - name: Gör så här för att
+          items:
+            - name: Skapa ett containerprogram på Windows
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: Skapa ett containerprogram på Linux
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: Använd ett befintligt .NET-program i containrar
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
+    - name: Windows-container
+      href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
+      items:
+        - name: Snabbstart – Windows-containrar på Windows Server
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
+        - name: Om Windows-containrar
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
+    - name: Referens
+      items:
+        - name: Azure Container Instances (az container)
+          href: 'https://docs.microsoft.com/cli/azure/container'
+        - name: Azure Container Service (az acs)
+          href: 'https://docs.microsoft.com/cli/azure/acs'
+        - name: Azure Container Registry (az acr)
+          href: 'https://docs.microsoft.com/cli/azure/acr'
+        - name: Web App for Containers (az appservice)
+          href: 'https://docs.microsoft.com/cli/azure/appservice'
+        - name: Azure App Service Web App (az webapp)
+          href: 'https://docs.microsoft.com/cli/azure/webapp'
+        - name: Azure Service Fabric (az sf)
+          href: 'https://docs.microsoft.com/cli/azure/sf'
+        - name: Azure Virtual Machines (az vm)
+          href: 'https://docs.microsoft.com/cli/azure/vm'

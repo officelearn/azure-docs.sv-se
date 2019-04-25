@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6768d2a313a1d781c6db23dff404aed2efc99f31
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228346"
 documentType: LandingData
 title: Dokumentation om Custom Decision Service
 metadata:
-  title: Dokumentation om Custom Decision Service – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
-  meta.description: Learn how to create a contextual, decision-making API that improves with experience
+  title: 'Dokumentation om Custom Decision Service – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs'
+  meta.description: 'Learn how to create a contextual, decision-making API that improves with experience'
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -21,34 +15,34 @@ metadata:
   ms.date: 05/01/2018
   ms.author: nolachar
 abstract:
-  description: Med Azure Custom Decision Service kan du skapa intelligenta system med ett molnbaserat API för kontextuellt beslutsfattande, som blir bättre ju mer du använder det. Custom Decision Service använder kunskapsförmedling och anpassar innehållet i ditt program för att maximera användarnas engagemang. Systemet använder användarfeedback i sina beslut i realtid, och reagerar på framväxande trender och nyheter på några minuter. I de här snabbstarterna lär du dig att registrera ditt program och anropa API:et från en webbläsare eller app. Anpassa sedan dina artiklar och visa ditt innehåll som ”berättelser” redo för maskininlärning med självstudierna.
+  description: 'Med Azure Custom Decision Service kan du skapa intelligenta system med ett molnbaserat API för kontextuellt beslutsfattande, som blir bättre ju mer du använder det. Custom Decision Service använder kunskapsförmedling och anpassar innehållet i ditt program för att maximera användarnas engagemang. Systemet använder användarfeedback i sina beslut i realtid, och reagerar på framväxande trender och nyheter på några minuter. I de här snabbstarterna lär du dig att registrera ditt program och anropa API:et från en webbläsare eller app. Anpassa sedan dina artiklar och visa ditt innehåll som ”berättelser” redo för maskininlärning med självstudierna.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Registrera ditt program och anropa API:et Azure Custom Decision Service direkt från webbläsaren eller en smartphone-app:'
-  - type: list
-    style: unordered
+  - title: Snabbstarter på 5 minuter
     items:
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">Registrera ditt program</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser">Anropa API från en webbläsare</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-app">Anropa API från en app</a>
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Personanpassa dina artiklar på förstasidan på en webbplats och ange ditt innehåll som ”artiklar” redo för maskininlärning med Custom Decision Service-API:erna:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Registrera ditt program och anropa API:et Azure Custom Decision Service direkt från webbläsaren eller en smartphone-app:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">Registrera ditt program</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser">Anropa API från en webbläsare</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-app">Anropa API från en app</a>
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news">Personanpassning av artikel</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml">Machine Learning</a>
-- title: Referens
-  items:
-  - type: paragraph
-    text: De här API:erna fungerar tillsammans. Det finns tre API:er i API-referensen som bidrar till det anpassade beslutsfattandet. API:et Experimentering använder de loggfiler som genererats av API:et LogDownloader. Detaljerade scenarier finns i artiklarna.
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Personanpassa dina artiklar på förstasidan på en webbplats och ange ditt innehåll som ”artiklar” redo för maskininlärning med Custom Decision Service-API:erna:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news">Personanpassning av artikel</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml">Machine Learning</a>
+  - title: Referens
     items:
-    - title: API:er
-      html: <p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">Experimentering</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a><p>
+      - type: paragraph
+        text: 'De här API:erna fungerar tillsammans. Det finns tre API:er i API-referensen som bidrar till det anpassade beslutsfattandet. API:et Experimentering använder de loggfiler som genererats av API:et LogDownloader. Detaljerade scenarier finns i artiklarna.'
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 'API:er'
+            html: <p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">Experimentering</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a><p>

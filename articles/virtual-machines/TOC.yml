@@ -1,4 +1,3 @@
-items:
 - name: Dokumentation om Virtual Machines
   href: index.yml
 - name: Virtuella Linux-datorer i Azure
@@ -9,29 +8,23 @@ items:
   href: extensions/overview.md
 - name: Arbetsbelastningar
   items:
-  - name: Oracle
-    href: workloads/oracle/oracle-considerations.md
-  - name: SAP
-    href: workloads/sap/get-started.md
-  - name: Byta värd för stordator
-    href: workloads/mainframe-rehosting/overview.md
+    - name: Oracle
+      href: workloads/oracle/oracle-considerations.md
+    - name: SAP
+      href: workloads/sap/get-started.md
+    - name: Byta värd för stordator
+      href: workloads/mainframe-rehosting/overview.md
 - name: Klassiska distributioner
   items:
-  - name: Virtuella Linux-datorer med klassisk distribution
-    href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
-  - name: Virtuella Windows-datorer med klassisk distribution
-    href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
+    - name: Virtuella Linux-datorer med klassisk distribution
+      href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
+    - name: Virtuella Windows-datorer med klassisk distribution
+      href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
 - name: Resurser
   items:
-  - name: Utveckla dina färdigheter med Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 7f253c1ed2b4910e18acd65367cd8e0e10574c0d
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737764"
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/?products=azure-virtual-machines
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'

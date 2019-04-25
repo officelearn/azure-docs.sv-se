@@ -229,7 +229,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 |Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |referenceCode|sträng|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
-|Felkod|sträng|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
+|errorCode|sträng|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
 |emailBody|sträng|E-brödtext som genereras om den här sidan visades som ett resultat av ett internt fel.|  
 |requestedUrl|sträng|Den Webbadress som efterfrågas när sidan inte hittades.|  
 |referrerUrl|sträng|Den begärda Webbadressen referent URL.|  

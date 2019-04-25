@@ -1,25 +1,18 @@
-items:
 - name: Sakernas Internet i Azure
   href: index.md
 - name: Översikt
   items:
-  - name: Introduktion
-    href: iot-introduction.md
-  - name: Azure IoT-tjänster och tekniker
-    href: iot-services-and-technologies.md
+    - name: Introduktion
+      href: iot-introduction.md
+    - name: Azure IoT-tjänster och tekniker
+      href: iot-services-and-technologies.md
 - name: Säkerhet
   items:
-  - name: Säkerhetsarkitektur
-    href: iot-security-architecture.md
-  - name: Metodtips för säkerhet
-    href: iot-security-best-practices.md
-  - name: Säker distribution
-    href: iot-security-deployment.md
-  - name: Säkerhet från grunden
-    href: iot-security-ground-up.md
-ms.openlocfilehash: dc5c08ea2a3376b4213e83495ff1dce697338d82
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336724"
+    - name: Säkerhetsarkitektur
+      href: iot-security-architecture.md
+    - name: Metodtips för säkerhet
+      href: iot-security-best-practices.md
+    - name: Säker distribution
+      href: iot-security-deployment.md
+    - name: Säkerhet från grunden
+      href: iot-security-ground-up.md

@@ -21,7 +21,7 @@
         - name: Azure Stack
           items:
             - name: Distributionsöversikt för Azure Stack
-              href: /azure-stack/asdk/asdk-download
+              href: ../../azure-stack/azure-stack-deploy-overview.md
         - name: Azure Backup
           items:
             - name: Säkerhetskopiera en virtuell dator i Azure-portalen

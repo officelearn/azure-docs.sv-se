@@ -1,127 +1,120 @@
-items:
 - name: Azure Digital Twins
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Azure Digital Twins
-    href: about-digital-twins.md
+    - name: Om Azure Digital Twins
+      href: about-digital-twins.md
 - name: Snabbstarter
   items:
-  - name: Hitta tillgängliga rum
-    href: quickstart-view-occupancy-dotnet.md
+    - name: Hitta tillgängliga rum
+      href: quickstart-view-occupancy-dotnet.md
 - name: Självstudier
   items:
-  - name: Övervaka en byggnad med Digital Twins
-    items:
-    - name: Distribuera och konfigurera
-      href: tutorial-facilities-setup.md
-    - name: Etablera och övervaka villkor
-      href: tutorial-facilities-udf.md
-    - name: Meddela med Logic Apps
-      href: tutorial-facilities-events.md
-    - name: Visualisera händelser med TSI
-      href: tutorial-facilities-analyze.md
+    - name: Övervaka en byggnad med Digital Twins
+      items:
+        - name: Distribuera och konfigurera
+          href: tutorial-facilities-setup.md
+        - name: Etablera och övervaka villkor
+          href: tutorial-facilities-udf.md
+        - name: Meddela med Logic Apps
+          href: tutorial-facilities-events.md
+        - name: Visualisera händelser med TSI
+          href: tutorial-facilities-analyze.md
 - name: Begrepp
   items:
-  - name: Graf för objektmodell och rumslig intelligens i Digital Twins
-    href: concepts-objectmodel-spatialgraph.md
-  - name: Enhetsanslutning och inkommande telemetri
-    href: concepts-device-ingress.md
-  - name: Databearbetning och användardefinierade funktioner
-    href: concepts-user-defined-functions.md
-  - name: Routningshändelser och meddelanden
-    href: concepts-events-routing.md
-  - name: Tjänstbegränsningar för allmän förhandsversion
-    href: concepts-service-limits.md
-  - name: Säkerhet
-    items:
-    - name: Metodtips för säkerhet
-      href: security-best-practices.md
-    - name: Rollbaserad åtkomstkontroll
-      href: security-role-based-access-control.md
-    - name: Skapa och hantera rolltilldelningar
-      href: security-create-manage-role-assignments.md
-    - name: Autentisering för API:er för hantering
-      href: security-authenticating-apis.md
+    - name: Graf för objektmodell och rumslig intelligens i Digital Twins
+      href: concepts-objectmodel-spatialgraph.md
+    - name: Enhetsanslutning och inkommande telemetri
+      href: concepts-device-ingress.md
+    - name: Databearbetning och användardefinierade funktioner
+      href: concepts-user-defined-functions.md
+    - name: Routningshändelser och meddelanden
+      href: concepts-events-routing.md
+    - name: Tjänstbegränsningar för allmän förhandsversion
+      href: concepts-service-limits.md
+    - name: Säkerhet
+      items:
+        - name: Metodtips för säkerhet
+          href: security-best-practices.md
+        - name: Rollbaserad åtkomstkontroll
+          href: security-role-based-access-control.md
+        - name: Skapa och hantera rolltilldelningar
+          href: security-create-manage-role-assignments.md
+        - name: 'Autentisering för API:er för hantering'
+          href: security-authenticating-apis.md
 - name: Instruktionsguider
   items:
-  - name: Aktivera program med flera klienter
-    href: how-to-multitenant-applications.md
-  - name: Skapa användardefinierade funktioner
-    href: how-to-user-defined-functions.md
-  - name: Dirigera händelser och meddelanden via slutpunkter
-    href: how-to-egress-endpoints.md
-  - name: Lägga till blobar i objekt
-    href: how-to-add-blobs.md
-  - name: Använda Digital Twins Swagger
-    href: how-to-use-swagger.md
-  - name: Felsöka användardefinierade funktioner
-    href: how-to-diagnose-user-defined-functions.md
-  - name: Konfigurera övervakning
-    href: how-to-configure-monitoring.md
-  - name: Fråga Digital Twins-API:er
-    items:
-    - name: Konfigurera Postman
-      href: how-to-configure-postman.md
-    - name: Använda Digital Twins-API:er
-      href: how-to-navigate-apis.md
-    - name: Vanliga frågemönster
-      href: how-to-query-common-apis.md
+    - name: Aktivera program med flera klienter
+      href: how-to-multitenant-applications.md
+    - name: Skapa användardefinierade funktioner
+      href: how-to-user-defined-functions.md
+    - name: Dirigera händelser och meddelanden via slutpunkter
+      href: how-to-egress-endpoints.md
+    - name: Lägga till blobar i objekt
+      href: how-to-add-blobs.md
+    - name: Använda Digital Twins Swagger
+      href: how-to-use-swagger.md
+    - name: Felsöka användardefinierade funktioner
+      href: how-to-diagnose-user-defined-functions.md
+    - name: Konfigurera övervakning
+      href: how-to-configure-monitoring.md
+    - name: 'Fråga Digital Twins-API:er'
+      items:
+        - name: Konfigurera Postman
+          href: how-to-configure-postman.md
+        - name: 'Använda Digital Twins-API:er'
+          href: how-to-navigate-apis.md
+        - name: Vanliga frågemönster
+          href: how-to-query-common-apis.md
 - name: Referens
   items:
-  - name: Användardefinierade funktioner – klientbibliotek
-    href: reference-user-defined-functions-client-library.md
+    - name: Användardefinierade funktioner – klientbibliotek
+      href: reference-user-defined-functions-client-library.md
 - name: Relaterat
   items:
-  - name: Lösningar
-    items:
-    - name: IoT-lösningsacceleratorer
-      href: /azure/iot-accelerators
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Plattformstjänster
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: SDK:er för IoT-tjänster
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Kartor
-      href: /azure/azure-maps
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: SDK:er för IoT-enheter
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Lösningar
+      items:
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-accelerators
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Plattformstjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: 'SDK:er för IoT-tjänster'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Kartor
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
-  - name: Azure Digital Twins-exempel för C# (.NET)
-    href: https://github.com/Azure-Samples/digital-twins-samples-csharp
-  - name: Azure Digital Twins REST API
-    href: https://docs.westcentralus.azuresmartspaces.net/management/swagger
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/digital-twins/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Azure Digital Twins Graph Viewer
-    href: https://github.com/Azure/azure-digital-twins-graph-viewer
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-digital-twins
-  - name: Kundberättelser
-    href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Videoklipp
-    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-ms.openlocfilehash: 0a76dbffc41106af5df540d29c1d7171f1506202
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664870"
+    - name: 'Azure Digital Twins-exempel för C# (.NET)'
+      href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
+    - name: Azure Digital Twins REST API
+      href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Azure Digital Twins Graph Viewer
+      href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
+    - name: Kundberättelser
+      href: 'https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/'
+    - name: Azure IoT Developer Center
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Videoklipp
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'

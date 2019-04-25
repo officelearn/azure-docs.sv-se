@@ -1,434 +1,427 @@
-items:
 - name: Dokumentation om StorSimple
   href: index.md
 - name: StorSimple virtuell matris
   items:
-  - name: Översikt
-    items:
-    - name: Vad är lösningen?
-      href: storsimple-ova-overview.md
-  - name: Kom igång
-    items:
-    - name: Planera
+    - name: Översikt
       items:
-      - name: Granska krav
-        href: storsimple-ova-system-requirements.md
-      - name: Förstå begränsningar
-        href: storsimple-ova-limits.md
-      - name: Granska metodtips
-        href: storsimple-ova-best-practices.md
-    - name: Distribuera
+        - name: Vad är lösningen?
+          href: storsimple-ova-overview.md
+    - name: Kom igång
       items:
-      - name: Förbered distributionen
-        href: storsimple-virtual-array-deploy1-portal-prep.md
-        items:
-        - name: Använd StorSimple Manager-tjänsten
-          href: storsimple-virtual-array-manage-service.md
-        - name: Ny autentisering
-          href: storsimple-virtual-array-aad-registration-key.md
-      - name: Etablera i Hyper-V
-        href: storsimple-virtual-array-deploy2-provision-hyperv.md
-      - name: Etablera i VMware
-        href: storsimple-virtual-array-deploy2-provision-vmware.md
-      - name: Konfigurera som filserver
-        href: storsimple-virtual-array-deploy3-fs-setup.md
-      - name: Konfigurera som iSCSI-server
-        href: storsimple-virtual-array-deploy3-iscsi-setup.md
-  - name: Gör så här för att
-    items:
-    - name: Hantera via Azure Portal
-      href: storsimple-virtual-array-manager-service-administration.md
+        - name: Planera
+          items:
+            - name: Granska krav
+              href: storsimple-ova-system-requirements.md
+            - name: Förstå begränsningar
+              href: storsimple-ova-limits.md
+            - name: Granska metodtips
+              href: storsimple-ova-best-practices.md
+        - name: Distribuera
+          items:
+            - name: Förbered distributionen
+              href: storsimple-virtual-array-deploy1-portal-prep.md
+              items:
+                - name: Använd StorSimple Manager-tjänsten
+                  href: storsimple-virtual-array-manage-service.md
+                - name: Ny autentisering
+                  href: storsimple-virtual-array-aad-registration-key.md
+            - name: Etablera i Hyper-V
+              href: storsimple-virtual-array-deploy2-provision-hyperv.md
+            - name: Etablera i VMware
+              href: storsimple-virtual-array-deploy2-provision-vmware.md
+            - name: Konfigurera som filserver
+              href: storsimple-virtual-array-deploy3-fs-setup.md
+            - name: Konfigurera som iSCSI-server
+              href: storsimple-virtual-array-deploy3-iscsi-setup.md
+    - name: Gör så här för att
       items:
-      - name: Installera senaste uppdateringen
-        href: storsimple-virtual-array-install-update-11.md
-        items:
-        - name: Installera uppdatering 1
-          href: storsimple-virtual-array-install-update-1.md
-        - name: Installera uppdatering 0.6
-          href: storsimple-virtual-array-install-update-06.md
+        - name: Hantera via Azure Portal
+          href: storsimple-virtual-array-manager-service-administration.md
+          items:
+            - name: Installera senaste uppdateringen
+              href: storsimple-virtual-array-install-update-11.md
+              items:
+                - name: Installera uppdatering 1
+                  href: storsimple-virtual-array-install-update-1.md
+                - name: Installera uppdatering 0.6
+                  href: storsimple-virtual-array-install-update-06.md
+                - name: Arkiv
+                  items:
+                    - name: Installera uppdatering 0.5
+                      href: storsimple-virtual-array-install-update-05.md
+                    - name: Installera uppdatering 0.4
+                      href: storsimple-virtual-array-install-update-04.md
+                    - name: Installera uppdatering 0.3
+                      href: storsimple-virtual-array-install-update.md
+            - name: Skapa och hantera säkerhetskopior
+              href: storsimple-virtual-array-backup.md
+            - name: Klona från säkerhetskopior
+              href: storsimple-virtual-array-clone.md
+            - name: Redundans och DR
+              href: storsimple-virtual-array-failover-dr.md
+            - name: Inaktivera och ta bort
+              href: storsimple-virtual-array-deactivate-and-delete-device.md
+            - name: Hantera resurser
+              href: storsimple-virtual-array-manage-shares.md
+            - name: Hantera volymer
+              href: storsimple-virtual-array-manage-volumes.md
+            - name: Visa sammanfattning av tjänst
+              href: storsimple-virtual-array-service-summary.md
+            - name: Visa sammanfattning av enhet
+              href: storsimple-virtual-array-device-summary.md
+            - name: Hantera lagringskonton
+              href: storsimple-virtual-array-manage-storage-accounts.md
+            - name: 'Hantera ACR:er'
+              href: storsimple-virtual-array-manage-acrs.md
+            - name: Hantera jobb
+              href: storsimple-virtual-array-manage-jobs.md
+            - name: Ändra enhetens lösenord
+              href: storsimple-virtual-array-change-device-admin-password.md
+            - name: Övervaka med aviseringar
+              href: storsimple-virtual-array-manage-alerts.md
+            - name: Diagnostisera och felsöka
+              href: storsimple-virtual-array-diagnose-problems.md
+            - name: Logga supportbegäran
+              href: storsimple-virtual-array-log-support-ticket.md
+        - name: Konfigurera via lokalt webbgränssnitt
+          href: storsimple-ova-web-ui-admin.md
+    - name: Viktig information
+      items:
+        - name: Uppdatering 1.1 – aktuell
+          href: storsimple-virtual-array-update-11-release-notes.md
+        - name: Uppdatering 1
+          href: storsimple-virtual-array-update-1-release-notes.md
+        - name: Uppdatering 0.6
+          href: storsimple-virtual-array-update-06-release-notes.md
         - name: Arkiv
           items:
-          - name: Installera uppdatering 0.5
-            href: storsimple-virtual-array-install-update-05.md
-          - name: Installera uppdatering 0.4
-            href: storsimple-virtual-array-install-update-04.md
-          - name: Installera uppdatering 0.3
-            href: storsimple-virtual-array-install-update.md
-      - name: Skapa och hantera säkerhetskopior
-        href: storsimple-virtual-array-backup.md
-      - name: Klona från säkerhetskopior
-        href: storsimple-virtual-array-clone.md
-      - name: Redundans och DR
-        href: storsimple-virtual-array-failover-dr.md
-      - name: Inaktivera och ta bort
-        href: storsimple-virtual-array-deactivate-and-delete-device.md
-      - name: Hantera resurser
-        href: storsimple-virtual-array-manage-shares.md
-      - name: Hantera volymer
-        href: storsimple-virtual-array-manage-volumes.md
-      - name: Visa sammanfattning av tjänst
-        href: storsimple-virtual-array-service-summary.md
-      - name: Visa sammanfattning av enhet
-        href: storsimple-virtual-array-device-summary.md
-      - name: Hantera lagringskonton
-        href: storsimple-virtual-array-manage-storage-accounts.md
-      - name: Hantera ACR:er
-        href: storsimple-virtual-array-manage-acrs.md
-      - name: Hantera jobb
-        href: storsimple-virtual-array-manage-jobs.md
-      - name: Ändra enhetens lösenord
-        href: storsimple-virtual-array-change-device-admin-password.md
-      - name: Övervaka med aviseringar
-        href: storsimple-virtual-array-manage-alerts.md
-      - name: Diagnostisera och felsöka
-        href: storsimple-virtual-array-diagnose-problems.md
-      - name: Logga supportbegäran
-        href: storsimple-virtual-array-log-support-ticket.md
-    - name: Konfigurera via lokalt webbgränssnitt
-      href: storsimple-ova-web-ui-admin.md
-  - name: Viktig information
-    items:
-    - name: Uppdatering 1.1 – aktuell
-      href: storsimple-virtual-array-update-11-release-notes.md
-    - name: Uppdatering 1
-      href: storsimple-virtual-array-update-1-release-notes.md
-    - name: Uppdatering 0.6
-      href: storsimple-virtual-array-update-06-release-notes.md
-    - name: Arkiv
-      items:
-      - name: Uppdatering 0.5
-        href: storsimple-virtual-array-update-05-release-notes.md
-      - name: Uppdatering 0.4
-        href: storsimple-virtual-array-update-04-release-notes.md
-      - name: Uppdatering 0.3
-        href: storsimple-ova-update-03-release-notes.md
-      - name: Uppdatering 0.2 och 0.1
-        href: storsimple-ova-update-01-release-notes.md
+            - name: Uppdatering 0.5
+              href: storsimple-virtual-array-update-05-release-notes.md
+            - name: Uppdatering 0.4
+              href: storsimple-virtual-array-update-04-release-notes.md
+            - name: Uppdatering 0.3
+              href: storsimple-ova-update-03-release-notes.md
+            - name: Uppdatering 0.2 och 0.1
+              href: storsimple-ova-update-01-release-notes.md
 - name: StorSimple 8000-serien (Azure Portal)
   items:
-  - name: Översikt
-    items:
-    - name: Vad är lösningen?
-      href: storsimple-overview.md
-    - name: Jämför dataöverföringsalternativ
-      href: storsimple-8000-choose-storage-solution.md
-    - name: StorSimple-inlärningskarta
-      href: https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/
-    - name: Säkerhetsöverväganden
-      href: storsimple-8000-security.md
-    - name: Regional tillgänglighet
-      href: storsimple-regions.md
-  - name: Kom igång
-    items:
-    - name: Planera
+    - name: Översikt
       items:
-      - name: Granska krav
-        href: storsimple-8000-system-requirements.md
-      - name: Granska tekniska specifikationer
-        href: storsimple-8000-technical-specifications-and-compliance.md
-      - name: Förstå begränsningar
-        href: storsimple-8000-limits.md
-      - name: Bästa praxis
-        href: https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68
-    - name: Installera
+        - name: Vad är lösningen?
+          href: storsimple-overview.md
+        - name: Jämför dataöverföringsalternativ
+          href: storsimple-8000-choose-storage-solution.md
+        - name: StorSimple-inlärningskarta
+          href: 'https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/'
+        - name: Säkerhetsöverväganden
+          href: storsimple-8000-security.md
+        - name: Regional tillgänglighet
+          href: storsimple-regions.md
+    - name: Kom igång
       items:
-      - name: Granska säkerhet
-        href: storsimple-8000-safety.md
-      - name: Packa upp, racka, kabla en 8100
-        href: storsimple-8100-hardware-installation.md
-      - name: Packa upp, racka, kabla en 8600
-        href: storsimple-8600-hardware-installation.md
-      - name: Maskinvara som stöds för 10 GbE-nätverksgränssnitt
-        href: storsimple-supported-hardware-for-10-gbe-network-interfaces.md
-    - name: Distribuera
-      items:
-      - name: StorSimple Device Manager-tjänsten
-        href: storsimple-8000-manage-service.md
-      - name: Ny autentisering för tjänsten
-        href: storsimple-8000-aad-registration-key.md
-      - name: Fysisk enhet i Azure
-        href: storsimple-8000-deployment-walkthrough-u2.md
-      - name: Fysisk enhet i Government Portal
-        href: storsimple-8000-deployment-walkthrough-gov-u2.md
-      - name: Molninstallation i Azure
-        href: storsimple-8000-cloud-appliance-u2.md
-      - name: StorSimple Snapshot Manager
-        href: storsimple-snapshot-manager-deployment.md
-      - name: StorSimple-adapter för SharePoint
-        href: storsimple-adapter-for-sharepoint.md
-  - name: Gör så här för att
-    items:
-    - name: Hantera
-      items:
-      - name: Använd StorSimple Manager-tjänsten
-        href: storsimple-8000-manager-service-administration.md
-        items:
-        - name: Återställ från en säkerhetskopia
-          href: storsimple-8000-restore-from-backup-set-u2.md
-        - name: Klona en volym
-          href: storsimple-8000-clone-volume-u2.md
-        - name: Fjärranslut till din enhet
-          href: storsimple-8000-remote-connect.md
-        - name: Inaktivera och ta bort din enhet
-          href: storsimple-8000-deactivate-and-delete-device.md
-        - name: Redundansväxla din enhet
-          href: storsimple-8000-device-failover-disaster-recovery.md
+        - name: Planera
           items:
-          - name: Redundansväxla till fysisk enhet
-            href: storsimple-8000-device-failover-physical-device.md
-          - name: Redundansväxla till molninstallation
-            href: storsimple-8000-device-failover-cloud-appliance.md
-          - name: Redundansväxla till samma enhet
-            href: storsimple-8000-device-failover-same-device.md
-        - name: Hantera säkerhetskopieringskatalogen
-          href: storsimple-8000-manage-backup-catalog.md
-        - name: Hantera säkerhetskopieringsprinciper
-          href: storsimple-8000-manage-backup-policies-u2.md
-        - name: Hantera lagringskonton
-          href: storsimple-8000-manage-storage-accounts.md
-        - name: Hantera volymcontainrar
-          href: storsimple-8000-manage-volume-containers.md
-        - name: Hantera volymer – aktuella
-          href: storsimple-8000-manage-volumes-u2.md
+            - name: Granska krav
+              href: storsimple-8000-system-requirements.md
+            - name: Granska tekniska specifikationer
+              href: storsimple-8000-technical-specifications-and-compliance.md
+            - name: Förstå begränsningar
+              href: storsimple-8000-limits.md
+            - name: Bästa praxis
+              href: 'https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68'
+        - name: Installera
           items:
-          - name: 'Vanliga frågor och svar: Lokalt fixerade volymer'
-            href: storsimple-8000-local-volume-faq.md
-        - name: Rollbaserad åtkomstkontroll
-          href: storsimple-8000-role-based-access-control.md
-        - name: Hantera ACR:er
-          href: storsimple-8000-manage-acrs.md
-        - name: Hantera bandbreddsmallar
-          href: storsimple-8000-manage-bandwidth-templates.md
-        - name: Visa och hantera jobb
-          href: storsimple-8000-manage-jobs-u2.md
-        - name: Ändra enhetsläge
-          href: storsimple-8000-device-modes.md
-        - name: Ändra enhetens lösenord
-          href: storsimple-8000-change-passwords.md
-        - name: Ändra enhetskonfigurationen
-          href: storsimple-8000-modify-device-config.md
-        - name: Slå på och slå av
-          href: storsimple-turn-device-on-or-off.md
-        - name: Konfigurera MPIO på Windows Server-värden
-          href: storsimple-8000-configure-mpio-windows-server.md
-        - name: Konfigurera MPIO på Linux-värd
-          href: storsimple-configure-mpio-on-linux.md
-        - name: Konfigurera CHAP
-          href: storsimple-8000-configure-chap.md
-      - name: Använda Windows PowerShell för StorSimple
-        href: storsimple-8000-windows-powershell-administration.md
-        items:
-        - name: Hantera enhetskontrollanten
-          href: storsimple-8000-manage-device-controller.md
-        - name: Konfigurera webbproxy
-          href: storsimple-8000-configure-web-proxy.md
-        - name: Ändra DATA 0-inställningar
-          href: storsimple-8000-modify-data-0.md
-      - name: Använd StorSimple Snapshot Manager
-        href: storsimple-snapshot-manager-admin.md
-        items:
-        - name: Vad är StorSimple Snapshot Manager?
-          href: storsimple-what-is-snapshot-manager.md
-        - name: Om StorSimple Snapshot Manager-gränssnittet
-          href: storsimple-use-snapshot-manager.md
-        - name: Hantera enheter via StorSimple Snapshot Manager
-          href: storsimple-snapshot-manager-manage-devices.md
-        - name: Hantera säkerhetskopieringsprinciper via StorSimple Snapshot Manager
-          href: storsimple-snapshot-manager-manage-backup-policies.md
-        - name: Hantera volymgrupper via StorSimple Snapshot Manager
-          href: storsimple-snapshot-manager-manage-volume-groups.md
-        - name: Hantera säkerhetskopieringskatalogen via StorSimple Snapshot Manager
-          href: storsimple-snapshot-manager-manage-backup-catalog.md
-        - name: Hantera säkerhetskopieringsjobb via StorSimple Snapshot Manager
-          href: storsimple-snapshot-manager-manage-backup-jobs.md
-        - name: Hantera volymer via StorSimple Snapshot Manager
-          href: storsimple-snapshot-manager-manage-volumes.md
-        - name: Använd MMC-aktiviteter i StorSimple Snapshot Manager
-          href: storsimple-snapshot-manager-mmc-menu.md
-    - name: Automatisera
+            - name: Granska säkerhet
+              href: storsimple-8000-safety.md
+            - name: 'Packa upp, racka, kabla en 8100'
+              href: storsimple-8100-hardware-installation.md
+            - name: 'Packa upp, racka, kabla en 8600'
+              href: storsimple-8600-hardware-installation.md
+            - name: Maskinvara som stöds för 10 GbE-nätverksgränssnitt
+              href: storsimple-supported-hardware-for-10-gbe-network-interfaces.md
+        - name: Distribuera
+          items:
+            - name: StorSimple Device Manager-tjänsten
+              href: storsimple-8000-manage-service.md
+            - name: Ny autentisering för tjänsten
+              href: storsimple-8000-aad-registration-key.md
+            - name: Fysisk enhet i Azure
+              href: storsimple-8000-deployment-walkthrough-u2.md
+            - name: Fysisk enhet i Government Portal
+              href: storsimple-8000-deployment-walkthrough-gov-u2.md
+            - name: Molninstallation i Azure
+              href: storsimple-8000-cloud-appliance-u2.md
+            - name: StorSimple Snapshot Manager
+              href: storsimple-snapshot-manager-deployment.md
+            - name: StorSimple-adapter för SharePoint
+              href: storsimple-adapter-for-sharepoint.md
+    - name: Gör så här för att
       items:
-      - name: Använda exempelskript med Azure PowerShell
-        href: storsimple-8000-automation-azurerm-scripts.md
-      - name: Använda runbook-flöden för Azure Automation
-        href: storsimple-8000-automation-azurerm-runbook.md
-    - name: Skapa lösningar
+        - name: Hantera
+          items:
+            - name: Använd StorSimple Manager-tjänsten
+              href: storsimple-8000-manager-service-administration.md
+              items:
+                - name: Återställ från en säkerhetskopia
+                  href: storsimple-8000-restore-from-backup-set-u2.md
+                - name: Klona en volym
+                  href: storsimple-8000-clone-volume-u2.md
+                - name: Fjärranslut till din enhet
+                  href: storsimple-8000-remote-connect.md
+                - name: Inaktivera och ta bort din enhet
+                  href: storsimple-8000-deactivate-and-delete-device.md
+                - name: Redundansväxla din enhet
+                  href: storsimple-8000-device-failover-disaster-recovery.md
+                  items:
+                    - name: Redundansväxla till fysisk enhet
+                      href: storsimple-8000-device-failover-physical-device.md
+                    - name: Redundansväxla till molninstallation
+                      href: storsimple-8000-device-failover-cloud-appliance.md
+                    - name: Redundansväxla till samma enhet
+                      href: storsimple-8000-device-failover-same-device.md
+                - name: Hantera säkerhetskopieringskatalogen
+                  href: storsimple-8000-manage-backup-catalog.md
+                - name: Hantera säkerhetskopieringsprinciper
+                  href: storsimple-8000-manage-backup-policies-u2.md
+                - name: Hantera lagringskonton
+                  href: storsimple-8000-manage-storage-accounts.md
+                - name: Hantera volymcontainrar
+                  href: storsimple-8000-manage-volume-containers.md
+                - name: Hantera volymer – aktuella
+                  href: storsimple-8000-manage-volumes-u2.md
+                  items:
+                    - name: 'Vanliga frågor och svar: Lokalt fixerade volymer'
+                      href: storsimple-8000-local-volume-faq.md
+                - name: Rollbaserad åtkomstkontroll
+                  href: storsimple-8000-role-based-access-control.md
+                - name: 'Hantera ACR:er'
+                  href: storsimple-8000-manage-acrs.md
+                - name: Hantera bandbreddsmallar
+                  href: storsimple-8000-manage-bandwidth-templates.md
+                - name: Visa och hantera jobb
+                  href: storsimple-8000-manage-jobs-u2.md
+                - name: Ändra enhetsläge
+                  href: storsimple-8000-device-modes.md
+                - name: Ändra enhetens lösenord
+                  href: storsimple-8000-change-passwords.md
+                - name: Ändra enhetskonfigurationen
+                  href: storsimple-8000-modify-device-config.md
+                - name: Slå på och slå av
+                  href: storsimple-turn-device-on-or-off.md
+                - name: Konfigurera MPIO på Windows Server-värden
+                  href: storsimple-8000-configure-mpio-windows-server.md
+                - name: Konfigurera MPIO på Linux-värd
+                  href: storsimple-configure-mpio-on-linux.md
+                - name: Konfigurera CHAP
+                  href: storsimple-8000-configure-chap.md
+            - name: Använda Windows PowerShell för StorSimple
+              href: storsimple-8000-windows-powershell-administration.md
+              items:
+                - name: Hantera enhetskontrollanten
+                  href: storsimple-8000-manage-device-controller.md
+                - name: Konfigurera webbproxy
+                  href: storsimple-8000-configure-web-proxy.md
+                - name: Ändra DATA 0-inställningar
+                  href: storsimple-8000-modify-data-0.md
+            - name: Använd StorSimple Snapshot Manager
+              href: storsimple-snapshot-manager-admin.md
+              items:
+                - name: Vad är StorSimple Snapshot Manager?
+                  href: storsimple-what-is-snapshot-manager.md
+                - name: Om StorSimple Snapshot Manager-gränssnittet
+                  href: storsimple-use-snapshot-manager.md
+                - name: Hantera enheter via StorSimple Snapshot Manager
+                  href: storsimple-snapshot-manager-manage-devices.md
+                - name: Hantera säkerhetskopieringsprinciper via StorSimple Snapshot Manager
+                  href: storsimple-snapshot-manager-manage-backup-policies.md
+                - name: Hantera volymgrupper via StorSimple Snapshot Manager
+                  href: storsimple-snapshot-manager-manage-volume-groups.md
+                - name: Hantera säkerhetskopieringskatalogen via StorSimple Snapshot Manager
+                  href: storsimple-snapshot-manager-manage-backup-catalog.md
+                - name: Hantera säkerhetskopieringsjobb via StorSimple Snapshot Manager
+                  href: storsimple-snapshot-manager-manage-backup-jobs.md
+                - name: Hantera volymer via StorSimple Snapshot Manager
+                  href: storsimple-snapshot-manager-manage-volumes.md
+                - name: Använd MMC-aktiviteter i StorSimple Snapshot Manager
+                  href: storsimple-snapshot-manager-mmc-menu.md
+        - name: Automatisera
+          items:
+            - name: Använda exempelskript med Azure PowerShell
+              href: storsimple-8000-automation-azurerm-scripts.md
+            - name: Använda runbook-flöden för Azure Automation
+              href: storsimple-8000-automation-azurerm-runbook.md
+        - name: Skapa lösningar
+          items:
+            - name: StorSimple med Veeam
+              href: storsimple-configure-backup-target-veeam.md
+            - name: StorSimple med Veritas Backup Exec
+              href: storsimple-configure-backup-target-using-backup-exec.md
+            - name: StorSimple med Veritas NetBackup
+              href: storsimple-configure-backuptarget-netbackup.md
+            - name: Automatisera filserver-DR till Azure
+              href: storsimple-disaster-recovery-using-azure-site-recovery.md
+            - name: StorSimple med Express Route
+              href: 'https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content'
+            - name: StorSimple med VMware
+              href: 'https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463'
+            - name: StorSimple med Hyper-V
+              href: 'https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6'
+            - name: Distribuerat globalt namnområde
+              href: 'https://www.microsoft.com/download/details.aspx?id=45507'
+        - name: Övervaka
+          items:
+            - name: Använd sammanfattning av tjänst
+              href: storsimple-8000-service-dashboard.md
+            - name: Använd sammanfattning av enhet
+              href: storsimple-8000-device-dashboard.md
+            - name: Använd övervakningsdiagram
+              href: storsimple-8000-monitor-device.md
+            - name: Använd tjänstaviseringar
+              href: storsimple-8000-manage-alerts.md
+            - name: Använd maskinvarustatus
+              href: storsimple-8000-monitor-hardware-status.md
+            - name: 'Använd övervaknings-LED:ar'
+              href: storsimple-monitoring-indicators.md
+        - name: Felsöka
+          items:
+            - name: Distributionsproblem
+              href: storsimple-8000-troubleshoot-deployment.md
+            - name: Använda diagnostikverktyg
+              href: storsimple-8000-diagnostics.md
+            - name: Driftsproblem
+              href: storsimple-troubleshoot-operational-device.md
+            - name: Maskinvaruersättning
+              href: storsimple-8000-hardware-component-replacement.md
+              items:
+                - name: Ersätt enhetskontrollanten
+                  href: storsimple-8000-controller-replacement.md
+                - name: Ersätt EBOD-kontrollanten
+                  href: storsimple-8000-ebod-controller-replacement.md
+                - name: 'Ersätt PCM:en'
+                  href: storsimple-8000-power-cooling-module-replacement.md
+                - name: Ersätt diskenheten
+                  href: storsimple-8000-disk-drive-replacement.md
+                - name: Ersätt extrabatteriet
+                  href: storsimple-8000-battery-replacement.md
+                - name: Ersätt chassit
+                  href: storsimple-8000-chassis-replacement.md
+            - name: Kontakta supporten
+              href: storsimple-8000-contact-microsoft-support.md
+              items:
+                - name: Skapa ett supportpaket
+                  href: storsimple-8000-create-manage-support-package.md
+        - name: Migrera
+          items:
+            - name: Prenumerationer och lagringskonton
+              href: storsimple-8000-migrate-classic-azure-portal.md
+            - name: Från enheter i 5000/7000-serien
+              href: storsimple-8000-migration-options.md
+              items:
+                - name: Till enheter i StorSimple 8000-serien
+                  href: storsimple-8000-migrate-from-5000-7000.md
+                - name: Till Azure File Sync
+                  href: storsimple-5000-7000-afs-migration.md
+            - name: Från andra lagringsenheter
+              href: 'https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf'
+        - name: Uppdatering
+          items:
+            - name: Installera Uppdatering 5 – aktuell
+              href: storsimple-8000-install-update-5.md
+            - name: Installera Uppdatering 4
+              href: storsimple-8000-install-update-4.md
+    - name: Viktig information
       items:
-      - name: StorSimple med Veeam
-        href: storsimple-configure-backup-target-veeam.md
-      - name: StorSimple med Veritas Backup Exec
-        href: storsimple-configure-backup-target-using-backup-exec.md
-      - name: StorSimple med Veritas NetBackup
-        href: storsimple-configure-backuptarget-netbackup.md
-      - name: Automatisera filserver-DR till Azure
-        href: storsimple-disaster-recovery-using-azure-site-recovery.md
-      - name: StorSimple med Express Route
-        href: https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content
-      - name: StorSimple med VMware
-        href: https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463
-      - name: StorSimple med Hyper-V
-        href: https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6
-      - name: Distribuerat globalt namnområde
-        href: https://www.microsoft.com/download/details.aspx?id=45507
-    - name: Övervaka
+        - name: Uppdatering 5 – aktuell
+          href: storsimple-update5-release-notes.md
+        - name: Uppdatering 4
+          href: storsimple-update4-release-notes.md
+        - name: Arkiv
+          items:
+            - name: Uppdatering 3
+              href: storsimple-update3-release-notes.md
+            - name: Uppdatering 2.2
+              href: storsimple-update21-release-notes.md
+            - name: Uppdatering 2
+              href: storsimple-update2-release-notes.md
+            - name: Uppdatering 1
+              href: storsimple-update1-release-notes.md
+            - name: Uppdatering 0.3
+              href: storsimple-february-2015-release-notes.md
+            - name: Uppdatering 0.2
+              href: storsimple-january-2015-release-notes.md
+            - name: Uppdatering 0.1
+              href: storsimple-october-2014-release-notes.md
+            - name: Version – GA
+              href: storsimple-july-2014-release-notes.md
+    - name: Referens
       items:
-      - name: Använd sammanfattning av tjänst
-        href: storsimple-8000-service-dashboard.md
-      - name: Använd sammanfattning av enhet
-        href: storsimple-8000-device-dashboard.md
-      - name: Använd övervakningsdiagram
-        href: storsimple-8000-monitor-device.md
-      - name: Använd tjänstaviseringar
-        href: storsimple-8000-manage-alerts.md
-      - name: Använd maskinvarustatus
-        href: storsimple-8000-monitor-hardware-status.md
-      - name: Använd övervaknings-LED:ar
-        href: storsimple-monitoring-indicators.md
-    - name: Felsöka
-      items:
-      - name: Distributionsproblem
-        href: storsimple-8000-troubleshoot-deployment.md
-      - name: Använda diagnostikverktyg
-        href: storsimple-8000-diagnostics.md
-      - name: Driftsproblem
-        href: storsimple-troubleshoot-operational-device.md
-      - name: Maskinvaruersättning
-        href: storsimple-8000-hardware-component-replacement.md
-        items:
-        - name: Ersätt enhetskontrollanten
-          href: storsimple-8000-controller-replacement.md
-        - name: Ersätt EBOD-kontrollanten
-          href: storsimple-8000-ebod-controller-replacement.md
-        - name: Ersätt PCM:en
-          href: storsimple-8000-power-cooling-module-replacement.md
-        - name: Ersätt diskenheten
-          href: storsimple-8000-disk-drive-replacement.md
-        - name: Ersätt extrabatteriet
-          href: storsimple-8000-battery-replacement.md
-        - name: Ersätt chassit
-          href: storsimple-8000-chassis-replacement.md
-      - name: Kontakta supporten
-        href: storsimple-8000-contact-microsoft-support.md
-        items:
-        - name: Skapa ett supportpaket
-          href: storsimple-8000-create-manage-support-package.md
-    - name: Migrera
-      items:
-      - name: Prenumerationer och lagringskonton
-        href: storsimple-8000-migrate-classic-azure-portal.md
-      - name: Från enheter i 5000/7000-serien
-        href: storsimple-8000-migration-options.md
-        items:
-        - name: Till enheter i StorSimple 8000-serien
-          href: storsimple-8000-migrate-from-5000-7000.md
-        - name: Till Azure File Sync
-          href: storsimple-5000-7000-afs-migration.md
-      - name: Från andra lagringsenheter
-        href: https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf
-    - name: Uppdatering
-      items:
-      - name: Installera Uppdatering 5 – aktuell
-        href: storsimple-8000-install-update-5.md
-      - name: Installera Uppdatering 4
-        href: storsimple-8000-install-update-4.md
-  - name: Viktig information
-    items:
-    - name: Uppdatering 5 – aktuell
-      href: storsimple-update5-release-notes.md
-    - name: Uppdatering 4
-      href: storsimple-update4-release-notes.md
-    - name: Arkiv
-      items:
-      - name: Uppdatering 3
-        href: storsimple-update3-release-notes.md
-      - name: Uppdatering 2.2
-        href: storsimple-update21-release-notes.md
-      - name: Uppdatering 2
-        href: storsimple-update2-release-notes.md
-      - name: Uppdatering 1
-        href: storsimple-update1-release-notes.md
-      - name: Uppdatering 0.3
-        href: storsimple-february-2015-release-notes.md
-      - name: Uppdatering 0.2
-        href: storsimple-january-2015-release-notes.md
-      - name: Uppdatering 0.1
-        href: storsimple-october-2014-release-notes.md
-      - name: Version – GA
-        href: storsimple-july-2014-release-notes.md
-  - name: Referens
-    items:
-    - name: REST-API
-      href: https://docs.microsoft.com/rest/api/storsimple
-    - name: Windows PowerShell för StorSimple cmdlets
-      href: https://technet.microsoft.com/library/dn688168.aspx
-    - name: Resource Manager-mall
-      href: /azure/templates/microsoft.storsimple/allversions
+        - name: REST-API
+          href: 'https://docs.microsoft.com/rest/api/storsimple'
+        - name: Windows PowerShell för StorSimple cmdlets
+          href: 'https://technet.microsoft.com/library/dn688168.aspx'
+        - name: Resource Manager-mall
+          href: /azure/templates/microsoft.storsimple/allversions
 - name: StorSimple Data Manager
   items:
-  - name: Översikt
-    items:
-    - name: Vad är lösningen?
-      href: storsimple-data-manager-overview.md
-  - name: Kom igång
-    items:
-    - name: Använda StorSimple Data Manager
-      href: storsimple-data-manager-ui.md
-  - name: Gör så här för att
-    items:
-    - name: Använda .NET för att starta jobb
-      href: storsimple-data-manager-dotnet-jobs.md
-    - name: Använda Automation för att starta jobb
-      href: storsimple-data-manager-job-using-automation.md
-    - name: Ändra standardsökvägen för blob
-      href: storsimple-data-manager-change-default-blob-path.md
+    - name: Översikt
+      items:
+        - name: Vad är lösningen?
+          href: storsimple-data-manager-overview.md
+    - name: Kom igång
+      items:
+        - name: Använda StorSimple Data Manager
+          href: storsimple-data-manager-ui.md
+    - name: Gör så här för att
+      items:
+        - name: Använda .NET för att starta jobb
+          href: storsimple-data-manager-dotnet-jobs.md
+        - name: Använda Automation för att starta jobb
+          href: storsimple-data-manager-job-using-automation.md
+        - name: Ändra standardsökvägen för blob
+          href: storsimple-data-manager-change-default-blob-path.md
 - name: StorSimple för partner
   items:
-  - name: Översikt
-    items:
-    - name: Vad är lösningen?
-      href: storsimple-partner-csp-overview.md
-  - name: Kom igång
-    items:
-    - name: Distribuera virtuell matris för CSP
-      href: storsimple-partner-csp-deploy.md
-  - name: Viktig information
-    items:
-    - name: Viktig information om StorSimple
-      href: https://aka.ms/storsimple-virtual-array-latest-relnote
-    - name: Viktig information om CSP
-      href: https://partner.microsoft.com/Support/whats-new
-    - name: 'StorSimple för CSP: VANLIGA FRÅGOR OCH SVAR'
-      href: storsimple-partner-csp-faq.md
+    - name: Översikt
+      items:
+        - name: Vad är lösningen?
+          href: storsimple-partner-csp-overview.md
+    - name: Kom igång
+      items:
+        - name: Distribuera virtuell matris för CSP
+          href: storsimple-partner-csp-deploy.md
+    - name: Viktig information
+      items:
+        - name: Viktig information om StorSimple
+          href: 'https://aka.ms/storsimple-virtual-array-latest-relnote'
+        - name: Viktig information om CSP
+          href: 'https://partner.microsoft.com/Support/whats-new'
+        - name: 'StorSimple för CSP: VANLIGA FRÅGOR OCH SVAR'
+          href: storsimple-partner-csp-faq.md
 - name: Relaterat
   items:
-  - name: StorSimple 5000-7000-serien
-    href: http://onlinehelp.storsimple.com
+    - name: StorSimple 5000-7000-serien
+      href: 'http://onlinehelp.storsimple.com'
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Marknadsföringsblogg
-    href: http://blogs.technet.com/b/cis/
-  - name: Marknadsföring
-    href: https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx
-  - name: StorSimple-supportalternativ
-    href: storsimple-8000-support-options.md
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/storsimple/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Tjänstuppdateringar
-    href: https://azure.microsoft.com/updates/?product=storsimple
-  - name: Supportblogg
-    href: https://blogs.msdn.com/b/storsimple/
-  - name: Meddelanden från tredje part
-    href: https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=storsimple
-ms.openlocfilehash: 6879dd240dc070483a7d97536a5fa365108af5f1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341143"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Marknadsföringsblogg
+      href: 'http://blogs.technet.com/b/cis/'
+    - name: Marknadsföring
+      href: 'https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx'
+    - name: StorSimple-supportalternativ
+      href: storsimple-8000-support-options.md
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/storsimple/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=storsimple'
+    - name: Supportblogg
+      href: 'https://blogs.msdn.com/b/storsimple/'
+    - name: Meddelanden från tredje part
+      href: 'https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storsimple'

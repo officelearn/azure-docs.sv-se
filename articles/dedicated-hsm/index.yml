@@ -1,20 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6acffc5056f916f2e05c7a0fd3eb325fd89a9e4b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117059"
 documentType: LandingData
 title: Dokumentation om Dedikerad HSM i Azure
 metadata:
-  title: Dokumentation om Dedikerad HSM i Azure – Självstudier, API-referens | Microsoft Docs
-  meta.description: Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  title: 'Dokumentation om Dedikerad HSM i Azure – Självstudier, API-referens | Microsoft Docs'
+  meta.description: 'Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.'
   services: dedicated-hsm
   author: barclayn
   manager: barbkess
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: dedicated-hsm
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -24,42 +18,42 @@ metadata:
 abstract:
   description: Läs mer om funktionen Dedikerad HSM och upptäck om den kan användas i din miljö.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/dedicated-hsm/overview
+            html: <p>Läs mer om vad Dedikerad HSM i Azure handlar om.</p>
+            image:
+              src: media/index/hsm.svg
+            title: Översikt över Dedikerad HSM i Azure
+          - href: /azure/dedicated-hsm/faq
+            html: <p>Designöverväganden när du använder Dedikerad HSM</p>
+            image:
+              src: media/index/guide.svg
+            title: Besluta om distributionsarkitektur
+  - title: Steg för steg-självstudier
     items:
-    - href: /azure/dedicated-hsm/overview
-      html: <p>Läs mer om vad Dedikerad HSM i Azure handlar om.</p>
-      image:
-        src: media/index/hsm.svg
-      title: Översikt över Dedikerad HSM i Azure
-    - href: /azure/dedicated-hsm/faq
-      html: <p>Designöverväganden när du använder Dedikerad HSM</p>
-      image:
-        src: media/index/guide.svg
-      title: Besluta om distributionsarkitektur
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: ''
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/cli.svg
+            text: Azure CLI
+            href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
+          - image:
+              src: media/index/logo_powershell.svg
+            text: PowerShell
+            href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
+  - title: Referens
     items:
-    - image:
-        src: media/index/cli.svg
-      text: Azure CLI
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
-    - image:
-        src: media/index/logo_powershell.svg
-      text: PowerShell
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: VANLIGA FRÅGOR OCH SVAR
-      html: <p><a href="/azure/dedicated-hsm/faq/">Vanliga frågor och svar</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: VANLIGA FRÅGOR OCH SVAR
+            html: <p><a href="/azure/dedicated-hsm/faq/">Vanliga frågor och svar</a></p>

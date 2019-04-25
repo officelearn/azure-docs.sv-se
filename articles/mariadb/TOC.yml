@@ -1,174 +1,167 @@
-items:
 - name: Azure DB för MariaDB-dokument
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure DB for MariaDB?
-    href: overview.md
+    - name: Vad är Azure DB for MariaDB?
+      href: overview.md
 - name: Snabbstarter
-  items:
-  - name: Skapa DB – Portal
-    href: quickstart-create-mariadb-server-database-using-azure-portal.md
-  - name: Skapa DB – Azure CLI
-    href: quickstart-create-mariadb-server-database-using-azure-cli.md
-  - name: Ansluta och fråga
-    items:
-    - name: MySQL Workbench
-      href: connect-workbench.md
   expanded: true
+  items:
+    - name: Skapa DB – Portal
+      href: quickstart-create-mariadb-server-database-using-azure-portal.md
+    - name: Skapa DB – Azure CLI
+      href: quickstart-create-mariadb-server-database-using-azure-cli.md
+    - name: Ansluta och fråga
+      items:
+        - name: MySQL Workbench
+          href: connect-workbench.md
 - name: Självstudier
   items:
-  - name: Utforma en databas
-    items:
-    - name: Azure Portal
-      href: tutorial-design-database-using-portal.md
-    - name: Azure CLI
-      href: tutorial-design-database-cli.md
+    - name: Utforma en databas
+      items:
+        - name: Azure Portal
+          href: tutorial-design-database-using-portal.md
+        - name: Azure CLI
+          href: tutorial-design-database-cli.md
 - name: Exempel
   items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
+    - name: Azure CLI
+      href: sample-scripts-azure-cli.md
 - name: Begrepp
   items:
-  - name: Databas och servrar
-    items:
-    - name: Servrar
-      href: concepts-servers.md
-    - name: Versioner som stöds
-      href: concepts-supported-versions.md
-    - name: Hög tillgänglighet
-      href: concepts-high-availability.md
-  - name: Resurser
-    items:
-    - name: Prisnivåer
-      href: concepts-pricing-tiers.md
-    - name: Begränsningar
-      href: concepts-limits.md
-  - name: Dataåtkomst och säkerhet
-    items:
-    - name: Brandväggsregler
-      href: concepts-firewall-rules.md
-    - name: Konfigurerar SSL
-      href: concepts-ssl-connection-security.md
-    - name: VNet
-      href: concepts-data-access-security-vnet.md
-  - name: Verksamhetskontinuitet
-    items:
-    - name: Översikt
-      href: concepts-business-continuity.md
-    - name: Säkerhetskopiering och återställning
-      href: concepts-backup.md
-  - name: Övervaka
-    items:
+    - name: Databas och servrar
+      items:
+        - name: Servrar
+          href: concepts-servers.md
+        - name: Versioner som stöds
+          href: concepts-supported-versions.md
+        - name: Hög tillgänglighet
+          href: concepts-high-availability.md
+    - name: Resurser
+      items:
+        - name: Prisnivåer
+          href: concepts-pricing-tiers.md
+        - name: Begränsningar
+          href: concepts-limits.md
+    - name: Dataåtkomst och säkerhet
+      items:
+        - name: Brandväggsregler
+          href: concepts-firewall-rules.md
+        - name: Konfigurerar SSL
+          href: concepts-ssl-connection-security.md
+        - name: VNet
+          href: concepts-data-access-security-vnet.md
+    - name: Verksamhetskontinuitet
+      items:
+        - name: Översikt
+          href: concepts-business-continuity.md
+        - name: Säkerhetskopiering och återställning
+          href: concepts-backup.md
     - name: Övervaka
-      href: concepts-monitoring.md
-    - name: Serverloggar
-      href: concepts-server-logs.md
-  - name: Utveckling
-    items:
-    - name: Kompatibilitet för drivrutiner och verktyg
-      href: concepts-compatibility.md
-    - name: Anslutningsåterhämtning
-      href: concepts-connectivity.md
-  - name: Replikering
-    items:
-    - name: Dataintensiv replikering
-      href: concepts-data-in-replication.md
+      items:
+        - name: Övervaka
+          href: concepts-monitoring.md
+        - name: Serverloggar
+          href: concepts-server-logs.md
+    - name: Utveckling
+      items:
+        - name: Kompatibilitet för drivrutiner och verktyg
+          href: concepts-compatibility.md
+        - name: Anslutningsåterhämtning
+          href: concepts-connectivity.md
+    - name: Replikering
+      items:
+        - name: Dataintensiv replikering
+          href: concepts-data-in-replication.md
 - name: Instruktionsguider
   items:
-  - name: Brandväggsregler
-    items:
-    - name: Azure Portal
-      href: howto-manage-firewall-portal.md
-    - name: Azure CLI
-      href: howto-manage-firewall-cli.md
-  - name: Återställ en server
-    items:
-    - name: Azure Portal
-      href: howto-restore-server-portal.md
-    - name: Azure CLI
-      href: howto-restore-server-cli.md
-  - name: Migrera en databas
-    items:
-    - name: Dumpa och återställa
-      href: howto-migrate-dump-restore.md
-  - name: Anslut program
-    items:
-    - name: Skapa användare
-      href: howto-create-users.md
-    - name: Anslutningssträngar
-      href: howto-connection-string.md
-    - name: Konfigurera SSL
-      href: howto-configure-ssl.md
-  - name: Konfigurera serverparametrar
-    items:
-    - name: Azure Portal
-      href: howto-server-parameters.md
-    - name: Azure CLI
-      href: howto-configure-server-parameters-cli.md
-  - name: Åtkomst till serverloggar
-    items:
-    - name: Azure Portal
-      href: howto-configure-server-logs-portal.md
-    - name: Azure CLI
-      href: howto-configure-server-logs-cli.md
-  - name: Övervaka
-    items:
-    - name: Skapa aviseringar för mått
-      href: howto-alert-metric.md
-  - name: Replikering
-    items:
-    - name: Konfigurera dataintensiv replikering
-      href: howto-data-in-replication.md
-  - name: Felsöka
-    items:
-    - name: Felsöka anslutningsfel
-      href: howto-troubleshoot-common-connection-issues.md
-    - name: Felsöka frågeprestanda
-      href: howto-troubleshoot-query-performance.md
-  - name: Virtual Network
-    items:
-    - name: Azure Portal
-      href: howto-manage-vnet-portal.md
-    - name: Azure CLI
-      href: howto-manage-vnet-cli.md
-  - name: Starta om servern
-    items:
-    - name: Azure Portal
-      href: howto-restart-server-portal.md
-    - name: Azure CLI
-      href: howto-restart-server-cli.md
+    - name: Brandväggsregler
+      items:
+        - name: Azure Portal
+          href: howto-manage-firewall-portal.md
+        - name: Azure CLI
+          href: howto-manage-firewall-cli.md
+    - name: Återställ en server
+      items:
+        - name: Azure Portal
+          href: howto-restore-server-portal.md
+        - name: Azure CLI
+          href: howto-restore-server-cli.md
+    - name: Migrera en databas
+      items:
+        - name: Dumpa och återställa
+          href: howto-migrate-dump-restore.md
+    - name: Anslut program
+      items:
+        - name: Skapa användare
+          href: howto-create-users.md
+        - name: Anslutningssträngar
+          href: howto-connection-string.md
+        - name: Konfigurera SSL
+          href: howto-configure-ssl.md
+    - name: Konfigurera serverparametrar
+      items:
+        - name: Azure Portal
+          href: howto-server-parameters.md
+        - name: Azure CLI
+          href: howto-configure-server-parameters-cli.md
+    - name: Åtkomst till serverloggar
+      items:
+        - name: Azure Portal
+          href: howto-configure-server-logs-portal.md
+        - name: Azure CLI
+          href: howto-configure-server-logs-cli.md
+    - name: Övervaka
+      items:
+        - name: Skapa aviseringar för mått
+          href: howto-alert-metric.md
+    - name: Replikering
+      items:
+        - name: Konfigurera dataintensiv replikering
+          href: howto-data-in-replication.md
+    - name: Felsöka
+      items:
+        - name: Felsöka anslutningsfel
+          href: howto-troubleshoot-common-connection-issues.md
+        - name: Felsöka frågeprestanda
+          href: howto-troubleshoot-query-performance.md
+    - name: Virtual Network
+      items:
+        - name: Azure Portal
+          href: howto-manage-vnet-portal.md
+        - name: Azure CLI
+          href: howto-manage-vnet-cli.md
+    - name: Starta om servern
+      items:
+        - name: Azure Portal
+          href: howto-restart-server-portal.md
+        - name: Azure CLI
+          href: howto-restart-server-cli.md
 - name: Referens
   items:
-  - name: Azure CLI
-    href: /cli/azure/mariadb
-  - name: REST-API
-    href: /rest/api/mariadb
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.dbformariadb/allversions
-  - name: Lagrade procedurer för dataintensiv replikering
-    href: reference-data-in-stored-procedures.md
+    - name: Azure CLI
+      href: /cli/azure/mariadb
+    - name: REST-API
+      href: /rest/api/mariadb
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.dbformariadb/allversions
+    - name: Lagrade procedurer för dataintensiv replikering
+      href: reference-data-in-stored-procedures.md
 - name: Resurser
   items:
-  - name: Distributionsmallar
-    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=databases
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/mariadb/
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
-  - name: Begär en funktion
-    href: https://feedback.azure.com/forums/915439-azure-database-for-mariadb
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-  - name: Supportalternativ
-    href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 1ad8ddc0cf189189b9457dabe6c2c2d665c838c3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621133"
+    - name: Distributionsmallar
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/mariadb/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-database-mariadb'
+    - name: Begär en funktion
+      href: 'https://feedback.azure.com/forums/915439-azure-database-for-mariadb'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Supportalternativ
+      href: 'https://azure.microsoft.com/support/options/'

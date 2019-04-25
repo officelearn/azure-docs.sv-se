@@ -1,76 +1,69 @@
-items:
 - name: Översikt
   items:
-  - name: Om partnerportalen i molnet
-    href: ./cloud-partner-portal-what-is-the-cloud-partner-portal.md
+    - name: Om partnerportalen i molnet
+      href: ./cloud-partner-portal-what-is-the-cloud-partner-portal.md
 - name: Kom igång
   items:
-  - name: Kom igång med partnerportalen i molnet
-    href: ./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
-  - name: Produkter som stöds
-    href: ./Cloud-partner-portal-products-that-can-get-published-via-portal.md
+    - name: Kom igång med partnerportalen i molnet
+      href: ./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
+    - name: Produkter som stöds
+      href: ./Cloud-partner-portal-products-that-can-get-published-via-portal.md
 - name: Instruktionsguider
   items:
-  - name: Hantera Virtual Machines
-    items:
-    - name: Skapa erbjudande för virtuell dator
-      href: ./cloud-partner-portal-publish-virtual-machine.md
+    - name: Hantera Virtual Machines
       items:
-      - name: Nödvändiga komponenter
-        href: ./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm
-      - name: Registrering av Microsoft-utvecklarkonto
-        href: ./cloud-partner-portal-dev-center-accounts-registration.md
-      - name: Skapa nytt erbjudande för virtuell dator
-        href: ./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer
-      - name: Inställningsformulär för erbjudande
-        href: ./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form
-      - name: Formulär för SKU:er
-        href: ./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus
-        items:
-        - name: Prissättning
-          href: ./cloud-partner-portal-publish-virtual-machine.md#pricing
-        - name: VM-avbildningar
-          href: cloud-partner-portal-publish-virtual-machine.md#vm-images
-      - name: Formulär för Marketplace
-        href: ./cloud-partner-portal-publish-virtual-machine.md#marketplace-form
-      - name: Supportformulär
-        href: cloud-partner-portal-publish-virtual-machine.md#support-form
-    - name: Publicera erbjudande för VM
-      href: ./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md
-    - name: Uppdatera befintligt erbjudande
-      href: ./cloud-partner-portal-update-existing-offer.md
-    - name: Ta bort erbjudande för virtuell dator/SKU
-      href: ./cloud-partner-portal-delete-an-offer.md
-    - name: Migrera till partnerportalen i molnet
-      href: ./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md
-  - name: Säljguide för Azure Marketplace
-    href: ./cloud-partner-portal-seller-guide.md
-  - name: Hämta kundleads
-    href: ./cloud-partner-portal-get-customer-leads.md
-    items:
-    - name: Azure-tabell
-      href: ./cloud-partner-portal-lead-management-instructions-azure-table.md
-    - name: Dynamics CRM Online
-      href: ./cloud-partner-portal-lead-management-instructions-dynamics.md
-    - name: Salesforce
-      href: ./cloud-partner-portal-lead-management-instructions-salesforce.md
-    - name: Marketo
-      href: ./cloud-partner-portal-lead-management-instructions-marketo.md
-  - name: Hantera utgivarprofil
-    href: ./cloud-partner-portal-manage-publisher-profile.md
-  - name: Hantera användare
-    href: ./cloud-partner-portal-manage-users.md
-  - name: Få support
-    href: ./cloud-partner-portal-support-for-cloud-partner-portal.md
+        - name: Skapa erbjudande för virtuell dator
+          href: ./cloud-partner-portal-publish-virtual-machine.md
+          items:
+            - name: Nödvändiga komponenter
+              href: './cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm'
+            - name: Registrering av Microsoft-utvecklarkonto
+              href: ./cloud-partner-portal-dev-center-accounts-registration.md
+            - name: Skapa nytt erbjudande för virtuell dator
+              href: './cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer'
+            - name: Inställningsformulär för erbjudande
+              href: './cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form'
+            - name: 'Formulär för SKU:er'
+              href: './cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus'
+              items:
+                - name: Prissättning
+                  href: './cloud-partner-portal-publish-virtual-machine.md#pricing'
+                - name: VM-avbildningar
+                  href: 'cloud-partner-portal-publish-virtual-machine.md#vm-images'
+            - name: Formulär för Marketplace
+              href: './cloud-partner-portal-publish-virtual-machine.md#marketplace-form'
+            - name: Supportformulär
+              href: 'cloud-partner-portal-publish-virtual-machine.md#support-form'
+        - name: Publicera erbjudande för VM
+          href: ./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md
+        - name: Uppdatera befintligt erbjudande
+          href: ./cloud-partner-portal-update-existing-offer.md
+        - name: Ta bort erbjudande för virtuell dator/SKU
+          href: ./cloud-partner-portal-delete-an-offer.md
+        - name: Migrera till partnerportalen i molnet
+          href: ./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md
+    - name: Säljguide för Azure Marketplace
+      href: ./cloud-partner-portal-seller-guide.md
+    - name: Hämta kundleads
+      href: ./cloud-partner-portal-get-customer-leads.md
+      items:
+        - name: Azure-tabell
+          href: ./cloud-partner-portal-lead-management-instructions-azure-table.md
+        - name: Dynamics CRM Online
+          href: ./cloud-partner-portal-lead-management-instructions-dynamics.md
+        - name: Salesforce
+          href: ./cloud-partner-portal-lead-management-instructions-salesforce.md
+        - name: Marketo
+          href: ./cloud-partner-portal-lead-management-instructions-marketo.md
+    - name: Hantera utgivarprofil
+      href: ./cloud-partner-portal-manage-publisher-profile.md
+    - name: Hantera användare
+      href: ./cloud-partner-portal-manage-users.md
+    - name: Få support
+      href: ./cloud-partner-portal-support-for-cloud-partner-portal.md
 - name: Resurser
   items:
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 1edb304ce457eac6db66b31b126309c4427f2c9e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340803"
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'

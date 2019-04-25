@@ -1,120 +1,113 @@
-items:
 - name: Azure Data Box-dokumentation – överföring online
   href: /azure/databox-online/
   expanded: true
 - name: Data Box Gateway
   items:
-  - name: Översikt
-    items:
-    - name: Vad är Data Box Gateway?
-      href: data-box-gateway-overview.md
-  - name: Självstudier
-    items:
-    - name: 1 – Förbereda
-      href: data-box-gateway-deploy-prep.md
-    - name: 2A – Etablera i Hyper-V
-      href: data-box-gateway-deploy-provision-hyperv.md
-    - name: 2B – Etablera i VMware
-      href: data-box-gateway-deploy-provision-vmware.md
-    - name: 3 – Ansluta, konfigurera och aktivera
-      href: data-box-gateway-deploy-connect-setup-activate.md
-    - name: 4 – Lägga till och ansluta till resurs
-      href: data-box-gateway-deploy-add-shares.md
-  - name: Begrepp
-    items:
-    - name: Granska krav
-      href: data-box-gateway-system-requirements.md
-    - name: Förstå begränsningar
-      href: data-box-gateway-limits.md
-    - name: Säkerhetsöversikt
-      href: data-box-gateway-security.md
-    - name: Visa användningsfall
-      href: data-box-gateway-use-cases.md
-  - name: Gör så här för att
-    items:
-    - name: Hantera
+    - name: Översikt
       items:
-      - name: Resurser
-        href: data-box-gateway-manage-shares.md
-      - name: Användare
-        href: data-box-gateway-manage-users.md
-      - name: Bandwidth-scheman
-        href: data-box-gateway-manage-bandwidth-schedules.md
-      - name: Åtkomst, ström, anslutning
-        href: data-box-gateway-manage-access-power-connectivity-mode.md
-      - name: Via PowerShell
-        href: data-box-gateway-connect-powershell-interface.md
-    - name: Övervaka
-      href: data-box-gateway-monitor.md
-    - name: Felsöka
-      href: data-box-gateway-troubleshoot.md
-  - name: Viktig information
-    items:
-    - name: Allmän tillgänglighet
-      href: data-box-gateway-release-notes.md
+        - name: Vad är Data Box Gateway?
+          href: data-box-gateway-overview.md
+    - name: Självstudier
+      items:
+        - name: 1 – Förbereda
+          href: data-box-gateway-deploy-prep.md
+        - name: 2A – Etablera i Hyper-V
+          href: data-box-gateway-deploy-provision-hyperv.md
+        - name: 2B – Etablera i VMware
+          href: data-box-gateway-deploy-provision-vmware.md
+        - name: '3 – Ansluta, konfigurera och aktivera'
+          href: data-box-gateway-deploy-connect-setup-activate.md
+        - name: 4 – Lägga till och ansluta till resurs
+          href: data-box-gateway-deploy-add-shares.md
+    - name: Begrepp
+      items:
+        - name: Granska krav
+          href: data-box-gateway-system-requirements.md
+        - name: Förstå begränsningar
+          href: data-box-gateway-limits.md
+        - name: Säkerhetsöversikt
+          href: data-box-gateway-security.md
+        - name: Visa användningsfall
+          href: data-box-gateway-use-cases.md
+    - name: Gör så här för att
+      items:
+        - name: Hantera
+          items:
+            - name: Resurser
+              href: data-box-gateway-manage-shares.md
+            - name: Användare
+              href: data-box-gateway-manage-users.md
+            - name: Bandwidth-scheman
+              href: data-box-gateway-manage-bandwidth-schedules.md
+            - name: 'Åtkomst, ström, anslutning'
+              href: data-box-gateway-manage-access-power-connectivity-mode.md
+            - name: Via PowerShell
+              href: data-box-gateway-connect-powershell-interface.md
+        - name: Övervaka
+          href: data-box-gateway-monitor.md
+        - name: Felsöka
+          href: data-box-gateway-troubleshoot.md
+    - name: Viktig information
+      items:
+        - name: Allmän tillgänglighet
+          href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
-  - name: Översikt
-    items:
-    - name: Vad är Azure Data Box Edge?
-      href: data-box-edge-overview.md
-  - name: Självstudier
-    items:
-    - name: 1 – Förbereda
-      href: data-box-edge-deploy-prep.md
-    - name: 2 – Installera
-      href: data-box-edge-deploy-install.md
-    - name: 3 – Ansluta, konfigurera och aktivera
-      href: data-box-edge-deploy-connect-setup-activate.md
-    - name: 4 – Lägga till och ansluta till resurs
-      href: data-box-edge-deploy-add-shares.md
-    - name: 5 – Konfigurera beräkning
-      href: data-box-edge-deploy-configure-compute.md
-  - name: Begrepp
-    items:
-    - name: Granska krav
-      href: data-box-edge-system-requirements.md
-    - name: Förstå begränsningar
-      href: data-box-edge-limits.md
-    - name: Säkerhetsöversikt
-      href: data-box-edge-security.md
-    - name: Läs specifikationer
-      href: data-box-edge-technical-specifications-compliance.md
-  - name: Gör så här för att
-    items:
-    - name: Hantera beräkning
-      href: data-box-edge-manage-compute.md
-    - name: Utveckla en C#-modul
-      href: data-box-edge-create-iot-edge-module.md
-    - name: Hantera resurser
-      href: data-box-edge-manage-shares.md
-    - name: Hantera användare
-      href: data-box-edge-manage-users.md
-    - name: Hantera bandbreddsscheman
-      href: data-box-edge-manage-bandwidth-schedules.md
-    - name: Hantera energi, åtkomst och anslutning
-      href: data-box-edge-manage-access-power-connectivity-mode.md
-    - name: Hantera via PowerShell
-      href: data-box-edge-connect-powershell-interface.md
-    - name: Felsöka
-      href: data-box-edge-troubleshoot.md
-    - name: Övervaka
-      href: data-box-edge-monitor.md
-  - name: Viktig information
-    items:
-    - name: Allmän tillgänglighet
-      href: data-box-gateway-release-notes.md
+    - name: Översikt
+      items:
+        - name: Vad är Azure Data Box Edge?
+          href: data-box-edge-overview.md
+    - name: Självstudier
+      items:
+        - name: 1 – Förbereda
+          href: data-box-edge-deploy-prep.md
+        - name: 2 – Installera
+          href: data-box-edge-deploy-install.md
+        - name: '3 – Ansluta, konfigurera och aktivera'
+          href: data-box-edge-deploy-connect-setup-activate.md
+        - name: 4 – Lägga till och ansluta till resurs
+          href: data-box-edge-deploy-add-shares.md
+        - name: 5 – Konfigurera beräkning
+          href: data-box-edge-deploy-configure-compute.md
+    - name: Begrepp
+      items:
+        - name: Granska krav
+          href: data-box-edge-system-requirements.md
+        - name: Förstå begränsningar
+          href: data-box-edge-limits.md
+        - name: Säkerhetsöversikt
+          href: data-box-edge-security.md
+        - name: Läs specifikationer
+          href: data-box-edge-technical-specifications-compliance.md
+    - name: Gör så här för att
+      items:
+        - name: Hantera beräkning
+          href: data-box-edge-manage-compute.md
+        - name: 'Utveckla en C#-modul'
+          href: data-box-edge-create-iot-edge-module.md
+        - name: Hantera resurser
+          href: data-box-edge-manage-shares.md
+        - name: Hantera användare
+          href: data-box-edge-manage-users.md
+        - name: Hantera bandbreddsscheman
+          href: data-box-edge-manage-bandwidth-schedules.md
+        - name: 'Hantera energi, åtkomst och anslutning'
+          href: data-box-edge-manage-access-power-connectivity-mode.md
+        - name: Hantera via PowerShell
+          href: data-box-edge-connect-powershell-interface.md
+        - name: Felsöka
+          href: data-box-edge-troubleshoot.md
+        - name: Övervaka
+          href: data-box-edge-monitor.md
+    - name: Viktig information
+      items:
+        - name: Allmän tillgänglighet
+          href: data-box-gateway-release-notes.md
 - name: Resurser
   items:
-  - name: Exempel på Data Box Edge C#-moduler (.NET)
-    href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
-  - name: Data Box Edge/Gateway-produkt
-    href: https://azure.microsoft.com/services/storage/databox/edge/
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-ms.openlocfilehash: f601de8c731354c6d01cfdc6de60115904a37d07
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679629"
+    - name: 'Exempel på Data Box Edge C#-moduler (.NET)'
+      href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
+    - name: Data Box Edge/Gateway-produkt
+      href: 'https://azure.microsoft.com/services/storage/databox/edge/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

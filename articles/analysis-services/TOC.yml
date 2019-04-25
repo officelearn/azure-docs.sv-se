@@ -1,168 +1,161 @@
-items:
 - name: Dokumentation för Analysis Services
   href: index.md
 - name: Översikt
   items:
-  - name: Vad är Analysis Services?
-    href: analysis-services-overview.md
+    - name: Vad är Analysis Services?
+      href: analysis-services-overview.md
 - name: Snabbstarter
   items:
-  - name: Skapa en server – portalen
-    href: analysis-services-create-server.md
-  - name: Skapa en server – PowerShell
-    href: analysis-services-create-powershell.md
-  - name: Konfigurera serverbrandväggen – portalen
-    href: analysis-services-qs-firewall.md
+    - name: Skapa en server – portalen
+      href: analysis-services-create-server.md
+    - name: Skapa en server – PowerShell
+      href: analysis-services-create-powershell.md
+    - name: Konfigurera serverbrandväggen – portalen
+      href: analysis-services-qs-firewall.md
 - name: Självstudier
   items:
-  - name: 1 – Lägga till en exempelmodell från portalen
-    href: analysis-services-create-sample-model.md
-  - name: 2 – Konfigurera roller för serveradministratör och användare
-    href: tutorials/analysis-services-tutorial-roles.md
-  - name: 3 – Ansluta med Power BI Desktop
-    href: tutorials/analysis-services-tutorial-pbid.md
+    - name: 1 – Lägga till en exempelmodell från portalen
+      href: analysis-services-create-sample-model.md
+    - name: 2 – Konfigurera roller för serveradministratör och användare
+      href: tutorials/analysis-services-tutorial-roles.md
+    - name: 3 – Ansluta med Power BI Desktop
+      href: tutorials/analysis-services-tutorial-pbid.md
 - name: Begrepp
   items:
-  - name: Autentisering och användarbehörigheter
-    href: analysis-services-manage-users.md
-  - name: Automatisering med tjänstens huvudnamn
-    href: analysis-services-service-principal.md
-  - name: Klientbibliotek
-    href: analysis-services-data-providers.md
-  - name: Efterlevnadsnivå
-    href: analysis-services-compat-level.md
-  - name: Ansluta till lokala datakällor
-    href: analysis-services-gateway.md
-  - name: Ansluta till servrar
-    href: analysis-services-connect.md
-  - name: Hög tillgänglighet
-    href: analysis-services-bcdr.md
-  - name: Datakällor som stöds
-    href: analysis-services-datasource.md
+    - name: Autentisering och användarbehörigheter
+      href: analysis-services-manage-users.md
+    - name: Automatisering med tjänstens huvudnamn
+      href: analysis-services-service-principal.md
+    - name: Klientbibliotek
+      href: analysis-services-data-providers.md
+    - name: Efterlevnadsnivå
+      href: analysis-services-compat-level.md
+    - name: Ansluta till lokala datakällor
+      href: analysis-services-gateway.md
+    - name: Ansluta till servrar
+      href: analysis-services-connect.md
+    - name: Hög tillgänglighet
+      href: analysis-services-bcdr.md
+    - name: Datakällor som stöds
+      href: analysis-services-datasource.md
 - name: Så här gör du
   items:
-  - name: Server
-    items:
-    - name: Säkerhetskopiering och återställning
-      href: analysis-services-backup.md
-    - name: Konfigurera ett servernamnalias
-      href: analysis-services-server-alias.md
-    - name: Konfigurera utskalning
-      href: analysis-services-scale-out.md
-    - name: Installera och konfigurera lokal datagateway
-      href: analysis-services-gateway-install.md
-    - name: Använda gateway för datakällor på ett virtuellt Azure-nätverk
-      href: analysis-services-vnet-gateway.md
-    - name: Hantera en server
-      href: analysis-services-manage.md
-    - name: Övervaka servermått
-      href: analysis-services-monitor.md
-    - name: Konfigurera diagnostisk loggning
-      href: analysis-services-logging.md
-    - name: Skapa tjänstens huvudnamn – Azure-portalen
-      href: ../active-directory/develop/howto-create-service-principal-portal.md
-    - name: Skapa tjänstens huvudnamn – PowerShell
-      href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
-    - name: Lägga till tjänstens huvudnamn till administratörsrollen för servern
-      href: analysis-services-addservprinc-admins.md
-  - name: Modell
-    items:
-    - name: Distribuera från Visual Studio (SSDT)
-      href: analysis-services-deploy.md
-    - name: Uppdatera med REST API
-      href: analysis-services-async-refresh.md
-    - name: Datamodellering i Visual Studio – självstudie för Adventure Works (1400)
-      href: tutorials/aas-adventure-works-tutorial.md
+    - name: Server
       items:
-      - name: 1 – Skapa ett projekt för tabellmodeller
-        href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-      - name: 2 – Hämta data
-        href: tutorials/aas-lesson-2-get-data.md
-      - name: 3 – Markera som datumtabell
-        href: tutorials/aas-lesson-3-mark-as-date-table.md
-      - name: 4 – Skapa relationer
-        href: tutorials/aas-lesson-4-create-relationships.md
-      - name: 5 – Skapa beräknade kolumner
-        href: tutorials/aas-lesson-5-create-calculated-columns.md
-      - name: 6 – Skapa mått
-        href: tutorials/aas-lesson-6-create-measures.md
-      - name: 7 – Skapa KPI:er
-        href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-      - name: 8 – Skapa perspektiv
-        href: tutorials/aas-lesson-8-create-perspectives.md
-      - name: 9 – Skapa hierarkier
-        href: tutorials/aas-lesson-9-create-hierarchies.md
-      - name: 10 – Skapa partitioner
-        href: tutorials/aas-lesson-10-create-partitions.md
-      - name: 11 – Skapa roller
-        href: tutorials/aas-lesson-11-create-roles.md
-      - name: 12 – Analysera i Excel
-        href: tutorials/aas-lesson-12-analyze-in-excel.md
-      - name: 13 – Distribuera
-        href: tutorials/aas-lesson-13-deploy.md
-      - name: Kompletterande lektion – Detaljrader
-        href: tutorials/aas-supplemental-lesson-detail-rows.md
-      - name: Kompletterande lektion – Dynamisk säkerhet
-        href: tutorials/aas-supplemental-lesson-dynamic-security.md
-      - name: Kompletterande lektion – Ojämna hierarkier
-        href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
-  - name: Säkerhet
-    items:
-    - name: Hantera databasanvändare
-      href: analysis-services-database-users.md
-    - name: Hantera serveradministratörer
-      href: analysis-services-server-admins.md
-  - name: Anslut
-    items:
-    - name: Anslut med Excel
-      href: analysis-services-connect-excel.md
-    - name: Anslut med Power BI
-      href: analysis-services-connect-pbi.md
-    - name: Skapa en ODC-fil
-      href: analysis-services-odc.md
+        - name: Säkerhetskopiering och återställning
+          href: analysis-services-backup.md
+        - name: Konfigurera ett servernamnalias
+          href: analysis-services-server-alias.md
+        - name: Konfigurera utskalning
+          href: analysis-services-scale-out.md
+        - name: Installera och konfigurera lokal datagateway
+          href: analysis-services-gateway-install.md
+        - name: Använda gateway för datakällor på ett virtuellt Azure-nätverk
+          href: analysis-services-vnet-gateway.md
+        - name: Hantera en server
+          href: analysis-services-manage.md
+        - name: Övervaka servermått
+          href: analysis-services-monitor.md
+        - name: Konfigurera diagnostisk loggning
+          href: analysis-services-logging.md
+        - name: Skapa tjänstens huvudnamn – Azure-portalen
+          href: ../active-directory/develop/howto-create-service-principal-portal.md
+        - name: Skapa tjänstens huvudnamn – PowerShell
+          href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
+        - name: Lägga till tjänstens huvudnamn till administratörsrollen för servern
+          href: analysis-services-addservprinc-admins.md
+    - name: Modell
+      items:
+        - name: Distribuera från Visual Studio (SSDT)
+          href: analysis-services-deploy.md
+        - name: Uppdatera med REST API
+          href: analysis-services-async-refresh.md
+        - name: Datamodellering i Visual Studio – självstudie för Adventure Works (1400)
+          href: tutorials/aas-adventure-works-tutorial.md
+          items:
+            - name: 1 – Skapa ett projekt för tabellmodeller
+              href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
+            - name: 2 – Hämta data
+              href: tutorials/aas-lesson-2-get-data.md
+            - name: 3 – Markera som datumtabell
+              href: tutorials/aas-lesson-3-mark-as-date-table.md
+            - name: 4 – Skapa relationer
+              href: tutorials/aas-lesson-4-create-relationships.md
+            - name: 5 – Skapa beräknade kolumner
+              href: tutorials/aas-lesson-5-create-calculated-columns.md
+            - name: 6 – Skapa mått
+              href: tutorials/aas-lesson-6-create-measures.md
+            - name: '7 – Skapa KPI:er'
+              href: tutorials/aas-lesson-7-create-key-performance-indicators.md
+            - name: 8 – Skapa perspektiv
+              href: tutorials/aas-lesson-8-create-perspectives.md
+            - name: 9 – Skapa hierarkier
+              href: tutorials/aas-lesson-9-create-hierarchies.md
+            - name: 10 – Skapa partitioner
+              href: tutorials/aas-lesson-10-create-partitions.md
+            - name: 11 – Skapa roller
+              href: tutorials/aas-lesson-11-create-roles.md
+            - name: 12 – Analysera i Excel
+              href: tutorials/aas-lesson-12-analyze-in-excel.md
+            - name: 13 – Distribuera
+              href: tutorials/aas-lesson-13-deploy.md
+            - name: Kompletterande lektion – Detaljrader
+              href: tutorials/aas-supplemental-lesson-detail-rows.md
+            - name: Kompletterande lektion – Dynamisk säkerhet
+              href: tutorials/aas-supplemental-lesson-dynamic-security.md
+            - name: Kompletterande lektion – Ojämna hierarkier
+              href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+    - name: Säkerhet
+      items:
+        - name: Hantera databasanvändare
+          href: analysis-services-database-users.md
+        - name: Hantera serveradministratörer
+          href: analysis-services-server-admins.md
+    - name: Anslut
+      items:
+        - name: Anslut med Excel
+          href: analysis-services-connect-excel.md
+        - name: Anslut med Power BI
+          href: analysis-services-connect-pbi.md
+        - name: Skapa en ODC-fil
+          href: analysis-services-odc.md
 - name: Referens
   items:
-  - name: PowerShell
-    href: analysis-services-powershell.md
-  - name: REST
-    href: /rest/api/analysisservices
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.analysisservices/servers
-  - name: DAX
-    href: https://msdn.microsoft.com/library/gg413422.aspx
-  - name: Power Query M
-    href: https://msdn.microsoft.com/library/mt211003.aspx
-  - name: Tabellmodellskriptspråk (TMSL)
-    href: https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
-  - name: Tabellobjektsmodell (TOM)
-    href: https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
-  - name: Resurs- och objektbegränsningar
-    href: analysis-services-capacity-limits.md
+    - name: PowerShell
+      href: analysis-services-powershell.md
+    - name: REST
+      href: /rest/api/analysisservices
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.analysisservices/servers
+    - name: DAX
+      href: 'https://msdn.microsoft.com/library/gg413422.aspx'
+    - name: Power Query M
+      href: 'https://msdn.microsoft.com/library/mt211003.aspx'
+    - name: Tabellmodellskriptspråk (TMSL)
+      href: 'https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference'
+    - name: Tabellobjektsmodell (TOM)
+      href: 'https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo'
+    - name: Resurs- och objektbegränsningar
+      href: analysis-services-capacity-limits.md
 - name: Resurser
   items:
-  - name: Exempel
-    href: analysis-services-samples.md
-  - name: Analysis Services-teamblogg
-    href: https://blogs.msdn.microsoft.com/analysisservices/
-  - name: Azure Analysis Services-forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
-  - name: Azure-status
-    href: https://azure.microsoft.com/status/
-  - name: Feedback
-    href: https://feedback.azure.com/forums/556165-azure-analysis-services
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/analysis-services/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-analysis-services
-  - name: Videoklipp
-    href: https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest
-ms.openlocfilehash: 4d3a592d4d0d9bd0a75dcd1cc76deb2a273bdf09
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525270"
+    - name: Exempel
+      href: analysis-services-samples.md
+    - name: Analysis Services-teamblogg
+      href: 'https://blogs.msdn.microsoft.com/analysisservices/'
+    - name: Azure Analysis Services-forum
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: Azure-status
+      href: 'https://azure.microsoft.com/status/'
+    - name: Feedback
+      href: 'https://feedback.azure.com/forums/556165-azure-analysis-services'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/analysis-services/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-analysis-services'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest'

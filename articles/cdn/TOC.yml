@@ -1,193 +1,186 @@
-items:
 - name: Dokumentation om CDN
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure CDN?
-    href: cdn-overview.md
-  - name: Jämför produktfunktioner
-    href: cdn-features.md
+    - name: Vad är Azure CDN?
+      href: cdn-overview.md
+    - name: Jämför produktfunktioner
+      href: cdn-features.md
 - name: Snabbstarter
   items:
-  - name: Skapa en profil och en slutpunkt
-    href: cdn-create-new-endpoint.md
-  - name: Integrera ett lagringskonto
-    href: cdn-create-a-storage-account-with-cdn.md
-  - name: Skapa en profil med hjälp av en Azure Resource Manager-mall
-    href: create-profile-resource-manager-template.md
+    - name: Skapa en profil och en slutpunkt
+      href: cdn-create-new-endpoint.md
+    - name: Integrera ett lagringskonto
+      href: cdn-create-a-storage-account-with-cdn.md
+    - name: Skapa en profil med hjälp av en Azure Resource Manager-mall
+      href: create-profile-resource-manager-template.md
 - name: Självstudier
   items:
-  - name: Lägga till Azure CDN till en webbapp
-    href: cdn-add-to-web-app.md
-  - name: Få åtkomst till blobar med hjälp av en anpassad domän via HTTPS
-    href: cdn-storage-custom-domain-https.md
-  - name: Lägga till en anpassad domän
-    href: cdn-map-content-to-custom-domain.md
-  - name: Konfigurera HTTPS på en anpassad domän
-    href: cdn-custom-ssl.md
-  - name: Konfigurera cachelagringsregler
-    href: cdn-caching-rules-tutorial.md
+    - name: Lägga till Azure CDN till en webbapp
+      href: cdn-add-to-web-app.md
+    - name: Få åtkomst till blobar med hjälp av en anpassad domän via HTTPS
+      href: cdn-storage-custom-domain-https.md
+    - name: Lägga till en anpassad domän
+      href: cdn-map-content-to-custom-domain.md
+    - name: Konfigurera HTTPS på en anpassad domän
+      href: cdn-custom-ssl.md
+    - name: Konfigurera cachelagringsregler
+      href: cdn-caching-rules-tutorial.md
 - name: Exempel
   items:
-  - name: Kodexempel
-    href: https://azure.microsoft.com/resources/samples/?service=cdn
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: Begrepp
   items:
-  - name: Så här fungerar cachelagring
-    href: cdn-how-caching-works.md
-  - name: Innehållsleverans, Kina
-    href: cdn-china-delivery.md
-  - name: Stöd för HTTP/2
-    href: cdn-http2.md
-  - name: Hämta Verizon POP-lista
-    href: cdn-pop-list-api.md
-  - name: Migrera från Standard Verizon Standard till Premium Verizon
-    href: cdn-migrate.md
-  - name: DDoS Protection
-    href: cdn-ddos.md
+    - name: Så här fungerar cachelagring
+      href: cdn-how-caching-works.md
+    - name: 'Innehållsleverans, Kina'
+      href: cdn-china-delivery.md
+    - name: Stöd för HTTP/2
+      href: cdn-http2.md
+    - name: Hämta Verizon POP-lista
+      href: cdn-pop-list-api.md
+    - name: Migrera från Standard Verizon Standard till Premium Verizon
+      href: cdn-migrate.md
+    - name: DDoS Protection
+      href: cdn-ddos.md
 - name: Instruktionsguider
   items:
-  - name: Optimera innehåll
-    href: cdn-optimization-overview.md
-    items:
-    - name: Optimering av stora filer
-      href: cdn-large-file-optimization.md
-    - name: Optimering av mediedirektuppspelning
-      href: cdn-media-streaming-optimization.md
-    - name: Acceleration av dynamisk webbplats
-      href: cdn-dynamic-site-acceleration.md
-  - name: Hantera
-    items:
-    - name: Skapa en slutpunkt
-      href: cdn-create-endpoint-how-to.md
-    - name: Hantera med Azure PowerShell
-      href: cdn-manage-powershell.md
-    - name: Begränsa åtkomst efter land
-      href: cdn-restrict-access-by-country.md
-    - name: Förbättra prestandan genom att komprimera filer
-      href: cdn-improve-performance.md
-    - name: Kontrollera funktionssättet för cachelagring
+    - name: Optimera innehåll
+      href: cdn-optimization-overview.md
       items:
-      - name: Kontrollera funktionssättet för cachelagring med cachelagringsregler
-        href: cdn-caching-rules.md
-      - name: Cachelagra innehåll efter frågesträngar
-        items:
-        - name: Standard-nivå
-          href: cdn-query-string.md
-        - name: Premiumnivå
-          href: cdn-query-string-premium.md
-      - name: Rensa cachelagrade tillgångar
-        href: cdn-purge-endpoint.md
-      - name: Ladda in cachelagrade tillgångar i förväg
-        href: cdn-preload-endpoint.md
-    - name: Konfigurera livslängd
+        - name: Optimering av stora filer
+          href: cdn-large-file-optimization.md
+        - name: Optimering av mediedirektuppspelning
+          href: cdn-media-streaming-optimization.md
+        - name: Acceleration av dynamisk webbplats
+          href: cdn-dynamic-site-acceleration.md
+    - name: Hantera
       items:
-      - name: Azure-webbinnehåll
-        href: cdn-manage-expiration-of-cloud-service-content.md
-      - name: Azure Blob Storage
-        href: cdn-manage-expiration-of-blob-content.md
-    - name: Tokenautentisering
-      href: cdn-token-auth.md
-    - name: Support för SAS-lagring
-      href: cdn-sas-storage-support.md
-    - name: Cross-origin resource sharing (CORS)
-      href: cdn-cors.md
-    - name: Övervaka resurser
-      href: cdn-resource-health.md
-    - name: Åsidosätt beteende med regler
-      href: cdn-rules-engine.md
-    - name: Använda Traffic Manager
-      href: cdn-traffic-manager.md
-  - name: Analysera
-    href: cdn-log-analysis.md
-    items:
-    - name: Azure Diagnostics-loggar
-      href: cdn-azure-diagnostic-logs.md
-    - name: Analysverktyg för Azure CDN från Verizon
+        - name: Skapa en slutpunkt
+          href: cdn-create-endpoint-how-to.md
+        - name: Hantera med Azure PowerShell
+          href: cdn-manage-powershell.md
+        - name: Begränsa åtkomst efter land
+          href: cdn-restrict-access-by-country.md
+        - name: Förbättra prestandan genom att komprimera filer
+          href: cdn-improve-performance.md
+        - name: Kontrollera funktionssättet för cachelagring
+          items:
+            - name: Kontrollera funktionssättet för cachelagring med cachelagringsregler
+              href: cdn-caching-rules.md
+            - name: Cachelagra innehåll efter frågesträngar
+              items:
+                - name: Standard-nivå
+                  href: cdn-query-string.md
+                - name: Premiumnivå
+                  href: cdn-query-string-premium.md
+            - name: Rensa cachelagrade tillgångar
+              href: cdn-purge-endpoint.md
+            - name: Ladda in cachelagrade tillgångar i förväg
+              href: cdn-preload-endpoint.md
+        - name: Konfigurera livslängd
+          items:
+            - name: Azure-webbinnehåll
+              href: cdn-manage-expiration-of-cloud-service-content.md
+            - name: Azure Blob Storage
+              href: cdn-manage-expiration-of-blob-content.md
+        - name: Tokenautentisering
+          href: cdn-token-auth.md
+        - name: Support för SAS-lagring
+          href: cdn-sas-storage-support.md
+        - name: Cross-origin resource sharing (CORS)
+          href: cdn-cors.md
+        - name: Övervaka resurser
+          href: cdn-resource-health.md
+        - name: Åsidosätt beteende med regler
+          href: cdn-rules-engine.md
+        - name: Använda Traffic Manager
+          href: cdn-traffic-manager.md
+    - name: Analysera
+      href: cdn-log-analysis.md
       items:
-      - name: Core-rapporter från Verizon
-        href: cdn-analyze-usage-patterns.md
-      - name: Anpassade rapporter från Verizon
-        href: cdn-verizon-custom-reports.md
-    - name: Analysverktyg för Azure CDN Premium från Verizon
+        - name: Azure Diagnostics-loggar
+          href: cdn-azure-diagnostic-logs.md
+        - name: Analysverktyg för Azure CDN från Verizon
+          items:
+            - name: Core-rapporter från Verizon
+              href: cdn-analyze-usage-patterns.md
+            - name: Anpassade rapporter från Verizon
+              href: cdn-verizon-custom-reports.md
+        - name: Analysverktyg för Azure CDN Premium från Verizon
+          items:
+            - name: Generera avancerade HTTP-rapporter
+              href: cdn-advanced-http-reports.md
+            - name: Visa statistik i realtid
+              href: cdn-real-time-stats.md
+            - name: Analysera gränsnodsprestanda
+              href: cdn-edge-performance.md
+            - name: Få aviseringar i realtid
+              href: cdn-real-time-alerts.md
+    - name: Utveckla
       items:
-      - name: Generera avancerade HTTP-rapporter
-        href: cdn-advanced-http-reports.md
-      - name: Visa statistik i realtid
-        href: cdn-real-time-stats.md
-      - name: Analysera gränsnodsprestanda
-        href: cdn-edge-performance.md
-      - name: Få aviseringar i realtid
-        href: cdn-real-time-alerts.md
-  - name: Utveckla
-    items:
-    - name: .NET
-      href: cdn-app-dev-net.md
-    - name: Node.js
-      href: cdn-app-dev-node.md
-  - name: Felsöka
-    items:
-    - name: 404-status
-      href: cdn-troubleshoot-endpoint.md
-    - name: Filkomprimering
-      href: cdn-troubleshoot-compression.md
-    - name: Tillåtna certifikatutfärdare
-      href: cdn-troubleshoot-allowed-ca.md
+        - name: .NET
+          href: cdn-app-dev-net.md
+        - name: Node.js
+          href: cdn-app-dev-node.md
+    - name: Felsöka
+      items:
+        - name: 404-status
+          href: cdn-troubleshoot-endpoint.md
+        - name: Filkomprimering
+          href: cdn-troubleshoot-compression.md
+        - name: Tillåtna certifikatutfärdare
+          href: cdn-troubleshoot-allowed-ca.md
 - name: Referens
   items:
-  - name: Regelmotor – referens
-    href: cdn-rules-engine-reference.md
-    items:
-    - name: Regelmotor – villkorliga uttryck
-      href: cdn-rules-engine-reference-conditional-expressions.md
-    - name: Regelmotor – matchningsvillkor
-      href: cdn-rules-engine-reference-match-conditions.md
-    - name: Regelmotor – funktioner
-      href: cdn-rules-engine-reference-features.md
-    - name: HTTP-variabler
-      href: cdn-http-variables.md
-  - name: Verizon-specifika HTTP-huvuden
-    href: cdn-verizon-http-headers.md
-    items:
-    - name: X-EC-Debug-huvuden
-      href: cdn-http-debug-headers.md
-  - name: Azure PowerShell
-    href: /powershell/module/az.cdn
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.cdn
-  - name: Java
-    href: /java/api/com.microsoft.azure.management.cdn
-  - name: REST
-    href: /rest/api/cdn/
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.cdn/allversions
+    - name: Regelmotor – referens
+      href: cdn-rules-engine-reference.md
+      items:
+        - name: Regelmotor – villkorliga uttryck
+          href: cdn-rules-engine-reference-conditional-expressions.md
+        - name: Regelmotor – matchningsvillkor
+          href: cdn-rules-engine-reference-match-conditions.md
+        - name: Regelmotor – funktioner
+          href: cdn-rules-engine-reference-features.md
+        - name: HTTP-variabler
+          href: cdn-http-variables.md
+    - name: Verizon-specifika HTTP-huvuden
+      href: cdn-verizon-http-headers.md
+      items:
+        - name: X-EC-Debug-huvuden
+          href: cdn-http-debug-headers.md
+    - name: Azure PowerShell
+      href: /powershell/module/az.cdn
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.cdn
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.cdn
+    - name: REST
+      href: /rest/api/cdn/
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.cdn/allversions
 - name: Resurser
   items:
-  - name: Azure CDN POP-platser
-    items:
-    - name: POP-platser efter region
-      href: cdn-pop-locations.md
-    - name: POP-platser efter förkortning
-      href: cdn-pop-abbreviations.md
-  - name: Så här fungerar fakturering för Azure CDN
-    href: cdn-billing.md
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: MSDN-forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=azurecdn
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/cdn/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Tjänstuppdateringar
-    href: https://azure.microsoft.com/updates/?product=cdn
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-cdn
-  - name: Videoklipp
-    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-ms.openlocfilehash: ae458ff96b209af011d01738211fd9baf2da21b4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664615"
+    - name: Azure CDN POP-platser
+      items:
+        - name: POP-platser efter region
+          href: cdn-pop-locations.md
+        - name: POP-platser efter förkortning
+          href: cdn-pop-abbreviations.md
+    - name: Så här fungerar fakturering för Azure CDN
+      href: cdn-billing.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cdn/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=cdn'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-cdn'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=cdn'

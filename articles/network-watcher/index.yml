@@ -6,14 +6,14 @@ metadata:
   title: 'Dokumentation om Network Watcher – självstudier, snabbstarter, API-referenser | Microsoft Docs'
   meta.description: 'Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.'
   services: network-watcher
-  author: jdial
-  manager: jeconnoc
+  author: KumudD
+  manager: twolley
   ms.service: network-watcher
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/24/2018
-  ms.author: jdial
+  ms.author: kumud
 abstract:
   description: 'Lär dig hur du använder Azure Network Watcher. Snabbstarter, självstudier med mera visar dig hur du kan få insikter i ditt virtuella Azure-nätverk med verktyg som paketinsamling och NSG-flödesloggar som hjälper dig att diagnostisera problem med trafikfiltrering och routning samt övervaka anslutningar.'
 sections:

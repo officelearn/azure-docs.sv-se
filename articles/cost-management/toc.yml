@@ -1,125 +1,118 @@
-items:
 - name: Azure Cost Management-dokumentation
   href: index.yml
   items:
-  - name: Översikt
-    items:
-    - name: Vad är kostnadshantering?
-      href: overview-cost-mgt.md
-  - name: Snabbstarter
-    items:
-    - name: Börja analysera kostnader
-      href: quick-acm-cost-analysis.md
-    expanded: true
-  - name: Självstudier
-    items:
-    - name: 1 – Skapa och hantera budgetar
-      href: tutorial-acm-create-budgets.md
-    - name: 2 – Exportera data
-      href: tutorial-export-acm-data.md
-    - name: 3 – Agera utifrån rekommendationer
-      href: tutorial-acm-opt-recommendations.md
-  - name: Begrepp
-    items:
-    - name: Metodtips för Azure Cost Management
-      href: cost-mgt-best-practices.md
-    - name: Förstå Cost Management-data
-      href: understand-cost-mgt-data.md
-    - name: Förstå och arbeta med omfång
-      href: understand-work-scopes.md
-    - name: Migrera från EA till MCA API:er
-      href: migrate-cost-management-api.md
-  - name: Instruktionsguider
-    items:
-    - name: Tilldela åtkomst till data
-      href: assign-access-acm-data.md
-    - name: Använda kostnadsaviseringar
-      href: cost-mgt-alerts-monitor-usage-spending.md
-  - name: Referens
-    items:
-    - name: REST API för Azure Cost Management
-      href: https://docs.microsoft.com/rest/api/cost-management
-    - name: REST API för Azure Consumption
-      href: https://docs.microsoft.com/rest/api/consumption
-    - name: Resource Manager-mall
-      href: /azure/templates/microsoft.consumption/budgets
-  - name: Resurser
-    items:
-    - name: Utveckla dina färdigheter med Microsoft Learn
-      href: /learn/browse/?products=azure-cost-management
-    - name: Feedbackforum för Cost Management
-      href: https://feedback.azure.com/forums/906772-cost-management
-    - name: Azure-översikt
-      href: https://azure.microsoft.com/roadmap/
-    - name: Prissättning
-      href: https://azure.microsoft.com/pricing/details/cost-management
-    - name: Regional tillgänglighet
-      href: https://azure.microsoft.com/regions/services/
-  - name: Cloudyn
-    items:
     - name: Översikt
       items:
-      - name: Vad är Cloudyn?
-        href: overview.md
+        - name: Vad är kostnadshantering?
+          href: overview-cost-mgt.md
     - name: Snabbstarter
+      expanded: true
       items:
-      - name: Visa kostnadsdata
-        href: quick-register-azure-sub.md
-      - name: Visa kostnadsdata – EA
-        href: quick-register-ea.md
-      - name: Visa kostnadsdata – CSP
-        href: quick-register-csp.md
+        - name: Börja analysera kostnader
+          href: quick-acm-cost-analysis.md
     - name: Självstudier
       items:
-      - name: 1 – Granska användning och kostnader
-        href: tutorial-review-usage.md
-      - name: 2 – Prognostisera utgifter
-        href: tutorial-forecast-spending.md
-      - name: 3 – Hantera kostnader
-        href: tutorial-manage-costs.md
-      - name: 4 – Optimera reserverade instanser
-        href: tutorial-optimize-reserved-instances.md
-      - name: 5 – Kontrollera åtkomst till data
-        href: tutorial-user-access.md
+        - name: 1 – Skapa och hantera budgetar
+          href: tutorial-acm-create-budgets.md
+        - name: 2 – Exportera data
+          href: tutorial-export-acm-data.md
+        - name: 3 – Agera utifrån rekommendationer
+          href: tutorial-acm-opt-recommendations.md
     - name: Begrepp
       items:
-      - name: Förstå kostnadsrapporter
-        href: understanding-cost-reports.md
+        - name: Metodtips för Azure Cost Management
+          href: cost-mgt-best-practices.md
+        - name: Förstå Cost Management-data
+          href: understand-cost-mgt-data.md
+        - name: Förstå och arbeta med omfång
+          href: understand-work-scopes.md
+        - name: 'Migrera från EA till MCA API:er'
+          href: migrate-cost-management-api.md
     - name: Instruktionsguider
       items:
-      - name: Aktivera Azure-prenumerationer och -konton
-        href: activate-subs-accounts.md
-      - name: Lägga till utökade mått för virtuella datorer
-        href: azure-vm-extended-metrics.md
-      - name: Ansluta ett Google-konto
-        href: connect-google-account.md
-      - name: Ansluta ett AWS-konto
-        href: connect-aws-account.md
-      - name: Konfigurera lagringskonton
-        href: storage-accounts.md
-      - name: Använd Cloudyn-rapporter
-        href: use-reports.md
-      - name: Använd instrumentpaneler
-        href: dashboards.md
-      - name: Hantera budgetar
-        href: manage-budgets.md
+        - name: Tilldela åtkomst till data
+          href: assign-access-acm-data.md
+        - name: Använda kostnadsaviseringar
+          href: cost-mgt-alerts-monitor-usage-spending.md
+    - name: Referens
+      items:
+        - name: REST API för Azure Cost Management
+          href: 'https://docs.microsoft.com/rest/api/cost-management'
+        - name: REST API för Azure Consumption
+          href: 'https://docs.microsoft.com/rest/api/consumption'
+        - name: Resource Manager-mall
+          href: /azure/templates/microsoft.consumption/budgets
     - name: Resurser
       items:
-      - name: Cloudyn-videor
-        href: ref-videos.md
-      - name: Azure-översikt
-        href: https://azure.microsoft.com/roadmap/
-      - name: Priser för Cloudyn
-        href: https://azure.microsoft.com/pricing/details/cost-management
-      - name: Regional tillgänglighet för Cloudyn
-        href: https://azure.microsoft.com/regions/services/
-      - name: Vanliga frågor och svar om Cloudyn
-        href: cost-mgt-faq.md
-      - name: Kontakta Cloudyns support
-        href: support-request-cost-management.md
-ms.openlocfilehash: b9e987d0f839b3ea0c13b15cdb27e8cb9de5b5dc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312520"
+        - name: Utveckla dina färdigheter med Microsoft Learn
+          href: /learn/browse/?products=azure-cost-management
+        - name: Feedbackforum för Cost Management
+          href: 'https://feedback.azure.com/forums/906772-cost-management'
+        - name: Azure-översikt
+          href: 'https://azure.microsoft.com/roadmap/'
+        - name: Prissättning
+          href: 'https://azure.microsoft.com/pricing/details/cost-management'
+        - name: Regional tillgänglighet
+          href: 'https://azure.microsoft.com/regions/services/'
+    - name: Cloudyn
+      items:
+        - name: Översikt
+          items:
+            - name: Vad är Cloudyn?
+              href: overview.md
+        - name: Snabbstarter
+          items:
+            - name: Visa kostnadsdata
+              href: quick-register-azure-sub.md
+            - name: Visa kostnadsdata – EA
+              href: quick-register-ea.md
+            - name: Visa kostnadsdata – CSP
+              href: quick-register-csp.md
+        - name: Självstudier
+          items:
+            - name: 1 – Granska användning och kostnader
+              href: tutorial-review-usage.md
+            - name: 2 – Prognostisera utgifter
+              href: tutorial-forecast-spending.md
+            - name: 3 – Hantera kostnader
+              href: tutorial-manage-costs.md
+            - name: 4 – Optimera reserverade instanser
+              href: tutorial-optimize-reserved-instances.md
+            - name: 5 – Kontrollera åtkomst till data
+              href: tutorial-user-access.md
+        - name: Begrepp
+          items:
+            - name: Förstå kostnadsrapporter
+              href: understanding-cost-reports.md
+        - name: Instruktionsguider
+          items:
+            - name: Aktivera Azure-prenumerationer och -konton
+              href: activate-subs-accounts.md
+            - name: Lägga till utökade mått för virtuella datorer
+              href: azure-vm-extended-metrics.md
+            - name: Ansluta ett Google-konto
+              href: connect-google-account.md
+            - name: Ansluta ett AWS-konto
+              href: connect-aws-account.md
+            - name: Konfigurera lagringskonton
+              href: storage-accounts.md
+            - name: Använd Cloudyn-rapporter
+              href: use-reports.md
+            - name: Använd instrumentpaneler
+              href: dashboards.md
+            - name: Hantera budgetar
+              href: manage-budgets.md
+        - name: Resurser
+          items:
+            - name: Cloudyn-videor
+              href: ref-videos.md
+            - name: Azure-översikt
+              href: 'https://azure.microsoft.com/roadmap/'
+            - name: Priser för Cloudyn
+              href: 'https://azure.microsoft.com/pricing/details/cost-management'
+            - name: Regional tillgänglighet för Cloudyn
+              href: 'https://azure.microsoft.com/regions/services/'
+            - name: Vanliga frågor och svar om Cloudyn
+              href: cost-mgt-faq.md
+            - name: Kontakta Cloudyns support
+              href: support-request-cost-management.md

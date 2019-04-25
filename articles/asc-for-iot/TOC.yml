@@ -1,77 +1,70 @@
-items:
 - name: Dokumentation om förhandsversionen av Azure Security Center (ASC) för IoT
   href: index.yml
 - name: Översikt
   href: overview.md
   items:
-  - name: Lösningsarkitektur
-    href: architecture.md
-  - name: Säkerhetsagenter
-    href: security-agent-architecture.md
-  - name: Edge-säkerhetsmodul
-    href: security-edge-architecture.md
-  - name: Förutsättningar för tjänsten
-    href: service-prerequisites.md
-  - name: Komma igång med ASC för IoT
-    href: getting-started.md
+    - name: Lösningsarkitektur
+      href: architecture.md
+    - name: Säkerhetsagenter
+      href: security-agent-architecture.md
+    - name: Edge-säkerhetsmodul
+      href: security-edge-architecture.md
+    - name: Förutsättningar för tjänsten
+      href: service-prerequisites.md
+    - name: Komma igång med ASC för IoT
+      href: getting-started.md
 - name: Snabbstarter
-  items:
-  - name: Aktivera ASC för IoT i IoT Hub
-    href: quickstart-onboard-iot-hub.md
-  - name: Konfigurera lösningen
-    href: quickstart-configure-your-solution.md
-  - name: Skapa en ASC för IoT-modultvilling
-    href: quickstart-create-security-twin.md
-  - name: Skapa anpassade säkerhetsaviseringar
-    href: quickstart-create-custom-alerts.md
   expanded: true
+  items:
+    - name: Aktivera ASC för IoT i IoT Hub
+      href: quickstart-onboard-iot-hub.md
+    - name: Konfigurera lösningen
+      href: quickstart-configure-your-solution.md
+    - name: Skapa en ASC för IoT-modultvilling
+      href: quickstart-create-security-twin.md
+    - name: Skapa anpassade säkerhetsaviseringar
+      href: quickstart-create-custom-alerts.md
 - name: Begrepp
   items:
-  - name: Autentisering av säkerhetsagent
-    href: concept-security-agent-authentication-methods.md
-  - name: Säkerhetsmodul
-    href: concept-security-module.md
-  - name: Säkerhetsaviseringar
-    href: concept-security-alerts.md
-  - name: Säkerhetsrekommendationer
-    href: concept-recommendations.md
-  - name: Prissättning och associerade kostnader
-    href: concept-pricing.md
+    - name: Autentisering av säkerhetsagent
+      href: concept-security-agent-authentication-methods.md
+    - name: Säkerhetsmodul
+      href: concept-security-module.md
+    - name: Säkerhetsaviseringar
+      href: concept-security-alerts.md
+    - name: Säkerhetsrekommendationer
+      href: concept-recommendations.md
+    - name: Prissättning och associerade kostnader
+      href: concept-pricing.md
 - name: Instruktionsguider
   items:
-  - name: Vilken agent ska jag distribuera?
-    items:
-    - name: Välj en agent för att distribuera
-      href: how-to-deploy-agent.md
-    - name: Distribuera en C#-baserad säkerhetsagent på en Windows-enhet
-      href: how-to-deploy-windows-cs.md
-    - name: Distribuera en C#-baserad säkerhetsagent på en Linux-enhet
-      href: how-to-deploy-linux-cs.md
-    - name: Distribuera en C-baserad säkerhetsagent på en Linux-enhet
-      href: how-to-deploy-linux-c.md
-  - name: Distribuera Edge-säkerhetsmodul
-    href: how-to-deploy-edge.md
-  - name: Konfigurera säkerhetsagenter
-    href: how-to-agent-configuration.md
-  - name: Skicka dina egna säkerhetsmeddelanden
-    href: how-to-send-security-messages.md
-  - name: Få åtkomst till råsäkerhetsdata
-    href: how-to-security-data-access.md
-  - name: Undersöka en enhet
-    href: how-to-investigate-device.md
+    - name: Vilken agent ska jag distribuera?
+      items:
+        - name: Välj en agent för att distribuera
+          href: how-to-deploy-agent.md
+        - name: 'Distribuera en C#-baserad säkerhetsagent på en Windows-enhet'
+          href: how-to-deploy-windows-cs.md
+        - name: 'Distribuera en C#-baserad säkerhetsagent på en Linux-enhet'
+          href: how-to-deploy-linux-cs.md
+        - name: Distribuera en C-baserad säkerhetsagent på en Linux-enhet
+          href: how-to-deploy-linux-c.md
+    - name: Distribuera Edge-säkerhetsmodul
+      href: how-to-deploy-edge.md
+    - name: Konfigurera säkerhetsagenter
+      href: how-to-agent-configuration.md
+    - name: Skicka dina egna säkerhetsmeddelanden
+      href: how-to-send-security-messages.md
+    - name: Få åtkomst till råsäkerhetsdata
+      href: how-to-security-data-access.md
+    - name: Undersöka en enhet
+      href: how-to-investigate-device.md
 - name: Resurser
   items:
-  - name: Vanliga frågor och svar
-    href: resources-frequently-asked-questions.md
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Blogg om säkerhet, sekretess och efterlevnad i Azure
-    href: http://blogs.msdn.com/b/azuresecurity/
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 1d9d2b51fb1a07081c4ac2f4b115363c74cca6d0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754583"
+    - name: Vanliga frågor och svar
+      href: resources-frequently-asked-questions.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 'Blogg om säkerhet, sekretess och efterlevnad i Azure'
+      href: 'http://blogs.msdn.com/b/azuresecurity/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'

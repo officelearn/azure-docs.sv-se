@@ -1,110 +1,109 @@
-items:
 - name: Felsöka virtuella Azure-datorer
   href: index.md
 - name: Allokeringsfel
   items:
-  - name: Allokeringsfel
-    href: allocation-failure.md
-  - name: Allokeringsfel för klassiska distributioner
-    href: allocation-failure-classic.md
+    - name: Allokeringsfel
+      href: allocation-failure.md
+    - name: Allokeringsfel för klassiska distributioner
+      href: allocation-failure-classic.md
 - name: RDP
   href: rdp.md
   items:
-  - name: Återställa RDP
-    href: reset-rdp.md
-  - name: Felsökning av RDP
-    href: troubleshoot-rdp-connection.md
-  - name: Detaljerad felsökning av RDP
-    href: detailed-troubleshoot-rdp.md
-  - name: Felsöka RDP-fel på grund av att DHCP är inaktiverat
-    href: troubleshoot-rdp-dhcp-disabled.md
-  - name: Felsöka RDP-fel på grund av NSG-inställningen
-    href: troubleshoot-rdp-nsg-problem.md
-  - name: Felsöka specifika fel
-    href: troubleshoot-specific-rdp-errors.md
-  - name: Felsöka fel utan licensserver
-    href: troubleshoot-rdp-no-license-server.md
-  - name: Felsöka problem med fjärrskrivbordstjänster
-    href: troubleshoot-remote-desktop-services-issues.md
-  - name: Felsöka ett internt fel
-    href: Troubleshoot-rdp-internal-error.md
-  - name: Felsöka problem med att anslutningen kopplas ifrån ofta
-    href: troubleshoot-rdp-intermittent-connectivity.md
-  - name: Felsöka ett generellt fel
-    href: troubleshoot-rdp-general-error.md
-  - name: Felsöka autentiseringsfel
-    href: troubleshoot-authentication-error-rdp-vm.md
-  - name: Felsöka Azure VM RDP-anslutningsfel efter händelse-ID
-    href: event-id-troubleshoot-vm-rdp-connecton.md
-  - name: Felsöka RDP-fel i virtuella datorer på grund av statisk IP-adress
-    href: troubleshoot-rdp-static-ip.md
-  - name: Felsöka RDP-fel i virtuella datorer på grund av att nätverkskortet är inaktiverat
-    href: troubleshoot-rdp-nic-disabled.md
-  - name: Felsöka RDP-fel som orsakats av felsäkert läge
-    href: troubleshoot-rdp-safe-mode.md
-  - name: Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
-    href: disable-guest-os-firewall-windows.md
-  - name: Aktivera eller inaktivera en brandväggsregel i ett gästoperativsystem
-    href: enable-disable-firewall-rule-guest-os.md
-  - name: Brandväggen för gästoperativsystemet blockerar inkommande trafik
-    href: guest-os-firewall-blocking-inbound-traffic.md
-  - name: Brandväggen för gästoperativsystemet är felkonfigurerad
-    href: guest-os-firewall-misconfigured.md
-  - name: Felsöka RDP-fel som orsakats av netvsc.sys
-    href: troubleshoot-rdp-driver-netvsc.md
+    - name: Återställa RDP
+      href: reset-rdp.md
+    - name: Felsökning av RDP
+      href: troubleshoot-rdp-connection.md
+    - name: Detaljerad felsökning av RDP
+      href: detailed-troubleshoot-rdp.md
+    - name: Felsöka RDP-fel på grund av att DHCP är inaktiverat
+      href: troubleshoot-rdp-dhcp-disabled.md
+    - name: Felsöka RDP-fel på grund av NSG-inställningen
+      href: troubleshoot-rdp-nsg-problem.md
+    - name: Felsöka specifika fel
+      href: troubleshoot-specific-rdp-errors.md
+    - name: Felsöka fel utan licensserver
+      href: troubleshoot-rdp-no-license-server.md
+    - name: Felsöka problem med fjärrskrivbordstjänster
+      href: troubleshoot-remote-desktop-services-issues.md
+    - name: Felsöka ett internt fel
+      href: Troubleshoot-rdp-internal-error.md
+    - name: Felsöka problem med att anslutningen kopplas ifrån ofta
+      href: troubleshoot-rdp-intermittent-connectivity.md
+    - name: Felsöka ett generellt fel
+      href: troubleshoot-rdp-general-error.md
+    - name: Felsöka autentiseringsfel
+      href: troubleshoot-authentication-error-rdp-vm.md
+    - name: Felsöka Azure VM RDP-anslutningsfel efter händelse-ID
+      href: event-id-troubleshoot-vm-rdp-connecton.md
+    - name: Felsöka RDP-fel i virtuella datorer på grund av statisk IP-adress
+      href: troubleshoot-rdp-static-ip.md
+    - name: Felsöka RDP-fel i virtuella datorer på grund av att nätverkskortet är inaktiverat
+      href: troubleshoot-rdp-nic-disabled.md
+    - name: Felsöka RDP-fel som orsakats av felsäkert läge
+      href: troubleshoot-rdp-safe-mode.md
+    - name: Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
+      href: disable-guest-os-firewall-windows.md
+    - name: Aktivera eller inaktivera en brandväggsregel i ett gästoperativsystem
+      href: enable-disable-firewall-rule-guest-os.md
+    - name: Brandväggen för gästoperativsystemet blockerar inkommande trafik
+      href: guest-os-firewall-blocking-inbound-traffic.md
+    - name: Brandväggen för gästoperativsystemet är felkonfigurerad
+      href: guest-os-firewall-misconfigured.md
+    - name: Felsöka RDP-fel som orsakats av netvsc.sys
+      href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
-  - name: Felsökning av SSH
-    href: troubleshoot-ssh-connection.md
-  - name: Felsöka filsystemsfel
-    href: https://support.microsoft.com/help/3213321
-  - name: Felsöka kernelrelaterade startfel
-    href: https://support.microsoft.com/help/4091524
-  - name: Felsöka fstab-fel
-    href: https://support.microsoft.com/help/3206699
-  - name: Detaljerad felsökning av SSH
-    href: detailed-troubleshoot-ssh-connection.md
+    - name: Felsökning av SSH
+      href: troubleshoot-ssh-connection.md
+    - name: Felsöka filsystemsfel
+      href: 'https://support.microsoft.com/help/3213321'
+    - name: Felsöka kernelrelaterade startfel
+      href: 'https://support.microsoft.com/help/4091524'
+    - name: Felsöka fstab-fel
+      href: 'https://support.microsoft.com/help/3206699'
+    - name: Detaljerad felsökning av SSH
+      href: detailed-troubleshoot-ssh-connection.md
 - name: Vanliga felmeddelanden
   href: error-messages.md
 - name: Prestandaproblem med virtuella Windows-datorer
   href: performance-diagnostics.md
   items:
-  - name: Så här använder du PerfInsights
-    href: how-to-use-perfInsights.md
-  - name: Tillägg för prestandadiagnostik
-    href: performance-diagnostics-vm-extension.md
+    - name: Så här använder du PerfInsights
+      href: how-to-use-perfInsights.md
+    - name: Tillägg för prestandadiagnostik
+      href: performance-diagnostics-vm-extension.md
 - name: Installera agent för virtuell Windows-dator offline
   href: install-vm-agent-offline.md
 - name: Distribuera om en VM
   items:
-  - name: Linux
-    href: redeploy-to-new-node-linux.md
-  - name: Windows
-    href: redeploy-to-new-node-windows.md
+    - name: Linux
+      href: redeploy-to-new-node-linux.md
+    - name: Windows
+      href: redeploy-to-new-node-windows.md
 - name: Återställa VM-lösenord
   items:
-  - name: Windows
-    href: reset-local-password-without-agent.md
-  - name: Linux
-    href: reset-password.md
+    - name: Windows
+      href: reset-local-password-without-agent.md
+    - name: Linux
+      href: reset-password.md
 - name: Återställ NIC
   href: reset-network-interface.md
 - name: Starta om eller ändra storlek på en virtuell dator
   href: restart-resize-error-troubleshooting.md
 - name: Använda seriekonsolen
   items:
-  - name: Virtuell Linux-dator
-    href: serial-console-linux.md
-    items:
-    - name: GRUB/läge för en enskild användare för seriekonsol
-      href: serial-console-grub-single-user-mode.md
-    - name: NMI/SysRq för seriekonsol
-      href: serial-console-nmi-sysrq.md
-  - name: Virtuell Windows-dator
-    href: serial-console-windows.md
-    items:
-    - name: CMD- och PowerShell-kommandon
-      href: serial-console-cmd-ps-commands.md
+    - name: Virtuell Linux-dator
+      href: serial-console-linux.md
+      items:
+        - name: GRUB/läge för en enskild användare för seriekonsol
+          href: serial-console-grub-single-user-mode.md
+        - name: NMI/SysRq för seriekonsol
+          href: serial-console-nmi-sysrq.md
+    - name: Virtuell Windows-dator
+      href: serial-console-windows.md
+      items:
+        - name: CMD- och PowerShell-kommandon
+          href: serial-console-cmd-ps-commands.md
 - name: Fel när du tar bort lagringsresurser
   href: storage-resource-deletion-errors.md
 - name: Fel när du tar bort klassiska lagringsresurser
@@ -119,51 +118,51 @@ items:
   href: troubleshoot-app-connection.md
 - name: Nya VM-distributioner
   items:
-  - name: Linux
-    href: troubleshoot-deployment-new-vm-linux.md
-  - name: Windows
-    href: troubleshoot-deployment-new-vm-windows.md
+    - name: Linux
+      href: troubleshoot-deployment-new-vm-linux.md
+    - name: Windows
+      href: troubleshoot-deployment-new-vm-windows.md
 - name: Felsöka distributioner
   items:
-  - name: Linux
-    href: troubleshoot-deploy-vm-linux.md
-  - name: Windows
-    href: troubleshoot-deploy-vm-windows.md
+    - name: Linux
+      href: troubleshoot-deploy-vm-linux.md
+    - name: Windows
+      href: troubleshoot-deploy-vm-windows.md
 - name: Enhetsnamnen har ändrats
   href: troubleshoot-device-names-problems.md
 - name: Återställningsåtkomst till virtuell dator
   items:
-  - name: Windows
-    items:
-    - name: PowerShell
-      href: troubleshoot-recovery-disks-windows.md
-    - name: Azure Portal
-      href: troubleshoot-recovery-disks-portal-windows.md
-  - name: Linux
-    items:
-    - name: CLI
-      href: troubleshoot-recovery-disks-linux.md
-    - name: Azure Portal
-      href: troubleshoot-recovery-disks-portal-linux.md
+    - name: Windows
+      items:
+        - name: PowerShell
+          href: troubleshoot-recovery-disks-windows.md
+        - name: Azure Portal
+          href: troubleshoot-recovery-disks-portal-windows.md
+    - name: Linux
+      items:
+        - name: CLI
+          href: troubleshoot-recovery-disks-linux.md
+        - name: Azure Portal
+          href: troubleshoot-recovery-disks-portal-linux.md
 - name: Startfel
   href: boot-error-troubleshoot.md
   items:
-  - name: Startdiagnostik
-    href: boot-diagnostics.md
-  - name: BitLocker-fel
-    href: troubleshoot-bitlocker-boot-error.md
-  - name: Kontrollera filsystemfel
-    href: troubleshoot-check-disk-boot-error.md
-  - name: Fel som visar en blå kraschskärm
-    href: troubleshoot-common-blue-screen-error.md
-  - name: VM-uppstarten har fastnat
-    href: troubleshoot-vm-boot-configure-update.md
-  - name: Viktig tjänst misslyckades
-    href: troubleshoot-critical-service-failed-boot-error.md
-  - name: Omstartningsloop
-    href: troubleshoot-reboot-loop.md
-  - name: Windows-uppdateringen har fastnat
-    href: troubleshoot-stuck-updating-boot-error.md
+    - name: Startdiagnostik
+      href: boot-diagnostics.md
+    - name: BitLocker-fel
+      href: troubleshoot-bitlocker-boot-error.md
+    - name: Kontrollera filsystemfel
+      href: troubleshoot-check-disk-boot-error.md
+    - name: Fel som visar en blå kraschskärm
+      href: troubleshoot-common-blue-screen-error.md
+    - name: VM-uppstarten har fastnat
+      href: troubleshoot-vm-boot-configure-update.md
+    - name: Viktig tjänst misslyckades
+      href: troubleshoot-critical-service-failed-boot-error.md
+    - name: Omstartningsloop
+      href: troubleshoot-reboot-loop.md
+    - name: Windows-uppdateringen har fastnat
+      href: troubleshoot-stuck-updating-boot-error.md
 - name: Begränsningsfel
   href: troubleshooting-throttling-errors.md
 - name: Använd kapslad virtualisering
@@ -172,9 +171,3 @@ items:
   href: understand-vm-reboot.md
 - name: Fjärrfelsökningsverktyg
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: 7ba013c372eefcbf83bb141ba44fcea9b68064de
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382971"

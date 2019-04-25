@@ -2,9 +2,9 @@
 documentType: LandingData
 title: Dokumentation om Azure Container Service med DC/OS och Swarm
 metadata:
-  document_id: 
-  title: Dokumentation om Azure Container Service med DC/OS och Swarm – självstudier, API-referens | Microsoft Docs
-  meta.description: Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
+  document_id: null
+  title: 'Dokumentation om Azure Container Service med DC/OS och Swarm – självstudier, API-referens | Microsoft Docs'
+  meta.description: 'Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
   services: container-service
   author: carolz
   manager: carolz
@@ -14,55 +14,49 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: d1d65d02059f312b116cfb33b13fb98471b3b2f6
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/11/2017
-  ms.locfileid: "23068414"
 abstract:
-  description: Med Azure Container Service kan du snabbt distribuera ett produktionsklart DC/OS- eller Docker Swarm-kluster. Lär dig hur du använder Azure Container Service med de här snabbstarterna, självstudierna och exemplen.
+  description: 'Med Azure Container Service kan du snabbt distribuera ett produktionsklart DC/OS- eller Docker Swarm-kluster. Lär dig hur du använder Azure Container Service med de här snabbstarterna, självstudierna och exemplen.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du distribuerar DC/OS-kluster med Azure Container Service:'
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_linux.svg
-      text: Skapa ett DC/OS-kluster
-      href: /azure/container-service/container-service-dcos-quickstart
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_docker.svg
-      text: Skapa ett Docker Swarm-kluster
-      href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du distribuerar, hanterar och uppdaterar program i ett Azure Container Service DC/OS-kluster.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Lär dig hur du distribuerar DC/OS-kluster med Azure Container Service:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+            text: Skapa ett DC/OS-kluster
+            href: /azure/container-service/container-service-dcos-quickstart
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+            text: Skapa ett Docker Swarm-kluster
+            href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/container-service/container-service-dcos-manage-tutorial">Skapa och hantera ett Azure Container Service DC/OS-kluster</a>
-    - html: <a href="/azure/container-service/container-service-load-balancing">Belastningsutjämna behållare i ett Azure Container Service DC/OS-kluster</a>
-    - html: <a href="/azure/container-service/container-service-dcos-fileshare">Skapa och montera en filresurs till ett DC/OS-kluster</a>
-    - html: <a href="/azure/container-service/container-service-dcos-acr">Använd Azure Container Registry med ett DC/OS-kluster för att distribuera ditt program</a>
-- title: Exempel
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Lär dig hur du distribuerar, hanterar och uppdaterar program i ett Azure Container Service DC/OS-kluster.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-service/container-service-dcos-manage-tutorial">Skapa och hantera ett Azure Container Service DC/OS-kluster</a>
+          - html: <a href="/azure/container-service/container-service-load-balancing">Belastningsutjämna behållare i ett Azure Container Service DC/OS-kluster</a>
+          - html: <a href="/azure/container-service/container-service-dcos-fileshare">Skapa och montera en filresurs till ett DC/OS-kluster</a>
+          - html: <a href="/azure/container-service/container-service-dcos-acr">Använd Azure Container Registry med ett DC/OS-kluster för att distribuera ditt program</a>
+  - title: Exempel
     items:
-    - html: <a href="/azure/container-service/cli-samples">Azure CLI</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/container-service/cli-samples">Azure CLI</a>
+  - title: Referens
     items:
-    - title: Kommandorad
-      html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/container-service">REST API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/container-service">REST-API</a></p>

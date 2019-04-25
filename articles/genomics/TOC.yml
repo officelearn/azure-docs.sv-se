@@ -1,50 +1,43 @@
-items:
 - name: Dokumentation om Microsoft Genomics
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Microsoft Genomics?
-    href: overview-what-is-genomics.md
+    - name: Vad är Microsoft Genomics?
+      href: overview-what-is-genomics.md
 - name: Snabbstarter
-  items:
-  - name: Kör ett Genomics-exempelarbetsflöde
-    href: quickstart-run-genomics-workflow-portal.md
   expanded: true
+  items:
+    - name: Kör ett Genomics-exempelarbetsflöde
+      href: quickstart-run-genomics-workflow-portal.md
 - name: Instruktionsguider
   items:
-  - name: Använd olika format för indatafiler
-    items:
-    - name: Flera FASTQ-filer
-      href: quickstart-input-pair-fastq.md
-    - name: BAM-fil
-      href: quickstart-input-bam.md
-    - name: Flera FASTQ- eller BAM-filer
-      href: quickstart-input-multiple.md
-  - name: Ange en SAS-token istället för en kontonyckel
-    href: quickstart-input-sas.md
+    - name: Använd olika format för indatafiler
+      items:
+        - name: Flera FASTQ-filer
+          href: quickstart-input-pair-fastq.md
+        - name: BAM-fil
+          href: quickstart-input-bam.md
+        - name: Flera FASTQ- eller BAM-filer
+          href: quickstart-input-multiple.md
+    - name: Ange en SAS-token istället för en kontonyckel
+      href: quickstart-input-sas.md
 - name: Resurser
   items:
-  - name: Vanliga frågor
-    href: frequently-asked-questions-genomics.md
-  - name: Felsökningsguide
-    href: troubleshooting-guide-genomics.md
-  - name: Skicka in en supportbegäran
-    href: file-support-ticket-genomics.md
-  - name: Versionshistorik
-    href: version-release-history-genomics.md
-  - name: Verksamhetskontinuitet
-    href: business-continuity-genomics.md
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/genomics/
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-  - name: Supportalternativ
-    href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: aaeaa293d6ceed3281db2cde59ada94d44ddc217
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446738"
+    - name: Vanliga frågor
+      href: frequently-asked-questions-genomics.md
+    - name: Felsökningsguide
+      href: troubleshooting-guide-genomics.md
+    - name: Skicka in en supportbegäran
+      href: file-support-ticket-genomics.md
+    - name: Versionshistorik
+      href: version-release-history-genomics.md
+    - name: Verksamhetskontinuitet
+      href: business-continuity-genomics.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/genomics/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Supportalternativ
+      href: 'https://azure.microsoft.com/support/options/'

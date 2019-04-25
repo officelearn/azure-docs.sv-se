@@ -1,150 +1,143 @@
-items:
 - name: Azure Container Registry
   href: ./index.yml
 - name: Översikt
   items:
-  - name: Om Container Registry
-    href: container-registry-intro.md
+    - name: Om Container Registry
+      href: container-registry-intro.md
 - name: Snabbstarter
-  items:
-  - name: Skapa ett containerregister – CLI
-    href: container-registry-get-started-azure-cli.md
-  - name: Skapa ett containerregister – Portal
-    href: container-registry-get-started-portal.md
-  - name: Skapa ett containerregister – PowerShell
-    href: container-registry-get-started-powershell.md
-  - name: Skapa och köra avbildning – CLI
-    href: container-registry-quickstart-task-cli.md
-  - name: Skicka händelser till Event Grid – CLI
-    href: container-registry-event-grid-quickstart.md
   expanded: true
+  items:
+    - name: Skapa ett containerregister – CLI
+      href: container-registry-get-started-azure-cli.md
+    - name: Skapa ett containerregister – Portal
+      href: container-registry-get-started-portal.md
+    - name: Skapa ett containerregister – PowerShell
+      href: container-registry-get-started-powershell.md
+    - name: Skapa och köra avbildning – CLI
+      href: container-registry-quickstart-task-cli.md
+    - name: Skicka händelser till Event Grid – CLI
+      href: container-registry-event-grid-quickstart.md
 - name: Självstudier
   items:
-  - name: Skapa containeravbildningar
-    items:
-    - name: 1 – Skapa avbildningar i Azure
-      href: container-registry-tutorial-quick-task.md
-    - name: 2 – Automatisera skapandet av avbildningar
-      href: container-registry-tutorial-build-task.md
-    - name: 3 – Grundläggande uppdateringar av avbildningar
-      href: container-registry-tutorial-base-image-update.md
-  - name: GEO-replikera ett register
-    items:
-    - name: 1 – Förbered containerregister
-      href: container-registry-tutorial-prepare-registry.md
-    - name: 2 – Distribuera webbprogrammet
-      href: container-registry-tutorial-deploy-app.md
-    - name: 3 – Uppdatera webbprogrammet
-      href: container-registry-tutorial-deploy-update.md
+    - name: Skapa containeravbildningar
+      items:
+        - name: 1 – Skapa avbildningar i Azure
+          href: container-registry-tutorial-quick-task.md
+        - name: 2 – Automatisera skapandet av avbildningar
+          href: container-registry-tutorial-build-task.md
+        - name: 3 – Grundläggande uppdateringar av avbildningar
+          href: container-registry-tutorial-base-image-update.md
+    - name: GEO-replikera ett register
+      items:
+        - name: 1 – Förbered containerregister
+          href: container-registry-tutorial-prepare-registry.md
+        - name: 2 – Distribuera webbprogrammet
+          href: container-registry-tutorial-deploy-app.md
+        - name: 3 – Uppdatera webbprogrammet
+          href: container-registry-tutorial-deploy-update.md
 - name: Begrepp
   items:
-  - name: SKU:er för Container Registry
-    href: container-registry-skus.md
-  - name: Bildlagring
-    href: container-registry-storage.md
-  - name: Innehållsformat
-    href: container-registry-image-formats.md
-  - name: Geo-replikering
-    href: container-registry-geo-replication.md
-  - name: Roller och behörigheter
-    href: container-registry-roles.md
-  - name: Registrera metodtips
-    href: container-registry-best-practices.md
+    - name: 'SKU:er för Container Registry'
+      href: container-registry-skus.md
+    - name: Bildlagring
+      href: container-registry-storage.md
+    - name: Innehållsformat
+      href: container-registry-image-formats.md
+    - name: Geo-replikering
+      href: container-registry-geo-replication.md
+    - name: Roller och behörigheter
+      href: container-registry-roles.md
+    - name: Registrera metodtips
+      href: container-registry-best-practices.md
 - name: Instruktionsguider
   items:
-  - name: Registeråtgärder
-    items:
-    - name: Skicka/hämta en avbildning
-      href: container-registry-get-started-docker-cli.md
-    - name: Visa lagringsplatser
-      href: container-registry-repositories.md
-    - name: Importera containeravbildningar
-      href: container-registry-import-images.md
-    - name: Låsa containeravbildningar
-      href: container-registry-image-lock.md
-    - name: Ta bort containeravbildningar
-      href: container-registry-delete.md
-    - name: Uppgradera ett klassiskt register
-      href: container-registry-upgrade.md
-    - name: Använda ACR-webhooks
-      href: container-registry-webhook.md
-    - name: Lagringsplatser för Helm-diagram (förhandsversion)
-      href: container-registry-helm-repos.md
-  - name: Säkerhet och autentisering
-    items:
-    - name: Begränsa åtkomst med virtuellt nätverk (förhandsversion)
-      href: container-registry-vnet.md
-    - name: Översikt över autentisering
-      href: container-registry-authentication.md
+    - name: Registeråtgärder
       items:
-      - name: Autentisering av tjänstens huvudnamn
-        href: container-registry-auth-service-principal.md
-      - name: Autentisering av hanterad identitet
-        href: container-registry-authentication-managed-identity.md
-      - name: Autentisera från Azure Container Instances
-        href: container-registry-auth-aci.md
-      - name: Autentisera från Azure Kubernetes Service (AKS)
-        href: container-registry-auth-aks.md
-    - name: Innehållsförtroende (förhandsversion)
-      href: container-registry-content-trust.md
-  - name: Bygga och korrigera
-    items:
-    - name: ACR-uppgifter
-      href: container-registry-tasks-overview.md
-    - name: Uppgifter i flera steg
-      href: container-registry-tasks-multi-step.md
-  - name: Register och andra Azure-tjänster
-    items:
-    - name: Azure Container Instances
-      href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Kubernetes Service (AKS)
-      href: ../aks/tutorial-kubernetes-prepare-app.md
-    - name: Service Fabric
-      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+        - name: Skicka/hämta en avbildning
+          href: container-registry-get-started-docker-cli.md
+        - name: Visa lagringsplatser
+          href: container-registry-repositories.md
+        - name: Importera containeravbildningar
+          href: container-registry-import-images.md
+        - name: Låsa containeravbildningar
+          href: container-registry-image-lock.md
+        - name: Ta bort containeravbildningar
+          href: container-registry-delete.md
+        - name: Uppgradera ett klassiskt register
+          href: container-registry-upgrade.md
+        - name: Använda ACR-webhooks
+          href: container-registry-webhook.md
+        - name: Lagringsplatser för Helm-diagram (förhandsversion)
+          href: container-registry-helm-repos.md
+    - name: Säkerhet och autentisering
+      items:
+        - name: Begränsa åtkomst med virtuellt nätverk (förhandsversion)
+          href: container-registry-vnet.md
+        - name: Översikt över autentisering
+          href: container-registry-authentication.md
+          items:
+            - name: Autentisering av tjänstens huvudnamn
+              href: container-registry-auth-service-principal.md
+            - name: Autentisering av hanterad identitet
+              href: container-registry-authentication-managed-identity.md
+            - name: Autentisera från Azure Container Instances
+              href: container-registry-auth-aci.md
+            - name: Autentisera från Azure Kubernetes Service (AKS)
+              href: container-registry-auth-aks.md
+        - name: Innehållsförtroende (förhandsversion)
+          href: container-registry-content-trust.md
+    - name: Bygga och korrigera
+      items:
+        - name: ACR-uppgifter
+          href: container-registry-tasks-overview.md
+        - name: Uppgifter i flera steg
+          href: container-registry-tasks-multi-step.md
+    - name: Register och andra Azure-tjänster
+      items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
+        - name: Service Fabric
+          href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Referens
   items:
-  - name: Azure CLI
-    href: /cli/azure/acr
-  - name: REST
-    href: /rest/api/containerregistry
-  - name: PowerShell
-    href: /powershell/module/az.containerregistry
-  - name: .NET
-    href: /dotnet/api/overview/azure/containerregistry
-  - name: Python
-    href: /python/api/overview/azure/container-registry
-  - name: Java
-    href: /java/api/overview/azure/containerregistry
-  - name: Node.js
-    href: /javascript/api/overview/azure/container-registry
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.containerregistry/registries
-  - name: ACR-uppgifter – YAML
-    href: container-registry-tasks-reference-yaml.md
-  - name: Webhook-schema
-    href: container-registry-webhook-reference.md
-  - name: Event Grid-schema
-    href: ../event-grid/event-schema-container-registry.md
-    maintainContext: true
+    - name: Azure CLI
+      href: /cli/azure/acr
+    - name: REST
+      href: /rest/api/containerregistry
+    - name: PowerShell
+      href: /powershell/module/az.containerregistry
+    - name: .NET
+      href: /dotnet/api/overview/azure/containerregistry
+    - name: Python
+      href: /python/api/overview/azure/container-registry
+    - name: Java
+      href: /java/api/overview/azure/containerregistry
+    - name: Node.js
+      href: /javascript/api/overview/azure/container-registry
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.containerregistry/registries
+    - name: ACR-uppgifter – YAML
+      href: container-registry-tasks-reference-yaml.md
+    - name: Webhook-schema
+      href: container-registry-webhook-reference.md
+    - name: Event Grid-schema
+      href: ../event-grid/event-schema-container-registry.md
+      maintainContext: true
 - name: Resurser
   items:
-  - name: Utveckla dina färdigheter med Microsoft Learn
-    href: /learn/browse/?products=azure-container-registry
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/regions/services/
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/container-registry/
-  - name: Översikt
-    href: https://aka.ms/acr/roadmap
-  - name: Ge produktfeedback
-    href: https://feedback.azure.com/forums/903958-azure-container-registry
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-container-registry
-  - name: Videoklipp
-    href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 987b70f527afe9b9d09eeef70c7fa706c3e58932
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787674"
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/?products=azure-container-registry
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Översikt
+      href: 'https://aka.ms/acr/roadmap'
+    - name: Ge produktfeedback
+      href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-container-registry'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'

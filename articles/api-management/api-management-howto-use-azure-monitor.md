@@ -213,13 +213,13 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 | userId | sträng | Användarentitetsidentifierare för aktuell begäran | 
 | apimSubscriptionId | sträng | Prenumerationsentitetsidentifierare för aktuell begäran | 
 | backendId | sträng | Serverdelentitetsidentifierare för aktuell begäran | 
-| LastError | objekt | Bearbetningsfel för senaste begäran | 
+| lastError | objekt | Bearbetningsfel för senaste begäran | 
 | elapsed | heltal | Antalet förflutna millisekunder sedan gatewayen tog emot begäran till den tidpunkt då felet inträffade | 
-| källa | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
-| omfång | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
-| avsnitt | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 
-| orsak | sträng | Felorsak | 
-| meddelande | sträng | Felmeddelande | 
+| source | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
+| scope | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
+| section | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 
+| reason | sträng | Felorsak | 
+| message | sträng | Felmeddelande | 
 
 ## <a name="next-steps"></a>Nästa steg
 

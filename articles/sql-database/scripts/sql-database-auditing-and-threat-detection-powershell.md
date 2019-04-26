@@ -1,5 +1,5 @@
 ---
-title: PowerShell-exempel – granska identifiering av hot – Azure SQL-databas | Microsoft Docs
+title: PowerShell-exempel – granska identifiering av hot – Azure SQL Database | Microsoft Docs
 description: Azure PowerShell-exempelskript för att konfigurera granskning och identifiering av hot i en Azure SQL-databas
 services: sql-database
 ms.service: sql-database
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: a3117f2cd75ae2d85b5241fee87f6d5940e8e116
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59356854"

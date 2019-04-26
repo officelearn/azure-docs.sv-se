@@ -27,10 +27,10 @@ Varje API Management-tjänstinstans har en egenskapssamling för nyckel/värde-p
 
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
-| Visningsnamn |sträng |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
-| Värde |sträng |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
-|Hemlighet|boolesk|Anger om värdet är en hemlighet och ska krypteras eller inte.|
-| Taggar |strängmatris |Valfritt taggar som men som tillhandahålls kan användas för att filtrera egenskapslistan. |
+| `Display name` |sträng |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
+| `Value` |sträng |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
+| `Secret` |boolesk|Anger om värdet är en hemlighet och ska krypteras eller inte.|
+| `Tags` |strängmatris |Valfritt taggar som men som tillhandahålls kan användas för att filtrera egenskapslistan. |
 
 ![Namngivna värden](./media/api-management-howto-properties/named-values.png)
 

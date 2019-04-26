@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: adaece4a450f758c22ffecb356826962806d9d9b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 944f59da680c3a058a3cd245cca48d903e44ab87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251969"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI-element
 En kontroll som kan användas för att ange och bekräfta ett lösenord.
@@ -50,8 +50,8 @@ En kontroll som kan användas för att ange och bekräfta ett lösenord.
 
 ## <a name="remarks"></a>Kommentarer
 - Det här elementet har inte stöd för den `defaultValue` egenskapen.
-- För implementeringsinformation om `constraints`, se [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- Om `options.hideConfirmation` är inställd på **SANT**, andra textrutan för att bekräfta användarens lösenord är dolt. Standardvärdet är **FALSKT**.
+- För information om implementering av `constraints`, se [Microsoft.Common.TextBox](microsoft-common-textbox.md).
+- Om `options.hideConfirmation` är inställd på **SANT**, den andra textrutan för att bekräfta användarens lösenord är dold. Standardvärdet är **FALSKT**.
 
 ## <a name="sample-output"></a>Exempel på utdata
 ```json
@@ -59,5 +59,5 @@ En kontroll som kan användas för att ange och bekräfta ett lösenord.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element, se [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).

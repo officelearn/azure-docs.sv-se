@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997911"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308915"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visa aktivitetsloggar för RBAC ändringar till Azure-resurser
 
@@ -43,7 +43,7 @@ Det enklaste sättet att komma igång är att visa aktivitetsloggar med Azure-po
 
 Aktivitetsloggen i portalen har flera filter. Här följer de RBAC-relaterade filter:
 
-|Filter  |Value  |
+|Filter  |Värde  |
 |---------|---------|
 |Händelsekategori     | <ul><li>Administrativ</li></ul>         |
 |Åtgärd     | <ul><li>Skapa rolltilldelning</li> <li>Ta bort rolltilldelning</li> <li>Skapa eller uppdatera anpassad rolldefinition</li> <li>Ta bort anpassad rolldefinition</li></ul>      |

@@ -5,18 +5,18 @@ services: billing
 author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
-ms.date: 03/12/2018
+ms.date: 03/12/2019
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371299"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
@@ -57,29 +57,29 @@ När du har åtkomst till kundens resurser, använda Azure portal, PowerShell el
 1. Installera den [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell-modulen.
 
 2. Logga in på kundens klient med användarkonton eller tjänstens huvudnamn. Mer information finns i [logga in med PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
- 
+
    ```azurepowershell-interactive
-    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
 3. Länka till ny partner-ID. Partner-ID är den [Microsoft Partner Network](https://partner.microsoft.com/) ID för din organisation.
 
     ```azurepowershell-interactive
-    C:\> new-AzureRmManagementPartner -PartnerId 12345 
+    C:\> new-AzManagementPartner -PartnerId 12345
     ```
 
 #### <a name="get-the-linked-partner-id"></a>Hämta länkade partner-ID
 ```azurepowershell-interactive
-C:\> get-AzureRmManagementPartner 
+C:\> get-AzManagementPartner
 ```
 
 #### <a name="update-the-linked-partner-id"></a>Uppdatera länkade partner-ID
 ```azurepowershell-interactive
-C:\> Update-AzureRmManagementPartner -PartnerId 12345 
+C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### <a name="delete-the-linked-partner-id"></a>Ta bort länkade partner-ID
 ```azurepowershell-interactive
-C:\> remove-AzureRmManagementPartner -PartnerId 12345 
+C:\> remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>Använda Azure CLI för att länka till en ny partner-ID
@@ -87,13 +87,13 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
-    ``` 
+    ```
 
 2. Logga in på kundens klient med användarkonton eller tjänstens huvudnamn. Mer information finns i [logga in med Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
-    ``` 
+    ```
 
 3. Länka till ny partner-ID. Partner-ID är den [Microsoft Partner Network](https://partner.microsoft.com/) ID för din organisation.
 
@@ -104,17 +104,17 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 #### <a name="get-the-linked-partner-id"></a>Hämta länkade partner-ID
 ```azurecli-interactive
 C:\ az managementpartner show
-``` 
+```
 
 #### <a name="update-the-linked-partner-id"></a>Uppdatera länkade partner-ID
 ```azurecli-interactive
 C:\ az managementpartner update --partner-id 12345
-``` 
+```
 
 #### <a name="delete-the-linked-partner-id"></a>Ta bort länkade partner-ID
 ```azurecli-interactive
 C:\ az managementpartner delete --partner-id 12345
-``` 
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -136,12 +136,12 @@ Länken mellan partner-ID och konton som görs för varje kundklient. Länka par
 
 **Kan andra partners eller kunder redigera eller ta bort länken till partner-ID?**
 
-Länken är associerade på nivån för kontot. Endast kan du redigera eller ta bort länken till partner-ID. Kunden och andra partners kan inte ändra länken till partner-ID. 
+Länken är associerade på nivån för kontot. Endast kan du redigera eller ta bort länken till partner-ID. Kunden och andra partners kan inte ändra länken till partner-ID.
 
 
 **Vilka MPN-ID ska jag använda om mitt företag har flera?**
 
-Du kan använda valfri giltig MPN-ID utom historiklistorna orgnization(v-org) MPN-ID. De flesta partner väljer att använda de MPN-ID för geografiska plats där kunden är baserad eller tjänsten levereras.
+Du kan använda valfri giltig MPN-ID utom virtuella organization(v-org) MPN-ID. De flesta partner väljer att använda de MPN-ID för geografiska plats där kunden är baserad eller tjänsten levereras.
 
 **Var hittar jag har påverkat intäktsrapportering för länkade partner-ID?**
 
@@ -158,4 +158,3 @@ Du kan inte se kunden i rapporterna på grund av följande orsaker
 **Länka partner-ID som fungerar med Azure Stack?**
 
 Ja, du kan länka ditt partner-ID för Azure Stack.
-

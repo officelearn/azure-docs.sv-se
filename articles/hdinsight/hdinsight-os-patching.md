@@ -1,7 +1,6 @@
 ---
 title: Konfigurera OS-korrigering schemat för Linux-baserade HDInsight-kluster – Azure
 description: Lär dig hur du konfigurerar OS-korrigering schema för Linux-baserade HDInsight-kluster.
-services: hdinsight
 author: omidm1
 ms.author: omidm
 ms.service: hdinsight
@@ -9,11 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333697"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-korrigering för HDInsight 
 
@@ -46,7 +45,7 @@ När du använder det här skriptet kräver följande information:
     | Aktivera/inaktivera automatiska omstarter |0 eller 1. Värdet 0 inaktiverar automatiska omstarter när 1 aktiverar automatiska omstarter. |
     | Frekvens |7 till 90 (inklusivt). Antal dagar som ska gå innan omstartar de virtuella datorerna för korrigeringar som kräver en omstart. |
     | Dag i veckan |1-7 (inklusivt). Värdet 1 visar omstarten sker på en måndag och 7 visar ett exempel på Sunday.For finns med parametrar av 1 60 2 resulterar i automatiskt startar om var 60: e dag (högst) tisdagen. |
-    | Persistence |När du använder en skriptåtgärd i ett befintligt kluster, kan du markera skriptet som sparas. Bestående skript att tillämpas när nya workernodes läggs till i klustret via skalningsåtgärder. |
+    | Bevarande |När du använder en skriptåtgärd i ett befintligt kluster, kan du markera skriptet som sparas. Bestående skript att tillämpas när nya workernodes läggs till i klustret via skalningsåtgärder. |
 
 > [!NOTE]  
 > Du måste markera det här skriptet som sparas när du använder i ett befintligt kluster. Annars kommer alla nya noder som skapats genom skalningsåtgärder använder standard uppdateringsschema.  Om du använder skriptet som en del av klustret skapas, bevaras det automatiskt.

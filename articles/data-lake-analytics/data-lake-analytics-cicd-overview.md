@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333884"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Hur du ställer in en CI/CD-pipeline för Azure Data Lake Analytics  
 
@@ -454,7 +454,7 @@ Vidta följande steg för att ställa in en databasåtgärd distribution i Azure
 
 #### <a name="common-parameters"></a>Gemensamma parametrar
 
-| Parameter | Beskrivning | Standardvärde | Krävs |
+| Parameter | Beskrivning | Standardvärde | Obligatoriskt |
 |---------|-----------|-------------|--------|
 |Paket|Sökvägen till distributionspaketet för U-SQL-databas som ska distribueras.|null|true|
 |Databas|Namnet på databasen som ska distribueras till eller skapats.|master|false|
@@ -463,13 +463,13 @@ Vidta följande steg för att ställa in en databasåtgärd distribution i Azure
 
 #### <a name="parameter-for-local-deployment"></a>Parametern för lokal distribution
 
-|Parameter|Beskrivning|Standardvärde|Krävs|
+|Parameter|Beskrivning|Standardvärde|Obligatoriskt|
 |---------|-----------|-------------|--------|
 |DataRoot|Sökvägen till rotmappen för lokala data.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametrar för Azure Data Lake Analytics-distribution
 
-|Parameter|Beskrivning|Standardvärde|Krävs|
+|Parameter|Beskrivning|Standardvärde|Obligatoriskt|
 |---------|-----------|-------------|--------|
 |Konto|Anger vilket Azure Data Lake Analytics-konto för distribution till efter kontonamn.|null|true|
 |ResourceGroup|Azure resursgruppens namn för Azure Data Lake Analytics-konto.|null|true|

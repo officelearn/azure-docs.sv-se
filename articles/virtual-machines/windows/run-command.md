@@ -8,18 +8,18 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ecf19da59e91edd08953296d96ca68ca62f008e1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d199a9db879263bbca49298df190c5a127444c42
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251257"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot Kör
 
 Kör kommandot använder VM-agenten för att köra PowerShell-skript i en Windows Azure-dator. Skripten kan användas för allmän dator eller hantering av program och kan användas för att snabbt diagnostisera och åtgärda problem med åtkomst och nätverk av virtuell dator och få den virtuella datorn till ett fungerande tillstånd.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="benefits"></a>Fördelar
 

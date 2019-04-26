@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60280892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Självstudier: Azure Active Directory-integrering med Coupa
 
@@ -34,7 +34,7 @@ Integreringen av Coupa med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Coupa behöver du följande:
 
@@ -114,16 +114,16 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
 
     | Miljö  | URL |
     |:-------------|----|
-    | Begränsat läge | `devsso35.coupahost.com`|
-    | Produktion | `prdsso40.coupahost.com`|
+    | Begränsat läge | `sso-stg1.coupahost.com`|
+    | Produktion | `sso-prd1.coupahost.com`|
     | | |
 
     c. I textrutan **Svars-URL** skriver du en URL:
 
     | Miljö | URL |
     |------------- |----|
-    | Begränsat läge | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | Produktion | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | Begränsat läge | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Produktion | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.

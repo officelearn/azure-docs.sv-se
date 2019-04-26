@@ -16,11 +16,11 @@ ms.date: 07/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 377da86003543fb53240de4d5fc672f71e1ed5f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60273792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Självstudier: Azure Active Directory-integrering med Imagineer WebVision
 
@@ -34,7 +34,7 @@ Integrera Imagineer WebVision med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Imagineer WebVision, behöver du följande objekt:
 
@@ -159,7 +159,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-an-imagineer-webvision-test-user"></a>Skapa en testanvändare Imagineer WebVision
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Imagineer WebVision. Arbeta med [Imagineer WebVision supportteamet](mailto:support@itgny.com) att lägga till användare i Imagineer WebVision-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning
+I det här avsnittet skapar du en användare som kallas Britta Simon i Imagineer WebVision. Arbeta med [Imagineer WebVision supportteamet](mailto:support@itgny.com) att lägga till användare i Imagineer WebVision-plattformen. Användarna måste skapas och aktiveras innan du använder enkel inloggning
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -200,7 +200,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

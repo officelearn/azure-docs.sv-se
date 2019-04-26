@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60319333"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure Monitor
 Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att ditt program fungerar och körs i ett felfritt tillstånd. Det hjälper dig också att stave potentiella problem eller felsöka tidigare sådana. Du kan dessutom använda övervakningsdata för att få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda och underhåll eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -112,7 +112,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | loggar| Komplex typ| Namnet på en diagnostiklogg kategori för en resurstyp. Du kan hämta listan över diagnostiklogg kategorier för en resurs genom att utföra en åtgärd för hämtning av diagnostikinställningar först. |
 | category| String| Loggkategorier och deras bevarandeprinciper |
 | timeGrain | String | Granulariteten för mått som har hämtats i ISO 8601-format för varaktighet. Måste vara PT1M (en minut)|
-| aktiverad| Boolesk | Anger om insamling av mått eller log kategorin har aktiverats för den här resursen|
+| aktiverad| Boolean | Anger om insamling av mått eller log kategorin har aktiverats för den här resursen|
 | retentionPolicy| Komplex typ| Beskriver bevarandeprincipen för ett mått eller log kategori. Används för endast lagringskonto visas.|
 | dagar| Int| Antal dagar att behålla mått eller loggar. Värdet 0 behåller loggarna på obestämd tid. Används för endast lagringskonto visas. |
 

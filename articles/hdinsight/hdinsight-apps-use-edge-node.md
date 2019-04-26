@@ -1,7 +1,6 @@
 ---
 title: Använda tomma kantnoder på Apache Hadoop-kluster i HDInsight - Azure
 description: Hur du lägger till en tom edge-nod till ett HDInsight-kluster som kan användas som en klient och sedan test/värd dina HDInsight-program.
-services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: aa9cdbaece2714dd4869268f394e6840fe42edda
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253517"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använda tomma kantnoder på Apache Hadoop-kluster i HDInsight
 

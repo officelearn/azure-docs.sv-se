@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308288"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med hjälp av REST API-anrop
 
@@ -92,8 +92,8 @@ För att skapa en VM-skalningsuppsättning med systemtilldelade hanterad identit
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -187,8 +187,8 @@ Om du vill aktivera systemtilldelade hanterad identitet på en befintlig VM-skal
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -220,8 +220,8 @@ Om du vill aktivera systemtilldelade hanterad identitet på en befintlig VM-skal
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. |
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. |
  
    **Brödtext i begäran**
 
@@ -254,8 +254,8 @@ Om du vill aktivera systemtilldelade hanterad identitet på en befintlig VM-skal
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -298,8 +298,8 @@ Om du vill inaktivera en systemtilldelade identiteter på en befintlig VM-skalni
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -355,8 +355,8 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -442,8 +442,8 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. |
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. |
  
    **Brödtext i begäran**
 
@@ -537,7 +537,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. |   
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. |   
  
 
 4. Om du inte har någon användare eller systemtilldelade hanterade identiteter som tilldelats VM-skalningsuppsättning ange, Använd följande CURL-kommando för att anropa Azure Resource Manager REST-slutpunkt för att tilldela den virtuella datorn första användartilldelade hanterad identitet skalningsuppsättning.  Om du har en användare eller systemtilldelade hanterade identity(s) tilldelats virtuella datorns skalningsuppsättning kan gå vidare till steg 5 som visar hur du lägger till flera användare tilldelade hanterade identiteter i en VM-skalningsuppsättning och ger samtidigt den systemtilldelade hanteras identitet.
@@ -558,8 +558,8 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -590,8 +590,8 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -626,8 +626,8 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -665,8 +665,8 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -704,7 +704,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. |
    
    Om du har hanterade identiteter som tilldelas den virtuella datorn, de listas i svaret på den `identity` värde. 
     
@@ -726,8 +726,8 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -758,8 +758,8 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-   |*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
    **Brödtext i begäran**
 
@@ -788,8 +788,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
-|*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-|*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+|*Innehållstyp*     | Krävs. Ange `application/json`.        |
+|*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
 **Brödtext i begäran**
 
@@ -815,8 +815,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
-|*Innehållstyp*     | Obligatoriskt. Ange `application/json`.        |
-|*Auktorisering*     | Obligatoriskt. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+|*Innehållstyp*     | Krävs. Ange `application/json`.        |
+|*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
 **Brödtext i begäran**
 

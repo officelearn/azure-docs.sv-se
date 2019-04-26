@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204233"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Självstudie: Skriva en C#-användardefinierad funktion för ett Azure Stream Analytics Edge-jobb (förhandsversion)
 

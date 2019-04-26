@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311135"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Skapa anpassade artefakter för din virtuella dator för DevTest Labs
 
@@ -57,7 +57,7 @@ I följande exempel visas de avsnitt som utgör den grundläggande strukturen i 
 | --- | --- | --- |
 | $schema |Nej |Plats för JSON-schemafilen. Med hjälp av JSON-schema-fil kan du testa giltighet definitionsfilen. |
 | title |Ja |Namnet på den artefakt som visas i laboratoriet. |
-| beskrivning |Ja |Beskrivning av den artefakt som visas i laboratoriet. |
+| description |Ja |Beskrivning av den artefakt som visas i laboratoriet. |
 | iconUri |Nej |URI för den ikon som visas i laboratoriet. |
 | targetOsType |Ja |Operativsystemet på den virtuella datorn där artefakten är installerad. Alternativ som stöds är Windows och Linux. |
 | parameters |Nej |Värden som tillhandahålls när artefakt installationskommandot körs på en dator. På så sätt kan du anpassa din artefakten. |
@@ -80,7 +80,7 @@ För att definiera parametrar, använder du följande struktur:
 | --- | --- | --- |
 | typ |Ja |Typ av parametervärdet. Se följande lista innehåller de tillåtna typerna. |
 | displayName |Ja |Namnet på parametern som visas för en användare i laboratoriet. |
-| beskrivning |Ja |Beskrivning av den parameter som visas i laboratoriet. |
+| description |Ja |Beskrivning av den parameter som visas i laboratoriet. |
 
 Tillåtna typer är:
 

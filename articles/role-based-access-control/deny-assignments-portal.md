@@ -15,11 +15,11 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194385"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visa neka tilldelningar för Azure-resurser med Azure portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "58005798"
 > [!NOTE]
 > För närvarande det enda sättet som du kan lägga till egna neka tilldelningar är med hjälp av Azure skisser. Mer information finns i [skydda nya resurser med Azure skisser resurslås](../governance/blueprints/tutorials/protect-new-resources.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill ha information om en neka-tilldelning måste du ha:
 

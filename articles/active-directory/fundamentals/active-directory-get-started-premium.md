@@ -14,11 +14,11 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249680"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Registrera dig för Azure Active Directory Premium
 Du kan köpa och associera Azure Active Directory (Azure AD) Premium till din Azure-prenumeration. Om du behöver skapa en ny Azure-prenumeration måste du även aktivera din licensieringsplan och åtkomst till Azure AD-tjänsten.

@@ -3,7 +3,7 @@ title: 'Ange omdirigera URL: er till b2clogin.com - Azure Active Directory B2C |
 description: 'Lär dig mer om med hjälp av b2clogin.com i din omdirigerings-URL: er för Azure Active Directory B2C.'
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 01/28/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 8188e36278bad9c93f709a5d7d9f831d1c19e6b4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314590"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ange omdirigera URL: er till b2clogin.com för Azure Active Directory B2C
 

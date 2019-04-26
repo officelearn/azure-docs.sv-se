@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254686"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
@@ -35,7 +35,7 @@ Använd informationen i följande tabeller för att felsöka problem och fel på
 
 ### <a name="backup-type-unsupported"></a>Typ av säkerhetskopiering stöds inte
 
-| Allvarsgrad | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
+| Severity | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|---|
 | Varning | Aktuella inställningar för den här databasen stöder inte vissa typer av säkerhetskopieringstyper som finns i den associerade principen. | <li>**Master DB**: Endast en fullständig säkerhetskopiering databasåtgärd kan utföras i master-databasen; varken **differentiell** säkerhetskopiering eller transaktion **loggar** säkerhetskopiering stöds. </li> <li>Alla databaser i **enkla återställningsmodellen** tillåter inte transaktionen **loggar** säkerhetskopia som ska vidtas.</li> | Ändra databasinställningarna så att alla säkerhetskopieringstyper i principen stöds. Du kan också ändra den aktuella principen om du vill inkludera endast säkerhetskopiering typer som stöds. I annat fall stöds inte säkerhetskopieringstyper kommer att åsidosättas vid schemalagd säkerhetskopiering eller säkerhetskopieringen misslyckas för ad hoc-säkerhetskopiering.
 

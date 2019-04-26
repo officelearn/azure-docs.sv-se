@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297061"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av kod grant-flöde för OAuth 2.0
 
@@ -56,7 +56,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| klient |obligatorisk |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
+| tenant |obligatorisk |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
 | client_id |obligatorisk |Program-ID som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure Portal. Klicka på **Azure Active Directory** i sidopanelen tjänster klickar du på **appregistreringar**, och välj programmet. |
 | response_type |obligatorisk |Måste innehålla `code` för auktoriseringskodsflödet. |
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `urn:ietf:wg:oauth:2.0:oob`. |
@@ -141,7 +141,7 @@ grant_type=authorization_code
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| klient |obligatorisk |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
+| tenant |obligatorisk |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
 | client_id |obligatorisk |Program-Id som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure-portalen. Program-Id visas i inställningarna för registreringen. |
 | _typ av beviljande |obligatorisk |Måste vara `authorization_code` för auktoriseringskodsflödet. |
 | Kod |obligatorisk |Den `authorization_code` som du hämtade i föregående avsnitt |

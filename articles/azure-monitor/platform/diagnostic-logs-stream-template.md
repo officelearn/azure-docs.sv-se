@@ -9,11 +9,11 @@ ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236036"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera diagnostikinställningar automatiskt när en resurs skapas med en Resource Manager-mall
 I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du starta direktuppspelning av dina diagnostikloggar och mått till Event Hubs, arkivera dem i ett Lagringskonto eller skicka dem till Log Analytics-arbetsytan när en resurs skapas automatiskt.

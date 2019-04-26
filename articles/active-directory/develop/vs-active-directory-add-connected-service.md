@@ -15,11 +15,11 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbbef13d2e64a5d1b177d8232c5b6ef1e64a1da9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250909"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Att lägga till en Azure Active Directory med hjälp av Connected Services i Visual Studio
 
@@ -29,7 +29,7 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
 
 För närvarande stöder inte tjänsten Active Directory-anslutna ASP.NET Core-program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Azure-konto: Om du inte har ett Azure-konto, kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 - **Visual Studio 2015** eller senare. [Hämta Visual Studio 2017 nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

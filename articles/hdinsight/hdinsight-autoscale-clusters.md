@@ -1,19 +1,21 @@
 ---
 title: Skala automatiskt Azure HDInsight-kluster (förhandsversion)
 description: Använda HDInsight Autoscale-funktionen för att automatiskt skala kluster
+services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/11/2019
+origin.date: 03/19/2019
+ms.date: 04/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 11828b3b056519d0ebe3233f078c6b3f6fc2ea1c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253489"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Skala automatiskt Azure HDInsight-kluster (förhandsversion)
 

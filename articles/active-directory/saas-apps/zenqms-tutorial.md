@@ -16,11 +16,11 @@ ms.date: 08/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5d2e734ff9bd34a176d08e36019c826dac355bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60239789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Självstudier: Azure Active Directory-integrering med ZenQMS
 
@@ -34,7 +34,7 @@ Integrera ZenQMS med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med ZenQMS, behöver du följande objekt:
 

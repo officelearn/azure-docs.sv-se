@@ -17,11 +17,11 @@ ms.date: 02/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c42b7010a6586e4845d3a58b9a47b01143f5b1d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60339759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Självstudier: Azure Active Directory-integrering med Sedgwick CMS
 
@@ -35,7 +35,7 @@ Integrera Sedgwick CMS med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Sedgwick CMS, behöver du följande objekt:
 

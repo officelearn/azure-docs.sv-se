@@ -3,7 +3,7 @@ title: Vad är Azure Active Directory B2C? | Microsoft Docs
 description: Läs mer om hur du skapar och hanterar identitetsupplevelser, till exempel registrering, inloggning och profilhantering i ditt program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -11,11 +11,11 @@ ms.date: 02/20/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 9e01ba8ae53dbcca686a9844600a5df416a685ae
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455508"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317368"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Vad är Azure Active Directory B2C?
 
@@ -132,4 +132,4 @@ Många vanliga klienthanteringsuppgifter måste utföras via programmering. En p
 Börja konfigurera ditt program för registrerings- och inloggningsupplevelsen genom att fortsätta till självstudien.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skapa en Azure Active Directory B2C-klientorganisation](tutorial-create-tenant.md)
+> [Självstudie: Skapa en Azure Active Directory B2C-klientorganisation](tutorial-create-tenant.md)

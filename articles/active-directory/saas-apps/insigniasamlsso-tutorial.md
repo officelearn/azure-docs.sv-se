@@ -17,11 +17,11 @@ ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc492142200c7fd028360d01c2602904531550dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60271451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Självstudier: Azure Active Directory-integrering med bröstknappar SAML SSO
 
@@ -31,7 +31,7 @@ Integrera bröstknappar SAML SSO med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till bröstknappar SAML SSO.
 - Du kan aktivera användarna att automatiskt få loggat in på bröstknappar SAML SSO (enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -45,9 +45,9 @@ Om du vill konfigurera Azure AD-integrering med bröstknappar SAML SSO, behöver
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -69,7 +69,7 @@ Om du vill konfigurera integreringen av bröstknappar SAML SSO till Azure AD, so
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -77,7 +77,7 @@ Om du vill konfigurera integreringen av bröstknappar SAML SSO till Azure AD, so
 
     ![Bröstknappar SAML SSO i resultatlistan](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med bröstknappar SAML SSO baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -87,13 +87,13 @@ I bröstknappar SAML SSO, tilldela värdet för den **användarnamn** i Azure AD
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med bröstknappar SAML SSO, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare bröstknappar SAML SSO](#create-an-insignia-saml-sso-test-user)**  – du har en motsvarighet för Britta Simon i bröstknappar SAML SSO som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt bröstknappar SAML SSO-program.
 
@@ -101,7 +101,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 1. I Azure-portalen på den **bröstknappar SAML SSO** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -127,17 +127,17 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_certificate.png) 
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/insigniasamlsso-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/insigniasamlsso-tutorial/tutorial_general_400.png)
 
 1. På den **bröstknappar SAML SSO-konfiguration** klickar du på **konfigurera bröstknappar SAML SSO** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Bröstknappar SAML SSO-konfiguration](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_configure.png) 
 
-1. Att konfigurera enkel inloggning på **bröstknappar SAML SSO** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** till [Bröstknappar SAML SSO-supportteamet](https://www.insigniasoftware.com/insignia/Techsupport.aspx). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **bröstknappar SAML SSO** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** till [Bröstknappar SAML SSO-supportteamet](https://www.insigniasoftware.com/insignia/Techsupport.aspx). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!TIP]
 > Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -218,7 +218,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

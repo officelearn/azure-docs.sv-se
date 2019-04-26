@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
 ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202981"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Hur du använder Azure Event Hubs från ett Python-program
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Mer information finns i [introduktion till Event Hubs](event-hubs-what-is-event-hubs.md). 
@@ -31,7 +31,7 @@ Den här artikeln innehåller länkar till artiklar om hur du kan utföra följa
 - [Ta emot händelser från en event hub](#receive-events-from-event-hubs)
 - Läs avbildas händelsedata från en Azure storage. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 - Skapa en event hub något av dessa snabbstarter: [Azure-portalen](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub.md). 
 - Python 3.4 och senare är installerad på datorn.
 

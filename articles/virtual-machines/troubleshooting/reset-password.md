@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306959"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Återställa lokala lösenord för Linux på Azure Virtual Machines
 
@@ -106,4 +106,4 @@ Du kan inte logga in till den virtuella datorn och du får ett meddelande som an
 
 * [Felsöka Azure virtuell dator genom att koppla OS-disken till en annan virtuell Azure-dator](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Azure CLI: Hur du tar bort och distribuera en virtuell dator från virtuell Hårddisk](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI: Ta bort och distribuera en virtuell dator från virtuell Hårddisk](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

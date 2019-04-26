@@ -16,11 +16,11 @@ ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 699afd4703efc5e8f63bb13fe1dd753a0c72594d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209446"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60282989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Självstudier: Azure Active Directory-integrering med BenSelect
 
@@ -34,7 +34,7 @@ Integrera BenSelect med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med BenSelect, behöver du följande objekt:
 
@@ -116,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
 
     > [!NOTE] 
-    > Det här värdet är inte verkligt. Uppdatera det här värdet med faktiska svars-URL. Kontakta [BenSelect supportteamet](mailto:support@selerix.com) att hämta det här värdet.
+    > Det här värdet är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL:en. Kontakta [BenSelect supportteamet](mailto:support@selerix.com) att hämta det här värdet.
  
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Raw)** och spara certifikatfilen på datorn.
 
@@ -221,7 +221,7 @@ När du klickar på panelen BenSelect i åtkomstpanelen du bör få automatiskt 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

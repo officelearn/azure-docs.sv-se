@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: pbutlerm
 ms.openlocfilehash: eeb0fa84e8cd5ac6a499e02edd5879c5bbdd8ead
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083171"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308794"
 ---
 # <a name="publish-a-dynamics-365-for-customer-engagement-offer"></a>Publicera en Dynamics 365 för kundengagemang erbjudande
 
@@ -40,9 +40,9 @@ I följande tabell beskrivs varje publiceringen. Det ges även en uppskattad tid
 |  -------------------           | --------    | ---------------                                                            |
 | Verifiera förutsättningar         | 15 min   | Ger information och erbjuder inställningarna verifieras.                        |
 | Certifiering                  | 1 vecka | Erbjudandet analyseras av Azure-certifiering-teamet. Erbjudandet genomsöks efter virus, skadlig kod, säkerhet och säkerhetsproblem. Erbjudandet kontrolleras för att se att den uppfyller alla urvalskriterier. Mer information finns i [krav](./cpp-prerequisites.md). Feedback tillhandahålls om ett problem hittas. |
-| Packas | 1 timme  | Erbjudandets tekniska resurser som är packade för kundens användning och lead-system har konfigurerats och konfigurera. |
+| Paketering | 1 timme  | Erbjudandets tekniska resurser som är packade för kundens användning och lead-system har konfigurerats och konfigurera. |
 |  Publisher-utloggning             |  -        | Sista publisher granska och bekräfta innan erbjudandet lanseras. Du kan distribuera ditt erbjudande i de valda prenumerationerna (i erbjudandet information steg) för att kontrollera att den uppfyller dina krav.  Välj **Go Live** så att ditt erbjudande kan flytta till nästa steg. |
-| Packas                 | 1 timme | Klar erbjudandet replikeras i regionerna och marketplace produktionssystem. | 
+| Paketering                 | 1 timme | Klar erbjudandet replikeras i regionerna och marketplace produktionssystem. | 
 | Live                           | fyra dagar |Erbjudandet är publicerat, replikeras till de nödvändiga regionerna och blir tillgängliga för allmänheten. |
 |  |  |  |
 

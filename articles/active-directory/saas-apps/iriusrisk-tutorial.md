@@ -17,11 +17,11 @@ ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c862628fb05e7518166d8e782c2e64538de785e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60270293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Självstudier: Azure Active Directory-integrering med IriusRisk
 
@@ -35,7 +35,7 @@ Integrera IriusRisk med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med IriusRisk, behöver du följande objekt:
 

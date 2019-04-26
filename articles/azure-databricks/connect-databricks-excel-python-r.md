@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236406"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Ansluta till Azure Databricks från Excel, Python eller R
 
 I den här artikeln får du lära dig hur du använder Databricks ODBC-drivrutinen för att ansluta Azure Databricks med Microsoft Excel, Python och R-språket. När du har skapat anslutningen kan du komma åt data i Azure Databricks från Excel, Python eller R-klienter. Du kan också använda klienterna för att ytterligare analysera data. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Du måste ha en arbetsyta för Azure Databricks en Spark-kluster och exempeldata som är associerade med klustret. Om du inte redan har dessa krav, Slutför Snabbstart på [kör ett Spark-jobb på Azure Databricks med Azure portal](quickstart-create-databricks-workspace-portal.md).
 
@@ -67,7 +67,7 @@ En datakälla (DSN) innehåller information om en specifik datakälla. En ODBC-d
     
     * Klicka på **HTTP alternativ**. I dialogrutan som öppnas, klistrar du in värdet för *HTTP-sökväg* som du kopierade från Databricks-arbetsyta. Klicka på **OK**.
     * Klicka på **SSL-alternativ**. I dialogrutan som öppnas väljer du den **aktivera SSL** markerar du kryssrutan. Klicka på **OK**.
-    * Klicka på **testa** att testa anslutningen till Azure Databricks. Klicka på **OK** att spara konfigurationen.
+    * Klicka på **testa** att testa anslutningen till Azure Databricks. Spara ändringarna genom att klicka på **OK**.
     * I den **ODBC Data Source Administrator** dialogrutan klickar du på **OK**.
 
 Nu har du din DSN ställa in. I nästa avsnitt, du kan använda den här DSN för att ansluta till Azure Databricks från Excel, Python eller R.

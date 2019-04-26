@@ -16,11 +16,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248072"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Få hjälp och öppna ett supportärende för Azure Active Directory
 Microsoft tillhandahåller global teknisk, förförsäljnings, fakturering och prenumerationsstöd för Azure Active Directory (AD Azure). Support fås både online och per telefon för Microsoft Azure betalda prenumerationer och provprenumerationer. Telefonsupport och faktureringssupport online är tillgänglig på andra språk. 

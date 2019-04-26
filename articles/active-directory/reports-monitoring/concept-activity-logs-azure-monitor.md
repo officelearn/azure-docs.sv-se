@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fbb90e95c07c66f45d49076f0570ac028c37244
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 894c42e4102a3565ff43798d33afb4046fda76bd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286692"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure aktivitetsloggar AD i Azure Monitor
 
@@ -72,14 +72,14 @@ Om du redan har en Azure AD-licens behöver du en Azure-prenumeration för att k
 
 Varje spårningslogghändelse använder cirka 2 KB datalagring. I en klientorganisation med 100 000 användare skulle det ske ungefär 1,5 miljoner händelser per dag, vilket skulle kräva ungefär 3 GB datalagring per dag. Eftersom skrivningar sker i batchar om cirka fem minuter kan du förvänta dig ungefär 9 000 skrivåtgärder per månad. 
 
-Följande tabell innehåller en uppskattning av kostnaden, beroende på klientorganisationens storlek, för ett GPv2-lagringskonto i västra USA för minst ett års kvarhållning. För att skapa en mer tillförlitlig uppskattning av den datavolym som du förväntar dig att du behöver för programmet använder du [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/). 
+Följande tabell innehåller en uppskattning av kostnaden, beroende på klientorganisationens storlek, för ett GPv2-lagringskonto i västra USA för minst ett års kvarhållning. För att skapa en mer tillförlitlig uppskattning av den datavolym som du förväntar dig att du behöver för programmet använder du [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/). Tabellen innehåller endast kostnaden för bearbetning/lagring och inte kostnaden för prenumerationen. 
 
-| Loggkategori | Antal användare | Händelser per dag | Datavolym per månad (uppskattad) | Kostnad per månad (uppskattad) | Kostnad per år (uppskattad) |
-|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Granska | 100 000 | 1,5&nbsp;miljoner | 90 GB | 1,93 USD | 23,12 USD |
-| Granska | 1,000 | 15 000 | 900 MB | 0,02 USD | 0,24 USD |
-| Inloggningar | 1,000 | 34 800 | 4 GB | 0,13 USD | 1,56 USD |
-| Inloggningar | 100 000 | 15&nbsp;miljoner | 1,7 TB | 35,41 USD | 424,92 USD | 
+
+| Loggkategori       | Antal användare | Händelser per dag | Händelser per månad (30 dagar) | Kostnad per månad i USD (est). |
+| ---                | ---             | ---            | ---                        | ---                          | 
+| Gransknings- och inloggningar | 100 000         | 16,500,000     | 495,000,000                | $1093                        |
+| Granska              | 100 000         | 1,500,000      | 45,000,000                 | $246.66                      |
+| Inloggningar           | 100 000         | 15,000,000     | 450,000,000                | $847.28                      |
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Händelsehubbmeddelanden för aktivitetsloggar

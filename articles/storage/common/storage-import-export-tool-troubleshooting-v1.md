@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 9a4e47143515c7f9c21d701809c35d61853d91ec
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471920"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320456"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Felsökning av Azures import-/exportverktyg
 Microsoft Azure Import/Export-verktyget returnerar felmeddelanden om den körs i problem. Det här avsnittet innehåller några vanliga problem som användarna kan köra i.  

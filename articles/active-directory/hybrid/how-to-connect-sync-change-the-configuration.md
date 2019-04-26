@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244337"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: Gör en ändring i standardkonfigurationen
 Syftet med den här artikeln är att hjälper dig att göra ändringar i standardkonfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med denna kunskap kan ska du kunna göra enkla ändringar i din egen konfiguration baserat på dina egna affärsregler.
@@ -288,7 +288,7 @@ Regel för inkommande synkronisering tillåter attributvärdet som flödar från
 
     | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    | Direkt | UserType | extensionAttribute1 | Alternativet är avmarkerat | Uppdatering |
+    | Direct | UserType | extensionAttribute1 | Alternativet är avmarkerat | Uppdatering |
 
     Ett annat exempel är som du vill erhålla värde för UserType-attributet för andra egenskaper. Exempelvis kan du vill synkronisera alla användare som gäst om sina lokala AD userPrincipalName-attribut som slutar med domändelen <em>@partners.fabrikam123.org</em>. Du kan implementera ett uttryck så här:
 
@@ -331,7 +331,7 @@ Den utgående synkroniseringsregeln tillåter attributvärdet som flödar från 
 
     | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    | Direkt | UserType | UserType | Alternativet är avmarkerat | Uppdatering |
+    | Direct | UserType | UserType | Alternativet är avmarkerat | Uppdatering |
 
 7. Klicka på **Lägg till** att skapa regel för utgående trafik.
 

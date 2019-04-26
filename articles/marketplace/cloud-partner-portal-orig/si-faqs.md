@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362381"
 ---
 <a name="seller-insights-faq"></a>Säljaren insikter vanliga frågor och svar
 ===================
@@ -36,7 +36,7 @@ Definitioner av mått värden i filen transaktion finns i artikeln [försäljnin
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Se kundens information om transaktioner som jag har betalats
 -------------------------------------------------------------
 
-Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **Payout Status**, och Använd filter för att bara visa värdet ”betald ut”. Följande kolumner visas som innehåller kunduppgifter: **företagsnamn**, **kund e-post**, **kundens land**, **kunden tillstånd**, och **kunden postnummer**.
+Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **Payout Status**, och Använd filter för att bara visa värdet ”betald ut”. Följande kolumner visas som innehåller kundinformation: **Företagsnamn**, **kund e-post**, **kundens land**, **kunden tillstånd**, och **kunden postnummer**.
 
 
 <a name="calculate-my-open-accounts-receivable"></a>Beräkna min öppna kundreskontra
@@ -48,7 +48,7 @@ Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **
 <a name="calculate-revenue-by-customer-usage-period"></a>Beräkna intäkter genom att kunden användningsperiod
 ------------------------------------------
 
-Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **transaktionsstatus**, och filtrera värdet ”betald”.   För varje transaktion som anges, kolumnen **Payout belopp (PC)** representerar det du har betalat.  Om du vill beräkna användningsperiod som är associerad med transaktionen måste använda kolumnen **Belastningsdatum**, vilket är en Stäng uppskattning av den sista dagen i användningen för perioden som gäller för transaktionen.
+Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **transaktionsstatus**, och filtrera värdet ”betald”.   För varje transaktion som anges, kolumnen **Payout belopp (PC)** representerar det du har betalat.  Om du vill beräkna användningsperiod som är associerad med transaktionen måste använda kolumnen **Belastningsdatum**, vilket är en Stäng uppskattning av den sista dagen i användningen för perioden som gäller för transaktionen.
 
 
 <a name="calculate-your-bad-debt"></a>Beräkna din detta

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 7cd20397c122834a23586bf51af6467f58531094
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997248"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Självstudier: Azure Active Directory-integrering med RingCentral
 

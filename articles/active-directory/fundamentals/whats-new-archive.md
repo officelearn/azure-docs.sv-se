@@ -14,11 +14,11 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6fe7b2cefdd29f0497bbc18e969a77ac295ba42
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60246518"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -1819,7 +1819,7 @@ Mer information finns i [Azure AD-användningsvillkor](https://docs.microsoft.co
 
 Du kan hantera, kontrollera och övervaka åtkomst till Azure-resurser (förhandsversion) i organisationen kan med Azure AD Privileged Identity Management:
 
-- Prenumerationer
+- Subscriptions
 - Resursgrupper
 - Virtuella datorer 
 

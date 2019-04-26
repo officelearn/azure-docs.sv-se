@@ -3,7 +3,7 @@ title: Granskningsloggar exempel och definitioner i Azure Active Directory B2C |
 description: Guiden och exempel om hur du använder Azure AD B2C-granskningsloggar.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
@@ -11,11 +11,11 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317707"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C-granskningsloggar
 
@@ -34,7 +34,7 @@ Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktivi
 |Program | CRUD-åtgärder på B2C-program |
 |Nyckel |CRUD-åtgärder på nycklar som lagras i B2C-nyckelbehållare |
 |Resurs |CRUD-åtgärder på B2C-resurser (till exempel principer och Identitetsproviders)
-|Authentication |Verifiering av autentiseringsuppgifter för användare och utfärdande|
+|Autentisering |Verifiering av autentiseringsuppgifter för användare och utfärdande|
 
 > [!NOTE]
 > Objektet CRUD användaraktiviteter, finns det **Kärnkatalog** kategori.
@@ -66,7 +66,7 @@ Du kommer se en lista över aktiviteter loggas under de senaste sju dagarna.
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Få åtkomst till granskningsloggar via Azure AD reporting-API
 Granskningsloggar publiceras till samma pipelinen som andra aktiviteter för Azure Active Directory, så att de kan nås via den [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 För att autentisera till Azure AD reporting API: et måste du först registrera ett program. Se till att följa stegen i [krav för att få åtkomst till Azure AD reporting API: er](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
 ### <a name="accessing-the-api"></a>Åtkomst till API: et

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302507"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att visa jobb för StorSimple Virtual Array
 ## <a name="overview"></a>Översikt
@@ -54,12 +54,12 @@ Utför följande steg om du vill visa information om alla jobb.
 3. Längst ned på sidan klickar du på **information**.
 4. I den **information** dialogrutan kan du visa status, information och statistik. Följande bild visar ett exempel på den **säkerhetskopiering jobbinformation** dialogrutan.
    
-    ![Jobbinformation](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
+    ![Information om jobb](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
 
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Misslyckade jobb när den virtuella datorn har pausats i hypervisor-programmet
 När ett jobb är i förloppet på StorSimple Virtual Array och enhet (virtuell dator som etablerats i hypervisor-program) har pausats för längre än 15 minuter, jobbet har misslyckats. Detta på grund av din StorSimple Virtual Array-tid är osynkroniserad med Microsoft Azure-tiden. 
 
-Följande felmeddelande visas: ”enhetens tid är inte synkroniserat med Microsoft Azure-tiden med mer än 15 minuter. Se till att hypervisor-programmet och enheten servertiderna är synkroniserade med en NTP-server. Kontrollera att det inte finns några anslutningsproblem. Om du vill felsöka problem med nätverksanslutningen, köra diagnostiktest från det lokala webbgränssnittet på den virtuella enheten ”.
+Följande fel visas: ”Din enhets tidsinställningar är inte synkroniserat med Microsoft Azure-tiden med mer än 15 minuter. Se till att hypervisor-programmet och enheten servertiderna är synkroniserade med en NTP-server. Kontrollera att det inte finns några anslutningsproblem. Om du vill felsöka problem med nätverksanslutningen, köra diagnostiktest från det lokala webbgränssnittet på den virtuella enheten ”.
 
 De här felen gäller för säkerhetskopiering, återställning, uppdatering och redundans jobb. Om den virtuella datorn har etablerats i Hyper-V, synkroniseras datorn så småningom tid med din hypervisor-programmet. När det händer kan du starta om jobbet.
 

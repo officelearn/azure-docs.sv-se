@@ -9,11 +9,11 @@ ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236162"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för Azure-diagnostikloggar
 
@@ -25,12 +25,12 @@ En kombination av resurstypen (tillgänglig i den `resourceId` egenskapen) och `
 
 | Namn | Krävs/valfritt | Beskrivning |
 |---|---|---|
-| time | Krävs | Tidsstämpel (UTC) för händelsen. |
-| resourceId | Krävs | Resurs-ID för den resurs som genereras av händelsen. För klienttjänster är det av formuläret /tenants/tenant-id/providers/provider-name. |
+| time | Obligatoriskt | Tidsstämpel (UTC) för händelsen. |
+| resourceId | Obligatoriskt | Resurs-ID för den resurs som genereras av händelsen. För klienttjänster är det av formuläret /tenants/tenant-id/providers/provider-name. |
 | tenantId | Krävs för klient loggar | Klient-ID för Active Directory-klient som den här händelsen är kopplad till. Den här egenskapen används endast för på klientnivå loggar, visas inte i resursnivå loggar. |
-| operationName | Krävs | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd, är detta Åtgärdsnamnet RBAC (t.ex.) Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Vanligtvis modellerats i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | Obligatoriskt | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd, är detta Åtgärdsnamnet RBAC (t.ex.) Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Vanligtvis modellerats i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Valfri | Api-versionen som är associerade med åtgärden om operationName har utförts med hjälp av ett API (t.ex.) `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Om det finns inga API som motsvarar den här åtgärden, representerar versionen version av åtgärden om egenskaper som är associerade med åtgärden ändras i framtiden. |
-| category | Krävs | Loggkategori för händelsen. Kategorin är precisionen som du kan aktivera eller inaktivera loggar på en viss resurs. Egenskaperna som visas i blobben som egenskaper för en händelse är samma inom en viss kategori och resurs loggtyp. Vanliga loggkategorier är ”granskning” ”drift” ”körning” och ”-begäran”. |
+| category | Obligatoriskt | Loggkategori för händelsen. Kategorin är precisionen som du kan aktivera eller inaktivera loggar på en viss resurs. Egenskaperna som visas i blobben som egenskaper för en händelse är samma inom en viss kategori och resurs loggtyp. Vanliga loggkategorier är ”granskning” ”drift” ”körning” och ”-begäran”. |
 | resultType | Valfri | Status för händelsen. Vanliga värden är startad, pågår, slutfört, misslyckades, aktiv och löst. |
 | resultSignature | Valfri | Sub-status för händelsen. Om den här åtgärden motsvarar ett REST API-anrop, är HTTP-statuskod för motsvarande REST-anropet. |
 | resultDescription | Valfri | Statisk textbeskrivningen av den här åtgärden, t.ex. ”Hämta lagringsfilen”. |
@@ -81,7 +81,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 | Virtuella nätverksgatewayer | Schemat är inte tillgänglig. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Loggkategorier per resurstyp som stöds
-|Resurstyp|Kategori|Visningsnamn för kategori|
+|Resurstyp|Category|Visningsnamn för kategori|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Motor|Motor|
 |Microsoft.AnalysisServices/servers|Tjänst|Tjänst|

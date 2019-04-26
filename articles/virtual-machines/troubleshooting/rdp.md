@@ -15,19 +15,19 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 96e0b0b03643143064e52d1f05ee37b58559f607
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307010"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Felsöka problem med RDP
 
 I det här avsnittet beskrivs följande problem med att skapa en RDP till anslutningen till en virtuell dator:
 
-- [Återställ RDP](reset-rdp.md)
-- [RDP-felsökning](troubleshoot-rdp-connection.md)
-- [Detaljerad RDP-felsökning](detailed-troubleshoot-rdp.md)
+- [Återställa RDP](reset-rdp.md)
+- [Felsökning av RDP](troubleshoot-rdp-connection.md)
+- [Detaljerad felsökning av RDP](detailed-troubleshoot-rdp.md)
 - [Felsöka RDP-fel eftersom DHCP är inaktiverat](troubleshoot-rdp-dhcp-disabled.md)
 - [Så här felsöker du RDP-fel på grund av NSG-inställning](troubleshoot-rdp-nsg-problem.md)
 - [Felsöka specifika fel](troubleshoot-specific-rdp-errors.md)
@@ -37,13 +37,13 @@ I det här avsnittet beskrivs följande problem med att skapa en RDP till anslut
 - [Felsöka anslutningen kopplas från ofta](troubleshoot-rdp-intermittent-connectivity.md)
 - [Felsöka ett allmänt fel](troubleshoot-rdp-general-error.md)
 - [Felsök autentiseringsfel](troubleshoot-authentication-error-rdp-vm.md)
-- [Felsöka Azure VM RDP-anslutningsproblem efter händelse-ID](event-id-troubleshoot-vm-rdp-connecton.md)
+- [Felsöka RDP-anslutningsfel på virtuella Azure-datorer baserat på händelse-ID](event-id-troubleshoot-vm-rdp-connecton.md)
 - [Felsöka RDP-fel i virtuell dator på grund av statisk IP-adress](troubleshoot-rdp-static-ip.md)
 - [Felsöka RDP-fel på den virtuella datorn eftersom nätverkskortet är inaktiverat](troubleshoot-rdp-nic-disabled.md)
 - [Felsöka RDP-fel som orsakats av felsäkert läge](troubleshoot-rdp-safe-mode.md)
-- [Inaktivera gäst-OS-brandvägg i Azure VM](disable-guest-os-firewall-windows.md)
+- [Inaktivera brandväggen i gästoperativsystemet på en virtuell Azure-dator](disable-guest-os-firewall-windows.md)
 - [Aktivera eller inaktivera en brandväggsregel på ett gästoperativsystem](enable-disable-firewall-rule-guest-os.md)
 - [Gäst-OS-brandväggen blockerar inkommande trafik](guest-os-firewall-blocking-inbound-traffic.md)
-- [Gäst-OS-brandväggen är felkonfigurerad](guest-os-firewall-misconfigured.md) 
+- [Brandväggen för gästoperativsystemet är felkonfigurerad](guest-os-firewall-misconfigured.md) 
 - [Felsöka RDP-fel som orsakats av netvsc.sys](troubleshoot-rdp-driver-netvsc.md)
 

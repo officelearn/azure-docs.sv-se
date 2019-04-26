@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202829"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Skapa en fjärranslutning till ett Kubernetes-, DC/OS- eller Docker Swarm-kluster
 När du har skapat ett Azure Container Service-kluster måste du ansluta till klustret för att distribuera och hantera arbetsbelastningar. Den här artikeln beskriver hur du ansluter till den virtuella huvuddatorn i klustret från en fjärrdator. 
@@ -18,7 +18,7 @@ Kubernetes-, DC/OS- och Docker Swarm-klustren tillhandahåller HTTP-slutpunkter 
 
 För DC/OS och Docker Swarm rekommenderar vi att du skapar en SSH-tunnel (secure shell) från den lokala datorn till klusterhanteringssystemet. När tunneln har upprättats kan du köra kommandon som använder HTTP-slutpunkter och visa Orchestrators webbgränssnitt från det lokala systemet. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett Kubernetes-, DC/OS- eller Docker Swarm-kluster [som distribuerats i Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md).
 * En SSH RSA-fil för privat nyckel som motsvarar den offentliga nyckel som lades till i klustret under distributionen. Dessa kommandon förutsätter att den privata SSH-nyckeln finns i `$HOME/.ssh/id_rsa` på din dator. Mer information finns i dessa anvisningar för [macOS och Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). Om SSH-anslutningen inte fungerar kan du behöva [återställa dina SSH-nycklar](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).

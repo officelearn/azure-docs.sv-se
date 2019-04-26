@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
 ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006221"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328722"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Skapa en fullständig Linux-miljö med den klassiska Azure-CLI
 I den här artikeln skapar vi ett enkelt nätverk med en belastningsutjämnare och ett par med virtuella datorer som är användbara för utveckling och enkel databehandling. Vi går igenom processen kommandot av kommandot förrän du har två arbetar, säker virtuella Linux-datorer som du kan ansluta från var som helst på Internet. Du kan sedan gå vidare till mer komplexa nätverk och miljöer.

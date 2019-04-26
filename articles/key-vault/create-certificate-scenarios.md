@@ -2,23 +2,19 @@
 title: Övervaka och hantera processen för att skapa certifikat
 description: Scenarier som visar olika alternativ för att skapa, bearbeta övervaka och interagera med skapandet av certifikat med Key Vault.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306027"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Övervaka och hantera processen för att skapa certifikat
 Gäller för: Azure
@@ -417,7 +413,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|Elementnamn|Krävs|Type|Version|Beskrivning|
+|Elementnamn|Obligatoriskt|Typ|Version|Beskrivning|
 |------------------|--------------|----------|-------------|-----------------|
 |x5c|Ja|matris|\<Introduktion till version >|X509 certifikatkedjan som base 64-sträng-matris.|
 

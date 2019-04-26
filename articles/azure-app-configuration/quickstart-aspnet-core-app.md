@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 29cea7e72d6bd7f64f6cf2a68b7620090ea4eef3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b527199fd7b61609f292b13c73bfc1d6e0a6b896
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203789"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
@@ -41,7 +41,7 @@ Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](
 
 6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:BackgroundColor | Vit |
     | TestApp:Settings:FontSize | 24 |
@@ -104,7 +104,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
 
     Den här hemligheten nås med konfigurations-API. Ett kolon (:) fungerar i Konfigurationsnamnet med API-konfigurationen på alla plattformar som stöds. Se [konfigurationen av miljön](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Öppna *Program.cs*, och Lägg till en referens till en App Configuration .NET Core-konfigurationsprovider.
+4. Öppna *Program.cs*, och Lägg till en referens till Appkonfiguration för .NET Core-providern.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;

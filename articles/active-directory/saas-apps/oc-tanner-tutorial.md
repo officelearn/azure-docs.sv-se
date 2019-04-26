@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 21cbef1532928d51ba0c9f11e80304933df505b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60242802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Självstudier: Azure Active Directory-integrering med O.C. Tanner - AppreciateHub
 
@@ -29,7 +29,7 @@ Integrera O.C. Turesson - AppreciateHub med Azure AD ger dig följande fördelar
 
 * Du kan styra i Azure AD som har åtkomst till O.C. Tanner - AppreciateHub.
 * Du kan aktivera användarna att vara automatiskt inloggad till O.C. Turesson - AppreciateHub (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -61,7 +61,7 @@ Konfigurera integreringen av O.C. Turesson - AppreciateHub till Azure AD, som du
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -69,19 +69,19 @@ Konfigurera integreringen av O.C. Turesson - AppreciateHub till Azure AD, som du
 
      ![O.C. Turesson - AppreciateHub i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med O.C. Turesson - AppreciateHub baserat på en testanvändare kallas **Britta Simon**.
 För enkel inloggning att fungera, en länk förhållandet mellan en Azure AD-användare och relaterade användaren i O.C. Turesson - AppreciateHub måste upprättas.
 
 Konfigurera och testa Azure AD enkel inloggning med O.C. Turesson - AppreciateHub, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera O.C. Turesson - AppreciateHub Single Sign-On](#configure-oc-tanner---appreciatehub-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa O.C. Turesson - AppreciateHub testanvändare](#create-oc-tanner---appreciatehub-test-user)**  – du har en motsvarighet för Britta Simon i O.C. Turesson - AppreciateHub som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -91,7 +91,7 @@ Konfigurera Azure AD enkel inloggning med O.C. Turesson - AppreciateHub, utför 
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **O.C. Turesson - AppreciateHub** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -123,21 +123,21 @@ Konfigurera Azure AD enkel inloggning med O.C. Turesson - AppreciateHub, utför 
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 6. På den **konfigurera O.C. Turesson - AppreciateHub** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
 ### <a name="configure-oc-tanner---appreciatehub-single-sign-on"></a>Konfigurera O.C. Turesson - AppreciateHub Single Sign-On
 
-Att konfigurera enkel inloggning på **O.C. Turesson - AppreciateHub** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [O.C. Turesson - AppreciateHub supportteamet](mailto:sso@octanner.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Att konfigurera enkel inloggning på **O.C. Turesson - AppreciateHub** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [O.C. Turesson - AppreciateHub supportteamet](mailto:sso@octanner.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 

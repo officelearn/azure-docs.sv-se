@@ -11,11 +11,11 @@ ms.author: lizross
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d3b3cd7e759892c2215f190a682f5f69818958d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60247900"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory? 
 Azure Active Directory (Azure AD) är Microsofts molnbaserade identitets- och åtkomshanteringstjänst. Azure AD hjälper dina medarbetare att logga in och få åtkomst till resurser i:
@@ -76,10 +76,10 @@ För att bättre förstå Azure AD och dess dokumentation bör du läsa följand
 ## <a name="which-features-work-in-azure-ad"></a>Vilka funktioner fungerar i Azure AD?
 När du har valt din Azure AD-licens har du åtkomst till några eller alla av följande funktioner för organisationen:
 
-|Kategori|Beskrivning|
+|Category|Beskrivning|
 |-------|-----------|
 |Programhantering|Hantera dina molnbaserade och lokala appar med programproxy, enkel inloggning Mina appar-portalen (kallas även åtkomstpanelen) och Software as a Service-appar (SaaS). Mer information finns i [Ge säker fjärråtkomst till lokala program](../manage-apps/application-proxy.md) och i [dokumentationen om programhantering](../manage-apps/index.yml).|
-|Authentication|Hantera Azure Active Directory-lösenordsåterställning via självbetjäning, Multi-Factor Authentication, listor över anpassade förbjudna lösenord och smart utlåsning. Mer information finns i [dokumentationen om Azure AD-autentisering](../authentication/index.yml).|
+|Autentisering|Hantera Azure Active Directory-lösenordsåterställning via självbetjäning, Multi-Factor Authentication, listor över anpassade förbjudna lösenord och smart utlåsning. Mer information finns i [dokumentationen om Azure AD-autentisering](../authentication/index.yml).|
 |Business-to-Business (B2B)|Hantera dina gästanvändare och externa partners, och behåll kontrollen över egna företagsdata. Mer information finns i [Azure Active Directory B2B-dokumentationen](../b2b/index.yml).|
 |Business-to-Customer (B2C)|Anpassa och kontrollera hur användare registrerar sig, loggar in och hanterar sina profiler när de använder dina appar. Mer information finns i [Azure Active Directory B2C-dokumentationen](../../active-directory-b2c/index.yml).|
 |Villkorlig åtkomst|Hantera åtkomst till molnappar. Mer information finns i [dokumentationen om villkorsstyrd åtkomst i Azure AD](../conditional-access/index.yml).|

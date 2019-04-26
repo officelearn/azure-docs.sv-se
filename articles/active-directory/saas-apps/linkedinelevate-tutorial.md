@@ -16,11 +16,11 @@ ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ca8e537f261b59fb4e069d47d24e21abbdeca46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60260032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Självstudier: Azure Active Directory-integrering med LinkedIn höjer
 
@@ -34,7 +34,7 @@ Integrera LinkedIn höjer med Azure AD ger dig följande fördelar:
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med LinkedIn höjer, behöver du följande objekt:
 
@@ -241,8 +241,8 @@ När du klickar på panelen LinkedIn höjer i åtkomstpanelen, bör du få sidan
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Självstudier: Konfigurera LinkedIn höjer för automatisk användaretablering med Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Självstudie: Konfigurera LinkedIn höjer för automatisk användaretablering med Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera användarförsörjning](linkedinelevate-provisioning-tutorial.md)
 

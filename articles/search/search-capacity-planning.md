@@ -10,11 +10,11 @@ ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308765"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Skala partitioner och -repliker för fråge- och indexeringsarbetsbelastningar i Azure Search
 När du [Välj en prisnivå](search-sku-tier.md) och [etablera en söktjänst](search-create-service-portal.md), nästa steg är att du kan också öka antalet repliker eller partitioner som används av din tjänst. Varje nivå erbjuder ett fast antal faktureringsenheter. Den här artikeln beskriver hur du allokera dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för frågekörning, indexering och lagring.

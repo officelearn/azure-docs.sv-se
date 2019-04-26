@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307752"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa lokala Windows-lösenord för Azure VM offline
 Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av den [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) angivna Azure-gästagenten är installerad. Den här metoden är det primära sättet att återställa ett lösenord för en Azure-dator. Om du får problem med Azure-gästagenten svarar inte eller inte kunde installeras när du har överfört en anpassad avbildning, kan du manuellt kan du återställer en Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt kontolösenord genom att koppla den virtuella käll-OS-disken till en annan virtuell dator. Stegen som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 

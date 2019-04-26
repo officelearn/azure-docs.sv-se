@@ -3,7 +3,7 @@ title: Självstudie – Ge åtkomst till ett Node.js-webb-API från en skrivbord
 description: Självstudiekurs som visar hur du använder Active Directory B2C för att skydda ett Node.js-webb-API och anropar det från en .NET-skrivbordsapp.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 90a6a88ff0dc5aab1163e471b24cd1d00e548a1b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60315940"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Självstudie: Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med hjälp av Azure Active Directory B2C
 
@@ -37,9 +37,9 @@ Slutför stegen och förutsättningarna i [Självstudie: Aktivera autentisering 
 
 ## <a name="add-a-web-api-application"></a>Lägga till ett program för webb-API
 
-Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på förfrågningar om skyddade resurser från klientprogram som använder en åtkomsttoken. 
+Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
@@ -126,4 +126,4 @@ I den här självstudiekursen lärde du dig att:
 > * Uppdatera exemplet så att programmet används
 
 > [!div class="nextstepaction"]
-> [Självstudier: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Självstudie: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)

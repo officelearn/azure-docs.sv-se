@@ -13,11 +13,11 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295388"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Faktorer som påverkar prestandan för Azure AD Connect
 
@@ -104,7 +104,7 @@ Process-runtime synkronisering har följande konsekvenser för prestanda:
 * Exporten är också linjär.
 * Synkroniseringen kommer att växa exponentiellt baserat på antalet objekt med referenser till andra objekt. Medlemskap i gruppen och kapslade grupper har den huvudsakliga prestandapåverkan eftersom deras medlemmar refererar till objekt eller andra grupper. Dessa referenser måste hitta och refererar till objekt i MV att slutföra synkroniseringscykel.
 
-### <a name="filtering"></a>Filtrering
+### <a name="filtering"></a>Filtering
 
 Storleken på Active Directory-topologi som du vill importera är den främsta faktor som påverkar prestanda och totala tid de interna komponenterna av etablering engine tar.
 

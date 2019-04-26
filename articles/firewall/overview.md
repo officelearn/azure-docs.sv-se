@@ -10,11 +10,11 @@ ms.date: 3/29/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ms.openlocfilehash: 7f313af75e78db8a60fe6864c41cd8e6c5a3ad9b
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193036"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -54,7 +54,7 @@ En tjänsttagg representerar en grupp IP-adressprefix och används i syfte att m
 
 ### <a name="threat-intelligence"></a>Hotinformation
 
-Threat intelligence-baserad filtrering kan aktiveras för brandväggen för att Avisera och nekar trafik från/till känd skadlig IP-adresser och domäner. IP-adresser och domäner kommer från Microsoft Hotinformationen feed.
+Hotinformationsbaserad filtrering kan aktiveras för brandväggen för att avisera och avvisa trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-feeden.
 
 ### <a name="outbound-snat-support"></a>Stöd för utgående SNAT
 

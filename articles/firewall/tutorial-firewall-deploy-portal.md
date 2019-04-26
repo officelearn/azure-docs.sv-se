@@ -9,11 +9,11 @@ ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194226"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudier: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -143,7 +143,7 @@ Distribuera brandväggen till det virtuella nätverket.
    |Prenumeration     |\<din prenumeration\>|
    |Resursgrupp     |**Test-FW-RG** |
    |Namn     |**Test-FW01**|
-   |Plats     |Välj samma plats som tidigare|
+   |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: **Test-FW-VN**|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
@@ -257,4 +257,4 @@ Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de i
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [Självstudie: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)

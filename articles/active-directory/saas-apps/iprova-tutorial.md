@@ -16,11 +16,11 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60270862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Självstudier: Azure Active Directory-katalogintegrering med iProva
 
@@ -34,7 +34,7 @@ Du får följande fördelar när du integrerar iProva med Azure AD:
 Mer information om SaaS-appintegrering (Programvara som en tjänst) med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna konfigurera Azure AD-integrering med iProva behöver du följande:
 

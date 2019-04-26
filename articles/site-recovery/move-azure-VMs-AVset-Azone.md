@@ -9,11 +9,11 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196206"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
 Tillgänglighetszoner i Azure att skydda dina program och data från datacenter havererar. Varje tillgänglighetszon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Fysisk avgränsning av Tillgänglighetszoner inom en region skyddar program och data från datacenter havererar. Azure erbjuder ett servicenivåavtal (SLA) med 99,99% tillgänglighet för virtuella datorer (VM) med Tillgänglighetszoner. Tillgänglighetszoner stöds i utvalda regioner som anges i [vad är Tillgänglighetszoner i Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).

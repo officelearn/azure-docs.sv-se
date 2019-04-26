@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311951"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrera från Enterprise-avtal till Microsoft Customer avtal API: er
 
@@ -180,14 +180,14 @@ Egenskapsnamnet som innehåller den användningsposter-matrisen som har ändrats
 | Använd tjänst | consumedService | Exakta strängvärden kan variera. |
 | ID för använd tjänst | Ingen | &nbsp; |
 | Kostnadsställe | costCenter | &nbsp; |
-| Datum och usageStartDate | datum | &nbsp;  |
+| Datum och usageStartDate | date | &nbsp;  |
 | Dag | Ingen | Parsar dagen från datum. |
 | Avdelnings-ID | InvoiceSectionId | Exakta värden skiljer sig åt. |
 | Avdelningsnamn | InvoiceSectionName | Exakta strängvärden kan variera. Konfigurera faktura avsnitt om du vill matcha avdelningar, om det behövs. |
 | ExtendedCost och kostnader | costInBillingCurrency | &nbsp;  |
 | Instans-ID | resourceId | &nbsp;  |
 | Är en återkommande debitering | Ingen | &nbsp;  |
-| Plats | location | &nbsp;  |
+| Location | location | &nbsp;  |
 | Mätarkategori | meterCategory | Exakta strängvärden kan variera. |
 | Mätar-ID | meterId | Exakta strängvärden skiljer sig åt. |
 | Mätarnamn | meterName | Exakta strängvärden kan variera. |
@@ -199,7 +199,7 @@ Egenskapsnamnet som innehåller den användningsposter-matrisen som har ändrats
 | Ordernummer | Ingen | &nbsp;  |
 | PartNumber | Ingen | Använd meterId och productOrderName för att unikt identifiera priser. |
 | Plannamn | productOrderName | &nbsp;  |
-| Produkt | Produkt |   |
+| Product | Product |   |
 | Produkt-ID | productId | Exakta strängvärden skiljer sig åt. |
 | Utgivarens namn | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
@@ -218,7 +218,7 @@ Egenskapsnamnet som innehåller den användningsposter-matrisen som har ändrats
 | Prenumerationsnamn | subscriptionName | &nbsp;  |
 | Taggar | tags | Egenskapen taggar gäller för rotobjektet inte till egenskapen kapslade egenskaper. |
 | Måttenhet | unitOfMeasure | Exakta strängvärden skiljer sig åt. |
-| usageEndDate | datum | &nbsp;  |
+| usageEndDate | date | &nbsp;  |
 | År | Ingen | Parsar år från skapandedatum. |
 | (ny) | billingCurrency | Valutan som används för tillägget. |
 | (ny) | billingProfileId | Unikt ID för fakturering profilen (samma som registrering). |

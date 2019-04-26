@@ -13,11 +13,11 @@ ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249721"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identity-datalagring för Europeiska kunder i Azure Active Directory
 Azure Active Directory (Azure AD) hjälper dig att hantera användaridentiteter och skapa intelligensdrivna åtkomstprinciper som hjälper dig att skydda din organisations resurser. Identitetsdata lagras på en plats som baseras på den adress som din organisationen uppgav när du registrerade dig för tjänsten. Till exempel när du registrerar dig för en prenumeration på Office 365 eller Azure. Specifik information om var dina identitetsdata lagras finns i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.

@@ -16,11 +16,11 @@ ms.date: 06/17/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a12fb0123e96c592a8af9fe04f6ff17f8fea62a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60270172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Självstudier: Azure Active Directory-integrering med itslearning
 
@@ -34,7 +34,7 @@ Integrera itslearning med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med itslearning, behöver du följande objekt:
 

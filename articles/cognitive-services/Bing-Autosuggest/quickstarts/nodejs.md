@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: b8f7fbe386400babac033de0efbaaabbe8832397
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240687"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och Node.js
 
 Använd den här snabbstarten ska börja göra anrop till API för automatiska förslag i Bing och hämta JSON-svar. Det här enkla Node.js-programmet skickar en partiell sökfråga till API: et och returnerar förslag på sökningar. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Node.js 6](https://nodejs.org/en/download/) eller senare
 

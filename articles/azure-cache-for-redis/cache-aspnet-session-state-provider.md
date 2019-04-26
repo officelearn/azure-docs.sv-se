@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: yegu
 ms.openlocfilehash: 4a51040ecdbf22af03ce1e6edaaa0ff577bbc076
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60233326"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>ASP.NET-Sessionstillståndsprovider för Azure Cache för Redis
 

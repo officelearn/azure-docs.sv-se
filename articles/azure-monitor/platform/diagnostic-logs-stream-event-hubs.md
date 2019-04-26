@@ -9,11 +9,11 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237717"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream, Azure-diagnostikloggar till en händelsehubb
 **[Azure diagnostikloggar](diagnostic-logs-overview.md)**  kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI.

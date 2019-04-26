@@ -14,11 +14,11 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249394"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -29,7 +29,7 @@ I den här snabbstarten visar du alla organisationens befintliga grupper och vis
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar måste du:
 
 - Skapa en klientorganisation i Azure Active Directory. Mer information finns i [Öppna Azure Active Directory-portalen och skapa en ny klientorganisation](active-directory-access-create-new-tenant.md).

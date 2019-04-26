@@ -17,11 +17,11 @@ ms.date: 02/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3642bea878ca4d1582319e5e1d964dfa43ff061
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60283349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Självstudier: Azure Active Directory-integrering med närvaro hanteringstjänster
 
@@ -35,7 +35,7 @@ Integrera närvaro Management Services med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med närvaro Management Services, behöver du följande objekt:
 

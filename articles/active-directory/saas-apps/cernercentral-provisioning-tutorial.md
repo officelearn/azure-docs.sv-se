@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60281199"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Cerner Central för automatisk användaretablering
 
@@ -127,7 +127,7 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Cerner centrala: Publicera identitetsdata med hjälp av Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
-* [Självstudier: Konfigurera Cerner Central för enkel inloggning med Azure Active Directory](cernercentral-tutorial.md)
+* [Självstudie: Konfigurera Cerner Central för enkel inloggning med Azure Active Directory](cernercentral-tutorial.md)
 * [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 

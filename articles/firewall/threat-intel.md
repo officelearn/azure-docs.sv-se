@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194061"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Azure brandväggen threat intelligence-baserad filtrering – förhandsversion
 
-Threat intelligence-baserad filtrering kan aktiveras för brandväggen för att Avisera och nekar trafik från/till känd skadlig IP-adresser och domäner. IP-adresser och domäner kommer från Microsoft Hotinformationen feed. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) Driver Microsofts hotintelligens och används av flera tjänster, inklusive Azure Security Center.
+Hotinformationsbaserad filtrering kan aktiveras för brandväggen för att avisera och avvisa trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-feeden. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) Driver Microsofts hotintelligens och används av flera tjänster, inklusive Azure Security Center.
 
 ![Brandväggen hotinformation](media/threat-intel/firewall-threat.png)
 

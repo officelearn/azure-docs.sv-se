@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 9942b1d4d8b5d538f5150a36e596753282039be7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488443"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60234273"
 ---
 # <a name="configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Konfigurera Baidu Cloud Push-inställningarna för en notification hub i Azure-portalen
 Den här artikeln visar hur du konfigurerar Baidu Cloud Push-inställningar för en Azure notification hub med hjälp av Azure portal. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du inte redan har skapat en meddelandehubb, ska du skapa en nu. Mer information finns i [skapar en Azure notification hub i Azure-portalen](create-notification-hub-portal.md). 
 
 ## <a name="configure-baidu-cloud-push"></a>Konfigurera Baidu Cloud Push

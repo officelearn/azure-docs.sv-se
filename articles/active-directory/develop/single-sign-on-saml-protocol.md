@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250514"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Enkel inloggning SAML-protokoll
 
@@ -49,9 +49,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| ID | Krävs | Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att åtkomstgruppen liknande ”id” till strängrepresentation av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt-ID. |
-| Version | Krävs | Den här parametern anges till **2.0**. |
-| IssueInstant | Krävs | Det här är ett DateTime-sträng med ett UTC-värde och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD måste ha ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
+| ID | Obligatoriskt | Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att åtkomstgruppen liknande ”id” till strängrepresentation av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt-ID. |
+| Version | Obligatoriskt | Den här parametern anges till **2.0**. |
+| IssueInstant | Obligatoriskt | Det här är ett DateTime-sträng med ett UTC-värde och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD måste ha ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
 | AssertionConsumerServiceUrl | Valfri | Om den här parametern måste matcha den `RedirectUri` av Molntjänsten i Azure AD. |
 | ForceAuthn | Valfri | Det här är ett booleskt värde. Om värdet är SANT innebär det att användaren tvingas att autentisera igen, även om de har en giltig session med Azure AD. |
 | IsPassive | Valfri | Det här är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användarinteraktion, med hjälp av sessions-cookie om en sådan finns. Om det stämmer, försöker Azure AD autentiserar användaren med sessions-cookie. |
@@ -100,7 +100,7 @@ Om omfattar inte den `ProxyCount` attribut, `IDPListOption` eller `RequesterID` 
 ### <a name="signature"></a>Signatur
 Omfattar inte en `Signature` element i `AuthnRequest` element, som Azure AD inte stöder signerats autentiseringsbegäranden.
 
-### <a name="subject"></a>Subjekt
+### <a name="subject"></a>Subject
 Azure AD ignorerar den `Subject` element i `AuthnRequest` element.
 
 ## <a name="response"></a>Svar
@@ -211,7 +211,7 @@ För att generera den digitala signaturen, Azure AD använder signeringsnyckeln 
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Subjekt
+#### <a name="subject"></a>Subject
 
 Detta anger det säkerhetsobjekt som omfattas av instruktionerna i kontrollen. Den innehåller en `NameID` element som representerar den autentiserade användaren. Den `NameID` värdet är en riktad identifierare som riktas endast till tjänstleverantören som är målgruppen för token. Det är beständiga – den kan återkallas, men aldrig omtilldelas. Det är också täckande, eftersom det inte avslöjar något om användaren och kan inte användas som en identifierare för attributet frågor.
 

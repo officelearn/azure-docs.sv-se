@@ -12,11 +12,11 @@ ms.author: kefre
 ms.custom: seodec18
 ms.date: 09/21/2017
 ms.openlocfilehash: 4f6af31ba6b04ddbecb7cb42cebe345b6af720ac
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201439"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Självstudier: API för visuellt innehåll – Java
 

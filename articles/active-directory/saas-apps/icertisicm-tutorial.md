@@ -16,11 +16,11 @@ ms.date: 06/17/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5d83ab0c14da772551a8f33704e0e776be5ebb6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60274863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Självstudier: Azure Active Directory-integrering med Icertis plattform för hantering av kontrakt
 
@@ -34,7 +34,7 @@ Integrera Icertis plattform för hantering av kontrakt med Azure AD ger dig föl
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Icertis plattform för hantering av kontrakt, behöver du följande objekt:
 
@@ -211,7 +211,7 @@ När du klickar på panelen Icertis plattform för hantering av kontrakt på åt
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

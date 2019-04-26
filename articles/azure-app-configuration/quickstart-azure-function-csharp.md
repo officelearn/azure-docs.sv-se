@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 914fe30e0b474f5d2c3ca14be6a6eb2e13cfdbf8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202812"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Snabbstart: Skapa en Azure-funktion med App Configuration
 
@@ -41,7 +41,7 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2017](https://
 
 6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -59,7 +59,7 @@ Om du vill göra den här snabbstarten, installera [Visual Studio 2017](https://
     Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
     ```
 
-2. Öppna *Function1.cs*, och Lägg till en referens till en App Configuration .NET Core-konfigurationsprovider.
+2. Öppna *Function1.cs*, och Lägg till en referens till Appkonfiguration för .NET Core-providern.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;

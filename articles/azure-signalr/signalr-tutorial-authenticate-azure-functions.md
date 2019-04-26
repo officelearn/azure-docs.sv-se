@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254045"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Självstudier: Azure SignalR Service-autentisering med Azure Functions
 
@@ -57,7 +57,7 @@ Du kan skapa och testa Azure Functions-appen lokalt. Appen använder en SignalR 
     |---|---|
     | Resursnamn | Ett unikt namn för SignalR Service-instansen |
     | Resursgrupp | Skapa en ny resursgrupp med ett unikt namn |
-    | Plats | Välj en plats nära dig |
+    | Location | Välj en plats nära dig |
     | Prisnivå | Kostnadsfri |
 
 1. Klicka på **Skapa**.
@@ -320,7 +320,7 @@ Ett Azure Storage-konto krävs av en funktionsapp som körs i Azure. Du ska ocks
     | Prenumeration | Välj den prenumeration som innehåller SignalR Service-instans |
     | Resursgrupp | Välj samma resursgrupp |
     | Resursnamn | Ett unikt namn för lagringskontot |
-    | Plats | Välj samma plats som dina andra resurser |
+    | Location | Välj samma plats som dina andra resurser |
     | Prestanda | Standard |
     | Typ av konto | StorageV2 (generell användning v2) |
     | Replikering | Lokalt redundant lagring (LRS) |

@@ -10,11 +10,11 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497091"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60238057"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare konfigurationsschema
 > [!NOTE]
@@ -445,7 +445,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element
  *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- Krävs
+ Obligatoriskt
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
@@ -644,12 +644,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|sträng|En sträng som identifierar sinkname.|  
+|**Namn**|string|En sträng som identifierar sinkname.|  
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
-|**Application Insights**|sträng|Används endast när data skickas till Application Insights. Innehåller Instrumenteringsnyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
-|**kanaler**|sträng|En för varje ytterligare filtrering som strömmar som du|  
+|**Application Insights**|string|Används endast när data skickas till Application Insights. Innehåller Instrumenteringsnyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
+|**kanaler**|string|En för varje ytterligare filtrering som strömmar som du|  
 
 ## <a name="channels-element"></a>Channels Element  
  *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -660,7 +660,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
-|**Kanal**|sträng|Se beskrivning någon annanstans på den här sidan.|  
+|**Kanal**|string|Se beskrivning någon annanstans på den här sidan.|  
 
 ## <a name="channel-element"></a>Channel Element
  *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*

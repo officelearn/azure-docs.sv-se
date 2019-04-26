@@ -13,18 +13,18 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204442"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicera en ASP.NET-Webbapp till en Azure virtuell dator från Visual Studio
 
 Det här dokumentet beskriver hur du publicerar ett ASP.NET-webbprogram till en Azure-dator (VM) med hjälp av den **Microsoft Azure Virtual Machines** publiceringsfunktionen i Visual Studio 2017.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att kunna använda Visual Studio för att publicera ett ASP.NET-projekt till en Azure-dator, ställas den virtuella datorn ska in.
 
 - Datorn måste konfigureras för att köra ASP.NET-webbprogram och låta WebDeploy installerad.
@@ -106,7 +106,7 @@ Inställningarna bör se ut ungefär så här:
 
 - Om du vill kontrollera att servern har en ren till webbprogrammet efter varje överföring (och att inga andra filer lämnas hängande från en tidigare distribution) du kan kontrollera den **ta bort extra filer från destinationen** kryssrutan i den **inställningar** fliken.
 
-- Varning: Publicering med den här inställningen tar bort alla filer som finns på webbservern (Wwwroot-katalog). Måste du veta vilket tillstånd datorn innan du publicerar det här alternativet. 
+- Varning: Publicera med den här inställningen tar bort alla filer som finns på webbservern (Wwwroot-katalog). Måste du veta vilket tillstånd datorn innan du publicerar det här alternativet. 
 
 ![Publiceringsinställningar - sidan Inställningar]
 

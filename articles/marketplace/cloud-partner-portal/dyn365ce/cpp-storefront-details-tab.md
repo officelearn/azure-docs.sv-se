@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311308"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 för Customer Engagement Storefront information fliken
 
@@ -52,7 +52,7 @@ I följande tabell beskrivs där fälten i den här fliken:
 |    **Fält**          |  **Beskrivning**               |
 |  ---------------      |  ---------------               |
 |  Branscher           | Välj branscher (maximalt två) som är den bästa appen som är knutet till. Du kan välja alternativ för noll om ingen gäller.  |
-|  Kategorier           | Välj kategorier som är relevanta för appen. Välj mellan ett och tre alternativ.  |
+|  Categories           | Välj kategorier som är relevanta för appen. Välj mellan ett och tre alternativ.  |
 |  Apptyp             | Välj typ av utvärderingsversion som är aktiverad för appen på AppSource. **Kostnadsfria** anger din app kan användas utan kostnad; **Utvärderingsversion** indikerar att kunder kan testa din app under en kort period utan kostnad; och **kontakta mig** indikerar att kunder kan begära en utvärderingsversion av appen på AppSource.  |
 | Hjälplänk för din app | URL för online-dokumentation eller annan hjälp-resurs för appen.  |
 | Länder/regioner | En popup-dialogruta gör valet av geografiska områden där appen är tillgängliga.  I hela världen distribution är standardinställningen. |

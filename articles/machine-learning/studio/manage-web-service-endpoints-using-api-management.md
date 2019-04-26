@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347387"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio-webbtjänster som använder API Management
 ## <a name="overview"></a>Översikt
@@ -24,7 +24,7 @@ Den här guiden visar hur du snabbt kommer igång med att använda API Managemen
 ## <a name="what-is-azure-api-management"></a>Vad är Azure API Management?
 Azure API Management är en Azure-tjänst som låter dig hantera REST API-slutpunkter genom att definiera användaråtkomst, begränsning av nätverksbandbredd och instrumentpanelen för övervakning. Klicka på [här](https://azure.microsoft.com/services/api-management/) för information om Azure API Management. Klicka på [här](/azure/api-management/import-and-publish) en guide om hur du kommer igång med Azure API Management. Den här andra guiden som den här guiden är baserad på omfattar flera ämnen, t.ex. meddelande-konfigurationer, priserna för nivån, hantering av svar, autentisering av användare, skapa produkter, developer prenumerationer och användning dashboarding.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du behöver följande för att slutföra den här guiden:
 
 * Ett Azure-konto. Om du inte har ett Azure-konto, klickar du på [här](https://azure.microsoft.com/pricing/free-trial/) mer information om hur du skapar ett kostnadsfritt konto.

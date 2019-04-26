@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
 ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202271"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Snabbstart: Skapa en Java Spring-app med App Configuration
 
@@ -39,7 +39,7 @@ Om du vill göra den här snabbstarten, installera en stödd [Java Development K
 
 6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | /application/config.message | Hello |
 

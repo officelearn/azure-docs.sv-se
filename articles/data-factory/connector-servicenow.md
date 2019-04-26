@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203422"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiera data från ServiceNow med Azure Data Factory
 
@@ -41,7 +41,7 @@ Följande egenskaper har stöd för ServiceNow länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **ServiceNow** | Ja |
+| type | Type-egenskapen måste anges till: **ServiceNow** | Ja |
 | slutpunkt | Slutpunkten för ServiceNow-server (`http://<instance>.service-now.com`).  | Ja |
 | authenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är: **Basic**, **OAuth2** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till ServiceNow-servern för Basic och OAuth2-autentisering.  | Ja |
@@ -80,7 +80,7 @@ Kopiera data från ServiceNow genom att ange typegenskapen på datauppsättninge
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **ServiceNowObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **ServiceNowObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -109,7 +109,7 @@ Om du vill kopiera data från ServiceNow, ange typ av datakälla i kopieringsakt
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ServiceNowSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ServiceNowSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Actual.alm_asset"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 Tänk på följande när du anger schemat och kolumnen för ServiceNow i fråga och **avser [prestandatips](#performance-tips) på Kopiera prestanda de**.

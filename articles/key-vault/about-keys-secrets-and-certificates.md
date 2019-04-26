@@ -2,23 +2,19 @@
 title: Om Azure Key Vault-nycklar, hemligheter och certifikat – Azure Key Vault
 description: Översikt över Azure Key Vault REST-gränssnittet och utvecklare information om nycklar, hemligheter och certifikat.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306125"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 

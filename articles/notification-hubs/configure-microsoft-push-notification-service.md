@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 1c76b44438e6527439d0a370c92f4120424b8da5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240317"
 ---
 # <a name="configure-microsoft-push-notification-service-mpns-settings-for-a-notification-hub-in-the-azure-portal"></a>Konfigurera inställningar för Microsoft Push Notification Service (MPNS) för en notification hub i Azure portal
 Den här artikeln visar hur du konfigurerar inställningar för Microsoft Push Notification Service (MPNS) för en Azure notification hub med hjälp av Azure portal. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du inte redan har skapat en meddelandehubb, ska du skapa en nu. Mer information finns i [skapar en Azure notification hub i Azure-portalen](create-notification-hub-portal.md). 
 
 ## <a name="configure-microsoft-push-notification-service-mpns"></a>Konfigurera Microsoft Push Notification Service (MPNS)

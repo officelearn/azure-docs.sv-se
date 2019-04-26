@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: cd4d1aed666b2c64ade700a768df0525029b392c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0dcd8ba1b1bacd990c91ce90ef0013caac446cdc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251576"
 ---
-# <a name="microsoftcommontextblock-ui-element"></a>Microsoft.Common.TextBlock UI-element
-En kontroll som kan användas för att lägga till text i gränssnittet portal.
+# <a name="microsoftcommontextblock-ui-element"></a>Microsoft.Common.TextBlock UI element
+En kontroll som kan användas för att lägga till text i portalgränssnittet.
 
 ## <a name="ui-sample"></a>UI-exempel
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
@@ -49,5 +49,5 @@ En kontroll som kan användas för att lägga till text i gränssnittet portal.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element, se [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).

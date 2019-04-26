@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
 ms.openlocfilehash: 36f7ed9b02b66718327c1a05a6cf29eedf39e7a5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232838"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Ange DNS-inställningar i en virtuell nätverkskonfigurationsfil
-En nätverkskonfigurationsfil innehåller två element som du kan använda för att ange inställningar för System DNS (Domain Name): **DnsServers** och **DnsServerRef**. Du kan lägga till en lista över DNS-servrar genom att ange sina IP-adresser och referera till som ska den **DnsServers** element. Du kan sedan använda en **DnsServerRef** element att ange vilka DNS-serverposter från DnsServers-elementet används för olika nätverksplatser i det virtuella nätverket.
+En nätverkskonfigurationsfil har två element som du kan använda för att ange inställningar för Domain Name System (DNS): **DnsServers** och **DnsServerRef**. Du kan lägga till en lista över DNS-servrar genom att ange sina IP-adresser och referera till som ska den **DnsServers** element. Du kan sedan använda en **DnsServerRef** element att ange vilka DNS-serverposter från DnsServers-elementet används för olika nätverksplatser i det virtuella nätverket.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
@@ -36,7 +36,7 @@ Nätverkskonfigurationsfilen kan innehålla följande element. Rubriken på varj
 > 
 > 
 
-[DNS-Element](https://go.microsoft.com/fwlink/?LinkId=248093)
+[Dns Element](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -51,7 +51,7 @@ Nätverkskonfigurationsfilen kan innehålla följande element. Rubriken på varj
 > 
 > 
 
-[Webbplatselement för virtuellt nätverk](https://go.microsoft.com/fwlink/?LinkId=248093)
+[Virtual Network Sites Element](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />

@@ -12,11 +12,11 @@ ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202878"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exempel: Så här anropar du API för visuellt innehåll
 
@@ -164,7 +164,7 @@ Här är ett exempel:
 }
 ```
 
-Fält | Type | Innehåll
+Fält | Typ | Innehåll
 ------|------|------|
 Taggar  | `object` | Huvudobjekt för taggmatris
 tags[].Name | `string`  | Nyckelord från taggklassificerare
@@ -226,7 +226,7 @@ För domänspecifika modeller med alternativ två (utökad analys) utökas den r
 
 Kategorifältet är en lista över en eller flera av de [86 kategorierna](../Category-Taxonomy.md) i den ursprungliga taxonomin. Observera också att kategorier som slutar med ett understreck matchar den kategorin och dess underordnade (till exempel personer_ samt personer_grupp för kändismodellen).
 
-Fält   | Type  | Innehåll
+Fält   | Typ  | Innehåll
 ------|------|------|
 kategorier | `object`   | Toppnivåobjekt
 categories[].name    | `string` | Namn från 86-kategoritaxonomi

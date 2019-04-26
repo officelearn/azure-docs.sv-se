@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: c372b86861452c48b2114073419d4ed709ff115c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303373"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Supportalternativ för Azure Spatial ankare
 
@@ -32,7 +32,7 @@ ms.locfileid: "58109890"
 1. När du går igenom fälten biljett för support: 
 
 - Typ av problem: Teknik
-- Tjänst: Spatial ankare
+- Tjänst: Spatial Anchors
 
 ![Azure portal-stöd biljett fält](./media/spatial-anchor-support3.png)
 

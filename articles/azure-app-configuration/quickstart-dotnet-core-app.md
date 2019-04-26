@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 34eafe8a13d126ebdbb08084d8820646ca43534a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: b8937b22054e55c8bfe7bc4c7726dc5bae5de6d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203780"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabbstart: Skapa en .NET Core-app med App-konfiguration
 
@@ -41,7 +41,7 @@ Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](
 
 6. Välj **nyckel/värde-Explorer** > **+ skapa** att lägga till följande nyckel / värde-par:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -67,7 +67,7 @@ Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.micros
 
         dotnet restore
 
-3. Öppna *Program.cs*, och Lägg till en referens till en App Configuration .NET Core-konfigurationsprovider.
+3. Öppna *Program.cs*, och Lägg till en referens till Appkonfiguration för .NET Core-providern.
 
     ```csharp
     using Microsoft.Extensions.Configuration;

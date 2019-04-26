@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 9a9db9f05895569b050e56cdeec1ee2ee25af0df
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237820"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Konfigurera inställningar för Apple Push Notification Service (APNS) för en notification hub i Azure portal
 Den här artikeln visar hur du konfigurerar inställningar för Apple Push Notification Service (APNS) för en Azure notification hub med hjälp av Azure portal. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du inte redan har skapat en meddelandehubb, ska du skapa en nu. Mer information finns i [skapar en Azure notification hub i Azure-portalen](create-notification-hub-portal.md). 
 
 ## <a name="configure-apple-push-notification-service"></a>Konfigurera Apple Push Notification Service

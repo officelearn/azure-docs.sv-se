@@ -1,15 +1,10 @@
 ---
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: include
-ms.date: 10/26/2018
-ms.author: raynew
 ms.openlocfilehash: cd18d71d26410767a2d3119c12a1339bdc84bd33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107142"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301466"
 ---
 1. Starta CSPSConfigtool.exe på konfigurationsservern. Filen finns som en genväg på skrivbordet och även på följande sökväg: *installationsplatsen*\home\svsystems\bin.
 2. Klicka på **Hantera konton** > **Lägg till konto**.
@@ -19,5 +14,5 @@ ms.locfileid: "58107142"
 
     ![Information](./media/site-recovery-add-vcenter-account/credentials2.png)
 
-    > [!Note]
+    > [AZURE.Note]
    > Det kan ta 15 minuter eller mer innan kontonamnet visas i portalen. Om du vill uppdatera omedelbart klickar du på **Konfigurationsservrar** > ***servernamn*** > **Uppdatera server**.

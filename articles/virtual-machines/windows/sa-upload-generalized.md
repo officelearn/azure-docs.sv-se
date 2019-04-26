@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd81eb3d62332bba67f0056a6f7b49279bc50c4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5b38d022d372e7d35ba2dbeaef90660ce95f73fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250740"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Ladda upp en generaliserad virtuell Hårddisk till Azure för att skapa en ny virtuell dator
 
@@ -31,7 +31,7 @@ Om du vill skapa en virtuell dator från en specialiserad virtuell Hårddisk i e
 
 Det här avsnittet beskrivs med hjälp av storage-konton, men vi rekommenderar kunder flytten till att använda Managed Disks i stället. En fullständig genomgång av hur du förbereder, ladda upp och skapa en ny virtuell dator med hanterade diskar, se [skapa en ny virtuell dator från en generaliserad virtuell Hårddisk som har överförts till Azure med hjälp av Managed Disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-vm"></a>Förbereda den virtuella datorn
 

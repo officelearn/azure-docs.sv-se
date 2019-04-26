@@ -3,7 +3,7 @@ title: Migrera användare med sociala identiteter i Azure Active Directory B2C |
 description: Diskutera grundläggande begrepp om migrering av användare med sociala identiteter till Azure AD B2C med Graph API.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316111"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrera användare med sociala identiteter
 När du planerar att migrera din identitetsprovider till Azure AD B2C kan du också behöva Migrera användare med sociala identiteter. Den här artikeln beskrivs hur du migrerar befintliga konton i sociala identiteter, till exempel: Facebook, LinkedIn, Microsoft och Google-konton till Azure AD B2C. Den här artikeln gäller även för federerade identiteter, men dessa migreringar är mindre vanliga.
@@ -63,7 +63,7 @@ I följande lista visas de egenskaper som krävs när du skapar en användare.
 * **userIdentities** -en eller flera UserIdentity-poster som anger sociala kontotyp och unika användaridentifieraren från sociala identitetsprovidern.
 * [valfritt] **otherMails** – för socialt konto endast användarens e-postadresser 
 
-Mer information finns här: [Graph API-referens](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Mer information finns i: [Graph API-referens](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Migrera sociala konto (endast)
 Skapa sociala kontot, utan att autentiseringsuppgifterna för lokalt konto. Skicka HTTPS-POST-begäran till Graph API. Begärandetexten innehåller egenskaperna för det sociala kontot till att skapa. Du måste ange de nödvändiga egenskaperna för ett minimum. 

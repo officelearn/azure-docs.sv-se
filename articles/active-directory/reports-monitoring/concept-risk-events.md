@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fc505c8f14f4cc0e486502060a16af47c68bbc
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286868"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -52,7 +52,7 @@ För närvarande kan identifierar Azure Active Directory sex typer av riskhände
 Den information som du får en identifierad riskhändelse är kopplad till din Azure AD-prenumeration. 
 
 * Med den **Azure AD Premium P2-versionen**, du får den mest detaljerade informationen om alla underliggande identifieringar. 
-* Med den **Azure AD Premium P1 edition**, identifieringar som inte omfattas av din licens visas som riskhändelsen **inloggning med identifierad ytterligare risk**.
+* Med den **Azure AD Premium P1 edition**, avancerade identifieringar (till exempel känner inloggning egenskaper) omfattas inte av din licens och visas under namnet **inloggning med identifierad ytterligare risk** . Dessutom är risknivå och risk detaljfält dolda.
 
 När identifieringen av riskhändelser redan representerar en viktig aspekt av att skydda dina identiteter, har också möjlighet att manuellt åtgärda dem eller implementera automatiska svar genom att konfigurera principer för villkorlig åtkomst. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

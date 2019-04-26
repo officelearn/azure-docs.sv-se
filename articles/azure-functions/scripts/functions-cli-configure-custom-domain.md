@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 5299675656ea23b85f78b3dbfdc02814ab332a8b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8874039d148cc89d3f47979370e64dd78777f268
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325756"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Mappa en anpassad domän till en funktionsapp
 
@@ -40,7 +40,7 @@ Om du väljer att använda CLI lokalt måste du använda Azure CLI version 2.0 e
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandospecifik dokumentation.
+I det här skriptet används följande kommandon: Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|

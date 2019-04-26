@@ -14,11 +14,11 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68b6c1e037992930a70630b0d218cc98beba931d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249191"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Lägg till eller ta bort en grupp från någon annan grupp med Azure Active Directory
 Den här artikeln hjälper dig att lägga till och ta bort en grupp från någon annan grupp med Azure Active Directory.

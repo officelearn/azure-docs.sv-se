@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325875"
 ---
 # <a name="design-for-querying"></a>Utforma för frågor
 Table service-lösningar kan läsas intensiva, Skriv intensiva eller en blandning av båda. Den här artikeln handlar om saker att ha i åtanke när du utformar din tabelltjänsten för läsåtgärder effektivt. Normalt är också en design som stöder läsåtgärder effektivt effektivt för skrivåtgärder. Men det finns fler saker att ha i åtanke när du utformar för skrivåtgärder, beskrivs i artikeln [Design för dataändringar](table-storage-design-for-modification.md).

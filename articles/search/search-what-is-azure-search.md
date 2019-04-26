@@ -10,11 +10,11 @@ ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 8893d8a55f77b54c9327e913af192ad39df46ba2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307955"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Frågor körs över ett användardefinierat index.
@@ -30,7 +30,7 @@ Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [
 
 ## <a name="feature-summary"></a>Funktionssammanfattning
 
-| Kategori | Funktioner |
+| Category | Funktioner |
 |----------|----------|
 |Fulltextsökning och textanalys | [Fulltextsökning](search-lucene-query-architecture.md) är ett primärt användningsfall för de flesta sökbaserade appar. Frågor kan formuleras med en syntax som stöds. <br/><br/>[**Enkel frågesyntax**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) innehåller logiska operatorer, frassökoperatorer, suffixoperatorer och prioritetsoperatorer.<br/><br/>[**Lucene-frågesyntax**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) innehåller alla åtgärder i enkel syntax, med tillägg för fuzzy-sökning, närhetssökning, termförstärkning och reguljära uttryck.|
 |Kognitiv sökning (förhandsversion) | [AI-styrda algoritmer](cognitive-search-concept-intro.md) för bild- och textanalys kan tillämpas på en indexerande pipeline för att extrahera textinformation från rådatainnehåll. Några exempel på [inbyggda kunskaper](cognitive-search-predefined-skills.md) inkluderar optisk teckenläsning (att göra skannad JPEG sökbar), entitetsigenkänning (identifierar en organisation, namn eller plats) och nyckelfrasigenkänning. Du kan också [koda anpassade kunskaper](cognitive-search-create-custom-skill-example.md) att ansluta till pipelinen. |

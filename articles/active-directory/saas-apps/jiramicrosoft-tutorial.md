@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a0911588141552e616e8555380b14c910225840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5dd8af0ed016dca5ab9c14b117a2673ca214e08c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60268954"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory-integrering med JIRA SAML SSO från Microsoft
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="description"></a>Beskrivning
 
-Använd ditt Microsoft Azure Active Directory-konto med Atlassian JIRA-servern för att aktivera enkel inloggning. På så sätt alla organisationens användare kan använda Azure AD-autentiseringsuppgifter för att logga in i JIRA-programmet. Det här plugin-programmet använder SAML 2.0 för federation.
+Använd ditt Microsoft Azure Active Directory-konto med Atlassian JIRA-servern för att aktivera enkel inloggning. På så sätt alla organisationens användare kan använda Azure AD-autentiseringsuppgifter för inloggning i JIRA-programmet. Det här plugin-programmet använder SAML 2.0 för federation.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -67,7 +67,7 @@ Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 * JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
 
 > [!NOTE]
-> Observera att JIRA också stöder Linux Ubuntu version 16.04
+> Observera att våra JIRA-plugin-programmet även fungerar på Ubuntu 16.04 för Version
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 

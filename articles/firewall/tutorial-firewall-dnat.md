@@ -9,11 +9,11 @@ ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60192943"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudier: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
 
@@ -153,7 +153,7 @@ När distributionen är klar antecknar du den privata IP-adressen för den virtu
    |Namn     |FW-DNAT-test|
    |Prenumeration     |\<din prenumeration\>|
    |Resursgrupp     |**Använd befintlig**: RG-DNAT-Test |
-   |Plats     |Välj samma plats som tidigare|
+   |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: VN-Hub|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 

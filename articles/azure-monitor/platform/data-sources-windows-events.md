@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522718"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236921"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows-händelseloggen datakällor i Azure Monitor
 Windows-händelseloggar är en av de vanligaste [datakällor](agent-data-sources.md) för att samla in data med hjälp av Windows-agenter eftersom många program skriva till händelseloggen i Windows.  Du kan samla in händelser från standard loggarna, t.ex System- och förutom att ange några anpassade loggar som skapats av program som du behöver övervaka.
@@ -44,9 +44,9 @@ Azure Monitor samlar in varje händelse som matchar en vald allvarlighetsgrad fr
 ## <a name="windows-event-records-properties"></a>Egenskaper för Windows händelse-poster
 Windows-händelseposter har en typ av **händelse** och har egenskaperna i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
-| Dator |Namnet på den dator som händelsen har samlats in från. |
+| Computer |Namnet på den dator som händelsen har samlats in från. |
 | EventCategory |Händelsens kategori. |
 | EventData |Alla händelsedata i obearbetat format. |
 | EventID |Antal händelsen. |

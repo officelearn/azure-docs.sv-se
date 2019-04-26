@@ -16,17 +16,17 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 121d147a3f8c91f17e955120b2c14f7dbd3da592
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60280096"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudier: Konfigurera DocuSign för automatisk användaretablering
 
 Målet med den här självstudien är att visa dig de steg du måste utföra i DocuSign och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till DocuSign.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 

@@ -2,18 +2,19 @@
 title: Tyst installation av Azure Backup Server V2
 description: Använda ett PowerShell-skript för obevakad installation Azure Backup Server V2. Den här typen av installation är en förkortning av en obevakad installation.
 services: backup
-author: rayne-wiselman
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: raynew
+origin.date: 11/13/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253846"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Kör en obevakad installation av Azure Backup Server
 
@@ -67,3 +68,5 @@ När du har installerat Backup Server lär du dig hur du förbereder din server 
 - [Säkerhetskopiera en VMware-server med hjälp av Backup Server](backup-azure-backup-server-vmware.md)
 - [Säkerhetskopiera SQL Server med hjälp av Backup Server](backup-azure-sql-mabs.md)
 - [Lägga till Modern Backup Storage till säkerhetskopieringsserver](backup-mabs-add-storage.md)
+
+<!-- Update_Description: link update -->

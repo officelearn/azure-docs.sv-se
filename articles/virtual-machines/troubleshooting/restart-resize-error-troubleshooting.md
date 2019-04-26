@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74ba9b8d0ce86a5c663eb9fbb6190e2bcf4513d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f510a111a6c8846b300c09f368a3a2a05b2bb7ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306989"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Felsöka distributionsproblem med att starta om eller ändra storlek på en befintlig Windows-dator i Azure
 När du försöker starta en stoppad Azure virtuell dator (VM), eller ändra storlek på en befintlig Azure VM är vanligt fel du stöter på ett Allokeringsfel. Det här felet uppstår när det kluster eller den region antingen inte har resurser som är tillgängliga eller har inte stöd för den begärda VM-storleken.
@@ -32,7 +32,7 @@ Starta felsökning genom att samla in aktivitetsloggar för att identifiera fele
 
 [Visa aktivitetsloggar för att hantera Azure-resurser](../../resource-group-audit.md)
 
-## <a name="issue-error-when-starting-a-stopped-vm"></a>Problem: Fel när du startar en stoppad virtuell dator
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Ärende: Fel när du startar en stoppad virtuell dator
 Försök att starta en stoppad virtuell dator men får ett Allokeringsfel.
 
 ### <a name="cause"></a>Orsak
@@ -45,7 +45,7 @@ Begäran om att starta stoppad virtuell dator måste göras i det ursprungliga k
   2. När alla virtuella datorer har slutat, väljer du stoppade virtuella datorer och klicka på Start.
 * Försöka starta om vid ett senare tillfälle.
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>Problem: Ett fel inträffade när du ändrar storlek på en befintlig virtuell dator
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Ärende: Ett fel inträffade när du ändrar storlek på en befintlig virtuell dator
 Försök att ändra storlek på en befintlig virtuell dator men får ett Allokeringsfel.
 
 ### <a name="cause"></a>Orsak

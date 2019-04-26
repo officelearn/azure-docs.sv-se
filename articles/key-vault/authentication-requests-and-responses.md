@@ -2,23 +2,19 @@
 title: Autentisering, begäranden och svar
 description: Autentisera till AD för att använda Key Vault
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201354"
 ---
 # <a name="authentication-requests-and-responses"></a>Autentisering, begäranden och svar
 
@@ -91,7 +87,7 @@ Det här avsnittet beskriver specifika för Azure Key Vault-tjänsten. Allmän i
 
 ```  
 
-## <a name="authentication"></a>Authentication  
+## <a name="authentication"></a>Autentisering  
  Alla förfrågningar till Azure Key Vault måste autentiseras. Azure Key Vault stöder Azure Active Directory-åtkomsttoken som kan hämtas med OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Mer information om att registrera ditt program och autentisering för att använda Azure Key Vault finns i [registrera ditt klientprogram med Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).

@@ -13,11 +13,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311673"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformera data genom att köra en Databricks notebook
 
@@ -57,10 +57,10 @@ Här är exempel JSON-definition för en Databricks Notebook-aktiviteten:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 
-|Egenskap |Beskrivning|Krävs|
+|Egenskap |Beskrivning|Obligatoriskt|
 |---|---|---|
 |namn|Namnet på aktiviteten i pipelinen.|Ja|
-|beskrivning|Text som beskriver hur aktiviteten ska hantera.|Nej|
+|description|Text som beskriver hur aktiviteten ska hantera.|Nej|
 |typ|För Databricks Notebook-aktiviteten är aktivitetstypen DatabricksNotebook.|Ja|
 |linkedServiceName|Namnet på den länkade tjänsten för Databricks som Databricks notebook körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
 |notebookPath|Den absoluta sökvägen till anteckningsboken för att köras i Databricks-arbetsytan. Den här sökvägen måste börja med ett snedstreck.|Ja|

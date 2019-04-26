@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60195715"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen1 med hjälp av Power BI
 I den här artikeln får du lära dig hur du använder Power BI Desktop att analysera och visualisera data som lagras i Azure Data Lake Storage Gen1.

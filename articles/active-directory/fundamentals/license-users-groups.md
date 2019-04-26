@@ -15,11 +15,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60247691"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser med hjälp av Azure Active Directory-portalen
 Många Azure Active Directory (Azure AD) tjänster måste du aktivera Azure AD-produkt och licensiera var och en av dina användare eller grupper (och associerade medlemmar) för produkten. Endast användare med aktiva licenser kommer att kunna komma åt och använda den licensierade Azure AD-tjänster.

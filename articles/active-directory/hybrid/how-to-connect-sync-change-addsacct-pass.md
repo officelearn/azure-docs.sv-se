@@ -5,31 +5,31 @@ services: active-directory
 keywords: AD DS-konto, Active Directory-konto, lösenord
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 07/12/2017
+ms.date: 11/09/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: 35e04be046e20883f60c576745a29342add68a81
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60241593"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Ändra AD DS-kontolösenordet
 AD DS-kontot refererar till det användarkonto som används av Azure AD Connect för att kommunicera med lokala Active Directory. Om du ändrar lösenordet för AD DS-kontot, måste du uppdatera Azure AD Connect-synkroniseringstjänsten med det nya lösenordet. I annat fall synkronisering kan inte längre synkronisera korrekt med en lokal Active Directory och du kommer märka följande fel:
 
-* I hanteraren för synkroniseringstjänsten, alla import eller export igen med en lokal AD misslyckas med **inga start autentiseringsuppgifter** fel.
+- I hanteraren för synkroniseringstjänsten, alla import eller export igen med en lokal AD misslyckas med **inga start autentiseringsuppgifter** fel.
 
-* Under Windows Loggboken, programmets händelselogg innehåller ett fel med **händelse-ID 6000** och meddelandet **”hanteringsagenten” contoso.com ”misslyckades att köra eftersom autentiseringsuppgifterna var ogiltiga”**.
+- Under Windows Loggboken, programmets händelselogg innehåller ett fel med **händelse-ID 6000** och meddelandet **”hanteringsagenten” contoso.com ”misslyckades att köra eftersom autentiseringsuppgifterna var ogiltiga”**.
 
 
 ## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>Hur du uppdaterar synkroniseringstjänsten med nytt lösenord för AD DS-konto
@@ -55,6 +55,7 @@ Så här uppdaterar synkroniseringstjänsten med det nya lösenordet:
 ## <a name="next-steps"></a>Nästa steg
 **Översiktsavsnitt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+- [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 
-* [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
+- [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
+

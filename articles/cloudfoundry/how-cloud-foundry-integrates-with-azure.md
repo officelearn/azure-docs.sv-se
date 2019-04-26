@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
 ms.openlocfilehash: 7cbffdd40e574c7e906a9388b70ca9d32fd84649
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198975"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrera Cloud Foundry med Azure
 
@@ -48,7 +48,7 @@ Som standard används Azure belastningsutjämnare för inkommande CF API/apps-be
 ### <a name="azure-standard-load-balancer-"></a>Azure Standard Load Balancer *
 Azure Load Balancer är en Layer 4-belastningsutjämnare. Används för att distribuera trafik mellan instanser av tjänster i en belastningsutjämnad uppsättning. Standardversionen ger [avancerade funktioner](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) över grundläggande version. Till exempel 1. Maxgränsen för backend-poolen utlöses från 100 till 1000 virtuella datorer.  2. Slutpunkterna har nu stöd för flera tillgänglighetsuppsättningar i stället för en enskild tillgänglighetsuppsättning.  3. Ytterligare funktioner som hög tillgänglighet portar, rikare övervakningsdata och så vidare. Om du flyttar till Azure-Tillgänglighetszon krävs standardbelastningsutjämnare. För en ny distribution rekommenderar vi att du börjar med Azure Standard Load Balancer. 
 
-## <a name="3-authentication"></a>3. Authentication 
+## <a name="3-authentication"></a>3. Autentisering 
 [Cloud Foundry-användarkonto och autentisering](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) är centrala identity management-tjänsten för CF och dess olika komponenter. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är Microsofts flera innehavare, molnbaserad katalog- och identity management-tjänsten. Som standard används UAA för Cloud Foundry-autentisering. Som ett avancerat alternativ stöd UAA också för Azure AD som en extern användare butik. Azure AD-användare kan komma åt Cloud Foundry med sina LDAP-identitet, utan ett Cloud Foundry-konto. Följ dessa steg för att [konfigurera Azure AD för UAA i PCF](https://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
 ## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Datalagring för Cloud Foundry Runtime System

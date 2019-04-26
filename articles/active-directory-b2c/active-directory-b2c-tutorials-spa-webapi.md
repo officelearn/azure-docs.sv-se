@@ -3,7 +3,7 @@ title: Självstudie – Bevilja åtkomst till ett ASP.NET Core webb-API från en
 description: Självstudie som visar hur du använder Active Directory B2C för att skydda ett .NET Core webb-API och anropar det från en ensidesapp.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 13cbf1e81e0d203c181efb0881ec2a437cbaef24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60315668"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med hjälp av Azure Active Directory B2C
 
@@ -25,8 +25,8 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
-> * Konfigurera omfång för ett webb-API
-> * Tilldela behörighet till webb-API
+> * Konfigurera omfånget för ett webb-API
+> * Tilldela behörigheter till webb-API:et
 > * Konfigurera exemplet för att använda programmet
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -39,37 +39,37 @@ Slutför stegen och kraven i [självstudien: Aktivera autentisering för en ensi
 
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** i den översta menyn och välja den katalog som innehåller din klientorganisation.
-3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
-5. Ange ett namn för programmet. Till exempel *webapi1*.
+5. Ange ett namn på programmet. Till exempel *webapi1*.
 6. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
-7. För **Svars-URL** anger du en slutpunkt där Azure AD B2C ska returnera de token som ditt program begär. I den här självstudien körs exemplet lokalt (lokal värd) och lyssnar på `https://localhost:5000`.
-8. För **URI för app-ID** anger du den identifierare som används för ditt webb-API. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
+7. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:5000`.
+8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
 9. Klicka på **Skapa**.
-10. På egenskapssidan antecknar du det program-ID som du kommer att använda när du konfigurerar webbappen.
+10. På egenskapssidan antecknar du program-ID:t du kommer att använda när du konfigurerar webbappen.
 
 ## <a name="configure-scopes"></a>Konfigurera omfång
 
-Omfång är ett sätt att styra åtkomst till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Vissa användare kan till exempel ha både läs- och skrivåtkomst medan andra bara har skrivskyddad åtkomst. I den här självstudien definierar du läs- och skrivrättigheter för webb-API:et.
+Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Vissa användare kan till exempel ha både läs- och skrivåtkomst medan andra bara har skrivskyddad åtkomst. I den här självstudien definierar du läs- och skrivrättigheter för webb-API:et.
 
-1. Välj **Program** och därefter *webapi1*.
-2. Välj **Publicerade reservationsomfång**.
-3. För **omfång** anger du `Hello.Read`, och för beskrivning anger du `Read access to hello`.
-4. För **omfång** anger du `Hello.Write`, och för beskrivning anger du `Write access to hello`.
+1. Välj **Program** och sedan *webapi1*.
+2. Välj **Publicerade omfång**.
+3. Som **omfång** anger du `Hello.Read` och som beskrivning anger du `Read access to hello`.
+4. Som **omfång** anger du `Hello.Write` och som beskrivning anger du `Write access to hello`.
 5. Klicka på **Spara**.
 
 De publicerade omfången kan användas för att tilldela behörighet för webb-API till ett klientprogram.
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
-Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:t. I den obligatoriska föregående självstudien skapade du en webbapp i Azure AD B2C med namnet *webapp1*. Du använder programmet för att anropa webb-API:et.
+Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:et. I den obligatoriska föregående självstudien skapade du en webbapp i Azure AD B2C med namnet *webapp1*. Du använder det programmet för att anropa webb-API:et.
 
 1. Välj **Program** och därefter *webapp1*.
 2. Välj **API-åtkomst** och därefter **Lägg till**.
 3. I listrutan **Välj API** väljer du *webapi1*.
-4. I listrutan **Välj reservationsomfång** väljer du omfången **Hello.Read** och **Hello.Write** som du tidigare har definierat.
+4. I listrutan **Välj reservationsomfång** väljer du omfången **Hello.Read** och **Hello.Write** som du definierade tidigare.
 5. Klicka på **OK**.
 
 **My sample single page app** är registrerad för att anropa det skyddade **Hello Core API:et**. En användare autentiserar med Azure AD B2C för att använda ensidesappen. Ensidesappen får ett auktoriseringsbeviljande från Azure AD B2C som ger tillgång till det skyddade webb-API:et.
@@ -175,9 +175,9 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
-> * Konfigurera omfång för ett webb-API
-> * Tilldela behörighet till webb-API
+> * Konfigurera omfånget för ett webb-API
+> * Tilldela behörigheter till webb-API:et
 > * Konfigurera exemplet för att använda programmet
 
 > [!div class="nextstepaction"]
-> [Självstudier: Lägga till identitetsprovidrar i dina program i Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Självstudie: Lägga till identitetsproviders i program i Azure Active Directory B2C](tutorial-add-identity-providers.md)

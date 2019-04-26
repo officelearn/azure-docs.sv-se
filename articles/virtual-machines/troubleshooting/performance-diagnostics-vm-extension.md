@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307938"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestanda för Azure Diagnostics VM-tillägg för Windows
 
@@ -28,7 +28,7 @@ Azure prestanda diagnostik VM-tillägget kan samla in diagnostikdata för presta
 > [!NOTE]
 > Om du vill köra diagnostik på din virtuella dator från Azure-portalen för icke-klassiska virtuella datorer rekommenderas att använda den nya upplevelsen. Mer information finns i [Prestandadiagnostik för Azure-datorer](performance-diagnostics.md) 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det här tillägget kan installeras på Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Det kan också installeras på Windows 8.1 och Windows 10.
 

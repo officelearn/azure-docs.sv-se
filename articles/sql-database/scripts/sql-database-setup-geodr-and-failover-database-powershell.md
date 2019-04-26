@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: f24caa8e82d8e3f9a7109945d55fad97564bdb76
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359344"
@@ -55,7 +55,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary)| Skapar en sekundär databas för en befintlig databas och startar datareplikeringen. |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)| Hämtar en eller flera databaser. |
 | [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary)| Växlar en sekundär databas till att vara primär för att initiera redundans.|
-| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) | Hämtar geo-replikeringslänkar mellan en Azure SQL Database och en resursgrupp eller SQL Server. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) | Hämtar geo-replikeringslänkar mellan en Azure SQL-databas och en resursgrupp eller SQL Server. |
 | [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) | Avslutar datareplikering mellan en SQL Database och den angivna sekundära databasen. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||

@@ -48,7 +48,7 @@ Du kan skapa en länkad Azure Storage-tjänst med hjälp av kontonyckeln. Det ge
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till **AzureTableStorage**. |Ja |
+| type | Type-egenskapen måste anges till **AzureTableStorage**. |Ja |
 | connectionString | Ange information som behövs för att ansluta till lagringsutrymmet för connectionString-egenskapen. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera kontonyckeln i Azure Key Vault och använda pull i `accountKey` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -123,7 +123,7 @@ Om du vill använda autentisering med signatur för delad åtkomst, stöds följ
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till **AzureTableStorage**. |Ja |
+| type | Type-egenskapen måste anges till **AzureTableStorage**. |Ja |
 | sasUri | Ange SAS-URI för signaturen för delad åtkomst URI i tabellen. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också placera SAS-token i Azure Key Vault för att dra nytta av automatisk rotation och ta bort token delen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller den lokala Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -194,7 +194,7 @@ För att kopiera data till och från Azure Table, ange typegenskapen på dataupp
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till **AzureTable**. |Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till **AzureTable**. |Ja |
 | tableName |Namnet på tabellen i Table storage-databasinstansen som den länkade tjänsten refererar till. |Ja |
 
 **Exempel:**
@@ -235,7 +235,7 @@ För att kopiera data från Azure Table, ange typ av datakälla i kopieringsakti
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **AzureTableSource**. |Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **AzureTableSource**. |Ja |
 | azureTableSourceQuery |Använd anpassade Table storage fråga om för att läsa data. Se exemplen i följande avsnitt. |Nej |
 | azureTableSourceIgnoreTableNotFound |Anger om du vill tillåta undantag i tabellen kan inte finns.<br/>Tillåtna värden är **SANT** och **FALSKT** (standard). |Nej |
 
@@ -261,12 +261,12 @@ Om du vill kopiera data till Azure Table, ange Mottagartyp i kopieringsaktivitet
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **AzureTableSink**. |Ja |
+| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **AzureTableSink**. |Ja |
 | azureTableDefaultPartitionKeyValue |Standard partitionsnyckelvärdet som kan användas av mottagaren. |Nej |
 | azureTablePartitionKeyName |Ange namnet på kolumnen vars värden används som partitionsnycklar. Om den inte anges används ”AzureTableDefaultPartitionKeyValue” som partitionsnyckel. |Nej |
 | azureTableRowKeyName |Ange namnet på kolumnen vars kolumnvärdena används som radnyckel. Om inte anges kan du använda ett GUID för varje rad. |Nej |
 | azureTableInsertType |Läget för att infoga data i Azure Table. Den här egenskapen styr om befintliga rader i utdatatabellen med matchande partition och radnycklar har sina värden ersättas eller samman. <br/><br/>Tillåtna värden är **merge** (standard) och **Ersätt**. <br/><br> Den här inställningen gäller inte på tabellnivå på radnivå. Varken alternativet tar bort rader i utdatatabellen som inte finns i aktuella indata. Läs om hur inställningarna merge och Ersätt fungerar i [Insert- eller merge-entitet](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [infoga eller ersätta entitet](https://msdn.microsoft.com/library/azure/hh452242.aspx). |Nej |
-| WriteBatchSize |Infogar data i Azure Table när writeBatchSize eller writeBatchTimeout uppnås.<br/>Tillåtna värden är heltal (antal rader). |Nej (standardvärdet är 10 000) |
+| writeBatchSize |Infogar data i Azure Table när writeBatchSize eller writeBatchTimeout uppnås.<br/>Tillåtna värden är heltal (antal rader). |Nej (standardvärdet är 10 000) |
 | writeBatchTimeout |Infogar data i Azure Table när writeBatchSize eller writeBatchTimeout uppnås.<br/>Tillåtna värden är tidsintervallet. Ett exempel är ”00: 20:00” (20 minuter). |Nej (standardvärdet är 90 sekunder, standardvärde för storage-klienten) |
 
 **Exempel:**

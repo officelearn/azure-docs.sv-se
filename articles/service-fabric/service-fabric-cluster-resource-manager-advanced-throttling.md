@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 4abc3e4a28b8b98070affe19b7b7ca38f904c45b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384977"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Begränsning av Service Fabric Cluster Resource Manager
 Även om du har konfigurerat Klusterresurshanteraren korrekt kan klustret kan få till följd. Exempelvis kan det uppstå samtidiga nod och fel domän fel – vad som skulle hända om som inträffat under en uppgradering? Klusterresurshanteraren försöker alltid åtgärda allt, förbrukar klusterresurser försöker organisera om och rätta till klustret. Begränsningar att ge en backstop så att klustret kan använda resurser stabilisera - noderna är tillbaka, network-partitioner reparation av nodtjänst, korrigerad bits distribueras.

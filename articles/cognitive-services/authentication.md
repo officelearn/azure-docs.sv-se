@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Autentisering
 titleSuffix: Cognitive Services - Azure
 description: 'Det finns tre sätt att autentisera en begäran till en Azure Cognitive Services-resurs: en prenumerationsnyckel, en ägartoken eller en prenumeration för flera tjänster. I den här artikeln får du lära dig om varje metod och hur du gör en begäran.'
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
 ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336784"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autentisera begäranden till Azure Cognitive Services
 
@@ -24,7 +24,7 @@ Varje begäran till en Azure Cognitive Service måste innehålla en rubrik för 
 * [Autentisera med en flera tjänster prenumerationsnyckel](#authenticate-with-a-multi-service-subscription-key)
 * [Autentisera med en token](#authenticate-with-an-authentication-token)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du gör en begäran om behöver du ett Azure-konto och en Azure Cognitive Services-prenumeration. Om du redan har ett konto kan du gå vidare och gå vidare till nästa avsnitt. Om du inte har ett konto, har vi en guide som hjälper dig att konfigurera på några minuter: [Skapa ett Cognitive Services-konto för Azure](cognitive-services-apis-create-account.md).
 

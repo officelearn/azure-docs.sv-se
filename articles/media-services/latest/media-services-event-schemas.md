@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322241"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-scheman för Media Services-händelser
 
@@ -130,8 +130,8 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| previousState | sträng | Status för jobbet innan händelsen. |
-| state | sträng | Det nya läget för jobbet som ett meddelande i den här händelsen. Till exempel ”schemalagd: Jobbet är redo att börja ”eller” slutfört: Jobbet har slutförts ”.|
+| previousState | string | Status för jobbet innan händelsen. |
+| state | string | Det nya läget för jobbet som ett meddelande i den här händelsen. Till exempel ”schemalagd: Jobbet är redo att börja ”eller” slutfört: Jobbet har slutförts ”.|
 
 Där jobbets status kan vara något av värdena: *I kö*, *schemalagda*, *bearbetning*, *klar*, *fel*, *har avbrutits*, *Avbryts*
 
@@ -316,11 +316,11 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| streamId | sträng | Identifierare för stream eller anslutning. Kodaren eller kunden är ansvarig för att lägga till detta ID i URL: en inmatning. |  
-| ingestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |  
-| EncoderIp | sträng | IP-Adressen för kodaren. |
-| encoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
-| resultCode | sträng | Orsaken till anslutningen avvisades. Resultatkoderna visas i följande tabell. |
+| streamId | string | Identifierare för stream eller anslutning. Kodaren eller kunden är ansvarig för att lägga till detta ID i URL: en inmatning. |  
+| ingestUrl | string | Mata in URL: en som tillhandahålls av live-händelse. |  
+| EncoderIp | string | IP-Adressen för kodaren. |
+| encoderPort | string | Porten till kodaren från där den här strömmen är på gång. |
+| resultCode | string | Orsaken till anslutningen avvisades. Resultatkoderna visas i följande tabell. |
 
 Resultatkoderna är:
 
@@ -363,10 +363,10 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| streamId | sträng | Identifierare för stream eller anslutning. Kodaren eller kunden ansvarar för att tillhandahålla detta ID i URL: en för inmatning. |
-| ingestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |
-| EncoderIp | sträng | IP-Adressen för kodaren. |
-| encoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
+| streamId | string | Identifierare för stream eller anslutning. Kodaren eller kunden ansvarar för att tillhandahålla detta ID i URL: en för inmatning. |
+| ingestUrl | string | Mata in URL: en som tillhandahålls av live-händelse. |
+| EncoderIp | string | IP-Adressen för kodaren. |
+| encoderPort | string | Porten till kodaren från där den här strömmen är på gång. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -397,11 +397,11 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| streamId | sträng | Identifierare för stream eller anslutning. Kodaren eller kunden är ansvarig för att lägga till detta ID i URL: en inmatning. |  
-| ingestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |  
-| EncoderIp | sträng | IP-Adressen för kodaren. |
-| encoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
-| resultCode | sträng | Orsaken till kodaren kopplar från. Det kan vara korrekt koppla från eller från ett fel. Resultatkoderna visas i följande tabell. |
+| streamId | string | Identifierare för stream eller anslutning. Kodaren eller kunden är ansvarig för att lägga till detta ID i URL: en inmatning. |  
+| ingestUrl | string | Mata in URL: en som tillhandahålls av live-händelse. |  
+| EncoderIp | string | IP-Adressen för kodaren. |
+| encoderPort | string | Porten till kodaren från där den här strömmen är på gång. |
+| resultCode | string | Orsaken till kodaren kopplar från. Det kan vara korrekt koppla från eller från ett fel. Resultatkoderna visas i följande tabell. |
 
 Resultatkoder för fel är:
 
@@ -454,12 +454,12 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| trackType | sträng | Typ av spåret (ljud / Video). |
-| TrackName | sträng | Namnet på kursen. |
+| trackType | string | Typ av spåret (ljud / Video). |
+| TrackName | string | Namnet på kursen. |
 | Bithastighet | heltal | Bithastighet av kursen. |
-| tidsstämpel | sträng | Tidsstämpel datagruppen släppts. |
-| tidsskalan | sträng | Tidsskalan för tidsstämpeln. |
-| resultCode | sträng | Orsaken till i listrutan för data-segmentet. **FragmentDrop_OverlapTimestamp** eller **FragmentDrop_NonIncreasingTimestamp**. |
+| tidsstämpel | string | Tidsstämpel datagruppen släppts. |
+| tidsskalan | string | Tidsskalan för tidsstämpeln. |
+| resultCode | string | Orsaken till i listrutan för data-segmentet. **FragmentDrop_OverlapTimestamp** eller **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -494,14 +494,14 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| trackType | sträng | Typ av spåret (ljud / Video). |
-| TrackName | sträng | Namnet på spåret (antingen tillhandahållna av kodaren eller, i händelse av RTMP genererar i *TrackType_Bitrate* format). |
+| trackType | string | Typ av spåret (ljud / Video). |
+| TrackName | string | Namnet på spåret (antingen tillhandahållna av kodaren eller, i händelse av RTMP genererar i *TrackType_Bitrate* format). |
 | Bithastighet | heltal | Bithastighet av kursen. |
-| ingestUrl | sträng | Mata in URL: en som tillhandahålls av live-händelse. |
-| EncoderIp | sträng  | IP-Adressen för kodaren. |
-| encoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
-| tidsstämpel | sträng | Första tidsstämpel datagruppen som tagits emot. |
-| tidsskalan | sträng | Tidsskalan där timestamp representeras. |
+| ingestUrl | string | Mata in URL: en som tillhandahålls av live-händelse. |
+| EncoderIp | string  | IP-Adressen för kodaren. |
+| encoderPort | string | Porten till kodaren från där den här strömmen är på gång. |
+| tidsstämpel | string | Första tidsstämpel datagruppen som tagits emot. |
+| tidsskalan | string | Tidsskalan där timestamp representeras. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -533,12 +533,12 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| minLastTimestamp | sträng | Minst senaste tidsstämplar bland alla spår (ljud eller video). |
-| typeOfTrackWithMinLastTimestamp | sträng | Typ av spåra (ljud eller video) med minsta senaste tidsstämpel. |
-| maxLastTimestamp | sträng | Högst alla tidsstämplar bland alla spår (ljud eller video). |
-| typeOfTrackWithMaxLastTimestamp | sträng | Typ av spåra (ljud eller video) med maximalt senaste tidsstämpel. |
-| timescaleOfMinLastTimestamp| sträng | Hämtar tidsskalan ”MinLastTimestamp” visas.|
-| timescaleOfMaxLastTimestamp| sträng | Hämtar tidsskalan ”MaxLastTimestamp” visas.|
+| minLastTimestamp | string | Minst senaste tidsstämplar bland alla spår (ljud eller video). |
+| typeOfTrackWithMinLastTimestamp | string | Typ av spåra (ljud eller video) med minsta senaste tidsstämpel. |
+| maxLastTimestamp | string | Högst alla tidsstämplar bland alla spår (ljud eller video). |
+| typeOfTrackWithMaxLastTimestamp | string | Typ av spåra (ljud eller video) med maximalt senaste tidsstämpel. |
+| timescaleOfMinLastTimestamp| string | Hämtar tidsskalan ”MinLastTimestamp” visas.|
+| timescaleOfMaxLastTimestamp| string | Hämtar tidsskalan ”MaxLastTimestamp” visas.|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -569,11 +569,11 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| firstTimestamp | sträng | Tidsstämpel som togs emot för en av spår/kvalitetsnivå av typen video. |
-| FirstDuration | sträng | Varaktighet datagruppen med första tidsstämpel. |
-| secondTimestamp | sträng  | Tidsstämpel som togs emot för vissa andra spåra/kvalitetsnivå av typen video. |
-| secondDuration | sträng | Varaktighet datagruppen med andra tidsstämpel. |
-| tidsskalan | sträng | Tidsskalan tidsstämplar och varaktighet.|
+| firstTimestamp | string | Tidsstämpel som togs emot för en av spår/kvalitetsnivå av typen video. |
+| FirstDuration | string | Varaktighet datagruppen med första tidsstämpel. |
+| secondTimestamp | string  | Tidsstämpel som togs emot för vissa andra spåra/kvalitetsnivå av typen video. |
+| secondDuration | string | Varaktighet datagruppen med andra tidsstämpel. |
+| tidsskalan | string | Tidsskalan tidsstämplar och varaktighet.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -611,17 +611,17 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| trackType | sträng | Typ av spåret (ljud / Video). |
-| TrackName | sträng | Namnet på spåret (antingen tillhandahållna av kodaren eller, i händelse av RTMP genererar i *TrackType_Bitrate* format). |
+| trackType | string | Typ av spåret (ljud / Video). |
+| TrackName | string | Namnet på spåret (antingen tillhandahållna av kodaren eller, i händelse av RTMP genererar i *TrackType_Bitrate* format). |
 | Bithastighet | heltal | Bithastighet av kursen. |
 | incomingBitrate | heltal | Beräknad bithastighet baserat på datasegment som kommer från kodaren. |
-| lastTimestamp | sträng | Senaste tidsstämpel togs emot för ett spår i senaste 20 sekunder. |
-| tidsskalan | sträng | Tidsskalan där tidsstämplar uttrycks. |
+| lastTimestamp | string | Senaste tidsstämpel togs emot för ett spår i senaste 20 sekunder. |
+| tidsskalan | string | Tidsskalan där tidsstämplar uttrycks. |
 | overlapCount | heltal | Antal datasegment hade överlappas tidsstämplar i senaste 20 sekunder. |
 | DiscontinuityCount | heltal | Antal avbrott som observerats under de senaste 20 sekunder. |
 | NonIncreasingCount | heltal | Antal datasegment med tidsstämplar som tidigare har tagits emot senaste 20 sekunder. |
 | unexpectedBitrate | bool | Om förväntade och faktiska bithastighet skiljer sig åt i mer än tillåtna gränsen på senaste 20 sekunder. Det är SANT om och bara om, incomingBitrate > = 2 * bithastighet eller incomingBitrate < = bithastighet/2 eller IncomingBitrate = 0. |
-| state | sträng | Status för live-händelse. |
+| state | string | Status för live-händelse. |
 | felfri | bool | Anger om mata in är felfri baserat på antalet och flaggor. Felfri är SANT om overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
@@ -655,13 +655,13 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| trackType | sträng | Typ av spåret (ljud / Video). |
-| TrackName | sträng | Namnet på spåret (antingen tillhandahållna av kodaren eller, i händelse av RTMP genererar i *TrackType_Bitrate* format). |
+| trackType | string | Typ av spåret (ljud / Video). |
+| TrackName | string | Namnet på spåret (antingen tillhandahållna av kodaren eller, i händelse av RTMP genererar i *TrackType_Bitrate* format). |
 | Bithastighet | heltal | Bithastighet av kursen. |
-| previousTimestamp | sträng | Tidsstämpel för det föregående fragmentet. |
-| newTimestamp | sträng | Tidsstämpel för det aktuella fragmentet. |
-| discontinuityGap | sträng | Mellanrummet mellan ovan två tidsstämplar. |
-| tidsskalan | sträng | Tidsskalan i vilka både tidsstämpel och avbrott mellanrum representeras. |
+| previousTimestamp | string | Tidsstämpel för det föregående fragmentet. |
+| newTimestamp | string | Tidsstämpel för det aktuella fragmentet. |
+| discontinuityGap | string | Mellanrummet mellan ovan två tidsstämplar. |
+| tidsskalan | string | Tidsskalan i vilka både tidsstämpel och avbrott mellanrum representeras. |
 
 ### <a name="common-event-properties"></a>Gemensamma händelseegenskaper
 
@@ -669,14 +669,14 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | EventGrid-avsnittet. Den här egenskapen har resurs-ID för Media Services-kontot. |
-| ämne | sträng | Resursens sökväg för Media Services-kanalen i Media Services-kontot. Sammanfoga det avsnittet och ämne ger du resursen med ID för jobbet. |
-| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. Till exempel ”Microsoft.Media.JobStateChange”. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
+| ämne | string | EventGrid-avsnittet. Den här egenskapen har resurs-ID för Media Services-kontot. |
+| ämne | string | Resursens sökväg för Media Services-kanalen i Media Services-kontot. Sammanfoga det avsnittet och ämne ger du resursen med ID för jobbet. |
+| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. Till exempel ”Microsoft.Media.JobStateChange”. |
+| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | string | Unik identifierare för händelsen. |
 | data | objekt | Media Services händelsedata. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 ## <a name="next-steps"></a>Nästa steg
 

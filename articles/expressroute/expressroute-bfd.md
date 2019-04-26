@@ -9,11 +9,11 @@ ms.date: 8/17/2018
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367681"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Konfigurera BFD via ExpressRoute
 
@@ -21,7 +21,7 @@ ExpressRoute stöder dubbelriktade vidarebefordran identifiering (BFD) över pri
 
 ## <a name="need-for-bfd"></a>Behovet av BFD
 
-Följande diagram visar fördelen med att aktivera BFD via ExpressRoute-krets: [ ![1]][1]
+Följande diagram visar fördelen med att aktivera BFD via ExpressRoute-krets: [![1]][1]
 
 Du kan aktivera ExpressRoute-krets antingen med Layer-2-anslutningar eller hanterade Layer 3-anslutningar. I båda fallen om det finns en eller flera Layer-2-enheter i anslutningssökvägen ExpressRoute ansvaret identifiera eventuella fel i sökvägen med ligger ovanpå BGP.
 

@@ -3,19 +3,19 @@ title: Självstudiekurs – anpassa gränssnittet användarupplevelser – Azure
 description: Lär dig hur du anpassar användargränssnittet i dina program i Azure Active Directory B2C med Azure portal.
 services: B2C
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f3bc1789d0b521b0d91ca42ebe472fed0225d87b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.openlocfilehash: 0996c64acaa5e65061d80974fc428bad2dd8d4ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360341"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Självstudier: Anpassa gränssnittet användarupplevelser i Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [Skapa ett användarflöde](tutorial-create-user-flows.md) så att användarna kan registrera dig och logga in på ditt program.
 
@@ -137,7 +137,7 @@ I den här självstudien får lagra du de filer som du skapade i storage-konto s
 
 ## <a name="update-the-user-flow"></a>Uppdatera användarflödet
 
-1. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 2. Välj **användarflöden (principer)**, och välj sedan den *B2C_1_signupsignin1* användarflödet.
 3. Välj **sidan layouter**, och sedan under **enhetliga sidan för registrering eller inloggning**, klickar du på **Ja** för **Använd anpassat sidinnehåll**.
 4. I **anpassad sida URI**, anger du URI för den *anpassade ui.html* -fil som du antecknade tidigare.
@@ -157,7 +157,7 @@ I den här självstudien får lagra du de filer som du skapade i storage-konto s
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du:
+I den här artikeln lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa filer för anpassning av Användargränssnittet

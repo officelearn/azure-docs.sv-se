@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397965"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Fylla i formuläret med butik
 ===========================================
@@ -42,7 +42,7 @@ Den här beskrivningen visas på AppSource, precis under din **erbjuder sammanfa
 
 Välj bransch som din app är bäst anpassad efter. Om din app är kopplad till flera olika branscher, kan du lämna det tomt
 
-### <a name="categories"></a>Kategorier
+### <a name="categories"></a>Categories
 
 Välj kategorier som är relevanta för din app. Välj minst en kategori och högst tre. Välja noggrant eftersom kunderna kan söka på AppSource baserat på kategorier
 
@@ -121,7 +121,7 @@ Det måste finnas en viss supportsida som tillhandahåller kunder med olika Kont
 
 Välj ett CRM-system där du leda kommer att lagras. Välj \"Azure Table\" här om du har någon av följande CRM-system: Salesforce, Marketo, Microsoft Dynamics CRM. CRM-system som du väljer här är där skriver du information för slutanvändare som provar din app på AppSource (leads). Beroende på i CRM-systemet som du väljer, klickar du på motsvarande URL nedan för information om hur du slutför nästa uppsättning fält
 
--   [Azure-tabell](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+-   [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
 -   [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 -   [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)

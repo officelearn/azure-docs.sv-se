@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408604"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
 
@@ -28,13 +28,13 @@ Med Azure Logic Apps och FTP-anslutningsappen kan skapa du automatiserade uppgif
 
 Du kan använda utlösare som få svar från FTP-servern och göra utdata som är tillgängliga för andra åtgärder. Du kan använda Kör åtgärder i dina logic apps för att hantera filer på FTP-servern. Du kan också ha andra åtgärder som använder utdata från FTP-åtgärder. Om du regelbundet får filer från FTP-servern kan skicka du e-postmeddelande om dessa filer och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Limits
 
 * FTP-åtgärder stöder endast filer som är *50 MB eller mindre* om du inte använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md), vilket gör att du överskrider den här gränsen. För närvarande stöder FTP-utlösare inte storlekar.
 
 * FTP-anslutningsappen stöder bara explicit FTP över SSL (FTPS) och är inte kompatibel med implicit FTPS.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 

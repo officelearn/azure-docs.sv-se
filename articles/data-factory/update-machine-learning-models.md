@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58164467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335492"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Uppdatera Azure Machine Learning-modeller med hjälp av resursuppdatering aktivitet
 Den här artikeln kompletterar huvudsakliga Azure Data Factory - artikeln för Azure Machine Learning-integrering: [Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Om du inte redan gjort det, kan du läsa den huvudsakliga artikeln innan du läser igenom den här artikeln.
@@ -57,10 +57,10 @@ Följande JSON-kodfragmentet definierar en Azure Machine Learning Batch Executio
 }
 ```
 
-| Egenskap                       | Beskrivning                              | Krävs |
+| Egenskap                       | Beskrivning                              | Obligatoriskt |
 | :---------------------------- | :--------------------------------------- | :------- |
 | namn                          | Namnet på aktiviteten i pipelinen     | Ja      |
-| beskrivning                   | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
+| description                   | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
 | typ                          | För Azure Machine Learning-resursuppdatering aktivitet, är aktivitetstypen **AzureMLUpdateResource**. | Ja      |
 | linkedServiceName             | Azure Machine Learning länkade tjänst som innehåller egenskapen updateResourceEndpoint. | Ja      |
 | trainedModelName              | Namnet på Trained Model-modul i webbtjänstexperimentet som ska uppdateras | Ja      |

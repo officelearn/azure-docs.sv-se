@@ -5,14 +5,16 @@ author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.author: junhan
+ms.tgt_pltfrm: arduino
+origin.date: 01/04/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401178"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Använd Azure IoT-verktyg för Visual Studio Code för Azure IoT Hub-enhetshantering
 
@@ -22,8 +24,8 @@ ms.locfileid: "58445267"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Management-alternativ          | Aktivitet                    |
-|----------------------------|--------------------------------|
+| Management-alternativ          | Aktivitet                                                                                                                            |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Direkta metoder             | Se en enhet som fungerar, till exempel starta eller stoppa skicka meddelanden eller att enheten startas om.                                        |
 | Läs enhetstvilling           | Hämta det rapporterade tillståndet för en enhet. Enheten rapporterar till exempel LAMPAN blinkar nu.                                    |
 | Uppdatera enhetstvillingen         | Placera en enhet i vissa lägen, till exempel ställa in en LED grönt eller 30 minuter att ställa in skicka telemetriintervall.         |
@@ -53,14 +55,10 @@ Kör Azure IoT-verktyg för Visual Studio Code med olika alternativ.
 ## <a name="sign-in-to-access-your-iot-hub"></a>Logga in att få åtkomst till din IoT-hubb
 
 1. I **Explorer** av VS Code, expanderar **Azure IoT Hub-enheter** avsnitt i det nedre vänstra hörnet.
-
-2. Klicka på **Välj IoT Hub** i snabbmenyn.
-
-3. Ett popup-fönster visas i det nedre högra hörnet så att du kan logga in på Azure för första gången.
-
-4. När du har loggat in din Azure-prenumeration lista visas och välj sedan Azure-prenumeration och IoT Hub.
-
-5. Listan över enheter visas i **Azure IoT Hub-enheter** fliken på några sekunder.
+1. Klicka på **Välj IoT Hub** i snabbmenyn.
+1. Ett popup-fönster visas i det nedre högra hörnet så att du kan logga in på Azure för första gången.
+1. När du har loggat in din Azure-prenumeration lista visas och välj sedan Azure-prenumeration och IoT Hub.
+1. Listan över enheter visas i **Azure IoT Hub-enheter** fliken på några sekunder.
 
    > [!Note]
    > Du kan också slutföra konfigurationen genom att välja **Set IoT Hub Connection String** (Ange IoT Hub-anslutningssträng). Ange anslutningssträngen för IoT-hubb som din IoT-enhet som ansluter till i popup-fönstret.
@@ -68,33 +66,26 @@ Kör Azure IoT-verktyg för Visual Studio Code med olika alternativ.
 ## <a name="direct-methods"></a>Direkta metoder
 
 1. Högerklicka på enheten och välj **anropa direkt metod**. 
-
-2. Ange metodnamnet och nyttolast i textrutan.
-
+1. Ange metodnamnet och nyttolast i textrutan.
 3. Resultaten visas i **utdata** > **Azure IoT Hub Toolkit** vy.
 
 ## <a name="read-device-twin"></a>Läs enhetstvilling
 
 1. Högerklicka på enheten och välj **redigera Enhetstvilling**. 
-
-2. En **azure-iot-device-twin.json** filen öppnas med innehållet i enhetstvillingen.
+1. En **azure-iot-device-twin.json** filen öppnas med innehållet i enhetstvillingen.
 
 ## <a name="update-device-twin"></a>Uppdatera enhetstvillingen
 
 1. Göra vissa ändringar av **taggar** eller **properties.desired** fält.
-
-2. Högerklicka på den **azure-iot-device-twin.json** fil.
-
-3. Välj **uppdatera Enhetstvillingen** att uppdatera enhetstvillingen.
+1. Högerklicka på den **azure-iot-device-twin.json** fil.
+1. Välj **uppdatera Enhetstvillingen** att uppdatera enhetstvillingen.
 
 ## <a name="send-cloud-to-device-messages"></a>Skicka meddelanden från moln till enhet
 
 Om du vill skicka ett meddelande från IoT hub till enheten, Följ dessa steg:
  
 1. Högerklicka på enheten och välj **C2D skicka meddelande till enhet**. 
-
-2. Skriv meddelandet i textrutan.
-
+1. Skriv meddelandet i textrutan.
 3. Resultaten visas i **utdata** > **Azure IoT Hub Toolkit** vy.
 
 ## <a name="next-steps"></a>Nästa steg

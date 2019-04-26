@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292205"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problem vid inloggning ett Microsoft-program
 
@@ -31,7 +31,7 @@ Det finns tre sätt att en användare kan få åtkomst till ett Microsoft-public
 
 -   För program i Office 365 eller andra betalda krypteringssviter, användare som beviljas åtkomst via **licensiera tilldelning** antingen direkt till användarkontot eller via en grupp med hjälp av vår gruppbaserad tilldelning licenskapacitet.
 
--   För program som Microsoft eller tredje part publicerar fritt för allmän användning, kan användare få åtkomst via **användarmedgivande**. This0 innebär att de logga in i program med ett Azure AD för arbete eller skola och att den kan ha åtkomst till vissa begränsat uppsättning data på sitt konto.
+-   För program som Microsoft eller tredje part publicerar fritt för allmän användning, kan användare få åtkomst via **användarmedgivande**. Det innebär att de logga in i program med ett Azure AD för arbete eller skola och att den kan ha åtkomst till vissa begränsat uppsättning data på sitt konto.
 
 -   För program som Microsoft eller en 3 part publicerar fritt för allmän användning, användare kan också få åtkomst via **administratörens godkännande**. Det innebär att en administratör har fastställt programmet kan användas av alla i organisationen, så att de logga in på programmet med ett globalt administratörskonto och bevilja åtkomst till alla i organisationen.
 

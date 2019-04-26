@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197144"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka tilldelningar för Azure-resurser
 
@@ -38,7 +38,7 @@ Den här artikeln beskrivs hur neka tilldelningar har definierats.
  En neka-tilldelning har följande egenskaper:
 
 > [!div class="mx-tableFixed"]
-> | Egenskap | Krävs | Typ | Beskrivning |
+> | Egenskap  | Obligatoriskt | Typ | Beskrivning |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Ja | String | Visningsnamnet för neka tilldelningen. Namn måste vara unikt för ett givet omfång. |
 > | `Description` | Nej | String | Beskrivning av neka tilldelningen. |
@@ -47,12 +47,12 @@ Den här artikeln beskrivs hur neka tilldelningar har definierats.
 > | `Permissions.DataActions` | Minst en åtgärder eller en DataActions | String[] | En matris med strängar som anger de åtgärder som blockerar tilldelningen neka åtkomst. |
 > | `Permissions.NotDataActions` | Nej | String[] | En matris med strängar som anger en dataåtgärd att exkludera från tilldelningen neka. |
 > | `Scope` | Nej | String | En sträng som anger den omfattning som neka tilldelningen gäller för. |
-> | `DoNotApplyToChildScopes` | Nej | Boolesk | Anger om neka tilldelningen gäller för underordnade omfång. Standardvärdet är FALSKT. |
+> | `DoNotApplyToChildScopes` | Nej | Boolean | Anger om neka tilldelningen gäller för underordnade omfång. Standardvärdet är FALSKT. |
 > | `Principals[i].Id` | Ja | String[] | En matris med Azure AD-huvudnamn objekt ID: N (användare, grupp, tjänstens huvudnamn eller hanterad identitet) som gäller för neka tilldelningen. Inställt på ett tomt GUID `00000000-0000-0000-0000-000000000000` att representera alla säkerhetsobjekt. |
 > | `Principals[i].Type` | Nej | String[] | En matris med objekt av typen representeras av säkerhetsobjekt [i] .id. Ange `SystemDefined` att representera alla säkerhetsobjekt. |
 > | `ExcludePrincipals[i].Id` | Nej | String[] | En matris med Azure AD-huvudnamn objekt ID: N (användare, grupp, tjänstens huvudnamn eller hanterad identitet) som inte gäller neka tilldelningen. |
 > | `ExcludePrincipals[i].Type` | Nej | String[] | En matris med objekt av typen representeras av ExcludePrincipals [i] .id. |
-> | `IsSystemProtected` | Nej | Boolesk | Anger om det här neka tilldelning har skapats av Azure och inte kan redigeras eller tas bort. För närvarande kan neka alla tilldelningar är systemet som skyddas. |
+> | `IsSystemProtected` | Nej | Boolean | Anger om det här neka tilldelning har skapats av Azure och inte kan redigeras eller tas bort. För närvarande kan neka alla tilldelningar är systemet som skyddas. |
 
 ## <a name="system-defined-principal"></a>System-Defined Principal
 

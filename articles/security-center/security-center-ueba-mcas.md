@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332405"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA för Azure-resurser och användare 
 
@@ -31,7 +31,7 @@ Azure Security Center partner med Microsoft Cloud App Security för att få avis
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En giltig aktiverat [Microsoft Cloud App Security-licens](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security)
 - [Security Center Standard-nivån](https://azure.microsoft.com/pricing/details/security-center/)

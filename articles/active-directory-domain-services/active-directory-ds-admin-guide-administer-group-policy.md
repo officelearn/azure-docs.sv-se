@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: deaa6a9ff49fea2093c94a039aab0d7de0c95359
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418067"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrera Grupprincip i en Azure AD Domain Services-hanterad domän
 Azure Active Directory Domain Services innehåller inbyggda grupprincipobjekt (GPO) för behållarna ”AADDC-användare” och ”AADDC-datorer”. Du kan anpassa dessa inbyggda grupprincipobjekt för att konfigurera en Grupprincip på den hanterade domänen. Medlemmar i gruppen ”AAD DC-administratörer” kan även skapa egna anpassade organisationsenheter i den hanterade domänen. De kan också skapa anpassade grupprincipobjekt och koppla dem till dessa anpassade organisationsenheter. Användare som tillhör gruppen ”AAD DC-administratörer” beviljas som gruppolicy administratörsbehörighet för den hanterade domänen.

@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357672"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hur användare i din organisation kan bjuda in gästanvändare till en app
 
@@ -73,7 +73,7 @@ När en app har konfigurerats för självbetjäning kan programägare kan bjuda 
 7. Välj **Lägg till** att skicka inbjudan till gästanvändaren automatiskt. När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Självbetjäning av kräver vissa installationen av en Global administratör och en Azure AD-administratör. Som en del av den här konfigurationen kan du konfigurera appen för självbetjäning och tilldela en grupp till den app som programmets ägare kan hantera. Du kan också konfigurera grupp om du vill att vem som helst att begära medlemskap men kräver en gruppägare godkännande. (Läs mer om [självbetjäningsgrupphantering](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
 

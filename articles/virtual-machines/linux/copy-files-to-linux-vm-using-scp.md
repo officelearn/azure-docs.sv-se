@@ -17,11 +17,11 @@ ms.date: 07/12/2017
 ms.author: danlep
 ms.subservice: disks
 ms.openlocfilehash: 7d5b2d2ee7e7320fb8bf91c8a62a0f46c403c977
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328773"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Flytta filer till och från en Linux VM med hjälp av SCP
 

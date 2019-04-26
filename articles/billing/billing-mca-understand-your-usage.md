@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371316"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Förstå villkoren på Azure-användning och kostnader CSV för en Microsoft-kundavtal
 
@@ -38,11 +38,11 @@ Om du har ett EA-kund, märker du som villkoren i fakturering profilen Azure-anv
 
 | EA Azure-användning CSV | Microsoft Customer Agreement Azure-användning och avgifter CSV |
 | --- | --- |
-| Date | datum |
-| Månad| datum |
-| Dag | datum |
-| År | datum |
-| Produkt | produkt |
+| Date | date |
+| Månad| date |
+| Dag | date |
+| År | date |
+| Product | produkt |
 | Mätar-ID | meterID |
 | Mätarkategori | meterCategory |
 | Underkategori för mätare | meterSubCategory |
@@ -86,7 +86,7 @@ billingPeriodStartDate | Startdatumet för den faktureringsperioden som fakturan
 billingPeriodEndDate | Slutdatum för den faktureringsperioden som fakturan skapas
 servicePeriodStartDate | Startdatumet för den klassificering perioden som har definierat och låst priser för förbrukade eller köpta-tjänsten
 servicePeriodEndDate | Slutdatum för klassificering perioden som har definierat och låst priser för förbrukade eller köpta-tjänsten
-datum | För Azure Marketplace användningsbaserade avgifter och är detta datumet för klassificering. Detta är inköpsdatum för enstaka inköp (reservationer, Marketplace) eller fasta återkommande avgifter (support erbjuder).
+date | För Azure Marketplace användningsbaserade avgifter och är detta datumet för klassificering. Detta är inköpsdatum för enstaka inköp (reservationer, Marketplace) eller fasta återkommande avgifter (support erbjuder).
 serviceFamily | Service-familj som tillhör tjänsten
 productOrderId | Unik identifierare för ordningen som produkt
 productOrderName | Unikt namn för ordningen som produkt

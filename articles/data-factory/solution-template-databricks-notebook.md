@@ -13,11 +13,11 @@ ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
 ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395399"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Omvandla data med hjälp av Databricks i Azure Data Factory
 
@@ -33,7 +33,7 @@ För att den här mallen enkelt skapar inte mallen en schemalagd utlösare. Du k
 
 ![1](media/solution-template-Databricks-notebook/Databricks-tutorial-image01.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1.  Skapa en **blob storage-konto** och en behållare kallas `sinkdata` som ska användas som **mottagare**. Anteckna den **lagringskontonamn**, **behållarnamn**, och **åtkomstnyckel**, eftersom de refereras till längre fram i mallen.
 

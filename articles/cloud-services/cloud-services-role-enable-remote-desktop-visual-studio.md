@@ -4,20 +4,22 @@ description: Hur du konfigurerar ditt tjänstprogram för Azure-molnet för att 
 services: cloud-services
 author: ghogen
 manager: douge
+editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+origin.date: 03/06/2018
+ms.date: 10/22/2018
+ms.author: v-yiso
+ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406454"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Aktivera anslutning till fjärrskrivbordet för en roll i Azure Cloud Services med hjälp av Visual Studio
 
@@ -46,6 +48,8 @@ När du använder Visual Studio 2017 version 15.4 och tidigare, kan du använda 
 
    > [!Note]
    > De certifikat som du behöver för en fjärrskrivbordsanslutning skiljer sig från de certifikat som du använder för andra Azure-åtgärder. Fjärråtkomst-certifikatet måste ha en privat nyckel.
+   >
+   >
 
 5. Välj ett certifikat i listan eller välj  **&lt;skapa... &gt;**. Om du skapar ett nytt certifikat, ange ett eget namn för det nya certifikatet när du uppmanas och välj **OK**. Det nya certifikatet visas i rutan nedrullningsbara listan.
 
@@ -95,7 +99,7 @@ Om du vill använda RDP-tillägget från Azure DevOps-tjänster med följande in
 
 1. Efter din byggsteg, lägga till den **Azure Molntjänstdistribution** steg och Ställ in dess egenskaper.
 
-1. Efter distributionen, lägger du till en **Azure Powershell** steg genom att ange dess **visningsnamn** egenskap till ”Azure-distribution: aktivera RDP-tillägget” (eller en annan lämplig namn) och välj lämplig Azure prenumeration.
+1. Efter distributionen, lägger du till en **Azure Powershell** steg genom att ange dess **visningsnamn** egenskap till ”Azure-distribution: Aktivera RDP-tillägget ”(eller en annan lämplig namn), och välj lämplig Azure-prenumerationen.
 
 1. Ange **Skripttyp** till ”intern” och klistra in koden nedan i den **infogat skript** fält. (Du kan också skapa en `.ps1` filen i ditt projekt med det här skriptet genom att ange **Skripttyp** till ”skript filsökväg” och ange **skriptets sökväg** så att den pekar till filen.)
 

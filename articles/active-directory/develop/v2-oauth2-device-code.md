@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299417"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft identity-plattformen och kodflöde för OAuth 2.0-enhet
 
@@ -65,8 +65,8 @@ scope=user.read%20openid%20profile
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs |Directory-klient som du vill begära behörighet från. Detta kan vara i GUID eller eget namnformat.  |
-| `client_id` | Krävs | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
+| `tenant` | Obligatoriskt |Directory-klient som du vill begära behörighet från. Detta kan vara i GUID eller eget namnformat.  |
+| `client_id` | Obligatoriskt | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
 | `scope` | Rekommenderas | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md) som du vill att användaren att godkänna.  |
 
 ### <a name="device-authorization-response"></a>Svaret för auktorisering av enheten
@@ -98,11 +98,11 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-| Parameter | Krävs | Beskrivning|
+| Parameter | Obligatoriskt | Beskrivning|
 | -------- | -------- | ---------- |
-| `grant_type` | Krävs | Måste vara `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Krävs | Måste matcha den `client_id` används i den första begäran. |
-| `device_code`| Krävs | Den `device_code` returneras i auktoriseringsbegäran för enheten.  |
+| `grant_type` | Obligatoriskt | Måste vara `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Obligatoriskt | Måste matcha den `client_id` används i den första begäran. |
+| `device_code`| Obligatoriskt | Den `device_code` returneras i auktoriseringsbegäran för enheten.  |
 
 ### <a name="expected-errors"></a>Förväntat fel
 

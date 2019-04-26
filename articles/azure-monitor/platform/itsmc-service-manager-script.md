@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.openlocfilehash: 64769ebb1bd9a5fb0f051cc6eca4e59cd41fccc9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395024"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med hjälp av automatiserade skript
 
@@ -28,7 +28,7 @@ Kör skriptet genom att tillhandahålla följande nödvändiga data:
 
 - Prenumerationsinformation för Azure
 - Namn på resursgrupp
-- Plats
+- Location
 - Service Manager server-information (namn, domän, användarnamn och lösenord)
 - Plats-namnprefixet för din webbapp
 - ServiceBus Namespace.

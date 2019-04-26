@@ -3,7 +3,7 @@ title: Konfigurera registrering och inloggning med en QT-konto med hjälp av Azu
 description: Tillhandahålla registrera dig och logga in till kunder med QT konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 38e17308f7aab5b28509d7a3509be0de844ee94f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316127"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med en QT-konto med hjälp av Azure Active Directory B2C
 

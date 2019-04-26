@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 09/21/2017
 ms.author: ergreenl
 ms.openlocfilehash: 0659586512b36c51c5058271fa5e1bdb46efbc3b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416895"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Distributionsscenarier och användningsfall
 I det här avsnittet ska titta vi på några scenarier och användningsfall som har nytta av Azure Active Directory (AD) Domain Services.

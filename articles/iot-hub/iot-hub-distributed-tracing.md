@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400850"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spårningsmeddelanden Azure IoT-enhet till molnet med distribuerad spårning (förhandsversion)
 
@@ -240,7 +240,7 @@ Uppdatera konfigurationen av distribuerad spårning sampling för flera enheter 
 }
 ```
 
-| Elementnamn | Krävs | Typ | Beskrivning |
+| Elementnamn | Obligatoriskt | Typ | Beskrivning |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Ja | Integer | Två lägesvärden stöds för närvarande för att aktivera eller inaktivera sampling. `1` är på och, `2` är inaktiverad. |
 | `sampling_rate` | Ja | Integer | Det här värdet är en procentandel. Endast värden från `0` till `100` (inklusivt) tillåts.  |
@@ -263,7 +263,7 @@ AzureDiagnostics
 
 Exemplet loggar som visas av Log Analytics:
 
-| TimeGenerated | OperationName | Kategori | Nivå | CorrelationId | . durationMs | Egenskaper |
+| TimeGenerated | OperationName | Category | Nivå | CorrelationId | . durationMs | Egenskaper |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |

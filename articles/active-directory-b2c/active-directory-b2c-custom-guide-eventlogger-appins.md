@@ -3,7 +3,7 @@ title: Spåra användarnas beteende med hjälp av händelser i Application Insig
 description: Lär dig hur du aktiverar händelseloggar i Application Insights från Azure AD B2C användaren resor med anpassade principer (förhandsversion).
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
@@ -11,11 +11,11 @@ ms.date: 10/12/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 51342a7544295b465d1f2dfc3e1b27d8285b3588
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384824"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Spåra användarnas beteende i Azure Active Directory B2C med Application Insights
 
@@ -36,7 +36,7 @@ Tekniska profilen använder den här providern för att definiera en händelse f
 
 Application Insights kan en enhetlig händelser med ett Korrelations-ID för att registrera en användarsession. Application Insights gör den händelsen och sessionen tillgänglig inom några sekunder och visar många visualisering, export och analysverktyg.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md). Den här artikeln förutsätter att du använder startpaket för anpassad princip. Men startpaket krävs inte.
 

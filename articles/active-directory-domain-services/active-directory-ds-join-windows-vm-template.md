@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 5b70a16d1da8f939a23bf7a96a03098463cfc529
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417171"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Ansluta en Windows Server-dator till en hanterad domän med en Resource Manager-mall
 Den här artikeln visar hur du kopplar en Windows Server-dator till en Azure AD Domain Services-hanterad domän med hjälp av Resource Manager-mallar.

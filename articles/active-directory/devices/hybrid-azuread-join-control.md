@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353116"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Kontrollera Azure AD-anslutningshybriden för dina enheter
 
@@ -31,7 +31,7 @@ Hybrid Azure Active Directory (Azure AD)-anslutning är en process för att auto
 Den här artikeln innehåller råd om hur du kan styra hybrid Azure AD join för dina enheter. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du är bekant med:
 

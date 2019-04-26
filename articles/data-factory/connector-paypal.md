@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: dcc54b0f67b9bf08df602c3eb9a4bcb0ea699ee7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405893"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Kopiera data från PayPal med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för PayPal länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **PayPal** | Ja |
+| type | Type-egenskapen måste anges till: **PayPal** | Ja |
 | värd | URL till PayPal-instans. (det vill säga api.sandbox.paypal.com)  | Ja |
 | ClientId | Klient-ID som är associerade med PayPal programmet.  | Ja |
 | ClientSecret | Klienthemlighet som är kopplad till PayPal programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -79,7 +79,7 @@ Om du vill kopiera data från PayPal, ange typegenskapen på datauppsättningen 
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **PayPalObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **PayPalObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -108,7 +108,7 @@ Om du vill kopiera data från PayPal, ange typ av datakälla i kopieringsaktivit
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PayPalSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PayPalSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Payment_Experience"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

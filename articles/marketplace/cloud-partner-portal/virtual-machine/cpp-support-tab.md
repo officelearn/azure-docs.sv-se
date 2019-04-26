@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 35ac9d0c4b0188724c91cdcf4f33b645dd92e98a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49640080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343227"
 ---
 # <a name="virtual-machine-support-tab"></a>Fliken för VM-stöd
 
-Den **stöder** fliken den **nytt erbjudande** sidan låter dig erbjuda teknik- och supportresurserna för ditt erbjudande.  Det är indelat i tre kategorier: **Engineering**, **kundsupport**, och **Support URL: er**.
+Den **stöder** fliken den **nytt erbjudande** sidan låter dig erbjuda teknik- och supportresurserna för ditt erbjudande.  Det är indelat i tre kategorier: **Tekniska**, **kundsupport**, och **stöd för URL: er**.
 
 ![Fliken stöd i formuläret nytt erbjudande för virtuella datorer](./media/publishvm_012.png)
 
@@ -41,7 +41,7 @@ Där:
 | **telefon**                 | Telefonnummer för kundsupport                                            |
 | *Stöd för URL: er*  | Stöd för platser som använder Microsoft när kunderna öppna supportärenden |
 | **Offentlig Azure**          | URL för offentliga internet-supportwebbplats                                         |
-| **Azure Government-molnet**| URL: en för supportwebbplats för government-molnet                                        |
+| **Azure Government Cloud**| URL: en för supportwebbplats för government-molnet                                        |
 |  |  |
 
 

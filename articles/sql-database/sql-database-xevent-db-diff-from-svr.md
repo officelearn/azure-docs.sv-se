@@ -13,11 +13,11 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 2dd3b9f0d1d8d61b2311977774c8b0f7267caa9e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331014"
 ---
 # <a name="extended-events-in-sql-database"></a>Utökade händelser i SQL-databas
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -35,7 +35,7 @@ Mer information om utökade händelser för Azure SQL Database och Microsoft SQL
 - [Snabbstart: Utökade händelser i SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Utökade händelser](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det här avsnittet förutsätter att du redan har viss erfarenhet av:
 

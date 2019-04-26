@@ -12,11 +12,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b9274652b7164a4aef71499912cb8b38ace29ff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60413924"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Snabbstart: Lägga till en gästanvändare med PowerShell
 
@@ -24,7 +24,7 @@ Det finns många sätt att bjuda in externa partners till dina appar och tjänst
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
 Se till att du installerar den senaste versionen av Azure AD PowerShell för Graph-modulen (AzureADPreview). 
@@ -108,4 +108,4 @@ Exempel: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmicros
 I den här snabbstarten har du bjudit in och lagt till en enda gästanvändare till din katalog med PowerShell. Nu får du lära dig hur du bjuder in gästanvändare gruppvis med PowerShell.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Massinbjuda Azure AD B2B-samarbetsanvändare](tutorial-bulk-invite.md)
+> [Självstudie: Massinbjuda Azure AD B2B-samarbetsanvändare](tutorial-bulk-invite.md)

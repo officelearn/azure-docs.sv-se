@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: 913e702cc72472e81937bfe3b0939695daadc011
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420053"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay-Hybridanslutningar-protokoll
 
@@ -144,7 +144,7 @@ Den `namespace-address` är fullständigt kvalificerade domännamnet för Azure 
 
 Frågealternativ för sträng-parametern är som följer.
 
-| Parameter        | Krävs | Beskrivning
+| Parameter        | Obligatoriskt | Beskrivning
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Ja      | Parametern måste vara för rollen lyssnare **sb-hc-action = listen**
 | `{path}`         | Ja      | Förkonfigurerade Hybridanslutningen att registrera den här lyssnaren på URL-kodade namnområde sökväg. Det här uttrycket läggs till i fast `$hc/` sökvägsdelen.
@@ -204,7 +204,7 @@ Detsamma gäller för den `Sec-WebSocket-Extensions` rubrik. Om ramverket har st
 
 URL: en måste användas som – är för att upprätta acceptera socket, men innehåller följande parametrar:
 
-| Parameter      | Krävs | Beskrivning
+| Parameter      | Obligatoriskt | Beskrivning
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Ja      | För att acceptera en socket måste parametern vara `sb-hc-action=accept`
 | `{path}`       | Ja      | (se följande punkt)
@@ -221,7 +221,7 @@ Om det finns ett fel, kan tjänsten svara på följande sätt:
 
 | Kod | Fel          | Beskrivning
 | ---- | -------------- | -----------------------------------
-| 403  | Förbjudna      | URL: en är inte giltig.
+| 403  | Förbjudna      | Webbadressen är inte giltig.
 | 500  | Internt fel | Det uppstod ett fel i tjänsten
 
  När anslutningen har upprättats stängs servern av WebSocket när avsändaren WebSocket stänger, eller med följande status:
@@ -241,10 +241,10 @@ Om det finns ett fel, kan tjänsten svara på följande sätt:
 
  Om du vill avvisa socket klienten tar den URI-adressen från den `accept` meddelande och lägger till två parametrar för frågesträngen, enligt följande:
 
-| Param                   | Krävs | Beskrivning                              |
+| Param                   | Obligatoriskt | Beskrivning                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| SB-hc-statuskod        | Ja      | Numeriska HTTP-statuskod.                |
-| SB-hc-statusbeskrivning | Ja      | Mänskliga läsbara orsak för avvisningen. |
+| sb-hc-statusCode        | Ja      | Numeriska HTTP-statuskod.                |
+| sb-hc-statusDescription | Ja      | Mänskliga läsbara orsak för avvisningen. |
 
 Den resulterande URI: N används sedan för att upprätta en WebSocket-anslutning.
 
@@ -252,7 +252,7 @@ När du går igenom korrekt, misslyckas denna handskakning avsiktligt med en HTT
 
 | Kod | Fel          | Beskrivning                          |
 | ---- | -------------- | ------------------------------------ |
-| 403  | Förbjudna      | URL: en är inte giltig.                |
+| 403  | Förbjudna      | Webbadressen är inte giltig.                |
 | 500  | Internt fel | Något gick fel i tjänsten. |
 
 #### <a name="request-message"></a>Meddelande om begäran
@@ -376,7 +376,7 @@ För svar som överskrider 64 kB skickas svaret via en rendezvous-socket. Även 
 
 Den `address` URL: en i den `request` får användas som – är för att upprätta rendezvous-socket, men innehåller följande parametrar:
 
-| Parameter      | Krävs | Beskrivning
+| Parameter      | Obligatoriskt | Beskrivning
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Ja      | För att acceptera en socket måste parametern vara `sb-hc-action=request`
 

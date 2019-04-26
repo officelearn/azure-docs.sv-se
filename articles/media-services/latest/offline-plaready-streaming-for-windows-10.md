@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
 ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326432"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline Streaming för Windows 10
 
 Azure Media Services stöder offline download/uppspelning med DRM-skydd. Den här artikeln beskriver offline stöd för Azure Media Services för Windows 10/PlayReady-klienter. Du kan läsa om stöd för offline-läge för iOS/FairPlay- och Android/Widevine enheter i följande artiklar:
 
-- [Offline FairPlay Streaming för iOS](offline-fairplay-for-ios.md)
+- [FairPlay-direktuppspelning offline för iOS](offline-fairplay-for-ios.md)
 - [Offline Widevine för direktuppspelning för Android](offline-widevine-for-android.md)
 
 ## <a name="overview"></a>Översikt
@@ -122,4 +122,4 @@ Sammanfattningsvis, har vi uppnått offline-läge på Azure Media Services:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Designen av ett system med multi-DRM innehållsskydd med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
+[Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll](design-multi-drm-system-with-access-control.md)

@@ -2,18 +2,20 @@
 title: Datamodell för Azure Backup
 description: Den här artikeln handlar om Power BI data modellinformation för Azure Backup-rapporter.
 services: backup
-author: adigan
+author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/26/2017
-ms.author: adigan
+origin.date: 06/26/2017
+ms.date: 08/08/2018
+ms.author: v-junlch
+ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337586"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Datamodell för Azure Backup-rapporter
 Den här artikeln beskriver Power BI-datamodell som används för att skapa Azure Backup-rapporter. Med den här datamodellen kan du filtrera befintliga rapporter baserat på relevanta fälten och mer är dock skapa egna rapporter med hjälp av tabeller och fält i modellen. 
@@ -189,5 +191,8 @@ Den här tabellen innehåller grundläggande fält och aggregeringar över olika
 ## <a name="next-steps"></a>Nästa steg
 När du har läst datamodellen för att skapa Azure Backup-rapporter, finns i följande artiklar för mer information om att skapa och visa rapporter i Power BI.
 
-* [Skapa rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-* [Filtrera rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+- [Skapa rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+- [Filtrera rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+
+
+<!-- Update_Description: update metedata properties -->

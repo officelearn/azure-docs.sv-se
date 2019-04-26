@@ -18,11 +18,11 @@ ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bee16ed8205453546702946628c98c73b0f34b15
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299160"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Snabbstart: Uppdatera ett program i Azure Active Directory
 
@@ -30,7 +30,7 @@ Företagsutvecklare och SaaS-leverantörer (Software as a Service) som har regis
 
 I den här snabbstarten lär du dig de olika sätt som finns för att konfigurera och uppdatera programmet så att det uppfyller dina och andra organisationers krav eller behov.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att komma igång kontrollerar du att du har slutfört följande steg:
 

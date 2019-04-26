@@ -4,24 +4,24 @@ description: Det här avsnittet beskriver funktionen förhindra oavsiktliga bort
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+origin.date: 07/12/2017
+ms.date: 11/09/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188563"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383413"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect-synkronisering: Förhindra oavsiktliga borttagningar
 Det här avsnittet beskriver funktionen förhindra oavsiktliga borttagningar (förhindra oavsiktliga borttagningar) i Azure AD Connect.
@@ -31,9 +31,9 @@ När du installerar Azure AD Connect, förhindra oavsiktliga borttagningar är a
 ## <a name="what-is-prevent-accidental-deletes"></a>Vad är förhindra oavsiktliga borttagningar
 Vanliga scenarier när du ser många borttagningar som omfattar:
 
-* Ändringar i [filtrering](how-to-connect-sync-configure-filtering.md) där en hel [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) eller [domän](how-to-connect-sync-configure-filtering.md#domain-based-filtering) är avmarkerat.
-* Alla objekt i en organisationsenhet tas bort.
-* En organisationsenhet ges nytt namn så att alla objekt i den anses hamna utanför synkroniseringens omfång.
+- Ändringar i [filtrering](how-to-connect-sync-configure-filtering.md) där en hel [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) eller [domän](how-to-connect-sync-configure-filtering.md#domain-based-filtering) är avmarkerat.
+- Alla objekt i en organisationsenhet tas bort.
+- En organisationsenhet ges nytt namn så att alla objekt i den anses hamna utanför synkroniseringens omfång.
 
 Standardvärdet för 500 objekt kan ändras med PowerShell med hjälp av `Enable-ADSyncExportDeletionThreshold`, vilket är en del av AD Sync-modulen installeras med Azure Active Directory Connect. Du bör konfigurera det här värdet efter storleken på din organisation. Eftersom sync scheduler körs var 30: e minut, är värdet antalet borttagningar visas inom 30 minuter.
 
@@ -69,5 +69,6 @@ Om alla borttagningar önskas, gör du följande:
 ## <a name="next-steps"></a>Nästa steg
 **Översiktsavsnitt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
-* [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
+- [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+- [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
+

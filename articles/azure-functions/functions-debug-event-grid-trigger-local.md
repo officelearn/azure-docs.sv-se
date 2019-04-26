@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428326"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure-funktion Event Grid utlösa lokal felsökning
 
 Den här artikeln visar hur du felsöker en lokal funktion som hanterar en Azure Event Grid-händelse som aktiverats av ett lagringskonto. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Skapa eller använda en befintlig funktionsapp
 - Skapa eller använda ett befintligt lagringskonto

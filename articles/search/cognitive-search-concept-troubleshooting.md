@@ -12,11 +12,11 @@ ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60334887"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Felsökningstips för kognitiv sökning
 
@@ -105,7 +105,7 @@ Mer information finns i [indexering stora datauppsättningar](search-howto-index
 
 ## <a name="see-also"></a>Se också
 + [Snabbstart: Skapa en pipeline för kognitiv sökning i portalen](cognitive-search-quickstart-blob.md)
-+ [Självstudier: Lär dig cognitive search REST API: er](cognitive-search-tutorial-blob.md)
++ [Självstudie: Lär dig cognitive search REST API: er](cognitive-search-tutorial-blob.md)
 + [Att ange autentiseringsuppgifter för datakälla](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexering av stora datauppsättningar](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)

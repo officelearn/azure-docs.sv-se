@@ -3,7 +3,7 @@ title: Självstudie – Aktivera autentisering i ett internt klientprogram – A
 description: Självstudiekurs som lär dig hur du använder Azure Active Directory B2C för att tillhandahålla användarinloggning i ett .NET-program.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: a1842859723173412df2053a242ebe9ca4cf7f32
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386963"
 ---
-# <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Självstudie: Aktivera autentisering i ett internt klientprogram med hjälp av Azure Active Directory B2C
+# <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i ett internt klientprogram med hjälp av Azure Active Directory B2C
 
 I den här självstudien lär du dig använda Azure Active Directory (Azure AD) B2C för att logga in och registrera användare i en WFP-skrivbordsapp (Windows Presentation Foundation). Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="add-the-native-client-application"></a>Lägga till det interna klientprogrammet
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter **Lägg till**.
@@ -107,4 +107,4 @@ I den här självstudiekursen lärde du dig att:
 > * Registrera dig via användarflödet
 
 > [!div class="nextstepaction"]
-> [Självstudier: Ge åtkomst till ett Node.js-webb-API från en skrivbordsapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Självstudie: Ge åtkomst till ett Node.js-webb-API från en skrivbordsapp med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)

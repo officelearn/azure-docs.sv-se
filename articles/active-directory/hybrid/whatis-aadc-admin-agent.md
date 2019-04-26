@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e33143626e136523b4af086e841b92e9ad30fa86
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295030"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Vad är Azure Active Directory Connect-administratörsagenten? 
 Azure AD Connect Administration-agenten är en ny komponent i Azure Active Directory Connect som är installerad på en Azure Active Directory Connect-server. Den används för att samla in specifika data från Active Directory-miljön som hjälper till att ett Microsoft-support-tekniker för att felsöka problem när du öppnar ett supportärende.

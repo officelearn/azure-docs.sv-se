@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400634"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box-Disk-gränser
 
@@ -74,12 +74,12 @@ Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla f
 | Blockblob        | ~ 4,75 TiB                                                 |
 | Sidblob         | 8 TiB <br> (Alla filer som överförts i sidans Blob-format måste vara 512 byte justerad, annars överföringen misslyckas. <br> Både VHD- och VHDX är 512 byte justerad.) |
 |Azure Files        | 1 TiB <br> Max. storleken på filresursen är 5 TiB     |
-| Managed Disks     |4 TiB <br> Mer information om storlek och begränsningar finns: <li>[Skalbarhetsmål för hanterade diskar](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Hanterade diskar     |4 TiB <br> Mer information om storlek och begränsningar finns: <li>[Skalbarhetsmål för hanterade diskar](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure blockblob, sidblob och namngivningsregler
 
-| Enhet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
+| Entitet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Namn på behållare för blockblob och page blob <br> Namn på filresursen för Azure Files | Måste vara ett giltigt DNS-namn som är 3 till 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Kan innehålla endast gemener, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
 | Katalog- och filnamn för Azure files     |<li> Bevara, skiftlägesokänslig och får inte överstiga 255 tecken långt. </li><li> Får inte sluta med snedstreck (/). </li><li>Om det tas automatiskt bort. </li><li> Följande tecken är inte tillåtna: <code>" \\ / : \| < > * ?</code></li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Ogiltiga tecken i URL-sökväg är inte tillåtna. Code punkter som \\uE000 är inte giltig Unicode-tecken. Vissa ASCII eller Unicode-tecken som kontrolltecken (0x00 0x1F, \\u0081, etc.), också är inte tillåtna. Regler för att styra Unicode strängar i HTTP/1.1 finns i RFC 2616 avsnittet 2.2: Grundläggande regler och RFC 3987. </li><li> Följande filnamn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punkt (.), och två punkter tecken (.).</li>|
@@ -87,7 +87,7 @@ Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla f
 
 ## <a name="managed-disk-naming-conventions"></a>Managed disk namngivningskonventioner
 
-| Enhet | Konventioner                                             |
+| Entitet | Konventioner                                             |
 |-------------------|-----------------------------------------------------------|
 | Managed disk namn       | <li> Namnet måste vara 1 och 80 tecken långt. </li><li> Namnet måste börja med en bokstav eller siffra, sluta med en bokstav, siffra eller understreck. </li><li> Namnet får innehålla endast bokstäver, siffror, understreck, punkter eller bindestreck. </li><li>   Namnet får inte innehålla blanksteg eller `/`.                                              |
 

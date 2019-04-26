@@ -9,11 +9,11 @@ ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320575"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb
 
@@ -23,7 +23,7 @@ Den här artikeln vägleder dig genom processen med att förbereda enheter för 
 
 Det här exemplet importerar följande data till ett Azure storage-konto med namnet `mystorageaccount`:
 
-|Plats|Beskrivning|Datastorlek|
+|Location|Beskrivning|Datastorlek|
 |--------------|-----------------|-----|
 |H:\Video\ |En samling av videor|12 TB|
 |H:\Photo\ |En samling foton|30 GB|

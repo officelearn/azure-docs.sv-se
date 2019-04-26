@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60284629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Självstudier: Azure Active Directory-integrering med AnswerHub
 
@@ -80,7 +80,7 @@ Du behöver utföra följande uppgifter för att konfigurera och testa enkel inl
 2. [Konfigurera enkel inloggning för AnswerHub](#configure-answerhub-single-sign-on) för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) med namnet Britta Simon.
 4. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) så att Britta Simon kan använda enkel inloggning i Azure AD.
-5. [Skapa en AnswerHub-testanvändare](#create-answerhub-test-user) som motsvarar och är länkad till Azure AD-testanvändaren.
+5. Skapa en testanvändare i AnswerHub som motsvarar och länkas till Azure AD-testanvändare.
 6. [Testa enkel inloggning](#test-single-sign-on) för att verifiera att konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -184,14 +184,14 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
 
     a. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I rutan **Användarnamn** anger du **brittasimon@< dinföretagsdomän.tillägg>**.  
+    b. I den **användarnamn** anger **brittasimon\@< yourcompanydomain.extension >**.  
     Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
     d. Välj **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet konfigurerar du Britta Simon för att använda enkel inloggning med Azure AD genom att ge henne åtkomst till AnswerHub.
 

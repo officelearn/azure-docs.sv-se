@@ -1,7 +1,6 @@
 ---
 title: Skicka jobb från R Tools för Visual Studio - Azure HDInsight
 description: Skicka R-jobb från din lokala Visual Studio-dator till ett HDInsight-kluster.
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 3165adf09281f4ad35b77c2e0fbb89e40c04c631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60364557"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 

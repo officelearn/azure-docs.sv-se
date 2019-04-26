@@ -3,7 +3,7 @@ title: Hantera användardata i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig ta bort eller exportera användardata i Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 05/06/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 62846fe744e7295f58902481400ce91770c916da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406486"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Hantera användardata i Azure Active Directory B2C
 

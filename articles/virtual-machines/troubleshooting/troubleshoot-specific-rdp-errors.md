@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318705"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Felsöka specifika RDP-felmeddelanden till en Windows-dator i Azure
 Du får ett specifikt felmeddelande när du använder anslutning till fjärrskrivbord till en Windows-dator (VM) i Azure. Den här artikeln beskrivs några av de vanligaste felmeddelandena som uppstod, tillsammans med felsökning för att lösa dem. Om du har problem med att ansluta till den virtuella datorn med RDP men gör inte stöter på ett specifikt felmeddelande, finns i den [felsökningsguide för Remote Desktop](troubleshoot-rdp-connection.md).
@@ -31,13 +31,13 @@ Information om felmeddelanden, finns i följande:
 * [Fjärrsessionen kopplades från eftersom det finns inga fjärranslutna servrar för fjärrskrivbordslicenser tillgängliga för att tillhandahålla en licens](#rdplicense).
 * [Fjärrskrivbordet kan inte hitta datorn ”name”](#rdpname).
 * [Ett autentiseringsfel inträffade. Det går inte att kontakta den lokala säkerhetskontrollen](#rdpauth).
-* [Windows-säkerhetsfel: dina autentiseringsuppgifter inte fungerade](#wincred).
+* [Windows Security-fel: Dina autentiseringsuppgifter inte fungerade](#wincred).
 * [Den här datorn kan inte ansluta till fjärrdatorn](#rdpconnect).
 
 <a id="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>Fjärrsessionen kopplades från eftersom det finns inga fjärranslutna servrar för fjärrskrivbordslicenser tillgängliga för att tillhandahålla en licens.
-Orsak: 120 dagar licensiering respitperiod för Remote Desktop-serverrollen har upphört att gälla och du måste installera licenser.
+Orsak: Respitperiod för 120 dagar licensiering för Remote Desktop-serverrollen har upphört att gälla och du måste installera licenser.
 
 Som en lösning kan spara en lokal kopia av RDP-filen från portalen och kör det här kommandot i en PowerShell-kommandotolk för att ansluta. Det här steget inaktiverar licensiering för bara anslutningen:
 
@@ -70,7 +70,7 @@ Adressdelen av den här RDP-filen har:
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Ett autentiseringsfel inträffade. Det går inte att kontakta den lokala säkerhetskontrollen.
 Orsak: Den Virtuella måldatorn inte kan hitta säkerhetskontrollen i del av dina autentiseringsuppgifter för användare.
 
-När ditt användarnamn är i formatet *SecurityAuthority*\\*användarnamn* (exempel: corp\användare1), *SecurityAuthority* delen är antingen Virtuellt datorns datornamn (för den lokala säkerhetskontrollen) eller en Active Directory-domännamn.
+När ditt användarnamn är i formatet *SecurityAuthority*\\*användarnamn* (exempel: Corp\användare1), den *SecurityAuthority* delen är datornamnet för den virtuella datorn (för den lokala säkerhetskontrollen) eller en Active Directory-domännamn.
 
 Möjliga lösningar:
 
@@ -80,7 +80,7 @@ Möjliga lösningar:
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows-säkerhetsfel: dina autentiseringsuppgifter inte fungerade.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows Security-fel: Dina autentiseringsuppgifter fungerar inte.
 Orsak: Den Virtuella måldatorn inte att verifiera ditt kontonamn och lösenord.
 
 En Windows-baserad dator kan verifiera autentiseringsuppgifterna för ett lokalt konto eller ett domänkonto.

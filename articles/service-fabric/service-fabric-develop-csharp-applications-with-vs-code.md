@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393799"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Utveckla C# Service Fabric-program med Visual Studio Code
 
@@ -27,7 +27,7 @@ Den [Service Fabric Reliable Services-tillägget för VS Code](https://marketpla
 
 Den här artikeln visar hur du bygga, distribuera och felsöka en .NET Core Service Fabric-program som använder Visual Studio Code.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du redan har installerat VS Code, Service Fabric Reliable Services-tillägget för VS Code och eventuella beroenden som krävs för din utvecklingsmiljö. Mer information finns i [komma igång](./service-fabric-get-started-vs-code.md#prerequisites).
 

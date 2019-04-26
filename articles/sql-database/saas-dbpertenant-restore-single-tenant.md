@@ -13,11 +13,11 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326366"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Återställ en enskild klientorganisation med ett databas-per-klient SaaS-program
 
@@ -66,7 +66,7 @@ För att demonstrera hur dessa scenarion för återställning, först ”av miss
 
 1. Öppna Evenemangshubben (http://events.wtp.&lt; användare&gt;. trafficmanager.net), och välj **Contosos Konserthall**.
 
-   ![Evenemangshubben](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
+   ![Events Hub](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 
 2. Bläddra i listan över händelser och anteckna den sista händelsen i listan.
 

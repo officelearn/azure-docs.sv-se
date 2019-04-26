@@ -10,11 +10,11 @@ ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405366"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Rekommenderade livekodare för direktuppspelning
 
@@ -31,17 +31,17 @@ Detaljerad information om live encoding med Media Services finns i [direktsänd 
 
 ## <a name="live-encoders-that-output-rtmp"></a>Livekodare som RTMP
 
-Media Services rekommenderar att du använder något av följande livekodare som har RTMP som utdata. URL-scheman som stöds är `rtmp://` eller `rtmps://`.
+Media Services rekommenderar att du använder någon av följande livekodare som har RTMP som utdata. URL-scheman som stöds är `rtmp://` eller `rtmps://`.
 
 > [!NOTE]
-> När strömmande via RTMP, kontrollerar du inställningarna för brandväggen och/eller proxyn för att bekräfta att utgående TCP-portarna 1935 och 1936 är öppna.
+> Vid direktuppspelning via RTMP ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 1935 och 1936 är öppna.
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB
-- Haivision Makito X – HEVC
+- Haivision Makito X HEVC
 - OBS Studio
-- Mellan aktiviteter Studio (iOS)
-- Telestream Wirecast 8.1 +
+- Switcher Studio (iOS)
+- Telestream Wirecast 8.1+
 - Telestream Wirecast S
 - Teradek Slice 756
 - TriCaster 8000
@@ -58,7 +58,7 @@ Media Services rekommenderar att du använder något av följande livekodare som
 - Elemental Live
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
-- Excel-Media Hero Live och Hero 4K (UHD / – HEVC)
+- Media Excel Hero Live och Hero 4K (UHD/HEVC)
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Konfigurera en lokal livekodare inställningar
 

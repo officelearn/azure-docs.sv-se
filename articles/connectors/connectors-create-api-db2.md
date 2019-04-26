@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314229"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Hantera IBM DB2-resurser med Azure Logic Apps
 
@@ -83,7 +83,7 @@ I exemplen i den här artikeln i **upprepning** utlösaren.
 
 Om du vill konfigurera anslutningen, ange den här anslutningsinformationen när du uppmanas, Välj **skapa**, och sedan spara din logikapp:
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap  | Krävs | Beskrivning |
 |----------|----------|-------------|
 | **Ansluta via en lokal gateway** | Nej | Gäller endast för lokala anslutningar. |
 | **Anslutningsnamn** | Ja | Namn på anslutningen, till exempel ”MyLogicApp – DB2-anslutning” |
@@ -103,7 +103,7 @@ Exempel:
 
 Innan du skapar anslutningen måste har du redan din lokala datagateway installerad. Annars kan har du inte konfigurerat din anslutning. Om du har din gatewayinstallationen kan fortsätta att tillhandahålla här anslutningsinformationen och välj sedan **skapa**.
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap  | Krävs | Beskrivning |
 |----------|----------|-------------|
 | **Ansluta via en lokal gateway** | Ja | Gäller när du vill att en lokal anslutning och visar lokalt anslutningsegenskaper. |
 | **Anslutningsnamn** | Ja | Namn på anslutningen, till exempel ”MyLogicApp – DB2-anslutning” | 
@@ -154,7 +154,7 @@ Om du vill hämta en post i en DB2-tabell i databasen, använder den **hämta ra
 
 1. Ange värden för alla nödvändiga egenskaper (*). När du har valt en tabell visar åtgärden relevanta egenskaper som är specifika för poster i tabellen.
 
-   | Egenskap | Krävs | Beskrivning |
+   | Egenskap  | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Tabellnamn** | Ja | Den tabell som innehåller posten du önskar, såsom ”området” i det här exemplet |
    | **Områdes-ID** | Ja | ID för posten du önskar, såsom ”99999” i det här exemplet |
@@ -234,7 +234,7 @@ Lägg till en enskild post i en DB2-tabell i databasen genom att använda den **
 
    Här följer egenskaperna för det här exemplet:
 
-   | Egenskap | Krävs | Beskrivning |
+   | Egenskap  | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Tabellnamn** | Ja | Tabellen var du vill lägga till posten, till exempel ”-område |
    | **Områdes-ID** | Ja | ID för området för att lägga till, till exempel ”99999” |
@@ -281,7 +281,7 @@ Uppdatera en enskild post i en DB2-tabell i databasen med den **Uppdatera rad** 
 
    Här följer egenskaperna för det här exemplet:
 
-   | Egenskap | Krävs | Beskrivning |
+   | Egenskap  | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Tabellnamn** | Ja | Tabellen var du vill uppdatera posten, till exempel ”-område |
    | **Rad-ID** | Ja | ID för posten som ska uppdateras, till exempel ”99999” |
@@ -329,7 +329,7 @@ Ta bort en post från en DB2-tabell i databasen genom att använda den **ta bort
 
    Här följer egenskaperna för det här exemplet:
 
-   | Egenskap | Krävs | Beskrivning |
+   | Egenskap  | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Tabellnamn** | Ja | Tabellen var du vill ta bort posten, till exempel ”-område |
    | **Rad-ID** | Ja | ID för posten som ska ta bort, till exempel ”99999” |

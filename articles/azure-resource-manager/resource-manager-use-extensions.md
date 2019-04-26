@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 12/14/2018
 ms.author: jgao
 ms.openlocfilehash: eb46966c3a28b3fa4c2b23668109b7c5d23a609b
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390876"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Tillhandahåll konfigurationer efter distributionen med hjälp av tillägg
 
@@ -28,7 +28,7 @@ Malltillägg är litet program som ger konfigurationen efter distribution och au
 Befintliga tilläggen är:
 
 - [Microsoft.Compute/virtualMachines/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
-- [Microsoft.Compute-virtualMachineScaleSets /-tillägg](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
+- [Microsoft.Compute virtualMachineScaleSets/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
 - [Microsoft.HDInsight-kluster /-tillägg](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters/extensions)
 - [Microsoft.Sql servrar/databaser/tillägg](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
 - [Microsoft.Web/sites/siteextensions](https://docs.microsoft.com/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
@@ -37,10 +37,10 @@ Om du vill ta reda på tillgängliga tillägg kan du bläddra till den [mallrefe
 
 Lär dig hur du använder de här tilläggen, se:
 
-- [Självstudiekurs: Distribuera virtual machine-tillägg med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-vm-extensions.md).
-- [Självstudiekurs: Importera SQL BACPAC-filer med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
+- [Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-vm-extensions.md).
+- [Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Distribuera virtual machine-tillägg med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Självstudie: Distribuera virtual machine-tillägg med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-vm-extensions.md)

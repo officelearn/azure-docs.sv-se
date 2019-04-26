@@ -3,7 +3,7 @@ title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Ange det ContentDefinitions elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e36eb3816d6f465552c4db740508d5e7f5fa1331
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313328"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -23,7 +23,7 @@ ms.locfileid: "55161672"
 
 Du kan anpassa utseendet på någon [lokal verifieringsvillkor tekniska profilen](self-asserted-technical-profile.md). Azure Active Directory (Azure AD) B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas Cross-Origin Resource Sharing (CORS). 
 
-Om du vill anpassa användargränssnittet måste du ange en URL i den **ContentDefinition** element med anpassade HTML-innehåll. I den tekniska profilen självkontrollerad eller **OrchestrationStep**, du pekar på den innehållsdefinition identifieraren. Innehållsdefinitionen kan innehålla en **LocalizedResourcesReferences** element som specificerar en lista med lokaliserade resurser för att läsa in. Azure AD B2C sammanfogar användargränssnittselement med HTML-innehåll som har lästs in från din URL och visar sidan för användaren.
+Om du vill anpassa användargränssnittet måste du ange en URL i den **ContentDefinition** element med anpassade HTML-innehåll. I den tekniska profilen självkontrollerad eller **OrchestrationStep**, du pekar på den innehållsdefinition identifieraren. Innehållsdefinitionen kan innehålla en **LocalizedResourcesReferences** element som specificerar en lista med lokaliserade resurser för att läsa in. Azure AD B2C sammanfogar användargränssnittets element med HTML-innehåll som läses in från din URL och visar sedan sidan för användaren.
 
 Den **ContentDefinitions** elementet innehåller URL: er till HTML5-mallar som kan användas i en användarresa. Sidan HTML5 URI: N används för en angiven användare gränssnittet steg. Till exempel, logga in eller registrera dig, lösenordsåterställning eller felsidor. Du kan ändra utseendet och känslan genom att åsidosätta LoadUri för HTML5-fil. Du kan skapa nya innehållsdefinitioner efter dina behov. Det här elementet kan innehålla en referens för lokaliserade resurser, till lokalisering identifierare anges i den [lokalisering](localization.md) element.
 
@@ -61,7 +61,7 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** lokal verifieringsvillkor
 
 Den **ContentDefinition** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare för en innehållsdefinition. Värdet är som har angetts i den **innehåll definition ID: N** längre fram i den här sidan. |
 
@@ -99,7 +99,7 @@ Den **LocalizedResourcesReferences** elementet innehåller följande element:
 
 Den **LocalizedResourcesReferences** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Språk | Ja | En sträng som innehåller ett språk som stöds för principen per RFC 5646 - taggar för identifiering av språk. |
 | LocalizedResourcesReferenceId | Ja | Identifierare för den **LocalizedResources** element. |

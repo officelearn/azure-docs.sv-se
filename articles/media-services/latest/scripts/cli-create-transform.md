@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
 ms.openlocfilehash: 028aceac240afd62619e2d7be4f6ced9522fc4de
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308848"
 ---
 # <a name="cli-example-create-a-transform"></a>CLI-exempel: Skapa en transformering
 

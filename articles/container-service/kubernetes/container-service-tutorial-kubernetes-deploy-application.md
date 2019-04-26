@@ -10,11 +10,11 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309239"
 ---
 # <a name="deprecated-run-applications-in-kubernetes"></a>(INAKTUELL) Köra program i Kubernetes
 
@@ -76,7 +76,7 @@ Använd kommandot [kubectl create](https://kubernetes.io/docs/reference/generate
 kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 deployment "azure-vote-back" created

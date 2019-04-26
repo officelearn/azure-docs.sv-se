@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400719"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med Azure Data Factory 
 
@@ -41,7 +41,7 @@ Följande egenskaper har stöd för HBase länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **HBase** | Ja |
+| type | Type-egenskapen måste anges till: **HBase** | Ja |
 | värd | IP-adressen eller värdnamnet namnet på den HBase-servern. (dvs.)  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Ja |
 | port | TCP-porten som HBase-instans som används för att lyssna efter klientanslutningar. Standardvärdet är 9090. Ange porten som 443 om du ansluter till Azure HDInsights. | Nej |
 | httpPath | Partiell URL: en motsvarar HBase-server, t.ex. `/hbaserest0` när du använder HDInsights kluster. | Nej |
@@ -122,7 +122,7 @@ Kopiera data från HBase genom att ange typegenskapen på datauppsättningen til
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **HBaseObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **HBaseObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -151,7 +151,7 @@ För att kopiera data från HBase, ange typ av datakälla i kopieringsaktivitete
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **HBaseSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **HBaseSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

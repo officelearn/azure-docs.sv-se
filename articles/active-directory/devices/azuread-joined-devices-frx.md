@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a79c5f89b14d15ffe4f3c582ac7e1e4cabbdc611
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296664"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Självstudier: Ansluta en ny Windows 10-enhet med Azure AD under den första körningen
 
@@ -37,11 +37,11 @@ I Windows *OOBE (out-of-box experience)* går det inte att ansluta en lokal AD-d
  
 I den här självstudien får du lära dig hur du ansluter en enhet till Azure AD under FRX:
  > [!div class="checklist"]
-> * Förutsättningar
+> * Nödvändiga komponenter
 > * Ansluta en enhet
 > * Verifiering
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill ansluta en Windows 10-enhet måste enhetsregistreringstjänsten konfigureras så att du kan registrera enheter. Förutom att du måste ha behörighet att ansluta enheter i din Azure AD-klient måste du ha färre enheter registrerade än det angivna högsta antalet. Mer information finns i [Konfigurera enhetsinställningar](device-management-azure-portal.md#configure-device-settings).
 

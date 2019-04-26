@@ -17,11 +17,11 @@ ms.author: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc9b5cbc4904c6b2238e56742381feb4d2811437
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301149"
 ---
 # <a name="add-the-applications-registration-information-to-your-app"></a>Lägg till programmets registreringsinformation i din app
 Du måste lägga till program-Id till ditt projekt i det här steget.

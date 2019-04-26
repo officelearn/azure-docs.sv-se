@@ -19,13 +19,13 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878578"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411342"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Så här: Anpassa anspråk som utfärdats i SAML-token för företagsprogram
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Anpassa anspråk som utfärdats i SAML-token för företagsprogram
 
 Idag, Azure Active Directory (Azure AD) har stöd för enkel inloggning (SSO) med de flesta företagsprogram, inklusive båda programmen som är förintegrerade i appgalleriet för Azure AD samt anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av protokollet SAML 2.0, skickar Azure AD en token till programmet (via en HTTP-POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token innehåller uppgifter om användaren kallas *anspråk*.
 
@@ -79,7 +79,7 @@ Välj önskad källa för den `NameIdentifier` (eller NameID) anspråk. Du kan v
 | userprincipalName | Användarens huvudnamn (UPN) för användaren |
 | onpremisessamaccount | SAM-kontonamn som har synkroniserats från den lokala Azure AD |
 | objekt-ID | objekt-ID för användaren i Azure AD |
-| EmployeeID | EmployeeID för användaren |
+| employeeid | EmployeeID för användaren |
 | Katalogtillägg | Katalogtillägg [synkroniseras från den lokala Active Directory med Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Tilläggsattribut 1 – 15 | Lokala tilläggsattribut som används för att utöka Azure AD-schema |
 

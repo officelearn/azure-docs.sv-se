@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 542505c5a6c3af91669ebe28287ae6e1477e214d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325988"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurera en Always On-tillgänglighetsgrupp på virtuella Azure-datorer i olika regioner
 
@@ -165,7 +165,7 @@ Om du vill testa lyssnare anslutningen till den fjärranslutna regionen, kan du 
 
 När du testar anslutningen, flytta den primära repliken tillbaka till ditt primära datacenter och ange tillgänglighetsläget tillbaka till normal drift inställningarna. I följande tabell visas vanliga inställningar för den arkitektur som beskrivs i det här dokumentet:
 
-| Plats | Server-instans | Roll | Läget för tillgänglighet | Redundansläge
+| Location | Server-instans | Roll | Läget för tillgänglighet | Redundansläge
 | ----- | ----- | ----- | ----- | -----
 | Primära Datacenter | SQL-1 | Primär | Synkron | Automatisk
 | Primära Datacenter | SQL-2 | Sekundär | Synkron | Automatisk

@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428160"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autentisera och få åtkomst till resurser med hanterade identiteter i Azure Logic Apps
 
@@ -59,7 +59,7 @@ Om du vill aktivera en automatiskt genererad hanterad identitet för din logikap
 
    ![GUID för objekt-ID](./media/create-managed-service-identity/object-id.png)
 
-   | Egenskap | Värde | Beskrivning | 
+   | Egenskap  | Värde | Beskrivning | 
    |----------|-------|-------------| 
    | **Objekt-ID** | <*identity-resource-ID*> | En globalt unik identifierare (GUID) som representerar den systemtilldelade hanterad identitet för din logikapp i en Azure AD-klient | 
    ||| 
@@ -111,7 +111,7 @@ När Azure skapar din logikapp kan innehåller den logikapp arbetsflödesdefinit
 }
 ```
 
-| Egenskap | Värde | Beskrivning | 
+| Egenskap  | Värde | Beskrivning | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | En globalt unik identifierare (GUID) som representerar logikappen i Azure AD-klient och ibland visas som ”objekt-ID” eller `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | En globalt unik identifierare (GUID) som representerar den Azure AD-klient där logikappen är nu medlem. Tjänstens huvudnamn har samma namn som den logic app-instansen i Azure AD-klient. | 

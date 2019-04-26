@@ -17,11 +17,11 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299625"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Anvisningar: Aktivera enkel inloggning mellan appar på iOS med hjälp av ADAL
 
@@ -40,7 +40,7 @@ Den här anvisningen gäller för:
 * Azure Active Directory B2B
 * Villkorsstyrd åtkomst med Azure Active Directory
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här anvisningen förutsätter att du vet hur du:
 

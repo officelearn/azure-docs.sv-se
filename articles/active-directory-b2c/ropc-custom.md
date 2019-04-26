@@ -3,7 +3,7 @@ title: Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azu
 description: Lär dig hur du konfigurerar resursägarens lösenord autentiseringsuppgifter flöde i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419195"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure Active Directory B2C med hjälp av en anpassad princip
 
@@ -35,7 +35,7 @@ Följande flöden stöds inte:
 - **Enkel sidprogram** -ett frontend-program som är huvudsakligen skrivna i JavaScript. Programmet skrivs ofta med hjälp av ett ramverk som AngularJS, Ember.js eller Durandal.
 - **Konfidentiellt klientflödet** - programmets klient-ID har verifierats, men programhemlighet inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
@@ -270,8 +270,8 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 | Nyckel | Värde |
 | --- | ----- |
 | användarnamn | `user-account` |
-| lösenord | `password1` |
-| _typ av beviljande | lösenord |
+| password | `password1` |
+| _typ av beviljande | password |
 | omfång | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |

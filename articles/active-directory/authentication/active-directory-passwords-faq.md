@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878201"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359066"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -46,7 +46,7 @@ Den här vanliga frågor och svar är uppdelat i följande avsnitt:
   >
 * **F:  Kan jag definierar data om återställning av lösenord för Mina användare?**
 
-  > **S:** Ja, du kan göra det med Azure AD Connect, PowerShell, den [Azure-portalen](https://portal.azure.com), eller Office 365 Administrationscenter. Mer information finns i [återställning av Data som används av Azure AD-självbetjäning lösenord](howto-sspr-authenticationdata.md).
+  > **S:** Ja, du kan göra det med Azure AD Connect, PowerShell, den [Azure-portalen](https://portal.azure.com), eller [Microsoft 365 Administrationscenter](https://admin.microsoft.com). Mer information finns i [återställning av Data som används av Azure AD-självbetjäning lösenord](howto-sspr-authenticationdata.md).
   >
   >
 * **F:  Kan jag synkroniserar data om säkerhetsfrågor från en lokal plats?**

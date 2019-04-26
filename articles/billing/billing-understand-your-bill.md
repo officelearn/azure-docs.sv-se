@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 9ba52951565c910138a5a49ecc97ad5748411e6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370190"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Förstå fakturan för Microsoft Azure
 Jämför din faktura med detaljerade dagliga användningsfil och kostnadshanteringsrapporter i Azure-portalen för att förstå fakturan för Azure.
@@ -47,7 +47,7 @@ Avgifter för användning visas på nivån mätaren. Följande villkor betyda sa
  | --- | --- |
 |Faktureringscykel | Faktureringsperiod |
  |Namn |Mätarkategori |
- |Type |Mätarunderkategori |
+ |Typ |Mätarunderkategori |
  |Resurs |Mätarnamn |
  |Region |Mätarregion |
  |Förbrukad |Förbrukat antal |

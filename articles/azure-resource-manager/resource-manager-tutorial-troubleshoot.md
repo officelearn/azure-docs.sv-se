@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1a7a0604117dde55300a779bb1b7167c8da4e056
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: c889c3123160680d96889227d6964ff197dc41cc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388666"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Självstudier: Felsöka Resource Manager-malldistributioner
 
@@ -101,7 +101,7 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 
 Distributionsfelet kan hittas i Azure-portalen med följande procedur:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna resursgruppen genom att välja **Resursgrupper** och sedan resursgruppens namn. Du bör se **1 Failed** (misslyckades) under **Distribution**.
 
     ![Självstudie om att felsöka Resource Manager](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
@@ -115,7 +115,7 @@ Distributionsfelet kan hittas i Azure-portalen med följande procedur:
 
 Du kan även hitta felet i aktivitetsloggarna:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Övervaka** > **Aktivitetslogg**.
 3. Använd filtren för att hitta loggen.
 

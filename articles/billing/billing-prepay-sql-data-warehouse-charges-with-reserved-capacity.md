@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371197"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Betala i förskott för SQL Data Warehouse avgifter med reserverad kapacitet
 
@@ -45,7 +45,7 @@ Anta exempelvis att din total förbrukning av SQL Data Warehouse är DW3000c. Du
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/).
 2. Välj **alla tjänster** > **reservationer**.
-3. Välj en prenumeration. Använd listan prenumeration för att välja den prenumeration som används för att betala för reserverad kapacitet. Betalningsmetoden för prenumerationen debiteras startavgifter för reserverad kapacitet. Prenumerationstypen måste vara ett enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller betala per användning (erbjuder siffror: MS-AZR-0003P eller MS-AZR - 0023 P).
+3. Välj en prenumeration. Använd listan prenumeration för att välja den prenumeration som används för att betala för reserverad kapacitet. Betalningsmetoden för prenumerationen debiteras startavgifter för reserverad kapacitet. Prenumerationstypen måste vara ett enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller betala per användning (erbjuder siffror: MS-AZR-0003P eller MS-AZR-0023P).
   - För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning.
   - Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.
 4. Välj ett omfång. Använd listan omfång för att välja en prenumeration omfattning.

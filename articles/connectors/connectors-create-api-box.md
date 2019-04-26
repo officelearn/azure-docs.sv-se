@@ -11,11 +11,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 971d38fa0fbd47f0deb815577033bbe684aac32f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60312584"
 ---
 # <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Skapa och hantera filer i Box med Azure Logic Apps
 
@@ -30,7 +30,7 @@ Den här artikeln visar hur du kan skapa och hantera dina filer i Box från inut
   När de här åtgärderna får ett svar kan se de utdata tillgänglig för andra åtgärder. 
   Till exempel när en fil ändras i Box, kan du skicka filen via e-post med hjälp av Office 365.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En [rutan konto](https://www.box.com/home)
 

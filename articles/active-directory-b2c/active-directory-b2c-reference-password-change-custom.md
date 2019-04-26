@@ -3,7 +3,7 @@ title: Konfigurera lösenordsändring med anpassade principer i Azure Active Dir
 description: Lär dig hur du aktiverar användare ändra sina lösenord med hjälp av anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/13/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: a9e58139d248daed19f4fe35c7d33ede9dfe64b0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317198"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera lösenordsändring med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55195978"
 
 Du kan aktivera användare som är inloggad med ett lokalt konto för att ändra sina lösenord utan att behöva sina autentisering av e-Postverifiering i Azure Active Directory (Azure AD) B2C. Om sessionen upphör att gälla när användaren får ändra flöde till lösenordet, uppmanas de att logga in igen. Den här artikeln visar hur du konfigurerar lösenordsändring i [anpassade principer](active-directory-b2c-overview-custom.md). Det är också möjligt att konfigurera [lösenordsåterställning via självbetjäning](active-directory-b2c-reference-sspr.md) för användarflöden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Utför stegen i [Kom igång med anpassade principer i Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
@@ -165,8 +165,8 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha en Azur
 ### <a name="upload-the-files"></a>Ladda upp filer
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Identitetsramverk**.
 5. På sidan anpassade principer **ladda upp principen**.
 6. Välj **Skriv över principen om den finns**, och sök sedan efter och välj den *TrustframeworkExtensions.xml* fil.

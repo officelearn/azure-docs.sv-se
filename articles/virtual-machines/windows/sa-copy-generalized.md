@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864982"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252423"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Hur du skapar en ohanterad VM-avbildning från en Azure-dator
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver storage-konton. Vi rekommenderar att du använder ha
 
 Den här artikeln visar hur du använder Azure PowerShell för att skapa en avbildning av en generaliserad virtuell Azure-dator med hjälp av ett lagringskonto. Du kan sedan använda avbildningen för att skapa en annan virtuell dator. Bilden innehåller operativsystemdisken och datadiskar som är kopplade till den virtuella datorn. Bilden innehåller inte de virtuella nätverksresurserna, så du måste konfigurera de här resurserna när du skapar den nya virtuella datorn. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-vm"></a>Generalisera den virtuella datorn 
 Det här avsnittet visar hur att generalisera den virtuella datorn i Windows för användning som en bild. Generalisera en virtuell dator tar bort all personlig kontoinformation, bland annat och förbereder datorn som ska användas som en bild. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
@@ -116,7 +116,7 @@ Du kan få URL: en för din avbildning från en mall för JSON-fil. Gå till den
    
 Du kan också kontrollera URI: N i portalen. Avbildningen har kopierats till en behållare med namnet **system** i ditt lagringskonto. 
 
-## <a name="create-a-vm-from-the-image"></a>Skapa en virtuell dator från avbildningen
+## <a name="create-a-vm-from-the-image"></a>Skapa en VM från avbildningen
 
 Nu kan du skapa en eller flera virtuella datorer från ohanterad avbildning.
 

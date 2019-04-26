@@ -9,11 +9,11 @@ ms.date: 2/20/2019
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345894"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
 
@@ -102,13 +102,13 @@ Tänk dig ett scenario där du vill ha en avisering om en dator har överskridit
 - **Tidsperiod:** 30 minuter<br>
 - **Aviseringsfrekvens:** fem minuter<br>
 - **Alert Logic - villkoret & tröskel:** Större än 90<br>
-- **Gruppfältet (aggregering-on):** Dator
+- **Gruppfältet (aggregering-on):** Computer
 - **Utlös aviseringen baserat på:** Totalt antal dataintrång är större än 2<br>
 
 Frågan skapar ett genomsnittligt värde för varje dator med 5 minuters mellanrum.  Den här frågan skulle köras var femte minut för data som samlas in under de föregående 30 minuterna. Eftersom gruppfältet (aggregering-on) valt är kolumner ”dator” - AggregatedValue delas för olika värden för ”dator” och genomsnittliga processoranvändningen för varje dator bestäms efter en tid lagerplats på 5 minuter.  Exemplet frågeresultat för (säga) tre datorer blir enligt nedan.
 
 
-|TimeGenerated [UTC] |Dator  |AggregatedValue  |
+|TimeGenerated [UTC] |Computer  |AggregatedValue  |
 |---------|---------|---------|
 |20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
 |20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |

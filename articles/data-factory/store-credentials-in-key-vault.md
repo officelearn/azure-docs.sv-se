@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
 ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311919"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Store-autentiseringsuppgifter i Azure Key Vault
 
@@ -24,7 +24,7 @@ Du kan lagra autentiseringsuppgifter för datalager och beräkningar i ett [Azur
 
 För närvarande stöder alla aktivitetstyper utom anpassad aktivitet den här funktionen. Kopplingskonfiguration mer specifikt finns i avsnittet ”länkade tjänstegenskaper” [varje avsnitt om anslutningsprogram](copy-activity-overview.md#supported-data-stores-and-formats) mer information.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här funktionen är beroende av data factory hanterad identitet. Lär dig hur det fungerar från [hanterad identitet för Data factory](data-factory-service-identity.md) och se till att din data factory har en associerad.
 
@@ -43,7 +43,7 @@ Följande egenskaper har stöd för Azure Key Vault-länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **AzureKeyVault**. | Ja |
+| type | Type-egenskapen måste anges till: **AzureKeyVault**. | Ja |
 | baseUrl | Ange URL: en för Azure Key Vault. | Ja |
 
 **Med redigering av Användargränssnittet:**

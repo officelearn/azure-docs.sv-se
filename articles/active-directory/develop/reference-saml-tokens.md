@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77118edd08faf6d40897a916ee85e2b6e20d3bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298265"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Tokenreferens för Azure AD-SAML
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) genererar flera typer av säkerhetstoken under
 > |Namn | `unique_name` |Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är inte säkert att vara unika inom en klient och är avsedd att användas endast för visning. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |Objekt-ID | `oid` |Innehåller en unik identifierare för ett objekt i Azure AD. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Använda objekt-ID för att identifiera ett objekt i frågor till Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Roller | `roles` |Representerar alla programroller som ämnet har beviljats direkt eller indirekt via gruppmedlemskap och kan användas för att tillämpa rollbaserad åtkomstkontroll. Programroller definieras på basis av per program, via den `appRoles` egenskapen för programmanifestet. Den `value` egenskapen för varje programroll är det värde som visas i rollanspråk. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
-> |Subjekt | `sub` |Identifierar huvudnamn som token kontrollerar information, t.ex användare av ett program. Det här värdet kan inte ändras och kan inte tilldelas eller återanvänds, så den kan användas för att utföra auktoriseringskontroller på ett säkert sätt. Eftersom ämnet alltid finns i token som Azure AD-problem rekommenderar vi med det här värdet i ett system för auktorisering av generell användning. <br> `SubjectConfirmation` är inte ett anspråk. Beskriver hur ämnet för token har verifierats. `Bearer` Anger att ämnet har bekräftats av tillgång till dem i token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
+> |Subject | `sub` |Identifierar huvudnamn som token kontrollerar information, t.ex användare av ett program. Det här värdet kan inte ändras och kan inte tilldelas eller återanvänds, så den kan användas för att utföra auktoriseringskontroller på ett säkert sätt. Eftersom ämnet alltid finns i token som Azure AD-problem rekommenderar vi med det här värdet i ett system för auktorisering av generell användning. <br> `SubjectConfirmation` är inte ett anspråk. Beskriver hur ämnet för token har verifierats. `Bearer` Anger att ämnet har bekräftats av tillgång till dem i token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |Klient-ID:t | `tid` |En oföränderlig, icke-återanvändningsbara ID som identifierar den directory-klient som utfärdade token. Du kan använda det här värdet till klientspecifik directory resurser i ett program med flera innehavare. Du kan till exempel använda det här värdet för att identifiera klienten i ett anrop till Graph API. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
 > |Tokenlivstid | `nbf`, `exp` |Definierar tidsintervallet då token är giltig. Den tjänst som verifierar token bör kontrollera att det aktuella datumet ligger inom livslängd för token, annan det avvisar token. Tjänsten kan göra att överskrida livslängd för uppdateringstoken upp till fem minuter att kompensera för eventuella skillnader i clock-tid (”tid skeva”) mellan Azure AD och tjänsten. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 

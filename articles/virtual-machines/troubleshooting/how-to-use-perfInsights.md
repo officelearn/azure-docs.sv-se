@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318414"
 ---
 # <a name="how-to-use-perfinsights"></a>Så här använder du PerfInsights
 
@@ -88,7 +88,7 @@ Det här scenariot körs en särskild prestandaräknaren avbildning tillsammans 
 |              | Skrivna byte/s               |
 | Kölängd | Genomsn. Läs Kölängd        |
 |              | Genomsn. Skriva Kölängd       |
-|              | Genomsn. Kölängd för data        |
+|              | Genomsn. Data Queue Length        |
 
 ### <a name="advanced-performance-analysis"></a>Avancerade prestandaanalys
 
@@ -132,15 +132,15 @@ Information om Windows-VM, diskar eller pooler lagringskonfiguration, prestandar
 
 Kör en regelbaserad motor i bakgrunden för att samla in data och diagnostisera problem med pågående prestanda. För närvarande stöds följande regler:
 
-- HighCpuUsage regel: identifierar perioder med hög CPU-användning och visar översta CPU-användning konsumenterna under de här perioderna.
-- HighDiskUsage regel: identifierar ett högt användning punkter på fysiska diskar och visar den högsta disken konsumenter för användning under de här perioderna.
+- HighCpuUsage regel: Identifierar perioder med hög CPU-användning och visar översta CPU-användning konsumenterna under de här perioderna.
+- HighDiskUsage regel: Identifierar ett högt användning punkter på fysiska diskar och visar den högsta disken konsumenter för användning under de här perioderna.
 - HighResolutionDiskMetric regel: Visar IOPS, dataflöde och i/o mått för datainmatningssvarstider per 50 tid i millisekunder för varje fysisk disk. Det hjälper dig att snabbt identifiera disken begränsning perioder.
-- HighMemoryUsage regel: identifierar perioder för användning av extra minne och visar det översta minnet konsumenter för användning under de här perioderna.
+- HighMemoryUsage regel: Identifierar perioder för användning av extra minne och visar det översta minnet konsumenter för användning under de här perioderna.
 
 > [!NOTE] 
 > Windows-versioner med .NET Framework 4.5 eller senare versioner är för närvarande.
 
-### <a name="performance-counter-trace-"></a>Prestandaräknaren spårning (\*\*)
+### <a name="performance-counter-trace-"></a>Prestandaräknaren spårning (*)
 
 Samlar in följande prestandaräknare:
 
@@ -150,13 +150,13 @@ Samlar in följande prestandaräknare:
 
 #### <a name="for-sql-server-instances"></a>För SQL Server-instanser
 - \SQL server: bufferten Manager, \SQLServer:Resource Pool statistik och \SQLServer:SQL Statistics\
-- \SQLServer:locks, \SQLServer:General, statistik
-- \SQLServer:Access metoder
+- \SQLServer:Locks, \SQLServer:General, Statistics
+- \SQLServer:Access Methods
 
 #### <a name="for-azure-files"></a>För Azure Files
 \SMB Klientresurser
 
-### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark-spårning (\*\*\*)
+### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark-spårning (*)
 I/o för Diskspd arbetsbelastning tester (OS-Disk [Skriv] och poolen enheter [Läs/Skriv])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Kör verktyget PerfInsights på den virtuella datorn
@@ -300,7 +300,7 @@ Den **diagnostiska** fliken innehåller information om främsta konsumenter av C
 
 Diskspd är ett storage belastningen generator och prestanda test verktyg från Microsoft. Mer information finns i [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>XPerf
+### <a name="xperf"></a>Xperf
 
 XPerf är ett kommandoradsverktyg för att fånga in spårningar från Windows Performance Toolkit. Mer information finns i [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

@@ -3,7 +3,7 @@ title: Datum-anspråk omvandling exempel för den identiteten upplevelse Framewo
 description: Datum anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384248"
 ---
 # <a name="date-claims-transformations"></a>Datum anspråk omvandlingar
 
@@ -29,8 +29,8 @@ Kontrollerar att ett datum och tid anspråk (strängdatatypen) är senare än et
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | sträng | Typ första anspråk som ska vara senare än andra anspråk. |
-| inputClaim | rightOperand | sträng | Andra anspråkets typ, och måste vara tidigare än det första anspråket. |
+| inputClaim | leftOperand | string | Typ första anspråk som ska vara senare än andra anspråk. |
+| inputClaim | rightOperand | string | Andra anspråkets typ, och måste vara tidigare än det första anspråket. |
 | InputParameter | AssertIfEqualTo | boolesk | Anger om kontrollen ska skicka om den vänstra operanden är lika med den högra operanden. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolesk | Anger om kontrollen ska skicka om högeroperanden saknas. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Anger antalet millisekunder att tillåta mellan två datum-tid att tänka på tiderna som är lika med (till exempel till konto för klocka skeva). |
@@ -91,7 +91,7 @@ Konverterar en **datum** ClaimType till en **DateTime** ClaimType. Anspråkstran
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | datum | ClaimType som ska konverteras. |
+| InputClaim | inputClaim | date | ClaimType som ska konverteras. |
 | OutputClaim | outputClaim | Datum/tid | ClaimType som skapas när den här ClaimsTransformation har anropats. |
 
 Exemplet nedan visar konvertering av anspråket `dateOfBirth` (datum datatyp) till en annan anspråk `dateOfBirthWithTime` (datatypen dateTime).
@@ -143,7 +143,7 @@ Avgöra om ett datum/tid är senare, tidigare eller lika med en annan. Resultate
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | Datum/tid | Den första datum/tid att jämföra oavsett om den tidigare eller senare än andra datum/tid. Null-värde genereras ett undantag. |
 | InputClaim | secondDateTime | Datum/tid | Den andra datum/tid att jämföra oavsett om den tidigare eller senare än första datum/tid. Null-värde behandlas som den aktuella datetTime. |
-| InputParameter | Operator | sträng | Något av följande värden: samma, senare än eller tidigare än. |
+| InputParameter | Operator | string | Något av följande värden: samma, senare än eller tidigare än. |
 | InputParameter | timeSpanInSeconds | int | Lägg till timespan i första datum/tid. |
 | OutputClaim | Resultatet | boolesk | ClaimType som skapas när den här ClaimsTransformation har anropats. |
 

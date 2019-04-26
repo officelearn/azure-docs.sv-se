@@ -11,11 +11,11 @@ tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311972"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Hantera Excel Online-data med Azure Logic Apps
 
@@ -32,7 +32,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 > [!NOTE]
 > Den [Excel Online för företag](/connectors/excelonlinebusiness/) och [Excel Online för OneDrive](/connectors/excelonline/) anslutningsappar fungerar med Azure Logic Apps och skiljer sig från den [Excel-anslutningsapp för PowerApps](/connectors/excel/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405961"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Kopiera data från Oracle Eloqua med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Oracle Eloqua länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Eloqua** | Ja |
+| type | Type-egenskapen måste anges till: **Eloqua** | Ja |
 | slutpunkt | Slutpunkten för Eloqua-server. Eloqua har stöd för flera Datacenter för att fastställa din slutpunkt, logga in på https://login.eloqua.com med dina autentiseringsuppgifter, kopiera den **bas-URL** delen från den omdirigerade platsen med mönstret för `xxx.xxx.eloqua.com`. | Ja |
 | användarnamn | Platsnamn och användarnamn för kontot Eloqua i formatet: `SiteName\Username` t.ex. `Eloqua\Alice`.  | Ja |
 | lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -79,7 +79,7 @@ Om du vill kopiera data från Oracle Eloqua, ange typegenskapen på datauppsätt
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **EloquaObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **EloquaObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -108,7 +108,7 @@ Om du vill kopiera data från Oracle Eloqua, ange typ av datakälla i kopierings
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **EloquaSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **EloquaSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

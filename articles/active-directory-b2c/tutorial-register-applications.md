@@ -3,7 +3,7 @@ title: Självstudie – registrera ett program – Azure Active Directory B2C | 
 description: Lär dig mer om att registrera ett webbprogram i Azure Active Directory B2C med Azure portal.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
@@ -11,11 +11,11 @@ ms.date: 02/05/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359746"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Självstudier: Registrera ett program i Azure Active Directory B2C
 

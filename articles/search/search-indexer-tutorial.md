@@ -11,11 +11,11 @@ ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322224"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Självstudie: Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
 
@@ -27,7 +27,7 @@ I den här självstudien använder den [Azure Search .NET-klientbibliotek](https
 
 > [!div class="checklist"]
 > * Lägga till söktjänstinformation i programinställningar
-> * Förbereda en extern datauppsättning i Azure SQL Database 
+> * Förbereda en extern datauppsättning i Azure SQL-databas 
 > * Granska index- och indexerardefinitionerna i exempelkod
 > * Köra indexerarkod för att importera data
 > * Söka i indexet
@@ -83,7 +83,7 @@ Den sista posten kräver en befintlig databas. Du ska skapa i nästa steg.
 
 ## <a name="prepare-sample-data"></a>Förbereda exempeldata
 
-I det här steget skapar du en extern datakälla som indexeraren kan crawla. Du kan använda Azure Portal och filen *hotels.sql* från exemplet för att skapa datauppsättningen i Azure SQL Database. Azure Search använder utjämnade raduppsättningar, till exempel en som genereras från en vy eller en fråga. SQL-filen i exempellösningen skapar och fyller i en enskild tabell.
+I det här steget skapar du en extern datakälla som indexeraren kan crawla. Du kan använda Azure-portalen och filen *hotels.sql* från exemplet för att skapa datauppsättningen i Azure SQL Database. Azure Search använder utjämnade raduppsättningar, till exempel en som genereras från en vy eller en fråga. SQL-filen i exempellösningen skapar och fyller i en enskild tabell.
 
 Följande övning utgår ifrån att det inte finns någon server eller databas, och du instrueras att skapa dessa i steg 2. Om du har en befintlig resurs kan du lägga till hotels-tabellen i den, med början i steg 4.
 

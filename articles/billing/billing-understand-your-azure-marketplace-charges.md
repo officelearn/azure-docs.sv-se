@@ -17,11 +17,11 @@ ms.date: 06/15/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae9c2c975bf49725be1858ad02a1c4b90ef58a7f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370618"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Förstå din Azure-fakturering för externa tjänstavgifter
 Externa tjänster publiceras av tredje part programvaruleverantörer på Azure marketplace. SendGrid är till exempel en externa tjänster som du kan köpa i Azure, men inte har publicerats av Microsoft.

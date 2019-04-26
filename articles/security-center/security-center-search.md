@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
 ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332602"
 ---
 # <a name="azure-security-center-search"></a>Sök i Azure Security Center
 Azure Security Center använder [Azure Monitor loggar search](../log-analytics/log-analytics-log-searches.md) att hämta och analysera dina säkerhetsdata. Azure Monitor-loggar tillhandahåller en frågesyntax för att snabbt hämta och konsolidera data. Du kan använda Azure Monitor-loggar sökning för att skapa frågor och analysera insamlade data från Security Center.

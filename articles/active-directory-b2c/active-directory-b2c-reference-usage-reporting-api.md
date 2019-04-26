@@ -3,7 +3,7 @@ title: Användning reporting API-exempel och definitioner i Azure Active Directo
 description: Guiden och exempel på att få rapporter för Azure AD B2C-klientorganisation, användare, autentiseringar och multifaktorautentiseringar.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
@@ -11,11 +11,11 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5ccd9ea36fcf20c56684ac5892a7fa32e0345633
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316858"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Åtkomst till användningsrapporter i Azure AD B2C via rapporterings-API
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller autentisering baserat
 Den här artikeln fokuserar på rapporter som är kopplad till faktureringen som baseras på antalet användare, fakturerbara logga-i-baserade autentiseringar och multifaktorautentiseringar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar måste du slutföra stegen i [krav för att få åtkomst till Azure AD reporting API: er](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Skapa ett program, hämta en hemlighet för den och ge det åtkomst rättigheter till din Azure AD B2C-klient-rapporter. *Bash-skript* och *Python-skriptet* exempel tillhandahålls även här. 
 
 ## <a name="powershell-script"></a>PowerShell-skript

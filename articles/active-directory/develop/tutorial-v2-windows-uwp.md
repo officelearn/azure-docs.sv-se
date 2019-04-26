@@ -17,11 +17,11 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252228"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph API från en Universal Windows Platform-program (XAML)
 
@@ -381,10 +381,10 @@ Du ser information om användarprofiler returnerades av Microsoft Graph API-anro
 
 Du också se grundläggande information om den token som anskaffats `AcquireTokenInteractive` eller `AcquireTokenSilent` i den **tokeninformation** box:
 
-|Egenskap  |Format  |Beskrivning |
+|Egenskap   |Format  |Beskrivning |
 |---------|---------|---------|
 |**Användarnamn** |<span>user@domain.com</span> |Användarnamnet som identifierar användaren.|
-|**Token upphör att gälla** |DateTime |Den tid när token upphör att gälla. MSAL förlänger utgångsdatumet genom att förnya token efter behov.|
+|**Token upphör att gälla** |Datetime |Den tid när token upphör att gälla. MSAL förlänger utgångsdatumet genom att förnya token efter behov.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om scope och delegerade behörigheter
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 35ac227bd420b614525d468f2d3332a2a02b5388
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390915"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Kopiera data från Azure Database for PostgreSQL med Azure Data Factory
 
@@ -41,7 +41,7 @@ Följande egenskaper har stöd för Azure Database för PostgreSQL länkade tjä
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **AzurePostgreSql** | Ja |
+| type | Type-egenskapen måste anges till: **AzurePostgreSql** | Ja |
 | connectionString | En ODBC-anslutningssträng att ansluta till Azure Database för PostgreSQL.<br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `password` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -102,7 +102,7 @@ För att kopiera data från Azure Database för PostgreSQL, ange typegenskapen p
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **AzurePostgreSqlTable** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **AzurePostgreSqlTable** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -131,7 +131,7 @@ För att kopiera data från Azure Database för PostgreSQL, ange typ av datakäl
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AzurePostgreSqlSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AzurePostgreSqlSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

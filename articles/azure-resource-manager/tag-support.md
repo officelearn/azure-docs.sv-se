@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388071"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-using-tags.md).
@@ -426,7 +426,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | Avdelningar | Nej | 
 | Dimensioner | Nej | 
 | EnrollmentAccounts | Nej | 
-| Söka i data | Nej | 
+| Fråga | Nej | 
 | Registrera dig | Nej | 
 | Reportconfigs | Nej | 
 | Rapporter | Nej | 
@@ -864,7 +864,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | dnszones/TXT | Nej | 
 | expressRouteCircuits | Ja | 
 | expressRouteServiceProviders | Nej | 
-| frontdoors | Ja | 
+| ytterdörrar | Ja | 
 | frontdoorWebApplicationFirewallPolicies | Ja | 
 | getDnsResourceReference | Nej | 
 | interfaceEndpoints | Ja | 
@@ -1241,7 +1241,7 @@ För att få samma data som en fil med kommaavgränsade värden kan hämta [tagg
 | körningar | Nej | 
 | serverFarms | Ja | 
 | serverFarms/workers | Nej | 
-| Platser | Ja | 
+| webbplatser | Ja | 
 | sites/domainOwnershipIdentifiers | Nej | 
 | sites/hostNameBindings | Nej | 
 | platser/instanser | Nej | 

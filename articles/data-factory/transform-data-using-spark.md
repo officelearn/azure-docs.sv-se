@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387833"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformera data med Spark-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,10 +60,10 @@ Här är exempel JSON-definition för en Spark-aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 
-| Egenskap               | Beskrivning                              | Krävs |
+| Egenskap               | Beskrivning                              | Obligatoriskt |
 | --------------------- | ---------------------------------------- | -------- |
 | namn                  | Namnet på aktiviteten i pipelinen.    | Ja      |
-| beskrivning           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
+| description           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
 | typ                  | För Spark-aktivitet är aktivitetstypen HDInsightSpark. | Ja      |
 | linkedServiceName     | Namnet på den HDInsight Spark länkade tjänst som Spark-programmet körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
 | SparkJobLinkedService | Azure Storage-länkade tjänst som innehåller Spark jobbfilen, beroenden och loggar.  Om du inte anger ett värde för den här egenskapen används den lagring som är associerad med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en länkad Azure Storage-tjänst. | Nej       |
@@ -80,7 +80,7 @@ Spark-jobb är mer omfattande än Pig/Hive-jobb. För Spark-jobb kan du ange fle
 
 Skapa följande mappstrukturen i Azure Blob storage som refereras av den länkade HDInsight-tjänsten. Ladda sedan upp beroende filer till lämpliga undermappar i rotmappen som representeras av **entryFilePath**. Till exempel överföra python till undermappen pyFiles och jar-filer till undermappen JAR-filer i rotmappen. Vid körning förväntas Data Factory-tjänsten följande mappstrukturen i Azure Blob storage:     
 
-| Sökväg                  | Beskrivning                              | Krävs | Type   |
+| Sökväg                  | Beskrivning                              | Obligatoriskt | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (rot)            | Rotsökvägen för Spark-jobb i länkade storage-tjänsten | Ja      | Mapp |
 | &lt;användardefinierad &gt; | Den sökväg som pekar startfil Spark-jobb | Ja      | Fil   |

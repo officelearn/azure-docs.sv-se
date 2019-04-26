@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414076"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Snabbstart: Återställning av lösenord för självbetjäning
 
 I den här snabbstarten går du igenom konfiguration av självåterställning av lösenord (SSPR) som ett enkelt sätt för IT-administratörer att göra så att användarna kan återställa sina lösenord eller låsa upp sina konton.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens.
 * Ett konto med behörigheter som global administratör.

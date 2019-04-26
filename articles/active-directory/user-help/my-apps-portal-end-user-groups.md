@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af86ad12eed4901e577149b9f20216d5004663b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483416"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>Uppdatera din information för grupper från portalen Mina appar
 Du kan använda ditt arbets- eller skolkonto med den webbaserade **Mina appar** portalen för att visa och starta många av organisationens molnbaserade appar, att uppdatera en del av din profil och konto information att se din **grupper** information och utföra **åtkomstgranskningar** för dina appar och grupper. Om du inte har åtkomst till den **Mina appar** portalen, måste du kontakta din supportavdelning för behörighet.
@@ -53,17 +53,19 @@ Om din administratör har gett dig behörighet att visa den **grupper** sida vid
 
     - **Granska de grupper som du äger.** Visa information om eventuella grupper som du äger i din organisation från den **grupper som jag äger** området. Att välja en specifik gruppnamn får du mer information om gruppen, inklusive grupptypen, antalet medlemmar, join-principen och listan över aktiva medlemmar.
 
-    - **Skapa en ny grupp.** Skapa en ny grupp med dig som ägare från den **grupper som jag äger** området. Specifika anvisningar finns i [skapa en ny grupp](#create-a-new-group) i den här artikeln.
+    - **Skapa en ny grupp.** Skapa en ny grupp med dig som ägare från den **grupper som jag äger** området. Specifika anvisningar finns i den [skapa en ny grupp](#create-a-new-group) i den här artikeln.
 
-    - **Redigera en befintlig grupp.** Redigera informationen för någon av dina egna grupper. Specifika anvisningar finns i [redigera en befintlig grupp](#edit-an-existing-group) i den här artikeln.
+    - **Redigera en befintlig grupp.** Redigera informationen för någon av dina egna grupper. Specifika anvisningar finns i den [redigera en befintlig grupp](#edit-an-existing-group) i den här artikeln.
 
-    - **Lägg till eller ta bort medlemmar.** Lägg till eller ta bort medlemmar för grupper som du äger. Specifika anvisningar finns i [Lägg till eller ta bort medlemmar](#add-or-remove-a-member) i den här artikeln.
+    - **Lägg till eller ta bort medlemmar.** Lägg till eller ta bort medlemmar för grupper som du äger. Specifika anvisningar finns i den [Lägg till eller ta bort medlemmar](#add-or-remove-a-member) i den här artikeln.
 
-    - **Ta bort en grupp.** Ta bort alla grupper som du äger. Specifika anvisningar finns i [ta bort en grupp](#delete-a-group) i den här artikeln.
+    - **Förnya ett Office 365-grupp.** Om din organisation tillåter det, kan du förnya din Office 365-grupper. Specifika anvisningar finns i den [förnya en Office 365-grupp](#renew-an-office-365-group) i den här artikeln. 
+
+    - **Ta bort en grupp.** Ta bort alla grupper som du äger. Specifika anvisningar finns i den [ta bort en grupp](#delete-a-group) i den här artikeln.
 
     - **Granska de grupper som du är en del av.** Visa namnen i några grupper som du är medlem från den **grupper som jag i** området. Att välja en specifik gruppnamn får du mer information om gruppen, inklusive grupptypen, antalet medlemmar, join-principen och listan över aktiva medlemmar.
 
-    - **Anslut till en grupp.** Ansluta till en befintlig grupp, som du inte redan är medlem i från den **grupper som jag i** området. Specifika anvisningar finns i [ansluta till en befintlig grupp](#join-an-existing-group).
+    - **Anslut till en grupp.** Ansluta till en befintlig grupp, som du inte redan är medlem i från den **grupper som jag i** området. Specifika anvisningar finns i den [ansluta till en befintlig grupp](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Skapa en ny grupp
 1. På den **grupper** väljer **skapa en grupp** från den **grupper som jag äger** området.
@@ -117,6 +119,18 @@ Du kan lägga till eller ta bort medlemmar för någon av dina egna grupper.
 3. Om du har lagt till en medlem av misstag eller om en medlem har lämnat organisationen, kan du ta bort medlemmen genom att välja **ta bort medlem** bredvid medlemmens namn på den *&lt;group_name&gt;* sidan.
 
     ![Ta bort en medlem med borttagning av länken markerad](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## <a name="renew-an-office-365-group"></a>Förnya ett Office 365-grupp
+Om din organisation tillåter det, kan du förnya ett Office 365-grupp, utöka dina upphör att gälla.
+
+### <a name="to-renew-a-group"></a>Förnya en grupp
+1. Välj Office 365-grupp som du vill förnya och välj sedan **förnya grupp**.
+
+    ![Förnya ett Office 365-grupp som utökar utgångsdatumet](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. Klicka på **OK** att Stäng bekräftelsemeddelandet.
+
+    När du uppdaterar sidan visas det uppdaterade **senaste förnyas** och **gruppen upphör att gälla** datum.
 
 ## <a name="delete-a-group"></a>Ta bort en grupp
 Du kan ta bort någon av dina egna grupper när som helst. Om du av misstag tar bort en grupp måste du dock skapa den och lägga till medlemmar igen.

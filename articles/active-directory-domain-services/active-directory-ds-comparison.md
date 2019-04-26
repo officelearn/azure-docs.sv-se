@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
 ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417290"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Hur du avgör om Azure AD Domain Services som passar ditt användningsområde
 Du kan distribuera dina arbetsbelastningar i Azure Infrastructure Services, utan att behöva bekymra dig om hur du underhåller infrastruktur för Identitetshantering i Azure med Azure AD Domain Services. Den här hanterade tjänsten skiljer sig från en typisk distribution för Windows Server Active Directory som du distribuerar och administrera på egen hand. Tjänsten är enkla att distribuera och ger automatiserade hälsoövervakning och reparation. Vi utvecklas ständigt tjänsten för att lägga till stöd för vanliga scenarier för distribution.

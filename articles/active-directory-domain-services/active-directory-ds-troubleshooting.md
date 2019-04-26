@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
 ms.openlocfilehash: 48831767f72dd1b978fad5b0a9a8f2c7a11ec89d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416389"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - felsökningsguide
 Den här artikeln innehåller tips för felsökning för problem som kan uppstå när du konfigurerar eller administrera domäntjänster för Azure Active Directory (AD).

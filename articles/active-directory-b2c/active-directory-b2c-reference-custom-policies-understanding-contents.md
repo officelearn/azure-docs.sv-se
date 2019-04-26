@@ -3,7 +3,7 @@ title: Förstå anpassade principer för start-paket i Azure Active Directory B2
 description: Ett ämne på Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: dbd57e53fbaec4368e3c8ce9600bce1d37bcab8f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317334"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Förstå anpassade principer för Azure AD B2C anpassad princip-startpaket
 
@@ -203,7 +203,7 @@ För närvarande inga tekniska profiler har definierats för den **Trustframewor
 |-------------------|-------------|
 | *JwtIssuer* | |
 
-## <a name="user-journeys"></a>Användaren resor
+## <a name="user-journeys"></a>Användarresor
 
 Det här avsnittet visar de användare körningar som har redan deklarerats i den *B2C_1A_base* princip. Dessa användare transporter kan vara utsatta för att ytterligare refereras, åsidosätts och/eller utökade efter behov i dina egna principer samt som i den *B2C_1A_base_extensions* princip.
 

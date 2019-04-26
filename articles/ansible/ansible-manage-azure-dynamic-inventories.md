@@ -9,16 +9,16 @@ ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: tutorial
 ms.openlocfilehash: 0ef754b792654281f2a12b8eee613434896d5476
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396622"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Använda Ansible för att hantera dina dynamiska Azure-lager
 Ansible kan användas för att hämta lagerinformation från olika källor (däribland molnkällor såsom Azure) till ett *dynamiskt lager*. I den här artikeln använder du [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) för att konfigurera ett dynamiskt Ansible Azure-lager där du skapar två virtuella datorer, taggar en av de virtuella datorerna samt installerar Nginx på den taggade virtuella datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
 

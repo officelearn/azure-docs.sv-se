@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303748"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introduktion till klassrumslabb
 Azure Lab Services låter dig snabbt konfigurera en ett klassrums-labbmiljö i molnet. En undervisare skapar ett klassrumslabb, etablerar virtuella Windows- eller Linux-datorer, installerar nödvändig programvara och verktyg i klassen och gör dem tillgängliga för studenterna. Studenterna i klassen ansluter till virtuella datorer (VM) i labbet och använder dem för sina projekt, uppgifter, klassrumsövningar. 

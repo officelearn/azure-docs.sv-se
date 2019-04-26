@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313161"
 ---
-# <a name="demo-password-reset"></a>Demo: Återställ lösenord
+# <a name="demo-password-reset"></a>Demo: Lösenordsåterställning
 Den här självstudien visar en enkel teknisk support-robot som kan hjälpa dig med lösenordsåterställning som drivs av Konversationsdeltagare. Robotens modellen kan lära dig flöden för icke-trivialt dialogrutan och flera aktiverar sekvenser, inklusive en out-för-domain-klasser. Uppgiften kan utföras utan kod eller entiteter.
 
 ## <a name="video"></a>Video

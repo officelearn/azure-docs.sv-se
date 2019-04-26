@@ -3,7 +3,7 @@ title: Definiera en RESTful-tekniska profilen i en anpassad princip i Azure Acti
 description: Definiera en RESTful-tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 7ff14af756a55ccc6bbf40dd39d49c5168f4af1f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418310"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful-tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -83,7 +83,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | ServiceUrl | Ja | URL till REST API-slutpunkt. | 
 | AuthenticationType | Ja | Vilken typ av autentisering som utförs av RESTful anspråksprovidern. Möjliga värden: `None`, `Basic`, eller `ClientCertificate`. Den `None` värdet anger att REST-API inte är anonyma. Den `Basic` värdet anger att REST API skyddas med grundläggande HTTP-autentisering. Endast verifierad användare, inklusive Azure AD B2C kan komma åt ditt API. Den `ClientCertificate` (rekommenderas) värdet anger att REST-API begränsar åtkomst med hjälp av autentisering av klientcertifikat. Endast de tjänster som har rätt certifikat, såsom Azure AD B2C kan komma åt tjänsten. | 
@@ -109,7 +109,7 @@ Om typ av autentisering är inställt på `None`, **CryptographicKeys** elemente
 
 Om typ av autentisering är inställt på `Basic`, **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Ja | Det användarnamn som används för att autentisera. | 
 | BasicAuthenticationPassword | Ja | Det lösenord som används för att autentisera. |
@@ -134,7 +134,7 @@ I följande exempel visas en tekniska profilen med basic-autentisering:
 
 Om typ av autentisering är inställt på `ClientCertificate`, **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | ClientCertificate | Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att autentisera. | 
 
@@ -157,7 +157,7 @@ Om typ av autentisering är inställt på `ClientCertificate`, **CryptographicKe
 
 REST-API kan behöva returnera ett felmeddelande som ”användaren inte hittades i CRM-systemet”. Ett fel inträffar, REST-API ska returnera felmeddelandet HTTP 409 (konflikt svarsstatuskod) med följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | version | Ja | 1.0.0 | 
 | status | Ja | 409 | 

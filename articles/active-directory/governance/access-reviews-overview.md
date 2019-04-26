@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351485"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomst granskar?
 
@@ -61,7 +61,7 @@ Beroende på vad du vill granska, skapar du din åtkomstgranskning i Azure AD å
 | Azure AD-roll | Angivna granskare</br>Själv granska | Azure AD PIM | Azure Portal |
 | Azure-resurs-roll | Angivna granskare</br>Själv granska | Azure AD PIM | Azure Portal |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda åtkomstgranskningar, måste du ha en av följande licenser:
 

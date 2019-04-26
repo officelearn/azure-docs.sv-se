@@ -1,149 +1,142 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6dfa2cf9d5d7a4fb10c04207341915aebbf1808e
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235469"
 documentType: LandingData
 title: 'Azure SQL Database: Enskild databas'
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Azure SQL Database-dokumentation – självstudier, API-referens
+  title: 'Azure SQL Database-dokumentation – självstudier, API-referens'
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: jovanpop-msft
-  manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.subservice: single-database
-  ms.tgt_pltfrm: na
-  ms.devlang: 
   ms.topic: overview
-  ms.date: 01/25/2019
+  author: jovanpop-msft
   ms.author: jovanpop-msft
+  ms.reviewer: carlrab
+  manager: craigg
+  ms.date: 05/06/2019
 abstract:
-  description: Azure SQL Database är en relationsdatabas som en tjänst (DBaaS) baserat på den senaste stabila versionen av Microsoft SQL Server Database Engine. SQL Database är en högpresterande, enkel att använda, pålitlig och säker databas som du kan använda för att skapa nya program, webbplatser och mikrotjänster i vilket språk du föredrar, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
+  description: 'Azure SQL Database är en relationsdatabas som en tjänst (DBaaS) baserat på den senaste stabila versionen av Microsoft SQL Server Database Engine. SQL Database är en högpresterande, enkel att använda, pålitlig och säker databas som du kan använda för att skapa nya program, webbplatser och mikrotjänster i vilket språk du föredrar, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
+      src: 'https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png'
       width: 250
-    title: Skapa en SQL-databas på Azure (3:12)
-    href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
+    title: 'Skapa en SQL-databas på Azure (3:12)'
+    href: 'https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/'
     width: 250
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Elastiska pooler
+            href: /azure/sql-database/sql-database-elastic-pool
+            html: <p>Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser med varierande och oförutsägbara användningskrav.</p>
+            image:
+              src: media/index/i_elasticpool.svg
+          - title: SQL Database server
+            href: /azure/sql-database/sql-database-servers
+            html: '<p>En SQL Database-server är en central administrationsplats för att konfigurera säkerhet, justering, princip för säkerhetskopiering och andra konfigurationsegenskaper på en uppsättning enkel eller grupperade databaser på servern.</p>'
+            image:
+              src: media/index/i_mi.svg
+          - title: Pris- och nivåer
+            href: /azure/sql-database/sql-database-service-tiers
+            html: <p>Anpassa förhållandet pris/prestanda och dina behov med flexibla tjänstnivåer som sträcker sig från en prisvärd 5 USD per månad till kraftfulla 80 kärnor databaser.</p>
+            image:
+              src: media/index/i_perftier.svg
+          - title: Skalbarhet
+            href: /azure/sql-database/sql-database-scale-resources
+            html: <p>Enkelt skala upp din databas för att förbättra programmets prestanda.</p>
+            image:
+              src: media/index/i_scale.svg
+          - title: Platform as a Service
+            href: /azure/sql-database/sql-database-paas
+            html: '<p>Inbyggd hög tillgänglighet, automatiska säkerhetskopieringar och geo-replikering kan förhindra att underhållsåtgärder, infrastrukturfel eller maskinvarufel stoppar din verksamhet.</p>'
+            image:
+              src: media/index/gear.svg
+          - title: Avancerad säkerhet
+            href: /azure/sql-database/sql-database-security-index
+            html: '<p>Skydda din databas med Azure AD-autentisering, virtuella nätverk, brandväggar och Always Encrypted-anslutningar. Identifiera hot och sårbarheter med inbyggd säkerhet.</p>'
+            image:
+              src: media/index/i_security.svg
+  - title: Nya och förhandsversionsfunktioner
     items:
-    - title: Elastiska pooler
-      href: /azure/sql-database/sql-database-elastic-pool
-      html: <p>Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser med varierande och oförutsägbara användningskrav.</p>
-      image:
-        src: media/index/i_elasticpool.svg
-    - title: SQL Database server
-      href: /azure/sql-database/sql-database-servers
-      html: <p>En SQL Database-server är en central administrationsplats för att konfigurera säkerhet, justering, princip för säkerhetskopiering och andra konfigurationsegenskaper på en uppsättning enkel eller grupperade databaser på servern.</p>
-      image:
-        src: media/index/i_mi.svg
-    - title: Pris- och nivåer
-      href: /azure/sql-database/sql-database-service-tiers
-      html: <p>Anpassa förhållandet pris/prestanda och dina behov med flexibla tjänstnivåer som sträcker sig från en prisvärd 5 USD per månad till kraftfulla 80 kärnor databaser.</p>
-      image:
-        src: media/index/i_perftier.svg
-    - title: Skalbarhet
-      href: /azure/sql-database/sql-database-scale-resources
-      html: <p>Enkelt skala upp din databas för att förbättra programmets prestanda.</p>
-      image:
-        src: media/index/i_scale.svg
-    - title: Platform as a Service
-      href: /azure/sql-database/sql-database-paas
-      html: <p>Inbyggd hög tillgänglighet, automatiska säkerhetskopieringar och geo-replikering kan förhindra att underhållsåtgärder, infrastrukturfel eller maskinvarufel stoppar din verksamhet.</p>
-      image:
-        src: media/index/gear.svg
-    - title: Avancerad säkerhet
-      href: /azure/sql-database/sql-database-security-index
-      html: <p>Skydda din databas med Azure AD-autentisering, virtuella nätverk, brandväggar och Always Encrypted-anslutningar. Identifiera hot och sårbarheter med inbyggd säkerhet.</p>
-      image:
-        src: media/index/i_security.svg
-- title: Nya och förhandsversionsfunktioner
-  items:
-  - type: paragraph
-    text: 'Vi förbättrar ständigt SQL-databas med nya funktioner och vi vill gärna höra dina synpunkter om följande nya funktioner:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Vi förbättrar ständigt SQL-databas med nya funktioner och vi vill gärna höra dina synpunkter om följande nya funktioner:'
+      - type: list
+        style: unordered
+        items:
+          - html: (Förhandsversion) <a href="sql-database-service-tier-hyperscale">Hyperskala</a> nivå som stöder upp till 100 TB-databaser och flera läsbara repliker.
+          - html: '(Förhandsversion) Ny SQL Server-2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">intelligent frågebearbetning</a> funktioner som <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">tabellvariabeln uppskjutna kompilering</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">batchläge för rowstore tabeller</a>, och <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json"> skalära UDF inlining</a>.'
+          - html: '(Förhandsversion) Nya funktioner för Transact-SQL-språk, till exempel <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT aggregering</a> och <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">massimport från Azure Blob storage</a>.'
+          - html: '(Förhandsversion) Ny SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">skapa</a> och återskapa grupperade index-åtgärder.'
+          - html: '(Förhandsversion) Ny <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database Machine Learning-tjänster (med R)</a>.'
+  - title: Snabbstarterna på fem minuter
     items:
-    - html: (Förhandsversion) <a href="sql-database-service-tier-hyperscale">Hyperskala</a> nivå som stöder upp till 100 TB-databaser och flera läsbara repliker.
-    - html: (Förhandsversion) Ny SQL Server-2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">intelligent frågebearbetning</a> funktioner som <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">tabellvariabeln uppskjutna kompilering</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">batchläge för rowstore tabeller</a>, och <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json"> skalära UDF inlining</a>.
-    - html: (Förhandsversion) Nya funktioner för Transact-SQL-språk, till exempel <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT aggregering</a> och <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">massimport från Azure Blob storage</a>.
-    - html: (Förhandsversion) Ny SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">skapa</a> och återskapa grupperade index-åtgärder.
-    - html: (Förhandsversion) Ny <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database Machine Learning-tjänster (med R)</a>.
-- title: Snabbstarterna på fem minuter
-  items:
-  - type: paragraph
-    text: 'Azure SQL Database kan du utföra grundläggande hanteringsåtgärder genom att använda Azure-portalen, Azure CLI och Azure PowerShell. Lär dig mer om att utföra grundläggande hanteringsåtgärder genom att använda följande Snabbstart-exempel:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/portal.svg
-      title: Azure Portal
-    - image:
-        src: media/index/cli.svg
-      title: Azure CLI
-    - image:
-        src: media/index/logo_powershell.svg
-      title: PowerShell
-    - image:
-        src: media/index/logo_arm.svg
-      title: Azure Resource Manager-mall
-    rows:
-    - title: Skapa en databas
-      values:
-      - href: /azure/sql-database/sql-database-single-database-get-started
-      - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
-      - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
-    - title: Skapa en elastisk pool
-      values:
-      - href: /azure/sql-database/sql-database-elastic-pool-manage
-      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
-      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: Skala en databas
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-      - href: 
-    - title: Skala en elastisk pool
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-- title: Stegvisa självstudier
-  items:
-  - type: paragraph
-    text: Lär dig mer om att skapa, hantera och migrera databaser med hjälp av Azure SQL Database.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Azure SQL Database kan du utföra grundläggande hanteringsåtgärder genom att använda Azure-portalen, Azure CLI och Azure PowerShell. Lär dig mer om att utföra grundläggande hanteringsåtgärder genom att använda följande Snabbstart-exempel:'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/portal.svg
+            title: Azure Portal
+          - image:
+              src: media/index/cli.svg
+            title: Azure CLI
+          - image:
+              src: media/index/logo_powershell.svg
+            title: PowerShell
+          - image:
+              src: media/index/logo_arm.svg
+            title: Azure Resource Manager-mall
+        rows:
+          - title: Skapa en databas
+            values:
+              - href: /azure/sql-database/sql-database-single-database-get-started
+              - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
+              - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
+              - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create'
+          - title: Skapa en elastisk pool
+            values:
+              - href: /azure/sql-database/sql-database-elastic-pool-manage
+              - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
+              - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+              - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create'
+          - title: Skala en databas
+            values:
+              - href: null
+              - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
+              - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
+              - href: null
+          - title: Skala en elastisk pool
+            values:
+              - href: null
+              - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
+              - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
+  - title: Stegvisa självstudier
     items:
-    - html: Skapa och utforma schemat för en ny SQL-databas med hjälp av <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> eller <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>.
-    - html: Migrera en befintlig databas till Azure med hjälp av <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> eller <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>.
-    - html: <a href="/azure/sql-database/sql-database-security-tutorial">Skydda din SQL-databas</a>.
-    - html: Distribuera dina data globalt med hjälp av en <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">geo-distribuerad databas</a>.
-    - html: Hitta mer <a href="sql-database-howto-single-database.md">instruktionsguider</a> som hjälper dig att konfigurera din databas.
-- title: Exempel
-  items:
-  - type: paragraph
-    text: Hitta skript för att hantera vanliga uppgifter.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Lär dig mer om att skapa, hantera och migrera databaser med hjälp av Azure SQL Database.'
+      - type: list
+        style: ordered
+        items:
+          - html: Skapa och utforma schemat för en ny SQL-databas med hjälp av <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> eller <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>.
+          - html: Migrera en befintlig databas till Azure med hjälp av <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> eller <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>.
+          - html: <a href="/azure/sql-database/sql-database-security-tutorial">Skydda din SQL-databas</a>.
+          - html: Distribuera dina data globalt med hjälp av en <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">geo-distribuerad databas</a>.
+          - html: Hitta mer <a href="sql-database-howto-single-database.md">instruktionsguider</a> som hjälper dig att konfigurera din databas.
+  - title: Exempel
     items:
-    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
-    - html: <a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a>
+      - type: paragraph
+        text: Hitta skript för att hantera vanliga uppgifter.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
+          - html: <a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a>

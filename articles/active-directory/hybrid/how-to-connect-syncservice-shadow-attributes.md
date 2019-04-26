@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+origin.date: 07/13/2017
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384719"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync-tjänsten shadow attribut
 De flesta attribut representeras på samma sätt i Azure AD som de är i din lokala Active Directory. Men vissa attribut har en särskild hantering och attributvärdet i Azure AD kan skilja sig från vad som synkroniserar Azure AD Connect.
@@ -42,7 +43,7 @@ En användare har följande attributvärden i en icke-kontrollerad domän:
 | --- | --- |
 | lokalt userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD-shadowUserPrincipalName | lee.sperry@fabrikam.com |
-| Azure AD userPrincipalName | lee.sperry@fabrikam.onmicrosoft.com |
+| Azure AD userPrincipalName | lee.sperry@fabrikam.partner.onmschina.cn |
 
 Attributet userPrincipalName är det värde som du ser när du använder PowerShell.
 
@@ -77,3 +78,5 @@ Shadow attribut används också när det finns dubblerade attributvärden. Mer i
 ## <a name="see-also"></a>Se också
 * [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
+
+<!-- Update_Description: wording update -->

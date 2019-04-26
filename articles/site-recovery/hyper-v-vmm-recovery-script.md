@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: a3d6f84de103596e27c22cbb11d709bb1a85dc91
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362279"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägg till ett VMM-skript i en återställningsplan
 
@@ -20,7 +20,7 @@ Den här artikeln beskrivs hur du skapar ett skript i System Center Virtual Mach
 
 Skriv dina kommentarer eller frågor längst ned i den här artikeln eller i den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du kan använda PowerShell-skript i dina återställningsplaner. För att vara tillgängliga från återställningsplanen, måste du redigera skriptet och placera skriptet i VMM-biblioteket. Ha följande i åtanke när du skriver skriptet:
 

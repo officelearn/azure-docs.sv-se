@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: bf0173f9c9802be689f7f3a893d381a251a2b16a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421615"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relä Hybrid anslutningar noden API-översikt
 
@@ -135,7 +135,7 @@ Konstruktorn argument:
 
 `RelayedServer` instanser generera tre händelser som hjälper dig att hantera inkommande begäranden, upprätta anslutningar och identifiera felvillkor. Du måste prenumerera på den `connect` händelse kan hantera meddelanden. 
 
-##### <a name="headers"></a>rubriker
+##### <a name="headers"></a>Rubriker
 
 ```JavaScript 
 function(headers)

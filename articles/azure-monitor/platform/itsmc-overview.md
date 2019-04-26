@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395873"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg som använder IT Service Management Connector
 
@@ -192,14 +192,14 @@ ServiceDeskWorkItemType_s="Incident"
 - Stängts av
 - Källa
 - Tilldelat till
-- Kategori
+- Category
 - Rubrik
 - Beskrivning
 - Skapad
 - Stängningsdatum
 - Lösningsdatum
 - Ändrades senast datum
-- Dator
+- Computer
 
 
 **Arbetsobjekt:** **Tjänstbegäranden**
@@ -214,8 +214,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Källa
 - Tilldelat till
 - Rubrik
-- Type
-- Kategori
+- Typ
+- Category
 - Status
 - Eskalering
 - Konflikt Status
@@ -233,7 +233,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Startdatum för arbete
 - Slutdatum för arbete
 - Beskrivning
-- Dator
+- Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Utdata för en ServiceNow-incident
 
@@ -249,13 +249,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | Stängts av |
 | Source_s| Kontakttyp |
 | AssignedTo_s | Tilldelat till  |
-| Category_s | Kategori |
+| Category_s | Category |
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
 | CreatedDate_t|  Öppnat |
 | ClosedDate_t| Stängd|
 | ResolvedDate_t|Löst|
-| Dator  | Konfigurationsobjekt |
+| Computer  | Konfigurationsobjekt |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Utdata för en ServiceNow-ändringsbegäran
 
@@ -266,8 +266,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Stängts av |
 | AssignedTo_s | Tilldelat till  |
 | Title_s|  Kort beskrivning |
-| Type_s|  Type |
-| Category_s|  Kategori |
+| Type_s|  Typ |
+| Category_s|  Category |
 | CRState_s|  Status|
 | Urgency_s|  Angelägenhetsgrad |
 | Priority_s| Prioritet|
@@ -280,7 +280,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Verkligt startdatum |
 | WorkEndDate_t | Verkligt slutdatum|
 | Description_s | Beskrivning |
-| Dator  | Konfigurationsobjekt |
+| Computer  | Konfigurationsobjekt |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Felsöka ITSM-anslutningar

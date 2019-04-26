@@ -3,7 +3,7 @@ title: Konfigurera lösenordskomplexitet med anpassade principer i Azure Active 
 description: Hur du konfigurerar kraven på lösenordskomplexitet med en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/13/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e8e3157bc9dfc97d364effee2ea90cfad85d18ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317147"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera lösenordskomplexitet med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55167850"
 
 Du kan konfigurera komplexitetskrav för lösenord som tillhandahålls av en användare när du skapar ett konto i Azure Active Directory (Azure AD) B2C. Azure AD B2C använder som standard **starka** lösenord. Den här artikeln visar hur du konfigurerar lösenordskomplexitet i [anpassade principer](active-directory-b2c-overview-custom.md). Det är också möjligt att konfigurera lösenordskomplexitet i [användarflöden](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Utför stegen i [Kom igång med anpassade principer i Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
@@ -112,8 +112,8 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha en Azur
 ### <a name="upload-the-files"></a>Ladda upp filer
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **Identitetsramverk**.
 5. På sidan anpassade principer **ladda upp principen**.
 6. Välj **Skriv över principen om den finns**, och sök sedan efter och välj den *SingUpOrSignInPasswordComplexity.xml* fil.

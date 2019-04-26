@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: c7a185e1c7f271cdca0c688ce7838f6390594da5
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330337"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault
 
@@ -26,7 +26,7 @@ Mer information om Azure Key Vault finns i [vad är Azure Key Vault?](../../key-
 
 Mer information om client side encryption för Azure Storage finns i [Client Side Encryption och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 

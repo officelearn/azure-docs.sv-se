@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388819"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Använda Habitat för att distribuera programmet till Azure
 [Habitat](https://www.habitat.sh/) är ett program paketering och runtime-system som paketerar programmet och dess automation tillsammans som måttenhet för distribution. Detta skapar ultimate portabilitet för programmet, så att den kan distribueras till behållare, virtuella datorer, utan operativsystem eller PaaS, utan en omarbetning eller ompaketering.

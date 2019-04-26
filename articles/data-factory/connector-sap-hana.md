@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343774"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sap-hana-connector.md)
 > * [Aktuell version](connector-sap-hana.md)
 
@@ -39,7 +39,7 @@ Mer specifikt stöder den här SAP HANA-anslutningsappen:
 > [!NOTE]
 > Kopiera data **till** SAP HANA data lagra, Använd allmän ODBC-anslutningsprogram. Se [SAP HANA-mottagare](connector-odbc.md#sap-hana-sink) med information. Observera de länkade tjänsterna för SAP HANA-anslutningsappen och ODBC-anslutningsprogram med annan typ kan därför inte får återanvändas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda den här SAP HANA-anslutningsappen måste du:
 
@@ -58,7 +58,7 @@ Följande egenskaper har stöd för SAP HANA-länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **SapHana** | Ja |
+| type | Type-egenskapen måste anges till: **SapHana** | Ja |
 | server | Namnet på den server som SAP HANA-instans finns. Om servern använder en anpassad port, ange `server:port`. | Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till SAP HANA-databas.<br/>Tillåtna värden är: **Grundläggande**, och **Windows** | Ja |
 | Användarnamn | Namnet på den användare som har åtkomst till SAP-server. | Ja |
@@ -121,7 +121,7 @@ För att kopiera data från SAP HANA, ange typ av datakälla i kopieringsaktivit
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | Anger SQL-frågan som läser data från SAP HANA-instans. | Ja |
 
 **Exempel:**
@@ -162,23 +162,23 @@ När du kopierar data från SAP HANA, används följande mappningar från SAP HA
 
 | SAP HANA-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| ALPHANUM | Sträng |
+| ALPHANUM | String |
 | BIGINT | Int64 |
-| BLOB | Byte] |
+| BLOB | Byte[] |
 | BOOLESKT VÄRDE | Byte |
-| CLOB | Byte] |
-| DATE | DateTime |
-| DECIMALTAL | Decimal |
-| DOUBLE-VÄRDE | Enkel |
+| CLOB | Byte[] |
+| DATE | Datetime |
+| DECIMAL | Decimal |
+| DOUBLE-VÄRDE | Single |
 | INT | Int32 |
-| NVARCHAR | Sträng |
-| VERKLIGA | Enkel |
-| SECONDDATE | DateTime |
+| NVARCHAR | String |
+| VERKLIGA | Single |
+| SECONDDATE | Datetime |
 | SMALLINT | Int16 |
-| TIME | Tidsintervall |
-| TIDSSTÄMPEL | DateTime |
+| TIME | TimeSpan |
+| TIDSSTÄMPEL | Datetime |
 | TINYINT | Byte |
-| VARCHAR | Sträng |
+| VARCHAR | String |
 
 ## <a name="known-limitations"></a>Kända begränsningar
 

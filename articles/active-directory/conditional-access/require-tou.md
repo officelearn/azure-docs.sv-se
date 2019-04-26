@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302337"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar
 
@@ -65,7 +65,7 @@ Det här avsnittet ger dig stegen för att skapa ett exempel på villkor för an
 
 1. På den **Azure Active Directory** sidan den **Security** klickar du på **villkorlig åtkomst**.
 
-   ![Villkorad åtkomst](./media/require-tou/03.png)
+   ![Villkorlig åtkomst](./media/require-tou/03.png)
 
 1. I den **hantera** klickar du på **användningsvillkoren**.
 
@@ -226,11 +226,11 @@ När den inte längre behövs kan du ta bort testanvändaren och principen för 
 
 - Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet för snabb åtkomst.
 
-    ![Multifaktorautentisering](./media/require-tou/33.png)
+    ![Multi-Factor Authentication](./media/require-tou/33.png)
 
 - Om du vill ta bort dina användningsvillkor, markera den och klicka sedan på **ta bort termer** i verktygsfältet högst upp.
 
-    ![Multifaktorautentisering](./media/require-tou/29.png)
+    ![Multi-Factor Authentication](./media/require-tou/29.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

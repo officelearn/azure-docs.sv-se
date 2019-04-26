@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323832"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN-regelmotor matchar de villkor 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchningsvillkor för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).

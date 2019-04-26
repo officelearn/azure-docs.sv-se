@@ -4,24 +4,24 @@ description: Förklarar uttryck för deklarativ etablering.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/18/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 07/18/2017
+ms.date: 11/08/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245509"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering
 Azure AD Connect-synkronisering bygger på deklarativ etablering introducerades i Forefront Identity Manager 2010. Det kan du implementera enhetlig identitet integration affärslogik utan att behöva skriva kompilerad kod.
@@ -33,13 +33,13 @@ Mer information finns i [Välkommen till Visual Basic for Applications Språkref
 Attribut är starkt typbestämd. En funktion accepterar endast attribut av typen korrekt. Det är också skiftlägeskänsligt. Både funktionsnamnen och attributnamn måste ha rätt skiftläge eller ett fel inträffar.
 
 ## <a name="language-definitions-and-identifiers"></a>Definitioner av språk och identifierare
-* Funktioner har ett namn följt av argument inom parentes: FunctionName (argumentet 1, argumentet N).
-* Attribut som identifierats av hakparenteser: [attributeName]
-* Parametrar som identifieras av procenttecken: % ParameterName %
-* Strängkonstanter omges av citattecken: Till exempel ”Contoso” (Obs: måste använda raka citattecken ”” och inte typografiska citattecken ””)
-* Numeriska värden anges utan citattecken och förväntas vara decimal. Hexadecimala värden föregås & H. Till exempel 98052 & HFF
-* Booleska värden uttrycks med konstanter: True, False.
-* Inbyggda konstanter och litteraler uttrycks med endast användarens namn: NULL, CRLF, IgnoreThisFlow
+- Funktioner har ett namn följt av argument inom parentes: FunctionName (argumentet 1, argumentet N).
+- Attribut som identifierats av hakparenteser: [attributeName]
+- Parametrar som identifieras av procenttecken: % ParameterName %
+- Strängkonstanter omges av citattecken: Till exempel ”Contoso” (Obs: måste använda raka citattecken ”” och inte typografiska citattecken ””)
+- Numeriska värden anges utan citattecken och förväntas vara decimal. Hexadecimala värden föregås & H. Till exempel 98052 & HFF
+- Booleska värden uttrycks med konstanter: True, False.
+- Inbyggda konstanter och litteraler uttrycks med endast användarens namn: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Functions
 Deklarativ etablering använder många funktioner för att aktivera möjlighet att omvandla attributvärden. Dessa funktioner kan kapslas så resultatet från en funktion som skickas till en annan funktion.
@@ -71,11 +71,11 @@ Här är ett exempel som fyller på domänen för metaversum-attribut med netbio
 ### <a name="operators"></a>Operatorer
 Du kan använda följande operatorer:
 
-* **Jämförelse av**: <, < =, <>, =, >, > =
-* **Matematik**: +, -, \*, -
-* **Sträng**: & (sammanfoga)
-* **Logiska**: & & (och) || (eller)
-* **Utvärderingsordning**:)
+- **Jämförelse av**: <, < =, <>, =, >, > =
+- **Matematik**: +, -, \*, -
+- **Sträng**: & (sammanfoga)
+- **Logiska**: & & (och) || (eller)
+- **Utvärderingsordning**:)
 
 Operatörer utvärderas till vänster till höger och har samma prioritet för utvärdering. Det vill säga den \* (multiplikatorn) utvärderas inte innan - (subtraktion). 2\*(5 + 3) är inte samma som 2\*5 + 3. Hakparenteser (-) används för att ändra utvärderingsordningen när vänster till höger utvärderingsordning inte är lämpligt.
 
@@ -88,16 +88,17 @@ Exempel:
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Leta efter SIP-adress och ta bort den från värden.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om konfigurationsmodellen i [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
-* Se hur deklarativ etablering är att använda out-of-box i [förstå standardkonfigurationen](concept-azure-ad-connect-sync-default-configuration.md).
-* Se hur du ändrar något praktiskt med deklarativ etablering i [hur du gör en ändring i standardkonfigurationen](how-to-connect-sync-change-the-configuration.md).
+- Läs mer om konfigurationsmodellen i [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
+- Se hur deklarativ etablering är att använda out-of-box i [förstå standardkonfigurationen](concept-azure-ad-connect-sync-default-configuration.md).
+- Se hur du ändrar något praktiskt med deklarativ etablering i [hur du gör en ändring i standardkonfigurationen](how-to-connect-sync-change-the-configuration.md).
 
 **Översiktsavsnitt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
-* [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
+- [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+- [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
 
 **Referensämnen**
 
-* [Azure AD Connect-synkronisering: Referens för funktioner](reference-connect-sync-functions-reference.md)
+- [Azure AD Connect-synkronisering: Referens för funktioner](reference-connect-sync-functions-reference.md)
+
 

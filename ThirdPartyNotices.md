@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 493ba7cb198d7eb33b96156b96389a036db6476b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58191746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318671"
 ---
 ## <a name="legal-notices"></a>Juridisk information
 Microsoft och eventuella bidragsgivares ge dig en licens för Microsoft-dokumentationen och övrigt innehåll i den här databasen enligt den [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode), finns i den [licens](LICENSE) fil och ge dig en licens till all kod i lagret enligt den [MIT-licensen](https://opensource.org/licenses/MIT), finns i den [LICENSE-CODE](LICENSE-CODE) fil.

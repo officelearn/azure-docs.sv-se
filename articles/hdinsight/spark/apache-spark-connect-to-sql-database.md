@@ -1,7 +1,6 @@
 ---
 title: Använda Apache Spark för att läsa och skriva data till Azure SQL database
 description: Lär dig hur du konfigurerar en anslutning mellan HDInsight Spark-kluster och en Azure SQL database skriver data och strömdata till en SQL-databas om du vill läsa data
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/15/2018
 ms.openlocfilehash: 2b818350c19d1d9ff34bcdac0e438def0f859e40
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327045"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använda HDInsight Spark-kluster för att läsa och skriva data till Azure SQL database
 
 Lär dig hur du ansluter ett Apache Spark-kluster i Azure HDInsight med en Azure SQL database och sedan läsa, skriva och strömma data till SQL-databasen. Anvisningarna i den här artikeln används en [Jupyter Notebook](https://jupyter.org/) att köra kodfragmenten Scala. Du kan dock skapa ett fristående program i Scala och Python och utföra samma uppgifter. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Azure HDInsight Spark-kluster**.  Följ anvisningarna på [skapar ett Apache Spark-kluster i HDInsight](apache-spark-jupyter-spark-sql.md).
 

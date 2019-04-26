@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 95705e7b7a372867e33c86826f44e380407dfee1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336821"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services-SDK för visuellt innehåll och för Python
 
@@ -90,7 +90,7 @@ Installera Azure Cognitive Services-SDK för visuellt innehåll för Python-[pak
 pip install azure-cognitiveservices-vision-computervision
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 När du skapar resursen för visuellt innehåll, måste dess **endpoint**, och en av dess **kontonycklar** att skapa en instans av klientobjektet.
 

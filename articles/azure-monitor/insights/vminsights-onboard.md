@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
 ms.openlocfilehash: 1a4bfae22477e345176971bd40b0afa91c8867fb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401569"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Distribuera Azure Monitor för virtuella datorer (förhandsversion)
 
@@ -41,11 +41,11 @@ Innan du börjar bör du kontrollera att du förstår informationen i följande 
 
 Azure Monitor för virtuella datorer stöder en Log Analytics-arbetsyta i följande regioner:
 
-- USA, västra centrala
+- Västra centrala USA
 - Östra USA
 - Kanada, centrala<sup>1</sup>
 - Storbritannien, södra<sup>1</sup>
-- Västeuropa
+- Västra Europa
 - Sydostasien<sup>1</sup>
 
 <sup>1</sup> den här regionen för tillfället stöder inte funktionen Health i Azure Monitor för virtuella datorer.
@@ -73,7 +73,7 @@ Om du vill konfigurera din arbetsyta för scenariot i skala, finns i Konfigurera
 
 I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azure Monitor för virtuella datorer. En fullständig lista som beskriver den högre och den lägre Linux OS-versionen och kernel-versioner som stöds finns senare i det här avsnittet.
 
-|Operativsystemversion |Prestanda |Kartor |Hälso- och sjukvård |
+|Operativsystemversion |Prestanda |Kartor |Hälsa |
 |-----------|------------|-----|-------|
 |Windows Server 2019 | X | X | |
 |Windows Server 2016 1803 | X | X | X |
@@ -112,7 +112,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 | 6.10 | 2.6.32-754 |
 
 ### <a name="centosplus"></a>CentOSPlus
-| OS-version | Kernel-version |
+| Operativsystemversion | Kernel-version |
 |:--|:--|
 | 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
 | 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
@@ -128,7 +128,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 
 #### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
-| OS-version | Kernel-version
+| Operativsystemversion | Kernel-version
 |:--|:--|
 |11 SP4 | 3.0.* |
 

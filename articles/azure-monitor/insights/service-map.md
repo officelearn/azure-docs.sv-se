@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404644"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkarta kan du visa dina servrar på samma sätt som du ser på dem: som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer, inkommande och utgående anslutningssvarstid, samt portar i valfri TCP-ansluten arkitektur, utan att det krävs någon konfiguration förutom installationen av en agent.
@@ -297,7 +297,7 @@ Poster i tabellerna genereras från data som rapporteras av beroendeagenten. Var
 
 För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar är grupperade i en logisk anslutning, som sedan visas i respektive tabell.  Betydelse, registrerar i *VMConnection* tabell representerar en logisk gruppering och inte de enskilda fysiska anslutningar som är som observeras. Fysiska nätverksanslutningen som delar samma värde för följande attribut under ett visst minuts intervall, slås ihop till en enskild logisk post i *VMConnection*. 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 | `Direction` |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
 | `Machine` |Datorn FQDN |
@@ -309,7 +309,7 @@ För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte en
 
 Information om antalet grupperade fysiska anslutningar finns i följande egenskaper för posten för att redovisa effekten av gruppering:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 | `LinksEstablished` |Antal fysiska nätverksanslutningar som har upprättats under tidsperioden för rapportering |
 | `LinksTerminated` |Antal fysiska nätverksanslutningar som har avslutats under tidsperioden för rapportering |
@@ -320,7 +320,7 @@ Information om antalet grupperade fysiska anslutningar finns i följande egenska
 
 Förutom antalet anslutningsmått, information om mängden data som skickas och tas emot på en viss logisk anslutning eller nätverksport ingår även i följande egenskaper för posten:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 | `BytesSent` |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
 | `BytesReceived` |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
@@ -346,7 +346,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="geolocation"></a>Geoplats
 *VMConnection* innehåller även geoplats information för den fjärranslutna datorn för varje post för anslutning av följande egenskaper för posten: 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 | `RemoteCountry` |Namnet på det land som är värd för RemoteIp.  Till exempel *USA* |
 | `RemoteLatitude` |Geoplats latitud.  Till exempel *47.68* |
@@ -355,7 +355,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="malicious-ip"></a>Skadlig IP
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 | `MaliciousIp` |RemoteIp-adress |
 | `IndicatorThreadType` |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |

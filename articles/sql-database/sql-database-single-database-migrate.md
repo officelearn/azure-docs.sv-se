@@ -14,11 +14,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/11/2019
 ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331799"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrering av SQL Server-databas till Azure SQL Database
 
@@ -59,7 +59,7 @@ Följande lista innehåller rekommendationer för bästa prestanda under importe
 - Inaktivera automatisk statistik under migreringen
 - Partitionstabeller och index
 - Ta bort indexerade vyer och återskapa dem när de är klara
-- Ta bort historiska data som sällan efterfrågas till en annan databas och migrera historiska data till en separat Azure SQL Database. Du kan sedan söka i historiska data med [elastiska frågor](sql-database-elastic-query-overview.md).
+- Ta bort historiska data som sällan efterfrågas till en annan databas och migrera historiska data till en separat Azure SQL-databas. Du kan sedan söka i historiska data med [elastiska frågor](sql-database-elastic-query-overview.md).
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Optimera prestanda när migreringen är klar
 

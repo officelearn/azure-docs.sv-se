@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370975"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Förstå Microsoft kundavtal administrativa roller i Azure
 
@@ -163,7 +163,7 @@ Följande tabeller visar vilken roll som du behöver utföra uppgifter i samband
 |Hantera faktureringen för produkter för faktura-avsnitt som Avbryt, inaktivera automatisk förnyelse och mycket mer|✔|✔|✘|✘|✘|✘|✘|
 |Ändra faktura avsnittet för produkterna|✔|✔|✘|✘|✘|✘|✘|
 
-### <a name="manage-subscriptions-for-invoice-section"></a>Hantera prenumerationer för faktura-avsnitt
+### <a name="manage-subscriptions-for-invoice-section"></a>Hantera prenumerationer för fakturaavsnitt
 
 |Uppgifter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Skapare av Azure-prenumeration|Faktureringskontoinnehavare|Faktureringskontodeltagare|Faktureringskontoläsare
 |---|---|---|---|---|---|---|---|
@@ -185,7 +185,7 @@ I följande tabell visar vilken roll som du behöver utföra uppgifter i samband
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

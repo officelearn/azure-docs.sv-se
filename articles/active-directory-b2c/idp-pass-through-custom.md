@@ -3,7 +3,7 @@ title: Skicka en åtkomst-token via en anpassad princip till ditt program i Azur
 description: Lär dig hur du överföra en åtkomsttoken för OAuth2.0 Identitetsproviders som ett anspråk genom en anpassad princip till ditt program i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 784387b119bff6445015419adfd3bc0e52eee43f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397197"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomst-token via en anpassad princip till ditt program i Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ En [anpassad princip](active-directory-b2c-get-started-custom.md) i Azure Active
 
 Azure AD-B2C stöder skicka åtkomsttoken [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) och [OpenID Connect](active-directory-b2c-reference-oidc.md) identitetsleverantörer. För alla andra identitetsleverantörer returneras anspråket tomt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Den anpassade principen har konfigurerats med en identitetsleverantör för OAuth 2.0 eller OpenID Connect.
 

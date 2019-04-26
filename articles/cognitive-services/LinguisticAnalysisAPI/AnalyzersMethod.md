@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9338e87644554ac8b3121c5341cea6f2bc512a97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1b33b60f674eebb15fdc6112e1d630b93b98494b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404733"
 ---
 # <a name="analyzers-method"></a>Analyzer-metod
 
@@ -32,15 +32,17 @@ Ingen
 <br>
 
 ## <a name="response-parameters"></a>Svarsparametrar
+
 Namn | Typ | Beskrivning
 -----|------|--------------
 Språk | lista med strängar | lista över två bokstaven ISO språkkoder som som den här analyzer kan användas.
-id   | sträng | unikt ID för den här analyzer
-typ | sträng | bred typ av analyzer här
-Specifikationen | sträng | namnet på den specifikation som används för den här analyzer
-Implementering | sträng | Beskrivning av modellen och/eller algoritmen bakom den här analyzer
+id   | string | unikt ID för den här analyzer
+typ | string | bred typ av analyzer här
+Specifikationen | string | namnet på den specifikation som används för den här analyzer
+Implementering | string | Beskrivning av modellen och/eller algoritmen bakom den här analyzer
 
 <br>
+
 ## <a name="example"></a>Exempel
 Hämta /analyzers
 

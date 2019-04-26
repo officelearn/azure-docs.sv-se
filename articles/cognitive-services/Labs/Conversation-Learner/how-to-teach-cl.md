@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 8c55bb27ce5a413c5ceae22371ad61a5acf47281
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322897"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Så här lär du ut med Conversation Learner 
 
@@ -45,7 +45,7 @@ Vissa signaler naturligt föredrar learning processen.  Med andra ord om Konvers
 
 Här är en tabell som visar alla signaler i Konversationsdeltagare och vilka som används av val av åtgärd.  Observera att word ordning i användaren yttranden ignoreras.
 
-Signal | Inställningar (1 = mest föredragna) | OBS!
+Signal | Inställningar (1 = mest föredragna) | Anteckningar
 --- | --- | --- 
 Systemåtgärd i föregående sin tur | 1 | 
 Entiteter i aktuella aktivera | 1 | 

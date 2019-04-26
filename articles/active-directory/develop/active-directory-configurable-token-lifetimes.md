@@ -18,11 +18,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411376"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara tokenlivslängder i Azure Active Directory (förhandsversion)
 
@@ -201,7 +201,7 @@ I exemplen, kan du lära dig hur du:
 * Skapa en princip för en inbyggd app som anropar ett webb-API
 * Hantera en avancerad princip
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 I följande exempel har du skapa, uppdatera, länka och ta bort principer för appar, tjänstens huvudnamn och din organisation. Om du är nybörjare på Azure AD, rekommenderar vi att du lär dig mer om [skaffa en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.  
 
 Utför följande steg för att komma igång:

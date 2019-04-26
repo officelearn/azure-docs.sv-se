@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/09/2018
-ms.author: davidmu
+origin.date: 10/09/2018
+ms.date: 04/01/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317181"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Hantera enkel inloggning och token anpassning med anpassade principer i Azure Active Directory B2C
 
@@ -100,3 +101,4 @@ Följande värden konfigureras i det förra exemplet:
 - **Enkel inloggning (SSO)** -enkel inloggning har konfigurerats med den **SingleSignOn**. Lämpliga värden är `Tenant`, `Application`, `Policy`, och `Suppressed`. 
 - **Webbappssession (minuter)** – app webbsessionen livslängd anges med den **SessionExpiryInSeconds** element. Standardvärdet är 86400 sekunder (1 440 minuter).
 - **Web app sessionstimeout** – app webbsessionen timeouten anges med den **SessionExpiryType** element. Lämpliga värden är `Absolute` och `Rolling`.
+

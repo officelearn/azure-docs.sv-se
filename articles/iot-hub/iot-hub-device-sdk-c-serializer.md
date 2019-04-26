@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399271"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT-enhetens SDK för C – mer om serialiserare
 
@@ -71,14 +71,14 @@ Följande datatyper som stöds i modeller som skapats med den **serialiserare** 
 | flyt |med enkel precision flyttalsnummer |
 | lång |långt heltal |
 | int8\_t |8-bitars heltal |
-| Int16\_t |16-bitars heltal |
-| Int32\_t |32-bitars heltal |
-| Int64\_t |64-bitars heltal |
-| Bool |boolesk |
-| ASCII\_char\_ptr |ASCII-sträng |
-| EDM\_DATUM\_TID\_FÖRSKJUTNING |förskjutning av slutdatum tid |
+| int16\_t |16-bitars heltal |
+| int32\_t |32-bitars heltal |
+| int64\_t |64-bitars heltal |
+| bool |boolesk |
+| ascii\_char\_ptr |ASCII-sträng |
+| EDM\_DATE\_TIME\_OFFSET |förskjutning av slutdatum tid |
 | EDM\_GUID |GUID |
-| EDM\_BINÄRA |binär |
+| EDM\_BINARY |binary |
 | DEKLARERA\_STRUCT |Komplex datatyp |
 
 Låt oss börja med den senaste datatypen. Den **DECLARE\_STRUCT** kan du definiera komplexa datatyper som är grupperingar av primitiva typer. Dessa grupperingar att vi kan definiera en modell som ser ut så här:
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Observera att modellen innehåller två Datahändelser: **temperatur** och **fuktighet**. Till skillnad från föregående exempel kan typen för varje händelse är en struktur som definieras med hjälp av **DECLARE\_STRUCT**. **TemperatureEvent** innehåller ett mått för temperatur och en tidsstämpel; **HumidityEvent** innehåller ett fuktighet mått och en tidsstämpel. Den här modellen ger oss ett naturligt sätt att modellera data för det scenario som beskrivs ovan. När vi skickar en händelse till molnet, skickar vi antingen en temperatur/tidsstämpel eller ett par för fuktighet/timestamp.
+Observera att modellen innehåller två Datahändelser: **Temperatur** och **fuktighet**. Till skillnad från föregående exempel kan typen för varje händelse är en struktur som definieras med hjälp av **DECLARE\_STRUCT**. **TemperatureEvent** innehåller ett mått för temperatur och en tidsstämpel; **HumidityEvent** innehåller ett fuktighet mått och en tidsstämpel. Den här modellen ger oss ett naturligt sätt att modellera data för det scenario som beskrivs ovan. När vi skickar en händelse till molnet, skickar vi antingen en temperatur/tidsstämpel eller ett par för fuktighet/timestamp.
 
 Vi kan skicka en temperatur-händelse till molnet med hjälp av kod som följande:
 
@@ -514,7 +514,7 @@ Om du skickar ett meddelande till en enhet, skulle du göra det via tjänsten Az
 {"Name" : "", "Parameters" : "" }
 ```
 
-Du skickar ett serialiserade JSON-objekt med två egenskaper: **namn** är namnet på åtgärden (meddelande) och **parametrar** innehåller parametrar för åtgärden.
+Du skickar ett serialiserade JSON-objekt med två egenskaper: **Namnet** är namnet på åtgärden (meddelande) och **parametrar** innehåller parametrar för åtgärden.
 
 Till exempel för att anropa **SetAirResistance** du kan skicka det här meddelandet till en enhet:
 
@@ -593,7 +593,7 @@ För att kunna använda den nya versionen av makrot\_utils.h, ta bort den **seri
 
 Lägg sedan till det här projektet i Visual Studio-lösningen:
 
-> . \\c\\serialiserare\\skapa\\windows\\serializer.vcxproj
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
 > 
 > 
 
@@ -615,16 +615,16 @@ Mer information finns i en [föregående artikel](iot-hub-device-sdk-c-iothubcli
 * IoTHubClient\_CreateFromConnectionString
 * IoTHubClient\_SendEventAsync
 * IoTHubClient\_SetMessageCallback
-* IoTHubClient\_förstör
+* IoTHubClient\_Destroy
 
 Dessa API: er är visas i **simplesample\_amqp**.
 
 Det finns också en liknande uppsättning API: er på lägre nivå.
 
-* IoTHubClient\_lla\_CreateFromConnectionString
-* IoTHubClient\_lla\_SendEventAsync
-* IoTHubClient\_lla\_SetMessageCallback
-* IoTHubClient\_lla\_förstör
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 Observera att på lägre nivå-API: er fungerar exakt på samma sätt som beskrivs i föregående artiklar. Du kan använda den första uppsättningen med API: er om du vill att en bakgrundstråd att hantera händelser som sändande och mottagande meddelanden. Du använder den andra uppsättningen av API: er om du vill ha explicita kontroll över när du skickar och tar emot data från IoT Hub. Antingen uppsättning API: er fungerar lika bra med de **serialiserare** biblioteket.
 

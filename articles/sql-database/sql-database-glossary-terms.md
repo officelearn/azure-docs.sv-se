@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60341650"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database i ordlista
 
@@ -40,13 +40,13 @@ Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
 ||Storskalig databas|En databas skapas inom eller flyttas till hyperskala tjänstenivå för den vCore-baserade inköpsmodellen|
 ||Kritisk Business-databas|En databas skapas inom eller flyttas till företag kritiska tjänstenivå för den vCore-baserade inköpsmodellen|
 |[Inköp och resurser](sql-database-purchase-models.md)|DTU-baserade inköpsmodellen|[DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md)|
-||Virtuell kärna-baserad inköpsmodell|[vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md)|
+||Köpmodell baserad på virtuell kärna|[vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md)|
 ||virtuell kärna|En kärna som fått gästoperativsystemet av hypervisor-programmet.|
 ||Tjänstenivå|En servicenivå inom en inköpsmodell|
 ||Beräkna storlek|Mängden beräkningsresurser för en enkel databas eller elastisk pool hanterad instans i en tjänstnivå|
 ||Lagringsutrymme|Mängden lagring som är tillgängliga för en enkel databas eller elastisk pool hanterad instans|
 ||Compute-generering|Generering av processorn i en tjänstnivå|
-|Brandväggsregler för databasservers IP-adress|IP-brandväggsregler|[IP-brandväggsregler](sql-database-firewall-configure.md)|
-||Brandväggsregler för IP-adress på servernivå|[IP-brandväggsregler på servernivå](sql-database-firewall-configure.md#overview)|
+|IP-brandväggsregler för databasserver|IP-brandväggsregler|[IP-brandväggsregler](sql-database-firewall-configure.md)|
+||IP-brandväggsregler på servernivå|[IP-brandväggsregler på servernivå](sql-database-firewall-configure.md#overview)|
 || IP-brandväggsregler på databasnivå|[IP-brandväggsregler på databasnivå](sql-database-firewall-configure.md#overview)|
 ||Slutpunkter för virtuellt nätverk och regler|[Slutpunkter och regler för virtuellt nätverk](sql-database-vnet-service-endpoint-rule-overview.md)|

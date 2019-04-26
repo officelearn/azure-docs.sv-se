@@ -3,7 +3,7 @@ title: Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad 
 description: Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396775"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad princip för Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Den **InputClaims**, **OutputClaims**, och **PersistClaims** element är tom ell
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Ja | Anspråk som ska användas som användar-ID anspråk i OAuth2-auktoriseringskoder och uppdateringstoken. Som standard ska du ange den till `objectId`, såvida du inte anger en annan SubjectNamingInfo Anspråkstypen. | 
 | SendTokenResponseBodyWithJsonNumbers | Nej | Alltid inställt `true`. För äldre format där numeriska värden anges som strängar i stället för JSON-nummer, inställt på `false`. Det här attributet krävs för klienter som har tagit ett beroende på en tidigare implementering som returnerade egenskaper, till exempel som strängar. | 
@@ -60,7 +60,7 @@ Den **InputClaims**, **OutputClaims**, och **PersistClaims** element är tom ell
 
 CryptographicKeys-elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | issuer_secret | Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att signera JWT-token. Det här är den `B2C_1A_TokenSigningKeyContainer` viktiga konfigureras i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md). | 
 | issuer_refresh_token_key | Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att kryptera uppdateringstoken. Du har konfigurerat den `B2C_1A_TokenEncryptionKeyContainer` nyckeln i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md) |

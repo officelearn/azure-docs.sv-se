@@ -14,11 +14,11 @@ ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
 ms.openlocfilehash: 0befc5e00cf31960a0ecda3f739e65477c740edd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028894"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60374152"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Viktig information för Developer Analytics Tools
 
@@ -56,7 +56,7 @@ ms.locfileid: "54028894"
 * Diagnostiska verktyg och händelsen information etikett för SDK Adaptiv Sampling
 * Felkorrigeringar
 
-## <a name="version-712-visual-studio-2015"></a>Version 7,12 (Visual Studio 2015)
+## <a name="version-712-visual-studio-2015"></a>Version 7.12 (Visual Studio 2015)
 
 * Publicera nya meddelandeformat
 * Felkorrigeringar
@@ -73,7 +73,7 @@ ms.locfileid: "54028894"
 * Ny design för konfiguration av Application Insights-fönstret
 * Felkorrigeringar
 
-## <a name="version-79-visual-studio-2015"></a>Version 7,9 (Visual Studio 2015)
+## <a name="version-79-visual-studio-2015"></a>Version 7.9 (Visual Studio 2015)
 
 * CodeLens visar undantag som har inträffat under lokal felsökning sessioner för projekt med Application Insights SDK
 * Felkorrigeringar
@@ -83,7 +83,7 @@ ms.locfileid: "54028894"
 * Ny upplevelse för att lägga till Application Insights i fönstret konfiguration
 * Felkorrigeringar
 
-## <a name="version-77-visual-studio-2015"></a>Version 7,7 (Visual Studio 2015)
+## <a name="version-77-visual-studio-2015"></a>Version 7.7 (Visual Studio 2015)
 
 * Mer exakta mappningar från telemetrihändelser till metoder med hjälp av anpassade ASP.NET-Routning
 * Felkorrigeringar

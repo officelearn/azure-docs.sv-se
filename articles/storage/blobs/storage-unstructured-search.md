@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392338"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Självstudier: Sök efter ostrukturerade data i molnlagringen
 
@@ -35,7 +35,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Skapa en indexerare
 > * Använda söktjänsten för att söka i en container
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurserna grupperas. När du skapar ett lagringskonto kan du antingen skapa en ny resursgrupp eller använda en befintlig resursgrupp. I den här självstudien skapas en ny resursgrupp.
 

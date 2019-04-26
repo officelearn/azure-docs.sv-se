@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
 ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420231"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Hur du använder Azure Relay WCF-reläer med .NET
 Den här artikeln beskriver hur du använder Azure Relay-tjänsten. Exemplen är skrivna i C# och använder API:et Windows Communication Foundation (WCF) med tillägg som finns i Service Bus-sammansättningen. Mer information om Azure relay finns i den [översikt över Azure Relay](relay-what-is-it.md).

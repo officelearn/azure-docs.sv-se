@@ -1,7 +1,6 @@
 ---
 title: Analysera loggar i Application Insights med Spark - Azure HDInsight
 description: Lär dig hur du exporterar loggar i Application Insights för att blob-lagring och sedan analysera loggarna med Spark på HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.openlocfilehash: 806e5b6f764797d2e038cc7ed58ec1d04f678e2b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326656"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analysera loggar i Application Insights telemetry med Apache Spark i HDInsight
 
@@ -22,7 +21,7 @@ Lär dig hur du använder [Apache Spark](https://spark.apache.org/) på HDInsigh
 
 [Visual Studio Application Insights](../../azure-monitor/app/app-insights-overview.md) är en analystjänst som övervakar dina webbprogram. Telemetridata som genereras av Application Insights kan exporteras till Azure Storage. När data finns i Azure Storage, användas HDInsight för att analysera den.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett program som är konfigurerad för att använda Application Insights.
 

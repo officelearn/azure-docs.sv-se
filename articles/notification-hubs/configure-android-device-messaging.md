@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 0d79e53f731c20777ffa2fb57b3b8149fe4e60ab
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60239950"
 ---
 # <a name="configure-android-device-messaging-adm-settings-for-a-notification-hub-in-the-azure-portal"></a>Konfigurera inställningar för Android Device Messaging (ADM) för en notification hub i Azure portal
 Den här artikeln visar hur du konfigurerar inställningar för Android Device Messaging (ADM) för en Azure notification hub med hjälp av Azure portal. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du inte redan har skapat en meddelandehubb, ska du skapa en nu. Mer information finns i [skapar en Azure notification hub i Azure-portalen](create-notification-hub-portal.md). 
 
-## <a name="configure-android-device-messaging"></a>Konfigurera Android-enhet-meddelanden
+## <a name="configure-android-device-messaging"></a>Konfigurera Android Device Messaging
 
 Följande procedur ger dig steg för att konfigurera inställningar för en meddelandehubb för Amazon Device Messaging (ADM): 
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: a82004fdd6bbb4eda0842670f210f846f9446384
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310884"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Återställning av säkerhetskopia i Azure Service Fabric
 
@@ -32,7 +32,7 @@ Du kan till exempel konfigurera en tjänst för att säkerhetskopiera data till 
 - **Om data går förlorade**: Oavsiktlig borttagning eller skadade data i tjänsten. En administratör tar till exempel felaktigt bort tjänsten.
 - **Om data skadas**: Buggar i tjänsten orsaka skadade data. Till exempel kan skadade data inträffa när en kod tjänsteuppgraderingen skriver felaktiga data till en tillförlitlig samling. I sådana fall kanske du återställer koden och data till ett tidigare tillstånd.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Att aktivera en återställning på _fas (FAULT Analysis Service)_ måste vara aktiverat för klustret.
 - Den _säkerhetskopiering återställa Service (BRS)_ skapade säkerhetskopian.

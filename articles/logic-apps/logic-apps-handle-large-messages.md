@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303798"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Hantera stora meddelanden med storlekar i Azure Logic Apps
 
@@ -119,16 +119,16 @@ De här stegen beskriver detaljerad processen Logic Apps använder för att ladd
 
    | Logic Apps begära huvud-fält | Värde | Typ | Beskrivning |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-läge** | segmentvis | Sträng | Anger att innehållet har laddats upp i segment |
-   | **x-ms-content-length** | <*innehållslängd*> | Integer | Hela innehållets storlek i byte innan storlekar |
+   | **x-ms-transfer-mode** | segmentvis | String | Anger att innehållet har laddats upp i segment |
+   | **x-ms-content-length** | <*content-length*> | Integer | Hela innehållets storlek i byte innan storlekar |
    ||||
 
 2. Slutpunkten som svarar med ”200” lyckades statuskod och den här valfria informationen:
 
-   | Slutpunkten svarsfältet rubrik | Typ | Krävs | Beskrivning |
+   | Slutpunkten svarsfältet rubrik | Typ | Obligatoriskt | Beskrivning |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-segment-storlek** | Integer | Nej | Den föreslagna segmentstorleken i byte |
-   | **Plats** | Sträng | Nej | URL-plats att skicka HTTP-PATCH-meddelanden |
+   | **x-ms-chunk-size** | Integer | Nej | Den föreslagna segmentstorleken i byte |
+   | **Plats** | String | Nej | URL-plats att skicka HTTP-PATCH-meddelanden |
    ||||
 
 3. Logikappen skapar och skickar Uppföljnings HTTP KORRIGERA meddelanden – var och en med den här informationen:
@@ -139,9 +139,9 @@ De här stegen beskriver detaljerad processen Logic Apps använder för att ladd
 
      | Logic Apps begära huvud-fält | Värde | Typ | Beskrivning |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*Adressintervall*> | Sträng | Byte-intervallet för det aktuella innehåll segmentet, inklusive Startvärde, slutar värde och den totala innehållsstorleken, till exempel ”: byte = 0-1023/10100” |
-     | **Innehållstyp** | <*innehållstyp*> | Sträng | Typ av segmenterat innehåll |
-     | **Content-Length** | <*innehållslängd*> | Sträng | Längden på storlek i byte för det aktuella segmentet |
+     | **Content-Range** | <*Adressintervall*> | String | Byte-intervallet för det aktuella innehåll segmentet, inklusive Startvärde, slutar värde och den totala innehållsstorleken, till exempel ”: byte = 0-1023/10100” |
+     | **Innehållstyp** | <*innehållstyp*> | String | Typ av segmenterat innehåll |
+     | **Content-Length** | <*content-length*> | String | Längden på storlek i byte för det aktuella segmentet |
      |||||
 
 4. Efter varje PATCH-begäran bekräftar slutpunkten kvitto på varje segment genom att svara med statuskod ”200”.

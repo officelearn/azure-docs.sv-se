@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: diberry
 ms.openlocfilehash: 86acf4586fc7d6ae630a5a84a8c9d0e8e00c7e99
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404867"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med C#
 

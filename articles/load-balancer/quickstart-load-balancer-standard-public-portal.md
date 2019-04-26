@@ -16,11 +16,11 @@ ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 77e322e32d19433d9ce4629c2e04c8bbd7e17f3f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405536"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabbstart: Skapa en Standard Load Balancer som lastbalanserar virtuella datorer med Azure Portal
 
@@ -45,7 +45,7 @@ I det här avsnittet skapar du en Standardbelastningsutjämnare som hjälper til
     | Resursgrupp         | Välj **Skapa nytt** och skriv *myResourceGroupSLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Type          | Välj **Offentligt**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -78,7 +78,7 @@ För att belastningsutjämnaren ska övervaka status för din app måste använd
     | Namn | Ange *myHealthProbe*. |
     | Protokoll | Välj **HTTP**. |
     | Port | Ange *80*.|
-    | Intervall | Ange *15* för antal **intervall** i sekunder mellan avsökningsförsöken. |
+    | Interval | Ange *15* för antal **intervall** i sekunder mellan avsökningsförsöken. |
     | Tröskelvärde för Ej felfri | Välj *2* för antal **tröskelvärde för ej felfri** eller avsökningsfel som måste inträffa innan en virtuell dator betraktas som defekt.|
     | Hälsoavsökning | Välj *myHealthProbe*. |
 4. Välj **OK**.
@@ -116,7 +116,7 @@ I det här avsnittet, skapa ett virtuellt nätverk, skapar två virtuella datore
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj befintlig resurs - *myResourceGroupSLB*. |
-    | Plats | Välj **Västeuropa**.|
+    | Location | Välj **Västeuropa**.|
     | Undernät – Namn | Ange *myBackendSubnet*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
 1. Lämna resten av standardinställningarna och välj **Skapa**.

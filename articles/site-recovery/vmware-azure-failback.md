@@ -8,17 +8,17 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 7773a2f43eb076075be484d92fde31094a2b584b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320046"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318129"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Återställ virtuella VMware-datorer och fysiska servrar från Azure till en lokal plats
 
 Den här artikeln beskriver hur du växlar tillbaka virtuella datorer från Azure-datorer till en lokal VMware-miljö. Följ anvisningarna i den här artikeln för att växla tillbaka din VMware-datorer eller Windows-/ Linux fysiska servrar när de har redundansväxlat från lokalerna platsen till Azure med hjälp av den [redundans i Azure Site Recovery](site-recovery-failover.md) självstudien.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 - Se till att du har läst informationen om den [olika typer av återställning efter fel](concepts-types-of-failback.md) och motsvarande varningar.
 
 > [!WARNING]

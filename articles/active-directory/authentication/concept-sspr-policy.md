@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359032"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -45,7 +45,7 @@ Två gate-principen kräver två typer av autentiseringsdata, till exempel en **
   * Efterlevnadsadministratör
   * Programadministratör
   * Säkerhetsadministratör
-  * Privilegierad rolladministratör
+  * Administratör för privilegierad roll
   * Intune-administratör
   * Administratör för tjänsten webbprogramproxy
   * Dynamics 365-administratör

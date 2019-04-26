@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: 115a459c6a9e4ea96931c89272a49396f0656258
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362225"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exempel 1 – skapa en enkel DMZ med NSG: er med klassisk PowerShell
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -576,7 +576,7 @@ Spara den här xml-filen med uppdaterade plats och lägga till länken till den 
 ```
 
 #### <a name="sample-application-scripts"></a>Exempelskript för program
-Om du vill installera ett exempelprogram för detta och andra DMZ-exempel finns en på följande länk: [Exempelskript för program][SampleApp]
+Om du vill installera ett exempelprogram för detta och andra exempel på perimeternätverk finns en på följande länk: [Exempelskript för program][SampleApp]
 
 ## <a name="next-steps"></a>Nästa steg
 * Uppdatera och spara XML-fil

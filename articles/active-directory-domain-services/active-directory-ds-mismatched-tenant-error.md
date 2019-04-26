@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
 ms.openlocfilehash: d3586293574cc71011ad96fece5e5a4fdfa0b70f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417235"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Lös Felmatchade katalogfel för befintliga Azure AD Domain Services hanterade domäner
 Du har en befintlig Azure AD Domain Services-hanterad domän. När du navigerar du till Azure-portalen och visa den hanterade domänen, visas följande felmeddelande visas:

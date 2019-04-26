@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345472"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-Händelseschema för Container Registry
 
@@ -157,22 +157,22 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
+| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | string | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för BLOB storage. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| id | sträng | Händelse-ID. |
-| tidsstämpel | sträng | Den tid då händelsen inträffade. |
-| åtgärd | sträng | Den åtgärd som omfattar den angivna händelsen. |
+| id | string | Händelse-ID. |
+| tidsstämpel | string | Den tid då händelsen inträffade. |
+| åtgärd | string | Den åtgärd som omfattar den angivna händelsen. |
 | mål | objekt | Målet för händelsen. |
 | begäran | objekt | Den begäran som skapade händelsen. |
 
@@ -180,24 +180,24 @@ Målobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| mediaType | sträng | MIME-typ för det refererade objektet. |
+| mediaType | string | MIME-typ för det refererade objektet. |
 | storlek | heltal | Antal byte av innehållet. Samma som fältet längd. |
-| Sammanfattad | sträng | Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen. |
+| Sammanfattad | string | Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen. |
 | Längd | heltal | Antal byte av innehållet. Samma som fältet. |
-| Lagringsplats | sträng | Namnet på lagringsplatsen. |
-| tagg | sträng | Taggnamnet. |
-| namn | sträng | Diagrammets namn. |
-| version | sträng | Diagram-version. |
+| Lagringsplats | string | Namnet på lagringsplatsen. |
+| tagg | string | Taggnamnet. |
+| namn | string | Diagrammets namn. |
+| version | string | Diagram-version. |
 
 Begäranobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| id | sträng | ID för begäran som initierade händelsen. |
-| addr | sträng | Den IP- eller värdnamn och möjligen porten för klientanslutningen som initierade händelsen. Det här värdet är RemoteAddr från vanlig http-begäran. |
-| värd | sträng | Externt tillgängliga värdnamnet för registry-instans som den anges av http-rubriken på inkommande begäranden. |
-| metod | sträng | Metoden för begäran som genererade händelsen. |
-| USERAGENT | sträng | Användaren agent huvudet för begäran. |
+| id | string | ID för begäran som initierade händelsen. |
+| addr | string | Den IP- eller värdnamn och möjligen porten för klientanslutningen som initierade händelsen. Det här värdet är RemoteAddr från vanlig http-begäran. |
+| värd | string | Externt tillgängliga värdnamnet för registry-instans som den anges av http-rubriken på inkommande begäranden. |
+| metod | string | Metoden för begäran som genererade händelsen. |
+| USERAGENT | string | Användaren agent huvudet för begäran. |
 
 ## <a name="next-steps"></a>Nästa steg
 

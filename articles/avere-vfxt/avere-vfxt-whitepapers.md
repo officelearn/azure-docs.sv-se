@@ -7,11 +7,11 @@ ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409200"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Azure vFTX för Azure whitepapers och andra resurser 
 
@@ -29,7 +29,7 @@ Den här guiden innehåller stegvisa anvisningar för att installera Agisoft Pho
 
 Denna rapport med två sidor har grundläggande information och diagram som förklarar hur du använder Avere vFXT för Azure i flera användningsfall.
 
-## <a name="hybrid-cloud-for-file-based-workloads"></a>Hybridmoln för fil-baserade arbetsbelastningar
+## <a name="hybrid-cloud-for-file-based-workloads"></a>Hybridmoln för filbaserade arbetsbelastningar
 
 **Länk:** [Informationsgrafik: Att skapa ett hybridmoln för fil-baserade arbetsbelastningar](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/) 
 

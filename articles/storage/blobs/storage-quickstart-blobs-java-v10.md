@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
 ms.openlocfilehash: f44a6b825f9e8871bb7d7877ebd1821038b45f65
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392389"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Java Storage SDK V10
 
 I den här snabbstarten får du lära dig hur du använder nya Java Storage SDK för att ladda upp, ladda ned och visa blockblobar i en container i Azure Blob Storage. Detta nya Java-SDK använder den reaktiva programmeringsmodellen med RxJava som gör att du kan använda asynkrona åtgärder. Mer information om RxJava: [reaktiva tillägg för Java VM](https://github.com/ReactiveX/RxJava). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

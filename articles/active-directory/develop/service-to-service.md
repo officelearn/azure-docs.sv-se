@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.subservice: develop
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: celested
+origin.date: 09/24/2018
+ms.date: 11/07/2018
+ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252051"
 ---
 # <a name="service-to-service-apps"></a>Tjänst-till-tjänst-appar
 
@@ -63,8 +63,8 @@ Se kodexempel för Daemon eller ett program till webb-API-scenarier. Och kontrol
 
 ## <a name="app-registration"></a>Appregistrering
 
-* Enskild klient - för applikationsidentitet såväl delegerade användaren identitet fall daemon eller serverprogram som måste vara registrerade i samma katalog i Azure AD. Webb-API kan konfigureras för att exponera en uppsättning behörigheter som används för att begränsa daemon eller servers åtkomst till dess resurser. Om en delegerad användaridentitetstypen används måste serverprogrammet att välja önskade behörigheter i listrutan ”behörigheter till andra program” i Azure-portalen. Det här steget krävs inte om identitet programtyp som används.
-* Flera innehavare-första, den daemon eller server har konfigurerats för att ange de behörigheter som krävs ska fungera. Den här listan över behörigheter som krävs visas i en dialogruta när en användare eller administratör i målmappen ger du ditt medgivande till programmet, vilket gör dem tillgängliga för deras organisation. Vissa program kräver endast användarnivå behörigheter, som alla användare i organisationen kan godkänna. Andra program som kräver på administratörsnivå som en användare i organisationen inte kan godkänna. Endast en directory-administratören kan samtycka till program som kräver den här behörighetsnivån. När användaren eller administratören godkänner, är både webb-API: er registrerade i sin katalog.
+- Enskild klient - för applikationsidentitet såväl delegerade användaren identitet fall daemon eller serverprogram som måste vara registrerade i samma katalog i Azure AD. Webb-API kan konfigureras för att exponera en uppsättning behörigheter som används för att begränsa daemon eller servers åtkomst till dess resurser. Om en delegerad användaridentitetstypen används måste serverprogrammet att välja önskade behörigheter i listrutan ”behörigheter till andra program” i Azure-portalen. Det här steget krävs inte om identitet programtyp som används.
+- Flera innehavare-första, den daemon eller server har konfigurerats för att ange de behörigheter som krävs ska fungera. Den här listan över behörigheter som krävs visas i en dialogruta när en användare eller administratör i målmappen ger du ditt medgivande till programmet, vilket gör dem tillgängliga för deras organisation. Vissa program kräver endast användarnivå behörigheter, som alla användare i organisationen kan godkänna. Andra program som kräver på administratörsnivå som en användare i organisationen inte kan godkänna. Endast en directory-administratören kan samtycka till program som kräver den här behörighetsnivån. När användaren eller administratören godkänner, är både webb-API: er registrerade i sin katalog.
 
 ## <a name="token-expiration"></a>Giltighetstid för token
 
@@ -74,3 +74,4 @@ När det första programmet använder dess auktoriseringskod för att hämta en 
 
 - Läs mer om andra [programtyper och scenarier](app-types.md)
 - Lär dig mer om Azure AD [grunder](authentication-scenarios.md)
+

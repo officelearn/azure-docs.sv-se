@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309121"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Följande egenskaper har stöd för SAP Business Warehouse (BW) länkade tjänst
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **SapBw** | Ja |
+| type | Type-egenskapen måste anges till: **SapBw** | Ja |
 | server | Namnet på den server som SAP BW-instansen finns. | Ja |
 | systemNumber | Systemnummer för SAP BW-system.<br/>Tillåtna värdet: tvåsiffrig decimaltal representeras som en sträng. | Ja |
 | ClientId | Klient-ID för klienten i SAP W systemet.<br/>Tillåtna värdet: tresiffrig decimaltal representeras som en sträng. | Ja |
@@ -125,7 +125,7 @@ Om du vill kopiera data från SAP BW, ange typ av datakälla i kopieringsaktivit
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | Anger MDX-fråga för att läsa data från SAP BW-instans. | Ja |
 
 **Exempel:**

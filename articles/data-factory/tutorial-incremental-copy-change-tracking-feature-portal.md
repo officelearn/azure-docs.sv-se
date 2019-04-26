@@ -14,13 +14,13 @@ ms.date: 01/12/2018
 ms.author: yexu
 ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
 ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58449164"
 ---
-# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage med ändringsspårningsinformation 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i Azure SQL Database-källan till ett Azure Blob Storage.  
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsinformation 
+I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i källans Azure SQL-databas till en Azure bloblagring.  
 
 I den här självstudiekursen får du göra följande:
 
@@ -68,7 +68,7 @@ I den här självstudien skapar du två pipelines som utför följande två åtg
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database läser du [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md) för att lära dig hur du skapar en.
+* **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) . Skapa en container med namnet **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Skapa en datatabell i din Azure SQL-databas

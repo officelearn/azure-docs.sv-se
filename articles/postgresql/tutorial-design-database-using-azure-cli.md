@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/01/2018
 ms.openlocfilehash: eba1ffcbe07c617661d902de0726f17e4fec0a00
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57992088"
@@ -76,7 +76,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 Om du vill begränsa åtkomsten till Azure PostgreSQL-servern så att endast ditt nätverk får åtkomst kan du ställa in brandväggsregeln så att den endast omfattar ditt företagsnätverks IP-adressintervall.
 
 > [!NOTE]
-> Azure PostgreSQL-servern kommunicerar via port 5432. När du ansluter innifrån ett företagsnätverk är det möjligt att utgående trafik via port 5432 inte tillåts av nätverkets brandvägg. Be din IT-avdelning öppna port 5432 för att ansluta till din Azure SQL-databasserver.
+> Azure PostgreSQL-servern kommunicerar via port 5432. När du ansluter innifrån ett företagsnätverk är det möjligt att utgående trafik via port 5432 inte tillåts av nätverkets brandvägg. Be din IT-avdelning öppna port 5432 för att ansluta till din Azure SQL Database-server.
 >
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen

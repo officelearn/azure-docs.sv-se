@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Utföra åtgärder för att extrahera, transformera, läsa in (ETL) med Hive i HDInsight – Azure '
-description: Lär dig att extrahera data från en rå CSV-datamängd, transformera dem med Hive på HDInsight och därefter läsa in de transformerade data i Azure SQL Database med Apache Sqoop.
+description: Lär dig att extrahera data från en rå CSV-datamängd, transformera dem med Hive på HDInsight och därefter läsa in de transformerade data i Azure SQL-databasen med Apache Sqoop.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -11,7 +11,7 @@ ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
 ms.openlocfilehash: b8a45f3014b3fd5d0f5592b3f9bd408fc37b387b
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57999948"
@@ -29,8 +29,8 @@ Den här självstudien omfattar följande uppgifter:
 > * Ladda ned exempelflygdata
 > * Ladda upp data till ett HDInsight-kluster
 > * Transformera data med Hive
-> * Skapa en tabell i Azure SQL Database
-> * Använd Sqoop för att exportera data till Azure SQL Database
+> * Skapa en tabell i Azure SQL-databas
+> * Använd Sqoop för att exportera data till Azure SQL-databas
 
 
 Följande bild visar ett typiskt ETL-programflöde.
@@ -272,7 +272,7 @@ Om du redan har en SQL-databas måste du hämta servernamnet. För att hitta ser
 
 ## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Exportera data till SQL-databas med hjälp av Apache Sqoop
 
-I föregående avsnitt kopierade du omvandlade data på `/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från ”/tutorials/flightdelays/output” till tabellen du skapade i Azure SQL Database. 
+I föregående avsnitt kopierade du omvandlade data på `/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från ”/tutorials/flightdelays/output” till tabellen du skapade i Azure SQL-databasen. 
 
 1. Använd följande kommando för att verifiera att Sqoop kan se din SQL-databas:
 

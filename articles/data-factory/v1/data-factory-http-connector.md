@@ -13,11 +13,11 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318486"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Flytta data från en HTTP-källa med hjälp av Azure Data Factory
 
@@ -51,7 +51,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från en HT
 
 I följande tabell beskrivs JSON-element som är specifika för HTTP-länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ | Den **typ** egenskapen måste anges till **Http**. | Ja |
 | url | Den grundläggande Webbadressen till webbservern. | Ja |
@@ -66,10 +66,10 @@ Mer information om hur du anger autentiseringsuppgifter för en datakälla för 
 
 Ange **authenticationType** till **grundläggande**, **sammanfattad**, eller **Windows**. Förutom de allmänna HTTP Kopplingsegenskaperna som beskrivs i föregående avsnitt, ange följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | användarnamn | Användarnamnet du använder för att få åtkomst till HTTP-slutpunkt. | Ja |
-| lösenord | Lösenordet för användaren (**användarnamn**). | Ja |
+| password | Lösenordet för användaren (**användarnamn**). | Ja |
 
 **Exempel: Med hjälp av grundläggande, sammanfattad eller Windows-autentisering**
 
@@ -94,11 +94,11 @@ Ange **authenticationType** till **grundläggande**, **sammanfattad**, eller **W
 
 Om du vill använda grundläggande autentisering, ange **authenticationType** till **ClientCertificate**. Förutom de allmänna HTTP Kopplingsegenskaperna som beskrivs i föregående avsnitt, ange följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | embeddedCertData | Base64-kodade innehåll binära data i PFX-filen. | Ange antingen **embeddedCertData** eller **certThumbprint** |
 | certThumbprint | Tumavtryck för certifikatet som installerades på gateway-datorns certifikatarkiv. Gäller endast när du kopierar data från en lokal HTTP-källa. | Ange antingen **embeddedCertData** eller **certThumbprint** |
-| lösenord | Lösenordet som är associerat med certifikatet. | Nej |
+| password | Lösenordet som är associerat med certifikatet. | Nej |
 
 Om du använder **certThumbprint** för autentisering och certifikatet är installerat i det personliga arkivet i den lokala datorn kan bevilja läsbehörighet till gateway-tjänsten:
 
@@ -158,13 +158,13 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** är olika för varje typ av datauppsättning. Den **typeProperties** avsnittet innehåller information om var data i datalagret. Den **typeProperties** för en datauppsättning för den **Http** typ har följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** av datauppsättningen måste anges till **Http**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. Om sökvägen inte anges används den URL som anges i länkade tjänstedefinition. <br><br> Du kan använda för att skapa en dynamisk URL [Data Factory-funktioner och systemvariabler](data-factory-functions-variables.md). Exempel: **relativeUrl**: **$$Text.Format (”/ min/rapporten? månad = {0: yyyy}-{0:MM} & fmt = csv”, SliceStart)**. | Nej |
 | requestMethod | HTTP-metoden. Tillåtna värden är **hämta** och **POST**. | Nej <br />(standardvärdet är **hämta**) |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| RequestBody | Brödtexten för HTTP-begäran. | Nej |
+| requestBody | Brödtexten för HTTP-begäran. | Nej |
 | Format | Om du vill *hämta data från en HTTP-slutpunkt som – är* utan parsning den hoppar du över den **format** inställningen. <br><br> Om du vill parsa HTTP-svarsinnehåll vid kopiering stöds följande formattyper av: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nej |
 | Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Stöds nivåer: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
@@ -221,9 +221,9 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 För närvarande när källan i Kopieringsaktiviteten är av den **HttpSource** skriver du följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Timeout (i **TimeSpan** värde) för HTTP-begäran att få svar. Tidsgränsen är det för att få svar timeout inte att läsa svarsdata. | Nej<br />(standardvärde: **00: 01:40**) |
+| httpRequestTimeout | Timeout (i **TimeSpan** värde) för HTTP-begäran att få svar. Tidsgränsen är det för att få svar timeout inte att läsa svarsdata. | Nej<br />(standardvärde: **00:01:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Fil- och komprimeringsformat de format som stöds
 

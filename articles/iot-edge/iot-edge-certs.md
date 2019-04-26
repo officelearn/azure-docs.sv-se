@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 91cde6965f3635d6d2acfaf581f570779020f8ff
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445323"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Kostnadsinformation för Azure IoT Edge-certifikat
 
@@ -118,7 +118,7 @@ Du kan se hierarkin för certifikatet djup visas i skärmbilden:
 | Mellanliggande CA-certifikat | Azure IoT Hub mellanliggande certifikat Test                                                                 |
 | Enhets-CA-certifikat       | iotgateway.ca (”iotgateway” som skickades var i < gateway värdnamn > bekvämlighet skript)      |
 | Arbetsbelastningen CA-certifikat     | iotedge arbetsbelastning ca                                                                                       |
-| IoT Edge Hub-servercertifikat | iotedgegw.Local (överensstämmer med värdnamnet från config.yaml)                                                |
+| IoT Edge Hub Server Certificate | iotedgegw.Local (överensstämmer med värdnamnet från config.yaml)                                                |
 
 ## <a name="next-steps"></a>Nästa steg
 

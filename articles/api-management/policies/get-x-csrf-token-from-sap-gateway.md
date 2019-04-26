@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 2f4d26702443ef3113dad98cde1d13b292fe657a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306707"
 ---
-# <a name="implement-x-csrf-pattern"></a>Implementera X-CSRF-mönster
+# <a name="implement-x-csrf-pattern"></a>Implement X-CSRF pattern
 
 Den här artikeln visar ett urval av Azure API management-princip som visar hur du implementerar X CSRF mönstret som används av många API: er. Det här exemplet är specifikt för SAP-gateway. Om du vill ange eller redigera en princip för kod, följer du stegen som beskrivs i [ange eller redigera en princip](../set-edit-policies.md). Andra exempel finns i [princip exempel](../policy-samples.md).
 

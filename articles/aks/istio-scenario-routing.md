@@ -2,17 +2,18 @@
 title: Intelligent Routning och kanarieversioner med Istio i Azure Kubernetes Service (AKS)
 description: Lär dig hur du använder Istio att ange intelligent Routning och distribuera kanarieversioner i ett kluster i Azure Kubernetes Service (AKS)
 services: container-service
-author: paulbouwer
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 12/3/2018
-ms.author: pabouwer
+origin.date: 12/03/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465943"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Använd intelligenta Routning och kanarieversioner med Istio i Azure Kubernetes Service (AKS)
 
@@ -128,7 +129,7 @@ Containers:
     Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
     ...
   istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.0.4
+    Image:         dockerhub.azk8s.cn/istio/proxyv2:1.0.4
 [...]
 ```
 
@@ -254,7 +255,7 @@ Du kan enkelt visualisera att vi nu bara dirigeras till version *1.1* av din *r�
 
 Du kan visualisera att du nu bara dirigeras till version *1.1* av din *rösta analytics* komponent på följande sätt. Kom ihåg att använda IP-adressen för en egen Istio Ingress-Gateway:
 
-```azurecli-interactive
+```azurecli
 INGRESS_IP=52.187.250.239
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
@@ -340,7 +341,7 @@ deployment.apps/voting-app-2-0 created
 
 Vänta tills versionen *2.0* poddar körs. Använd den [kubectl hämta poddar] [ kubectl-get] kommando för att visa alla poddar i den *röstande* namnområde:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods --namespace voting
 ```
 

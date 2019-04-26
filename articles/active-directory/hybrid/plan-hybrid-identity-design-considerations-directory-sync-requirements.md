@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381169"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Fastställa katalogsynkroniseringskrav
 Synkronisering handlar om och ger användarna en identitet i molnet baserat på deras lokala identitet. Oavsett om de använda synkroniserade kontot för autentisering eller federerad autentisering, måste användarna fortfarande att ha en identitet i molnet.  Den här identiteten måste bibehållas och uppdateras regelbundet.  Uppdateringarna kan olika former, från titel ändras till lösenordsändringar.  

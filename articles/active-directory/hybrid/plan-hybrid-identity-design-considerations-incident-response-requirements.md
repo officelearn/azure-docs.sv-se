@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455813"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Fastställa kraven på incidentsvar för din hybrididentitetslösning
 Stora eller medelstora organisationer troligen har en [svar på säkerhetsincidenter](https://technet.microsoft.com/library/cc700825.aspx) hjälp IT vidta åtgärder i enlighet med detta till nivå för incident. Hanteringssystem för identitet är en viktig komponent i processen för incidenthantering eftersom den kan användas för att identifiera vem som utförde en specifik åtgärd mot målet. Hybrididentitetslösning måste kunna tillhandahålla funktioner för övervakning och rapportering som kan utnyttjas av IT-avdelningen att vidta åtgärder för att identifiera och minimera potentiella hot. I en typisk incidentåtgärdsplan har du följande faser som en del av planen:

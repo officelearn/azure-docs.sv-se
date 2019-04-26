@@ -11,11 +11,11 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
 ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467994"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
@@ -31,12 +31,12 @@ Med Advisor kan du:
 
 Du kan komma åt Advisor i den [Azure-portalen](https://aka.ms/azureadvisordashboard). Logga in på den [portal](https://portal.azure.com), leta upp **Advisor** i navigeringsmenyn eller Sök efter den i den **alla tjänster** menyn.
 
-Advisor-instrumentpanelen visar anpassade rekommendationer för alla dina prenumerationer.  Du kan använda filter för att visa rekommendationer för specifika prenumerationer och resurstyper.  Rekommendationer är uppdelad i fyra kategorier: 
+Advisor-instrumentpanelen visar anpassade rekommendationer för alla dina prenumerationer.  Du kan använda filter för att visa rekommendationer för specifika prenumerationer och resurstyper.  Rekommendationerna är indelade i fyra kategorier: 
 
 * **Hög tillgänglighet**: För att kontrollera och förbättra affärskontinuitet för dina verksamhetskritiska program. Mer information finns i [rekommendationer för hög tillgänglighet för Advisor](advisor-high-availability-recommendations.md).
-* **Security**: Att identifiera hot och sårbarheter som kan leda till säkerhetsproblem. Mer information finns i [Advisor säkerhetsrekommendationer](advisor-security-recommendations.md).
-* **Prestanda**: Att förbättra hastigheten på dina program. Mer information finns i [Advisor prestandarekommendationer](advisor-performance-recommendations.md).
-* **Kostnaden**: För att optimera och minska dina totalpriset för Azure utgifter. Mer information finns i [Advisor kostnadsrekommendationer](advisor-cost-recommendations.md).
+* **Säkerhet**: Identifiera hot och sårbarheter som kan leda till säkerhetsproblem. Mer information finns i [Advisor säkerhetsrekommendationer](advisor-security-recommendations.md).
+* **Prestanda**: Gör dina appar snabbare. Mer information finns i [Advisor prestandarekommendationer](advisor-performance-recommendations.md).
+* **Kostnader**: Optimera och minska din totalkostnad för Azure. Mer information finns i [Advisor kostnadsrekommendationer](advisor-cost-recommendations.md).
 
   ![Typer av Advisor-rekommendationen](./media/advisor-overview/advisor-dashboard.png)
 

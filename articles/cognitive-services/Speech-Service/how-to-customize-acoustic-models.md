@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
 ms.openlocfilehash: f2a111558fa3f515b797745dc51e32f625bbd91f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844032"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539153"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudier: Skapa en anpassad akustisk modell
 
@@ -29,7 +29,7 @@ I den här artikeln kan du se hur du:
 
 Om du inte har ett Azure Cognitive Services-konto skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att ditt Cognitive Services-konto är anslutet till en prenumeration genom att öppna sidan [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Cognitive Services-prenumerationer).
 

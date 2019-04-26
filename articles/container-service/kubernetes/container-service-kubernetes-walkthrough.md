@@ -10,11 +10,11 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335037"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(INAKTUELL) Snabbstart – Distribuera Kubernetes-kluster för Linux-containrar
 
@@ -47,7 +47,7 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på plats
 az group create --name myResourceGroup --location westeurope
 ```
 
-Resultat:
+Utdata:
 
 ```json
 {
@@ -92,7 +92,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
@@ -175,7 +175,7 @@ Använd kommandot [kubectl create](https://kubernetes.io/docs/reference/generate
 kubectl create -f azure-vote.yml
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 deployment "azure-vote-back" created

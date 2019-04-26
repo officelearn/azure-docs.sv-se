@@ -9,18 +9,18 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311721"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320592"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb
 Den här artikeln vägleder dig genom processen med att förbereda enheter för ett importjobb.  
   
 Det här exemplet importerar följande data till en Windows Azure-lagringskonto med namnet `mystorageaccount`:  
   
-|Plats|Beskrivning|  
+|Location|Beskrivning|  
 |--------------|-----------------|  
 |H:\Video|En samling av videor, 5 TB totalt.|  
 |H:\Photo|En samling av foton, 30 GB totalt.|  
@@ -44,7 +44,7 @@ Därefter för att avgöra hur många hårddiskar behövs, beräkna storleken p�
   
 I det här exemplet bör två 3 TB-hårddiskar vara tillräckliga. Eftersom källkatalogen `H:\Video` har 5 TB data och den enda hårddisken kapaciteten är bara 3 TB, det är nödvändigt att bryta `H:\Video` i två mindre kataloger: `H:\Video1` och `H:\Video2`, innan du kör programmet Microsoft Azure Import/Export-verktyget. Det här steget ger följande källa kataloger:  
   
-|Plats|Storlek|Virtuell katalog för mål- eller blob|  
+|Location|Storlek|Virtuell katalog för mål- eller blob|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  

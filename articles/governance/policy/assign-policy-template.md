@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 1a811d3d0796b37053ffbabf56b63b4e4f68e203
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60500206"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Skapa en principtilldelning som identifierar icke-kompatibla resurser med hjälp av Resource Manager-mall
 
@@ -45,7 +45,7 @@ Här är en kopia av mallen:
    |------|-------|
    | Prenumeration | Välj din Azure-prenumeration. |
    | Resursgrupp | Välj **Skapa nytt**, ange ett namn och välj sedan **OK**. På skärmbilden, resursgruppens namn är *mypolicyquickstart\<datumet i MMDD > rg*. |
-   | Plats | Välj en region. Välj till exempel **USA, centrala**. |
+   | Location | Välj en region. Välj till exempel **USA, centrala**. |
    | Principtilldelningsnamnet | Ange ett principnamn för tilldelning. Du kan använda visning för definition av principen om du vill. Till exempel **granska virtuella datorer som inte använder hanterade diskar**. |
    | Rg namn | Ange ett Resursgruppsnamn som du vill tilldela principen till. I den här snabbstarten använder du standardvärdet **[resourceGroup () .name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)**  är en mall-funktion som hämtar resursgruppen. |
    | Principdefinitions-ID: | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |

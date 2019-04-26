@@ -9,11 +9,11 @@ ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459945"
 ---
 # <a name="virtual-wan-partners"></a>Virtuella WAN-partner
 
@@ -28,7 +28,7 @@ En gren-enhet (kund lokala VPN-enhet eller SDWAN CPE) använder vanligtvis en st
 * Testa en Portal för Azure virtuellt WAN-nätverk.
 * Sedan bestämma vilken del av anslutningen stegen som du vill automatisera. Vi rekommenderar minst automatisering:
 
-  * Access Control
+  * Åtkomstkontroll
   * Överföring av gren enhetsinformation i Azure virtuellt WAN-nätverk
   * Ladda ned Azure-konfiguration och konfigurera anslutningen från gren enhet till Azure virtuellt WAN-nätverk
 
@@ -214,8 +214,8 @@ Följande avsnitt listar stöds princip kombinationerna när Azure är initierar
 
 **Fas 2**
 
-* GCM_AES_256 GCM_AES_256, PFS_NONE
-* AES_256 SHA_1, PFS_NONE
+* GCM_AES_256, GCM_AES_256, PFS_NONE
+* AES_256, SHA_1, PFS_NONE
 * CBC_3DES, SHA_1, PFS_NONE
 * AES_256, SHA_256, PFS_NONE
 * AES_128, SHA_1, PFS_NONE
@@ -236,8 +236,8 @@ Följande avsnitt listar kombinationerna stöds principen när Azure är svarand
 
 **Fas 2**
 
-* GCM_AES_256 GCM_AES_256, PFS_NONE
-* AES_256 SHA_1, PFS_NONE
+* GCM_AES_256, GCM_AES_256, PFS_NONE
+* AES_256, SHA_1, PFS_NONE
 * CBC_3DES, SHA_1, PFS_NONE
 * AES_256, SHA_256, PFS_NONE
 * AES_128, SHA_1, PFS_NONE

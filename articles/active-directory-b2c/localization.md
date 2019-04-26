@@ -3,7 +3,7 @@ title: Localization - Azure Active Directory B2C | Microsoft Docs
 description: Ange det lokalisering elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187563"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401756"
 ---
 # <a name="localization"></a>Lokalisering
 
@@ -39,7 +39,7 @@ Den **lokalisering** elementet kan du stöd för flera språk eller språk i pri
 
 Den **lokalisering** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Enabled | Nej | Möjliga värden: `true` eller `false`. |
 
@@ -54,7 +54,7 @@ Den **lokalisering** elementet innehåller följande XML-element
 
 Den **SupportedLanguages** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Ja | Språk som ska användas som standard för lokaliserade resurser. |
 | MergeBehavior | Nej | En uppräkningsvärdena med värden som slås samman tillsammans med eventuella ClaimType finns i en överordnad-princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som angetts i basprincipen. Möjliga värden: `Append`, `Prepend`, eller `ReplaceAll`. Den `Append` värdet anger att mängden data som finns ska läggas till slutet av den samling som anges i den överordnade principen. Den `Prepend` värdet anger att mängden data som finns bör läggas innan den samling som anges i den överordnade principen. Den `ReplaceAll` värdet anger att insamlingen av data som definierats i den överordnade principen ska ignoreras, i stället använda de data som definieras i den aktuella principen. |
@@ -71,7 +71,7 @@ Den **SupportedLanguages** elementet innehåller följande element:
 
 Den **LocalizedResources** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för att unikt identifiera lokaliserade resurser. |
 
@@ -94,7 +94,7 @@ Den **LocalizedCollections** elementet innehåller följande element:
 
 Den **LocalizedCollection** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | ElementType | Ja | Refererar till ett ClaimType element eller en användargränssnittselement i policyfilen. |
 | ElementId | Ja | En sträng som innehåller en referens till en Anspråkstyp redan definierats i avsnittet ClaimsSchema som används om **ElementType** är inställd på en ClaimType. |
@@ -108,7 +108,7 @@ Den **LocalizedCollection** elementet innehåller följande element:
 
 Den **objekt** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Text | Ja | Användarvänligt visningssträngen som ska visas för användaren i användargränssnittet för det här alternativet. |
 | Värde | Ja | Strängen anspråksvärde som är associerade med det här alternativet. |
@@ -144,7 +144,7 @@ Den **LocalizedStrings** elementet innehåller följande element:
 
 Den **LocalizedString** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | ElementType | Ja | En referens till ett anspråk typen element eller en användargränssnittselement i principen. Möjliga värden: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, eller. Den `ClaimType` värde används för att lokalisera ett av attributen anspråk som anges i StringId. Den `UxElement` värde används för att lokalisera en av användargränssnittselement som anges i StringId. Den `ErrorMessage` värdet används för att hitta något av system-felmeddelanden som anges i StringId. Den `Predicate` värde används för att lokalisera en av de [predikat](predicates.md) felmeddelanden som anges i StringId. Den `InputValidation` värde används för att lokalisera en av de [PredicateValidation](predicates.md) gruppen felmeddelanden som anges i StringId. |
 | ElementId | Ja | Om **ElementType** är inställd på `ClaimType`, `Predicate`, eller `InputValidation`, det här elementet innehåller en referens till en Anspråkstyp som redan har definierats i avsnittet ClaimsSchema. | 

@@ -10,11 +10,11 @@ ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: a094369d467b3b1f3d5fe93f870dccc9eae7519c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60508123"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(INAKTUELL) Övervaka ett Azure Container Service DC/OS-kluster med Datadog
 
@@ -22,7 +22,7 @@ ms.locfileid: "57547219"
 
 I den här artikeln ska vi distribuera Datadog agenter till alla agentnoder i ditt Azure Container Service-kluster. Du behöver ett konto med Datadog för den här konfigurationen. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 [Distribuera](container-service-deployment.md) och [anslut](../container-service-connect.md) ett kluster som konfigurerats av Azure Container Service. Utforska [Marathon-gränssnittet](container-service-mesos-marathon-ui.md). Gå till [ https://datadoghq.com ](https://datadoghq.com) du ställer in en Datadog-konto. 
 
 ## <a name="datadog"></a>Datadog

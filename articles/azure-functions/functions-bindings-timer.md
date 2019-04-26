@@ -10,15 +10,16 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/08/2018
-ms.author: cshoe
+origin.date: 09/08/2018
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.custom: ''
 ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310051"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timerutlösare för Azure Functions 
 
@@ -197,7 +198,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Vi rekommenderar mot inställningen **runOnStartup** till `true` i produktion. Med den här inställningen är kod som kör vid tidpunkter med hög oförutsägbart. I vissa inställningar för produktion, kan dessa extra körningar resultera i avsevärt högre kostnader för appar i förbrukningsplaner. Till exempel med **runOnStartup** aktiverat utlösaren i anropas när appen skalas. Kontrollera att du förstår produktion beteendet för dina funktioner innan du aktiverar **runOnStartup** i produktion.   
+> Vi rekommenderar mot inställningen **runOnStartup** till `true` i produktion. Med den här inställningen är kod som kör vid tidpunkter med hög oförutsägbart. I vissa inställningar för produktion, kan dessa extra körningar resultera i avsevärt högre kostnader för appar i förbrukningsplaner. Till exempel med **runOnStartup** aktiverat utlösaren i anropas när appen skalas. Kontrollera att du förstår produktion beteendet för dina funktioner innan du aktiverar **runOnStartup** i produktion.
 
 ## <a name="usage"></a>Användning
 
@@ -226,7 +227,7 @@ Azure Functions använder den [NCronTab](https://github.com/atifaziz/NCrontab) b
 
 Varje fält kan ha något av följande typer av värden:
 
-|Type  |Exempel  |När det utlöses  |
+|Typ  |Exempel  |När det utlöses  |
 |---------|---------|---------|
 |Ett specifikt värde |<nobr>"0 5 * * * *"</nobr>|vid hh:05:00 där hh är varje timme (en gång i timmen)|
 |Alla värden (`*`)|<nobr>"0 * 5 * * *"</nobr>|vid 5:mm: 00 varje dag, mm är där varje minut av timme (60 gånger per dag)|
@@ -314,3 +315,5 @@ Information om vad du gör när timerutlösare inte fungerar som förväntat, fi
 
 > [!div class="nextstepaction"]
 > [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+
+<!-- Update_Description: wording update -->

@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285489"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
@@ -135,11 +135,11 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Programhantering|AdminPolicyDatas-SetResources|
 |Programhantering|AdminUserJourneys-GetResources|
 |Programhantering|AdminUserJourneys-RemoveResources|
-|Authentication|AdminUserJourneys-SetResources|
-|Authentication|Skapa IdentityProvider|
-|Authentication|Skapa V1-program|
-|Authentication|Skapa V2-program|
-|Authentication|Skapa en anpassad domän i klienten|
+|Autentisering|AdminUserJourneys-SetResources|
+|Autentisering|Skapa IdentityProvider|
+|Autentisering|Skapa V1-program|
+|Autentisering|Skapa V2-program|
+|Autentisering|Skapa en anpassad domän i klienten|
 |Auktorisering|Skapa ny AdminUserJourney|
 |Auktorisering|Skapa json för lokaliserad resurs|
 |Auktorisering|Skapa ny anpassad IDP|

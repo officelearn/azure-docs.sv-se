@@ -16,11 +16,11 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530999"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Uppdatera 1,2 viktig information för din enhet i StorSimple 8000-serien
 
@@ -67,7 +67,7 @@ Följande tabell innehåller en översikt över problem som har korrigerats i up
 | Nej. | Funktion | Problem | Korrigeras i uppdateringen | Gäller för fysisk enhet | Gäller för virtuella enheten |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell för StorSimple |När en användare få fjärråtkomst till StorSimple-enheten med hjälp av Windows PowerShell för StorSimple och sedan startas installationsguiden, inträffade en krasch så snart som Data 0 IP har indata. Den här buggen löses nu i uppdatering 1. |Uppdatering 1 |Ja |Ja |
-| 2 |Fabriksåterställning |I vissa fall, när du har utfört en fabriksåterställning StorSimple-enheten blev fastnat och visas det här meddelandet: **återställning till factory pågår (fas 8)**. Det har inträffat om du har tryckt CTRL + C när cmdleten pågick. Den här buggen löses nu. |Uppdatering 1 |Ja |Nej |
+| 2 |Fabriksåterställning |I vissa fall, när du har utfört en fabriksåterställning StorSimple-enheten blev fastnat och visas det här meddelandet: **Återställ till factory pågår (fas 8)**. Det har inträffat om du har tryckt CTRL + C när cmdleten pågick. Den här buggen löses nu. |Uppdatering 1 |Ja |Nej |
 | 3 |Fabriksåterställning |När en felaktig dubbel styrenhet fabriksåterställning, tilläts att fortsätta med enhetsregistrering. Detta resulterade i en konfiguration som inte stöds. Ett felmeddelande visas i uppdatering 1 och registreringen är blockerad på en enhet som har en misslyckad fabriksåterställning. |Uppdatering 1 |Ja |Nej |
 | 4 |Fabriksåterställning |I vissa fall kan skapats falskt positivt matchningsfel aviseringar. Felaktig matchning av datatyp aviseringar genereras inte längre på enheter som kör uppdatering 1. |Uppdatering 1 |Ja |Nej |
 | 5 |Fabriksåterställning |Om en fabriksåterställning avbröts innan den är slutförd, enheten i återställningsläge och tillåter inte dig att komma åt Windows PowerShell för StorSimple. Den här buggen löses nu. |Uppdatering 1 |Ja |Nej |
@@ -92,7 +92,7 @@ Följande tabell innehåller en sammanfattning av kända problem i den här vers
 | 6 |Webbproxy |Om din webbproxykonfigurationen har HTTPS som det angivna protokollet, din enhet-till-tjänst-kommunikation kommer att påverkas och enheten försätts offline. Supportpaket genereras även i den processen och förbruka avsevärda resurser på din enhet. |Se till att Webbadressen till webbproxy har HTTP som det angivna protokollet. Mer information finns i [Konfigurera en webbproxy för din enhet](storsimple-configure-web-proxy.md). |Ja |Nej |
 | 7 |Webbproxy |Om du konfigurerar och aktiverar webbproxy på en registrerad enhet, måste du starta om den aktiva kontrollenheten på din enhet. | |Ja |Nej |
 | 8 |Hög molnet fördröjning och hög i/o-arbetsbelastning |När din StorSimple-enhet påträffar en kombination av mycket hög molnet fördröjning (efter några sekunder) och hög i/o-arbetsbelastning, går du till enhetens volymer i ett degraderat tillstånd och I/o kan misslyckas med ett ”enheten är inte klar”-fel. |Du behöver att manuellt starta om styrenheterna eller utföra en redundansväxling av enhet att återställa från den här situationen. |Ja |Nej |
-| 9 |Azure PowerShell |När du använder cmdleten StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - först 1 - vänta** att välja det första objektet så att du kan skapa en ny **VolumeContainer** objekt, cmdleten returnerar alla objekt. |Innesluta cmdleten inom parentes på följande sätt: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - första 1 - vänta** |Ja |Ja |
+| 9 |Azure PowerShell |När du använder cmdleten StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - först 1 - vänta** att välja det första objektet så att du kan skapa en ny **VolumeContainer** objekt, cmdleten returnerar alla objekt. |Innesluta cmdleten inom parentes på följande sätt: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - först 1 - vänta** |Ja |Ja |
 | 10 |Migrering |När flera volymbehållare skickas för migrering, stämmer ETA för senaste säkerhetskopiering endast för den första volymbehållaren. Dessutom startar parallella migreringen efter de första 4 säkerhetskopiorna i första volymcontainern har migrerats. |Vi rekommenderar att du migrerar en volymbehållare i taget. |Ja |Nej |
 | 11 |Migrering |Efter återställningen läggs inte volymer till principen för säkerhetskopiering eller gruppen virtuell disk. |Du behöver att lägga till dessa volymer i en princip för säkerhetskopiering för att skapa säkerhetskopior. |Ja |Ja |
 | 12 |Migrering |När migreringen är klar måste 5000/7000-serien enheten inte att komma åt de migrerade data-behållarna. |Vi rekommenderar att du tar bort behållare för migrerade data när migreringen är klar och Skickat. |Ja |Nej |

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487267"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ En datauppsättning i Data Factory har definierats i JSON-format på följande s
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-| Egenskap  | Beskrivning | Krävs | Standard |
+| Egenskap  | Beskrivning | Obligatoriskt | Standard |
 | --- | --- | --- | --- |
 | namn |Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](data-factory-naming-rules.md) för regler för namngivning. |Ja |Ej tillämpligt |
 | typ |Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
@@ -191,7 +191,7 @@ structure:
 
 Varje kolumn i strukturen innehåller följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | namn |Namnet på kolumnen. |Ja |
 | typ |Datatypen för kolumnen.  |Nej |
@@ -233,7 +233,7 @@ Datauppsättningen för utdata skapas varje timme i pipeline start- och sluttide
 
 I följande tabell beskrivs egenskaperna som du kan använda i avsnittet tillgänglighet:
 
-| Egenskap  | Beskrivning | Krävs | Standard |
+| Egenskap  | Beskrivning | Obligatoriskt | Standard |
 | --- | --- | --- | --- |
 | frequency |Anger tidsenheten för datauppsättningen sektorn produktion.<br/><br/><b>Stöds frekvens</b>: Minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
 | interval |Anger en multiplikator för frekvensen.<br/><br/>”X frekvensintervall” avgör hur ofta sektorn skapas. Till exempel om du behöver datauppsättningen att delas timme kan du ange <b>frekvens</b> till <b>timme</b>, och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvens** som **minut**, bör du ange intervallet till mindre än 15. |Ja |Ej tillämpligt |
@@ -280,7 +280,7 @@ Följande datauppsättningen är varje månad, och skapas på 3: e varje månad 
 Den **princip** avsnittet i definitionen av datauppsättningen definierar kriterierna eller villkor som datauppsättning segment måste vara uppfyllda.
 
 ### <a name="validation-policies"></a>Verifieringsprinciper
-| Principnamn | Beskrivning | Tillämpas på | Krävs | Standard |
+| Principnamn | Beskrivning | Tillämpas på | Obligatoriskt | Standard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Kontrollerar att data i **Azure Blob storage** uppfyller minsta storlek (i megabyte). |Azure Blob Storage |Nej |Ej tillämpligt |
 | minimumRows |Kontrollerar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det minsta antalet rader. |<ul><li>Azure SQL-databas</li><li>Azure-tabell</li></ul> |Nej |Ej tillämpligt |
@@ -316,7 +316,7 @@ Externa datauppsättningar är de som inte kommer från en aktiv pipeline i data
 
 Om inte en datauppsättningen produceras av Data Factory, bör det markeras som **externa**. Den här inställningen gäller vanligtvis indata för den första aktiviteten i en pipeline, såvida inte aktivitet eller länkning av pipelinen som används.
 
-| Namn | Beskrivning | Krävs | Standardvärde |
+| Namn | Beskrivning | Obligatoriskt | Standardvärde |
 | --- | --- | --- | --- |
 | dataDelay |Tiden att fördröja kontrollera tillgängligheten för externa data för givna sektorn. Du kan till exempel fördröja en kontroll av per timme med den här inställningen.<br/><br/>Inställningen gäller endast för den aktuella tiden. Om det är 1:00 PM just nu och det här värdet är 10 minuter, till exempel startar verifieringen klockan 13:10.<br/><br/>Observera att den här inställningen inte påverkar segment i förflutna. Skär med **sluttid för sektor** + **dataDelay** < **nu** bearbetas utan fördröjning.<br/><br/>Gånger större än 23:59 timmar ska anges med hjälp av den `day.hours:minutes:seconds` format. Till exempel vill ange 24 timmar, Använd inte 24:00:00. Använd i stället 1.00:00:00. Om du använder 24:00:00, behandlas den som 24 dagar (24.00:00:00). För 1 dag och fyra timmar, anger du 1:04:00:00. |Nej |0 |
 | retryInterval |Väntetiden mellan ett fel och nästa försök. Den här inställningen gäller för aktuell tid. Om den tidigare misslyckade, nästa försök är efter den **retryInterval** period. <br/><br/>Om den är 1:00 PM just nu kan börja vi första försöket. Om tid att slutföra första valideringskontrollen är 1 minut och åtgärden misslyckades, nästa återförsök var 1:00 + 1 minut (varaktighet) + 1min (återförsöksintervallet) = 1:02 PM. <br/><br/>Det finns ingen fördröjning för segment i förflutna. Återförsök sker omedelbart. |Nej |00:01:00 (1 minute) |

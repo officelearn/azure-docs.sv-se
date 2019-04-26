@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404713"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60462459"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudier: Kopiera data till Azure Data Box via NFS
 
@@ -22,11 +22,11 @@ Den här självstudien beskriver hur du ansluter till och kopierar data från v�
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Nödvändiga komponenter
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att:
 
@@ -140,7 +140,7 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Nödvändiga komponenter
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 

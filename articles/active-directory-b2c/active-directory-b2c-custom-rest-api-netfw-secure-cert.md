@@ -3,7 +3,7 @@ title: Skydda RESTful-tjänst med hjälp av klientcertifikat i Azure Active Dire
 description: Säkra din anpassade REST API anspråk Utbytena i din Azure AD B2C med klientcertifikat
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 502b769e1a25874bfa5a9e8f082361605a52ccf6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362092"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Skydda RESTful-tjänst med hjälp av klientcertifikat
 
@@ -33,7 +33,7 @@ Den här artikeln innehåller information om hur du:
 * Överför certifikatet till nycklar för Azure AD B2C-princip.
 * Konfigurera en egen princip om du vill använda klientcertifikatet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * Utför stegen i den [integrera REST API-anspråk utbyten](active-directory-b2c-custom-rest-api-netfw.md) artikeln.
 * Skaffa ett giltigt certifikat (en .pfx-fil med en privat nyckel).
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: d4a80358535429f53b582abe8560757028159070
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197859"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en event hub-händelsekälla till Time Series Insights-miljön
 
@@ -108,5 +108,7 @@ Så här lägger du till en ny konsumentgrupp i din event hub
 ## <a name="next-steps"></a>Nästa steg
 
 * [Definiera dataåtkomstprinciper](time-series-insights-data-access.md) att skydda data.
+
 * [Skicka händelser](time-series-insights-send-events.md) till händelsekällan.
+
 * Få tillgång till den i den [Time Series Insights explorer](https://insights.timeseries.azure.com).

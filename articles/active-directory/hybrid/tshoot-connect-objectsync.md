@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82139178d4c1db4774d539180e41e49699d8ee12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60382511"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objektsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller steg för felsökning av problem med synkronisering av objektet med hjälp av felsökningsaktiviteten. Om du vill se hur felsökning fungerar i Azure Active Directory (Azure AD) Connect, se [den här korta videon](https://aka.ms/AADCTSVideo).

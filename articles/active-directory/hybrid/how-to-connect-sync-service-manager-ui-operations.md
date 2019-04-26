@@ -4,25 +4,25 @@ description: Förstå fliken åtgärder i hanteraren för synkroniseringstjänst
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.subservice: hybrid
-ms.author: billmath
+ms.topic: article
+origin.date: 07/13/2017
+ms.date: 11/12/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: 474000d1d4d7e1358682d1421125d482e3782049
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381423"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>På fliken synkronisering Service Manager-åtgärder
 
@@ -51,3 +51,4 @@ Mer information finns i [Felsök ett objekt som inte synkroniseras](tshoot-conne
 Läs mer om den [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md) konfiguration.
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
+

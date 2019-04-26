@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 506f623fe928cf122a16630844996c981cc20e9e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330354"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB-tabell .NET API: Ladda ned och viktig information
 
@@ -112,7 +112,7 @@ När du försöker använda Microsoft.Azure.CosmosDB.Table NuGet-paketet har du 
     
 * Använder din önskade hanteringsverktyg för NuGet-paketet, installera Microsoft.Azure.Storage.Common NuGet-paketet innan du installerar Microsoft.Azure.CosmosDB.Table.
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

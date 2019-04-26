@@ -14,11 +14,11 @@ ms.author: celested
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 341d7667f039a7272a7ad3fec80a445aa95b619d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440240"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Utveckla line-of-business-appar för Azure Active Directory
 Den här guiden innehåller en översikt över utveckling line-of-business (LoB)-program för Azure Active Directory (AD). Målgruppen är globala administratörer för Active Directory/Office 365.

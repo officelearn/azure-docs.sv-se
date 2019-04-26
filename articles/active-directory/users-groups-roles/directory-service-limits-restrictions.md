@@ -16,13 +16,13 @@ ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1191fb5c9aefb55896d5c44714f1061ff2674a8d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472232"
 ---
-# <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD-tjänsten gränser och begränsningar
+# <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD-tjänstens begränsningar
 Den här artikeln innehåller begränsningarna för användning och andra tjänstebegränsningar för tjänsten Azure Active Directory (AD Azure). Om du letar efter en fullständig uppsättning begränsningar för Microsoft Azure-tjänster, se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md).
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]

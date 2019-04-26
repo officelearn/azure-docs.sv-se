@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447234"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Skapa händelse-baserade arbetsflöden eller åtgärder med webhooks och Azure Logic Apps
 
@@ -112,8 +112,8 @@ Webhook-begäran
 
 | Namn på egenskap | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Huvuden |objekt |Webhook-begärandehuvuden |
-| Brödtext |objekt |Webhook-begäran-objekt |
+| Rubriker |objekt |Webhook-begärandehuvuden |
+| Innehåll |objekt |Webhook-begäran-objekt |
 | Statuskod |int |Statuskod för Webhook-begäran |
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
@@ -148,8 +148,8 @@ Webhook-begäran
 
 | Namn på egenskap | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Huvuden |objekt |Webhook-begärandehuvuden |
-| Brödtext |objekt |Webhook-begäran-objekt |
+| Rubriker |objekt |Webhook-begärandehuvuden |
+| Innehåll |objekt |Webhook-begäran-objekt |
 | Statuskod |int |Statuskod för Webhook-begäran |
 
 ## <a name="next-steps"></a>Nästa steg

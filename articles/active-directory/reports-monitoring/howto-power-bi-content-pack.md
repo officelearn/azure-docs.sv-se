@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437702"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Hur du använder Azure Active Directory Power BI-innehållspaket
 
@@ -31,7 +31,7 @@ ms.locfileid: "58436837"
 
 Power BI content pack för Azure Active Directory (Azure AD) innehåller fördefinierade rapporter som hjälper dig att förstå hur dina användare införa och använda Azure AD-funktioner. På så sätt kan du få insyn i alla aktiviteter i din katalog med hjälp av den omfattande visualiseringsupplevelsen i Power BI. Du kan också skapa en egen instrumentpanel och dela den med vem som helst i din organisation. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver en Azure AD premium (P1/P2) licens att använda Innehållspaketet. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version.
 
@@ -59,7 +59,7 @@ Du kan också filtrera resultaten genom att välja ett visst datum eller plats.
 
 - Användarnamn
 - IP-adress
-- Plats 
+- Location 
 - Inloggningsstatus 
 
 **SSPR-tratt**: Den här rapporten hjälper dig att förstå hur SSPR-verktyget används inom organisationen. Du kan visa hur många lösenordsåterställningar som försökte utföras via SSPR-verktyget och hur många av dem lyckades. Du kan också gå på djupet återställer Lösenordsfel och förstå varför vissa fel uppstod. 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
-ms.subservice: alerts
+ms.component: alerts
 ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346336"
 ---
 # <a name="smart-groups"></a>Smarta grupper
 En gemensam utmaning kan stöta på när hantering av aviseringar sig igenom bruset för att ta reda på det faktiskt som är viktigt - smart grupper är avsedda att vara lösning på problemet.  
@@ -62,5 +62,4 @@ Namnet på en smart grupp är namnet på den första aviseringen. Du kan inte sk
 
 - [Hantera smarta grupper](https://aka.ms/managing-smart-groups)
 - [Ändra aviseringen och smart-tillstånd](https://aka.ms/managing-alert-smart-group-states)
-
 

@@ -8,15 +8,15 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507002"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exempel – Key Vault-valv utan slutpunkter för virtuella nätverk
 
-Den här principen granskar Key Vault-valv för att identifiera instanser som inte har några VNet-slutpunkter. Använd för att tillämpa dina säkerhetskrav. Mer information finns i avsnittet om [VNet-tjänstslutpunkter i Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
+Den här principen granskar Key Vault-valv för att identifiera instanser som inte har några VNet-slutpunkter. Använd för att tillämpa dina säkerhetskrav. Mer information finns i avsnittet om [tjänstslutpunkter för virtuellt nätverk i Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 
 Du kan distribuera det här exemplet med hjälp av:
 

@@ -3,7 +3,7 @@ title: Jag vill förbli inloggad i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du ställer in Håll mig registrerat i (KMSI) i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317313"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aktivera Håll mig inloggad (KMSI) i Azure Active Directory B2C
 
@@ -27,9 +27,9 @@ Användare bör inte aktivera det här alternativet på offentliga datorer.
 
 ![Aktivera ”Håll mig inloggad”](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-En Azure AD B2C-klient som är konfigurerad för att tillåta lokalt konto, registrera dig och logga in. Om du inte har en klient kan du skapa en med hjälp av stegen i [självstudien: Skapa en Azure Active Directory B2C-klient](tutorial-create-tenant.md).
+En Azure AD B2C-klient som är konfigurerad för att tillåta lokalt konto, registrera dig och logga in. Om du inte har en klient kan du skapa en med hjälp av stegen i [självstudien: Skapa en Azure Active Directory B2C-klientorganisation](tutorial-create-tenant.md).
 
 ## <a name="add-a-content-definition-element"></a>Lägg till en innehållsdefinition-element 
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: 857d747fa691d1ec2b386d5931a7edea08b7e609
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58523006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60517238"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Gruppera flera åtgärder som ska köras från en eller flera regler
 
@@ -21,7 +21,7 @@ ms.locfileid: "58523006"
 
 I Azure IoT Central, kan du skapa regler för att köra åtgärder när ett villkor uppfylls. Regler baseras på enhetstelemetri eller händelser. Du kan till exempel meddela en operatör när temperaturen i en enhet överskrider ett tröskelvärde. Den här artikeln beskriver hur du använder [Azure Monitor](../azure-monitor/overview.md) *åtgärdsgrupper* att bifoga flera åtgärder i en regel för IoT Central. Du kan koppla en åtgärdsgrupp till flera regler. En [åtgärdsgrupp](../azure-monitor/platform/action-groups.md) är en samling felaviseringar som definieras av ägaren av en Azure-prenumeration.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Ett program för betala per användning
 - En Azure-konto och prenumeration för att skapa och hantera Azure Monitor åtgärdsgrupper

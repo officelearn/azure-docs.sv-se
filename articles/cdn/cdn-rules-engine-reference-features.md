@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324272"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regelmotor – funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -316,7 +316,7 @@ Viktig information:
 - Ange en eller flera parameternamn för frågan sträng och avgränsa varje parameternamn med ett enda blanksteg.
 - Den här funktionen anger om parametrar för frågesträngen är inkluderas eller uteslutas från cache-nyckeln. Ytterligare information har angetts för varje alternativ i följande tabell.
 
-Type|Beskrivning
+Typ|Beskrivning
 --|--
  Ta med|  Anger att varje angiven parameter ska ingå i cache-nyckeln. En unik cache-nyckel genereras för varje begäran som innehåller ett unikt värde för en frågesträngsparameter som definierats i den här funktionen. 
  Omfatta alla  |Anger att en unik cache-nyckel har skapats för varje begäran till en tillgång som innehåller en unik frågesträng. Den här typen av konfiguration rekommenderas vanligtvis inte eftersom det kan leda till en liten andel av cacheträffar. Ett lågt antal cacheträffar ökar belastningen på den ursprungliga servern, eftersom den måste hantera fler begäranden. Den här konfigurationen duplicerar ett cachelagringsfunktionssätt som kallas ”unika-cache” på sidan cachelagring av frågesträng. 
@@ -945,7 +945,7 @@ Viktig information:
     - content-encoding
     - innehållslängd
     - content-range
-    - datum
+    - date
     - server
     - trailer
     - transfer-encoding
@@ -1170,7 +1170,7 @@ URL-omdirigering kan bara användas för 3xx svarskoder.
 
 Alternativet valfritt huvudvärde stöder alfanumeriska tecken, citattecken och blanksteg.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Autentisering
 
 Den här funktionen stöder möjligheten att ta med WWW-autentisera huvudet när svarar på en obehörig begäran om innehåll som skyddas av tokenbaserad autentisering. Om rubriken WWW-autentisera har ställts in till ”grundläggande” i din konfiguration, uppmanas obehörig användare för autentiseringsuppgifter.
 

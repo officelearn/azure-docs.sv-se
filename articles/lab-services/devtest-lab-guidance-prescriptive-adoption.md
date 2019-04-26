@@ -14,11 +14,11 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198045"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Skapa en Azure DevTest Labs-infrastruktur i ditt företag
 Företag snabbt går över till molnet på grund av dess [fördelar](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) som omfattar rörlighet, flexibilitet och ekonomin. Vanliga det första steget för kunder att använda molnet är att börja med arbetsbelastningar för utveckling och testning.  DevTest Labs ger [funktioner](devtest-lab-concepts.md) som dra enterprise och support [nyckeln enterprise dev/test-scenarier](devtest-lab-guidance-get-started.md).

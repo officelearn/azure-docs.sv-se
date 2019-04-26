@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d2faefd8443383e7afff8e3729bf6f1cf25c3a7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471904"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med hjälp av grupper för att hantera licensiering i Azure Active Directory
 
@@ -216,7 +216,7 @@ Om du använder gruppbaserad licensiering, är det en bra idé att bekanta dig m
 
 - Funktionen kan endast användas med säkerhetsgrupper och Office 365-grupper som har securityEnabled = TRUE.
 
-- Den [administrationsportalen för Office 365](https://portal.office.com ) stöder för närvarande inte gruppbaserad licensiering. Om en användare ärver en licens från en grupp, visas denna licens i administrationsportalen för Office som en vanlig användare-licens. Om du försöker ändra den licensen eller försök att ta bort licensen returnerar ett felmeddelande visas i portalen. Ärvda grupplicenserna kan inte ändras direkt på en användare.
+- Den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) stöder för närvarande inte gruppbaserad licensiering. Om en användare ärver en licens från en grupp, visas denna licens i administrationsportalen för Office som en vanlig användare-licens. Om du försöker ändra den licensen eller försök att ta bort licensen returnerar ett felmeddelande visas i portalen. Ärvda grupplicenserna kan inte ändras direkt på en användare.
 
 - När licenser tilldelas eller ändras för en stor grupp (till exempel 100 000 användare), kan det påverka prestanda. Mer specifikt mängden ändringar som genereras av Azure AD-automation kan ge försämrade prestanda för dina katalogsynkronisering mellan Azure AD och lokala system.
 

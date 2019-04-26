@@ -2,7 +2,6 @@
 title: Använd Azure Toolkit för IntelliJ med begränsat Hortonworks-läge
 description: Lär dig hur du använder HDInsight-verktygen i Azure Toolkit för IntelliJ med begränsat Hortonworks-läge.
 keywords: hadoop-verktyg, hive-fråga, intellij, begränsat hortonworks-läge, azure toolkit för intellij
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -11,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343349"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Använda HDInsight Tools för IntelliJ med begränsat Hortonworks-läge
 
@@ -23,7 +22,7 @@ Lär dig hur du använder HDInsight Tools för IntelliJ för att utveckla Apache
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) är en integrerad utvecklingsmiljö (IDE) för Java för att utveckla programvara. När du utvecklar och testar dina program på begränsat Hortonworks-läge, du kan flytta program till [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudiekursen behöver du följande:
 

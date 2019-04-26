@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: enewman
 ms.openlocfilehash: 9848f197800c391285c4065685b910685f0ac64b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60312211"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Skapa en miljö med fristående Service Fabric-kluster i Azure DevTest Labs
 Den här artikeln innehåller information om hur du skapar en miljö med en fristående Service Fabric-kluster i Azure DevTest Labs. 

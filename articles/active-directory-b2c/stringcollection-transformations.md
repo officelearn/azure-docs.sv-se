@@ -3,7 +3,7 @@ title: StringCollection anspråk omvandling exempel för den identiteten uppleve
 description: StringCollection anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360358"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection anspråk omvandlingar
 
@@ -29,7 +29,7 @@ Lägger till ett sträng-anspråk till ett nytt stringCollection anspråk.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Objekt | sträng | ClaimType som ska läggas till utdata-anspråket. |
+| InputClaim | Objekt | string | ClaimType som ska läggas till utdata-anspråket. |
 | InputClaim | samling | stringCollection | [Valfritt] Om anges anspråkstransformering kopieras objekt från den här samlingen och lägger till objektet i slutet av samlingen utdataanspråket. |
 | OutputClaim | samling | stringCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. |
 
@@ -64,7 +64,7 @@ Lägger till en strängparameter till ett nytt stringCollection anspråk.
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | [Valfritt] Om anges anspråkstransformering kopieras objekt från den här samlingen och lägger till objektet i slutet av samlingen utdataanspråket. |
-| InputParameter | Objekt | sträng | Värdet som ska läggas till utdata-anspråket. |
+| InputParameter | Objekt | string | Värdet som ska läggas till utdata-anspråket. |
 | OutputClaim | samling | stringCollection | ClaimTypes som skapas när den här ClaimsTransformation har anropats. |
 
 Använd detta omvandling för att lägga till ett strängvärde till en ny eller befintlig stringCollection av anspråk. I följande exempel läggs en konstant e-postadress (admin@contoso.com) till den **otherMails** anspråk. 
@@ -99,7 +99,7 @@ Hämtar det första objektet från mängden strängen.
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | samling | stringCollection | ClaimTypes som används av anspråkstransformering för att hämta objektet. |
-| OutputClaim | extractedItem | sträng | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Det första objektet i samlingen. |
+| OutputClaim | extractedItem | string | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Det första objektet i samlingen. |
 
 I följande exempel läser den **otherMails** anspråk och returnerar det första objektet i den **e-post** anspråk. 
 

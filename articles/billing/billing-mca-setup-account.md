@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371826"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för en Microsoft-kundavtal
 
@@ -205,7 +205,7 @@ Du behöver åtkomst till både det nya faktureringskontot och Enterprise Agreem
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -221,11 +221,11 @@ Azure-prenumerationer som överförs från din Enterprise Agreement-registrering
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Välj en faktura-avsnitt. Beroende på din åtkomst kan du behöva välja ett faktureringskonto eller en profil för fakturering.  Faktureringskonto eller fakturering profil, väljer du **faktura avsnitt** och sedan en faktura-avsnittet.
+3. Välj en faktura-avsnitt. Beroende på din åtkomst kan du behöva välja ett faktureringskonto eller en faktureringsprofil.  Faktureringskonto eller fakturering profil, väljer du **faktura avsnitt** och sedan en faktura-avsnittet.
 
     ![Skärmbild som visar listan över faktura avsnittet efter övergången](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
@@ -241,7 +241,7 @@ Azure-reservationer som flyttas från din Enterprise Agreement-registrering till
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -257,7 +257,7 @@ Företagsadministratörer listas som fakturering profil ägare när företaget a
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-setup-account/billing-search-cost-management-billing.png).
 

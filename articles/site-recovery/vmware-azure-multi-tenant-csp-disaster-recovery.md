@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461027"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware-haveriberedskap i en miljö med flera innehavare med programmet Cloud Solution Provider (CSP)
 
@@ -22,7 +22,7 @@ Med [Azure Site Recovery](site-recovery-overview.md), som partner kan du hantera
 
 Den här artikeln beskrivs hur du som partner kan skapa och hantera klient prenumerationer via sin Molnlösningsleverantör, för ett scenario med flera innehavare och VMware-replikering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera VMware-replikering måste du göra följande:
 
@@ -39,7 +39,7 @@ Om du vill konfigurera VMware-replikering måste du göra följande:
 
     ![Sidan kontoinformation](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. Klicka sedan på **nästa: prenumerationer**.
+5. Klicka sedan på **nästa: Prenumerationer**.
 6. På prenumerationssidan, Välj **Microsoft Azure** markerar du kryssrutan. Du kan lägga till andra prenumerationer nu eller vid en annan tidpunkt.
 7. På den **granska** sidan Bekräfta klient informationen och klicka sedan på **skicka**.
 8. När du har skapat kontot klient en bekräftelse visas med information om standardkontot och lösenordet för den aktuella prenumerationen. Spara informationen och ändra lösenordet senare vid behov, via Azure portal-inloggningssidan.
@@ -89,11 +89,11 @@ Du kan nu skapa och hantera alla Site Recovery-åtgärder för klienten i Azure-
 
 Det finns tre större modeller för flera innehavare:
 
-* **Delade som är värd för Services Provider (HSP)**: partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, Datacenter, fysiska lagringsutrymmet och så vidare) som värd för flera virtuella klientdatorer på samma infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga haveriberedskap som en lösning för självbetjäning.
+* **Delade värdbaserade tjänster (HSP)**: Partnern äger den fysiska infrastrukturen och använder delade resurser (vCenter, Datacenter, fysiska lagringsutrymmet och så vidare) som värd för flera virtuella klientdatorer på samma infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga haveriberedskap som en lösning för självbetjäning.
 
-* **Dedikerad som är värd för tjänsteleverantör**: partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenters fysiska datalager och så vidare) som värd för varje klient virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga den som en lösning för självbetjäning.
+* **Särskilda tjänster värdleverantör**: Partnern äger den fysiska infrastrukturen, men använder dedikerade resurser (flera vCenters fysiska datalager och så vidare) som värd för varje klient virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla katastrofåterställning management som en hanterad tjänst eller klienten kan äga den som en lösning för självbetjäning.
 
-* **Managed Services Provider (MSP)**: kunden äger den fysiska infrastrukturen som är värd för de virtuella datorerna och partnern som tillhandahåller katastrofåterställning aktivering och hantering.
+* **Hanterad Services Provider (MSP)**: Kunden äger den fysiska infrastrukturen som är värd för de virtuella datorerna och partnern som tillhandahåller katastrofåterställning aktivering och hantering.
 
 Genom att konfigurera klient prenumerationer enligt beskrivningen i den här artikeln, kan du snabbt starta och kunderna i någon av de relevanta modellerna för flera innehavare. Du kan läsa mer om de olika modellerna för flera innehavare och aktivera lokalt åtkomstkontroller [här](vmware-azure-multi-tenant-overview.md).
 

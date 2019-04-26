@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5cbf96c165d79c26985663ef5a9d64bbf8f9892
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60438007"
 ---
 # <a name="start-an-access-review-for-azure-ad-roles-in-pim"></a>Starta en åtkomstgranskning för Azure AD-roller i PIM
 Rolltilldelningar blir ”inaktuell” när användarna har privilegierad åtkomst som de inte behöver längre. För att minska riskerna med dessa inaktuella rolltilldelningar Privilegierade roller bör eller globala administratörer regelbundet skapa åtkomstgranskningar om du vill ställa administratörer att granska de roller som användare har fått. Det här dokumentet beskriver steg för att starta en åtkomstgranskning i Azure Active Directory (Azure AD) Privileged Identity Management (PIM).

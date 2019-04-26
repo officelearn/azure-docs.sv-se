@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405944"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Mer specifikt stöder Oracle-anslutningsapp följande versioner av en Oracle-dat
 > [!Note]
 > Oracle-proxyserver stöds inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kopiera data från och till en Oracle-databas som inte är offentligt tillgänglig, måste du konfigurera en lokal Integration Runtime. Mer information om integration runtime finns i [lokal Integration Runtime](create-self-hosted-integration-runtime.md). Integration runtime får en inbyggd drivrutin för Oracle. Därför behöver du inte installera en drivrutin manuellt när du kopierar data från och till Oracle.
 
@@ -238,7 +238,7 @@ Om du vill kopiera data till Oracle, ange Mottagartyp i kopieringsaktiviteten ti
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **OracleSink**. | Ja |
-| WriteBatchSize | Infogar data i SQL-tabell när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är heltal (antal rader). |Nej (standardvärdet är 10 000) |
+| writeBatchSize | Infogar data i SQL-tabell när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är heltal (antal rader). |Nej (standardvärdet är 10 000) |
 | writeBatchTimeout | Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är tidsintervallet. Ett exempel är 00:30:00 (30 minuter). | Nej |
 | preCopyScript | Ange en SQL-fråga för kopieringsaktiviteten ska köras innan du skriver data till Oracle i varje körning. Du kan använda den här egenskapen för att rensa upp de förinstallerade data. | Nej |
 
@@ -283,7 +283,7 @@ När du kopierar data från och till Oracle, används följande mappningar från
 | BLOB |Byte[]<br/>(endast kan användas på Oracle 10g och senare) |
 | CHAR |String |
 | CLOB |String |
-| DATE |DateTime |
+| DATE |Datetime |
 | FLYTTAL |Decimal, sträng (om precision > 28) |
 | HELTAL |Decimal, sträng (om precision > 28) |
 | LONG |String |
@@ -294,7 +294,7 @@ När du kopierar data från och till Oracle, används följande mappningar från
 | NVARCHAR2 |String |
 | RÅDATA |Byte[] |
 | RAD-ID |String |
-| TIMESTAMP |DateTime |
+| TIDSSTÄMPEL |Datetime |
 | TIDSSTÄMPEL MED LOKALA TIDSZON |String |
 | TIDSSTÄMPEL MED TIDSZON |String |
 | HELTALET |Tal |

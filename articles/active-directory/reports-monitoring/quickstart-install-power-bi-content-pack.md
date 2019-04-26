@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69a69732d8cb42c248fa954ef9047e5876f40837
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285958"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Snabbstart: Installera innehållspaketet för Azure Active Directory Power BI
 
@@ -34,7 +34,7 @@ Power BI-innehållspaketet för Azure Active Directory (Azure AD) ger dig möjli
 
 I den här snabbstarten lär du dig hur du installerar innehållspaketet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att slutföra den här snabbstarten:
 

@@ -18,11 +18,11 @@ ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0038dcc10aafa191121b2797f68d66a3e32b3fa7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298769"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Snabbstart: Ta bort ett program från Azure Active Directory
 
@@ -46,7 +46,7 @@ Program som din organisation har registrerat visas under filtret **Mina appar** 
 
 ### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Så tar du bort ett program med en enskild klientorganisation från din katalog
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om ditt konto ger dig tillgång till fler än en väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten, väljer **Appregistreringar** och letar upp och väljer det program som du vill konfigurera.
     Detta tar dig till programmets huvudsakliga registreringssida, vilket öppnar sidan **Inställningar** för programmet.
@@ -55,7 +55,7 @@ Program som din organisation har registrerat visas under filtret **Mina appar** 
 
 ### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>Ta bort ett program med flera klientorganisationer från dess hemkatalog
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om ditt konto ger dig tillgång till fler än en väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten, väljer **Appregistreringar** och letar upp och väljer det program som du vill konfigurera.
     Detta tar dig till programmets huvudsakliga registreringssida, vilket öppnar sidan **Inställningar** för programmet.

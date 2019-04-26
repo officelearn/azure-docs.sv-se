@@ -3,7 +3,7 @@ title: Självstudie – Aktivera autentisering i en webbapp – Azure Active Dir
 description: Självstudie som lär dig använda Azure Active Directory B2C för att tillhandahålla en användarinloggning till en ASP.NET-webbapp.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: ced74cc5af829c3677a12aaf4bffdf9a518f6053
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384753"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i en webbapp med hjälp av Azure Active Directory B2C
 
@@ -39,8 +39,8 @@ I den här guiden får du lära dig att:
 
 I den självstudien som du slutförde som en del av förutsättningarna lade du till en webbapp i Azure AD B2C. För att möjliggöra kommunikation med exemplet i den här självstudien behöver du lägga till en omdirigerings-URI i programmet i Azure AD B2C.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** i den översta menyn och välja den katalog som innehåller din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **Program** och därefter programmet *webapp1*.
 5. Under **Svars-URL** lägger du till `https://localhost:44316`.
@@ -94,4 +94,4 @@ I den här självstudiekursen lärde du dig att:
 > * Registrera dig via användarflödet
 
 > [!div class="nextstepaction"]
-> [Självstudier: Använda Azure Active Directory B2C för att skydda ett ASP.NET webb-API](active-directory-b2c-tutorials-web-api.md)
+> [Självstudie: Använda Azure Active Directory B2C för att skydda ett ASP.NET webb-API](active-directory-b2c-tutorials-web-api.md)

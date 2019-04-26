@@ -15,11 +15,11 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478114"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurera SMT server för SUSE Linux
 Stora instanser av SAP HANA har inte direkt anslutning till internet. Det är inte enkelt att registrera till exempel enheter med operativsystem-providern och för att ladda ned och installera uppdateringar. En lösning för SUSE Linux är att ställa in en SMT-server i virtuella Azure-datorer. Vara värd för den virtuella datorn i ett Azure-nätverk som är ansluten till den stora HANA-instansen. Med sådana en SMT-server kan den stora HANA-instansen enheten registrera och hämta uppdateringar. 

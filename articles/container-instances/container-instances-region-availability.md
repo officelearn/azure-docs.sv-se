@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 03/01/2019
 ms.author: danlep
 ms.openlocfilehash: 1ca23a95c746139963aa70ed20bb888152fd5cd8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537774"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Resurstillgänglighet för Azure Container Instances i Azure-regioner
 
@@ -27,7 +27,7 @@ Läs om hur kvoter och andra begränsningar i dina distributioner [kvoter och be
 
 ## <a name="availability---general"></a>Tillgänglighet – Allmänt
 
-| Plats | Operativsystem | Processor | Minne (GB) |
+| Location | Operativsystem | Processor | Minne (GB) |
 | -------- | -- | :---: | :-----------: |
 | Kanada, centrala; USA, centrala; USA, östra 2; USA, södra centrala | Linux | 4 | 16 |
 | USA, östra; Europa, norra; Europa, västra; USA, västra; USA, västra 2 | Linux | 4 | 14 |

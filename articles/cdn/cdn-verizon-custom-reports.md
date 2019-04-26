@@ -1,6 +1,6 @@
 ---
 title: Anpassade rapporter från Verizon | Microsoft Docs
-description: 'Du kan visa användningsmönster i CDN-nätverket med hjälp av följande rapporter: bandbredd, överförda Data, träffar, cachelagring, Cache träffar förhållande, IPV4/IPv6-Data överförs.'
+description: 'Du kan visa användningsmönster i CDN-nätverket med hjälp av följande rapporter: Bandbredd, överförda Data, träffar, cachelagring, träffrekvensen för cacheminnet, IPV4/IPV6-Data som överförs.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323610"
 ---
 # <a name="custom-reports-from-verizon"></a>Anpassade rapporter från Verizon
 
@@ -45,7 +45,7 @@ Anpassad rapport dataloggning börjar en timme efter att du aktiverar en edge-CN
 
 Skapa en anpassad rapport genom att definiera följande alternativ för rapporter:
 
-- Mått: Stöds följande alternativ:
+- Mått: Följande alternativ stöds:
 
    - Träffar: Anger det totala antalet begäranden som dirigeras till en edge-CNAME där anpassade rapporteringsfunktionen är aktiverat. Det här måttet inkluderar inte statuskoden som returneras till klienten.
 
@@ -53,9 +53,9 @@ Skapa en anpassad rapport genom att definiera följande alternativ för rapporte
 
 - Grupperingar: Avgör vilken typ av statistik som visas nedan stapeldiagrammet. Följande alternativ stöds:
 
-   - HTTP-svarskoder: Organiserar statistik av HTTP-svarskoden (till exempel 200, 403, osv.) returneras till klienten. 
+   - HTTP-svarskoder: Ordnar statistik av HTTP-svarskoden (till exempel 200, 403, osv.) returneras till klienten. 
 
-   - Cachestatus: Organiserar statistik av status för cache.
+   - Status för cache: Organiserar statistik av status för cache.
 
 
 Om du vill ange datumintervall för rapporten, du kan antingen välja ett fördefinierat datumintervall som **idag** eller **veckans**, från den nedrullningsbara listan eller du kan välja **anpassade** och Ange ett datumintervall manuellt genom att klicka på kalenderikonerna. 

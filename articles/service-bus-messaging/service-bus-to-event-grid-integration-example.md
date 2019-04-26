@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: spelluru
 ms.openlocfilehash: 4e1ea3d822c8b032617b7f202f1c176aeb966210
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333414"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exempel på integration av Azure Service Bus till Azure Event Grid
 
@@ -33,7 +33,7 @@ I exemplet som du skapar förutsätter vi att Service Bus-ämnet har två prenum
 
 I det här exemplet skickar du meddelanden till Service Bus-ämnet och kontrollerar sedan att händelsen har genererats för den här Service Bus-prenumerationen. Funktionen eller logikappen tar emot meddelandena från Service Bus-prenumerationen och slutför sedan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar måste du ha slutfört stegen i följande två avsnitt.
 
 ### <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus

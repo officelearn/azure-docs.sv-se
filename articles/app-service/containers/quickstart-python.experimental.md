@@ -16,11 +16,11 @@ ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396860"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
 
@@ -168,10 +168,10 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 Den inbyggda Python-avbildningen i App Service på Linux är nu i förhandsversion, och du kan anpassa kommandot som används för att starta appen. Du kan även skapa Python-appar för produktion med en anpassad container istället.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudie: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera Python-app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
+> [Självstudie: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)

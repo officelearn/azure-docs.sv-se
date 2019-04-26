@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60508958"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Kopiera data från Presto med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Presto länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Presto** | Ja |
+| type | Type-egenskapen måste anges till: **Presto** | Ja |
 | värd | IP-adressen eller värdnamnet namnet på Presto servern. (d.v.s. 192.168.222.160)  | Ja |
 | serverVersion | Versionen av Presto server. (d.v.s. 0.148-t)  | Ja |
 | katalog | Katalogen kontext för alla begäranden mot servern.  | Ja |
@@ -91,7 +91,7 @@ Om du vill kopiera data från Presto, ange typegenskapen på datauppsättningen 
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **PrestoObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **PrestoObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -120,7 +120,7 @@ Om du vill kopiera data från Presto, ange typ av datakälla i kopieringsaktivit
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PrestoSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PrestoSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

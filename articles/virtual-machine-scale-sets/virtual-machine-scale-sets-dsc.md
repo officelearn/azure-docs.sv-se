@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av Desired State Configuration med Skalningsuppsättningar i virtuella | Microsoft Docs
-description: Med virtuella skalan uppsättningar med Azure DSC-tillägg
+title: Med Desired State Configuration med Virtual Machine Scale Sets | Microsoft Docs
+description: Virtuell dator använder Skalningsuppsättningar med Azure DSC-tillägget
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: zjalexander
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-ms.openlocfilehash: a68a5f31952d636c054b66dc0bb6ec0579cd7192
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 24a37d352413ff9ac55ce8e189691988383950f3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30909011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204000"
 ---
-# <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Med virtuella skalan uppsättningar med Azure DSC-tillägg
-[Skaluppsättningar för den virtuella datorn](virtual-machine-scale-sets-overview.md) kan användas med den [Azure önskad tillstånd Configuration (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) tillägget hanterare. Skaluppsättningar för den virtuella datorn är ett sätt att distribuera och hantera ett stort antal virtuella datorer och Elastiskt kan skala in eller ut för att läsa in. DSC används för att konfigurera de virtuella datorerna som de är online så att de kör programmet för produktion.
+# <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Virtuell dator använder Skalningsuppsättningar med Azure DSC-tillägget
+[Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md) kan användas med den [Azure Desired State Configuration (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) tilläggshanterare. VM-skalningsuppsättningar är ett sätt att distribuera och hantera ett stort antal virtuella datorer och kan Elastiskt skala in och ut i svar att läsa in. DSC används för att konfigurera de virtuella datorerna som de är online så att de kör programvara för produktion.
 
-## <a name="differences-between-deploying-to-virtual-machines-and-virtual-machine-scale-sets"></a>Skillnader mellan distribution till virtuella datorer och virtuella datorer
-Den underliggande strukturen i mallen för en skaluppsättning för virtuell dator är skiljer sig från en enda virtuell dator. En enda virtuell dator distribuerar specifikt tillägg under noden ”virtualMachines”. Det finns en post av typen ”tillägg” där DSC har lagts till i mallen
+## <a name="differences-between-deploying-to-virtual-machines-and-virtual-machine-scale-sets"></a>Skillnaderna mellan att distribuera virtuella datorer och Virtual Machine Scale Sets
+Den underliggande strukturen i mallen för en VM-skalningsuppsättning är skiljer sig från en enda virtuell dator. Mer specifikt distribuerar en enskild virtuell dator tillägg under noden ”virtualMachines”. Det finns en post av typen ”tillägg” där DSC läggs till i mallen
 
 ```
 "resources": [
@@ -66,7 +66,7 @@ Den underliggande strukturen i mallen för en skaluppsättning för virtuell dat
       ]
 ```
 
-En virtuell dator skala set-nod har ett ”egenskaper” avsnitt med den ”VirtualMachineProfile”, ”extensionProfile”-attribut. DSC läggs till under ”tillägg”
+En VM scale set-nod har ett ”egenskaper”-avsnitt med den ”VirtualMachineProfile”, ”extensionProfile”-attributet. DSC läggs till under ”tillägg”
 
 ```
 "extensionProfile": {
@@ -97,15 +97,15 @@ En virtuell dator skala set-nod har ett ”egenskaper” avsnitt med den ”Virt
             ]
 ```
 
-## <a name="behavior-for-a-virtual-machine-scale-set"></a>Beteende för en Skaluppsättning för virtuell dator
-Beteende för en skaluppsättning för virtuell dator är identiskt med beteendet för en enskild virtuell dator. När en ny virtuell dator skapas den automatiskt har etablerats med DSC-tillägg. Om en nyare version av WMF krävs av tillägget för den virtuella datorn startas om innan kommer online. När den är online, hämtar .zip för DSC-konfigurationen och etablera på den virtuella datorn. Mer information finns i [Azure DSC-tillägg översikt](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="behavior-for-a-virtual-machine-scale-set"></a>Beteende för en VM-Skalningsuppsättning
+Beteendet för en VM-skalningsuppsättning är identiskt med beteendet för en enskild virtuell dator. När en ny virtuell dator skapas, etableras den automatiskt med DSC-tillägget. Om en nyare version av WMF krävs av tillägget, startar om den virtuella datorn innan du kopplar upp sig online. När den är online, laddar ned .zip för DSC-konfiguration och etablera den på den virtuella datorn. Mer information finns i [Azure DSC-tillägget översikt](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
-Granska de [Azure Resource Manager-mall för DSC-tillägg](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Granska den [Azure Resource Manager-mall för DSC-tillägget](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Lär dig hur [DSC-tillägg på ett säkert sätt hanterar autentiseringsuppgifter](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Lär dig hur [DSC-tillägget på ett säkert sätt hanterar autentiseringsuppgifter](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Mer information om Azure DSC-tillägg-hanteraren finns [introduktion till Azure Desired State Configuration-tillägget hanteraren](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Läs mer på Azure DSC-tilläggshanterare [introduktion till Azure Desired State Configuration-tilläggshanterare](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Mer information om PowerShell DSC [finns på PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
+Mer information om PowerShell DSC [besök dokumentationscentret för PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 

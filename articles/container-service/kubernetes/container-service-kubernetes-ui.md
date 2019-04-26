@@ -10,11 +10,11 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996142"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309774"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(INAKTUELL) Med Azure Container Service Kubernetes webbgränssnitt
 
@@ -23,7 +23,7 @@ ms.locfileid: "52996142"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här genomgången förutsätter att du har [skapade ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
@@ -63,7 +63,7 @@ Detta ska öppna en webbläsare som konfigurerats för att kommunicera med en s�
 ### <a name="create-and-expose-a-service"></a>Skapa och visa en tjänst
 1. Klicka på i Kubernetes webbgränssnitt **skapa** knappen i det övre högra fönstret.
 
-    ![Skapa Användargränssnittet för Kubernetes](./media/container-service-kubernetes-ui/create.png)
+    ![Kubernetes Create UI](./media/container-service-kubernetes-ui/create.png)
 
     En dialogruta öppnas där du kan börja skapa ditt program.
 
@@ -123,7 +123,7 @@ Klicka först på **distributioner** i det vänstra navigeringsfönstret för at
 
 När du är i vyn klickar du på uppsättningen och klickar sedan på **redigera** i det övre navigeringsfältet:
 
-![Redigera Kubernetes](./media/container-service-kubernetes-ui/edit.png)
+![Kubernetes Edit](./media/container-service-kubernetes-ui/edit.png)
 
 Redigera den `spec.replicas` fältet ska vara `2`, och klicka på **uppdatering**.
 

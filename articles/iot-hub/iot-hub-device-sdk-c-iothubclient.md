@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
 ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400702"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-enhetens SDK för C – mer om IoTHubClient
 
@@ -59,10 +59,10 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 Det finns tillhörande funktioner för var och en av dessa API: er:
 
-* IoTHubClient\_lla\_CreateFromConnectionString
-* IoTHubClient\_lla\_SendEventAsync
-* IoTHubClient\_lla\_SetMessageCallback
-* IoTHubClient\_lla\_förstör
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 Dessa funktioner som innehåller alla **lla** i API-namn. Andra den **lla** en del av namnet, parametrarna för var och en av dessa funktioner är identiska med deras icke lla-motsvarigheter. Beteendet för dessa funktioner är dock olika på ett sätt som viktiga.
 
@@ -126,9 +126,9 @@ Det är i princip bara en uppsättning API: er för att skicka och ta emot data 
 
 Oavsett vilken modell som du väljer, måste du vara konsekvent med vilka API: er som du använder. Om du startar genom att anropa **IoTHubClient\_lla\_CreateFromConnectionString**, se till att du bara använda motsvarande lågnivå-API: er för all Uppföljnings:
 
-* IoTHubClient\_lla\_SendEventAsync
-* IoTHubClient\_lla\_SetMessageCallback
-* IoTHubClient\_lla\_förstör
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 * IoTHubClient\_LL\_DoWork
 
 Motsatt gäller även. Om du startar med **IoTHubClient\_CreateFromConnectionString**, sedan använda icke - lla API: erna för alla ytterligare bearbetning.
@@ -235,7 +235,7 @@ Argument till **IoTHubClient\_CreateFromConnectionString** är enhetens anslutni
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-Det finns fyra typer av information i den här strängen: namnet på IoT-hubb, IoT Hub-suffix, enhets-ID och nyckel för delad åtkomst. Du hämta det fullständigt kvalificerade domännamnet (FQDN) för en IoT-hubb när du skapar din IoT hub-instansen i Azure portal – detta ger dig IoT hub-namn (den första delen av det fullständiga Domännamnet) och IoT hub-suffix (resten av det fullständiga Domännamnet). Du får enhets-ID och nyckel för delad åtkomst när du registrerar din enhet med IoT Hub (enligt beskrivningen i den [föregående artikel](iot-hub-device-sdk-c-intro.md)).
+Det finns fyra typer av information i den här strängen: Namnet på IoT-hubb, IoT Hub-suffix, enhets-ID och nyckel för delad åtkomst. Du hämta det fullständigt kvalificerade domännamnet (FQDN) för en IoT-hubb när du skapar din IoT hub-instansen i Azure portal – detta ger dig IoT hub-namn (den första delen av det fullständiga Domännamnet) och IoT hub-suffix (resten av det fullständiga Domännamnet). Du får enhets-ID och nyckel för delad åtkomst när du registrerar din enhet med IoT Hub (enligt beskrivningen i den [föregående artikel](iot-hub-device-sdk-c-intro.md)).
 
 **IoTHubClient\_CreateFromConnectionString** ger dig ett sätt att initiera i biblioteket. Om du vill kan du skapa en ny **IOTHUB\_klienten\_hantera** med hjälp av dessa enskilda parametrar i stället för enhetens anslutningssträng. Detta uppnås med följande kod:
 

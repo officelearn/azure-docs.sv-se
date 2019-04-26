@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369962"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkoren på din faktura för Microsoft Azure
 
@@ -31,7 +31,7 @@ Några saker att tänka på:
 
 -   Upp till 24 timmars användning i slutet av den tidigare faktureringsperioden kan visas i den aktuella fakturan.
 
--   Avgifter som anges på faktureringsutdragen för internationella kunder är endast uppskattade. Banker kan ha olika kostnader för valutaomvandling.
+-   Avgifter som anges på faktureringsutdragen för internationella kunder är endast uppskattade. Bankerna kan ha olika kostnader för valutaomvandling.
 
 >[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
@@ -100,7 +100,7 @@ I följande tabell beskrivs kolumnrubrikerna för användning avgifter visas på
 | Period |Beskrivning |
 | --- | --- |
 | Namn |Identifierar huvudtjänst för användning |
-| Type |Definierar den Azure-tjänst-typ som kan påverka priset |
+| Typ |Definierar den Azure-tjänst-typ som kan påverka priset |
 | Resurs |Anger måttenhet för den mätning som används |
 | Region |Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret |
 | Förbrukad |Hur mycket av används under faktureringsperioden |

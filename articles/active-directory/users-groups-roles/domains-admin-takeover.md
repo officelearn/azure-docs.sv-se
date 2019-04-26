@@ -16,11 +16,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472489"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
@@ -82,7 +82,7 @@ Om du redan hanterar en klient med Azure-tjänster eller Office 365 kan du inte 
 När du verifiera ditt ägarskap till domännamnet Azure AD tar bort domännamnet från ohanterad klient och flyttar det till din befintliga klient. Externa adminövertagande av en ohanterad katalog kräver samma DNS TXT-verifieringsprocessen som interna adminövertagande. Skillnaden är att följande också flyttas med domännamn:
 
 - Användare
-- Prenumerationer
+- Subscriptions
 - Licenstilldelningar
 
 ### <a name="support-for-external-admin-takeover"></a>Stöd för externa adminövertagande

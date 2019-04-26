@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322088"
 ---
 # <a name="report-and-check-service-health"></a>Rapportera och kontrollera hälsan hos tjänster
 När dina tjänster får problem kan beror dina möjligheter att svara på och åtgärda incidenter och avbrott på din möjlighet att upptäcka problem snabbt. Om du rapporterar problem och fel till Azure Service Fabric health manager från service koden kan du använda verktygen i Service Fabric för att kontrollera hälsostatus för standard hälsoövervakning.
@@ -34,7 +34,7 @@ Det finns tre sätt att du kan rapportera hälsa från tjänsten:
 
 Den här artikeln går vi igenom ett exempel som rapporterar hälsa från tjänstkoden. Exemplet visar också hur de verktyg som tillhandahålls av Service Fabric kan användas för att kontrollera hälsostatus. Den här artikeln är avsedd att vara en snabb introduktion till hälsoövervakning funktionerna i Service Fabric. Du kan läsa serien fördjupade artiklar om hälsotillstånd som börjar med en länk i slutet av den här artikeln för mer detaljerad information.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha följande installerat:
 
 * Visual Studio 2015 eller Visual Studio 2017

@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468325"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörsroller av admin-aktivitet i Azure Active Directory
 
@@ -247,8 +247,8 @@ Läsa alla konfigurationen | Säkerhetsadministratör | Användaradministratör 
 
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
-Tilldela användare till roller | Privilegierad rolladministratör | 
-Konfigurera rollinställningar | Privilegierad rolladministratör | 
+Tilldela användare till roller | Administratör för privilegierad roll | 
+Konfigurera rollinställningar | Administratör för privilegierad roll | 
 Visa aktivitetsrapporter | Säkerhetsläsare | 
 Visa rollmedlemskap | Säkerhetsläsare | 
 
@@ -256,7 +256,7 @@ Visa rollmedlemskap | Säkerhetsläsare |
 
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
-Hantera rolltilldelningar | Privilegierad rolladministratör | 
+Hantera rolltilldelningar | Administratör för privilegierad roll | 
 Läs åtkomstgranskning av en Azure AD-roll  | Säkerhetsläsare | Säkerhetsadministratör privilegierad rolladministratör
 Läsa alla konfigurationen | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 
@@ -314,7 +314,7 @@ Läsa användare som har flaggats för risk | Säkerhetsläsare |
 
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
-Lägga till användare till katalogroll | Privilegierad rolladministratör | 
+Lägga till användare till katalogroll | Administratör för privilegierad roll | 
 Lägg till användaren i gruppen | Användaradministratör | 
 Tilldela licens | Licensadministratör | Användaradministratör
 Skapa gästanvändare | Gästinbjudare | Användaradministratör

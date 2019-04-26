@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory-kodexempel | Microsoft Docs
+title: Azure Active Directory v1.0-kodexempel | Microsoft Docs
 description: Innehåller ett index i Azure Active Directory (v1.0 slutpunkt) kodexempel ordnas efter scenario.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64c199df2012e6ce3b3de5f34989cf5cbc135fdc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b7e88c672e72549d813971ce72fc7b85ee8619eb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298599"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Kodexempel för Azure Active Directory (v1.0 slutpunkt)
 

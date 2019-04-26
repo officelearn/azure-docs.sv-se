@@ -14,11 +14,11 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309208"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Azure Data Factory stöder för närvarande endast flyttar data från Salesforce
 ## <a name="supported-versions"></a>Versioner som stöds
 Den här anslutningsappen stöder följande versioner av Salesforce: Developer Edition, Professional Edition, Enterprise Edition eller obegränsad Edition. . Den stöder också kopiera från Salesforce produktion, sandbox-miljön och anpassad domän.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * API-behörighet måste aktiveras. Se [hur gör jag för att aktivera API-åtkomst i Salesforce av behörighetsuppsättning?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * För att kopiera data från Salesforce till lokala datalager, du har Data Management Gateway 2.0 är installerat i din lokala miljö.
 
@@ -69,10 +69,10 @@ I följande tabell innehåller beskrivningar av JSON-element som är specifika f
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **Salesforce**. |Ja |
+| type |Type-egenskapen måste anges till: **Salesforce**. |Ja |
 | environmentUrl | Ange URL: en för Salesforce-instans. <br><br> – Standardvärdet är ”https:\//login.salesforce.com”. <br> – Om du vill kopiera data från sandbox, ange ”https://test.salesforce.com”. <br> – Om du vill kopiera data från anpassad domän, ange, till exempel ”https://[domain].my.salesforce.com”. |Nej |
 | användarnamn |Ange ett användarnamn för användarkontot. |Ja |
-| lösenord |Ange ett lösenord för användarkontot. |Ja |
+| password |Ange ett lösenord för användarkontot. |Ja |
 | securityToken |Ange en säkerhetstoken för användarkontot. Se [hämta säkerhetstoken för](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställning/hämta en säkerhetstoken. Läs mer om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -96,7 +96,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten, å
 
 I kopieringsaktiviteten när källan är av typen **RelationalSource** (som omfattar Salesforce), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |En SQL-92-fråga eller [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga. Till exempel: `select * from MyTable__c`. |Nej (om den **tableName** av den **datauppsättning** har angetts) |
 
@@ -287,10 +287,10 @@ Se [RelationalSource typegenskaperna](#copy-activity-properties) lista över ege
 | Salesforce-typ | . NET-baserade typ |
 | --- | --- |
 | Automatisk numrering |String |
-| Kryssrutan |Boolesk |
+| Kryssrutan |Boolean |
 | Valuta |Decimal |
-| Date |DateTime |
-| Datum/tid |DateTime |
+| Date |Datetime |
+| Datum/tid |Datetime |
 | E-post |String |
 | Id |String |
 | Uppslagsrelation |String |

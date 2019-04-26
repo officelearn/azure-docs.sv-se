@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252402"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>Publicera en definition av Azure-hanterat program
 
@@ -68,14 +68,14 @@ När kommandot har slutförts har du en definition för det hanterade programmet
 
 Några av de parametrar som användes i det föregående exemplet är:
 
-* **resursgrupp**: Namnet på resursgruppen där definitionen för det hanterade programmet skapas.
-* **låsnivå**: Typ av lås som placerats på den hanterade resursgruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
-* **auktorisering**: Beskriver huvudkontots ID och rolldefinitions-ID som används för att ge behörigheter till den hanterade resursgruppen. Det anges i formatet `<principalId>:<roleDefinitionId>`. Om det krävs fler än ett värde anger du dem i formatet `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Värdena avgränsas med ett blanksteg.
-* **uri för paketfil**: Platsen för ett zip-paket som innehåller de filer som krävs. Paketet måste ha filerna **mainTemplate.json** och **createUiDefinition.json**. **mainTemplate.json** definierar de Azure-resurser som skapas som en del av det hanterade programmet. Mallen skiljer sig inte från en vanlig Resource Manager-mall. **createUiDefinition.json** genererar användargränssnittet för användare som skapar det hanterade programmet via portalen.
+* **resursgrupp**: Namnet på resursgruppen där definitionen för hanterade programmet skapas.
+* **lock-level**: Typ av Lås placeras på den hanterade resursgruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
+* **auktoriseringar**: Beskriver huvudkontots ID och rolldefinitions-ID som används för att ge behörighet till den hanterade resursgruppen. Det anges i formatet `<principalId>:<roleDefinitionId>`. Om det krävs fler än ett värde anger du dem i formatet `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Värdena avgränsas med ett blanksteg.
+* **package-file-uri**: Platsen för ett ZIP-paket som innehåller filerna som krävs. Paketet måste ha filerna **mainTemplate.json** och **createUiDefinition.json**. **mainTemplate.json** definierar de Azure-resurser som skapas som en del av det hanterade programmet. Mallen skiljer sig inte från en vanlig Resource Manager-mall. **createUiDefinition.json** genererar användargränssnittet för användare som skapar det hanterade programmet via portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du har publicerat definitionen av det hanterade programmet. Nu ska du lära dig hur du distribuerar en instans av den definitionen.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Distribuera tjänstkatalogapp](deploy-service-catalog-quickstart.md)
+> [Snabbstart: Distribuera service catalog-app](deploy-service-catalog-quickstart.md)

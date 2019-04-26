@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: v-jaswel
 ms.openlocfilehash: 8a338eb6ea3dfeea2027d44487138f290f6c8803
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309359"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudier: Få förslag på en webbsida
 
@@ -27,7 +27,7 @@ I den här självstudiekursen lär du dig att:
 > - Skicka en enkel fråga till API:et Automatiska förslag i Bing
 > - Visa frågeresultat
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API:et Automatiska förslag i Bing. Om du inte har någon nyckel kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 

@@ -18,11 +18,11 @@ ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15e77767e16ce6ae02c6f1f93891d5acf4bfcb6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299522"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Snabbstart: Registrera en app med Azure Active Directory v1.0-slutpunkten
 
@@ -37,7 +37,7 @@ Den här snabbstarten visar hur du lägger till och registrerar ett program i Az
 > [!NOTE]
 > Registrerar du en ny app? Prova den nya upplevelsen **Appregistreringar (förhandsversion)** i Azure-portalen. Se [Registrera en app (förhandsversion)](quickstart-register-app.md) för att komma igång.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att komma igång ser du till att ha en Azure AD-klientorganisation som du kan använda för att registrera dina appar till. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: c25232abf20bbe3d01672b7620e5d2f5e31d5c8a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019613"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343519"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Kopiera data från Shopify med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Shopify länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Shopify** | Ja |
+| type | Type-egenskapen måste anges till: **Shopify** | Ja |
 | värd | Slutpunkten för Shopify-server. (det vill säga mystore.myshopify.com)  | Ja |
 | accessToken | API-åtkomsttoken som kan användas för att komma åt Shopify's data. Token upphör inte om den är offline-läge. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
@@ -77,7 +77,7 @@ Om du vill kopiera data från Shopify, ange typegenskapen på datauppsättningen
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **ShopifyObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **ShopifyObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -106,7 +106,7 @@ Om du vill kopiera data från Shopify, ange typ av datakälla i kopieringsaktivi
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ShopifySource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ShopifySource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

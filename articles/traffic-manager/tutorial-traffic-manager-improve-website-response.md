@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
 ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329851"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Självstudier: Förbättra webbplatsen svaret med hjälp av Traffic Manager
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill se hur Traffic Manager fungerar i praktiken behöver du använda följande i den här självstudien:
 - två instanser av grundläggande webbplatser i olika Azure-regioner – **USA, östra** och **Europa, västra**.
 - två virtuella testdatorer för att testa Traffic Manager – en virtuell dator i **USA, östra** och den andra virtuella datorn i **Europa, västra**. Testet virtuella datorer används för att illustrera hur Traffic Manager dirigerar trafiken till den webbplats som körs i samma region som det ger kortast svarstid.
@@ -61,7 +61,7 @@ I det här avsnittet skapar du de två virtuella datorerna *myIISVMEastUS* och *
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resursgrupp| Välj **Ny** och skriv sedan *myResourceGroupTM1*.|
-    |Plats| Välj **USA, östra**.|
+    |Location| Välj **USA, östra**.|
     |||
 
 4. Välj en VM-storlek i **Välj en storlek**.
@@ -81,7 +81,7 @@ I det här avsnittet skapar du de två virtuella datorerna *myIISVMEastUS* och *
     |Inställning|Värde|
     |---|---|
     |Resursgrupp | Välj **Ny** och skriv sedan *myResourceGroupTM2*|
-    |Plats|Västra Europa|
+    |Location|Västra Europa|
     |Namn på virtuell dator | myIISVMWEurope|
     |Virtuellt nätverk | Välj **Virtuellt nätverk** i **Skapa virtuellt nätverk**. För **Namn** anger du *myVNet2* och för undernätet anger du  *mySubnet*.|
     |||
@@ -175,7 +175,7 @@ Skapa en Traffic Manager-profil som dirigerar användartrafik som genom att skic
     | Routningsmetod          | Välj den **prestanda** routningsmetod.                                       |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj **Skapa nytt** och ange *myResourceGroupTM1*. |
-    | Plats                | Välj **USA, östra**. Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
+    | Location                | Välj **USA, östra**. Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
     |
 
     ![Skapa en Traffic Manager-profil](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
@@ -190,7 +190,7 @@ Lägg till de två virtuella datorer som kör IIS servrar – *myIISVMEastUS* & 
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Type                    | Azure-slutpunkt                                   |
+    | Typ                    | Azure-slutpunkt                                   |
     | Namn           | myEastUSEndpoint                                        |
     | Målresurstyp           | Offentlig IP-adress                          |
     | Målresurs          | **Välj en offentlig IP-adress** för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resurs** väljer du den offentliga IP-adressen med namnet *myIISVMEastUS-ip*. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|

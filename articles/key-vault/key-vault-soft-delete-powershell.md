@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: mbaldwin
 ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461373"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Hur du använder Key Vault mjuk borttagning med PowerShell
 
@@ -21,7 +21,7 @@ Azure Key Vault mjuk borttagning med funktionen kan återställning av borttagna
 - Stöd för återställa borttagningen av ett nyckelvalv
 - Stöd för återställa borttagningen av nyckelvalvobjekt. nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

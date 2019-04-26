@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
 ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447528"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Skapa och kör återkommande uppgifter och arbetsflöden med Azure Logic Apps
 
@@ -41,7 +41,7 @@ När den återkommande utlösaren utlöses varje gång Logic Apps skapar och kö
 
 Om du vill utlösa logikappen och kör bara en gång i framtiden, se [kör jobb bara en gång](#run-once) senare i det här avsnittet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har en prenumeration kan du [börja med ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Annars kan du [registrera dig för en prenumeration enligt principen Betala per användning](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -95,7 +95,7 @@ Om du vill utlösa logikappen och kör bara en gång i framtiden, se [kör jobb 
 
 Du kan konfigurera dessa egenskaper för utlösare för upprepning.
 
-| Namn | Krävs | Egenskapsnamn | Type | Beskrivning | 
+| Namn | Obligatoriskt | Egenskapsnamn | Typ | Beskrivning | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Frekvens** | Ja | frequency | String | Tidsenhet för upprepningen: **Andra**, **minut**, **timme**, **dag**, **vecka**, eller **månad** | 
 | **Intervall** | Ja | interval | Integer | Ett positivt heltal som beskriver hur ofta arbetsflödet körs baserat på åtkomstfrekvensen. <p>Standardintervallet är 1. Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dag: 1 – 500 dagar </br>-Timme: 1 – 12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
@@ -153,7 +153,7 @@ Eller, om du använder en tom mall för logikapp börjar din logikapp med den **
 **F:** Vad är andra exempel återkommande scheman? </br>
 **S:** Här följer mer exempel:
 
-| Upprepning | Intervall | Frekvens | Starttid | Dessa dagar | Vid dessa timmar | Vid dessa minuter | Obs! |
+| Upprepning | Interval | Frekvens | Starttid | Dessa dagar | Vid dessa timmar | Vid dessa minuter | Obs! |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
 | Körs varje kvart (inga startdatum och tidpunkt) | 15 | Minut | {none} | {unavailable} | {none} | {none} | Det här schemat startar omedelbart och beräknar framtida upprepningar baserat på senaste körningstid. | 
 | Kör var 15: e minut (med startdatum och tidpunkt) | 15 | Minut | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | Det här schemat inte startar *alla körningstillfället* än den angivna startdatum och starttid, beräknar sedan framtida upprepningar baserat på senaste körningstid. | 

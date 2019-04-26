@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197751"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ I den här artikeln lär du dig hur du använder .NET SDK för att göra tjänst
 2. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på **Projekt**.
 3. Från **Nytt projekt** anger eller väljer du följande värden:
 
-   | Egenskap | Värde |
+   | Egenskap  | Värde |
    | --- | --- |
-   | Kategori |Mallar/Visual C#/Windows |
+   | Category |Mallar/Visual C#/Windows |
    | Mall |Konsolprogram |
    | Namn |CreateADLApplication |
 4. Klicka på **OK** för att skapa projektet.

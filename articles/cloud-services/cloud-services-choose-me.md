@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337532"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Översikt över Azure Cloud Services
 Azure Cloud Services är ett exempel på en [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Som [Azure App Service](../app-service/overview.md), den här tekniken är utformad för att stödja program som är skalbara, tillförlitliga och billiga att hantera. På samma sätt som att App Service finns på virtuella datorer (VM), så är för Azure Cloud Services. Du kan dock mer kontroll över de virtuella datorerna. Du kan installera din egen programvara på virtuella datorer som använder Azure Cloud Services och du kan komma åt dem via en fjärranslutning.

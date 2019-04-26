@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469136"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegera app administratörsroller i Azure Active Directory
 
@@ -58,7 +58,7 @@ När en användare registrerar ett program, läggs de automatiskt som första ä
 
 ## <a name="delegate-app-ownership"></a>Delegera app ägarskap
 
-Ägare för appen och appen registrering ägare kan varje hantera endast app-program eller app-registreringar som de äger. Till exempel när du lägger till en ägare till Salesforce-programmet kan som ägare hantera åtkomst till och konfiguration för Salesforce, men inte andra program. En app kan ha många ägare och en användare kan vara ägaren av många appar.
+Ägare för appen och appen registrering ägare kan varje hantera endast program eller app-registreringar som de äger. Till exempel när du lägger till en ägare till Salesforce-programmet kan som ägare hantera åtkomst till och konfiguration för Salesforce, men inte andra program. En app kan ha många ägare och en användare kan vara ägaren av många appar.
 
 En programägaren kan:
 

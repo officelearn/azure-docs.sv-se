@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 5e5a186be19c0ecc9730bc79bddff41fb6bbb571
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197122"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Snabbstart: Hämta avsikt med Java
 
@@ -26,7 +26,7 @@ I den här snabbstarten överför du yttranden till en LUIS-slutpunkt och få av
 
 <a name="create-luis-subscription-key"></a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) eller din favorit-IDE

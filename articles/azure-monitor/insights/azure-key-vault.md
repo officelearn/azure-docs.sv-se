@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498533"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
@@ -105,10 +105,10 @@ Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
+| Typ |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
 | CallerIpAddress |IP-adressen för klienten som gjorde begäran |
-| Kategori | *AuditEvent* |
+| Category | *AuditEvent* |
 | CorrelationId |Ett valfritt GUID som klienten kan skicka för att korrelera loggar på klientsidan med loggar på tjänstsidan (Key Vault). |
 | . durationMs |Hur lång tid i millisekunder som det tog att utföra REST-API-begäran. Nu omfattar inte Nätverksfördröjningen, så den tid du mäter på klientsidan inte kanske stämmer med den här gången. |
 | httpStatusCode_d |HTTP-statuskod som returnerades av begäran (till exempel *200*) |

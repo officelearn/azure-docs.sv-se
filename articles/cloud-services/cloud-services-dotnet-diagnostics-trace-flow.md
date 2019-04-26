@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
 ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525569"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336872"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Spåra flödet för en Cloud Services-program med Azure Diagnostics
 Spårning är ett sätt för dig att övervaka körning av ditt program när den körs. Du kan använda den [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug), och [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) klasser för att samla in information om fel och program som körs i loggar, textfiler och andra enheter för senare analys. Läs mer om spårning av [spårning och instrumentering av program](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).

@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507545"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Kontrollera trafik enligt ett schema med Azure Logic Apps
 
@@ -62,7 +62,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
    | **Namn** | LA-TravelTime | Logikappens namn | 
    | **Prenumeration** | <*your-Azure-subscription-name*> | Azure-prenumerationens namn | 
    | **Resursgrupp** | LA-TravelTime-RG | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser | 
-   | **Plats** | Östra USA 2 | Regionen där informationen om logikappen ska lagras | 
+   | **Plats** | USA, östra 2 | Regionen där informationen om logikappen ska lagras | 
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
    |||| 
 
@@ -172,7 +172,7 @@ Den tidigare åtgärden **Get route** (Hämta resväg) returnerar aktuell restid
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
    | **Namn** | travelTime | Namnet på variabeln | 
-   | **Typ** | Heltal | Datatypen för variabeln | 
+   | **Typ** | Integer | Datatypen för variabeln | 
    | **Värde** | Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln | 
    |||| 
 

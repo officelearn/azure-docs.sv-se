@@ -16,11 +16,11 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60439734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Självstudier: Azure Active Directory-integrering med 23 Video
 
@@ -34,7 +34,7 @@ Integrera 23 ger Video med Azure AD dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med 23 Video, behöver du följande objekt:
 
@@ -177,7 +177,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 1. Logga in på webbplatsen företagets 23 Video som administratör.
 
-2. Gå till **inställningar**.
+2. Gå till **Inställningar**.
  
 3. I **användare** klickar du på **konfigurera**.
    
@@ -233,7 +233,7 @@ När du klickar på panelen 23 Video i åtkomstpanelen du bör få automatiskt l
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

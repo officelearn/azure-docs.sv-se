@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498754"
 ---
 # <a name="conference-instance-entity"></a>Konferensen instans entitet
 
 <sub> * Följande attribut är specifika för konferensen instans entitet. (Ty = ”4”) </sub>
 
-Namn    |Beskrivning                            |Type       | Åtgärder
+Namn    |Beskrivning                            |Typ       | Åtgärder
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |Enhets-id                              |Int64      |Lika med
 CIN     |Konferensen normaliserade Instansnamn ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |String     |Lika med

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
 ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516680"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
 
@@ -46,11 +46,11 @@ Följande steg visar hur du skapar en offentlig belastningsutjämnare med hjälp
 
 Distribuera en belastningsutjämnare, skapa och konfigurera följande objekt:
 
-* **Frontend-IP-konfigurationen**: innehåller offentliga IP-adresser för inkommande nätverkstrafik.
-* **Backend adresspoolen**: innehåller nätverksgränssnitten (NIC) som de virtuella datorerna att ta emot nätverkstrafik från belastningsutjämnaren.
-* **Regler för belastningsutjämning**: innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
-* **Ingående NAT-regler**: innehåller regler network address translation (NAT) som mappar en offentlig port på belastningsutjämnaren till en port för en specifik virtuell dator i backend-adresspoolen.
-* **Avsökningar**: innehåller hälsoavsökningar som används för att kontrollera tillgängligheten för instanser av virtuella datorer i backend-adresspoolen.
+* **Frontend-IP-konfigurationen**: Innehåller den offentliga IP-adresser för inkommande nätverkstrafik.
+* **Backend adresspoolen**: Innehåller nätverksgränssnitten (NIC) som de virtuella datorerna att ta emot nätverkstrafik från belastningsutjämnaren.
+* **Regler för belastningsutjämning**: Innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
+* **Ingående NAT-regler**: Innehåller regler network address translation (NAT) som mappar en offentlig port på belastningsutjämnaren till en port för en specifik virtuell dator i backend-adresspoolen.
+* **Avsökningar**: Innehåller hälsoavsökningar som används för att kontrollera tillgängligheten för instanser av virtuella datorer i backend-adresspoolen.
 
 ## <a name="set-up-azure-cli"></a>Konfigurera Azure CLI
 

@@ -16,11 +16,11 @@ ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531826"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Hantera åtkomst till Azure-resurser med RBAC och REST API
 
@@ -38,7 +38,7 @@ I RBAC lista för att lista åtkomstförsök kommer du rolltilldelningar. Vill s
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rolltilldelningar.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -77,7 +77,7 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar. Du kan skapa en roll
     
 1. I URI: N, Ersätt *{omfång}* med omfånget för rolltilldelningen.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -105,7 +105,7 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Ta bort en r
 
 1. I URI: N, Ersätt *{omfång}* med omfattning för att ta bort rolltilldelningen.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |

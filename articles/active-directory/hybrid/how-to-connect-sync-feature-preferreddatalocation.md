@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348247"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synkronisering: Konfigurera önskad Dataplats för Office 365-resurser
 Syftet med det här avsnittet är att vägleder dig genom hur du konfigurerar attributet för önskad Dataplats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder Multi-Geo-funktioner i Office 365 använder du det här attributet för att ange geografiska av användarens Office 365-data. (Villkoren *region* och *geo* används synonymt.)
@@ -139,7 +139,7 @@ Regel för inkommande synkronisering tillåter attributvärdet som flödar från
 
     | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    |Direkt | preferredDataLocation | Välj attribut för datakälla | Alternativet är avmarkerat | Uppdatering |
+    |Direct | preferredDataLocation | Välj attribut för datakälla | Alternativet är avmarkerat | Uppdatering |
 
 7. Om du vill skapa den inkommande regeln, Välj **Lägg till**.
 
@@ -176,7 +176,7 @@ Den utgående synkroniseringsregeln tillåter attributvärdet som flödar från 
 
     | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    | Direkt | preferredDataLocation | preferredDataLocation | Alternativet är avmarkerat | Uppdatering |
+    | Direct | preferredDataLocation | preferredDataLocation | Alternativet är avmarkerat | Uppdatering |
 
 7. Stäng **Lägg till** att skapa regel för utgående trafik.
 

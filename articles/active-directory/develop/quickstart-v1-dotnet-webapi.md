@@ -19,11 +19,11 @@ ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f87573e23f2c0f48e54b6f03289969aab930e15c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299183"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Snabbstart: Skapa ett .NET-baserat webb-API som integreras med Azure AD för autentisering och auktorisering
 
@@ -53,7 +53,7 @@ Kom igång genom att slutföra följande krav:
 
 För att skydda appen måste du först skapa en app i klientorganisationen och ge Azure AD några viktiga uppgifter.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj din Azure AD-klientorganisation genom att välja ditt konto i det övre högra hörnet på sidan. Välj navigeringen **Växla katalog** och välj sedan rätt klientorganisation.
     * Hoppa över det här steget om du bara har en Azure AD-klientorganisation under ditt konto eller om du redan har valt den rätta Azure AD-klientorganisationen.
 

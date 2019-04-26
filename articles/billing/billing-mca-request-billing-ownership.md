@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371959"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Hämta faktureringsägarskapet av Azure-prenumerationer från andra användare
 
@@ -35,16 +35,16 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning för kostnadshantering + fakturering](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Gå till avsnittet faktura. Beroende på din åtkomst kan du behöva välja en faktureringskonto eller en profil för fakturering. Fakturering konto eller profil, väljer du **faktura avsnitt** och sedan en faktura-avsnittet.
+3. Gå till fakturaavsnittet. Beroende på din åtkomst kan du behöva välja en faktureringskonto eller en profil för fakturering. Fakturering konto eller profil, väljer du **faktura avsnitt** och sedan en faktura-avsnittet.
    <!-- Todo - Add a screenshot -->
 
 4. Välj **att överföra** från längst ned till vänster sida.
 
-5. Högst upp på sidan Välj **Lägg till**.
+5. Välj **Lägg till** längst upp på sidan.
 
 6. Ange e-postadressen för den användare som du ska få faktureringsägarskapet från. Användaren måste vara kontoadministratör på något faktureringskonto för Microsoft Online Service-Program eller en kontoinnehavare med ett Enterprise Agreement. Mer information finns i [visa din faktureringsinformation konton i Azure-portalen](billing-view-all-accounts.md).
 
@@ -64,11 +64,11 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning för kostnadshantering + fakturering](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Gå till avsnittet faktura. Beroende på din åtkomst kan du behöva välja en faktureringskonto eller en profil för fakturering. Fakturering konto eller profil, väljer du **faktura avsnitt** och sedan en faktura-avsnittet.
+3. Gå till fakturaavsnittet. Beroende på din åtkomst kan du behöva välja en faktureringskonto eller en profil för fakturering. Fakturering konto eller profil, väljer du **faktura avsnitt** och sedan en faktura-avsnittet.
    <!-- Todo - Add a screenshot -->
 
 4. Välj **att överföra** från längst ned till vänster sida.

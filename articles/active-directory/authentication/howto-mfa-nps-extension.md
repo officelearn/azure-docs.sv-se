@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359236"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -207,7 +207,7 @@ När du aktiverar MFA för en RADIUS-klient som använder NPS-tillägget, måste
 
 Om du har användare som inte har registrerats för MFA, kan du bestämma vad som händer när de försöker att autentisera. Använda registerinställningen *REQUIRE_USER_MATCH* i registersökvägen *HKLM\Software\Microsoft\AzureMFA* att styra hur funktionen. Den här inställningen har ett enda konfigurationsalternativ:
 
-| Nyckel | Value | Standard |
+| Nyckel | Värde | Standard |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | SANT/FALSKT | Inte har angetts (motsvarar SANT) |
 

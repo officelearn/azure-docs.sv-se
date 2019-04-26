@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
 ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325841"
 ---
 # <a name="live-events-and-live-outputs"></a>Livehändelser och liveresultat
 
@@ -34,7 +34,7 @@ En [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents)
 
 ### <a name="pass-through"></a>Direkt
 
-![direktautentisering](./media/live-streaming/pass-through.svg)
+![direkt](./media/live-streaming/pass-through.svg)
 
 När du använder en genomströmning av en **livehändelse** förlitar du dig på din lokala livekodare för att generera en videoström för flera bithastigheter och skicka den som bidragsflöde till livehändelsen (med RTMP eller fragmenterat MP4-protokoll). Livehändelsen passerar sedan via inkommande videoströmmar utan vidare bearbetning. En sådan LiveEvent-genomströmning är optimerad för tidskrävande direktsändningar eller linjär 24 x 365-liveuppspelning. När du skapar den här typen av livehändelse kan du ange Ingen (LiveEventEncodingType.None).
 
@@ -48,7 +48,7 @@ Se ett .NET-kodexempel i [MediaV3LiveApp](https://github.com/Azure-Samples/media
 
 ### <a name="live-encoding"></a>Live Encoding  
 
-![Live encoding](./media/live-streaming/live-encoding.svg)
+![livekodning](./media/live-streaming/live-encoding.svg)
 
 När du använder livekodning med Media Services konfigurerar du din lokala livekodare till att skicka en video med enkel bithastighet som bidragsflöde livehändelsen (med hjälp av RTMP eller protokollet Fragmented-Mp4). Livehändelsen kodar den inkommande strömmen med enkel bithastighet till [videoström med flera bithastigheter](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) och gör den tillgänglig för leverans till uppspelningsenheter via protokoll såsom MPEG-DASH, HLS och Smooth Streaming. När du skapar den här typen av livehändelse anger du kodningstypen som **Standard** (LiveEventEncodingType.Standard).
 

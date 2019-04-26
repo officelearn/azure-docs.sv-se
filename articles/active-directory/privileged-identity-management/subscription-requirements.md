@@ -18,17 +18,17 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437464"
 ---
 # <a name="license-requirements-to-use-pim"></a>Licenskrav gäller för att använda PIM
 
 En katalog måste ha en giltig licens för att använda Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Dessutom måste licenser tilldelas gruppen Administratörer och användare. Den här artikeln beskrivs licensieringskraven för att använda PIM.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda PIM måste din katalog ha ett av följande avgiftsbelagda eller utvärderingslicenser:
 

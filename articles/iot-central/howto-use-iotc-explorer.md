@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 16cb27ab330118d1bb59cf4f3d782bf55fa28d43
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60517044"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Övervaka enhetsanslutning med Azure IoT Central Explorer
 
@@ -23,7 +23,7 @@ Använd IoT Central Explorer CLI för att se meddelanden enheterna skickar till 
 
 [Besök iotc-explorer-lagringsplatsen i GitHub.](https://aka.ms/iotciotcexplorercligithub)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + Node.js-version 8.x eller högre - https://nodejs.org
 + En administratör för ditt program måste generera en åtkomsttoken som du kan använda i iotc explorer

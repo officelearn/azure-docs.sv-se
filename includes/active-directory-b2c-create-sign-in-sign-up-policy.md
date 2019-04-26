@@ -2,24 +2,25 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: f23d2b02bc2a23c5333a48a50532c03f3aa6a031
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455662"
 ---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 Under **hantera**väljer **användarflöden** och klicka på +**nytt användarflöde**.
 
-![Välj nytt användarflöde](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
+![Välj nytt användarflöde](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
 
 På den **rekommenderas** fliken **logga och logga in**.
 
-![Välj logga in och logga in användarflödet](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
+![Välj logga in och logga in användarflödet](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
 
 Ange ett användarflöde **namn** för programmet. Ange till exempel `SiUpIn`.
 
@@ -27,7 +28,7 @@ Under **identitetsprovidrar** och kontrollera **e-postregistrering**. Du kan ock
 
 Under **multifaktorautentisering**, väljer du antingen **aktiverad** eller **inaktiverad**.
 
-![Ange ett namn och välj e-postregistrering som identitetsprovider](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
+![Ange ett namn och välj e-postregistrering som identitetsprovider](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
 
 Under **användarattribut och anspråk**väljer **visa fler** att se en fullständig lista över attribut och anspråk som du kan välja bland.
 
@@ -37,13 +38,13 @@ I den **returnerar anspråk** kolumn, Välj anspråk som du vill ska returneras 
 
 Klicka på **OK**.
 
-![Välj vissa användarattribut och anspråk och klicka på OK-knapp](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
+![Välj vissa användarattribut och anspråk och klicka på OK-knapp](./media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
 
 Klicka på **skapa** att lägga till användarflödet. Användarflödet har listats som **B2C_1_SiUpIn**. Prefixet **B2C_1_** läggs till i namnet.
 
 Välj **kör användarflödet**. Kontrollera inställningarna i tabellen och klicka sedan på **kör användarflödet**.
 
-![Välj Kör användarflödet](media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
+![Välj Kör användarflödet](./media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
 
 | Inställning      | Värde  |
 | ------------ | ------ |
@@ -55,3 +56,4 @@ En ny webbläsarflik öppnas och du kan kontrollera hur registreringen eller inl
 > [!NOTE]
 > Det tar till en minut för användare kan du skapa flöden och uppdateringar ska börja gälla.
 >
+

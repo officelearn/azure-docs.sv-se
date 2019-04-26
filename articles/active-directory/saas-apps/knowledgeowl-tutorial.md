@@ -17,11 +17,11 @@ ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60262581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Självstudier: Azure Active Directory-integrering med KnowledgeOwl
 
@@ -35,7 +35,7 @@ Integrera KnowledgeOwl med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med KnowledgeOwl, behöver du följande objekt:
 

@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533391"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Hög tillgänglighet och tillförlitlighet för Azure Scheduler
 
 > [!IMPORTANT]
-> [Med Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras. Att schemalägga jobb, [prova Azure Logic Apps i stället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras tillbaka. Om du vill schemalägga jobb kan du [testa Azure Logic Apps istället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 Azure Scheduler erbjuder både [hög tillgänglighet](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) och tillförlitligheten för dina jobb. Mer information finns i [SLA för Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -50,7 +50,7 @@ Azure Scheduler garanterar en egen hög tillgänglighet men tar en annan metod f
 
 <a name="retry-policies"></a>
 
-### <a name="retry-policies"></a>Återförsöksprinciper
+### <a name="retry-policies"></a>Principer för nya försök
 
 Azure Scheduler kan du konfigurera principer för återförsök. Om det inte går, sedan som standard försöker Scheduler jobbet fyra gånger med 30 sekunders mellanrum. Du kan göra en sådan återförsöksprincip mer Aggressivt, till exempel 10 gånger med 30 sekunders mellanrum eller mindre aggressiva, till exempel två gånger på varje dag intervall.
 

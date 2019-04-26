@@ -14,17 +14,17 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
 ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482651"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Anvisningar: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2017
 
 Du kan felsöka .NET-program i behållare med Visual Studio 2017 uppdatering 7 (15.7), som Service Fabric-tjänster. Den här artikeln visar hur du konfigurerar din miljö och felsöka en .NET-program i en behållare i ett lokalt Service Fabric-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * På Windows 10, följer du snabbstarten till [konfigurera Windows 10 för att köra Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 * På Windows Server 2016 kan du följa den här snabbstarten till [konfigurera Windows 2016 för att köra Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)

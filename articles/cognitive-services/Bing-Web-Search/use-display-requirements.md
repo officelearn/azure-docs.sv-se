@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499893"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Användnings- och visningskrav för API:er för Bing-sökresultat
 
@@ -165,7 +165,7 @@ I föregående avsnitt av Sök-API: er använder och visa krav gäller inte för
 - Se till att din användning av data (inklusive URL: er) som tas emot från API: er för sökresultat inte kränker någon mot gällande lagar och tredje parts rättigheter.
 - Använd inte data (inklusive URL: er) togs emot från API: er för sökresultat som en del av search index eller machine learning eller liknande algoritmiska aktivitet. Använd inte dessa data för att skapa train, utvärdera eller förbättra tjänster som du eller tredje part kan erbjuda.
 
-## <a name="gdpr-compliance"></a>GDPR-kompatibilitet  
+## <a name="gdpr-compliance"></a>GDPR-efterlevnad  
 
 Du förstår att du och Microsoft är med avseende på alla personliga data omfattas av EU allmänna Dataskyddsförordningen (GDPR) och som har bearbetats i samband med anrop till API: er sökresultat, stavningskontroll i Bing eller automatiska förslag i Bing oberoende data-styrenheter enligt GDPR. Du är oberoende av varandra ansvarig för din efterlevnad med GDPR.  
 

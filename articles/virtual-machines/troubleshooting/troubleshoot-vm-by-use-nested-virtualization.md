@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444367"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Felsöka ett problem virtuell Azure-dator med hjälp av kapslad virtualisering i Azure
 
 Den här artikeln visar hur du skapar en miljö för kapslad virtualisering i Microsoft Azure, så att du kan montera disken om problemet virtuell dator på Hyper-V-värd (Räddade VM) i felsökningssyfte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill montera problemet VM måste Räddade VM uppfylla följande krav:
 
@@ -41,7 +41,7 @@ Om du vill montera problemet VM måste Räddade VM uppfylla följande krav:
 
     -  Operativsystem: Windows Server 2016 Datacenter
 
-    -  Storlek: V3 serie med minst två kärnor som stöd för kapslad virtualisering. Mer information finns i [introduktion till de nya storlekarna Dv3 och Ev3 för Virtuella](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
+    -  Storlek: Alla V3-serien med minst två kärnor som har stöd för kapslad virtualisering. Mer information finns i [introduktion till de nya storlekarna Dv3 och Ev3 för Virtuella](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
     -  Samma plats, Lagringskontot och resursgrupp som problemet VM.
 
@@ -122,7 +122,7 @@ Om du vill montera problemet VM måste Räddade VM uppfylla följande krav:
 
 19. Nu kan du arbeta på den virtuella datorn som den lokala virtuella datorn. Du kan följa eventuella felsökningssteg som du behöver.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Steg 3: Skapa en Azure virtuell dator i Azure
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Steg 3: Återskapa din Azure-dator i Azure
 
 1.  När du får den virtuella datorn online igen kan du stänga av den virtuella datorn i Hyper-V manager.
 

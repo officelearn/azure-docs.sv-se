@@ -3,7 +3,7 @@ title: Anpassa Azure Active Directory B2C-användargränssnittet (UI) dynamiskt 
 description: Stöd för flera företagsanpassning upplevelser med HTML5/CSS-innehåll som ändras dynamiskt vid körning.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bf7391ea83adf852be0f989a82e89d7f316f2f85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316803"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer
 
@@ -23,7 +23,7 @@ ms.locfileid: "58090550"
 
 Med hjälp av Azure Active Directory B2C (Azure AD B2C) anpassade principer, kan du skicka en parameter i en frågesträng. Genom att skicka parametern till HTML-slutpunkten kan du dynamiskt ändra sidinnehållet. Du kan till exempel ändra bakgrundsbilden på registrerings- eller inloggningssidan för Azure AD B2C baserat på en parameter som du skickar från ditt webb- eller mobilprogram. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här artikeln handlar om hur du anpassar användargränssnittet för Azure AD B2C med *dynamiskt innehåll* genom att använda anpassade principer. Kom igång genom att se [anpassning av Användargränssnittet i en anpassad princip](active-directory-b2c-ui-customization-custom.md). 
 
 >[!NOTE]

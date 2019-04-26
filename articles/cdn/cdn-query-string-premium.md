@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324834"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Kontrollera Cachelagringsbeteendet med frågesträngar - premium-nivån
 > [!div class="op_single_selector"]
@@ -37,14 +37,14 @@ Med Azure Content Delivery Network (CDN), kan du styra hur filerna cachelagras f
 
 Det finns tre lägen för frågan sträng:
 
-- **standard-cache**: standardläget. I det här läget noden CDN point of presence (POP) skickar frågesträngarna från begäranden till den ursprungliga servern på den första begäran och cachelagrar tillgången. Alla efterföljande begäranden om tillgången som hämtas från POP-servern Ignorera frågesträngarna tills den cachelagra tillgången upphör att gälla.
+- **standard-cache**: Standardläget. I det här läget noden CDN point of presence (POP) skickar frågesträngarna från begäranden till den ursprungliga servern på den första begäran och cachelagrar tillgången. Alla efterföljande begäranden om tillgången som hämtas från POP-servern Ignorera frågesträngarna tills den cachelagra tillgången upphör att gälla.
 
     >[!IMPORTANT] 
     > Om token auktorisering har aktiverats för valfri sökväg på det här kontot, är det enda läge som du kan använda standard-cache-läge. 
 
-- **no-cache**: I det här läget begäranden med frågesträngar inte cachelagras i CDN POP-nod. Noden POP hämtar tillgången direkt från den ursprungliga servern och skickar dem till begäranden med varje begäran.
+- **no-cache**: I det här läget cachelagras begäranden med frågesträngar inte i CDN POP-nod. Noden POP hämtar tillgången direkt från den ursprungliga servern och skickar dem till begäranden med varje begäran.
 
-- **unikt-cache**: I det här läget varje begäran med en unik URL, inklusive frågesträngen behandlas som en unik tillgång med sin egen cache. Till exempel är svaret från den ursprungliga servern för en begäran om example.ashx?q=test1 cachelagras på POP-nod och returneras för efterföljande cacheminnen med samma frågesträngen. En begäran om example.ashx?q=test2 cachelagras som en separat tillgång med sin egen time-to-live-inställningen.
+- **unique-cache**: I det här läget behandlas varje begäran med en unik URL, inklusive frågesträngen som en unik tillgång med sin egen cache. Till exempel är svaret från den ursprungliga servern för en begäran om example.ashx?q=test1 cachelagras på POP-nod och returneras för efterföljande cacheminnen med samma frågesträngen. En begäran om example.ashx?q=test2 cachelagras som en separat tillgång med sin egen time-to-live-inställningen.
    
     >[!IMPORTANT] 
     > Använd inte det här läget när frågesträngen innehåller parametrar som ändrar med alla begäranden, till exempel ett sessions-ID eller ett användarnamn, eftersom det resulterar i ett låga Cacheträff förhållande.

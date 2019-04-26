@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454195"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
 
@@ -28,7 +28,7 @@ Du kan samla in en betydande mängd data i Log Analytics från olika källor, in
 
 Den här självstudien beskriver steg för att skapa och schemalägga en runbook i Azure Automation för att skriva data till Log Analytics.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Det här scenariot kräver följande resurser som konfigurerats i din Azure-prenumeration. Båda kan vara ett gratiskonto.
 
 - [Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md).
@@ -66,7 +66,7 @@ PowerShell-galleriet ger dig dock ett snabbt alternativ att distribuera en modul
 | Egenskap  | ID-värdet för arbetsyta | Nyckelvärdet för arbetsyta |
 |:--|:--|:--|
 | Namn | WorkspaceId | WorkspaceKey |
-| Type | String | String |
+| Typ | String | String |
 | Värde | Klistra in arbetsyte-ID för Log Analytics-arbetsytan. | Klistra in med primärt eller sekundärnyckeln för Log Analytics-arbetsytan. |
 | Krypterade | Nej | Ja |
 

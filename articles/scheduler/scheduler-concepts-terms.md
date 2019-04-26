@@ -11,11 +11,11 @@ ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530928"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Begrepp, terminologi och entiteter i Azure Scheduler
 
@@ -81,7 +81,7 @@ På hög nivå har ett Scheduler-jobb de här grundläggande delarna:
 
 Jobbet innehåller även systemangivna data, till exempel jobbets nästa schemalagda körning. Jobbets koddefinition är ett objekt i JavaScript Object Notation (JSON)-format, vilket har dessa element:
 
-| Element | Krävs | Beskrivning | 
+| Element | Obligatoriskt | Beskrivning | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Nej | Starttid för jobbet med en tidszonsförskjutning i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**åtgärd**](#action) | Ja | Information om den primära åtgärden, vilket kan inkludera ett **errorAction**-objekt | 
@@ -245,7 +245,7 @@ Ett jobb återkommer om jobbets JSON-definition innehåller objektet **upprepnin
 },
 ```
 
-| Egenskap | Krävs | Value | Beskrivning | 
+| Egenskap  | Krävs | Value | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **frequency** | Ja, när **upprepning** används | Minut, timme, dag, vecka, månad, år | Tidsenheten mellan förekomster | 
 | **interval** | Nej | 1 till och med 1 000 | Ett positivt heltal som anger antalet tidsenheter mellan varje förekomst utifrån **frekvens** | 
@@ -275,7 +275,7 @@ För fallet när ett Scheduler-jobb misslyckas, kan du ställa in en återförs�
 },
 ```
 
-| Egenskap | Krävs | Value | Beskrivning | 
+| Egenskap  | Krävs | Value | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **retryType** | Ja | **Fast**, **Ingen** | Avgör om du anger en återförsöksprincip (**fast**) eller inte (**ingen**). | 
 | **retryInterval** | Nej | PT30S | Anger intervall och frekvens mellan omförsök i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Minimivärdet är 15 sekunder medan det högsta värdet är 18 månader. | 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60538148"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Kom igång med begäranden och svar-komponenter
 Med begäranden och svar-komponenter i en logikapp kan du svara i realtid på händelser.

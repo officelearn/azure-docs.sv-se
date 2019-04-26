@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447611"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Anropa HTTP eller HTTPS-slutpunkter med Azure Logic Apps
 
@@ -28,7 +28,7 @@ Du kan använda HTTP-åtgärden som andra steg i arbetsflödet för att anropa s
 
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
@@ -77,7 +77,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
 1. När du är klar kan du kontrollera att du sparar din logikapp. Välj **Spara** i designerverktygsfältet. 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Om du vill ange autentisering, Välj **visa avancerade alternativ** inuti åtgärd eller utlösare. Mer information om tillgängliga autentiseringstyper för HTTP-utlösare och åtgärder finns i [utlösare och åtgärd typer referens](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

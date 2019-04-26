@@ -2,18 +2,18 @@
 title: Översikt över resursögonblicksbilder för Azure Files | Microsoft Docs
 description: En ögonblicksbild är en skrivskyddad version av en Azure Files-resurs som händer vid en tidpunkt i tid, som ett sätt att säkerhetskopiera filresursen.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 8d6bca12ae1df0cab7be3e1c54467d32063bacaf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444103"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resursögonblicksbilder för Azure Files 
 Azure Files ger möjlighet att ta ögonblicksbilder av filresurser. Dela ögonblicksbilder in tillstånd för filresurs i det här läget i tid. I den här artikeln beskrivs vilka funktioner som ger resursögonblicksbilder och hur du kan dra nytta av dem i dina anpassade användningsfall.
@@ -58,7 +58,7 @@ Om du vill spara utrymme kan du ta bort ögonblicksbilden för resursen under n�
 
 Ögonblicksbilder räknas inte mot din gräns på 5 TB resurs. Det finns ingen gräns för hur mycket utrymme resursögonblicksbilder upptar totalt. Lagringskontogränser gäller fortfarande.
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Limits
 Det maximala antalet ögonblicksbilder som Azure Files gör i dag är 200. Du måste ta bort äldre ögonblicksbilder av filresurser för att skapa nya efter 200 ögonblicksbilder. 
 
 Det finns ingen gräns för samtidiga anrop för att skapa resursögonblicksbilder. Det finns ingen gräns för mängden utrymme som delar ögonblicksbilder av en viss resurs kan använda. 

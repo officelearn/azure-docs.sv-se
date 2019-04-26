@@ -10,11 +10,11 @@ ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
 ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330847"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Självstudie: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
 
@@ -104,7 +104,7 @@ Först ska vi visa den [HTML och JavaScript-källkoden](https://github.com/Micro
 
 Följande begrepp är universella och gäller för TSI-klientbibliotekets API:er i allmänhet.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 Som nämnts tidigare är det här exemplet ett SPA som använder sig av OAuth 2.0-stöd i ADAL för användarautentisering. Nedan visas några viktiga delar i det här avsnittet av skriptet:
 

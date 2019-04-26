@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454899"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planering för att utöka datasäkerhet via en stark identitetslösning
 Det första steget i att skydda data är att identifiera vem som kan komma åt dessa data. Du måste dessutom ha en identitetslösning som kan integreras med ditt system genom att tillhandahålla funktioner för autentisering och auktorisering. Autentisering och auktorisering förväxlas ofta med varandra och deras roller tror många. I verkligheten kan skiljer de sig, enligt bilden nedan:

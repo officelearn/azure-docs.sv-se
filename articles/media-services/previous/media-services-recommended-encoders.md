@@ -10,20 +10,20 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332660"
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
 När direktsänd strömning med Azure Media Services, kan du ange hur du vill att din kanal tar emot Indataströmmen. Om du vill använda en på lokala kodare med en livekanal med kodning ska kodaren skicka en dataström med hög kvalitet med enkel bithastighet som utdata. Om du vill använda en på lokala kodare med släpp igenom kanal bör kodaren skicka en dataström med multibithastighet som utdata med alla önskade output-egenskaper. Mer information finns i [direktsänd strömning med på lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
 Azure Media Services rekommenderar att du använder ett av följande livekodare som har RTMP som utdata:
 - Adobe Flash Media Live Encoder 3.2
-- Haivision Makito X – HEVC
+- Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast 8.1 +
+- Telestream Wirecast 8.1+
 - Telestream Wirecast S
 - Teradek Slice 756
 - TriCaster 8000
@@ -31,10 +31,10 @@ Azure Media Services rekommenderar att du använder ett av följande livekodare 
 - OBS Studio
 - VMIX
 - xStream
-- Mellan aktiviteter Studio (iOS)
+- Switcher Studio (iOS)
 
 Azure Media Services rekommenderar att du använder något av följande livekodare som har flera bithastigheter fragmenterad-MP4 (Smooth Streaming) som utdata:
-- Excel-Media Hero Live och Hero 4K (UHD / – HEVC)
+- Media Excel Hero Live och Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
 - Elemental Live

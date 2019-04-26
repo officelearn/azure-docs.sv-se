@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357458"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -27,7 +27,7 @@ I den här självstudien gör du så att användare kan återställa sina lösen
 > * Konfigurera med hjälp av Windows-registret som alternativ lösning
 > * Förstå vad användarna ser
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Du måste köra minst Windows 10, versionen med uppdatering från april 2018, och enheterna måste vara antingen:
    * [Azure AD-anslutna](../device-management-azure-portal.md) eller

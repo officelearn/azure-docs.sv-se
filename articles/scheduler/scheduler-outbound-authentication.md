@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993348"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344356"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Utgående autentisering för Azure Scheduler
 
 > [!IMPORTANT]
-> [Med Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras. Att schemalägga jobb, [prova Azure Logic Apps i stället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras tillbaka. Om du vill schemalägga jobb kan du [testa Azure Logic Apps istället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 Azure Scheduler-jobb kan behöva anropa tjänster som kräver autentisering, till exempel andra Azure-tjänster, Salesforce.com, Facebook och säker anpassade webbplatser. Tjänsten kallas kan fastställa om Scheduler-jobb kan komma åt de begärda resurserna. 
 
@@ -44,7 +44,7 @@ Scheduler har stöd för dessa autentiseringsmodeller:
 
 När du lägger till autentisering med den `ClientCertificate` modellera, ange dessa ytterligare objekt i begärandetexten.  
 
-| Element | Krävs | Beskrivning |
+| Element | Obligatoriskt | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnade element) | Autentiseringsobjektet för att använda ett SSL-klientcertifikat |
 | **typ** | Ja | Autentiseringstypen. Värdet är för SSL-klientcertifikat `ClientCertificate`. |
@@ -164,7 +164,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 När du lägger till autentisering med den `Basic` modellera, ange dessa ytterligare objekt i begärandetexten.
 
-| Element | Krävs | Beskrivning |
+| Element | Obligatoriskt | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnade element) | Autentiseringsobjektet för att använda grundläggande autentisering | 
 | **typ** | Ja | Autentiseringstypen. För grundläggande autentisering, är värdet `Basic`. | 
@@ -282,14 +282,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 När du lägger till autentisering med den `ActiveDirectoryOAuth` modellera, ange dessa ytterligare objekt i begärandetexten.
 
-| Element | Krävs | Beskrivning |
+| Element | Obligatoriskt | Beskrivning |
 |---------|----------|-------------|
 | **autentisering** (överordnade element) | Ja | Autentiseringsobjektet för att använda ActiveDirectoryOAuth autentisering |
 | **typ** | Ja | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. |
 | **klient** | Ja | Klient-ID för Azure AD-klient. Du hittar klient-ID för Azure AD-klienten genom att köra `Get-AzureAccount` i Azure PowerShell. |
 | **Målgrupp** | Ja | Det här värdet anges till `https://management.core.windows.net/`. | 
-| **ClientId** | Ja | Klient-ID för Azure AD-programmet | 
-| **Hemlighet** | Ja | Hemligheten för den klient som begär token | 
+| **clientId** | Ja | Klient-ID för Azure AD-programmet | 
+| **secret** | Ja | Hemligheten för den klient som begär token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Svarstexten - Active Directory-OAuth
@@ -302,7 +302,7 @@ När en begäran skickas med autentiseringsinformation, innehåller svaret de h�
 | **typ** | Autentiseringstypen. Värdet är för ActiveDirectoryOAuth autentisering, `ActiveDirectoryOAuth`. | 
 | **klient** | Klient-ID för Azure AD-klient |
 | **Målgrupp** | Det här värdet anges till `https://management.core.windows.net/`. |
-| **ClientId** | Klient-ID för Azure AD-programmet |
+| **clientId** | Klient-ID för Azure AD-programmet |
 ||| 
 
 ### <a name="sample-rest-request---active-directory-oauth"></a>Exempel på REST-begäran - Active Directory-OAuth

@@ -3,7 +3,7 @@ title: REST API-anspråk utbyten som en orkestreringssteg i Azure Active Directo
 description: Ett ämne på Azure Active Directory B2C anpassade principer som kan integreras med ett API.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/24/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 55740b74aef5ce3d2def5ad22cfe3ededa1204d8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189705"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316892"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Genomgång: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som ett orchestration-steg
 
@@ -41,11 +41,11 @@ Scenariot är att när en användare utför en profilredigering, vi vill:
 2. Hämta staden där användaren har registrerats.
 3. Returnera attributet för programmet som ett anspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure AD B2C-klient som konfigurerats för att slutföra ett lokalt konto registrerings-registreringen/inloggning, enligt beskrivningen i [komma igång](active-directory-b2c-get-started-custom.md).
 - En REST API-slutpunkt för att interagera med. Den här genomgången använder en enkel Azure-funktion app webhook som ett exempel.
-- *Rekommenderade*: Slutför den [REST API-anspråk exchange genomgång som en validerngssteg](active-directory-b2c-rest-api-validation-custom.md).
+- *Rekommenderas*: Slutför den [REST API-anspråk exchange genomgång som en validerngssteg](active-directory-b2c-rest-api-validation-custom.md).
 
 ## <a name="step-1-prepare-the-rest-api-function"></a>Steg 1: Förbereda REST API-funktion
 

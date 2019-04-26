@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
 ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294730"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394531"
 ---
 # <a name="standard-properties-in-azure-monitor-log-records"></a>Standardegenskaper i Azure Monitor loggposter
 Loggdata i Azure Monitor är [lagras som en uppsättning poster](../log-query/log-query-overview.md), var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
@@ -39,7 +39,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>Type
+## <a name="type"></a>Typ
 Den **typ** egenskapen innehåller namnet på tabellen att posten har hämtats från vilket kan också betraktas som posttypen. Den här egenskapen är användbar i frågor som kombinerar poster från flera tabeller, som de som använder den `search` operator för att skilja mellan poster av olika typer. **$table** kan användas i stället för **typ** på vissa platser.
 
 ### <a name="examples"></a>Exempel

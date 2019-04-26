@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047032"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304288"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Lägg till en artefakt i en virtuell dator
 När du skapar en virtuell dator måste du lägga till befintliga artefakter till den. Dessa artefakter kan vara från antingen den [offentliga DevTest Labs Git-lagringsplats](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) eller från din egen Git-lagringsplats. Den här artikeln visar hur du lägger till artefakter i Azure-portalen och med hjälp av Azure PowerShell. 
@@ -30,7 +30,7 @@ Mer information om hur du skapar anpassade artefakter finns i artikeln: [Skapa a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="use-azure-portal"></a>Använd Azure Portal 
+## <a name="use-azure-portal"></a>Använda Azure-portalen 
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 1. Välj labbet som innehåller den virtuella datorn som du vill arbeta i listan över labbar.  

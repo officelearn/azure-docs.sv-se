@@ -11,11 +11,11 @@ ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
 ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537708"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH- och Azure Logic Apps
 
@@ -30,7 +30,7 @@ Att automatisera uppgifter som att övervaka, skapa, skicka och ta emot filer p�
 Du kan använda utlösare som övervakar händelser på din SFTP-server och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför olika uppgifter på din SFTP-server. Du kan också ha andra åtgärder i din logikapp använda utdata från SFTP-åtgärder. Om du regelbundet hämta filer från din SFTP-server, kan du exempelvis skicka e-postaviseringar om filerna och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning.
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Limits
 
 * SFTP-SSH åtgärder kan läsa eller skriva filer som är *1 GB eller mindre* genom att hantera data som *50 MB delar*, inte 1 GB delar.
 
@@ -62,7 +62,7 @@ Här följer andra viktiga skillnader mellan den SFTP-SSH-anslutningen och SFTP-
 
 * Cachelagrar anslutningen till SFTP-server *för upp till 1 timme*, vilket förbättrar prestanda och minskar antalet försök att ansluta till servern. Om du vill ange varaktigheten för detta beteende för cachelagring, redigera den <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank"> **ClientAliveInterval** </a> -egenskapen i SSH-konfigurationen på din SFTP-server.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 

@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335441"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon Redshift med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Data Factory stöder för närvarande endast flyttar data från Amazon Redshift 
 > [!TIP]
 > För att uppnå bästa möjliga prestanda vid kopiering av stora mängder data från Amazon Redshift, Överväg att använda den inbyggda Redshift **INAKTIVERAS** kommandot via Amazon Simple Storage Service (Amazon S3). Mer information finns i [Använd INAKTIVERAS för att kopiera data från Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * Om du flyttar data till ett lokalt datalager, installera [Data Management Gateway](data-factory-data-management-gateway.md) på en lokal dator. Bevilja åtkomst för en gateway till Amazon Redshift-klustret med hjälp av IP-adressen för den lokala datorn. Anvisningar finns i [auktorisera åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * För att flytta data till en Azure data store, ser de [Compute IP-adress och SQL-intervall som används av Microsoft Azure-datacentren](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -60,7 +60,7 @@ I följande avsnitt beskrivs de JSON-egenskaper som används för att definiera 
 
 I följande tabell innehåller beskrivningar av JSON-element som är specifika för en Amazon Redshift länkad tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
 | **server** |IP-adressen eller värdnamnet namnet på Amazon Redshift-servern. |Ja |
@@ -75,7 +75,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera d
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i arkivet. **TypeProperties** avsnittet för en datauppsättning av typen **RelationalTable**, vilket inkluderar Amazon Redshift-datamängd har följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i Amazon Redshift-databas som den länkade tjänsten refererar till. |Nej (om den **fråga** egenskapen för en Kopieringsaktivitet av typen **RelationalSource** har angetts) |
 
@@ -85,7 +85,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera a
 
 För Kopieringsaktiviteten, när källan är av typen **AmazonRedshiftSource**, följande egenskaper är tillgängliga i **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | **Fråga** | Använd anpassad fråga för att läsa data. |Nej (om den **tableName** egenskapen för en datauppsättning som har angetts) |
 | **redshiftUnloadSettings** | Innehåller Egenskapsgruppen när du använder Redshift **INAKTIVERAS** kommando. | Nej |
@@ -94,7 +94,7 @@ För Kopieringsaktiviteten, när källan är av typen **AmazonRedshiftSource**, 
 
 Du kan också använda den **RelationalSource** typ, som inkluderar Amazon Redshift, med följande egenskap i den **typeProperties** avsnittet. Obs den här typ av datakälla inte stöder Redshift **INAKTIVERAS** kommando.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | **Fråga** |Använd anpassad fråga för att läsa data. | Nej (om den **tableName** egenskapen för en datauppsättning som har angetts) |
 
@@ -339,8 +339,8 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | BOOLESKT VÄRDE |String |
 | CHAR |String |
 | VARCHAR |String |
-| DATE |DateTime |
-| TIMESTAMP |DateTime |
+| DATE |Datetime |
+| TIDSSTÄMPEL |Datetime |
 | TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare

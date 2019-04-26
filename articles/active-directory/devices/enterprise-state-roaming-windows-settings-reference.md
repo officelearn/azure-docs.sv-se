@@ -18,11 +18,11 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353259"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
 Följande är en fullständig lista över alla inställningar som ska flyttade eller säkerhetskopierats i Windows 10. 
@@ -76,7 +76,7 @@ Inställningar som inte flyttas eller sync kommer inte tillhör en grupp.
 | **Applista**: listan över installerade appar |X |säkerhetskopiering |Annat |
 | **Bluetooth**: alla Bluetooth-inställningar |X |X | |
 | **Kommandotolk**: Kommandot prompt ”standard”-inställningar |Synkronisering |X |Intern |
-| **autentiseringsuppgifter**: Säker plats för autentiseringsuppgifter |Synkronisering |Synkronisering |lösenord |
+| **autentiseringsuppgifter**: Säker plats för autentiseringsuppgifter |Synkronisering |Synkronisering |password |
 | **Datum, tid och Region**: automatiska tiden (Internet tidssynkronisering) |Synkronisering |Synkronisering |language |
 | **Datum, tid och Region**: 24-timmarsformat |Synkronisering |X |language |
 | **Datum, tid och Region**: datum och tid |Synkronisering |X |language |

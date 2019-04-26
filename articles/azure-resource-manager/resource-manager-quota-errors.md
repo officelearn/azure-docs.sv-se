@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390227"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Åtgärda fel för resurskvoter
 
@@ -105,7 +105,7 @@ Om du vill begära en kvot, gå till portalen och skicka in ett supportärende. 
 
 1. Välj **Prenumerationer**.
 
-   ![Prenumerationer](./media/resource-manager-quota-errors/subscriptions.png)
+   ![Subscriptions](./media/resource-manager-quota-errors/subscriptions.png)
 
 2. Välj den prenumeration som behöver en ökad kvot.
 

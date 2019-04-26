@@ -3,7 +3,7 @@ title: JavaScript och sidan kontrakt versioner för användarflöden i Azure Act
 description: Lär dig hur du aktiverar JavaScript och använda sidan kontrakt versioner för att anpassa ett användarflöde i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360256"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Hur du använder JavaScript och sidan kontrakt-versioner i ett användarflöde
 

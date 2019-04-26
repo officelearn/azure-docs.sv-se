@@ -14,11 +14,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469102"
 ---
 # <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Tilldela administratörsroller i Azure Active Directory med hjälp av PowerShell
 

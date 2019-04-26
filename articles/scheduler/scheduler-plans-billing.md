@@ -9,23 +9,23 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344316"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planer och fakturering för Azure Scheduler
 
 > [!IMPORTANT]
-> [Med Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras. Att schemalägga jobb, [prova Azure Logic Apps i stället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras tillbaka. Om du vill schemalägga jobb kan du [testa Azure Logic Apps istället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 ## <a name="job-collection-plans"></a>Jobbet samlingsplaner
 
 En jobbsamling innehåller ett visst antal jobb i Azure Scheduler. Jobbsamlingen är fakturerbar enhet och ingår i Standard, P10 Premium eller P20 Premium-planer, som beskrivs här: 
 
-| Samlingsplan för jobbet | Max antal jobb per samling | Max antal upprepningar | Maximalt antal jobbsamlingar per prenumeration | Begränsningar | 
+| Samlingsplan för jobbet | Max antal jobb per samling | Max antal upprepningar | Maximalt antal jobbsamlingar per prenumeration | Limits | 
 |:--- |:--- |:--- |:--- |:--- |
 | **Standard** | 50 jobb per samling | En per minut. Jobb kan inte köras oftare än en per minut. | Varje Azure-prenumeration kan ha upp till 100 jobbsamlingar som Standard. | Åtkomst till fullständiga funktionsuppsättningen för Scheduler | 
 | **P10 Premium** | 50 jobb per samling | En per minut. Jobb kan inte köras oftare än en per minut. | Varje Azure-prenumeration kan ha upp till 10 000 P10 Premium-jobbsamlingar. För mer samlingar <a href="mailto:wapteams@microsoft.com">Kontakta oss</a>. | Åtkomst till fullständiga funktionsuppsättningen för Scheduler |

@@ -9,11 +9,11 @@ ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894174"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327566"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera lokal datagateway
 
@@ -90,7 +90,7 @@ När du har installerat och registrerat din gateway, måste du skapa en resurs f
 
 2. I **skapa anslutningsgatewayen**, anger dessa inställningar:
 
-   * **Namn på**: Ange ett namn för din gatewayresursen. 
+   * **Namn**: Ange ett namn för din gatewayresursen. 
 
    * **Prenumeration**: Välj den Azure-prenumerationen ska associeras med din gateway-resurs. 
    
@@ -117,7 +117,7 @@ När du har installerat och registrerat din gateway, måste du skapa en resurs f
     > [!NOTE]
     > Om din gateway inte visas i listan, är din server förmodligen inte i samma region som regionen som du angav när du registrerar gatewayen. 
 
-Det var allt. Om du behöver öppna portar eller göra en felsökning kan du kolla in [lokal datagateway](analysis-services-gateway.md).
+Klart! Om du behöver öppna portar eller göra en felsökning kan du kolla in [lokal datagateway](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,15 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
+origin.date: 12/26/2018
+ms.date: 01/21/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.openlocfilehash: de037316efa50dd25ea04c370fa0e5878fb52ba1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448511"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexering via Azure Cosmos DB API för MongoDB
 
@@ -79,14 +80,14 @@ Om satsen ```"university":1``` utelämnas i exemplet ovan returneras ett fel med
 ## <a name="ttl-indexes"></a>TTL-index
 
 Om du vill aktivera förfallodatum för dokumenten i en viss samling måste du skapa ett [TTL-index (Time to Live)](../cosmos-db/time-to-live.md). Ett TTL-index är ett index för fältet _ts med värdet ”expireAfterSeconds”.
- 
+
 Exempel:
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 
 Föregående kommando raderar alla dokument i samlingen ```db.coll``` som inte har ändrats under de senaste tio sekunderna. 
- 
+
 > [!NOTE]
 > **_ts** är ett fält som är unikt för Cosmos DB och det går inte att använda med MongoDB-klienter. Det är en reserverad (system)egenskap som innehåller tidsstämpeln för senaste ändringen av dokumentet.
 >
@@ -97,4 +98,6 @@ För närvarande går det bara att skapa unika index när samlingen inte innehå
 
 ## <a name="next-steps"></a>Nästa steg
 * [Indexering i Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Ta bort data i Azure Cosmos DB automatiskt med TTL-värde](../cosmos-db/time-to-live.md)
+* [Ta bort data från Azure Cosmos DB automatiskt med hjälp av förfallodatum](../cosmos-db/time-to-live.md)
+
+<!-- Update_Description: update meta properties  -->

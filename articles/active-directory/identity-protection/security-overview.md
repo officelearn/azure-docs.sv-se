@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610668768c7baca13cb60caf1d810cced31ebec3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452967"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - Säkerhetsöversikt
 
@@ -69,7 +69,7 @@ Panelen ”oskyddade riskfyllda inloggningar” visar den senaste veckan antal l
 Panelen ”äldre autentisering” visar den senaste veckan uppräkning av äldre autentiseringar i din organisation. Äldre autentiseringsprotokoll stöder inte moderna säkerhetsmetoder, till exempel en MFA. Du kan tillämpa principer för villkorlig åtkomst för att förhindra att äldre autentisering. Klicka på panelen för ”äldre autentisering” omdirigera dig till 'Identity skydda poäng ”.
 
 
-### <a name="identity-secure-score"></a>Säker identitets-poäng
+### <a name="identity-secure-score"></a>Identitetsäkerhetspoäng
 
 Identitet skyddar Score mäter och jämför din säkerhetsposition till bransch-mönster. Om du klickar på 'Identity skydda poäng (förhandsversion), sida vid sida, kommer den omdirigera till bladet 'Identity skydda poäng (förhandsversion), där du kan lära dig mer om att förbättra din säkerhetsposition.
 

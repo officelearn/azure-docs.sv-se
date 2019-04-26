@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 6793fbcc50711e10231b87fa6e1f11f54f90d325
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445442"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Kopiera data från Xero med Azure Data Factory (förhandsversion)
 
@@ -49,7 +49,7 @@ Följande egenskaper har stöd för Xero länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Xero** | Ja |
+| type | Type-egenskapen måste anges till: **Xero** | Ja |
 | värd | Slutpunkten för Xero-server (`api.xero.com`).  | Ja |
 | consumerKey | Konsumenten nyckeln som associeras med Xero-programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | privateKey | Den privata nyckeln från filen .pem som genererades för ditt privata Xero-program finns i [skapa ett offentligt/privat nyckelpar](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Observera att **generera privatekey.pem med numbits 512** med `openssl genrsa -out privatekey.pem 512`; 1024 stöds inte. Inkluderar all text från .pem-filen, inklusive Unix rad endings(\n), finns i exemplet nedan.<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -95,7 +95,7 @@ Kopiera data från Xero genom att ange typegenskapen på datauppsättningen till
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **XeroObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **XeroObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -124,7 +124,7 @@ För att kopiera data från Xero, ange typ av datakälla i kopieringsaktiviteten
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **XeroSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **XeroSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Contacts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

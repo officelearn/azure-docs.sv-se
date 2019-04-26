@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196612"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrera data från Azure Data Lake Storage Gen1 i Azure Data Catalog
 I den här artikeln får du lära dig hur du integrerar Azure Data Lake Storage Gen1 med Azure Data Catalog för att göra data synlig inom en organisation genom att integrera dem med Data Catalog. Mer information om katalogiserar data finns i [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Information om scenarier där du kan använda Data Catalog finns i [vanliga scenarier för Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).

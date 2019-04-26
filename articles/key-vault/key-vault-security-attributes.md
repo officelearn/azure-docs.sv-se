@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fa36a3c1eb6bda109c7985fa7cade496d2ccf9f4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 3ccfc38136ba3e8ec7c6130658032b7565988e5c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461418"
 ---
 # <a name="common-security-attributes-for-azure-key-vault"></a>Vanliga säkerhetsattribut för Azure Key Vault
 
@@ -28,18 +28,18 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 |---|---|--|
 | Vilande kryptering:<ul><li>Kryptering på serversidan</li><li>Kryptering på serversidan med Kundhanterade nycklar</li><li>Andra krypteringsfunktioner (t.ex på klientsidan, alltid krypterad, osv.)</ul>| Ja | Alla objekt som är krypterade. |
 | Kryptering under överföring:<ul><li>Express route-kryptering</li><li>Virtuellt nätverk med kryptering</li><li>VNet-VNet-kryptering</ul>| Ja | All kommunikation är via krypterade API-anrop |
-| Hantering av kryptering nyckel (CMK, BYOK osv.)| Ja | Kunden styr alla nycklar i sina Key Vault. När modul (HSM) som backas upp av maskinvara säkerhetsnycklar anges, skyddar en FIPS nivå 2 HSM nyckeln, certifikat eller hemligheten. |
-| Kolumnen Filnivåkryptering (Azure-datatjänster)| Gäller inte |  |
+| Kryptering viktiga hantering (CMK, BYOK osv.)| Ja | Kunden styr alla nycklar i sina Key Vault. När modul (HSM) som backas upp av maskinvara säkerhetsnycklar anges, skyddar en FIPS nivå 2 HSM nyckeln, certifikat eller hemligheten. |
+| Kolumnen filnivåkryptering (Azure-datatjänster)| Gäller inte |  |
 | API-anrop som är krypterad| Ja | Med hjälp av HTTPS. |
 
 ## <a name="network-segmentation"></a>Nätverkssegmentering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för tjänstslutpunkt| Ja | Med tjänstslutpunkter i virtuella nätverk (Vnet). |
+| Stöd för Service-slutpunkt| Ja | Med tjänstslutpunkter i virtuella nätverk (Vnet). |
 | vNET-stöd för inmatning| Nej |  |
-| Nätverksisolering / brandväggsfunktioner support| Ja | Med hjälp av brandväggsregler för virtuellt nätverk. |
-| Stöd för Tvingad tunneltrafik | Nej |  |
+| Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av brandväggsregler för virtuellt nätverk. |
+| Tvingad tunneltrafik support| Nej |  |
 
 ## <a name="detection"></a>Detection (Identifiering)
 
@@ -47,12 +47,12 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 |---|---|--|
 | Azure övervakningsstöd (Log analytics, appinsikter osv.)| Ja | Använda Log Analytics. |
 
-## <a name="iam-support"></a>IAM-stöd
+## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
-| Åtkomsthantering - autentisering| Ja | Autentisering är via Azure Active Directory. |
-| Åtkomsthantering - auktorisering| Ja | Med hjälp av Nyckelvalvets åtkomstprincip. |
+| Autentisering| Ja | Autentisering är via Azure Active Directory. |
+| Auktorisering| Ja | Med hjälp av Nyckelvalvets åtkomstprincip. |
 
 
 ## <a name="audit-trail"></a>Spårning
@@ -60,7 +60,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
 | Kontroll och hantering dataplaner loggning och granskning| Ja | Använda Log Analytics. |
-| Data-dataplaner loggning och granskning| Ja | Använda Log Analytics. |
+| Data plan loggning och granskning| Ja | Använda Log Analytics. |
 
 ## <a name="access-controls"></a>Åtkomstkontroller
 

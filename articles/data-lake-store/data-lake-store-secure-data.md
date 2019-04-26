@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198334"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Skydda data som lagrats i Azure Data Lake Storage Gen1
 Skydda data i Azure Data Lake Storage Gen1 är en trestegsmetod.  Både rollbaserad åtkomstkontroll (RBAC) och åtkomstkontrollistor (ACL) måste anges till fullständigt Aktivera åtkomst till data för användare och säkerhetsgrupper.

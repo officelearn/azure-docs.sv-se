@@ -9,11 +9,11 @@ ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 8d432d588cfd563ee48b93f9042339e9590bb5e2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533267"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Hantera IoT Central från Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "58481781"
 
 I stället för att skapa och hantera IoT Central-program från IoT Central [Programhanterare](https://aka.ms/iotcentral) kan du använda [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) att hantera dina program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -66,7 +66,7 @@ Skriptet skapar först en resursgrupp i östra USA för programmet. I följande 
 |Parameter         |Beskrivning |
 |------------------|------------|
 |ResourceGroupName |Den resursgrupp som innehåller programmet. Den här resursgruppen måste redan finnas i din prenumeration. |
-|Plats |Som standard använder denna cmdlet platsen från resursgruppen. För närvarande kan du skapa en IoT Central-program i den **USA, östra**, **västra USA**, **Nordeuropa**, eller **Västeuropa** regioner. |
+|Location |Som standard använder denna cmdlet platsen från resursgruppen. För närvarande kan du skapa en IoT Central-program i den **USA, östra**, **västra USA**, **Nordeuropa**, eller **Västeuropa** regioner. |
 |Namn              |Namnet på programmet i Azure-portalen. |
 |Underdomän         |Underdomänen i URL: en för programmet. I det här exemplet programmets URL är https://mysubdomain.azureiotcentral.com. |
 |Sku               |Det enda värdet som är för närvarande **S1** (standard-nivån). Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |

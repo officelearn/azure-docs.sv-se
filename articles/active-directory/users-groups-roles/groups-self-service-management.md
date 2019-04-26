@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5122c9142eccf12193e7e429a3af5ac44fbb8fd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b860257fd1b3f0897152dc3d48bff0c7e1d3d994
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469869"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurera hantering av självbetjäning i Azure Active Directory 
 
-Du kan aktivera användare att skapa och hantera egna säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (AD Azure). Ägare av gruppen kan godkänna eller neka förfrågningar om medlemskap och delegera kontrollen av gruppmedlemskap. Självbetjäning funktioner för grupphantering är inte tillgängliga för e-postaktiverade säkerhetsgrupper eller distributionslistor. 
+Du kan aktivera användare att skapa och hantera egna säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (AD Azure). Ägare av gruppen kan godkänna eller neka förfrågningar om medlemskap och delegera kontrollen av gruppmedlemskap. Självbetjäning funktioner för grupphantering är inte tillgängliga för e-postaktiverade säkerhetsgrupper eller distributionslistor.
 
 ## <a name="self-service-group-membership-defaults"></a>Självbetjäning medlemskap standardvärden
 
@@ -42,6 +42,7 @@ Grupper som skapats i | Standardbeteendet för säkerhet grupp | Standardbeteend
 * **Grupphantering via självbetjäning** Ett exempel på det här scenariot är två användare som båda har SharePoint Online-platser som de har konfigurerat oberoende av varandra. De vill ge varandras grupper åtkomst till sina respektive webbplatser. De kan åstadkomma detta genom att först skapa en grupp i Azure AD och därefter var och en välja samma grupp i SharePoint Online, vilket ger dem åtkomst till varandras webbplatser. När någon vill ha åtkomst begär de det från åtkomstpanelen och efter godkännande får de automatiskt åtkomst till båda SharePoint Online-platserna. Senare beslutar den ena av dem att alla användare som har åtkomst till webbplatsen även ska få åtkomst till ett visst SaaS-program. SaaS-programmets administratör kan lägga till åtkomstbehörighet för programmet till SharePoint Online-webbplatsen. När det är gjort kommer alla förfrågningar som han godkänner att ge åtkomst till de två SharePoint Online-webbplatserna och även till SaaS-programmet.
 
 ## <a name="make-a-group-available-for-user-self-service"></a>Göra en grupp tillgänglig för självbetjäning av användare
+
 1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
 2. Välj **Användare och grupper** och sedan **Gruppinställningar**.
 3. Ställ in **Självbetjäning för grupphantering aktiverad** på **Ja**.
@@ -49,11 +50,14 @@ Grupper som skapats i | Standardbeteendet för säkerhet grupp | Standardbeteend
    * När inställningarna är aktiverade kan alla användare i katalogen skapa nya säkerhetsgrupper och lägga till medlemmar i dessa grupper. Dessa nya grupper visas även på åtkomstpanelen för alla andra användare. Om gruppens principinställningar så tillåter kan andra användare skapa förfrågningar om att ansluta till dessa grupper. 
    * När de här inställningarna är avaktiverade kan användarna inte skapa grupper eller ändra de befintliga grupper som de äger. De kan dock fortfarande hantera medlemskap i dessa grupper och godkänna förfrågningar från andra användare om att ansluta till grupperna.
 
-Genom **Användare som kan hantera säkerhetsgrupper** och **Användare som kan hantera Office 365-grupper** kan du få mer detaljerad åtkomstkontroll över dina användares grupphantering via självbetjäning. När **Användare kan skapa grupper** är aktiverat kan alla användare i klientorganisationen skapa nya grupper och lägga till medlemmar i dessa grupper. Om du ställer in dem på **Some** (Vissa) begränsar du grupphanteringen till enbart en begränsad grupp användare. När du har angett den här växeln till **Vissa** måste du lägga till användare i gruppen SSGMSecurityGroupsUsers innan de kan skapa nya grupper och lägga till medlemmar i dem. Om du väljer **Alla** för **Användare som kan använda självbetjäning för säkerhetsgrupper** och **Användare som kan hantera Office 365-grupper** kan alla användare i klienten skapa nya grupper.
+Genom **Användare som kan hantera säkerhetsgrupper** och **Användare som kan hantera Office 365-grupper** kan du få mer detaljerad åtkomstkontroll över dina användares grupphantering via självbetjäning. När **Användare kan skapa grupper** är aktiverat kan alla användare i klientorganisationen skapa nya grupper och lägga till medlemmar i dessa grupper. Du kan inte ange personer som kan skapa sina egna grupper. Du kan ange enskilda användare endast för att göra en annan medlem gruppägare.
+
+Genom att ange **användare som kan använda Självbetjäning för säkerhetsgrupper** och **användare som kan hantera Office 365-grupper** till **Ja**, användarna i din klient för att skapa en ny grupper.
 
 Du kan också använda **Grupp som kan hantera säkerhetsgrupper** eller **Grupp som kan hantera Office 365-grupper** för att ange en enda grupp vars medlemmar ska kunna använda självbetjäning.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](../fundamentals/active-directory-manage-groups.md)

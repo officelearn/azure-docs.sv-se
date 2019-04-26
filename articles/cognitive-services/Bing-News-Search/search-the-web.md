@@ -12,11 +12,11 @@ ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539170"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Vad är API för nyhetssökning i Bing?
 
@@ -52,7 +52,7 @@ Prova först med den [interaktiva demonstrationen](https://azure.microsoft.com/s
 
 Om du vill komma igång snabbt med en API-begäran kan du prova snabbstarten för [REST API](quickstart.md) eller någon [SDK](sdk.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [API för nyhetssökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)-referensavsnittet innehåller definitioner och information om slutpunkterna, rubrikerna, API-svaren och frågeparametrarna som du kan använda till att skicka begäran.
 

@@ -9,11 +9,11 @@ ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: d2ce6c409ae9cbf99589d11dfc850e2324d1b0c9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320473"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Konfigurera Azure Import/Export-verktyget
 
@@ -23,7 +23,7 @@ Microsoft Azure Import/Export-verktyget är den enhet förberedelser och reparer
 * När importen har slutförts kan använda du det här verktyget för att reparera alla blobbar som var skadade saknades eller är i konflikt med andra blobar.
 * Du kan använda det här verktyget för att reparera alla filer som var skadad eller saknas på enheter när du har fått enheterna från en slutförd export-jobbet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du är **förbereda enheter** för ett importjobb följande krav måste uppfyllas:
 

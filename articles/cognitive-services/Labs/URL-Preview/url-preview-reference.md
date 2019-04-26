@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104717"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60462596"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL-förhandsgranskning v7-referens
 
@@ -73,7 +73,7 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 ## <a name="query-parameters"></a>Frågeparametrar
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar. Frågan måste vara en absolut URL med en http eller https-schema; Vi stöder inte relativa URL: er eller andra scheman som ftp: / /
 
-|Namn|Värde|Type|Krävs|
+|Namn|Värde|Typ|Obligatoriskt|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i marknaden koder.<br /><br /> **Obs!** URL: en förhandsversion av API: et stöder för närvarande endast USA geografi och engelska.<br /><br />|String|Ja|
 |<a name="query" />q|URL: en för att förhandsgranska|String|Ja|
@@ -83,14 +83,14 @@ Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obli
 ## <a name="response-objects"></a>Svarsobjekt
 Svarsschemat är antingen en [webbsida] eller ErrorResponse, som i API för webbsökning. Om begäran misslyckas kan det översta objektet är den [ErrorResponse](#errorresponse) objekt.
 
-|Objekt|Beskrivning|
+|Object|Beskrivning|
 |------------|-----------------|
 |[WebPage](#webpage)|Översta nivån JSON-objekt som innehåller attribut för förhandsversionen.|
 
 ### <a name="error"></a>Fel
 Definierar de fel som inträffat.
 
-|Element|Beskrivning|Type|
+|Element|Beskrivning|Typ|
 |-------------|-----------------|----------|
 |<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|String|
 |<a name="error-message" />meddelande|En beskrivning av felet.|String|
@@ -102,7 +102,7 @@ Definierar de fel som inträffat.
 ### <a name="errorresponse"></a>ErrorResponse
 Det översta objekt som svaret innehåller när begäran misslyckas.
 
-|Namn|Värde|Type|
+|Namn|Värde|Typ|
 |----------|-----------|----------|
 |_typ|Typ-tipset.|String|
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)]|
@@ -110,16 +110,16 @@ Det översta objekt som svaret innehåller när begäran misslyckas.
 ### <a name="webpage"></a>Webbsida
 Definierar informationen om en webbsida i förhandsversion.
 
-|Namn|Värde|Type|
+|Namn|Värde|Typ|
 |----------|-----------|----------|
 |namn|En rubrik, inte nödvändigtvis HTML-rubrik|String|
 |url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|String|
-|beskrivning|Kort beskrivning på sidan och innehåll|String|
+|description|Kort beskrivning på sidan och innehåll|String|
 |isFamilyFriendly|Mest korrekta för objekt i web-index. i realtid hämtar gör denna identifiering som endast baseras på URL: en och inte sidinnehåll|boolesk|
 |primaryImageOfPage/contentUrl|URL: en till en representativ avbildning som ska ingå i förhandsversionen|String|
 
 ### <a name="identifiable"></a>Identifierbar
-|Namn|Värde|Type|
+|Namn|Värde|Typ|
 |-------------|-----------------|----------|
 |id|Resurs-ID|String|
 

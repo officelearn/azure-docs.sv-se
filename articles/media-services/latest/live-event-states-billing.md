@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
 ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322326"
 ---
 # <a name="live-event-states-and-billing"></a>Live-händelse tillstånd och fakturering
 
@@ -34,7 +34,7 @@ Live-händelsen kan vara i något av följande tillstånd.
 |---|---|
 |**Stoppad**| Det här är starttillståndet för Live-händelsen när du har skapat (såvida inte autostart har angetts till true.) Ingen debitering sker i det här tillståndet. Egenskaper för Live-händelse kan uppdateras men strömning är inte tillåtet i det här tillståndet.|
 |**Startar**| Live-händelsen startas och resurser allokeras. Ingen debitering sker i det här tillståndet. Uppdateringar eller strömning tillåts inte i det här tillståndet. Om ett fel inträffar återgår Live-händelse till tillståndet stoppad.|
-|**Kör**| Live-händelsen resurser som har allokerats, mata in och förhandsgranska URL: er har genererats och är det kan ta emot direktsända strömmar. Fakturering är nu aktiv. Du måste explicit anropa Stop på resursen för direktsänd händelse att stoppa ytterligare fakturering.|
+|**Körs**| Live-händelsen resurser som har allokerats, mata in och förhandsgranska URL: er har genererats och är det kan ta emot direktsända strömmar. Fakturering är nu aktiv. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering.|
 |**Stoppar**| Live-händelsen stoppas och resurser som ska enhetstiden. Ingen debitering sker i den här tillfälligt tillstånd. Uppdateringar eller strömning tillåts inte i det här tillståndet.|
 |**Tar bort**| Live-händelse tas bort. Ingen debitering sker i den här tillfälligt tillstånd. Uppdateringar eller strömning tillåts inte i det här tillståndet.|
 

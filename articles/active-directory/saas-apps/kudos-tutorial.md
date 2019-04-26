@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5b1fa6284979a8c0bd0698f85b119117dd27a05
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172280"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60261455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Självstudier: Azure Active Directory-integrering med bra jobbat av
 
@@ -34,7 +34,7 @@ Bra jobbat av integrerar med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med bra jobbat av, behöver du följande objekt:
 
@@ -213,7 +213,7 @@ När det gäller Bra jobbat av är etablering en manuell aktivitet.
    
     a. Skriv den **Förnamn**, **efternamn**, **e-post** och annan information om ett giltigt Azure Active Directory-konto som du vill etablera till relaterade textrutor.
    
-    b. Klicka på **skapa användare**.
+    b. Klicka på **Skapa användare**.
 
 >[!NOTE]
 >Du kan använda alla andra Bra jobbat av användarens konto verktyg för att skapa eller API: er som tillhandahålls av Bra jobbat av att etablera AAD-användarkonton.
@@ -256,7 +256,7 @@ När du klickar på panelen Bra jobbat av åtkomstpanelen du bör få automatisk
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

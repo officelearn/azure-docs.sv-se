@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75f55f1058537da255a2611f544239f693615678
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60354799"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instruktioner: Kräv att hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
 
@@ -31,7 +31,7 @@ I en mobil- och molnorienterade värld, Azure Active Directory (Azure AD) som m�
 Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som kräver hanterade enheter får åtkomst till vissa molnappar i din miljö. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Krav på hanterade enheter för cloud app åtkomst ties **Azure AD villkorsstyrd åtkomst** och **Azure AD-enhetshantering** tillsammans. Om du inte är bekant med någon av dessa områden ännu, bör du läsa följande avsnitt kommer först:
 

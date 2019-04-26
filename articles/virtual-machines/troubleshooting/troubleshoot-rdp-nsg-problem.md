@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318943"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Det går inte att fjärransluta till en virtuell dator eftersom RDP-porten inte är aktiverat i NSG
 
@@ -44,12 +44,12 @@ Följ dessa steg om du vill aktivera RDP-porten i en NSG:
 
     **Prioritet**: 300 </br>
     **Port**: 3389 </br>
-    **Namn på**: Port_3389 </br>
+    **Namn**: Port_3389 </br>
     **Port**: 3389 </br>
-    **Protokollet**: TCP </br>
-    **Källan**: alla </br>
-    **Mål**: alla </br>
-    **Åtgärden**: Tillåt </br>
+    **Protokoll**: TCP </br>
+    **Källa**: Alla </br>
+    **Mål**: Alla </br>
+    **Åtgärd**: Tillåt </br>
 
 Om du anger källans IP-adress, kan den här inställningen endast trafik från en specifik IP-adress eller IP-adressintervall för att ansluta till den virtuella datorn. Kontrollera att datorn du använder för att starta RDP-session är inom intervallet.
 

@@ -12,11 +12,11 @@ ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480547"
 ---
 # <a name="text-to-speech-rest-api"></a>Text till tal REST-API
 
@@ -70,7 +70,7 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för text till 
 
 | Huvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -161,10 +161,10 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för text till 
 
 | Huvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
 | `Content-Type` | Anger innehållstypen för den angivna texten. Godkänt värde: `application/ssml+xml`. | Krävs |
 | `X-Microsoft-OutputFormat` | Anger formatet för ljuduppspelning. En fullständig lista över godkända värden, se [ljud utdata](#audio-outputs). | Krävs |
-| `User-Agent` | Programnamnet. Det angivna värdet måste vara mindre än 255 tecken. | Krävs |
+| `User-Agent` | Programnamnet. Det angivna värdet måste vara mindre än 255 tecken. | Obligatoriskt |
 
 ### <a name="audio-outputs"></a>Ljud utdata
 

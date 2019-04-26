@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
 ms.openlocfilehash: f5f6e6dc1e8c0df88d69f9edbbdaf6e3421548df
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392355"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Snabbstart: Ladda upp, hämta, lista och ta bort blobar med Azure Storage v10 SDK för JavaScript
 

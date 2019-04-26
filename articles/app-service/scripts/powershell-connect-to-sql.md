@@ -52,8 +52,8 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Skapar en App Service-plan. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Skapar en App Service-app. |
-| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL-databasserver. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brandväggsregel för SQL-databasserver. |
+| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brandväggsregel för SQL Database-server. |
 | [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en databas eller en elastisk databas. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Ändrar konfigurationen för en App Service-app. |
 

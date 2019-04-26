@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Använd Azure Database Migration Service till att migrera online från SQL Server till en enkel databas eller pooldatabas i Azure SQL Database | Microsoft Docs'
-description: Lär dig att göra en onlinemigrering från SQL Server lokalt till en enkel databas eller pooldatabas i Azure SQL Database genom att använda Azure Database Migration Service.
+description: Lär dig att göra en onlinemigrering från SQL Server lokalt till en enkel databas eller en pooldatabas i Azure SQL Database genom att använda Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -20,7 +20,7 @@ ms.locfileid: "59799056"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Självstudier: Migrera SQL Server till en enkel databas eller pooldatabas i Azure SQL Database online med DMS
 
-Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) med minimal avbrottstid. I den här självstudien migrerar du databasen **Adventureworks2012**, som återställts till en lokal instans av SQL Server 2016 (eller senare), till en enkel databas eller pooldatabas i Azure SQL Database genom att använda Azure Database Migration Service.
+Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) med minimal avbrottstid. I den här självstudien migrerar du databasen **Adventureworks2012** från en återställd databas till en lokal instans av SQL Server 2016 (eller senare) till en enkel databas eller en pooldatabas i Azure SQL Database med hjälp av Azure Database Migration Service.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -48,10 +48,10 @@ För att slutföra den här kursen behöver du:
 
 - Ladda ned och installera [SQL Server 2012 eller senare](https://www.microsoft.com/sql-server/sql-server-downloads) (valfri version).
 - Aktivera TCP/IP-protokollet, som är inaktiverat som standard under SQL Server Express-installation, genom att följa instruktionerna i artikeln om att [aktivera eller inaktivera ett servernätverksprotokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Skapa en enskild (eller poolad) databas i Azure SQL Database. Det gör du genom att följa anvisningarna i artikeln [Skapa en enskild databas i Azure SQL-databas med Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
+- Skapa en enkel databas (eller en pooldatabas) i Azure SQL Database. Det gör du genom att följa anvisningarna i artikeln [Skapa en enkel databas i Azure SQL Database med Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
 
     > [!NOTE]
-    > Om du använder SQL Server Integration Services (SSIS) och vill migrera katalogdatabasen för dina SSIS-projekt/-paket (SSISDB) från SQL Server till Azure SQL Database skapas och hanteras målet SSISDB automatiskt åt dig när du etablerar SSIS i Azure Data Factory (ADF). Mer information om att migrera SSIS-paket finns i artikeln [Migrate SQL Server Integration Services packages to Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) (Migrera SQL Server Integration Services-paket till Azure).
+    > Om du använder SQL Server Integration Services (SSIS) och vill migrera katalogdatabasen för dina SSIS-projekt/-paket (SSISDB) från SQL Server till Azure SQL Database skapas och hanteras målet SSISDB och automatiskt åt dig när du etablerar SSIS i Azure Data Factory (ADF). Mer information om att migrera SSIS-paket finns i artikeln [Migrate SQL Server Integration Services packages to Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) (Migrera SQL Server Integration Services-paket till Azure).
 
 - Ladda ned och installera [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) version 3.3 eller senare.
 - Skapa ett virtuellt Azure-nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
@@ -156,7 +156,7 @@ Om du vill utvärdera en lokal databas utför du följande steg:
 
 ## <a name="migrate-the-sample-schema"></a>Migrera exempelschemat
 
-När du är nöjd med utvärderingen och finner att den valda databasen är en giltig kandidat för migrering till en enskild eller poolad databas i Azure SQL Database använder du DMA för att migrera schemat till Azure SQL Database.
+När du är nöjd med utvärderingen och finner att den valda databasen är en giltig kandidat för migrering till en enkel databas eller en pooldatabas i Azure SQL Database använder du DMA för att migrera schemat till Azure SQL Database.
 
 > [!NOTE]
 > Innan du skapar ett migreringsprojekt i DMA ska du redan ha etablerat en Azure SQL-databas så som anges i förutsättningarna. För den här självstudiekursen antas namnet på Azure SQL Database vara **AdventureWorksAzure** men du kan ange ett valfritt namn.
@@ -287,7 +287,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="specify-target-details"></a>Ange målinformation
 
-1. Välj **Spara** och ange på sidan **Information om migreringsmål** anslutningsinformationen för Azure SQL Database Server-målet, som är den företablerade Azure SQL Database som **AdventureWorks2012**-schemat distribuerades till med DMA.
+1. Välj **Spara** och ange på sidan **Information om migreringsmål** anslutningsinformationen för Azure SQL Database-målservern, som är den företablerade Azure SQL Database som **AdventureWorks2012**-schemat distribuerades till med DMA.
 
     ![Välja mål](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 

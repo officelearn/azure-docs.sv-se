@@ -45,7 +45,7 @@ Den här artikeln beskrivs en online-migrering från RDS SQL Server till Azure S
 För att slutföra den här kursen behöver du:
 
 - Skapa en [RDS SQL Server-databas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).
-- Skapa en Azure SQL Database-instans, vilket du kan göra genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas i Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+- Skapa en Azure SQL Database-instans, vilket du kan göra genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas i Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 
     > [!NOTE]
     > Om du migrerar till en Azure SQL Database managed instance, följer du detaljerat i artikeln [skapa en hanterad Azure SQL Database-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started), och sedan skapa en tom databas med namnet **AdventureWorks2012**. 
@@ -222,7 +222,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
    ![Källinformation](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-source-details3.png)
 
 ## <a name="specify-target-details"></a>Ange målinformation
-1. Välj **Spara** och ange på sidan **Information om migreringsmål** anslutningsinformationen för Azure SQL Database Server-målet, som är den företablerade Azure SQL Database som **AdventureWorks2012**-schemat distribuerades till med DMA.
+1. Välj **Spara** och ange på sidan **Information om migreringsmål** anslutningsinformationen för Azure SQL Database-målservern, som är den företablerade Azure SQL Database som **AdventureWorks2012**-schemat distribuerades till med DMA.
 
     ![Välja mål](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-select-target3.png)
 

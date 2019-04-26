@@ -1,5 +1,5 @@
 ---
-title: CLI-exempel för flytt av en SQL-databas inom en elastisk SQL-databaspool | Microsoft Docs
+title: CLI-exempel för flytt av en Azure SQL-databas inom en elastisk SQL-databaspool | Microsoft Docs
 description: Skriptexempel för Azure CLI för flytt av en SQL-databas inom en elastisk SQL-databaspool
 services: sql-database
 ms.service: sql-database
@@ -14,12 +14,12 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6fa21c0fea2eeacd17cfe9f0d7ba58d55ed60af1
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357586"
 ---
-# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Använda CLI för flytt av en SQL-databas inom en elastisk SQL-databaspool
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Använda CLI för flytt av en Azure SQL-databas inom en elastisk SQL-databaspool
 
 Det här Azure CLI-skriptexemplet skapar två elastiska pooler och flyttar en Azure SQL-databas från en elastisk SQL-pool till en annan elastisk SQL-pool. Därefter flyttas databasen ut ur den elastiska poolen till en beräkningsstorlek för enkel databas.
 

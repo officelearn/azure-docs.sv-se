@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360188"
@@ -56,7 +56,7 @@ Automatiserade säkerhetskopieringar för 7 dagar av dina databaser kopieras til
 
 Mer information om priserna för lagring finns i den [priser](https://azure.microsoft.com/pricing/details/sql-database/single/) sidan.
 
-## <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
+## <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
 En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara och fysiska egenskaper av maskinvara (till exempel antal kärnor, minne, lagringsstorlek). Den vCore-baserade inköpsmodellen ger dig flexibilitet, kontroll, transparens av enskild resursförbrukning och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du välja beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. I den vCore-baserade inköpsmodellen, kan du välja mellan [generella](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) och [affärskritisk](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tjänstnivåer för [enkla databaser](sql-database-single-database-scale.md), [ elastiska pooler](sql-database-elastic-pool.md), och [hanterade instanser](sql-database-managed-instance.md). För enskilda databaser du kan också välja den [hyperskala tjänstnivå (förhandsversion)](sql-database-service-tier-hyperscale.md).
 

@@ -14,12 +14,12 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8e1ce1ad692f544d668ae557c85e504ffcb9d0dd
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59356666"
 ---
-# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>Använd PowerShell för att skapa en enda Azure SQL-databas och konfigurera en brandväggsregel för en SQL Databas-server
+# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>Använd PowerShell för att skapa en enkel Azure SQL-databas och konfigurera en brandväggsregel för SQL Database-servern
 
 Det här PowerShell-skriptexemplet skapar en Azure SQL-databas och konfigurerar en brandväggsregel på servernivå. När skriptet har körts utan problem kan SQL-databasen nås från alla Azure-tjänster och den konfigurerade IP-adressen.
 

@@ -19,4 +19,4 @@ ms.locfileid: "55105059"
 
 |  |  |
 |---------|---------|
-| [Granska valv där slutpunkter i virtuella nätverk saknas](../articles/governance/policy/samples/keyvault-no-vnet-rules.md) | Granskar Key Vault-valv för att identifiera instanser som inte har några tjänstslutpunkter i virtuella nätverk. |
+| [Granska valv där slutpunkter i virtuella nätverk saknas](../articles/governance/policy/samples/keyvault-no-vnet-rules.md) | Granskar Key Vault-valv för att identifiera instanser som inte har några tjänstslutpunkter för virtuella nätverk. |

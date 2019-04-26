@@ -14,7 +14,7 @@ ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361485"
@@ -189,7 +189,7 @@ I det här avsnittet använder Azure-portalen, särskilt ADF User Interface (UI)
 
     > [!IMPORTANT]
     > - Den här processen tar cirka 20 till 30 minuter att slutföra
-    > - Data Factory-tjänsten ansluts till din Azure SQL Database för att förbereda SSISDB. Dessutom konfigurerar behörigheter och inställningar för det virtuella nätverket, om anges, och ansluter den nya instansen av Azure-SSIS integration runtime till det virtuella nätverket.
+    > - Data Factory-tjänsten ansluts till Azure SQL Database för att förbereda SSISDB. Dessutom konfigurerar behörigheter och inställningar för det virtuella nätverket, om anges, och ansluter den nya instansen av Azure-SSIS integration runtime till det virtuella nätverket.
 
 7. I fönstret **Anslutningar** växlar du till **integreringskörningar** om det behövs. Om du vill uppdatera statusen klickar du på **Uppdatera**.
 

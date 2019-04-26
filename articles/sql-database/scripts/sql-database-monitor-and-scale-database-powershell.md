@@ -1,6 +1,6 @@
 ---
 title: PowerShell-exempel – Övervaka och skala en Azure SQL-databas | Microsoft Docs
-description: Azure PowerShell-exempelskript för att övervaka och skala en enskild Azure SQL-databas
+description: Azure PowerShell-exempelskript för att övervaka och skala en enkel Azure SQL-databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 34e5876df36a48b0ca70979346afdd89b674a813
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359486"

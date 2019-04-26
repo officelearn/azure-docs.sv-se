@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6d6fadc1508df63fdc4062bd45a98e31c1f1674f
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361229"
@@ -49,7 +49,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brandväggsregel SQL Database-server för att tillåta åtkomst till alla enkla databaser och poolade databaser på SQL Database-servern från det angivna IP-adressintervallet. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brandväggsregel för SQL Database-server för att tillåta åtkomst till alla enkla databaser och pooldatabaser på SQL Database-servern från det angivna IP-adressintervallet. |
 | [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) | Importerar en BACPAC-fil och skapar en ny databas på servern. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/27/2019
 ms.openlocfilehash: 846cf0e0afe2bd1eedaea3c66af674f9b8a447d3
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359180"
@@ -49,11 +49,11 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för en enkel databas eller en elastisk pool. |
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en databas på en SQL Database-server i form av en fristående databas eller en databas som ingår i en pool. |
-[Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) | Hämtar en geo-redundant säkerhetskopia av en fristående databas eller en databas som ingår i en pool. |
-| [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) | Återställer en fristående SQL-databas eller en SQL-databas som ingår i en pool. |
-|[Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) | Tar bort en fristående Azure SQL-databas eller en Azure SQL-databas som ingår i en pool. |
-| [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Hämtar en borttagen databas (fristående eller som ingår i en pool) som du kan återställa. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en databas på en SQL Database-server i form av en fristående databas eller en pooldatabas. |
+[Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) | Hämtar en geo-redundant säkerhetskopia av en fristående databas eller en pooldatabas. |
+| [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) | Återställer en fristående SQL-databas eller en SQL-pooldatabas. |
+|[Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) | Tar bort en fristående Azure SQL-databas eller en Azure SQL-pooldatabas. |
+| [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Hämtar en borttagen databas (fristående databas eller pooldatabas) som du kan återställa. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

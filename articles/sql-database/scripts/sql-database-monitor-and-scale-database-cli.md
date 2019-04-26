@@ -1,6 +1,6 @@
 ---
 title: CLI-exempel – Övervaka och skala en Azure SQL-databas | Microsoft Docs
-description: Azure CLI-exempelskript för att övervaka och skala en enskild Azure SQL-databas
+description: Azure CLI-exempelskript för att övervaka och skala en enkel Azure SQL-databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: eeb932123e57dcb10fce3baf9670d8c1ae961fb8
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361606"
@@ -52,7 +52,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Visar användningsinformation om storlek för en enkel eller grupperad databas. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Visar användningsinformation om storlek för en enkel databas eller en pooldatabas. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Uppdaterar databasegenskaper (till exempel tjänstnivå eller beräkningsstorlek) eller flyttar en databas till, från eller mellan elastiska pooler. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||

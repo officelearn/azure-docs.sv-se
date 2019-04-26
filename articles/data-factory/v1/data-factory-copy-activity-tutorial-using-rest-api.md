@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Använd REST API för att skapa en Azure Data Factory-pipeline | Microsoft Docs'
-description: I den här självstudiekursen kommer du att använda REST API för att skapa en Azure-datafabrik och kopiera data från ett Azure-blob till en Azure SQL-databas.
+description: I den här självstudiekursen kommer du att använda REST API för att skapa en Azure-datafabrik och kopiera data från en Azure-blob till en Azure SQL-databas.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -16,7 +16,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58077810"
@@ -428,7 +428,7 @@ I det föregående steget skapade du kopplade tjänster för att länka ett Azur
 
 Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en Blob-datauppsättning (AzureBlobInput) anger vilken blobcontainer och mapp som innehåller data.  
 
-Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen. 
+Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till din Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen. 
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
 I det här steget skapar du en datauppsättning med namnet AzureBlobInput som pekar på en blobfil (emp.ext) i rotmappen i en blobcontainer (adftutorial) i Azure Storage som representeras av den länkade tjänsten AzureStorageLinkedService. Om du inte anger ett värde för filnamnet (eller hoppar över det), kommer data från alla blobbar i indatamappen att kopieras till målet. I den här kursen anger du ett värde för filnamnet. 
@@ -522,7 +522,7 @@ Kör Invoke-Command och nästa kommando tills du ser sektorn med tillståndet **
 För varje sektor kopieras två rader med data från källfilen till emp-tabellen i Azure SQL-databasen. Därför finns det 24 nya poster i emp-tabellen när alla sektorer har bearbetats (statusen Ready). 
 
 ## <a name="summary"></a>Sammanfattning
-I den här självstudiekursen använde du REST-API:et för att skapa en Azure-datafabrik och kopiera data från ett Azure-blobb till en Azure SQL-databas. Här är de avancerade steg som du utförde i självstudien:  
+I den här självstudiekursen använde du REST-API:et för att skapa en Azure-datafabrik och kopiera data från en Azure-blob till en Azure SQL-databas. Här är de avancerade steg som du utförde i självstudien:  
 
 1. Du skapade en Azure **Data Factory**.
 2. Du skapade **länkade tjänster**:

@@ -52,13 +52,13 @@ För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte en
 
 | Egenskap | Beskrivning |
 |:--|:--|
-|Riktning |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
-|Dator |Datorn FQDN |
+|Direction |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
+|Machine |Datorn FQDN |
 |Process |Identiteten för processen eller grupper av processer, initierar/godkänna anslutningen |
 |SourceIp |IP-adressen för källan |
 |DestinationIp |IP-adressen för målet |
 |DestinationPort |Portnumret för mål |
-|Protokoll |Protokoll som används för anslutningen.  Värden är *tcp*. |
+|Protocol |Protokoll som används för anslutningen.  Värden är *tcp*. |
 
 Information om antalet grupperade fysiska anslutningar finns i följande egenskaper för posten för att redovisa effekten av gruppering:
 
@@ -77,7 +77,7 @@ Förutom antalet anslutningsmått, information om mängden data som skickas och 
 |:--|:--|
 |BytesSent |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
 |BytesReceived |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
-|Svar |Antal svar som observerats under tidsperioden för rapportering. 
+|Responses |Antal svar som observerats under tidsperioden för rapportering. 
 |ResponseTimeMax |Den största svarstid (millisekunder) observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
 |ResponseTimeMin |Den minsta svarstid (millisekunder) observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
 |ResponseTimeSum |Summan av alla svarstider (millisekunder) som observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
@@ -112,10 +112,10 @@ Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättni
 |:--|:--|
 |MaliciousIp |RemoteIp-adress |
 |IndicatorThreadType |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
-|Beskrivning |Beskrivning av observerade hotet. |
+|Description |Beskrivning av observerade hotet. |
 |TLPLevel |Trafikljus Protocol (TLP) är en av de definierade värdena *White*, *grönt*, *gul*, *Red*. |
-|Konfidensbedömning |Värden är *0 – 100*. |
-|Allvarsgrad |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
+|Confidence |Värden är *0 – 100*. |
+|Severity |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
 |FirstReportedDateTime |Första gången providern rapporterade indikatorn. |
 |LastReportedDateTime |Senast indikatorn har setts av Interflow. |
 |IsActive |Anger indikatorer inaktiveras med *SANT* eller *FALSKT* värde. |
@@ -137,9 +137,9 @@ Varje post i VMBoundPort identifieras med följande fält:
 | Egenskap | Beskrivning |
 |:--|:--|
 |Process | Identiteten för processen (eller grupper av processer) som porten som är associerad med.|
-|IP | Port IP-adress (kan vara IP-adress med jokertecken *0.0.0.0*) |
+|Ip | Port IP-adress (kan vara IP-adress med jokertecken *0.0.0.0*) |
 |Port |Portnumret |
-|Protokoll | Protokollet.  Exempelvis *tcp* eller *udp* (endast *tcp* stöds för närvarande).|
+|Protocol | Protokollet.  Exempelvis *tcp* eller *udp* (endast *tcp* stöds för närvarande).|
  
 Identiteten en port härleds från ovanstående fem fält och lagras i egenskapen PortId. Den här egenskapen kan användas för att snabbt hitta poster för en viss port över tid. 
 
@@ -162,7 +162,7 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Typ | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Den unika identifieraren för en dator i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en dator i arbetsytan |
@@ -187,7 +187,7 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Typ | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Den unika identifieraren för en process i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en process på datorn där den körs|
@@ -202,9 +202,9 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 | ProductVersion_s | Produktversion |
 | FileVersion_s | Filversionen |
 | CommandLine_s | Från kommandoraden |
-| ExecutablePath _Vä | Sökvägen till den körbara filen |
+| ExecutablePath _s | Sökvägen till den körbara filen |
 | WorkingDirectory_s | Arbetskatalogen |
-| Användarnamn | Det konto som processen körs |
+| UserName | Det konto som processen körs |
 | UserDomain | Den domän där processen körs |
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar

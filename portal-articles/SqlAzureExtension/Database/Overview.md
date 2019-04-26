@@ -21,7 +21,7 @@ Azure SQL Database är en relationsdatabas-som-en-tjänst (DBaaS) för generell 
 
 ## <a name="5-minute-quickstarts"></a>Snabbstarter på 5 minuter
 
-Med Azure SQL Database kan du enkelt utföra grundläggande hanteringsuppgifter med hjälp av Azure Portal, Azure CLI och Azure PowerShell. Lär dig utföra grundläggande hanteringsuppgifter med följande snabbstartsexempel:
+Med Azure SQL Database kan du enkelt utföra grundläggande hanteringsuppgifter med hjälp av Azure-portalen, Azure CLI och Azure PowerShell. Lär dig utföra grundläggande hanteringsuppgifter med följande snabbstartsexempel:
 
 - [Azure Portal](/azure/sql-database/sql-database-single-database-get-started)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)

@@ -1,60 +1,55 @@
-items:
 - name: Dokumentation om Azure NetApp Files
   href: index.yml
 - name: Översikt
   items:
-  - name: Introduktion till Azure NetApp Files
-    href: azure-netapp-files-introduction.md
-  - name: Förstå lagringshierarkin
-    href: azure-netapp-files-understand-storage-hierarchy.md
+    - name: Introduktion till Azure NetApp Files
+      href: azure-netapp-files-introduction.md
+    - name: Förstå lagringshierarkin
+      href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Snabbstarter
-  items:
-  - name: Konfigurera Azure NetApp Files och skapa en volym
-    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
   expanded: true
+  items:
+    - name: Konfigurera Azure NetApp Files och skapa en volym
+      href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Begrepp
   items:
-  - name: Tjänstnivåer för Azure NetApp Files
-    href: azure-netapp-files-service-levels.md
-  - name: Resursbegränsningar för Azure NetApp Files
-    href: azure-netapp-files-resource-limits.md
-  - name: Mått för Azure NetApp Files
-    href: azure-netapp-files-metrics.md
+    - name: Tjänstnivåer för Azure NetApp Files
+      href: azure-netapp-files-service-levels.md
+    - name: Resursbegränsningar för Azure NetApp Files
+      href: azure-netapp-files-resource-limits.md
+    - name: Mått för Azure NetApp Files
+      href: azure-netapp-files-metrics.md
+    - name: Felsöka fel i resursprovidern för Azure NetApp Files
+      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Instruktionsguider
   items:
-  - name: Registrera för Azure NetApp Files
-    href: azure-netapp-files-register.md
-  - name: Skapa ett NetApp-konto
-    href: azure-netapp-files-create-netapp-account.md
-  - name: Konfigurera en kapacitetspool
-    href: azure-netapp-files-set-up-capacity-pool.md
-  - name: Delegera ett undernät till Azure NetApp Files
-    href: azure-netapp-files-delegate-subnet.md
-  - name: Skapa en volym för Azure NetApp Files
-    href: azure-netapp-files-create-volumes.md
-  - name: Konfigurera exportprincipen för en NFS-volym
-    href: azure-netapp-files-configure-export-policy.md
-  - name: Hantera volymer
-    href: azure-netapp-files-manage-volumes.md
-  - name: Montera eller demontera en volym för virtuella Windows- eller Linux-datorer
-    href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
-  - name: Hantera ögonblicksbilder
-    href: azure-netapp-files-manage-snapshots.md
-  - name: Ändra storlek på en kapacitetspool eller en volym
-    href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-  - name: Utveckla
-    items:
-    - name: REST
-      href: azure-netapp-files-develop-with-rest-api.md
+    - name: Registrera för Azure NetApp Files
+      href: azure-netapp-files-register.md
+    - name: Skapa ett NetApp-konto
+      href: azure-netapp-files-create-netapp-account.md
+    - name: Konfigurera en kapacitetspool
+      href: azure-netapp-files-set-up-capacity-pool.md
+    - name: Delegera ett undernät till Azure NetApp Files
+      href: azure-netapp-files-delegate-subnet.md
+    - name: Skapa en volym för Azure NetApp Files
+      href: azure-netapp-files-create-volumes.md
+    - name: Konfigurera exportprincipen för en NFS-volym
+      href: azure-netapp-files-configure-export-policy.md
+    - name: Hantera volymer
+      href: azure-netapp-files-manage-volumes.md
+    - name: Montera eller demontera en volym för virtuella Windows- eller Linux-datorer
+      href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+    - name: Hantera ögonblicksbilder
+      href: azure-netapp-files-manage-snapshots.md
+    - name: Ändra storlek på en kapacitetspool eller en volym
+      href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Utveckla
+      items:
+        - name: REST
+          href: azure-netapp-files-develop-with-rest-api.md
 - name: Referens
   items:
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/
-  - name: Resource Manager-mall
-    href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: 1380aa56161e7c1f0f3d72aae36c834a087e1040
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545935"
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/netapp/'
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.netapp/allversions

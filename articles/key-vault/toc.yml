@@ -74,7 +74,7 @@
       href: key-vault-ovw-soft-delete.md
     - name: Begränsning
       href: key-vault-ovw-throttling.md
-    - name: Slutpunkter för virtuellt nätverk
+    - name: Tjänstslutpunkter för virtuellt nätverk
       href: key-vault-overview-vnet-service-endpoints.md
     - name: 'Autentisering, begäranden och svar'
       href: authentication-requests-and-responses.md

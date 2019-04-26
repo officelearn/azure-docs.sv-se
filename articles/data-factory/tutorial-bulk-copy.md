@@ -14,7 +14,7 @@ ms.date: 01/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 718e34cdba31b3b747ebb5c10f5c5708c0572448
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57436603"
@@ -57,7 +57,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 **Förbered Azure SQL Database-källan**:
 
-Skapa en Azure SQL Database med exempeldata för Adventure Works LT genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). I den här självstudien kopieras alla tabeller från den här exempeldatabasen till SQL Data Warehouse.
+Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). I den här självstudien kopieras alla tabeller från den här exempeldatabasen till SQL Data Warehouse.
 
 **Förbered det mottagande Azure SQL Data Warehouse-datalagret**:
 
@@ -120,7 +120,7 @@ I den här självstudien skapar du tre länkade tjänster för käll-, mottagar-
 1. Skapa en JSON-fil med namnet **AzureSqlDatabaseLinkedService.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll: (Skapa mappen ADFv2TutorialBulkCopy om den inte redan finns.)
 
     > [!IMPORTANT]
-    > Ersätt &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; och &lt;password&gt; med värdena för din Azure SQL Database innan du sparar filen.
+    > Ersätt &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; och &lt;password&gt; med värdena för din Azure SQL-databas innan du sparar filen.
 
     ```json
     {
@@ -159,7 +159,7 @@ I den här självstudien skapar du tre länkade tjänster för käll-, mottagar-
 1. Skapa en JSON-fil med namnet **AzureSqlDWLinkedService.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll:
 
     > [!IMPORTANT]
-    > Ersätt &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; och &lt;password&gt; med värdena för din Azure SQL Database innan du sparar filen.
+    > Ersätt &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; och &lt;password&gt; med värdena för din Azure SQL-databas innan du sparar filen.
 
     ```json
     {
@@ -410,7 +410,7 @@ Den här pipelinen tar en lista med tabeller som en parameter. För varje tabell
 
 Den här pipelinen utför två steg:
 
-* den söker i Azure SQL Database-systemtabellen för att få fram listan med tabeller som ska kopieras
+* Den söker i Azure SQL Database-systemtabellen för att få fram listan med tabeller som ska kopieras
 * den utlöser pipelinen ”IterateAndCopySQLTables” för att utföra den faktiska kopieringen.
 
 1. Skapa en JSON-fil med namnet **GetTableListAndTriggerCopyData.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll:

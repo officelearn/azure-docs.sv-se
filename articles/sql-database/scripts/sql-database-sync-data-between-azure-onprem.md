@@ -1,6 +1,6 @@
 ---
 title: Exempelsynkronisering i PowerShell mellan SQL Database och SQL Server lokalt | Microsoft Docs
-description: Azure PowerShell-exempelskript för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas
+description: Azure PowerShell-exempelskript för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -14,14 +14,14 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 031a23016abb5b0d8c4c6ebd7213bb24cf3c53cb
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58487659"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Använda PowerShell för att synkronisera mellan en SQL Database och en lokal SQL Server-databas
 
-Detta PowerShell-exempel konfigurerar Data Sync för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas. 
+Detta PowerShell-exempel konfigurerar Data Sync för att synkronisera mellan en Azure SQL-databas och en lokal SQL Server-databas. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

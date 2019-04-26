@@ -16,7 +16,7 @@ ms.date: 05/18/2018
 ms.author: aljo
 ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048477"
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Använda en container med ett befintligt program med hjälp av Visual Studio
-> * Skapa en Azure SQL Database
+> * Skapa en Azure SQL-databas
 > * Skapa ett Azure-containerregister
 > * Distribuera ett Service Fabric-program till Azure
 
@@ -183,7 +183,7 @@ När du skapar klustret,
     
 
 ## <a name="allow-your-application-running-in-azure-to-access-the-sql-db"></a>Ge programmet som körs i Azure åtkomst till SQL DB-databasen
-Tidigare skapade du en SQL-brandväggsregel som gav åtkomst till programmet som körs lokalt.  Nu måste du ge programmet som körs i Azure åtkomst till SQL DB-databasen.  Skapa en [tjänstslutpunkt för det virtuella nätverket](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) för Service Fabric-klustret och skapa sedan en regel som ger slutpunkten åtkomst till SQL-databasen. Glöm inte att ange variabeln för klusterresursgruppen som du antecknade när du skapade klustret. 
+Tidigare skapade du en SQL-brandväggsregel som gav åtkomst till programmet som körs lokalt.  Nu måste du ge programmet som körs i Azure åtkomst till SQL DB-databasen.  Skapa en [tjänstslutpunkt för virtuellt nätverk](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) för Service Fabric-klustret och skapa sedan en regel som ger slutpunkten åtkomst till SQL-databasen. Glöm inte att ange variabeln för klusterresursgruppen som du antecknade när du skapade klustret. 
 
 ```powershell
 # Create a virtual network service endpoint
@@ -265,7 +265,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Använda en container med ett befintligt program med hjälp av Visual Studio
-> * Skapa en Azure SQL Database
+> * Skapa en Azure SQL-databas
 > * Skapa ett Azure-containerregister
 > * Distribuera ett Service Fabric-program till Azure
 

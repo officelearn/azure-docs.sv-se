@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/12/2019
 ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59678606"
@@ -61,7 +61,7 @@ Standardkvarhållningsperioden för en databas som skapats med den DTU-baserade 
 - Standard-tjänstnivå är fem veckor.
 - Premiumnivån är fem veckor.
 
-#### <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
+#### <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
 Om du använder den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md), standard-kvarhållningsperiod är 7 dagar (för en enskild, pooler och databaser-instans). För alla Azure SQL-databaser (enkel, pooler, och instansdatabaser, kan du [ändra kvarhållningsperioden för säkerhetskopior upp till 35 dagar](#how-to-change-the-pitr-backup-retention-period).
 

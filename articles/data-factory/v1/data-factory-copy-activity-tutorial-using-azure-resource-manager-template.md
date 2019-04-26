@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Skapa en pipeline med hjälp av en Resource Manager-mall | Microsoft Docs'
-description: I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall. Pipelinen kopierar data från Azure Blob Storage till Azure SQL Database.
+description: I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall. Pipelinen kopierar data från Azure bloblagring till en Azure SQL-databas.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -16,7 +16,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95a29a458fc9333515ef29aaaed9a47e93cf3a8d
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58483768"

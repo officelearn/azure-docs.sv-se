@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/03/2019
 ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359440"
@@ -37,7 +37,7 @@ Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL
 |---|---|
 |**Skapa en databas och en elastisk pool**||
 | [Skapa en databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skapar en Azure SQL-databas och konfigurerar en brandväggsregel på servernivå. |
-| [Skapa elastiska pooler och flytta databaser i pooler](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skapar elastiska SQL-pooler, flyttar Azure SQL-databaser i poolerna och ändrar beräkningsstorlekar.|
+| [Skapa elastiska pooler och flytta databaser i pooler](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skapar elastiska SQL-pooler, flyttar Azure SQL-pooldatabaser och ändrar beräkningsstorlekar.|
 |**Skala en databas och en elastisk pool**||
 | [Skala en databas](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skalar en enda Azure SQL-databas till en annan beräkningsstorlek efter att ha kört en fråga om databasens storlek. |
 | [Skala en elastisk pool](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Det här CLI-exempelskriptet skalar en elastisk SQL-pool till en annan beräkningsstorlek.  |

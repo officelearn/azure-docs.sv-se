@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308252"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Skapa ett grundläggande index i Azure Search
 
@@ -137,7 +137,7 @@ Den [ *fält samling* ](#fields-collection) är vanligtvis den största delen av
 När du definierar ett schema måste du ange namnet, typen och attributet för varje fält i ditt index. Fälttypen klassificerar de data som lagras i fältet. Attribut anges för enskilda fält och definierar hur fältet används. Följande tabeller innehåller de typer och attribut som du kan ange.
 
 ### <a name="data-types"></a>Datatyper
-| Type | Beskrivning |
+| Typ | Beskrivning |
 | --- | --- |
 | *Edm.String* |Text som kan tokeniseras för textsökning (radbrytning, ordstamsigenkänning och så vidare). |
 | *Collection(Edm.String)* |En lista med strängar som kan tokeniseras för textsökning. Det finns ingen teoretisk övre gräns för antalet objekt i en samling, men den övre gränsen på 16 MB för nyttolasten gäller för samlingar. |

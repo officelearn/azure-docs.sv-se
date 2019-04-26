@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
 ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506747"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeta med Reliable Collections
 Service Fabric erbjuder en tillståndskänslig programmeringsmodell som är tillgängliga för .NET-utvecklare via tillförlitliga samlingar. Mer specifikt tillhandahåller Service Fabric tillförlitlig ordlista och tillförlitlig kö klasser. När du använder de här klasserna är din delstat partitionerade (för skalbarhet), replikeras (för tillgänglighet) och överförda inom en partition (för ACID-semantik). Nu ska vi titta på en normal användning av en tillförlitlig ordlista-objekt och se vad det faktiskt gör.

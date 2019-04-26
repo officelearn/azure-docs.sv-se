@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc136cdc88c67e3b26aefc4982f49a2547e456db
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474031"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Logga in på dina konton med hjälp av Microsoft Authenticator-appen
 Med Microsoft Authenticator-appen kan du logga in på dina konton om du använder tvåfaktorsverifiering. Med tvåfaktorsverifiering kan du komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stjälas eller komprometteras är tvåfaktorsverifiering ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.
@@ -31,7 +31,7 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
   >[!Important]
   >Den här phone inloggningsmetod fungerar bara med ditt arbete eller skola och personliga Microsoft-konton. Icke-Microsoft-konton måste du använda standard tvåfaktors-verifieringen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du kan använda Microsoft Authenticator-appen, måste du:
 
  1. Hämta och installera Microsoft Authenticator-appen. Om du inte har gjort det redan finns i [ladda ned och installera appen](user-help-auth-app-download-install.md).

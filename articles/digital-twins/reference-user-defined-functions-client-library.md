@@ -10,11 +10,11 @@ ms.date: 12/27/2018
 ms.author: alinast
 ms.custom: seodec18
 ms.openlocfilehash: d309765e6c4b0b0cc8a7e92977134d4135a69a13
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535597"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Användardefinierade funktioner-klientbiblioteksreferens
 
@@ -63,9 +63,9 @@ Den här funktionen hämtar baserat på en sensor-identifierare och dess datatyp
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId*  | `guid` | sensorn identifierare |
-| *Datatyp*  | `string` | sensorn datatyp |
+| *dataType*  | `string` | sensorn datatyp |
 
-### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue (spaceId, värdenamn) ⇒ `value`
+### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue(spaceId, valueName) ⇒ `value`
 
 Den här funktionen hämtar baserat på en utrymmesidentifierare och värdenamn, det aktuella värdet för egenskapen utrymme.
 
@@ -74,7 +74,7 @@ Den här funktionen hämtar baserat på en utrymmesidentifierare och värdenamn,
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | utrymmesidentifierare |
-| *Värdenamn* | `string` | egenskapsnamn med blanksteg |
+| *valueName* | `string` | egenskapsnamn med blanksteg |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorId, dataType) ⇒ `value[]`
 
@@ -85,7 +85,7 @@ Den här funktionen hämtar baserat på en sensor-identifierare och dess datatyp
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | sensorn identifierare |
-| *Datatyp* | `string` | sensorn datatyp |
+| *dataType* | `string` | sensorn datatyp |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues (spaceId, dataType) ⇒ `value[]`
 
@@ -96,7 +96,7 @@ Den här funktionen hämtar baserat på en utrymmesidentifierare och värdenamn,
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | utrymmesidentifierare |
-| *Värdenamn* | `string` | egenskapsnamn med blanksteg |
+| *valueName* | `string` | egenskapsnamn med blanksteg |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -178,7 +178,7 @@ Med en sensor identifierare kan returnerar den här funktionen den överordnade 
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | sensorn identifierare |
 
-### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty (spaceId, propertyName) ⇒ `extendedProperty`
+### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
 Den här funktionen hämtar med en utrymmesidentifierare kan egenskapen och dess värde från området.
 
@@ -189,7 +189,7 @@ Den här funktionen hämtar med en utrymmesidentifierare kan egenskapen och dess
 | *spaceId* | `guid` | utrymmesidentifierare |
 | *propertyName* | `string` | egenskapsnamn med blanksteg |
 
-### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty (sensorId, propertyName) ⇒ `extendedProperty`
+### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
 Den här funktionen hämtar med en sensor identifierare kan egenskapen och dess värde från sensorn.
 
@@ -220,7 +220,7 @@ Den här funktionen anger ett värde på sensor-objektet med den angivna datatyp
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | sensorn identifierare |
-| *Datatyp*  | `string` | sensorn datatyp |
+| *dataType*  | `string` | sensorn datatyp |
 | *värde*  | `string` | Värde |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue (spaceId, datatyp, värde)
@@ -232,7 +232,7 @@ Den här funktionen anger ett värde på utrymme-objektet med den angivna dataty
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | utrymmesidentifierare |
-| *Datatyp* | `string` | Datatyp |
+| *dataType* | `string` | Datatyp |
 | *värde* | `string` | Värde |
 
 ### <a name="logmessage"></a>log(Message)
@@ -255,7 +255,7 @@ Den här funktionen skickas ett anpassat meddelande skickas.
 | ------ | ------------------- | ------------ |
 | *topologyObjectId*  | `guid` | Diagram över objektidentifierare. Exempel är utrymme, sensor och enhets-ID.|
 | *topologyObjectType*  | `string` | Exempel är sensor- och enhetsdata.|
-| *nyttolast*  | `string` | JSON-nyttolasten skickas med meddelandet. |
+| *payload*  | `string` | JSON-nyttolasten skickas med meddelandet. |
 
 ## <a name="return-types"></a>Returnera typer
 
@@ -302,7 +302,7 @@ Den här funktionen returnerar värdet för det aktuella utrymmet.
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *Värdenamn* | `string` | namnet på värdet |
+| *valueName* | `string` | namnet på värdet |
 
 #### <a name="historyvaluename--value"></a>History(ValueName) ⇒ `value[]`
 
@@ -310,15 +310,15 @@ Den här funktionen returnerar historiska värdena för det aktuella utrymmet.
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *Värdenamn* | `string` | namnet på värdet |
+| *valueName* | `string` | namnet på värdet |
 
-#### <a name="notifypayload"></a>Notify(Payload)
+#### <a name="notifypayload"></a>Notify(payload)
 
 Den här funktionen skickar ett meddelande med den angivna nyttolasten.
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *nyttolast* | `string` | JSON-nyttolast ska inkluderas i meddelandet |
+| *payload* | `string` | JSON-nyttolast ska inkluderas i meddelandet |
 
 ### <a name="device"></a>Enhet
 
@@ -356,13 +356,13 @@ Den här funktionen returnerar den utökade egenskapen och dess värde för den 
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | namnet på den utökade egenskapen |
 
-#### <a name="notifypayload"></a>Notify(Payload)
+#### <a name="notifypayload"></a>Notify(payload)
 
 Den här funktionen skickar ett meddelande med den angivna nyttolasten.
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *nyttolast* | `string` | JSON-nyttolast ska inkluderas i meddelandet |
+| *payload* | `string` | JSON-nyttolast ska inkluderas i meddelandet |
 
 ### <a name="sensor"></a>Sensor
 
@@ -412,13 +412,13 @@ Den här funktionen returnerar värdet för den aktuella sensorn.
 
 Den här funktionen returnerar historiska värdena för den aktuella sensorn.
 
-#### <a name="notifypayload"></a>Notify(Payload)
+#### <a name="notifypayload"></a>Notify(payload)
 
 Den här funktionen skickar ett meddelande med den angivna nyttolasten.
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *nyttolast* | `string` | JSON-nyttolast ska inkluderas i meddelandet |
+| *payload* | `string` | JSON-nyttolast ska inkluderas i meddelandet |
 
 ### <a name="value"></a>Värde
 

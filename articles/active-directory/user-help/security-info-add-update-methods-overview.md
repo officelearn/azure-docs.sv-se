@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 115354985284b090fef890068ade6ddaf5867f04
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474118"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>Översikt över hur du ändrar metoder och information för din säkerhetsinformation (förhandsversion)
 Du kan lägga till, redigera, ta bort och ändra din standardmetod för säkerhetsinformation från sidorna **Säkerhetsinformation**. Mer information om varje metod och hur du ändrar informationen finns i respektive metodbaserad artikel.

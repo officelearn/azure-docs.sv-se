@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 7b47d4fc3aa4a1a50e441e668a856703c67045ae
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515399"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhooks för Taltjänster
 
@@ -38,6 +38,8 @@ Nu ska vi skapa en webhook.
 ## <a name="create-a-webhook"></a>Skapa en webhook
 
 Nu ska vi skapa en webhook för en offline avskrift. Scenariot: en användare har en lång körs ljudfil som de vill transkribera asynkront med API: et för Batch avskrift. 
+
+Skapa en web hook POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
 Konfigurationsparametrar för begäran tillhandahålls som JSON:
 
@@ -133,6 +135,50 @@ Skickar en POST-begäran till registrerade URL: en om en entitet för prenumerer
 ### <a name="run-a-test"></a>Kör ett test
 
 Ett snabbtest kan göras med hjälp av webbplatsen https://bin.webhookrelay.com. Därifrån kan du hämta anrop tillbaka URL: er ska skickas som parameter till HTTP-POST för att skapa en webhook som beskrivs tidigare i dokumentet.
+
+Klicka på Skapa Bucket och följ de anvisningarna på skärmen anvisningarna för att hämta en hook. Använd sedan informationen i den här sidan för att registrera hooken med Speech-tjänsten. Nyttolasten för ett relä meddelanden - svar för slutförandet av en avskrift ser ut på följande sätt:
+
+```json
+{
+    "results": [],
+    "recordingsUrls": [
+        "my recording URL"
+    ],
+    "models": [
+        {
+            "modelKind": "AcousticAndLanguage",
+            "datasets": [],
+            "id": "a09c8c8b-1090-443c-895c-3b1cf442dec4",
+            "createdDateTime": "2019-03-26T12:48:46Z",
+            "lastActionDateTime": "2019-03-26T14:04:47Z",
+            "status": "Succeeded",
+            "locale": "en-US",
+            "name": "v4.13 Unified",
+            "description": "Unified",
+            "properties": {
+                "Purpose": "OnlineTranscription,BatchTranscription,LanguageAdaptation",
+                "ModelClass": "unified-v4"
+            }
+        }
+    ],
+    "statusMessage": "None.",
+    "id": "d41615e1-a60e-444b-b063-129649810b3a",
+    "createdDateTime": "2019-04-16T09:35:51Z",
+    "lastActionDateTime": "2019-04-16T09:38:09Z",
+    "status": "Succeeded",
+    "locale": "en-US",
+    "name": "Simple transcription",
+    "description": "Simple transcription description",
+    "properties": {
+        "PunctuationMode": "DictatedAndAutomatic",
+        "ProfanityFilterMode": "Masked",
+        "AddWordLevelTimestamps": "True",
+        "AddSentiment": "True",
+        "Duration": "00:00:02"
+    }
+}
+```
+Meddelandet innehåller inspelning URL och modeller som används för att transkribera att inspelningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

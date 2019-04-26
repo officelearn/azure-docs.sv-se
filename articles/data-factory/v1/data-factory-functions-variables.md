@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486523"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - funktioner och systemvariabler
 > [!NOTE]
@@ -78,25 +78,25 @@ Se [anpassade datum- och Datumformatsträngar](https://msdn.microsoft.com/librar
 ### <a name="functions"></a>Functions
 I tabellerna nedan listas funktionerna i Azure Data Factory:
 
-| Kategori | Funktion | Parametrar | Beskrivning |
+| Category | Funktion | Parametrar | Beskrivning |
 | --- | --- | --- | --- |
-| Tid |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y timmar angiven tid X. <br/><br/>Exempel: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Tid |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y minuter X.<br/><br/>Exempel: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Tid |AddHours(X,Y) |X: Datetime <br/><br/>Y: int |Lägger till Y timmar angiven tid X. <br/><br/>Exempel: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Tid |AddMinutes(X,Y) |X: Datetime <br/><br/>Y: int |Lägger till Y minuter X.<br/><br/>Exempel: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
 | Tid |StartOfHour(X) |X: DateTime |Hämtar starttiden för den timmen som representeras av timkomponenten för X. <br/><br/>Exempel: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y dagar X. <br/><br/>Exempel: 9/15/2013 12:00:00 PM + 2 dagar = 9/17/2013 12:00:00 PM.<br/><br/>Du kan subtrahera dagar för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y månader X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Du kan ta bort månader för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y * 3 månader för X.<br/><br/>Exempel: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Date |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y * 7 dagar till X<br/><br/>Exempel: 9/15/2013 12:00:00 PM + 1 vecka = 9/22/2013 12:00:00 PM<br/><br/>Du kan ta bort veckor för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Date |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Lägger till Y år för X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Du kan ta bort år för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Date |Day(X) |X: DateTime |Hämtar dagkomponenten för X.<br/><br/>Exempel: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Date |DayOfWeek(X) |X: DateTime |Hämtar dagen i veckan komponent i X.<br/><br/>Exempel: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Date |DayOfYear(X) |X: DateTime |Hämtar dagen i representeras av årskomponenten för X.<br/><br/>Exempel:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Date |DaysInMonth(X) |X: DateTime |Hämtar dagar i månaden som månadskomponenten för parametern X.<br/><br/>Exempel: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Date |EndOfDay(X) |X: DateTime |Hämtar datum / tid som representerar i slutet av dagen (dagkomponenten) för X.<br/><br/>Exempel: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Date |EndOfMonth(X) |X: DateTime |Hämtar slutet av månaden som månadskomponenten för parametern X. <br/><br/>Exempel: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum tid som motsvarar slutet av September månad) |
-| Date |StartOfDay(X) |X: DateTime |Hämtar början på dagen som representeras av dagkomponenten för parametern X.<br/><br/>Exempel: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |FROM(X) |X: String |Parsa sträng X till en datum-tid. |
-| DateTime |Ticks(X) |X: DateTime |Hämtar ticken egenskapen för parametern X. En puls är lika med 100 nanosekunder. Värdet för den här egenskapen representerar antalet tick som har förflutit sedan 12:00:00 midnatt den 1 januari 0001. |
+| Date |AddDays(X,Y) |X: Datetime<br/><br/>Y: int |Lägger till Y dagar X. <br/><br/>Exempel: 9/15/2013 12:00:00 PM + 2 dagar = 9/17/2013 12:00:00 PM.<br/><br/>Du kan subtrahera dagar för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |AddMonths(X,Y) |X: Datetime<br/><br/>Y: int |Lägger till Y månader X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Du kan ta bort månader för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |AddQuarters(X,Y) |X: Datetime <br/><br/>Y: int |Lägger till Y * 3 månader för X.<br/><br/>Exempel: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |AddWeeks(X,Y) |X: Datetime<br/><br/>Y: int |Lägger till Y * 7 dagar till X<br/><br/>Exempel: 9/15/2013 12:00:00 PM + 1 vecka = 9/22/2013 12:00:00 PM<br/><br/>Du kan ta bort veckor för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears(X,Y) |X: Datetime<br/><br/>Y: int |Lägger till Y år för X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Du kan ta bort år för genom att ange Y som ett negativt tal.<br/><br/>Exempel: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Date |Day(X) |X: Datetime |Hämtar dagkomponenten för X.<br/><br/>Exempel: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek(X) |X: Datetime |Hämtar dagen i veckan komponent i X.<br/><br/>Exempel: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |DayOfYear(X) |X: Datetime |Hämtar dagen i representeras av årskomponenten för X.<br/><br/>Exempel:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth(X) |X: Datetime |Hämtar dagar i månaden som månadskomponenten för parametern X.<br/><br/>Exempel: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Date |EndOfDay(X) |X: Datetime |Hämtar datum / tid som representerar i slutet av dagen (dagkomponenten) för X.<br/><br/>Exempel: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth(X) |X: Datetime |Hämtar slutet av månaden som månadskomponenten för parametern X. <br/><br/>Exempel: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum tid som motsvarar slutet av September månad) |
+| Date |StartOfDay(X) |X: Datetime |Hämtar början på dagen som representeras av dagkomponenten för parametern X.<br/><br/>Exempel: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| Datetime |FROM(X) |X: String |Parsa sträng X till en datum-tid. |
+| Datetime |Ticks(X) |X: Datetime |Hämtar ticken egenskapen för parametern X. En puls är lika med 100 nanosekunder. Värdet för den här egenskapen representerar antalet tick som har förflutit sedan 12:00:00 midnatt den 1 januari 0001. |
 | Text |Format(X) |X: Strängvariabeln |Formaterar texten (Använd `\\'` kombination för att undvika `'` tecken).|
 
 > [!IMPORTANT]

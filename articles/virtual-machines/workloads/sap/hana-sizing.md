@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0d72a9ef592579b21d082111ab8ad00f8995de2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7d403c284eefc1351aabb632977832f2bf11757a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477130"
 ---
-# <a name="sizing"></a>Storleksändring
+# <a name="sizing"></a>Storlekar
 
 Storlek för stora HANA-instansen är inte skiljer sig från att ändra storlek för HANA i allmänhet. För befintliga och distribuerade system som du vill flytta från andra RDBMS för HANA, SAP tillhandahåller ett antal rapporter som körs på dina befintliga SAP-system. Om databasen flyttas till HANA, kontrollera data som de här rapporterna och beräkna minneskraven för HANA-instans. Läs följande SAP-information för mer information om hur du kör dessa rapporter och hämta sina senaste korrigeringsfiler eller versioner:
 

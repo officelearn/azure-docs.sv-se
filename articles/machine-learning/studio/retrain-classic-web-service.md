@@ -11,17 +11,17 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502443"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Träna och distribuera en klassiska Studio-webbtjänst
 
 Träna modeller i machine learning är ett sätt att se till att de förblir korrekta och baserat på de mest relevanta data som är tillgängliga. Den här artikeln visar hur du tränar en klassisk Studio-webbtjänst. En guide om hur du tränar en ny Studio-webbtjänst [visa i den här artikeln.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du redan har både ett omtränings experiment och ett förutsägbart experiment. De här stegen beskrivs i [tränar om och distribuera en modell för maskininlärning.](/azure/machine-learning/studio/retrain-machine-learning-model) Men i stället för att distribuera machine learning-modell som en ny webbtjänst, distribuerar du din förutsägelseexperiment som en klassiska webbtjänst.
      

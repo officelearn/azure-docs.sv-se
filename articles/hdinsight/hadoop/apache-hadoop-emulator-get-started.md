@@ -3,7 +3,6 @@ title: Lär dig med hjälp av en Apache Hadoop-sandbox - emulatorn – Azure HDI
 description: 'Om du vill börja lära dig om hur du använder Apache Hadoop-ekosystemet, kan du ställa in en Hadoop-sandbox från Hortonworks på virtuella Azure-datorer. '
 keywords: hadoop-emulatorn, begränsat hadoop-läge
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -11,17 +10,17 @@ ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
 ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005766"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536344"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Kom igång med en Apache Hadoop-sandbox, ett emuleringsprogram på en virtuell dator
 
 Lär dig hur du installerar Apache Hadoop-sandbox från Hortonworks på en virtuell dator för att lära dig om Hadoop-ekosystemet. Sandbox-miljön tillhandahåller en lokal utvecklingsmiljö för att lära dig om Hadoop, Hadoop Distributed File System (HDFS) och jobböverföring. När du är bekant med Hadoop kan börja du använda Hadoop på Azure genom att skapa ett HDInsight-kluster. Mer information om hur du kommer igång finns i [Kom igång med Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * [Oracle VirtualBox](https://www.virtualbox.org/). Hämta och installera det från [här](https://www.virtualbox.org/wiki/Downloads).
 
 

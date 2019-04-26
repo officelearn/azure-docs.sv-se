@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ee34c91787ede0431c71b0fd96d2c040717dbca2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551245"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487426"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,10 +94,10 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 }
 ```
 
-| Tagga | Beskrivning | Krävs |
+| Tagga | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | namn |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”,\*”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
-| beskrivning | Ange texten som beskriver vad pipeline används till. |Ja |
+| description | Ange texten som beskriver vad pipeline används till. |Ja |
 | activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Se nästa avsnitt för information om aktiviteter JSON-element. | Ja |
 | start | Starta datum / tid för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Till exempel: `2016-10-14T16:32:41Z`. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`”, vilket är 6 AM uppskattad<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
 | slut | Slutdatum /-tid för pipelinen. Om anges måste vara i ISO-format. Exempel: `2016-10-14T17:32:41Z` <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`, vilket är 6 AM EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, ange 9999-09-09 som värde för end-egenskapen. <br/><br/> En pipeline är aktiv endast mellan dess start- och sluttid. Då utförs inte före starttiden eller efter sluttiden. Om pipelinen pausas körs den inte oavsett dess start- och tid. För en pipeline kan köras, bör det inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) förstår hur schemaläggning och körning fungerar i Azure Data Factory. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värdet för egenskapen slutet.<br/><br/>Se information om den **starta** egenskapen. |
@@ -132,10 +132,10 @@ Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Varje ak
 
 I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
-| Tagga | Beskrivning | Krävs |
+| Tagga | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
-| beskrivning | Text som beskriver vad aktiviteten används till |Ja |
+| description | Text som beskriver vad aktiviteten används till |Ja |
 | typ | Typ av aktivitet. Se den [Dataförflyttningsaktiviteter](#data-movement-activities) och [Datatransformeringsaktiviteter](#data-transformation-activities) avsnitten om olika typer av aktiviteter. |Ja |
 | inmatningar |Inkommande tabeller som används av aktiviteten<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Ja |
 | utdata |Utdata tabeller som används av aktiviteten.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Ja |

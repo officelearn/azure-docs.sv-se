@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: af36f033dbca6c9f594b3568bfe7567a959e2d2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506425"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Detaljerade felsökningsanvisningar för problem med anslutning till fjärrskrivbord till Windows virtuella datorer i Azure
 Den här artikeln innehåller detaljerade felsökningsanvisningar för att diagnostisera och åtgärda komplexa Remote Desktop-fel för Windows-baserade Azure-datorer.
@@ -64,7 +64,7 @@ Fjärrskrivbord-klienten kanske inte kan nå Fjärrskrivbordstjänsten på Azure
 * [Nätverkssäkerhetsgrupper](#source-4-network-security-groups)
 * [Windows-baserad virtuell dator för Azure](#source-5-windows-based-azure-vm)
 
-## <a name="source-1-remote-desktop-client-computer"></a>: 1 fjärrskrivbordsklienten källdator
+## <a name="source-1-remote-desktop-client-computer"></a>Källa 1: Fjärrskrivbordsklienten dator
 Kontrollera att datorn kan göra fjärrskrivbordsanslutningar till en annan lokalt Windows-baserad dator.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
@@ -105,7 +105,7 @@ Om du inte har en annan virtuell dator i samma molntjänst eller virtuella nätv
 
 Om du kan ansluta via fjärrskrivbord till en virtuell dator i samma molntjänst eller virtuella nätverk, söka efter de här inställningarna:
 
-* Konfigurationen av slutpunkten för Remote Desktop-trafik på den Virtuella måldatorn: privata TCP-porten för slutpunkten måste matcha den TCP-port som den Virtuella datorns Fjärrskrivbordstjänsten lyssnar (standard är 3389).
+* Konfigurationen av slutpunkten för Remote Desktop-trafik på den Virtuella måldatorn: Privata TCP-porten för slutpunkten måste matcha den TCP-port som den Virtuella datorns Fjärrskrivbordstjänsten lyssnar (standard är 3389).
 * ACL för slutpunkten för Remote Desktop-trafik på den Virtuella måldatorn: ACL: er kan du ange tillåts eller nekas inkommande trafik från Internet baserat på dess IP-källadressen. Felkonfigurerad ACL: er kan förhindra att inkommande trafik för fjärrskrivbord till slutpunkten. Kontrollera din ACL: er för att säkerställa att den inkommande trafiken från din offentliga IP-adresser för proxyservern eller andra edge-servern tillåts. Mer information finns i [vad är ett nätverk åtkomstkontrollistan (ACL)?](../../virtual-network/virtual-networks-acl.md)
 
 Kontrollera om slutpunkten är orsaken till problemet genom att ta bort den aktuella slutpunkten och skapa en ny, välja en port slumpmässigt inom intervallet 49152 – 65535 externa portnummer. Mer information finns i [så här ställer du in slutpunkter till en virtuell dator](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -115,7 +115,7 @@ Nätverkssäkerhetsgrupper kan mer detaljerad kontroll över tillåten inkommand
 
 Använd [Kontrollera IP-flöde](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) för att bekräfta om en regel i en nätverkssäkerhetsgrupp blockerar trafik till eller från en virtuell dator. Du kan också granska reglerna för effektiva säkerhetsgrupper för att säkerställa att inkommande ”Tillåt” NSG-regeln finns och är prioriterad för RDP-porten (standard: 3389). Mer information finns i [med effektiva säkerhetsreglerna för felsökning av VM infrastrukturtrafiken rör](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
-## <a name="source-5-windows-based-azure-vm"></a>Källa 5: Windows-baserad virtuell Azure-dator
+## <a name="source-5-windows-based-azure-vm"></a>Källa 5: Windows-baserad virtuell dator för Azure
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Följ instruktionerna i [i den här artikeln](../windows/reset-rdp.md). Den här artikeln återställer Fjärrskrivbordstjänsten på den virtuella datorn:

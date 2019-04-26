@@ -16,11 +16,11 @@ ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542534"
 ---
 # <a name="azure-and-linux"></a>Azure och Linux
 Microsoft Azure är en växande samling integrerade offentliga molntjänster som omfattar analyser, virtuella datorer, databaser, mobil, nätverk, lagring och webb – perfekt som värd för dina lösningar.  Microsoft Azure tillhandahåller en skalbar plattform som gör att du bara betalar för vad du använder, när du behöver det – utan att behöva investera i lokal maskinvara.  Azure är klar när du är klar att skala upp och ut lösningar oavsett vilken skala du behöver för dina klienter.

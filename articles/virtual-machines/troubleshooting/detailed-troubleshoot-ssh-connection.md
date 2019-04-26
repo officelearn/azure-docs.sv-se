@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506255"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerad SSH felsökningssteg för problem med anslutning till en Linux-VM i Azure
 Det finns många möjliga orsaker till att SSH-klienten inte kanske kan nå SSH-tjänsten på den virtuella datorn. Om du har följt via mer [allmän SSH felsökningssteg](troubleshoot-ssh-connection.md), du behöver ytterligare felsökning av problem med anslutning. Den här artikeln vägleder dig genom detaljerade felsökningsanvisningar för att fastställa där SSH-anslutningen inte fungerar och hur det ska lösas.
@@ -55,7 +55,7 @@ SSH-klienten på datorn kan inte ansluta till SSH-tjänsten på Azure-VM på gru
 * [Nätverkssäkerhetsgrupper](#source-4-network-security-groups)
 * [Linux-baserade virtuella datorer i Azure](#source-5-linux-based-azure-virtual-machine)
 
-## <a name="source-1-ssh-client-computer"></a>Källa 1: SSH klientdatorn
+## <a name="source-1-ssh-client-computer"></a>Källa 1: SSH-klientdatorn
 Kontrollera att det kan göra SSH-anslutningar till en annan lokal plats, Linux-baserade datorn för att ta bort datorn är orsaken till felet.
 
 ![Diagram som visar datorkomponenter för SSH-klient](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)

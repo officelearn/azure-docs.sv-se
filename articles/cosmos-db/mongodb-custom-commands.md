@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446592"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använda MongoDB-tillägg-kommandon för att hantera data som lagras i Azure Cosmos DB API för MongoDB 
 
@@ -45,7 +45,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 
 |**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
-| CustomAction   |  sträng  |   Namn på anpassade kommandot det måste vara ”CreateDatabase”.      |
+| CustomAction   |  string  |   Namn på anpassade kommandot det måste vara ”CreateDatabase”.      |
 | offerThroughput | int  | Dataflöde som du angett för databasen. Den här parametern är valfri. |
 
 ### <a name="output"></a>Resultat
@@ -87,7 +87,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 
 |**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
-| CustomAction    |    sträng     |   Namnet på det anpassade kommandot. Måste vara ”UpdateDatabase”.      |
+| CustomAction    |    string     |   Namnet på det anpassade kommandot. Måste vara ”UpdateDatabase”.      |
 |  offerThroughput   |  int       |     Ny dataflöde som du vill ange för databasen.    |
 
 ### <a name="output"></a>Resultat
@@ -120,7 +120,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 
 |**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
-|  CustomAction   |   sträng      |   Namnet på det anpassade kommandot. Måste vara ”GetDatabase”|
+|  CustomAction   |   string      |   Namnet på det anpassade kommandot. Måste vara ”GetDatabase”|
         
 ### <a name="output"></a>Resultat
 
@@ -162,10 +162,10 @@ I följande tabell beskrivs parametrarna i kommandot:
 
 |**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
-| CustomAction    | sträng | Namnet på det anpassade kommandot. Måste vara ”CreateDatabase”     |
-| samling      | sträng | Namnet på samlingen                                   |
+| CustomAction    | string | Namnet på det anpassade kommandot. Måste vara ”CreateDatabase”     |
+| samling      | string | Namnet på samlingen                                   |
 | offerThroughput | int    | Etablerat dataflöde för att ställa in i databasen. Det är en valfri parameter |
-| shardKey        | sträng | Shard Nyckelsökväg för att skapa en fragmenterad samling. Det är en valfri parameter |
+| shardKey        | string | Shard Nyckelsökväg för att skapa en fragmenterad samling. Det är en valfri parameter |
 
 ### <a name="output"></a>Resultat
 
@@ -207,8 +207,8 @@ I följande tabell beskrivs parametrarna i kommandot:
 
 |**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
-|  CustomAction   |   sträng      |   Namnet på det anpassade kommandot. Måste vara ”UpdateCollection”.      |
-|  samling   |   sträng      |   Namnet på samlingen.       |
+|  CustomAction   |   string      |   Namnet på det anpassade kommandot. Måste vara ”UpdateCollection”.      |
+|  samling   |   string      |   Namnet på samlingen.       |
 | offerThroughput   |int|   Etablerat dataflöde för att ange för samlingen.|
 
 ## <a name="output"></a>Resultat
@@ -242,8 +242,8 @@ I följande tabell beskrivs parametrarna i kommandot:
 
 |**Fält**|**Typ** |**Beskrivning** |
 |---------|---------|---------|
-| CustomAction    |   sträng      |   Namnet på det anpassade kommandot. Måste vara ”GetCollection”.      |
-| samling    |    sträng     |    Namnet på samlingen.     |
+| CustomAction    |   string      |   Namnet på det anpassade kommandot. Måste vara ”GetCollection”.      |
+| samling    |    string     |    Namnet på samlingen.     |
 
 ### <a name="output"></a>Resultat
 

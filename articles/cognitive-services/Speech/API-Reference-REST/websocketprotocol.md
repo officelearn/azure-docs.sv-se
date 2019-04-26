@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515327"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket-protokoll
 
@@ -219,17 +219,17 @@ System.version-elementet i den `speech.config` meddelandet innehåller versionen
 
 | Fält | Beskrivning | Användning |
 |-|-|-|
-| os.platform | Den OS plattform som är värd för programmet, till exempel Windows, Android, iOS eller Linux |Krävs |
-| os.name | OS-produktnamn, till exempel Debian eller Windows 10 | Krävs |
-| os.version | Versionen av Operativsystemet i formuläret *major.minor.build.branch* | Krävs |
+| os.platform | Den OS plattform som är värd för programmet, till exempel Windows, Android, iOS eller Linux |Obligatoriskt |
+| os.name | OS-produktnamn, till exempel Debian eller Windows 10 | Obligatoriskt |
+| os.version | Versionen av Operativsystemet i formuläret *major.minor.build.branch* | Obligatoriskt |
 
 ##### <a name="device-element"></a>Enheten element
 
 | Fält | Beskrivning | Användning |
 |-|-|-|
-| Device.Manufacturer | Enhetstillverkaren för maskinvara | Krävs |
-| device.model | Enhetsmodell | Krävs |
-| device.version | Enhetens programvaruversion som tillhandahålls av tillverkaren av enheten. Det här värdet anger en version av den enhet som kan spåras av tillverkaren. | Krävs |
+| Device.Manufacturer | Enhetstillverkaren för maskinvara | Obligatoriskt |
+| device.model | Enhetsmodell | Obligatoriskt |
+| device.version | Enhetens programvaruversion som tillhandahålls av tillverkaren av enheten. Det här värdet anger en version av den enhet som kan spåras av tillverkaren. | Obligatoriskt |
 
 ### <a name="message-audio"></a>meddelande `audio`
 
@@ -508,10 +508,10 @@ Den `Connection` mått anger information om anslutningsförsök av klienten. Må
 
 | Fält | Beskrivning | Användning |
 | ----- | ----------- | ----- |
-| Namn | `Connection` | Krävs |
-| Id | Anslutningen ID-värde som användes i den *X ConnectionId* rubriken för den här begäran om anslutning | Krävs |
-| Start | Tiden när klienten har skickat anslutningsbegäran | Krävs |
-| Slut | Tiden när klienten tog emot meddelande att anslutningen har upprättats har eller, i fall av Schemaläggningsfel, avvisat nekade eller misslyckades | Krävs |
+| Namn | `Connection` | Obligatoriskt |
+| Id | Anslutningen ID-värde som användes i den *X ConnectionId* rubriken för den här begäran om anslutning | Obligatoriskt |
+| Start | Tiden när klienten har skickat anslutningsbegäran | Obligatoriskt |
+| Slut | Tiden när klienten tog emot meddelande att anslutningen har upprättats har eller, i fall av Schemaläggningsfel, avvisat nekade eller misslyckades | Obligatoriskt |
 | Fel | En beskrivning av felet som har inträffat, om sådana. Om en anslutning har upprättats, utelämna klienter det här fältet. Den maximala längden på det här fältet är 50 tecken. | Krävs för fall av Schemaläggningsfel, annars utelämnas |
 
 Felbeskrivningen ska vara högst 50 tecken och vi är en av de värden som anges i följande tabell. Om felet inte matchar någon av dessa värden, klienter kan använda en kortfattad beskrivning av felet med hjälp av [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) utan blanksteg. Möjligheten att skicka en *telemetri* meddelande kräver en anslutning till tjänsten, så bara tillfälligt eller tillfälliga fel kan rapporteras i den *telemetri* meddelande. Fel villkor som *permanent* blockera en klient från att upprätta en anslutning till tjänsten hindra klienten från att skicka något meddelande till tjänsten, inklusive *telemetri* meddelanden.
@@ -548,9 +548,9 @@ Den *slutet* tid värde för den `Microphone` mått registrerar tiden när klien
 
 | Fält | Beskrivning | Användning |
 | ----- | ----------- | ----- |
-| Namn | Mikrofon | Krävs |
-| Start | Tiden när klienten komma igång med in ljud från mikrofonen eller andra ljudström eller tog emot en utlösare från nyckelordet spotter | Krävs |
-| Slut | Tiden när klienten helt slutat använda dataströmmen mikrofon eller ljud | Krävs |
+| Namn | Mikrofon | Obligatoriskt |
+| Start | Tiden när klienten komma igång med in ljud från mikrofonen eller andra ljudström eller tog emot en utlösare från nyckelordet spotter | Obligatoriskt |
+| Slut | Tiden när klienten helt slutat använda dataströmmen mikrofon eller ljud | Obligatoriskt |
 | Fel | En beskrivning av felet som har inträffat, om sådana. Om mikrofon åtgärderna hade önskat resultat, utelämna klienter det här fältet. Den maximala längden på det här fältet är 50 tecken. | Krävs för fall av Schemaläggningsfel, annars utelämnas |
 
 ### <a name="metric-listeningtrigger"></a>Mått `ListeningTrigger`
@@ -569,8 +569,8 @@ Använd följande exempel som riktlinjer för inspelning *starta* och *slutet* t
 | Fält | Beskrivning | Användning |
 | ----- | ----------- | ----- |
 | Namn | ListeningTrigger | Valfri |
-| Start | Tidpunkten då klienten lyssnande utlösaren startades | Krävs |
-| Slut | Tidpunkten då klienten lyssnande utlösaren avslutades | Krävs |
+| Start | Tidpunkten då klienten lyssnande utlösaren startades | Obligatoriskt |
+| Slut | Tidpunkten då klienten lyssnande utlösaren avslutades | Obligatoriskt |
 | Fel | En beskrivning av felet som har inträffat, om sådana. Om utlösaråtgärden lyckades utelämna klienter det här fältet. Den maximala längden på det här fältet är 50 tecken. | Krävs för fall av Schemaläggningsfel, annars utelämnas |
 
 #### <a name="sample-message"></a>Exempelmeddelande

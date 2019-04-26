@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60488944"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hög tillgänglighet och skalbarhet (förhandsversion)
 > [!NOTE]
@@ -170,7 +170,7 @@ Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommu
 - Stöder alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
 - Certifikat med CNG-nycklar stöds inte.
 
-#### <a name="faq-when-would-i-not-enable-this-encryption"></a>VANLIGA FRÅGOR OCH SVAR: När kan jag inte aktivera den här kryptering?
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Vanliga frågor och svar: När kan jag inte aktivera den här kryptering?
 Aktivera kryptering kan lägga till vissa kostnad för din infrastruktur (ägande offentliga certifikat) därför kan du hoppa över aktivering av kryptering i den nedan fall:
 - När integration runtime körs på ett betrott nätverk eller ett nätverk med transparent kryptering som IP/sek. Eftersom den här kanalen kommunikationen är endast begränsad i det betrodda nätverket måste du kanske inte behöver ytterligare kryptering.
 - När integration runtime körs inte i en produktionsmiljö. Detta kan hjälpa att minska kostnaden för TLS/SSL-certifikat.

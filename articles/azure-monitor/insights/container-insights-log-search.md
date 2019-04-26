@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494781"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Hur du frågar loggar från Azure Monitor för behållare
 Azure Monitor för behållare samlar in prestandamått och lagerdata hälsotillståndsinformation från behållare-värdar och behållare och vidarebefordrar den till arbetsytan Log Analytics i Azure Monitor. Data som samlas in var tredje minut. Informationen är tillgänglig för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.

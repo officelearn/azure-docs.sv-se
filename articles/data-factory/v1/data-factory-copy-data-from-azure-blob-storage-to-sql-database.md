@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 557228bafc00c3028a1fda520da8fe4ec8c7a6f2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487340"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudier: Kopiera data från Blob Storage till SQL Database med Data Factory
 > [!div class="op_single_selector"]
@@ -95,7 +95,7 @@ Förbered nu Azure blob storage och Azure SQL-databas för självstudien genom a
     ```
 2. Använd verktyg som t.ex. [Azure Lagringsutforskaren](https://storageexplorer.com/) till att skapa containern **adftutorial** och för att ladda upp filen **emp.txt** till containern.
 
-3. Använd följande SQL-skript för att skapa tabellen **emp** i din Azure SQL Database.  
+3. Använd följande SQL-skript för att skapa tabellen **emp** i din Azure SQL-databas.  
 
     ```SQL
     CREATE TABLE dbo.emp

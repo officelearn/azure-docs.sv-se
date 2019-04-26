@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 147042e300e629dd7e354d4e9079cc4855a8146c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515187"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Snabbstart: Använd Bing-taligenkänning API i Java på Android
 
@@ -26,7 +26,7 @@ Du kan utveckla Android-program som använder molnbaserade Bing Speech Service f
 
 Den här artikeln använder ett exempelprogram för att demonstrera hur du använder talklientbiblioteket för Android för att utveckla program eller tal till text i Java för Android-enheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="platform-requirements"></a>Plattformskrav
 

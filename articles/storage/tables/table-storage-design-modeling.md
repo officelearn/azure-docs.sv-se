@@ -2,18 +2,19 @@
 title: Modellering relationer i Azure storage tabelldesign | Microsoft Docs
 description: Förstå modelleringsprocessen när du utformar din lösning för tabellen.
 services: storage
-author: MarkMcGeeAtAquent
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: sngun
+origin.date: 04/23/2018
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.subservice: tables
 ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502544"
 ---
 # <a name="modeling-relationships"></a>Modellera relationer
 Den här artikeln beskrivs modelleringsprocessen för att hjälpa dig att utforma dina lösningar för Azure Table storage.

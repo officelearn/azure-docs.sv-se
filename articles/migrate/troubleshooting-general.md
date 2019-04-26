@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533192"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -21,7 +21,7 @@ ms.locfileid: "58652645"
 
 ### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Jag använder ova-filen som kontinuerligt identifierar min lokala miljö, men de virtuella datorerna som har tagits bort i min lokala miljö visas fortfarande i portalen.
 
-Identifiering av kontinuerlig installationen endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
+Den kontinuerliga identifieringen av program samlar bara in prestandadata kontinuerligt. Den identifierar inte någon konfigurationsändring i den lokala miljön (dvs. tillägg av virtuell dator, borttagning, disktillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
 - Tillägg av objekt (virtuella datorer, diskar, kärnor osv.): Om du vill återspegla dessa ändringar på Azure-portalen kan du stoppa identifieringen från installationen och sedan starta den igen. Då uppdateras ändringarna i Azure Migrate-projektet.
 
@@ -82,7 +82,7 @@ Om det inte går att exportera utvärderingsrapporten från portalen kan du prov
 
 ### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Prestandadata för CPU, minne och diskar visas som noll
 
-Azure Migrate profiler kontinuerligt den lokala miljön för att samla in prestandadata för lokala virtuella datorer. Om du precis har startat identifieringen av din miljö måste du vänta minst en dag för insamlingen av prestandadata som ska utföras. Om en utvärdering skapas utan att behöva vänta en dag, visas prestandavärden som noll. Vänta en dag, kan du skapa en ny utvärdering eller uppdatera befintliga utvärderingen med hjälp av alternativet ”Beräkna om” i utvärderingsrapporten.
+Azure Migrate profilerar kontinuerligt den lokala miljön för att samla in prestandadata om de lokala virtuella datorerna. Om du precis har startat identifieringen av din miljö behöver du vänta minst en dag innan insamlingen av prestandadata slutförs. Om en utvärdering skapas utan att en dag har förlöpt visas prestandamåtten som nollor. När du har väntat en dag kan du antingen skapa en ny utvärdering eller uppdatera den befintliga utvärderingen med hjälp av alternativet ”Beräkna om” i utvärderingsrapporten.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Jag har angett en Azure geografi när du skapar ett migreringsprojekt hur tar jag reda på exakt Azure-regionen där de identifierade metadata lagras?
 

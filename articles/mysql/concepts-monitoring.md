@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525572"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Övervakning i Azure Database for MySQL
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MySQL tillhandahåller olika mått som ger inblick i beteendet för din server.
@@ -36,8 +36,8 @@ De här måtten är tillgängliga för Azure Database for MySQL:
 |active_connections|Aktiva anslutningar|Antal|Antal aktiva anslutningar till servern.|
 |connections_failed|Misslyckade anslutningar|Antal|Antal misslyckade anslutningar till servern.|
 |seconds_behind_master|Replikeringsfördröjning i sekunder|Antal|Hur många sekunder som replikservern släpar mot huvudservern.|
-|network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
-|network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
+|network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
+|network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
 |backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|
 
 ## <a name="server-logs"></a>Serverloggar

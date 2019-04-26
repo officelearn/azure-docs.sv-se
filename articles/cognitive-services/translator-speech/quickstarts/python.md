@@ -12,11 +12,11 @@ ms.date: 07/17/2018
 ms.author: v-jaswel
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9a6afc4dfb25a2a5f6e778fbda877a93269a96eb
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535535"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>Snabbstart: Translator Speech API med Python
 <a name="HOLTop"></a>
@@ -133,7 +133,7 @@ Om åtgärden lyckas skapas en fil med namnet ”speak2.wav”. Filen innehålle
 > [!div class="nextstepaction"]
 > [Translator Speech-självstudie](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Translator Speech-översikt](../overview.md)
 [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: dkshir
 ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533544"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Självstudier: Etablera din byggnad och övervaka arbetsvillkor med Azure Digital Twins
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Simulera sensordata.
 > * Hämta resultat från en användardefinierad funktion.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här självstudien förutsätter att du har [slutfört Azure Digital Twins-konfigurationen](tutorial-facilities-setup.md). Innan du fortsätter bör du kontrollera att du har:
 
@@ -269,7 +269,7 @@ Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du h
 Nu när du har etablerat dina utrymmen och skapat ett ramverk för att utlösa anpassade meddelanden kan du gå till någon av följande självstudier:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps](tutorial-facilities-events.md)
+> [Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
+> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)

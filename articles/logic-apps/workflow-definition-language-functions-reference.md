@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
 ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618217"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502282"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps och Microsoft Flow
 
@@ -641,14 +641,14 @@ addProperty(<object>, '<property>', <value>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | Ja | Objekt | JSON-objekt där du vill lägga till en egenskap |
+| <*object*> | Ja | Object | JSON-objekt där du vill lägga till en egenskap |
 | <*Egenskapen*> | Ja | String | Namnet på egenskapen att lägga till |
 | <*value*> | Ja | Alla | Värdet för egenskapen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*updated-object*> | Objekt | Uppdaterade JSON-objekt med den angivna egenskapen |
+| <*updated-object*> | Object | Uppdaterade JSON-objekt med den angivna egenskapen |
 ||||
 
 *Exempel*
@@ -759,12 +759,12 @@ and(<expression1>, <expression2>, ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Uttryck1*>, <*uttryck2*>,... | Ja | Boolesk | Uttryck för att kontrollera |
+| <*Uttryck1*>, <*uttryck2*>,... | Ja | Boolean | Uttryck för att kontrollera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
-| SANT eller FALSKT | Boolesk | Returnera värdet true när alla uttryck utvärderas som true. Returnera false när minst en uttrycket är FALSKT. |
+| SANT eller FALSKT | Boolean | Returnera värdet true när alla uttryck utvärderas som true. Returnera false när minst en uttrycket är FALSKT. |
 ||||
 
 *Exempel 1*
@@ -926,7 +926,7 @@ Och returnerar resultatet: `"hello"`
 
 <a name="binary"></a>
 
-### <a name="binary"></a>binär
+### <a name="binary"></a>binary
 
 Returnera den binära versionen för en sträng.
 
@@ -1020,7 +1020,7 @@ bool(<value>)
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT | Boolesk | Den booleska versionen för det angivna värdet |
+| SANT eller FALSKT | Boolean | Den booleska versionen för det angivna värdet |
 ||||
 
 *Exempel*
@@ -1131,7 +1131,7 @@ Den här funktionen fungerar mer specifikt om den här typen av samling:
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT | Boolesk | Returnera sant när objektet har hittats. Returnera false när hittades inte. |
+| SANT eller FALSKT | Boolean | Returnera sant när objektet har hittats. Returnera false när hittades inte. |
 ||||
 
 *Exempel 1*
@@ -1678,7 +1678,7 @@ empty([<collection>])
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT | Boolesk | Returnera värdet true när samlingen är tom. Returnera värdet false när det är inte tom. |
+| SANT eller FALSKT | Boolean | Returnera värdet true när samlingen är tom. Returnera värdet false när det är inte tom. |
 ||||
 
 *Exempel*
@@ -1715,7 +1715,7 @@ endsWith('<text>', '<searchText>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT  | Boolesk | Returnera värdet true när den sista delsträngen hittas. Returnera false när hittades inte. |
+| SANT eller FALSKT  | Boolean | Returnera värdet true när den sista delsträngen hittas. Returnera false när hittades inte. |
 ||||
 
 *Exempel 1*
@@ -1756,7 +1756,7 @@ equals('<object1>', '<object2>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT | Boolesk | Returnera sant när båda är likvärdiga. Returnera värdet false när det är inte likvärdig. |
+| SANT eller FALSKT | Boolean | Returnera sant när båda är likvärdiga. Returnera värdet false när det är inte likvärdig. |
 ||||
 
 *Exempel*
@@ -1826,7 +1826,7 @@ float('<value>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Flyttal | Flyttalsnummer för den angivna strängen |
+| <*float-value*> | Float | Flyttalsnummer för den angivna strängen |
 ||||
 
 *Exempel*
@@ -2041,7 +2041,7 @@ greater('<value>', '<compareTo>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT | Boolesk | Returnera värdet true när det första värdet är större än det andra värdet. Returnera false när det första värdet är lika med eller mindre än det andra värdet. |
+| SANT eller FALSKT | Boolean | Returnera värdet true när det första värdet är större än det andra värdet. Returnera false när det första värdet är lika med eller mindre än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2078,7 +2078,7 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT | Boolesk | Returnera värdet true när det första värdet är större än eller lika med det andra värdet. Returnera värdet false när det första värdet är mindre än det andra värdet. |
+| SANT eller FALSKT | Boolean | Returnera värdet true när det första värdet är större än eller lika med det andra värdet. Returnera värdet false när det första värdet är mindre än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2144,7 +2144,7 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck*> | Ja | Boolesk | Uttryck för att kontrollera |
+| <*uttryck*> | Ja | Boolean | Uttryck för att kontrollera |
 | <*valueIfTrue*> | Ja | Alla | Värdet som returneras om uttrycket är SANT |
 | <*valueIfFalse*> | Ja | Alla | Värdet som returneras om uttrycket är FALSKT |
 |||||
@@ -2530,7 +2530,7 @@ less('<value>', '<compareTo>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT | Boolesk | Returnera sant när det första värdet är mindre än det andra värdet. Returnera false när det första värdet är lika med eller större än det andra värdet. |
+| SANT eller FALSKT | Boolean | Returnera sant när det första värdet är mindre än det andra värdet. Returnera false när det första värdet är lika med eller större än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2567,7 +2567,7 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT  | Boolesk | Returnera värdet true när det första värdet är mindre än eller lika med det andra värdet. Returnera false när det första värdet är större än det andra värdet. |
+| SANT eller FALSKT  | Boolean | Returnera värdet true när det första värdet är mindre än eller lika med det andra värdet. Returnera false när det första värdet är större än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2773,12 +2773,12 @@ not(<expression>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck*> | Ja | Boolesk | Uttryck för att kontrollera |
+| <*uttryck*> | Ja | Boolean | Uttryck för att kontrollera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT | Boolesk | Returnera värdet true när uttrycket är FALSKT. Returnera false när uttrycket är sant. |
+| SANT eller FALSKT | Boolean | Returnera värdet true när uttrycket är FALSKT. Returnera false när uttrycket är sant. |
 ||||
 
 *Exempel 1*
@@ -2822,12 +2822,12 @@ or(<expression1>, <expression2>, ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Uttryck1*>, <*uttryck2*>,... | Ja | Boolesk | Uttryck för att kontrollera |
+| <*Uttryck1*>, <*uttryck2*>,... | Ja | Boolean | Uttryck för att kontrollera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT | Boolesk | Returnera värdet true när minst en uttrycket är sant. Returnera false om alla uttrycken är falska. |
+| SANT eller FALSKT | Boolean | Returnera värdet true när minst en uttrycket är sant. Returnera false om alla uttrycken är falska. |
 ||||
 
 *Exempel 1*
@@ -3002,13 +3002,13 @@ removeProperty(<object>, '<property>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | Ja | Objekt | JSON-objekt som du vill ta bort en egenskap från |
+| <*object*> | Ja | Object | JSON-objekt som du vill ta bort en egenskap från |
 | <*Egenskapen*> | Ja | String | Namnet på egenskapen att ta bort |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*updated-object*> | Objekt | Uppdaterade JSON-objekt utan att den angivna egenskapen |
+| <*updated-object*> | Object | Uppdaterade JSON-objekt utan att den angivna egenskapen |
 ||||
 
 *Exempel*
@@ -3032,14 +3032,14 @@ setProperty(<object>, '<property>', <value>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | Ja | Objekt | JSON-objektet vars egenskap som du vill ange |
+| <*object*> | Ja | Object | JSON-objektet vars egenskap som du vill ange |
 | <*Egenskapen*> | Ja | String | Namn för den befintliga eller nya egenskapen att ställa in |
 | <*value*> | Ja | Alla | Värdet som angetts för den angivna egenskapen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*updated-object*> | Objekt | Det uppdaterade JSON-objektet vars egenskapsuppsättningen |
+| <*updated-object*> | Object | Det uppdaterade JSON-objektet vars egenskapsuppsättningen |
 ||||
 
 *Exempel*
@@ -3226,7 +3226,7 @@ startsWith('<text>', '<searchText>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| SANT eller FALSKT  | Boolesk | Returnera värdet true när från delsträngen hittas. Returnera false när hittades inte. |
+| SANT eller FALSKT  | Boolean | Returnera värdet true när från delsträngen hittas. Returnera false när hittades inte. |
 ||||
 
 *Exempel 1*
@@ -3251,7 +3251,7 @@ Och returnerar resultatet: `false`
 
 <a name="string"></a>
 
-### <a name="string"></a>sträng
+### <a name="string"></a>string
 
 Returnera sträng för ett värde.
 
@@ -4106,7 +4106,7 @@ xml('<value>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*xml-version*> | Objekt | Kodad XML-filen för den angivna strängen eller JSON-objekt |
+| <*xml-version*> | Object | Kodad XML-filen för den angivna strängen eller JSON-objekt |
 ||||
 
 *Exempel 1*

@@ -2,17 +2,18 @@
 title: Metodtips för Azure Kubernetes Service (AKS)
 description: Insamling av klustret operatorn och utvecklare metodtipsen för att skapa och hantera program i Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 12/07/2018
-ms.author: iainfou
+origin.date: 12/07/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467161"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Metodtips för kluster-operatorn och utvecklare att bygga och hantera program på Azure Kubernetes Service (AKS)
 

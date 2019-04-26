@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60489005"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Självstudier: Skapa en pipeline med en kopieringsaktivitet med hjälp av Data Factory-kopieringsguiden
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "54025767"
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten bör du gå igenom [självstudien för kopieringsaktiviteter](../quickstart-create-data-factory-dot-net.md). 
 
 
-Den här kursen visar hur du använder den **Kopieringsguiden** för att kopiera data från ett Azure blob storage till en Azure SQL database. 
+Den här kursen visar hur du använder den **Kopieringsguiden** för att kopiera data från en Azure bloblagring till en Azure SQL-databas. 
 
 Med **Kopieringsguiden** för Azure Data Factory kan du snabbt skapa en pipeline för data som kopierar data från ett dataarkiv som stöds till ett måldataarkiv som stöds. Därför rekommenderar vi att du använder guiden som ett första steg för att skapa en exempel-pipeline för dataflödescenarier. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
 

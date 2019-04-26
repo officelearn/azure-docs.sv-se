@@ -1,7 +1,6 @@
 ---
 title: Använd Spark för att läsa och skriva HBase-data – Azure HDInsight
 description: Använda HBase Spark-Anslutningsappen för att läsa och skriva data från ett Spark-kluster till ett HBase-kluster.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 200691f7af16e82d554d0e1e019b6a4e5c75949f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60484946"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Använda Apache Spark för att läsa och skriva Apache HBase-data
 
 Apache HBase är vanligtvis efterfrågas med dess lågnivå-API (genomsökningar, hämtar och placerar) eller med en SQL-syntax som använder Apache Phoenix. Apache innehåller också de Apache Spark HBase anslutningstjänsten, som är ett praktiskt och högpresterande alternativ för att fråga och ändra data som lagras av HBase.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Två separata HDInsight-kluster, en HBase och en Spark med minst Spark 2.1 (HDInsight 3.6) installerat.
 * Spark-klustret behöver för att kommunicera direkt med HBase-kluster med minimal svarstid, så den rekommenderade konfigurationen är att distribuera båda klustren i samma virtuella nätverk. Mer information finns i [skapa Linux-baserade kluster i HDInsight med Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).

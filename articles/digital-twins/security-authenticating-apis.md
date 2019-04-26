@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: lyrana
 ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533838"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Ansluta och autentisera till API: er
 
@@ -25,11 +25,11 @@ För att kunna integrera ett program eller en tjänst med Azure AD måste en utv
 
 [Fem primära Programscenarier](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) stöds av Azure AD:
 
-* Ensidesapplikation (SPA): en användare måste logga in på ett enkelsidigt program som skyddas av Azure AD.
-* Webbläsarens webbprogram: en användare måste logga in till ett webbprogram som skyddas av Azure AD.
-* Internt program till webb-API: ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att hämta resurser från ett webb-API som skyddas av Azure AD.
-* Webbprogram till webb-API: ett program behöver få resurser från ett webb-API som skyddas av Azure AD.
-* Daemon eller ett serverprogram till webb-API: en daemon-program eller ett serverprogram med inga webbgränssnitt måste hämta resurser från ett webb-API som skyddas av Azure AD.
+* Ensidesapplikation (SPA): En användare måste logga in på ett enkelsidigt program som skyddas av Azure AD.
+* Webbläsare till webbprogram: En användare måste logga in till ett webbprogram som skyddas av Azure AD.
+* Internt program till webb-API: Ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att hämta resurser från ett webb-API som skyddas av Azure AD.
+* Webbprogram till webb-API: Ett webbprogram måste hämta resurser från ett webb-API som skyddas av Azure AD.
+* Daemon eller server-program till webb-API: En daemon-program eller ett serverprogram med ingen webbplats måste Användargränssnittet att hämta resurser från ett webb-API som skyddas av Azure AD.
 
 Autentiseringsbibliotek för Windows Azure erbjuder många sätt att hämta token för Active Directory. Mer information om de bibliotek och exempel på kod finns [i den här artikeln](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 

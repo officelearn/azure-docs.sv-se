@@ -1,7 +1,6 @@
 ---
 title: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package – Azure
 description: Lär dig hur du konfigurerar Apache Ranger-principer för Kafka i Azure HDInsight med Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: mamccrea
 ms.author: mamccrea
@@ -9,11 +8,11 @@ ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.openlocfilehash: 381958b462b668447a6548029a1be616df7a3a4b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536431"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
@@ -31,7 +30,7 @@ I den här guiden får du lära dig att:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-* Logga in på [Azure-portalen](https://portal.azure.com/).
+* Logga in på [Azure Portal](https://portal.azure.com/).
 
 * Skapa ett [HDInsight Kafka-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 

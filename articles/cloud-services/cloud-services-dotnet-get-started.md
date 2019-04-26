@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60521105"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -107,9 +107,9 @@ I följande avsnitt får du konfigurera lösningen så att den använder Azure-m
 Följ dessa steg för att köra programmet i molnet:
 
 * Skapa en Azure-molntjänst.
-* Skapa en Azure SQL Database.
+* Skapa en Azure SQL-databas.
 * Skapa ett Azure-lagringskonto.
-* Konfigurera lösningen så att den använder Azure SQL Database när den körs i Azure.
+* Konfigurera lösningen så att den använder Azure SQL-databasen när den körs i Azure.
 * Konfigurera lösningen så att den använder ditt Azure-lagringskonto när den körs i Azure.
 * Distribuera projektet till Azure-molntjänsten.
 
@@ -133,7 +133,7 @@ En Azure-molntjänst är den miljö som programmet kommer att köras i.
 
     ![Ny molntjänst](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-an-azure-sql-database"></a>Skapa en Azure SQL Database
+### <a name="create-an-azure-sql-database"></a>Skapa en Azure SQL-databas
 När appen körs i molnet använder den en molnbaserad databas.
 
 1. I [Azure-portalen](https://portal.azure.com) klickar du på **Skapa en resurs > Databaser > SQL Database**.
@@ -155,7 +155,7 @@ När appen körs i molnet använder den en molnbaserad databas.
 8. Markera **Ge Azure-tjänster åtkomst till servern**.
 9. Klicka på **Välj** för den nya servern.
 
-    ![Ny SQL-databasserver](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![Ny SQL Database-server](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Klicka på **Skapa**.
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
@@ -185,8 +185,8 @@ I ett riktigt program skapar du vanligtvis separata konton för programdata jäm
 
     I avbildningen skapas ett lagringskonto med URL:en `csvccontosoads.core.windows.net`.
 
-### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Konfigurera lösningen så att den använder Azure SQL Database när den körs i Azure
-Webbprojektet och arbetsrollsprojektet har varsin databasanslutningssträng, och båda strängarna måste peka på Azure SQL Database när appen körs i Azure.
+### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Konfigurera lösningen så att den använder Azure SQL-databasen när den körs i Azure
+Webbprojektet och arbetsrollsprojektet har varsin databasanslutningssträng, och båda strängarna måste peka på Azure SQL-databasen när appen körs i Azure.
 
 Du kommer att använda en [Web.config-transformering](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) för webbrollen och en inställning för molntjänstmiljö för arbetsrollen.
 
@@ -391,7 +391,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 8. När du har egenskapsfönstret för **ContosoAdsWorker [roll]** öppet lägger du till ytterligare en anslutningssträng:
 
    * Namn: ContosoAdsDbConnectionString
-   * Typ: String
+   * Ange: String
    * Värde: Klistra in samma anslutningssträng som du använde för webbrollsprojektet. (Följande exempel gäller Visual Studio 2013. Glöm inte att ändra datakällan om du kopierar det här exemplet och använder Visual Studio 2015 eller högre.)
 
        ```

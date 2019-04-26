@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515141"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snabbstart: Använd Bing-taligenkänning REST API
 
@@ -24,7 +24,7 @@ ms.locfileid: "58259949"
 
 Med molnbaserad Bing Speech-tjänsten, kan du utveckla program med hjälp av REST-API för att omvandla talat ljud till text.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Prenumerera på API för taligenkänning och få en kostnadsfri utvärderingsprenumeration-nyckel
 

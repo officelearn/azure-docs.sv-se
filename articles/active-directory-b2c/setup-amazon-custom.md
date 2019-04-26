@@ -3,7 +3,7 @@ title: Ställ in logga in med ett Amazon-konto med hjälp av anpassade principer
 description: Ställ in logga in med ett Amazon-konto i Azure Active Directory B2C med anpassade principer.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 10/05/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: f62238543f1c24d05702ee0679610934d308538d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182548"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360392"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Amazon-konto med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55182548"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en Amazon-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md).
 - Om du inte redan har ett Amazon-konto, skapa en på [ https://www.amazon.com/ ](https://www.amazon.com/).
@@ -45,8 +45,8 @@ Om du vill aktivera inloggning för användare från en Amazon-konto, måste du 
 Du behöver lagra klienthemlighet som tidigare registrerades i din Azure AD B2C-klient.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
 5. Välj **Principnycklar** och välj sedan **Lägg till**.
 6. För **alternativ**, Välj `Manual`.
@@ -157,9 +157,9 @@ Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Å
 Kommunikation med Azure AD B2c sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
-4. Välj **program**, och välj sedan **Lägg till**.
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn för programmet, till exempel *testapp1*.
 6. För **Webbapp / webb-API**väljer `Yes`, och ange sedan `https://jwt.ms` för den **svars-URL**.
 7. Klicka på **Skapa**.

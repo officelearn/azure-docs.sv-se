@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1f5064cece32cfc38f149816961e5156ff20974a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335342"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Flytta data från Amazon Simple Storage Service med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,9 +63,9 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 En länkad tjänst länkar ett datalager till en data factory. Du skapar en länkad tjänst av typen **AwsAccessKey** att länka ditt Amazon S3-datalager till datafabriken. Följande tabell innehåller beskrivning för JSON-element som är specifika för Amazon S3 (AwsAccessKey) länkad tjänst.
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
-| accessKeyID |ID för den hemliga åtkomstnyckeln. |sträng |Ja |
+| accessKeyID |ID för den hemliga åtkomstnyckeln. |string |Ja |
 | secretAccessKey |Den hemliga åtkomstnyckeln själva. |Krypterad hemlighet sträng |Ja |
 
 >[!NOTE]
@@ -92,7 +92,7 @@ Om du vill ange en datauppsättning som representerar indata i Azure Blob storag
 
 Avsnitt som struktur, tillgänglighet och princip är liknande för alla datauppsättningstyper av (till exempel SQL database, Azure-blob och Azure-tabell). Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. Den **typeProperties** avsnittet för en datauppsättning av typen **AmazonS3** (som innehåller Amazon S3-datamängd) har följande egenskaper:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | bucketName |S3-Bucketnamn. |String |Ja |
 | key |Objektnyckel S3. |String |Nej |
@@ -173,7 +173,7 @@ Du kan göra detsamma den **prefix** egenskapen för en Amazon S3-datamängd. En
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipelines](data-factory-create-pipelines.md). Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principer är tillgängliga för alla typer av aktiviteter. Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens varierar med varje aktivitetstyp av. För kopieringsaktiviteten varierar egenskaper beroende på vilka typer av källor och mottagare. När en källa i kopieringsaktiviteten är av typen **FileSystemSource** (som innehåller Amazon S3), följande egenskap är tillgänglig i **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | rekursiv |Anger om rekursivt lista S3 objekt i katalogen. |SANT/FALSKT |Nej |
 

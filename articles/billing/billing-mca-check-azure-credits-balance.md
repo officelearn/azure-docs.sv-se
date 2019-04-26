@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372258"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Spåra Azure kreditsaldo för Microsoft kundavtal
 
@@ -33,11 +33,11 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 1. Logga in på [Azure Portal]( https://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar search på portalen för kostnadshantering + fakturering](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Gå till fakturering profilen. Beroende på din åtkomst kan du behöva välja ett faktureringskonto. Faktureringskonto, Välj **fakturering profiler** och sedan en profil för fakturering.
+3. Gå till faktureringsprofilen. Beroende på din åtkomst kan du behöva välja ett faktureringskonto. Faktureringskonto, Välj **fakturering profiler** och sedan en profil för fakturering.
 
 4. Välj **Azure-krediter**.
 

@@ -16,11 +16,11 @@ ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396925"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Skapa en app med flera containrar (förhandsversion) med hjälp av en Docker Compose-konfiguration
 
@@ -138,7 +138,7 @@ Bläddra till den distribuerade appen på (`http://<app_name>.azurewebsites.net`
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Flera behållare WordPress-appen](tutorial-multi-container-app.md)
+> [Självstudie: Flera behållare WordPress-appen](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera en anpassad behållare](configure-custom-container.md)

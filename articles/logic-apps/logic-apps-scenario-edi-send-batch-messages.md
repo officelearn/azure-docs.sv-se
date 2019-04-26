@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428019"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Skicka EDI-meddelanden i batchar till handelspartner med Azure Logic Apps
 
@@ -31,7 +31,7 @@ I den här artikeln ska du skapa en batchbearbetningen lösning genom att skapa 
 
 Kontrollera att din batch-mottagare och avsändare för batch delar samma Azure-prenumeration *och* Azure-region. Om inte, kan inte du välja batch-mottagare när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa det här exemplet behöver du följande objekt:
 
@@ -55,11 +55,11 @@ Innan du kan skicka meddelanden till en batch, måste den batch först finnas so
 
 För det här batch-mottagare, anger du batch-läge, namn, version kriterier X12 avtalet och andra inställningar. 
 
-1. I den [Azure-portalen](https://portal.azure.com) eller Visual Studio, skapa en logikapp med detta namn: ”BatchX12Messages”
+1. I den [Azure-portalen](https://portal.azure.com) eller Visual Studio, skapa en logikapp med det här namnet: "BatchX12Messages"
 
 2. [Länka din logikapp till ditt integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. I Logic Apps Designer, lägger du till den **Batch** utlösaren som startar logikappens arbetsflöde. I sökrutan anger du ”batch” som filter. Välj den här utlösaren: **Batch-meddelanden**
+3. I Logic Apps Designer, lägger du till den **Batch** utlösaren som startar logikappens arbetsflöde. I sökrutan anger du ”batch” som filter. Välj den här utlösaren: **Batcha meddelanden**
 
    ![Lägg till utlösare av Batch](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
@@ -84,7 +84,7 @@ För det här batch-mottagare, anger du batch-läge, namn, version kriterier X12
 
    1. Under batch-utlösaren väljer **nytt steg**.
 
-   2. I sökrutan anger du ”X 12 batch” som filter och välj den här åtgärden (alla versioner): **batchkoda <*version*>-X12** 
+   2. I sökrutan anger du ”X 12 batch” som filter och välj den här åtgärden (alla versioner): **Batchkoda <*version*>-X12** 
 
       ![Välj X12 Batchkoda åtgärd](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -98,8 +98,8 @@ För det här batch-mottagare, anger du batch-läge, namn, version kriterier X12
       |----------|-------------|
       | **Namnet på X12 avtal** | Öppna listan och välj din befintliga avtal. <p>Om listan är tom, se till att du [länka din logikapp till integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) som har det avtal som du vill. | 
       | **BatchName** | Klicka i den här rutan och när den dynamiska innehållslistan visas, väljer du den **batchnamn** token. | 
-      | **Partitionsnamn** | Klicka i den här rutan och när den dynamiska innehållslistan visas, väljer du den **partitionsnamnet** token. | 
-      | **objekt** | Stäng rutan objekt information och klickar sedan i den här rutan. När den dynamiska innehållslistan visas, väljer du den **Batchbearbetas objekt** token. | 
+      | **PartitionName** | Klicka i den här rutan och när den dynamiska innehållslistan visas, väljer du den **partitionsnamnet** token. | 
+      | **Objekt** | Stäng rutan objekt information och klickar sedan i den här rutan. När den dynamiska innehållslistan visas, väljer du den **Batchbearbetas objekt** token. | 
       ||| 
 
       ![Batch-koda åtgärdsinformation](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
@@ -126,8 +126,8 @@ För att säkerställa din batch mottagare fungerar som förväntat, kan du läg
 
    | Egenskap  | Beskrivning | 
    |----------|-------------|
-   | **Metoden** | Välj den här listan **POST**. | 
-   | **URI: N** | Generera en URI för din begäran bin och sedan ange denna URI i den här rutan. | 
+   | **Metod** | Välj den här listan **POST**. | 
+   | **Uri** | Generera en URI för din begäran bin och sedan ange denna URI i den här rutan. | 
    | **Brödtext** | Klicka i den här rutan och när det öppnas den dynamiska innehållslistan, väljer du den **brödtext** token, som visas i avsnittet **batchkoda med avtalsnamn**. <p>Om du inte ser den **brödtext** token bredvid **batchkoda med avtalsnamn**väljer **mer**. | 
    ||| 
 
@@ -149,9 +149,9 @@ Nu ska du skapa en eller flera logikappar som skickar meddelanden till logikappe
 
 * Kontrollera att din batch-mottagare och avsändare för batch delar samma Azure-region *och* Azure-prenumeration. Om inte, kan inte du välja batch-mottagare när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-1. Skapa en annan logikapp med detta namn: ”SendX12MessagesToBatch” 
+1. Skapa en annan logic app med det här namnet: "SendX12MessagesToBatch" 
 
-2. Ange ”när en http-begäran” i sökrutan som filter. Välj den här utlösaren: **när en HTTP-begäran tas emot** 
+2. Ange ”när en http-begäran” i sökrutan som filter. Välj den här utlösaren: **När en HTTP-begäran tas emot** 
    
    ![Lägg till begäran-utlösare](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -168,7 +168,7 @@ Nu ska du skapa en eller flera logikappar som skickar meddelanden till logikappe
 
       ![Välj ”batch mottagare” logikapp](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Välj den här åtgärden: **Batch_messages - <*your-batch-mottagare*>**
+   4. Välj den här åtgärden: **Batch_messages - <*your-batch-receiver*>**
 
       ![Välj ”Batch_messages”-åtgärd](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
@@ -176,7 +176,7 @@ Nu ska du skapa en eller flera logikappar som skickar meddelanden till logikappe
 
    | Egenskap  | Beskrivning | 
    |----------|-------------| 
-   | **Batch-namn** | Batchnamn som definierats av logikappen mottagare som är ”TestBatch” i det här exemplet <p>**Viktiga**: batch-namn hämtar verifieras vid körning och måste matcha namnet som angetts av logikappen mottagare. Ändrar namnet på batch gör att avsändaren batch misslyckas. | 
+   | **Batch-namn** | Batchnamn som definierats av logikappen mottagare som är ”TestBatch” i det här exemplet <p>**Viktiga**: Batch-namn hämtar verifieras vid körning och måste matcha namnet som angetts av logikappen mottagare. Ändrar namnet på batch gör att avsändaren batch misslyckas. | 
    | **Meddelandeinnehåll** | Innehållet för meddelandet som du vill skicka, vilket är den **brödtext** token i det här exemplet | 
    ||| 
    

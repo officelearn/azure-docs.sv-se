@@ -16,11 +16,11 @@ ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: fa078f17768d4885403f2f3e3d6b91251f0aaced
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419381"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montera en Azure-filer baserat volym i ett Service Fabric-nät program 
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du monterar en Azure-filer baserat volym i en tj
 
 Om du vill montera en volym i en tjänst, skapa en volym-resurs i ditt Service Fabric-nät program och sedan referera till den volymen i din tjänst.  Deklarera volymresursen och refererar till den i tjänstresursen kan göras antingen i den [YAML-baserade resursfiler](#declare-a-volume-resource-and-update-the-service-resource-yaml) eller [JSON-baserade Distributionsmall](#declare-a-volume-resource-and-update-the-service-resource-json). Innan du monterar volymen först skapa ett Azure storage-konto och en [filresurs i Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här artikeln. 
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371367"
 ---
 # <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Förstå villkoren i ditt prisdokument för ett Microsoft-kundavtal
 
@@ -40,7 +40,7 @@ I följande avsnitt beskrivs viktiga termer som visas i din Microsoft kundavtal 
 | billingProfileName  | Namnet på den fakturering profil som är konfigurerade att ta emot fakturor. Priserna i prisdokumentet har associerats med den här fakturering profilen. |
 | productOrderName  | Namnet på den köpta produkt-planen. |
 | serviceFamily  | Typ av Azure-tjänsten. Exempel: Compute, Analytics, Security |
-| Produkt  | Namnet på den produkt som betalar avgifterna. Exempel: Grundläggande SQL DB mot Standard SQL DB  |
+| Product  | Namnet på den produkt som betalar avgifterna. Exempel: Grundläggande SQL DB mot Standard SQL DB  |
 | productId  | Unik identifierare för den produkt som förbrukas vars mätaren. |
 | unitOfMeasure  | Identifierar enheterna för fakturering för tjänsten. Beräkningstjänster, till exempel faktureras per timme. |
 | meterId  | Unik identifierare för mätaren. |

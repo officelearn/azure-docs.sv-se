@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358110"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359345"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planera en molnbaserad Azure Multi-Factor Authentication
 
@@ -304,7 +304,7 @@ Rapporter för Azure MFA
 
 Azure Multi-Factor Authentication ger rapporter via Azure portal:
 
-| Rapport | Plats | Beskrivning |
+| Rapport | Location | Beskrivning |
 | --- | --- | --- |
 | Användning och bedrägeri aviseringar | Azure AD > inloggningar | Innehåller information om totala användning, Användarsammanfattning och information om användare; samt en historik över bedrägerivarningar som skickats under det angivna datumintervallet. |
 

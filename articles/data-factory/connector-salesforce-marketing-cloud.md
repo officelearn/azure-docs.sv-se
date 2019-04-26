@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: jingwang
 ms.openlocfilehash: de472cd25997b0c48f258927b2617c2399b2bb21
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405451"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Kopiera data från Salesforce Marketing Cloud med Azure Data Factory (förhandsversion)
 
@@ -47,7 +47,7 @@ Följande egenskaper har stöd för Salesforce Marketing Cloud länkade tjänste
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **SalesforceMarketingCloud** | Ja |
+| type | Type-egenskapen måste anges till: **SalesforceMarketingCloud** | Ja |
 | ClientId | Klient-ID som är associerade med Salesforce Marketing Cloud-programmet.  | Ja |
 | ClientSecret | Klienthemlighet som är kopplade till Salesforce Marketing Cloud-programmet. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
@@ -84,7 +84,7 @@ Om du vill kopiera data från Salesforce Marketing Cloud, ange typegenskapen på
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **SalesforceMarketingCloudObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **SalesforceMarketingCloudObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -113,7 +113,7 @@ Om du vill kopiera data från Salesforce Marketing Cloud, ange typ av datakälla
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SalesforceMarketingCloudSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SalesforceMarketingCloudSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

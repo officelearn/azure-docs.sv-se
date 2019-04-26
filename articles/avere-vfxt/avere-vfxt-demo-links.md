@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 42a2055b9a49d6d9f8f4930cb3704fe581f41724
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409999"
 ---
-# <a name="avere-vfxt-demo-projects"></a>Avere vFXT demo-projekt
+# <a name="avere-vfxt-demo-projects"></a>Avere vFXT demo projects
 
 Exempel på handledningar tillhandahålls i [GitHub](https://github.com/Azure/Avere). Dessa små projekt demonstrera viktiga funktioner och användningsfall för Avere vFXT för Azure. 
 
@@ -28,7 +28,7 @@ Exempel på handledningar tillhandahålls i [GitHub](https://github.com/Azure/Av
 
 * [Bästa praxis för att förbättra Azure virtuell dator (VM) starttiden](https://github.com/Azure/Avere/blob/master/docs/azure_vm_provision_best_practices.md) – en reproducerbar test för att använda Avere vFXT för Azure för att förbättra Start tillfällen när skapa tusentals beräkning klienter snabbt
 
-## <a name="vfxt-performance"></a>vFXT prestanda 
+## <a name="vfxt-performance"></a>vFXT performance 
 
 * [Mäta vFXT prestanda med vdbench](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) – en grundläggande inställningar för att generera små och medelstora arbetsbelastningar för att testa vFXT minnes- och undersystem
 

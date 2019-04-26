@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405978"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Kopiera data från Office 365 till Azure med hjälp av Azure Data Factory (förhandsversion) 
 
@@ -77,7 +77,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Office 365-länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Office365** | Ja |
 | office365TenantId | Azure klient-ID som Office 365-kontot tillhör. | Ja |
@@ -117,7 +117,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För att kopiera data från Office 365, stöds följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **Office365Table** | Ja |
 | tableName | Namn på datauppsättning för att extrahera från Office 365. Se [här](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) lista över tillgängliga för extrahering av Office 365-datauppsättningar. | Ja |

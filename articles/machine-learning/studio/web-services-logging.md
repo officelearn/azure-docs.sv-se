@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857563"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345659"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Aktivera loggning för Azure Machine Learning Studio-webbtjänster
 Det här dokumentet innehåller information om funktionen loggning av Machine Learning Studio-webbtjänster. Loggning ger ytterligare information, utöver just en felkod och ett meddelande som kan hjälpa dig att felsöka dina anrop till API: er för Machine Learning Studio.  

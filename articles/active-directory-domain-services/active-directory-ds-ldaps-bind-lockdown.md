@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417051"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Binda till en Azure AD Domain Services-hanterad domän med hjälp av säker LDAP (LDAPS)
 

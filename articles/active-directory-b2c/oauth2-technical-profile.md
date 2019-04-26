@@ -3,7 +3,7 @@ title: Definiera ett OAuth2-tekniska profilen i en anpassad princip i Azure Acti
 description: Definiera ett OAuth2-tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361072"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera ett OAuth2-tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Program-ID för identitetsprovidern. |
 | IdTokenAudience | Nej | Id_token målgrupp. Om anges kontrollerar om token är i ett anspråk som returnerades av identitetsprovidern och är lika med den som angetts i Azure AD B2C. |
@@ -100,7 +100,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 Den **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | client_secret | Ja | Klienthemlighet för identitetsprogram för providern. Den kryptografiska nyckeln krävs endast om den **response_types** metadata är inställd på `code`. Azure AD B2C gör i det här fallet ett annat anrop till byta auktoriseringskod för en åtkomsttoken. Om metadata är inställt på `id_token`, du kan utelämna den kryptografiska nyckeln. |  
 

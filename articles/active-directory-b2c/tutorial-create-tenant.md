@@ -3,7 +3,7 @@ title: Självstudie – skapa en Azure Active Directory B2C-klient | Microsoft D
 description: Lär dig hur du förbereder för att registrera dina program genom att skapa en Azure Active Directory B2C-klient med Azure portal.
 services: B2C
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b8878eccb079bf78c45ff9c1e4040659d109b1ab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360195"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Självstudier: Skapa en Azure Active Directory B2C-klient
 
@@ -54,7 +54,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du:
+I den här artikeln lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en Azure AD B2C-klient

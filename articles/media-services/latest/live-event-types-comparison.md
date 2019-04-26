@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322292"
 ---
 # <a name="live-event-types-comparison"></a>Live-händelse typer jämförelse
 
@@ -57,7 +57,7 @@ I följande tabell jämförs funktionerna i de två typerna av direktsänd händ
 
 ## <a name="system-presets"></a>Systeminställningar
 
-När du använder live encoding (direktsänd händelse inställd **Standard**), förinställningen för kodningen definierar hur inkommande strömmen kodas i flera olika bithastigheter eller lager. För närvarande den enda tillåtna värdet för förinställningen är *Default720p* (standard).
+När du använder livekodning (livehändelse inställd på **Standard**) definierar kodningsförinställningen hur den inkommande strömmen kodas till flera bithastigheter eller lager. För närvarande den enda tillåtna värdet för förinställningen är *Default720p* (standard).
 
 **Default720p** kommer koda videon till följande 6 lagren.
 
@@ -73,7 +73,7 @@ När du använder live encoding (direktsänd händelse inställd **Standard**), 
 | 200 |340 |192 |30 |Hög |Video_340x192_200kbps |
 
 > [!NOTE]
-> Om du vill använda en anpassad förinställning för live encoding kan du kontakta amshelp@microsoft.com. Du bör ange den önskade tabellen i upplösning och bithastighet. Kontrollera att det finns ett lager vid 720p och högst 6 lager.
+> Om du behöver använda en anpassad förinställning för livekodning bör du kontakta amshelp@microsoft.com. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrollera att det bara finns ett lager vid 720p och högst 6 lager.
 
 ### <a name="output-audio-stream"></a>Utdata ljud Stream
 

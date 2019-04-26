@@ -3,7 +3,7 @@ title: Socialt konto anspråk omvandling exempel för den identiteten upplevelse
 description: Socialt konto anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360375"
 ---
 # <a name="social-accounts-claims-transformations"></a>Anspråksomvandlingar för konton i sociala medier
 
@@ -42,9 +42,9 @@ Skapar en JSON-representation av användarens alternativeSecurityId egenskap som
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | nyckel | sträng | ClaimType som anger den unika användaridentifierare som används av den sociala identitetsprovidern. |
-| InputClaim | identityProvider | sträng | ClaimType som anger till exempel facebook.com providernamn socialt konto identitet. |
-| OutputClaim | alternativeSecurityId | sträng | ClaimType som skapas när ClaimsTransformation har anropats. Innehåller information om identiteten för en användare med sociala kontot. Den **utfärdare** är värdet för den `identityProvider` anspråk. Den **issuerUserId** är värdet för den `key` anspråk i base64-format. |
+| InputClaim | key | string | ClaimType som anger den unika användaridentifierare som används av den sociala identitetsprovidern. |
+| InputClaim | identityProvider | string | ClaimType som anger till exempel facebook.com providernamn socialt konto identitet. |
+| OutputClaim | alternativeSecurityId | string | ClaimType som skapas när ClaimsTransformation har anropats. Innehåller information om identiteten för en användare med sociala kontot. Den **utfärdare** är värdet för den `identityProvider` anspråk. Den **issuerUserId** är värdet för den `key` anspråk i base64-format. |
 
 Använd detta anspråk omvandlingen att generera en `alternativeSecurityId` ClaimType. Den används av alla sociala providern tekniska profiler, till exempel `Facebook-OAUTH`. Följande anspråkstransformering tar emot det sociala konto användar-ID och namnet på identitetsprovider. Utdata från den här tekniska profilen är en JSON-sträng-format som kan användas i Azure AD directory services.
 
@@ -74,7 +74,7 @@ Lägger till en `AlternativeSecurityId` till en `alternativeSecurityIdCollection
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Objekt | sträng | ClaimType som ska läggas till utdata-anspråket. |
+| InputClaim | Objekt | string | ClaimType som ska läggas till utdata-anspråket. |
 | InputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråkstransformering om det är tillgängligt i principen. Om anspråkstransformering lägger till den `item` i slutet av samlingen. |
 | OutputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Den nya samlingen som innehåller båda objekten från indata `collection` och `item`. |
 
@@ -138,7 +138,7 @@ Tar bort en **AlternativeSecurityId** från en **alternativeSecurityIdCollection
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | identityProvider | sträng | ClaimType som innehåller namn på identitetsprovider som ska tas bort från samlingen. |
+| InputClaim | identityProvider | string | ClaimType som innehåller namn på identitetsprovider som ska tas bort från samlingen. |
 | InputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som används av anspråkstransformering. Anspråkstransformering tar bort Identityprovidern från samlingen. |
 | OutputClaim | samling | alternativeSecurityIdCollection | ClaimTypes som genereras när den här ClaimsTransformation har anropats. Den nya samlingen, när Identityprovidern tagits bort från samlingen. |
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
 ms.openlocfilehash: 3631d2e9beaa7c0d9ee018a32981a278381a7d86
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406851"
 ---
 ## <a name="defining-a-backup-policy"></a>Definiera en princip för säkerhetskopiering
 En princip för säkerhetskopiering definierar en matris över när ögonblicksbilder av data tas och hur länge de kvarhålls. När du definierar en princip för säkerhetskopiering av en VM, kan du utlösa ett säkerhetskopieringsjobb *en gång per dag*. När du skapar en ny princip, tillämpas den för valvet. Gränssnittet för säkerhetskopieringsprincipen ser ut så här:

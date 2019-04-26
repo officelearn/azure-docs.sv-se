@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: e27be86a7a14a38c5083949a1a7255574d2d0dc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3996f22db2f5dc597939995a2699c4fe228821e3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392573"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Hantera anonym läsåtkomst till containrar och blob-objekt
 Du kan aktivera anonym, offentlig läsbehörighet till en behållare och dess blobbar i Azure Blob storage. Då kan ge du skrivskyddad åtkomst till dessa resurser utan att dela din kontonyckel och utan en signatur för delad åtkomst (SAS).
@@ -24,9 +24,9 @@ Som standard kan en behållare och alla blobbar i den endast användas av ägare
 
 Du kan konfigurera en behållare med följande behörigheter:
 
-* **Ingen offentlig läsbehörighet:** behållaren och dess blobbar kan endast användas av lagringskontoägaren. Det här är standard för alla nya behållare.
-* **Offentlig läsbehörighet endast för blobbar:** Blobbar i behållaren kan läsas av anonym begäran, men behållardata är inte tillgänglig. Anonym klienter kan inte räkna upp blobbar i behållaren.
-* **Fullständig offentlig läsbehörighet:** alla behållare och blob-data kan läsas av anonym begäran. Klienter kan räkna upp blobbar i behållaren av anonym begäran, men det går inte att räkna upp behållare i lagringskontot.
+* **Ingen offentlig läsbehörighet:** Behållaren och dess blobbar kan endast användas av lagringskontoägaren. Det här är standard för alla nya behållare.
+* **Offentlig läsbehörighet endast för objekt:** Blobbar i behållaren kan läsas av anonym begäran, men behållardata är inte tillgänglig. Anonym klienter kan inte räkna upp blobbar i behållaren.
+* **Fullständig offentlig läsbehörighet:** Alla behållare och blob-data kan läsas av anonym begäran. Klienter kan räkna upp blobbar i behållaren av anonym begäran, men det går inte att räkna upp behållare i lagringskontot.
 
 Du kan använda följande för att ange behörigheter för behållare:
 
@@ -124,7 +124,7 @@ I följande tabell visas vilka åtgärder som kan anropas av anonyma användare 
 | Ange behållaren ACL |Endast ägare |Endast ägare |
 | Ta bort behållare |Endast ägare |Endast ägare |
 | Lista Blobar |Alla |Endast ägare |
-| Placera Blob |Endast ägare |Endast ägare |
+| Put Blob |Endast ägare |Endast ägare |
 | Hämta Blob |Alla |Alla |
 | Hämta Blobegenskaper |Alla |Alla |
 | Ange Blob-egenskaper |Endast ägare |Endast ägare |
@@ -140,7 +140,7 @@ I följande tabell visas vilka åtgärder som kan anropas av anonyma användare 
 | Lånet Blob |Endast ägare |Endast ägare |
 | Placera sidan |Endast ägare |Endast ägare |
 | Get Page Ranges |Alla |Alla |
-| Bifoga Blob |Endast ägare |Endast ägare |
+| Bifoga blob |Endast ägare |Endast ägare |
 
 ## <a name="next-steps"></a>Nästa steg
 

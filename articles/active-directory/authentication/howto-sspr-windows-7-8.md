@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414722"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Anvisningar: Aktivera lösenordsåterställning från Windows 7, 8 och 8.1
 
@@ -26,7 +26,7 @@ Till skillnad från Windows 10-datorer, Windows 7, 8 och 8.1 datorer har inte en
 
 ![Exempel inloggningsskärmen för Windows 7 med ”har du glömt lösenordet”? länken som visas](media/howto-sspr-windows-7-8/windows-7-logon-screen.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Återställning av lösenord för självbetjäning i Azure AD måste vara aktiverat.
 * Korrigerade Windows 7 eller Windows 8.1 operativsystem.

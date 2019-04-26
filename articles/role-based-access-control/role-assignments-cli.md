@@ -15,11 +15,11 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344571"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure CLI
 
@@ -339,5 +339,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Skapa en anpassad roll för Azure-resurser med Azure CLI](tutorial-custom-role-cli.md)
+- [Självstudie: Skapa en anpassad roll för Azure-resurser med Azure CLI](tutorial-custom-role-cli.md)
 - [Använda Azure CLI för att hantera Azure-resurser och resursgrupper](../azure-resource-manager/cli-azure-resource-manager.md)

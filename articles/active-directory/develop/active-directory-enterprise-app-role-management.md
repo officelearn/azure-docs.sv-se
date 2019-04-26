@@ -17,17 +17,17 @@ ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412358"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Konfigurera rollanspråk som utfärdats i SAML-token för företagsprogram
 
 Du kan anpassa Anspråkstypen för rollen som anspråk i svarstoken du får när du godkänner en app med hjälp av Azure Active Directory (AD Azure).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure AD-prenumeration med katalogen installationen.
 - En prenumeration som har enkel inloggning (SSO) aktiverat. Du måste konfigurera enkel inloggning med ditt program.

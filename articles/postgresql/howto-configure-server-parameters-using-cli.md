@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: c88518749129abed1cf43a70b9165035626a780f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421225"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Anpassa konfigurationsparametrar för server med Azure CLI
 Du kan lista, visa och uppdatera konfigurationsparametrar för en Azure PostgreSQL-server med hjälp av kommandoradsgränssnittet (Azure CLI). En delmängd av motorkonfigurationer är exponerad på servernivå och kan ändras. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom den här guiden, måste du:
 - Skapa en Azure Database for PostgreSQL-server och databas genom att följa [skapa en Azure Database for PostgreSQL](quickstart-create-server-database-azure-cli.md)
 - Installera [Azure CLI](/cli/azure/install-azure-cli) kommandoradsgränssnitt på din dator eller använder den [Azure Cloud Shell](../cloud-shell/overview.md) i Azure portal med din webbläsare.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6778df746a64f944b51570f8774c0e84c7d88658
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417493"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Aktivera lösenordshashsynkronisering med Azure Active Directory Domain Services
 I föregående uppgifter aktiverade du Azure Active Directory Domain Services för din Azure Active Directory-klient (Azure AD). Nästa uppgift är att aktivera synkronisering av lösenordshasher som krävs för NT LAN Manager (NTLM)- och Kerberos-autentisering till Azure AD Domain Services. När du har konfigurerat lösenordshashsynkronisering kan användarna logga in till den hanterade domänen med sina företagsuppgifter.
@@ -28,6 +28,7 @@ I föregående uppgifter aktiverade du Azure Active Directory Domain Services f�
 Stegen är olika för endast molnbaserade användarkonton och användarkonton som synkroniseras från din lokala katalog med Azure AD Connect. 
 
 <br>
+
 | **Typ av användarkonto** | **Steg att utföra** |
 | --- |---|
 | **Molnanvändarkonton som har skapats i Azure AD** |**&#x2713;** [Följ anvisningarna i den här artikeln](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |

@@ -14,11 +14,11 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353286"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Vad hände med mitt WebAPI-projekt (Visual Studio Azure Active Directory ansluten tjänst)
 
@@ -34,7 +34,7 @@ Information om hur du arbetar med anslutna tjänsten finns i [komma igång](vs-a
 
 Påverkar projektreferenserna filen *.NET) och `packages.config` (NuGet referenser).
 
-| Type | Referens |
+| Typ | Referens |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -47,7 +47,7 @@ Påverkar projektreferenserna filen *.NET) och `packages.config` (NuGet referens
 
 Ytterligare referenser om du har valt den **läsa katalogdata** alternativet:
 
-| Type | Referens |
+| Typ | Referens |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 endast) |
@@ -61,7 +61,7 @@ Ytterligare referenser om du har valt den **läsa katalogdata** alternativet:
 
 I följande referenser tas bort (ASP.NET 4-projekt, som i Visual Studio 2015):
 
-| Type | Referens |
+| Typ | Referens |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 03b74f5a931e1cfbf09433af76c250607b7fc80c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422329"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Hur du ringa ett telefonsamtal med Twilio i ett PHP-program på Azure
 I följande exempel visas hur du kan använda Twilio för att göra ett anrop från en PHP-webbplats i Azure. Exempelprogrammet uppmanas användaren via telefonsamtal-värden som visas i följande skärmbild.

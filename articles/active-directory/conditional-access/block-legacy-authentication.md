@@ -19,11 +19,11 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d2841d3be584cae45ef49ad9ff20da8a232c366
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60355173"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Anvisningar: Blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -34,7 +34,7 @@ Om din miljö är redo att blockera äldre autentisering för att förbättra di
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du är bekant med: 
 

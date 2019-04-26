@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
 ms.openlocfilehash: 734cf09869e5a2df5f9a505a3cb8ccc7bc2338d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402307"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-utdata till Azure Cosmos DB  
 Stream Analytics kan riktas mot [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) att aktivera arkivering och låg latens datafrågor för Ostrukturerade JSON-data för JSON-utdata. Det här dokumentet beskriver några av metodtipsen för att implementera den här konfigurationen.

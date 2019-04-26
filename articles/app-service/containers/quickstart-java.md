@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
 ms.openlocfilehash: c97d4a373970514b920581aa258b61c1b1cb978c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396979"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-app i App Service i Linux
 
@@ -126,7 +126,7 @@ När distributionen är klar bläddrar du till den distribuerade tillämpningen 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Java Enterprise-app med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+> [Självstudie: Java Enterprise-app med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera Java-app](configure-custom-container.md)

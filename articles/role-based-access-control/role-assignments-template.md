@@ -14,15 +14,15 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337211"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344602"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager-mallar
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Förutom att använda Azure PowerShell eller Azure CLI kan du hantera åtkomst till Azure-resurser med RBAC och [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md). Mallar kan vara användbart om du vill distribuera resurser konsekvent och upprepade gånger. Den här artikeln beskrivs hur du kan hantera åtkomst med RBAC och mallar.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. Förutom att använda Azure PowerShell eller Azure CLI kan du hantera åtkomst till Azure-resurser med RBAC och [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md). Mallar kan vara användbart om du vill distribuera resurser konsekvent och upprepade gånger. Den här artikeln beskrivs hur du kan hantera åtkomst med RBAC och mallar.
 
 ## <a name="example-template-to-create-a-role-assignment"></a>Exempelmall för att skapa en rolltilldelning
 

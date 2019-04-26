@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410392"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Ordlista för utvecklare av Microsoft identity-plattformen
 
@@ -192,7 +192,7 @@ Funktionen logga in i ett program används vanligtvis för att implementera enke
 
 Processen för unauthenticating en slutanvändare, koppla från användarens tillstånd som associeras med den [klientprogram](#client-application) session under [inloggning](#sign-in)
 
-## <a name="tenant"></a>klient
+## <a name="tenant"></a>tenant
 
 En instans av Azure AD-katalog kallas för en Azure AD-klient. Den tillhandahåller flera funktioner, inklusive:
 

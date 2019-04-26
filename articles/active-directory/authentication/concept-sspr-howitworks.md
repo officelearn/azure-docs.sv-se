@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415641"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Återställning av lösenord för självbetjäning av Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självåterställning av lösenord i Azure AD
 
 Hur lösenordsåterställning via självbetjäning (SSPR) arbete? Vad betyder det alternativet i gränssnittet? Fortsätt att läsa och lär dig mer om Azure Active Directory (Azure AD) SSPR.
 

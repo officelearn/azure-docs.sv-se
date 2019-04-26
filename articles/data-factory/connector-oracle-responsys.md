@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 7440a08bd8ceb85cc569e1bb6d7c4ee1e52178a4
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405910"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Kopiera data från Oracle Responsys med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Oracle-Responsys länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Responsys** | Ja |
+| type | Type-egenskapen måste anges till: **Responsys** | Ja |
 | slutpunkt | Slutpunkten för Respopnsys-server  | Ja |
 | ClientId | Klient-ID som är associerade med programmet Responsys.  | Ja |
 | ClientSecret | Klienthemlighet som är kopplade till Responsys-programmet. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -83,7 +83,7 @@ Kopiera data från Oracle Responsys genom att ange typegenskapen på datauppsät
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **ResponsysObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **ResponsysObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -113,7 +113,7 @@ För att kopiera data från Oracle Responsys, ange typ av datakälla i kopiering
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ResponsysSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ResponsysSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

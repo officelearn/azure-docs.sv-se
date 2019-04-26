@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662167"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393493"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Händelseanalys och visualisering med Azure Monitor-loggar
  Azure Monitor-loggar samlas in och analyserar telemetri från program och tjänster i molnet och ger analysverktyg som hjälper dig att maximera tillgänglighet och prestanda. Den här artikeln beskrivs hur du kör frågor i Azure Monitor-loggar att få insikter och felsöka vad som händer i ditt kluster. Följande vanliga frågor tas upp:

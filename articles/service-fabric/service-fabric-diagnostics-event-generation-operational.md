@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393047"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista över Service Fabric-händelser 
 
@@ -40,7 +40,7 @@ Här är en lista över dessa Service Fabric-händelser som är ordnade efter en
 
 Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgrade-windows-server.md).
 
-| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Category | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Uppgradera | En uppgradering av klustret har startats | CM | Information |
 | 29628 | ClusterUpgradeCompleted | Uppgradera | En uppgradering av klustret har slutförts | CM | Information | 
@@ -52,7 +52,7 @@ Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgra
 
 **Livscykelhändelser för noden** 
 
-| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå |
+| EventId | Namn | Category | Beskrivning |Källa (aktivitet) | Nivå |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | Inaktivering av en nod har slutförts | FM | Information | 
 | 18603 | NodeUp | StateTransition | Klustret har identifierat en nod har startats | FM | Information | 
@@ -69,7 +69,7 @@ Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgra
 
 **Livscykelhändelser för program**
 
-| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Category | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | LifeCycle | Ett nytt program har skapats | CM | Information | 
 | 29625 | ApplicationDeleted | LifeCycle | Ett befintligt program har tagits bort | CM | Information | 
@@ -79,7 +79,7 @@ Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgra
 
 Mer information om programuppgraderingar finns [här](service-fabric-application-upgrade.md).
 
-| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Category | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Uppgradera | En uppgradering av programmet har startats | CM | Information | 
 | 29622 | ApplicationUpgradeCompleted | Uppgradera | En uppgradering av programmet har slutförts | CM | Information | 
@@ -91,7 +91,7 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 
 **Livscykelhändelser för tjänsten**
 
-| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Category | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | LifeCycle | En ny tjänst skapades | FM | Information | 
 | 18658 | ServiceDeleted | LifeCycle | En befintlig tjänst har tagits bort | FM | Information | 
@@ -100,7 +100,7 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 
 **Partition flytta händelser**
 
-| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Category | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | En omkonfiguration av partitionen har slutförts | RA | Information | 
 

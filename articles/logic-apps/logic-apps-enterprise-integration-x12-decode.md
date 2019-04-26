@@ -4,18 +4,18 @@ description: Validera EDI och generera bekräftelser med X12 meddelande avkodare
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: a952685353214e116219fc63c4acbeac188765ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427554"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Avkoda X12 meddelanden i Azure Logic Apps med Enterprise-Integrationspaket
 
@@ -89,13 +89,13 @@ X12 avkodningen connector utför dessa uppgifter:
   * Kontrollerar gruppkontrollnummer mot andra gruppen kontrollnummer i utbytet.
   * Kontrollerar transaktionen angetts kontrollnummer mot andra transaktion set kontrollnummer i gruppen.
 * Delar upp interchange i transaktionsuppsättningar eller bevarar hela utbytet:
-  * Dela upp Interchange i transaktionsuppsättningar – inaktivera transaktionsuppsättningar vid fel: delar upp interchange i transaktion anger och Parsar varje transaktionsuppsättning. 
+  * Dela upp Interchange i transaktionsuppsättningar – inaktivera transaktionsuppsättningar vid fel: Delar upp interchange i transaktion anger och Parsar varje transaktionsuppsättning. 
   X12 avkodningen åtgärdens utdata bara dessa transaktion anger som inte kan valideras till `badMessages`, och övriga transaktioner som anger att utdata `goodMessages`.
-  * Dela upp Interchange i transaktionsuppsättningar – inaktivera interchange vid fel: delar upp interchange i transaktion anger och Parsar varje transaktionsuppsättning. 
+  * Dela upp Interchange i transaktionsuppsättningar – inaktivera interchange vid fel: Delar upp interchange i transaktion anger och Parsar varje transaktionsuppsättning. 
   Om en eller flera transaktion anger i utbytet verifieringen, X12 avkodningen åtgärdens utdata alla transaktioner som anger i det utbytet till `badMessages`.
-  * Bevara Interchange – inaktivera transaktionsuppsättningar vid fel: bevara utbytet och bearbeta hela gruppbaserade utbytet. 
+  * Bevara Interchange – inaktivera transaktionsuppsättningar vid fel: Bevara utbytet och bearbeta hela gruppbaserade utbytet. 
   X12 avkodningen åtgärdens utdata bara dessa transaktion anger som inte kan valideras till `badMessages`, och övriga transaktioner som anger att utdata `goodMessages`.
-  * Bevara Interchange – inaktivera interchange vid fel: bevara utbytet och bearbeta hela gruppbaserade utbytet. 
+  * Bevara Interchange – inaktivera interchange vid fel: Bevara utbytet och bearbeta hela gruppbaserade utbytet. 
   Om en eller flera transaktion anger i utbytet verifieringen, X12 avkodningen åtgärdens utdata alla transaktioner som anger i det utbytet till `badMessages`. 
 * Genererar en teknisk och/eller funktionella bekräftelse (om konfigurerad).
   * En teknisk bekräftelse genererar till följd av huvud-verifiering. Teknisk bekräftelsen rapporterar status för bearbetning av ett interchange rubrik och trailer av adress-mottagare.

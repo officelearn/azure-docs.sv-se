@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
 ms.openlocfilehash: 5786f7b48477fa705b43e3a953ac15b2c768bd71
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344842"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Självstudier: Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure-portalen
 
@@ -115,5 +115,5 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Självstudie: Ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 

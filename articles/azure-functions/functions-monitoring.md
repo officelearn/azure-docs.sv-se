@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406848"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -148,7 +148,7 @@ Körningen ger den `customDimensions.LogLevel` och `customDimensions.Category` f
 
 Du kan använda Application Insights utan anpassad konfiguration. Standardkonfigurationen kan leda till stora mängder data. Om du använder ett Visual Studio-prenumerationen kan du uppnått datakapaciteten för Application Insights. Senare i den här artikeln får du lära dig hur du konfigurerar och anpassar de data som dina funktioner skicka till Application Insights. För en funktionsapp loggning har konfigurerats i den [host.json] fil.
 
-### <a name="categories"></a>Kategorier
+### <a name="categories"></a>Categories
 
 Azure Functions-loggaren innehåller en *kategori* för varje logg. Kategorin som anger vilken del av runtime-kod eller Funktionskoden skrev loggen. 
 

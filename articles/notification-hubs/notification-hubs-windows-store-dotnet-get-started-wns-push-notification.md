@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
 ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60426887"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs
 

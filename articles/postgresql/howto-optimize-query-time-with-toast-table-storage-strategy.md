@@ -1,17 +1,19 @@
 ---
 title: Optimera fråga körs på en Azure Database for PostgreSQL-server med hjälp av lagringsstrategi för popup-tabell
 description: Den här artikeln beskriver hur du optimerar Frågetid med lagringsstrategi för popup-tabell på en Azure Database for PostgreSQL-server.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
+editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
+origin.date: 10/22/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421064"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Optimera Frågetid med lagringsstrategi för popup-tabell 
 Den här artikeln beskriver hur du optimerar frågetider med lagringsstrategi för lagring av stora attribut tekniken (popup) tabell.

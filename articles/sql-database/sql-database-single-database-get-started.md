@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/11/2019
 ms.openlocfilehash: b8395b5e67660f2b6fb1b671a7be6a20b4fceddd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332213"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en enkel databas i Azure SQL Database med Azure-portalen
 
@@ -29,7 +29,7 @@ Logga in på [Azure Portal](https://portal.azure.com/) för alla steg i den här
 
 ## <a name="create-a-single-database"></a>Skapa en enkel databas
 
-En enkel databas har en definierad uppsättning resurser för beräkning, minne, IO och lagring som använder en av de två [inköpsmodellerna](sql-database-purchase-models.md). När du skapar en enkel databas definierar du även en [SQL-databasserver](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en specifik region.
+En enkel databas har en definierad uppsättning resurser för beräkning, minne, IO och lagring som använder en av de två [köpmodellerna](sql-database-purchase-models.md). När du skapar en enkel databas definierar du även en [SQL Database-server](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en specifik region.
 
 Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempeldata:
 
@@ -69,7 +69,7 @@ Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempel
 
 
       > [!NOTE]
-      > I den här snabbstarten används den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) är också tillgänglig.
+      > I den här snabbstarten används [köpmodellen baserad på DTU](sql-database-service-tiers-dtu.md), men [köpmodellen baserad på virtuell kärna](sql-database-service-tiers-vcore.md) är också tillgänglig.
       > [!IMPORTANT]
       > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 

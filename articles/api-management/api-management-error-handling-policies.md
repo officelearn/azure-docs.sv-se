@@ -79,13 +79,13 @@ Den `on-error` principavdelningen kan användas på ett scope. API-utgivare kan 
   
 | Namn     | Typ   | Beskrivning                                                                                               | Krävs |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Källa   | sträng | Trots att elementet där felet uppstod. Kan vara antingen princip eller en inbyggda pipeline Stegnamn.     | Ja      |
-| Orsak   | sträng | Datorn eget felkod som kan användas i felhantering.                                       | Nej       |
-| Meddelande  | sträng | Läsbart felbeskrivning.                                                                         | Ja      |
-| Omfång    | sträng | Namnet på omfattningen där felet uppstod och kan vara någon av ”globala”, ”product”, ”api” eller ”åtgärden” | Nej       |
-| Section  | sträng | Avsnittsnamnet där felet uppstod. Möjliga värden: ”inkommande”, ”serverdel”, ”utgående” eller ”på fel”.       | Nej       |
-| Sökväg     | sträng | Anger kapslade princip, till exempel ”Välj [3] / när [2]”.                                                        | Nej       |
-| PolicyId | sträng | Värdet för den `id` attribut om anges av kunden, för principen där felet uppstod             | Nej       |
+| `Source`   | sträng | Trots att elementet där felet uppstod. Kan vara antingen princip eller en inbyggda pipeline Stegnamn.     | Ja      |
+| `Reason`   | sträng | Datorn eget felkod som kan användas i felhantering.                                       | Nej       |
+| `Message`  | sträng | Läsbart felbeskrivning.                                                                         | Ja      |
+| `Scope`    | sträng | Namnet på omfattningen där felet uppstod och kan vara någon av ”globala”, ”product”, ”api” eller ”åtgärden” | Nej       |
+| `Section`  | sträng | Avsnittsnamnet där felet uppstod. Möjliga värden: ”inkommande”, ”serverdel”, ”utgående” eller ”på fel”.       | Nej       |
+| `Path`     | sträng | Anger kapslade princip, till exempel ”Välj [3] / när [2]”.                                                        | Nej       |
+| `PolicyId` | sträng | Värdet för den `id` attribut om anges av kunden, för principen där felet uppstod             | Nej       |
 
 > [!TIP]
 > Du kan komma åt statuskoden via kontext. Response.StatusCode.  

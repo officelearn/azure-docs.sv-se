@@ -10,16 +10,16 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60334112"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics
 Lär dig att analysera webbplatsloggar med hjälp av Data Lake Analytics, särskilt på att ta reda på vilka referenter råkade ut för fel när de försöker att besöka webbplatsen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Visual Studio 2015 eller Visual Studio 2013**.
 * **[Data Lake-verktyg för Visual Studio](https://aka.ms/adltoolsvs)**.
 

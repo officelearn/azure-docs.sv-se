@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254067"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Anpassade mått i Azure Monitor
 
@@ -29,7 +29,7 @@ Anpassade mått kan skickas till Azure Monitor via flera olika sätt:
 
 När du skickar anpassade mått till Azure Monitor, varje datapunkt, eller värdet som rapporteras måste innehålla följande information.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 Om du vill skicka anpassade mått till Azure Monitor, den entitet som skickar måttet måste en giltig Azure Active Directory (Azure AD)-token i den **ägar** huvudet i begäran. Det finns ett antal sätt att hämta en giltig ägartoken som stöds:
 1. [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Ger en identitet till en Azure-resurs, till exempel en virtuell dator. Hanterad tjänstidentitet (MSI) är utformad för att ge behörighet att utföra vissa åtgärder för resurser. Ett exempel att tillåta att en resurs att skapa mått om sig själv. En resurs eller dess MSI kan beviljas **övervakning mått Publisher** behörigheter på en annan resurs. Med den här behörigheten kan MSI generera mått för andra resurser samt.
 2. [Azure AD-tjänstobjekt](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). I det här scenariot, en Azure AD-programmet eller tjänsten, kan du tilldela behörigheter att skapa mått om en Azure-resurs.
@@ -38,7 +38,7 @@ För att autentisera begäran verifierar applikations-token med hjälp av Azure 
 > [!NOTE]  
 > När du begär en Azure AD-token för att skapa anpassade mått kan du se till att den publik eller resursen som token begärs för är https://monitoring.azure.com/. Se till att du inkluderar avslutande ”/”.
 
-### <a name="subject"></a>Subjekt
+### <a name="subject"></a>Subject
 Den här egenskapen samlar in vilket Azure-resurs-ID som anpassade mått rapporteras för. Den här informationen ska kodas i URL: en för API-anrop som görs. Varje API kan bara skicka måttvärden för en enskild Azure-resurser.
 
 > [!NOTE]  
@@ -181,7 +181,7 @@ Den offentliga förhandsversionen är möjligheten att publicera anpassade mått
 ## <a name="quotas-and-limits"></a>Kvoter och begränsningar
 Azure Monitor inför följande användningsbegränsningar i anpassade mått:
 
-|Kategori|Gräns|
+|Category|Gräns|
 |---|---|
 |Tid serien/prenumerationer/region|50,000|
 |Dimensionsnycklarna per mått|10|

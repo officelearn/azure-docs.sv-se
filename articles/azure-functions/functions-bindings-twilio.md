@@ -13,11 +13,11 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306690"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
@@ -404,11 +404,11 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ**|**typ**| Måste anges till `twilioSms`.|
 |**riktning**|**riktning**| Måste anges till `out`.|
 |**Namn**|**Namn**| Variabelnamnet som används i Funktionskoden för Twilio-SMS-textmeddelanden. |
-|**accountSid**|**accountSidSetting**| **accountSidSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio konto-Sid t.ex. TwilioAccountSid. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAccountSid”. |
-|**authToken**|**authTokenSetting**|**authTokenSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio-autentiseringstoken t.ex. TwilioAccountAuthToken. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAuthToken”. |
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio konto-Sid t.ex. TwilioAccountSid. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAccountSid”. |
+|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio-autentiseringstoken t.ex. TwilioAccountAuthToken. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsTwilioAuthToken”. |
 |**Att**| Ej tillämpligt – ange i koden | **Till**| Det här värdet anges till telefonnumret som SMS-meddelanden skickas till.|
 |**Från**|**Från** | **Från**| Det här värdet anges till telefonnumret som SMS-meddelanden skickas från.|
-|**Brödtext**|**Brödtext** | **Brödtext**| Det här värdet kan användas för att hårt code SMS-textmeddelande om du inte behöver ange den dynamiskt i koden för din funktion. |  
+|**body**|**body** | **Brödtext**| Det här värdet kan användas för att hårt code SMS-textmeddelande om du inte behöver ange den dynamiskt i koden för din funktion. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

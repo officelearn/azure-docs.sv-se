@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386728"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurationsinställningar för ett fristående Windows-kluster
 Den här artikeln beskriver konfigurationsinställningarna för ett fristående Azure Service Fabric-kluster som kan ställas in i den *ClusterConfig.json* fil. Du använder den här filen för att ange information om de klusternoder, säkerhetskonfigurationer, samt nätverkstopologi när det gäller fel- och uppgraderingsdomäner.  När du ändrar eller lägger till konfigurationsinställningar, kan du antingen [skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md) eller [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).

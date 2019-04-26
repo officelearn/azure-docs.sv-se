@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296900"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft identity-plattformen och OAuth 2.0 Behalf flow
 
@@ -69,12 +69,12 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begär
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| `grant_type` | Krävs | Typ av begäran om åtkomsttoken. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Krävs | Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
-| `client_secret` | Krävs | Klienthemlighet som du skapade för din app i Azure portal - registreringar appsidan. |
-| `assertion` | Krävs | Värdet för den token som används i begäran. |
-| `scope` | Krävs | Ett blanksteg avgränsade lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md). |
-| `requested_token_use` | Krävs | Anger hur begäran ska bearbetas. I OBO-flödet, måste värdet anges till `on_behalf_of`. |
+| `grant_type` | Obligatoriskt | Typ av begäran om åtkomsttoken. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obligatoriskt | Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
+| `client_secret` | Obligatoriskt | Klienthemlighet som du skapade för din app i Azure portal - registreringar appsidan. |
+| `assertion` | Obligatoriskt | Värdet för den token som används i begäran. |
+| `scope` | Obligatoriskt | Ett blanksteg avgränsade lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md). |
+| `requested_token_use` | Obligatoriskt | Anger hur begäran ska bearbetas. I OBO-flödet, måste värdet anges till `on_behalf_of`. |
 
 #### <a name="example"></a>Exempel
 
@@ -101,13 +101,13 @@ En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehål
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| `grant_type` | Krävs | Typ av token begäran. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Krävs |  Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
-| `client_assertion_type` | Krävs | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Krävs | Ett intyg (en JSON-webbtoken) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs hur du registrerar ditt certifikat och format för kontrollen i [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md). |
-| `assertion` | Krävs | Värdet för den token som används i begäran. |
-| `requested_token_use` | Krävs | Anger hur begäran ska bearbetas. I OBO-flödet, måste värdet anges till `on_behalf_of`. |
-| `scope` | Krävs | En blankstegsavgränsad lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md).|
+| `grant_type` | Obligatoriskt | Typ av token begäran. Värdet måste vara begäran med hjälp av en JWT `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obligatoriskt |  Programmet (klient)-ID: T som [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats din app. |
+| `client_assertion_type` | Obligatoriskt | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obligatoriskt | Ett intyg (en JSON-webbtoken) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs hur du registrerar ditt certifikat och format för kontrollen i [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md). |
+| `assertion` | Obligatoriskt | Värdet för den token som används i begäran. |
+| `requested_token_use` | Obligatoriskt | Anger hur begäran ska bearbetas. I OBO-flödet, måste värdet anges till `on_behalf_of`. |
+| `scope` | Obligatoriskt | En blankstegsavgränsad lista med omfattningar för token-begäran. Mer information finns i [scope](v2-permissions-and-consent.md).|
 
 Observera att parametrarna är nästan samma sätt som när det gäller begäran från delad hemlighet utom som den `client_secret` parameter har ersatts av två parametrar: en `client_assertion_type` och `client_assertion`.
 

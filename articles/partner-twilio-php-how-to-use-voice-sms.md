@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: a51cd589702320ecb55e6a2e3c5f0a6139e281fe
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422363"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Använda Twilio för röst- och SMS-funktioner i PHP
 Den här guiden visar hur du utför vanliga programmeringsspråk uppgifter med Twilio-API-tjänsten på Azure. Scenarier som omfattas är ringa ett samtal och skicka ett meddelande om tjänsten SMS (Short Message). Mer information om Twilio och använda röst och SMS i dina program finns i den [nästa steg](#NextSteps) avsnittet.
@@ -44,16 +44,16 @@ API: et gör använda Twilio verb; till exempel den **&lt;Say&gt;** verb instrue
 
 Här följer en lista över Twilio-verb. Läs mer om andra verb och funktioner i form av [Twilio Markup Language dokumentation](https://www.twilio.com/docs/api/twiml).
 
-* **&lt;Uppringning&gt;**: Ansluter anroparen till en annan telefon.
-* **&lt;Samla in&gt;**: Samlar in siffror som anges på telefon-tangentbordet.
-* **&lt;Koppla ned&gt;**: Slutar ett anrop.
-* **&lt;Spela upp&gt;**: Spelar upp en ljudfil.
-* **&lt;Pausa&gt;**: Väntar tyst under ett angivet antal sekunder.
+* **&lt;Dial&gt;**: Ansluter anroparen till en annan telefon.
+* **&lt;Gather&gt;**: Samlar in siffror som anges på telefon-tangentbordet.
+* **&lt;Hangup&gt;**: Slutar ett anrop.
+* **&lt;Play&gt;**: Spelar upp en ljudfil.
+* **&lt;Pause&gt;**: Väntar tyst under ett angivet antal sekunder.
 * **&lt;Post&gt;**: Registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
-* **&lt;Omdirigera&gt;**: Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
-* **&lt;Avvisa&gt;**: Avvisar inkommande samtal till din Twilio-nummer utan fakturering du
-* **&lt;Anta att&gt;**: Konverterar text till tal som görs på ett anrop.
-* **&lt;SMS&gt;**: Skickar ett SMS-meddelande.
+* **&lt;Redirect&gt;**: Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
+* **&lt;Reject&gt;**: Avvisar inkommande samtal till din Twilio-nummer utan fakturering du
+* **&lt;Say&gt;**: Konverterar text till tal som görs på ett anrop.
+* **&lt;Sms&gt;**: Skickar ett SMS-meddelande.
 
 ### <a id="TwiML"></a>TwiML
 TwiML är en uppsättning XML-baserade instruktionerna baserat på de Twilio-verb som meddelar Twilio av behandla ett samtal eller SMS.
@@ -234,7 +234,7 @@ Förutom de exempel som visas här, erbjuder Twilio webbaserade API: er som du k
 ## <a id="NextSteps"></a>Nästa steg
 Nu när du har lärt dig grunderna för Twilio-tjänsten kan du följa dessa länkar om du vill veta mer:
 
-* [Riktlinjer för Twilio-säkerhet][twilio_security_guidelines]
+* [Twilio Security Guidelines][twilio_security_guidelines]
 * [Twilio HowTo och exempelkod][twilio_howtos]
 * [Twilio Snabbstartsguider][twilio_quickstarts] 
 * [Twilio på GitHub][twilio_on_github]

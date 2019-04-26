@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: df329d42022f4e56b3d6d4d26519acd42caa1ae4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445557"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Vanliga frågor
 
@@ -73,6 +73,7 @@ Din lagringskontonyckel används för att skapa kortsiktig åtkomsttoken för tj
 ## <a name="what-genome-references-can-i-use"></a>Vilka genom refererar till kan jag använda?
 
 Dessa referenser stöds:
+
  |Referens              | Värdet för `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
@@ -84,15 +85,15 @@ Dessa referenser stöds:
 
 msgen förstår konfigurationsfiler i följande format:
 * Alla alternativ anges som nyckel / värde-par med värden som är avgränsade från nycklar med ett kolon.
-Blanksteg ignoreras.
+  Blanksteg ignoreras.
 * Rader som börjar med `#` ignoreras.
 * Alla kommandoradsargument i långt format kan konverteras till en nyckel genom att ta bort dess ledande tankstreck och ersätta tankstreck mellan ord med understreck. Här följer några exempel konvertering:
 
- |Kommandoradsargument            | Konfiguration av fil-rad |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |Kommandoradsargument            | Konfiguration av fil-rad |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Nästa steg
 

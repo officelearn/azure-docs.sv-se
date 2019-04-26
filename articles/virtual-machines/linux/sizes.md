@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 11/14/2018
 ms.author: jonbeck
 ms.openlocfilehash: 75333332c118e85bbe1ceb31b206360ce5ed3897
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540241"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Storlekar för Linux-datorer i Azure
 Den här artikeln beskrivs tillgängliga storlekar och alternativ för Azure-datorer som du kan använda för att köra Linux-appar och arbetsbelastningar. Det ger också distributionsöverväganden ska tänka på när du planerar att använda de här resurserna. Den här artikeln är också tillgängligt för [Windows virtuella datorer](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-| Type                     | Storlekar           |    Beskrivning       |
+| Typ                     | Storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC  | Balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. |
 | [Beräkningsoptimerad](sizes-compute.md)        | Fsv2, Fs, F             | Högt förhållande mellan processor och minne. Bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.        |

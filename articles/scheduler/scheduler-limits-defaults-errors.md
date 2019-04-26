@@ -3,23 +3,24 @@ title: Gränser, kvoter och tröskelvärden i Azure Scheduler
 description: Läs om gränser, kvoter, standardvärden och begränsa tröskelvärden för Azure Scheduler
 services: scheduler
 ms.service: scheduler
-author: derek1ee
-ms.author: deli
+author: WenJason
+ms.author: v-jay
 ms.reviewer: klam
 ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
-ms.date: 08/18/2016
-ms.openlocfilehash: 0c1e704a3bdec239c87d879ae1ef95e6e76d27fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+origin.date: 08/18/2016
+ms.date: 11/12/2018
+ms.openlocfilehash: 478afb20f3dabec74d66d00bec325408ce6604fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531295"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Gränser, kvoter och tröskelvärden för begränsning i Azure Scheduler
 
 > [!IMPORTANT]
-> [Med Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras. Att schemalägga jobb, [prova Azure Logic Apps i stället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras tillbaka. Om du vill schemalägga jobb kan du [testa Azure Logic Apps istället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 ## <a name="limits-quotas-and-thresholds"></a>Gränser, kvoter och tröskelvärden
 

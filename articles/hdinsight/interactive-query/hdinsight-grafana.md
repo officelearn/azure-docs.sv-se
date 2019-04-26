@@ -1,7 +1,6 @@
 ---
 title: Använda Grafana på Azure HDInsight
 description: Lär dig hur du kommer åt Grafana i Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,11 +8,11 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.openlocfilehash: 495c617f97b2a7f39182b7684c2c0e183c2002b1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60484045"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana åtkomst i Azure HDInsight
 
@@ -109,7 +108,7 @@ När du är klar med artikeln kanske du vill ta bort klustret. Med HDInsight lag
 I den här artikeln beskrivs hur du skapar ett Linux-baserade HDInsight-kluster med en Resource Manager-mall och hur du utför grundläggande Apache Hive-frågor. I nästa artikel får du lära dig hur du utför en extraktions-, transformations- eller inläsningsåtgärd (ETL) med Hadoop på HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrahera, transformera och läsa in data med Apache Hive på HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extrahera, transformera och läsa in data med hjälp av Apache Hive på HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
 
 Om du är redo att börja arbeta med dina egna data och vill veta mer om hur data lagras i HDInsight eller om att hämta data till HDInsight, hittar du mer information i följande artiklar:
 

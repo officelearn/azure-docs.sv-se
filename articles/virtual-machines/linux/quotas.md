@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
 ms.openlocfilehash: b7ec3a6919a27633fc36ba7fb1551ead10e06ffe
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542721"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>VM vCPU-kvoter
+# <a name="virtual-machine-vcpu-quotas"></a>vCPU-kvoter för virtuella datorer
 
 VCPU-kvoter för virtuella datorer och VM-skalningsuppsättningar är ordnade i två nivåer för varje prenumeration i varje region. Den första nivån är det totalt antal regionala virtuella processorer och det andra lagret är de olika virtuella datorns storlek family kärnorna, till exempel vcpu: er för D-serien. Varje gång en ny virtuell dator är distribuerat den virtuella processorer för den virtuella datorn inte får överstiga vCPU-kvoten för VM-storleksfamilj eller totalt antal regionala vCPU-kvoten. Om något av dessa kvoter överskrids får inte VM-distributionen. Det finns också en kvot för det totala antalet virtuella datorer i regionen. Information om vart och ett av dessa kvoter kan ses i den **användning + kvoter** delen av den **prenumeration** sidan i den [Azure-portalen](https://portal.azure.com), eller du kan fråga efter värden med hjälp av Azure CLI.
 

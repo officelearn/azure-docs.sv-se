@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540410"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exempel-guide för Windows-datorer på Azure-infrastrukturen
 Den här artikeln beskriver att bygga ut en exempel-infrastruktur för programmet. Vi förklarar vi utformar en infrastruktur för en enkel onlinebutik som sammanför alla riktlinjer och beslut om namngivningskonventioner, tillgänglighetsuppsättningar, virtuella nätverk och belastningsutjämnare och faktiskt distribuerar dina virtuella datorer (VM).
@@ -72,8 +72,8 @@ Eftersom det virtuella nätverket inte behöver pågående anslutning till det l
 
 De har skapat ett endast molnbaserat virtuellt nätverk med följande inställningar med hjälp av Azure portal:
 
-* Namn: AZOS-användning – VN01
-* Plats: Östra USA 2
+* Namn: AZOS-USE-VN01
+* Plats: USA, östra 2
 * Virtuella nätverkets adressutrymme: 10.0.0.0/8
 * Första undernät:
   * Namn: FrontEnd

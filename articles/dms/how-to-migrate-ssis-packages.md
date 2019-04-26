@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 884af4624c1e92ee765353c90fd189220664381d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532456"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-azure"></a>Migrera SQL Server Integration Services-paket till Azure
 Om du använder SQL Server Integration Services (SSIS) och vill migrera dina SSIS-projekt /-paket från källan SSISDB installation av SQL Server till målet SSISDB med Azure SQL Database-server eller Azure SQL Database Managed Instance, du kan distribuera dem på nytt med hjälp av guiden för användning av Integration Services. Du kan starta guiden från inom SQL Server Management Studio (SSMS).
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 > * Utvärdera källa SSIS-projekt /-paket.
 > * Migrera SSIS-projekt /-paket till Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du behöver följande för att slutföra dessa steg:
 
 - SSMS 17.2 eller senare.

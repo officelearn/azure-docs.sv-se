@@ -9,17 +9,17 @@ ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
 ms.openlocfilehash: 7a887905bcb4b09c1b4ae179116b3f08c75caabd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465571"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 
 Tillsammans med [Kubernetes-tjänstkatalogen][kubernetes-service-catalog] gör Open Service Broker for Azure (OSBA) att utvecklare kan utnyttja Azure-hanterade tjänster i Kubernetes. Den här guiden fokuserar på att distribuera-tjänstkatalogen, Open Service Broker for Azure (OSBA) och program som använder Azure-hanterade tjänster med Kubernetes.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * En Azure-prenumeration
 
 * Azure CLI: [installera det lokalt][azure-cli-install] eller använd det i [Azure Cloud Shell][azure-cloud-shell].
@@ -160,7 +160,7 @@ Ange nu de tillgängliga tjänstklasserna. Tjänstklasserna som visas är de til
 ./svcat get classes
 ```
 
-Slutligen listar du alla tillgängliga serviceplaner. Serviceplaner är servicenivåer för Azure-hanterade tjänster. Till exempel sträcker sig planerna för Azure Database for MySQL från `basic50` för Basic-nivån med 50 Database Transaction Units (DTU:er) till `standard800` för Standard-nivån med 800 DTU:er.
+Slutligen listar du alla tillgängliga serviceplaner. Serviceplaner är tjänstnivåer för Azure-hanterade tjänster. Till exempel sträcker sig planerna för Azure Database for MySQL från `basic50` för Basic-nivån med 50 Database Transaction Units (DTU:er) till `standard800` för Standard-nivån med 800 DTU:er.
 
 ```azurecli-interactive
 ./svcat get plans

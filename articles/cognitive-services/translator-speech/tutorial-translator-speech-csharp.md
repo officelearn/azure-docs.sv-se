@@ -12,11 +12,11 @@ ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537044"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Självstudier: Translator Speech-program i C#
 
@@ -32,7 +32,7 @@ Den här självstudien är en genomgång av ett interaktivt talöversättningsve
 
 En Visual Studio-lösningsfil för det här programmet [finns på GitHub](https://github.com/MicrosoftTranslator/SpeechTranslator).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För den här kursen behöver du valfri utgåva av Visual Studio 2017 (detta innefattar även Community Edition).
 

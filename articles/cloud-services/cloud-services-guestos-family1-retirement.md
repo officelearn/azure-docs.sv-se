@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: d6429766b6aac547fd99279659acb1067298e77c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518957"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Gäst-OS-familjen 1 tillbakadragande meddelande
 Tillbakadragning av OS-familjen 1 först lanserades på den 1 juni 2013.
@@ -37,7 +37,7 @@ Cloud Services berörs om något av följande gäller:
 2. Du har inte ett värde för osFamily som uttryckligen anges i filen ServiceConfiguration.cscfg för din molntjänst. För närvarande används standardvärdet ”1” i det här fallet.
 3. Azure-portalen visas ditt family gästoperativsystemet-värde som ”Windows Server 2008”.
 
-För att hitta vilka av dina molntjänster kör vilka OS-familj, du kan köra följande skript i Azure PowerShell, även om du måste [konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) första. Mer information om skriptet finns i [Azure Guest OS-familjen 1 slutet av liv: juni 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+För att hitta vilka av dina molntjänster kör vilka OS-familj, du kan köra följande skript i Azure PowerShell, även om du måste [konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) första. Mer information om skriptet finns i [Azure Guest OS-familjen 1 slutet av liv: Juni 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

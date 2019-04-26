@@ -8,11 +8,11 @@ ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
 ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465775"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Självstudier: Distribuera från GitHub till Azure Kubernetes Service (AKS) med Jenkins kontinuerlig integrering och distribution
 
@@ -27,7 +27,7 @@ I den här självstudien får du utföra följande uppgifter:
 > * Skapa en Jenkins-byggjobb och GitHub-webbhook för automatiserade versioner.
 > * Testa CI/CD-pipeline för att uppdatera ett program i AKS baserat på GitHub-incheckningar kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du följande objekt:
 

@@ -10,11 +10,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.openlocfilehash: b463946402eee40d0de0942eeaf37a6f9ea59990
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083070"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60510061"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Utveckla U-SQL-skript med hjälp av Data Lake Tools för Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -37,7 +37,7 @@ Den här artikeln beskriver hur du använder Visual Studio för att skapa Azure 
 >    - [För Visual Studio 2013 och 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Visual Studio**: Alla utgåvor utom Express stöds.
     * Visual Studio 2017

@@ -12,11 +12,11 @@ ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60510799"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure-portalen
 
@@ -42,7 +42,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
 
    ![Tillhandahålla information om logikappar](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Egenskap | Värde | Beskrivning | 
+   | Egenskap  | Värde | Beskrivning | 
    |----------|-------|-------------| 
    | **Namn** | MyFirstLogicApp | Logikappens namn | 
    | **Prenumeration** | <*your-Azure-subscription-name*> | Azure-prenumerationens namn | 
@@ -69,7 +69,7 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Konfigurera utlösare med RSS-flöde, frekvens och intervall](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | Egenskap | Värde | Beskrivning | 
+   | Egenskap  | Värde | Beskrivning | 
    |----------|-------|-------------| 
    | **RSS-feedens webbadress** | ```http://feeds.reuters.com/reuters/topNews``` | Länken till det RSS-flöde som du vill övervaka | 
    | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna | 
@@ -136,7 +136,7 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
 
       ![Lägg till innehåll för e-postmeddelandets brödtext](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | Egenskap | Beskrivning | 
+      | Egenskap  | Beskrivning | 
       |----------|-------------| 
       | **Flödesrubrik** | Objektets rubrik | 
       | **Flödet publicerat den** | Objektets publiceringsdatum och -tid | 

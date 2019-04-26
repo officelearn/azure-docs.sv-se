@@ -5,14 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
+origin.date: 03/26/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60484889"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight virtuella nätverksarkitekturen
 
@@ -53,7 +54,7 @@ I följande nätverksresurser finns skapas automatiskt i det virtuella nätverke
 
 | Nätverk-resurs | Antal finns | Information |
 | --- | --- | --- |
-|Load Balancer | tre | |
+|Lastbalanserare | tre | |
 |Nätverksgränssnitt | nio | Det här värdet är baserad på en normal kluster, där varje nod har sin egen nätverksgränssnitt. De nio gränssnitt är för två huvudnoder, tre zookeeper-noder, två arbetarnoder och två gateway-noder som nämns i föregående tabell. |
 |Offentliga IP-adresser | två |    |
 

@@ -2,25 +2,32 @@
 title: Java-användardefinierade funktion (UDF med Apache Hive i HDInsight - Azure)
 description: Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som fungerar med Apache Hive. Det här exemplet UDF konverterar en tabell med textsträngar till gemener.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
+ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 03/21/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537640"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Använda en Java UDF med Apache Hive i HDInsight
 
 Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som fungerar med Apache Hive. Java-UDF i det här exemplet konverterar en tabell med textsträngar till alla gemena tecken.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
@@ -194,13 +201,13 @@ I nedanstående kommandon ersätter `sshuser` med faktiska användarnamn om det 
 2. Använd den `scp` kommando för att kopiera filen till HDInsight-kluster genom att ange följande kommando:
 
     ```cmd
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight
     ```
 
 3. Anslut till klustret med SSH genom att ange följande kommando:
 
     ```cmd
-    ssh sshuser@mycluster-ssh.azurehdinsight.net
+    ssh sshuser@mycluster-ssh.azurehdinsight.cn
     ```
 
 4. Kopiera jar-filen till HDInsight storage från öppna SSH-sessionen.

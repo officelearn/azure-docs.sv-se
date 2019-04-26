@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
 ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543214"
 ---
 # <a name="service-fabric-terminology-overview"></a>Översikt över Service Fabric-terminologi
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Du kan [Service Fabric-värdkluster som helst](service-fabric-deploy-anywhere.md): Azure i ett lokalt datacenter eller på någon annan molnleverantör.  Service Fabric är orchestrator som driver [Azure Service Fabric nät](/azure/service-fabric-mesh). Du kan använda valfritt ramverk för att skriva dina tjänster och välj var du vill köra programmet från miljön välja mellan flera alternativ. Den här artikeln beskriver de termer som används av Service Fabric för att förstå de termer som används i dokumentationen.

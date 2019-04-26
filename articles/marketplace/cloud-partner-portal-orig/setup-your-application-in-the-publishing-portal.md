@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483238"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Konfigurera programmet i Publiceringsportalen
 
@@ -106,7 +106,7 @@ Det här är den beskrivning som visas på sidan med information om appen. Högs
 
 Välj bransch som din app är bäst anpassad efter. Om din app har kopplat till flera branscher, du kan lämna det tomt.
 
-### <a name="categories"></a>Kategorier
+### <a name="categories"></a>Categories
 
 Välj kategorier som är relevanta för din app. Välj högst 3.
 

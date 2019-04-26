@@ -12,11 +12,11 @@ ms.date: 3/5/2018
 ms.author: v-jaswel
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: b9cf9a5e60ff5f66a3956170b4f5fb41d4b6d66c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537504"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Snabbstart: Translator Speech API med Java
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ ms.locfileid: "57551049"
 
 Den här artikeln visar hur du använder Translator Speech API för att översätta ord som sägs i en WAV-fil.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver [JDK 7 eller 8](https://aka.ms/azure-jdks) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
 

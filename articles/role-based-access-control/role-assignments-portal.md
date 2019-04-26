@@ -15,17 +15,17 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533008"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure portal
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst med hjälp av Azure-portalen. Om du behöver hantera åtkomst till Azure Active Directory finns i [visa och tilldela administratörsroller i Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst med hjälp av Azure-portalen. Om du behöver hantera åtkomst till Azure Active Directory finns i [visa och tilldela administratörsroller i Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill lägga till och ta bort rolltilldelningar, måste du ha:
 
@@ -137,7 +137,7 @@ I RBAC, om du vill bevilja åtkomst måste tilldela du en roll till en användar
 
 1. Klicka på den **rolltilldelningar** fliken för att visa alla rolltilldelningar i det här omfånget.
 
-1. Klicka på **Lägg till** > **Lägg till rolltilldelning** att öppna fönstret Lägg till rollen tilldelning.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönsterrutan Lägg till rolltilldelning.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
@@ -165,7 +165,7 @@ Om du vill göra en administratör för en Azure-prenumeration för en användar
 
 1. Klicka på den **rolltilldelningar** fliken för att visa alla rolltilldelningar för den här prenumerationen.
 
-1. Klicka på **Lägg till** > **Lägg till rolltilldelning** att öppna fönstret Lägg till rollen tilldelning.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönsterrutan Lägg till rolltilldelning.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
@@ -193,11 +193,11 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Följ dessa 
 
    ![Ta bort rolltilldelningsmeddelande](./media/role-assignments-portal/remove-role-assignment-select.png)
 
-1. Klicka på **ta bort**.
+1. Klicka på **Ta bort**.
 
    ![Ta bort rolltilldelningsmeddelande](./media/role-assignments-portal/remove-role-assignment.png)
 
-1. Ta bort rollen tilldelningsmeddelandet som visas, klicka på **Ja**.
+1. I meddelandet om att ta bort rolltilldelningen klickar du på **Ja**.
 
     Ärvda tilldelningar kan inte tas bort. Om du behöver ta bort en ärvd tilldelning så måste du göra det i samma omfång som där rolltilldelningen skapades. I den **omfång** kolumn, bredvid **(ärvt)** det finns en länk som leder till området där den här rollen har tilldelats. Gå till omfånget som visas där om du vill ta bort rolltilldelningen.
 
@@ -205,7 +205,7 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Följ dessa 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudier: Ge en användaråtkomst till Azure-resurser med RBAC och Azure portal](quickstart-assign-role-user-portal.md)
-* [Självstudier: Ge en användaråtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Självstudie: Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure-portalen](quickstart-assign-role-user-portal.md)
+* [Självstudie: Ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [Felsöka RBAC för Azure-resurser](troubleshooting.md)
-* [Organisera dina resurser med Azure-hanteringsgrupper](../governance/management-groups/index.md)
+* [Ordna resurser med hanteringsgrupper i Azure](../governance/management-groups/index.md)

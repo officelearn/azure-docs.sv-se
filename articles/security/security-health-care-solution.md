@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 060c176b97966816d421ddbe0d8017ad8558710a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 05a7c52dca420f97252c68445398fb3959be8804
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445710"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>En praktisk guide till design av säkra hälsovård lösningar i Azure
 Hälsotillstånd bransch nystartade företag, systemintegratörer (SI), oberoende programvaruleverantörer (ISV) och vårdorganisationer överväger en övergång till Azure söker vägledning som hjälper dem att införliva säkerhetskontroller för att uppfylla skyldigheterna efterlevnad.

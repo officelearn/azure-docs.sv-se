@@ -15,11 +15,11 @@ ms.date: 01/14/2019
 ms.author: mbaldwin
 ms.custom: seodec18
 ms.openlocfilehash: 4af2db5af49e1fc70ee46f4fc4c953731daedf0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445761"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Snabbstart: Kryptera en virtuell Windows IaaS-dator med Azure PowerShell
 
@@ -27,7 +27,7 @@ Med Azure Disk Encryption kan du kryptera IaaS-diskar för virtuella Windows- oc
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

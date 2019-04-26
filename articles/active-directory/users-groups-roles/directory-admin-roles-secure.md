@@ -15,11 +15,11 @@ ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 81d09978c3333a5b76c09f8c7dac85998d342f03
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287238"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472902"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -387,7 +387,7 @@ Bestäm om du behöver [överföra ägarskap för en Azure-prenumeration till et
 
 Läs mer om hur Microsoft Office 365 hanterar säkerhetsincidenter [Security Incident Management i Microsoft Office 365](https://aka.ms/Office365SIM).
 
-## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>VANLIGA FRÅGOR OCH SVAR: Vanliga frågor rörande att säkra privilegierad åtkomst  
+## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>Vanliga frågor och svar: Vanliga frågor rörande att säkra privilegierad åtkomst  
 
 **F:** Vad gör jag om jag inte har implementerats ännu alla komponenter för säker åtkomst?
 

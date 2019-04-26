@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466217"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Självstudier: Kopiera data till Azure Data Box via SMB
 
@@ -22,12 +22,12 @@ I den här självstudien beskrivs hur du ansluter till och kopierar data från v
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Nödvändiga komponenter
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att:
 
@@ -215,7 +215,7 @@ För att säkerställa dataintegriteten beräknas kontrollsumman infogat när da
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Nödvändiga komponenter
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 

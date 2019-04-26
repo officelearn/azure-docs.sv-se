@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
 ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457094"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Felsöka punkt-till-plats-VPN-anslutningar från VPN för Mac OS X-klienter
 
@@ -63,7 +63,7 @@ Den här artikeln hjälper dig att felsöka problem med punkt-till-plats-anslutn
 
 Om du försöker de föregående stegen och allt är korrekt konfigurerad, kan du ladda ned [Wireshark](https://www.wireshark.org/#download) och utföra ett infångat paket.
 
-1. Filtrera på *isakmp* och titta på den **IKE_SA** paket. Du bör kunna titta på informationen för SA-förslag under den **nyttolast: säkerhetsassociation**. 
+1. Filtrera på *isakmp* och titta på den **IKE_SA** paket. Du bör kunna titta på informationen för SA-förslag under den **nyttolast: Säkerhetsassociation**. 
 2. Kontrollera att klienten och servern har en gemensam uppsättning.
 
    ![paket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 

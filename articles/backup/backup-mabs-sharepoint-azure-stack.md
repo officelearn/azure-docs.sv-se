@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
 ms.openlocfilehash: a52f42fb194d2f39861a57c95a664ad57b4f91d1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60500963"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Säkerhetskopiera en SharePoint-servergrupp på Azure Stack
 Du säkerhetskopiera en SharePoint-grupp i Azure Stack till Microsoft Azure med hjälp av Microsoft Azure Backup Server (MABS) på samma sätt som du säkerhetskopiera andra datakällor. Azure Backup erbjuder flexibilitet i schemat för säkerhetskopiering så att dagligen, varje vecka, månad eller årlig säkerhetskopiering pekar och ger dig alternativ för kvarhållning för olika säkerhetskopieringspunkter. Den omfattar också möjligheten att lagra kopior av lokal disk för snabb återställning-återställningstiden (RTO) och för att lagra kopior till Azure för mer ekonomiskt, långsiktig kvarhållning.
@@ -28,7 +28,7 @@ Azure Backup för MABS har stöd för följande scenarier:
 ## <a name="before-you-start"></a>Innan du börjar
 Det finns några saker du behöver för att bekräfta innan du säkerhetskopierar en SharePoint-servergrupp till Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du fortsätter måste du se till att du har [installerad och förberedd Azure Backup Server](backup-mabs-install-azure-stack.md) att skydda arbetsbelastningar.
 
 ### <a name="protection-agent"></a>Skyddsagent

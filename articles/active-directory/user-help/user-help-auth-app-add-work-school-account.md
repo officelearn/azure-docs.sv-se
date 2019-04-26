@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473879"
 ---
 # <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets- eller skolkonto
 Om din organisation använder två faktorer verifiering, kan du ställa in ditt arbets- eller skolkonto konto att använda Microsoft Authenticator-appen som en av verifieringsmetoderna.

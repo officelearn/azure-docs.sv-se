@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544826"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduktion till Fault Analysis Service
 Fault Analysis Service har utformats för att testa tjänster som bygger på Microsoft Azure Service Fabric. Med Fault Analysis Service du medföra meningsfulla fel och köra fullständig testscenarier mot dina program. Dessa fel och scenarier utöva och validera ett stort antal tillstånd och övergångar som en tjänst får under hela dess livslängd i en kontrollerad, säker och konsekvent sätt.

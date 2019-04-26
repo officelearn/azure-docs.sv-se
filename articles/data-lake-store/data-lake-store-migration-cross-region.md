@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518465"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrera Azure Data Lake Storage Gen1 över regioner
 
 Eftersom Azure Data Lake Storage Gen1 blir tillgängligt i nya regioner kan du välja att göra ett tillfälle för att kunna utnyttja det nya området. Lär dig vad du ska tänka på när du planerar och slutföra migreringen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **En Azure-prenumeration**. Mer information finns i [skapa ditt kostnadsfria Azure-konto i dag](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Data Lake Storage Gen1 konto i två olika regioner**. Mer information finns i [Kom igång med Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).

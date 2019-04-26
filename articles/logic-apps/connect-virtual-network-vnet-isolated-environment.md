@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60511092"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
@@ -115,7 +115,7 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
    ![Ange information om miljön](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Egenskap | Krävs | Value | Beskrivning |
+   | Egenskap  | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumeration för din miljö |
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Azure-resursgrupp där du vill skapa en miljö |

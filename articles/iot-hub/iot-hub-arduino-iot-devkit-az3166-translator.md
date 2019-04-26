@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
 ms.openlocfilehash: df7e7b426a8c85c8051d7f588c706a6f8811e183
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085753"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518911"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Använda IoT DevKit AZ3166 med Azure Functions och Cognitive Services för att göra en språköversättaren
 

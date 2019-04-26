@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502117"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Machine learning och data science-verktyg
 Azure virtuella datorer för datavetenskap har en omfattande uppsättning verktyg och bibliotek för machine learning (ML) tillgänglig för populära språk, till exempel Python, R och Julia. 

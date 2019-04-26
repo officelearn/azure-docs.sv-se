@@ -15,11 +15,11 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473811"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Möjliga orsaker till felmeddelandet ”du kan inte ta dig dit härifrån”
 Vid åtkomst till organisationens interna webbprogram eller tjänster, kan du få ett felmeddelande som säger, **du kan inte ta dig dit härifrån**. Det här meddelandet innebär att din organisation har infört en princip som förhindrar enheten från att komma åt din organisations resurser. Medan du kan få behöva kontakta din supportavdelning för att åtgärda problemet, är här några saker som du kan försöka först.

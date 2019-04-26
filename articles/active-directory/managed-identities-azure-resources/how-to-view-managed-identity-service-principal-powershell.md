@@ -16,11 +16,11 @@ ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5aa5ab96ae85833e59ed40161cafcc1eb88379be
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485806"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441788"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Visa tjänstens huvudnamn för en hanterad identitet med hjälp av PowerShell
 
@@ -30,7 +30,7 @@ I den här artikeln får lära du att visa tjänstens huvudnamn för en hanterad
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md).
 - Om du inte redan har ett Azure-konto, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).

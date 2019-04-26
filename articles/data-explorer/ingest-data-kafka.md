@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047117"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445638"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Snabbstart: Mata in data från Kafka i Azure Data Explorer
  
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Version
+#### <a name="build"></a>Utveckla
 
 Skapa lokalt med Maven för att bilda en `.jar` komplett med beroenden.
 

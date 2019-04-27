@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267154"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337484"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domännamn för en Azure cloud Services
 När du skapar en tjänst i molnet, Azure tilldelar den till en underdomän till **cloudapp.net**. Exempel: om din molntjänst heter ”contoso”, användarna kommer att kunna komma åt ditt program på en URL liknande http://contoso.cloudapp.net. Azure tilldelar också en virtuell IP-adress.

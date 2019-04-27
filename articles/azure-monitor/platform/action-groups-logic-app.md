@@ -9,11 +9,11 @@ ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121136"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60235134"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hur du utlöser komplexa åtgärder med Azure Monitor-aviseringar
 
@@ -281,11 +281,11 @@ Processen för att skapa en måttavisering liknar [skapar en aktivitetsloggavise
        
        ![”Metrisk varning nyttolast villkoret”](media/action-groups-logic-app/metric-alert-payload-condition.png "metrisk varning nyttolast villkor")
 
-  1. I den **om värdet är true** villkoret, lägga till en **för varje** loop och Microsoft Teams-åtgärd. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll.
+  2. I den **om värdet är true** villkoret, lägga till en **för varje** loop och Microsoft Teams-åtgärd. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll.
 
       ![”Åtgärd metrisk varning sant villkor efter”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "åtgärd för metrisk varning sant villkor efter")
 
-  1. I den **om falskt** villkoret, definiera en Microsoft Teams-åtgärd för att kommunicera att metrisk varning inte matchar kraven för logikappen. Innehåller JSON-nyttolast. Lägg märke till hur du refererar till den `triggerBody` dynamiskt innehåll i den `json()` uttryck.
+  3. I den **om falskt** villkoret, definiera en Microsoft Teams-åtgärd för att kommunicera att metrisk varning inte matchar kraven för logikappen. Innehåller JSON-nyttolast. Lägg märke till hur du refererar till den `triggerBody` dynamiskt innehåll i den `json()` uttryck.
 
       ![”Åtgärd metrisk varning falskt villkor efter”](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "åtgärd för metrisk varning falskt villkor efter")
 
@@ -298,4 +298,3 @@ Logic Apps har ett antal olika anslutningar som gör det möjligt att utlösarå
 * Hämta en [översikt över Azure aktivitetsloggaviseringar](../../azure-monitor/platform/alerts-overview.md) och lär dig hur du får aviseringar.  
 * Lär dig hur du [konfigurera aviseringar när ett meddelande om Azure Service Health publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Läs mer om [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).
-

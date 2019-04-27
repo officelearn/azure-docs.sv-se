@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
 ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60235990"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Datakällor i Azure Monitor
 Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](data-platform.md) mer information om hur dessa data lagras och hur du kan visa den.

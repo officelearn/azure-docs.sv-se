@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: I den här snabbstarten får du lära dig hur du skapar ett virtuellt nätverk med hjälp av Azure Portal. Med ett virtuellt nätverk kan Azure-resurser, till exempel virtuella datorer, kommunicera privat med varandra och med Internet.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391417"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Snabbstart: Skapa ett virtuellt nätverk med Azure Portal
 
@@ -29,7 +29,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -43,7 +43,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Plats | Välj **USA, östra**.|
+    | Location | Välj **USA, östra**.|
     | Undernät – namn | Ange *myVirtualSubnet*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
 
@@ -68,7 +68,7 @@ Skapa två virtuella datorer i det virtuella nätverket:
     | Namn på virtuell dator | Ange *myVm1*. |
     | Region | Välj **USA, östra**. |
     | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
-    | Bild | Lämna kvar standardinställningen **Windows Server 2016 Datacenter**. |
+    | Image | Lämna kvar standardinställningen **Windows Server 2016 Datacenter**. |
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett valfritt användarnamn. |

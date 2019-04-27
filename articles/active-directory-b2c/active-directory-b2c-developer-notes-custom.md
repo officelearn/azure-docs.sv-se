@@ -3,7 +3,7 @@ title: Kommentarer för utvecklare för anpassade principer – Azure Active Dir
 description: Information för utvecklare på Konfigurera och underhålla Azure AD B2C med anpassade principer.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 03/18/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: cf9c6f6a54c38f00e477e2a9d62e72ab5faccdef
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317980"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Kommentarer för utvecklare för anpassade principer i Azure Active Directory B2C
 

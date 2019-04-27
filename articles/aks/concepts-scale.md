@@ -2,17 +2,18 @@
 title: Begrepp - skala program i Azure Kubernetes Services (AKS)
 description: Mer information om skalning i Azure Kubernetes Service (AKS), inklusive vågrät pod autoskalningen, kluster autoskalningen och Azure Container Instances-anslutningen.
 services: container-service
-author: zr-msft
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.author: zarhoads
+origin.date: 02/28/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466976"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalningsalternativ för program i Azure Kubernetes Service (AKS)
 

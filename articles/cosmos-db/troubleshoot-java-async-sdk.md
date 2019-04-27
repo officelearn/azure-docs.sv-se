@@ -10,11 +10,11 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404687"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Felsöka problem när du använder Async Java-SDK med Azure Cosmos DB SQL API-konton
 Den här artikeln beskriver vanliga problem, lösningar, diagnos och verktyg när du använder den [Java Async SDK](sql-api-sdk-async-java.md) med Azure Cosmos DB SQL API-konton.

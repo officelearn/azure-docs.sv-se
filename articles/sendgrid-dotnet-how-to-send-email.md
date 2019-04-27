@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444916"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Hur du skickar e-post med SendGrid med Azure
 ## <a name="overview"></a>Översikt
@@ -71,7 +71,7 @@ Lägg till följande kod namnrymdsdeklarationer överst till en C#-fil som du vi
     using SendGrid;
     using SendGrid.Helpers.Mail;
 
-## <a name="how-to-create-an-email"></a>Så här: skapa ett e-postmeddelande
+## <a name="how-to-create-an-email"></a>Anvisningar: Skapa ett e-postmeddelande
 Använd den **SendGridMessage** objektet för att skapa ett e-postmeddelande. När meddelandeobjektet har skapats kan ange du egenskaper och metoder, bland annat e-postavsändaren, e-postmottagare, ämne och brödtext.
 
 I följande exempel visar hur du skapar ett fullständigt fylls i automatiskt e-post-objekt:
@@ -95,7 +95,7 @@ I följande exempel visar hur du skapar ett fullständigt fylls i automatiskt e-
 
 Mer information om alla egenskaper och metoder som stöds av den **SendGrid** skriver, se [sendgrid-csharp] [ sendgrid-csharp] på GitHub.
 
-## <a name="how-to-send-an-email"></a>Så här: skicka ett e-postmeddelande
+## <a name="how-to-send-an-email"></a>Anvisningar: Skicka ett e-postmeddelande
 När du har skapat ett e-postmeddelande, kan du skicka den med hjälp av SendGrid-API. Du kan också använda [. NETS inbyggda biblioteket][NET-library].
 
 Skicka e-post måste du ange din SendGrid API-nyckel. Om du behöver information om hur du konfigurerar API-nycklar kan du besöka SendGrid-API-nycklar [dokumentation][documentation].
@@ -142,7 +142,7 @@ I följande exempel visas hur du skickar ett e-postmeddelande med SendGrid webb-
         }
     }
     
-## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Så här: skicka e-post från ASP .NET Core API med hjälp av MailHelper-klass
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Anvisningar: Skicka e-post från ASP .NET Core API med hjälp av MailHelper-klass
 
 I exemplet nedan kan användas för att skicka ett enda e-postmeddelande till flera personer från ASP .NET Core API med hjälp av den `MailHelper` klass av `SendGrid.Helpers.Mail` namnområde. I det här exemplet använder vi ASP .NET Core 1.0. 
 
@@ -218,7 +218,7 @@ På domänkontrollanten efter att infoga den `IConfiguration` gränssnitt, som v
        }
     }
     
-## <a name="how-to-add-an-attachment"></a>Så här: Lägg till en bifogad fil
+## <a name="how-to-add-an-attachment"></a>Anvisningar: Lägg till en bifogad fil
 Bifogade filer som kan läggas till ett meddelande genom att anropa den **AddAttachment** metod och minimalt ange filnamnet och Base64-kodat innehåll du vill bifoga. Du kan innehålla flera bifogade filer genom att anropa den här metoden när du vill bifoga för varje fil eller med hjälp av den **AddAttachments** metod. I följande exempel visar att lägga till en bifogad fil till ett meddelande:
 
     var banner2 = new Attachment()
@@ -231,7 +231,7 @@ Bifogade filer som kan läggas till ett meddelande genom att anropa den **AddAtt
     };
     msg.AddAttachment(banner2);
 
-## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Så här: använda e-postinställningar för att aktivera sidfötter, spårning och analys
+## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Anvisningar: Använd e-postinställningar för att aktivera sidfötter, spårning och analys
 SendGrid ger ytterligare e-funktioner genom att använda postinställningar för e-och spårning. De här inställningarna kan läggas till e-postmeddelandet att aktivera vissa funktioner, till exempel klickspårning, Google analytics, prenumeration, spårnings- och så vidare. En fullständig lista över appar, finns det [inställningar dokumentation][settings-documentation].
 
 Appar kan tillämpas på **SendGrid** e-postmeddelanden med hjälp av metoder som införts som en del av den **SendGridMessage** klass. I följande exempel visar sidfoten och klickar på Spåra filter:
@@ -247,7 +247,7 @@ I följande exempel visar sidfoten och klickar på Spåra filter:
 ### <a name="click-tracking"></a>Klickspårning
     msg.SetClickTracking(true);
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Så här: använda ytterligare SendGrid-tjänster
+## <a name="how-to-use-additional-sendgrid-services"></a>Anvisningar: Använda ytterligare SendGrid-tjänster
 SendGrid erbjuder flera API: er och webhooks som du kan använda för att utnyttja ytterligare funktioner i ditt Azure-program. Mer information finns i den [SendGrid API-referens][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Nästa steg

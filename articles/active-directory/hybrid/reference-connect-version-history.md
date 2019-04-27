@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387221"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -31,7 +31,7 @@ Den här artikeln är utformad för att hålla reda på de versioner som har lan
 
 Den här tabellen är en lista över närliggande ämnen:
 
-Ämne |  Information
+Avsnitt |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgradera från en tidigare version till senast](how-to-upgrade-previous-version.md) Azure AD Connect-versionen.
 Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
@@ -47,7 +47,7 @@ Inte alla versioner av Azure AD Connect kommer att göras tillgängliga för aut
 
 ### <a name="release-status"></a>Versionsstatus 
 
-3/25/2019: Väntar
+3/25/2019: Väntande åtgärder
  
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
 
@@ -387,7 +387,7 @@ Låsa åtkomsten till AD DS-kontot genom att implementera följande behörighets
 *   Ta bort alla åtkomstkontrollposter på specifika objekt, utom åtkomstkontrollposter som är specifika för SJÄLVBETJÄNINGSPORTALEN. Vi vill hålla standardbehörigheterna intakt när det gäller att själv.
 *   Tilldela specifika behörigheter:
 
-Typ     | Namn                          | Åtkomst               | Gäller
+Typ     | Namn                          | Access               | Gäller
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |
@@ -412,7 +412,7 @@ Du använder PowerShell-skript för att tillämpa de här inställningarna till 
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Där 
+Var 
 
 **$ObjectDN** = Active Directory-konto vars behörigheter måste höjas.
 
@@ -731,7 +731,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Välj|
-    |CertKeyAlgorithmParams|CertHashString|Där|
+    |CertKeyAlgorithmParams|CertHashString|Var|
     |||Med|
 
 * Följande schemaändringar har införts för att kunder kan skapa anpassade Synkroniseringsregler för att flöda sAMAccountName, domainNetBios och domainFQDN för grupp-objekt, samt distinguishedName för objekt:
@@ -894,7 +894,7 @@ Direktautentisering
 * Ett problem som gör att Azure AD Connect-guiden att misslyckas om skicka via autentisering har valts men registreringen av dess anslutningen misslyckas har åtgärdats.
 * Ett problem som orsakar Azure AD Connect-guiden för att kringgå verifiering kontrollerar på inloggningsmetod valt när skrivbords-SSO-funktionen är aktiverad har åtgärdats.
 
-Återställning av lösenord
+Lösenordsåterställning
 * Ett problem som kan orsaka Azure AAD Connect-servern för att försöka ansluta igen om anslutningen avbröts av en brandvägg eller proxyserver inte har åtgärdats.
 
 **Nya funktioner/förbättringar:**
@@ -909,7 +909,7 @@ AD FS-hantering
 * Du kan nu ange befintliga gMSA (Grupphanterat tjänstkonto) under installationen av AD FS.
 * Du kan nu konfigurera SHA-256 som signaturens hashalgoritm för Azure AD-förtroende för förlitande part.
 
-Återställning av lösenord
+Lösenordsåterställning
 * Introducerade förbättringar så att produkten ska fungera i miljöer med strängare brandväggsregler.
 * Förbättrad anslutning tillförlitlighet till Azure Service Bus.
 

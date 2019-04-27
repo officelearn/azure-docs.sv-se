@@ -16,11 +16,11 @@ ms.workload: media
 ms.date: 10/15/2018
 ms.author: juliako
 ms.openlocfilehash: d4592c93cb7969c45a107d7365a1b9dabf11f412
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326537"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Skapa och övervaka Media Services-händelser med Event Grid med Azure portal
 
@@ -30,7 +30,7 @@ I den här artikeln använder du Azure-portalen för att prenumerera på händel
 
 När du är klar kan se du att händelsedata som har skickats till webbappen.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 * Ha en aktiv Azure-prenumeration.
 * Skapa ett nytt Azure Media Services-konto, som beskrivs i [den här snabbstarten](create-account-cli-quickstart.md).

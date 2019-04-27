@@ -3,7 +3,8 @@ title: Azure Virtual Network | Microsoft Docs
 description: Läs mer om Azure Virtual Network-koncept och -funktioner.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 tags: azure-resource-manager
 Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
@@ -12,13 +13,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 9fb6aa0c2bf585862f61d7c78bd09b340ff8a3ce
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640352"
 ---
 # <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
 
@@ -45,7 +46,7 @@ Alla resurser i ett virtuellt nätverk kan som standard kommunicera utgående ti
 Azure-resurser kommunicerar säkert med varandra på något av följande sätt:
 
 - **Via ett virtuellt nätverk**: Du kan distribuera virtuella datorer och flera andra typer av Azure-resurser till ett virtuellt nätverk, som Azure App Service-miljöer, AKS (Azure Kubernetes Service) och Azure Virtual Machine Scale Sets. En fullständig lista över Azure-resurser som du kan distribuera till ett virtuellt nätverk finns i [Tjänstintegration för virtuella nätverk](virtual-network-for-azure-services.md). 
-- **Via en tjänstslutpunkt för virtuella nätverk**: Utöka det privata adressutrymmet för det virtuella nätverket och identiteten för det virtuella nätverket till Azure-tjänstresurser, till exempel Azure Storage-konton och Azure SQL-databaser, via en direkt anslutning. Med tjänstslutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast ett virtuellt nätverk. Läs mer i [Översikt över tjänstslutpunkter för virtuella nätverk](virtual-network-service-endpoints-overview.md).
+- **Via en tjänstslutpunkt för virtuellt nätverk**: Utöka det privata adressutrymmet för det virtuella nätverket och identiteten för det virtuella nätverket till Azure-tjänstresurser, till exempel Azure Storage-konton och Azure SQL-databaser, via en direkt anslutning. Med tjänstslutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast ett virtuellt nätverk. Läs mer i [Översikt över tjänstslutpunkter för virtuella nätverk](virtual-network-service-endpoints-overview.md).
  
 ## <a name="communicate-with-on-premises-resources"></a>Kommunicera med lokala resurser
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
 ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597849"
 ---
 # <a name="application-architecture-on-azure"></a>Programarkitektur på Azure
 Om du vill att skydda din molnbaserade lösningar på Microsoft Azure, utgör arkitektoniska grundläggande är viktigt. Arkitekter, designers och implementerare dra nytta av stora kunskaper om arkitektur för program och tjänster. Den här grundläggande kunskapen hjälper dig att förstå alla komponenter i dina molnbaserade lösningar och gör det lättare att integrera säkerhet i alla aspekter av din design och implementering.

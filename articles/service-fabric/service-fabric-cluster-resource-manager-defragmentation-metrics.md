@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844409"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentering av mått och belastningen i Service Fabric
 Den Service Fabric Cluster Resource Manager standardstrategi för att hantera inläsningsmåtten i klustret är att fördela belastningen. Se till att noder används jämnt undviker heta och kalla vinklar som leder till både konkurrens och oanvänt resurser. Distribuera arbetsbelastningar i klustret är också den säkraste när det gäller kvarvarande fel eftersom det garanterar att ett fel inte ta ut en stor del av en viss arbetsbelastning. 

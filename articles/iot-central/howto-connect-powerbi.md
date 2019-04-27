@@ -8,11 +8,11 @@ ms.author: viviali
 ms.date: 02/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 322be1e13662d92a3cb0a805a9ccaacd05928f7d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60886816"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualisera och analysera dina Azure IoT Central-data i en Power BI-instrumentpanel
 
@@ -31,7 +31,7 @@ Den här lösningen konfigurerar pipelinen som hämtar data i Azure Blob storage
 
 ## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Hämta den [Power BI-lösning för Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate) från Microsoft AppSource.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Installerar lösningen kräver följande:
 - Åtkomst till en Azure-prenumeration
 - Exporterade data med hjälp av [löpande Export av Data](howto-export-data.md) från din IoT Central-app. Vi rekommenderar att du aktiverar mått, enheter och enheten mall-strömmarna för att få ut mest av Power BI-instrumentpanelen.

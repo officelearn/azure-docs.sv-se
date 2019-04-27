@@ -11,11 +11,11 @@ ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
 ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840451"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819721"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Kör säkert experiment och inferensjobb i Azure-nätverk
 
@@ -23,7 +23,7 @@ I den här artikeln lär du dig att köra dina experiment och inferensjobb i ett
 
 Azure Machine Learning-tjänsten är beroende av andra Azure-tjänster för compute-resurser. Beräkningsresurser (beräkningsmål) används för att träna och distribuera modeller. Dessa beräkningsalternativ mål kan skapas i ett virtuellt nätverk. Du kan till exempel använda Microsoft Data Science Virtual Machine för att träna en modell och distribuerar sedan modellen till Azure Kubernetes Service (AKS). Mer information om virtuella nätverk finns i den [översikt över Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det här dokumentet förutsätter att du är bekant med virtuella Azure-nätverk och IP-nätverk i allmänhet. Det här dokumentet förutsätter också att du har skapat ett virtuellt nätverk och undernät som ska användas med dina beräkningsresurser. Om du inte är bekant med Azure Virtual Networks kan du läsa följande artiklar för att lära dig om tjänsten:
 

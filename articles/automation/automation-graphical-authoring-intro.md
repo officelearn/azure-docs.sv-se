@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740817"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -139,7 +139,7 @@ Villkor för återförsök är ett PowerShell-uttryck som utvärderas efter varj
 
 Villkor för återförsök kan använda en variabel med namnet $RetryData som ger åtkomst till information om återförsök för aktiviteten. Den här variabeln har egenskaper i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | NumberOfAttempts |Antal gånger som aktiviteten har körts. |
 | Resultat |Utdata från den senaste körningen av aktiviteten. |
@@ -322,7 +322,7 @@ Då öppnas det **indata och utdata** kontroll där du kan redigera en befintlig
 
 Varje indataparameter definieras av egenskaperna i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Namn |Det unika namnet för parametern. Detta får bara innehålla alfanumeriska tecken och får inte innehålla blanksteg. |
 | Beskrivning |En valfri beskrivning av Indataparametern. |

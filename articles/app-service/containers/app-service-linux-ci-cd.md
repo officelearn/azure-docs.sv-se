@@ -1,7 +1,7 @@
 ---
 title: Kontinuerlig distribution med Web App for Containers – Azure App Service | Microsoft Docs
 description: Hur du ställer in kontinuerlig distribution i Web App for Containers.
-keywords: Azure app service, linux, docker, acr, oss
+keywords: azure app service, linux, docker, acr,oss
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -17,11 +17,11 @@ ms.date: 11/08/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852542"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kontinuerlig distribution med Web App for Containers
 
@@ -69,4 +69,4 @@ Kopiera en Webhook-URL. Så lägger du till en webhook för Docker Hub <a href="
 * [Skapa en Ruby-webbapp i App Service på Linux](quickstart-ruby.md)
 * [Distribuera en Docker-/ Go-webbapp i Web App for Containers](quickstart-docker-go.md)
 * [Vanliga frågor och svar om Azure App Service on Linux](./app-service-linux-faq.md)
-* [Hantera Web App for Containers med Azure CLI](./app-service-linux-cli.md)
+* [Hantera webbapp för containrar med Azure CLI](./app-service-linux-cli.md)

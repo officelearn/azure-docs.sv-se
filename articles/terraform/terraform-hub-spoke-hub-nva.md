@@ -10,11 +10,11 @@ ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.openlocfilehash: 4155a67f70ccc238c6046c07dded7f0214689617
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60886834"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>Självstudier: Skapa en virtuell nätverksinstallation hub med Terraform i Azure
 
@@ -30,7 +30,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Använd Terraform till att aktivera vägar med CustomScript-tillägg
 > * Använd Terraform till att skapa NAV och ekrar routningstabeller för gateway
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. [Skapa ett nav och ekrar hybrid nätverkets topologi med Terraform i Azure](./terraform-hub-spoke-introduction.md).
 1. [Skapa en lokal virtuellt nätverk med Terraform i Azure](./terraform-hub-spoke-on-prem.md).

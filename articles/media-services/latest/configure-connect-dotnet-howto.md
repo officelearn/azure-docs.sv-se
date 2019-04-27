@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736147"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3-API – .NET
 
@@ -225,9 +225,9 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Ladda upp, koda och strömma videor – .NET](stream-files-tutorial-with-api.md) 
-- [Självstudier: Strömma live med Media Services v3 – .NET](stream-live-tutorial-with-api.md)
-- [Självstudier: Analysera videor med Media Services v3 – .NET](analyze-videos-tutorial-with-api.md)
+- [Självstudie: Ladda upp, koda och strömma videor – .NET](stream-files-tutorial-with-api.md) 
+- [Självstudie: Strömma live med Media Services v3 – .NET](stream-live-tutorial-with-api.md)
+- [Självstudie: Analysera videor med Media Services v3 – .NET](analyze-videos-tutorial-with-api.md)
 - [Skapa jobbindata från en lokal fil – .NET](job-input-from-local-file-how-to.md)
 - [Skapa jobbindata från en HTTPS-URL – .NET](job-input-from-http-how-to.md)
 - [Koda med en anpassad transformering – .NET](customize-encoder-presets-how-to.md)

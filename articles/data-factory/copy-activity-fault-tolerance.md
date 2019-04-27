@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
 ms.openlocfilehash: ef0bb3716a32a0f25b90e74bc44d7291c146b431
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808814"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans för kopieringsaktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ I följande exempel innehåller en JSON-definition för att konfigurera hoppar �
 }
 ```
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Anger om du vill hoppa över inkompatibla rader vid kopiering eller inte. | True<br/>FALSKT (standard) | Nej
 redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga inkompatibla rader. | &nbsp; | Nej

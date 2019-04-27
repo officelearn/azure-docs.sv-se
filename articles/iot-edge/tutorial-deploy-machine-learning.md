@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8b1036128755a5218afc35648dfd16f09f559908
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611720"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Självstudier: Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 En Azure IoT Edge-enhet:
 
@@ -102,7 +102,7 @@ sudo systemctl restart iotedge
 I det här avsnittet, konvertera trained modellfiler för maskininlärning och till en Azure Machine Learning-tjänsten behållare. Alla komponenter som krävs för dockeravbildningen finns i [AI Toolkit for Azure IoT Edge Git repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial) (AI-verktyg för Azure IoT Edge Git-lagringsplats). Följ dessa steg om du vill överföra den lagringsplatsen till Microsoft Azure-anteckningsböcker för att skapa behållaren och push-överföra den till Azure Container Registry.
 
 
-1. Navigera till dina anteckningsböcker i Azure-projekt. Du kan få sina från din arbetsyta med Azure Machine Learning-tjänsten i den [Azure-portalen](https://portal.azure.com) eller genom att logga in till [Microsoft Azure-anteckningsböcker](https://notebooks.azure.com/home/projects) med ditt Azure-konto.
+1. Navigera till dina anteckningsböcker i Azure-projekt. Du kan hämta det från din arbetsyta med Azure Machine Learning-tjänsten i den [Azure-portalen](https://portal.azure.com) eller genom att logga in till [Microsoft Azure-anteckningsböcker](https://notebooks.azure.com/home/projects) med ditt Azure-konto.
 
 2. Välj **överför GitHub-lagringsplatsen**.
 

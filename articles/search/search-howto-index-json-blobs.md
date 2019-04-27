@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871659"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
 Den här artikeln visar hur du konfigurerar en Azure Search-blob [indexeraren](search-indexer-overview.md) att extrahera strukturerat innehåll från JSON-dokument i Azure Blob storage och gör det sökbara i Azure Search. Det här arbetsflödet skapar ett Azure Search-index och läser in den med befintliga text som extraherats från JSON-blobar. 
@@ -440,4 +440,4 @@ Du kan även gå till enskilda matriselement med hjälp av ett Nollbaserat index
 + [Indexerare i Azure Search](search-indexer-overview.md)
 + [Indexera Azure Blob Storage med Azure Search](search-howto-index-json-blobs.md)
 + [Indexera CSV-blobar med Azure Search blob-indexeraren](search-howto-index-csv-blobs.md)
-+ [Självstudier: Söka efter halvstrukturerade data från Azure Blob storage](search-semi-structured-data.md)
++ [Självstudie: Söka efter halvstrukturerade data från Azure Blob storage](search-semi-structured-data.md)

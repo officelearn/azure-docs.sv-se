@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727915"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Självstudier: Använda datakopieringstjänsten för att kopiera data till Azure Data Box (förhandsversion)
 

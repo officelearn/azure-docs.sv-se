@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
 ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734549"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Få mätvärden för resursutnyttjande belastningsutjämnare med hjälp av REST-API
 
@@ -50,7 +50,7 @@ Följande huvuden krävs:
 | loadBalancerName | Namnet på Azure Load Balancer. |
 | metricnames | Kommaavgränsad lista över giltiga [belastningsutjämnaren mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | API-versionen | API-version för begäran.<br /><br /> Det här dokumentet beskriver api-versionen `2018-01-01`och ingår i URL: en ovan.  |
-| Tidsintervall | Tidsintervall för frågan. Det är en sträng med formatet `startDateTime_ISO/endDateTime_ISO`. Valfria parametern är inställd att returnera en dags data i det här exemplet. |
+| TimeSpan | Tidsintervall för frågan. Det är en sträng med formatet `startDateTime_ISO/endDateTime_ISO`. Valfria parametern är inställd att returnera en dags data i det här exemplet. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Begärandetext

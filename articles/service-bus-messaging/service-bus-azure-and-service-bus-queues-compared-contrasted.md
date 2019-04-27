@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714582"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer – jämförelser och skillnader
 Den här artikeln analyserar både skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: Storage-köer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -174,7 +174,7 @@ Det här avsnittet beskrivs autentisering och auktorisering funktioner som stöd
 
 | Jämförelsevillkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
-| Authentication |**Symmetrisk nyckel** |**Symmetrisk nyckel** |
+| Autentisering |**Symmetrisk nyckel** |**Symmetrisk nyckel** |
 | Säkerhetsmodell |Delegerad åtkomst via SAS-token. |SAS |
 | Provider för identitetsfederation |**Nej** |**Ja** |
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.openlocfilehash: a771b437258046f937b97a9e37ffedbe0a17c1c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079806"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60693606"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn 
 
@@ -25,7 +25,7 @@ När du skapar en API Management (APIM)-instans, Azure tilldelar den till en und
 > [!WARNING]
 > Kunder som vill använda certifikat fästa för att förbättra säkerheten för sina program måste använda ett anpassat domännamn > och certifikat som de hanterar inte standardcertifikatet. Kunder som fästa standardcertifikatet i stället att > tar ett fast beroende på egenskaperna för det certifikat som de inte har kontroll över, vilket inte är en rekommendation.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 

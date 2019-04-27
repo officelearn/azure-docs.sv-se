@@ -16,11 +16,11 @@ ms.date: 08/02/2018
 ms.author: rogirdh
 ms.custom: seodec18
 ms.openlocfilehash: 945ba9b2ba4dbc22941ca6b105417f591f2dd837
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835421"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Oracle-lösningar och deras distribution på Microsoft Azure
 Den här artikeln innehåller information som krävs för att kunna distribuera olika Oracle-lösningar på Microsoft Azure. Dessa lösningar är baserade på avbildningar av virtuella datorer har publicerats av Oracle på Azure Marketplace. Om du vill hämta en lista över tillgängliga avbildningar, kör du följande kommando:

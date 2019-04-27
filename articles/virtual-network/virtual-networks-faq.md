@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Svar på vanliga frågor om Microsoft Azure-nätverk.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713624"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -304,7 +305,7 @@ Virtuellt nätverk TRYCK genomgår förhandsgranskning. Det finns inga serviceav
 
 Du kommer att kunna lägga till en konfiguration för TRYCK på ett nätverksgränssnitt som är kopplat till en virtuell dator som är aktiverad med accelererat nätverk. Men prestanda och svarstider på den virtuella datorn kommer att påverkas genom att lägga till TRYCK konfiguration eftersom avlastning för spegling trafik för närvarande inte stöds av Azure accelererat nätverk.
 
-## <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
+## <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
 ### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>Vad är rätt sekvens med åtgärder för att konfigurera Tjänsteslutpunkter till en Azure-tjänst?
 Det finns två steg för att skydda en Azure-tjänstresurs genom tjänstslutpunkterna:

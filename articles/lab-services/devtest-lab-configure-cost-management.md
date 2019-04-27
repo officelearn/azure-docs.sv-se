@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
 ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60868285"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Spåra kostnader i samband med ett labb i Azure DevTest Labs
 Den här artikeln innehåller information om hur du spårar kostnaden för ditt labb. Den visar hur du visar beräknade kostnad trent för den aktuella kalendermånaden för övningen. Artikeln beskriver också hur du visar månad hittills kostnad per resurs i laboratoriet.

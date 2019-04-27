@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
 ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737217"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host.JSON-referens för Azure Functions 2.x  
 
@@ -171,7 +171,7 @@ Konfigurationsinställningar för [Övervakare för hälsa för värd](https://g
 
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|enabled|true|Anger om funktionen är aktiverad. | 
+|aktiverad|true|Anger om funktionen är aktiverad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan regelbunden hälsotillståndet kontrollerar. | 
 |healthCheckWindow|2 minuter|En glidande tidsperiod som används tillsammans med den `healthCheckThreshold` inställningen.| 
 |healthCheckThreshold|6|Hur många gånger hälsokontrollen kan misslyckas innan återvinning värd har initierats.| 

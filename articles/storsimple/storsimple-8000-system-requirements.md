@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631914"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000-serien programvara, hög tillgänglighet och nätverkskrav
 
@@ -61,7 +61,7 @@ Följande programvarukrav finns för de valfria StorSimple-komponenterna (StorSi
 
 StorSimple-enheten är en låst enhet. Portar som måste öppnas i brandväggen för att tillåta för iSCSI-, moln- och hanteringstrafik. I följande tabell visas de portar som måste öppnas i brandväggen. I den här tabellen *i* eller *inkommande* refererar till den riktning som inkommande klientbegäranden åtkomst till din enhet. *Ut* eller *utgående* refererar till den riktning som din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| Nej. port<sup>1,2</sup> | In eller ut | Port omfång | Krävs | Anteckningar |
+| Nej. port<sup>1,2</sup> | In eller ut | Port omfång | Obligatoriskt | Anteckningar |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Utdata |WAN |Nej |<ul><li>Utgående port används för åtkomst till Internet för att hämta uppdateringar.</li><li>Utgående webbproxy kan konfigureras av användaren.</li><li>Om du vill tillåta systemuppdateringar, måste den här porten också vara öppen för kontrollenheternas fasta IP-adresser.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Utdata |WAN |Ja |<ul><li>Utgående port används för att komma åt data i molnet.</li><li>Utgående webbproxy kan konfigureras av användaren.</li><li>Om du vill tillåta systemuppdateringar, måste den här porten också vara öppen för kontrollenheternas fasta IP-adresser.</li><li>Den här porten används också på båda styrenheterna för skräpinsamling.</li></ul> |
@@ -96,7 +96,7 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 | URL-mönster | Komponenten/funktioner | Enhetens IP-adresser |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager-tjänst<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten |Moln-aktiverat nätverksgränssnitt |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager-tjänsten<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten |Moln-aktiverat nätverksgränssnitt |
 | `https://*.backup.windowsazure.com` |Enhetsregistrering |DATA 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Återkallade certifikat |Moln-aktiverat nätverksgränssnitt |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-konton och övervakning |Moln-aktiverat nätverksgränssnitt |
@@ -108,7 +108,7 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 | URL-mönster | Komponenten/funktioner | Enhetens IP-adresser |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Device Manager-tjänst<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten |Moln-aktiverat nätverksgränssnitt |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Device Manager-tjänsten<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten |Moln-aktiverat nätverksgränssnitt |
 | `https://*.backup.windowsazure.us` |Enhetsregistrering |DATA 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Återkallade certifikat |Moln-aktiverat nätverksgränssnitt |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-konton och övervakning |Moln-aktiverat nätverksgränssnitt |

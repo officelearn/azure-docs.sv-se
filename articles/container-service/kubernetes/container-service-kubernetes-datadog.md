@@ -10,17 +10,17 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712346"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(INAKTUELL) Övervaka ett Azure Container Service-kluster med DataDog
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här genomgången förutsätter att du har [skapade ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 Den förutsätter också att du har den `az` Azure cli och `kubectl` tools har installerats.

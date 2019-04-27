@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: absha
 ms.openlocfilehash: 4dae04c14f9132c54dcc0575ccb2841a4742a626
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831221"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurera App Service med Application Gateway
 
@@ -25,7 +25,7 @@ I den här artikeln kan du se hur du:
 > - Skapa en serverdelspool och Lägg till en App Service
 > - Skapa HTTP-inställningar och anpassad avsökning med ”Välj värdnamnet” växlar aktiverat
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Application gateway: Om du inte har en befintlig application gateway kan du läsa hur du [skapar en application gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 - Apptjänst: Om du inte har en befintlig App service kan du läsa [dokumentationen till App service](https://docs.microsoft.com/azure/app-service/).

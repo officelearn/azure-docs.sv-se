@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
 ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60696390"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
 Ett labbkonto är en behållare för hanterade lab typer, till exempel klassrum labb i Azure Lab Services. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.

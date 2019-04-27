@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764313"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktiviteten i Azure Data Factory
 Du kan använda en hook webbaktivitet för att styra körningen av pipelines med hjälp av din anpassade kod. Med webhook-aktiviteten kan kan kunder anropa en slutpunkt och skicka en Motringnings-URL. Pipeline-körning väntar tills återanropet som anropas innan du fortsätter till nästa aktivitet.
@@ -54,7 +54,7 @@ Du kan använda en hook webbaktivitet för att styra körningen av pipelines med
 
 
 
-Egenskap | Beskrivning | Tillåtna värden | Krävs
+Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
 namn | Namnet på web hook-aktivitet | String | Ja |
 typ | Måste vara inställt på **WebHook**. | String | Ja |

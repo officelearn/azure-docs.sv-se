@@ -16,18 +16,18 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
 ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60706488"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Snabbstart:  Publicera dina Azure Stack-datorer till Security Center
 När du har publicerat dina Azure-prenumeration kan du aktivera Security Center för att skydda dina virtuella datorer som körs på Azure Stack genom att lägga till den **Azure Monitor-, Update- och konfigurationshantering** tillägg för virtuell dator från den Azure Stack marketplace.
 
 Den här snabbstarten visar hur du lägger till den **Azure Monitor-, Update- och konfigurationshantering** tillägg för virtuell dator på en virtuell dator (Linux och Windows både stöds) som körs på Azure Stack.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Du måste ha en Azure-prenumeration på Security Center Standard-nivån innan du påbörjar den här snabbstarten. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center Standard-nivån utan kostnad under 30 dagar. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
@@ -101,7 +101,7 @@ Ta bort tillägget:
 I den här snabbstarten har etablerat du Azure Monitor-, Update- och konfigurationshantering tillägget på en virtuell dator som körs på Azure Stack. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
+> [Självstudie: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
 ms.openlocfilehash: 654c23474ebc96a6873f82f51f969da5c7d2d20c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60780810"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Tillämpa principer för Windows-datorer med Azure Resource Manager
 Med hjälp av principer kan en organisation tillämpa olika konventioner och regler i hela företaget. Efterlevnad av önskat beteende kan du minimera risken när bidrar till framgång för organisationen. I den här artikeln beskriver vi hur du kan använda Azure Resource Manager-principer för att definiera önskat beteende för virtuella datorer i din organisation.

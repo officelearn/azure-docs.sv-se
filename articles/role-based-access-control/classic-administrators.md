@@ -15,11 +15,11 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709559"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure klassiska prenumerationsadministratörer
 
@@ -77,7 +77,7 @@ Observera att den [inbyggda roller för Azure-resurser](../role-based-access-con
 
 1. Lägg till en bock bredvid Medadministratör som du vill ta bort.
 
-1. Klicka på **ta bort**.
+1. Klicka på **Ta bort**.
 
 1. I meddelanderutan som visas klickar du på **Ja**.
 
@@ -155,5 +155,5 @@ Följ dessa steg om du vill visa kontoadministratör.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Hantera åtkomst till Azure-resurser med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md)
+* [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md)
 * [Lägg till eller ändra Azure-prenumerationsadministratörer](../billing/billing-add-change-azure-subscription-administrator.md)

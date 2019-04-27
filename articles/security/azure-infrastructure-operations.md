@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591478"
 ---
 # <a name="azure-production-operations-and-management"></a>Azure produktionsåtgärder och hantering    
 Hantering och driften av Azure-produktionsnätverket är koordinera driftteam av Azure och Azure SQL Database. Hur team flera system och övervakning av programprestanda hanteringsverktygen i miljön. Och de använder lämpliga verktyg för att övervaka nätverksenheter, servrar, tjänster och program bearbetar.

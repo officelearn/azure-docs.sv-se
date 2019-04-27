@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
 ms.openlocfilehash: 63630f5c4799e9272601f431671abc78ec86a238
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622422"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 
 Den här snabbstarten hjälper dig att distribuera ett befintligt program (Node.js i det här exemplet) till ett Service Fabric-kluster som körs på Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar. Vilket innefattar hur du installerar Service Fabric-SDK och Visual Studio 2017 eller 2015.
 

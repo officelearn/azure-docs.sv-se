@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656747"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Övervaka dina API: er med Azure API Management, Event Hubs och Moesif
 Den [API Management-tjänsten](api-management-key-concepts.md) innehåller många funktioner för att förbättra bearbetningen av HTTP-begäranden som skickas till din HTTP-API. Förekomsten av begäranden och svar är dock tillfälligt. Begäran gjordes och den förs vidare via API Management-tjänsten till ditt serverdels-API. Ditt API bearbetar begäran och svaret som flödar tillbaka via API-konsumenter. API Management-tjänsten ser till att vissa viktig statistik om API: er för visning i instrumentpanelen för Azure portal, men även efteråt som informationen är borta.

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60642782"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln visar stegen för att följa för att konfigurera rapporter för Azure Backup med Recovery Services-valvet. Den visar också hur du kommer åt rapporter med hjälp av Power BI. När du har slutfört de här stegen kan du gå direkt till Power BI för att visa, anpassa och skapa rapporter.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
 ms.openlocfilehash: e2678eb7d75921f43a1e51b6a8cefc9925a9adc1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587027"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metodtips för Azure driftsäkerhet
 Azure driftsäkerhet refererar till de tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Azure. Azure driftsäkerhet bygger på ett ramverk som innehåller den kunskap som funktioner som är unika för Microsoft, inklusive den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) programmet och djup medvetenhet om hotlandskapet.

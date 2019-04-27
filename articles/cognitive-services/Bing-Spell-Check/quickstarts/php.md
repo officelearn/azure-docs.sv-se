@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: dcec06113c418b6df6beb5473a282f5ffdc2faee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768573"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och PHP
 
 Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Python-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [PHP 5.6.x](https://php.net/downloads.php)
 

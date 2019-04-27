@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60881496"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visa loggar för en tjänst för Service Fabric-behållare
 Azure Service Fabric är en orkestrerare för behållare och stöder både [Linux och Windows-behållare](service-fabric-containers-overview.md).  Den här artikeln beskriver hur du visar behållarloggarna av en pågående container-tjänst eller en döda behållare så att du kan diagnostisera och felsöka problem.

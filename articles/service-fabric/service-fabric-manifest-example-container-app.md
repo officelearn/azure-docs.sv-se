@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 622e6f7552d91cdb9ccf3668c302496c68a5920f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60719251"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exempel på program med flera behållare och tjänstmanifest
 Här följer några exempel på manifest för program och tjänster för en Service Fabric-program med flera behållare. Syftet med de här exemplen är att visa vilka inställningar är tillgängliga och hur de används. Dessa program och tjänstens manifest baseras på den [Windows Server 2016 behållare exempel](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifest.

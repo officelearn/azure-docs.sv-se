@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
 ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829182"
 ---
 # <a name="experimentation"></a>Experimentering
 
@@ -52,7 +52,7 @@ Parametrar som styr de här stegen är vissa Vowpal Wabbit argument:
 
 En detaljerad förklaring av argument som finns i [kommandoradsargument som Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 - Vowpal Wabbit: Installerad och i sökvägen.
   - Windows: [Använd den `.msi` installer](https://github.com/eisber/vowpal_wabbit/releases).
   - Andra plattformar: [Hämta källkoden](https://github.com/JohnLangford/vowpal_wabbit/releases).
@@ -80,7 +80,7 @@ En logg över resultatet läggs till i *mwt-ds/DataScience/experiments.csv* fil.
 | Indata | Beskrivning | Standard |
 | --- | --- | --- |
 | `-h`, `--help` | Visa hjälpmeddelande och avsluta. | |
-| `-f FILE_PATH`, `--file_path FILE_PATH` | Sökvägen för filen (`.json` eller `.json.gz` format: varje rad är en `dsjson`). | Krävs |  
+| `-f FILE_PATH`, `--file_path FILE_PATH` | Sökvägen för filen (`.json` eller `.json.gz` format: varje rad är en `dsjson`). | Obligatoriskt |  
 | `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Grundläggande Vowpal Wabbit kommando.  | `vw --cb_adf --dsjson -c` |  
 | `-p N_PROC`, `--n_proc N_PROC` | Antalet parallella processer som ska använda. | Logiska processorer |  
 | `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Delade funktionen namnområden (till exempel `abc` innebär namnområden `a`, `b`, och `c`).  | Identifiera automatiskt från datafil |  

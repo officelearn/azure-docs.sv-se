@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: 69eb3789586233b824da1ef6a9c338b07281f324
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60828113"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Python 
 <a name="HOLTop"></a>

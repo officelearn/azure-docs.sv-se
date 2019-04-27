@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
 ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594138"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klienter för Azure Load Balancer
 
@@ -70,7 +70,7 @@ Vi definierar två regler:
 
 Fullständig mappningen i Azure Load Balancer är nu på följande sätt:
 
-| Regel | Frontend-IP-adress | protokoll | port | Mål | port |
+| Regel | Klientdelens ip-adress | protokoll | port | Mål | port |
 | --- | --- | --- | --- | --- | --- |
 | ![grön regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP IP-adress |80 |
 | ![Lila regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP IP-adress |81 |
@@ -118,7 +118,7 @@ Vi definierar två regler:
 
 I följande tabell visar slutförd mappningen i belastningsutjämnaren:
 
-| Regel | Frontend-IP-adress | protokoll | port | Mål | port |
+| Regel | Klientdelens ip-adress | protokoll | port | Mål | port |
 | --- | --- | --- | --- | --- | --- |
 | ![grön regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |samma som klientdelen (65.52.0.1) |samma som klientdelen (80) |
 | ![Lila regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |samma som klientdelen (65.52.0.2) |samma som klientdelen (80) |

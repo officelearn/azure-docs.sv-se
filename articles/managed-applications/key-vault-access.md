@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60588302"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Få åtkomst till Key Vault-hemlighet när du distribuerar Azure Managed Applications
 
@@ -40,7 +40,7 @@ Den här artikeln beskriver hur du konfigurerar Key Vault för att arbeta med ha
 
 ## <a name="add-service-as-contributor"></a>Lägg till tjänst som deltagare
 
-1. Välj **åtkomstkontroll (IAM)**.
+1. Välj **Åtkomstkontroll (IAM)**.
 
    ![Välj åtkomstkontroll](./media/key-vault-access/access-control.png)
 

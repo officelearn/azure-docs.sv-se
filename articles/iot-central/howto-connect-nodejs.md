@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888966"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -62,7 +62,7 @@ Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om fältnamn
 
 Lägg till följande händelse på den **mätningar** sidan:
 
-| Visningsnamn | Fältnamn  | Allvarsgrad |
+| Visningsnamn | Fältnamn  | Severity |
 | ------------ | ----------- | -------- |
 | Överhettning  | överhettas    | Fel    |
 
@@ -97,7 +97,7 @@ Lägg till följande kommando på den **kommandon** sidan:
 
 | Visningsnamn    | Fältnamn     | Standardvärde för tidsgräns | Datatyp |
 | --------------- | -------------- | --------------- | --------- |
-| Nedräkning       | Nedräkning      | 30              | nummer    |
+| nedräkning       | Nedräkning      | 30              | nummer    |
 
 Lägg till följande indatafältet nedräkning-kommando:
 

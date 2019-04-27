@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: 42ea8398fa1a8b1fbc42108d1165dc17da2c34d7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618598"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
@@ -30,7 +30,7 @@ Ett exempel C#-lösning med kod som medföljer den här artikeln är tillgängli
 > Alternativt kan du konfigurera Batch-lösningen för att visa Application Insights-data, till exempel prestandaräknare för virtuella datorer i Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnadsfritt, omfattande funktioner, fristående klientverktyg för att skapa, felsöka och övervaka Azure Batch-program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Se den [lagringsplats för batch-insights](https://github.com/Azure/batch-insights) för snabbsteg för att aktivera Application Insights-data i Batch Explorer. 
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * [Visual Studio 2017](https://www.visualstudio.com/vs)
 
 * [Batch-konto och ett länkat storage-konto](batch-account-create-portal.md)

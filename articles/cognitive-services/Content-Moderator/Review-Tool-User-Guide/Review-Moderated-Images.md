@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: a482ecf4a0d321525ab7e392695d2c4c0eebeadc
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629059"
 ---
 # <a name="create-human-reviews"></a>Skapa mänsklig granskning
 
 I den här guiden får du lära dig hur du ställer in [granskar](../review-api.md#reviews) på webbplatsen granska verktyget. Granskningar lagra och visa innehållet för mänskliga moderatorer att utvärdera. Moderatorer kan ändra de tillämpade taggarna och lägga till sina egna anpassade taggar efter behov. När en användare har slutfört en granskning, resultaten skickas till en slutpunkt för angivna återanrop och innehållet tas bort från platsen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
 

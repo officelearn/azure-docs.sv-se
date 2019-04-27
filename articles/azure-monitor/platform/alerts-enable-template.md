@@ -9,11 +9,11 @@ ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
 ms.openlocfilehash: df26547132403bfe2f3fb3be74e5d1a3d9400967
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776447"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera Azure måttaviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de har skapats för att se till att alla resurser är korrekt.

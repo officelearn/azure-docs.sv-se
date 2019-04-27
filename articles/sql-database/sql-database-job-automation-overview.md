@@ -12,11 +12,11 @@ ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703035"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 
@@ -34,7 +34,7 @@ Det finns flera scenarier när du kan använda jobbautomatisering:
   - Bygg om index för att förbättra frågeprestandan. Konfigurera jobb att köras över en samling databaser regelbundet, till exempel vid tidpunkter för låg belastning.
   - Samla in frågeresultat från en uppsättning databaser till en central tabell regelbundet. Prestandafrågor kan kontinuerligt köras och konfigureras för att utlösa ytterligare åtgärder som ska utföras.
 - Samla in data för rapportering
-  - Sammanställ data från en samling Azure SQL-databaser till en enskild måltabell.
+  - Sammanställ data från en samling Azure SQL-databaser till en enkel måltabell.
   - Kör databearbetningsfrågor med längre körningstid över en stor uppsättning databaser, till exempel insamling av kundtelemetri. Resultaten samlas till en enskild måltabell för ytterligare analys.
 - Dataflyttar
   - Skapa jobb som replikerar ändringar som görs i dina databaser till andra databaser eller samla in uppdateringar som görs i fjärrdatabaser och tillämpa ändringar i databasen.
@@ -203,7 +203,7 @@ Det är kostnadsfritt att skapa en elastisk jobbagent. Jobbdatabasen debiteras s
 
 För den aktuella förhandsversionen krävs en befintlig Azure SQL-databas (S0 eller senare) för att skapa en elastisk jobbagent.
 
-*Jobbdatabasen* behöver inte bokstavligt talat vara ny, men den ska vara ren och tom och på S0 eller en högre tjänstnivå. Den rekommenderade tjänstenivån för *jobbdatabasen* är S1 eller högre, men i praktiken beror det på prestandabehoven för dina jobb: antal jobbsteg samt hur många gånger och hur ofta jobb körs. Till exempel kan en S0-databas vara tillräcklig för en jobbagent som kör några jobb per timme, men om det körs ett jobb varje minut kan prestandan bli för låg. I det fallet vore det förmodligen bättre att ha en högre tjänstenivå.
+*Jobbdatabasen* behöver inte bokstavligt talat vara ny, men den ska vara ren och tom och på S0 eller en högre tjänstnivå. Den rekommenderade tjänstnivån för *jobbdatabasen* är S1 eller högre, men i praktiken beror det på prestandabehoven för dina jobb: antal jobbsteg samt hur många gånger och hur ofta jobb körs. Till exempel kan en S0-databas vara tillräcklig för en jobbagent som kör några jobb per timme, men om det körs ett jobb varje minut kan prestandan bli för låg. I det fallet vore det förmodligen bättre att ha en högre tjänstnivå.
 
 
 ##### <a name="job-database-permissions"></a>Behörigheter för jobbdatabas

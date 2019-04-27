@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: victorh
-ms.openlocfilehash: d84da36ad6b1ef3e2a507a0944aac583861d5ccb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 409595febded7b242eae876ebb2cb35ae4999e5e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686862"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Azure DNS Private Zones scenarier
 Azure DNS Private Zones tillhandahåller namnmatchning i ett virtuellt nätverk samt mellan virtuella nätverk. I den här artikeln ska titta vi på några vanliga scenarier som kan genomföras med hjälp av den här funktionen. 
@@ -38,13 +38,13 @@ Följande diagram visar en enkel version av det här scenariot där det finns ba
 
 ![Lösningar för flera virtuella nätverk](./media/private-dns-scenarios/multi-vnet-resolution.png)
 
-## <a name="scenario-split-horizon-functionality"></a>Scenario: Split-Horizon funktioner
+## <a name="scenario-split-horizon-functionality"></a>Scenario: Split-Horizon-funktioner
 
 I det här scenariot har du ett användningsfall där du vill att utnyttja olika DNS-matchningen beroende på där klienten är placerad (inuti Azure eller ut på internet) för samma DNS-zonen. Exempel: du kan ha en privata och offentliga versionen av ditt program som har olika funktioner eller beteende, men du vill använda samma domännamn för båda versionerna. Det här scenariot kan realiseras med Azure DNS genom att skapa en offentlig DNS-zon som en privat zon med samma namn.
 
 Följande diagram visar det här scenariot. Du har ett virtuellt nätverk A som har två virtuella datorer (VNETA VM1 och VNETA VM2) som har både privata IP-adresser och offentliga IP-adresser tilldelas. Du skapar en offentlig DNS-zon med namnet contoso.com och registrera den offentliga IP-adresser för dessa virtuella datorer som DNS-poster i zonen. Du kan också skapa en privat DNS-zon som kallas även contoso.com som anger att en virtuellt registreringsnätverk. Azure registrerar automatiskt de virtuella datorerna som A-poster i den privata zonen som pekar till sina privata IP-adresser.
 
-Nu när en internet-klient skickar en DNS-fråga för att leta upp VNETA VM1.contoso.com, returneras Azure den offentliga IP-adressposten från offentlig zon. Om samma DNS-frågan har utfärdats från en annan virtuell dator (till exempel: VNETA VM2) i samma virtuella nätverk A, kommer Azure att returnera privata IP-adressposten från den privata zonen. 
+Nu när en internet-klient skickar en DNS-fråga för att leta upp VNETA VM1.contoso.com, returneras Azure den offentliga IP-adressposten från offentlig zon. Om samma DNS-frågan har utfärdats från en annan virtuell dator (till exempel: VNETA-VM2) i samma virtuella nätverk A, kommer Azure att returnera privata IP-adressposten från den privata zonen. 
 
 ![Dela Brian upplösning](./media/private-dns-scenarios/split-brain-resolution.png)
 

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587928"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition funktioner
 Det här avsnittet innehåller signaturer för alla funktioner som stöds av en CreateUiDefinition.
@@ -526,7 +526,7 @@ I följande exempel returneras `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>sträng
+### <a name="string"></a>string
 Konverterar parametern till en sträng. Den här funktionen har stöd för parametrarna för alla typer av JSON-data.
 
 I följande exempel returneras `"1"`:
@@ -553,7 +553,7 @@ I följande exempel returneras `"{"foo":"bar"}"`:
 "[string({\"foo\":\"bar\"})]"
 ```
 
-### <a name="bool"></a>Bool
+### <a name="bool"></a>bool
 Konverterar parametern till ett booleskt värde. Den här funktionen stöder parametrar av typen tal, sträng och booleskt värde. Liknar booleska värden i JavaScript, något värde utom `0` eller `'false'` returnerar `true`.
 
 I följande exempel returneras `true`:
@@ -653,7 +653,7 @@ I följande exempel returneras `3`:
 "[add(1, 2)]"
 ```
 
-### <a name="sub"></a>Sub
+### <a name="sub"></a>sub
 Subtraherar det andra talet från den första siffran och returnerar resultatet.
 
 I följande exempel returneras `1`:
@@ -759,7 +759,7 @@ I följande exempel kan returnera `"1990-12-31T23:59:59.000Z"`:
 "[utcNow()]"
 ```
 
-### <a name="addseconds"></a>Lägg_till_sekunder
+### <a name="addseconds"></a>addSeconds
 Lägger till en integrerad antal sekunder för angivna tidsstämpel.
 
 I följande exempel returneras `"1991-01-01T00:00:00.000Z"`:

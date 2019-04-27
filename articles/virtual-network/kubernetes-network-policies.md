@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b4f8577724781e5df10846a5fc4e30c8320403f2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a5c367402bd1e61485095fd1d565a8582acc3a9e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824903"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Azure Kubernetes principer översikt över nätverk
 
@@ -38,11 +38,11 @@ När du implementerar säkerhet för ditt kluster, Använd nätverkssäkerhetsgr
 Azure nätverksprinciper kan användas på följande sätt att tillhandahålla mikro-segmentering för poddar.
 
 ### <a name="acs-engine"></a>ACS-engine
-ACS-Engine är ett verktyg som genererar en Azure Resource Manager-mall för distribution av ett Kubernetes-kluster i Azure. Klusterkonfigurationen har angetts i en JSON-fil som skickas till verktyget vid generering av mallen. Läs mer om hela listan över klusterinställningar som stöds och deras beskrivningar i Microsoft Azure Container Service Engine - Klusterdefinitionen.
+ACS-Engine är ett verktyg som genererar en Azure Resource Manager-mall för distribution av ett Kubernetes-kluster i Azure. Klusterkonfigurationen anges i en JSON-fil som överförs till verktyget när mallen skapas. Läs mer om hela listan över klusterinställningar som stöds och deras beskrivningar i Microsoft Azure Container Service Engine - Klusterdefinitionen.
 
 Om du vill aktivera principer på kluster som distribueras med acs-motor, ange värdet för inställningen networkPolicy i definitionsfilen för klustret är ”azure”.
 
-#### <a name="example-configuration"></a>Exempel på konfiguration
+#### <a name="example-configuration"></a>Exempelkonfiguration
 
 Den nedan JSON exempelkonfiguration skapar ett nytt virtuellt nätverk och undernät och distribuerar ett Kubernetes-kluster i den med Azure CNI. Vi rekommenderar att du använder ”anteckningar” så här redigerar du JSON-filen. 
 ```json
@@ -87,7 +87,7 @@ Den nedan JSON exempelkonfiguration skapar ett nytt virtuellt nätverk och under
 
 ```
 ### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Skapa din egen Kubernetes-kluster i Azure
-Implementeringen kan användas för att tillhandahålla nätverksprinciper för Poddar i Kubernetes-kluster som du distribuerar själv, utan att behöva verktyg som ACS-Engine. I detta fall använder du först installera CNI plugin-programmet och aktivera det på alla virtuella datorer i ett kluster. Detaljerade anvisningar finns i [distribuera plugin-programmet för ett Kubernetes-kluster som du distribuerar själv](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+Implementeringen kan användas för att tillhandahålla nätverksprinciper för Poddar i Kubernetes-kluster som du distribuerar själv, utan att behöva verktyg som ACS-Engine. I detta fall använder du först installera CNI plugin-programmet och aktivera det på alla virtuella datorer i ett kluster. Detaljerade anvisningar finns i avsnittet om att [distribuera plugin-programmet för ett Kubernetes-kluster som du distribuerar själv](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
 När klustret har distribuerats genom att köra följande `kubectl` kommando för att ladda ned och installera Azure nätverksprincipen *daemonset* till klustret.
 

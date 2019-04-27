@@ -3,8 +3,8 @@ title: Analysera nätverkssäkerhet med Azure Network Watcher Säkerhetsgruppvy 
 description: Den här artikeln beskriver hur du använder Azure CLI för att analysera en säkerhet för virtuella datorer med Säkerhetsgruppvy.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
 ms.service: network-watcher
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 2b96c82f92ea49fa5bcb35d180240eb939d29d04
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: fc86b2fd7156ff84b7d91fd39c79caccb815312c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727816"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analysera din säkerhet för virtuella datorer med Säkerhetsgruppvy med Azure CLI
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
-> - [REST API](network-watcher-security-group-view-rest.md)
+> - [REST-API](network-watcher-security-group-view-rest.md)
 
 Säkerhetsgruppvy returnerar konfigurerade och gällande säkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera Nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator för att se till att trafik som ska tillåtas eller nekas. I den här artikeln har visar vi hur du hämtar de konfigurerade och gällande säkerhetsreglerna som en virtuell dator med Azure CLI
 

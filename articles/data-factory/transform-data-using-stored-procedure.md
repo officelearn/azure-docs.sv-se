@@ -11,11 +11,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764415"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Omvandla data med hjälp av SQL Server-lagrad procedur i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,10 +65,10 @@ Här är JSON-format för att definiera en lagrade Proceduraktiviteten:
 
 I följande tabell beskrivs de här JSON-egenskaper:
 
-| Egenskap                   | Beskrivning                              | Krävs |
+| Egenskap                   | Beskrivning                              | Obligatoriskt |
 | ------------------------- | ---------------------------------------- | -------- |
 | namn                      | Namn på aktiviteten                     | Ja      |
-| beskrivning               | Text som beskriver vad aktiviteten används till | Nej       |
+| description               | Text som beskriver vad aktiviteten används till | Nej       |
 | typ                      | För lagrade Proceduraktiviteten aktivitetstyp är **SqlServerStoredProcedure** | Ja      |
 | linkedServiceName         | Referensen till den **Azure SQL Database** eller **Azure SQL Data Warehouse** eller **SQL Server** registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
 | storedProcedureName       | Ange namnet på den lagrade proceduren att anropa. | Ja      |

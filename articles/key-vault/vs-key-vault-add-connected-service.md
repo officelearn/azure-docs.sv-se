@@ -7,16 +7,15 @@ manager: jillfra
 ms.prod: visual-studio
 ms.technology: vs-azure
 ms.custom: vs-azure
-ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: ghogen
 ms.openlocfilehash: d95bd114be712953b79ef5afbb0915173f6de26c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764566"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webbprogram med hjälp av Visual Studio Connected Services
 
@@ -24,7 +23,7 @@ I den här självstudien får lära du dig att enkelt lägga till allt du behöv
 
 Mer information om ändringarna att Connected Services gör i ditt projekt för att aktivera Key Vault finns [Key Vault Connected Service - vad hände med mitt ASP.NET 4.7.1 projekt](#how-your-aspnet-framework-project-is-modified) eller [Key Vault Connected Service - vad hände med mitt ASP.NET Core-projekt](#how-your-aspnet-core-project-is-modified).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio-2019** eller **Visual Studio 2017 version 15.7** med den **webbutveckling** arbetsbelastning som är installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -152,7 +151,7 @@ Det här avsnittet identifierar exakt ändringar som görs i en ASP.NET-projekt 
 
 Påverkar projektreferenserna filen .NET och NuGet-paketet refererar till.
 
-| Type | Referens |
+| Typ | Referens |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -188,7 +187,7 @@ Det här avsnittet identifierar exakt ändringar som görs i en ASP.NET-projekt 
 
 Påverkar projektreferenserna filen .NET och `packages.config` (NuGet referenser).
 
-| Type | Referens |
+| Typ | Referens |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

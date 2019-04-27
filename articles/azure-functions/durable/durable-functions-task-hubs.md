@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2017
-ms.author: azfuncdf
+origin.date: 12/07/2017
+ms.date: 02/21/2019
+ms.author: v-junlch
 ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730283"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Uppgiftshubbar i varaktiga funktioner (Azure Functions)
 
@@ -29,11 +30,11 @@ Om flera funktionsappar delar ett storage-konto varje funktionsapp *måste* konf
 
 En uppgift hubb består av följande lagringsresurser:
 
-* En eller fler köer för kontrollen.
-* En arbetsobjektet kön.
-* En historiktabellen.
-* En tabell med instanser.
-* En storage-behållare som innehåller en eller flera blobbar för lånet.
+- En eller fler köer för kontrollen.
+- En arbetsobjektet kön.
+- En historiktabellen.
+- En tabell med instanser.
+- En storage-behållare som innehåller en eller flera blobbar för lånet.
 
 Alla dessa resurser skapas automatiskt i Azure Storage-kontot när orchestrator eller Aktivitetsfunktioner kör eller är schemalagda att köras. Den [prestanda och skalning](durable-functions-perf-and-scale.md) artikeln förklarar hur dessa resurser används.
 
@@ -140,3 +141,5 @@ Namn på aktiviteten måste börja med en bokstav och bestå av endast bokstäve
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du hanterar versionshantering](durable-functions-versioning.md)
+
+<!-- Update_Description: wording update -->

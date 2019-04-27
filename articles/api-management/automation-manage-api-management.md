@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 642353218960e2e995d717260ae82b6dbd7c2612
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880119"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Hantera Azure API Management med hjälp av Azure Automation
 Den här guiden ger en introduktion till Azure Automation-tjänsten och hur den kan användas för att förenkla hanteringen av Azure API Management.

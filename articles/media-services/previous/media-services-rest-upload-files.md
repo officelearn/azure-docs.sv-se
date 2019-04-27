@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: f63087d107b9db30e2af6273afde7f51f1c72404
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817697"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Överföra filer till ett Media Services-konto med hjälp av REST  
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Lär dig hur du överför en fil och andra åtgärder som är kopplade till den 
 > * Överföra en fil till blob storage med hjälp av URL
 > * Skapa en metadata i tillgången för mediefilen som du laddat upp
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - [Skapa ett Azure Media Services-konto med Azure portal](media-services-portal-create-account.md).

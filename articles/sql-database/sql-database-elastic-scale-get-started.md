@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585022"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med elastiska Databasverktyg
 
@@ -25,7 +25,7 @@ Det här dokumentet ger en introduktion till utvecklarupplevelsen för den [klie
 
 ## <a name="elastic-database-tools-for-java"></a>Elastiska Databasverktyg för Java
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Java Developer Kit (JDK), version 1.8 eller senare
 * [Maven 3.](https://maven.apache.org/download.cgi)
@@ -71,7 +71,7 @@ Lägg till klientbiblioteket till dina egna Maven-projekt genom att lägga till 
 
 ## <a name="elastic-database-tools-for-net"></a>Elastiska Databasverktyg för .NET
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Visual Studio 2012 eller senare med C#. Hämta en kostnadsfri version på [hämtningsfiler för Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 eller senare. Om du vill hämta den senaste versionen, se [installera NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).

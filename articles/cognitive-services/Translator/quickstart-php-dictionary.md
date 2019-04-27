@@ -8,20 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2019
-ms.author: erhopf
+origin.date: 02/08/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: b505f30f7cbbbda9cf6975fac95f50d218dcbc12
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879365"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Snabbstart: Slå upp ord med en tvåspråkig ordlista med hjälp av PHP
 
 I den här snabbstarten hittar du information om möjliga alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av Translator Text-API:et.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver [PHP 5.6.x](https://php.net/downloads.php) för att köra koden.
 
@@ -48,8 +49,8 @@ Följande hämtar alternativa översättningar för ett or med hjälp av metoden
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
-
-$host = "https://api.cognitive.microsofttranslator.com";
+$region = 'your region';
+$host = "https://api.translator.azure.cn";
 $path = "/dictionary/lookup?api-version=3.0";
 
 // Translate from English to French.
@@ -69,11 +70,12 @@ if (!function_exists('com_create_guid')) {
   }
 }
 
-function DictionaryLookup ($host, $path, $key, $params, $content) {
+function DictionaryLookup ($host, $path, $key, $params, $content, $region) {
 
     $headers = "Content-type: application/json\r\n" .
         "Content-length: " . strlen($content) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n" .
+        "Ocp-Apim-Subscription-Region: $region\r\n" .
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
@@ -97,7 +99,7 @@ $requestBody = array (
 );
 $content = json_encode($requestBody);
 
-$result = DictionaryLookup ($host, $path, $key, $params, $content);
+$result = DictionaryLookup ($host, $path, $key, $params, $content, $region);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
@@ -188,8 +190,8 @@ Följande hämtar sammanhangsbaserade exempel på hur du använder en term i en 
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
-
-$host = "https://api.cognitive.microsofttranslator.com";
+$region = 'your region';
+$host = "https://api.translator.azure.cn";
 $path = "/dictionary/examples?api-version=3.0";
 
 // Translate from English to French.
@@ -210,11 +212,12 @@ if (!function_exists('com_create_guid')) {
   }
 }
 
-function DictionaryExamples ($host, $path, $key, $params, $content) {
+function DictionaryExamples ($host, $path, $key, $params, $content, $region) {
 
     $headers = "Content-type: application/json\r\n" .
         "Content-length: " . strlen($content) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n" .
+        "Ocp-Apim-Subscription-Region: $region\r\n" .
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
@@ -239,7 +242,7 @@ $requestBody = array (
 );
 $content = json_encode($requestBody);
 
-$result = DictionaryExamples ($host, $path, $key, $params, $content);
+$result = DictionaryExamples ($host, $path, $key, $params, $content, $region);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
@@ -287,3 +290,4 @@ Utforska exempelkoden för den här snabbstarten och andra, inklusive översätt
 
 > [!div class="nextstepaction"]
 > [Utforska PHP-exempel på GitHub](https://aka.ms/TranslatorGitHub?type=&language=php)
+

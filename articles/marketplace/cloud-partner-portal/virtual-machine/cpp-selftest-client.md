@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60847142"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Skapa en själv testa klient om du vill kontrollera en Azure VM-avbildning
 
@@ -71,11 +71,11 @@ I följande tabell beskrivs de API-fält.
 
 |      Fält         |    Beskrivning    |
 |  ---------------   |  ---------------  |
-|  Autentisering     |  Strängen ”ägar xxxx-xxxx-xxxx-xxxxx” innehåller Azure Active Directory (AD) klient-token som kan skapas med hjälp av PowerShell.          |
+|  Auktorisering     |  Strängen ”ägar xxxx-xxxx-xxxx-xxxxx” innehåller Azure Active Directory (AD) klient-token som kan skapas med hjälp av PowerShell.          |
 |  DNS-namn           |  DNS-namnet på den virtuella datorn att testa    |
 |  Användare              |  Användarnamn för att logga in på den virtuella datorn         |
 |  Lösenord          |  Lösenord för att logga in på den virtuella datorn          |
-|  OS                |  Operativsystemet på den virtuella datorn: antingen `Linux` eller `Windows`          |
+|  Operativsystem                |  Operativsystemet på den virtuella datorn: antingen `Linux` eller `Windows`          |
 |  PortNo            |  Öppna portnummer för att ansluta till den virtuella datorn. Portnumret är vanligtvis `22` för Linux och `5986` för Windows.          |
 |  |  |
 

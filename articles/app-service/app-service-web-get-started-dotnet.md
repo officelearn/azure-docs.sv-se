@@ -16,11 +16,11 @@ ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2762a81c9f366ad4a5d0d6d87cf04490fc10b23c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60854632"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Skapa en ASP.NET Core-webbapp i Azure
 
@@ -104,7 +104,7 @@ I dialogrutan **Konfigurera värdplan** använder du inställningarna i tabellen
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |App Service-plan| myAppServicePlan | Namnet på App Service-planen. |
-| Plats | Västra Europa | Datacenter som är värd för webbappen. |
+| Location | Västra Europa | Datacenter som är värd för webbappen. |
 | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
 Välj **OK**.
@@ -151,7 +151,7 @@ När publiceringen är klar startar Visual Studio en webbläsare till webbappens
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera webbappen.
 
-Klicka på **App Services** på menyn till vänster och välj sedan namnet på din Azure-webbapp.
+Klicka på **App Services** i menyn till vänster och välj sedan namnet på din Azure-app.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-get-started-dotnet/access-portal.png)
 

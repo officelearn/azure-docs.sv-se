@@ -1,19 +1,19 @@
 ---
 title: Samla in anpassade mått för en Linux VM med InfluxData Telegraf-agent
 description: Samla in anpassade mått för en Linux VM med InfluxData Telegraf-agent
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.topic: howto
+ms.date: 01/21/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741613"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en Linux VM med InfluxData Telegraf-agent
 
@@ -132,6 +132,5 @@ När de inte längre behövs kan du ta bort resursgruppen, virtuell dator och al
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [anpassade mått](metrics-custom-overview.md).
-
 
 

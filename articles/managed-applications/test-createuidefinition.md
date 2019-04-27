@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b1392c29881a9077e26baafc8972148800d03d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746331"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Testa Azure portalgränssnitt för det hanterade programmet
 Efter [skapar filen createUiDefinition.json](create-uidefinition-overview.md) för ditt Azure hanterade program, måste du testar användarupplevelsen. För att förenkla testning kan du använda ett skript som läser in filen i portalen. Du behöver inte distribuera det hanterade programmet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En **createUiDefinition.json** fil. Om du inte har den här filen kan kopiera den [exempelfilen](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) och spara den lokalt.
 

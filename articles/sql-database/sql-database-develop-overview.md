@@ -13,11 +13,11 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723416"
 ---
 # <a name="sql-database-application-development-overview"></a>Översikt över SQL Database-programutveckling
 
@@ -33,7 +33,7 @@ Du kan använda olika [programmeringsspråk och plattformar](sql-database-connec
 
 Du kan använda verktyg för öppen källkod som [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Du kan också använda Azure portal, PowerShell och REST API: er hjälper dig att få ytterligare produktivitet.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Åtkomst till Azure SQL Database är skyddad med inloggningar och brandväggar. Azure SQL Database stöder både SQL Server och [autentisering för Azure Active Directory (AAD)](sql-database-aad-authentication.md) användare och inloggningar. AAD-inloggningar är endast tillgängliga i Managed Instance. 
 

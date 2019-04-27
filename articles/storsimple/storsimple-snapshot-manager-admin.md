@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
 ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630027"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Använd StorSimple Snapshot Manager för att administrera din StorSimple-lösning
 
@@ -55,7 +55,7 @@ Du kan använda StorSimple Snapshot Manager för att övervaka och hantera aktue
 | Lägga till eller ersätta en enhet<br>Anslut en enhet<br>Verifiera importerade volymgrupper<br>Uppdatera anslutna enheter<br>Autentisera en enhet<br>Visa enhetsinformation<br>Ta bort en enhetskonfiguration<br>Ändra enhetens lösenord<br>Ersätt en misslyckad enhet<br> |[Använd StorSimple Snapshot Manager för att ansluta och hantera StorSimple-enheter](storsimple-snapshot-manager-manage-devices.md) |
 | Monteringsvolymer<br>Visa information om volymer<br>Ta bort en volym<br>Genomsök igen volymer<br>Konfigurera och säkerhetskopiering av en enkel volym<br>Konfigurera och en dynamisk speglad volym för säkerhetskopiering |[Använd StorSimple Snapshot Manager för att visa och hantera volymer](storsimple-snapshot-manager-manage-volumes.md) |
 | Visa volymgrupper<br>Skapa en volym-grupp<br>Säkerhetskopiera en volym-grupp<br>Redigera en volym-grupp<br>Ta bort en volym-grupp |[Använd StorSimple Snapshot Manager för att skapa och hantera volymgrupper](storsimple-snapshot-manager-manage-volume-groups.md) |
-| Skapa en princip för säkerhetskopiering <br>Redigera en princip för säkerhetskopiering<br>Ta bort en princip för säkerhetskopiering |[Använd StorSimple Snapshot Manager för att skapa och hantera principer för säkerhetskopiering](storsimple-snapshot-manager-manage-backup-policies.md) |
+| Skapa en säkerhetskopieringspolicy <br>Redigera en princip för säkerhetskopiering<br>Ta bort en princip för säkerhetskopiering |[Använd StorSimple Snapshot Manager för att skapa och hantera principer för säkerhetskopiering](storsimple-snapshot-manager-manage-backup-policies.md) |
 | Visa och hantera schemalagda säkerhetskopieringsjobb<br>Visa och hantera de senaste säkerhetskopieringsjobb<br>Visa och hantera pågående säkerhetskopieringsjobb |[Använd StorSimple Snapshot Manager för att visa och hantera säkerhetskopieringsjobb](storsimple-snapshot-manager-manage-backup-jobs.md) |
 | Återställa en volym<br>Klona en volym eller en volym grupp<br>Ta bort en säkerhetskopia<br>Återställa en fil<br>Återställ StorSimple Snapshot Manager-databasen |[Använd StorSimple Snapshot Manager för att hantera säkerhetskopieringskatalogen](storsimple-snapshot-manager-manage-backup-catalog.md) |
 

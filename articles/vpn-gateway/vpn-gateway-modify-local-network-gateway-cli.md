@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: a8f0c95acf872431fe7538acbd4ff1023c1496c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 20e8269f0ee7463dcff9a5f66e46ebd81cb3df84
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652878"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Ändra gateway-inställningar för lokalt nätverk med hjälp av Azure CLI
 
@@ -35,7 +35,7 @@ Ibland ändra inställningarna för din lokala gateway-adressprefixet eller gate
 
 ## <a name="before"></a>Innan du börjar
 
-Installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om hur du installerar CLI-kommandon finns i [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 

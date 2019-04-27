@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657500"
 ---
 # <a name="api-management-cross-domain-policies"></a>Korsdomänprinciper för API Management
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -54,7 +54,7 @@ Använd den `cross-domain` princip att göra API tillgängligt från Adobe Flash
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |mellan domäner|Rotelement. Underordnade element måste motsvara den [Adobe domänerna filen principspecifikationen](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Ja|
 
@@ -123,7 +123,7 @@ Det här exemplet visar hur du stöd för före flygning begäranden, till exemp
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
 |cors|Rotelement.|Ja|Gäller inte|
 |tillåtna ursprung|Innehåller `origin` element som beskriver de tillåtna ursprung för begäranden mellan domäner. `allowed-origins` kan innehålla antingen ett enskilt `origin` element som anger `*` så att alla ursprung, eller en eller flera `origin` element som innehåller en URI.|Ja|Gäller inte|
@@ -136,7 +136,7 @@ Det här exemplet visar hur du stöd för före flygning begäranden, till exemp
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
 |Tillåt autentiseringsuppgifter|Den `Access-Control-Allow-Credentials` rubrik preflight-svar anges till värdet för det här attributet och påverka klientens möjlighet att skicka autentiseringsuppgifter i domänerna begäranden.|Nej|false|
 |preflight-result-max-age|Den `Access-Control-Max-Age` rubrik preflight-svar anges till värdet för det här attributet och påverka användaragenten möjlighet att cache före flygning svar.|Nej|0|
@@ -168,13 +168,13 @@ Om du lägger till parametern återanrop `?cb=XXX` returneras ett JSONP-resultat
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Namn|Beskrivning|Obligatoriskt|
 |----------|-----------------|--------------|
 |jsonp|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Standard|
+|Namn|Beskrivning|Obligatoriskt|Standard|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|Domänerna JavaScript funktionsanropet föregås av det fullständigt kvalificerade domännamnet där funktionen finns.|Ja|Gäller inte|
 

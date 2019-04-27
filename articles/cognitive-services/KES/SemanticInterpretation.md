@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814484"
 ---
 # <a name="semantic-interpretation"></a>Semantisk tolkning
 
@@ -33,15 +33,15 @@ En variabel har angetts med hjälp av en namnidentifierare som börjar med en bo
 
 Nedan visas en lista över typer av data som för närvarande stöds:
 
-|Type|Beskrivning|Exempel|
+|Typ|Beskrivning|Exempel|
 |----|----|----|
 |String|Sekvens med 0 eller flera tecken|"Hello World!"<br/>""|
-|Bool|Booleskt värde|true<br/>false|
+|Booleskt|Booleskt värde|true<br/>false|
 |Int32|32-bitars heltal.  -2.1e9 2.1e9|123<br/>-321|
 |Int64|64-bitars heltal. -9.2e18 och 9.2e18|9876543210|
 |Double|Med dubbel precision. 1.7E +/-308 (15 siffror)|123.456789<br/>1.23456789e2|
 |Guid|Globalt unik identifierare|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
-|Söka i data|Frågeuttryck som anger en delmängd av dataobjekt i indexet|All()<br/>Och (*q1*, *q2*)|
+|Fråga|Frågeuttryck som anger en delmängd av dataobjekt i indexet|All()<br/>Och (*q1*, *q2*)|
 
 ## <a name="semantic-functions"></a>Semantisk funktioner
 
@@ -141,8 +141,8 @@ Systemvariabler är fördefinierade av tjänsten och kan användas för att häm
 
 |Namn|Typ|Beskrivning|
 |----|----|----|
-|IsAtEndOfQuery|Bool|SANT om den aktuella tolkningen matchade alla inkommande frågetexten|
-|IsBeyondEndOfQuery|Bool|SANT om den aktuella tolkningen har föreslagits slutföranden utöver inkommande frågetexten|
+|IsAtEndOfQuery|Booleskt|SANT om den aktuella tolkningen matchade alla inkommande frågetexten|
+|IsBeyondEndOfQuery|Booleskt|SANT om den aktuella tolkningen har föreslagits slutföranden utöver inkommande frågetexten|
 
 ### <a name="setvariable-function"></a>SetVariable funktion
 

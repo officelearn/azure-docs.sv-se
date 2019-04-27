@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 12/07/2018
 ms.author: kgremban
 ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823834"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Självstudie: Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps
 
@@ -25,7 +25,7 @@ Med Azure Event Grid kan du reagera på händelser i IoT Hub genom att utlösa �
 
 Den här artikeln går igenom en exempelkonfiguration som använder IoT Hub och Event Grid. Du lär dig hur du konfigurerar en Azure-logikapp att skicka ett e-postmeddelande varje gång en enhet läggs till i din IoT-hubb. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps, t.ex. Office 365 Outlook, Outlook.com eller Gmail. Det här e-postkontot används för att skicka händelsemeddelandena. En fullständig lista över Logic App-anslutningsprogram som stöds finns i [Översikt över anslutningsappar](https://docs.microsoft.com/connectors/)
 * Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).

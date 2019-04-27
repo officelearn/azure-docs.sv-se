@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
 ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640488"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Hur du använder Key Vault mjuk borttagning med CLI
 
@@ -21,7 +21,7 @@ Azure Key Vault mjuk borttagning med funktionen kan återställning av borttagna
 - Stöd för återställa borttagningen av ett nyckelvalv
 - Stöd för återställa borttagningen av nyckelvalvobjekt. nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Azure CLI - om du inte har konfigurerats för din miljö, se [hantera Nyckelvalv med Azure CLI](key-vault-manage-with-cli2.md).
 

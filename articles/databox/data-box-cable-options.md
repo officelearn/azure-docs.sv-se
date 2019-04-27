@@ -2,18 +2,19 @@
 title: Alternativ för kabelanslutning av Azure Data Box | Microsoft Docs
 description: Beskriver de olika kabelanslutningsalternativen för Azure Data Box.
 services: databox
-author: alkohli
+author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 10/24/2018
-ms.author: alkohli
+origin.date: 10/24/2018
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60728705"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Alternativ för kabelanslutning av Azure Data Box
 
@@ -67,8 +68,8 @@ Kabelanslut enheten med hjälp av följande steg.
 
      ![Konfiguration med två portar](media/data-box-cable-options/cabling-2-port-setup.png)
 
-3. Åtkomst till lokalt Webbgränssnitt för enheten på: 192.168.100.10. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
-4. Tilldela statiska IP-adresser till dataportarna du har konfigurerat.
+4. Åtkomst till lokalt Webbgränssnitt för enheten på: 192.168.100.10. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
+5. Tilldela statiska IP-adresser till dataportarna du har konfigurerat.
 
 ### <a name="option-2---initial-setup-via-separate-computer"></a>Alternativ 2 – Första installation via en separat dator
 
@@ -83,8 +84,8 @@ Kabelanslut enheten med hjälp av följande steg.
 
      ![Konfiguration med två portar med switch](media/data-box-cable-options/cabling-with-static-ip.png)
 
-3. Åtkomst till lokalt Webbgränssnitt för enheten på: 192.168.100.10. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
-4. Identifiera IP-adresserna som tilldelats av DHCP-servern.
+4. Åtkomst till lokalt Webbgränssnitt för enheten på: 192.168.100.10. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
+5. Identifiera IP-adresserna som tilldelats av DHCP-servern.
 
 ## <a name="transfer-via-data-port-with-static-ips-using-a-switch"></a>Överföring via DATA-port med statiska IP-adresser med en switch 
 
@@ -107,8 +108,8 @@ Kabelanslut enheten med hjälp av följande steg.
 
      ![Konfiguration med två portar med switch](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
-3. Åtkomst till lokalt Webbgränssnitt för enheten på: 192.168.100.10. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
-4. Tilldela statiska IP-adresser till dataportarna du har konfigurerat.
+4. Åtkomst till lokalt Webbgränssnitt för enheten på: 192.168.100.10. Logga in och lås upp Data Box-enheten med upplåsningslösenordet från Azure-portalen.
+5. Tilldela statiska IP-adresser till dataportarna du har konfigurerat.
 
 
 ## <a name="transfer-via-data-port-in-a-dhcp-environment"></a>Överföring via DATA-port i en DHCP-miljön

@@ -10,11 +10,11 @@ ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.openlocfilehash: 648369d89bd2b5b08171e1f6f5482c81bfba3c66
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884733"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Självstudier: Skapa ett nav och ekrar hybrid nätverkets topologi med Terraform i Azure
 
@@ -32,7 +32,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Använd Terraform till att upprätta gateways och anslutningar mellan lokalt och Azure-nätverk
 > * Använd Terraform till att skapa VNet-peering till ekernätverk
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **Azure-prenumeration**: Om du inte redan har en Azure-prenumeration kan du skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 

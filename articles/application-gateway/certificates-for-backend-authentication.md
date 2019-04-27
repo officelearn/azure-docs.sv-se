@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/14/2019
 ms.author: absha
 ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831724"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Skapa certifikat för lista över tillåtna serverdelen med Azure Application Gateway
 
@@ -25,7 +25,7 @@ I den här artikeln kan du se hur du:
 > - Exportera certifikatet för serverautentisering från ett backend-certifikat (för v1-SKU)
 > - Exportera betrodda rotcertifikat från ett backend-certifikat (för v2-SKU)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver ett befintligt backend-certifikat för att generera certifikat för autentisering eller betrodda rotcertifikat som krävs för lista över tillåtna serverdelsinstanser med application gateway. Backend-certifikat kan vara samma som SSL-certifikat eller en annan för ökad säkerhet. Application gateway ger dig alla mekanism för att skapa eller köpa ett SSL-certifikat. Du kan skapa ett självsignerat certifikat för testning, men du bör inte använda den för produktionsarbetsbelastningar. 
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: afbf2bc32aa737eb5f6dde41035b206d6e260252
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767615"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigering och instrumentpaneler i Application Insights-portalen
 När du har [ställa in Application Insights i projektet](../../azure-monitor/app/app-insights-overview.md), telemetridata om appens prestanda och användning visas i Application Insights-resurs i ditt projekt i den [Azure-portalen](https://portal.azure.com).

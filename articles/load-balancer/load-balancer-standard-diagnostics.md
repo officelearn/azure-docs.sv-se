@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
 ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735245"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Mått och hälsotillstånd diagnostik för Standard Load Balancer
 
 Azure Standard Load Balancer exponerar Azure Standard Load Balancer ger dina resurser följande diagnostiska funktioner:
 * **Flerdimensionella mått**: Innehåller nya flerdimensionella diagnostiska funktioner via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för både offentliga och interna laddar belastningsutjämnaren konfigurationer. Du kan övervaka, hantera och felsöka dina resurser för belastningsutjämning.
 
-* **Resurshälsa**: Sidan belastningsutjämnare i Azure portal och Resource Health-sidan (under övervakning) exponerar avsnittet Resource Health för den offentliga belastningsutjämningskonfigurationen för Standard Load Balancer.
+* **Resource Health**: Sidan belastningsutjämnare i Azure portal och Resource Health-sidan (under övervakning) exponerar avsnittet Resource Health för den offentliga belastningsutjämningskonfigurationen för Standard Load Balancer.
 
 Den här artikeln innehåller en snabb genomgång av funktionerna och sätt att använda dem för Standard Load Balancer.
 
@@ -40,7 +40,7 @@ De olika konfigurationerna som Standard Load Balancer ger följande mått:
 | Tillgängligheten för VIP (datatillgänglighet för sökväg) | Offentlig belastningsutjämnare | Standard Load Balancer utför kontinuerligt datasökväg från inom en region till på klientsidan belastningsutjämnare, ända till SDN-stacken som har stöd för den virtuella datorn. Så länge felfria instanser förblir följer mätningen samma sökväg som ditt programs belastningsutjämnad trafik. Datasökväg som kunderna använder har också verifierats. Måttet är osynliga för ditt program och störa inte andra åtgärder.| Medel |
 | Tillgängligheten för DIP (hälsostatus för avsökning) |  Offentliga och interna belastningsutjämnare | Standard Load Balancer använder en distribuerad avsökning av hälsotillstånd tjänst som övervakar din programslutpunkt hälsa enligt dina inställningar. Det här måttet tillhandahåller en mängd- eller per slutpunkt filtrerad vy för varje instans-slutpunkt i load balancer poolen. Du kan se hur belastningsutjämnaren visar hälsotillståndet för ditt program, som anges av din konfiguration för avsökning av hälsotillstånd. |  Medel |
 | SYN (synkronisera) paket |  Offentlig belastningsutjämnare | Standard Load Balancer inte avsluta (TCP) anslutningar och interagera med flöden för TCP eller UDP-paket. Flöden och deras handskakningar är alltid mellan käll- och VM-instansen. Om du vill felsöka bättre scenariet TCP-protokollet, kan du använda SYN paket räknare att förstå hur många TCP-anslutning försök görs. Måttet rapporterar antalet TCP SYN-paket som tagits emot.| Medel |
-| SNAT-anslutningar |  Offentlig belastningsutjämnare |Standard Load Balancer rapporterar antalet utgående flöden som masqueraded till klientdelen för offentliga IP-adress. Källportar network adress translation (SNAT) är en icke förnybara resurs. Det här måttet kan ge en indikation på hur mycket programmet förlitar sig på SNAT för utgående trafikflöden. Räknare för lyckade och misslyckade utgående SNAT flöden rapporteras och kan användas för att felsöka och förstå hälsotillståndet för dina utgående flöden.| Medel |
+| SNAT-anslutningar |  Offentlig lastbalanserare |Standard Load Balancer rapporterar antalet utgående flöden som masqueraded till klientdelen för offentliga IP-adress. Källportar network adress translation (SNAT) är en icke förnybara resurs. Det här måttet kan ge en indikation på hur mycket programmet förlitar sig på SNAT för utgående trafikflöden. Räknare för lyckade och misslyckade utgående SNAT flöden rapporteras och kan användas för att felsöka och förstå hälsotillståndet för dina utgående flöden.| Medel |
 | Räknare för byte |  Offentliga och interna belastningsutjämnare | Standard Load Balancer rapporterar data som bearbetas per klient.| Medel |
 | Paket-räknare |  Offentliga och interna belastningsutjämnare | Standard Load Balancer rapporterar de paket som bearbetas per klient.| Medel |
 
@@ -57,7 +57,7 @@ Visa mått för dina resurser för Standard Load Balancer:
 
 ![Förhandsversionen av mått för Standard Load Balancer](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
 
-*Bild: DIP tillgänglighet och hälsotillstånd avsökningen status mått för Standard Load Balancer*
+*Figur: DIP tillgänglighet och hälsotillstånd avsökningen status mått för Standard Load Balancer*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Hämta flerdimensionella mätvärden via programmering via API: er
 
@@ -80,7 +80,7 @@ Hämta VIP-tillgänglighet för dina resurser för Standard Load Balancer:
 
 ![VIP-avsökning](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Bild: Läsa in VIP för belastningsutjämnaren information-avsökning*
+*Figur: Läsa in VIP för belastningsutjämnaren information-avsökning*
 
 Måttet genereras av en aktiv, in-band-mätning. En sökning-tjänst inom regionen kommer trafik för mätning. Tjänsten är aktiverad när du skapar en distribution med en offentlig klientdel och den fortsätter tills du tar bort klientdelen. 
 
@@ -107,7 +107,7 @@ Hämta DIP tillgängligheten för dina resurser för Standard Load Balancer:
 
 ![Tillgängligheten för DIP](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
 
-*Bild: VIP för belastningsutjämnaren tillgänglighet*
+*Figur: VIP för belastningsutjämnaren tillgänglighet*
 
 Hälsokontroller av slutpunkter inte av följande skäl:
 - Du konfigurerar en hälsoavsökning till en port som inte lyssnar eller inte svarar eller använder fel-protokollet. Om tjänsten använder direkt serverretur (DSR eller flytande IP) regler, se till att tjänsten lyssnar på IP-adressen för Nätverkskortets IP-konfiguration och inte bara på loopback som är konfigurerad med frontend-IP-adress.
@@ -127,7 +127,7 @@ Hämta statistik över SNAT-anslutningar:
 
 ![SNAT anslutning](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Bild: Load Balancer SNAT-anslutningsräknare*
+*Figur: Load Balancer SNAT-anslutningsräknare*
 
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Hur kontrollerar jag inkommande/utgående anslutningsförsök för min tjänst?
@@ -138,7 +138,7 @@ Använd **totala** som sammansättning för de flesta scenarier.
 
 ![SYN-anslutning](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Bild: Load Balancer SYN antal*
+*Figur: Load Balancer SYN antal*
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Hur kontrollerar jag min förbrukningen av nätverksbandbredd? 
@@ -155,7 +155,7 @@ Hämta paket eller byte sammanställd statistik:
 
 ![Antal byte](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Bild: Läsa in antal byte för belastningsutjämnare*
+*Figur: Läsa in antal byte för belastningsutjämnare*
 
 #### <a name = "vipavailabilityandhealthprobes"></a>Hur diagnostiserar jag min load balancer-distribution?
 
@@ -167,7 +167,7 @@ Du kan ta ett steg ytterligare och använda VIP tillgänglighetsmått få insikt
 
 ![VIP-diagnostik](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
-*Bild: Kombinera mått för DIP och VIP-tillgänglighet*
+*Figur: Kombinera mått för DIP och VIP-tillgänglighet*
 
 Diagrammet visar följande information:
 - Infrastrukturen själva har felfri, den infrastruktur som är värd för dina virtuella datorer har kan nås och mer än en virtuell dator har placerats i serverdelen. Den här informationen visas med blå spårningen för VIP-tillgänglighet, vilket är 100 procent. 
@@ -191,27 +191,27 @@ Visa hälsotillståndet för dina offentlig Standard Load Balancer-resurser:
 
    ![Övervaka sidan](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *Bild: Länken Service Health på Azure Monitor*
+   *Figur: Länken Service Health på Azure Monitor*
 
 2. Välj **Resource Health**, och kontrollera att **prenumerations-ID** och **resurstyp = belastningsutjämnaren** har valts.
 
    ![Resource Health-status](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   *Bild: Välj resurs för vyn hälsotillstånd*
+   *Figur: Välj resurs för vyn hälsotillstånd*
 
 3. I listan väljer du Load Balancer-resursen för att visa dess historiska hälsostatus.
 
     ![Läsa in hälsostatusen för belastningsutjämnaren](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Bild: Läsa in belastningsutjämnare resurshälsovyn*
+   *Figur: Läsa in belastningsutjämnare resurshälsovyn*
  
 Olika resource health statusvärden och deras beskrivningar finns i följande tabell: 
 
 | Resource Health-status | Beskrivning |
 | --- | --- |
 | Tillgängligt | Din offentliga standard belastningsutjämningsresursen är felfri och tillgängliga. |
-| Ej tillgänglig | Offentlig standard load balancer resursen är inte felfri. Diagnostisera hälsotillståndet genom att välja **Azure Monitor** > **mått**.<br>(*Ej tillgänglig* status kan även innebära att resursen inte är ansluten med offentlig standard load balancer.) |
-| Okänt | Resurshälsostatus för offentlig standard load balancer har inte uppdaterats ännu.<br>(*Okänd* status kan även innebära att resursen inte är ansluten med offentlig standard load balancer.)  |
+| Inte tillgängligt | Offentlig standard load balancer resursen är inte felfri. Diagnostisera hälsotillståndet genom att välja **Azure Monitor** > **mått**.<br>(*Ej tillgänglig* status kan även innebära att resursen inte är ansluten med offentlig standard load balancer.) |
+| Inte tillgängligt | Resurshälsostatus för offentlig standard load balancer har inte uppdaterats ännu.<br>(*Okänd* status kan även innebära att resursen inte är ansluten med offentlig standard load balancer.)  |
 
 ## <a name="next-steps"></a>Nästa steg
 

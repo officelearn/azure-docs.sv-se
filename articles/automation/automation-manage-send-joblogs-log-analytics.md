@@ -10,11 +10,11 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739138"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Vidarebefordra jobbstatus och jobbströmmar från Automation till Azure Monitor-loggar
 
@@ -89,7 +89,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 ### <a name="job-logs"></a>Jobbloggar
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
 | RunbookName_s |Anger namnet på runbooken. |
@@ -97,7 +97,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 | Tenant_g | GUID som identifierar klient för anroparen. |
 | JobId_g |GUID som är Id för runbook-jobbet. |
 | resultType |Status för runbookjobbet. Möjliga värden:<br>– Ny<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>-Har slutförts |
-| Kategori | Klassificering av typ av data. För Automation är värdet JobLogs. |
+| Category | Klassificering av typ av data. För Automation är värdet JobLogs. |
 | OperationName | Anger åtgärdstypen i Azure. För Automation är värdet Job. |
 | Resurs | Namnet på Automation-konto |
 | SourceSystem | Hur ska loggas i Azure Monitor insamlade data. Alltid *Azure* för Azure-diagnostik. |
@@ -111,7 +111,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 
 
 ### <a name="job-streams"></a>Jobbströmmar
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då runbook-jobbet körs. |
 | RunbookName_s |Anger namnet på runbooken. |
@@ -120,7 +120,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 | Tenant_g | GUID som identifierar klient för anroparen. |
 | JobId_g |GUID som är Id för runbook-jobbet. |
 | resultType |Status för runbookjobbet. Möjliga värden:<br>-Pågår |
-| Kategori | Klassificering av typ av data. För Automation är värdet JobStreams. |
+| Category | Klassificering av typ av data. För Automation är värdet JobStreams. |
 | OperationName | Anger åtgärdstypen i Azure. För Automation är värdet Job. |
 | Resurs | Namnet på Automation-konto |
 | SourceSystem | Hur ska loggas i Azure Monitor insamlade data. Alltid *Azure* för Azure-diagnostik. |

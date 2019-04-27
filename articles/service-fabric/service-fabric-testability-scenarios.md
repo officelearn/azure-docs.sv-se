@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865036"
 ---
 # <a name="testability-scenarios"></a>Testningsscenarier
 Stora distribuerade system som molninfrastrukturer sin natur instabilt. Azure Service Fabric ger utvecklare möjlighet att skriva tjänster köras ovanpå otillförlitliga infrastrukturer. För att kunna skriva högkvalitativa tjänster, utvecklare behöver kunna orsaka sådana otillförlitliga infrastruktur för att testa stabiliteten för sina tjänster.
@@ -50,10 +50,10 @@ I sin nuvarande form startar fel generation motorn i testet chaos endast säkra 
 
 ### <a name="important-configuration-options"></a>Viktiga konfigurationsalternativ
 * **TimeToRun**: Total tid som testet ska köras innan den avslutar med framgång. Testet kan slutföras tidigare i stället för en misslyckad verifiering.
-* **MaxClusterStabilizationTimeout**: maximal mängd väntetiden klustret fungerar felfritt innan testet. De kontroller som utförs är om klusterhälsa är OK, tjänstehälsa är OK, mål för replikuppsättning uppnås för service-partition och inga InBuild-repliker finns.
-* **MaxConcurrentFaults**: maximalt antal samtidiga fel initierats i varje iteration. Ju fler, mer aggressivt test, därför vilket resulterar i mer komplexa redundansväxlingar och övergången kombinationer. Testet garanterar inte finns externa fel inte kommer att ett kvorum eller dataförlust, oavsett hur hög den här konfigurationen är.
-* **EnableMoveReplicaFaults**: aktiverar eller inaktiverar de fel som orsakar flytta primära eller sekundära repliker. Dessa fel är inaktiverade som standard.
-* **WaitTimeBetweenIterations**: tid som ska förflyta mellan iterationer, dvs. efter en omgång av fel och motsvarande verifiering.
+* **MaxClusterStabilizationTimeout**: Längsta tid att vänta på att klustret fungerar felfritt innan testet. De kontroller som utförs är om klusterhälsa är OK, tjänstehälsa är OK, mål för replikuppsättning uppnås för service-partition och inga InBuild-repliker finns.
+* **MaxConcurrentFaults**: Maximalt antal samtidiga fel initierats i varje iteration. Ju fler, mer aggressivt test, därför vilket resulterar i mer komplexa redundansväxlingar och övergången kombinationer. Testet garanterar inte finns externa fel inte kommer att ett kvorum eller dataförlust, oavsett hur hög den här konfigurationen är.
+* **EnableMoveReplicaFaults**: Aktiverar eller inaktiverar de fel som orsakar flytta primära eller sekundära repliker. Dessa fel är inaktiverade som standard.
+* **WaitTimeBetweenIterations**: Tidsperiod som ska förflyta mellan iterationer, dvs. efter en omgång av fel och motsvarande verifiering.
 
 ### <a name="how-to-run-the-chaos-test"></a>Hur du kör testet chaos
 C#-exempel
@@ -160,10 +160,10 @@ Testscenario redundans är en version av chaos test-scenario som riktar sig mot 
 Redundanstest startar ett valt fel och kör sedan verifiering på tjänsten för att säkerställa dess stabilitet. Redundanstest startar endast ett fel i taget, till skillnad från möjligt flera fel i chaos-testet. Testet misslyckas om service-partitionen inte stabilisera inom den angivna tidsgränsen efter varje fel. Testet startar endast säkra fel. Det innebär att externa fel saknas, ett kvorum eller dataförluster inte utförs.
 
 ### <a name="important-configuration-options"></a>Viktiga konfigurationsalternativ
-* **PartitionSelector**: väljare-objekt som anger den partition som ska vara mål.
+* **PartitionSelector**: Väljare-objekt som anger den partition som ska vara mål.
 * **TimeToRun**: Total tid som testet ska köras innan du avslutar.
-* **MaxServiceStabilizationTimeout**: maximal mängd väntetiden klustret fungerar felfritt innan testet. De kontroller som utförs är om tjänstehälsa är OK, mål för replikuppsättning uppnås för alla partitioner och inga InBuild-repliker finns.
-* **WaitTimeBetweenFaults**: tid som ska förflyta mellan varje fel- och verifiering cykel.
+* **MaxServiceStabilizationTimeout**: Längsta tid att vänta på att klustret fungerar felfritt innan testet. De kontroller som utförs är om tjänstehälsa är OK, mål för replikuppsättning uppnås för alla partitioner och inga InBuild-repliker finns.
+* **WaitTimeBetweenFaults**: Tidsperiod som ska förflyta mellan varje fel- och verifiering cykel.
 
 ### <a name="how-to-run-the-failover-test"></a>Hur du kör testet redundans
 **C#**

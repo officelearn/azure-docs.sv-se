@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753026"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använd din egen notebook-server för att komma igång med Azure Machine Learning
 
@@ -74,6 +74,6 @@ Om du inte planerar att använda de resurser som du skapade i den här artikeln 
 I den här artikeln har du lärt dig att skapa de resurser som du behöver för att experimentera med och distribuera modeller. Du har kört kod i en notebook och du har utforskat körningshistoriken eller koden på arbetsytan i molnet.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Träna en bildklassificeringsmodell](tutorial-train-models-with-aml.md)
+> [Självstudie: Träna en bildklassificeringsmodell](tutorial-train-models-with-aml.md)
 
 Du kan även utforska [mer avancerade exempel på GitHub](https://aka.ms/aml-notebooks) eller visa den [SDK användarhandboken](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

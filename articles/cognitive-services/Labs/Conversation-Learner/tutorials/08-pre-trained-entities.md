@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60707757"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Hur du lägger till Pre-trained entiteter
 Den här självstudien visar hur du lägger till Pre-Trained entiteter i konversationen Learner-modellen.

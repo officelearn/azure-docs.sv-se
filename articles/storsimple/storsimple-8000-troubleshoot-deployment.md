@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-ms.translationtype: MT
+ms.openlocfilehash: 6bb587de2f0f3ef9c4e8c4a856ee4b7430e9b9cf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631561"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Felsöka distributionsproblem för StorSimple-enhet
 ## <a name="overview"></a>Översikt
@@ -39,7 +39,7 @@ Om du stöter på ett problem när du distribuerar din enhet för första gånge
 * Kontrollera krav för distribution. Se till att du har all information som beskrivs i den [checklista för distributionskonfiguration](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist).
 * Granska viktig information StorSimple för att se om problemet som beskrivs. Viktig information innehåller lösningar för kända problem. 
 
-Under distributionen av enheten problem de vanligaste som användare ansikte inträffar när de kör installationsguiden och när de registrerar enheten via Windows PowerShell för StorSimple. (Du använder Windows PowerShell för StorSimple att registrera och konfigurera din StorSimple-enhet. Mer information om enhetsregistrering finns i [steg3: konfigurera och registrera din enhet via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
+Under distributionen av enheten problem de vanligaste som användare ansikte inträffar när de kör installationsguiden och när de registrerar enheten via Windows PowerShell för StorSimple. (Du använder Windows PowerShell för StorSimple att registrera och konfigurera din StorSimple-enhet. Mer information om enhetsregistrering finns [steg3: Konfigurera och registrera din enhet via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
 
 I följande avsnitt kan hjälpa dig att lösa problem som uppstår när du konfigurerar StorSimple-enhet för första gången.
 
@@ -77,7 +77,7 @@ I tabellerna nedan listas vanliga fel som kan uppstå när du:
 | 4 |Invoke-HcsSetupWizard: Det gick inte att en klusterresurs. (Undantag från HRESULT: 0x800713AE). |Duplicera VIP. Den angivna IP-Adressen används redan. |Ange en ny IP-adress som inte används. |
 | 5 |Invoke-HcsSetupWizard: Ogiltig IPv4-adress. |IP-adress har angetts i ett felaktigt format. |Kontrollera formatet och ange IP-adressen igen. Mer information finns i [Ipv4-adresser][1]. |
 | 6 |Invoke-HcsSetupWizard: Ogiltig IPv6-adress. |IP-adress har angetts i ett felaktigt format. |Kontrollera formatet och ange IP-adressen igen. Mer information finns i [IPv6-adressering][2]. |
-| 7 |Invoke-HcsSetupWizard: Det finns inga fler slutpunkter tillgängliga från slutpunktsmappningen. (Undantag från HRESULT: 0x800706D9) |Kluster-funktionen fungerar inte. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
+| 7 |Invoke-HcsSetupWizard: Det finns inga fler slutpunkter tillgängliga från slutpunktsmappningen. (Undantag från HRESULT: 0x800706D9) |Kluster-funktionen fungerar inte. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om du vill ha hjälp. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Fel under valfritt web proxy-inställningar
 | Nej. | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
@@ -85,8 +85,8 @@ I tabellerna nedan listas vanliga fel som kan uppstå när du:
 | 1 |Invoke-HcsSetupWizard: Ogiltig parameter (undantag från HRESULT: 0x80070057) |En av parametrarna som anges för att proxyinställningarna är inte giltig. |URI: N anges inte i rätt format. Använd följande format: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: RPC-servern är inte tillgänglig (undantag från HRESULT: 0x800706ba) |Den grundläggande orsaken är en av följande:<ol><li>Klustret är inte igång.</li><li>Den passiva styrenheten inte kan kommunicera med den aktiva kontrollenheten och kommandot körs från passiv styrenhet.</li></ol> |Beroende på den bakomliggande orsaken:<ol><li>[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att se till att klustret är igång.</li><li>Kör kommandot från den aktiva styrenheten. Om du vill köra kommandot från den passiva styrenheten behöver så att den passiva styrenheten kan kommunicera med den aktiva kontrollenheten. Behöver du [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om den här anslutningen är bruten.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: RPC-anropet misslyckades (undantag från HRESULT: 0x800706be) |Klustret har stoppats. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att se till att klustret är igång. |
-| 4 |Invoke-HcsSetupWizard: Det gick inte att hitta klusterresursen (undantag från HRESULT: 0x8007138f) |Klusterresursen hittades inte. Detta kan inträffa när installationen inte har rätt. |Du kan behöva återställa enheten till fabriksinställningarna. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att skapa en klusterresurs. |
-| 5 |Invoke-HcsSetupWizard: Klusterresursen inte online (undantag från HRESULT: 0x8007138c) |Klusterresurser är inte online. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
+| 4 |Invoke-HcsSetupWizard: Resursen hittades inte (undantag från HRESULT: 0x8007138f) |Klusterresursen hittades inte. Detta kan inträffa när installationen inte har rätt. |Du kan behöva återställa enheten till fabriksinställningarna. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att skapa en klusterresurs. |
+| 5 |Invoke-HcsSetupWizard: Klusterresursen inte online (undantag från HRESULT: 0x8007138c) |Klusterresurser är inte online. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om du vill ha hjälp. |
 
 ## <a name="errors-related-to-device-administrator-password"></a>Fel som rör enhetens administratörslösenord
 Enheten standardlösenord för administratören är **Password1**. Det här lösenordet upphör att gälla efter den första inloggningen; Därför kommer du behöva använda installationsguiden för att ändra den. Du måste ange ett nytt administratörslösenord för enheten när du registrerar enheten för första gången. 
@@ -128,12 +128,12 @@ Du kan använda StorSimple Device Manager-tjänsten som körs i Microsoft Azure 
 
 | Nej. | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 | --- | --- | --- | --- |
-| 1 |Fel 350027: Det gick inte att registrera enheten med StorSimple Device Manager. | |Vänta några minuter och försök sedan igen. Om problemet kvarstår [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md). |
+| 1 |Error 350027: Det gick inte att registrera enheten med StorSimple Device Manager. | |Vänta några minuter och försök sedan igen. Om problemet kvarstår [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md). |
 | 2 |Fel 350013: Ett fel har uppstått i registrera enheten. Detta kan bero på felaktig tjänstregistreringsnyckel. | |Registrera enheten igen med rätt tjänstregistreringsnyckel. Mer information finns i [hämta nyckel för tjänstregistrering.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
 | 3 |Fel 350063: Autentisering till StorSimple Device Manager-tjänsten men registreringen misslyckades. Försök igen efter en stund. |Det här felet indikerar att autentisering med ACS har passerat, men inte det gick att registrera anropet till tjänsten. Detta kan bero på ett glapp sporadiska nätverk. |Om problemet kvarstår, så [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md). |
-| 4 |Fel 350049: Det gick inte att nå tjänsten under registreringen. |När anropet görs till tjänsten, tas ett webbundantag emot. I vissa fall kan få detta fasta genom att försöka igen senare. |Kontrollera din IP-adress och DNS-namn och försök sedan igen. Om problemet kvarstår [kontakta Microsoft Support.](storsimple-8000-contact-microsoft-support.md) |
+| 4 |Error 350049: Det gick inte att nå tjänsten under registreringen. |När anropet görs till tjänsten, tas ett webbundantag emot. I vissa fall kan få detta fasta genom att försöka igen senare. |Kontrollera din IP-adress och DNS-namn och försök sedan igen. Om problemet kvarstår [kontakta Microsoft Support.](storsimple-8000-contact-microsoft-support.md) |
 | 5 |Fel 350031: Enheten har redan registrerats. | |Ingen åtgärd krävs. |
-| 6 |Fel 350016: Det gick inte att registrera enheten. | |Kontrollera att Registreringsnyckeln är korrekt. |
+| 6 |Error 350016: Det gick inte att registrera enheten. | |Kontrollera att Registreringsnyckeln är korrekt. |
 | 7 |Invoke-HcsSetupWizard: Ett fel uppstod när du registrerar din enhet; Detta kan bero på felaktig IP-adress eller DNS-namn. Kontrollera dina nätverksinställningar och försök igen. Om problemet kvarstår [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md). (Fel 350050) |Se till att enheten kan pinga utanför nätverket. Om du inte har anslutning till ett externt nätverk, misslyckas registreringen med det här felet. Det här felet kan vara en kombination av en eller flera av följande:<ul><li>Felaktig IP</li><li>Felaktig undernät</li><li>Felaktig gateway</li><li>Felaktig DNS-inställningar</li></ul> |Hittar du i den [stegvis Felsökningsexempel](#step-by-step-storsimple-troubleshooting-example). |
 | 8 |Invoke-HcsSetupWizard: Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FBE2]. Försök igen om en stund. Kontakta Microsoft Support om problemet kvarstår. |Det här är ett allmänt fel som genereras för alla användare osynligt fel från tjänsten eller agent. Den vanligaste orsaken kan vara att ACS-autentisering misslyckades. En möjlig orsak till felet är att det finns problem med NTP-serverkonfigurationen och tid på enheten är inte korrekt. |Korrigera tiden (om det finns problem) och försök sedan igen för registrering. Om du använder kommandot Set-HcsSystem - Timezone versaler varje ord i tidszonen (till exempel ”Pacific Standard Time”) om du vill ändra tidszonen.  Om problemet kvarstår [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
 | 9 |Varning: Det gick inte att aktivera enheten. Enhetsadministratören och StorSimple Snapshot Manager-lösenord har inte ändrats. |Om registreringen misslyckas ändras inte enhetsadministratören och StorSimple Snapshot Manager-lösenord. | |
@@ -173,7 +173,7 @@ Använd följande Windows PowerShell-cmdletar för att identifiera anslutningsfe
 * `Test-Connection`: Använd denna cmdlet för att kontrollera nätverksanslutningen i och utanför nätverket.
 * `Test-HcsmConnection`: Använd denna cmdlet för att kontrollera anslutningen för en enhet som har registrerats.
 * `Sync-HcsTime`: Använd denna cmdlet för att visa enhetstiden och framtvinga en tidssynkronisering med NTP-servern.
-* `Enable-HcsPing` och `Disable-HcsPing`: använda dessa cmdletar för att tillåta värdarna att pinga nätverksgränssnitt på StorSimple-enheten. Som standard svarar StorSimple-nätverksgränssnitten inte på ping-begäran.
+* `Enable-HcsPing` och `Disable-HcsPing`: Du kan använda dessa cmdletar för att tillåta värdarna att pinga nätverksgränssnitt på StorSimple-enheten. Som standard svarar StorSimple-nätverksgränssnitten inte på ping-begäran.
 * `Trace-HcsRoute`: Använd denna cmdlet som ett verktyg för spårning av väg. Den skickar paket till varje router på vägen till slutmålet under en viss tidsperiod och beräknar resultatet baserat på de paket som returneras från varje hopp. Eftersom `Trace-HcsRoute` visar graden av paketförlust vid varje router eller en länk, kan du identifiera vilka routrar eller länkar kan orsaka problem med nätverket.
 * `Get-HcsRoutingTable`: Använd denna cmdlet för att visa lokala IP-routningstabell.
 

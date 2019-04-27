@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
 ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699588"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Självstudier: Måttlig Facebook-inlägg och kommandon med Azure Content Moderator
 
@@ -34,7 +34,7 @@ Det här diagrammet visar varje komponent i det här scenariot:
 
 ![Diagram över Content Moderator skicka information via ”CMListener” och ta emot information från Facebook via ”FBListener”](images/tutorial-facebook-moderation.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator-tjänsten och få din nyckel.
 - En [Facebook-konto](https://www.facebook.com/).
@@ -65,7 +65,7 @@ Logga in på den [Azure-portalen](https://portal.azure.com/) och gör följande:
 2. Gå till den nya Funktionsappen.
 3. I appen, går du till den **plattformsfunktioner** fliken och markera **programinställningar**. I den **programinställningar** avsnittet på nästa sida, bläddra längst ned i listan och klicka på **Lägg till ny inställning**. Lägg till följande nyckel/värde-par
     
-    | App inställningsnamn | värde   | 
+    | App inställningsnamn | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | Ditt team-ID för Content Moderator  | 
     | cm:SubscriptionKey | Prenumerationsnyckeln för Content Moderator – Se [Autentiseringsuppgifter](review-tool-user-guide/credentials.md) | 

@@ -17,11 +17,11 @@ ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865297"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
 
@@ -41,7 +41,7 @@ I den här självstudieserien får du lära du dig att:
 > * [skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
 > * [hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö.
 * I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).

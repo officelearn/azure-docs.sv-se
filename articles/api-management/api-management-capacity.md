@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658330"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Kapaciteten för en Azure API Management-instans
 
@@ -24,7 +24,7 @@ ms.locfileid: "57454515"
 
 Den här artikeln förklarar vad det **kapacitet** är och hur den fungerar. Den visar hur du kommer åt **kapacitet** mått i Azure-portalen och ger förslag på när du ska du överväga att skala eller uppgraderar din API Management-instans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa stegen från den här artikeln, måste du ha:
 

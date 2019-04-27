@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777037"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Lösning i Azure Log Analytics för aviseringshantering
 

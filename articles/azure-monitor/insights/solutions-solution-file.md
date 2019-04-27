@@ -15,11 +15,11 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595773"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en fil för lösningen i Azure (förhandsversion)
 > [!NOTE]
@@ -73,7 +73,7 @@ I följande tabell beskrivs attributen för en parameter.
 | typ |Datatypen för parametern. Den indatakontroll som visas för användaren är beroende av datatypen.<br><br>bool - listrutan<br>sträng - textrutan<br>int - textrutan<br>SecureString - lösenordsfältet<br> |
 | category |Valfri kategori för parametern.  Parametrarna i samma kategori grupperas tillsammans. |
 | Kontroll |Ytterligare funktioner för strängparametrar.<br><br>datetime - Datetime kontroll visas.<br>GUID – Guid-värde genereras automatiskt och parametern visas inte. |
-| beskrivning |Valfri beskrivning för parametern.  Visas i en information pratbubblor bredvid parametern. |
+| description |Valfri beskrivning för parametern.  Visas i en information pratbubblor bredvid parametern. |
 
 ### <a name="standard-parameters"></a>Standardparametrar
 I följande tabell visas standardparametrar för alla lösningar för hantering.  Dessa värden är ifyllda i stället för att fråga om dem när lösningen har installerats från Azure Marketplace eller Quickstart-mallar.  Användaren måste ange värden för dem om lösningen är installerat med någon annan metod.
@@ -85,12 +85,12 @@ I följande tabell visas standardparametrar för alla lösningar för hantering.
 
 | Parameter | Typ | Beskrivning |
 |:--- |:--- |:--- |
-| accountName |sträng |Azure Automation-kontonamn. |
-| pricingTier |sträng |Prisnivån för både Log Analytics-arbetsytan och Azure Automation-konto. |
-| regionId |sträng |Region för Azure Automation-kontot. |
-| solutionName |sträng |Namnet på lösningen.  Om du distribuerar din lösning med Quickstart-mallar, bör sedan du definiera solutionName som en parameter så att du kan definiera en sträng i stället eftersom användaren måste ange en. |
-| workspaceName |sträng |Log Analytics-Arbetsytenamn. |
-| workspaceRegionId |sträng |Region för Log Analytics-arbetsytan. |
+| accountName |string |Azure Automation-kontonamn. |
+| pricingTier |string |Prisnivån för både Log Analytics-arbetsytan och Azure Automation-konto. |
+| regionId |string |Region för Azure Automation-kontot. |
+| solutionName |string |Namnet på lösningen.  Om du distribuerar din lösning med Quickstart-mallar, bör sedan du definiera solutionName som en parameter så att du kan definiera en sträng i stället eftersom användaren måste ange en. |
+| workspaceName |string |Log Analytics-Arbetsytenamn. |
+| workspaceRegionId |string |Region för Log Analytics-arbetsytan. |
 
 
 Nedan följer strukturen för standardparametrar som du kan kopiera och klistra in i din lösningsfilen.  

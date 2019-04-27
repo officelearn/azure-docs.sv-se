@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: dc8c29b1c7d4e5056cb6aeee6335e32687fd547f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627329"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Hur du använder verktyg som finns i SDK: erna för att förenkla utvecklingen för etablering
 IoT Hub Device Provisioning Service förenklar etableringen med zero-touch-in-time [Automatisk etablering](concepts-auto-provisioning.md) på ett säkert och skalbart sätt.  Security-attestering i form av X.509-certifikat eller Trusted Platform Module (TPM) krävs.  Microsoft även i samarbete med [andra security maskinvarupartners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) att förbättra förtroende för säkra IoT-distributionen. Förstå säkerhet maskinvarukrav kan vara ganska svårt för utvecklare. En uppsättning Azure IoT Provisioning Service-SDK: er tillhandahålls så att utvecklare kan använda ett bekvämlighet lager för skrivning klienter som kommunicerar med etableringstjänsten. SDK: erna kan du även ange exempel för vanliga scenarier som en uppsättning verktyg för att förenkla security attestering under utveckling.

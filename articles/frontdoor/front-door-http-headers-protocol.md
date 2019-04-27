@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736656"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Protokollstöd för HTTP-huvuden i Azure ytterdörren Service
 Den här artikeln beskriver det protokoll som ytterdörren tjänsten stöder med delar av anropet sökvägen (se bild). Följande avsnitt innehåller mer information om HTTP-huvuden som stöds av ytterdörren-tjänsten.
@@ -33,7 +33,7 @@ Ytterdörren Service accepterar de flesta meddelandehuvuden från den inkommande
 
 Ytterdörren Service innehåller rubriker från en inkommande begäran om inte bort på grund av begränsningar. Ytterdörren lägger även till följande rubriker:
 
-| Sidhuvud  | Exempel och beskrivning |
+| Huvud  | Exempel och beskrivning |
 | ------------- | ------------- |
 | Via |  Via: 1.1 azure </br> Ytterdörren lägger till klientens HTTP-version följt av *Azure* som värde för sidhuvudet Via. Detta anger klientens HTTP-version och den åtkomsten har en mellanliggande mottagare för förfrågan mellan klienten och serverdelen.  |
 | X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representerar klientens IP-adress som är associerade med begäran bearbetas. En begäran kommer från en proxy kan till exempel lägga till rubriken X-vidarebefordrade-för att ange IP-adressen för den ursprungliga anroparen. |
@@ -48,7 +48,7 @@ Ytterdörren Service innehåller rubriker från en inkommande begäran om inte b
 
 Rubriker som skickas till ytterdörren från serverdelen skickas också till klienten. Här följer huvuden som skickas från åtkomsten till klienter.
 
-| Sidhuvud  | Exempel |
+| Huvud  | Exempel |
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Det här är en unik referens-sträng som identifierar en begäran som hanteras av ytterdörren. Detta är viktigt för att felsöka som används för att söka åtkomst loggarna.|
 

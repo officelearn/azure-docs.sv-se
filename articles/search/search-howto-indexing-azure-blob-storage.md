@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871357"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search att indexera dokument (till exempel PDF: er och Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar den grunderna för att installera och konfigurera en blob-indexeraren. Sedan den erbjuder en djupare förklaring av beteenden och scenarier som du kan stöta på.

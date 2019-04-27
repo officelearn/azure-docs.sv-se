@@ -17,11 +17,11 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713851"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Göra så att containrar kan använda Azure Virtual Network-funktioner
 
@@ -29,7 +29,7 @@ Hämta den omfattande uppsättningen med Azure-nätverksfunktioner till containr
 
 - En virtuell IP-adress tilldelas till varje podd, som kan bestå av en eller flera containrar.
 - Poddar kan ansluta till peerkopplade virtuella nätverk och till lokala nätverk via ExpressRoute eller VPN för plats-till-plats. Poddar kan även nås från peerkopplade och lokala nätverk.
-- Poddar kan komma åt tjänster som Azure Storage och Azure SQL Database, som skyddas av tjänstslutpunkter i virtuella nätverk.
+- Poddar kan komma åt tjänster som Azure Storage och Azure SQL Database, som skyddas av tjänstslutpunkter för virtuellt nätverk.
 - Nätverkssäkerhetsgrupper och vägar kan tillämpas direkt på poddar.
 - Poddar kan placeras direkt bakom en intern eller offentlig lastbalanserare i Azure, precis som virtuella datorer
 - Poddar kan tilldelas en offentlig IP-adress, vilket gör dem direkt åtkomliga från internet. Poddar kan också ansluta till internet själva.
@@ -51,7 +51,7 @@ Poddar finns i en virtuell dator som är en del av ett virtuellt nätverk. En po
 
 Om du vill aktivera poddåtkomst till internet konfigurerar plugin-programmet *iptables*-regler för att nätadressöversätta (NAT) internet-bunden trafik från poddar. IP-källadressen för paketet översätts till den primära IP-adressen på den virtuella datorns nätverksgränssnitt. Virtuella Windows-datorer identifierar automatiskt källan för NAT-trafik (SNAT) IP-adresser som är utanför det undernät som den virtuell datorn tillhör som mål. Normalt översätts all trafik till en IP-adress utanför IP-adressintervallet för det virtuella nätverket.
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Limits
 
 Plugin-programmet stöder upp till 250 poddar per virtuell dator och upp till 16 000 poddar i ett virtuellt nätverk. Dessa gränser är olika för [Azure Kubernetes Service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
 

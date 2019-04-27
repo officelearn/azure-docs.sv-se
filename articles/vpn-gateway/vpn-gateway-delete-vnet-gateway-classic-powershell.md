@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
 ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60863988"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Ta bort en virtuell nätverksgateway med hjälp av PowerShell (klassisk)
 

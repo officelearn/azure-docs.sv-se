@@ -14,14 +14,14 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823954"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Flytta data från MySQL med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-mysql-connector.md)
 > * [Version 2 (aktuell version)](../connector-mysql.md)
 
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data F
 
 Du kan kopiera data från ett datalager för lokal MySQL till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från en MySQL-datalager till datalager, men inte för att flytta data från andra datalager till en MySQL-datalager. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Data Factory-tjänsten stöder anslutning till den lokala MySQL-källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) du lär dig om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar gatewayen.
 
 Gateway krävs även om MySQL-databasen finns på Azure IaaS-datorer (VM). Du kan installera gatewayen på samma virtuella dator som datalager eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
@@ -68,13 +68,13 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **OnPremisesMySql** |Ja |
+| type |Type-egenskapen måste anges till: **OnPremisesMySql** |Ja |
 | server |Namnet på den MySQL-servern. |Ja |
 | databas |Namnet på MySQL-databasen. |Ja |
 | schemat |Namnet på schemat i databasen. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till MySQL-databasen. Möjliga värden är: `Basic`. |Ja |
 | användarnamn |Ange användarnamn för anslutning till MySQL-databasen. |Ja |
-| lösenord |Ange lösenord för det användarkonto som du har angett. |Ja |
+| password |Ange lösenord för det användarkonto som du har angett. |Ja |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala MySQL-databas. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -93,7 +93,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 När källan i kopieringsaktiviteten är av typen **RelationalSource** (som innehåller MySQL), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej (om **tableName** av **datauppsättning** har angetts) |
 
@@ -303,42 +303,42 @@ När data flyttas till MySQL, används följande mappningar från MySQL-typer ti
 | --- | --- |
 | bigint osignerade |Decimal |
 | bigint |Int64 |
-| bitars |Decimal |
-| blob |Byte] |
-| Bool |Boolesk |
-| Char |Sträng |
-| datum |DateTime |
+| bit |Decimal |
+| blob |Byte[] |
+| bool |Boolean |
+| char |String |
+| date |DateTime |
 | datetime |DateTime |
 | decimal |Decimal |
-| dubbel precision |Double-värde |
-| double |Double-värde |
-| Enum |Sträng |
-| flyt |Enkel |
+| dubbel precision |Double |
+| double |Double |
+| Enum |String |
+| flyt |Single |
 | int osignerade |Int64 |
 | int |Int32 |
 | heltal osignerade |Int64 |
 | heltal |Int32 |
-| lång varbinary |Byte] |
-| lång varchar |Sträng |
-| longblob |Byte] |
-| LONGTEXT |Sträng |
-| mediumblob |Byte] |
+| lång varbinary |Byte[] |
+| lång varchar |String |
+| longblob |Byte[] |
+| longtext |String |
+| mediumblob |Byte[] |
 | mediumint osignerade |Int64 |
 | mediumint |Int32 |
-| mediumtext |Sträng |
-| numeriskt |Decimal |
-| verkliga |Double-värde |
-| set |Sträng |
+| mediumtext |String |
+| numeric |Decimal |
+| real |Double |
+| set |String |
 | smallint osignerade |Int32 |
 | smallint |Int16 |
-| text |Sträng |
-| time |Tidsintervall |
+| text |String |
+| time |TimeSpan |
 | tidsstämpel |DateTime |
-| tinyblob |Byte] |
+| tinyblob |Byte[] |
 | tinyint osignerade |Int16 |
 | tinyint |Int16 |
-| tinytext |Sträng |
-| varchar |Sträng |
+| tinytext |String |
+| varchar |String |
 | år |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare

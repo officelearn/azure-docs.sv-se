@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723809"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Ändra sökväg till en blob från standardsökvägen
 
 När tjänsten StorSimple Data Manager omvandlar data, som standard placeras transformerade blobbar i en lagringsbehållare som anges under genereringen av måldatabasen. När blobarna som tas emot på den här platsen, kan du flytta dessa blobar till en annan plats. Den här artikeln beskriver hur du ställer in en Azure-funktion att byta namn på en filsökväg för standard-blob och kan därför flytta blobar till en annan plats.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att du har en korrekt konfigurerad jobbdefinition i StorSimple Data Manager-tjänsten.
 

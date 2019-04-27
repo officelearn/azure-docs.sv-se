@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726390"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "58661096"
 
 Den här artikeln visar hur du skapar och felsöker ett enkelt Reliable Actor-program i Visual Studio. Mer information om Reliable Actors finns [introduktion till Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar bör du kontrollera att du har Service Fabric-utvecklingsmiljö, inklusive Visual Studio, ställa in på din dator. Mer information finns i [hur du ställer in utvecklingsmiljön](service-fabric-get-started.md).
 

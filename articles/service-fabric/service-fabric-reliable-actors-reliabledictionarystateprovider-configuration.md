@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 4e39357a765ec85aa64055b1aa422d8d7a01c116
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727139"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Konfigurera Reliable Actors--ReliableDictionaryActorStateProvider
 Du kan ändra standardkonfigurationen för ReliableDictionaryActorStateProvider genom att ändra filen settings.xml som genererats i Visual Studio-paketrot Config-mappen för den angivna aktören.
@@ -93,7 +93,7 @@ Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräc
 | MaxSecondaryReplicationQueueSize |Antal åtgärder |16384 |Maximalt antal åtgärder i den sekundära kön. En åtgärd frigjorts när du har gjort tillståndet med hög tillgänglighet via persistence. Det här värdet måste vara större än 64 och delbart med 2. |
 | CheckpointThresholdInMB |MB |200 |Mängden utrymme i loggfilen efter vilken tillståndet är med kontrollpunkt. |
 | MaxRecordSizeInKB |kB |1024 |Största poststorleken som replikatorn kan skriva i loggen. Det här värdet måste vara en multipel av 4 och större än 16. |
-| OptimizeLogForLowerDiskUsage |Boolesk |true |Om värdet är true är loggen konfigurerad så att den repliken dedikerade loggfil skapas med hjälp av en NTFS-sparse-fil. Detta minskar den faktiska diskutrymmesanvändningen för filen. När värdet är FALSKT skapas filen med fast allokeringar som ger bäst skrivprestanda. |
+| OptimizeLogForLowerDiskUsage |Boolean |true |Om värdet är true är loggen konfigurerad så att den repliken dedikerade loggfil skapas med hjälp av en NTFS-sparse-fil. Detta minskar den faktiska diskutrymmesanvändningen för filen. När värdet är FALSKT skapas filen med fast allokeringar som ger bäst skrivprestanda. |
 | SharedLogId |GUID |"" |Anger ett unikt guid för att använda för att identifiera den delade loggfil som används med den här repliken. Tjänster ska normalt inte använda den här inställningen. Men om SharedLogId anges måste sedan SharedLogPath också anges. |
 | SharedLogPath |Fullständig sökväg |"" |Anger den fullständigt kvalificerade sökvägen där delade loggfilen för den här repliken ska skapas. Tjänster ska normalt inte använda den här inställningen. Men om SharedLogPath anges måste sedan SharedLogId också anges. |
 

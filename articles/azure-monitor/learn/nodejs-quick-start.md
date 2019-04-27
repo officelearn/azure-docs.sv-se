@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540359"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Börja övervaka Node.js-webbappen
 
@@ -91,7 +91,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-   ![Programavbildning](./media/nodejs-quick-start/5appmap.png)
+   ![Programkarta](./media/nodejs-quick-start/5appmap.png)
 
 3. Klicka på den **Appanalys** ikonen ![Programkartan ikonen](./media/nodejs-quick-start/006.png) **visa i analys**.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 

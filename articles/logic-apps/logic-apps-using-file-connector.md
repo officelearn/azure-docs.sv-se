@@ -10,11 +10,11 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60846789"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
@@ -26,7 +26,7 @@ Med anslutningsappen för filsystem och Azure Logic Apps kan du kan skapa automa
 
 Den här artikeln visar hur du kan ansluta till ett lokalt filsystem som beskrivs i det här scenariot: kopiera en fil som har överförts till Dropbox till en filresurs och sedan skicka ett e-postmeddelande. På ett säkert sätt ansluta och få åtkomst till lokala system, logic apps används den [lokal datagateway](../logic-apps/logic-apps-gateway-connection.md). Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa exemplet behöver du följande objekt:
 

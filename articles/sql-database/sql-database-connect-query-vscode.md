@@ -14,11 +14,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60862146"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använd Visual Studio Code för att ansluta till och söka i en Azure SQL-databas
 
@@ -71,7 +71,7 @@ Ingen särskild konfiguration behövs.
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -106,7 +106,7 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
 
 4. Följ anvisningarna för att ange anslutningsegenskaper för den nya profilen. När du har angett varje värde så väljer du **Retur** för att fortsätta.
 
-   | Egenskap       | Föreslaget värde | Beskrivning |
+   | Egenskap        | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Servernamn** | Fullständigt kvalificerat servernamn | Ungefär så här: **mynewserver20170313.database.windows.net**. |
    | **Databasnamn** | mySampleDatabase | Databasen du ska ansluta till. |
@@ -192,6 +192,6 @@ Kör följande [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-t
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att ansluta och köra frågor med SQL Server Management Studio, se [Snabbstart: Använd SQL Server Management Studio för att ansluta till en Azure SQL Database och skicka frågor till data](sql-database-connect-query-ssms.md).
+- För att ansluta och köra frågor med SQL Server Management Studio, se [Snabbstart: Använd SQL Server Management Studio för att ansluta till en Azure SQL-databas och skicka frågor till data](sql-database-connect-query-ssms.md).
 - För att ansluta och skicka frågor med Azure Portal, se [Snabbstart: Använd SQL-frågeredigeraren i Azure Portal för att ansluta och fråga efter data](sql-database-connect-query-portal.md).
 - En artikel från MSDN-magazine om hur du använder Visual Studio Code finns i [Skapa en IDE-databas med MSSQL-tillägget blogginlägg](https://msdn.microsoft.com/magazine/mt809115).

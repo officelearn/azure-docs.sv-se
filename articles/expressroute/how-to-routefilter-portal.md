@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera routningsfilter för Microsoft-peering: Azure ExpressRoute - portalen | Microsoft Docs'
+title: 'Konfigurera routningsfilter för Microsoft-peering: Med ExpressRoute i Azure - portalen | Microsoft Docs'
 description: Den här artikeln beskriver hur du konfigurerar routningsfilter för Microsoft-peering med hjälp av Azure portal.
 services: expressroute
 author: ganesr
@@ -9,13 +9,13 @@ ms.date: 09/26/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60839324"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera routningsfilter för Microsoft-peering: Azure-portalen
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera routningsfilter för Microsoft-peering: Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)

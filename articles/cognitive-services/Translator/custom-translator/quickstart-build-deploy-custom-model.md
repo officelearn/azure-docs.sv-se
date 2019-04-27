@@ -10,17 +10,17 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: quickstart
 ms.openlocfilehash: 7875a32274ddf0ea886727cdc55a0bbb874b2296
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578920"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Snabbstart: Skapa, distribuera och använda en anpassad modell för översättning
 
 Den här artikeln innehåller stegvisa instruktioner för att skapa ett översättningssystem med Custom Translator.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. För att använda [Custom Translator](https://portal.customtranslator.azure.ai)-portalen behöver du ett [Microsoft-konto](https://signup.live.com) eller [Azure AD-konto](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (organisationskonto på Azure) för att logga in.
 

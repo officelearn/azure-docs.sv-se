@@ -14,11 +14,11 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739275"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Vanliga frågor om SQL Server på Linux Azure Virtual Machines
 
@@ -63,7 +63,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 ## <a name="licensing"></a>Licensiering
 
-1. **Hur kan jag installera min licensierad version av SQL Server på en Azure-dator?**
+1. **Hur kan jag installera min licensierade version av SQL Server på en virtuell Azure-dator?**
 
    Skapa först en Linux endast OS-dator. Kör sedan den [SQL Server-installationsstegen](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) för din Linux-distribution. Om du installerar någon av fritt licensierade versioner av SQL Server, måste du också ha en SQL Server-licens och [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
@@ -71,7 +71,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Det finns inga BYOL Linux-avbildningar för virtuella datorer för SQL Server för tillfället. Men kan du manuellt installera SQL Server på en virtuell dator endast Linux enligt beskrivningen i föregående frågor.
 
-1. **Kan jag ändra en virtuell dator om du vill använda min egen SQL Server-licens om den har skapats från en användningsbaserad galleriavbildningar?**
+1. **Kan jag ändra en virtuell till att använda min egen SQL Server-licens om den skapades från en av galleriavbildningarna med betala per användning?**
 
    Nej. Du kan inte byta från betala per sekund licensing till att använda din egen licens. Du måste skapa en ny Linux-VM, installera SQL Server och migrera dina data. Se föregående fråga för mer information om hur du aktiverar din egen licens.
 
@@ -81,15 +81,15 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Ja, men SSMS är för närvarande endast Windows-verktyget. Du måste ansluta via en fjärranslutning från en Windows-dator att använda SSMS med Linux SQL Server-datorer. Lokalt på Linux, den nya [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) verktyget kan utföra många administrativa uppgifter. Ett plattformsoberoende databas-hanteringsverktyg finns [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
-1. **Kan jag ta bort SQL Server helt från en SQL-VM?**
+1. **Kan jag ta bort SQL Server helt från en virtuell SQL-dator?**
 
-   Ja, men fortsätter du att debiteras för din SQL-VM, enligt beskrivningen i [Pricing guidance för SQL Server Azure VM](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Om du behöver inte längre SQL Server kan du distribuera en ny virtuell dator och migrera data och program till den nya virtuella datorn. Du kan sedan ta bort den SQL Server-datorn.
+   Ja, men fortsätter du att debiteras för din SQL-VM, enligt beskrivningen i [Pricing guidance för SQL Server Azure VM](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Om du inte längre behöver SQL Server kan du distribuera en ny virtuell dator och migrera data och program till den nya virtuella datorn. Sedan kan du ta bort den virtuella SQL Server-datorn.
 
 ## <a name="updating-and-patching"></a>Uppdatering och uppdatera
 
 1. **Hur uppgraderar jag till en ny version/utgåva av SQL Server i en Azure-dator?**
 
-   För närvarande finns ingen uppgradering på plats för SQL Server som körs i en Azure VM. Skapa en ny Azure-dator med den önskade versionen/utgåvan av SQL Server och migrera sedan databaserna till den nya servern med [standard för datamigrering](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
+   För närvarande finns det ingen uppgradering på plats för SQL Server som körs på en virtuell dator i Azure. Skapa en ny virtuell dator i Azure med den önskade versionen/utgåvan av SQL Server och migrera sedan databaserna till den nya servern med hjälp av [standardmetoderna för datamigrering](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
 
 ## <a name="general"></a>Allmänt
 

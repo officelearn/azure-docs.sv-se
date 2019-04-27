@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577909"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Samla in distribuerade spårningar från Go (förhandsversion)
 
 Application Insights nu stöder distribuerad spårning av Go-program via integrering med [OpenCensus](https://opencensus.io) och vår nya [lokala vidarebefordrare](./opencensus-local-forwarder.md). Den här artikeln beskriver steg för steg hur du konfigurerar OpenCensus för Go och få din spårningsdata till Application Insights.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du behöver en Azure-prenumeration.
 - Go ska installeras, den här artikeln använder version 1.11 [går hämta](https://golang.org/dl/).

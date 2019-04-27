@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/12/2019
 ms.author: assafi
 ms.openlocfilehash: 7051f1c1ce43be7dce5d88a06fccee9d876a70f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60828553"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av C#
 <a name="HOLTop"></a>

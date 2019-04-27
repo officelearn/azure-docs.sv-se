@@ -4,14 +4,15 @@ description: Den här artikeln innehåller information om hur du anpassar brandv
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
-ms.author: victorh
+origin.date: 02/22/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832905"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Anpassa brandväggsregler för webbaserade program via Azure CLI
 
@@ -25,7 +26,7 @@ Följande kodexempel visar hur du kan visa regler och regelgrupper som kan konfi
 
 I följande exempel visas hur du visar regelgrupper:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
@@ -78,7 +79,7 @@ Följande utdata är ett trunkerat svar från föregående exempel:
 
 I följande exempel visas hur du visar regler i en angiven regelgrupp:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
@@ -117,7 +118,7 @@ Följande utdata är ett trunkerat svar från föregående exempel:
 
 I följande exempel inaktiverar regler `910018` och `910017` på application gateway:
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
 
@@ -125,14 +126,14 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 I följande lista innehåller villkor som gör att WAF för att blockera begäran i Förhindringsläge (i identifieringsläge loggas som undantag). Dessa kan inte vara konfigurerad eller inaktiverad:
 
-* Det gick inte att parsa begärandetexten resulterar i begäran blockeras, såvida inte brödtext inspektion stängs av (XML, JSON, formulärdata)
-* Datalängden för begäran brödtext (utan att några filer) är större än den konfigurerade gränsen
-* Brödtext (inklusive filer) är större än gränsen
-* Ett internt fel inträffade i WAF-motorn
+- Det gick inte att parsa begärandetexten resulterar i begäran blockeras, såvida inte brödtext inspektion stängs av (XML, JSON, formulärdata)
+- Datalängden för begäran brödtext (utan att några filer) är större än den konfigurerade gränsen
+- Brödtext (inklusive filer) är större än gränsen
+- Ett internt fel inträffade i WAF-motorn
 
 CRS 3.x specifika:
 
-* Inkommande avvikelseidentifiering poäng överskred tröskeln
+- Inkommande avvikelseidentifiering poäng överskred tröskeln
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -142,3 +143,5 @@ När du har konfigurerat din inaktiverade regler för kan du lära dig hur du vi
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+
+<!-- Update_Description: wording update -->

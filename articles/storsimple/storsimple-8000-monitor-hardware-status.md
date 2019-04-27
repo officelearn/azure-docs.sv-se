@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 58007eea9ce25423bc3a9c2847de42db04be43eb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632884"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Använda StorSimple Device Manager-tjänsten för att övervaka de komponenter och status
 
@@ -79,9 +79,9 @@ Utför följande steg om du vill visa maskinvarustatus för en enhetskomponent:
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Komponentlistan för primära inneslutning av StorSimple-enhet
 I följande tabell beskrivs de fysiska och logiska komponenter som ingår i det primära höljet (finns både i 8100 och 8600) i din lokala StorSimple-enheten.
 
-| Komponent | Modul | Typ | Plats | Fältet replaceable enhet (FRU)? | Beskrivning |
+| Komponent | Modul | Typ | Location | Fältet replaceable enhet (FRU)? | Beskrivning |
 | --- | --- | --- | --- | --- | --- |
-| Enhet i fack [0-11] |Diskenheter |Fysiska |Delad |Ja |En rad visas för varje SSD eller HDD-enheter i det primära höljet. |
+| Enhet i fack [0-11] |Disk Drives |Fysiska |Delad |Ja |En rad visas för varje SSD eller HDD-enheter i det primära höljet. |
 | Omgivningstemperatursensor |Hölje |Fysiska |Delad |Nej |Mäter temperaturen inom chassit. |
 | Mitten plan-temperatursensor |Hölje |Fysiska |Delad |Nej |Mäter temperaturen för mitten plan. |
 | Ljudligt alarm |Hölje |Fysiska |Delad |Nej |Anger om undersystemet ljudligt alarm inom chassit är funktionell. |
@@ -120,9 +120,9 @@ I följande tabell beskrivs de fysiska och logiska komponenter som ingår i det 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Komponentlistan för EBOD inneslutning av StorSimple-enhet
 I följande tabell beskrivs de fysiska och logiska komponenter som ingår i EBOD höljet (endast finns i 8600-modellen) i din lokala StorSimple-enheten.
 
-| Komponent | Modul | Typ | Plats | FRU? | Beskrivning |
+| Komponent | Modul | Typ | Location | FRU? | Beskrivning |
 | --- | --- | --- | --- | --- | --- |
-| Enhet i fack [0-11] |Diskenheter |Fysiska |Delad |Ja |En rad visas för varje HDD-enheter beskrivs EBOD-höljet. |
+| Enhet i fack [0-11] |Disk Drives |Fysiska |Delad |Ja |En rad visas för varje HDD-enheter beskrivs EBOD-höljet. |
 | Omgivningstemperatursensor |Hölje |Fysiska |Delad |Nej |Mäter temperaturen inom chassit. |
 | Mitten plan-temperatursensor |Hölje |Fysiska |Delad |Nej |Mäter temperaturen för mitten plan. |
 | Ljudligt alarm |Hölje |Fysiska |Delad |Nej |Anger om undersystemet ljudligt alarm inom chassit är funktionell. |

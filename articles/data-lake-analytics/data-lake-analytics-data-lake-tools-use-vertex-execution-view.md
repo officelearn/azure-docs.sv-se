@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
-ms.openlocfilehash: 9f834d697c0d3fe537bbdb190b0ba0d0f294ac87
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 73314c5864e3036d102deee2792021345b80bf2e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60687840"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Använda Körningsvy i Data Lake Tools för Visual Studio
 Lär dig mer om att använda Körningsvy för examen Data Lake Analytics-jobb.
@@ -40,9 +40,9 @@ Den **hörn väljare** på de vänstra kan du välja hörn genom funktioner (t.e
 
 Center längst ned i fönstret visar information om varje brytpunkt:
 * Processnamn: Namnet på instansen hörn. Den består av olika delar i StageName | VertexName | VertexRunInstance. Till exempel SV7_Split [62] .v1 hörn står för den andra instansen som körs (.v1, index som börjar från 0) för hörn tal 62 i steget SV7_Split.
-* Totala Data Läs/skriftliga: Data har lästs/skrivits av det här hörn.
-* Status/Avsluts-Status: Den slutgiltiga statusen när hörnet är avslutad.
-* Avsluta kod/feltyp: Felet när hörnet misslyckades.
+* Totala Data lästa/skrivna: Data har lästs/skrivits av det här hörn.
+* Status/Avsluts Status: Den slutgiltiga statusen när hörnet är avslutad.
+* Avsluta kod/feltyp: Fel vid hörnet misslyckades.
 * Skapa en orsak: Varför hörnet skapades.
 * Resursen svarstid/bearbeta svarstid/PN kö svarstid: den tid det tar för hörnet att vänta på resurser, att bearbeta data och för att stanna kvar i kön.
 * Processen/skapare GUID: GUID för det aktuella körs hörnet eller dess skapare.

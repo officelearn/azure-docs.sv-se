@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
 ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60724090"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ansluta till SQL-databas med C och C++
 
@@ -42,7 +42,7 @@ Ansluta till Azure SQL DB fungerar på samma sätt och det finns för närvarand
 ## <a id="Create"></a>Steg 1:  Skapa din Azure SQL-databas
 Se den [komma igång med](sql-database-single-database-get-started.md) att lära dig hur du skapar en exempeldatabas.  Alternativt kan du följa den här [kort tvåminutersvideon](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) att skapa en Azure SQL-databas med Azure portal.
 
-## <a id="ConnectionString"></a>Steg 2:  Hämta anslutningssträngen
+## <a id="ConnectionString"></a>Steg 2:  Hämta anslutningssträng
 När Azure SQL-databasen har etablerats, måste du utföra följande steg för att fastställa anslutningsinformationen och Lägg till klient-IP för brandväggsåtkomst.
 
 I [Azure-portalen](https://portal.azure.com/)går du till Azure SQL database ODBC-anslutningssträng med hjälp av den **visa databasanslutningssträngar** visas som en del av översiktsavsnittet för databasen:

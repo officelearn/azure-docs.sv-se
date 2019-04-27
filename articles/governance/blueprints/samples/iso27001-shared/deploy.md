@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 19ed39fac66a7abe4c65cf37ff616ba10fd8d96b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60875185"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuera exemplet ISO 27001 delade tjänster skiss
 
@@ -107,21 +107,21 @@ Följande tabell innehåller en lista över skissen artefakt parametrar:
 
 |Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
-|[Förhandsversion]\: Distribuera Log Analytics-agenten för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|[Förhandsversion]\: Distribuera Log Analytics-agenten för Linux-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|[Förhandsversion]\: Distribuera Log Analytics-agenten för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
-|[Förhandsversion]\: Distribuera Log Analytics-agenten för Windows-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
+|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
+|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Linux-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Linux-operativsystem att lägga till i omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
+|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
+|\[Förhandsversion av\]: Distribuera Log Analytics-agenten för Windows-datorer|Principtilldelning|Valfritt: Lista över avbildningar av Virtuella datorer som har stöd för Windows-operativsystem för att lägga till omfånget|(Valfritt) Standardvärdet är _[”Ingen”]_.|
 |Tillåtna resurstyper|Principtilldelning|Tillåtna resurstyper|Lista över resurstyper som kan distribueras. Den här listan består av alla resurstyper som distribueras i delade tjänster.|
 |Tillåtna SKU:er för lagringskonto|Principtilldelning|Tillåtna lagringsutrymmet SKU: er|Lista över diagnostik loggar storage konto SKU: er tillåts. Standardvärdet är _[”Standard_LRS”]_.|
 |Tillåtna SKU:er för virtuella datorer|Principtilldelning|Lista över SKU: er för virtuell dator har tillåtelse för att distribueras. Default value is _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
 |Skissinitiativ för ISO 27001|Principtilldelning|Resurstyper granska diagnostikloggar|Lista över resurstyper granska om diagnostiklogg inställningen inte är aktiverad. Godkända värden finns på [scheman för diagnostikloggar för Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 |Resursgrupp för log Analytics|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvsc-log-rg` så att resursgruppen som är unikt.|
-|Resursgrupp för log Analytics|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Resursgrupp för log Analytics|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Log Analytics-mall|Resource Manager-mall|Tjänstenivå|Anger nivån av Log Analytics-arbetsytan. Standardvärdet är _PerNode_.|
 |Log Analytics-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
-|Log Analytics-mall|Resource Manager-mall|Plats|Regionen som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
+|Log Analytics-mall|Resource Manager-mall|Location|Regionen som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
 |Resursgrupp för nätverk|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvcs-net-rg` så att resursgruppen som är unikt.|
-|Resursgrupp för nätverk|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Resursgrupp för nätverk|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Azure Firewall-mall|Resource Manager-mall|Privat IP för Azure Firewall|Konfigurerar privata IP-Adressen för den [Azure brandväggen](../../../../firewall/overview.md). Det här värdet används också som standardvägtabellen på undernät för delade tjänster. Bör vara en del i CIDR-format som definierats i **adressprefix för Azure-brandvägg undernät**. Standardvärdet är _10.0.4.4_.|
 |Azure Firewall-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
 |Nätverkssäkerhetsgrupp-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
@@ -133,7 +133,7 @@ Följande tabell innehåller en lista över skissen artefakt parametrar:
 |Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Undernätsadressprefix för virtuell nätverksgateway|CIDR-format för virtuella nätverkets gateway-undernät. Standardvärdet är _10.0.3.0/24_.|
 |Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Adressprefix för Azure Firewall-undernät|CIDR-notation för den [Azure brandväggen](../../../../firewall/overview.md) undernät. Bör innehålla den **Azure brandväggs-IP för privat** parametern.|
 |Key Vault-resursgrupp|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvcs-kv-rg` så att resursgruppen som är unikt.|
-|Key Vault-resursgrupp|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Key Vault-resursgrupp|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Key Vault-mall|Resource Manager-mall|Jumpbox-administratörens användarnamn|Användarnamnet för jumpboxen. Måste matcha samma egenskapsvärdet i **Jumpbox mallen**. Standardvärdet är _jb administratörsanvändare_.|
 |Key Vault-mall|Resource Manager-mall|Jumpbox-administratörens SSH-nyckel eller lösenord|Nyckeln eller lösenordet för kontot för jumpboxen. Måste matcha samma egenskapsvärdet i **Jumpbox mallen**. Inget standardvärde värde och får inte vara tomt.|
 |Key Vault-mall|Resource Manager-mall|Domänadministratörens användarnamn|Användarnamnet som används för att få åtkomst till Active Directory-VM och ansluta till andra virtuella datorer till en domän. Måste matcha **Domain admin-användare** egenskapsvärdet i **Active Directory Domain Services mall**. Standardvärdet är _domän administratörsanvändare_.|
@@ -142,13 +142,13 @@ Följande tabell innehåller en lista över skissen artefakt parametrar:
 |Key Vault-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
 |Key Vault-mall|Resource Manager-mall|Key Vault-SKU|Anger SKU: N för Nyckelvalvet som har skapats. Standardvärdet är _Premium_.|
 |Jumpbox resursgrupp|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvcs-jb-rg` så att resursgruppen som är unikt.|
-|Jumpbox resursgrupp|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Jumpbox resursgrupp|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Jumpbox-mall|Resource Manager-mall|Jumpbox-administratörens användarnamn|Användarnamnet som används för att få åtkomst till jumpboxen virtuella datorer. Måste matcha samma egenskapsvärdet i **Key Vault mallen**. Standardvärdet är _jb administratörsanvändare_.|
 |Jumpbox-mall|Resource Manager-mall|Administratörslösenord för Jumpbox (resurs-ID för Key Vault)|Resurs-ID för Nyckelvalvet. Använd ”/ subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv” och Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med den  **Organisationsnamn** skiss parametern.|
 |Jumpbox-mall|Resource Manager-mall|Administratörslösenord för Jumpbox (hemligt namn på Key Vault)|Användarnamnet för jumpbox-administratören. Måste matcha värdet i **Key Vault mallen** egenskapen **Jumpbox administratörsanvändarnamnet**.|
 |Jumpbox-mall|Resource Manager-mall|Jumpbox-operativsystem|Fastställer operativsystemet på den virtuella jumpboxen-datorn. Standardvärdet är _Windows_.|
 |Active Directory Domain Services-resursgrupp|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-sharedsvcs-adds-rg` så att resursgruppen som är unikt.|
-|Active Directory Domain Services-resursgrupp|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Active Directory Domain Services-resursgrupp|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Active Directory Domain Services-mall|Resource Manager-mall|Domänadministratörens användarnamn|Användarnamn för ADDS jumpbox. Måste matcha samma egenskapsvärdet i **Key Vault mallen**. Standardvärdet är _lägger till administratörsanvändare_.|
 |Active Directory Domain Services-mall|Resource Manager-mall|Administratörslösenord för domänen (resurs-ID för Key Vault)|Resurs-ID för Nyckelvalvet. Använd ”/ subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv” och Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med den  **Organisationsnamn** skiss parametern.|
 |Active Directory Domain Services-mall|Resource Manager-mall|Administratörslösenord för domänen (hemligt namn på Key Vault)|Användarnamnet för domänen administratören. Måste matcha värdet i **Key Vault mallen** egenskapen **domän administratörsanvändarnamnet**.|

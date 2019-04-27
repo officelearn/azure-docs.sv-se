@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704993"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (förhandsversion)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
@@ -129,7 +129,7 @@ Använd tabellen nedan som referens för att förstå de tillgängliga rekommend
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
 
-- [Skydda dina datorer och program i Azure Security Center](security-center-virtual-machine-recommendations.md)
+- [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-recommendations.md)
 - [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)
 - [Skydda Azure SQL-tjänst och data i Azure Security Center](security-center-sql-service-recommendations.md)
 

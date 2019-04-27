@@ -9,17 +9,17 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729349"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Använda Azure Storage REST API
 
 Den här artikeln visar hur du använder den Blob Storage Service REST API: er och hur du autentiserar anropet till tjänsten. Den skrivs utifrån perspektivet för någon som vet ingenting om REST och aning hur du gör ett REST-anrop, men är en utvecklare. Vi tittar på referensdokumentation för REST-anrop och se hur att översätta det till ett faktiska REST-anrop – vilka fält som gå var? När du lära dig hur du ställer in ett REST-anrop, kan du använda den här kunskapen om du vill använda någon av de andra Storage Service REST API: er.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 Programmet visas behållare i blob-lagring för ett lagringskonto. Om du vill testa koden i den här artikeln behöver du följande objekt: 
 

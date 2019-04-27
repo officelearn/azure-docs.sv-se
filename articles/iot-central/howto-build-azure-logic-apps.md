@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
 ms.openlocfilehash: 635c8d0f149895798eece8cf3b48712ab74374ea
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60887140"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-azure-logic-apps"></a>Skapa arbetsflöden med IoT Central-anslutningsapp i Azure Logic Apps
 
@@ -23,7 +23,7 @@ Använd Azure Logic Apps för att skapa automatiska skalbara arbetsflöden som i
 
 Du kan använda IoT Central-anslutningen i Microsoft Flow. Både Azure Logic Apps och Microsoft Flow är designer först integrationstjänster, men något annorlunda målgrupper. Flow kontorspersonalen att skapa affärs-arbetsflöden som de behöver. Logic Apps gör det möjligt för IT-proffs att skapa integreringar som de behöver för att ansluta data. Jämföra Flow och Logic Apps [här](https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs). Lär dig mer om hur du skapar arbetsflöden med IoT Central-connector i Microsoft Flow [här](howto-add-microsoft-flow.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Ett program för betala per användning
 - En Azure-konto och prenumeration för att skapa och hantera Logic apps

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
 ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733769"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Functions-Durable publicering till Azure Event Grid (förhandsversion)
 
@@ -29,7 +29,7 @@ Nedan följer några scenarier där den här funktionen är användbar:
 
 * **Långvariga bakgrundsaktiviteten**: Om du använder varaktiga funktioner för en tidskrävande bakgrundsaktiviteten kan du enkelt se aktuell status i den här funktionen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Installera [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc eller senare i projektet varaktiga funktioner.
 * Installera [Azure Storage-emulatorn](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).

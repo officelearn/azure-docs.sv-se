@@ -10,11 +10,11 @@ ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.openlocfilehash: 5f8d9119ea9caeb598946a384f321fa6f7e14def
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884698"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-with-terraform-in-azure"></a>Självstudier: Skapa ett virtuellt nätverk hub med Terraform i Azure
 
@@ -28,7 +28,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Använd Terraform till att skapa Hub VPN gateway
 > * Använd Terraform till att skapa hubben och på lokala Gateway-anslutningar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. [Skapa ett nav och ekrar hybrid nätverkets topologi med Terraform i Azure](./terraform-hub-spoke-introduction.md).
 1. [Skapa en lokal virtuellt nätverk med Terraform i Azure](./terraform-hub-spoke-on-prem.md).

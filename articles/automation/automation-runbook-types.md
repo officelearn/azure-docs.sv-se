@@ -10,17 +10,17 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737167"
 ---
 # <a name="azure-automation-runbook-types"></a>Typer av Azure Automation-runbooks
 
 Azure Automation har stöd för flera typer av runbooks som beskrivs kortfattat i följande tabell.  I avsnitten nedan innehåller ytterligare information om varje typ av bland annat tänka på när du använder.
 
-| Type | Beskrivning |
+| Typ | Beskrivning |
 |:--- |:--- |
 | [Grafisk](#graphical-runbooks)|Baserat på Windows PowerShell och skapas och redigerade helt i grafiska redigeraren i Azure-portalen. |
 | [Grafiskt PowerShell-arbetsflöde](#graphical-runbooks)|Baserade på Windows PowerShell-arbetsflöden och skapas och redigeras helt i den grafiska redigeraren i Azure-portalen. |

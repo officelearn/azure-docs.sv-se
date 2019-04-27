@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
 ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60760105"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas
 
@@ -54,7 +54,7 @@ Skapa ett Azure Data Explorer-kluster med en definierad uppsättning beräknings
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för klustret.|
     | Resursgrupp | *test-resource-group* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
     | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Exempel: *mydataexplorercluster*. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 3 och 22 tecken.
-    | Plats | *USA, västra* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
+    | Location | *USA, västra* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
     | Beräkningsspecifikationer | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
     | | |
 

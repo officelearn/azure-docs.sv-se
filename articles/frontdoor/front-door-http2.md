@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4282c9e9b660476992ba6f948bc5e408e9b064a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 33e738f31be493d5890fc972ec71e7c6cd733bf4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736459"
 ---
 # <a name="http2-support-in-azure-front-door-service"></a>Stöd för HTTP/2 i Azure ytterdörren Service
 HTTP/2 är en huvudversion till HTTP/1.1. Det ger snabbare webbprestanda, minskade svarstid och förbättrad upplevelse samtidigt som den välbekanta HTTP-metoder och statuskoder semantik. Även om HTTP/2 är utformat för att arbeta med HTTP och HTTPS, har många klientens webbläsare stöder HTTP/2 endast över Transport Layer Security (TLS).
@@ -60,5 +60,5 @@ Mer information om HTTP/2 finns i följande resurser:
 
 - [Startsida för HTTP/2-specifikation](https://http2.github.io/)
 - [Officiella HTTP/2 vanliga frågor och svar](https://http2.github.io/faq/)
-- Lär dig hur du [skapa en ytterdörren](quickstart-create-front-door.md).
-- Lär dig [hur ytterdörren fungerar](front-door-routing-architecture.md).
+- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Läs [hur Front Door fungerar](front-door-routing-architecture.md).

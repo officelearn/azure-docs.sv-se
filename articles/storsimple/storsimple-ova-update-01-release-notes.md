@@ -1,6 +1,6 @@
 ---
 title: StorSimple virtuell matris uppdateringar viktig information | Microsoft Docs
-description: Beskriver viktiga öppna problem och lösningar för den virtuella StorSimple-matrisen som kör uppdatering 0,2 och 0,1.
+description: Beskriver viktiga öppna problem och lösningar för StorSimple Virtual Array som kör uppdatering 0.2 och 0.1.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,74 +14,74 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: aad60024187ca180c002f119f4b975e8f69796e5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23875902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629296"
 ---
-# <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple virtuell matris uppdatera 0,2 och 0,1 viktig information
+# <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Viktig information StorSimple Virtual Array uppdatering 0.2 och 0.1
 ## <a name="overview"></a>Översikt
-I följande versionsinformation identifiera kritiska öppna problem och löst problem för Microsoft Azure StorSimple virtuell matris uppdateringar. (Microsoft Azure StorSimple virtuell matrisen är även känd som den virtuella enheten StorSimple lokalt eller den virtuella enheten StorSimple.) 
+Följande viktiga information identifiera kritiska öppna ärenden och löst problem för Microsoft Azure StorSimple Virtual Array-uppdateringar. (Microsoft Azure StorSimple Virtual Array är även känd som den virtuella enheten StorSimple lokala eller den virtuella StorSimple-enheten.) 
 
-Viktig information uppdateras kontinuerligt, och allteftersom allvarliga problem som kräver en lösning upptäcks, läggs de. Granska noggrant uppgifterna i viktig information innan du distribuerar din virtuella StorSimple-enhet.
+Den viktiga informationen uppdateras kontinuerligt och allteftersom allvarliga problem som kräver en lösning upptäcks, läggs de. Innan du distribuerar din virtuella StorSimple-enhet måste du noga igenom uppgifterna i viktig information.
 
-Uppdatera 0,2 motsvarar programvaruversionen **10.0.10280.0**; Uppdatering 0.1 är version **10.0.10279.0**. I avsnitten nedan listas ändringarna för varje uppdatering. 
+Uppdatering 0.2 motsvarar programvaruversionen **10.0.10280.0**; Uppdatering 0.1 är version **10.0.10279.0**. I avsnitten nedan listas ändringarna för varje uppdatering. 
 
 > [!NOTE]
-> Uppdateringar kan störande och startar om enheten. Om i/o som pågår, orsakar enheten driftstopp.
+> Uppdateringarna är störande och startar om enheten. Om i/o som pågår, debiteras enheten driftstopp.
 > 
 > 
 
-## <a name="issues-fixed-in-the-update-02"></a>Problem som åtgärdas i uppdateringen 0,2
-0,2 ingår alla ändringar från uppdatering 0.1 förutom korrigeringen som beskrivs i följande tabell:
+## <a name="issues-fixed-in-the-update-02"></a>Problem som åtgärdas i uppdatering 0.2
+Uppdatering 0.2 innehåller alla ändringar från uppdatering 0.1 förutom korrigeringen som beskrivs i följande tabell:
 
 | Funktion | Problem |
 | --- | --- |
-| Uppdateringar |I den senaste versionen identifieras uppdateringar inte automatiskt i den klassiska Azure-portalen så var du tvungen att använda lokala Webbgränssnittet för att installera uppdateringar. Det här problemet löses i den här versionen. När du har installerat uppdateringen 0,2 kan du installera framtida uppdateringar med hjälp av den klassiska Azure-portalen. |
+| Uppdateringar |I den senaste versionen kan identifieras uppdateringar inte automatiskt i den klassiska Azure-portalen, så var du tvungen att använda det lokala Webbgränssnittet för att installera uppdateringar. Det här problemet löses i den här versionen. När du har installerat uppdatering 0.2, kan du installera framtida uppdateringar med hjälp av den klassiska Azure-portalen. |
 
 ## <a name="whats-new-in-the-update-01"></a>Vad är nytt i uppdatering 0.1
 Uppdatering 0.1 innehåller följande felkorrigeringar och förbättringar. 
 
-* **Förbättrad flexibilitet för molnet avbrott**: den här versionen har flera felkorrigeringar runt katastrofåterställning, säkerhetskopiering, återställning och skiktning vid ett avbrott för anslutning av molnet. 
-* **Bättre återställningsprestanda**: den här versionen har felkorrigeringar har avsevärt minska slutförandetiden av återställningsjobb.
-* **Automatisk optimering för frigöring av utrymme**: när data tas bort på tunt allokerade volymer oanvända lagring-Adressblock måste vara frigöras. Den här versionen har förbättrats utrymme frigöring processen från molnet, vilket resulterar i outnyttjat utrymme blir tillgängliga snabbare jämfört med tidigare versioner.
-* **Den nya virtuella diskbilder**: nya VHD och VHDX VMDK är nu tillgängliga via den klassiska Azure-portalen. Du kan hämta dessa avbildningar för att etablera nya uppdatering 0.1 enheter.
-* **Förbättra riktighet Jobbstatus i portalen**: I den tidigare versionen av programvaran jobbstatus rapportering i portalen inte detaljerade. Det här problemet är löst i den här versionen.
-* **Domän koppling upplevelse**: felkorrigeringar rör domänanslutning och ändra namn på enheten.
+* **Förbättrad flexibilitet för molnet avbrott**: Den här versionen har flera felkorrigeringar kring haveriberedskap, säkerhetskopiering, återställning och lagringsnivåer i händelse av ett avbrott för anslutning av molnet. 
+* **Förbättrad återställningsprestanda**: Den här versionen har felkorrigeringar som har avsevärt minska tidsåtgången för återställningsjobb.
+* **Automatiserad optimering för frigöring av utrymme**: När data tas bort på tunt allokerade volymer, måste de oanvända storage blocken återtas. Den här versionen har förbättrat utrymme frigöring processen från molnet, vilket resulterar i det oanvända utrymmet som blir tillgängliga snabbare jämfört med tidigare versioner.
+* **Den nya virtuella diskavbildningar**: Nya virtuella Hårddisken, VHDX och VMDK är nu tillgängliga via den klassiska Azure-portalen. Du kan hämta dessa bilder för att etablera nya uppdatering 0.1-enheter.
+* **Förbättra Jobbstatus i portalen**: Jobbstatus rapportering i portalen var inte detaljerade i den tidigare versionen av programvaran. Det här problemet är löst i den här versionen.
+* **Domän join upplevelse**: Felkorrigeringar som rör domänanslutning och byta namn på enheten.
 
 ## <a name="issues-fixed-in-the-update-01"></a>Problem som åtgärdas i uppdatering 0.1
 Följande tabell innehåller en översikt över problem som åtgärdas i den här versionen.
 
 | Nej. | Funktion | Problem |
 | --- | --- | --- |
-| 1 |VMDK |I vissa versioner av VMware påträffades OS-disk som sparse orsakar aviseringar och störa normal drift. Detta åtgärdades i den här versionen. |
-| 2 |iSCSI-server |I den senaste versionen var användaren måste ange en gateway för varje aktiverat nätverksgränssnittet för din virtuella StorSimple-enhet. Denna funktion har ändrats i den här versionen så att användaren måste konfigurera minst en gateway för alla aktiverade nätverkskort. |
-| 3 |Support-paket |I den tidigare versionen av programvaran stöd paketet collection misslyckades när paketet storlekar var större än 1 GB. Det här problemet löses i den här versionen. |
-| 4 |Molnåtkomst |I den senaste versionen om den virtuella StorSimple-matrisen hade inte ansluten till nätverket och startades om skulle lokala Användargränssnittet ha problem med nätverksanslutningen. Det här problemet åtgärdas i den här versionen. |
-| 5 |Övervakning av diagram |I den tidigare versionen efter en växling på enheten, visas molnet kapacitet användning diagrammen felaktiga värden i den klassiska Azure-portalen. Detta är fast i den aktuella versionen. |
+| 1 |VMDK |I vissa versioner av VMware har OS-disken används som sparse orsakar aviseringar och störa normal drift. Detta har åtgärdats i den här versionen. |
+| 2 |iSCSI-servern |I den senaste versionen, har användaren måste ange en gateway för varje aktiverade nätverksgränssnitt på den virtuella StorSimple-enheten. Det här beteendet ändras i den här versionen så att användaren måste konfigurera minst en gateway för alla aktiverade nätverksgränssnitt. |
+| 3 |Supportpaket |I den tidigare versionen av programvaran Supportloggar paketet misslyckades när paketet storlekar var större än 1 GB. Det här problemet löses i den här versionen. |
+| 4 |Molnåtkomst |I den senaste versionen om StorSimple Virtual Array inte har nätverksanslutning och startades om skulle lokala Användargränssnittet ha problem med nätverksanslutningen. Det här problemet åtgärdas i den här versionen. |
+| 5 |Övervakning av diagram |I den tidigare versionen, efter en redundansväxling av enhet, visas molnet kapacitet användning diagrammen felaktiga värden i den klassiska Azure-portalen. Detta åtgärdas i den aktuella versionen. |
 
 ## <a name="known-issues-in-the-update-01"></a>Kända problem i uppdatering 0.1
-Följande tabell innehåller en översikt över kända problem för den virtuella StorSimple-matrisen och omfattar problem versionen anges från tidigare versioner. **Problem-versionen som anges i den här versionen är markerade med en asterisk. Nästan alla problem i den här listan har överförts från GA-versionen av virtuella StorSimple-matris.**
+I följande tabell innehåller en översikt över kända problem för StorSimple Virtual Array och omfattar problem versionen anges från tidigare versioner. **Problem-versionen som anges i den här versionen är markerade med en asterisk. Nästan alla problem i den här listan har överföras från GA-versionen av StorSimple Virtual Array.**
 
 | Nej. | Funktion | Problem | Lösning/kommentarer |
 | --- | --- | --- | --- |
-| **1.** |Uppdateringar |Virtuella enheter skapas i förhandsversionen kan inte uppdateras till en allmän tillgänglighet-version som stöds. |Dessa virtuella enheter måste flyttas över för allmän tillgänglighet versionen med hjälp av ett arbetsflöde för disaster recovery (DR). |
-| **2.** |Etablerade datadisk |När du har etablerat en datadisk med en viss angiven storlek och skapa den virtuella enheten StorSimple motsvarande du måste inte öka eller minska datadisken. Försök att göra det leder till förlust av alla data i de lokala nivåerna för enheten. | |
-| **3.** |Grupprincip |När en enhet är ansluten till domänen kan kan tillämpa en grupprincip påverkas negativt enhet. |Kontrollera att din virtuella matris är i sin egen organisationsenhet (OU) för Active Directory och inga grupprincipobjekt (GPO) tillämpas. |
-| **4.** |Lokala webbgränssnittet |Om Förbättrad säkerhetsfunktioner är aktiverade i Internet Explorer (IE ESC), vissa lokala webbsidor Användargränssnittet, till exempel felsökning eller underhåll kanske inte fungerar korrekt. Knapparna på dessa sidor fungerar kanske inte heller. |Inaktivera Förbättrad säkerhetsfunktioner i Internet Explorer. |
-| **5.** |Lokala webbgränssnittet |I en Hyper-V virtuell dator nätverksgränssnitt på den webbplatsen Användargränssnittet visas som 10 Gbit/s-gränssnitt. |Detta är en avbildning av Hyper-V. Hyper-V visas alltid 10 Gbit/s för virtuella nätverkskort. |
-| **6.** |Nivåindelade volymer eller resurser |Byteintervall låsning för program som fungerar med StorSimple nivåindelade volymer inte stöds. Om låsning byte-intervallet är aktiverad, fungerar StorSimple skiktning inte. |Rekommenderade åtgärder är: <br></br>Inaktivera låsning i applogiken byte-intervallet.<br></br>Välj att placera data för det här programmet i lokalt fästa volymer och nivåindelade volymer.<br></br>*Begränsning*: om med hjälp av lokalt fästa volymer och låsa byte-intervallet är aktiverad, Tänk på att lokalt Fäst volym kan vara online innan återställningen är slutförd. I sådana fall om en återställning pågår måste sedan du vänta tills återställningen har slutförts. |
-| **7.** |Nivåindelad resurser |Arbeta med stora filer kan resultera i långsamma nivån. |När du arbetar med stora filer, rekommenderar vi att den största filen är mindre än 3% av storleken på filresursen. |
-| **8.** |Används kapacitet för resurser |Du kan se dela förbrukning i frånvaron av alla data på resursen. Det beror på att använda kapacitet för resurser som innehåller metadata. | |
-| **9.** |Haveriberedskap |Du kan bara utföra katastrofåterställning för en filserver i samma domän som källan. Återställning till en målenhet i en annan domän stöds inte i den här versionen. |Detta kommer att genomföras i en senare version. |
-| **10.** |Azure PowerShell |Virtuella StorSimple-enheter kan inte hanteras via Azure PowerShell i den här versionen. |Alla hanteringen av virtuella enheter som ska utföras via den klassiska Azure-portalen och lokala webbgränssnittet. |
-| **11.** |Ändra lösenordet |Virtuella matris klientenhetskonsolen accepterar endast indata i en-US tangentbord format. | |
-| **12.** |CHAP |CHAP autentiseringsuppgifter när skapat tas inte bort. Dessutom, om du ändrar CHAP-autentiseringsuppgifter måste volymerna offline och sedan tar dem online för att ändringarna ska börja gälla. |Dessa kommer att åtgärdas i en senare version. |
-| **13.** |iSCSI-server |Den 'används för lagring, visas för en iSCSI-volym kan skilja sig i StorSimple Manager-tjänsten och iSCSI-värden. |ISCSI-värden har vyn filsystem.<br></br>Enheten ser block allokerade när volymen på den maximala storleken. |
-| **14.** |Filen server * |Om en fil i en mapp har en alternativ Data dataström (ADS) som är associerade med den kan säkerhetskopieras eller återställs via katastrofåterställning och klona objektet återställning ANNONSER de inte. | |
+| **1.** |Uppdateringar |De virtuella enheter som skapats i förhandsversionen kan inte uppdateras till en version som stöds är allmänt tillgängligt. |Dessa virtuella enheter måste flyttas över för den allmänt tillgängliga versionen med hjälp av ett arbetsflöde för disaster recovery (DR). |
+| **2.** |Etablerade datadisk |När du har etablerat en datadisk med en viss angivna storlek och skapat den motsvarande virtuella StorSimple-enheten, du måste inte öka eller minska datadisken. Försök att göra detta leder till förlust av alla data på de lokala nivåerna för enheten. | |
+| **3.** |Grupprincip |När en enhet är ansluten till domänen, kan tillämpa en grupprincip påverkas negativt enheten. |Kontrollera att din virtuella matris är i sin egen organisationsenhet (OU) för Active Directory och inga grupprincipobjekt (GPO) tillämpas. |
+| **4.** |Lokala webbgränssnittet |Om utökad säkerhet har aktiverats i Internet Explorer (IE ESC), vissa lokala webbsidor Användargränssnittet, till exempel felsökning eller underhåll kanske inte fungerar korrekt. Knapparna på dessa sidor kan också inte fungerar. |Stäng av funktioner för förbättrad säkerhet i Internet Explorer. |
+| **5.** |Lokala webbgränssnittet |I en Hyper-V virtuell dator, nätverksgränssnitt i webb-UI visas som 10 Gbit/s-gränssnitt. |Detta är en avbildning av Hyper-V. Hyper-V visar alltid 10 Gbit/s för virtuella nätverkskort. |
+| **6.** |Nivåindelade volymer eller resurser |Byte-intervallet låsning för program som fungerar med StorSimple nivåindelade volymer inte stöds. Om låsning av byte-intervallet är aktiverad, fungerar inte StorSimple lagringsnivåer. |Rekommenderade åtgärder är: <br></br>Inaktivera byteintervall låsning i programlogiken.<br></br>Välja att placera data för det här programmet i lokalt fixerade volymer till skillnad från nivåindelade volymer.<br></br>*Villkor för*: Om med hjälp av lokalt fixerade volymer och låsning byte-intervallet är aktiverad, Tänk på att lokalt fixerad volym kan vara online och med innan återställningen är slutförd. I sådana fall om en återställning pågår måste sedan du vänta tills återställningen har slutförts. |
+| **7.** |Nivåindelade filresurser |Arbeta med stora filer kan orsaka långsam ut nivå. |När du arbetar med stora filer, rekommenderar vi att den största filen är mindre än 3 procent av resursstorleken. |
+| **8.** |Kapacitet för resurser som används av |Du kan se dela förbrukning i avsaknad av alla data på resursen. Det beror på att Använd kapacitet för filresurser innehåller metadata. | |
+| **9.** |Haveriberedskap |Du kan bara utföra haveriberedskap för en server till samma domän som källenheten. Haveriberedskap till en målenhet i en annan domän stöds inte i den här versionen. |Detta kommer att implementeras i en senare version. |
+| **10.** |Azure PowerShell |StorSimple-enheter kan inte hanteras via Azure PowerShell i den här versionen. |All hantering av virtuella enheter bör göras via den klassiska Azure-portalen och det lokala webbgränssnittet. |
+| **11.** |Lösenordsändring |Virtuell matris klientenhetskonsolen accepterar endast indata i en-US tangentbord format. | |
+| **12.** |CHAP |CHAP-autentiseringsuppgifter som är skapade tas inte bort. Om du ändrar CHAP-autentiseringsuppgifter, behöver du dessutom att frånkoppla volymerna och anpassa dem online för att ändringen ska börja gälla. |Dessa kommer att åtgärdas i en senare version. |
+| **13.** |iSCSI-servern |Den ”används storage” visas för en iSCSI-volymen kan skilja sig i StorSimple Manager-tjänsten och iSCSI-värden. |ISCSI-värden har vyn filsystem.<br></br>Enheten ser de block som tilldelas när volymen har vid den maximala storleken. |
+| **14.** |Filen server * |Om en fil i en mapp har en annan Data Stream (ADS) som är associerade med det, är ANNONSER inte säkerhetskopieras eller återställs via haveriberedskap, klona och återställning på objektnivå. | |
 
 ## <a name="next-step"></a>Nästa steg
-[Installera uppdateringar](storsimple-ova-install-update-01.md) på din virtuella StorSimple-matrisen.
+[Installera uppdateringar](storsimple-ova-install-update-01.md) på StorSimple Virtual Array.
 

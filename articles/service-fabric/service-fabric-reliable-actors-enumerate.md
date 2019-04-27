@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 04e2c32b18e6897d6443fea68587aba9ae294be5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729145"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Räkna upp Service Fabric Reliable Actors
 Reliable Actors-tjänst kan en klient att räkna upp metadata om aktörer som är värd för tjänsten. Eftersom aktörstjänsten är en partitionerad tillståndskänslig tjänst, utförs uppräkning per partition. Eftersom varje partition kan innehålla många aktörer, returneras uppräkningen av växlingsbara resultat. Sidorna upprepas över tills alla sidor är skrivskyddade. I följande exempel visar hur du skapar en lista över alla aktiva aktörer i en partition av en actor-tjänst:

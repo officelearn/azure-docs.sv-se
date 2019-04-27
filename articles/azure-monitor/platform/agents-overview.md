@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775888"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
 Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av data från virtuella datorer som kör Microsoft Windows och Linux som ligger i Azure, ditt datacenter eller andra molnleverantörer. Det finns tre typer av agenter som kan övervaka en virtuell dator:

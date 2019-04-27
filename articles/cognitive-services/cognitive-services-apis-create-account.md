@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
 ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829505"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Snabbstart: Skapa ett Cognitive Services-konto i Azure portal
 
 I den här snabbstarten lär du dig att registrera dig för Azure Cognitive Services och skapa en prenumeration för en tjänst eller flera tjänster. De här tjänsterna representeras av Azure [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), vilket gör det möjligt att ansluta till en eller fler av Azure-API: er för Cognitive Services.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En giltig Azure-prenumeration. [Skapa ett konto](https://azure.microsoft.com/free/) utan kostnad.
 
@@ -101,6 +101,6 @@ Inom resurs för Cognitive Services kan du använda slutpunkts-URL och nycklar i
 ## <a name="see-also"></a>Se också
 
 * [Snabbstart: Extrahera handskriven text från en avbildning](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
-* [Självstudier: Skapa en app för att upptäcka och RAM ansikten i en bild](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
+* [Självstudie: Skapa en app för att upptäcka och RAM ansikten i en bild](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
 * [Skapa en anpassad sökning-webbsida](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
 * [Integrera Språkförståelse (LUIS) med en bot med Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)

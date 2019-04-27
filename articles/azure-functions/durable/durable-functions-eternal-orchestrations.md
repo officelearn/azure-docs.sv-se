@@ -2,20 +2,21 @@
 title: Eternal-orkestreringar i varaktiga funktioner – Azure
 description: Lär dig hur du implementerar eternal-orkestreringar med hjälp av tillägget varaktiga funktioner för Azure Functions.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: c4adffd457338ffebfd1c9c7727023f82088dc57
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732424"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eternal-orkestreringar i varaktiga funktioner (Azure Functions)
 
@@ -84,3 +85,4 @@ Om en orchestrator-funktion finns i en oändlig loop och måste stoppas, använd
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du implementerar singleton-orkestreringar](durable-functions-singletons.md)
+

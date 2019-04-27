@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
 ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844185"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referens för utlösare och åtgärd typer i Definitionsspråk för arbetsflödet för Azure Logic Apps
 
@@ -338,7 +338,7 @@ Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baser
 
 För att fungera bra med din logikapp måste slutpunkten följer ett mönster för utlösare eller kontrakt och känna igen de här egenskaperna:  
   
-| Svar | Krävs | Beskrivning | 
+| Svar | Obligatoriskt | Beskrivning | 
 |----------|----------|-------------| 
 | Statuskod | Ja | Den ”200 OK”-statuskod: startar en körning. Alla andra statuskod Påbörja inte en körning. | 
 | Rubrik för återförsök | Nej | Antalet sekunder tills logikappen avsöker slutpunkten igen | 
@@ -1962,7 +1962,7 @@ Den här åtgärden, vilket är en *villkorlig instruktionen*, utvärderar ett u
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*Villkor*> | JSON-objekt | Villkoret, vilket kan vara ett uttryck att utvärdera | 
+| <*villkor*> | JSON-objekt | Villkoret, vilket kan vara ett uttryck att utvärdera | 
 | <*action-1*> | JSON-objekt | Åtgärden som ska köras när <*villkor*> utvärderas till SANT | 
 | <*action-definition*> | JSON-objekt | Definitionen för åtgärden | 
 | <*åtgärd 2*> | JSON-objekt | Åtgärden som ska köras när <*villkor*> utvärderas till false | 
@@ -2222,7 +2222,7 @@ Den här åtgärdsdefinitionen utvärderar huruvida den person som svarar på e-
 | <*action-name*> | String | Namn för åtgärden som du vill köra i den här slingan | 
 | <*typ av åtgärd*> | String | Åtgärdstyp som du vill köra | 
 | <*indata för åtgärden*> | Olika | Indata för åtgärden att köra | 
-| <*Villkor*> | String | Villkoret eller uttryck som ska utvärderas när alla åtgärder i loopen slutföras | 
+| <*villkor*> | String | Villkoret eller uttryck som ska utvärderas när alla åtgärder i loopen slutföras | 
 | <*Antal loopar*> | Integer | Gränsen för flest antal loopar som åtgärden kan köras. Standard `count` värdet är 60. | 
 | <*loop-timeout*> | String | Gränsen för den längsta tid som loopen kan köras. Standard `timeout` värdet är `PT1H`, vilket är de nödvändiga [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
@@ -2296,7 +2296,7 @@ För både utlösare och åtgärder du kan begränsa hur länge asynkront mönst
 
 Du kan ändra standardinställningen för utlösare och åtgärder med dessa runtime `runtimeConfiguration` egenskaper i definitionen för utlösare eller åtgärd.
 
-| Egenskap | Typ | Beskrivning | Utlösare eller åtgärd | 
+| Egenskap  | Typ | Beskrivning | Utlösare eller åtgärd | 
 |----------|------|-------------|-------------------| 
 | `runtimeConfiguration.concurrency.runs` | Integer | Ändra den [ *Standardgräns* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) på antalet arbetsflödesinstanser som kan köras samtidigt eller parallellt. Det här värdet kan hjälpa att begränsa antalet begäranden som tar emot backend-system. <p>Ange den `runs` egenskap `1` fungerar på samma sätt som den `operationOptions` egenskap `SingleInstance`. Du kan ange antingen egenskap, men inte båda. <p>Om du vill ändra Standardgränsen [ändra utlösaren samtidighet](#change-trigger-concurrency) eller [utlösa instanser sekventiellt](#sequential-trigger). | Alla utlösare | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Ändra den [ *Standardgräns* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) på antalet arbetsflödesinstanser som kan vänta med att köra när arbetsflödet körs redan det högsta antalet samtidiga instanser. Du kan ändra samtidighetsgräns i den `concurrency.runs` egenskapen. <p>Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | Alla utlösare | 
@@ -2583,7 +2583,7 @@ Här är typerna av autentisering som du kan ställa in:
 
 För [grundläggande autentisering](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) med hjälp av Azure Active Directory, din utlösare eller åtgärd definition kan innehålla en `authentication` JSON-objekt som har egenskaper som anges av tabellen nedan. Du kan använda för att komma åt parametervärdena vid körning i `@parameters('parameterName')` uttryck, som tillhandahålls av den [Definitionsspråk för arbetsflödet](https://aka.ms/logicappsdocs). 
 
-| Egenskap | Krävs | Value | Beskrivning | 
+| Egenskap  | Krävs | Value | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **typ** | Ja | "Basic" | Den autentiseringstyp som använder, vilket är ”Basic” här | 
 | **användarnamn** | Ja | "@parameters('userNameParam')" | Användarnamnet för att autentisera åtkomst till mål-tjänstslutpunkt |
@@ -2617,7 +2617,7 @@ I det här exemplet definition för HTTP-åtgärd, den `authentication` anger `B
 
 För [certifikatbaserad autentisering](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) med Azure Active Directory kan din utlösare eller åtgärd definition kan innehålla en `authentication` JSON-objekt som har egenskaper som anges av tabellen nedan. Du kan använda för att komma åt parametervärdena vid körning i `@parameters('parameterName')` uttryck, som tillhandahålls av den [Definitionsspråk för arbetsflödet](https://aka.ms/logicappsdocs). Gränser för hur många klientcertifikat som du kan använda för finns i [gränser och konfigurering för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
 
-| Egenskap | Krävs | Value | Beskrivning |
+| Egenskap  | Krävs | Value | Beskrivning |
 |----------|----------|-------|-------------|
 | **typ** | Ja | "ClientCertificate" | Autentiseringstypen som ska användas för Secure Sockets Layer (SSL)-klientcertifikat. Självsignerade certifikat för SSL stöds inte finns stöd för självsignerade certifikat. |
 | **pfx** | Ja | "@parameters('pfxParam') | Base64-kodad innehållet från en Personal Information Exchange (PFX)-fil |
@@ -2651,7 +2651,7 @@ I det här exemplet definition för HTTP-åtgärd, den `authentication` anger `C
 
 För [Azure AD OAuth-autentisering](../active-directory/develop/authentication-scenarios.md), din utlösare eller åtgärd definition kan innehålla en `authentication` JSON-objekt som har egenskaper som anges av tabellen nedan. Du kan använda för att komma åt parametervärdena vid körning i `@parameters('parameterName')` uttryck, som tillhandahålls av den [Definitionsspråk för arbetsflödet](https://aka.ms/logicappsdocs).
 
-| Egenskap | Krävs | Value | Beskrivning |
+| Egenskap  | Krävs | Value | Beskrivning |
 |----------|----------|-------|-------------|
 | **typ** | Ja | `ActiveDirectoryOAuth` | Den autentiseringstyp som använder, vilket är ”ActiveDirectoryOAuth” för Azure AD OAuth |
 | **utfärdare** | Nej | <*URL-for-authority-token-issuer*> | URL-Adressen för utfärdaren som tillhandahåller autentiseringstoken |

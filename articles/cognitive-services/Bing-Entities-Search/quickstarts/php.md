@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: f311216182f85da3dd6cf01269062cc9c555f868
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736997"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av PHP
 
@@ -23,7 +23,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [PHP 5.6.x](https://php.net/downloads.php) eller senare
 

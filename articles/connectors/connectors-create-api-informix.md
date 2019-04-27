@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165908"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691009"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Kom igång med Informix-anslutningsapp
 Microsoft-anslutaren för Informix ansluter Logic Apps till resurser som lagras i en IBM Informix-databas. Informix-kopplingen innehåller ett Microsoft-klienten att kommunicera med fjärrdatorer för Informix-server i ett TCP/IP-nätverk. Detta omfattar cloud-databaser, till exempel IBM Informix för Windows som körs i Azure virtualisering och lokala databaser med hjälp av den lokala datagatewayen. Se den [stöds lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix-plattformar och versioner (i det här avsnittet).
@@ -86,7 +86,7 @@ Den här anslutningen har stöd för anslutningar till databas lokalt och i moln
 | databas |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). Informix godkänner en 128 byte-sträng (databas kallas en IBM Informix-databasnamnet (dbname)). |
 | autentisering |Valfri. Accepterar en lista över Objektvärde, antingen grundläggande eller Windows (kerberos). |
 | användarnamn |Krävs. Accepterar ett strängvärde. |
-| lösenord |Krävs. Accepterar ett strängvärde. |
+| password |Krävs. Accepterar ett strängvärde. |
 | gateway |Krävs. Accepterar en lista över objekt-värde som representerar den lokala datagatewayen definierats till Logic Apps i lagringsgruppen. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Skapa lokalt gateway-anslutning

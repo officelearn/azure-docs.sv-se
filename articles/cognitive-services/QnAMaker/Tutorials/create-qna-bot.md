@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599054"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Självstudier: Skapa en QnA-roboten med Azure Bot Service v4
 
@@ -52,7 +52,7 @@ Skapa en robot som ett klientprogram för kunskapsbasen.
     |Robotnamn|`my-tutorial-kb-bot`|Det här är Azure-resursnamn för roboten.|
     |Prenumeration|Se syfte.|Välj samma prenumeration som du använde för att skapa QnA Maker-resurser.|
     |Resursgrupp|`my-tutorial-rg`|Den resursgrupp som används för alla bot-relaterade Azure-resurser.|
-    |Plats|`west us`|Plats för robotens Azure-resurs.|
+    |Location|`west us`|Plats för robotens Azure-resurs.|
     |Prisnivå|`F0`|Den kostnadsfria nivån för Azure bot service.|
     |Appnamn|`my-tutorial-kb-bot-app`|Det här är en webbapp med stöd för din robot endast. Det får inte vara samma appnamn eftersom QnA Maker-tjänsten redan använder. Dela QnA Maker-webbapp med någon annan resurs stöds inte.|
     |SDK-språk|C#|Det här är det underliggande programmeringsspråket som används av bot framework SDK. Du kan välja mellan C# eller Node.js.|

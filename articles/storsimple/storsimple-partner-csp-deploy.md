@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630010"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuera StorSimple Virtual Array för Cloud Solution Provider-programmet
 
@@ -29,7 +29,7 @@ StorSimple Virtual Array kan distribueras av partners Cloud Solution Provider (C
 
 Den här artikeln beskrivs hur CSP-partner kan lägga till en kund eller en ny prenumeration till en befintlig kund och sedan skapa en tjänst för att distribuera en StorSimple Virtual Array i CSP.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar måste du se till att:
 
@@ -44,7 +44,7 @@ Om du lägger till en kund skapas automatiskt en prenumeration. Utför följande
 
      ![Instrumentpanelen i Partnercenter](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. I den vänstra rutan klickar du på **kunder**. I den högra rutan klickar du på **Lägg till kunder**. Ange informationen för kunden. Klicka på **nästa: prenumerationer** att skapa en kundprenumeration.
+2. I den vänstra rutan klickar du på **kunder**. I den högra rutan klickar du på **Lägg till kunder**. Ange informationen för kunden. Klicka på **Nästa: Prenumerationer** att skapa en kundprenumeration.
 
     ![Lägg till kund](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -103,5 +103,5 @@ I vissa fall kan du kanske har en befintlig kund och du måste lägga till en pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du har fler frågor angående StorSimple i CSP, går du till [StorSimple i CSP: vanliga frågor och svar](storsimple-partner-csp-faq.md).
+- Om du har fler frågor angående StorSimple i CSP, går du till [StorSimple i CSP: Vanliga frågor och svar](storsimple-partner-csp-faq.md).
 - Om du är redo att distribuera StorSimple, går du till [distribuera StorSimple i CSP](storsimple-partner-csp-deploy.md).

@@ -17,11 +17,11 @@ ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60839019"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt av Azure App Service-plan
 
@@ -81,7 +81,7 @@ Undantag för **kostnadsfri** nivå, en App Service plan bedriver timme beräkni
 - I den **delad** nivå, varje app som tar emot en kvot på CPU-minuter så _varje app_ debiteras per timme för CPU-kvot.
 - I den särskilda compute nivåer (**grundläggande**, **Standard**, **Premium**, **PremiumV2**), App Service-planen definierar antalet virtuella datorer instanser som apparna som skalas till, så _varje virtuell datorinstans_ i App Service plan har timme. Dessa VM-instanser debiteras samma oavsett hur många appar körs på dem. Du kan undvika oväntade kostnader, se [rensa en App Service plan](app-service-plan-manage.md#delete).
 - I den **isolerad** nivå, App Service Environment definierar antalet isolerad arbetare som kör dina appar och _varje worker_ debiteras per timme. Det finns dessutom en timvis grundavgift för löpande App Service Environment själva. 
-- (Endast azure Functions) Den **förbrukning** nivån dynamiskt allokerar VM-instanser för att underhålla en funktionsapp arbetsbelastning och dynamiskt debiteras per sekund av Azure. Mer information finns i [priser för Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+- (Endast azure Functions) Den **förbrukning** nivån dynamiskt allokerar VM-instanser för att underhålla en funktionsapp arbetsbelastning och dynamiskt debiteras per sekund av Azure. Mer information finns i [prissättning för Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 Du debiteras inte för att använda App Service-funktioner som är tillgängliga för dig (konfigurera anpassade domäner, SSL-certifikat, distributionsplatser, säkerhetskopior osv.). Undantagen är:
 

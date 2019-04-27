@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60850256"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Konfigurera en Linux-Node.js-app för Azure App Service
 
@@ -258,7 +258,7 @@ När en fungerande Node.js-app fungerar annorlunda i App Service eller innehåll
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Node.js-app med MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Självstudie: Node.js-app med MongoDB](tutorial-nodejs-mongodb-app.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux vanliga frågor och svar](app-service-linux-faq.md)

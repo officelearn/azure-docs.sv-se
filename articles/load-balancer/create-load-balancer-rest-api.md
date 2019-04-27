@@ -14,15 +14,15 @@ ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
 ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884987"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Skapa en Azure belastningsutjämnare med hjälp av REST API
 
-En Azure Load Balancer distribuerar nya inkommande flöden som inkommer till belastningsutjämnarens klientdel till backend-poolen instanser, enligt regler och hälsokontroller av slutpunkter. Belastningsutjämnaren är tillgänglig i två SKU: er: Basic och Standard. Förstå skillnaden mellan de två versionerna av SKU [Load Balancers SKU jämförelser](load-balancer-overview.md#skus).
+En Azure Load Balancer distribuerar nya inkommande flöden som inkommer till belastningsutjämnarens klientdel till backend-poolen instanser, enligt regler och hälsokontroller av slutpunkter. Belastningsutjämnaren finns på två SKU: er: Basic och Standard. Förstå skillnaden mellan de två versionerna av SKU [Load Balancers SKU jämförelser](load-balancer-overview.md#skus).
  
 Den här anvisningen visar hur du skapar en Azure belastningsutjämnare med hjälp av [Azure REST API](/rest/api/azure/) för att läsa in belastningsutjämna inkommande begäran mellan flera virtuella datorer inom en Azure-nätverk. Fullständig referensdokumentation och ytterligare exempel finns i den [Azure Load Balancer REST-referens för](/rest/api/load-balancer/).
  

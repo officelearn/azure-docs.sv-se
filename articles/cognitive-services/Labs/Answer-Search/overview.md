@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: ac1717a8e8a08fcfedc3bc21bb0f03b3e3ca2511
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721869"
 ---
 # <a name="what-is-project-answer-search"></a>Vad är Project Answer Search?
 Project Answer Search API använder Bing v7-slutpunkten för att hämta svar på interrogativa frågor. En fråga som ”What is the circumference of the earth?” (Hur stor är jordens omkrets?) returnerar ett svar med faktauppgifter.  En fråga om en person, plats eller sak returnerar information om den entitet som identifieras av frågan. Dessa scenarier kan vara användbara i tillämpningar som konversationsrobotar, meddelandeappar, läsare osv.  

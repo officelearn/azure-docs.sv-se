@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585516"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för dela / sammanslå som flyttar data mellan shardade databaser
 
@@ -33,7 +33,7 @@ Dela / sammanslå-verktyget kan du flytta data mellan shardade databaser. Se [fl
 
 Filerna är placerade i en katalog med namnet **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** där *x.x.xxx.x* visar versionsnumret. Hitta dela / sammanslå Service-filer i den **content\splitmerge\service** underkatalog, och dela / Sammanslå PowerShell-skript (och nödvändiga DLL-filer) i den **content\splitmerge\powershell** underkatalog.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 1. Skapa en Azure SQL DB-databas som ska användas som databas för dela / sammanslå status. Gå till [Azure-portalen](https://portal.azure.com). Skapa en ny **SQL Database**. Ge ett namn för databasen och skapar en ny administratör och lösenord. Kom ihåg att registrera namn och lösenord för senare användning.
 2. Se till att din Azure SQL DB-server tillåter Azure Services för att ansluta till den. I portalen, i den **brandväggsinställningar**, se till att den **Tillåt åtkomst till Azure-tjänster** är inställt på **på**. Klicka på ikonen ”spara”.
 3. Skapa ett Azure Storage-konto för diagnostik-utdata.

@@ -11,11 +11,11 @@ ms.date: 08/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732984"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart: Skapa och skicka frågor till ett Azure SQL Data Warehouse i Azure Portal
 
@@ -144,7 +144,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | :------ | :-------------- | :---------- |
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
    | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver-20180430.database.windows.net**. |
-   | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
+   | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
    ||||

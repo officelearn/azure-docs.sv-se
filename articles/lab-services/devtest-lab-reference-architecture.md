@@ -14,11 +14,11 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: bcb154f7cffb92ef23fc2606e1f604bb12f8d1a3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561525"
 ---
 # <a name="azure-devtest-labs---reference-architecture-for-an-enterprise"></a>Azure DevTest Labs - Referensarkitektur för ett företag
 Den här artikeln innehåller en Referensarkitektur för att distribuera en lösning baserad på Azure DevTest Labs i ett företag. Den innehåller en lokal anslutning via Express Route, en gateway för fjärrskrivbord till via en fjärranslutning loggar in på virtuella datorer, Anslut till en artefaktcentrallagret för privata artefakter och andra PaaS-tjänster som används i ett labb.

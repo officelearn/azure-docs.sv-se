@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60875999"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Distribuera arbetsbelastningen skissen-exempel för ISO 27001 App Service Environment/SQL-databas
 
@@ -116,12 +116,12 @@ Följande tabell innehåller en lista över skissen artefakt parametrar:
 |Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
 |Resursgrupp för log Analytics|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-workload-log-rg` så att resursgruppen som är unikt.|
-|Resursgrupp för log Analytics|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Resursgrupp för log Analytics|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Log Analytics-mall|Resource Manager-mall|Tjänstenivå|Anger nivån av Log Analytics-arbetsytan. Standardvärdet är _PerNode_.|
 |Log Analytics-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
-|Log Analytics-mall|Resource Manager-mall|Plats|Regionen som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
+|Log Analytics-mall|Resource Manager-mall|Location|Regionen som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
 |Resursgrupp för nätverk|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-workload-net-rg` så att resursgruppen som är unikt.|
-|Resursgrupp för nätverk|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Resursgrupp för nätverk|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Nätverkssäkerhetsgrupp-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
 |Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Privat IP för Azure Firewall|Konfigurerar privata IP-Adressen för den [Azure brandväggen](../../../../firewall/overview.md). Bör vara en del i CIDR-format som definierats i _ISO 27001: Delade tjänster_ artefakt parametern **adressprefix för Azure-brandvägg undernät**. Standardvärdet är _10.0.4.4_.|
 |Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Prenumerations-ID för delade tjänster|Värde som används för att aktivera VNET-peering mellan en arbetsbelastning och delade tjänster.|
@@ -129,13 +129,13 @@ Följande tabell innehåller en lista över skissen artefakt parametrar:
 |Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Adressprefix för standardundernät|CIDR-notation för standard-undernät för virtuellt nätverk. Standardvärdet är _10.1.0.0/16_.|
 |Mall för virtuellt nätverk och routningstabell|Resource Manager-mall|Lägger till IP-adress|IP-adressen för den första lägger till Virtuella. Det här värdet används som anpassad VNET DNS.|
 |Key Vault-resursgrupp|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-workload-kv-rg` så att resursgruppen som är unikt.|
-|Key Vault-resursgrupp|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Key Vault-resursgrupp|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Key Vault-mall|Resource Manager-mall|Objekt-ID för AAD|AAD-objektidentifierare för det konto som kräver åtkomst till Key Vault-instansen. Inget standardvärde värde och får inte vara tomt. Om du vill hitta det här värdet från Azure-portalen, Sök efter och Välj ”användare” _Services_. Använd den _namn_ om du vill filtrera på kontonamnet och välja det kontot. På den _användarprofil_ väljer ”Klicka för att kopiera”-ikonen bredvid den _objekt-ID_.|
 |Key Vault-mall|Resource Manager-mall|Loggkvarhållning i dagar|Datalagring i dagar. Standardvärdet är _365_.|
 |Key Vault-mall|Resource Manager-mall|Key Vault-SKU|Anger SKU: N för Nyckelvalvet som har skapats. Standardvärdet är _Premium_.|
 |Key Vault-mall|Resource Manager-mall|Azure SQL Server-administratörens användarnamn|Användarnamnet som används för att få åtkomst till Azure SQL Server. Måste matcha samma egenskapsvärdet i **mall för Azure SQL Database**. Standardvärdet är _sql-administratörsanvändare_.|
 |Azure SQL Database-resursgrupp|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-workload-azsql-rg` så att resursgruppen som är unikt.|
-|Azure SQL Database-resursgrupp|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Azure SQL Database-resursgrupp|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Azure SQL Database-mall|Resource Manager-mall|Azure SQL Server-administratörens användarnamn|Användarnamn för Azure SQL-servern. Måste matcha samma egenskapsvärdet i **Key Vault mallen**. Standardvärdet är _sql-administratörsanvändare_.|
 |Azure SQL Database-mall|Resource Manager-mall|Administratörslösenord för Azure SQL-servern (resurs-ID för Key Vault)|Resurs-ID för Nyckelvalvet. Använd ”/ subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv” och Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med den  **Organisationsnamn** skiss parametern.|
 |Azure SQL Database-mall|Resource Manager-mall|Administratörslösenord för Azure SQL-servern (hemligt namn på Key Vault)|Användarnamnet för SQL Server-administratören. Måste matcha värdet i **Key Vault mallen** egenskapen **Azure SQL Server-administratörsanvändarnamn**.|
@@ -143,7 +143,7 @@ Följande tabell innehåller en lista över skissen artefakt parametrar:
 |Azure SQL Database-mall|Resource Manager-mall|Objekt-ID för AAD-administratör|AAD objekt-ID för den användare som ska tilldelas som en Active Directory-administratör. Inget standardvärde värde och får inte vara tomt. Om du vill hitta det här värdet från Azure-portalen, Sök efter och Välj ”användare” _Services_. Använd den _namn_ om du vill filtrera på kontonamnet och välja det kontot. På den _användarprofil_ väljer ”Klicka för att kopiera”-ikonen bredvid den _objekt-ID_.|
 |Azure SQL Database-mall|Resource Manager-mall|Administratörsinloggning för AAD|För närvarande kan Microsoft-konton (t.ex live.com eller outlook.com) inte anges som administratör. Endast användare och säkerhetsgrupper inom organisationen kan ställas in som administratör. Inget standardvärde värde och får inte vara tomt. Om du vill hitta det här värdet från Azure-portalen, Sök efter och Välj ”användare” _Services_. Använd den _namn_ om du vill filtrera på kontonamnet och välja det kontot. På den _användarprofil_ sidan, kopiera den _användarnamn_.|
 |Resursgrupp för App Service Environment|Resursgrupp|Namn|**Låst** -sammanfogar den **organisationsnamn** med `-workload-ase-rg` så att resursgruppen som är unikt.|
-|Resursgrupp för App Service Environment|Resursgrupp|Plats|**Låst** -parametern skissen.|
+|Resursgrupp för App Service Environment|Resursgrupp|Location|**Låst** -parametern skissen.|
 |Mall för apptjänstmiljö|Resource Manager-mall|Domännamn|Namnet på den Active Directory som skapats av exemplet. Standardvärdet är _contoso.com_.|
 |Mall för apptjänstmiljö|Resource Manager-mall|ASE-plats|Plats för App Service Environment. Standardvärdet är _USA, västra 2_.|
 |Mall för apptjänstmiljö|Resource Manager-mall|Kvarhållning av Application Gateway-logg i dagar|Datalagring i dagar. Standardvärdet är _365_.|

@@ -10,11 +10,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60784715"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor och svar om Azure Databricks
 
@@ -40,11 +40,11 @@ Mer information finns i [Använd Data Lake Store med Azure Databricks](https://d
 
 Här är några problem som kan uppstå med Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problem: Den här prenumerationen har inte registrerats för användning av namnområdet 'Microsoft.Databricks'
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Ärende: Den här prenumerationen har inte registrerats för användning av namnområdet 'Microsoft.Databricks'
 
 #### <a name="error-message"></a>Felmeddelande
 
-”Den här prenumerationen har inte registrerats för användning av namnområdet 'Microsoft.Databricks'. Se https://aka.ms/rps-not-found för hur du registrerar prenumerationer. (Code: MissingSubscriptionRegistration) ”
+”Den här prenumerationen har inte registrerats för användning av namnområdet 'Microsoft.Databricks'. Se https://aka.ms/rps-not-found för hur du registrerar prenumerationer. (Kod: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>Lösning
 
@@ -53,7 +53,7 @@ Här är några problem som kan uppstå med Databricks.
 1. I listan över resursproviders, mot **Microsoft.Databricks**väljer **registrera**. Du måste ha rollen deltagare eller ägare på prenumerationen för att registrera resursprovidern.
 
 
-### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Problem: {Email} för ditt konto inte har rollen ägare eller deltagare på Databricks-arbetsytan i Azure portal
+### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Ärende: Ditt konto {email} har inte rollen ägare eller deltagare på Databricks-arbetsytan i Azure portal
 
 #### <a name="error-message"></a>Felmeddelande
 
@@ -78,28 +78,28 @@ Här följer några lösningar på problemet:
     e. Starta Databricks-arbetsyta som den här användaren.
 
 
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problem: Ditt konto {email} har inte registrerats i Databricks 
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Ärende: Ditt konto {email} har inte registrerats i Databricks 
 
 #### <a name="solution"></a>Lösning
 
 Om du inte har skapat arbetsytan, och du har lagts till som en användare kontaktar du den person som skapade arbetsytan. Har den personen lägga till dig med hjälp av Azure Databricks-administratörskonsolen. Anvisningar finns i [lägga till och hantera användare](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Om du har skapat arbetsytan och du felet fortfarande, försök med att markera **initiera arbetsyta** igen från Azure-portalen.
 
-### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Problem: Molnet Providerfel start när du konfigurerar kluster (PublicIPCountLimitReached)
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Ärende: Starta Providerfel i molnet när du konfigurerar kluster (PublicIPCountLimitReached)
 
 #### <a name="error-message"></a>Felmeddelande
 
-”Starta Providerfel i molnet: ett moln provider-fel påträffades när du konfigurerar klustret. Mer information finns i guiden Databricks. Azure felkod: PublicIPCountLimitReached. Azure-felmeddelande: Det går inte att skapa mer än 60 offentliga IP-adresser för den här prenumerationen i den här regionen ”.
+”Cloud starta Providerfel: En cloud provider-fel påträffades när du konfigurerar klustret. Mer information finns i guiden Databricks. Azure felkod: PublicIPCountLimitReached. Azure-felmeddelande: Det går inte att skapa mer än 60 offentliga IP-adresser för den här prenumerationen i den här regionen ”.
 
 #### <a name="solution"></a>Lösning
 
 Databricks-kluster använder en offentlig IP-adress per nod. Om din prenumeration redan har använt alla dess offentliga IP-adresser, bör du [begäran om att öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Välj **kvot** som den **typ av problem**, och **nätverk: ARM** som den **Kvottypen**. I **information**, begära en kvot för offentlig IP-adress. Exempel: om din gräns för närvarande är 60 och du vill skapa ett kluster med 100 noder, få gränsen utökad till 160.
 
-### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problem: En andra typen av molnet providern startfel när du konfigurerar kluster (MissingSubscriptionRegistration)
+### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Ärende: En andra typen av molnet providern startfel när du konfigurerar kluster (MissingSubscriptionRegistration)
 
 #### <a name="error-message"></a>Felmeddelande
 
-”Starta Providerfel i molnet: ett moln provider-fel påträffades när du konfigurerar klustret. Mer information finns i guiden Databricks.
-Azure felkod: MissingSubscriptionRegistration Azure-felmeddelande: prenumerationen har inte registrerats för användning av namnområdet 'Microsoft.Compute'. Se https://aka.ms/rps-not-found för hur du registrerar prenumerationer ”.
+”Cloud starta Providerfel: En cloud provider-fel påträffades när du konfigurerar klustret. Mer information finns i guiden Databricks.
+Azure felkod: MissingSubscriptionRegistration Azure-felmeddelande: Prenumerationen har inte registrerats för användning av namnområdet Microsoft.Compute. Se https://aka.ms/rps-not-found för hur du registrerar prenumerationer ”.
 
 #### <a name="solution"></a>Lösning
 
@@ -109,7 +109,7 @@ Azure felkod: MissingSubscriptionRegistration Azure-felmeddelande: prenumeration
 
 Mer detaljerade instruktioner finns i [resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md).
 
-### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problem: Azure Databricks måste ha behörighet att komma åt resurser i din organisation som bara en administratör kan bevilja.
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Ärende: Azure Databricks måste ha behörighet att komma åt resurser i din organisation som bara en administratör kan bevilja.
 
 #### <a name="background"></a>Bakgrund
 

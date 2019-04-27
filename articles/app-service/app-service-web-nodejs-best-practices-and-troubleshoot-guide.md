@@ -16,11 +16,11 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60853081"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metodtips och felsökningsguide för nodprogram i Azure App Service Windows
 
@@ -264,12 +264,12 @@ Aktivera FREB för ditt program att se win32-felkoden (vara säker på att du ak
 
 | Http-status | Understatus för http | Möjlig orsak? |
 | --- | --- | --- |
-| 500 |1 000 |Det uppstod några fel skicka förfrågan om att IISNODE – kontrollerar om node.exe har startat. Har det gick kraschat node.exe vid start. Kontrollera din konfiguration för web.config för fel. |
+| 500 |1000 |Det uppstod några fel skicka förfrågan om att IISNODE – kontrollerar om node.exe har startat. Har det gick kraschat node.exe vid start. Kontrollera din konfiguration för web.config för fel. |
 | 500 |1001 |-Win32Error 0x2 - App svarar inte på URL: en. Kontrollera URL-omskrivningsregler eller kontrollera om din uttryckliga app har rätt vägar definierade. -Win32Error 0x6d – namngiven pipe är upptagen – Node.exe tar inte emot begäranden eftersom pipe är upptaget. Kontrollera hög cpu-användning. -Övriga fel – kontrollera om node.exe kraschade. |
 | 500 |1002 |Node.exe kraschat – Kontrollera d:\\home\\LogFiles\\loggning-errors.txt för stackspårning. |
 | 500 |1003 |Pipe configuration problem – namngiven pipe-konfigurationen är felaktig. |
 | 500 |1004-1018 |Vissa fel uppstod när begäran skickades eller bearbetningen av svaret till och från node.exe. Kontrollera om node.exe kraschade. Kontrollera d:\\home\\LogFiles\\loggning-errors.txt för stackspårning. |
-| 503 |1 000 |Inte tillräckligt med minne för att allokera mer namngivna pipe-anslutningar. Kontrollera varför din app förbrukar för mycket minne. Kontrollera maxConcurrentRequestsPerProcess inställningens värde. Om inte du har många begäranden och öka värdet för att förhindra det här felet. |
+| 503 |1000 |Inte tillräckligt med minne för att allokera mer namngivna pipe-anslutningar. Kontrollera varför din app förbrukar för mycket minne. Kontrollera maxConcurrentRequestsPerProcess inställningens värde. Om inte du har många begäranden och öka värdet för att förhindra det här felet. |
 | 503 |1001 |Begäran kunde inte skickas till node.exe eftersom programmet återanvänds. När programmet har återvunnits ska begäranden omdirigeras normalt. |
 | 503 |1002 |Kontrollera win32-felkoden faktiska orsak – begäran kunde inte skickas till en node.exe. |
 | 503 |1003 |Namngiven pipe är upptagen – kontrollera om node.exe förbrukar mycket Processorkraft |

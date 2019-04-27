@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
 ms.openlocfilehash: 93136c7d685bd9fc8ec4bcdea3a900b28029059b
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653218"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695227"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Använda en delad bildgalleriet i Azure Lab Services
 Den här artikeln visar hur lärare/testlabb-administratören kan spara en avbildning av virtuell dator mall för att det ska återanvändas av andra. Dessa avbildningar sparas i en Azure [delade bildgalleriet](../../virtual-machines/windows/shared-image-galleries.md). Som ett första steg bifogar lab administratören en befintliga delade bildgalleriet till labb-kontot. Delade bildgalleriet är kopplade labs som skapats i labb-kontot kan spara bilder i delade avbildningsgalleri. Andra lärare kan välja den här avbildningen från det delade avbildningsgalleriet så att du skapar en mall för deras klasser. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Skapa en delad bildgalleriet genom att använda antingen [Azure PowerShell](../../virtual-machines/windows/shared-images.md) eller [Azure CLI](../../virtual-machines/linux/shared-images.md).
 
 ## <a name="attach-a-shared-image-gallery-to-a-lab-account"></a>Koppla en delad bildgalleriet till ett labbkonto

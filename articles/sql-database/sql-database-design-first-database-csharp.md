@@ -11,11 +11,11 @@ ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 02/08/2019
 ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553223"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Självstudier: Utforma en relationsdatabas i en enskild databas i Azure SQL Database C&#x23; och ADO.NET
 
@@ -37,7 +37,7 @@ Installation av [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="create-a-blank-single-database"></a>Skapa en enda tom databas
 
-En enskild databas i Azure SQL-databasen skapas med en definierad uppsättning beräknings- och lagringsresurser. Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och hanteras med hjälp av en [databasserver](sql-database-servers.md).
+En enskild databas i Azure SQL-databasen skapas med en definierad uppsättning beräknings- och lagringsresurser. Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och hanteras med hjälp av en [databasserver](sql-database-servers.md).
 
 Följ dessa steg för att skapa en enskild tom databas.
 
@@ -55,7 +55,7 @@ Följ dessa steg för att skapa en enskild tom databas.
     | **Resursgrupp** | *yourResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions). |
     | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. |
 
-4. Klicka på **Server** för att använda en befintlig databasserver eller skapa och konfigurera en ny databasserver. Välj en befintlig server eller klicka på **Skapa en ny server** och fyll i följande information i formuläret **Ny server**:
+4. Klicka på **Server** för att använda en befintlig databasserver eller skapa och konfigurera en ny databasserver. Välj antingen en befintlig server eller klicka på **Skapa en ny server** och fyll i följande information i formuläret **Ny server**:
 
     | Inställning       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
@@ -69,7 +69,7 @@ Följ dessa steg för att skapa en enskild tom databas.
 5. Klicka på **Välj**.
 6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Du kan undersöka alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå.
 
-    När du har valt tjänstenivå, antalet DTU:er eller virtuella kärnor och mängden lagring klickar du på **Använd**.
+    När du har valt tjänstnivå, antalet DTU:er eller virtuella kärnor samt mängden lagring klickar du på **Använd**.
 
 7. Ange en **sortering** för den tomma databasen (använd standardvärdet för de här självstudierna). Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations).
 
@@ -84,7 +84,7 @@ Följ dessa steg för att skapa en enskild tom databas.
 SQL Database-tjänsten skapar en IP-brandvägg på servernivå. Den här brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern såvida inte en brandväggsregel tillåter deras IP-adresser genom brandväggen. För att tillåta externa anslutningar till din databas måste du först lägga till en IP-brandväggsregel för din IP-adress (eller ditt IP-adressintervall). Följ de här stegen för att skapa en [IP-brandväggsregel på SQL Database-servernivå](sql-database-firewall-configure.md).
 
 > [!IMPORTANT]
-> SQL Database-tjänsten kommunicerar via port 1433. Om du försöker ansluta till den här tjänsten från ett företagsnätverk, kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till din enskilda databas om inte administratören öppnar port 1433.
+> SQL Database-tjänsten kommunicerar via port 1433. Om du försöker ansluta till den här tjänsten från ett företagsnätverk kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till din enkla databas om inte administratören öppnar port 1433.
 
 1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på *yourDatabase* på sidan **SQL-databaser**. Översiktssidan för databasen öppnas och visar det fullständigt kvalificerade **servernamnet** (till exempel *yourserver.database.windows.net*) tillsammans med alternativ för ytterligare konfiguration.
 
@@ -102,10 +102,10 @@ SQL Database-tjänsten skapar en IP-brandvägg på servernivå. Den här brandv�
 
 6. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
-Din IP-adress kan nu passera genom IP-brandväggen. Nu kan du ansluta till din databas med hjälp av SQL Server Management Studio eller ett annat verktyg. Se till att använda serveradmin-kontot som du skapade tidigare.
+Din IP-adress kan nu passera genom IP-brandväggen. Nu kan du ansluta till din enkla databas med hjälp av SQL Server Management Studio eller ett annat verktyg. Se till att använda serveradmin-kontot som du skapade tidigare.
 
 > [!IMPORTANT]
-> Som standard är åtkomst genom IP-brandväggen för SQL Database aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
+> Som standard är åtkomst via IP-brandväggen för SQL Database aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
 

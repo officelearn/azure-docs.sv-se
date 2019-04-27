@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/29/2018
 ms.author: sharadag
-ms.openlocfilehash: 346fa5721df6c9ce0cf355adea21f59c93a394a9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 2d4c93b7ef707f5b09bc2f5f93d56c50c1bb3458
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736334"
 ---
 # <a name="what-is-azure-front-door-service"></a>Vad är Azure Front Door Service?
 Med Azure Front Door Service kan du definiera, hantera och övervaka global routning av din webbtrafik, genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet. Med Front Door kan du transformera dina globala (för flera regioner) konsument- och företagsprogram till robusta, högpresterande och anpassade moderna program, API:er och innehåll som når en global publik med Azure.
@@ -75,5 +75,5 @@ Information om priser finns i [Prissättning för Front Door](https://azure.micr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig att [skapa en Front Door](quickstart-create-front-door.md).
-- Lär dig [hur Front Door fungerar](front-door-routing-architecture.md).
+- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Läs [hur Front Door fungerar](front-door-routing-architecture.md).

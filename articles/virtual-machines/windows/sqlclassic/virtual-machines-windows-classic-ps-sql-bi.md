@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609279"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence på Azure Virtuella datorer
 > [!IMPORTANT] 
@@ -317,7 +317,7 @@ Det här avsnittet sammanfattas Microsoft Azure VM-slutpunkter för att skapa oc
   * Skapa virtuella datorers slutpunkter för meddelanden portar (*).
 * Om den virtuella datorn är ansluten till en domän med en VPN-tunnel, till exempel Azure virtuellt nätverk, sedan är slutpunkterna inte obligatoriska. Men öppna portarna i brandväggen på den virtuella datorn.
   
-  | Port | Type | Beskrivning |
+  | Port | Typ | Beskrivning |
   | --- | --- | --- |
   | **80** |TCP |Rapportserver fjärråtkomst (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |

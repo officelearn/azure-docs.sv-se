@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa en CI/CD-pipeline för din befintliga kod med hjälp av Azure DevOps Projects'
+title: 'Självstudier: Skapa en CI/CD-pipeline för din befintliga kod med hjälp av Azure DevOps-projekt'
 description: Azure DevOps Projects gör det enkelt att komma igång med Azure. DevOps Projects hjälper dig att använda egen kod och din GitHub-lagringsplats för att lansera en app på en Azure-tjänst med några enkla få steg.
 services: vsts
 documentationcenter: vs-devops-build
@@ -18,13 +18,13 @@ author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 88ee15a3b5cc53542d9e098dee485b8a526bb9a6
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60555358"
 ---
-# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Självstudie: Skapa en CI/CD-pipeline för din befintliga kod med hjälp av Azure DevOps Projects
+# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Självstudier: Skapa en CI/CD-pipeline för din befintliga kod med hjälp av Azure DevOps-projekt
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure.
 
@@ -48,7 +48,7 @@ Du kommer att:
 
 Azure DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. Azure DevOps Projects skapar även Azure-resurser i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **Nytt** i den vänstra fönsterrutan.
 
@@ -112,7 +112,7 @@ Azure DevOps Projects konfigurerar automatiskt en CI/CD-pipeline i Azure Pipelin
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
     Du kan se en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.

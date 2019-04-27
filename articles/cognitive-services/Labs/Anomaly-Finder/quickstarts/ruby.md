@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ms.openlocfilehash: 020c957baf6673365d64c613bd908a440bc3d05c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729213"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Använda Avvikelsesökare API med Ruby
 
@@ -22,7 +22,7 @@ ms.locfileid: "56735041"
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering Finder med Ruby för att utföra uppgiften för att få Identifieringsresultat för avvikelseidentifiering av time series-data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

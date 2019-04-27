@@ -17,11 +17,11 @@ ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: 0a3edac7638d8b63086482cdecf8d74bde426c35
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865637"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Självstudier: Visa misslyckas över och skalning av behållartjänster med Service Fabric
 
@@ -31,7 +31,7 @@ Den här självstudiekursen är den tredje delen i en serie. I den här självst
 > * Läs om att redundansväxla en container i ett Service Fabric-kluster
 > * Skala webbklientcontainrar i ett program
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Programmet från [Del 2](service-fabric-tutorial-package-containers.md) körs som ett aktivt Service Fabric-kluster.
 

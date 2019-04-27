@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
 ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745613"
 ---
-# <a name="handling-review-feedback"></a>Hantering av granska feedback
+# <a name="handling-review-feedback"></a>Hantera feedback från granskning
 
 Den här artikeln förklarar hur du kommer åt Azure DevOps-miljö som används av granskningsteamet för Microsoft Azure Marketplace.  Om allvarliga problem som hittas i erbjudandet Azure-program under den **Microsoft granska** steg, du kan logga in på det här systemet att visa detaljerad information om dessa ärenden (granska feedback).  När du har åtgärdat alla problem, måste du skicka ditt erbjudande till fortsätta publicera på Azure Marketplace.  Följande diagram illustrerar hur den här feedbackprocessen relaterar till publiceringsprocessen.
 

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: diberry
 ms.openlocfilehash: 028c06924e41606ba1d4e0b15fe26f2b7270db3c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710141"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Självstudie: LUIS-bot i C# med Bot Framework 4.x och Azure Web App-robot
 Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här roboten använder HomeAutomation-appen för att implementera en robotlösning. Roboten bygger på Azures [webbappsrobot](https://docs.microsoft.com/azure/bot-service/) med [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
@@ -50,7 +50,7 @@ Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LU
     |Robotnamn|Resursnamn|`luis-csharp-bot-` + `<your-name>`, till exempel `luis-csharp-bot-johnsmith`|
     |Prenumeration|Prenumeration där roboten ska skapas.|Din primära prenumeration.
     |Resursgrupp|Logisk grupp med Azure-resurser|Skapa en ny grupp för att lagra alla resurser som används med den här roboten och ge gruppen namnet `luis-csharp-bot-resource-group`.|
-    |Plats|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
+    |Location|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
     |Prisnivå|Används för begränsningar och fakturering av tjänstbegäranden.|`F0` är den kostnadsfria nivån.
     |Appnamn|Namnet används som underdomänen när din robot distribueras till molnet (exempelvis humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, till exempel `luis-csharp-bot-johnsmith`|
     |Robotmall|Bot Framework-inställningar – se nästa tabell|

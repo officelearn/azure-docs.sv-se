@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
 ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731692"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -30,9 +30,9 @@ Den här artikeln beskriver vad nätverkssäkerhetsgrupper är, så att du kan a
 
 En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler du vill, inom Azure-prenumerationens [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Varje regel anger följande egenskaper:
 
-|Egenskap  |Förklaring  |
+|Egenskap   |Förklaring  |
 |---------|---------|
-|Name|Ett unikt namn inom nätverkssäkerhetsgruppen.|
+|Namn|Ett unikt namn inom nätverkssäkerhetsgruppen.|
 |Prioritet | Ett tal mellan 100 och 4096. Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.|
 |Källa eller mål| Valfria, eller enskilda IP-adresser, CIDR-block (Classless Inter-Domain Routing) (t.ex. 10.0.0.0/24), [tjänsttaggar](#service-tags) eller [programsäkerhetsgrupper](#application-security-groups). Om du anger en adress för en Azure-resurs anger du den privata IP-adressen som tilldelats till resursen. Nätverkssäkerhetsgrupper bearbetas efter att Azure omvandlar en offentlig IP-adress till en privat IP-adress för inkommande trafik, och innan Azure omvandlar en privat IP-adress till en offentlig IP-adress för utgående trafik. Läs mer om [IP-adresser](virtual-network-ip-addresses-overview-arm.md) i Azure. Du kan begränsa antalet säkerhetsregler du skapar genom att ange ett intervall, en tjänsttagg eller en programsäkerhetsgrupp. Möjligheten att ange flera enskilda IP-adresser och intervall (du kan inte ange flera tjänsttaggar eller programgrupper) i en regel kallas [förhöjda säkerhetsregler](#augmented-security-rules). Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera IP-adresser och IP-adressintervall i nätverkssäkerhetsgrupper som skapats via den klassiska distributionsmodellen. Läs mer om [distributionsmodeller i Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |Protokoll     | TCP, UDP eller någon, inklusive (men inte begränsat till) TCP, UDP och ICMP. Du kan inte ange ICMP separat. Använd därför Any (Alla) om du behöver använda ICMP. |
@@ -86,7 +86,7 @@ Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nä
 > Servicetaggar för Azure-tjänster anger adressprefix från det specifika molnet som används. 
 
 > [!NOTE]
-> Om du implementerar en [tjänstslutpunkt för ett virtuellt nätverk](virtual-network-service-endpoints-overview.md) för en viss tjänst, till exempel Azure Storage eller Azure SQL Database, lägger Azure till en [väg](virtual-networks-udr-overview.md#optional-default-routes) till ett undernät för virtuella nätverk för tjänsten. Vägens adressprefix är samma adressprefix, eller CIDR-intervall, som motsvarande tjänsttagg.
+> Om du implementerar en [tjänstslutpunkt för virtuellt nätverk](virtual-network-service-endpoints-overview.md) för en viss tjänst, till exempel Azure Storage eller Azure SQL Database, lägger Azure till en [väg](virtual-networks-udr-overview.md#optional-default-routes) till ett undernät för virtuella nätverk för tjänsten. Vägens adressprefix är samma adressprefix, eller CIDR-intervall, som motsvarande tjänsttagg.
 
 ## <a name="default-security-rules"></a>Standardsäkerhetsregler
 

@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865377"
 ---
-# <a name="storefront-details-tab"></a>Fliken storefront information
+# <a name="storefront-details-tab"></a>Fliken Butiksinformation
 
 Den här artikeln beskriver hur du kan ange information för din butik. Den **Storefront information** fliken består av följande avsnitt:
 
@@ -45,12 +45,12 @@ Sammanfattning av erbjudandet är en kort beskrivning av ditt erbjudande som vis
 
 *Exempel 1*
 
--   **Namn på erbjudande**: Molnet Analytics: 3 dagars Workshop
+-   **Namn på erbjudande**: Cloud Analytics: 3 dagars Workshop
 -   **Erbjuder sammanfattning**: Översikt över Microsoft Azure och Power BI, bedömning av aktuella miljön och mini POC.
 
 *Exempel 2*
 
--   **Namn på erbjudande**: Industriella Azure IoT: 30-dagars konceptbevis
+-   **Namn på erbjudande**: Industrial Azure IoT: 30-dagars konceptbevis
 -   **Erbjuder sammanfattning**: Skapa en industri-anslutna produkten pilotprojekt för att på ett säkert sätt ansluta utrustning i fältet till en Azure IoT Hub-lösning med instrumentpaneler, rapporter och meddelanden.
 
 *Exempel 3*
@@ -82,7 +82,7 @@ Håll det kort beskrivning av ditt erbjudande och följa teckengränsen eftersom
 
 I följande exempel visas en beskrivning av väl består erbjudande och dess relaterade namn och en sammanfattning:
 
-**Namn på erbjudande**: Molnet Analytics: 3 dagars Workshop
+**Namn på erbjudande**: Cloud Analytics: 3 dagars Workshop
 
 **Erbjuder sammanfattning**: Översikt över Microsoft Azure och Power BI, bedömning av aktuella miljön och mini POC.
 

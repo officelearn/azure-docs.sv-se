@@ -14,11 +14,11 @@ ms.workload: tbd
 ms.date: 3/26/2019
 ms.author: raiye
 ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623076"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
@@ -487,7 +487,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 17-09 | [4038779], [4038786], [4038793] |Endast Windows-säkerhet |2.66, 3.53, 4.46 |Den 12 september 2017 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|September .NET-uppdatering |2.66, 3.53, 4.46 |Den 12 september 2017 |
 | Rel 17-09 | [4036586] |Internet explorer |2.66, 3.53, 4.46 |Den 12 september 2017 |
-| CVE-2017-8704 | [4038782] |Denial of Service |5.11 |Den 12 september 2017 |
+| CVE-2017-8704 | [4038782] |Denial of Service-attack |5.11 |Den 12 september 2017 |
 | Gäller inte | [4034664] |Insamling av augusti icke-säkerhet  |2.66 |Den 8 augusti 2017 |
 | Gäller inte | [4034665] |Insamling av augusti icke-säkerhet |5.11 |Den 8 augusti 2017 |
 | Gäller inte | [4034681] |Insamling av augusti icke-säkerhet |4.46 |Den 8 augusti 2017 |

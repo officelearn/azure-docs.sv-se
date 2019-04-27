@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.openlocfilehash: 232037562c4a84ee9217e2e89a0da2ffdc37d560
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745798"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Starta om Azure Database for MariaDB-server med Azure-portalen
 Det här avsnittet beskrivs hur du kan starta om en Azure Database for MariaDB-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
@@ -20,7 +20,7 @@ Starta om servern kommer att blockeras om tjänsten är upptagen. Tjänsten kan 
 
 Den tid som krävs för att slutföra en omstart är beroende av MariaDB återställningsprocessen. Om du vill minska tiden för omstart, rekommenderar vi du minska mängden aktiviteten på server före omstarten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du behöver följande för att slutföra den här guiden:
 - En [Azure Database for MariaDB-server](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 

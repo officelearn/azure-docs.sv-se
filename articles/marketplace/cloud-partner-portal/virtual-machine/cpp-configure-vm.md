@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744354"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Konfigurera den virtuella Azure-baserade datorn
 
@@ -77,7 +77,7 @@ Mer information om hur du kör sysprep finns i [steg för att generalisera en vi
 
 ### <a name="linux"></a>Linux
 
-Följande två steg generalisera en Linux-VM och distribuera om den som en separat virtuell dator.  Mer information finns i [så här skapar du en avbildning av en virtuell dator eller VHD](../../../virtual-machines/linux/capture-image.md). 
+Följande två steg generalisera en Linux-VM och distribuera om den som en separat virtuell dator.  Mer information finns i [Så här skapar du en avbildning av en virtuell dator eller VHD](../../../virtual-machines/linux/capture-image.md). 
 
 #### <a name="remove-the-azure-linux-agent"></a>Ta bort Azure Linux-agent
 1.  Anslut till din Linux-VM med hjälp av en SSH-klient.

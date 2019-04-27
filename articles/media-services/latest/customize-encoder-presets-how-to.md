@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
 ms.openlocfilehash: ed2ae50aa9d7a26ed6e0569264ee981f7be35525
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733682"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Koda med en anpassad omvandlings - .NET
 
@@ -30,7 +30,7 @@ När du skapar anpassade förinställningar, gäller följande:
 * Alla värden för höjd och bredd på AVC innehåll måste vara en multipel av 4.
 * I Azure Media Services v3 är alla kodning bithastighet i bitar per sekund. Detta skiljer sig från förinställningar med våra v2 API: er, som används kilobit per sekund som enheten. Till exempel om bithastigheten i v2 har angetts som 128 (kbit/s) skulle i v3 det ställas in till 128000 (bitar per sekund).
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 [Skapa ett Media Services-konto](create-account-cli-how-to.md). <br/>Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
 

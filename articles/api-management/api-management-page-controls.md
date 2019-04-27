@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
 ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656990"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management kontroller
 Azure API Management ger följande kontroller för användning i utvecklaren portal mallar.  
@@ -38,13 +38,13 @@ Om du vill använda en kontroll, placera den på önskad plats i mallen develope
 ## <a name="developer-portal-template-page-controls"></a>Developer mall för kontroller  
   
 -   [App-åtgärder](#app-actions)  
--   [Basic-inloggning](#basic-signin)  
--   [växling-kontroll](#paging-control)  
+-   [basic-signin](#basic-signin)  
+-   [paging-control](#paging-control)  
 -   [Providers](#providers)  
--   [Sök-kontroll](#search-control)  
--   [Registrera dig](#sign-up)  
--   [prenumerera på knappen](#subscribe-button)  
--   [prenumeration Avbryt](#subscription-cancel)  
+-   [search-control](#search-control)  
+-   [sign-up](#sign-up)  
+-   [subscribe-button](#subscribe-button)  
+-   [subscription-cancel](#subscription-cancel)  
   
 ##  <a name="app-actions"></a> App-åtgärder  
  Den `app-actions` kontrollen innehåller ett användargränssnitt för att interagera med program på användarens profilsida i developer-portalen.  

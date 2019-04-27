@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55501363"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60696040"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Skapa och hantera scheman för klassrum labb i Azure Lab Services 
 Scheman kan du konfigurera ett klassrumslabb så att virtuella datorer i labbet automatiskt starta och stänga av en viss tid. Du kan definiera en engångsschema eller ett återkommande schema. Följande procedurer ger dig steg för att skapa och hantera scheman för ett klassrumslabb: 

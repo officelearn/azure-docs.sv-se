@@ -10,11 +10,11 @@ ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
 ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721797"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(INAKTUELL) Distribuera Docker CE-kluster
 
@@ -38,7 +38,7 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *we
 az group create --name myResourceGroup --location westus2
 ```
 
-Resultat:
+Utdata:
 
 ```json
 {
@@ -76,7 +76,7 @@ I den här snabbstartsguide behöver du FQDN både för Docker Swarm-huvudnoden 
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 Master                                                               Agent
@@ -126,7 +126,7 @@ Kör kommandot [docker stack deploy](https://docs.docker.com/engine/reference/co
 docker stack deploy azure-vote --compose-file azure-vote.yaml
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 Creating network azure-vote_default

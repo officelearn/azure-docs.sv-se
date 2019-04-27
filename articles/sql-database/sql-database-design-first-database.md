@@ -11,11 +11,11 @@ ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556751"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Självstudier: Utforma en relationsdatabas i en enkel databas i Azure SQL Database med hjälp av SSMS
 
@@ -43,13 +43,13 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Skapa en enda tom databas
 
-En enkel databas i Azure SQL Database skapas med en definierad uppsättning beräknings-och lagringsresurser. Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och hanteras med hjälp av en [databasserver](sql-database-servers.md).
+En enskild databas i Azure SQL-databasen skapas med en definierad uppsättning beräknings- och lagringsresurser. Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och hanteras med hjälp av en [databasserver](sql-database-servers.md).
 
-Följ dessa steg för att skapa en enkel tom databas.
+Följ dessa steg för att skapa en enskild tom databas.
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 2. Välj **Databaser** i avsnittet Azure Marketplace på sidan **Nytt** och klicka sedan på **SQL Database** i avsnittet **Aktuellt**.
@@ -79,11 +79,11 @@ Följ dessa steg för att skapa en enkel tom databas.
 5. Klicka på **Välj**.
 6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Du kan undersöka alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå.
 
-    När du har valt tjänstenivå, antalet DTU:er eller virtuella kärnor samt mängden lagring klickar du på **Använd**.
+    När du har valt tjänstnivå, antalet DTU:er eller virtuella kärnor samt mängden lagring klickar du på **Använd**.
 
 7. Ange en **sortering** för den tomma databasen (använd standardvärdet för de här självstudierna). Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations).
 
-8. Nu när du har fyllt i **SQL Database**-formuläret klickar du på **Skapa** för att etablera den enkla databasen. Det här steget kan ta några minuter.
+8. Nu när du har fyllt i **SQL Database**-formuläret klickar du på **Skapa** för att etablera den enskilda databasen. Det här steget kan ta några minuter.
 
 9. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
@@ -227,10 +227,10 @@ Följande diagram visar hur tabellerna är relaterade till varandra. Vissa av ta
 4. Kör följande kommandon för att infoga exempeldata i tabellerna där du ersätter värdena för *server*, *databas*, *användare* och *lösenord* med värdena för din miljö.
 
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 Du har nu läst in exempeldata i de tabeller som du skapade tidigare.

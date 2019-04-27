@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: fc248292e2323d44a353473be87c2b0f1be8ea12
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880170"
 ---
 # <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till specifika Android-programanvändare med hjälp av Azure Notification Hubs
 

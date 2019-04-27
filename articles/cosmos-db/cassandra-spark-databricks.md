@@ -9,17 +9,17 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 37a06b19285c1196b5d87830ea176d4bd0d4eade
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60894019"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Åtkomst till Cassandra-API för Azure Cosmos DB-data från Azure Databricks
 
 Den här artikeln innehåller information om hur du workwith Azure Cosmos DB Cassandra-API från Spark på [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Etablera ett Cassandra-API för Azure Cosmos DB-konto](create-cassandra-dotnet.md#create-a-database-account)
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 535ba0049e91e09de3d1dcf05fc8ede80ef403ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60672215"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso-migrering: Ange ny värd för en lokal app på Azure virtuella datorer och SQL Server AlwaysOn-tillgänglighetsgrupp
 
@@ -135,7 +135,7 @@ Contoso-administratörer kommer att migrera de virtuella datorerna för appen ti
 
 ![Migreringsprocessen](media/contoso-migration-rehost-vm-sql-ag/migration-process.png) 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Här är vad Contoso behöver för att utföra det här scenariot.
 

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
 ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716360"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirigera trafik till specifika slutpunkter baserat på användares undernät med Traffic Manager
 
@@ -27,7 +27,7 @@ I scenariot som beskrivs i den här artikeln med hjälp av Routning undernät, b
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill se hur Traffic Manager fungerar i praktiken behöver du använda följande i den här självstudien:
 - två grundläggande webbplatser som körs i olika Azure-regioner – **USA, östra** (fungerar som intern webbplats) och **Europa, västra** (fungerar som produktionswebbplats).
 - två virtuella testdatorer för att testa Traffic Manager – en virtuell dator i **USA, östra** och den andra virtuella datorn i **Europa, västra**.
@@ -56,7 +56,7 @@ I det här avsnittet skapar du två virtuella datorer *myEndpointVMEastUS* och *
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resursgrupp| Välj **Ny** och skriv sedan *myResourceGroupTM1*.|
-    |Plats| Välj **USA, östra**.|
+    |Location| Välj **USA, östra**.|
     |||
 
 4. Välj en VM-storlek i **Välj en storlek**.
@@ -76,7 +76,7 @@ I det här avsnittet skapar du två virtuella datorer *myEndpointVMEastUS* och *
     |Inställning|Värde|
     |---|---|
     |Resursgrupp | Välj **Ny** och skriv sedan *myResourceGroupTM2*|
-    |Plats|Västra Europa|
+    |Location|Västra Europa|
     |Namn på virtuell dator | myIISVMWEurope|
     |Virtuellt nätverk | Välj **Virtuellt nätverk** i **Skapa virtuellt nätverk**. För **Namn** anger du *myVNet2* och för undernätet anger du  *mySubnet*.|
     |||
@@ -194,7 +194,7 @@ Lägg till de två virtuella datorer som kör IIS servrar – *myIISVMEastUS* & 
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Type                    | Azure-slutpunkt                                   |
+    | Typ                    | Azure-slutpunkt                                   |
     | Namn           | myTestWebSiteEndpoint                                        |
     | Målresurstyp           | Offentlig IP-adress                          |
     | Målresurs          | **Välj en offentlig IP-adress** för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resurs** väljer du den offentliga IP-adressen med namnet *myIISVMEastUS-ip*. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|

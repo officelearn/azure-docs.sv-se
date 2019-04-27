@@ -16,11 +16,11 @@ ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: 559c02e74e97093a15b1d768eb5a3b32502db64e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865157"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Självstudier: Skapa ett program med en Java Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst i Service Fabric
 
@@ -46,7 +46,7 @@ I del ett i den här serien lärde du dig att:
 > * fjärrkommunicera med den tillståndskänsliga tjänsten
 > * distribuera program till ett lokalt Service Fabric-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 

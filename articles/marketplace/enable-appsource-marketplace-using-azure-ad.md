@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
 ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734260"
 ---
-# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Aktivera en AppSource och Marketplace-lista med hjälp av Azure Active Directory
+# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Aktivera en AppSource- och Marketplace-lista genom att använda Azure Active Directory
 
  Azure Active Directory (Azure AD) är en molnidentitetstjänst som möjliggör autentisering med ett Microsoft-konto. Azure AD använder vanliga ramverk. [Läs mer om Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 

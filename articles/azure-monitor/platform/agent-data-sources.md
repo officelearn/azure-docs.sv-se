@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776092"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Agent-datakällor i Azure Monitor
 De data som Azure Monitor samlar in från agenter definieras av datakällor som du konfigurerar.  Data från agenter lagras som [logga data över](data-platform-logs.md) med en uppsättning poster.  Varje datakälla skapar poster i en viss typ med varje typ av att ha en egen uppsättning egenskaper.

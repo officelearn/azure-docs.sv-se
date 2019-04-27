@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.date: 01/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: a8f3a5c6a1c7adaff620f8675fcffa4018eb9874
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764657"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudier: Distribuera en bildklassificeringsmodell i Azure Container Instances
 
@@ -37,7 +37,7 @@ Container Instances är en bra lösning för testning och för att förstå arbe
 >[!NOTE]
 > Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.8.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Gå vidare till [Set the development environment](#start) (Ange utvecklingsmiljö) för att läsa igenom stegen för anteckningsboken.  
 
 Om du vill köra anteckningsboken slutför du först modellträningen i [Självstudie (del 1): Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).   Kör sedan anteckningsboken **tutorials/img-classification-part2-deploy.ipynb** med samma notebook-server.

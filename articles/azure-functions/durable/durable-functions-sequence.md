@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730555"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktionen länkning i varaktiga funktioner - Hello sekvens-exempel
 
@@ -155,4 +155,4 @@ Här är orchestration som en enda C#-fil i ett Visual Studio-projekt:
 Det här exemplet har visat en enkel orchestration för länkning av funktionen. I nästa exempel visas hur du implementerar bläddra in/bläddra in-mönstret.
 
 > [!div class="nextstepaction"]
-> [Kör Bläddra in/bläddra in-exemplet](durable-functions-cloud-backup.md)
+> [Kör Fan-in/fan-i exemplet](durable-functions-cloud-backup.md)

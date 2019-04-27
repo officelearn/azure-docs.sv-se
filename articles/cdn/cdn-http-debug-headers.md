@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094232"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736980"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>X-EG-Debug HTTP-huvuden för Azure CDN regelmotor
 Begärandehuvudet för debug cache `X-EC-Debug`, tillhandahåller ytterligare information om den princip som tillämpas på den begärda tillgången. Dessa huvuden är specifika för **Azure CDN Premium från Verizon** produkter.
@@ -35,11 +35,11 @@ Använd följande direktiv i den angivna begäran för att definiera cache fels�
 
 Begärandehuvud | Beskrivning |
 ---------------|-------------|
-X-EG-Debug: x-EG-cache | [Cache-statuskod](#cache-status-code-information)
-X-EG-Debug: x-EG-cache-remote | [Cache-statuskod](#cache-status-code-information)
-X-EG-Debug: x EG-kontroll-webbtillämpningar | [Komma](#cacheable-response-header)
-X-EG-Debug: x-EG-cache-key | [Cache-nyckel](#cache-key-response-header)
-X-EG-Debug: x-EG-cache-tillstånd | [Cache-tillstånd](#cache-state-response-header)
+X-EC-Debug: x-ec-cache | [Cache-statuskod](#cache-status-code-information)
+X-EC-Debug: x-ec-cache-remote | [Cache-statuskod](#cache-status-code-information)
+X-EC-Debug: x-ec-check-cacheable | [Komma](#cacheable-response-header)
+X-EC-Debug: x-ec-cache-key | [Cache-key](#cache-key-response-header)
+X-EC-Debug: x-ec-cache-state | [Cache-tillstånd](#cache-state-response-header)
 
 ### <a name="syntax"></a>Syntax
 
@@ -56,8 +56,8 @@ Rubriken X-EG-Debug kan identifiera en server och hur den hanterade svar via fö
 
 Huvud | Beskrivning
 -------|------------
-X-EG-Debug: x-EG-cache | Den här rubriken rapporteras varje gång innehållet dirigeras via CDN. Den identifierar den POP-server som uppfyllt begäran.
-X-EG-Debug: x-EG-cache-remote | Den här rubriken rapporteras endast när det begärda innehållet har cachelagrats på en shield ursprungsserver eller en ADN gateway-server.
+X-EC-Debug: x-ec-cache | Den här rubriken rapporteras varje gång innehållet dirigeras via CDN. Den identifierar den POP-server som uppfyllt begäran.
+X-EC-Debug: x-ec-cache-remote | Den här rubriken rapporteras endast när det begärda innehållet har cachelagrats på en shield ursprungsserver eller en ADN gateway-server.
 
 ### <a name="response-header-format"></a>Svar-huvudformat
 
@@ -72,7 +72,7 @@ De termer som används i ovanstående svar rubrik syntax definieras enligt följ
     
     Statuskoden TCP_DENIED kan rapporteras i stället för att ingen om en obehörig begäran nekas på grund av tokenbaserad autentisering. Däremot fortsätter NONE statuskoden som ska användas vid visning av Cachestatus rapporter eller raw loggdata.
 
-- Plattform: Anger den plattform som innehållet har begärts. Följande koder är giltiga för det här fältet:
+- Plattform: Anger plattformen där innehållet begärdes. Följande koder är giltiga för det här fältet:
 
     Kod  | Plattform
     ------| --------
@@ -106,8 +106,8 @@ Begreppet i ovanstående svar rubrik syntax definieras enligt följande:
 Värde  | Beskrivning
 -------| --------
 JA    | Anger att det begärda innehållet berättigade för cachelagring.
-NEJ     | Anger att det begärda innehållet har inte berättigade för cachelagring. Den här statusen kan vara något av följande orsaker: <br /> -Kundspecifika konfiguration: en konfiguration som är specifika för ditt konto kan förhindra pop-servrar från cachelagring av en tillgång. Regelmotor kan till exempel förhindra att en tillgång att cachelagras genom att aktivera funktionen kringgå Cache för kvalificerade begäranden.<br /> -Cache svarshuvuden: Den begärda tillgången Cache-Control och Expires-huvuden kan hindra POP-servrar från cachelagringen.
-OKÄND | Anger att servrarna inte gick att utvärdera om den begärda tillgången har komma. Den här statusen visas normalt när begäran nekas på grund av tokenbaserad autentisering.
+NO     | Anger att det begärda innehållet har inte berättigade för cachelagring. Den här statusen kan vara något av följande orsaker: <br /> -Kundspecifika konfiguration: En konfiguration som är specifika för ditt konto kan hindra pop-servrar från cachelagring av en tillgång. Regelmotor kan till exempel förhindra att en tillgång att cachelagras genom att aktivera funktionen kringgå Cache för kvalificerade begäranden.<br /> -Cachelagra svarshuvuden: Den begärda tillgången Cache-Control och Expires-huvuden kan förhindra att POP-servrar från cachelagringen.
+OKÄNT | Anger att servrarna inte gick att utvärdera om den begärda tillgången har komma. Den här statusen visas normalt när begäran nekas på grund av tokenbaserad autentisering.
 
 ### <a name="sample-response-header"></a>Exempel-svarshuvud
 
@@ -153,13 +153,13 @@ De termer som används i ovanstående svar rubrik syntax definieras enligt följ
 
 - UnixTime: Anger cache-tidsstämpel för det begärda innehållet i Unix-tiden (alias) POSIX tid eller Unix epoch). Cache-tidsstämpeln visar från datum/tid som en tillgång TTL ska beräknas. 
 
-    Om ursprungsservern inte att använda en tredje parts HTTP cachelagring server eller om servern inte returnerar svarshuvudet ålder, blir datum och tid när tillgången har hämtats eller verifiera om alltid i cache-tidsstämpel. I annat fall POP-servrar ska använda fältet ålder för att beräkna tillgångens TTL på följande sätt: hämtning/RevalidateDateTime - ålder.
+    Om ursprungsservern inte att använda en tredje parts HTTP cachelagring server eller om servern inte returnerar svarshuvudet ålder, blir datum och tid när tillgången har hämtats eller verifiera om alltid i cache-tidsstämpel. I annat fall använder POP-servrar fältet ålder för att beräkna tillgångens TTL på följande sätt: Hämtning av filer/RevalidateDateTime - ålder.
 
 - ddd dd mm-åååå: mm: ss GMT: Anger cache-tidsstämpel för det begärda innehållet. Mer information finns i UnixTime termen ovan.
 
-- CASeconds: Anger hur många sekunder som har förflutit sedan cache-tidsstämpel.
+- CASeconds: Anger antalet sekunder som har förflutit sedan cache-tidsstämpel.
 
-- RTSeconds: Anger hur många sekunder som återstår som cachelagrat innehåll kommer kan anses vara aktuell. Det här värdet beräknas enligt följande: RTSeconds = max-age - cachelagra ålder.
+- RTSeconds: Anger antalet sekunder som återstår som cachelagrat innehåll kommer kan anses vara aktuell. Det här värdet beräknas enligt följande: RTSeconds = max-age - cachelagra ålder.
 
 - RTTimePeriod: Konverterar återstående TTL-värdet (det vill säga RTSeconds) till det ungefärliga motsvarande en större enhet (till exempel, dagar).
 

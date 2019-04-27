@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721019"
 ---
 # <a name="project-answer-search-v7-reference"></a>Projektet svar Search v7-referens
 
@@ -83,7 +83,7 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar.  
   
   
-|Namn|Värde|Typ|Krävs|  
+|Namn|Värde|Typ|Obligatoriskt|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i marknaden koder.<br /><br /> **Obs!** URL: en förhandsversion av API: et stöder för närvarande endast en-us-marknaden och språk.<br /><br />|String|Ja|  
 |<a name="query" />q|URL: en för att förhandsgranska|String|Ja|  
@@ -96,7 +96,7 @@ Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obli
 Svarsschemat är antingen en [webbsida] eller ErrorResponse, som i API för webbsökning. Om begäran misslyckas kan det översta objektet är den [ErrorResponse](#errorresponse) objekt.
 
 
-|Objekt|Beskrivning|  
+|Object|Beskrivning|  
 |------------|-----------------|  
 |[Webbsidan]|Översta nivån JSON-objekt som innehåller attribut för förhandsversionen.|  
 |[Faktumet]|Översta nivån JSON-objekt som innehåller fakta.| 
@@ -143,7 +143,7 @@ Definierar en avtalsenliga regel för licens attribution.
 |_typ|Ett tips för typen som har angetts till LicenseAttribution.|String|  
 |licens|Licensen som innehållet kan användas.|[Licens](#license)|  
 |licenseNotice|Licens för att visa bredvid fältet riktade. Till exempel ”Text under kopia av SA licens”.<br /><br /> Använd licensen namn och URL: en i den `license` fält som du vill skapa en hyperlänk till den webbplats som ger information om licensen. Ersätt sedan licens namn i den `licenseNotice` sträng (till exempel CC-av-SA) med länken som du nyss skapade.|String|  
-|mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolesk|  
+|mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolean|  
 |targetPropertyName|Namnet på fältet som regeln gäller för.|String|  
   
 
@@ -163,7 +163,7 @@ Definierar en avtalsenliga regel för länken attribution.
 |Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Ett tips för typen som har angetts till LinkAttribution.|String|  
-|mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolesk|  
+|mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolean|  
 |targetPropertyName|Namnet på fältet som regeln gäller för.<br /><br /> Om målet inte anges, attribution gäller för entiteten som helhet och ska visas omedelbart efter entiteten presentationen. Om det finns flera text och länk attribution-regler som inte anger ett mål, bör du sammanfoga dem och visa dem med hjälp av en ”Data från”: etikett. Till exempel ”Data från < providern name1\> &#124; < providern name2\>”.|String|  
 |text|Attribution-text.|String|  
 |url|URL till leverantörens webbplats. Använd `text` och URL: en för att skapa av hyperlänk.|String|  
@@ -175,7 +175,7 @@ Definierar en avtalsenliga regel för media attribution.
 |Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Ett tips för typen som har angetts till MediaAttribution.|String|  
-|mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolesk|  
+|mustBeCloseToContent|Ett booleskt värde som anger om innehållet i regeln måste placeras i närheten fältet som regeln gäller för. Om **SANT**, innehållet måste placeras i närheten. Om **FALSKT**, eller det här fältet finns inte, innehållet placeras anroparens gottfinnande.|Boolean|  
 |targetPropertyName|Namnet på fältet som regeln gäller för.|String|  
 |url|Den URL som används för att skapa hyperlänk för medieinnehållet. Till exempel om målet är en bild, skulle du använda URL: en för att skapa avbildningen klickbara.|String|  
   
@@ -200,7 +200,7 @@ Definierar informationen om en webbsida i förhandsversion.
 |----------|-----------|----------|
 |namn|En rubrik, inte nödvändigtvis HTML-rubrik|String|
 |url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|String|  
-|beskrivning|Kort beskrivning på sidan och innehåll|String|  
+|description|Kort beskrivning på sidan och innehåll|String|  
 |isFamilyFriendly|Mest korrekta för objekt i web-index. i realtid hämtar gör denna identifiering som endast baseras på URL: en och inte sidinnehåll|boolesk|
 |primaryImageOfPage/contentUrl|URL: en till en representativ avbildning som ska ingå i förhandsversionen|String| 
   
@@ -210,10 +210,10 @@ Definierar frågekontexten som Bing används för begäran.
   
 |Element|Beskrivning|Typ|  
 |-------------|-----------------|----------|  
-|adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolesk|  
+|adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolean|  
 |alterationOverrideQuery|Frågesträngen du använder för att tvinga Bing för att använda den ursprungliga strängen. Om frågesträngen är till exempel *saling downwind*, frågesträng åsidosättning blir *+ saling downwind*. Kom ihåg att koda frågesträngen vilket resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
 |alteredQuery|Frågesträngen som används av Bing för att utföra frågan. Bing använder ändrats frågesträngen om den ursprungliga frågesträngen innehåller stavfel. Om frågesträngen är till exempel `saling downwind`, ändrats frågesträngen blir `sailing downwind`.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
-|askUserForLocation|Ett booleskt värde som anger om Bing kräver användarens plats att tillhandahålla korrekta resultat. Om du har angett användarens plats med hjälp av den [X-MSEdge-ClientIP](#clientip) och [X sökplats](#location) rubriker, du kan ignorera det här fältet.<br /><br /> För plats medveten frågor, till exempel ”dagens väder” eller ”restauranger i närheten” som behöver användarens plats att tillhandahålla korrekta resultat, det här fältet är inställt på **SANT**.<br /><br /> För plats medveten frågor som innehåller plats (till exempel ”Seattle väder”), det här fältet är inställt på **FALSKT**. Det här fältet anges också **FALSKT** för frågor som inte är platser, till exempel ”bästa säljare”.|Boolesk|  
+|askUserForLocation|Ett booleskt värde som anger om Bing kräver användarens plats att tillhandahålla korrekta resultat. Om du har angett användarens plats med hjälp av den [X-MSEdge-ClientIP](#clientip) och [X sökplats](#location) rubriker, du kan ignorera det här fältet.<br /><br /> För plats medveten frågor, till exempel ”dagens väder” eller ”restauranger i närheten” som behöver användarens plats att tillhandahålla korrekta resultat, det här fältet är inställt på **SANT**.<br /><br /> För plats medveten frågor som innehåller plats (till exempel ”Seattle väder”), det här fältet är inställt på **FALSKT**. Det här fältet anges också **FALSKT** för frågor som inte är platser, till exempel ”bästa säljare”.|Boolean|  
 |originalQuery|Frågesträngen som anges i begäran.|String|  
 
 ### <a name="identifiable"></a>Identifierbar
@@ -237,7 +237,7 @@ Definierar ett objekt med Sök resultat att visa.
 |resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Integer|
 |answerType|Svaret som innehåller objekt att visa. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse fält.<br /><br /> Dock använda svarstypen endast om det här objektet innehåller värdefältet. Annars kan du ignorera det.|String|
 |textualIndex|Index för svaret i textualAnswers ska visas.| Heltalet|
-|värde|Det ID som identifierar ett svar ska visas eller ett objekt i ett svar ska visas. Om detta ID identifierar ett svar, visas alla objekt för svaret.|Identifierbar|
+|value|Det ID som identifierar ett svar ska visas eller ett objekt i ett svar ska visas. Om detta ID identifierar ett svar, visas alla objekt för svaret.|Identifierbar|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definierar där resultaten innehåll ska placeras på sökningen och i vilken ordning.  
@@ -257,7 +257,7 @@ Observera att om tjänsten misstänker ett DoS-angrepp, lyckas begäran (HTTP-st
 |Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset som har angetts till SearchResponse.|String|  
-|Webbsida|Ett JSON-objekt som definierar förhandsversionen|sträng|  
+|Webbsida|Ett JSON-objekt som definierar förhandsversionen|string|  
   
   
 ### <a name="textattribution"></a>TextAttribution  

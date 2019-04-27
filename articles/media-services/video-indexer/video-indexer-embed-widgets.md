@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560441"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -28,7 +28,7 @@ Från och med version 2, innehåller den grundläggande Webbadressen widget kont
 
 En **insikts**widget innehåller alla visuella insikter som extraherades från videoindexeringsprocessen. Insiktswidgeten har stöd för följande valfria URL-parametrar:
 
-|Name|Definition|Beskrivning|
+|Namn|Definition|Beskrivning|
 |---|---|---|
 |widgets|Strängar avgränsade med kommatecken|Gör att du kan styra vilka insikter du vill rendera. <br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderar endast insikter om personer och varumärken<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>stöds inte via URL för version = 2<br/><br/>**Obs!** URL-param widgetar stöds inte i version 2. |
 
@@ -36,7 +36,7 @@ En **insikts**widget innehåller alla visuella insikter som extraherades från v
 
 Med en **spelar**widget kan du strömma videon med anpassningsbar bithastighet. Spelarwidgeten har stöd för följande valfria URL-parametrar:
 
-|Name|Definition|Beskrivning|
+|Namn|Definition|Beskrivning|
 |---|---|---|
 |t|Sekunder från början|Gör att spelaren börjar spela upp från angiven tidpunkt.<br/>Exempel: t=60|
 |captions|Språkkod|Hämtar textningen på det angivna språket under inläsning av widgeten så att den blir tillgänglig på textningsmenyn.<br/>Exempel: captions=sv-SE|

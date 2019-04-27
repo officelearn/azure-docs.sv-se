@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 8fb3b4ac748fcae2e3aad5b3bfb2a893340dc61a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60694903"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurera ett virtuellt nätverk i Azure DevTest Labs
 Enligt beskrivningen i artikeln [lägga till en virtuell dator i en labb](devtest-lab-add-vm.md), när du skapar en virtuell dator i ett labb, du kan ange ett virtuellt nätverk som är konfigurerade. Du kan behöva åtkomst till företagsnätets resurser från dina virtuella datorer med hjälp av det virtuella nätverk som har konfigurerats med ExpressRoute eller VPN för plats-till-plats.

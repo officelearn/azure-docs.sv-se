@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878859"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -45,9 +45,9 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://github.com/Azure-Sampl
 2. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på **Projekt**.
 3. Från **Nytt projekt** anger eller väljer du följande värden:
 
-   | Egenskap | Värde |
+   | Egenskap  | Värde |
    | --- | --- |
-   | Kategori |Mallar/Visual C#/Windows |
+   | Category |Mallar/Visual C#/Windows |
    | Mall |Konsolprogram |
    | Namn |CreateADLApplication |
 
@@ -90,7 +90,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://github.com/Azure-Sampl
 
 I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga .NET-metoder för att utföra åtgärder som autentisering, ladda upp filer, osv.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 * Information om slutanvändarautentisering för programmet, se [slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Tjänst-till-tjänst-autentisering för programmet, se [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).

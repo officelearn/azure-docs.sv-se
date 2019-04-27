@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
 ms.openlocfilehash: 446f83ecf81d344163deca58ac4aaf8487292ab4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879846"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Snabbstart: Använd Translator Text API för att hämta en lista över språk som stöds med Java
 
 I den här snabbstarten hämtar du en lista över språk som stöds för översättning, translitterering och ordlistesökningar med hjälp av Translator Text API.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [JDK 7 eller senare](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)

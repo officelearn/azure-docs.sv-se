@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630146"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Metodtips för StorSimple Virtual Array
 ## <a name="overview"></a>Översikt
@@ -44,7 +44,7 @@ Implementera följande metodtips när du etablerar den virtuella matrisen:
 | **Datatypen för disk** |Etablera som **dynamiskt expanderande**.<br></br> **Fast storlek** tar lång tid. <br></br> Använd inte den **differentierande** alternativet. |Använd den **tunn etablering** alternativet. |
 | **Data diskändring** |Expandera eller minska storleken är inte tillåtet. Ett försök att göra detta leder till förlust av alla lokala data på enheten. |Expandera eller minska storleken är inte tillåtet. Ett försök att göra detta leder till förlust av alla lokala data på enheten. |
 
-### <a name="sizing"></a>Storleksändring
+### <a name="sizing"></a>Storlekar
 När du ändrar storlek StorSimple Virtual Array, Tänk på följande faktorer:
 
 * Lokal reservation för volymer eller resurser. Cirka 12% av utrymmet har reserverats på den lokala nivån för varje etablerade nivåindelad volym eller resurs. 10% av utrymmet är ungefär också reserverad för en lokalt Fäst volym för filsystem.
@@ -77,7 +77,7 @@ Först för varje nivåindelad volym/resurs, skulle lokal reservation vara lika 
 
 Det totala utrymmet som krävs på den lokala nivån hittills är: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Dessutom måste minst lika mycket utrymme på den lokala nivån som största enda reservationen. Den extra mängden används om du vill återställa från en ögonblicksbild i molnet. I det här exemplet är den största lokala reservationen 330 GB (inklusive reservation för file system), så lägger du till att till 690 GB: 690 GB + 330 GB = 1020 GB.
+Dessutom måste minst lika mycket utrymme på den lokala nivån som största enda reservationen. Den extra mängden används om du vill återställa från en ögonblicksbild i molnet. I det här exemplet är den största lokala reservationen 330 GB (inklusive reservation för file system), så Lägg till som 690 GB: 690 GB + 330 GB = 1020 GB.
 Om vi utförde efterföljande ytterligare återställningar kan vi alltid Frigör utrymme på den föregående återställningsåtgärden.
 
 Vi behöver för det tredje 15% av din totala lokalt utrymme än så länge för att lagra lokala ögonblicksbilder, så att endast 85% av den är tillgänglig. I det här exemplet som skulle vara runt 1020 GB = 0.85&ast;etablerade data disk TB. Så etablerade datadisken skulle vara (1020&ast;(1/0.85)) = 1200 GB = 1,20 TB ~ 1,25 TB (avrundning till närmaste kvartilen)

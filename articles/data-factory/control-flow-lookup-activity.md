@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768668"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Lookup-aktiviteten i Azure Data Factory
 
@@ -53,14 +53,15 @@ Följande datakällor stöds för Lookup-aktiviteten. Det största antalet rader
 ```
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
+
 Namn | Beskrivning | Typ | Krävs?
 ---- | ----------- | ---- | --------
-Datauppsättning | Innehåller datauppsättningen-referens för sökningen. Få information från den **egenskaper för datamängd** i varje motsvarande connector-artikeln. | Nyckel/värde-par | Ja
+dataset | Innehåller datauppsättningen-referens för sökningen. Få information från den **egenskaper för datamängd** i varje motsvarande connector-artikeln. | Nyckel/värde-par | Ja
 källa | Innehåller egenskaper för datauppsättningen-specifika datakälla, samma som Kopieringsaktivitet källa. Få information från den **Kopieringsaktiviteten egenskaper** i varje motsvarande connector-artikeln. | Nyckel/värde-par | Ja
-firstRowOnly | Anger om du vill returnera endast den första raden eller alla rader. | Boolesk | Nej. Standardvärdet är `true`.
+firstRowOnly | Anger om du vill returnera endast den första raden eller alla rader. | Boolean | Nej. Standardvärdet är `true`.
 
 > [!NOTE]
-
+> 
 > * Käll-kolumner med **ByteArray** typ stöds inte.
 > * **Strukturen** stöds inte i datauppsättningen definitioner. Använd rubrikraden för att ange kolumnnamnet för textformat filer.
 > * Om din sökning-källan är en JSON-fil i `jsonPathDefinition` inställningen for Omforma JSON-objekt inte stöds. Hela objekt hämtas.
@@ -267,7 +268,7 @@ Den här Azure SQL Database-instansen innehåller data som ska kopieras till Blo
 }
 ```
 
-### <a name="sourcetablejson"></a>SourceTable.JSON
+### <a name="sourcetablejson"></a>sourcetable.json
 
 #### <a name="set-of-objects"></a>Uppsättning objekt
 

@@ -2,20 +2,21 @@
 title: Anpassad orkestreringsstatus i varaktiga funktioner – Azure
 description: Lär dig hur du konfigurerar och använder anpassad orkestreringsstatus för varaktiga funktioner.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710008"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Anpassad orkestreringsstatus i varaktiga funktioner (Azure Functions)
 
@@ -346,3 +347,7 @@ Klienter kommer att få följande svar:
 
 > [!div class="nextstepaction"]
 > [Lär dig mer om HTTP-API: er i varaktiga funktioner](durable-functions-http-api.md)
+
+
+
+<!-- Update_Description: wording update -->

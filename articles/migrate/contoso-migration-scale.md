@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bc4673a12ec5b752a513b4a95796f2aeb8b8ce5d
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 9253051d907a811ffedad3a714112c9b25543a35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60667455"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso – skala en migrering till Azure
 
@@ -293,6 +293,7 @@ Contoso behöver ta reda på hur du distribuerar dessa komponenter, utifrån kap
 **Processervern** | Contoso ska distribuera en fristående dedikerad processerver med möjligheten att replikera 100-200 virtuella datorer:<br/><br/> CPU: 16 virtuella processorer (2 platser * 8 kärnor @ 2,5 GHz)<br/><br/> Minne: 32 GB<br/><br/> Cachedisk: 1 TB<br/><br/> Förändringstakten för data: 1 TB till 2 TB.<br/><br/> Processervern blir arbetar hårt och därför måste finnas på en ESXi-värd som kan hantera disk-i/o, belastning på nätverket och CPU som krävs för replikering. Contoso betraktar en dedikerad värd för detta ändamål. 
 **Nätverk** | Contoso har granskat den aktuella plats-till-plats VPN-infrastrukturen och bestämde sig för att implementera Azure ExpressRoute. Implementeringen är viktigt eftersom det lägre latens och förbättra bandbredd till Contosos primära östra USA 2 Azure-region.<br/><br/> **Övervakning av**: Contoso behöver du vara noga med data som flödar från processervern. Om data overloads nätverksbandbredden Contoso betraktar [begränsning process server bandbredd](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Azure Storage** | För migrering, måste du identifiera rätt typ och antal Azure storage-målkonton Contoso.  Site Recovery replikerar VM-data till Azure storage.<br/><br/> Site Recovery kan replikera till standard eller premium (SSD)-lagringskonton.<br/><br/> När du ska välja om storage Contoso måste granska [Lagringsgränser](../virtual-machines/windows/disks-types.md), och ta hänsyn till förväntade tillväxt och ökad användning över tid. Beroende på hastighet och prioritet för migreringar, har Contoso beslutat att använda premium SSD: er<br/><br/>
+
 Contoso har bestämt dig för att använda hanterade diskar för alla virtuella datorer som distribueras till Azure.  IOPS krävs avgör om diskarna blir Standard HDD, SSD som Standard eller Premium (SSD).<br/><br/>
 
 #### <a name="data-migration-service"></a>Data Migration Service

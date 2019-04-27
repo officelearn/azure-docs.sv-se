@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
 ms.openlocfilehash: 778690fb2796cea3154b3acbb662341fdaea87da
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699146"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Hur du använder mikrometer med Azure Application Insights Java SDK
 Mikrometer övervakning mått programmått för JVM-baserade program kod och hjälper dig att exportera data till dina favorit övervakningssystem. Den här artikeln får du lära dig att använda mikrometer med Application Insights för både Spring Boot och Spring Boot-program.

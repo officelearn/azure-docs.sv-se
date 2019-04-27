@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730715"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
@@ -156,12 +156,12 @@ Svarets nyttolast för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt
 
 | Fält                 | Datatyp | Beskrivning |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | sträng    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
+| **`runtimeStatus`**   | string    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
 | **`input`**           | JSON      | JSON-data som används för att initiera instansen. Det här fältet är `null` om den `showInput` frågesträngparametern anges till `false`.|
 | **`customStatus`**    | JSON      | JSON-data som används för anpassad orkestreringsstatus. Det här fältet är `null` om det inte angetts. |
 | **`output`**          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
-| **`createdTime`**     | sträng    | Den tid då instansen har skapats. Använder ISO 8601 utökade notation. |
-| **`lastUpdatedTime`** | sträng    | Den tid då instansen senast sparade. Använder ISO 8601 utökade notation. |
+| **`createdTime`**     | string    | Den tid då instansen har skapats. Använder ISO 8601 utökade notation. |
+| **`lastUpdatedTime`** | string    | Den tid då instansen senast sparade. Använder ISO 8601 utökade notation. |
 | **`historyEvents`**   | JSON      | En JSON-matris som innehåller orchestration-körningshistorik. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern anges till `true`. |
 
 Här är ett exempel svarsnyttolasten inklusive orchestration historik och aktivitetens utdata från körningen (formaterad för läsbarhet):

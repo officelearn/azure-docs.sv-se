@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
 ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445643"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565862"
 ---
 # <a name="azure-networking"></a>Azure-nätverk
 
@@ -29,7 +29,7 @@ Azure erbjuder en mängd olika nätverksfunktioner som kan användas tillsammans
 - [Internetanslutning](#internet-connectivity): Meddela och från Azure-resurser via Internet.
 - [Lokal anslutning](#on-premises-connectivity): Ansluta ett lokalt nätverk till Azure-resurser via ett virtuellt privat nätverk (VPN) via Internet eller via en dedikerad anslutning till Azure.
 - [Läsa in belastningsutjämning och traffic riktning](#load-balancing): Belastningsutjämna trafik till servrar i samma plats och dirigera trafik till servrar på olika platser.
-- [Security](#security): Filtrera nätverkstrafik mellan undernät eller enskilda virtuella datorer (VM).
+- [Säkerhet](#security): Filtrera nätverkstrafik mellan undernät eller enskilda virtuella datorer (VM).
 - [Routning](#routing): Använd standardroutning eller helt och hållet styr routning mellan dina Azure och lokala resurser.
 - [Hanterbarhet](#manageability): Övervaka och hantera dina Azure-nätverksresurser.
 - [Verktyg för distribution och konfiguration av](#tools): Använda en webbaserad portal eller plattformsoberoende kommandoradsverktyg för att distribuera och konfigurera nätverksresurser.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831800"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -78,7 +78,7 @@ Eftersom version 3. *x* använder standardkonfigurationen för .NET Core API: er
 
 Du kan köra värden i utvecklingsläge att effektivisera lokal utveckling. Här är några av de inställningar som ändras när du kör i utvecklingsläge:
 
-| Egenskap | Inställningen för utveckling |
+| Egenskap  | Inställningen för utveckling |
 | ------------- | ------------- |
 | `Tracing.ConsoleLevel` | `TraceLevel.Verbose` Maximera loggutdata. |
 | `Queues.MaxPollingInterval`  | Ett lågt värde så kö metoder utlöses omedelbart.  |
@@ -285,7 +285,7 @@ Dessa typer av utlösare och bindning som ingår i version 2. *x* av den `Micros
 
 * Blob Storage
 * Queue Storage
-* Tabellagring
+* Table Storage
 
 Om du vill använda andra utlösare och bindningstyper, installera NuGet-paketet som innehåller dem och anropa en `Use<binding>` metoden på den `JobHostConfiguration` objekt. Till exempel om du vill använda en Timer som utlösare installera `Microsoft.Azure.WebJobs.Extensions` och anropa `UseTimers` i den `Main` metod, som visas här:
 
@@ -833,14 +833,14 @@ Vi rekommenderar vilket loggningsramverk som har utvecklats specifikt för ASP.N
 
 Varje log som skapats av en `ILogger` -instansen har en associerad `Category` och `Level`. [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) en uppräkning och koden för heltal anger relativa prioriteten:
 
-|LogLevel    |Programmera|
+|LogLevel    |Kod|
 |------------|---|
 |Spårning       | 0 |
-|Felsöka       | 1 |
+|Felsökning       | 1 |
 |Information | 2 |
 |Varning     | 3 |
 |Fel       | 4 |
-|Kritiska    | 5 |
+|Kritisk    | 5 |
 |Ingen        | 6 |
 
 Du kan filtrera varje kategori till en viss oberoende [ `LogLevel` ](/dotnet/api/microsoft.extensions.logging.loglevel). Exempel: du kan se alla loggar för blob utlösare men endast bearbeta `Error` och högre för allt annat.

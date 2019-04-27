@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
 ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845752"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Schemareferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -37,7 +37,7 @@ Här är den övergripande strukturen för en arbetsflödesdefinition:
 }
 ```
 
-| Element | Krävs | Beskrivning |
+| Element | Obligatoriskt | Beskrivning |
 |---------|----------|-------------|
 | definition | Ja | Från elementet för din arbetsflödesdefinition |
 | $schema | Endast när externt refererar till en arbetsflödesdefinition | Plats för schemat JSON-fil som beskriver den Definitionsspråk för arbetsflödet-versionen som du hittar här: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
@@ -69,7 +69,7 @@ Här är den allmänna strukturen för en parameterdefinition:
 },
 ```
 
-| Element | Krävs | Typ | Beskrivning |
+| Element | Obligatoriskt | Typ | Beskrivning |
 |---------|----------|------|-------------|
 | typ | Ja | int, float, string, securestring, bool, matris, JSON-objekt, secureobject <p><p>**Obs!** Alla lösenord, nycklar och hemligheter kan du använda den `securestring` och `secureobject` skriver eftersom den `GET` åtgärden inte returnerar de här typerna. Mer information om hur du skyddar parametrar finns i [skydda din logikapp](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Typen för parametern |
 | Standardvärde | Ja | Samma som `type` | Standard-parametervärdet när inget värde anges när du skapar en instans av arbetsflödet |
@@ -99,11 +99,11 @@ Här är den allmänna strukturen för en utdata-definition:
 }
 ```
 
-| Element | Krävs | Typ | Beskrivning |
+| Element | Obligatoriskt | Typ | Beskrivning |
 |---------|----------|------|-------------|
 | <*key-name*> | Ja | String | Nyckelnamn för utdata returvärde |
 | typ | Ja | int, float, string, securestring, bool, matris, JSON-objekt | Typen för det returnera värdet för utdata |
-| värde | Ja | Samma som `type` | Det returnera värdet för utdata |
+| value | Ja | Samma som `type` | Det returnera värdet för utdata |
 |||||
 
 Om du vill hämta utdata från ett arbetsflöde som kör granska din logikapps körningshistorik och information i Azure portal eller Använd den [arbetsflöde REST API](https://docs.microsoft.com/rest/api/logic/workflows). Du kan även skicka utdata till externa system, till exempel Power BI så att du kan skapa instrumentpaneler.

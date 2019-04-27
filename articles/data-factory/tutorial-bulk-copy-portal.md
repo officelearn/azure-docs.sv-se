@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 444269aa7ca2b0a82b78e8437b7884ef8833c665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60592558"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -56,7 +56,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 **Förbered Azure SQL Database-källan**:
 
-Skapa en Azure SQL Database med exempeldata för Adventure Works LT genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). I den här självstudien kopieras alla tabeller från den här exempeldatabasen till SQL Data Warehouse.
+Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). I den här självstudien kopieras alla tabeller från den här exempeldatabasen till SQL Data Warehouse.
 
 **Förbered det mottagande Azure SQL Data Warehouse-datalagret**:
 
@@ -120,7 +120,7 @@ I det här steget skapar du en länkad tjänst för att länka Azure SQL-databas
     ![Knapp för ny länkad tjänst](./media/tutorial-bulk-copy-portal/new-linked-service-button.png)
 1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Azure SQL Database** och klickar på **Fortsätt**. 
 
-    ![Välj Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database.png)
+    ![Välja Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database.png)
 1. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
 
     1. Ange **AzureSqlDatabaseLinkedService** som **namn**. 
@@ -212,7 +212,7 @@ I den här självstudien skapar du två pipelines: **IterateAndCopySQLTables** o
 
 Pipelinen **GetTableListAndTriggerCopyData** utför två steg:
 
-* den söker i Azure SQL Database-systemtabellen för att få fram listan med tabeller som ska kopieras
+* Den söker i Azure SQL Database-systemtabellen för att få fram listan med tabeller som ska kopieras
 * Den utlöser pipelinen **IterateAndCopySQLTables** för att utföra den faktiska datakopieringen.
 
 Den **IterateAndCopySQLTables** tar en lista med tabeller som en parameter. För varje tabell i listan kopieras data från tabellen i Azure SQL Database till Azure SQL Data Warehouse med hjälp av mellanlagrad kopiering och PolyBase.
@@ -286,7 +286,7 @@ Den **IterateAndCopySQLTables** tar en lista med tabeller som en parameter. För
 
 Den här pipelinen utför två steg:
 
-* den söker i Azure SQL Database-systemtabellen för att få fram listan med tabeller som ska kopieras
+* Den söker i Azure SQL Database-systemtabellen för att få fram listan med tabeller som ska kopieras
 * den utlöser pipelinen ”IterateAndCopySQLTables” för att utföra den faktiska kopieringen.
 
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Pipeline**.
@@ -297,7 +297,7 @@ Den här pipelinen utför två steg:
 1. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningsaktiviteten** till pipelinedesignytan och utför följande steg:
 
     1. Skriv **LookupTableList** som **namn**. 
-    1. Ange **Retrieve the table list from Azure SQL database** (Hämta tabellistan från Azure SQL Database) som **Beskrivning**.
+    1. Ange **Retrieve the table list from Azure SQL database** (Hämta tabellistan från Azure SQL-databas) som **Beskrivning**.
 
         ![Sökningsaktivitet – sidan allmänt](./media/tutorial-bulk-copy-portal/lookup-general-page.png)
 1. Växla till sidan **Inställningar** och gör följande:

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: b65bcfa5252a150c8101322eaf6d84ce46eef755
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546360"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Kopiera data från Oracle-Tjänstmoln med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Oracle-Tjänstmoln länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **OracleServiceCloud** | Ja |
+| type | Type-egenskapen måste anges till: **OracleServiceCloud** | Ja |
 | värd | URL till molninstans för Oracle-tjänsten.  | Ja |
 | användarnamn | Användarnamnet som används för att komma åt servern för Oracle-Tjänstmoln.  | Ja |
 | lösenord | Lösenordet för det användarnamn som du angav i nyckeln användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -83,7 +83,7 @@ För att kopiera data från molnet för Oracle-tjänsten, ange typegenskapen på
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **OracleServiceCloudObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **OracleServiceCloudObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -113,7 +113,7 @@ För att kopiera data från molnet för Oracle-tjänsten, ange typ av datakälla
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **OracleServiceCloudSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **OracleServiceCloudSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

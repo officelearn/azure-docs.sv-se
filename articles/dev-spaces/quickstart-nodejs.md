@@ -12,11 +12,11 @@ description: Snabb Kubernetes-utveckling med behållare, mikrotjänster och Node
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
 manager: jeconnoc
 ms.openlocfilehash: bc18a06405c0fe620136642a409df576c8e8d8b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361713"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60706776"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Utveckla med Node.js på Kubernetes med Azure Dev blanksteg
 

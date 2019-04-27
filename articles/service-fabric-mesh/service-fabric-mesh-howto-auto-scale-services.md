@@ -16,11 +16,11 @@ ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583612"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Skapa principer för automatisk skalning för ett program med Service Fabric-nät
 En av de största fördelarna med att distribuera program till Service Fabric Mesh är att du enkelt kan skala in eller ut dina tjänster. Detta hjälper dig att hantera varierande belastningsstorlekar på dina tjänster eller att förbättra tillgängligheten. Du kan manuellt skala dina tjänster in eller ut eller konfigurera principer för automatisk skalning.

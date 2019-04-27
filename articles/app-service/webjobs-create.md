@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
 ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60833580"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrundsuppgifter med WebJobs i Azure App Service
 
@@ -125,7 +125,7 @@ when making changes in one don't forget the other two.
    | **Namn** | myTriggeredWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”.|
    | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
    | **typ** | Utlöst | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
-   | **utlösare** | Manuell | |
+   | **utlösare** | Manuellt | |
 
 4. Klicka på **OK**.
 
@@ -163,7 +163,7 @@ when making changes in one don't forget the other two.
    | **Namn** | myScheduledWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”. |
    | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
    | **typ** | Utlöst | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
-   | **utlösare** | Har schemalagts | Aktivera funktionen alltid på för att schemalägga att arbeta på ett tillförlitligt sätt. Always On finns bara i den Basic, Standard och Premium-prisnivåerna.|
+   | **utlösare** | Schemalagd | Aktivera funktionen alltid på för att schemalägga att arbeta på ett tillförlitligt sätt. Always On finns bara i den Basic, Standard och Premium-prisnivåerna.|
    | **CRON-uttryck** | 0 0/20 * * * * | [CRON-uttryck](#cron-expressions) beskrivs i följande avsnitt. |
 
 4. Klicka på **OK**.

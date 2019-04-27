@@ -18,11 +18,11 @@ ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540150"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60651770"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -218,7 +218,7 @@ Den här artikeln handlar om hur du flyttar från en enda ASCS/SCS-installation 
 
 Mer information om belastningsutjämnare begränsningar finns i avsnittet ”privat frontend-IP per belastningsutjämnare i [begränsningar för nätverk: Azure Resource Manager][networking-limits-azure-resource-manager]. Överväga att använda den [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) i stället för en grundläggande SKU för Azure-belastningsutjämnare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du redan har konfigurerat en WSFC-klustret ska använda för en SAP ASCS/SCS-instans med hjälp av **filresurs**, vilket visas i det här diagrammet.
 

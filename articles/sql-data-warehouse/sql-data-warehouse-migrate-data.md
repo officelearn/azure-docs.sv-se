@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 6a2acf602252ee4319f9a5eccef53a25d8e2dd7f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748194"
 ---
 # <a name="migrate-your-data"></a>Migrera dina Data
 Data kan flyttas från olika källor i SQL Data Warehouse med en mängd verktyg.  ADF kopia och SSIS bcp kan alla användas för att uppnå det här målet. Som mängden data ökar bör du dock tänka bryta ned data migreringsprocessen i steg. Detta får du möjlighet att optimera varje steg både för prestanda och flexibilitet i fokus att säkerställa en smidig datamigrering.

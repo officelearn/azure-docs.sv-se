@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
 ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60654081"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -25,7 +25,7 @@ För att skapa din rösttyp du gör en studio-registrering och ladda upp de asso
 
 Du kan komma igång med en liten mängd data för ett konceptbevis. Men ju mer data du tillhandahålla, desto mer naturliga och professional låter din röst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver ett Azure-konto och en prenumeration på Speech-tjänsten. [Skapa en](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) om du inte redan har gjort. Ansluta din prenumeration till den anpassade Voice-portalen som visas här.
 
@@ -33,7 +33,7 @@ Du behöver ett Azure-konto och en prenumeration på Speech-tjänsten. [Skapa en
 
 2. Under kontonamnet på ditt längst upp till höger, gå till **prenumerationer**.
 
-    ![Prenumerationer](media/custom-voice/subscriptions.png)
+    ![Subscriptions](media/custom-voice/subscriptions.png)
 
 3. På sidan prenumerationer väljer **ansluta befintliga prenumeration**. Observera att Speech Services har stöd för olika regioner. Kontrollera den region där din prenumerationsnyckel skapades, och kontrollera att du ansluter din nyckel till rätt underordnade portalen.  
 

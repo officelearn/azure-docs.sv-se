@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 6b1b92f25d24294fc5b685b4ce737c03800face3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 84beac4eca44a274eecc032e4816e3ff57aeafe2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60688458"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Självstudie: Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av CLI
 
@@ -36,7 +36,7 @@ En typisk arkitektur med hög tillgänglighet för distribution i flera regioner
 
 Den här självstudien fokuserar på integreringen av ett par HSM:er och den nödvändiga ExpressRoute-gatewayen (se Undernät 1 ovan) i ett befintligt virtuellt nätverk (se VNET 1 ovan).  Alla andra resurser är Azure-standardresurser. Samma integreringsprocess kan användas för HSM:er i undernät 4 på VNET 3 ovan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Dedikerad HSM i Azure är för närvarande inte tillgängligt på Azure-portalen. All interaktion med tjänsten sker via kommandoraden eller PowerShell. Den här självstudien använder kommandoradsgränssnittet (CLI) i Azure Cloud Shell. Om Azure CLI är nytt för dig följer du instruktionerna för att komma igång här: [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 

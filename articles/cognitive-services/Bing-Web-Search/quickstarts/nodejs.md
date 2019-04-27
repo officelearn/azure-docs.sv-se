@@ -12,17 +12,17 @@ ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60651074"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Snabbstart: Söka på webben med hjälp av REST-API för webbsökning i Bing och Node.js
 
 Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Den här Node.js-program skickar en sökbegäran-API: et och visas svaret. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 

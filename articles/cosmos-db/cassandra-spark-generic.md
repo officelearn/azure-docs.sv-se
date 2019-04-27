@@ -9,17 +9,17 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60893651"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB Cassandra-API från Spark
 
 Den här artikeln är en mellan en serie artiklar om Azure Cosmos DB Cassandra API-integrering från Spark. Artiklarna beskriver anslutningen, Data Definition Language(DDL) åtgärder, grundläggande Data Manipulation Language(DML) åtgärder och avancerade Azure Cosmos DB Cassandra API-integration från Spark. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * [Etablera ett Cassandra-API för Azure Cosmos DB-konto.](create-cassandra-dotnet.md#create-a-database-account)
 
 * Etablera ditt val av Spark-miljö [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Övriga].
@@ -42,14 +42,14 @@ I följande tabell visas Azure Cosmos DB Cassandra API-specifika dataflöde konf
 
 | **Egenskapsnamn** | **Standardvärde** | **Beskrivning** |
 |---------|---------|---------|
-| Spark.cassandra.Output.batch.Size.Rows |  1 |Antal rader per enskild batch. Ange den här parametern till 1. Den här parametern används för att uppnå högre genomströmning för tunga arbetsbelastning. |
-| Spark.cassandra.connection.connections_per_executor_max  | Ingen | Maximalt antal anslutningar per nod och executor. 10 * n motsvarar 10 anslutningar per nod i ett n-nod Cassandra-kluster. Så om du behöver 5 anslutningar per nod och executor för en 5 nod Cassandra-kluster, bör du ange den här konfigurationen till 25. Ändra det här värdet baserat på graden av parallellitet eller antalet körare som spark-jobb har konfigurerats för.   |
-| Spark.cassandra.Output.Concurrent.Writes  |  100 | Anger hur många parallella skrivningar som kan uppstå per executor. Eftersom du har angett ”batch.size.rows” till 1 kan du se till att skala upp det här värdet i enlighet med detta. Ändra det här värdet baserat på graden av parallellitet eller det dataflöde som du vill uppnå för din arbetsbelastning. |
-| Spark.cassandra.Concurrent.Reads |  512 | Anger hur många parallella läsningar som kan uppstå per executor. Ändra värdet baserat på graden av parallellitet eller det dataflöde som du vill uppnå för din arbetsbelastning  |
-| Spark.cassandra.Output.throughput_mb_per_sec  | Ingen | Anger totalt antal skrivåtgärder dataflöde per executor. Den här parametern kan användas som ett övre begränsa för ditt spark-jobb dataflöde och baseras på det etablerade dataflödet på din Cosmos DB-samling.   |
-| Spark.cassandra.Input.reads_per_sec| Ingen   | Definierar totala läsgenomströmning per executor. Den här parametern kan användas som ett övre begränsa för ditt spark-jobb dataflöde och baseras på det etablerade dataflödet på din Cosmos DB-samling.  |
-| Spark.cassandra.Output.batch.Grouping.Buffer.size |  1000  | Anger antalet batchar per enskild spark-aktivitet som kan lagras i minnet innan du skickar till Cassandra-API |
-| Spark.cassandra.connection.keep_alive_ms | 60000 | Definierar tidsperioden då oanvända anslutningar som är tillgängliga. | 
+| spark.cassandra.output.batch.size.rows |  1 |Antal rader per enskild batch. Ange den här parametern till 1. Den här parametern används för att uppnå högre genomströmning för tunga arbetsbelastning. |
+| spark.cassandra.connection.connections_per_executor_max  | Ingen | Maximalt antal anslutningar per nod och executor. 10 * n motsvarar 10 anslutningar per nod i ett n-nod Cassandra-kluster. Så om du behöver 5 anslutningar per nod och executor för en 5 nod Cassandra-kluster, bör du ange den här konfigurationen till 25. Ändra det här värdet baserat på graden av parallellitet eller antalet körare som spark-jobb har konfigurerats för.   |
+| spark.cassandra.output.concurrent.writes  |  100 | Anger hur många parallella skrivningar som kan uppstå per executor. Eftersom du har angett ”batch.size.rows” till 1 kan du se till att skala upp det här värdet i enlighet med detta. Ändra det här värdet baserat på graden av parallellitet eller det dataflöde som du vill uppnå för din arbetsbelastning. |
+| spark.cassandra.concurrent.reads |  512 | Anger hur många parallella läsningar som kan uppstå per executor. Ändra värdet baserat på graden av parallellitet eller det dataflöde som du vill uppnå för din arbetsbelastning  |
+| spark.cassandra.output.throughput_mb_per_sec  | Ingen | Anger totalt antal skrivåtgärder dataflöde per executor. Den här parametern kan användas som ett övre begränsa för ditt spark-jobb dataflöde och baseras på det etablerade dataflödet på din Cosmos DB-samling.   |
+| spark.cassandra.input.reads_per_sec| Ingen   | Definierar totala läsgenomströmning per executor. Den här parametern kan användas som ett övre begränsa för ditt spark-jobb dataflöde och baseras på det etablerade dataflödet på din Cosmos DB-samling.  |
+| spark.cassandra.output.batch.grouping.buffer.size |  1000  | Anger antalet batchar per enskild spark-aktivitet som kan lagras i minnet innan du skickar till Cassandra-API |
+| spark.cassandra.connection.keep_alive_ms | 60000 | Definierar tidsperioden då oanvända anslutningar som är tillgängliga. | 
 
 Justera dataflödet och graden av parallellitet av parametrarna baserat på arbetsbelastningen som du förväntar dig för ditt spark-jobb och dataflöde som du har etablerat för Cosmos DB-kontot.
 
@@ -69,7 +69,7 @@ cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-C
 Artikeln nedan beskriver Azure Databricks-kluster etablering, klusterkonfiguration för att ansluta till Azure Cosmos DB Cassandra API och flera exempelanteckningsböcker som täcker DDL-åtgärder, DML-operationer och mycket mer.<BR>
 [Arbeta med Azure Cosmos DB Cassandra-API från Azure databricks](cassandra-spark-databricks.md)<BR>
   
-### <a name="2--azure-hdinsight-spark"></a>2.  Azure HDInsight Spark
+### <a name="2--azure-hdinsight-spark"></a>2.  Azure HDInsight-Spark
 Artikeln nedan beskriver HDinsight Spark-tjänst, etablering, klusterkonfiguration för att ansluta till Azure Cosmos DB Cassandra API och flera exempelanteckningsböcker som täcker DDL-åtgärder, DML-operationer och mycket mer.<BR>
 [Arbeta med Azure Cosmos DB Cassandra-API från Azure HDInsight Spark](cassandra-spark-hdinsight.md)
  

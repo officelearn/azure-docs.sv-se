@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 108758751b7c8ef5906cb55495a2604f918b2714
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 7f7a203495e35d9e4143fe247a55adaa43bc5d2d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817053"
 ---
 # <a name="import-soap-api"></a>Importera SOAP API
 
@@ -49,7 +49,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
     ![Direkt](./media/import-soap-api/pass-through.png)
 5. Tryck tabb.
 
-    Följande fält fyllas i med informationen från SOAP API:t: visningsnamn, namn, beskrivning.
+    Följande fält fylls med information från SOAP-API: Visningsnamn, namn, beskrivning.
 6. Lägg till ett API URL-suffix. Suffixet är ett namn som identifierar det här specifika API:et i den här APIM-instansen. Det måste vara unikt i den här APIM-instansen.
 9. Du kan publicera API:et genom att associera det med en produkt. I det här fallet används den *obegränsade* produkten.  Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.
 

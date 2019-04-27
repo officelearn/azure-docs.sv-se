@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392406"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Ange och hämta egenskaper och metadata
 
@@ -27,7 +27,7 @@ Hämtar värden för egenskapen och metadata för en resurs för lagring är en 
 > [!IMPORTANT]
 > Om du upptäcker att värdena för egenskapen eller metadata för en storage-resurs inte är ifyllda, kontrollerar du att koden anropar den **FetchAttributes** eller **FetchAttributesAsync** metod.
 >
-> Metadata namn/värde-par är giltig HTTP-huvuden och så ska följa alla begränsningar som reglerar HTTP-huvuden. Metadatanamnen måste vara giltiga HTTP-huvud namn får innehålla endast ASCII-tecken och ska behandlas som skiftlägesokänsligt. Metadata-värden som innehåller icke-ASCII-tecken måste vara Base64-kodad eller URL-kodade.
+> Metadata namn/värde-par är giltig HTTP-huvuden och så ska följa alla begränsningar som reglerar HTTP-huvuden. Metadata-namn måste vara giltiga HTTP-huvud namn och giltig C# identifierare, kan bara innehålla ASCII-tecken och bör behandlas som skiftlägesokänsligt. Metadata-värden som innehåller icke-ASCII-tecken måste vara Base64-kodad eller URL-kodade.
 
 ## <a name="setting-and-retrieving-properties"></a>Ange och läsa egenskaper
 Om du vill hämta egenskapsvärden anropa den **FetchAttributesAsync** metod på din blob eller behållare för att fylla i egenskaperna kan sedan läsa värdena.

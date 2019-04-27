@@ -3,7 +3,7 @@ title: Översikt över token - Azure Active Directory B2C | Microsoft Docs
 description: Läs mer om de token som används i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316943"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Översikt över token i Azure Active Directory B2C
 
@@ -61,7 +61,7 @@ I följande tabell visas de anspråk som du förväntar dig av ID-token och komm
 | Kod hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | En kod-hash som ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-auktoriseringskod. En kod hash kan användas för att bekräfta en auktoriseringskod är äkta. Läs mer om hur du utför den här verifieringen, den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Åtkomst-token-hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | En åtkomst-token-hash ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-åtkomsttoken. En åtkomst-token-hash kan användas för att bekräfta en åtkomst-token är äkta. Läs mer om hur du utför den här verifieringen, den [OpenID Connect-specifikation](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce | `nonce` | `12345` | En nonce är en strategi för att åtgärda token repetitionsattacker. Programmet kan ange en nonce i en begäran om godkännande med hjälp av den `nonce` frågeparameter. Värdet du anger i begäran har genererats ska ändras i den `nonce` anspråk för en endast ID-token. Det här anspråket tillåter programmet att kontrollera värden mot det värde som angetts i förfrågan. Ditt program bör utföra den här verifieringen under verifieringsprocessen för ID-token. |
-| Ämne | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Huvudkontot som token kontrollerar information, t.ex användare av ett program. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Det kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs. Som standard fylls anspråk för ämne med objekt-ID för användaren i katalogen. |
+| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Huvudkontot som token kontrollerar information, t.ex användare av ett program. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Det kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs. Som standard fylls anspråk för ämne med objekt-ID för användaren i katalogen. |
 | Referens för autentisering kontext-klass | `acr` | Inte tillämpligt | Används endast med äldre principer. |
 | Lita på framework-princip | `tfp` | `b2c_1_signupsignin1` | Namnet på den princip som användes för att hämta ID-token. |
 | Autentisering | `auth_time` | `1438535543` | Den tid som en användare senast angivna autentiseringsuppgifter, representeras i epoktid. |

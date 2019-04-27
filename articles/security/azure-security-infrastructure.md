@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586575"
 ---
 # <a name="azure-infrastructure-security"></a>Säkerhet för Azure-infrastrukturen
 Microsoft Azure körs på datacenter som hanteras och drivs av Microsoft. Dessa geografiskt utspridda datacenter som är kompatibel med branschstandard, t.ex ISO/IEC 27001: 2013 och SP NIST 800-53, gällande säkerhet och tillförlitlighet. Datacenter hanteras, övervakas och administreras av Microsofts driftpersonal. Driftpersonalen har års erfarenhet av att leverera världens största onlinetjänster med 24 x 7 affärskontinuitet.

@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: yegu
 ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830303"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrera från Managed Cache Service till Azure Cache för Redis
 Migrera dina program som använder Azure Managed Cache Service till Azure Cache för Redis kan åstadkommas med minimala ändringar till ditt program, beroende på vilka Managed Cache Service-funktioner som programmets cachelagring. API: er är inte exakt samma de liknar varandra och mycket av din befintliga kod som använder Managed Cache Service för att få åtkomst till en cache kan återanvändas med minimala ändringar. Den här artikeln visar hur du gör den nödvändiga konfigurationen och program ändras för att migrera dina Managed Cache Service-appar använder Azure Cache för Redis och visar hur några av funktionerna i Azure Cache för Redis kan användas för att implementera funktionerna i en cache Managed Cache Service.

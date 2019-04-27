@@ -9,17 +9,17 @@ ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337931"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686155"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) är en Azure-baserat och hanterade container registry-tjänst som används för att lagra privata Docker-behållaravbildningar. Den här artikeln beskriver hur du distribuerar behållaravbildningar lagras i ett Azure container registry till Azure Container Instances.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 **Azure-behållarregister**: Du behöver en Azure-behållarregister – och minst en behållaravbildning i registret – för att slutföra stegen i den här artikeln. Om du behöver ett register, se [skapa ett behållarregister med hjälp av Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 

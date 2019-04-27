@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en CI/CD-pipeline för Node.js med Azure DevOps-projekt'
-description: Det är enkelt att komma igång med Azure med DevOps-projekt. Det hjälper dig att starta en app på en Azure-tjänst med några enkla få steg.
+title: 'Snabbstart: Skapa en CI/CD-pipeline för Node.js med Azure DevOps Projects'
+description: DevOps Projects gör det enkelt att komma igång med Azure. Det hjälper dig att starta en app på en Azure-tjänst med några enkla få steg.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -18,11 +18,11 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: dadc394e9c9ddb152923095de10b8f727310d3f7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554837"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för Node.js med Azure DevOps Projects 
 
@@ -54,7 +54,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
 1. Skapa en ny Azure DevOps-organisation eller använd en befintlig organisation. 
 
-    a. Välj ett namn för ditt projekt. 
+    a. Välj ett namn för projektet. 
 
     b. Välj din Azure-prenumeration och plats, välj ett namn för programmet och välj sedan **Klar**.  
     Efter några minuter visas DevOps Projects-instrumentpanelen i Azure-portalen. Ett exempelprogram konfigureras i en lagringsplats i din Azure DevOps-organisation, en version körs och programmet distribueras till Azure. Den här instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och ditt program i Azure.
@@ -63,7 +63,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
     ![Instrumentpanelsvy](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
     
-DevOps Projects konfigurerar automatiskt en CI-version och släpper utlösaren.  Nu är du redo att samarbeta med ett team på en Node.js-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
+DevOps Projects konfigurerade automatiskt en CI-version och versionsutlösare.  Nu är du redo att samarbeta med ett team på en Node.js-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Genomför ändringar i koden och kör CI/CD
 
@@ -80,16 +80,16 @@ Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
 1. Välj **Redigera** och gör en ändring i h2-rubriken.  
     Du kan till exempel skriva **Komma igång direkt med Azure DevOps-projekt** eller göra någon annan ändring.
 
-1. Välj **Incheckning** och spara sedan ändringarna.
+1. Välj **Checka in** och spara sedan ändringarna.
 
 1. I webbläsaren går du till DevOps Projects-instrumentpanelen.   
-Du bör nu se att en version håller på att skapas. De ändringar du just utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
+Du bör nu se att en version håller på att skapas. De ändringar som du just utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
 
 ## <a name="examine-the-azure-cicd-pipeline"></a>Granska Azure-CI/CD-pipelinen
 
 I föregående steg konfigurerade DevOps Projects automatiskt en fullständig CI/CD-pipeline. Utforska och anpassa pipelinen efter behov. Utför följande steg för att bekanta dig med bygg- och versionspipelines.
 
-1. Välj **Skapa pipelines** längst upp på DevOps Projects-instrumentpanelen.  
+1. Välj **Bygg-pipelines** längst upp på DevOps Projects-instrumentpanelen.  
 Länken öppnar en webbläsarflik och bygg-pipelinen för det nya projektet.
 
 1. Peka på fältet **Status** och välj ellipsen (...).  
@@ -97,7 +97,7 @@ Länken öppnar en webbläsarflik och bygg-pipelinen för det nya projektet.
 
 1. Välj **Redigera**.
 
-1. I det här fönstret kan du granska de olika uppgifterna för bygg-pipelinen.  
+1. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen.  
 Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata som används för distributioner.
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
@@ -105,7 +105,7 @@ Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatse
 1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.   
-I **historikfönstret** kan du se en spårningslogg över de senaste ändringarna för versionen.  Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
+I fönsterrutan **Historik** ser du en spårningslogg över de senaste ändringarna för versionen.  Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
 1. Välj **Utlösare**.   
  DevOps Projects skapade automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
@@ -113,7 +113,7 @@ I **historikfönstret** kan du se en spårningslogg över de senaste ändringarn
 1. Välj **Kvarhållning**.   
 Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
-1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  
+1. Välj **Build and Release** (Byggen och versioner) och sedan **Versioner**.  
  DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
 1. Välj ellipsen (...) till vänster bredvid din releasepipeline och välj sedan **Redigera**.  
@@ -122,7 +122,7 @@ Versionspipelinen definierar versionsprocessen.
 12. Under **Artefakter** väljer du **Släpp**.  
     Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
 
-1. Bredvid ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
+1. Intill ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
 Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
 
 

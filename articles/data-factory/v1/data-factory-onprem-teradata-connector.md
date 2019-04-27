@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746344"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610746"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Flytta data från Teradata med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data F
 
 Du kan kopiera data från ett datalager för den lokala Teradata till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från en Teradata-datalager till datalager, men inte för att flytta data från andra datalager till en Teradata-datalager.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Data factory stöder anslutning till lokala Teradata källor via Data Management Gateway. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) du lär dig om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar gatewayen.
 
 Gateway krävs även om Teradata finns i en Azure IaaS-VM. Du kan installera gatewayen på samma IaaS VM som datalager eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
@@ -64,11 +64,11 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **OnPremisesTeradata** |Ja |
+| type |Type-egenskapen måste anges till: **OnPremisesTeradata** |Ja |
 | server |Namnet på Teradata-servern. |Ja |
 | authenticationType |Typ av autentisering som används för att ansluta till Teradata-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
-| lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala Teradata-databas. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -83,7 +83,7 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 
 När källan är av typen **RelationalSource** (som innehåller Teradata), följande egenskaper är tillgängliga i **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 
@@ -285,7 +285,7 @@ När du flyttar data till Teradata, används följande mappningar från Teradata
 
 | Typ av Teradata-databas | .NET framework-typ |
 | --- | --- |
-| Char |String |
+| char |String |
 | Clob |String |
 | Bild |String |
 | VarChar |String |
@@ -300,11 +300,11 @@ När du flyttar data till Teradata, används följande mappningar från Teradata
 | Integer |Int32 |
 | Tal |Double |
 | SmallInt |Int16 |
-| Date |DateTime |
+| Date |Datetime |
 | Tid |TimeSpan |
 | Tid med tidszon |String |
-| Tidsstämpel |DateTime |
-| Tidsstämpel med tidszon |DateTimeOffset |
+| Tidsstämpel |Datetime |
+| Tidsstämpel med tidszon |Datetimeoffset |
 | Intervall för dag |TimeSpan |
 | Dag för intervall och timme |TimeSpan |
 | Intervall dag till minut |TimeSpan |

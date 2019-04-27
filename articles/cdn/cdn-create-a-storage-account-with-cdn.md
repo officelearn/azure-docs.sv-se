@@ -16,11 +16,11 @@ ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60680140"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure storage-konto med Azure CDN
 I den här snabbstarten aktiverar du [Azure Content Delivery Network (CDN)](cdn-overview.md) för att cachelagra innehåll från Azure Storage. Azure CDN ger utvecklarna en global lösning när det gäller att leverera innehåll med hög bandbredd. Det kan cachelagra blobbar och statiskt innehåll för beräkningsinstanser på fysiska noder i USA, Europa, Asien, Australien och Sydamerika.
@@ -146,5 +146,5 @@ I föregående steg skapade du en CDN-profil och en CDN-slutpunkt i en resursgru
 Mer information om hur du lägger till en anpassad domän och aktiverar HTTPS för din CDN-slutpunkt finns i följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Lagringsblobar för åtkomst med hjälp av en anpassad Azure CDN-domän via HTTPS](cdn-storage-custom-domain-https.md)
+> [Självstudie: Lagringsblobar för åtkomst med hjälp av en anpassad Azure CDN-domän via HTTPS](cdn-storage-custom-domain-https.md)
 

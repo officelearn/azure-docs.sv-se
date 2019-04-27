@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561632"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Distribuera om en virtuell dator i ett labb i Azure DevTest Labs
 Om du inte kan ansluta till en virtuell dator (VM) i ett labb via en anslutning till fjärrskrivbord, distribuera om den virtuella datorn och försök att ansluta till den igen. När du distribuerar om en virtuell dator i DevTest Labs flyttar den virtuella datorn från noden där den körs till en ny nod i Azure-infrastrukturen. Därefter startar den virtuella datorn samtidigt som du behåller alla konfigurationsalternativ och associerade resurser. Den här funktionen sparar du tid då felsöka din anslutning till fjärrskrivbord eller programmet åtkomst till Windows-baserade virtuella datorer i labbet. 

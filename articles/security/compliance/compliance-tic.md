@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607939"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Vägledning för betrodda Internet-anslutningar
 
@@ -247,7 +247,7 @@ Du kan enkelt konfigurera åtkomst för Microsoft Azure, Office 365 och Dynamics
 
 ## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Tillägg: Betrodda Internetanslutningar mönster för vanliga arbetsbelastningar
 
-| Kategori | Arbetsbelastning | IaaS | Dedikerad PaaS / inmatning i virtuella nätverk  | Tjänstslutpunkter  |
+| Category | Arbetsbelastning | IaaS | Dedikerad PaaS / inmatning i virtuella nätverk  | Tjänstslutpunkter  |
 |---------|---------|---------|---------|--------|
 | Compute | Virtuella Azure Linux-datorer | Ja | | |
 | Compute | Virtuella Azure Windows-datorer | Ja | | |

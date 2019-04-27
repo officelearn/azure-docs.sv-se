@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: df77a745ef6508b15b5a8bcde5eede0e06eb1afc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583731"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en varumärken modell med Video Indexer API
 
@@ -40,9 +40,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -102,10 +102,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
 |id|heltal|Ja|Märkes-id (genereras när varumärket skapades)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -131,10 +131,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
 |id|heltal|Ja|Märkes-ID (genereras när varumärket skapades)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -181,10 +181,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
 |id|heltal|Ja|Märkes-ID (genereras när varumärket skapades)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -244,9 +244,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -304,9 +304,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -341,9 +341,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 

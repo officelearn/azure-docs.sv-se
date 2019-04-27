@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708370"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Skapa en Konversationsdeltagare modell med hjälp av Node.js
 
@@ -27,7 +27,7 @@ Konversationsdeltagare minskar komplexiteten med att skapa robotar. Det gör att
 
 Projektet Konversationsdeltagare består av ett SDK som du lägger till att din robot, och en molntjänst som SDK: N har åtkomst till för machine learning.  För närvarande kräver åtkomst till Molntjänsten projekt konversationen Leaner inbjudan.  Om du inte har blivit inbjuden redan [begära en inbjudan](https://aka.ms/conversation-learner-request-invite).  Om du inte har fått en inbjudan kan du inte få tillgång till molnet API.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Noden 8.5.0 eller senare och npm 5.3.0 eller senare. Installera från [ https://nodejs.org ](https://nodejs.org).
   

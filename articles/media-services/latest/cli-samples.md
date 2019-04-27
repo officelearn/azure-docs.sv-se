@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
 ms.openlocfilehash: dee7f831562dc1f4b2478d13b204aab1d8455e1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840638"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733189"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure CLI-exempel för Azure Media Services
 
@@ -28,7 +28,7 @@ I följande tabell innehåller länkar till Azure CLI-exempel för Azure Media S
 |  |  |
 |---|---|
 |**Skalning**||
-| [Skala Mediereserverade enheter](media-reserved-units-cli-how-to.md)|För analys av ljud och Video Analysis jobb som utlöses av Media Services v3 eller Video Indexer kan rekommenderar vi starkt att etablera ditt konto med 10 S3 MRUs. <br/>Skriptet visar hur du använder CLI för att skala Mediereserverade enheter (MRUs).|
+| [Skala Mediereserverade enheter](media-reserved-units-cli-how-to.md)|För ljudanalys- och videoanalysjobb som utlöses av Media Services v3 eller Video Indexer rekommenderar vi starkt att du etablerar ditt konto med 10 S3-MRU:er. <br/>Skriptet visar hur du använder CLI för att skala Mediereserverade enheter (MRUs).|
 |**Konto**||
 | [Skapa ett Media Services-konto](create-account-cli-how-to.md) | Skriptet skapar ett Azure Media Services-konto. |
 | [Återställ autentiseringsuppgifter](./scripts/cli-reset-account-credentials.md)|Återställer autentiseringsuppgifterna för ditt konto och hämtar app.config inställningarna igen.|
@@ -47,4 +47,4 @@ I följande tabell innehåller länkar till Azure CLI-exempel för Azure Media S
 ## <a name="see-also"></a>Se också
 
 - [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-- [Snabbstart: Stream videofiler – CLI](stream-files-cli-quickstart.md)
+- [Snabbstart: Strömma videofiler – CLI](stream-files-cli-quickstart.md)

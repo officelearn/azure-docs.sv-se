@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
 ms.openlocfilehash: 5a2fb54658599e0500944aaae9225f314277f9da
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60838381"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>Självstudie: Avvikelseidentifiering med Python-program
 
@@ -23,7 +23,7 @@ ms.locfileid: "57539096"
 
 Den här självstudien visar hur du använder API:et för avvikelseidentifiering i Python och hur du visualiserar dina resultat med populära bibliotek. Använd Jupyter för att köra självstudien testa dina egna data med din prenumerationsnyckel. Läs hur du kommer igång med interaktiva Jupyter-anteckningsböcker: [Jupyter-dokumentation](https://jupyter.readthedocs.io/en/latest/index.html). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på avvikelseidentifiering och få en prenumerationsnyckel 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631898"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Tekniska specifikationer och efterlevnad för StorSimple-enhet
 
@@ -37,13 +37,13 @@ EBOD-höljet använder en 580 W PCM och primära hölje använder en 764 W PCM. 
 | --- | --- | --- |
 | Högsta uteffekt |580 W |764 |
 | Frekvens |50/60 Hz |50/60 Hz |
-| Val av tidsintervall spänning |Automatisk sträcker sig: 90 – 264 V AC, 47/63 Hz |Automatisk sträcker sig: 90-264 V AC, 47/63 Hz |
+| Val av tidsintervall spänning |Automatisk sträcker sig: 90 – 264 V AC, 47/63 Hz |Automatisk sträcker sig: 90- 264 V AC, 47/63 Hz |
 | Maximal översvämning aktuella |20 A |20 A |
 | Power factor korrigering |> 95% nominell ingångsspänning |> 95% nominell ingångsspänning |
 | Övertoner |Uppfyller EN61000-3-2 |Uppfyller EN61000-3-2 |
-| Utdata |5v vänteläge spänning \@ 2.0 A |5v vänteläge spänning \@ 2.7 A |
-| + 5V \@ 42 A |+ 5V \@ 40 A | |
-| + 12 V \@ 38 A |+ 12 V \@ 38 A | |
+| Resultat |5v vänteläge spänning \@ 2.0 A |5v vänteläge spänning \@ 2.7 A |
+| +5V \@ 42 A |+5V \@ 40 A | |
+| +12V \@ 38 A |+12V \@ 38 A | |
 | Hot plug |Ja |Ja |
 | Växlar och led: ar |AC på/av växeln och fyra status övervakningsindikatorer |AC på/av växeln och sex status övervakningsindikatorer |
 | Hölje kylning |Axial kylfläktar med varierande hastighet fläktkontroll |Axial kylfläktar med varierande hastighet fläktkontroll |
@@ -73,11 +73,11 @@ StorSimple-enheter har en blandning av hårddiskar och SSD-enheter för både 81
 | --- | --- | --- |
 | Antalet hårddiskar (HDD) |8 |19 |
 | Antalet solid-state-hårddiskar (SSD) |4 |5 |
-| Enkel hårddiskkapacitet |4 TB |4 TB |
-| Enkel SSD-kapacitet |400 GB |800 GB |
-| Ledig kapacitet |4 TB |4 TB |
+| Enkel hårddiskkapacitet |4 TB |4 TB |
+| Enkel SSD-kapacitet |400 GB |800 GB |
+| Ledig kapacitet |4 TB |4 TB |
 | Användbar HDD-kapacitet |14 TB |36 TB |
-| Användbar SSD-kapacitet |800 GB |2 TB |
+| Användbar SSD-kapacitet |800 GB |2 TB |
 | Totalt antal användbar kapacitet * |~ 15 TB |~ 38 TB |
 | Lösning för maximal kapacitet (inklusive molnet) |200 TB |500 TB |
 
@@ -117,8 +117,8 @@ Det här avsnittet listas de specifikationer som rör hölje-miljö. Temperatur,
 
 | Hölje | Omgivande temperaturintervall | Omgivande relativ fuktighet | Maximal våt termometerkulans |
 | --- | --- | --- | --- |
-| I drift |5° C - 35 OC 41° F - 95° F |20% till 80% icke-förenklas- |28 OC (82° F) |
-| Kan inte användas |-40 OC - 70 OC 40° F - 158° F |icke förenklas 5% till 100% |29 OC (84° F) |
+| I drift |5°C - 35°C(41°F - 95°F) |20% till 80% icke-förenklas- |28°C (82°F) |
+| Kan inte användas |-40 OC - 70 OC 40° F - 158° F |icke förenklas 5% till 100% |29°C (84°F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luftflödet, höjd, chocka, vibrationer, orientering, säkerhet och EMC
 
@@ -141,7 +141,7 @@ Det här avsnittet listas de specifikationer som rör hölje-miljö. Temperatur,
 
 Microsoft Azure StorSimple-enheten uppfyller följande internationella standarder:  
 
-* CE - EN 60950-1
+* CE - EN 60950 - 1
 * CB rapporten till IEC 60950-1
 * UL och cUL till UL 60950-1
 
@@ -150,7 +150,7 @@ Microsoft Azure StorSimple-enheten uppfyller följande internationella standarde
 Microsoft Azure StorSimple-enheten uppfyller följande säkerhet klassificeringar:
 
 * System produkten typgodkännande: UL, cUL, CE
-* Säkerhet: UL 60950 IEC 60950, SV 60950
+* Säkerhet efterlevnad: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>EMC efterlevnad
 
@@ -160,8 +160,8 @@ Microsoft Azure StorSimple-enheten uppfyller följande EMC-klassificeringar.
 
 Enheten är EMC-kompatibel för ledda och UTSTRÅLAD utsläpp nivåer.
 
-* Ledda utsläpp begränsa nivåer: CFR 47 Part 15B klass A EN55022 klass A CISPR klass A
-* UTSTRÅLAD utsläpp begränsa nivåer: CFR 47 Part 15B klass A EN55022 klass A CISPR klass A
+* Från utsläpp gränsen nivåer: CFR 47 del 15B klass A EN55022 klass A CISPR klass A
+* Radiated utsläpp gränsen nivåer: CFR 47 del 15B klass A EN55022 klass A CISPR klass A
 
 ### <a name="harmonics-and-flicker"></a>Övertoner och flimmer
 

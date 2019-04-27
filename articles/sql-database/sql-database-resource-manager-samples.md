@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
 ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559742"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Azure Resource Manager-mallar för Azure SQL Database
 
@@ -33,7 +33,7 @@ Följande tabell innehåller länkar till Azure Resource Manager-mallar för Azu
 | [Logisk server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Den här Azure Resource Manager-mallen skapar en logisk server för Azure SQL Database. |
 | [Elastisk pool](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Med den här mallen kan du distribuera en ny elastisk pool med dess nya tillhörande SQL Server och nya SQL-databaser som den ska tilldelas. |
 | [Redundansgrupper](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Den här mallen skapar två logiska Azure SQL-servrar, en SQL-databas och en redundansgrupp.|
-| [Advanced Threat Protection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Med den här mallen kan du distribuera en logisk Azure SQL-server med Advanced Threat Protection aktiverat och en valfri Azure SQL Database. SQL Advanced Threat Protection är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner.|
+| [Advanced Threat Protection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Med den här mallen kan du distribuera en logisk Azure SQL-server med Advanced Threat Protection aktiverat och en valfri Azure SQL-databas. SQL Advanced Threat Protection är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner.|
 | [Hotidentifiering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Med den här mallen kan du distribuera en logisk Azure SQL-server och en uppsättning Azure SQL-databaser med Hotidentifiering aktiverat, med en e-postadress för aviseringar för varje databas. Hotidentifiering är en del av erbjudandet för SQL Advanced Threat Protection (ATP). Det tillhandahåller ett säkerhetslager som reagerar på potentiella hot över SQL-servrar och databaser.|
 | [Granskning för Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Med den här mallen kan du distribuera en logisk Azure SQL-server med granskning aktiverat för att skriva granskningsloggar till en bloblagring. Granskning för Azure SQL Database spårar databashändelser och skriver dem till en granskningslogg som kan placeras i ditt Azure Storage-konto, på din OMS-arbetsyta eller i Event Hubs.|
 | [Granskning till Azure-händelsehubb](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Med den här mallen kan du distribuera en Azure SQL-server med granskning aktiverat för att skriva granskningsloggar till en befintlig händelsehubb. För att kunna skicka granskningshändelser till en händelsehubb anger du granskningsinställningar med `Enabled` `State` och anger `IsAzureMonitorTargetEnabled` till `true`. Konfigurera även diagnostikinställningar med `SQLSecurityAuditEvents`-diagnostikloggkategorin i `master`-databasen (för granskning på servernivå). Granskning för Azure SQL Database och SQL Data Warehouse spårar databashändelser och skriver dem till en granskningslogg som kan placeras i ditt Azure Storage-konto, på din OMS-arbetsyta eller i Event Hubs.|

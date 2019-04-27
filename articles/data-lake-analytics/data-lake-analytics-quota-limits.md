@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4629b52f3b2c9e351ddc2a68a40c5178a9a73950
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812695"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Justera kvoter och begränsningar i Azure Data Lake Analytics
 
@@ -22,7 +22,7 @@ Lär dig hur du justerar och öka kvoter och begränsningar i Azure Data Lake An
 
 ## <a name="azure-subscriptions-limits"></a>Begränsningar för Azure-prenumerationer
 
-**Maximalt antal ADLA-konton per prenumeration per region:** 5
+**Maximalt antal ADLA-konton per prenumeration per region:**  5
 
 Om du försöker skapa ett sjätte ADLA-konto, får du felmeddelandet ”du har nått det maximala antalet Data Lake Analytics-konton som tillåts (5) i region under prenumerationens namn”. 
 

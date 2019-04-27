@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653780"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -68,10 +68,10 @@ Följande egenskaper har stöd för HTTP-länkade tjänsten:
 
 Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, eller **Windows**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
-| Användarnamn | Användarnamnet du använder för att få åtkomst till HTTP-slutpunkt. | Ja |
-| lösenord | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | Användarnamnet du använder för att få åtkomst till HTTP-slutpunkt. | Ja |
+| password | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
 
@@ -101,11 +101,11 @@ Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, e
 
 Om du vill använda ClientCertificate autentisering, ange den **authenticationType** egenskap **ClientCertificate**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-kodat certifikatdata. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
 | certThumbprint | Tumavtrycket för certifikatet som är installerad på din egen värd Integration Runtime-datorns certifikatarkiv. Gäller endast när typen lokal installation av Integration Runtime har angetts i den **connectVia** egenskapen. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
-| lösenord | Lösenordet som är associerat med certifikatet. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| password | Lösenordet som är associerat med certifikatet. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 
 Om du använder **certThumbprint** för autentisering och certifikatet är installerat i det personliga arkivet i den lokala datorn kan bevilja läsbehörighet till den lokal Integration Runtime:
 

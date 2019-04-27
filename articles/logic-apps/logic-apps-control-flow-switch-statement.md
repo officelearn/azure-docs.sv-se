@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232451"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683178"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Skapa switch-satser som kör arbetsflödesåtgärder baserat på specifika värden i Azure Logic Apps
 
@@ -26,13 +26,13 @@ Anta exempelvis att du vill att en logikapp som tar olika steg baserat på ett a
 > Som alla programmeringsspråk stöder bara likheten operatörer i switch-satser. Om du behöver andra relationsoperatorer, till exempel ”större än” använda en [villkorlig instruktionen](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 > För att säkerställa deterministisk körningsbeteende måste fall innehålla ett unikt och statiska värde i stället för dynamiska token eller uttryck.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Till exempel i den här artikeln [skapa den här exempellogikappen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com eller Office 365 Outlook-konto.
 
-  1. När du lägger till åtgärden Skicka e-post, söka efter och välj den här åtgärden i stället: **skicka ett e-postmeddelande för godkännande**
+  1. När du lägger till åtgärden Skicka e-post, hitta och välj den här åtgärden i stället: **Skicka ett e-postmeddelande för godkännande**
 
      ![Välj ”Skicka ett e-postmeddelande för godkännande”](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -47,7 +47,7 @@ Anta exempelvis att du vill att en logikapp som tar olika steg baserat på ett a
 
    När du vill lägga till ett switch-instruktionen mellan stegen muspekaren på pilen där du vill lägga till switch-instruktionen. Välj den **plustecknet** (**+**) som visas, välj sedan **Lägg till en åtgärd**.
 
-1. I sökrutan anger du ”byta” som filter. Välj den här åtgärden: **växla - kontroll**
+1. I sökrutan anger du ”byta” som filter. Välj den här åtgärden: **Switch - kontroll**
 
    ![Lägg till växeln](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -113,7 +113,7 @@ Nu när du har skapat en logikapp med en switch-sats kan vi titta på definition
 }
 ```
 
-| Etikett | Beskrivning |
+| Label (Etikett) | Beskrivning |
 |-------|-------------|
 | `"Switch"`         | Namnet på den switch-instruktionen, som du kan byta namn för läsbarhet |
 | `"type": "Switch"` | Anger att åtgärden är en switch-sats |

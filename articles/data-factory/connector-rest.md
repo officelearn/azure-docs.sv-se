@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
 ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546650"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt med hjälp av Azure Data Factory
 
@@ -53,7 +53,7 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper har stöd för REST-länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen måste anges till **RestService**. | Ja |
 | url | Bas-URL REST-tjänst. | Ja |
@@ -65,10 +65,10 @@ Följande egenskaper har stöd för REST-länkade tjänsten:
 
 Ange den **authenticationType** egenskap **grundläggande**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
-| Användarnamn | Användarnamnet du använder för att få åtkomst till REST-slutpunkten. | Ja |
-| lösenord | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | Användarnamnet du använder för att få åtkomst till REST-slutpunkten. | Ja |
+| password | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
 
@@ -98,7 +98,7 @@ Ange den **authenticationType** egenskap **grundläggande**. Förutom de allmän
 
 Ange den **authenticationType** egenskap **AadServicePrincipal**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | servicePrincipalId | Ange Azure Active Directory-programmets klient-ID. | Ja |
 | servicePrincipalKey | Ange nyckel för Azure Active Directory-programmet. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -135,7 +135,7 @@ Ange den **authenticationType** egenskap **AadServicePrincipal**. Förutom de al
 
 Ange den **authenticationType** egenskap **ManagedServiceIdentity**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | aadResourceId | Ange AAD-resurs som du begär om tillstånd, t.ex. `https://management.core.windows.net`.| Ja |
 
@@ -167,7 +167,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från REST, stöds följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskap måste anges till **RestResource**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen har inte angetts används bara den URL som anges i länkade tjänstedefinition. | Nej |

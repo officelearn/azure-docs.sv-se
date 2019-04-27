@@ -12,11 +12,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557230"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Lägg till variabel aktiviteten i Azure Data Factory
 
@@ -24,12 +24,12 @@ Använd aktiviteten lägga till variabeln för att lägga till ett värde i en b
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Krävs
+Egenskap  | Beskrivning | Obligatoriskt
 -------- | ----------- | --------
 namn | Namnet på aktiviteten i pipelinen | Ja
-beskrivning | Text som beskriver vad aktiviteten används | nej
+description | Text som beskriver vad aktiviteten används | nej
 typ | Aktivitetstyp är AppendVariable | ja
-värde | Sträng literal eller uttryck Objektvärde som används för att lägga till en specifik variabel | ja
+value | Sträng literal eller uttryck Objektvärde som används för att lägga till en specifik variabel | ja
 variableName | Namnet på variabeln som kommer att ändras av aktiviteten, variabeln måste vara av typen 'Array' | ja
 
 ## <a name="next-steps"></a>Nästa steg

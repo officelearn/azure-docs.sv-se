@@ -3,8 +3,8 @@ title: Behörigheter som krävs för att använda funktionerna för Azure Networ
 description: Lär dig vilka Azure rollbaserad behörighet krävs för att arbeta med Network Watcher-funktioner.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 429f7862901814fbd2017c395706fbfa2c345f72
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60652902"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Rollbaserad åtkomstbehörighet som krävs för att använda funktionerna för Network Watcher
 
@@ -33,7 +33,7 @@ Azure rollbaserad åtkomstkontroll (RBAC) kan du tilldela bara specifika åtgär
 | Microsoft.Network/networkWatchers/write                             | Skapa eller uppdatera en nätverksbevakaren                             |
 | Microsoft.Network/networkWatchers/delete                            | Ta bort en nätverksbevakaren                                       |
 
-## <a name="nsg-flow-logs"></a>NSG-flödesloggar
+## <a name="nsg-flow-logs"></a>NSG flödesloggar
 
 | Åtgärd                                                              | Namn                                                           |
 | ---------                                                           | -------------                                                  |
@@ -48,7 +48,7 @@ Azure rollbaserad åtkomstkontroll (RBAC) kan du tilldela bara specifika åtgär
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Resultatet av frågan för en anslutning felsöka test                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | Kör en anslutning felsöka test                             |
 
-## <a name="connection-monitor"></a>Anslutningsövervakaren
+## <a name="connection-monitor"></a>Anslutningsövervakare
 
 | Åtgärd                                                              | Namn                                                           |
 | ---------                                                           | -------------                                                  |

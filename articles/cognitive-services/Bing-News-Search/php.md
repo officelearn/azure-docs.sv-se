@@ -12,11 +12,11 @@ ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578971"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Snabbstart: Utföra en nyhetssökning med hjälp av PHP och REST-API:et för nyhetssökning i Bing
 
@@ -24,7 +24,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 Även om det här programmet är skrivet i PHP, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * PHP 5.6 eller senare
 

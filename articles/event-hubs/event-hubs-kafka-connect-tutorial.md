@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: 2ed4432aec9b833efe6b521b4452177088d21d70
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821542"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrera stöd för Apache Kafka Connect stöd i Azure Event Hubs (förhandsversion)
 När inmatning för företagsbehov ökar så ökas även kraven för inmatning av olika externa källor och kanalmottagare. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) innehåller sådana ramverk för att ansluta och importera/exportera data från/till externa system såsom MySQL, HDFS och filsystem via ett Kafka-kluster. Den här självstudien beskriver hur du använder Kafka Connect-ramverket med Kafka-aktiverade händelsehubbar.
@@ -34,7 +34,7 @@ I den här självstudien gör du följande:
 > * Köra Kafka Connect
 > * Skapa anslutningsappar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att kunna slutföra den här genomgången behöver du följande:
 
 - En Azure-prenumeration. Om du inte har en [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/).

@@ -18,11 +18,11 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556092"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för .NET med Azure DevOps Projects
 
@@ -108,7 +108,7 @@ Länken öppnar en webbläsarflik och Azure DevOps-bygg-pipelinen för det nya p
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.   
 I fönsterrutan **Historik** ser du en spårningslogg över de senaste ändringarna för versionen.  Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
@@ -133,7 +133,7 @@ Den här versionspipelinen har en aktiverad CD-utlösare som kör en distributio
 1. Till vänster väljer du **Uppgifter**.   
 Uppgifter är de aktiviteter som distributionsprocessen utför. I det här exemplet skapades en uppgift för att distribuera till Azure App-tjänsten.
 
-1. Till höger väljer du **Visa versioner**. Den här vyn visar en historik över versioner.
+1. Till höger väljer du alternativet för att **visa versioner**. Den här vyn visar en historik över versioner.
 
 1. Välj ellipsen (...) bredvid en av versionerna och välj **Öppna**.  
 Det finns flera menyer att utforska, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.

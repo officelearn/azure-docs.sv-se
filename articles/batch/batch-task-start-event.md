@@ -2,7 +2,7 @@
 title: Starthändelse för uppgift till Azure Batch | Microsoft Docs
 description: Referens för Batch Starthändelse för uppgift.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/15/2018
+ms.author: v-junlch
 ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549877"
 ---
 # <a name="task-start-event"></a>Starthändelse för uppgift
 
@@ -48,7 +49,7 @@ ms.locfileid: "55474436"
 }
 ```
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |jobId|String|Id för jobbet som innehåller aktiviteten.|
 |id|String|ID för uppgiften.|
@@ -61,25 +62,27 @@ ms.locfileid: "55474436"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |poolId|String|Id för poolen som aktiviteten kördes.|
 |nodeId|String|Id för noden som aktiviteten kördes.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |numberOfInstances|Int|Antalet beräkningsnoder som uppgiften kräver.|
 
 ###  <a name="constraints"></a> Begränsningar
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|Det maximala antalet gånger uppgiften kan göras. Batch-tjänsten försöker en uppgift om dess slutkod inte är noll.<br /><br /> Observera att det här värdet särskilt styr antalet försök. Batch-tjänsten kommer att försöka aktiviteten en gång och försök sedan upp till den här gränsen. Till exempel om maximalt antal försök är 3, Batch försök en uppgift upp till 4 gånger du (ett första försök och 3 nya försök).<br /><br /> Om maximalt antal försök är 0, försöka uppgifter inte igen av Batch-tjänsten.<br /><br /> Om det högsta antalet försök är -1, görs nya försök uppgifter utan begränsning.<br /><br /> Standardvärdet är 0 (inga nya försök).|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |RetryCount|Int32|Hur många gånger uppgiften avslutas av Batch-tjänsten. Uppgiften görs om avslutas med en slutkod, upp till den angivna MaxTaskRetryCount|
+
+<!-- Update_Description: update metedata properties -->

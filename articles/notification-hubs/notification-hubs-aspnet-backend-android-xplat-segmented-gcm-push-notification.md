@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 1c777f705d9b2d3df713642349fe4dbd413e48e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560692"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging"></a>Självstudier: Skicka push-meddelanden till specifika Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging
 
@@ -40,7 +40,7 @@ I den här självstudien gör du följande:
 > * Skicka taggade meddelanden.
 > * Testa appen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här självstudien bygger på den app som du skapade i [Självstudie: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started]. Innan du påbörjar den här självstudien slutför du [Självstudie: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started].
 

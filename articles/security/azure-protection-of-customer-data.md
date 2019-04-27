@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589080"
 ---
 # <a name="azure-customer-data-protection"></a>Dataskydd för Azure-kund   
 Åtkomst till kunddata för Microsofts drift- och supportpersonal nekas som standard. När åtkomst till kunddata beviljas ledarskap godkännande krävs och sedan åtkomst hanteras och noggrant loggas. Åtkomstkontroll kraven som upprättas av följande Azure-säkerhetsprincipen:

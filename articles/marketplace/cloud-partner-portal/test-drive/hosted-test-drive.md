@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559797"
 ---
-# <a name="hosted-test-drive"></a>Värdbaserade provkörning
+# <a name="hosted-test-drive"></a>Värdbaserad Test Drive
 
 En värd Test Drive tar bort komplexiteten i installationen av Microsoft hosting och underhålla den tjänst som utför Test Drive användaren etablering och borttagning. Den här artikeln är avsedd för utgivare som har sitt erbjudande på AppSource eller skapar en ny och vill erbjuda en värdbaserad provkörning som ansluter med en Dynamics 365 för kundengagemang, Dynamics 365 för finans- och Operations- eller Dynamics 365 Business Central instans.
 

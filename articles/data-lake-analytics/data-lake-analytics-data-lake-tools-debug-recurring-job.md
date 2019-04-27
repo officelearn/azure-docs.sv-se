@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629788"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Felsöka ett avvikande, återkommande jobb
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du använder [Azure Data Lake Tools för Visual Stud
 
 **Relaterade Jobbvy** i Azure Data Lake Tools för Visual Studio hjälper dig att öka felsökning förloppet med båda fallen.
 
-## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Steg 1: Hitta återkommande jobb och öppna relaterade Jobbvy
+## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Steg 1: Leta upp återkommande jobb och öppna relaterade Jobbvy
 
 Om du vill använda den relaterade jobb vyn för att felsöka ett problem med återkommande jobb, måste du först hitta återkommande jobb i Visual Studio och öppna sedan relaterade Jobbvy.
 
@@ -56,7 +56,7 @@ En sammanfattning och en rapport visas längst upp i relaterade Jobbvy. Där hit
 
 ![Diagram över för att kontrollera statistik](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 
-## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Steg 3: Jämföra onormalt jobbet till ett normala jobb
+## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Steg 3: Jämför onormalt jobbet till ett normala jobb
 
 Du hittar alla återkommande jobb i jobb listan längst ned på relaterade Jobbvy som skickats. Högerklicka på onormalt jobbet för att hitta mer insikter och möjliga lösningar. Använd jobbet Diff-vyn för att jämföra onormalt jobbet med en föregående normal.
 

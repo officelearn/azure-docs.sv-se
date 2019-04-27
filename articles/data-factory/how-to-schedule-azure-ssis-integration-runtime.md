@@ -14,11 +14,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60522174"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så här startar och stoppar Azure-SSIS Integration Runtime enligt ett schema
 Den här artikeln beskriver hur du schemalägger startas och stoppas av Azure-SSIS Integration Runtime (IR) med hjälp av Azure Data Factory (ADF). Azure-SSIS IR är ADF-beräkningsresurs som dedikerade för att köra SQL Server Integration Services (SSIS)-paket. Kör Azure-SSIS IR har ingen associerad kostnad till den. Därför vanligtvis du kör din IR endast när du behöver att köra SSIS-paket i Azure och stoppa din IR när du inte behöver den längre. Du kan använda ADF User Interface (UI) / app eller Azure PowerShell för att [manuellt starta eller stoppa din IR](manage-azure-ssis-integration-runtime.md)).
@@ -27,7 +27,7 @@ Du kan också skapa webbaktiviteter i ADF pipelines för att starta/stoppa din I
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du inte har etablerat din Azure-SSIS IR redan, etablerar du den genom att följa instruktionerna i den [självstudien](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Skapa och schemalägga ADF-pipelines som startar och eller stoppar Azure-SSIS IR

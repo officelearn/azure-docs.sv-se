@@ -3,8 +3,8 @@ title: Felsök anslutningar med Azure Network Watcher – Azure CLI | Microsoft 
 description: Lär dig hur du använder anslutningen felsöka funktion i Azure Network Watcher med Azure CLI.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: a44f46a01bd0c0530ce57ad65464c10a4d2617f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624079"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Felsöka anslutningar med Azure Network Watcher med Azure CLI
 

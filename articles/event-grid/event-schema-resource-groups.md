@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561701"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid-Händelseschema för resursgrupper
 
@@ -236,14 +236,14 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
+| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
+| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | string | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för resurs-grupp. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
@@ -251,14 +251,14 @@ Dataobjektet har följande egenskaper:
 | -------- | ---- | ----------- |
 | Auktorisering | objekt | Den begärda auktoriseringen för åtgärden. |
 | anspråk | objekt | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | sträng | En Operations-ID för felsökning. |
+| correlationId | string | En Operations-ID för felsökning. |
 | httpRequest | objekt | Information om åtgärden. Det här objektet är endast ingår när du uppdaterar en befintlig resurs eller ta bort en resurs. |
-| resourceProvider | sträng | Resource provider för åtgärden. |
-| resourceUri | sträng | URI för resursen i åtgärden. |
-| operationName | sträng | Åtgärden som utfördes. |
-| status | sträng | Status för åtgärden. |
-| subscriptionId | sträng | Prenumerations-ID för resursen. |
-| tenantId | sträng | Klient-ID för resursen. |
+| resourceProvider | string | Resource provider för åtgärden. |
+| resourceUri | string | URI för resursen i åtgärden. |
+| operationName | string | Åtgärden som utfördes. |
+| status | string | Status för åtgärden. |
+| subscriptionId | string | Prenumerations-ID för resursen. |
+| tenantId | string | Klient-ID för resursen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

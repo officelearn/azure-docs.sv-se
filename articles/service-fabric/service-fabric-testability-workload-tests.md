@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865280"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulera fel under tjänstarbetsbelastningar
 Testningsscenarier i Azure Service Fabric kan utvecklare oroa dig inte om hantering av enskilda fel. Det finns scenarier, men där en explicit interleaving av klienten arbetsbelastning och fel kan behövas. Interleaving av klienten arbetsbelastning och fel ser du till att tjänsten faktiskt utför en åtgärd när fel inträffar. Beroende kontrollnivå som ger möjlighet att testa kan det vara vid en viss arbetsbelastning körningen exakt. Den här induktion av fel på olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.

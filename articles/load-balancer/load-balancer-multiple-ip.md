@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591674"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Belastningsutjämning på flera IP-konfigurationer med hjälp av Azure-portalen
 
@@ -42,7 +42,7 @@ I vårt scenario använder vi följande konfiguration:
 - Azure belastningsutjämnare används för att exponera två frontend IP-adresser, en för varje webbplats. Frontend-adresser används för att distribuera trafik till respektive IP-konfigurationen för varje webbplats.
 - Samma portnummer används för både frontend IP-adresser och IP-adresser för backend-poolen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Vårt Scenarioexempel förutsätter att du har en resursgrupp med namnet **contosofabrikam** som har konfigurerats på följande sätt:
 

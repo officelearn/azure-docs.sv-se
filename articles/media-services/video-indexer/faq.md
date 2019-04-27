@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553699"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -160,7 +160,7 @@ Video Indexer använder en enkel användningsbaserad prismodell som baseras på 
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>När faktureras jag för att använda Video Indexer?
 
-När du skickar en video som ska indexeras, definierar användaren indexering ska videoanalys ljudanalys eller båda. Detta avgör vilken SKU: er kommer att debiteras. Om det finns ett allvarligt på fel under bearbetning, returneras en felkod som ett svar. I sådana fall sker ingen fakturering.  Ett allvarligt fel kan orsakas av en bugg i vår kod eller ett kritiskt fel i ett internt beroende tjänsten har. Fel, till exempel fel identifiering eller insikter extrahering betraktas inte som kritiskt och ett svar returneras. I båda fallen inträffar fakturering där det är ett giltigt (icke-felkod)-svar returneras.
+När du skickar en video till indexering definierar användaren om indexeringen ska analysera videon, ljudet eller båda. Detta avgör vilka SKU:er som debiteras. Om ett kritiskt fel inträffar under bearbetningen skickas en felkod. I sådant fall genomförs ingen debitering.  Ett kritiskt fel kan bero på en bugg i koden eller ett kritiskt problem i ett av tjänstens interna beroenden. Fel som felaktiga identifieringar eller insiktsextrahering anses inte vara kritiska, så ett svar returneras. När ett giltigt (ingen felkod) svar returneras genomförs debiteringen.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Erbjuder Video Indexer en kostnadsfri utvärderingsversion?
 

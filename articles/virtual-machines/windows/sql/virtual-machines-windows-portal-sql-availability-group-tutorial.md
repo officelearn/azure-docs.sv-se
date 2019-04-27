@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593609"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Självstudier: Konfigurera Always On Availability Group i virtuella Azure-datorer manuellt
 
@@ -33,7 +33,7 @@ Diagrammet visar vad du skapar under kursen.
 
 ![Tillgänglighetsgrupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Självstudien förutsätter att du har grundläggande kunskaper om SQL Server Always On-Tillgänglighetsgrupper. Om du behöver mer information finns i [översikt över alltid på Tillgänglighetsgrupper (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 

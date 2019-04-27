@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 20bf38b87ce29f8506a5611ecd25cf38f6d4ed61
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550756"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Hantera Azure-resurser med hjälp av Azure portal
 
@@ -103,7 +103,7 @@ Mer information finns i [Låsa resurser med Azure Resource Manager](resource-gro
 Taggar hjälper dig att organisera din resursgrupp och resurser logiskt. 
 
 1. Öppna resursen i portalen. Anvisningar, finns i [öppna resurser](#open-resources).
-2. Välj **taggar**. I följande skärmbild visas hanteringsalternativ för ett lagringskonto.
+2. Välj **Taggar**. I följande skärmbild visas hanteringsalternativ för ett lagringskonto.
 
     ![taggen azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
 3. Ange egenskaperna för taggen och välj sedan **spara**.

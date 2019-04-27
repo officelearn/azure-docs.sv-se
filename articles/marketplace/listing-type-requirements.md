@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
 ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599319"
 ---
 # <a name="requirements-by-listing-type"></a>Krav genom att ange typ  
 Teknik- och innehåll kraven varierar i butiken, typ av erbjudande och listtyp. Granska följande specifikationer för att kontrollera efterlevnaden.  
@@ -34,15 +34,15 @@ I följande tabell beskrivs de nödvändiga kraven för att publicera på AppSou
 
 | Krav | Information | Krävs eller rekommenderas |  
 |:--- |:--- |:--- |  
-| ***Azure Active Directory (Azure AD)*** | Din app måste tillåta Azure Active Directory federerad enkel inloggning (Azure AD-federerad enkel inloggning) med medgivande aktiverat.<ul> <li>För mer information om hur du aktiverar Azure AD-federerad enkel inloggning, finns i Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory appen galleriet på sidan finns på [docs.microsoft.com/azure/active-directory/ Active directory-saas-anpassad-appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Krävs |   
+| ***Azure Active Directory (Azure AD)*** | Din app måste tillåta Azure Active Directory federerad enkel inloggning (Azure AD-federerad enkel inloggning) med medgivande aktiverat.<ul> <li>För mer information om hur du aktiverar Azure AD-federerad enkel inloggning, finns i Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory appen galleriet på sidan finns på [docs.microsoft.com/azure/active-directory/ Active directory-saas-anpassad-appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Obligatoriskt |   
 | ***Integrering med Microsoft-molntjänster*** | Din app ska integrera med andra Microsoft Cloud-tjänster som Microsoft Power BI, Cortana Intelligence eller Microsoft Azure-tjänster.<ul> <li>Ett exempel på en Microsoft Cloud-tjänst är Sakernas Internet.</li> </ul> | Rekommenderas |  
-| ***Målgrupp*** | Din app måste vara för line-of-business-användare och företagsägare. | Krävs | 
-| ***Programvara som en tjänst (SaaS)-app för företag*** | Din app måste uppfylla följande krav.<ul> <li>En line-of-business SaaS-app</li> <li>Affärsprocess fokuserar</li> <li>Riktade till företagskunder</li> <li>Användarna kan använda sina autentiseringsuppgifter för inloggning, till exempel användarnamn och lösenord</li> </ul> | Krävs |  
-| ***Kostnadsfria utvärderingsperioden och utvärderingsmiljö*** | Din app måste inkludera en följande alternativ för att en kund att använda appen utan kostnad under en begränsad tid.<ul> <li>Ange en `try` metod, så kunder kan starta en utvärdering av din app i AppSource</li> <li>Ange en `request trial` alternativet i AppSource, så kunder kan begära en utvärderingsversion av din app</li> </ul>Den kostnadsfria utvärderingsversionen som du anger måste erbjuda kunden en förinställda lång tid att testa din app utan extra kostnad. | Krävs |  
-| ***Enkelt att konfigurera och färdiga att använda lösning*** | Din app måste vara enkelt och snabbt att konfigurera och konfigurera med Ingen anpassning krävs. | Krävs |  
-| ***Leadhantering*** | Aktivera din CRM att acceptera lead-data innan du får leads från storefront.<ul> <li>Exempel på CRM är Marketo, Microsoft Dynamics eller Salesforce</li> </ul> | Krävs |  
-| ***Sekretesspolicy och användningsvillkor*** | Din app måste ange en länk till webbsidan sekretess princip med hjälp av en offentlig URL. Dina användningsvillkor måste anges vid publicering som text. | Krävs |  
-| ***Support*** | Din app måste ange en länk till din kund supportsida med hjälp av en offentlig URL. Om din app är en utvärderingsversion, sedan du måste ha stöd för utan ytterligare kostnad under utvärderingsperioden. | Krävs |  
+| ***Målgrupp*** | Din app måste vara för line-of-business-användare och företagsägare. | Obligatoriskt | 
+| ***Programvara som en tjänst (SaaS)-app för företag*** | Din app måste uppfylla följande krav.<ul> <li>En line-of-business SaaS-app</li> <li>Affärsprocess fokuserar</li> <li>Riktade till företagskunder</li> <li>Användarna kan använda sina autentiseringsuppgifter för inloggning, till exempel användarnamn och lösenord</li> </ul> | Obligatoriskt |  
+| ***Kostnadsfria utvärderingsperioden och utvärderingsmiljö*** | Din app måste inkludera en följande alternativ för att en kund att använda appen utan kostnad under en begränsad tid.<ul> <li>Ange en `try` metod, så kunder kan starta en utvärdering av din app i AppSource</li> <li>Ange en `request trial` alternativet i AppSource, så kunder kan begära en utvärderingsversion av din app</li> </ul>Den kostnadsfria utvärderingsversionen som du anger måste erbjuda kunden en förinställda lång tid att testa din app utan extra kostnad. | Obligatoriskt |  
+| ***Enkelt att konfigurera och färdiga att använda lösning*** | Din app måste vara enkelt och snabbt att konfigurera och konfigurera med Ingen anpassning krävs. | Obligatoriskt |  
+| ***Leadhantering*** | Aktivera din CRM att acceptera lead-data innan du får leads från storefront.<ul> <li>Exempel på CRM är Marketo, Microsoft Dynamics eller Salesforce</li> </ul> | Obligatoriskt |  
+| ***Sekretesspolicy och användningsvillkor*** | Din app måste ange en länk till webbsidan sekretess princip med hjälp av en offentlig URL. Dina användningsvillkor måste anges vid publicering som text. | Obligatoriskt |  
+| ***Support*** | Din app måste ange en länk till din kund supportsida med hjälp av en offentlig URL. Om din app är en utvärderingsversion, sedan du måste ha stöd för utan ytterligare kostnad under utvärderingsperioden. | Obligatoriskt |  
 
 ## <a name="storefront-requirements-azure-marketplace"></a>Storefront krav: Azure Marketplace  
 Här följer nödvändiga kraven för att visa en lista över typer i Azure Marketplace.  

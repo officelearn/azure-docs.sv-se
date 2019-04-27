@@ -1,17 +1,18 @@
 ---
 title: Azure Database för PostgreSQL-Server vnet services endpoint-översikt
 description: Lär dig hur VNET-tjänstslutpunkter fungerar för din Azure Database for PostgreSQL-server.
-author: bolzmj
-ms.author: mbolz
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/20/2018
+origin.date: 08/20/2018
+ms.date: 04/22/2019
 ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560131"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure Database för PostgreSQL
 

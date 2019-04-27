@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
 ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60579872"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Skicka sökfrågor till Bing Visual Search API
 
@@ -73,7 +73,7 @@ Begäranden måste skickas som HTTP POST-begäranden.
 
 Här följer frågeparametrarna som din begäran bör ange. Du bör innehålla minst de `mkt` frågeparameter:
 
-| Name | Value | Type | Krävs |
+| Namn | Värde | Typ | Obligatoriskt |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | En två-teckens landskod som representerar var resultatet kommer från.<br /><br /> Om du anger parametern måste du även ange huvudet [Accept-Language](#acceptlanguage). Bing använder det första språket som stöds på listan över språk och kombinerar språket med landskoden som du anger för att fastställa vilken marknad som resultatet som returneras från. Om listan över språk inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran. Eller så kan den använda en sammansatt eller standardmarknad för resultatet i stället för den angivna.<br /><br /> Du bör endast använda den här frågeparametern och `Accept-Language`-frågeparametern om du anger flera språk. I annat fall bör du använda frågeparametrarna `mkt` och `setLang`.<br /><br /> Den här parametern och [mkt](#mkt)-frågeparametern utesluter varandra&mdash;ange inte båda två. | String | Nej       |
 | <a name="mkt" />mkt   | Marknaden som resultatet kommer från. <br /><br /> **Obs!** Du måste alltid ange marknaden, om det är möjligt. Om du anger marknaden gör det enklare för Bing att dirigera begäran och returnera ett lämpligt och optimalt svar.<br /><br /> Den här parametern och [cc](#cc)-frågeparametern utesluter varandra&mdash;ange inte båda två. | String | Ja      |
@@ -401,4 +401,4 @@ Om bilden innehåller en känd enhet som en person, plats eller sak, kan en av t
 ## <a name="see-also"></a>Se också
 
 - [Vad är Bing Visual Search API?](../overview.md)
-- [Självstudier: Skapa en enda sida i Visual Search webbapp](../tutorial-bing-visual-search-single-page-app.md)
+- [Självstudie: Skapa en enda sida i Visual Search webbapp](../tutorial-bing-visual-search-single-page-app.md)

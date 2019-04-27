@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
 ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577401"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Växla över den fysiska StorSimple-enheten till samma enhet
 
@@ -32,7 +32,7 @@ Om du vill veta mer om redundansväxling av enhet och hur de används för att k
 Om du vill redundansväxla en fysisk enhet till en annan fysisk enhet går du till [Redundansväxla till samma fysiska StorSimple-enheten](storsimple-8000-device-failover-physical-device.md). Om du vill redundansväxla en fysisk StorSimple-enhet till en StorSimple-Molninstallation går du till [växla över till en StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Se till att du har granskat överväganden för redundansväxling av enhet. Mer information går du till [vanliga överväganden för redundansväxling av enhet](storsimple-8000-device-failover-disaster-recovery.md).
 

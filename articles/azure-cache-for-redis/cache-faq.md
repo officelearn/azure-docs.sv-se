@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552082"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Läs svaren på vanliga frågor, mönster och metodtips för Azure Cache för Redis.
@@ -133,13 +133,13 @@ Vi kan rita följande slutsatser från den här tabellen:
 * Med Redis-klustring, ökar dataflödet linjärt när du ökar antalet shards (noder) i klustret. Till exempel om du skapar ett P4-kluster med 10 shards kan det tillgängliga genomflödet är 400 000 * 10 = 4 miljoner RPS.
 * Dataflöde för större nyckelstorlekar är högre på Premium-nivån jämfört med Standard-nivån.
 
-| Prisnivå | Storlek | CPU-kärnor | Tillgänglig bandbredd | 1 KB storlek | 1 KB storlek |
+| Prisnivå | Storlek | Processorkärnor | Tillgänglig bandbredd | 1 KB storlek | 1 KB storlek |
 | --- | --- | --- | --- | --- | --- |
 | **Storlekar för standardcache** | | |**Megabit per sekund (Mbit/s) / megabyte per sekund (MBIT/s)** |**Begäranden per sekund (RPS) icke-SSL** |**Begäranden per sekund (RPS) SSL** |
-| C0 |250 MB |Delad |100 / 12.5 |15,000 |7,500 |
+| C0 |250 MB |Delad |100 / 12.5 |15 000 |7 500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
+| C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
 | C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
@@ -164,7 +164,7 @@ Azure Cache Redis priser är [här](https://azure.microsoft.com/pricing/details/
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Kan jag använda Azure Cache för Redis med Azure Government-molnet, Azure Kina-molnet eller Microsoft Azure Tyskland?
 Ja, Azure Cache för Redis är tillgängliga i Azure Government-molnet, Azure Kina-molnet och Microsoft Azure Tyskland. URL: er för att komma åt och hantera Azure Cache för Redis är olika i dessa moln jämfört med Azures offentliga moln. 
 
-| I molnet   | DNS-suffixet för Redis            |
+| Molnet   | DNS-suffixet för Redis            |
 |---------|---------------------------------|
 | Offentligt  | *.redis.cache.windows.net       |
 | USA-förvaltad region  | *.redis.cache.usgovcloudapi.net |

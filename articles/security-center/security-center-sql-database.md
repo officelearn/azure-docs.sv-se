@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704619"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center och Azure SQL Database-tjänsten
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
@@ -36,7 +36,7 @@ Security Center hjälper dig att skydda data i SQL-databas genom att tillhandah�
 
 Utöver att skydda din SQL Database-resurser, tillhandahåller även Security Center säkerhetsövervakning och hantering för Azure-datorer, molntjänster, App Services, virtuella nätverk med mera. Läs mer om Security Center [här](security-center-intro.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Den kostnadsfria nivån av Security Center aktiveras med din prenumeration. Läs mer på Security Centers kostnadsfria nivån och standardnivån, [Security Center-prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
 Security Center stöder rollbaserad åtkomst. Mer information om rollbaserad åtkomstkontroll (RBAC) i Azure finns [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md). Security Center vanliga frågor och svar innehåller information om [hur behörigheter ska hanteras i Security Center](security-center-faq.md#permissions).

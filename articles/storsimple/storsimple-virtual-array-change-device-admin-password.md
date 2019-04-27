@@ -1,6 +1,6 @@
 ---
-title: Ändra virtuella StorSimple-matris enhetslösenord admin | Microsoft Docs
-description: Beskriver hur du använder Azure-portalen eller virtuella StorSimple-matris webbgränssnittet för att ändra enhetens administratörslösenord.
+title: Ändra lösenordet för StorSimple Virtual Array enhetsadministratörer | Microsoft Docs
+description: Beskriver hur du använder Azure portal eller StorSimple Virtual Array webbgränssnittet för att ändra enhetens administratörslösenord.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,68 +15,68 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 260a23003d705e6598da8c51bb5a96f2539a0014
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5308badf439254062a8aefca1840eb21bc234ace
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60580410"
 ---
-# <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Ändra virtuella StorSimple-matris enhetens administratörslösenord via StorSimple Enhetshanteraren
+# <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Ändra administratörslösenordet för StorSimple Virtual Array enheter via StorSimple Device Manager
 
 ## <a name="overview"></a>Översikt
 
-När du använder Windows PowerShell-gränssnittet för att få åtkomst till den virtuella StorSimple-matris, måste du ange ett administratörslösenord för enheten. När StorSimple-enheten först etablerats och igång, standardlösenordet är *Password1*. För att skydda dina data, standardlösenordet upphör att gälla för första gången du loggar in och du måste ändra lösenordet.
+När du använder Windows PowerShell-gränssnittet för att få åtkomst till StorSimple Virtual Array kan behöver du ange ett administratörslösenord för enheten. När StorSimple-enheten etablerats först och igång, standardlösenordet är *Password1*. För att skydda dina data, standardlösenordet upphör att gälla den första gången du loggar in och du måste ändra lösenordet.
 
-Du kan också använda lokala webbgränssnittet eller Azure-portalen för att ändra enhetens administratörslösenord när som helst efter att enheten har distribuerats i produktionsmiljön. Var och en av de här procedurerna beskrivs i den här artikeln.
+Du kan också använda det lokala webbgränssnittet eller Azure-portalen för att ändra enhetens administratörslösenord när som helst efter att enheten har distribuerats i produktionsmiljön. Var och en av de här procedurerna beskrivs i den här artikeln.
 
- ![Bladet för enheter](./media/storsimple-virtual-array-change-device-admin-password/ova-devices-blade.png)
+ ![Enhetsbladet](./media/storsimple-virtual-array-change-device-admin-password/ova-devices-blade.png)
 
-## <a name="use-the-azure-portal-to-change-the-password"></a>Använda Azure portal för att ändra lösenordet
+## <a name="use-the-azure-portal-to-change-the-password"></a>Använd Azure portal för att ändra lösenordet
 
-Utför följande steg om du vill ändra enhetens administratörslösenord via Azure-portalen.
+Utför följande steg om du vill ändra enhetens administratörslösenord via Azure portal.
 
 #### <a name="to-change-the-device-administrator-password-via-the-azure-portal"></a>Ändra enhetens administratörslösenord via Azure portal
 
-1. Markera din tjänst på Landningssida för tjänsten, dubbelklickar du på tjänstens namn och sedan inom den **Management** klickar du på **enheter**. Då öppnas den **enheter** blad som visar en lista över alla virtuella StorSimple-matris-enheter.
+1. Välj din tjänst på landningssidan för tjänsten, dubbelklickar du på namnet på tjänsten och sedan inom den **Management** klickar du på **enheter**. Då öppnas det **enheter** blad som visar en lista över alla StorSimple Virtual Array-enheter.
 
-2. I den **enheter** bladet dubbelklickar du på enheten som kräver en ändring av lösenord.
+2. I den **enheter** bladet dubbelklickar du på den enhet som kräver en ändring av lösenord.
 
-3. I den **inställningar** bladet för din enhet klickar du på **säkerhet**.
+3. I den **inställningar** bladet för din enhet klickar du på **Security**.
 
 4. I den **säkerhetsinställningar** bladet gör du följande:
    
-   1. Rulla ned till den **administratörslösenordet för enheten** avsnitt. Ange ett administratörslösenord som innehåller mellan 8 och 15 tecken.
+   1. Rulla ned till den **administratörslösenordet för enheten** avsnittet. Ange ett administratörslösenord som innehåller mellan 8 och 15 tecken.
    2. Bekräfta lösenordet.
-   3. Klicka på **spara** längst upp på bladet.
+   3. Klicka på **Spara** överst på bladet.
 
-Administratörslösenord för enheten har uppdaterats. Du kan använda den här ändrade lösenord för att komma åt enheten lokalt.
+Administratörslösenord för enheten har uppdaterats. Du kan använda den här ändrade lösenord för att hantera enheten lokalt.
 
-![Säkerhet inställningsbladet](./media/storsimple-virtual-array-change-device-admin-password/ova-change-device-pwd.png)
+![Bladet med inställningar för säkerhet](./media/storsimple-virtual-array-change-device-admin-password/ova-change-device-pwd.png)
 
-## <a name="use-the-local-web-ui-to-change-the-password"></a>Använda lokala webbgränssnittet för att ändra lösenordet
+## <a name="use-the-local-web-ui-to-change-the-password"></a>Använd det lokala webbgränssnittet för att ändra lösenordet
 
-Utför följande steg om du vill ändra enhetens administratörslösenord via lokala webbgränssnittet.
+Utför följande steg om du vill ändra enhetens administratörslösenord via det lokala webbgränssnittet.
 
-#### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Ändra enhetens administratörslösenord via lokala webbgränssnittet
+#### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Ändra enhetens administratörslösenord via det lokala webbgränssnittet
 
-1. Klicka på det lokala webbgränssnittet **Underhåll** > **lösenordsändring** för din enhet.
+1. I det lokala webbgränssnittet klickar du på **Underhåll** > **lösenordsändring** för din enhet.
    
     ![Ändra password1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
 2. Ange den **nuvarande lösenord**.
-3. Ange en **nytt lösenord**. Lösenordet måste vara minst 8 tecken. Det måste innehålla 3 av 4 av följande: versaler, gemener, siffror och särskilda tecken.
+3. Ange en **nytt lösenord**. Lösenordet måste vara minst 8 tecken långt. Det måste innehålla 3 av 4 av följande: versaler, gemener, siffror och specialtecken.
    
     Observera att lösenordet inte får vara samma som de senaste 24 lösenord.
-4. Ange lösenordet för att bekräfta det. igen.
+4. Ange lösenordet igen för att bekräfta det.
    
     ![Ändra Lösenord2](./media/storsimple-virtual-array-change-device-admin-password/image41.png)
-5. Längst ned på sidan klickar du på **tillämpa**. Det nya lösenordet används nu. Om det inte lyckas ändra lösenordet, se följande fel:
+5. Längst ned på sidan klickar du på **tillämpa**. Det nya lösenordet används nu. Om det inte går att genomföra ändra lösenordet, se följande fel:
    
     ![felaktigt lösenord](./media/storsimple-virtual-array-change-device-admin-password/image42.png)
    
-    När lösenordet har uppdaterats, visas ett meddelande. Du kan sedan använda detta ändrade lösenord för att komma åt enheten lokalt.
+    När lösenordet har uppdaterats, du får ett meddelande. Du kan sedan använda den här ändrade lösenord för att hantera enheten lokalt.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [administrera din virtuella StorSimple-matris](storsimple-ova-web-ui-admin.md).
+Lär dig hur du [administrera StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

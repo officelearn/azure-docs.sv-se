@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
 ms.openlocfilehash: e4c4afefe7a4746f2d8138bde7fea152f228a8bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648890"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Använd SAP på Linux-datorer i Azure
 Cloud Computing är en välanvänd term som ökat i vikt inom IT-branschen, från småföretag upp till stora multinationella bolag. Microsoft Azure är Microsofts molntjänstplattform som erbjuder ett brett utbud av nya möjligheter. Kunder kan snabbt etablera och avetablera program som molntjänster så att de inte behöver hålla tillbaka på grund av tekniska eller budgetbegränsningar. Istället för att investera tid och budget i maskinvaruinfrastruktur, kan företag fokusera på programmet, verksamhetsprocesserna och dess fördelar för kunder och användare.

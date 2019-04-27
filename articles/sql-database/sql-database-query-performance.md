@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 5d892005881436dec89c0d0d010f7f02e7bdebf9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585374"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight för Azure SQL Database
 
@@ -33,7 +33,7 @@ Hantera och finjustera prestanda för relationsdatabaser tar expertis och tid. Q
 > [!TIP]
 > För grundläggande prestandaövervakning med Azure SQL Database, rekommenderar vi Query Performance Insight. Observera produkt-begränsningar som publicerats i den här artikeln. För avancerad övervakning av databasprestanda i stor skala, rekommenderar vi att [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md). Den har inbyggd intelligens för prestandafelsökning av automatiserade. För att automatiskt justera några av de vanligaste prestandaproblemen för databasen, rekommenderar vi [automatisk justering](sql-database-automatic-tuning.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Query Performance Insight kräver att [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) är aktiv på din databas. Den aktiveras automatiskt för alla Azure SQL-databaser som standard. Om Query Store inte körs, uppmanas du att aktivera det i Azure-portalen.
 

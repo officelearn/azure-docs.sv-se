@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 8aadddbc9ae13a87f89db4d7e7189ea7aa8aeef5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612035"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Säkerhetskrav för Azure IoT Edge
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller en översikt över IoT Edge security framework. M
 
 Standarder för enklare enkel granskning och genomförandet, som båda hallmarks säkerhet. En säkerhetslösning bör lånar ut sig själv till granskning under utvärderingen kan skapa förtroende och får inte vara ett gränsvärde till distribution. Utformning av framework att skydda Azure IoT Edge bygger på beprövade och beprövade security protokoll för kännedom om och återanvändning. 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 När du distribuerar en IoT-lösning som du behöver veta att endast betrodda aktörer, enheter och moduler har åtkomst till din lösning. Kunskapen erbjuder säker redovisningen för deltagare. Azure IoT Edge uppnår den här kunskapen via autentisering. Certifikatbaserad autentisering är den primära mekanismen för autentisering för Azure IoT Edge-plattformen. Den här mekanismen härleds från en uppsättning standarder för informationssäkerhet Public Key Infrastructure (PKiX) av Internet Engineering Task Force (IETF).     
 

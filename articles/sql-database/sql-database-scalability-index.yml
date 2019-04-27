@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7ee79da6219452ace4f7e71bd670de3cfdc968fb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232372"
 documentType: LandingData
 title: Azure SQL Database - skalbarhet
 metadata:
@@ -12,49 +6,49 @@ metadata:
   title: Azure SQL Database - skalbarhet
   meta.description: Learn how to scale your Azure SQL Database.
   services: sql-database
-  ms.subservice: scale-out
-  author: jovanpop-msft
-  manager: craigg
+  author: WenJason
+  manager: digimobile
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
-  ms.date: 01/25/2019
-  ms.author: jovanpop-msft
+  origin.date: 01/25/2019
+  ms.date: 02/25/2019
+  ms.author: v-jay
 sections:
-- items:
-  - type: paragraph
-    text: Azure SQL Database kan du enkelt skala du databas genom att lägga till mer datorkraft (skala upp) eller lägga till fler databasenheter för (skalbar).
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: Azure SQL Database kan du enkelt skala du databas genom att lägga till mer datorkraft (skala upp) eller lägga till fler databasenheter för (skalbar).
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Skala upp
+            href: /sql-database/sql-database-scale-resources
+            html: <p>Enkelt lägga till eller ta bort resurser i din SQL-databas för att hitta det bästa pris/prestanda-förhållandet eller minska prestandaproblem med.</p>
+          - title: Lässkalbarhet
+            href: /sql-database/sql-database-read-scale-out
+            html: '<p>Kritiska affärsnivå ger dig en av avgift replik av databasen som där du kan köra rapporter, analyser och andra skrivskyddade frågor på en kopia av data.</p>'
+          - title: Horisontell partitionering av databas
+            href: /sql-database/sql-database-elastic-scale-introduction
+            html: <p>Du kan använda flera databaser fragment för att skala ut databasen utöver maximal beräkningsresurser och gränser för enskilda databaser.</p>
+          - title: Elastiska frågor
+            href: /sql-database/sql-database-elastic-query-overview
+            html: <p>Elastiska frågor kan du köra standard Transact-SQL-frågor på en uppsättning av globalt distribuerade databasshards.</p>
+          - title: Elastiska transaktioner
+            href: /sql-database/sql-database-elastic-transactions-overview
+            html: <p>Använd globalt distribuerade transaktioner för att säkerställa transaktionellt konsekvent åtkomst till dina distribuerade data.</p>
+          - title: Jobb mellan databaser
+            href: /sql-database/elastic-jobs-overview
+            html: <p>Hantera en uppsättning databaser med elastiska jobb för mellan databaser.</p>
+  - title: Fler resurser
     items:
-    - title: Skala upp
-      href: /azure/sql-database/sql-database-scale-resources
-      html: <p>Enkelt lägga till eller ta bort resurser i din SQL-databas för att hitta det bästa pris/prestanda-förhållandet eller minska prestandaproblem med.</p>
-    - title: Lässkalbarhet
-      href: /azure/sql-database/sql-database-read-scale-out
-      html: <p>Kritiska affärsnivå ger dig en av avgift replik av databasen som där du kan köra rapporter, analyser och andra skrivskyddade frågor på en kopia av data.</p>
-    - title: Horisontell partitionering av databas
-      href: /azure/sql-database/sql-database-elastic-scale-introduction
-      html: <p>Du kan använda flera databaser fragment för att skala ut databasen utöver maximal beräkningsresurser och gränser för enskilda databaser.</p>
-    - title: Elastiska frågor
-      href: /azure/sql-database/sql-database-elastic-query-overview
-      html: <p>Elastiska frågor kan du köra standard Transact-SQL-frågor på en uppsättning av globalt distribuerade databasshards.</p>
-    - title: Elastiska transaktioner
-      href: /azure/sql-database/sql-database-elastic-transactions-overview
-      html: <p>Använd globalt distribuerade transaktioner för att säkerställa transaktionellt konsekvent åtkomst till dina distribuerade data.</p>
-    - title: Jobb mellan databaser
-      href: /azure/sql-database/elastic-jobs-overview
-      html: <p>Hantera en uppsättning databaser med elastiska jobb för mellan databaser.</p>
-- title: Fler resurser
-  items:
-  - type: paragraph
-    text: Läs mer om ytterligare funktioner som kan hjälpa dig att skala dina data.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Länkad server</a> är grundläggande SQL Server Database Engine-funktion som gör att du kan köra distribuerade frågor från Transact-SQL-kod till en annan databasmotorer.
-    - html: <a href="sql-database-geo-replication-overview.md">GEO-replikering</a> gör att du kan placera valfritt antal läsbara repliker i olika regioner.
+      - type: paragraph
+        text: Läs mer om ytterligare funktioner som kan hjälpa dig att skala dina data.
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Länkad server</a> är grundläggande SQL Server Database Engine-funktion som gör att du kan köra distribuerade frågor från Transact-SQL-kod till en annan databasmotorer.'
+          - html: <a href="sql-database-geo-replication-overview.md">GEO-replikering</a> gör att du kan placera valfritt antal läsbara repliker i olika regioner.

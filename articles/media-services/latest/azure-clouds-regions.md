@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
 ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733308"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Moln och regioner där Azure Media Services v3 finns
 
@@ -72,7 +72,7 @@ Följande slutpunkter är viktigt att veta när du ansluter till Media Services-
 |Slutpunkter ||
 | --- | --- | 
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Authentication | `https://login.microsoftonline.com/` | 
+| Autentisering | `https://login.microsoftonline.com/` | 
 | Tokenmålgruppen | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
@@ -80,7 +80,7 @@ Följande slutpunkter är viktigt att veta när du ansluter till Media Services-
 |Slutpunkter||
 | --- | --- | 
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Authentication | `https://login.microsoftonline.us/` | 
+| Autentisering | `https://login.microsoftonline.us/` | 
 | Tokenmålgruppen | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Tyskland
@@ -88,7 +88,7 @@ Följande slutpunkter är viktigt att veta när du ansluter till Media Services-
 | Slutpunkter ||
 | --- | --- |  
 | Azure Resource Manager | `https://management.cloudapi.de/` |
-| Authentication | `https://login.microsoftonline.de/` |
+| Autentisering | `https://login.microsoftonline.de/` |
 | Tokenmålgruppen | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure Kina 21Vianet
@@ -96,7 +96,7 @@ Följande slutpunkter är viktigt att veta när du ansluter till Media Services-
 |Slutpunkter||
 | --- | --- | 
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.chinacloudapi.cn/` |
+| Autentisering | `https://login.chinacloudapi.cn/` |
 | Tokenmålgruppen |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Nästa steg

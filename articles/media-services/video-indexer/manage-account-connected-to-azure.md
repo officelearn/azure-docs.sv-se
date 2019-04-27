@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 1515a026ae297a960f220a97449d2258c0b75e58
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553613"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Hantera en Video Indexer-konto som är ansluten till Azure
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du hanterar en Video Indexer-konto som är ansluten 
 > [!NOTE]
 > Du måste vara Kontoägare om Video Indexer och göra kontot konfigurationsjusteringar som beskrivs i det här avsnittet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Anslut ditt Video Indexer-konto till Azure, enligt beskrivningen i [är ansluten till Azure](connect-to-azure.md). 
 

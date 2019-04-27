@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 2/21/2019
 ms.author: rosh
 ms.openlocfilehash: 295c32c1e14dc6a69a37040f92d27a6862359228
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861360"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Snabbstart: Få Nyhetsresultat med hjälp av REST-API för Bing News Search och Go
 
 Den här snabbstarten använder språket Go för att anropa den nyhetssökning i Bing. Resultatet är namn och URL: er för nyhetskällor som identifieras av frågesträngen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * Installera den [gå binärfiler](https://golang.org/dl/)
 * Installera go-spew-biblioteket för den Fin skrivare om du vill visa resultat
     * Installera den här libarary: `$ go get -u https://github.com/davecgh/go-spew`

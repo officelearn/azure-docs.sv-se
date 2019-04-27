@@ -16,11 +16,11 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596677"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Skapa anpassade roller för Azure-resurser med hjälp av REST-API
 
@@ -54,7 +54,7 @@ Visa anpassade roller för ett omfång genom att använda den [rolldefinitioner 
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -78,7 +78,7 @@ Om du vill ha information om en anpassad roll efter dess visningsnamn kan använ
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -104,7 +104,7 @@ Om du vill ha information om en anpassad roll efter des unika identifierare kan 
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill visa en lista över rollerna.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -152,7 +152,7 @@ Du kan skapa en anpassad roll med den [rolldefinitioner – skapa eller uppdater
 
 1. I URI: N, Ersätt *{omfång}* med först `assignableScopes` av den anpassade rollen.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -217,7 +217,7 @@ Uppdatera en anpassad roll med den [rolldefinitioner – skapa eller uppdatera](
 
 1. I URI: N, Ersätt *{omfång}* med först `assignableScopes` av den anpassade rollen.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |
@@ -301,7 +301,7 @@ Ta bort en anpassad roll genom att använda den [rolldefinitioner – ta bort](/
 
 1. I URI: N, Ersätt *{omfång}* med den omfattning som du vill ta bort den anpassade rollen.
 
-    | Scope | Type |
+    | Scope | Typ |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Prenumeration |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resursgrupp |

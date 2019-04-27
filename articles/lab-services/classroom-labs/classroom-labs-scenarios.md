@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: spelluru
 ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695289"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Använda labb för klassrum för utbildningar
 Du kan ställa in ett labb för utbildningar. Klassrum Labs av Azure Lab Services kan du skapa ett labb för utbildning där varje praktikanten använder identiska och isolerade miljöer för utbildning. Du kan tillämpa principer för att säkerställa att utbildning miljöer är tillgängliga för varje ges endast när de behöver dem och innehåller tillräckligt med resurser – till exempel virtuella datorer – krävs för utbildning. 
@@ -55,4 +55,4 @@ En mall i ett labb är en basavbildning av en virtuell dator som alla användare
 En student eller utbildning deltagare registrerar till labbet och ansluter till den virtuella datorn ska göra övningarna för kursen. Mer information finns i [hur du kommer åt ett klassrumslabb](how-to-use-classroom-lab.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Börja med att skapa ett labbkonto i klassrum Labs genom att följa instruktionerna i artikeln: [Självstudier: Konfigurera ett labbkonto med Azure Lab Services](tutorial-setup-lab-account.md).
+Börja med att skapa ett labbkonto i klassrum Labs genom att följa instruktionerna i artikeln: [Självstudie: Konfigurera ett labbkonto med Azure Lab Services](tutorial-setup-lab-account.md).

@@ -11,11 +11,11 @@ ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
 ms.openlocfilehash: 95e984f6f08af01a2ffd7b9b4e0ec598d73f4d05
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595108"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen på Windows
 
@@ -37,7 +37,7 @@ Den här artikeln visar hur du installerar Azure IoT Edge-körningen på din Win
 
 Med Linux är-behållare på Windows-system inte en rekommenderad eller stöds produktionskonfiguration för Azure IoT Edge. Det kan dock användas för utveckling och testning. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Använd det här avsnittet för att granska om din Windows-enhet kan ha stöd för IoT Edge och förbereda den för en motor för behållaren före installationen. 
 

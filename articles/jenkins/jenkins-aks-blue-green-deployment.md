@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
 ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60642132"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön
 
@@ -30,7 +30,7 @@ I den här självstudien utför du följande åtgärder:
 > * Konfigurera ett Kubernetes-kluster manuellt
 > * Skapa och kör ett Jenkins-jobb
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 - [GitHub-konto](https://github.com) : Du behöver ett GitHub-konto för att klona exempellagringsplatsen.
 - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : Du använder Azure CLI 2.0 för att skapa Kubernetes-klustret.
 - [Chocolatey](https://chocolatey.org): En pakethanterare som du använder för att installera kubectl.

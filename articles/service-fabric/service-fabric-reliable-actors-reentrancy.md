@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 46682787bac2d60d188384a4078ca2fa1f46ae7a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725422"
 ---
 # <a name="reliable-actors-reentrancy"></a>Återinträde av Reliable Actors
 Reliable Actors-runtime tillåter som standard logiska anrop kontext-baserade återinträde. Det möjliggör aktörer vara fleraktivt om de finns i samma anropskedja för kontexten. Till exempel skickar aktör A ett meddelande till aktören B, som skickar ett meddelande till aktören C. Som en del av meddelandebehandling, om aktören C anropar aktören A, är meddelandet fleraktivt, så kommer att tillåtas. Andra meddelanden som ingår i ett annat sammanhang blockeras på aktören A tills processen avslutas.

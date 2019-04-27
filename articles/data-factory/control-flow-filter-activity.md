@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
 ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021840"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554855"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrera aktiviteten i Azure Data Factory
 Du kan använda aktiviteten Filter i en pipeline för att tillämpa ett filteruttryck till en matris som indata. 
@@ -37,12 +37,12 @@ Du kan använda aktiviteten Filter i en pipeline för att tillämpa ett filterut
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Krävs
+Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
-name | Namnet på den `Filter` aktivitet. | Sträng | Ja
-type | Måste vara inställt på **filter**. | Sträng | Ja
-condition | Villkor som ska användas för filtrering av indata. | Uttryck | Ja
-items | Indatamatrisen som filtret ska tillämpas. | Uttryck | Ja
+namn | Namnet på den `Filter` aktivitet. | String | Ja
+typ | Måste vara inställt på **filter**. | String | Ja
+villkor | Villkor som ska användas för filtrering av indata. | Uttryck | Ja
+objekt | Indatamatrisen som filtret ska tillämpas. | Uttryck | Ja
 
 ## <a name="example"></a>Exempel
 

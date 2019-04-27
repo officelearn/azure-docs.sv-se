@@ -1,6 +1,6 @@
 ---
-title: Förstå hur du skapar UI definition för Azure hanterade program | Microsoft Docs
-description: Beskriver hur du skapar UI definitioner för hanterade program i Azure
+title: Förstå skapar användargränssnitt definition för Azure hanterade program | Microsoft Docs
+description: Beskriver hur du skapar definitioner för användargränssnitt för Azure Managed Applications
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 59003e71324f5342cb2b724f670603fd6b67afe4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587758"
 ---
-# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Skapa Azure portal användargränssnittet för det hanterade programmet
-Det här dokumentet introducerar grundbegrepp i filen createUiDefinition.json. Azure-portalen använder den här filen för att generera användargränssnittet för att skapa en hanterad App.
+# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Skapa Azure portalens användargränssnitt för det hanterade programmet
+Det här dokumentet introducerar grundkoncepten i filen createUiDefinition.json. Azure-portalen använder den här filen för att generera användargränssnittet för att skapa ett hanterat program.
 
 ```json
 {
@@ -38,28 +38,28 @@ Det här dokumentet introducerar grundbegrepp i filen createUiDefinition.json. A
 
 En CreateUiDefinition innehåller alltid tre egenskaper: 
 
-* hanterare
+* Hanterare
 * version
 * parameters
 
-För hanterade program hanterare ska alltid vara `Microsoft.Compute.MultiVm`, och den senaste versionen är `0.1.2-preview`.
+För hanterade program, hanterare ska alltid vara `Microsoft.Compute.MultiVm`, och den senaste versionen är `0.1.2-preview`.
 
-Schemat för egenskapen parameters är beroende av en kombination av den angivna hanteraren och version. För hanterade program egenskaperna som stöds är `basics`, `steps`, och `outputs`. Grunderna och steg egenskaper innehåller den _element_ - som textrutor och nedrullningsbara listorna - ska visas i Azure-portalen. Egenskapen utdata används för att mappa utdatavärden för de angivna elementen till parametrarna i mallen för distribution av Azure Resource Manager.
+Schemat för egenskapen parameters är beroende av en kombination av den angivna hanteraren och version. För hanterade program, egenskaper som stöds är `basics`, `steps`, och `outputs`. Egenskaperna grunderna och steg innehålla den _element_ - som textrutor och listrutor – som ska visas i Azure-portalen. Utdata-egenskapen används för att mappa utdata värdena för de angivna elementen till parametrarna i mallen för distribution av Azure Resource Manager.
 
-Inklusive `$schema` rekommenderade, men är valfritt. Om värdet för `version` måste matcha versionen i den `$schema` URI.
+Inklusive `$schema` rekommenderas, men är valfritt. Om anges värdet för `version` måste matcha versionen inom den `$schema` URI.
 
 ## <a name="basics"></a>Grundläggande inställningar
-Steget grunderna är alltid det första steget i guiden skapas när Azure-portalen Parsar filen. Förutom att visa de element som anges i `basics`, portalen lägger in element för användare att välja den prenumeration, resursgrupp och plats för distributionen. I allmänhet ska element som frågar efter distributionen hela parametrar som namnet på ett kluster eller administratör autentiseringsuppgifter gå i det här steget.
+Grunderna i steget är alltid det första steget i guiden som skapades när Azure-portalen Parsar filen. Förutom att visa de element som anges i `basics`, portalen lägger in element för användare att välja den prenumeration, resursgrupp och plats för distributionen. I allmänhet ska element som frågar efter distribution hela parametrar, t.ex namnet på ett kluster eller administratör autentiseringsuppgifter placeras i det här steget.
 
-Om ett element beteende beror på användarens prenumeration, resursgrupp eller plats, kan elementet inte användas i grunderna. Till exempel **Microsoft.Compute.SizeSelector** beror på användarens prenumeration och plats för att fastställa listan med tillgängliga storlekar. Därför **Microsoft.Compute.SizeSelector** kan bara användas i steg. I allmänhet endast element i den **Microsoft.Common** namnområde kan användas i grunderna. Även om vissa element i andra namnområden (t.ex. **Microsoft.Compute.Credentials**) som inte är beroende av användarens kontext, fortfarande är tillåtna.
+Om ett element beteende beror på användarens prenumeration, resursgrupp eller plats, kan elementet inte användas i grunderna. Till exempel **Microsoft.Compute.SizeSelector** beror på användarens prenumeration och plats för att fastställa listan med tillgängliga storlekar. Därför **Microsoft.Compute.SizeSelector** kan bara användas i steg. I allmänhet bör endast element i den **Microsoft.Common** namnområde kan användas i grunderna. Även om vissa element i andra namnområden (t.ex. **Microsoft.Compute.Credentials**) som inte beror på användarens kontext, fortfarande är tillåtna.
 
 ## <a name="steps"></a>Steg
-Egenskapen steg kan innehålla noll eller flera ytterligare steg för att visa efter grunderna, som innehåller ett eller flera element. Överväg att lägga till steg per roll- eller nivå för det program som distribueras. Lägg exempelvis till ett steg för indata för de överordnade noderna och ett steg för arbetarnoder i ett kluster.
+Egenskapen stegen kan innehålla noll eller flera ytterligare åtgärder för att visa efter grunderna, vart och ett innehåller ett eller flera element. Överväg att lägga till steg per roll eller nivå av programmet som ska distribueras. Lägg exempelvis till ett steg för indata för de överordnade noderna och ett steg för arbetsnoderna i ett kluster.
 
 ## <a name="outputs"></a>Utdata
-Azure-portalen använder den `outputs` egenskap som ska mappas element från `basics` och `steps` till parametrar i mallen för distribution av Azure Resource Manager. Nycklar för den här ordlistan är namnen i mallparametrarna och värdena är egenskaper för utdata-objekt från de refererade element.
+Azure-portalen använder den `outputs` egenskapen att mappa element från `basics` och `steps` till parametrarna för distributionsmallen Azure Resource Manager. Nycklarna för den här ordlistan är namnen på mallparametrarna och värdena är egenskaper för utdata-objekt från de refererade elementen.
 
-Om du vill ange resursnamnet hanterade program, måste du inkludera ett värde med namnet `applicationResourceName` i egenskapen utdata. Om du inte anger det här värdet tilldelas ett GUID för namnet. Du kan inkludera en textruta i användargränssnittet som begär ett namn för användaren.
+Om du vill ange resursnamnet hanterat program, måste du inkludera ett värde med namnet `applicationResourceName` i egenskapen utdata. Om du inte anger det här värdet tilldelas ett GUID för namnet. Du kan inkludera en textruta i användargränssnittet som du begär ett namn från användaren.
 
 ```json
 "outputs": {
@@ -72,10 +72,10 @@ Om du vill ange resursnamnet hanterade program, måste du inkludera ett värde m
 ```
 
 ## <a name="functions"></a>Functions
-Liksom Mallfunktioner i Azure Resource Manager (både i syntax och funktioner), CreateUiDefinition tillhandahåller funktioner för att arbeta med elementens indata och utdata, samt funktioner, till exempel villkorlig sats.
+Liksom Mallfunktioner i Azure Resource Manager (både i syntax och funktioner), CreateUiDefinition tillhandahåller funktioner för att arbeta med elementens indata och utdata, samt funktioner, till exempel Conditions.
 
 ## <a name="next-steps"></a>Nästa steg
-Filen createUiDefinition.json har ett enkelt schema. Den verkliga djup kommer från alla element som stöds och funktioner. Dessa objekt beskrivs i detalj på:
+CreateUiDefinition.json själva filen om du har ett enkelt schema. Det verkliga djupet på det kommer från alla element som stöds och funktioner. Dessa objekt beskrivs i detalj på:
 
 - [Element](create-uidefinition-elements.md)
 - [Funktioner](create-uidefinition-functions.md)

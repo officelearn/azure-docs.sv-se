@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587650"
 ---
 # <a name="azure-database-security-overview"></a>Översikt över Azure database-säkerhet
 
@@ -110,7 +110,7 @@ Dataskydd börjar med att styra åtkomst till dina data. Datacentret som är vä
 
 Azure SQL Database-tjänsten är bara tillgänglig via TCP-port 1433. Se till att klientdatorns brandvägg tillåter utgående TCP-kommunikation på TCP-port 1433 för att komma åt en SQL-databas från datorn. Om inkommande anslutningar inte krävs för andra program, blockera dem på TCP-port 1433.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Autentisering
 
 Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. SQL Database stöder två typer av autentisering:
 
@@ -188,7 +188,7 @@ Det finns två metoder för granskning:
 SQL avancerade Threat Protection (ATP) tillhandahåller en uppsättning avancerade funktioner för SQL security, inklusive Dataidentifiering och klassificering, Sårbarhetsbedömning och Hotidentifiering. 
 
 - [Dataidentifiering och klassificering](../sql-database/sql-database-data-discovery-and-classification.md)
-- [Utvärdering av säkerhetsrisker](../sql-database/sql-vulnerability-assessment.md)  
+- [Sårbarhetsbedömning](../sql-database/sql-vulnerability-assessment.md)  
 - [Hotidentifiering](../sql-database/sql-database-threat-detection.md)
 
 [Azure Database for PostgreSQL Advanced Threat Protection](../postgresql/concepts-data-access-and-security-threat-protection.md) ger ett nytt lager av säkerhet som gör det möjligt att upptäcka och svara på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar om avvikande aktiviteter. Användarna får en avisering när misstänkta databasaktiviteter, potentiella sårbarheter, samt och avvikande mönster för åtkomst och frågor. Avancerat skydd för Azure Database for PostgreSQL integrerar aviseringar med Azure Security Center. Typ av aviseringar är:

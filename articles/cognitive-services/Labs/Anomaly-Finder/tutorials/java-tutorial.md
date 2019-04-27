@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
 ms.openlocfilehash: ba66c96f9129b253fc5897c3a2eaaefb53056cea
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709911"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>Självstudier: Avvikelseidentifiering med Java-program
 
@@ -24,7 +24,7 @@ ms.locfileid: "57548736"
 Den här artikeln visar hur du använder ett enkelt Java-program för att anropa API:et för avvikelseidentifiering.  
 I exemplet skickas tidsseriedata till API:et för avvikelseidentifiering tillsammans med din prenumerationsnyckel, och därefter hämtas alla avvikelsepunkter och det förväntade värdet för varje datapunkt från API:et.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="platform-requirements"></a>Plattformskrav
 

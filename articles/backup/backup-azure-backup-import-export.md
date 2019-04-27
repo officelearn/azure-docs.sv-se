@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
 ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648422"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att överföra offline säkerhetskopierade data till Azure.
@@ -43,7 +43,7 @@ Följande funktioner i Azure Backup eller arbetsbelastningar som stöd för anv�
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
   > [!NOTE]
   > Följande nödvändiga komponenter och arbetsflöde gäller endast för offlinesäkerhetskopiering av filer och mappar med hjälp av den [senaste MARS-agenten](https://aka.ms/azurebackup_agent). Om du vill utföra offlinesäkerhetskopieringar för arbetsbelastningar med System Center DPM eller Azure Backup Server, som avser [i den här artikeln](backup-azure-backup-server-import-export-.md). 
@@ -175,7 +175,7 @@ Följande procedur uppdaterar Azure Import-jobbinformation endash. Denna informa
 5. När du har Spårningsnumret från din transportföretag, klicka på banderollen på översiktssidan för Azure Import-jobb och ange följande information:
 
    > [!IMPORTANT] 
-   > Se till att informationen som operatör och spårningsnummer uppdateras inom två veckor efter jobbskapande för Azure import. Det gick inte att verifiera den här informationen inom två veckor kan resultera i jobbet tas bort och enheter som inte bearbetas.
+   > Se till att informationen som operatör och spårningsnummer uppdateras inom två veckor efter det att importjobb skapats i Azure. Det gick inte att verifiera den här informationen inom två veckor kan resultera i jobbet tas bort och enheter som inte bearbetas.
 
    ![Lagra leveransinformation](./media/backup-azure-backup-import-export/joboverview.png)<br/>
 

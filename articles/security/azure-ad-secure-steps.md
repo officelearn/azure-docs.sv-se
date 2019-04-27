@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
 ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587871"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din infrastruktur för Identitetshantering
 
@@ -36,7 +36,7 @@ Den här checklistan hjälper dig att snabbt distribuera kritiska rekommenderade
 
 Rekommendationerna i det här dokumentet ligger i linje med de [identitet skyddar Score](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), en automatiserad bedömning av din Azure AD-klient identitet säkerhetskonfiguration. Organisationer kan använda sidan identitet skyddar Score i Azure AD-portalen för att hitta luckor i deras aktuella säkerhetskonfiguration att se till att de följer aktuella Metodtips för säkerhet. Implementera varje rekommendation på sidan skyddar Score förbättra resultatet och gör att du kan följa dina framgångar och hjälper dig att jämföra implementeringen mot andra liknande storlek organisationer eller din bransch.
 
-![Säker identitets-poäng](media/azure-ad/azure-ad-sec-steps0.png)
+![Identitetsäkerhetspoäng](media/azure-ad/azure-ad-sec-steps0.png)
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Innan du börjar: Skydda Privilegierade konton med MFA
 

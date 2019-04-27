@@ -10,11 +10,11 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: d0107e09bf8706ba7d4c813814103ca109262d8d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641185"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(INAKTUELL) Distribuera och använda Azure Container Registry
 
@@ -74,7 +74,7 @@ Om du vill se en lista med aktuella avbildningar använder du kommandot [docker 
 docker images
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -103,7 +103,7 @@ När taggningen har gjorts kör du [docker-avbildningar](https://docs.docker.com
 docker images
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
@@ -133,7 +133,7 @@ Du kan returnera en lista med avbildningar som push-överförts till Azure-conta
 az acr repository list --name <acrName> --output table
 ```
 
-Resultat:
+Utdata:
 
 ```azurecli
 Result
@@ -147,7 +147,7 @@ Om du sedan vill se taggarna för en viss avbildning använder du kommandot [az 
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Resultat:
+Utdata:
 
 ```azurecli
 Result

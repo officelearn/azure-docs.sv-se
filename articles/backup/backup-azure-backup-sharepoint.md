@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 7e8043badbc0accd38ad618a7d455729ab6606b2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60644343"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopiera en SharePoint-servergrupp till Microsoft Azure med hjälp av System Center Data Protection Manager (DPM) på samma sätt som du säkerhetskopiera andra datakällor. Azure Backup erbjuder flexibilitet i schemat för säkerhetskopiering så att dagligen, varje vecka, månad eller årlig säkerhetskopiering pekar och ger dig alternativ för kvarhållning för olika säkerhetskopieringspunkter. DPM ger möjlighet att lagra kopior av lokal disk för snabb återställning-återställningstiden (RTO) och för att lagra kopior till Azure för mer ekonomiskt, långsiktig kvarhållning.
@@ -28,7 +28,7 @@ Azure Backup för DPM har stöd för följande scenarier:
 ## <a name="before-you-start"></a>Innan du börjar
 Det finns några saker du behöver för att bekräfta innan du säkerhetskopierar en SharePoint-servergrupp till Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du fortsätter, kontrollera att du uppfyller alla de [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) att skydda arbetsbelastningar. Vissa krav kan till exempel: skapa ett säkerhetskopieringsvalv, ladda ned valvautentiseringsuppgifter, installera Azure Backup-agenten och registrera DPM-/ Azure Backup Server med valvet.
 
 ### <a name="dpm-agent"></a>DPM-agenten

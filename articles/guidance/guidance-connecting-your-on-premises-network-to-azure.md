@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 08/25/2016
 ms.author: cherylmc
 ms.openlocfilehash: 9361c0b2ee84d7459bd432f5a8ce13fc5fd85ef8
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "23851017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583544"
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Ansluta ditt lokala nätverk till Azure
 Microsoft tillhandahåller flera typer av molntjänster. Du kan ansluta till alla tjänster via det offentliga Internet, kan du också ansluta till de tjänster som använder ett virtuellt privat nätverk (VPN)-tunnel via Internet eller via en direkt, privat anslutning till Microsoft. Den här artikeln hjälper dig att avgöra vilka anslutningsalternativet kommer efter behov baserat på typerna av Microsofts molntjänster som du förbrukar. De flesta organisationer använder flera anslutningstyper som beskrivs nedan.

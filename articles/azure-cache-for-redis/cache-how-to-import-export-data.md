@@ -12,14 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
-ms.author: yegu
+origin.date: 07/31/2017
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542343"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importera och exportera data i Azure Cache för Redis
 Import/Export är en Azure-Cache för Redis data management-åtgärd, där du kan importera data till Azure Cache för Redis eller exportera data från Azure Cache för Redis genom att importera och exportera en Azure-Cache för Redis-databasen (RDB) ögonblicksbild från en premium-cache för en BLOB i ett Azure Storage-konto. 
@@ -99,16 +100,16 @@ Exportera kan du exportera de data som lagras i Azure Cache för Redis Redis kom
 ## <a name="importexport-faq"></a>Import/Export vanliga frågor och svar
 Det här avsnittet innehåller vanliga frågor och svar om Import/Export-funktionen.
 
-* [Vilka priser nivåerna kan du använda Import/Export?](#what-pricing-tiers-can-use-importexport)
-* [Kan jag importera data från en Redis-server?](#can-i-import-data-from-any-redis-server)
-* [Vilka RDB-versioner kan jag importera?](#what-rdb-versions-can-i-import)
-* [Är Mina cache tillgänglig under en Import/Export?](#is-my-cache-available-during-an-importexport-operation)
-* [Kan jag använda Import/Export med Redis-kluster?](#can-i-use-importexport-with-redis-cluster)
-* [Hur fungerar Import/Export med en anpassad databaser inställningen?](#how-does-importexport-work-with-a-custom-databases-setting)
-* [Hur skiljer sig Import/Export från Redis-persistens?](#how-is-importexport-different-from-redis-persistence)
-* [Kan jag automatisera Import/Export med PowerShell, CLI eller andra hanteringsklienter?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-* [Jag har fått ett timeout-fel under min Import/Export-åtgärden. Vad betyder det?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
-* [Jag får ett felmeddelande när du exporterar data till Azure Blob Storage. Vad hände?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
+- [Vilka priser nivåerna kan du använda Import/Export?](#what-pricing-tiers-can-use-importexport)
+- [Kan jag importera data från en Redis-server?](#can-i-import-data-from-any-redis-server)
+- [Vilka RDB-versioner kan jag importera?](#what-rdb-versions-can-i-import)
+- [Är Mina cache tillgänglig under en Import/Export?](#is-my-cache-available-during-an-importexport-operation)
+- [Kan jag använda Import/Export med Redis-kluster?](#can-i-use-importexport-with-redis-cluster)
+- [Hur fungerar Import/Export med en anpassad databaser inställningen?](#how-does-importexport-work-with-a-custom-databases-setting)
+- [Hur skiljer sig Import/Export från Redis-persistens?](#how-is-importexport-different-from-redis-persistence)
+- [Kan jag automatisera Import/Export med PowerShell, CLI eller andra hanteringsklienter?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
+- [Jag har fått ett timeout-fel under min Import/Export-åtgärden. Vad betyder det?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+- [Jag får ett felmeddelande när du exporterar data till Azure Blob Storage. Vad hände?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>Vilka priser nivåerna kan du använda Import/Export?
 Import/Export är endast tillgängliga i premiumprisnivån.
@@ -126,8 +127,8 @@ Ja, förutom att importera data från Azure Cache för Redis-instanser, du kan i
 Azure Redis-Cache stöder RDB-import upp via RDB version 7.
 
 ### <a name="is-my-cache-available-during-an-importexport-operation"></a>Är Mina cache tillgänglig under en Import/Export?
-* **Exportera** – cacheminnen är tillgängliga och du kan fortsätta att använda din cache när du exporterar.
-* **Importera** – cacheminnen blir inte tillgänglig när en importåtgärden startas och blir tillgängliga för användning när importen är klar.
+- **Exportera** – cacheminnen är tillgängliga och du kan fortsätta att använda din cache när du exporterar.
+- **Importera** – cacheminnen blir inte tillgänglig när en importåtgärden startas och blir tillgängliga för användning när importen är klar.
 
 ### <a name="can-i-use-importexport-with-redis-cluster"></a>Kan jag använda Import/Export med Redis-kluster?
 Ja, och du kan importera/exportera mellan en klustrad cache och ett icke-klustrade cacheminne. Sedan Redis-kluster [endast har stöd för databasen 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), inte importera alla data i databaser än 0. När klustrade cachelagrade data importeras om nycklarna mellan shards i klustret.
@@ -135,10 +136,10 @@ Ja, och du kan importera/exportera mellan en klustrad cache och ett icke-klustra
 ### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>Hur fungerar Import/Export med en anpassad databaser inställningen?
 Vissa prisnivåer har olika [databaser gränser](cache-configure.md#databases), så det finns några överväganden när du importerar om du har konfigurerat ett anpassat värde för den `databases` konfigurera under Skapa cache.
 
-* När du importerar till en prisnivå med ett lägre `databases` gränsen än den nivå som du exporterade:
-  * Om du använder standardantalet `databases`, vilket är 16 för alla prisnivåer, ingen data går förlorad.
-  * Om du använder en anpassad antalet `databases` som är inom gränserna för nivån som du importerar, ingen data går förlorad.
-  * Om din exporterade data innehöll data i en databas som har överskridit gränserna för den nya nivån, importeras inte data från de högre databaserna.
+- När du importerar till en prisnivå med ett lägre `databases` gränsen än den nivå som du exporterade:
+  - Om du använder standardantalet `databases`, vilket är 16 för alla prisnivåer, ingen data går förlorad.
+  - Om du använder en anpassad antalet `databases` som är inom gränserna för nivån som du importerar, ingen data går förlorad.
+  - Om din exporterade data innehöll data i en databas som har överskridit gränserna för den nya nivån, importeras inte data från de högre databaserna.
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>Hur skiljer sig Import/Export från Redis-persistens?
 Azure Cache för Redis-persistens gör att du kan bevara data lagrade i Redis till Azure Storage. När persistence konfigureras, kvarstår Azure Cache för en ögonblicksbild av Azure Cache för Redis i ett Redis-binärformat till disk utifrån en konfigurerbar säkerhetskopieringsfrekvens. Om ett allvarligt fel inträffar som inaktiverar både den primära servern och repliken cache, återställs cachelagrade data automatiskt med den senaste ögonblicksbilden. Mer information finns i [hur du konfigurerar datapersistence för Premium Azure Cache för Redis](cache-how-to-premium-persistence.md).
@@ -161,7 +162,7 @@ Export fungerar bara med RDB-filer som lagras som sidblobar. Andra blobtyper st�
 ## <a name="next-steps"></a>Nästa steg
 Lär dig hur du använder mer premiumfunktioner för cache.
 
-* [Introduktion till Azure Cache Redis Premium-nivån](cache-premium-tier-intro.md)    
+- [Introduktion till Azure Cache Redis Premium-nivån](cache-premium-tier-intro.md)    
 
 <!-- IMAGES -->
 [cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
@@ -176,3 +177,6 @@ Lär dig hur du använder mer premiumfunktioner för cache.
 [cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
+
+
+<!-- Update_Description: update metedata properties -->

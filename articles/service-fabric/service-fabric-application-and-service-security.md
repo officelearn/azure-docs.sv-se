@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
 ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621574"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-program- och Tjänstsäkerhet
 En arkitektur för mikrotjänster kan ge [många fördelar](service-fabric-overview-microservices.md). Hantering av säkerhet för mikrotjänster, men är en utmaning och skiljer sig från traditionella oflexibla tillämpningar säkerhetshantering. 
@@ -31,7 +31,7 @@ Den här artikeln är inte en guide till mikrotjänster security, det finns mån
 ## <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 Det krävs ofta för resurser och API: er visas av en tjänst ska begränsas till vissa betrodda användare eller klienter. Autentisering är processen för att på ett tillförlitligt sätt fastställa användarens identitet.  Auktorisering är den process som gör API: er eller tjänster tillgängliga för några autentiserad användare, men inte för andra.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 Det första steget att göra API-nivå förtroendebeslut är autentisering. Autentisering är processen för att på ett tillförlitligt sätt fastställa användarens identitet.  I scenarier för mikrotjänster hanteras autentisering vanligtvis centralt. Om du använder en API-Gateway, kan du [avlasta autentisering](/azure/architecture/patterns/gateway-offloading) till gatewayen. Om du använder den här metoden kan du se till att enskilda tjänster inte kan nås direkt (utan API-Gateway), såvida inte ytterligare säkerhet är på plats för att autentisera meddelanden om de kommer från gatewayen och eller inte.
 
 Om tjänster kan nås direkt är en autentiseringstjänst som Azure Active Directory eller en dedikerad autentisering mikrotjänst som fungerar som en säkerhets-och säkerhetstokentjänst (STS) som kan användas för att autentisera användare. Lita på beslut som delas mellan tjänster med säkerhetstoken eller cookies. 

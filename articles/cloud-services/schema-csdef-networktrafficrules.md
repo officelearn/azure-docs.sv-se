@@ -14,11 +14,11 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821702"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613886"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services Definition NetworkTrafficRules Schema
 Den `NetworkTrafficRules` nod är ett valfritt element i tjänstdefinitionsfilen som anger hur roller kommunicerar med varandra. Det begränsar vilka roller som kan komma åt interna slutpunkterna för den specifika-rollen. Den `NetworkTrafficRules` är inte ett fristående element; den kombineras med två eller flera roller i en tjänstdefinitionsfilen.
@@ -76,7 +76,7 @@ Den `Destinations` element beskriver en uppsättning RoleEndpoints än vad som k
 ##  <a name="RoleEndpoint"></a> RoleEndpoint Element
 Den `RoleEndpoint` element beskriver en slutpunkt för en roll som tillåter kommunikation med. Du kan ange flera `RoleEndpoint` element om det finns mer än en slutpunkt på rollen.
 
-| Attribut      | Type     | Beskrivning |
+| Attribut      | Typ     | Beskrivning |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Krävs. Namnet på slutpunkten att tillåta trafik till.|
 | `roleName`     | `string` | Krävs. Namnet på web-roll att tillåta kommunikation till.|
@@ -87,14 +87,14 @@ Den `AllowAllTraffic` elementet är en regel som tillåter alla roller att kommu
 ##  <a name="WhenSource"></a> WhenSource Element
 Den `WhenSource` element beskriver en uppsättning roller än vad som kan kommunicera med slutpunkter som definierats i den `Destinations` noden.
 
-| Attribut | Type     | Beskrivning |
+| Attribut | Typ     | Beskrivning |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Krävs. Anger regeln ska gälla när tillåter kommunikation. Det enda giltiga värdet är för närvarande `AnyRule`.|
   
 ##  <a name="FromRole"></a> FromRole Element
 Den `FromRole` elementet anger de roller som kan kommunicera med slutpunkter som definierats i den `Destinations` noden. Du kan ange flera `FromRole` element om det finns mer än en roll som kan kommunicera med slutpunkter.
 
-| Attribut  | Type     | Beskrivning |
+| Attribut  | Typ     | Beskrivning |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Krävs. Namnet på rollen som du vill tillåta kommunikation från.|
 

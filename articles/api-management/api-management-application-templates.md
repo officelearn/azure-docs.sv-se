@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657959"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Programmallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
@@ -83,7 +83,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 |--------------|----------|-----------------|  
 |`Paging`|[Växling](api-management-template-data-model-reference.md#Paging) entitet.|Växling information för programmets samling.|  
 |`Applications`|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program som är synliga för den aktuella användaren.|  
-|`CategoryName`|sträng|Kategorin för programmet.|  
+|`CategoryName`|string|Kategorin för programmet.|  
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  
   

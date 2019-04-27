@@ -2,19 +2,20 @@
 title: Köra ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region med Azure Site Recovery-tjänsten
 description: Lär dig att köra ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region för virtuella Azure IaaS-datorer med hjälp av Azure Site Recovery-tjänsten.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.author: raynew
+origin.date: 04/08/2019
+ms.date: 04/22/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 16c791287cc50b5ac8992a86f6de1e3eeb5e329e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260280"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552951"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Kör ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region
 
@@ -33,7 +34,6 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 
 - Innan du kör ett redundanstest rekommenderar vi att du kontrollerar VM-egenskaperna så att allt är som förväntat.  VM-egenskaper finns i **Replikerade objekt**. På bladet **Information** finns information om datorinställningar och status.
 - **Vi rekommenderar att du använder ett separat nätverk för virtuella Azure-datorer när du testar redundans**, i stället för det standardnätverk som skapades när du aktiverade replikeringen.
-
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest
 
@@ -55,3 +55,6 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 
 > [!div class="nextstepaction"]
 > [Köra en produktionsredundans](azure-to-azure-tutorial-failover-failback.md)
+
+<!-- Update_Description: update meta properties -->
+

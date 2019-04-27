@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en CI/CD-pipeline för programmeringsspråket Go med hjälp av Azure DevOps Projects'
+title: 'Snabbstart: Skapa en CI/CD-pipeline för programmeringsspråket Go med hjälp av Azure DevOps-projekt'
 description: DevOps Projects gör det enkelt att komma igång med Azure. Det hjälper dig att starta en webbapp med programmeringsspråket Go på en Azure-tjänst med några enkla steg.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -18,11 +18,11 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: ca068b39c222a210e261234a132a0506f6b023bb
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554985"
 ---
 # <a name="create-a-cicd-pipeline-for-go-by-using-azure-devops-projects"></a>Skapa en CI/CD-pipeline för Go med hjälp av Azure DevOps Projects
 
@@ -34,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual
 
 DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
@@ -102,7 +102,7 @@ DevOps Projects konfigurerar automatiskt en fullständig CI/CD-pipeline i Azure 
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
     I den här fönsterrutan visas en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.

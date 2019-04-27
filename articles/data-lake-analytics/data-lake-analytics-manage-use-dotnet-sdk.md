@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60617715"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Hantera Azure Data Lake Analytics en .NET-app
 
@@ -57,7 +57,7 @@ string rg == "<value>"; // Resource  group name
 string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (this will work, but you should pick your own)
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Du har flera alternativ för att logga in på Azure Data Lake Analytics. Följande kodavsnitt visar ett exempel på autentisering med interaktiv användarautentisering med ett popup-fönster.
 

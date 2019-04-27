@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
 ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656697"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Använda hanterade identiteter i Azure API Management
 
@@ -30,7 +30,7 @@ Den här artikeln visar hur du skapar en hanterad identitet för en API Manageme
 
 Om du vill konfigurera en hanterad identitet i portalen måste du först skapa en API Management-instans som vanligt och sedan aktivera funktionen.
 
-1. Skapa en API Management-instans i portalen som vanligt. Navigera till den i portalen.
+1. Skapa en API Management-instans i portalen som vanligt. Gå till den i portalen.
 2. Välj **hanterade tjänstidentiteter**.
 3. Växla Register med Azure Active Directory till On. Klicka på Spara.
 
@@ -87,7 +87,7 @@ En fullständig Azure Resource Manager-mall kan se ut så här:
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Skaffa ett certifikat från Azure Key Vault
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Nödvändiga komponenter
 1. Key Vault som innehåller pfx-certifikatet måste finnas i samma Azure-prenumeration och samma resursgrupp som API Management-tjänsten. Det här är ett krav för Azure Resource Manager-mallen.
 2. Innehållstypen för hemligheten måste vara *application/x-pkcs12*. Du kan använda följande skript för att ladda upp certifikatet:
 

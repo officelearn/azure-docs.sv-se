@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: bf2af67bb9498d4814f63fa66fdd50171ce0b4a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 18ef1f182611a9c8fbf24cd08026633f5449bbe9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534352"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613619"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer
 
@@ -27,7 +27,7 @@ ms.locfileid: "57534352"
 
 En annan fördel är att du inte behöver ha Prenumerationsbehörighet för att hantera Data Lake Storage Gen1 data. I Storage Explorer kan du koppla Data Lake Storage Gen1 sökvägen till den **lokala och anslutna** noden så länge någon beviljar behörigheten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 *   En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial).

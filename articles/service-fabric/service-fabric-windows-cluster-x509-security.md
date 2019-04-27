@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: ee2ce03fccc3e6556f9d261687edb050c8cfa1cc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628157"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows genom att använda X.509-certifikat
 Den här artikeln beskriver hur du skyddar kommunikationen mellan de olika noderna i ditt fristående Windows-kluster. Det beskriver också hur du autentiserar klienter som ansluter till det här klustret genom att använda X.509-certifikat. Autentisering säkerställer att endast behöriga användare kan få åtkomst till klustret och distribuerade program och utföra administrativa uppgifter. Certifikatsäkerhet ska aktiveras på klustret när klustret har skapats.  

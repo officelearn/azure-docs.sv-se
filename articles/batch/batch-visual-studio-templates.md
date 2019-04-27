@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550096"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Använd Visual Studio-projektmallar för att ge Batch-lösningar
 
@@ -52,7 +52,7 @@ I diagrammet nedan visas ett jobb för beräkning som använder dessa mallar gå
 
 ![Diagram som visar hur klientkod interagerar med Batch-tjänsten][diagram01]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att använda Batch-mallar, behöver du följande:
 
 * En dator med Visual Studio 2015 installerad. Batch-mallar finns för närvarande stöds endast för Visual Studio 2015.
@@ -259,7 +259,7 @@ Följ dessa steg för att lägga till en uppgift processor i lösningen som du s
 1. Öppna din befintliga lösning i Visual Studio.
 2. Högerklicka på lösningen i Solution Explorer, klicka på **Lägg till**, och klicka sedan på **nytt projekt**.
 3. Under **Visual C#**, klickar du på **molnet**, och klicka sedan på **Azure Batch uppgift Processor**.
-4. Skriv ett namn som beskriver ditt program och som identifierar det här projektet som uppgiften-processor (t.ex.) ”LitwareTaskProcessor”).
+4. Skriv ett namn som beskriver ditt program och som identifierar det här projektet som uppgiften-processor (t.ex.) "LitwareTaskProcessor").
 5. Klicka för att skapa projektet **OK**.
 6. Slutligen skapa projekt för att tvinga Visual Studio för att läsa in alla refererade NuGet-paket och kontrollera att projektet är giltig innan du börjar att ändra den.
 

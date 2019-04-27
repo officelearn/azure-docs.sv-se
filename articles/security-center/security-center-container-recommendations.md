@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60705297"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Förstå rekommendationer för Azure Security Center-behållare
 
@@ -57,7 +57,7 @@ Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper
 
 I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Skydda dina datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
+* [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 * [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.

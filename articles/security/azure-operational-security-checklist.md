@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 461f0419e76d9fafc083e28d9182b1dbfc9935d7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7430f69136a79cc36817afae9bc4d8e8992c09d3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586840"
 ---
 # <a name="azure-operational-security-checklist"></a>Checklista för driftsäkerhet för Azure
 Det är snabbt, enkelt och kostnadseffektivt att distribuera ett program på Azure. Innan du distribuerar molnprogram i produktion praktiskt att ha en checklista för att hjälpa dig att utvärdera programmet mot en lista över viktiga och rekommenderade driftsäkerhet åtgärder du bör tänka på.

@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699431"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Självstudier: Moderera produktbilder för e-handel med Azure Content Moderator
 
@@ -34,7 +34,7 @@ Den fullständiga exempelkoden är tillgänglig på lagringsplatsen [Samples eCo
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator-tjänsten och få din nyckel.
 - En prenumerationsnyckel för visuellt innehåll (samma instruktioner som ovan).

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: tomfitz
 ms.openlocfilehash: 6554c05f40f580a6d7ae086e1d09834298f86621
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550775"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autentisera begäranden över klienter
 
@@ -29,7 +29,7 @@ Begäran har följande värden i huvudet autentisering:
 | Huvudnamn | Beskrivning | Exempelvärde |
 | ----------- | ----------- | ------------ |
 | Auktorisering | Primära token | Ägar &lt;primära-token&gt; |
-| x-ms-auktorisering-tillägg | Extra token | Ägar &lt;assistent token1&gt;; Detta EncryptedBearer &lt;assistent token2&gt;; Ägar &lt;assistent token3&gt; |
+| x-ms-authorization-auxiliary | Extra token | Ägar &lt;assistent token1&gt;; Detta EncryptedBearer &lt;assistent token2&gt;; Ägar &lt;assistent token3&gt; |
 
 Extra huvudet kan innehålla upp till tre extra token. 
 

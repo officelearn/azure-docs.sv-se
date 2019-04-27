@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 527e9979b624970dd55b4300fe63c27386640ac4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560513"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Självstudier: Skicka lokaliserade meddelanden till iOS-enheter med Azure Notification Hubs
 
@@ -71,7 +71,7 @@ Sedan du se till att enheter ska registreras med en mall som refererar till rät
 
 Mer information om mallar finns i [mallar](notification-hubs-templates-cross-platform-push-messages.md) artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Slutför den [Push-meddelanden till specifika iOS-enheter](notification-hubs-ios-xplat-segmented-apns-push-notification.md) självstudiekursen och har du koden som är tillgängliga, eftersom den här självstudien bygger direkt på den koden.
 * Visual Studio 2017 är valfritt.

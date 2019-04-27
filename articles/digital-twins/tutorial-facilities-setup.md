@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: dkshir
 ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534648"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Självstudie: Distribuera Azure Digital Twins och konfigurera ett spatialt diagram
 
@@ -35,7 +35,7 @@ I seriens första kurs lär du dig följande:
 
 I de här kurserna används och ändras samma exempel som i [snabbstarten för att hitta tillgängliga rum](quickstart-view-occupancy-dotnet.md), för en mer detaljerad och djupgående täckning av de här begreppen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har ett Azure-konto skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

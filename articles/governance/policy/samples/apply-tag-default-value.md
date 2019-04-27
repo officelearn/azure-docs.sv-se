@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549707"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Exempel – Använd taggen och dess standardvärde
 
@@ -52,8 +52,8 @@ Det JSON som definierar principparametrarna, som används av Azure CLI och Azure
 
 |Namn |Typ |Fält |Beskrivning |
 |---|---|---|---|
-|tagName |String |taggar |Namnet på taggen, till exempel costCenter (kostnadsställe)|
-|tagValue |String |taggar |Taggens värde, till exempel headquarter (huvudkontor)|
+|tagName |String |tags |Namnet på taggen, till exempel costCenter (kostnadsställe)|
+|tagValue |String |tags |Taggens värde, till exempel headquarter (huvudkontor)|
 
 När du skapar en tilldelning via PowerShell eller Azure CLI går det att skicka parametervärdena som JSON antingen i en sträng eller via en fil med hjälp av `-PolicyParameter` (PowerShell) eller `--params` (Azure CLI).
 PowerShell stödjer även `-PolicyParameterObject`, vilket kräver att det till cmdlet skickas en Name/Value-hashtabell där **Name** (Namn) är parameternamnet och **Value** (Värde) är det enskilda värde eller den matris med värden som skickas under tilldelningen.
@@ -164,7 +164,7 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 Det finns flera verktyg som kan användas för att interagera med Resource Manager REST API, till exempel [ARMClient](https://github.com/projectkudu/ARMClient) och PowerShell. Ett exempel på anrop till REST API från PowerShell finns i avsnittet **Aliases** (Alias) i [Policy definition structure](../concepts/definition-structure.md#aliases) (Principdefinitionsstrukturen).
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 ### <a name="deploy-with-rest-api"></a>Distribuera med REST API
 

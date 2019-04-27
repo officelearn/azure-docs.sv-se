@@ -9,11 +9,11 @@ ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 638dd8efba5e86bb7e8abb78a41196bfac9524df
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421869"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709974"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Skapa en grupp med en Resource Manager-mall
 Den här artikeln visar hur du använder en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) konfigurera åtgärdsgrupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärdsgrupper som kan återanvändas i vissa typer av aviseringar. Dessa åtgärdsgrupper se till att rätt parterna får ett meddelande när en avisering utlöses.

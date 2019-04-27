@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657854"
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-mallar i Azure API Management
 
@@ -345,12 +345,12 @@ Mallar i det här avsnittet kan du anpassa innehållet på sidorna API: et i dev
   
 |Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|`apiId`|sträng|Id för den aktuella API: T.|  
-|`apiName`|sträng|Namnet på API: et.|  
-|`apiDescription`|sträng|En beskrivning av API: et.|  
+|`apiId`|string|Id för den aktuella API: T.|  
+|`apiName`|string|Namnet på API: et.|  
+|`apiDescription`|string|En beskrivning av API: et.|  
 |`api`|[API-sammanfattning](api-management-template-data-model-reference.md#APISummary) entitet.|Den aktuella API: T.|  
 |`operation`|[Åtgärd](api-management-template-data-model-reference.md#Operation)|För närvarande visas igen.|  
-|`sampleUrl`|sträng|URL-Adressen för den aktuella åtgärden.|  
+|`sampleUrl`|string|URL-Adressen för den aktuella åtgärden.|  
 |`operationMenu`|[Åtgärd-menyn](api-management-template-data-model-reference.md#Menu)|En meny med åtgärder för detta API.|  
 |`consoleUrl`|URI|URI för den **prova** knappen.|  
 |`samples`|Insamling av [kodexempel](api-management-template-data-model-reference.md#Sample) entiteter.|Kodexempel för den aktuella åtgärden...|  

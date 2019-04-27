@@ -9,11 +9,11 @@ ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777397"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Händelseschema för aktivitetslogg
 Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./diagnostic-logs-schema.md) tillhandahålls i slutet av artikeln.
@@ -117,7 +117,7 @@ Den här kategorin innehåller en post för alla skapa, uppdatera och ta bort å
 | kanaler |En av följande värden: ”Admin”, ”åtgärden” |
 | anspråk |Detta JWT-token som används av Active Directory för att autentisera användaren eller programmet för den här åtgärden i Resource Manager. |
 | correlationId |Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
-| beskrivning |Statisk textbeskrivning av en händelse. |
+| description |Statisk textbeskrivning av en händelse. |
 | eventDataId |Unik identifierare för en händelse. |
 | EventName | Eget namn för den administrativa händelsen. |
 | category | Alltid ”administrativa” |
@@ -261,7 +261,7 @@ Den här kategorin innehåller en post för eventuella resource health-händelse
 | --- | --- |
 | kanaler | Alltid ”Admin, åtgärd” |
 | correlationId | Ett GUID i formatet för strängen. |
-| beskrivning |Statisk textbeskrivning av händelsen avisering. |
+| description |Statisk textbeskrivning av händelsen avisering. |
 | eventDataId |Unik identifierare för händelsen avisering. |
 | category | Always "ResourceHealth" |
 | eventTimestamp |Tidsstämpel när händelsen skapades av tjänsten Azure behandlingen av begäran som motsvarande händelsen. |
@@ -356,7 +356,7 @@ Den här kategorin innehåller en post för alla Azure-aviseringar-aktiveringar.
 | kanaler | Alltid ”Admin, åtgärd” |
 | anspråk | JSON-blob med den SPN (service principal name) eller resursen typ av avisering motorn. |
 | correlationId | Ett GUID i formatet för strängen. |
-| beskrivning |Statisk textbeskrivning av händelsen avisering. |
+| description |Statisk textbeskrivning av händelsen avisering. |
 | eventDataId |Unik identifierare för händelsen avisering. |
 | category | Alltid ”Avisera” |
 | nivå |Nivån på händelsen. En av följande värden: ”Kritisk”, ”Error”, ”varning” och ”information” |
@@ -466,7 +466,7 @@ Den här kategorin innehåller en post för alla händelser relaterade till drif
 | kanaler | Alltid ”Admin, åtgärd” |
 | anspråk | JSON-blob med typen SPN (service principal name) eller resurs av motorn för automatisk skalning. |
 | correlationId | Ett GUID i formatet för strängen. |
-| beskrivning |Statisk textbeskrivning av händelsen automatisk skalning. |
+| description |Statisk textbeskrivning av händelsen automatisk skalning. |
 | eventDataId |Unik identifierare för händelsen automatisk skalning. |
 | nivå |Nivån på händelsen. En av följande värden: ”Kritisk”, ”Error”, ”varning” och ”information” |
 | resourceGroupName |Namnet på resursgruppen för autoskalningsinställningen. |
@@ -554,7 +554,7 @@ Den här kategorin innehåller posten några aviseringar som genereras av Azure 
 | --- | --- |
 | kanaler | Alltid ”åtgärden” |
 | correlationId | Ett GUID i formatet för strängen. |
-| beskrivning |Statisk textbeskrivning av säkerhetshändelsen. |
+| description |Statisk textbeskrivning av säkerhetshändelsen. |
 | eventDataId |Unik identifierare för säkerhetshändelsen. |
 | EventName |Eget namn på säkerhetshändelsen. |
 | category | Alltid ”säkerhet” |
@@ -635,7 +635,7 @@ Den här kategorin innehåller en post för alla nya rekommendationer som har ge
 | --- | --- |
 | kanaler | Alltid ”åtgärden” |
 | correlationId | Ett GUID i formatet för strängen. |
-| beskrivning |Statisk textbeskrivning av händelsen rekommendation |
+| description |Statisk textbeskrivning av händelsen rekommendation |
 | eventDataId | Unik identifierare för händelsen rekommendation. |
 | category | Alltid ”Recommendation” |
 | id |Unikt resurs-ID för händelsen rekommendation. |
@@ -748,7 +748,7 @@ Den här kategorin innehåller poster för alla gälla åtgärd åtgärder som u
 | kanaler | Principhändelser använda ”åtgärden” kanalen. |
 | anspråk | Detta JWT-token som används av Active Directory för att autentisera användaren eller programmet för den här åtgärden i Resource Manager. |
 | correlationId | Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
-| beskrivning | Det här fältet är tomt efter Principhändelser. |
+| description | Det här fältet är tomt efter Principhändelser. |
 | eventDataId | Unik identifierare för en händelse. |
 | EventName | ”BeginRequest” eller ”EndRequest”. ”BeginRequest” används för fördröjd auditIfNotExists och deployIfNotExists utvärderingar och när effekten deployIfNotExists startar en för malldistribution. Alla andra åtgärder returnerar ”EndRequest”. |
 | category | Anger händelsen i aktivitetsloggen som tillhör ”Policy”. |
@@ -783,7 +783,7 @@ Vid direktuppspelning av Azure-aktivitetsloggen till ett lagringskonto eller Eve
 | category | En del av åtgärdens namn | Nedbrytning av åtgärdstypen – ”Skriv-” / ”ta bort” / ”Action” |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | beskrivning |  |
+| resultDescription | description |  |
 | durationMs | Gäller inte | Alltid 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |

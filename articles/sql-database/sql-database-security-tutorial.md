@@ -12,11 +12,11 @@ manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496445"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60582710"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudier: Skydda en enkel databas eller en pooldatabas
 
@@ -232,7 +232,7 @@ Så här kopierar du en säker anslutningssträng:
 
 ## <a name="enable-security-features"></a>Aktivera säkerhetsfunktioner
 
-Azure SQL Database innehåller säkerhetsfunktioner som nås med hjälp av Azure portal. Dessa funktioner är tillgängliga för både databasen och servern, förutom datamaskning, som endast är tillgängligt för databasen. Mer information finns i [Avancerad datasäkerhet](sql-database-advanced-data-security.md), [Granskning](sql-database-auditing.md), [Dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md) och [Transparent datakryptering](transparent-data-encryption-azure-sql.md).
+Azure SQL Database innehåller säkerhetsfunktioner som nås med hjälp av Azure-portalen. Dessa funktioner är tillgängliga för både databasen och servern, förutom datamaskning, som endast är tillgängligt för databasen. Mer information finns i [Avancerad datasäkerhet](sql-database-advanced-data-security.md), [Granskning](sql-database-auditing.md), [Dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md) och [Transparent datakryptering](transparent-data-encryption-azure-sql.md).
 
 ### <a name="advanced-data-security"></a>Avancerad datasäkerhet
 

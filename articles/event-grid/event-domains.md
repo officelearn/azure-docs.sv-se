@@ -8,11 +8,11 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60562034"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Förstå händelse domäner för att hantera Event Grid-ämnen
 
@@ -31,7 +31,7 @@ En händelsedomän är ett hanteringsverktyg för stora mängder Event Grid-ämn
 
 Händelsen domäner gör tillgänglig för dig samma arkitektur som används av Azure-tjänster (t.ex. lagring och IoT-hubb) för att publicera händelser. De gör att du kan publicera händelser till tusentals olika ämnen. Domäner också ge autentisering och auktorisering kontroll över varje avsnitt så att du kan partitionera dina klienter.
 
-### <a name="example-use-case"></a>Exempel användningsfall
+### <a name="example-use-case"></a>Exempel på användningsfall
 
 Händelsen domäner beskrivs enklast med ett exempel. Vi antar att du kör Contoso konstruktion maskiner, där du tillverkar att hjul, gräva utrustning och andra tunga maskiner. Som en del av företaget, skicka information i realtid till kunder om underhåll och hälsotillståndet kontrakt uppdateringar. All information går till olika slutpunkter med din app, kund-slutpunkter och annan infrastruktur som kunder har skapat.
 

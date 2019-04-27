@@ -10,11 +10,11 @@ ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
 ms.openlocfilehash: e784b76af478f834a7d1104650da1cbd3ca2a31f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552934"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 

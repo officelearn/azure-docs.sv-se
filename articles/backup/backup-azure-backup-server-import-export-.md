@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
 ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648116"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Arbetsflöde för säkerhetskopiering offline för DPM och Azure Backup Server
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Azure Backup komprimerar första säkerhetskopieringarna. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att ladda upp den komprimerade första säkerhetskopiera informationen offline till Azure.
@@ -42,7 +42,7 @@ Offlinesäkerhetskopiering stöds för alla distributionsmodeller av Azure Backu
 > * Säkerhetskopiering av alla arbetsbelastningar och filer med System Center Data Protection Manager (DPM SC) 
 > * Säkerhetskopiering av alla arbetsbelastningar och filer med Microsoft Azure Backup Server <br/>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Kontrollera att följande krav är uppfyllda innan du påbörjar arbetsflöde för Offlinesäkerhetskopiering
 * En [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) har skapats. Om du vill skapa ett läser du anvisningarna i [i den här artikeln](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Azure Backup-agenten eller Azure Backup Server eller SC DPM har installerats på antingen Windows Server/Windows-klienten, så är tillämpligt och datorn har registrerats med Recovery Services-valvet. Kontrollera att endast den [senaste versionen av Azure Backup](https://go.microsoft.com/fwlink/?linkid=229525) används. 

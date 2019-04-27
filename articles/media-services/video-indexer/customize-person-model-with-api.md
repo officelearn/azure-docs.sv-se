@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360518"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553716"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Anpassa en Person modell med Video Indexer API
 
@@ -56,10 +56,10 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|namn|sträng|Ja|Namnet på den Person-modellen|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|namn|string|Ja|Namnet på den Person-modellen|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -101,10 +101,10 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|id|sträng|Ja|Person modell-id (genereras när modellen Person skapas)|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|id|string|Ja|Person modell-id (genereras när modellen Person skapas)|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -138,9 +138,9 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -193,12 +193,12 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 |**Namn**|**Typ**|**Krävs**|**Beskrivning**|
 |---|---|---|---|
-|location|sträng|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|videoId|sträng|Ja|ID för videon där de står inför som du vill uppdatera visas. Detta skapas när videon har laddats upp och indexeras.|
+|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
+|accountId|string|Ja|Globalt unik identifierare för kontot|
+|videoId|string|Ja|ID för videon där de står inför som du vill uppdatera visas. Detta skapas när videon har laddats upp och indexeras.|
 |faceId|heltal|Ja|ID för ansiktet som ska uppdateras. Du kan hämta faceId från video indexet|
-|accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-|namn|sträng|Ja|Nytt namn för att uppdatera ansiktet med.|
+|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
+|namn|string|Ja|Nytt namn för att uppdatera ansiktet med.|
 
 Namnen är unika för Person modeller, så om du ger två olika ansikten i samma Person modellera samma **namn** parametervärde, Video Indexer visar ansiktena som samma person och konvergerar dem när du indexera om videon. 
 

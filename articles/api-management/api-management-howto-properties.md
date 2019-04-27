@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658043"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Hur du använder med namnet värden i Azure API Management-principer
 API Management-principer är en kraftfull funktion i systemet som tillåter Azure portal för att ändra funktionssättet för API: ets konfiguration. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Principrapporter kan konstrueras med literal textvärden, principuttryck, och namngivna värden. 
@@ -27,10 +27,10 @@ Varje API Management-tjänstinstans har en egenskapssamling för nyckel/värde-p
 
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
-| `Display name` |sträng |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
-| `Value` |sträng |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
-| `Secret` |boolesk|Anger om värdet är en hemlighet och ska krypteras eller inte.|
-| `Tags` |strängmatris |Valfritt taggar som men som tillhandahålls kan användas för att filtrera egenskapslistan. |
+| Visningsnamn |string |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
+| Värde |string |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
+|Hemlighet|boolesk|Anger om värdet är en hemlighet och ska krypteras eller inte.|
+| Taggar |strängmatris |Valfritt taggar som men som tillhandahålls kan användas för att filtrera egenskapslistan. |
 
 ![Namngivna värden](./media/api-management-howto-properties/named-values.png)
 
@@ -38,9 +38,9 @@ Egenskapsvärden kan innehålla literala strängar och [principuttryck](/azure/a
 
 | Namn | Värde | Hemlighet | Taggar |
 | --- | --- | --- | --- |
-| ContosoHeader |TrackingId |Falskt |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |Sant |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |Falskt | |
+| ContosoHeader |TrackingId |False |Contoso |
+| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
+| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
 ## <a name="to-add-and-edit-a-property"></a>Lägga till och redigera en egenskap
 
@@ -100,7 +100,7 @@ När den här principen utvärderas `{{ExpressionProperty}}` ersätts med värde
 
 Du kan testa detta i developer-portalen genom att anropa en åtgärd som har en princip med namngivna värden i omfånget. I följande exempel kallas en åtgärd med två föregående exempel `set-header` principer med namngivna värden. Observera att svaret innehåller två anpassade sidhuvuden som konfigurerades med med namngivna värden.
 
-![Utvecklarportal][api-management-send-results]
+![Utvecklarportalen][api-management-send-results]
 
 Om du tittar på den [API Inspector trace](api-management-howto-api-inspector.md) för samtal som innehåller de två föregående exempel principerna med namngivna värden, kan du se två `set-header` principer med egenskapsvärden infogas samt Principuttrycket utvärdering för egenskapen som innehöll Principuttrycket.
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60581045"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
 
@@ -70,7 +70,7 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar.  
   
   
-|Namn|Värde|Type|Krävs|  
+|Namn|Värde|Typ|Obligatoriskt|  
 |----------|-----------|----------|--------------|
 |<a name="count" />Antal|Antalet resultat som ska returneras från och med indexet anges av den `offset` parametern.|String|Nej|   
 |<a name="localCategories" />localCategories|Lista med alternativ som definierar sökning efter kategori för företag.  Se [lokala företag kategorier Sök](local-categories.md)|String|Nej|  
@@ -86,7 +86,7 @@ Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obli
 Här följer några svar JSON-objekt som svaret kan innehålla. Om begäran lyckas, det översta objektet i svaret är den [SearchResponse](#searchresponse) objekt. Om begäran misslyckas kan det översta objektet är den [ErrorResponse](#errorresponse) objekt.
 
 
-|Objekt|Beskrivning|  
+|Object|Beskrivning|  
 |------------|-----------------|  
 |[Plats](#place)|Definierar information om lokala företag, till exempel en restaurang eller hotell.|  
 
@@ -94,7 +94,7 @@ Här följer några svar JSON-objekt som svaret kan innehålla. Om begäran lyck
 ### <a name="error"></a>Fel  
 Definierar de fel som inträffat.  
   
-|Element|Beskrivning|Type|  
+|Element|Beskrivning|Typ|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|String|  
 |<a name="error-message" />meddelande|En beskrivning av felet.|String|  
@@ -107,7 +107,7 @@ Definierar de fel som inträffat.
 ### <a name="errorresponse"></a>ErrorResponse  
 Det översta objekt som svaret innehåller när begäran misslyckas.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)]|  
@@ -117,7 +117,7 @@ Det översta objekt som svaret innehåller när begäran misslyckas.
 ### <a name="license"></a>Licens  
 Definierar den licens som text eller foto kan användas.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |namn|Namnet på licensen.|String|  
 |url|URL till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namn och Webbadress för att skapa en hyperlänk.|String|  
@@ -126,7 +126,7 @@ Definierar den licens som text eller foto kan användas.
 ### <a name="link"></a>Länk  
 Definierar komponenterna i en hyperlänk.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|String|  
 |text|Texten som visas.|String|  
@@ -140,7 +140,7 @@ Definierar en utgivare.
   
 Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |namn|Utgivarens namn.|String|  
 |url|URL till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan innehålla en webbplats.|String|  
@@ -150,7 +150,7 @@ Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.
 ### <a name="place"></a>Plats  
 Definierar information om en lokal företag, till exempel en restaurang eller hotell.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tips som kan anges till något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restaurang</ul><li>|String|  
 |adress|Postadress av där enheten är belägen.|PostalAddress|  
@@ -164,36 +164,36 @@ Definierar information om en lokal företag, till exempel en restaurang eller ho
 ### <a name="querycontext"></a>QueryContext  
 Definierar frågekontexten som Bing används för begäran.  
   
-|Element|Beskrivning|Type|  
+|Element|Beskrivning|Typ|  
 |-------------|-----------------|----------|  
-|adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolesk|  
+|adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolean|  
 |alterationOverrideQuery|Frågesträngen du använder för att tvinga Bing för att använda den ursprungliga strängen. Om frågesträngen är till exempel *saling downwind*, frågesträng åsidosättning blir *+ saling downwind*. Kom ihåg att koda frågesträngen vilket resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
 |alteredQuery|Frågesträngen som används av Bing för att utföra frågan. Bing använder ändrats frågesträngen om den ursprungliga frågesträngen innehåller stavfel. Om frågesträngen är till exempel `saling downwind`, ändrats frågesträngen blir `sailing downwind`.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|String|  
-|askUserForLocation|Ett booleskt värde som anger om Bing kräver användarens plats att tillhandahålla korrekta resultat. Om du har angett användarens plats med hjälp av den [X-MSEdge-ClientIP](#clientip) och [X sökplats](#location) rubriker, du kan ignorera det här fältet.<br /><br /> För plats medveten frågor, till exempel ”dagens väder” eller ”restauranger i närheten” som behöver användarens plats att tillhandahålla korrekta resultat, det här fältet är inställt på **SANT**.<br /><br /> För plats medveten frågor som innehåller plats (till exempel ”Seattle väder”), det här fältet är inställt på **FALSKT**. Det här fältet anges också **FALSKT** för frågor som inte är platser, till exempel ”bästa säljare”.|Boolesk|  
+|askUserForLocation|Ett booleskt värde som anger om Bing kräver användarens plats att tillhandahålla korrekta resultat. Om du har angett användarens plats med hjälp av den [X-MSEdge-ClientIP](#clientip) och [X sökplats](#location) rubriker, du kan ignorera det här fältet.<br /><br /> För plats medveten frågor, till exempel ”dagens väder” eller ”restauranger i närheten” som behöver användarens plats att tillhandahålla korrekta resultat, det här fältet är inställt på **SANT**.<br /><br /> För plats medveten frågor som innehåller plats (till exempel ”Seattle väder”), det här fältet är inställt på **FALSKT**. Det här fältet anges också **FALSKT** för frågor som inte är platser, till exempel ”bästa säljare”.|Boolean|  
 |originalQuery|Frågesträngen som anges i begäran.|String|  
 
 ### <a name="identifiable"></a>Identifierbar
 
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |id|Resurs-ID|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en sökresultat grupp, till exempel mainline.
 
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |objekt|En lista över sökresultaten till att visa i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett objekt med Sök resultat att visa.
 
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Integer|
 |answerType|Svaret som innehåller objekt att visa. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse fält.<br /><br /> Dock använda svarstypen endast om det här objektet innehåller värdefältet. Annars kan du ignorera det.|String|
 |textualIndex|Index för svaret i textualAnswers ska visas.| Heltalet|
-|värde|Det ID som identifierar ett svar ska visas eller ett objekt i ett svar ska visas. Om detta ID identifierar ett svar, visas alla objekt för svaret.|Identifierbar|
+|value|Det ID som identifierar ett svar ska visas eller ett objekt i ett svar ska visas. Om detta ID identifierar ett svar, visas alla objekt för svaret.|Identifierbar|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definierar där resultaten innehåll ska placeras på sökningen och i vilken ordning.  
@@ -209,7 +209,7 @@ Definierar det översta objektet som svaret innehåller när begäran lyckas.
   
 Observera att om tjänsten misstänker ett DoS-angrepp, lyckas begäran (HTTP-statuskoden är 200 OK); brödtexten i svaret ska dock vara tom.  
   
-|Namn|Värde|Type|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset som har angetts till SearchResponse.|String|  
 |Platser|En lista över entiteter som är relevanta för sökfrågan.|JSON-objekt|  

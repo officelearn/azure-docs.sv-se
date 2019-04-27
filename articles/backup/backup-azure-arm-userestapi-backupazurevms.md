@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646783"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med Azure Backup via REST-API
 
@@ -45,7 +45,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Uppdateringen är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
-Den returnerar två svar: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
+Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
@@ -157,14 +157,14 @@ X-Powered-By: ASP.NET
 
 Svaret innehåller en lista över alla oskyddade virtuella Azure-datorer och varje `{value}` innehåller all information som krävs av Azure Recovery-tjänsten för att konfigurera säkerhetskopiering. För att konfigurera säkerhetskopiering, notera den `{name}` fält och `{virtualMachineId}` i `{properties}` avsnitt. Skapa två variabler från värdena i fälten enligt beskrivningen nedan.
 
-- containerName = ”iaasvmcontainer”; +`{name}`
-- protectedItemName = ”vm”; + `{name}`
+- containerName = "iaasvmcontainer;"+`{name}`
+- protectedItemName = "vm;"+ `{name}`
 - `{virtualMachineId}` används senare i [begärandetexten](#example-request-body)
 
 I det här exemplet Översätt ovanstående värden till:
 
-- containerName = ”iaasvmcontainer; iaasvmcontainerv2; testRG; testVM”
-- protectedItemName = ”vm; iaasvmcontainerv2; testRG; testVM”
+- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
+- protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Att aktivera skydd för Azure-dator
 
@@ -212,7 +212,7 @@ Den `{sourceResourceId}` är den `{virtualMachineId}` nämndes ovan från den [s
 
 Skapandet av ett skyddat objekt är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
-Den returnerar två svar: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
+Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
@@ -323,7 +323,7 @@ Följande begäran definierar egenskaper som krävs för att utlösa en säkerhe
 
 Utlösa en säkerhetskopiering på begäran är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
-Den returnerar två svar: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
+Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
@@ -393,7 +393,7 @@ Eftersom jobbet är en tidskrävande åtgärd, den måste spåras som beskrivs i
 
 ### <a name="changing-the-policy-of-protection"></a>Ändra policyn för skydd
 
-Om du vill ändra principen som den virtuella datorn är skyddad, kan du använda samma format som [att aktivera skydd](#enabling-protection-for-the-azure-vm). Lämna den nya princip-ID i [begärandetexten](#example-request-body) och skicka begäran. För t.ex.: Om du vill ändra policyn för testVM från 'DefaultPolicy' till 'ProdPolicy', ange 'ProdPolicy' id i begärandetexten.
+Om du vill ändra principen som den virtuella datorn är skyddad, kan du använda samma format som [att aktivera skydd](#enabling-protection-for-the-azure-vm). Lämna den nya princip-ID i [begärandetexten](#example-request-body) och skicka begäran. För t.ex.: Om du vill ändra policyn för testVM från 'DefaultPolicy' till 'ProdPolicy ”, anger du” ProdPolicy ”-id i begärandetexten.
 
 ```http
 {
@@ -443,7 +443,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 *Ta bort* protection är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
-Den returnerar två svar: 202 (accepterad) när en annan åtgärd har skapats och sedan 204 (NoContent) när åtgärden har slutförts.
+Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och sedan 204 (NoContent) när åtgärden har slutförts.
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|

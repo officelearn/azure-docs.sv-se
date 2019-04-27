@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 93fbd5bbba91b45e1afd123a2466b249302e2354
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567079"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Säkerhetskopiera och återställa en Oracle Database 12c-databas på en virtuell Azure Linux-dator
 
@@ -30,14 +30,14 @@ Innan du börjar måste du kontrollera att Azure CLI är installerat. Mer inform
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 
-### <a name="step-1-prerequisites"></a>Steg 1: krav
+### <a name="step-1-prerequisites"></a>Steg 1: Nödvändiga komponenter
 
 *   Om du vill utföra säkerhetskopiering och återställning, måste du först skapa en Linux VM som har en installerad instans av Oracle Database 12c. Marketplace-avbildning som du använder för att skapa den virtuella datorn har namnet *Oracle: Oracle-databas-Ee:12.1.0.2:latest*.
 
     Läs hur du skapar en Oracle-databas i den [Oracle database-snabbstarten för att skapa](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
-### <a name="step-2-connect-to-the-vm"></a>Steg 2: Anslut till den virtuella datorn
+### <a name="step-2-connect-to-the-vm"></a>Steg 2: Anslut till VM:en
 
 *   Använd följande kommando för att skapa en Secure Shell (SSH)-session med den virtuella datorn. Ersätt IP-adressen och värden namnet tillsammans med den `publicIpAddress` värde för den virtuella datorn.
 
@@ -45,7 +45,7 @@ Innan du börjar måste du kontrollera att Azure CLI är installerat. Mer inform
     ssh <publicIpAddress>
     ```
 
-### <a name="step-3-prepare-the-database"></a>Steg 3: Förbered databasen
+### <a name="step-3-prepare-the-database"></a>Steg 3: Förbered-databasen
 
 1.  Det här steget förutsätter att du har en Oracle-instans (cdb1) som körs på en virtuell dator med namnet *myVM*.
 
@@ -307,7 +307,7 @@ Mer information finns i [programkonsekvent säkerhetskopiering för virtuella Li
 
     ![Recovery Services-valv säkerhetskopiering nu kommandot](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Klicka på den **Backup** knappen. Vänta tills säkerhetskopieringen ska slutföras. Gå sedan till [steg 6: ta bort databasfilerna](#step-6-remove-the-database-files).
+10. Klicka på den **Backup** knappen. Vänta tills säkerhetskopieringen ska slutföras. Gå sedan till [steg 6: Ta bort databasfilerna](#step-6-remove-the-database-files).
 
     Om du vill visa statusen för säkerhetskopieringsjobbet, klickar du på **jobb**.
 
@@ -519,7 +519,7 @@ När den virtuella datorn har återställts kan du konfigurera offentliga IP-adr
 
     ![IP-adressvärde](./media/oracle-backup-recovery/create_ip_04.png)
 
-### <a name="step-4-connect-to-the-vm"></a>Steg 4: Anslut till den virtuella datorn
+### <a name="step-4-connect-to-the-vm"></a>Steg 4: Anslut till VM:en
 
 *   Använd följande skript för att ansluta till den virtuella datorn:
 
@@ -537,9 +537,9 @@ När den virtuella datorn har återställts kan du konfigurera offentliga IP-adr
     ```
 
     > [!IMPORTANT]
-    > Om databasen **Start** genererar kommandot ett fel, om du vill återställa databasen, se [steg 6: Använd RMAN att återställa databasen](#step-6-optional-use-rman-to-recover-the-database).
+    > Om databasen **Start** genererar kommandot ett fel, om du vill återställa databasen, se [steg 6: Använd RMAN för att återställa databasen](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Steg 6: (Valfritt) Använd RMAN att återställa databasen
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Steg 6: (Valfritt) Använd RMAN för att återställa databasen
 *   Om du vill återställa databasen, använder du följande skript:
 
     ```bash

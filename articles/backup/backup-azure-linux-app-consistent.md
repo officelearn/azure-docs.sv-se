@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
 ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581866"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641134"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekvent säkerhetskopiering av virtuella Linux-datorer
 
@@ -62,7 +62,7 @@ Förskript och anropa internt program API: er, vilka inaktivera IOs och tömma I
 
     - **postScriptNoOfRetries**:  Ange hur många gånger efter skriptet ska göras om det uppstår något fel innan försöket avbryts. Noll innebär att endast en försök och det görs inget nytt om det uppstår ett fel.
 
-    - **Timeout_sekunder**: Ange enskilda tidsgränser för förskript och efterskript som (högsta värdet kan vara 1800).
+    - **timeoutInSeconds**: Ange enskilda tidsgränser för förskript och efterskript som (högsta värdet kan vara 1800).
 
     - **continueBackupOnFailure**: Det här värdet till **SANT** om du vill att Azure Backup för att återgå till en konsekvent/krascher filsystemkonsekvent säkerhetskopia om förskript eller misslyckas i efterskript. Du anger detta till **FALSKT** misslyckas säkerhetskopieringen reservlösning skript (utom när du har enskild disk VM som faller tillbaka till kraschkonsekvent säkerhetskopiering oavsett denna inställning).
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618004"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure virtuella datorer, tillägg och funktioner
 Azure-dator (VM)-tillägg är litet program som ger efter distributionen konfiguration och automatisering av uppgifter på Azure Virtual Machines, du kan använda befintliga avbildningar och sedan anpassa dem som en del av distributionen, hämta din verksamhet för anpassad att skapa avbildningen.

@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625048"
 ---
 <a name="cancel-operation"></a>Avbryt åtgärden 
 =================
@@ -35,18 +35,18 @@ Du kan ange en kommaavgränsad lista över e-postadresser med begäran och API: 
 
 |  **Namn**    |      **Beskrivning**                                  |    **Datatyp**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identifierare för utgivare, till exempel `contoso`         |   Sträng          |
-| offerId      |  Erbjudande-ID                                     |   Sträng          |
+| publisherId  |  Identifierare för utgivare, till exempel `contoso`         |   String          |
+| offerId      |  Erbjudande-ID                                     |   String          |
 | API-versionen  |  Aktuell version av API                               |    Date           |
 |  |  |  |
 
 
-<a name="header"></a>Sidhuvud
+<a name="header"></a>Huvud
 ------
 
 |  **Namn**              |  **Värde**         |
 |  ---------             |  ----------        |
-|  Innehållstyp          |  application/json  |
+|  Content-Type          |  application/json  |
 |  Auktorisering         |  DIN ÄGARTOKEN |
 |  |  |
 
@@ -81,7 +81,7 @@ Du kan ange en kommaavgränsad lista över e-postadresser med begäran och API: 
 
 |  **Namn**             |    **Värde**                       |
 |  ---------            |    ----------                      |
-| Åtgärden-plats    | URL som kan efterfrågas för att fastställa den aktuella statusen för åtgärden. |
+| Operation-Location    | URL som kan efterfrågas för att fastställa den aktuella statusen för åtgärden. |
 |  |  |
 
 
@@ -92,6 +92,6 @@ Du kan ange en kommaavgränsad lista över e-postadresser med begäran och API: 
 |  200      | Okej. Begäran har bearbetats och åtgärden avbryts synkront. |
 |  202      | Accepteras. Begäran har bearbetats och åtgärden avbryts. Platsen för åtgärden för att avbryta returneras i svarshuvudet. |
 |  400      | Felaktig/Malformed begäran. Svarstexten fel kan ge mer information.  |
-|  403      | Åtkomst nekas. Klienten har inte åtkomst till det namnområde som angavs i begäran. |
+|  403      | Access Forbidden. Klienten har inte åtkomst till det namnområde som angavs i begäran. |
 |  404      | Kunde inte hittas. Den angivna entiteten finns inte. |
 |  |  |

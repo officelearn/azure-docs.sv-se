@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60579968"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
 > [!div class="op_single_selector"]
@@ -155,7 +155,7 @@ Nu ska vi hämta grundstrukturen för vårt program som skrivits.
 
 Nu när grundstrukturen för vårt program skrivs vi ska skapa de metoder som anropas av den `Main` metoden.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 Innan vi kan använda Azure CDN Management-biblioteket, måste vi att autentisera vår tjänstens huvudnamn och få en autentiseringstoken.  Den här metoden använder ADAL för att hämta token.
 
 ```csharp
@@ -329,7 +329,7 @@ Vi kan nu kompilera och kör programmet genom att klicka på den **starta** knap
 
 När programmet har nått ovanstående fråga, bör du kunna gå tillbaka till din resursgrupp i Azure portal och se att profilen har skapats.
 
-![Klart!](./media/cdn-app-dev-net/cdn-success.png)
+![Lyckades!](./media/cdn-app-dev-net/cdn-success.png)
 
 Vi kan sedan bekräfta anvisningarna för att köra resten av programmet.
 

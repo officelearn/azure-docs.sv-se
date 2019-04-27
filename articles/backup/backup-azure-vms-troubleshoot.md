@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
 ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550030"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel vid användning av Azure Backup med informationen som visas i följande tabell:
@@ -40,7 +40,7 @@ Säkerhetskopieringen misslyckades eftersom den virtuella datorn är i felläge.
 ### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - det gick inte att frysa en eller flera monteringspunkter på den virtuella datorn ska använda en konsekvent ögonblicksbild för filsystemet
 
 Felkod: UserErrorFsFreezeFailed <br/>
-Felmeddelande: Det gick inte att frysa en eller flera monteringspunkter på den virtuella datorn ska använda en konsekvent ögonblicksbild i filsystemet.
+Felmeddelande: Det gick inte att frysa en eller flera monteringspunkter på den virtuella datorn för att ta en filsystemkonsekvent ögonblicksbild.
 
 * Kontrollera filen systemtillståndet för alla monterade enheter med hjälp av den **tune2fs** kommandot, till exempel **tune2fs -l/dev/sdb1 \\** .\| grep **filsystem tillstånd**.
 * Demontera enheterna som inte rensades filen systemets tillstånd, med hjälp av den **umount** kommando.

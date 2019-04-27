@@ -9,11 +9,11 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616523"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Åtkomst till diagnostikloggar för Azure Data Lake Analytics
 
@@ -134,7 +134,7 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
 | resultType |String |Status för åtgärden, till exempel 200. |
 | callerIpAddress |String |IP-adressen för klienten som gör begäran |
 | correlationId |String |Identifierare för loggen. Det här värdet kan användas för att gruppera en uppsättning relaterade poster. |
-| identity |Objekt |Den identitet som genereras i loggen |
+| identity |Object |Den identitet som genereras i loggen |
 | properties |JSON |Finns i nästa avsnitt (begäran log egenskaper schema) för information |
 
 #### <a name="request-log-properties-schema"></a>Schemat för begäran log-egenskaper
@@ -145,8 +145,8 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
 | Sökväg |String |Sökvägen åtgärden utfördes på |
 | RequestContentLength |int |Innehållslängd HTTP-förfrågan |
 | ClientRequestId |String |Det ID som unikt identifierar den här begäran |
-| startTime |String |Den tidpunkt då servern tog emot begäran |
-| endTime |String |Den tid då servern skickade ett svar |
+| StartTime |String |Den tidpunkt då servern tog emot begäran |
+| EndTime |String |Den tid då servern skickade ett svar |
 
 ### <a name="audit-logs"></a>Granskningsloggar
 
@@ -201,8 +201,8 @@ Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en
 | Jobbnamn |String |Det namn som har angetts för jobbet |
 | JobRunTime |String |Körningen används för att behandla uppgiften |
 | SubmitTime |String |Tiden (i UTC) som jobbet har skickats |
-| startTime |String |Den tid som jobbet började köras efter bidrag (i UTC) |
-| endTime |String |Den tid som jobbet avslutades |
+| StartTime |String |Den tid som jobbet började köras efter bidrag (i UTC) |
+| EndTime |String |Den tid som jobbet avslutades |
 | Parallellitet |String |Antalet Data Lake Analytics-enheter som begärdes för jobbets ärendet |
 
 > [!NOTE]

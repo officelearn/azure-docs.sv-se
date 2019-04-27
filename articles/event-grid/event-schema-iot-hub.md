@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
 ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561803"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-Händelseschema för IoT Hub
 
@@ -113,51 +113,51 @@ Alla händelser som innehåller samma översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| id | sträng | Unik identifierare för händelsen. |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | string | Unik identifierare för händelsen. |
+| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | data | objekt | IoT Hub händelsedata.  |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 För alla IoT Hub-händelser innehåller dataobjektet följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| HubName | sträng | Namnet på IoT Hub där enheten skapas eller tas bort. |
-| deviceId | sträng | Unik identifierare för enheten. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| HubName | string | Namnet på IoT Hub där enheten skapas eller tas bort. |
+| deviceId | string | Unik identifierare för enheten. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 Innehållet i dataobjektet är olika för varje händelse-utgivare. För **enheten ansluten** och **enheten frånkopplad** IoT Hub-händelser, dataobjektet innehåller följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| moduleId | sträng | Den unika identifieraren för modulen. Det här fältet är utdata bara för modulen enheter. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| moduleId | string | Den unika identifieraren för modulen. Det här fältet är utdata bara för modulen enheter. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | objekt | Anslutningen händelseinformation om enhetstillstånd
-| sequenceNumber | sträng | Ett tal som hjälper dig att ange ordningen på enheter som är kopplade eller enhet kopplas bort händelser. Senaste händelsen kommer att ha ett sekvensnummer som är högre än föregående händelse. Det här antalet kan ändras med mer än 1, men strikt ökar. Se [hur du använder sekvensnummer](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+| sequenceNumber | string | Ett tal som hjälper dig att ange ordningen på enheter som är kopplade eller enhet kopplas bort händelser. Senaste händelsen kommer att ha ett sekvensnummer som är högre än föregående händelse. Det här antalet kan ändras med mer än 1, men strikt ökar. Se [hur du använder sekvensnummer](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
 Innehållet i dataobjektet är olika för varje händelse-utgivare. För **skapa enhet** och **enheten bort** IoT Hub-händelser, dataobjektet innehåller följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | twin | objekt | Information om enhetstvillingen, som är molnet-representation av enhetsmetadata för programmet. | 
-| deviceID | sträng | Den unika identifieraren för enhetstvillingen. | 
-| etag | sträng | En systemhälsoverifierare för att säkerställa konsekvens för uppdateringar av en enhetstvilling. Varje etag garanteras vara unikt per enhetstvillingen. |  
-| deviceEtag| sträng | En systemhälsoverifierare för att säkerställa konsekvens av uppdateringar till en enhetsregister. Varje deviceEtag garanteras vara unikt per enhetsregister. |
-| status | sträng | Om enhetstvillingen är aktiverat eller inaktiverat. | 
-| statusUpdateTime | sträng | Uppdatera ISO8601-tidsstämpel för senaste enhetens twin status. |
-| connectionState | sträng | Om enheten är ansluten eller frånkopplad. | 
-| lastActivityTime | sträng | ISO8601-tidsstämpel för senaste aktivitet. | 
+| deviceID | string | Den unika identifieraren för enhetstvillingen. | 
+| etag | string | En systemhälsoverifierare för att säkerställa konsekvens för uppdateringar av en enhetstvilling. Varje etag garanteras vara unikt per enhetstvillingen. |  
+| deviceEtag| string | En systemhälsoverifierare för att säkerställa konsekvens av uppdateringar till en enhetsregister. Varje deviceEtag garanteras vara unikt per enhetsregister. |
+| status | string | Om enhetstvillingen är aktiverat eller inaktiverat. | 
+| statusUpdateTime | string | Uppdatera ISO8601-tidsstämpel för senaste enhetens twin status. |
+| connectionState | string | Om enheten är ansluten eller frånkopplad. | 
+| lastActivityTime | string | ISO8601-tidsstämpel för senaste aktivitet. | 
 | cloudToDeviceMessageCount | heltal | Antal moln till enhetsmeddelanden som skickas till den här enheten. | 
-| authenticationType | sträng | Autentiseringstypen som används för den här enheten: antingen `SAS`, `SelfSigned`, eller `CertificateAuthority`. |
-| x509Thumbprint | sträng | Tumavtrycket är ett unikt värde för x509 certifikat, som ofta används för att hitta ett visst certifikat i ett certifikatarkiv. Tumavtrycket genereras dynamiskt med hjälp av algoritmen SHA1 och fysiskt finns inte i certifikatet. | 
-| primaryThumbprint | sträng | Primära tumavtrycket för x509 certifikat. |
-| secondaryThumbprint | sträng | Sekundära tumavtrycket för x509 certifikat. | 
+| authenticationType | string | Autentiseringstypen som används för den här enheten: antingen `SAS`, `SelfSigned`, eller `CertificateAuthority`. |
+| x509Thumbprint | string | Tumavtrycket är ett unikt värde för x509 certifikat, som ofta används för att hitta ett visst certifikat i ett certifikatarkiv. Tumavtrycket genereras dynamiskt med hjälp av algoritmen SHA1 och fysiskt finns inte i certifikatet. | 
+| primaryThumbprint | string | Primära tumavtrycket för x509 certifikat. |
+| secondaryThumbprint | string | Sekundära tumavtrycket för x509 certifikat. | 
 | version | heltal | Ett heltal som ökas med 1 varje gång enheten twin uppdateras. |
 | önskad | objekt | En del av de egenskaper som kan skrivas endast med program backend- och läsas av enheten. | 
 | rapporterat | objekt | En del av de egenskaper som kan skrivs endast av enheten och läses av programmet backend-server. |
-| lastUpdated | sträng | Uppdatera ISO8601-tidsstämpel för den senaste twin enhetsegenskapen. | 
+| lastUpdated | string | Uppdatera ISO8601-tidsstämpel för den senaste twin enhetsegenskapen. | 
 
 ## <a name="next-steps"></a>Nästa steg
 

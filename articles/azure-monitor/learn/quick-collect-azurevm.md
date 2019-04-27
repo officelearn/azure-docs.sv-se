@@ -15,11 +15,11 @@ ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: e135c7fa9907d218ed32b6bdb0fd60da0ecf1851
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540773"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Samla in data om virtuella datorer i Azure
 Med [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) kan du samla in data direkt från virtuella datorer i Azure och från andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från virtuella Linux- eller Windows-datorer i Azure med några enkla steg.  

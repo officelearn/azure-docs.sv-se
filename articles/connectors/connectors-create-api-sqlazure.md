@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541155"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Ansluta till SQLServer eller Azure SQL Database från Azure Logic Apps
 
@@ -24,9 +24,9 @@ Den här artikeln visar hur du kan komma åt data i din SQL-databas i en logikap
 
 Du kan skapa logikappar som körs när den utlöses av händelser i din SQL-databas eller i andra system, som Dynamics CRM Online. Dina logic apps kan också hämta, infoga och ta bort data samt köra SQL-frågor och lagrade procedurer. Du kan till exempel skapa en logikapp som kontrollerar automatiskt nya poster i Dynamics CRM Online, lägger till objekt till din SQL-databas för eventuella nya poster och skickar sedan e-postaviseringar.
 
-Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Specifika teknisk information finns i den <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referens för SQL Server-anslutningen</a>.
+Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Specifika teknisk information finns i den <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referens för SQL Server-anslutningen</a>.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Logikappen där du behöver åtkomst till din SQL-databas. Om du vill börja din logikapp med en SQL-utlösare, som du behöver en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
@@ -56,7 +56,7 @@ I Azure Logic Apps varje logikapp måste börja med en [utlösaren](../logic-app
 
 2. I sökrutan anger du ”SQLServer” som filter. Välj SQL-utlösare som du vill använda från listan över utlösare. 
 
-   I det här exemplet väljer du den här utlösaren: **SQL Server - när ett objekt skapas**
+   Välj den här utlösaren i det här exemplet: **SQLServer - när ett objekt skapas**
 
    ![Välj ”SQLServer - när ett objekt skapas” utlösare](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -94,7 +94,7 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
 
 2. I sökrutan anger du ”SQLServer” som filter. Välj alla SQL-åtgärder som du vill från åtgärdslistan över. 
 
-   I det här exemplet väljer du den här åtgärden, som hämtar en enskild post: **SQL Server – hämta rad**
+   Välj den här åtgärden, som hämtar en enskild post i det här exemplet: **SQLServer – hämta rad**
 
    ![Ange ”SQLServer”, Välj ”SQLServer - hämta rad”](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 89903d3f65c74da6903e53284f168d2d6a12168a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559916"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -32,7 +32,7 @@ När din video har laddats upp, kodar Video Indexer kan du kan också videon (be
 
 - När du laddar upp videon baserat på URL:en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
 - Överföringsstorlek med URL: er är begränsad till 30GB
-- I de flesta webbläsare är URL-längd begränsat till 2 000 tecken
+- Begäran-URL-längd är begränsad till 2048 tecken
 - Överföringsstorlek med alternativet byte-matrisen är begränsat till 2GB
 - Alternativet byte-matris på grund av timeout efter 30 min
 - URL:en som anges i parametern `videoURL` måste kodas
@@ -61,15 +61,15 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
     
         |Namn|Beskrivning|
         |---|---|
-        |ID|Video-ID|
-        |tillstånd|Videotillståndet|  
+        |id|Video-ID|
+        |state|Videotillståndet|  
     - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person som identifierades i videon:
   - Egenskaper
     
       |Namn|Beskrivning|
       |---|---|
-      |ID| Video-ID|
+      |id| Video-ID|
       |faceId|Ansikts-ID som visas i videoindexet|
       |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
       |personName|Namnet på personen|

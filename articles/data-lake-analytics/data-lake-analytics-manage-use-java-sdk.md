@@ -10,18 +10,18 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: f2a4b98404139abead411c20648b82d9081481f9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614995"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Hantera Azure Data Lake Analytics med hjälp av en Java-app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av en app som skrivits med hjälp av Azure Java SDK. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Java Development Kit (JDK) 8** (med Java version 1.8).
 * **IntelliJ** eller en annan lämplig Java development environment. Anvisningarna i det här dokumentet använder IntelliJ.
 * Skapa ett program med Azure Active Directory (AAD) och hämta dess **klient-ID**, **innehavar-ID** och **nyckel**. Mer information om AAD-program och instruktioner för hur du hämtar ett klient-ID finns i [Skapa Active Directory-program och tjänstobjekt med portalen](../active-directory/develop/howto-create-service-principal-portal.md). Svars-URI och nyckeln är tillgänglig från portalen när du har skapat programmet och nyckeln som genererades.

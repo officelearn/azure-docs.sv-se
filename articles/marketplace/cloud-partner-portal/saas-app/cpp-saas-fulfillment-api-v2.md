@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594775"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS Techtrends API: er för Version 2 
 
@@ -118,7 +118,7 @@ Visar alla SaaS-prenumerationer för en utgivare.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Innehållstyp       |  `application/json`  |
+| Content-Type       |  `application/json`  |
 | x-ms-requestid     |  Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 | x-ms-correlationid |  Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 | Auktorisering      |  JSON web token (JWT) ägartoken.  |
@@ -189,7 +189,7 @@ Hämtar den angivna SaaS-prenumerationen. Använd det här anropet att hämta li
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      |  `application/json`  |
+|  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 |  x-ms-correlationid |  Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  Auktorisering     |  JSON web token (JWT) ägartoken  |
@@ -253,7 +253,7 @@ Använd det här anropet för att ta reda på om det finns några privata/offent
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Innehållstyp     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 |  x-ms-correlationid  | Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 |  Auktorisering     |  JSON web token (JWT) ägartoken |
@@ -308,11 +308,11 @@ Lös slutpunkten gör det möjligt för användare att matcha en marketplace-tok
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |  Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 |  x-ms-correlationid |  Unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  Auktorisering     |  JSON web token (JWT) ägartoken  |
-|  x-ms-marketplace-token  |  Token frågeparameter i URL: en när användaren omdirigeras till SaaS-ISV-webbplats från Azure. *Obs:* URL: en avkodar token-värde från webbläsaren innan du använder den. |
+|  x-ms-marketplace-token  |  Token frågeparameter i URL: en när användaren omdirigeras till SaaS-ISV-webbplats från Azure. *Obs!* URL: en avkodar token-värde från webbläsaren innan du använder den. |
 
 *Svarskoder:*
 
@@ -367,7 +367,7 @@ Internt serverfel
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      | `application/json`  |
+|  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid  | Unik sträng som värde för åtgärden på klienten. Den här strängen kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  Auktorisering     |  JSON web token (JWT) ägartoken |
@@ -424,7 +424,7 @@ Uppdatera eller ändra ett prenumerationsavtal med angivna värden.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid  |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.    |
 | Auktorisering      |  JSON web token (JWT) ägartoken.  |
@@ -491,7 +491,7 @@ Avbryta prenumerationen och ta bort den angivna prenumerationen.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Innehållstyp     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.   |
 |  x-ms-correlationid  |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.   |
 |  Auktorisering     |  JSON web token (JWT) ägartoken.   |
@@ -546,7 +546,7 @@ Uppdatera en prenumeration med angivna värden.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Innehållstyp     | `application/json`   |
+|   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden. |
 |  Auktorisering     |  JSON web token (JWT) ägartoken.  |
@@ -606,7 +606,7 @@ Visar en lista över väntande åtgärder för den aktuella användaren.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Innehållstyp     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  Auktorisering     |  JSON web token (JWT) ägartoken.  |
@@ -669,7 +669,7 @@ Gör att användaren kan spåra statusen för den angivna utlösta asynkron åtg
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Innehållstyp      |  `application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   En unik sträng som värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges något genereras och anges i svarshuvuden.  |
 |  x-ms-correlationid |  En unik sträng som värde för åtgärden på klienten. Den här parametern är kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges så kommer en genereras och anges i svarshuvuden.  |
 |  Auktorisering     | JSON web token (JWT) ägartoken.  |

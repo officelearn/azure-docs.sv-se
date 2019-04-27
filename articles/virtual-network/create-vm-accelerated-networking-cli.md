@@ -17,11 +17,11 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713741"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en Linux-dator med Accelererat nätverk
 
@@ -77,7 +77,7 @@ Virtuella datorer (klassiska) kan inte distribueras med Accelererat nätverk.
 ## <a name="portal-creation"></a>Skapa Portal
 Även om den här artikeln innehåller steg för att skapa en virtuell dator med accelererat nätverk med hjälp av Azure CLI, du kan också [skapa en virtuell dator med accelererat nätverk med Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen, i den **skapa en virtuell dator** bladet väljer du den **nätverk** fliken.  I den här fliken finns ett alternativ för **Accelerated networking**.  Om du har valt en [operativsystem som stöds](#supported-operating-systems) och [VM-storlek](#supported-vm-instances), det här alternativet kommer automatiskt att fylla i ”på”.  Om inte, den fylla i alternativet ”Off” för Accelererat nätverk och ge användaren en orsak till varför den inte är aktiveras.   
 
-* *Obs:* Endast operativsystem som stöds kan aktiveras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för Accelererat nätverk, skapar du en virtuell dator med CLI eller Powershell. 
+* *Obs!* Endast operativsystem som stöds kan aktiveras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för Accelererat nätverk, skapar du en virtuell dator med CLI eller Powershell. 
 
 När den virtuella datorn har skapats kan du bekräfta Accelererat nätverk är aktiverat genom att följa anvisningarna i den [bekräfta att accelererat nätverk är aktiverat](#confirm-that-accelerated-networking-is-enabled).
 

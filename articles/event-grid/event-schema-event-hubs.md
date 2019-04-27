@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561836"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid-Händelseschema för event hubs
 
@@ -59,28 +59,28 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
+| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | string | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för Event hub. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| fileUrl | sträng | Sökvägen till filen avbildning. |
-| fileType | sträng | Filtypen för filen avbildning. |
-| Partitions-ID | sträng | Shard-ID. |
+| fileUrl | string | Sökvägen till filen avbildning. |
+| fileType | string | Filtypen för filen avbildning. |
+| Partitions-ID | string | Shard-ID. |
 | sizeInBytes | heltal | Filstorlek. |
 | eventCount | heltal | Antal händelser i filen. |
 | firstSequenceNumber | heltal | Det minsta sekvensnumret från kön. |
 | lastSequenceNumber | heltal | Det sista sekvensnumret från kön. |
-| firstEnqueueTime | sträng | Första gången från kön. |
-| lastEnqueueTime | sträng | Den senaste gången från kön. |
+| firstEnqueueTime | string | Första gången från kön. |
+| lastEnqueueTime | string | Den senaste gången från kön. |
 
 ## <a name="next-steps"></a>Nästa steg
 

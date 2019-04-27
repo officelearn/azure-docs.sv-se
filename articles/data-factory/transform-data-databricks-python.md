@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
 ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589213"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformera data genom att köra en Python-aktivitet i Azure Databricks
 
@@ -62,10 +62,10 @@ Här är exempel JSON-definition för en Databricks Python aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 
-|Egenskap |Beskrivning|Krävs|
+|Egenskap |Beskrivning|Obligatoriskt|
 |---|---|---|
 |namn|Namnet på aktiviteten i pipelinen.|Ja|
-|beskrivning|Text som beskriver hur aktiviteten ska hantera.|Nej|
+|description|Text som beskriver hur aktiviteten ska hantera.|Nej|
 |typ|För Databricks Python-aktivitet är aktivitetstypen DatabricksSparkPython.|Ja|
 |linkedServiceName|Namnet på den länkade tjänsten för Databricks där Python-aktiviteten körs. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln.|Ja|
 |pythonFile|URI för Python-fil som ska köras. Endast DBFS sökvägar stöds.|Ja|

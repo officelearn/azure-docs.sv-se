@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: raynew
 ms.openlocfilehash: c11d2f22fa08417107b0eecdd902b4521410b358
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544927"
 ---
 # <a name="group-machines-for-assessment"></a>Gruppera datorer för utvärdering
 
 Den här artikeln beskriver hur du skapar en grupp av datorer för utvärdering av [Azure Migrate](migrate-overview.md). Azure Migrate utvärderar datorer i gruppen för att kontrollera om de är lämplig för migrering till Azure och ger uppskattningar för storlek och kostnad för att köra datorn i Azure. Du kan manuellt skapa gruppen i Azure Migrate med följande metod om du vet att de datorer som behöver migreras tillsammans. Om du inte är mycket säker om de datorer som behöver grupperas tillsammans kan du använda beroendevisualiseringsfunktionen i Azure Migrate för att skapa grupper. [Läs mer.](how-to-create-group-machine-dependencies.md)
 
 > [!NOTE]
-> Beroendevisualiseringsfunktionen är inte tillgänglig i Azure Government.
+> Funktionen för beroendevisualisering är inte tillgänglig i Azure Government.
 
 ## <a name="create-a-group"></a>Skapa en grupp
 

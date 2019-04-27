@@ -3,29 +3,33 @@ title: Så här inaktiverar du funktioner i Azure Functions
 description: Lär dig hur du inaktiverar och aktiverar funktioner i Azure Functions 1.x och 2.x.
 services: functions
 documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
-ms.topic: conceptual
-ms.date: 07/24/2018
-ms.author: glenga
-ms.openlocfilehash: ab9cf429a0af69db116fe910ab90b83d404afbb7
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+author: tdykstra
+manager: cfowler
+editor: ''
+ms.service: functions
+ms.workload: na
+ms.devlang: na
+ms.topic: article
+origin.date: 07/24/2018
+ms.date: 08/31/2018
+ms.author: v-junlch
+ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710577"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Så här inaktiverar du funktioner i Azure Functions
 
 Den här artikeln förklarar hur du inaktiverar en funktion i Azure Functions. Att *inaktivera* en funktion som innebär att göra körningen ignorerar automatisk utlösare som har definierats för funktionen. På samma sätt som du som är beroende av runtime-versionen och programmeringsspråket:
 
-* Functions 1.x
-  * Skriptspråk
-  * C#-klassbibliotek
-* Functions 2.x
-  * Ett sätt för alla språk
-  * Valfritt sätt för C#-klassbibliotek
+- Functions 1.x
+  - Skriptspråk
+  - C#-klassbibliotek
+- Functions 2.x
+  - Ett sätt för alla språk
+  - Valfritt sätt för C#-klassbibliotek
 
 ## <a name="functions-1x---scripting-languages"></a>Fungerar 1.x - skriptspråk
 
@@ -58,7 +62,7 @@ I det andra exemplet funktionen inaktiveras när det finns en appinställning so
 
 Du kan redigera filen i Azure portal eller Använd den **funktionstillstånd** växla i funktionens **hantera** fliken. Växeln portal fungerar genom att ändra den *function.json* fil.
 
-![Funktionen tillstånd switch](media/disable-function/function-state-switch.png)
+![Funktionen tillstånd switch](./media/disable-function/function-state-switch.png)
 
 ## <a name="functions-1x---c-class-libraries"></a>Fungerar 1.x - C#-klassbibliotek
 
@@ -109,7 +113,7 @@ Den här metoden kan du aktivera och inaktivera funktionen genom att ändra appi
 
 I funktioner 2.x du inaktiverar en funktion med hjälp av en appinställning. Till exempel att inaktivera en funktion med namnet `QueueTrigger`, du skapar en app-inställning med namnet `AzureWebJobs.QueueTrigger.Disabled`, och ge den värdet `true`. Om du vill aktivera funktionen inställd appinställningen `false`. Du kan också använda den **funktionstillstånd** växla i funktionens **hantera** fliken. Växeln fungerar genom att skapa och ta bort den `AzureWebJobs.<functionname>.Disabled` appinställningen.
 
-![Funktionen tillstånd switch](media/disable-function/function-state-switch.png)
+![Funktionen tillstånd switch](./media/disable-function/function-state-switch.png)
 
 ## <a name="functions-2x---c-class-libraries"></a>Fungerar 2.x - C#-klassbibliotek
 
@@ -118,3 +122,4 @@ I en funktioner 2.x-klassbiblioteket rekommenderar vi att du använder den metod
 ## <a name="next-steps"></a>Nästa steg
 
 Den här artikeln handlar om att inaktivera automatisk utlösare. Mer information om utlösare finns i [utlösare och bindningar](functions-triggers-bindings.md).
+

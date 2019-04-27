@@ -16,11 +16,11 @@ ms.date: 03/28/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: cc2a78dd547681a4b20fea14cd8cd7f4fd9c2df5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711260"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -351,7 +351,7 @@ platformFaultDomain | [Feldomän](manage-availability.md) Virtuellt datorn körs
 vmId | [Unik identifierare](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn | 2017-04-02
 vmSize | [Storlek på virtuell dator](sizes.md) | 2017-04-02
 subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
-taggar | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
+tags | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
 resourceGroupName | [Resursgrupp](../../azure-resource-manager/resource-group-overview.md) för den virtuella datorn | 2017-08-01
 placementGroupId | [Placeringsgrupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för VM-skalningsuppsättning | 2017-08-01
 plan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i dess en Azure Marketplace-avbildning som innehåller namn, produkt och utgivare | 2018-04-02
@@ -366,7 +366,7 @@ undernätsprefix / | Undernätets prefix, exempel 24 | 2017-04-02
 ipv6/ipAddress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02
 macAddress | Mac-adress för virtuell dator | 2017-04-02
 scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
-identitet | Hanterade identiteter för Azure-resurser. Se [hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identity | Hanterade identiteter för Azure-resurser. Se [hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 godkänd av | Se [godkänd av Data](#attested-data) | 2018-10-01
 
 ## <a name="attested-data"></a>Godkänd av Data
@@ -673,7 +673,7 @@ Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 1. Jag får felet `400 Bad Request, Required metadata header not specified`. Vad betyder detta?
    * Instance Metadata Service kräver rubriken `Metadata: true` som ska skickas i begäran. Skicka den här rubriken i REST-anrop ger åtkomst till Instance Metadata Service.

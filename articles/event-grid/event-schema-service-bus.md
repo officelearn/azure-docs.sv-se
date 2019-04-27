@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: babanisa
 ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561769"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Händelseschema för Azure Event Grid för Service Bus
 
@@ -82,25 +82,25 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
+| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | string | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för BLOB storage. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| namespaceName | sträng | Service Bus-namnområdet resursen finns i. |
-| requestUri | sträng | URI: N till den eller de specifika prenumeration som genererar händelsen. |
-| entityType | sträng | Typ av Service Bus-entiteten som sänder händelser (kö eller prenumeration). |
-| queueName | sträng | Kön med aktiva meddelanden om prenumerera på en kö. Värdet null om du använder ämnen / prenumerationer. |
-| topicName | sträng | Avsnittet om Service Bus-prenumerationen med aktiva meddelanden tillhör. Värdet null om du använder en kö. |
-| subscriptionName | sträng | Service Bus-prenumerationen med aktiva meddelanden. Värdet null om du använder en kö. |
+| namespaceName | string | Service Bus-namnområdet resursen finns i. |
+| requestUri | string | URI: N till den eller de specifika prenumeration som genererar händelsen. |
+| entityType | string | Typ av Service Bus-entiteten som sänder händelser (kö eller prenumeration). |
+| queueName | string | Kön med aktiva meddelanden om prenumerera på en kö. Värdet null om du använder ämnen / prenumerationer. |
+| topicName | string | Avsnittet om Service Bus-prenumerationen med aktiva meddelanden tillhör. Värdet null om du använder en kö. |
+| subscriptionName | string | Service Bus-prenumerationen med aktiva meddelanden. Värdet null om du använder en kö. |
 
 ## <a name="next-steps"></a>Nästa steg
 

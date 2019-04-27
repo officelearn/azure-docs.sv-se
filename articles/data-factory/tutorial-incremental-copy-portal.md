@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
 ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60571506"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -63,7 +63,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Skapa en container med namnet adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Skapa en datatabell i din SQL-databas
@@ -197,7 +197,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
    ![Menyn Ny datauppsättning – gammal vattenstämpel](./media/tutorial-incremental-copy-portal/new-dataset-old-watermark.png)
 6. Välj **Azure SQL Database** i fönstret **Ny datauppsättning** och klicka på **Slutför**. En ny flik öppnas för datauppsättningen. 
 
-   ![Välj Azure SQL Database](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
+   ![Välja Azure SQL Database](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
 7. I datauppsättningens egenskapsfönster anger du **WatermarkDataset** som **namn**.
 
    ![Datauppsättning för vattenstämpel – namn](./media/tutorial-incremental-copy-portal/watermark-dataset-name.png)
@@ -294,7 +294,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 28. Växla till **pipeline**-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. 
 29. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignerytan. **Anslut** gröna utdata (lyckades) från aktiviteten **Kopiera** till den **lagrade proceduraktiviteten**. 
     
-    ![Kopieringsaktivitet – källa](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
+    ![Kopiera aktivitet – källa](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Välj **Lagrad proceduraktivitet** i pipelinedesignern och ändra dess namn till **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Lagrad proceduraktivitet – namn](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
@@ -308,7 +308,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)

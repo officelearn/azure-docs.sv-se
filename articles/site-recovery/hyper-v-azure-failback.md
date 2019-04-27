@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552424"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Köra en återställning efter fel för Hyper-V-datorer
 
 Den här artikeln beskriver hur du växlar tillbaka Hyper-V virtuella datorer som skyddas av Site Recovery.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 1. Se till att du har läst informationen om den [olika typer av återställning efter fel](concepts-types-of-failback.md) och motsvarande varningar.
 1. Kontrollera att den primära VMM-servern eller Hyper-V-värdservern är ansluten till Azure.
 2. Du bör ha utfört **genomför** på den virtuella datorn.

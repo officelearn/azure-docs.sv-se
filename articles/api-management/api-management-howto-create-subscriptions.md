@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657622"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Skapa prenumerationer i Azure API Management
 

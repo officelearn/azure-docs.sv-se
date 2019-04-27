@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553750"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassa en språkmodell med API: er för Video Indexer
 
@@ -236,7 +236,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |modelId|string|Ja|Språk modell-id (genereras när språkmodellen skapas)|
 |accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 |modelName|string|Nej|Nytt namn som du kan ge modellen|
-|aktivera|boolean|Nej|Välj om alla filer under den här modellen är aktiverad (SANT) eller inaktiverad (FALSKT)|
+|aktivera|boolesk|Nej|Välj om alla filer under den här modellen är aktiverad (SANT) eller inaktiverad (FALSKT)|
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -306,7 +306,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileId|string|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
 |accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 |fileName|string|Nej|Namn för att uppdatera filnamnet för att|
-|aktivera|boolean|Nej|Uppdatera om den här filen är aktiverad (SANT) eller inaktiverad (FALSKT) i språkmodellen|
+|aktivera|boolesk|Nej|Uppdatera om den här filen är aktiverad (SANT) eller inaktiverad (FALSKT) i språkmodellen|
 
 ### <a name="request-body"></a>Begärandetext
 

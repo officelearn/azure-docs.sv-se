@@ -15,11 +15,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583374"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Använd mallar för att skapa Azure Data Factory-entiteter
 > [!NOTE]
@@ -40,8 +40,8 @@ Dessutom som organisationen vill distribuera dessa 10 datafabriker flera gånger
 ## <a name="tutorials"></a>Självstudier
 Se följande självstudiekurser för stegvisa instruktioner för att skapa Data Factory-entiteter med hjälp av Resource Manager-mallar:
 
-* [Självstudier: Skapa en pipeline för att kopiera data med hjälp av Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-* [Självstudier: Skapa en pipeline för att bearbeta data med hjälp av Azure Resource Manager-mall](data-factory-build-your-first-pipeline.md)
+* [Självstudie: Skapa en pipeline för att kopiera data med hjälp av Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Självstudie: Skapa en pipeline för att bearbeta data med hjälp av Azure Resource Manager-mall](data-factory-build-your-first-pipeline.md)
 
 ## <a name="data-factory-templates-on-github"></a>Data Factory-mallar på GitHub
 Kolla in följande Snabbstart för Azure-mallar på GitHub:

@@ -16,15 +16,15 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: b554dc1fa33519d87aa0c9c5ba9130b47cbea142
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60580076"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Använd ReportViewer på en webbplats i Azure
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Du kan skapa en Microsoft Azure-webbplats med Visual Studio ReportViewer-kontroll som visar en rapport som lagras på en Microsoft Azure-dator. ReportViewer-kontrollens är i ett webbprogram som du skapar med hjälp av ASP.NET-webbprogrammet.
 
@@ -37,7 +37,7 @@ För att införliva ReportViewer i Microsoft Azure-webbplatsen, måste du slutf�
 * **Konfigurera** autentisering och auktorisering
 * **Publicera** ASP.NET-webbapp till Azure
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Läs avsnittet ”allmänna rekommendationer och metodtips” i [SQL Server Business Intelligence i Azure Virtual Machines](../classic/ps-sql-bi.md).
 
 > [!NOTE]

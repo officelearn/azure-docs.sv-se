@@ -10,11 +10,11 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 9206e751fadab7a09c696fbe262aecdde002ae74
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565743"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms"></a>Redundansväxla och återställa virtuella VMware-datorer
 

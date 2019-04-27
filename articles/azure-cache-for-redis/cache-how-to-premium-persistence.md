@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/24/2017
 ms.author: yegu
 ms.openlocfilehash: de0b2e3ef7b0268540ef4896ade132a297ee88ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543513"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du datapersistence för Premium Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner, inklusive funktioner på Premiumnivå som klustring, persistence och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar du persistence i en Azure Cache på premiumnivå för Redis-instans.

@@ -10,11 +10,11 @@ ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 58fef0357a903f2ab1d238bbab7b2d9dca673eb4
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576177"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(INAKTUELL) Distribuera ett Kubernetes-kluster i Azure Container Service
 
@@ -78,7 +78,7 @@ Kontrollera anslutningen till klustret med kommandot [kubectl get nodes](https:/
 kubectl get nodes
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION

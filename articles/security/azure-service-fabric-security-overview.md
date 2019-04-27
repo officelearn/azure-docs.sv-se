@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610897"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Säkerhetsöversikt för Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Service Fabric hanterar utmaningarna i att utveckla och hantera molnprogram. Utvecklare och administratörer kan undvika komplicerade infrastrukturproblem och fokusera på att implementera verksamhetskritiska och krävande arbetsbelastningar som är skalbara och tillförlitliga.

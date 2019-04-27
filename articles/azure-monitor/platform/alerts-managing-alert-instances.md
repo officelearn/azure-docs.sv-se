@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: cb93f38c05156d7ab5acb89ffff810949583e507
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551880"
 ---
 # <a name="manage-alert-instances"></a>Hantera aviseringsinstanser
 Med den [unified aviseringsgränssnittet](https://aka.ms/azure-alerts-overview) i Azure Monitor kan du nu se alla olika typer av aviseringar i Azure, med flera prenumerationer i en enda glasruta. Den här artikeln vägleder dig genom hur du kan visa din aviseringsinstanser och hur du djupdykning i portalen för att hitta specifika aviseringsinstanser för felsökning.

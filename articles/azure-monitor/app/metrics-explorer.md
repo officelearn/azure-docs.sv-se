@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60700895"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Utforska mått i Application Insights
 Mått i [Programinsikter] [ start] är mätvärden och antalet händelser som skickas i telemetri från ditt program. De hjälper dig att identifiera problem med prestanda och se trender i hur ditt program används. Det finns en mängd olika standardmått och du kan också skapa egna anpassade mått och händelser.

@@ -10,11 +10,11 @@ ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557578"
 ---
 # <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(INAKTUELL) Skapa en program- eller användarspecifik Marathon-tjänst
 
@@ -26,7 +26,7 @@ I den här artikeln förklarar vi hur du lägger till en användar- eller progra
 
 Eftersom den här tjänsten tillhör en enskild användare eller ett enskilt team kan den konfigureras på önskat sätt. Azure Container Service säkerställer också att tjänsten fortsätter att köras. Om tjänsten slutar att fungera, startar Azure Container Service om den åt dig. I de flesta fall märker du inte ens att det varit driftstopp.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 [Distribuera en instans av Azure Container Service](container-service-deployment.md) med orchestrator-typ DC/OS och [kontrollera att klienten kan ansluta till klustret](../container-service-connect.md). Utför följande steg.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]

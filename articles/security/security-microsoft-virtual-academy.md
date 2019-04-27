@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: f06c8ec60831314dad30673fec4d2ea5901e11b6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597859"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Azure-säkerhetskurser från Microsoft Virtual Academy
 Microsoft Virtual Academy erbjuder kostnadsfria, online-utbildningar för utvecklare, IT och Datapersonal och studenter Läs den senaste tekniken, öka deras kunskaper och utveckla sina karriärer.

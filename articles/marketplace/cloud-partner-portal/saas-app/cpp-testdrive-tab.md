@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/24/2019
 ms.author: pbutlerm
 ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594205"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS-program Test Drive-fliken
 
@@ -31,9 +31,11 @@ Det är en bra idé att kontrollera att de kan köpa tryggt för att skapa en ut
 
 Provkörning förser kunder med en praktisk Migreringsprocess provversion av din produkt viktiga funktioner och fördelar, visas i ett scenario med verkliga implementering.
 
+
 ## <a name="how-a-test-drive-works"></a>Så här fungerar en provkörning
 
 En potentiell kund söker och identifierar ditt program på Marketplace. Kunden loggar in och samtycker till att användningsvillkoren. Kunden får då din miljö som är förkonfigurerade för att prova i ett fast antal timmar, medan du får ett högt kvalificerade lead att följa upp med. Mer information finns i [vad är en provkörning?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+
 
 ## <a name="publishing-steps"></a>Publicera steg
 
@@ -43,6 +45,7 @@ De viktigaste publishing stegen för att lägga till ett test Drive är:
 2. Skapa och/eller ändra dina Resource Manager-mall
 3. Skapa din provkörning stegvisa manuell
 4. Publicera ditt erbjudande
+
 
 ## <a name="setting-up-a-test-drive"></a>Hur du konfigurerar en provkörning
 
@@ -54,6 +57,8 @@ Det finns fyra olika typer av Provkörningar, var och en baserat på vilken typ 
 |       Värdbaserad             |       En värd Test Drive tar bort komplexiteten i installationen av Microsoft hosting och underhålla den tjänst som utför Test Drive användaren etablering och borttagning.             |         [Värdbaserad Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Logikapp              |       En Logic App Test Drive är en Distributionsmall som är avsedd att omfatta alla komplexa lösningsarkitekturer. Alla Dynamics-program eller anpassade produkter bör använda den här typen av Test Drive.            |      [Logic App-provkörning](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Testa Power BI består av en inbäddad länk till en anpassade instrumentpanel. En produkt som du vill visa en interaktiva Power BI-objekt bör använda den här typen av Test Drive. Allt du behöver ladda upp är din inbäddade Power BI-URL.          |        [Power BI-provkörning](#power-bi-test-drive)           |
+|   |   |   |
+
 
 ### <a name="power-bi-test-drive"></a>Power BI-provkörning
 

@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556380"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Skapa, ta bort och hantera tjänsten, tjänsttyper och paket.
@@ -34,7 +34,7 @@ Skapa, ta bort och hantera tjänsten, tjänsttyper och paket.
 | delete | Tar bort en befintlig Service Fabric-tjänst. |
 | distribuerat typ | Hämtar information om en angiven tjänsttyp av program som distribuerats på en nod i ett Service Fabric-kluster. |
 | distribuerat-type-list | Hämtar listan som innehåller information om tjänsttyper från program som har distribuerats på en nod i ett Service Fabric-kluster. |
-| beskrivning | Hämtar en beskrivning av en befintlig Service Fabric-tjänst. |
+| description | Hämtar en beskrivning av en befintlig Service Fabric-tjänst. |
 | Hämta behållarloggar | Hämtar behållarloggarna för behållare som distribueras på en Service Fabric-nod. |
 | hälsa | Hämtar hälsotillståndet för den angivna Service Fabric-tjänsten. |
 | info | Hämtar information om den tjänst som hör till Service Fabric-program. |

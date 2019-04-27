@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60568508"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudier: Skapa din första datafabrik med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Pipelinen i den här självstudien har en aktivitet: en Azure HDInsight Hive-akt
 > 
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och körning i Data Factory).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Läs [översikten av självstudien](data-factory-build-your-first-pipeline.md) och följ anvisningarna i avsnittet ”Nödvändiga komponenter”.
 
 Den här artikeln ger inte någon konceptuell översikt över Data Factory-tjänsten. Mer information om tjänsten finns i [Introduktion till Azure Data Factory](data-factory-introduction.md).  

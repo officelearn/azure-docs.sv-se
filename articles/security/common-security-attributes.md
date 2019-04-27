@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2eb480e10ca3b674895d2d22cc44fb52f305f988
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59007621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610013"
 ---
 # <a name="common-security-attributes-for-azure-services"></a>Vanliga säkerhetsattribut för Azure-tjänster
 
@@ -44,7 +44,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Nätverksisolering / brandväggsfunktioner support| Ja | Tvingad tunneltrafik har stöd för säkerhetskopiering av virtuella datorer. Tvingad tunneltrafik finns inte stöd för arbetsbelastningar som körs på virtuella datorer. |
 | Stöd för Tvingad tunneltrafik | Nej |  |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -92,7 +92,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Nätverksisolering / brandväggsfunktioner support| Ja | Med hjälp av brandväggsregler för virtuellt nätverk. |
 | Stöd för Tvingad tunneltrafik | Nej |  |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -141,7 +141,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Nätverksisolering / brandväggsfunktioner support| Ja | Med hjälp av nätverk nätverkssäkerhetsgrupper (NSG). |
 | Stöd för Tvingad tunneltrafik | Ja | Azure-nätverket innehåller Tvingad tunneltrafik. |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|
@@ -190,7 +190,7 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 | Nätverksisolering / brandväggsfunktioner support| Ja | |
 | Stöd för Tvingad tunneltrafik | Gäller inte |  |
 
-### <a name="detection"></a>Identifiering
+### <a name="detection"></a>Detection (Identifiering)
 
 | Säkerhetsattributet | Ja/nej | Anteckningar|
 |---|---|--|

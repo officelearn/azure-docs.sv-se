@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869817"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain Workbench
 
@@ -86,7 +86,7 @@ När nödvändiga steg har slutförts, är du redo att distribuera Blockchain Wo
     | Distributionsregionen | Ange var du vill distribuera Blockchain Workbench resurser. För bästa tillgänglighet ska matcha den **plats** inställningen. |
     | Prenumeration | Ange Azure-prenumeration som du vill använda för din distribution. |
     | Resursgrupper | Skapa en ny resursgrupp genom att välja **Skapa nytt** och ange ett unikt Resursgruppsnamn. |
-    | Plats | Ange den region som du vill distribuera ramen. |
+    | Location | Ange den region som du vill distribuera ramen. |
 
 7. Välj **OK** ska slutföras i inställningen grundläggande konfigurationsavsnittet.
 

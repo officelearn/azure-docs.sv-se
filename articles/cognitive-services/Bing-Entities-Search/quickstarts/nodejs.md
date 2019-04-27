@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 8007d576a6b896f12423087cfd4a483d9171abc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737133"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Node.js
 
@@ -23,7 +23,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 

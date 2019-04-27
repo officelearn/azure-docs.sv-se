@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591325"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Använd Azure-Snabbstartsmallar för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM
 Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis automatisera distributionen av en Always On tillgänglighetsgruppens konfiguration för SQL Server-datorer i Azure. Det finns två Azure-Snabbstartsmallar som används i den här processen. 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis 
 Andra delar av tillgänglighetsgruppens konfiguration måste göras manuellt, till exempel skapa tillgänglighetsgruppen och skapa den interna belastningsutjämnaren. Den här artikeln innehåller automatisk och manuell frågornas ordningsföljd.
  
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 För att automatisera installationen av en Always On-tillgänglighetsgrupp med quickstart-mallar, måste du redan har följande krav: 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resursgrupp med en domänkontrollant. 

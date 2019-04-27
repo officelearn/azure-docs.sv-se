@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 522b9743af28dedb2aec5682a1ae95b9d52ad2d9
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549187"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Läs in data till Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
 
@@ -36,7 +36,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 > [!NOTE]
 > Mer information finns i [kopiera data till och från Data Lake Storage Gen1 med hjälp av Azure Data Factory](connector-azure-data-lake-store.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Data Lake Storage Gen1 konto: Om du inte har ett Data Lake Storage Gen1-konto, se anvisningarna i [skapa ett Data Lake Storage Gen1 konto](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).

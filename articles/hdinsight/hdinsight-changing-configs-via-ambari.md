@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60698990"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använd Apache Ambari för att optimera klusterkonfigurationer för HDInsight
 
@@ -279,9 +279,9 @@ Standard för kopplingstyp i Hive är en *shuffle join*. I Hive, särskilt Mappn
 
 Ytterligare rekommendationer för att optimera motorn för körning av Hive:
 
-| Inställning | Rekommenderad | HDInsight standard |
+| Inställning | Rekommenderas | HDInsight standard |
 | -- | -- | -- |
-| `hive.mapjoin.hybridgrace.hashtable` | SANT = säkrare, långsammare; = FALSE snabbare | falskt |
+| `hive.mapjoin.hybridgrace.hashtable` | SANT = säkrare, långsammare; = FALSE snabbare | false |
 | `tez.am.resource.memory.mb` | 4 GB övre gränsen för de flesta | Automatiskt justerade |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |

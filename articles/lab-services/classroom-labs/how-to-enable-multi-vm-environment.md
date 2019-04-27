@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702440"
 ---
 # <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Skapa en miljö med flera virtuella datorer i en mall för virtuell dator av ett klassrumslabb
 För närvarande kan Azure Lab Services du konfigurera en mall för virtuell dator i ett labb och göra en enda kopia som är tillgängliga för var och en av dina användare. Men om du är en lärare som undervisar en IT-klass på hur du konfigurerar brandväggar eller servrar kan du behöva ge var och en av dina studenter med en miljö där flera virtuella datorer kan kommunicera med varandra via ett nätverk.

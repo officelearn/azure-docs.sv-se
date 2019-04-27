@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/10/2019
 ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60701185"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
@@ -112,4 +112,4 @@ När distributionen är färdig kan du granska resurserna som har skapats och h�
   - En snabbstart som visar hur du ansluter till en hanterad instans från en virtuell Azure-dator finns i [Konfigurera en anslutning för en virtuell Azure-dator](sql-database-managed-instance-configure-vm.md).
   - En snabbstart som visar hur du ansluter till en hanterad instans från en lokal klientdator via punkt-till-plats-anslutning finns i [Konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md).
 - Om du vill återställa en lokal befintlig SQL Server-databas till en hanterad instans kan du använda [Azure Database Migration Service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) till att återställa från en databassäkerhetskopia eller kommandot [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) till att återställa från en databassäkerhetskopia.
-- Information om avancerad övervakning av databasprestanda för hanterad instans med inbyggd felsökningsintelligens finns i artikeln om att [övervaka Azure SQL Database med hjälp av Azure SQL-analys](../azure-monitor/insights/azure-sql.md)
+- Information om avancerad övervakning av prestanda för hanterad instansdatabas med inbyggd felsökningsintelligens finns i artikeln om att [övervaka Azure SQL Database med hjälp av Azure SQL-analys](../azure-monitor/insights/azure-sql.md)

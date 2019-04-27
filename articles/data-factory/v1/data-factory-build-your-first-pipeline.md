@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564597"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudier: Skapa din första pipeline för att transformera data med Hadoop-kluster
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 Från rad exemplet som visas ovan, förstnämnda (med 2016-01-01) skrivs till filen 000000_0 i månaden = 1 mapp. På samma sätt kan den andra som skrivs till filen i månaden = 2 mappen och tredje en skrivs till filen i månaden = 3 mapp.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du påbörjar den här självstudien måste du ha följande krav:
 
 1. **Azure-prenumeration** -om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se den [kostnadsfri utvärderingsversion av](https://azure.microsoft.com/pricing/free-trial/) artikel om hur du kan få ett kostnadsfritt konto.

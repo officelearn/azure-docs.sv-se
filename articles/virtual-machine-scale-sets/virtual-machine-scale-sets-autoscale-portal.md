@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618886"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en VM-skalningsuppsättning i Azure portal
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app.
@@ -28,7 +28,7 @@ När du skapar en skalningsuppsättning, definierar du antalet virtuella datorin
 Den här artikeln visar hur du skapar regler för automatisk skalning i Azure-portalen som övervakar prestandan för de Virtuella datorinstanserna i din skalningsuppsättning. Dessa regler för automatisk skalning öka eller minska antalet Virtuella datorinstanser som svar på dessa prestandamått. Du kan också utföra dessa steg med [Azure PowerShell](tutorial-autoscale-powershell.md) eller [Azure CLI](tutorial-autoscale-cli.md).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att skapa regler för automatisk skalning, behöver du en befintlig virtuell dator skalningsuppsättning. Du kan skapa en skalningsuppsättning med den [Azure-portalen](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), eller [Azure CLI](quick-create-cli.md).
 
 

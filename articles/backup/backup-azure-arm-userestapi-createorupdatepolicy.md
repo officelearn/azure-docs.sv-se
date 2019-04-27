@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648813"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa Azure Recovery Services-säkerhetskopieringsprinciper via REST API
 
@@ -31,7 +31,7 @@ Stegen för att skapa en princip för säkerhetskopiering för ett Azure Recover
 - En princip kan tilldelas till många resurser. En princip för säkerhetskopiering av virtuella Azure-datorer kan användas för att skydda många virtuella datorer i Azure.
 - En princip som består av två komponenter
   - Schema: När du göra en säkerhetskopia
-  - Kvarhållning: Hur länge varje säkerhetskopiering ska behållas.
+  - Kvarhållning av säkerhetskopior: Hur länge ska varje säkerhetskopiering behållas.
 - Schemat kan du definiera ”varje dag” eller ”varje vecka” med en specifik tidpunkt.
 - Kvarhållning kan definieras för ”daglig”, ”vecka”, ”månad”, ”år” säkerhetskopieringspunkter.
 - ”varje vecka” refererar till en säkerhetskopia på en viss dag i veckan, ”månatliga” innebär att en säkerhetskopia på en viss dag i månaden och ”år” refererar till en säkerhetskopia för en viss dag på året.
@@ -50,10 +50,10 @@ Den `{policyName}` och `{vaultName}` finns i URI: N. Mer information finns i beg
 
 Om du vill skapa en princip för säkerhetskopiering av Azure virtuella datorer är till exempel följande komponenter i begärandetexten.
 
-|Namn  |Krävs  |Typ  |Beskrivning  |
+|Namn  |Obligatoriskt  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource egenskaper        |
-|tags     |         | Objekt        |  Resurstaggar       |
+|tags     |         | Object        |  Resurstaggar       |
 
 Den fullständiga listan med definitioner i begärandetexten finns i den [säkerhetskopieringsprincip REST API-dokumentet](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
@@ -156,7 +156,7 @@ Principen säger:
 
 Princip för säkerhetskopiering skapande/uppdatering är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
-Den returnerar två svar: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
+Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|

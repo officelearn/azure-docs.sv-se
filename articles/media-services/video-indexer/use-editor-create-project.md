@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: a9d6396cab560a201b98497e787af4b6c7c2dabb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560930"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Använda Video Indexer-Redigeraren för att skapa projekt
 
@@ -54,7 +54,7 @@ Den här artikeln visar hur du skapar ett projekt från grunden och hur du skapa
 
     Du kan filtrera resultatet ytterligare genom att välja **filtrera resultaten**. Du kan filtrera att visa videor som har en viss person i dem eller ange att du bara vill se videon resultat som är en i ett visst språk eller ha en specifik ägare. <br/> Du kan också ange omfattningen av din fråga. Till exempel om du vill söka efter ”GitHub” i OCR väljer **Visual Text**.
 
-    ![Filtrera](./media/video-indexer-view-edit/visual-text.png)
+    ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
     Du kan även lägga till flera filter i frågan. Använd den **+** / **-** knappar för att lägga till/ta bort filter. Använd **ta bort filter** att ta bort alla filter.
 1. Om du vill lägga till videor, markerar du dem och välj sedan **Lägg till**.
@@ -76,7 +76,7 @@ Om du klickar på pilen till höger i varje video nedåt öppnas dig insikter i 
 1. Använd sökrutan som säger ”söka i avskriften, visual text, personer och etiketter” för att skapa frågor för specifika klipp.
 1. Lägg till filter för att ange ytterligare information om på vilka scener som du letar efter genom att välja **filteralternativ**.
 
-    ![Filteralternativ](./media/video-indexer-view-edit/filter-options.png)
+    ![Filtrera alternativ](./media/video-indexer-view-edit/filter-options.png)
 
     Du kan till exempel vill se klipp där GitHub nämns medan Donovan Brown som visas på skärmen. För det behöver du lägga till ett ”inkluderar”-filter som har ”användare” som typ av information. Sedan måste du ange ”Donovan Brown” i sökrutan för filtret.
     

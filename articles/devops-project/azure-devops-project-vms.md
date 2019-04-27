@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Distribuera din ASP.NET-app till Azure Virtual Machines med Azure DevOp Projects'
+title: 'Självstudier: Distribuera din ASP.NET-app till Azure-datorer med Azure DevOps-projekt'
 description: DevOps Projects gör det enkelt att komma igång med Azure och distribuera din ASP.NET-app till Azure Virtual Machines i några få enkla steg.
 ms.author: mlearned
 ms.manager: douge
@@ -10,13 +10,13 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 05643f342d51d99645d3c9204d6e63adcf2a0a73
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546496"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Självstudie: Distribuera din ASP.NET-app till Azure Virtual Machines med Azure DevOp Projects
+# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Självstudier: Distribuera din ASP.NET-app till Azure-datorer med Azure DevOps-projekt
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 
@@ -45,11 +45,11 @@ I den här kursen ska du:
 
 DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser som virtuella datorer i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **Nytt** i den vänstra rutan.
+1. Välj **Nytt** i den vänstra fönsterrutan.
 
-1. I sökrutan skriver du **DevOps Projects**, och välj sedan **Skapa**.
+1. I sökrutan skriver du **DevOps Projects** och väljer sedan **Skapa**.
 
     ![DevOps Projects-instrumentpanelen](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -92,7 +92,7 @@ DevOps Projects konfigurerar automatiskt en CI/CD-pipeline i Azure Pipelines. Du
 
 1. Välj **Redigera**.
 
-1. I det här fönstret kan du granska de olika uppgifterna för bygg-pipelinen.  
+1. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen.  
     Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
@@ -100,7 +100,7 @@ DevOps Projects konfigurerar automatiskt en CI/CD-pipeline i Azure Pipelines. Du
 1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
-    I det här fönstret kan du se en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
+    I den här fönsterrutan visas en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
 1. Välj **Utlösare**.  
     DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version. Du kan välja att inkludera eller exkludera grenar från CI-processen.
@@ -115,7 +115,7 @@ DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatis
 1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  
     DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
-1. Välj ellipsen (...) bredvid din releasepipeline och välj sedan **Redigera**.  
+1. Välj ellipsen (...) intill din versionspipeline och välj sedan **Redigera**.  
     Versionspipelinen innehåller en *pipeline* som definierar släpprocessen.
 
 1. Under **Artefakter** väljer du **Släpp**.  
@@ -133,7 +133,7 @@ DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatis
 
 1. Till höger väljer du alternativet för att **visa versioner** för att visa en historik över versioner.
 
-1. Välj ellipsen (...) bredvid en version och välj sedan **Öppna**.  
+1. Välj ellipsen (...) intill en version och välj sedan **Öppna**.  
     Du kan utforska flera menyer, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
 
 1. Välj **Incheckningar**.  
@@ -166,10 +166,10 @@ Med Azure Application Insights kan du enkelt övervaka ett programs prestanda oc
 1. Nere till höger väljer du **Application Insights**-länken för din app.  
     Fönsterrutan **Application Insights** öppnas. Den här vyn innehåller övervakningsinformation om användning, prestanda och tillgänglighet för din app.
 
-    ![Fönstret Application Insights](_img/azure-devops-project-github/appinsights.png) 
+    ![Fönsterrutan Application Insights](_img/azure-devops-project-github/appinsights.png) 
 
 1. Välj **Tidsintervall** och sedan **Senaste timmen**. Välj **Uppdatera** för att filtrera resultaten.  
-    Nu kan du se alla aktiviteter från de senaste 60 minuterna. 
+    Nu kan du se all aktivitet från de senaste 60 minuterna. 
     
 1. Om du vill avsluta tidsintervallet väljer du **x**.
 
@@ -177,13 +177,13 @@ Med Azure Application Insights kan du enkelt övervaka ett programs prestanda oc
 
 1. Ange ett namn för aviseringen.
 
-1. I listrutan **Statistik** undersöker du statistik om aviseringar.  
+1. I listrutan **Mått** undersöker du de olika måtten för aviseringar.  
     Standardaviseringen är för en **serversvarstid som är större än 1 sekund**. Du kan enkelt konfigurera en mängd olika aviseringar för att förbättra övervakningsfunktionerna i din app.
 
-1. Välj kryssrutan för att **meddela e-postägare, deltagare och läsare**.  
+1. Välj kryssrutan **Meddela via e-postägare, deltagare och läsare**.  
     Alternativt kan du utföra ytterligare åtgärder när en avisering visas genom att köra Azure-logikapp.
 
-1. Välj **OK** för att skapa aviseringen.  
+1. Skapa aviseringen genom att välja **OK**.  
     Efter en liten stund visas aviseringen som aktiv på instrumentpanelen. 
 
 1. Avsluta området **Aviseringar** och gå tillbaka till fönsterrutan **Application Insights**.
@@ -198,7 +198,7 @@ Med Azure Application Insights kan du enkelt övervaka ett programs prestanda oc
 Om du testar kan du rensa bland resurserna för att undvika att behöva betala fler avgifter. När de inte längre behövs kan du ta bort den virtuella Azure-datorn och relaterade resurser som du skapade i den här självstudien. Det gör du med funktionen **Ta bort** på DevOps Projects-instrumentpanelen. 
 
 > [!IMPORTANT]
-> Följande procedur tar permanent bort resurser. Funktionen *Ta bort* förstör alla data som skapats av Azure DevOps-projektet i både Azure och Azure DevOps, och du kan inte återskapa dem. Använd inte den här proceduren förrän du har läst anvisningarna noga.
+> Följande procedur tar permanent bort resurser. Funktionen *Ta bort* förstör alla data som skapats av Azure DevOps-projektet i både Azure och Azure DevOps, och du kan inte återskapa dem. Använd den här proceduren först när du har läst anvisningarna noga.
 
 1. Gå till DevOps Projects-instrumentpanelen i Azure-portalen.
 1. Välj **Ta bort** i det övre högra hörnet. 

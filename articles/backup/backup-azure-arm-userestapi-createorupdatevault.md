@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646715"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Skapa Azure Recovery Services-valv med hjälp av REST API
 
@@ -44,13 +44,13 @@ Mer information om hur du skapar begäran finns i [komponenterna i en REST API-b
 
 Följande vanliga definitioner används för att skapa en brödtext i begäran:
 
-|Namn  |Krävs  |Typ  |Beskrivning  |
+|Namn  |Obligatoriskt  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  Valfritt eTag       |
 |location     |  true       |String         |   Resursplats      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifierar unika system-identifieraren för varje Azure-resurs     |
-|tags     |         | Objekt        |     Resurstaggar    |
+|tags     |         | Object        |     Resurstaggar    |
 
 Observera att valvnamnet och resursgruppens namn anges i PUT URI. Begärandetexten definierar platsen.
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 6dd1dd0ce2395e2b06d80385ffd299835a280526
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614030"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init-stöd för virtuella datorer i Azure
 Den här artikeln förklarar stödet finns för [cloud-init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller en virtuell dator av skalningsuppsättningar (VMSS) etableringstid i Azure. Skripten cloud-init körs vid den första starten när resurserna har etablerats med Azure.  

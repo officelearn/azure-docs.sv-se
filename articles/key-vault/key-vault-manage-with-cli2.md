@@ -2,23 +2,19 @@
 title: Hantera Azure Key Vault med CLI - Azure Key Vault | Microsoft Docs
 description: Använd den här artikeln för att automatisera vanliga uppgifter i Key Vault med hjälp av Azure CLI
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641032"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Nyckelvalv med hjälp av Azure CLI 
 
@@ -43,7 +39,7 @@ Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns p�
 En översikt över Azure Key Vault finns i [vad är Azure Key Vault?](key-vault-whatis.md)
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda Azure CLI-kommandon i den här artikeln, måste du ha följande objekt:
 

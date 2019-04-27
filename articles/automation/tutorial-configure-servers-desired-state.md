@@ -10,11 +10,11 @@ manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: 582533d23757de748b9cc7d40e45acc00240d384
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599733"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Konfigurera servrar till önskade tillstånd och hantera drift
 
@@ -27,7 +27,7 @@ Tillståndskonfiguration för Azure Automation kan du ange konfigurationer för 
 > - Tilldela en nodkonfiguration till en hanterad nod
 > - Kontrollera kompatibilitetsstatusen för en hanterad nod
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna genomföra den här kursen behöver du följande:
 

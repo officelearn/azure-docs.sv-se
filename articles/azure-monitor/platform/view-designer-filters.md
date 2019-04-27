@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551742"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filter i Azure Monitor-vyer
 En **filter** i en [Azure Monitor visa](view-designer.md) tillåter användare att filtrera data i vyn av värdet för en viss egenskap utan att ändra själva vyn.  Du kan till exempel tillåta användare av vyn för att filtrera vyn för endast data från en viss dator eller datorer.  Du kan skapa flera filter i en enda vy så att användarna kan filtrera efter flera egenskaper.  Den här artikeln beskriver hur du använder ett filter och addera en till en anpassad vy.
@@ -56,7 +56,7 @@ Följande tabell innehåller några exempel på vanliga filter.
 
 | Fältnamn | Fråga för värden | Tagga |
 |:--|:--|:--|
-| Dator   | Pulsslag &#124; distinct Computer &#124; sortera efter dator asc | Datorer |
+| Computer   | Pulsslag &#124; distinct Computer &#124; sortera efter dator asc | Datorer |
 | EventLevelName | Event &#124; distinct EventLevelName | Severity |
 | SeverityLevel | Syslog &#124; distinkta SeverityLevel | Severity |
 | SvcChangeType | ConfigurationChange &#124; distinkta svcChangeType | changeType |

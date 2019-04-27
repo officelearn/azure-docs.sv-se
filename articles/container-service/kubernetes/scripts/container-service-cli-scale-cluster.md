@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 05/30/2017
 ms.author: iainfou
 ms.openlocfilehash: 199a2f09df57878d6523cfed6873001f190e14f5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60895258"
 ---
 # <a name="deprecated-scale-an-azure-container-service-cluster"></a>(INAKTUELL) Skala ett Azure Container Service-kluster
 

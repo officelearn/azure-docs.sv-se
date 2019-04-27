@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656599"
 ---
 # <a name="api-management-policy-expressions"></a>Principuttryck för API Management
 Den här artikeln beskriver principuttryck syntaxen är C# 7. Varje uttryck har åtkomst till den angivna implicit [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och tillåtet [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.
@@ -74,7 +74,7 @@ Uttryck kan användas som attributvärden eller textvärden i alla API Managemen
 ## <a name="CLRTypes"></a> .NET framework-typer tillåts i principuttryck
 I följande tabell visas de .NET Framework-typerna och deras medlemmar som tillåts i principuttryck.
 
-|Type|Stöds medlemmar|
+|Typ|Stöds medlemmar|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Alla|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
@@ -210,7 +210,7 @@ En variabel med namnet `context` finns implicit i varje princip [uttryck](api-ma
 
 |Sammanhangsvariabel|Tillåtna metoder, egenskaper och parametervärden|
 |----------------------|-------------------------------------------------------|
-|Kontext|Api: IApi<br /><br /> Distribution<br /><br /> Förfluten tid: TimeSpan - tidsintervallet mellan värdet för tidsstämpeln och aktuell tid<br /><br /> LastError<br /><br /> Åtgärd<br /><br /> Produkt<br /><br /> Förfrågan<br /><br /> RequestId: GUID - identifierare för unika begäran<br /><br /> Svar<br /><br /> Prenumeration<br /><br /> Tidsstämpel: DateTime - tidpunkt när en förfrågan togs emot<br /><br /> Spårning: bool - anger om spårning har aktiverats eller inaktiverats <br /><br /> Användare<br /><br /> Variabler: IReadOnlyDictionary < string, object ><br /><br /> Annullera Trace(message: string)|
+|Kontext|Api: IApi<br /><br /> Distribution<br /><br /> Förfluten tid: TimeSpan - tidsintervallet mellan värdet för tidsstämpeln och aktuell tid<br /><br /> LastError<br /><br /> Åtgärd<br /><br /> Product<br /><br /> Förfrågan<br /><br /> RequestId: GUID - identifierare för unika begäran<br /><br /> Svar<br /><br /> Prenumeration<br /><br /> Tidsstämpel: DateTime - tidpunkt när en förfrågan togs emot<br /><br /> Spårning: bool - anger om spårning har aktiverats eller inaktiverats <br /><br /> Användare<br /><br /> Variabler: IReadOnlyDictionary < string, object ><br /><br /> Annullera Trace(message: string)|
 |context.Api|ID: sträng<br /><br /> IsCurrentRevision: bool<br /><br />  Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Revision: sträng<br /><br /> ServiceUrl: IUrl<br /><br /> Version: sträng |
 |context.Deployment|Region: sträng<br /><br /> Tjänstnamn: sträng<br /><br /> Certifikat: IReadOnlyDictionary<string, X509Certificate2>|
 |context.LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfång: sträng<br /><br /> Avsnittet: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> Mer information om kontext. LastError, se [felhantering](api-management-error-handling-policies.md).|
@@ -220,8 +220,8 @@ En variabel med namnet `context` finns implicit i varje princip [uttryck](api-ma
 |strängkontext. Request.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|Huvudnamn: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar huvudvärden för CSV-begäran eller `defaultValue` om sidhuvudet inte hittas.|
 |context.Response|Brödtext: IMessageBody<br /><br /> Rubriker: IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: sträng|
 |strängkontext. Response.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|Huvudnamn: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar CSV-svar värden i huvudet eller `defaultValue` om sidhuvudet inte hittas.|
-|context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: sträng<br /><br /> Nyckel: sträng<br /><br /> Namn: sträng<br /><br /> PrimaryKey: sträng<br /><br /> Sekundär nyckel: sträng<br /><br /> Startdatum: DateTime?|
-|context.User|E-post: sträng<br /><br /> Förnamn: sträng<br /><br /> Grupper: IEnumerable < IGroup\><br /><br /> ID: sträng<br /><br /> Identiteter: IEnumerable < IUserIdentity\><br /><br /> Efternamn: sträng<br /><br /> Obs: sträng<br /><br /> RegistrationDate: DateTime|
+|context.Subscription|CreatedTime: Datetime<br /><br /> EndDate: DateTime?<br /><br /> ID: sträng<br /><br /> Nyckel: sträng<br /><br /> Namn: sträng<br /><br /> PrimaryKey: sträng<br /><br /> Sekundär nyckel: sträng<br /><br /> Startdatum: DateTime?|
+|context.User|E-post: sträng<br /><br /> Förnamn: sträng<br /><br /> Grupper: IEnumerable < IGroup\><br /><br /> ID: sträng<br /><br /> Identiteter: IEnumerable < IUserIdentity\><br /><br /> Efternamn: sträng<br /><br /> Obs: sträng<br /><br /> RegistrationDate: Datetime|
 |IApi|ID: sträng<br /><br /> Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Protokoll: IEnumerable < sträng\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|
 |IGroup|ID: sträng<br /><br /> Namn: sträng|
 |IMessageBody|Som < T\>(preserveContent: bool = false): Där T: sträng JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Den `context.Request.Body.As<T>` och `context.Response.Body.As<T>` metoderna används för att läsa en begäran och svaret meddelandetexten i en viss typ av `T`. Som standard metoden använder den ursprungliga brödtext meddelandeströmmen och återger den otillgänglig när den returnerar. Om du vill undvika det genom att använda metoden som fungerar på en kopia av brödtextströmmen, ange den `preserveContent` parameter `true`. Gå [här](api-management-transformation-policies.md#SetBody) att se ett exempel.|

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593229"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar ”kritiska tjänsten misslyckades” på blå skärm när du startar en virtuell Azure-dator
 Den här artikeln beskriver felet ”kritiska tjänsten misslyckades” som kan uppstå när du startar en Windows virtuell dator (VM) i Microsoft Azure. Det ger felsökningssteg för att hjälpa dig att lösa problemen. 

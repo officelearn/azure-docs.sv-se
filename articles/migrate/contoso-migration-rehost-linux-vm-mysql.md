@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
 ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60670505"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso-migrering: Byta värd för en lokal Linux-app till virtuella Azure-datorer och Azure MySQL
 
@@ -108,7 +108,7 @@ Migrera databasen:
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | Databasen är baserad på öppen källkod MySQL Server-motorn. Det ger en fullständigt hanterad, företagsfärdig community MySQL-databas som en tjänst för apputveckling och distribution. 
 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Här är vad Contoso behöver för det här scenariot.
 

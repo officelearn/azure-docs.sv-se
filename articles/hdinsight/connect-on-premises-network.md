@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537912"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
@@ -78,7 +78,7 @@ De här stegen används den [Azure-portalen](https://portal.azure.com) att skapa
     |Namn på virtuell dator | Ange ett eget namn som identifierar den här virtuella datorn. Det här exemplet används **DNSProxy**.|
     |Region | Välj samma region som det virtuella nätverket som skapades tidigare.  Inte alla VM-storlekar är tillgängliga i alla regioner.  |
     |Alternativ för tillgänglighet |  Välj din önskade nivå för tillgänglighet.  Azure erbjuder en mängd alternativ för att hantera tillgänglighet och återhämtningskapacitet för dina program.  Skapa din lösning om du vill använda replikerade virtuella datorerna i Tillgänglighetszoner eller Tillgänglighetsuppsättningar för att skydda dina appar och data från avbrott i datacentret och underhåll. Det här exemplet används **ingen redundans för infrastruktur som krävs för**. |
-    |Bild | Lämna på **Ubuntu Server 18.04 LTS**. |
+    |Image | Lämna på **Ubuntu Server 18.04 LTS**. |
     |Autentiseringstyp | __Lösenordet__ eller __offentlig SSH-nyckel__: Autentiseringsmetoden för SSH-kontot. Vi rekommenderar att du använder offentliga nycklar som de är säkrare. Det här exemplet används **lösenord**.  Mer information finns i den [skapa och använda SSH-nycklar för Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md) dokumentet.|
     |Användarnamn |Ange administratörens användarnamn för den virtuella datorn.  Det här exemplet används **sshuser**.|
     |Lösenordet eller SSH offentlig nyckel | Fältet bestäms av valet du gjorde för **autentiseringstyp**.  Ange lämpligt värde.|
@@ -94,7 +94,7 @@ De här stegen används den [Azure-portalen](https://portal.azure.com) att skapa
     | --- | --- |
     |Virtuellt nätverk | Välj det virtuella nätverket som du skapade tidigare.|
     |Undernät | Välj standardundernät för det virtuella nätverket som du skapade tidigare. Gör __inte__ välja det undernät som används av VPN-gatewayen.|
-    |Offentlig IP | Använd autopopulated-värdet.  |
+    |Offentlig IP-adress | Använd autopopulated-värdet.  |
 
     ![Inställningar för virtuella nätverk](./media/connect-on-premises-network/virtual-network-settings.png)
 

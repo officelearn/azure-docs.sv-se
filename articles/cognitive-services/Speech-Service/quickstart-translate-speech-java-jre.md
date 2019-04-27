@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897116"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60619245"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Översätt tal med Speech-SDK för Java
 
@@ -23,7 +23,7 @@ I den här snabbstarten skapar du ett enkelt Java-program som samlar in använda
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För den här snabbstarten krävs:
 

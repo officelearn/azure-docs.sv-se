@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612582"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integrering av virtuella nätverk för Azure Data Lake Storage Gen1
 
@@ -26,23 +26,23 @@ Den här artikeln introducerar integrering av virtuella nätverk för Azure Data
 
 Den här funktionen hjälper till att skydda ditt Data Lake Storage-konto från externa hot.
 
-Integrering av virtuella nätverk för Data Lake Storage Gen1 utnyttjar tjänstslutpunktssäkerhet för virtuella nätverk mellan ditt virtuella nätverk och Azure Active Directory-tjänsten (Azure AD) för att generera ytterligare säkerhetsanspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst.
+Integrering av virtuella nätverk för Data Lake Storage Gen1 utnyttjar säkerheten i tjänstslutpunkter för virtuella nätverk mellan ditt virtuella nätverk och Azure Active Directory-tjänsten (Azure AD) för att generera ytterligare säkerhetsanspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst.
 
 > [!NOTE]
 > Det finns ingen extra kostnad med att använda dessa funktioner. Kontot faktureras enligt standardavgifterna för Data Lake Storage Gen1. Mer information finns i [prissättning](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Information om alla andra Azure-tjänster som du använder finns i [prissättning](https://azure.microsoft.com/pricing/#product-picker).
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Scenarier för integrering av virtuella nätverk för Data Lake Storage Gen1
 
-Med integrering av virtuella nätverk för Data Lake Storage Gen1 kan du begränsa åtkomsten till ditt Data Lake Storage Gen1-konto från specifika virtuella nätverk och undernät. När ditt konto är låst till de angivna virtuella nätverkets undernät tillåts inte åtkomst för andra virtuella nätverk/virtuella datorer i Azure. Funktionellt möjliggör integrering av virtuella nätverk med Data Lake Storage Gen1 samma scenario som [tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Det finns några viktiga skillnader som beskrivs i följande avsnitt. 
+Med integrering av virtuella nätverk för Data Lake Storage Gen1 kan du begränsa åtkomsten till ditt Data Lake Storage Gen1-konto från specifika virtuella nätverk och undernät. När ditt konto är låst till de angivna virtuella nätverkets undernät tillåts inte åtkomst för andra virtuella nätverk/virtuella datorer i Azure. Funktionellt möjliggör integrering av virtuella nätverk med Data Lake Storage Gen1 samma scenario som [tjänstslutpunkter för virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Det finns några viktiga skillnader som beskrivs i följande avsnitt. 
 
 ![Scenariodiagram för integrering av virtuella nätverk med Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
 > [!NOTE]
-> De befintliga IP-brandväggsreglerna kan användas utöver regler för virtuella nätverk för att även tillåta åtkomst från lokala nätverk. 
+> De befintliga IP-brandväggsreglerna kan användas utöver regler för virtuellt nätverk för att även tillåta åtkomst från lokala nätverk. 
 
 ## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Optimal routning med integrering av virtuella nätverk med Data Lake Storage Gen1
 
-En viktig fördel med tjänstslutpunkter för virtuella nätverk är [optimal routning](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) från ditt virtuella nätverk. Du kan utföra samma vägoptimering till Data Lake Storage Gen1-konton. Använd följande [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) från ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto.
+En viktig fördel med tjänstslutpunkter för virtuellt nätverk är [optimal routning](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) från ditt virtuella nätverk. Du kan utföra samma vägoptimering till Data Lake Storage Gen1-konton. Använd följande [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) från ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto.
 
 **Offentlig IP-adress för Data Lake Storage** – Använd den offentliga IP-adressen för dina Data Lake Storage Gen1-målkonton. För att identifiera IP-adresserna för ditt Data Lake Storage Gen1-konto [löser du DNS-namnen](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) för dina konton. Skapa en separat post för varje adress.
 
@@ -75,7 +75,7 @@ Några tillgängliga alternativ är:
 
 - HDInsight-kluster som skapades innan det fanns stöd för integrering av virtuella nätverk med Data Lake Storage Gen1 måste återskapas för att ge stöd för den här nya funktionen.
  
-- När du skapar ett nytt HDInsight-kluster och väljer ett Data Lake Storage Gen1-konto med integrering av virtuella nätverk aktiverat misslyckas processen. Inaktivera först regeln för virtuella nätverk. Eller så kan du på bladet **Brandvägg och virtuella nätverk** i Data Lake Storage-kontot välja **Tillåt åtkomst från alla nätverk och tjänster**. Skapa därefter HDInsight-klustret innan du slutligen återaktiverar regeln för virtuella nätverk eller avmarkera **Allow access from all networks and services (Tillåt åtkomst från alla nätverk och tjänster)**. Mer information finns i avsnittet [Undantag](#exceptions).
+- När du skapar ett nytt HDInsight-kluster och väljer ett Data Lake Storage Gen1-konto med integrering av virtuella nätverk aktiverat misslyckas processen. Inaktivera först regeln för virtuellt nätverk. Eller så kan du på bladet **Brandvägg och virtuella nätverk** i Data Lake Storage-kontot välja **Tillåt åtkomst från alla nätverk och tjänster**. Skapa därefter HDInsight-klustret innan du slutligen återaktiverar regeln för virtuellt nätverk eller avmarkerar **Allow access from all networks and services (Tillåt åtkomst från alla nätverk och tjänster)**. Mer information finns i avsnittet [Undantag](#exceptions).
 
 - Integrering av virtuella nätverk med Data Lake Storage Gen1 fungerar inte med [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
@@ -116,7 +116,7 @@ Några tillgängliga alternativ är:
     > [!NOTE]
     > Om du inte ser **Brandvägg och virtuella nätverk** i inställningarna loggar du ut från portalen. Stäng webbläsaren och rensa webbläsarens cacheminne. Starta om datorn och försök igen.
 
-       ![Lägga till en regel för virtuella nätverk till ditt Data Lake Storage-konto](media/data-lake-store-network-security/config-adls-1.png)
+       ![Lägga till en regel för virtuellt nätverk till ditt Data Lake Storage-konto](media/data-lake-store-network-security/config-adls-1.png)
 
 3.  Välj **Valda nätverk**.
  

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14f76a716447e09299cfa18d6758245706c7b481
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556550"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuera och utforska en multitenant SaaS-app som använder mönstret databas-per-klient med SQL Database
 
@@ -37,7 +37,7 @@ I den här guiden lär du dig:
 
 En [uppsättning relaterade guider](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) erbjuder att utforska olika SaaS design och -hanteringsmönster. Självstudierna skapa utöver den här inledande distributionen. När du använder självstudierna kan undersöka du skripten som tillhandahålls för att se hur de olika SaaS-mönstren implementeras. Skripten visar hur funktionerna i SQL Database förenklar utvecklingen av SaaS-program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera för att slutföra den här självstudien Azure PowerShell har installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 

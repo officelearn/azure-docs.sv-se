@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 70dca655d5300fcd34b4198093e136f6a971963b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: MT
+ms.openlocfilehash: 44b965bd60d976d4d28dc5e31d78a1c838d4ee02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542358"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Högpresterande compute storlekar för virtuella datorer
 
@@ -33,8 +33,10 @@ ms.locfileid: "49344497"
 
 ### <a name="mpi"></a>MPI 
 
-Endast Intel MPI 5.x-versioner som stöds. Senare versioner (2017, 2018) på Intel MPI runtime-biblioteket är inte kompatibla med Azure Linux RDMA-drivrutiner.
+Endast Intel MPI 5.x-versioner som stöds.
 
+> [!NOTE]
+> Senare versioner (2017, 2018) på Intel MPI-runtime biblioteket kanske eller kanske inte är kompatibla med Azure Linux RDMA-drivrutiner.
 
 ### <a name="distributions"></a>Distributioner
  

@@ -16,11 +16,11 @@ ms.date: 06/21/2018
 ms.author: magattus
 ms.custom: ''
 ms.openlocfilehash: 7768dde424aedc295b53512db50c9dfc9db9ab8c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635643"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrera en Azure CDN-profil från Standard Verizon till Premium Verizon
 
@@ -38,11 +38,11 @@ Så här uppgraderar du en **Azure CDN Standard från Verizon** profil, kontakta
 **Azure CDN Premium från Verizon** profiler har följande viktiga skillnader från **Azure CDN Standard från Verizon** profiler:
 - För vissa Azure CDN funktioner som [komprimering](cdn-improve-performance.md), [cachelagringsregler](cdn-caching-rules.md), och [geofiltrering](cdn-restrict-access-by-country.md), du kan inte använda Azure CDN-gränssnittet, måste du använda Verizon-portalen via den **Hantera** knappen.
 - API: Till skillnad från med Standard Verizon, du kan inte använda API: et till att styra de funktioner som kan nås från Premium Verizon-portalen. Du kan dock använda API: et för att kontrollera andra vanliga funktioner, till exempel skapa/ta bort en slutpunkt, rensa/läser in cachelagrade tillgångar och aktivering/inaktivering av en anpassad domän.
-- Priser: Premium Verizon har en annan prisstrukturen för överföring av data än Standard Verizon. Mer information finns i [prissättningen för CDN](https://azure.microsoft.com/pricing/details/cdn/).
+- Prissättning: Premium Verizon har en annan prisstrukturen för överföring av data än Standard Verizon. Mer information finns i [prissättningen för CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
 **Azure CDN Premium från Verizon** profiler har följande ytterligare funktioner:
-- [Tokenautentisering](cdn-token-auth.md): tillåter användare att skaffa och använda en token för att hämta säkra resurser.
-- [Regelmotor](cdn-rules-engine.md): kan du anpassa hur HTTP-begäranden ska hanteras.
+- [Tokenautentisering](cdn-token-auth.md): Tillåter användare att skaffa och använda en token för att hämta säkra resurser.
+- [Regelmotor](cdn-rules-engine.md): Kan du anpassa hur HTTP-begäranden ska hanteras.
 - Avancerade analysverktyg:
    - [Detaljerad HTTP-analys](cdn-advanced-http-reports.md)
    - [Edge-prestandaanalys](cdn-edge-performance.md)

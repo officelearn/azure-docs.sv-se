@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: MT
+ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563400"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Översikt över DNS-zoner och poster
 
@@ -34,7 +34,7 @@ En domänregistrator är en organisation där du kan köpa ett domännamn, till 
 
 Azure DNS tillhandahåller en globalt distribuerad, hög tillgänglighet namn serverinfrastruktur, som du kan använda som värd för din domän. Av som värd för domäner i Azure DNS kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API: er, verktyg, fakturering och support som dina andra Azure-tjänster.
 
-Azure DNS stöder för närvarande inte köpa domännamn. Om du vill köpa ett domännamn kan behöva du använda en tredjeparts-domännamnsregistrator. Registratorn oftast debiterar en liten årsavgift. Domänerna som kan finnas i Azure DNS för hantering av DNS-poster. Se [delegera en domän till Azure DNS](dns-domain-delegation.md) mer information.
+Azure DNS stöder för närvarande inte köpa domännamn. Om du vill köpa ett domännamn kan behöva du använda en tredjeparts-domännamnsregistrator. Registratorn oftast debiterar en liten årsavgift. Domänerna som kan finnas i Azure DNS för hantering av DNS-poster. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
 
 ## <a name="dns-zones"></a>DNS-zoner
 
@@ -59,7 +59,7 @@ Om du vill skapa en postuppsättning med jokertecken, använder du postuppsättn
 ### <a name="caa-records"></a>CAA-poster
 
 CAA-poster att domänägare kan ange vilken certifikatutfärdare (CA) har behörighet att utfärda certifikat för sin domän. På så sätt kan certifikatutfärdare för att förhindra att fel certifikat i vissa fall. CAA-poster har tre egenskaper:
-* **Flaggor**: det här är ett heltal mellan 0 och 255 som används för att representera kritisk flagga som har en särskild innebörd per den [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Flaggor**: Det här är ett heltal mellan 0 och 255 som används för att representera kritisk flagga som har en särskild innebörd per den [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Taggen**: en ASCII-sträng som kan vara något av följande:
     * **problemet**: Använd det här om du vill ange CA: er som tillåts att utfärda certifikat (alla typer)
     * **issuewild**: Använd det här om du vill ange CA: er som tillåts att utfärda certifikat (endast certifikat med jokertecken)
@@ -131,7 +131,7 @@ Som standard använder Azure DNS PowerShell Etags för att blockera samtidiga ä
 
 På Azure DNS REST API-nivå anges Etags med HTTP-huvuden.  Deras beteende ges i följande tabell:
 
-| Sidhuvud | Beteende |
+| Huvud | Beteende |
 | --- | --- |
 | Ingen |PUT lyckas alltid (inga Etag-kontroller) |
 | IF-match <etag> |PUT lyckas bara om resursen finns och Etag matchar |
@@ -139,7 +139,7 @@ På Azure DNS REST API-nivå anges Etags med HTTP-huvuden.  Deras beteende ges i
 | IF-none-match * |PUT lyckas bara om resursen inte finns |
 
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Limits
 
 Följande standard begränsningar gäller när du använder Azure DNS:
 

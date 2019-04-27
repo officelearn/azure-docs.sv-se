@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60896429"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging integration
 
@@ -477,7 +477,7 @@ Innehåller information om ett kontrakt. Meddelandet innehåller ett avsnitt med
 |--------------------|-------------|
 | WorkflowPropertyId | Unik identifierare för arbetsflöde-egenskapen i Azure Blockchain Workbench |
 | namn | Namnet på egenskapen arbetsflöde |
-| värde | Värdet för egenskapen arbetsflöde |
+| value | Värdet för egenskapen arbetsflöde |
 
 Exempel på en *ContractMessage* från Blockchain Workbench:
 
@@ -588,7 +588,7 @@ Innehåller information när ett kontrakt-funktionen anropas som funktionsnamnet
 | Namn | Beskrivning |
 |------|-------------|
 | namn | Parameternamn |
-| värde | Parametervärde |
+| value | Parametervärde |
 
 #### <a name="event-message-transaction-information"></a>Information om händelsen meddelande transaktion
 

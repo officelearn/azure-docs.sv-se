@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870731"
 ---
 # <a name="automatically-scale-session-hosts"></a>Skala sessionsvärdar automatiskt
 
@@ -20,7 +20,7 @@ För många förhandsversion för virtuella skrivbord i Windows-distributioner i
 
 Den här artikeln används ett enkelt skala skript för automatisk skalning session virtuella datorer i din miljö för virtuella Windows-skrivbordet. Mer information om hur skalning skriptet fungerar finns i [hur skalning skriptet fungerar](#how-the-scaling-script-works) avsnittet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Miljön där du kör skriptet måste ha följande saker:
 

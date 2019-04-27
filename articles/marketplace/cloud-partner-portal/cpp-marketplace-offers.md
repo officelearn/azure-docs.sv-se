@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010591"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565879"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure och AppSource Marketplace-erbjudanden
 
@@ -39,7 +39,7 @@ Läs mer om dessa marknadsplatser [publiceringsguide för Azure Marketplace och 
 Processen för att skapa ett nytt erbjudande skiljer sig avsevärt mellan olika typer av erbjudanden, till exempel mellan en [Azure-program erbjudandet](./azure-applications/cpp-azure-app-offer.md) och en [konsult tjänsterbjudande](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Däremot många av de andra åtgärderna du utföra på ett erbjudande i den [Cloud Partner Portal](https://cloudpartner.azure.com) är ganska standardiserade över typer av erbjudanden.  Dessa vanliga åtgärder, inklusive publicera, visa status, uppdatera och ta bort – beskrivs i avsnittet [hantera erbjudanden](./manage-offers/cpp-manage-offers.md)
 
 
-## <a name="test-drive"></a>Provkörning
+## <a name="test-drive"></a>Test Drive
 
 *Testkör* är en marketplace-funktion som ger kunderna ett ”testa innan du köper” demonstration alternativ för varje erbjudande möjlighet.  Test Drive-funktionen är begränsad till följande delmängden av typer av erbjudanden: [Azure-program](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 för kundengagemang](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 för Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ SaaS-program](./saas-app/cpp-saas-offer.md), och [virtuella datorer](./virtual-machine/cpp-virtual-machine-offer.md).  Den här funktionen kräver utgivaren för att skapa en Test Drive-mall som är anpassad efter dess erbjudandet.  Mer information finns i avsnittet [Test Drive](./test-drive/what-is-test-drive.md).
 

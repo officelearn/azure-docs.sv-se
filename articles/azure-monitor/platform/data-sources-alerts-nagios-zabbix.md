@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759987"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Azure Monitor från Log Analytics-agenten för Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -90,7 +90,7 @@ Du kan hämta aviseringsposter från Nagios och Zabbix med [logga frågor](../lo
 
 Avisera poster som samlas in av Nagios har en **typ** av **avisering** och en **SourceSystem** av **Nagios**.  De har egenskaperna i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | `Type` |*Avisera* |
 | `SourceSystem` |*Nagios* |
@@ -106,7 +106,7 @@ Avisera poster som samlas in av Nagios har en **typ** av **avisering** och en **
 ### <a name="zabbix-alert-records"></a>Aviseringsposter som Zabbix
 Avisera poster som samlas in av Zabbix har en **typ** av **avisering** och en **SourceSystem** av **Zabbix**.  De har egenskaperna i följande tabell.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | `Type` |*Avisera* |
 | `SourceSystem` |*Zabbix* |

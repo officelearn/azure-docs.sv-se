@@ -1,27 +1,22 @@
 ---
-title: Skriptåtgärdsutveckling med Linux-baserade HDInsight - Azure
-description: Lär dig hur du använder Bash-skript för att anpassa Linux-baserade HDInsight-kluster. Funktionen för åtgärden skriptet i HDInsight kan du köra skript under eller när klustret har skapats. Skript kan användas för att ändra inställningar för klustrets eller installera ytterligare programvara.
-services: hdinsight
+title: Utveckla skriptåtgärder för att anpassa Azure HDInsight-kluster
+description: Lär dig hur du använder Bash-skript för att anpassa HDInsight-kluster. Skriptåtgärder kan du köra skript under eller när klustret har skapats ändra inställningar för klustrets eller installera ytterligare programvara.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 0d56d901ca932f044ef71ef2bc24933bcf18c24a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.date: 04/22/2019
+ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60590802"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptåtgärdsutveckling med HDInsight
 
 Lär dig hur du anpassar ditt HDInsight-kluster med Bash-skript. Skriptåtgärder är ett sätt att anpassa HDInsight under eller när klustret har skapats.
-
-> [!IMPORTANT]  
-> Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Vad är skriptåtgärder
 
@@ -61,13 +56,28 @@ När du utvecklar ett anpassat skript för ett HDInsight-kluster kan finns det f
 
 Olika versioner av HDInsight har olika versioner av Hadoop-tjänster och komponenter som är installerade. Om skriptet förväntar sig en specifik version av en tjänst eller en komponent, bör du endast använda skriptet med versionen av HDInsight som innehåller komponenterna som krävs. Du kan hitta information om komponenten-versioner som ingår i HDInsight med hjälp av den [versionshantering för HDInsight](hdinsight-component-versioning.md) dokumentet.
 
-### <a name="bps10"></a> Rikta in OS-version
+### <a name="checking-the-operating-system-version"></a>Kontrollera versionen av operativsystemet
+
+Olika versioner av HDInsight är beroende av specifika versioner av Ubuntu. Det kan finnas skillnader mellan OS-versioner måste du söka efter i ditt skript. Du kan behöva installera en binärfil som är kopplad till versionen av Ubuntu.
+
+För att kontrollera versionen av Operativsystemet, använda `lsb_release`. Till exempel visar följande skript hur du refererar till en specifik tar-filen beroende på OS-version:
+
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
+
+### <a name="bps10"></a> Target operativsystemets version
 
 Linux-baserade HDInsight baseras på Ubuntu Linux-distribution. Olika versioner av HDInsight förlitar sig på olika versioner av Ubuntu och som kan ändra hur skriptet fungerar. Till exempel HDInsight 3.4 och tidigare bygger på Ubuntu-versioner som använder Upstart. Version 3.5 och större baseras på Ubuntu 16.04 som använder Systemd. Systemd och Upstart förlitar sig på olika kommandon, så att skriptet ska skrivas till fungerar med båda.
 
-En annan viktig skillnad mellan HDInsight 3.4 och 3.5 är att `JAVA_HOME` pekar nu på Java 8.
-
-Du kan kontrollera versionen av Operativsystemet med hjälp av `lsb_release`. Följande kod visar hur du avgör om skriptet körs på Ubuntu 14 eller 16:
+En annan viktig skillnad mellan HDInsight 3.4 och 3.5 är att `JAVA_HOME` pekar nu på Java 8. Följande kod visar hur du avgör om skriptet körs på Ubuntu 14 eller 16:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -136,10 +146,10 @@ Linux-baserade HDInsight-kluster tillhandahåller två huvudnoder som är aktiva
 
 Komponenter som du installerar på klustret kan ha en standardkonfiguration som använder Apache Hadoop Distributed File System (HDFS) lagring. HDInsight använder Azure Storage eller Data Lake Storage som standardlagring. Båda ger en kompatibel HDFS-filsystemets som data finns kvar även om klustret tas bort. Du kan behöva konfigurera komponenter som du installerar för WASB eller ADL istället för HDFS.
 
-Du behöver inte ange filsystemet för de flesta åtgärder. Till exempel följande giraph-examples.jar filen kopieras från det lokala filsystemet till klusterlagringen:
+Du behöver inte ange filsystemet för de flesta åtgärder. Till exempel följande hadoop-common.jar filen kopieras från det lokala filsystemet till klusterlagringen:
 
 ```bash
-hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 ```
 
 I det här exemplet på `hdfs` kommando använder transparent standardklusterlagringen. För vissa åtgärder, kan du behöva ange URI: N. Till exempel `adl:///example/jars` för Azure Data Lake Storage Gen1 `abfs:///example/jars` för Data Lake Storage Gen2 eller `wasb:///example/jars` för Azure Storage.
@@ -289,23 +299,6 @@ Lagra filer i ett Azure Storage-konto eller Azure Data Lake Storage ger snabb å
 
 > [!NOTE]  
 > URI-format som används för att referera till skriptet skiljer sig beroende på tjänsten som används. Storage-konton som är associerade med HDInsight-kluster kan använda `wasb://` eller `wasbs://`. Offentligt läsbara URI: er använder `http://` eller `https://`. Data Lake Storage använder `adl://`.
-
-### <a name="checking-the-operating-system-version"></a>Kontrollera versionen av operativsystemet
-
-Olika versioner av HDInsight är beroende av specifika versioner av Ubuntu. Det kan finnas skillnader mellan OS-versioner måste du söka efter i ditt skript. Du kan behöva installera en binärfil som är kopplad till versionen av Ubuntu.
-
-För att kontrollera versionen av Operativsystemet, använda `lsb_release`. Till exempel visar följande skript hur du refererar till en specifik tar-filen beroende på OS-version:
-
-```bash
-OS_VERSION=$(lsb_release -sr)
-if [[ $OS_VERSION == 14* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
-    HUE_TARFILE=hue-binaries-14-04.tgz
-elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
-    HUE_TARFILE=hue-binaries-16-04.tgz
-fi
-```
 
 ## <a name="deployScript"></a>Checklista för distribution av en skriptåtgärd
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: kasinh
 ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60650937"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Återställa data från Azure Backup Server
 Du kan använda Azure Backup Server för att återställa data som du har säkerhetskopierat till ett Recovery Services-valv. Processen för att göra så är integrerad i Azure Backup Server-hanteringskonsolen och liknar återställningsarbetsflöde för andra Azure Backup-komponenter.

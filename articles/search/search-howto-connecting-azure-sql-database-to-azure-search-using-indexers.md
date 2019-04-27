@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817170"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ansluta till och indexera Azure SQL Database-innehåll med hjälp av Azure Search-indexerare
 
@@ -288,7 +288,7 @@ Den **softDeleteMarkerValue** måste vara en sträng – Använd den sträng som
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mappning mellan SQL och Azure Search-datatyper
 | SQL-datatypen | Tillåtna målindex fälttyper | Anteckningar |
 | --- | --- | --- |
-| bitars |Edm.Boolean, Edm.String | |
+| bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
 | verkliga, flyttal |Edm.Double, Edm.String | |
@@ -305,7 +305,7 @@ SQL-indexeraren visar flera konfigurationsinställningar:
 
 | Inställning | Datatyp | Syfte | Standardvärde |
 | --- | --- | --- | --- |
-| queryTimeout |sträng |Anger timeout för SQL-frågekörning |5 minuter (”00: 05:00”) |
+| queryTimeout |string |Anger timeout för SQL-frågekörning |5 minuter (”00: 05:00”) |
 | disableOrderByHighWaterMarkColumn |bool |Gör att SQL-fråga som används av vattenmärke för principen för att utelämna ORDER BY-satsen. Se [vattenmärke för principen](#HighWaterMarkPolicy) |false |
 
 De här inställningarna används i den `parameters.configuration` objekt i att indexerarens definition. Till exempel om du vill ange timeout-värde till 10 minuter, skapa eller uppdatera indexeraren med följande konfiguration:

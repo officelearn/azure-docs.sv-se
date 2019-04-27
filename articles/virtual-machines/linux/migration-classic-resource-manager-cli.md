@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
 ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543157"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
 De här stegen visar hur du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att migrera infrastruktur som en tjänst (IaaS)-resurser från den klassiska distributionsmodellen Azure Resource Manager-distributionsmodellen. Artikeln kräver den [Azure klassiskt CLI](../../cli-install-nodejs.md). Eftersom Azure CLI kan bara användas för Azure Resource Manager-resurser, kan inte användas för den här migreringen.

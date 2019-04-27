@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b968cc29a7139a4a6db5d2dea8dd6f8f4e1c7ccd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630789"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 Den här artikeln beskrivs de steg som krävs för att konfigurera flera sökvägar I/O (MPIO) på värdservern Centos 6.6. Värdservern är ansluten till din Microsoft Azure StorSimple-enhet för hög tillgänglighet via iSCSI-initierare. Det beskriver i detalj automatisk identifiering av multipath enheter och de specifika inställningarna endast för StorSimple-volymer.
@@ -71,7 +71,7 @@ Följande procedur beskriver hur du konfigurerar MPIO när en StorSimple-enhet m
 Det här avsnittet beskrivs konfigurationskraven för CentOS-server och StorSimple-enheten.
 
 ### <a name="on-centos-host"></a>På CentOS-värd
-1. Se till att CentOS-värden har 2 nätverksgränssnitt som är aktiverad. Typ:
+1. Se till att CentOS-värden har 2 nätverksgränssnitt som är aktiverad. Ange:
    
     `ifconfig`
    
@@ -109,10 +109,10 @@ Det här avsnittet beskrivs konfigurationskraven för CentOS-server och StorSimp
 1. Installera *iSCSI-initierare-utils* på CentOS-servern. Utför följande steg för att installera *iSCSI-initierare-utils*.
    
    1. Logga in som `root` i CentOS-värden.
-   1. Installera den *iSCSI-initierare-utils*. Typ:
+   1. Installera den *iSCSI-initierare-utils*. Ange:
       
        `yum install iscsi-initiator-utils`
-   1. Efter den *iSCSI-initierare-utils* har installerats, starta iSCSI-tjänsten. Typ:
+   1. Efter den *iSCSI-initierare-utils* har installerats, starta iSCSI-tjänsten. Ange:
       
        `service iscsid start`
       
@@ -130,7 +130,7 @@ Det här avsnittet beskrivs konfigurationskraven för CentOS-server och StorSimp
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
        Från exemplet ovan ser du att din iSCSI-miljö ska köras på starttiden på Kör nivå 2, 3, 4 och 5.
-1. Installera *enhet-mapper-multipath*. Typ:
+1. Installera *enhet-mapper-multipath*. Ange:
    
     `yum install device-mapper-multipath`
    
@@ -186,19 +186,19 @@ Konfigurationssteg för flera sökvägar innebär konfigurering av de tillgängl
 ### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Steg 1: Konfigurera MPIO för automatisk identifiering
 Stöd för multipath-enheter kan identifieras automatiskt och konfigurerats.
 
-1. Initiera `/etc/multipath.conf` fil. Typ:
+1. Initiera `/etc/multipath.conf` fil. Ange:
    
      `mpathconf --enable`
    
     Kommandot ovan skapar en `sample/etc/multipath.conf` fil.
-1. Starta multipath-tjänsten. Typ:
+1. Starta multipath-tjänsten. Ange:
    
     `service multipathd start`
    
     Följande utdata visas:
    
     `Starting multipathd daemon:`
-1. Aktivera automatisk identifiering av multipaths. Typ:
+1. Aktivera automatisk identifiering av multipaths. Ange:
    
     `mpathconf --find_multipaths y`
    
@@ -213,7 +213,7 @@ Stöd för multipath-enheter kan identifieras automatiskt och konfigurerats.
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Steg 2: Konfigurera MPIO för StorSimple-volymer
 Som standard alla enheter är svarta i filen multipath.conf och kommer att åsidosättas. Du måste skapa svartlistat undantag för att tillåta flera sökvägar för volymer från StorSimple-enheter.
 
-1. Redigera den `/etc/mulitpath.conf` filen. Typ:
+1. Redigera den `/etc/mulitpath.conf` filen. Ange:
    
     `vi /etc/multipath.conf`
 1. Leta upp avsnittet blacklist_exceptions i filen multipath.conf. StorSimple-enheten måste anges som ett svartlistat undantag i det här avsnittet. Du kan ta bort kommentarerna relevanta rader i den här filen för att ändra det som visas nedan (Använd endast specifika modell för den enhet du använder):
@@ -232,7 +232,7 @@ Som standard alla enheter är svarta i filen multipath.conf och kommer att åsid
 ### <a name="step-3-configure-round-robin-multipathing"></a>Steg 3: Konfigurera MPIO för resursallokering
 Den här belastningsutjämningsalgoritm använder alla tillgängliga multipaths till den aktiva styrenheten i ett balanserat, resursallokering sätt.
 
-1. Redigera den `/etc/multipath.conf` filen. Typ:
+1. Redigera den `/etc/multipath.conf` filen. Ange:
    
     `vi /etc/multipath.conf`
 1. Under den `defaults` anger den `path_grouping_policy` till `multibus`. Den `path_grouping_policy` anger standardsökvägen gruppering principen ska tillämpas på Ospecificerad multipaths. Avsnittet standardinställningar ser ut som nedan.
@@ -251,7 +251,7 @@ Den här belastningsutjämningsalgoritm använder alla tillgängliga multipaths 
 > 
 
 ### <a name="step-4-enable-multipathing"></a>Steg 4: Aktivera flera sökvägar
-1. Starta om den `multipathd` daemon. Typ:
+1. Starta om den `multipathd` daemon. Ange:
    
     `service multipathd restart`
 1. Utdata blir enligt nedan:
@@ -262,7 +262,7 @@ Den här belastningsutjämningsalgoritm använder alla tillgängliga multipaths 
 ### <a name="step-5-verify-multipathing"></a>Steg 5: Kontrollera multipathing
 1. Kontrollera att iSCSI-anslutning upprättas med StorSimple-enheten på följande sätt:
    
-   a. Identifiera StorSimple-enheten. Typ:
+   a. Identifiera StorSimple-enheten. Ange:
       
     ```
     iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
@@ -277,7 +277,7 @@ Den här belastningsutjämningsalgoritm använder alla tillgängliga multipaths 
 
     Kopiera IQN för din StorSimple-enhet `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`, från föregående utdata.
 
-   b. Ansluta till enheten med mål-IQN. StorSimple-enheten är iSCSI-målet här. Typ:
+   b. Ansluta till enheten med mål-IQN. StorSimple-enheten är iSCSI-målet här. Ange:
 
     ```
     iscsiadm -m node --login -T <IQN of iSCSI target>
@@ -300,7 +300,7 @@ Den här belastningsutjämningsalgoritm använder alla tillgängliga multipaths 
 
 1. CentOS-server visas en volym från StorSimple-enhet. Mer information finns i [steg 6: Skapa en volym](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via Azure portal på StorSimple-enheten.
 
-1. Kontrollera de tillgängliga sökvägarna. Typ:
+1. Kontrollera de tillgängliga sökvägarna. Ange:
 
       ```
       multipath –l

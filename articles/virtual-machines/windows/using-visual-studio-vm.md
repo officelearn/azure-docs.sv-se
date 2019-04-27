@@ -17,16 +17,16 @@ ms.date: 04/02/2019
 ms.author: phillee
 keywords: visualstudio
 ms.openlocfilehash: df91ba12c1ee74b8e28f75344a5cd55af018d3cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583334"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar på Azure
 Med Visual Studio på en förkonfigurerad Azure-dator (VM) är ett snabbt, enkelt sätt att gå från inget till en upp-igång-utvecklingsmiljö. Systemavbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1).
 
-Är du nybörjare på Azure? [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free).
+Ny Azure-användare? [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Vilka konfigurationer och versioner är tillgängliga?
 Avbildningar för de senaste huvudversioner, 2019 för Visual Studio, Visual Studio 2017 och Visual Studio 2015 finns på Azure Marketplace.  För var och en publicerad huvudversion du ser den ursprungligen ”är web” (RTW) version och de senaste uppdaterade versionerna.  Var och en av dessa versioner erbjuder Visual Studio Enterprise och Visual Studio Community-versionerna.  Dessa avbildningar uppdateras minst varje månad för att inkludera de senaste uppdateringarna för Visual Studio och Windows.  När namnen på avbildningarna är desamma, innehåller varje Bildbeskrivning installerade produktversionen och avbildningens ”datum som anges efter”.

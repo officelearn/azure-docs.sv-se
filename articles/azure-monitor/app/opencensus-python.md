@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577706"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Samla in distribuerade spårningar från Python (förhandsversion)
 
 Application Insights nu stöder distribuerad spårning av Python-program via integrering med [OpenCensus](https://opencensus.io) och vår nya [lokala vidarebefordrare](./../../azure-monitor/app/opencensus-local-forwarder.md). Den här artikeln beskriver steg för steg hur du ställer in OpenCensus för Python och få din spårningsdata till Application Insights.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du behöver en Azure-prenumeration.
 - Python ska installeras, den här artikeln använder [Python 3.7.0](https://www.python.org/downloads/), även om tidigare versioner kommer troligen att fungera med mindre justering.

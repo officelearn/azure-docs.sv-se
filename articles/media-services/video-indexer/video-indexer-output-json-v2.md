@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560046"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer-utdata som genereras av API
 
@@ -32,7 +32,7 @@ Den här artikeln undersöker JSON-innehåll som returneras av den **hämta Vide
 
 ## <a name="root-elements"></a>Rotelement
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |accountId|Till spellistan VI konto-ID.|
 |id|Till spellistan-ID.|
@@ -92,7 +92,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 
 ## <a name="videos"></a>videor
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |accountId|Videons VI konto-ID.|
 |id|Videons-ID.|
@@ -197,7 +197,7 @@ instanser|En lista över tidsintervall i det här blocket.|
 
 #### <a name="transcript"></a>avskrift
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Rad-ID.|
 |text|Avskriften.|
@@ -235,7 +235,7 @@ Exempel:
 
 #### <a name="ocr"></a>OCR
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|OCR rad-ID.|
 |text|OCR-text.|
@@ -270,7 +270,7 @@ Exempel:
 
 #### <a name="keywords"></a>nyckelord
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Nyckelordet-ID.|
 |text|Nyckelordstexten.|
@@ -301,7 +301,7 @@ Exempel:
 
 #### <a name="faces"></a>ansikten
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
 |namn|Namnet på ansiktet. Det kan vara ”okänt #0, en identifierade kändisar eller en kund utbildad person.|
@@ -346,7 +346,7 @@ Exempel:
 
 #### <a name="labels"></a>etiketter
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Etikett-ID.|
 |namn|Etikettnamn (till exempel ”dator”, ”TV”).|
@@ -405,7 +405,7 @@ Exempel:
 
 #### <a name="scenes"></a>scener
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Scen-ID.|
 |instanser|En lista över tidsintervall i det här scen (en scen kan endast ha 1 instans).|
@@ -438,7 +438,7 @@ Exempel:
 
 #### <a name="shots"></a>skärmbilder
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Som ID.|
 |Nyckelrutor|En lista över nyckelbildrutorna i på nedan (var och en har ett ID och en lista över instanser tidsintervall). Varje instans av bildrutan har ett thumbnailId fält, som innehåller den bildrutan miniatyr-ID.|
@@ -488,7 +488,7 @@ Exempel:
 
 Företag och produkten namn har identifierats i tal till textavskrift och/eller Video OCR. Detta inkluderar inte visuell igenkänning av varumärken eller logotyp identifiering.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Varumärke-ID.|
 |namn|Namnet varumärken.|
@@ -547,7 +547,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 
 #### <a name="statistics"></a>statistik
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |CorrespondenceCount|Antal svaren i videon.|
 |SpeakerWordCount|Antalet ord per talare.|
@@ -557,7 +557,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Ljud effekt-ID.|
 |typ|Typ av ljud effekt (till exempel applåder, tal, tystnad).|
@@ -586,7 +586,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 
 Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ). Till exempel 0 0.1, 0.1 0.2.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
 |averageScore |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
@@ -625,7 +625,7 @@ VisualContentModeration blocket innehåller tidsintervall som Video Indexer hitt
 
 Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga för privata vyn. Användare har möjlighet att skicka en begäran om en mänsklig granskning av innehållet, i vilket fall IsAdult attributet innehåller resultatet av mänsklig granskning.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Visual innehållsmoderering-ID.|
 |adultScore|Poäng för Vuxeninnehåll (från content moderator).|
@@ -661,7 +661,7 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Textbaserade innehållsmoderering-ID.|
 |bannedWordsCount |Antal otillåtna orden.|
@@ -671,7 +671,7 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 
 Video Indexer identifierar känslor baserat på tal- och ljud tips. Identifierade känslor kan vara: nu ett, sorg, ilska eller behöva betala.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Känslo-ID.|
 |typ|Känslo-och som har identifierats utifrån tal- och ljud. Känslan kan vara: glädje, sorg, ilska eller rädsla.|
@@ -761,7 +761,7 @@ Video Indexer identifierar känslor baserat på tal- och ljud tips. Identifierad
 
 Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är möjligt på servernivå 1 [IPTC](https://iptc.org/standards/media-topics/) taxonomi ingår. 
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Avsnittet-ID.|
 |namn|Ämnesnamnet, till exempel: "Pharmaceuticals".|

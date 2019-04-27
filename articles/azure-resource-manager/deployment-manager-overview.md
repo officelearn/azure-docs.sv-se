@@ -13,11 +13,11 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550926"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (privat förhandsversion)
 
@@ -340,4 +340,4 @@ Du kan hantera version distributioner genom att skapa nya mappar och skicka samm
 I den här artikeln har du lärt dig om Deployment Manager. Gå vidare till nästa artikel om du vill lära dig hur du distribuerar med Deployment Manager.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md)
+> [Självstudie: Använda Distributionshanteraren för Azure med Resource Manager-mallar](./deployment-manager-tutorial.md)

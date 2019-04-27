@@ -13,17 +13,17 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616003"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Självbetjäning utbyte och återbetalningar för Azure-reservationer
 
-Azure reservationer ger flexibilitet för att möta dina växande behov. Du kan byta en reservation för en annan reservation av samma typ. Du kan också återbetala en reservation, upp till 50 000 USD per år, om du inte längre behöver den.
+Azure reservationer ger flexibilitet för att möta dina växande behov. Du kan byta en reservation mot en annan reservation av samma typ. Du kan också få återbetalning för en reservation, upp till 50 000 USD per år, om du inte längre behöver den.
 
-Självbetjäning kapaciteten för exchange och Avbryt är inte tillgängligt för US Government Enterprise Agreement-kunder. Andra typer av US Government prenumerationer, inklusive betala per användning och CSP stöds.
+Byte eller annullering av kapacitet via självbetjäning är inte tillgängligt för US Government-kunder med Enterprise-avtal. Andra typer av US Government prenumerationer, inklusive betala per användning och CSP stöds.
 
 Du måste ha ägaråtkomst på Reservationsbeställning att byta ut eller ersätta en befintlig reservation.
 
@@ -33,7 +33,7 @@ Du kan byta din reservation med tre enkla steg i den [Azure-portalen](https://po
 
 1. Välj reservationer som du vill återbetala och klicka på **Exchange**.  
     ![Exempelbild som visar reservationer att returnera](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. Välj VM-produkt som du vill köpa och anger du ett antal. Se till att det nya köp totala antalet är större än Returnerar summan. [Avgör om rätt storlek innan du köper](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+2. Välj den VM-produkt som du vill köpa och ange antal. Se till att det nya köp totala antalet är större än Returnerar summan. [Avgör om rätt storlek innan du köper](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Exempelbild som visar en VM-produkt för att köpa med en exchange](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Granska och Slutför transaktionen.  
     ![Exempelbild som visar en VM-produkt att köpa med en exchange som du har slutfört avkastningen](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)

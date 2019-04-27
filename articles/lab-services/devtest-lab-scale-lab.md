@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623515"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Skala kvoter och begränsningar i DevTest Labs
 När du arbetar i labb kan kanske du märker att det finns vissa standardgränser till vissa Azure-resurser, vilket kan påverka tjänsten DevTest Labs. Dessa gränser kallas **kvoter**.

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605148"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Ordlista för Custom Vision Service
 
@@ -25,7 +25,7 @@ Här följer några termer som används inom Custom Vision Service:
 
 En klassificerare är en modell som du skapar med Custom Vision Service med hjälp av några inlärningsbilder. När du är klar med utbildning för en ny klassificerare får du en utvärdering slutpunkt (HTTPS) som du kan lägga till din app. Varje klassificerare som du skapar är i sin egen projekt och du kan visa alla projekt när du har loggat in.
 
-## <a name="domain"></a>Domän
+## <a name="domain"></a>Domain
 
 När du skapar ett projekt kan välja du en ”domän” för projektet. Domänen optimerar en klassificerare för en viss typ av objekt i dina avbildningar. Till exempel, om ditt scenario är att klassificera mellan bilder av apple cirkel jämfört med avbildningar av man odlar Lammefjordsmorötter enkelt kan sedan välja ”mat”-domänen. Om du är osäker på vilken domän som du väljer, väljer du ”Generic” domän.
 

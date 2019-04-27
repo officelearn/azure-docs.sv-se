@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: d727ed62f5a869f6eb67400281d2660607756abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802702"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637509"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Jämför StorSimple med Azure File Sync och Data Box Edge alternativ för överföring 
  
@@ -28,12 +28,12 @@ Det här dokumentet innehåller en översikt över alternativ för att överför
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
 |Översikt         |Nivåer hybridlagring och arkivering|Allmän lagring på filserver med lagringsnivåer och flera platser molnsynkronisering.  |Lagringslösning att Förbearbeta data och skicka den via nätverket till Azure.        |
 |Scenarier        |Filservern, arkivering, säkerhetskopiering mål |Filservern, arkivering (flera platser)   |Dataöverföring, data före bearbetnings inklusive ML inferensjobb, IoT, arkivering    |
-|Databehandling på gränsenheter     |Inte tillgänglig |Inte tillgänglig |Stöder behållare med hjälp av Azure IoT Edge    |
+|Databehandling på gränsenheter     |Inte tillgängligt |Inte tillgängligt |Stöder behållare med hjälp av Azure IoT Edge    |
 |Formfaktor      |Fysisk enhet   |Agenten har installerats på Windows Server |Fysisk enhet   |
 |Maskinvara         |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten | Tillhandahållna av kunden |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten  |
 |Dataformat      |Anpassat format   |Filer         |BLOB-objekt eller filer    |
 |Protokollstöd |iSCSI          |SMB, NFS    | SMB- eller NFS      |
-|Priser          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|Prissättning          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>Nästa steg
 

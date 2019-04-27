@@ -1,17 +1,21 @@
 ---
 title: Anslutningsbibliotek för Azure Database for PostgreSQL
 description: Den här artikeln beskriver flera bibliotek och drivrutiner som utvecklare kan använda när kodning program att ansluta och fråga efter Azure Database för PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+services: postgresql
+author: WenJason
+ms.author: v-jay
+manager: digimobile
+editor: jasonwhowell
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+origin.date: 02/28/2018
+ms.date: 12/03/2018
 ms.openlocfilehash: 0e762a2d7cf82e2957fb276fcea0a20553f719e3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559780"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Anslutningsbibliotek för Azure Database for PostgreSQL
 Den här artikeln visar en lista över de bibliotek och drivrutiner som utvecklare kan använda för att utveckla program för att ansluta till och fråga efter Azure Database för PostgreSQL.
@@ -35,4 +39,4 @@ De flesta språk klientbibliotek som används för att ansluta till PostgreSQL-s
 ## <a name="next-steps"></a>Nästa steg
 Läs de här snabbstarterna på hur du ansluter till och fråga efter Azure Database för PostgreSQL med hjälp av valfritt språk:
 
-[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md)  |  [.NET (C#)](./connect-csharp.md) | [gå](./connect-go.md)
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

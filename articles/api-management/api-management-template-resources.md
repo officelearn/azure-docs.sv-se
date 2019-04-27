@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557893"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management-Mallresurser
 Azure API Management ger följande typer av resurser för användning i utvecklaren portal mallar.  
@@ -132,7 +132,7 @@ Följande alternativ för lokalisering stöds:
 |WebDevelopersAppDeleteConfirmation|Vill du ta bort programmet?|  
 |WebDevelopersAppNotPublished|Inte publicerade|  
 |WebDevelopersAppNotSubmitted|Inte skickat|  
-|WebDevelopersAppTableCategoryHeader|Kategori|  
+|WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|Namn|  
 |WebDevelopersAppTableStateHeader|Status|  
 |WebDevelopersEditLink|Redigera|  
@@ -400,7 +400,7 @@ Följande alternativ för lokalisering stöds:
   
 |Namn|Text|  
 |----------|----------|  
-|PageTitleProducts|Produkter|  
+|PageTitleProducts|Products|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
@@ -481,7 +481,7 @@ Följande alternativ för lokalisering stöds:
 |WebAuthenticationRequestIsNotValid|Begäran är ogiltig|  
 |WebAuthenticationUserIsNotConfirm|Bekräfta registreringen innan du försöker logga in.|  
 |WebAuthenticationInvalidEmailFormated|E-post är ogiltig: {0}|  
-|WebAuthenticationUserNotFound|Användaren hittades inte|  
+|WebAuthenticationUserNotFound|Användaren kunde inte hittas|  
 |WebAuthenticationTenantNotRegistered|Ditt konto tillhör en Azure Active Directory-klient som inte har behörighet att komma åt den här portalen.|  
 |WebAuthenticationAuthenticationFailed|Autentiseringen misslyckades.|  
 |WebAuthenticationGooglePlusNotEnabled|Autentiseringen misslyckades. Om du har autentiserat programmet är sedan du kontaktar du administratören för att se till att Google-autentiseringen korrekt konfigurerad.|  

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60826160"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Åtkomst till Azure Media Services-API med Azure AD-autentisering  
 
@@ -97,7 +97,7 @@ Information om hur du använder Azure AD-autentisering för att kommunicera med 
 
 Om du inte använder SDK för Media Services .NET-klient, måste du manuellt skapa en Azure AD begäran om åtkomsttoken med hjälp av parametrar som beskrivs i steg 2. Mer information finns i [hur du använder Azure AD-Autentiseringsbiblioteket för att hämta Azure AD-token](../../active-directory/develop/active-directory-authentication-libraries.md).
 
-### <a name="service-principal-authentication"></a>Autentisering med tjänstens huvudnamn
+### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
 
 Program som ofta använder den här autentiseringsmetoden är appar som kör mellannivå tjänster och schemalagda jobb: web apps, funktionsappar, logic apps, API: er och mikrotjänster. Den här autentiseringsmetoden är lämplig för interaktiva program som du kanske vill använda ett tjänstkonto för att hantera resurser.
 
@@ -109,7 +109,7 @@ Om du vill använda den här metoden, skapa en Azure AD-program och tjänstens h
 
 När du har skapat din Azure AD-program kan få du värden för följande inställningar. Du behöver dessa värden för autentisering:
 
-- Klient-ID 
+- Klientorganisations-ID 
 - Klienthemlighet 
 
 I bilden ovan representerar talen flödet av begäranden i kronologisk ordning:

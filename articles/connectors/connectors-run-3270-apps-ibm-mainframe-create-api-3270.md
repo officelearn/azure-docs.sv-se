@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60538913"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270 skärmen-drivna appar på IBM-stordatorer med Azure med Azure Logic Apps och IBM 3270-anslutningen
 
@@ -40,7 +40,7 @@ Om du vill utöka dessa scenarier, IBM 3270 anslutningen i Azure Logic Apps fung
 
 När du har genererat metadatafilen från designverktyget kan du lägga till filen till ett integrationkonto i Azure. På så sätt kan logikappen kan komma åt din app metadata när du lägger till en 3270 anslutningstjänsten åtgärd. Kopplingen läser metadatafilen från ditt integrationskonto hanterar navigering via 3270 skärmar och dynamiskt anger parametrarna för 3270 anslutningstjänsten åtgärd. Du kan sedan ange data till värdprogrammet och anslutningsappen returnerar resultaten till din logikapp. På så sätt kan du integrera dina äldre appar med Azure, Microsoft, och andra appar, tjänster och system som har stöd för Azure Logic Apps.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 

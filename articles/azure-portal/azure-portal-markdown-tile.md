@@ -4,17 +4,18 @@ description: Lär dig hur du lägger till en markdown-panel i en Azure-instrumen
 services: azure-portal
 keywords: ''
 author: kfollis
-ms.author: kfollis
-ms.date: 01/25/2019
+ms.author: v-biyu
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551606"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Använd en markdown-panel på Azure-instrumentpaneler för att visa anpassat innehåll
 
@@ -28,7 +29,7 @@ Du kan lägga till en markdown-panel till din Azure-instrumentpaneler anpassade,
 
 2. I den **Panelgalleriet**, leta upp panelen kallas **Markdown** och klicka på **Lägg till**. Panelen har lagts till i instrumentpanelen och **redigera Markdown** öppnas fönstret.
 
-1. Redigera den **rubrik**, **underrubrik**, och **innehåll** fält att anpassa panelen. I det här exemplet, har markdown-panel redigerats om du vill visa information för supportavdelningen för hjälp.
+3. Redigera den **rubrik**, **underrubrik**, och **innehåll** fält att anpassa panelen. I det här exemplet, har markdown-panel redigerats om du vill visa information för supportavdelningen för hjälp.
 
    ![Skärmbild som visar redigeringsvyn för markdown-panel](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 

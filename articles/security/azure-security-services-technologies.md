@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610917"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Säkerhetstjänster och teknologier som är tillgängliga på Azure
 
@@ -72,7 +72,7 @@ Framöver kommer den här listan ändrar och växa, precis som Azure gör. Se ti
 | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)| En molnbaserad och hanterade version av Active Directory Domain Services. |
 | [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Etablera en säkerhet som använder flera olika former av autentisering och verifiering innan åtkomst beviljas till skyddad information. |
 
-## <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och haveriberedskap
+## <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och katastrofåterställning
 |Tjänst|Beskrivning|
 |------|--------|
 | [Azure&nbsp;säkerhetskopiering](../backup/backup-introduction-to-azure-backup.md)| En Azure-baserad tjänst som används för att säkerhetskopiera och återställa data i Azure-molnet. |
@@ -91,4 +91,4 @@ Framöver kommer den här listan ändrar och växa, precis som Azure gör. Se ti
 | [Azure Application Proxy](../active-directory/active-directory-application-proxy-get-started.md)| En autentisera klient används för säker fjärråtkomst för webbprogram finns lokalt. |
 |[Azure-brandväggen](../firewall/overview.md)|En hanterad, molnbaserad säkerhet nätverkstjänst som skyddar dina Azure Virtual Network-resurser.|
 |[Azure DDoS protection](../virtual-network/ddos-protection-overview.md)|I kombination med metodtips för design av program, ger skydd mot DDoS-attacker.|
-|[Slutpunkter för virtuellt nätverk](../virtual-network/virtual-network-service-endpoints-overview.md)|Utökar din virtuella nätverkets privata adressutrymme och identiteten för ditt VNet till Azure-tjänsterna, via en direktanslutning.|
+|[Tjänstslutpunkter för virtuellt nätverk](../virtual-network/virtual-network-service-endpoints-overview.md)|Utökar din virtuella nätverkets privata adressutrymme och identiteten för ditt VNet till Azure-tjänsterna, via en direktanslutning.|

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.openlocfilehash: cefb83d5336bb99fd09001b5ea369a0b8fc4b942
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596631"
 ---
 # <a name="views-in-management-solutions-preview"></a>Vyer i lösningar för hantering (förhandsversion)
 > [!NOTE]
@@ -32,7 +32,7 @@ ms.locfileid: "57769139"
 >
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här artikeln förutsätter att du redan är bekant med hur du [skapa en lösning för](solutions-creating.md) och strukturen för en lösningsfil.
 
 ## <a name="overview"></a>Översikt
@@ -93,7 +93,7 @@ Alla Log Analytics-resurser som definierats i en Resource Manager-mallen har en 
 
  I följande tabell anger Log Analytics API-versioner för vyer i äldre och uppgraderade arbetsytor: 
 
-| Arbetsyteversion | API-version | Söka i data |
+| Arbetsyteversion | API-version | Fråga |
 |:---|:---|:---|
 | V1 (äldre)   | 2015-11-01-preview | Äldre format.<br> Exempel: Typ = händelse EventLevelName = fel  |
 | v2 (uppgraderade) | 2015-11-01-preview | Äldre format.  Konverteras till uppgraderade format vid installation.<br> Exempel: Typ = händelse EventLevelName = fel<br>Konverteras till: Händelsen &#124; där EventLevelName == ”Error”  |

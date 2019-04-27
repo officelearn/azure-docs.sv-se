@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
-ms.openlocfilehash: c841f29adbe9911193227cced2856d953d820b08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531776"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrera Azure Scheduler-jobb med Azure Logic Apps
 
@@ -29,9 +29,9 @@ Den här artikeln visar hur du kan schemalägga enstaka och återkommande jobb g
 
 * Azure Logic Apps-tjänsten stöder tidszon och sommartid (DST).
 
-Mer information finns i [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) eller försök att skapa din första logikapp i den här snabbstarten: [skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Mer information finns i [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) eller försök att skapa din första logikapp i den här snabbstarten: [Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
@@ -45,9 +45,9 @@ Du kan köra flera engångsjobb genom att skapa bara en enkel logikapp.
 
 1. I den [Azure-portalen](https://portal.azure.com), skapa en tom logikapp i Logic App Designer. 
 
-   De grundläggande stegen följer [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   De grundläggande stegen följer [Snabbstart: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Ange ”när en http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **när en HTTP-begäran tas emot** 
+1. Ange ”när en http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **När en HTTP-begäran tas emot** 
 
    ![Lägg till ”begär” utlösare](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
@@ -67,7 +67,7 @@ Du kan köra flera engångsjobb genom att skapa bara en enkel logikapp.
 
 1. Under utlösaren väljer **nästa steg**. 
 
-1. I sökrutan anger du ”Fördröj tills” som filter. Under åtgärdslistan väljer du den här åtgärden: **Fördröj tills**
+1. I sökrutan anger du ”Fördröj tills” som filter. Välj den här åtgärden under åtgärder: **Fördröj tills**
 
    Den här åtgärden pausar logikapparbetsflödet fram till ett angivet datum och tid.
 
@@ -104,7 +104,7 @@ Till exempel med hjälp av Postman-appen, du kan skapa en POST-begäran med inst
 
 | Frågemetod | URL | Innehåll | Rubriker |
 |----------------|-----|------|---------| 
-| **POST** | <*slutpunkt-URL*> | **rådata** <p>**JSON(Application/JSON)** <p>I den **raw** anger nyttolasten som du vill skicka i begäran. <p>**Obs**: den här inställningen automatiskt konfigurerar den **rubriker** värden. | **Nyckeln**: Content-Type <br>**Värdet**: application/json
+| **POST** | <*endpoint-URL*> | **rådata** <p>**JSON(application/json)** <p>I den **raw** anger nyttolasten som du vill skicka i begäran. <p>**Obs!** Den här inställningen automatiskt konfigurerar den **rubriker** värden. | **nyckeln**: Content-Type <br>**Värdet**: application/json
  |||| 
 
 ![Skicka begäran för att utlösa logikappen manuellt](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -129,9 +129,9 @@ I Logic Apps, varje gång jobb som körs som en enkel logikapp som kör instans.
 
 1. I den [Azure-portalen](https://portal.azure.com), skapa en tom logikapp i Logic App Designer. 
 
-   De grundläggande stegen följer [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   De grundläggande stegen följer [Snabbstart: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. I sökrutan anger du ”återkommande” som filter. Välj den här utlösaren från listan över utlösare: **upprepning** 
+1. I sökrutan anger du ”återkommande” som filter. Välj den här utlösaren från listan över utlösare: **Frekvens** 
 
    ![Lägg till ”återkommande” utlösare](./media/migrate-from-scheduler-to-logic-apps/recurrence-trigger.png)
 
@@ -187,7 +187,7 @@ Om standardåtgärden som inte kan köras, i Azure Scheduler kan du köra en alt
 
    ![Konfigurera egenskaper för ”körning efter”](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
-1. När du är klar väljer **klar**.
+1. När du är klar väljer du **Klar**.
 
 Läs mer om undantagshantering i [hantera fel och undantag - egenskapen för RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
 
@@ -195,20 +195,20 @@ Läs mer om undantagshantering i [hantera fel och undantag - egenskapen för Run
 
 <a name="retire-date"></a> 
 
-**Frågor och**: när är Azure Scheduler tas ur bruk? <br>
-**En**: Azure Scheduler är schemalagd att dra tillbaka den 30 September 2019.
+**FRÅGOR OCH**: När är Azure Scheduler tas ur bruk? <br>
+**S**: Azure Scheduler är schemalagd att dra tillbaka den 30 September 2019.
 
-**Frågor och**: Vad händer med min Scheduler-jobbsamlingar och jobben när tjänsten drar tillbaka? <br>
-**En**: alla Scheduler-jobbsamlingar och jobben tas bort från systemet.
+**FRÅGOR OCH**: Vad händer med Mina Scheduler-jobbsamlingar och jobben när tjänsten drar tillbaka? <br>
+**S**: Alla Scheduler-jobbsamlingar och jobben tas bort från systemet.
 
-**Frågor och**: Jag behöver säkerhetskopiera eller utföra andra uppgifter innan du migrerar min Scheduler-jobb till Logic Apps? <br>
-**En**: ett bra tips är alltid säkerhetskopiera ditt arbete. Kontrollera att logikappar som du skapade körs som förväntat innan du tar bort eller inaktivera Scheduler-jobb. 
+**FRÅGOR OCH**: Måste jag säkerhetskopiera eller utföra andra uppgifter innan du migrerar min Scheduler-jobb till Logic Apps? <br>
+**S**: Du bör alltid säkerhetskopiera ditt arbete. Kontrollera att logikappar som du skapade körs som förväntat innan du tar bort eller inaktivera Scheduler-jobb. 
 
-**Frågor och**: är det ett verktyg som kan hjälpa mig att migrera Mina jobb från Scheduler till Logic Apps? <br>
-**En**: varje Scheduler-jobb är unikt, så ett verktyg för enkel inte finns. Men kan olika skript som du kan ändra för dina behov. För skriptet tillgänglighet Kom tillbaka senare.
+**FRÅGOR OCH**: Finns det ett verktyg som kan hjälpa mig att migrera Mina jobb från Scheduler till Logic Apps? <br>
+**S**: Varje Scheduler-jobb är unikt, så ett verktyg för enkel inte finns. Men kan olika skript som du kan ändra för dina behov. För skriptet tillgänglighet Kom tillbaka senare.
 
-**Frågor och**: var kan jag få support för att migrera min Scheduler-jobb? <br>
-**En**: här är några sätt att få support: 
+**FRÅGOR OCH**: Var kan jag få support för att migrera min Scheduler-jobb? <br>
+**S**: Här följer några metoder för att få support: 
 
 **Azure Portal**
 
@@ -221,7 +221,7 @@ Om din Azure-prenumeration har en plan för betald support, kan du skapa en för
    | Inställning | Värde |
    |---------|-------|
    | **Typ av problem** | **Teknisk** | 
-   | **Prenumeration** | <*din betalning*> | 
+   | **Prenumeration** | <*your-Azure-subscription*> | 
    | **Tjänst** | Under **övervakning och hantering**väljer **Scheduler**. | 
    ||| 
 

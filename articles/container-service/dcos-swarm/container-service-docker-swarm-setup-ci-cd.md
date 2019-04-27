@@ -10,11 +10,11 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60643774"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(INAKTUELL) Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med Docker Swarm med Azure DevOps-tjänster
 
@@ -41,7 +41,7 @@ Här är en kort beskrivning av stegen:
 1. Docker Swarm på klustret hämtar den senaste versionen av avbildningar 
 1. Den nya versionen av programmet distribueras med hjälp av Docker Compose 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du påbörjar den här självstudiekursen måste du utföra följande uppgifter:
 

@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567239"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Search-index med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ I följande tabell innehåller beskrivningar av JSON-element som är specifika f
 
 | Egenskap  | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| typ | Type-egenskapen måste anges till: **AzureSearch**. | Ja |
+| type | Type-egenskapen måste anges till: **AzureSearch**. | Ja |
 | url | URL för Azure Search-tjänsten. | Ja |
 | key | Admin-nyckel för Azure Search-tjänsten. | Ja |
 
@@ -77,7 +77,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För Kopieringsaktiviteten, när mottagaren är av typen **AzureSearchIndexSink**, följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Anger om du vill slå samman eller Ersätt när det finns redan ett dokument i indexet. Se den [WriteBehavior egenskapen](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| Nej |
 | WriteBatchSize | Överför data till Azure Search-indexet när buffertstorleken når writeBatchSize. Se den [WriteBatchSize egenskapen](#writebatchsize-property) mer information. | 1 och 1 000. Standardvärdet är 1 000. | Nej |
@@ -100,13 +100,13 @@ I följande tabell anger om en Azure Search-datatyp stöds eller inte.
 
 | Azure Search-datatyp | Stöds i Azure Search-mottagare |
 | ---------------------- | ------------------------------ |
-| Sträng | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
-| Double-värde | Y |
-| Boolesk | Y |
+| Double | Y |
+| Boolean | Y |
 | DataTimeOffset | Y |
-| Strängmatris | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>JSON-exempel: Kopiera data från en lokal SQL Server till Azure Search-index

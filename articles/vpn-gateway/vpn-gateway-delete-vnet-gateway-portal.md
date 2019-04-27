@@ -3,17 +3,17 @@ title: 'Ta bort en virtuell nätverksgateway: Azure-portalen: Resource Manager |
 description: Ta bort en virtuell nätverksgateway med hjälp av Azure-portalen i Resource Manager-distributionsmodellen.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
-ms.date: 10/23/2018
-ms.author: cherylmc
-ms.topic: conceptual
+origin.date: 10/23/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845701"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Ta bort en virtuell nätverksgateway med hjälp av portalen
 
@@ -63,3 +63,5 @@ Om du inte är orolig att behålla någon av dina resurser i resursgruppen och d
 1. I **alla resurser**, leta upp resursgruppen och klicka för att öppna bladet.
 2. Klicka på **Ta bort**. Visa berörda resurser på Delete-bladet. Se till att du vill ta bort alla dessa resurser. Om inte, använder du stegen i ta bort en VPN-gateway överst i den här artikeln.
 3. Om du vill fortsätta, skriver du namnet på resursgruppen som du vill ta bort och klicka sedan på **ta bort**.
+
+<!--Update_Description: wording update-->

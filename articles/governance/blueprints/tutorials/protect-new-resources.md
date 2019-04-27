@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874537"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Skydda nya resurser med Azure skisser resurslås
 
@@ -152,7 +152,7 @@ När skissdefinitionen har installerats utan **publicerad**, så kan de tilldela
      |Namn på artefakt|Artefakttyp|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
      |RGtoLock resursgrupp|Resursgrupp|Namn|TestingBPLocks|Definierar namnet på den nya resursgruppen för att tillämpa skissen Lås till.|
-     |RGtoLock resursgrupp|Resursgrupp|Plats|Västra USA 2|Definierar platsen för den nya resursgruppen för att tillämpa skissen Lås till.|
+     |RGtoLock resursgrupp|Resursgrupp|Location|Västra USA 2|Definierar platsen för den nya resursgruppen för att tillämpa skissen Lås till.|
      |StorageAccount|Resource Manager-mall|storageAccountType (StorageAccount)|Standard_GRS|Välj lagrings-SKU. Standardvärdet är _Standard_LRS_.|
 
 1. När alla parametrar har angetts, väljer **tilldela** längst ned på sidan.

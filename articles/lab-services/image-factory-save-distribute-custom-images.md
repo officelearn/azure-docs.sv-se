@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: feabd055833e5f0d850138af528cce1da82cae49
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622681"
 ---
-# <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Spara anpassade avbildningar och distribuera till flera labs
+# <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Spara anpassade avbildningar och distribuera till flera labb
 Den här artikeln täcker ger dig stegen för att spara anpassade avbildningar från de redan skapade virtuella datorerna (VM). Den behandlar också hur du distribuerar dessa anpassade avbildningar till andra DevTest Labs i organisationen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Följande objekt ska redan finnas:
 
 - Ett labb för bild-fabrik i Azure DevTest Labs.

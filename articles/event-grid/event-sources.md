@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
 ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234194"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561553"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelsekällor i Azure Event Grid
 
@@ -26,7 +26,7 @@ Prenumerera på händelser för Azure-prenumerationer att reagera på förändri
 
 |Rubrik |Beskrivning  |
 |---------|---------|
-| [Självstudier: Azure Automation med Event Grid och Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Skapa en virtuell dator som skickar en händelse. Händelsen utlöses en Automation-runbook som den virtuella datorn med taggar och utlöser ett meddelande som skickas till en Microsoft Teams-kanal. |
+| [Självstudie: Azure Automation med Event Grid och Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Skapa en virtuell dator som skickar en händelse. Händelsen utlöses en Automation-runbook som den virtuella datorn med taggar och utlöser ett meddelande som skickas till en Microsoft Teams-kanal. |
 | [Så här: prenumerera på händelser via portalen](subscribe-through-portal.md) | Använda portalen för att prenumerera på händelser för en Azure-prenumeration. |
 | [Azure CLI: prenumerera på händelser för en Azure-prenumeration](./scripts/event-grid-cli-azure-subscription.md) |Exempelskript som skapar en Event Grid-prenumeration till en Azure-prenumeration och skickar händelser till en WebHook. |
 | [PowerShell: prenumerera på händelser för en Azure-prenumeration](./scripts/event-grid-powershell-azure-subscription.md)| Exempelskript som skapar en Event Grid-prenumeration till en Azure-prenumeration och skickar händelser till en WebHook. |
@@ -113,7 +113,7 @@ Prenumerera på Service Bus-händelser ska svara på meddelanden utan någon akt
 
 |Rubrik  |Beskrivning  |
 |---------|---------|
-| [Självstudier: Azure Service Bus till Azure Event Grid integrationsexempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus-ämne app och logikapp. |
+| [Självstudie: Azure Service Bus till Azure Event Grid integrationsexempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus-ämne app och logikapp. |
 | [Översikt: Azure Service Bus till Event Grid-integration](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Översikt över integrering av Service Bus med Event Grid. |
 | [Händelseschema](event-schema-service-bus.md) | Visar fälten i Service Bus-händelser. |
 
@@ -138,7 +138,7 @@ Prenumerera på händelser för Azure Maps att svara på händelser för geofenc
 |Rubrik  |Beskrivning  |
 |---------|---------|
 | [Reagera på händelser för Azure Maps med hjälp av Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över integrering av Azure Maps med Event Grid. |
-| [Självstudier: Konfigurera en geofence-området](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Den här självstudien vägleder dig igenom grunderna stegen för att konfigurera geofence-området med hjälp av Azure Maps. Du kan använda Azure Event Grid för att strömma geofence-området resultaten och konfigurera ett meddelande baserat på resultatet geofence-området. |
+| [Självstudie: Konfigurera en geofence-området](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Den här självstudien vägleder dig igenom de grundläggande stegen för att konfigurera geofence med hjälp av Azure Maps. Du kan använda Azure Event Grid för att strömma geofence-området resultaten och konfigurera ett meddelande baserat på resultatet geofence-området. |
 | [Händelseschema](event-schema-azure-maps.md) | Visar fälten i Azure Maps-händelser. |
 
 

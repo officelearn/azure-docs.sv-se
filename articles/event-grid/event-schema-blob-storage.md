@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614893"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid-Händelseschema för Blob storage
 
@@ -90,28 +90,28 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
+| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | string | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för BLOB storage. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| api | sträng | Åtgärden som utlöste händelsen. |
-| clientRequestId | sträng | Ett klientgenererade, täckande värde med en teckengräns på 1 KB. När du har aktiverat lagringsanalys, loggning, registreras den i analytics-loggarna. |
-| requestId | sträng | Den unika identifieraren för begäran. Använd det för felsökning av begäran. |
-| eTag | sträng | Det värde som du kan använda för att utföra åtgärder villkorligt. |
-| contentType | sträng | Innehållstyp som angetts för blobben. |
+| api | string | Åtgärden som utlöste händelsen. |
+| clientRequestId | string | Ett klientgenererade, täckande värde med en teckengräns på 1 KB. När du har aktiverat lagringsanalys, loggning, registreras den i analytics-loggarna. |
+| requestId | string | Den unika identifieraren för begäran. Använd det för felsökning av begäran. |
+| eTag | string | Det värde som du kan använda för att utföra åtgärder villkorligt. |
+| contentType | string | Innehållstyp som angetts för blobben. |
 | contentLength | heltal | Storleken på blobben i byte. |
-| blobType | sträng | Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”. |
-| url | sträng | Sökvägen till blobben. |
-| sekvenseraren | sträng | Ett användarstyrd värde som du kan använda för att spåra begäranden. |
+| blobType | string | Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”. |
+| url | string | Sökvägen till blobben. |
+| sekvenseraren | string | Ett användarstyrd värde som du kan använda för att spåra begäranden. |
 | storageDiagnostics | objekt | Information om storage-diagnostik. |
  
 ## <a name="next-steps"></a>Nästa steg

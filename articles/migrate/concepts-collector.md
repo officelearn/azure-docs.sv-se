@@ -8,11 +8,11 @@ ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
 ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679296"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -242,11 +242,11 @@ Insamlaren levereras med en utvärderingslicens för Windows Server 2012 R2 som 
 
 ## <a name="updating-the-os-of-the-collector-vm"></a>Uppdaterar Operativsystemet på den Virtuella insamlardatorn
 
-Även om insamlingsprogrammet har en utvärderingslicens för i 180 dagar, måste du uppdatera Operativsystemet på installationen för att undvika att automatiskt stänga ned enhetens kontinuerligt.
+Även om insamlingsprogrammet har en utvärderingslicens på 180 dagar behöver du kontinuerligt uppdatera operativsystemet på programmet för att undvika automatisk avstängning av programmet.
 
-- Om insamlaren kan inte uppdateras i 60 dagar, startar den automatiskt stänger av datorn.
-- Om en identifiering körs stängas datorn inte av, även om 60 dagar har gått. Datorn stängs när identifieringen har slutförts.
-- Om du har använt insamlaren i mer än 60 dagar, rekommenderar vi att hålla datorn uppdaterat hela tiden genom att köra Windows update.
+- Om insamlaren inte uppdateras i 60 dagar börjar den stänga av datorn automatiskt.
+- Om en identifiering körs stängas datorn inte av, även om det har gått 60 dagar. Datorn stängs när identifieringen har slutförts.
+- Om du har använt insamlaren i mer än 60 dagar rekommenderar vi att du håller datorn konstant uppdaterad genom att köra Windows Update.
 
 ## <a name="upgrading-the-collector-appliance-version"></a>Uppgradera insamlaren installation version
 

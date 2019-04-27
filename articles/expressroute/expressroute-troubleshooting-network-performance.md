@@ -9,11 +9,11 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883341"
 ---
 # <a name="troubleshooting-network-performance"></a>Felsökning av nätverksprestanda
 ## <a name="overview"></a>Översikt
@@ -179,7 +179,7 @@ Testa installationen:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Plats|Azure<br/>Region|Beräknad<br/>Avståndet (km)|Svarstid|1-session<br/>Bandbredd|Maximal<br/>Bandbredd|
+|ExpressRoute<br/>Location|Azure<br/>Region|Beräknad<br/>Avståndet (km)|Svarstid|1-session<br/>Bandbredd|Maximal<br/>Bandbredd|
 | Seattle | Västra USA 2        |    191 km |   5 ms | 262.0 Mbit/s |  3.74 Gbit/s |
 | Seattle | Västra USA          |  1,094 km |  18 ms |  82.3 Mbit/s |  3.70 Gbit/s |
 | Seattle | Centrala USA       |  2,357 km |  40 ms |  38.8 Mbit/s |  2.55 Gbit/s |

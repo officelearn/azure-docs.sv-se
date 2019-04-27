@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 5490bdd3934b438a683ce4271fbec20b3d13735d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770862"
 ---
 Om din virtuella Azure-dator (VM) får start- eller diskproblem kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är en misslyckad programuppdatering som förhindrar att den virtuella datorn startar korrekt. Den här artikeln beskriver hur du använder Azure Portal för att ansluta den virtuella hårddisken till en annan virtuell dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
 

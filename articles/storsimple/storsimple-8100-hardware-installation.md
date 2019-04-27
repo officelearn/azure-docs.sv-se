@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631234"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Packa upp, rackmontera, och kabelansluta en StorSimple 8100-enhet
 ## <a name="overview"></a>Översikt
 Din Microsoft Azure StorSimple 8100 är en enda hölje, rackmonterad enhet. Den här självstudien beskrivs hur du packar upp, rackmontera och kabel StorSimple 8100-enhet maskinvara innan du konfigurerar och distribuera StorSimple-enhet.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Packa upp din StorSimple 8100-enhet
-Följande steg ger tydliga, detaljerade instruktioner om hur du packar upp StorSimple 8100 lagringsenheten. Den här enheten levereras i en enda ruta.
+Följande steg ger tydliga, detaljerade instruktioner om hur du packar upp StorSimple 8100 lagringsenheten. Den här enheten levereras i en enda låda.
 
 ### <a name="prepare-to-unpack-your-device"></a>Förbereda för att packa upp din enhet
 Granska följande information innan du packar upp enheten.
@@ -34,26 +34,26 @@ Granska följande information innan du packar upp enheten.
 ![Varningsikon](./media/storsimple-safety/IC740879.png)![kraftiga ikonen](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **varning!**
 
 1. Se till att du har två personer som är tillgängliga för att hantera vikten för höljet om du hanterar det manuellt. Ett fullständigt konfigurerad hölje kan väga upp till 32 kg (70 lbs.).
-2. Placeras på en fast, på ytan.
+2. Placera lådan på en plan, jämn yta.
 
 Därefter gör du följande för att packa upp din enhet.
 
 #### <a name="to-unpack-your-device"></a>Att packa upp din enhet
-1. Granska rutan och paketering skummet för crushes, rabatter, vatten skador eller andra uppenbara skador. Om rutan eller paketering är allvarligt skadat kan inte öppna rutan. . [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att hjälpa dig att bedöma om enheten är i gott skick.
-2. Packa upp rutan. Följande bild visar den uppackade vy över din StorSimple-enhet.
+1. Kontrollera lådan och förpackningsskummet för att se om det förekommer krosskador, skärningar, vattenskador eller andra uppenbara skador. Om lådan eller förpackningen är allvarligt skadad ska du inte öppna lådan. . [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att hjälpa dig att bedöma om enheten är i gott skick.
+2. Packa upp lådan. Följande bild visar den uppackade vy över din StorSimple-enhet.
    
      ![Packa upp lagringsenheten](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
    
     **Packa upp vy över lagringsenheten**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   1 |Paketering av statistik box |
    |   2 |Nedre skum |
    |   3 |Enhet |
    |   4 |Främsta skum |
    |   5 |Tillbehör box |
-3. När rutan för att se till att du har:
+3. När du har packat upp lådan kontrollerar du att det finns:
    
    * 1 enhet för enkel hölje
    * 2 strömkablar
@@ -67,7 +67,7 @@ Därefter gör du följande för att packa upp din enhet.
      
      Om du inte tog emot något av objekten som visas ovan, [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
-Nästa steg är att rackmonterade din enhet.
+Nästa steg är att rackmontera enheten.
 
 ## <a name="rack-mount-your-storsimple-8100-device"></a>Rackmonterade StorSimple 8100-enhet
 Följ stegen nedan för att installera StorSimple 8100 lagringsenheten i ett standard 19-tums rack med främre och bakre inlägg. StorSimple 8100-enhet har en enda primär enhet.
@@ -83,7 +83,7 @@ Installationen består av flera steg, som beskrivs i följande procedurer.
 Enheten måste installeras i en standard 19-tums rack som har både främre och bakre inlägg. Använd följande procedur för att förbereda för Rackinstallation av.
 
 #### <a name="to-prepare-the-site-for-rack-installation"></a>Förbereda platsen för Rackinstallation
-1. Kontrollera att enheten på ett säkert sätt vilar på ett fast, stabila och på arbets surface (eller liknande).
+1. Kontrollera att enheten på ett säkert sätt vilar på en plan, stabil och jämn arbetsyta (eller liknande).
 2. Kontrollera att den plats där du vill konfigurera har standard nätström från en oberoende källa eller en rack power distributionsenhet (PDU) med en avbrottsfri elkälla (UPS).
 3. Se till att en 2U-platsen är tillgänglig på rack där du vill montera enheten.
 
@@ -108,13 +108,13 @@ En uppsättning montera rails tillhandahålls för användning med 19-tums rack 
 
     **Bifoga inre rail bilder till sidor av höljet**
    
-    Etikett | Beskrivning
+    Label (Etikett) | Beskrivning
     ----- | -----------
     1     | M 3 x 4 knappen head skruvar
     2     | Chassi-bilder
 
 2. Koppla den yttre vänstra spår och yttre högra rail sammansättningar till rack CAB lodrät medlemmar. Hakparenteserna markeras **LH**, **RH**, och **den här sidan uppåt** att guida dig genom rätt orientering.
-3. Leta upp PIN-koder för rail på den främre och bakre rail-sammansättningen. Utöka spår för att passa mellan rack inlägg och infoga de PIN-koderna i främre och bakre rack efter vertikal medlem hål. Var noga med att rail-sammansättningen är nivå.
+3. Leta upp spårstiften på framsidan och baksidan av spårenheten. Utöka spår för att passa mellan rack inlägg och infoga de PIN-koderna i främre och bakre rack efter vertikal medlem hål. Var noga med att rail-sammansättningen är nivå.
 4. Använd två av de angivna mått skruvarna för att skydda rail sammansättningen till racket lodrät medlemmar. Använd en skruv på klientwebbservern och en på Bakåt.
 5. Upprepa dessa steg för den andra rail-sammansättningen.<br/>
    
@@ -122,7 +122,7 @@ En uppsättning montera rails tillhandahålls för användning med 19-tums rack 
    
     **Koppla yttre rail sammansättningar till racket**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   1 |Ihopfogning skruv |
    |   2 |Kvadrat hål front rack efter skruv |
@@ -148,7 +148,7 @@ Med de rack rails som precis har installerats kan utföra följande steg om du v
    
     **Installera flänsad caps**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   1 |Hölje flygplanet skruv |
 
@@ -157,8 +157,8 @@ Nästa steg är att kabelanslut din enhet till ström, nätverk och serieåtkoms
 ## <a name="cable-your-storsimple-8100-device"></a>Kabelansluta en StorSimple 8100-enhet
 Följande procedurer beskriver hur du kabelansluta en StorSimple 8100-enhet till ström, nätverk och seriella anslutningar.
 
-### <a name="prerequisites"></a>Förutsättningar
-Innan du börjar kablage för din enhet, behöver du:
+### <a name="prerequisites"></a>Nödvändiga komponenter
+Innan du börjar kabelansluta enheten behöver du:
 
 * Dina lagringsenhet, helt Uppackad och rack monterade.
 * 2 strömkablar som medföljde din enhet
@@ -188,7 +188,7 @@ Du måste kabelanslut enheten nätverket enligt beskrivningen i följande steg f
    
     **Tillbaka på enheten som visar dataportar**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    | --- | --- |
    |   0,1,4,5 |1 GbE-nätverksgränssnitt |
    |   2,3 |10 GbE-nätverksgränssnitt |
@@ -199,7 +199,7 @@ Du måste kabelanslut enheten nätverket enligt beskrivningen i följande steg f
 
     **Nätverket kablar för din enhet**
 
-   |Etikett | Beskrivning |
+   |Label (Etikett) | Beskrivning |
    |----- | ----------- |
    | A    | LAN med Internetåtkomst |
    | B    | Kontrollenhet 0 |
@@ -236,11 +236,11 @@ Utför följande steg för att kabelanslut din seriell port.
 2. Identifiera den aktiva kontrollenheten på din enhet-bakplan. En blinkande blå LED indikerar att kontrollanten är aktiv.
 3. Använd de angivna seriella kablarna (vid behov, USB-seriell konverterare för din bärbara dator) och Anslut konsolen eller dator (med terminalemulering till enheten) till den seriella porten på den aktiva kontrollenheten.
 4. Installera seriell USB-drivrutiner (medföljer enheten) på datorn.
-5. Konfigurera seriell anslutning enligt följande: 115 200 bit/s, 8 databitar, 1 stop-bitars, ingen paritet och flödeskontroll som har angetts till None.
+5. Konfigurera seriell anslutning enligt följande: styra inställd på Ingen 115 200 bit/s, 8 databitar, 1 stop-bitars, ingen paritet och flow.
 6. Kontrollera att anslutningen fungerar genom att trycka på RETUR på konsolen. Menyn för seriekonsolen bör visas.
 
 > [!NOTE]
-> **Lights-Out-hantering**: när enheten installeras i ett fjärranslutet datacenter eller i ett rum för datorn med begränsad åtkomst, kontrollera att de seriella anslutningarna till båda styrenheterna alltid är anslutna till en seriell konsol växel eller liknande utrustning. Detta gör out-of-band-fjärrstyrning och stöd för åtgärder om det finns nätverksstörningar eller oväntade fel.
+> **Lights-Out-hantering**: När enheten installeras i ett fjärranslutet datacenter eller i ett rum med begränsad åtkomst som gäller datorn, måste du kontrollera att de seriella anslutningarna till båda styrenheterna alltid är anslutna till en seriell konsol växel eller liknande utrustning. Detta gör out-of-band-fjärrstyrning och stöd för åtgärder om det finns nätverksstörningar eller oväntade fel.
 > 
 > 
 

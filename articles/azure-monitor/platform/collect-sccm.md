@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.openlocfilehash: e5cf89b7fe01946de9944a7026ec448cd55dd6dc
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741689"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ansluta Configuration Manager till Azure Monitor
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Monitor för att synkronisera enheten samlingsdata och referera till dessa samlingar i Azure Monitor och Azure Automation.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Azure Monitor har stöd för System Center Configuration Manager current branch versionen 1606 och högre.  
 

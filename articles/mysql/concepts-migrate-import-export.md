@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60838117"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrera din MySQL-databas med hjälp av importera och exportera
 Den här artikeln beskrivs två vanliga sätt att importera och exportera data till en Azure Database for MySQL-server med MySQL Workbench. 

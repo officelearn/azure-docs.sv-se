@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889870"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Vad är enhetshantering i Azure IoT öppen plattform kommunikation (OPC)?
 
@@ -28,7 +28,7 @@ OPC-Twin kan factory operatörer att skanna factory nätverket, så att OPC UA-s
 ### <a name="simple-control"></a>Enkel åtkomstkontroll
 OPC-Twin kan factory operatörer att reagera på händelser och konfigurera om sina factory våning datorer från molnet automatiskt eller manuellt i farten. OPC-Twin ger REST API: er att anropa tjänster på OPC UA-servern, bläddra sitt adressutrymme avseende skrivbara variabler och execute-metoder. En behållare använder till exempel temperatur KPI för att styra produktionsraden. Temperatursensor publicerar ändringen i data med hjälp av OPC Publisher. Operatorn factory tar emot aviseringen att temperaturen har nått tröskelvärdet. Produktionsraden kylningspaket automatiskt via OPC-Twin. Operatorn factory meddelas om coolbar ned.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 Du kan använda OPC-Twin för enkelt för autentisering och för en enkel utvecklarupplevelse.
 
 ### <a name="simple-authentication"></a>Enkel autentisering 

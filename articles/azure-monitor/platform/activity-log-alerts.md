@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 3459ef4caa99a2147144354165bef7d2852e87cc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777822"
 ---
 # <a name="alerts-on-activity-log"></a>Aviseringar för aktivitetsloggen 
 
@@ -42,7 +42,7 @@ Aktivitetsloggsaviseringar har några vanliga alternativ:
     - Resursgruppsnivå: Till exempel alla virtuella datorer i en specifik resursgrupp
     - Prenumerationsnivå: Till exempel alla virtuella datorer i en prenumeration (eller) alla resurser i en prenumeration
 - **Resursgrupp**: Som standard sparas varningsregeln i samma resursgrupp som mål som definierats i omfånget. Du kan också definiera resursgruppen där varningsregeln ska sparas.
-- **Resurstypen**: Resource Manager definierats namnområdet för målet för aviseringen.
+- **Resurstyp**: Resource Manager definierats namnområdet för målet för aviseringen.
 
 - **Åtgärdens namn**: Åtgärdsnamnet rollbaserad åtkomstkontroll i Resource Manager.
 - **Nivå**: Allvarlighetsgraden för händelse (utförlig, information, varning, fel eller kritiskt).
@@ -65,5 +65,4 @@ Läs mer om åtgärdsgrupper i [skapa och hantera åtgärdsgrupper i Azure-porta
 - Lär dig mer om [skapa och ändra aviseringar för aktivitetsloggar](../../azure-monitor/platform/alerts-activity-log.md).
 - Granska den [avisering webhook för aktivitetslogg](activity-log-alerts-webhook.md).
 - Lär dig mer om [service health meddelanden](../../azure-monitor/platform/service-notifications.md).
-
 

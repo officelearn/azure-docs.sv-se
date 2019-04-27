@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.date: 07/08/2016
-ms.openlocfilehash: 20ca5e06cd1cd0d0abfe6d31f622cd6b61b4178f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 137ed89c276338b534cad8fdf81ec31b5e5610b5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60846079"
 ---
 # <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Lägg till affärspartner för integrationskonton i Azure Logic Apps med Enterprise-Integrationspaket
 
@@ -49,7 +49,7 @@ Ta emot och skicka inställningar är riktade från perspektivet för värd-Part
 
    ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-partners/partner-2.png)
 
-6. Ange ett namn för din partner och välj sedan en **kvalificerare**. Ange en **värdet** att identifiera dokument som får dina appar. När du är klar väljer **OK**.
+6. Ange ett namn för din partner och välj sedan en **kvalificerare**. Ange en **värdet** att identifiera dokument som får dina appar. När du är klar väljer du **OK**.
 
    ![Lägg till information om partner](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 

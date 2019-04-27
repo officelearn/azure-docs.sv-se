@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787603"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över automatisk skalning i Microsoft Azure Virtual Machines, Cloud Services och Web Apps
 Den här artikeln beskriver vilka Microsoft Azure automatisk skalning är, dess fördelar, och hur du kommer igång med hjälp av den.  
@@ -102,6 +102,7 @@ Du kan ställa in automatisk skalning via
 * [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Tjänster som stöds för autoskalning
+
 | Tjänst | Schema & Docs |
 | --- | --- |
 | Web Apps |[Skalning av Webbappar](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -120,4 +121,3 @@ Mer information om automatisk skalning, Använd Autoscale Walkthroughs som angav
 * [Använda automatisk skalning åtgärder för att skicka e-post och webhook varningsmeddelanden](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Felsökning VM Scale Sets automatisk skalning](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

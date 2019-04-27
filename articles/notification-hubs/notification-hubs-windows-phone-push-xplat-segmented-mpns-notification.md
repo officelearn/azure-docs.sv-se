@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 10f8c2e21f2dcf8c108576d54fe6776ecf04a0f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60872500"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till specifika Windows Phone-enheter med hjälp av Azure Notification Hubs
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 > * Skicka taggade meddelanden
 > * Testa appen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Slutför [Självstudie: Skicka push-meddelanden till Windows Phone-appar med hjälp av Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). I den här självstudiekursen uppdaterar du mobilprogrammet så att du kan registrera dig för olika nyhetskategorier som du är intresserad av och därmed endast få push-meddelanden för dessa kategorier.
 

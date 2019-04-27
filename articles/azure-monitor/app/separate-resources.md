@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
 ms.openlocfilehash: 2e9c599c12ed10327d352baee02500d2284d98d8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713478"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Att separera telemetri från utveckling, testning och produktion
 
@@ -58,7 +58,7 @@ I det här exemplet placeras ikeys för olika resurser i olika versioner av Webb
 ### <a name="web-pages"></a>Webbsidor
 Nyckeln används också i din app för webbsidor, i den [skript som du fick från Snabbstart-bladet](../../azure-monitor/app/javascript.md). I stället för att koda den bokstavligen till skriptet, generera du den från servern. Till exempel i en ASP.NET-app:
 
-*JavaScript i Razor*
+*JavaScript in Razor*
 
     <script type="text/javascript">
     // Standard Application Insights web page script:

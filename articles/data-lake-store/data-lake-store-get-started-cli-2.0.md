@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60885354"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Kom igång med Azure Data Lake Store med Azure CLI
 
@@ -40,7 +40,7 @@ Innan du påbörjar den här artikeln måste du ha:
 
 * **Azure CLI** – Se [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) anvisningar.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Den här artikeln använder en enklare metod för autentisering med Data Lake Storage Gen1 där du loggar in som en användare av slutanvändaren. Åtkomstnivå till Data Lake Storage Gen1 kontot och filsystemet styrs av åtkomstnivån för den inloggade användaren. Men det finns andra sätt att autentisera med Data Lake Storage Gen1 som är **slutanvändarautentisering** eller **tjänst-till-tjänst-autentisering**. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
 

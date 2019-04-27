@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: e2831191905da1b9e0ad55131be9eaa7aa13950e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777632"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Självstudier: Spåra användning av ett labb i Azure Lab Services
 Den här kursen visar hur en labbskapare/ägare kan spåra användningen av ett labb.

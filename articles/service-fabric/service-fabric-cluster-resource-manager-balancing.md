@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809445"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Belastningsutjämning service fabric-kluster
 Service Fabric Cluster Resource Manager har stöd för dynamisk ändringar, reagera på tillägg eller borttagning av noder eller tjänster. Den korrigerar också automatiskt begränsningen överträdelser och balanserar proaktivt klustret. Men hur ofta tas de här åtgärderna och vad utlöser dem?

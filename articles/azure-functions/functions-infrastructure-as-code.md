@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
 ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737065"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resursdistribution för din funktionsapp i Azure Functions
 
@@ -39,8 +39,8 @@ En Azure Functions-distribution består vanligtvis av dessa resurser:
 
 | Resurs                                                                           | Krav | Referens för syntax och egenskaper                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| En funktionsapp                                                                     | Krävs    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| En [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| En funktionsapp                                                                     | Obligatoriskt    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
+| En [Azure Storage](../storage/index.yml) konto                                   | Obligatoriskt    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
 | En [Application Insights](../azure-monitor/app/app-insights-overview.md) komponent | Valfri    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
 | En [värdplan](./functions-scale.md)                                             | Valfritt<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 

@@ -2,20 +2,21 @@
 title: Migrera lösningen till SQL Data Warehouse | Microsoft Docs
 description: Riktlinjer för att leverera din lösning till Azure SQL Data Warehouse-plattformen.
 services: sql-data-warehouse
-author: jrowlandjones
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: jrj
+origin.date: 04/17/2018
+ms.date: 03/25/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 04c921282d3591e7326d326c230bf72e7f5c1812
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776228"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Migrera lösningen till Azure SQL Data Warehouse
 Se vad ingår i att migrera en befintlig databaslösning till Azure SQL Data Warehouse. 
@@ -36,7 +37,6 @@ Använd inte SQL Data Warehouse för operativa (OLTP)-arbetsbelastningar som ibl
 - Rad för rad bearbetning behov
 - Inkompatibla format (JSON, XML)
 
-
 ## <a name="plan-the-migration"></a>Planera migreringen
 
 När du har valt att migrera en befintlig lösning till SQL Data Warehouse, är det viktigt att planera migreringen innan du börjar. 
@@ -51,17 +51,6 @@ Om du vill utföra en lyckad migrering, måste du migrera dina tabellscheman, di
 -  [Migrera din kod](sql-data-warehouse-migrate-code.md)
 -  [Migrera dina data](sql-data-warehouse-migrate-data.md). 
 
-<!--
-## Perform the migration
-
-
-## Deploy the solution
-
-
-## Validate the migration
-
--->
-
 ## <a name="next-steps"></a>Nästa steg
 CAT (Customer Advisory Team) har också bra SQL Data Warehouse vägledning, där de publicerar via bloggar.  Ta en titt på deras artikeln [migrera data till Azure SQL Data Warehouse i praktiken] [ Migrating data to Azure SQL Data Warehouse in practice] för mer information om migrering.
 
@@ -73,3 +62,5 @@ CAT (Customer Advisory Team) har också bra SQL Data Warehouse vägledning, där
 
 <!--Other Web references-->
 [Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+
+<!--Update_Description: update meta properties, wording update-->

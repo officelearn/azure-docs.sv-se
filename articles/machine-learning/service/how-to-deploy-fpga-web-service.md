@@ -12,11 +12,11 @@ author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7aa0e11ed47219829830369d17b300270d3fbffb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819447"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning-tjänsten
 
@@ -26,7 +26,7 @@ Du kan distribuera en modell som en webbtjänst på [fältet programmable gate m
   - DenseNet 121
   - VGG-16   
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800040"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption för Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -27,7 +27,7 @@ ms.locfileid: "56983480"
 
 Azure Disk Encryption använder BitLocker för att ge fullständig diskkryptering på virtuella Azure-datorer som kör Windows.  Den här lösningen är integrerad med Azure Key Vault för att hantera diskkrypteringsnycklarna och hemligheter i key vault-prenumeration. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 En fullständig lista över krav, se [krävs för Azure Disk Encryption](
 ../../security/azure-security-disk-encryption-prerequisites.md).
@@ -79,21 +79,21 @@ Azure Disk Encryption kräver en Internetanslutning för åtkomst till Active Di
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
-| utgivare | Microsoft.Azure.Security | sträng |
-| typ | AzureDiskEncryptionForWindows| sträng |
+| apiVersion | 2015-06-15 | date |
+| utgivare | Microsoft.Azure.Security | string |
+| typ | AzureDiskEncryptionForWindows| string |
 | typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (valfritt) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (valfritt) AADClientSecret | lösenord | sträng |
-| (valfritt) AADClientCertificate | thumbprint | sträng |
-| EncryptionOperation | EnableEncryption | sträng | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | sträng |
-| KeyEncryptionKeyURL | url | sträng |
-| KeyVaultResourceId | resurs-uri | sträng |
-| KekVaultResourceId | resurs-uri | sträng |
-| KeyVaultURL | url | sträng |
-| SequenceVersion | uniqueidentifier | sträng |
-| VolumeType | OS-, Data, alla | sträng |
+| (valfritt) AADClientSecret | password | string |
+| (valfritt) AADClientCertificate | thumbprint | string |
+| EncryptionOperation | EnableEncryption | string | 
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultResourceId | resurs-uri | string |
+| KekVaultResourceId | resurs-uri | string |
+| KeyVaultURL | url | string |
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | OS-, Data, alla | string |
 
 ## <a name="template-deployment"></a>Malldistribution
 Ett exempel på för malldistribution, se [ skapa en ny krypterade Windows virtuell dator från galleriet bilden](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).

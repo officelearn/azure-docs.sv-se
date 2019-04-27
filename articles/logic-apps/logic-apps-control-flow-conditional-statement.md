@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684822"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Skapa villkorssatser som styr arbetsflödesåtgärder i Azure Logic Apps
 
@@ -25,7 +25,7 @@ Anta exempelvis att du har en logikapp som skickar för många e-postmeddelanden
 > [!TIP]
 > För att köra olika steg baserat på olika specifika värden, använder en [ *växla instruktionen* ](../logic-apps/logic-apps-control-flow-switch-statement.md) i stället.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -45,7 +45,7 @@ Anta exempelvis att du har en logikapp som skickar för många e-postmeddelanden
 
    När du vill lägga till ett villkor i slutet av arbetsflödet, längst ned på logikappen, Välj **nytt steg** > **Lägg till en åtgärd**.
 
-1. I sökrutan anger du ”villkor” som filter. Välj den här åtgärden: **villkoret - kontroll**
+1. I sökrutan anger du ”villkor” som filter. Välj den här åtgärden: **Villkor - kontroll**
 
    ![Lägg till villkor](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 

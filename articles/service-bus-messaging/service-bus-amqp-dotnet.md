@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749265"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1.0
 
@@ -73,26 +73,26 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP-typer för bröd
 | int |int |AMQP-värde |
 | lång |lång |AMQP-värde |
 | flyt |flyt |AMQP-värde |
-| dubbel |dubbel |AMQP-värde |
+| double |double |AMQP-värde |
 | decimal |decimal128 |AMQP-värde |
-| Char |Char |AMQP-värde |
-| DateTime |tidsstämpel |AMQP-värde |
+| char |char |AMQP-värde |
+| Datetime |tidsstämpel |AMQP-värde |
 | Guid |uuid |AMQP-värde |
-| byte |binär |AMQP-värde |
-| sträng |sträng |AMQP-värde |
+| byte[] |binary |AMQP-värde |
+| string |string |AMQP-värde |
 | System.Collections.IList |lista |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. |
 | System.Array |matris |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. |
 | System.Collections.IDictionary |map |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. Obs: endast strängnycklar stöds. |
 | URI |Beskrivningen sträng (se nedan) |AMQP-värde |
-| DateTimeOffset |Beskrivningen länge (se nedan) |AMQP-värde |
+| Datetimeoffset |Beskrivningen länge (se nedan) |AMQP-värde |
 | TimeSpan |Beskrivningen länge (se följande) |AMQP-värde |
-| Stream |binär |AMQP-Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
-| Andra objekt |binär |AMQP-Data (kan vara flera). Innehåller den serialiserade binära filen på det objekt som använder DataContractSerializer eller en serialiserare som tillhandahålls av programmet. |
+| Strömma |binary |AMQP-Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
+| Andra objekt |binary |AMQP-Data (kan vara flera). Innehåller den serialiserade binära filen på det objekt som använder DataContractSerializer eller en serialiserare som tillhandahålls av programmet. |
 
 | .NET-typ | Mappade AMQP beskrivs typ | Anteckningar |
 | --- | --- | --- |
 | URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
-| DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
+| Datetimeoffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type>` |TimeSpan.Ticks |
 
 ## <a name="behavioral-differences"></a>Beteendeanalys skillnader

@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795925"
 ---
 # <a name="clustering-point-data"></a>Klustring punkt data
 
@@ -84,12 +84,12 @@ Se pennan <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>kluster viktad term
 
 När mushändelser inträffar på ett lager med klustrade datapunkter, returneras den klustrade datapunkten på händelsen som ett GeoJSON point funktionen-objekt. Den här punkt-funktionen har följande egenskaper:
 
-| Egenskapsnamn | Type | Beskrivning |
+| Egenskapsnamn | Typ | Beskrivning |
 |---------------|------|-------------|
 | kluster | boolesk | Anger om funktionen representerar ett kluster. |
-| cluster_id | sträng | Ett unikt ID för det kluster som kan användas med datakällan `getClusterExpansionZoom`, `getClusterChildren`, och `getClusterLeaves` metoder. |
+| cluster_id | string | Ett unikt ID för det kluster som kan användas med datakällan `getClusterExpansionZoom`, `getClusterChildren`, och `getClusterLeaves` metoder. |
 | point_count | nummer | Antal punkter som innehåller klustret. |
-| point_count_abbreviated | sträng | En sträng som abbreviates point_count värdet om det är långt. (exempel: 4 000 blir 4K) |
+| point_count_abbreviated | string | En sträng som abbreviates point_count värdet om det är långt. (exempel: 4 000 blir 4K) |
 
 Det här exemplet tar ett bubbeldiagram lager som återger kluster punkter och lägger till en click-händelse som när det utlöses, beräkna och Zooma på kartan till nästa zoomnivån då klustret bryts skillnad med hjälp av den `getClusterExpansionZoom` -metoden för den `DataSource` klassen och `cluster_id` egenskapen för den klickade på klustrade datapunkt. 
 

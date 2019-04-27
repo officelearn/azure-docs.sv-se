@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782998"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager-mallar
 
@@ -190,7 +190,7 @@ Utdata från föregående exempel är:
 | ---- | ---- | ----- |
 | yesOutput | String | ja |
 | noOutput | String | nej |
-| objectOutput | Objekt | {”test”: ”value1”} |
+| objectOutput | Object | {”test”: ”value1”} |
 
 Följande [exempelmall](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) visar hur du använder den här funktionen med uttryck som endast är villkorligt giltiga.
 

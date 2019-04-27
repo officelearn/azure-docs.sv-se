@@ -14,11 +14,11 @@ ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837852"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ansluta till en säker tjänst med omvänd proxy
 
@@ -42,7 +42,7 @@ I nästa avsnitt visar konfigurationsinformation för var och en av dessa altern
 
 ### <a name="service-certificate-validation-options"></a>Verifieringsalternativ för Service-certifikat 
 
-- **Ingen**: omvänd proxy hoppar över kontroll av proxyn Tjänstcertifikatet och upprättar en säker anslutning. Detta är standardbeteendet.
+- **Ingen**: Omvänd proxy hoppar över kontroll av proxyn Tjänstcertifikatet och upprättar en säker anslutning. Detta är standardbeteendet.
 Ange den **ApplicationCertificateValidationPolicy** med värdet **ingen** i den [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) avsnittet.
 
    ```json
@@ -63,7 +63,7 @@ Ange den **ApplicationCertificateValidationPolicy** med värdet **ingen** i den 
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: omvänd proxy verifierar certifikatet som presenterades av tjänsten baserat på namn och omedelbar utfärdartumavtrycket: Ange den **ApplicationCertificateValidationPolicy** med värdet **ServiceCommonNameAndIssuer** i den [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) avsnittet.
+- **ServiceCommonNameAndIssuer**: Omvänd proxy verifierar certifikatet som presenterades av tjänsten baserat på namn och omedelbar utfärdartumavtrycket: Ange den **ApplicationCertificateValidationPolicy** med värdet **ServiceCommonNameAndIssuer** i den [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) avsnittet.
 
    ```json
    {
@@ -110,7 +110,7 @@ Ange den **ApplicationCertificateValidationPolicy** med värdet **ingen** i den 
    }
    ```
 
-- **ServiceCertificateThumbprints**: omvänd proxy ska verifiera via proxy Tjänstcertifikatet baserat på dess tumavtryck. Du kan välja att gå den här vägen när tjänsterna har konfigurerats med self signerade certifikat: Ange den **ApplicationCertificateValidationPolicy** med värdet **ServiceCertificateThumbprints** i den [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) avsnittet.
+- **ServiceCertificateThumbprints**: Omvänd proxy kontrollerar via proxy Tjänstcertifikatet baserat på dess tumavtryck. Du kan välja att gå den här vägen när tjänsterna har konfigurerats med self signerade certifikat: Ange den **ApplicationCertificateValidationPolicy** med värdet **ServiceCertificateThumbprints** i den [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) avsnittet.
 
    ```json
    {

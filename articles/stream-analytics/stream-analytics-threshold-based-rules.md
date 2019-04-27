@@ -2,19 +2,20 @@
 title: Processen kan konfigureras tröskelvärdesbaserade regler i Azure Stream Analytics
 description: Den här artikeln beskriver hur du använder referensdata för att uppnå en datastyrd aviseringslösning med konfigurerbara tröskelvärdesbaserade regler i Azure Stream Analytics.
 services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
+author: rockboyfor
+ms.author: v-yeche
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
+origin.date: 04/30/2018
+ms.date: 08/20/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761734"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Bearbeta konfigurerbara tröskelbaserade regler i Azure Stream Analytics
 Den här artikeln beskriver hur du använder referensdata för att uppnå en datastyrd aviseringslösning som använder konfigurerbara tröskelbaserade regler i Azure Stream Analytics.
@@ -46,7 +47,6 @@ Referensdata för det här exemplet visar hur en tröskelbaserade regel kan fram
 - Observera att regeln har ett **operatorn** fält som tolkas dynamiskt senare i frågesyntaxen `AVGGREATEROREQUAL`. 
 - Regeln filtrerar data på en viss dimension nyckel `2` med värdet `C1`. Andra fält är tom sträng, som anger inte om du vill filtrera Indataströmmen av dessa fält. Du kan ställa in ytterligare CPU-regler att filtrera andra matchande fält efter behov.
 - Alla kolumner är som ska ingå i utdata varning avisering. I det här fallet `includedDim` nyckeln nummer `2` aktiveras `TRUE` att representera att fältnumret 2 av händelsedata i strömmen ska tas med i bestämda utdata-händelser. I andra fält ingår inte i aviseringen utdata, men fältlistan kan justeras.
-
 
 ```json
 {
@@ -292,3 +292,4 @@ Det här exemplet utdata JSON data visas som en enda avisering händelse tillhan
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
+<!--Update_Description: updat meta properties, wording update-->

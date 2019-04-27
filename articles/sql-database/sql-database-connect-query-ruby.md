@@ -1,6 +1,6 @@
 ---
 title: Fråga Azure SQL Database med Ruby | Microsoft Docs
-description: Det här avsnittet visar hur du använder Ruby för att skapa ett program som ansluter till en Azure SQL Database och frågar den med hjälp av Transact-SQL-uttryck.
+description: Det här avsnittet visar hur du använder Ruby för att skapa ett program som ansluter till en Azure SQL-databas och frågar den med hjälp av Transact-SQL-uttryck.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,17 +13,17 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 05f3213383c526944a8a1cf51fb92d5186ac7434
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861879"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Snabbstart: Använd Ruby för att fråga en Azure SQL-databas
 
 Den här snabbstarten visar hur du använder [Ruby](https://www.ruby-lang.org) för att ansluta till en Azure SQL-databas och hur du frågar efter data med Transact-SQL-instruktioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
@@ -53,7 +53,7 @@ För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -101,7 +101,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 1. Kontrollera att de 20 främsta raderna för kategori/produkt från databasen returneras. 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Utforma din första Azure SQL Database](sql-database-design-first-database.md).
+- [Utforma din första Azure SQL-databas](sql-database-design-first-database.md).
 - [GitHub-lagringsplatsen för TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
 - [Rapportera problem eller ställ frågor om TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues).
 - [Ruby-drivrutiner för SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).

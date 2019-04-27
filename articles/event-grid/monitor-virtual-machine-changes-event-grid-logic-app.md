@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 01/12/2019
 ms.openlocfilehash: e735c9773971a4c594c32e9ae29eeb295c32810c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824814"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Självstudie: Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps
 
@@ -48,7 +48,7 @@ I den här guiden får du lära dig att:
 
 Börja med att skapa en logikapp och lägg till en utlösare för händelserutnät som övervakar resursgruppen för den virtuella datorn. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 
 2. Längst upp till vänster på huvudmenyn i Azure väljer du **Skapa en resurs** > **Enterprise-integration** > **Logikapp**.
 

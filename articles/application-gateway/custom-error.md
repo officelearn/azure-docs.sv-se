@@ -5,14 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/14/2019
-ms.author: victorh
+origin.date: 02/14/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832055"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Skapa anpassade felsidor för Application Gateway
 
@@ -34,7 +35,6 @@ Anpassade felsidor kan definieras på global nivå och den lyssnare:
 - **Båda** -den anpassade felsidan som definierats på nivån lyssnare åsidosätter en uppsättning på global nivå.
 
 Om du vill skapa en anpassad felsida, måste du ha:
-
 - en HTTP-statuskod i svaret.
 - motsvarande plats för felsidan. 
 - en offentligt tillgänglig Azure storage-blob för platsen.
@@ -48,10 +48,10 @@ När du har angett en felsida application gateway hämtar den från lagringsplat
 
 1. Gå till Application Gateway i portalen och välj en application gateway.
 
-    ![AG-översikt](media/custom-error/ag-overview.png)
+    ![AG-översikt](./media/custom-error/ag-overview.png)
 2. Klicka på **lyssnare** och navigera till en viss lyssnare där du vill ange en felsida.
 
-    ![Application Gateway-lyssnare](media/custom-error/ag-listener.png)
+    ![Application Gateway-lyssnare](./media/custom-error/ag-listener.png)
 3. Konfigurera en anpassad felsida för ett 403 WAF-fel eller en 502 underhållssidan på nivån lyssnare.
 
     > [!NOTE]
@@ -59,7 +59,7 @@ När du har angett en felsida application gateway hämtar den från lagringsplat
 
 4. Ange en offentligt tillgänglig blob-URL för en viss felkod status och klicka på **spara**. Application Gateway har konfigurerats med den anpassade felsidan.
 
-   ![Felkoder för Application Gateway](media/custom-error/ag-error-codes.png)
+   ![Felkoder för Application Gateway](./media/custom-error/ag-error-codes.png)
 
 ## <a name="azure-powershell-configuration"></a>Azure PowerShell-konfiguration
 
@@ -76,3 +76,5 @@ Mer information finns i [Lägg till AzApplicationGatewayCustomError](https://doc
 ## <a name="next-steps"></a>Nästa steg
 
 Läs om hur Application Gateway-diagnostik [backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).
+
+<!-- Update_Description: wording update -->

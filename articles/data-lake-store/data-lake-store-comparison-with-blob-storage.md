@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 478c261bb909cbc931a7dbbaa9cb6c61152970e4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878978"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämför Azure Data Lake Storage Gen1 och Azure Blob Storage
 
@@ -37,7 +37,7 @@ Tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake St
 | Dataåtgärder - autentisering |Baserat på [Azure Active Directory-identiteter](../active-directory/develop/authentication-scenarios.md) |Baserat på delade hemligheter - [Kontoåtkomstnycklar](../storage/common/storage-account-manage.md#access-keys) och [nycklar för signatur för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Dataåtgärder - autentiseringsprotokoll |OAuth 2.0. Anrop måste innehålla en giltig JWT som (JSON Web Token) utfärdat av Azure Active Directory |Hashbaserad meddelandeautentiseringskod (HMAC). Anrop måste innehålla en Base64-kodad SHA-256-hash över en del av HTTP-begäran. |
 | Dataåtgärder - auktorisering |POSIX åtkomstkontrollistor (ACL).  Åtkomstkontrollistor baserat på Azure Active Directory-identiteter kan ställas in på nivån filer och mappar. |Kontonivå auktorisering – använda [Kontoåtkomstnycklar](../storage/common/storage-account-manage.md#access-keys)<br>Använd för konto, behållare eller blob-auktorisering - [nycklar för delad åtkomst-signatur](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
-| Dataåtgärder - granskning |Tillgängligt. Se [här](data-lake-store-diagnostic-logs.md) information. |Tillgänglig |
+| Dataåtgärder - granskning |Tillgängligt. Se [här](data-lake-store-diagnostic-logs.md) information. |Tillgängligt |
 | Vilande krypteringsdata |<ul><li>Transparent, på serversidan</li> <ul><li>Med tjänsten-hanterade nycklar</li><li>Med Kundhanterade nycklar i Azure Key</li></ul></ul> |<ul><li>Transparent, på serversidan</li> <ul><li>Med tjänsten-hanterade nycklar</li><li>Med Kundhanterade nycklar i Azure Key (förhandsversion)</li></ul><li>Kryptering av klientsidan</li></ul> |
 | Management-åtgärder (t.ex. Account Create) |[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för kontohantering |[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för kontohantering |
 | SDK: er för utvecklare |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |

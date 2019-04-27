@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742130"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure (klassisk) i Azure
 Du kan tilldela IP-adresser till Azure-resurser för att kommunicera med andra Azure-resurser, det lokala nätverket och Internet. Det finns två typer av IP-adresser som du kan använda i Azure: offentliga och privata.
@@ -144,7 +144,7 @@ Tabellen nedan visar varje resurstyp med nivån metoder (dynamiska/statiska) och
 | Intern klientsidan belastningsutjämnare |Ja |Ja |Ja |
 | Application gateway-klientdel |Ja |Ja |Ja |
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Limits
 Tabellen nedan visar de begränsningar på IP-adresser i Azure per prenumeration. Du kan [kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du vill öka standardgränserna upp till de maximala gränserna utifrån dina affärsbehov.
 
 |  | Standardgräns | Övre gräns |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744040"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Hämta signatur för delad åtkomst URI för VM-avbildning
 

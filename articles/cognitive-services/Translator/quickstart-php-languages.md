@@ -8,20 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2019
-ms.author: erhopf
+origin.date: 02/08/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: c902296b6ad3ebd4f012f1f6119a9aa5111916fb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879388"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Snabbstart: Hämta språk som stöds med Translator Text REST API (PHP)
 
 I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver [PHP 5.6.x](https://php.net/downloads.php) för att köra koden.
 
@@ -37,7 +38,7 @@ Följande kod hämtar en lista över språk som stöds för översättning, tran
 <?php
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
-$host = "https://api.cognitive.microsofttranslator.com";
+$host = "https://api.translator.azure.cn";
 $path = "/languages?api-version=3.0";
 $output_path = "output.txt";
 function GetLanguages ($host, $path) {
@@ -160,3 +161,4 @@ Utforska exempelkoden för den här snabbstarten och andra, inklusive översätt
 
 > [!div class="nextstepaction"]
 > [Utforska PHP-exempel på GitHub](https://aka.ms/TranslatorGitHub?type=&language=php)
+

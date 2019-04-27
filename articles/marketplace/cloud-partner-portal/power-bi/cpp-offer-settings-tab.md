@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 49bbe5dcf17a9aa20cb47f477c59e7115d29dacc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727954"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Power BI-appar erbjuder inställningsflik
 
 När du öppnar den **nytt erbjudande** sidan för service-appar du först se den **erbjuder inställningar** fliken. Du kan ange de primära identifierarna och namn för ditt erbjudande för på den här fliken. En asterisk (*) anger ett obligatoriskt fält.
 
-![Fliken Inställningar för erbjudandet](./media/offer-settings-tab.png)
+![Fliken Erbjudandeinställningar](./media/offer-settings-tab.png)
 
 
 ## <a name="offer-settings-fields"></a>Erbjudandet inställningar fält 

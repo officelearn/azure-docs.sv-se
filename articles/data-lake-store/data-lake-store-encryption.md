@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098142"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878450"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Kryptering av data i Azure Data Lake Storage Gen1
 
@@ -74,7 +74,7 @@ Det är viktigt att komma ihåg följande när du väljer läge för huvudkrypte
 
 Det finns tre typer av nycklar som används i utformningen av datakryptering. I följande tabell visas en sammanfattning:
 
-| Nyckel                   | Förkortning | Kopplad till | Lagringsplats                             | Type       | Anteckningar                                                                                                   |
+| Nyckel                   | Förkortning | Kopplad till | Lagringsplats                             | Typ       | Anteckningar                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Huvudkrypteringsnyckel | MEK          | Ett Data Lake Storage Gen1-konto | Key Vault                              | Asymmetrisk | Den kan hanteras av Data Lake Storage Gen1 eller du.                                                              |
 | Datakrypteringsnyckel   | DEK          | Ett Data Lake Storage Gen1-konto | Beständig lagring – hanteras av tjänsten Data Lake Storage Gen1 | Symmetrisk  | DEK krypteras av MEK. Den krypterade DEK lagras på permanenta medier. |
@@ -107,7 +107,7 @@ Följande diagram illustrerar dessa begrepp:
 
 När du använder kundhanterade nycklar kan du rotera huvudkrypteringsnyckeln. Information om hur du ställer in en Gen1 för Data Lake Storage-konto med Kundhanterade nycklar finns [komma igång](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 När du ställer in Gen1 för Data Lake Storage-konto har du valt att använda dina egna nycklar. Det här alternativet kan inte ändras efter att kontot har skapats. I anvisningarna nedan antas att du använder kundhanterade nycklar (att du valt egna nycklar från ditt nyckelvalv).
 

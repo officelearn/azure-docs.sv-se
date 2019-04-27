@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
 ms.openlocfilehash: aff96931f95442c67d08521e72952dd79dad44e2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870293"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -368,7 +368,7 @@ Följande instruktioner berätta hur du överför huvudavbildningen till ett Azu
 Nu när du har någon bild kan du skapa eller uppdatera värd pooler. Mer information om hur du skapar och uppdatera värden pooler finns i följande artiklar:
 
 - [Skapa en värd-pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
-- [Självstudier: Skapa en värd-pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Självstudie: Skapa en värd-pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Skapa en värd-pool med PowerShell](create-host-pools-powershell.md)
 - [Skapa en användare profil resurs för en värd-pool](create-host-pools-user-profile.md)
 - [Konfigurera den virtuella Windows-skrivbordet belastningsutjämningsmetoden](configure-host-pool-load-balancing.md)

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
 ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869885"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda Azure anpassade skript-tillägget Version 2 med Linux-datorer
 Anpassat skript-tillägget Version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfigurationen efter distribution, Programvaruinstallation eller andra konfigurationshantering/uppgifter. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internetplats eller du kan ange dem till tillägget-körningen. 
@@ -51,15 +51,15 @@ Om du behöver hämta ett skript externt, till exempel GitHub eller Azure Storag
 Om skriptet finns på en lokal server så kan du fortfarande behöver ytterligare brandvägg/Network Security Group portar måste du öppna.
 
 ### <a name="tips-and-tricks"></a>Tips
-* Högsta Felfrekvensen för det här tillägget är på grund av ett syntaxfel i skriptet test som skriptet körs utan fel, och även placera i ytterligare loggning till skriptet att göra det enklare att hitta där det misslyckades.
-* Skriva skript som är idempotenta, så om de få kör igen mer än en gång av misstag kan den inte orsakar ändringarna.
+* Den högsta felfrekvensen för det här tillägget beror på syntaxfel i skriptet. Kontrollera att skriptet körs utan fel, och implementera ytterligare loggning i skriptet så att det blir enklare att identifiera var felet inträffade.
+* Skriv skript som är idempotenta, så att inga systemändringar görs om de oavsiktligt körs mer än en gång.
 * Se till att skript som inte kräver indata från användaren när de körs.
 * Det är 90 minuter som tillåts för skriptet att köra, något längre resulterar i en misslyckad tillhandahållande av tillägget.
 * Placera inte omstarter i skriptet och detta kan orsaka problem med andra tillägg installeras efter omstarten tillägget kommer inte att fortsätta efter omstarten. 
-* Om du har ett skript som gör att en omstart kan installera program och kör skript osv. Du bör schemalägga omstarten med ett Cron-jobb eller med verktyg som DSC eller Chef, Puppet-tillägg.
+* Om du har ett skript som utlöser en omstart installerar program, kör skript osv. Du bör schemalägga omstarten med ett Cron-jobb eller med verktyg som DSC eller Chef, Puppet-tillägg.
 * Tillägget körs bara ett skript en gång, om du vill köra ett skript på varje start kan du använda [cloud-init bild](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) och använda en [skript Per Start](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) modulen. Du kan också använda skriptet för att skapa en Systemd service-enhet.
 * Om du vill schemalägga när ett skript som körs ska du använda tillägget för att skapa ett Cron-jobb. 
-* När skriptet körs, visas bara statusen ”transitioning' tillägg från Azure-portalen eller CLI. Om du vill mer frekventa statusuppdateringar ett skript som körs, behöver du skapa en egen lösning.
+* När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du vill mer frekventa statusuppdateringar ett skript som körs, behöver du skapa en egen lösning.
 * Anpassat skripttillägg internt stöder inte proxy-servrar, men du kan använda ett filöverföringsverktyg som stöder proxyservrar i skriptet som *Curl*. 
 * Tänk på inte är standard directory-platser som dina skript eller kommandon kan förlita sig på, har logik för att hantera det.
 
@@ -109,17 +109,17 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 
 | Namn | Värdet / exempel | Datatyp | 
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
-| utgivare | Microsoft.Compute.Extensions | sträng |
-| typ | CustomScript | sträng |
+| apiVersion | 2015-06-15 | date |
+| utgivare | Microsoft.Compute.Extensions | string |
+| typ | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
-| commandToExecute (t.ex.) | python MyPythonScript.py <my-param1> | sträng |
-| skript | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | sträng |
+| commandToExecute (t.ex.) | python MyPythonScript.py <my-param1> | string |
+| skript | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (t.ex.) | false | boolesk |
 | tidsstämpel (t.ex.) | 123456789 | 32-bitars heltal |
-| storageAccountName (t.ex.) | examplestorageacct | sträng |
-| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
+| storageAccountName (t.ex.) | examplestorageacct | string |
+| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Information om egenskapen
 * `skipDos2Unix`: (valfritt, booleskt) hoppa över dos2unix konvertering av skriptbaserade fil-URL: er eller skript.

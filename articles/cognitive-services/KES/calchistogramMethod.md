@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860464"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814167"
 ---
 # <a name="calchistogram-method"></a>calchistogram metod
 Den *calchistogram* metoden beräknar de objekt som matchar ett strukturerade frågeuttryck och beräknar fördelningen av deras attributvärden.

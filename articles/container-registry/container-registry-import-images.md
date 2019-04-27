@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/06/2019
 ms.author: danlep
 ms.openlocfilehash: b8a2280fe82e0f4be8e2812f5494150927642692
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827297"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importera behållaravbildningar till ett behållarregister
 
@@ -38,7 +38,7 @@ Om du vill importera behållaravbildningar i den här artikeln kräver att du k�
 > Om du vill distribuera identiska behållaravbildningar över flera Azure-regioner stöder Azure Container Registry också [geo-replikering](container-registry-geo-replication.md). Genom geo-replikering ett register (Premium-SKU krävs), kan du hantera flera regioner med identiska namn från ett enda register som bild och tagg.
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte redan har ett Azure container registry kan du skapa ett register. Anvisningar finns i [snabbstarten: Skapa ett privat behållarregister med Azure CLI](container-registry-get-started-azure-cli.md).
 

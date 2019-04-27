@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776515"
 ---
 # <a name="pool-create-event"></a>Händelse för skapande av pool
 
@@ -47,7 +47,7 @@ ms.locfileid: "55470610"
 }
 ```
 
-|Element|Type|Anteckningar|
+|Element|Typ|Anteckningar|
 |-------------|----------|-----------|
 |id|String|Id för poolen.|
 |displayName|String|Visningsnamnet för poolen.|
@@ -57,22 +57,22 @@ ms.locfileid: "55470610"
 |[networkConfiguration](#bk_netconf)|Komplex typ|Nätverkskonfiguration för poolen.|
 |resizeTimeout|Tid|Tidsgränsen för allokering av beräkningsnoder i poolen som angetts för den senaste storleksändringen på poolen.  (Den initiala storlek när poolen skapas om du vill räknas som en storleksändring.)|
 |targetDedicated|Int32|Antalet beräkningsnoder som har begärts för poolen.|
-|enableAutoScale|Bool|Anger om poolstorleken automatiskt justerar över tid.|
-|enableInterNodeCommunication|Bool|Anger om poolen har ställts in för direktkommunikation mellan noder.|
-|isAutoPool|Bool|Anger om poolen har skapats via ett jobb AutoPool mekanism.|
+|enableAutoScale|Booleskt|Anger om poolstorleken automatiskt justerar över tid.|
+|enableInterNodeCommunication|Booleskt|Anger om poolen har ställts in för direktkommunikation mellan noder.|
+|isAutoPool|Booleskt|Anger om poolen har skapats via ett jobb AutoPool mekanism.|
 |maxTasksPerNode|Int32|Högsta antal aktiviteter som kan köras samtidigt på en enda beräkningsnod i poolen.|
 |vmFillType|String|Definierar hur Batch-tjänsten distribuerar uppgifter mellan beräkningsnoder i poolen. Giltiga värden är fördelade eller Pack.|
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |osFamily|String|Azures gäst-OS-familj som ska installeras på de virtuella datorerna i poolen.<br /><br /> Möjliga värden:<br /><br /> **2** – OS-familjen 2, som motsvarar Windows Server 2008 R2 SP1.<br /><br /> **3** – OS-familjen 3, motsvarande till Windows Server 2012.<br /><br /> **4** – OS-familjen 4, motsvarande till Windows Server 2012 R2.<br /><br /> Mer information finns i [Azure Gästoperativsystemversioner](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |targetOSVersion|String|Azures gäst-OS-version som ska installeras på de virtuella datorerna i poolen.<br /><br /> Standardvärdet är **\*** som anger den senaste Operativsystemversionen för den angivna familjen.<br /><br /> Andra tillåtna värden finns i [Azure Gästoperativsystemversioner](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Komplex typ|Anger information om plattform eller Marketplace-avbildningen som ska användas.|
 |nodeAgentSKUId|String|SKU: N för Batch-nodagenten som etablerats på Beräkningsnoden.|
@@ -80,7 +80,7 @@ ms.locfileid: "55470610"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |utgivare|String|Utgivaren av avbildningen.|
 |erbjudande|String|Erbjudande för avbildningen.|
@@ -89,12 +89,12 @@ ms.locfileid: "55470610"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|Boolesk|Anger om den virtuella datorn har aktiverats för automatiska uppdateringar. Om den här egenskapen inte anges är standardvärdet är sant.|
+|enableAutomaticUpdates|Boolean|Anger om den virtuella datorn har aktiverats för automatiska uppdateringar. Om den här egenskapen inte anges är standardvärdet är sant.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Elementnamn|Type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|--------------|----------|
 |subnetId|String|Anger resursidentifieraren för undernätet där poolens beräkningsnoder skapas.|

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
 ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765954"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Ansluta Qlik Sense till Azure Cosmos DB och visualisera dina data
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver vad för att ansluta till Cosmos DB SQL API med hjä
 
 Den här artikeln beskriver vad för att ansluta till Cosmos DB SQL API med hjälp av ODBC-anslutningsprogram.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera att du har följande resurser som är redo innan du följer anvisningarna i den här artikeln:
 

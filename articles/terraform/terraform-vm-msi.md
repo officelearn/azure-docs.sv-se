@@ -10,11 +10,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
 ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884499"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med hanterade identiteter för Azure-resurser
 
@@ -24,7 +24,7 @@ Terraform Marketplace-avbildningen gör det enkelt att komma igång med Terrafor
 
 Det tillkommer inga programvaruavgifter för den Terraform VM-avbildningen. Du betalar bara för användningen av Azure-maskinvara som utvärderas utifrån storleken på den virtuella dator som etableras. Mer information om beräkningsavgifter finns på [sidan med priser för virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du kan skapa en virtuell Linux Terraform-dator måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free/) om du inte redan har ett konto.  
 
 ## <a name="create-your-terraform-virtual-machine"></a>Skapa den virtuella Terraform-datorn 

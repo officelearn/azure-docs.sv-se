@@ -2,19 +2,19 @@
 title: Introduktion till Azure Stream Analytics-fönsterfunktioner
 description: Den här artikeln beskriver fyra fönsterfunktioner (rullande, hoppar, glidande, session) som används i Azure Stream Analytics-jobb.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
+author: lingliw
+ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 01/21/19
 ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844766"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduktion till Stream Analytics-fönsterfunktioner
 Tid för direktuppspelning scenarier är utföra åtgärder på data i den temporala windows ett vanligt mönster. Stream Analytics har inbyggt stöd för fönsterfunktioner, så att utvecklare kan skapa komplexa strömbearbetning jobb med minimal ansträngning.
@@ -51,7 +51,6 @@ Om händelser hålla inträffar inom den angivna tidsgränsen kan förlängts se
 
 När en partitionsnyckel anges händelserna grupperas tillsammans med nyckeln och sessionsfönstret tillämpas på varje grupp oberoende av varandra. Den här partitionering är användbart för fall där du behöver annan session windows för olika användare eller enheter.
 
-
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
@@ -59,3 +58,4 @@ När en partitionsnyckel anges händelserna grupperas tillsammans med nyckeln oc
 * [Referens för Azure Stream Analytics-frågespråket](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+<!--Update_Description: update meta properties -->

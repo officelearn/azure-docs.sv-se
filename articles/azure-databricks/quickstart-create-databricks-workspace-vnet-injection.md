@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770730"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Snabbstart: Skapa en Azure Databricks-arbetsyta i ett virtuellt nätverk
 
@@ -37,7 +37,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
     |Adressutrymme|10.1.0.0/16|Det virtuella nätverkets adressintervall i CIDR-format.|
     |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
     |Resursgrupp|databricks-quickstart|Välj **Skapa ny** och ange ett nytt Resursgruppsnamn för ditt konto.|
-    |Plats|\<Välj den region som är närmast dina användare\>|Välj en geografisk plats där du kan ha ditt virtuella nätverk. Använd den plats som är närmast dina användare.|
+    |Location|\<Välj den region som är närmast dina användare\>|Välj en geografisk plats där du kan ha ditt virtuella nätverk. Använd den plats som är närmast dina användare.|
     |Namn på undernät|standard|Välj ett namn för standard-undernätet i det virtuella nätverket.|
     |Undernätsadressintervall|10.1.0.0/24|Undernätets adressintervall i CIDR-notation. Det måste finnas adressutrymmet för det virtuella nätverket. Adressintervallet för ett undernät som används kan inte redigeras.|
 
@@ -58,7 +58,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
     |Namn på arbetsyta|databricks-quickstart|Välj ett namn för Azure Databricks-arbetsytan.|
     |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
     |Resursgrupp|databricks-quickstart|Välj samma resursgrupp som du använde för det virtuella nätverket.|
-    |Plats|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
+    |Location|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
     |Prisnivå|Välj mellan Standard eller Premium.|Mer information om prisnivåer finns i den [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
     |Distribuera Azure Databricks-arbetsytan i ditt virtuella nätverk|Ja|Den här inställningen kan du distribuera en Azure Databricks-arbetsyta i det virtuella nätverket.|
     |Virtual Network|databricks-quickstart|Välj det virtuella nätverket som du skapade i föregående avsnitt.|

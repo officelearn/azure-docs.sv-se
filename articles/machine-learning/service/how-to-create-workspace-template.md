@@ -11,11 +11,11 @@ author: Blackmist
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819558"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Du skapar en arbetsyta för Azure Machine Learning-tjänsten med en Azure Resource Manager-mall
 
@@ -186,7 +186,7 @@ Mer information om mallar finns i följande artiklar:
 * [Distribuera ett program med Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.MachineLearningServices resurstyper](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-## <a name="use-the-azure-portal"></a>Använd Azure Portal
+## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
 1. Följ stegen i [distribuera resurser från anpassad mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). När du når den __redigera mallen__ skärmen, klistra in mall från det här dokumentet.
 1. Välj __spara__ att använda mallen. Ange följande information och samtycker till att de angivna allmänna villkoren:
@@ -200,7 +200,7 @@ Mer information om mallar finns i följande artiklar:
 
 Mer information finns i [distribuera resurser från anpassad mall](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="use-azure-powershell"></a>Använd Azure PowerShell
+## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
 Det här exemplet förutsätts att du har sparat mallen till en fil med namnet `azuredeploy.json` i den aktuella katalogen:
 

@@ -3,21 +3,22 @@ title: Kopiera data från Google BigQuery med hjälp av Azure Data Factory | Mic
 description: Lär dig hur du kopierar data från Google BigQuery till mottagarens datalager genom att använda en Kopieringsaktivitet i en data factory-pipeline.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: c9320c8d0cf512bc9145accc07ab4c79630a7c84
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808884"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopiera data från Google BigQuery med hjälp av Azure Data Factory
 
@@ -127,7 +128,7 @@ Om du vill kopiera data från Google BigQuery, ange typegenskapen på datauppsä
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **GoogleBigQueryObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **GoogleBigQueryObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726578"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostik- och prestandaövervakning för Reliable Actors
 Reliable Actors-runtime genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) händelser och [prestandaräknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Det här ger insikt i hur körningen fungerar och hjälpa till med felsökning och övervakning av programprestanda.
@@ -42,7 +42,7 @@ Alla händelser som hör till tillförlitliga aktörer EventSource är associera
 ## <a name="performance-counters"></a>Prestandaräknare
 Reliable Actors-runtime definierar följande prestandaräknarkategorier.
 
-| Kategori | Beskrivning |
+| Category | Beskrivning |
 | --- | --- |
 | Service Fabric-aktör |Räknare som är specifika för Azure Service Fabric actors, t.ex. tid tar att spara aktörstillstånd |
 | Service Fabric-aktörsmetod |Räknare specifika för metoder som införts av Service Fabric actors, t.ex. hur ofta en aktör-metoden har anropats |

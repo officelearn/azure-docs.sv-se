@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 7832691812d8f10342dc7df20a7cfab7265f2d9d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775720"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Styrning i Azure DevTest Labs infrastruktur – hantera kostnader och ägarskap
 Kostnad och ägarskap är primär frågor när du överväga att skapa din utveckling och testmiljöer. I det här avsnittet finns information som hjälper dig att optimera kostnad och justera ägarskap över din miljö.

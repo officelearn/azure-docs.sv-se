@@ -1,18 +1,19 @@
 ---
 title: Skapa Azure Data Factory mappning av dataflöde
 description: Skapa Azure Data Factory mappning av dataflöde
-author: kromerm
-ms.author: makromer
+author: WenJason
+ms.author: v-jay
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/12/2019
+origin.date: 02/12/2019
+ms.date: 04/22/2019
 ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883762"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Skapa Azure Data Factory-dataflöde
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 101719668fee155e84b7a767647a662ca845f0f2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60804643"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Samla in anpassade JSON-datakällor med Log Analytics-agenten för Linux i Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -86,7 +86,7 @@ Starta om Log Analytics-agenten för Linux-tjänsten med följande kommando.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 Data kommer att samlas in i Azure Monitor med en typ av post för `<FLUENTD_TAG>_CL`.
 
 Till exempel anpassade taggar `tag oms.api.tomcat` i Azure Monitor med en typ av post för `tomcat_CL`.  Du kan hämta alla poster i den här typen med följande loggfråga.

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773272"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Hämta användningsstatistik för virtuell dator med hjälp av REST-API
 
@@ -49,7 +49,7 @@ Följande huvuden krävs:
 | vmname | Namnet på den Azure-datorn. |
 | metricnames | Kommaavgränsad lista över giltiga [belastningsutjämnaren mått](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | API-versionen | API-version för begäran.<br /><br /> Det här dokumentet beskriver api-versionen `2018-01-01`och ingår i URL: en ovan.  |
-| Tidsintervall | Sträng med formatet `startDateTime_ISO/endDateTime_ISO` som definierar tidsintervallet för den returnerade måtten. Valfria parametern är inställd att returnera en dags data i det här exemplet. |
+| TimeSpan | Sträng med formatet `startDateTime_ISO/endDateTime_ISO` som definierar tidsintervallet för den returnerade måtten. Valfria parametern är inställd att returnera en dags data i det här exemplet. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Begärandetext

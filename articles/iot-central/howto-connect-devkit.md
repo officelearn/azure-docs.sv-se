@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60887342"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -208,12 +208,12 @@ Ett program som skapats med mallen för exemplet Devkits program innehåller en 
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Tillstånd 
-| Name          | Visningsnamn   | NORMAL | VARNING | RISK | 
+| Namn          | Visningsnamn   | NORMAL | VARNING | RISK | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Enhetens tillstånd   | Grön  | Orange  | Röd    | 
 
 #### <a name="events"></a>Händelser 
-| Name             | Visningsnamn      | 
+| Namn             | Visningsnamn      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Knappen B är nedtryckt  | 
 
@@ -235,7 +235,7 @@ Visa/Dölj inställningar
 
 ### <a name="properties"></a>Egenskaper
 
-| Type            | Visningsnamn | Fältnamn | Datatyp |
+| Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Enhetsegenskap | Enhetsplats   | location  | location    |
@@ -246,7 +246,7 @@ Visa/Dölj inställningar
 | Visningsnamn | Fältnamn | Returtyp | Inmatningsfält visningsnamn | Inkommande fältnamn | Inkommande fälttyp |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | echo         | eko       | text        | värde som ska visas         | displayedValue   | text             |
-| Nedräkning    | Nedräkning  | nummer      | Räkna från               | countFrom        | nummer           |
+| nedräkning    | Nedräkning  | nummer      | Räkna från               | countFrom        | nummer           |
 
 ## <a name="next-steps"></a>Nästa steg
 

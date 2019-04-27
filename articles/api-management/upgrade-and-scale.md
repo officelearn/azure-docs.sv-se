@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859548"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uppgradera och skala en Azure API Management-instans  
 
@@ -29,7 +29,7 @@ Priset för varje enhet och tillgängliga funktioner (till exempel distribution 
 >[!NOTE]
 >Den [prisinformation](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artikeln visar Ungefärligt antal enhet kapacitet i varje nivå. Om du vill ha mer exakta siffror som du behöver titta på en realistiskt scenario för dina API: er. Se den [kapacitet för en Azure API Management-instans](api-management-capacity.md) artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa stegen från den här artikeln, måste du:
 
@@ -69,5 +69,5 @@ Du kan uppgradera och nedgradera till och från valfri nivå. Observera att uppg
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hur du distribuerar en Azure API Management-tjänstinstans till flera Azure-regioner](api-management-howto-deploy-multi-region.md)
+- [Så distribuerar du en Azure API Management-tjänstinstans till flera Azure-regioner](api-management-howto-deploy-multi-region.md)
 - [Hur du automatiskt skalar en Azure API Management-tjänstinstans](api-management-howto-autoscale.md)

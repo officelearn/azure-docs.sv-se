@@ -11,11 +11,11 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821236"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -175,7 +175,7 @@ En aktivitet representerar en långvarig åtgärd. Följande åtgärder är exem
 
 Aktiviteter kan ge meddelanden via SDK eller webbläsaren så att du enkelt kan övervaka förloppet för dessa åtgärder.
 
-## <a name="image"></a>Bild
+## <a name="image"></a>Image
 
 Bilder är ett sätt att distribuera en modell, tillsammans med alla komponenter måste du använda modellen på ett tillförlitligt sätt. En avbildning innehåller följande objekt:
 
@@ -236,5 +236,5 @@ Kom igång med Azure Machine Learning-tjänsten, se:
 
 * [Vad är Azure Machine Learning Service?](overview-what-is-azure-ml.md)
 * [Skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md)
-* [Självstudier: Träna en modell](tutorial-train-models-with-aml.md)
+* [Självstudie: Träna en modell](tutorial-train-models-with-aml.md)
 * [Skapa en arbetsyta med en Resource Manager-mall](how-to-create-workspace-template.md)

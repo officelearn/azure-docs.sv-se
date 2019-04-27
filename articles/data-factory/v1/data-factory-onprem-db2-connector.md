@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824022"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med hjälp av Azure Data Factory Kopieringsaktivitet
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Den här artikeln beskrivs hur du kan använda Kopieringsaktivitet i Azure Data 
 
 Data Factory stöder för närvarande endast flyttar data från en DB2-databas till en [mottagarens datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Flytta data från andra data lagrar till en DB2 databasen inte stöds.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Data Factory stöder anslutning till en lokal DB2-databas med hjälp av den [datahanteringsgateway](data-factory-data-management-gateway.md). Stegvisa anvisningar om hur du ställer in datapipeline gateway att flytta dina data finns i den [flytta data från lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln.
 
 En gateway krävs även om DB2 finns på virtuella Azure IaaS-datorer. Du kan installera gatewayen på samma IaaS-VM som dataarkiv. Om gatewayen kan ansluta till databasen, kan du installera gatewayen på en annan virtuell dator.
@@ -79,7 +79,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="db2-linked-service-properties"></a>DB2 länkade tjänstegenskaper
 I följande tabell visas de JSON-egenskaper som är specifika för en DB2-länkad tjänst.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
 | **server** |Namnet på DB2-servern. |Ja |
@@ -95,7 +95,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera d
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. Den **typeProperties** avsnittet för en datauppsättning av typen **RelationalTable**, vilket inkluderar DB2-datauppsättningen har följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i DB2-databasinstansen som den länkade tjänsten refererar till. Den här egenskapen är skiftlägeskänsligt. |Nej (om den **fråga** egenskapen för en Kopieringsaktivitet av typen **RelationalSource** har angetts) |
 
@@ -104,7 +104,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera k
 
 För Kopieringsaktiviteten, när källan är av typen **RelationalSource** (som innehåller DB2), följande egenskaper är tillgängliga i den **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | **Fråga** |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om den **tableName** egenskapen för en datauppsättning som har angetts) |
 
@@ -313,15 +313,15 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
-| Flyttal |Double |
+| Float |Double |
 | decimaltal |Decimal |
 | DecimalFloat |Decimal |
-| Numerisk |Decimal |
-| Date |DateTime |
+| Numeric |Decimal |
+| Date |Datetime |
 | Tid |TimeSpan |
-| Tidsstämpel |DateTime |
+| Tidsstämpel |Datetime |
 | Xml |Byte[] |
-| Char |String |
+| char |String |
 | VarChar |String |
 | LongVarChar |String |
 | DB2DynArray |String |
@@ -339,15 +339,15 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
-| Flyttal |Double |
+| Float |Double |
 | decimaltal |Decimal |
 | DecimalFloat |Decimal |
-| Numerisk |Decimal |
-| Date |DateTime |
+| Numeric |Decimal |
+| Date |Datetime |
 | Tid |TimeSpan |
-| Tidsstämpel |DateTime |
+| Tidsstämpel |Datetime |
 | Xml |Byte[] |
-| Char |String |
+| char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
 Om du vill lära dig mer om att mappa kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).

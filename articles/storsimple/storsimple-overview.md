@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630211"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serien: en hybridlösning för molnlagring
 ## <a name="overview"></a>Översikt
@@ -96,7 +96,7 @@ StorSimple-Molninstallationen finns i två modeller: enheten 8010 (kallades tidi
 
 Mer information om StorSimple-Molninstallationen går du till [distribuera och hantera en StorSimple-Molninstallation i Azure](storsimple-8000-cloud-appliance-u2.md).
 
-## <a name="storsimple-device-manager-service"></a>StorSimple Device Manager-tjänst
+## <a name="storsimple-device-manager-service"></a>StorSimple Device Manager-tjänsten
 Microsoft Azure StorSimple ger ett webbaserat användargränssnitt (StorSimple Device Manager-tjänsten) som låter dig centralt hantera datacenter och molnlagring. Du kan använda StorSimple Device Manager-tjänsten för att utföra följande uppgifter:
 
 * Konfigurera systeminställningar för StorSimple-enheter.
@@ -244,7 +244,7 @@ Följande är en lista över infrastrukturkomponenter StorSimple som stöds.
 
 Följande är en lista med annan programvara som används med StorSimple för att bygga lösningar.
 
-| Typer av arbetsbelastningar | Programvara som används med StorSimple | Versioner som stöds|Länka till lösningsguide| 
+| Typ av arbetsbelastning | Programvara som används med StorSimple | Versioner som stöds|Länka till lösningsguide| 
 | --- | --- | --- | --- |
 | Mål för säkerhetskopia |Veeam |Veeam v 9 och senare |[StorSimple som ett säkerhetskopieringsmål med Veaam](storsimple-configure-backup-target-veeam.md)|
 | Mål för säkerhetskopia |Veritas Backup Exec |Backup Exec 16 och senare |[StorSimple som ett säkerhetskopieringsmål med Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
@@ -299,7 +299,7 @@ Innan du distribuerar din Microsoft Azure StorSimple-lösning, rekommenderar vi 
 | solid state-hårddisk (SSD) |En disk som innehåller inga rörliga delar. till exempel en flash-enhet. |
 | storage account |En uppsättning autentiseringsuppgifter som är länkat till ditt storage-konto för en viss molntjänstleverantör. |
 | StorSimple-adapter för SharePoint |En Microsoft Azure StorSimple-komponent som transparent utökar StorSimple-lagring och dataskydd till SharePoint-servergrupper. |
-| StorSimple Device Manager-tjänst |En utökning av Azure-portalen där du kan hantera din Azure StorSimple för lokala och virtuella enheter. |
+| StorSimple Device Manager-tjänsten |En utökning av Azure-portalen där du kan hantera din Azure StorSimple för lokala och virtuella enheter. |
 | StorSimple Snapshot Manager |Microsoft Management Console (MMC) snapin-modulen för hantering av säkerhetskopiering och återställning i Microsoft Azure StorSimple. |
 | Säkerhetskopiera |En funktion som gör att användaren kan göra en interaktiv säkerhetskopia av en volym. Det är ett alternativt sätt att gör en manuell säkerhetskopia av en volym i stället för att utföra en automatisk säkerhetskopiering via en definierad princip. |
 | Tunn allokering |En metod för att optimera effektivitet som används i tillgängligt lagringsutrymme i lagringssystem. I tunn allokering allokeras lagringen mellan flera användare baserat på det minsta utrymmet som krävs för varje användare vid en given tidpunkt. Se även *fat etablering*. |

@@ -13,13 +13,13 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771251"
 ---
-# <a name="prepay-for-azure-software-plans"></a>Betala i förskott för Azure-programvaruplaner
+# <a name="prepay-for-azure-software-plans"></a>Förskottsbetala för programvaruplaner för Azure
 
 När du betalar i förskott för din användning av SUSE och RedHat programvara i Azure, kan du spara pengar jämfört din betala per användning. Rabatter gäller endast för SUSE och RedHat mätare och inte på VM-användning. Du kan köpa reservationer för virtuella datorer separat för ytterligare besparingar.
 
@@ -35,7 +35,7 @@ Du kan köpa SUSE och RedHat programvaruplaner i Azure-portalen. Att köpa en pl
 2. Klicka på **Lägg till** och välj sedan den plan för programvara som du vill köpa.
 Fyll i fälten som krävs. Alla SUSE Linux VM eller RedHat VM som matchar attribut för vad du köper hämtar rabatten. Det faktiska antalet distributioner som får rabatten är beroende av omfång och kvantitet som väljs.
 3. Välj en prenumeration. Används för att betala för abonnemanget.
-Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett Enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller betala per användning (erbjuder siffror: MS-AZR-0003P eller MS-AZR - 0023 P).
+Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett Enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P) eller betala per användning (erbjuder siffror: MS-AZR-0003P eller MS-AZR-0023P).
     - För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning.
     - För användningsbaserad betalning debiteras avgifterna till prenumerationens kreditkort eller faktura betalningsmetod.
 4. Välj ett omfång. Omfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning).

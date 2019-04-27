@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: c201945e94474d54b8a19918f3b55a0b40995a97
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743521"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Klustret resource manager-integrering med hantering av Service Fabric
 Service Fabric Cluster Resource Manager enhet inte uppgraderingar i Service Fabric, men den ingår. Det första sättet som Cluster Resource Manager hjälper med management är genom att spåra önskat tillstånd för klustret och tjänster i den. Cluster Resource Manager skickar ut hälsorapporter när det inte placerar klustret i önskad konfiguration. Till exempel om det finns inte tillräckligt med kapacitet skickar Cluster Resource Manager ut hälsotillståndsvarningar och fel som tyder på problemet. En annan typ av integrering har att göra med så här fungerar uppgraderingar. Klusterresurshanteraren ändrar något sitt beteende under uppgraderingar.  

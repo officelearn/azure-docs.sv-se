@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735892"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Marknadsföra ditt företag med Microsoft  
 Microsoft har målet för partner (du) och för att förenkla den sälja din app eller erbjuda i butiker på marketplace. Genom att lista på marketplace, du har åtkomst till program och resurser på marketplace. 

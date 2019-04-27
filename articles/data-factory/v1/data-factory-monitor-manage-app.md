@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60826755"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory-pipelines med hjälp av övervakning och hantering av appen
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ Klicka på den **öppna pipeline** alternativet om du vill se alla aktiviteter i
 
 ![Menyn Öppna pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-I vyn öppna pipeline ser du alla aktiviteter i pipelinen. I det här exemplet finns bara en aktivitet: Kopiera aktivitet. 
+I vyn öppna pipeline ser du alla aktiviteter i pipelinen. I det här exemplet finns bara en aktivitet: kopieringsaktiviteten. 
 
 ![Öppnad pipeline](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
@@ -194,7 +194,7 @@ Aktivitetsfönster kan vara i något av följande statusar:
 <td>Aktivitetsfönstret bearbetas.</td>
 </tr>
 <tr>
-<td rowspan="4">Misslyckad</td><td>Nådde sin tidsgräns</td><td>Körningsmiljön för aktiviteten tog längre tid än vad som är tillåtet av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>TimedOut</td><td>Körningsmiljön för aktiviteten tog längre tid än vad som är tillåtet av aktiviteten.</td>
 </tr>
 <tr>
 <td>Avbrutna</td><td>Aktivitetsfönstret avbröts av användaren.</td>
@@ -205,7 +205,7 @@ Aktivitetsfönster kan vara i något av följande statusar:
 <tr>
 <td>-</td><td>Det gick inte att genereras eller Validera Aktivitetsfönstret.</td>
 </tr>
-<td>Klar</td><td>-</td><td>Aktivitetsfönstret är redo för användning.</td>
+<td>Redo</td><td>-</td><td>Aktivitetsfönstret är redo för användning.</td>
 </tr>
 <tr>
 <td>Hoppades över</td><td>-</td><td>Aktivitetsfönstret bearbetas inte.</td>

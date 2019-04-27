@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007285"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844207"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Använda enheten D: som en dataenhet på en virtuell Windows-dator
 Om programmet behöver för att använda D-hårddisken för att lagra data, följer du dessa instruktioner för att använda en annan enhetsbeteckning för den temporära disken. Använd aldrig den temporära disken för att lagra data som du behöver.

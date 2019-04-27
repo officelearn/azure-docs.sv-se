@@ -9,11 +9,11 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813549"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Kör och testa U-SQL med Azure Data Lake U-SQL SDK
 
@@ -332,7 +332,7 @@ LocalRunHelper.exe innehåller programmeringsgränssnitt för U-SQL lokalt kompi
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parameter|Type|Beskrivning|
+|Parameter|Typ|Beskrivning|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|Ange null för att använda konsolen för utgående meddelanden|
 
@@ -340,26 +340,26 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 |Egenskap |Typ|Beskrivning|
 |--------|----|-----------|
-|AlgebraPath|sträng|Sökvägen till filen algebra (algebra filen är ett av kompileringsresultaten)|
-|CodeBehindReferences|sträng|Om skriptet innehåller ytterligare koden bakom referenser, anger sökvägar avgränsade med ””;|
-|CppSdkDir|sträng|CppSDK directory|
-|CurrentDir|sträng|Aktuell katalog|
-|DataRoot|sträng|Rotsökvägen för data|
-|DebuggerMailPath|sträng|Sökvägen till felsökare brevlåda|
+|AlgebraPath|string|Sökvägen till filen algebra (algebra filen är ett av kompileringsresultaten)|
+|CodeBehindReferences|string|Om skriptet innehåller ytterligare koden bakom referenser, anger sökvägar avgränsade med ””;|
+|CppSdkDir|string|CppSDK directory|
+|CurrentDir|string|Aktuell katalog|
+|DataRoot|string|Rotsökvägen för data|
+|DebuggerMailPath|string|Sökvägen till felsökare brevlåda|
 |GenerateUdoRedirect|bool|Om vi vill generera sammansättningen som läser in omdirigering åsidosätta config|
 |HasCodeBehind|bool|Om skriptet har koden bakom|
-|InputDir|sträng|Katalogen för indata|
-|MessagePath|sträng|Meddelandet dump-filsökväg|
-|OutputDir|sträng|Katalogen för utdata|
+|InputDir|string|Katalogen för indata|
+|MessagePath|string|Meddelandet dump-filsökväg|
+|OutputDir|string|Katalogen för utdata|
 |Parallellitet|int|Parallellitet för att köra algebra|
 |ParentPid|int|Process-ID för den överordnade där tjänsten övervakar om du vill avsluta, har angetts till 0 eller ett negativt för att ignorera|
-|ResultPath|sträng|Resultatet dump-filsökväg|
-|RuntimeDir|sträng|Runtime-katalog|
-|scriptPath|sträng|Var du hittar skriptet|
+|ResultPath|string|Resultatet dump-filsökväg|
+|RuntimeDir|string|Runtime-katalog|
+|scriptPath|string|Var du hittar skriptet|
 |Ytlig|bool|Ytlig kompilera eller inte|
-|TempDir|sträng|Temp-katalogen|
-|UseDataBase|sträng|Ange databasen som ska användas för koden bakom tillfälliga för registrering, master som standard|
-|WorkDir|sträng|Prioriterade arbetskatalog|
+|TempDir|string|Temp-katalogen|
+|UseDataBase|string|Ange databasen som ska användas för koden bakom tillfälliga för registrering, master som standard|
+|WorkDir|string|Prioriterade arbetskatalog|
 
 
 **Metod**

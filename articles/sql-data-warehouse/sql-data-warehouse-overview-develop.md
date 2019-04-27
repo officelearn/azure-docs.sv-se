@@ -2,20 +2,21 @@
 title: Resurser för utveckling av ett informationslager i Azure | Microsoft Docs
 description: Koncept för utveckling, designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 08/29/2018
-ms.author: kevinvngo
+ms.component: implement
+origin.date: 08/29/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 8c04e0409faa3b63a8a2957284ac7aa96740ae03
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747837"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Designbeslut och kodning tekniker för SQL Data Warehouse
 Ta en titt på dessa utvecklingsartiklarna att bättre förstå viktiga designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse.

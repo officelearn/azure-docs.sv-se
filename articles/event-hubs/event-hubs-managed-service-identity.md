@@ -12,11 +12,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746920"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Hanterade identiteter för Azure-resurser med Event Hubs
 
@@ -54,7 +54,7 @@ När du har aktiverat funktionen, en ny tjänstidentitet skapas i Azure Active D
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Skapa ett nytt namnområde för Event Hubs
 
-Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md) i någon av de Azure-regioner som har förhandsversionsstöd för hanterade identiteter för Azure-resurser: **östra USA**, **USA, Öst 2**, eller  **Västeuropa**. 
+Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md) i någon av de Azure-regioner som har förhandsversionsstöd för hanterade identiteter för Azure-resurser: **USA, Öst**, **USA, Öst 2**, eller **Västeuropa**. 
 
 Gå till namnområdet **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till rolltilldelning** att lägga till den hantera identitet som den **ägare** roll. Du gör detta genom att söka efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**. Den hanterade identitet för webbprogrammet nu har åtkomst till Event Hubs-namnområdet och till händelsehubben du skapade tidigare. 
 

@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2019
 ms.author: gwallace
 ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007091"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869868"
 ---
 # <a name="custom-script-extension-for-windows"></a>Tillägget för anpassat skript för Windows
 
@@ -46,15 +46,15 @@ Om skriptet finns på en lokal server, måste du kanske fortfarande ytterligare 
 
 * Högsta Felfrekvensen för det här tillägget är på grund av ett syntaxfel i skriptet test som skriptet körs utan fel, och även placera i ytterligare loggning till skriptet att göra det enklare att hitta där det misslyckades.
 * Skriva skript som är idempotenta. Detta säkerställer att om de kör igen av misstag kan den inte orsakar ändringarna.
-* Se till att skript som inte kräver indata från användaren när de körs.
-* Det är 90 minuter som tillåts för skriptet att köra, något längre resulterar i en misslyckad tillhandahållande av tillägget.
-* Placera inte omstarter i skriptet, den här åtgärden kan orsaka problem med andra tillägg installeras. Efter omstart tillägget inte fortsätta efter omstarten.
+* Se till att skripten inte kräver indata från användaren när de körs.
+* Skripten kan köra i 90 minuter. Längre körningar gör att etableringen av tillägget misslyckas.
+* Lägg inte in omstarter i skriptet eftersom det leder till problem med andra tillägg som installeras. Tillägget fortsätter inte efter omstarten.
 * Om du har ett skript som orsakar en omstart, sedan installera program och köra skript kan du schemalägga omstart med hjälp av en schemalagd uppgift i Windows eller Använd verktyg som DSC, Chef eller Puppet-tillägg.
-* Tillägget körs bara ett skript en gång, om du vill köra ett skript på varje start måste du använda tillägget för att skapa en schemalagd uppgift i Windows.
-* Om du vill schemalägga när ett skript som körs ska du använda tillägget för att skapa en schemalagd uppgift i Windows.
-* När skriptet körs, visas bara statusen ”transitioning' tillägg från Azure-portalen eller CLI. Om du vill mer frekventa statusuppdateringar ett skript som körs, behöver du skapa en egen lösning.
+* Tillägget kör bara ett skript en gång. Om du vill köra ett skript vid varje start måste du använda tillägget för att skapa en schemalagd uppgift i Windows.
+* Om du vill schemalägga när ett skript ska köras använder du tillägget för att skapa en schemalagd uppgift i Windows.
+* När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du behöver mer frekventa statusuppdateringar för ett skript som körs måste du skapa en egen lösning.
 * Anpassat skripttillägg internt stöder inte proxy-servrar, men du kan använda ett filöverföringsverktyg som stöder proxyservrar i skriptet som *Curl*
-* Tänk på icke-standard directory-platser som dina skript eller kommandon kan förlita sig på, har logik för att hantera den här situationen.
+* Om dina skript eller kommandon använder andra katalogplatser än standardplatserna krävs logik som kan hantera den situationen.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -137,7 +137,7 @@ Inställningar för offentliga skickas i klartext till den virtuella datorn där
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schema, som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget för anpassat skript under distributionen. Följande exempel visar hur du använder tillägget för anpassat skript:
 
-* [Självstudier: Distribuera virtual machine-tillägg med Azure Resource Manager-mallar](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Självstudie: Distribuera virtual machine-tillägg med Azure Resource Manager-mallar](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Distribuera två Nivåprogram på Windows och Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution

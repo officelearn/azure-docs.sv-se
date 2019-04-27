@@ -15,11 +15,11 @@ ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764739"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurera App Service Environment med tvingande dirigering
 
@@ -82,7 +82,7 @@ Utför följande steg för att dirigera all utgående trafik från din ASE, för
 
 Om du vill skapa ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera all trafik lokalt måste du skapa ASE med en Resource Manager-mall.  Det går inte att skapa en ASE med portalen i ett befintligt undernät.  När du distribuerar ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera utgående trafik lokalt måste du skapa ASE med en Resource Manager-mall, vilket gör att du kan ange ett undernät som redan finns. Mer information om hur du distribuerar ASE med en mall finns i [Skapa en App Service-miljö med hjälp av en mall][template].
 
-Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstens slutpunkter i dokumentationen [Tjänstens slutpunkter för virtuella nätverk][serviceendpoints]. 
+Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstslutpunkter i dokumentationen [Tjänstslutpunkter för virtuellt nätverk][serviceendpoints]. 
 
 När du aktiverar tjänstens slutpunkter för en resurs, finns det vägar som skapats med högre prioritet än andra vägar. Om du använder tjänstens slutpunkter med tvingad tunneltrafik för ASE, kommer hanteringstrafiken för Azure SQL och Azure Storage inte omfattas av den tvingade tunneltrafiken. Annan ASE-beroende trafik blir tvingad tunneltrafik och kan antingen förloras, eller så fungerar inte ASE ordentligt.
 

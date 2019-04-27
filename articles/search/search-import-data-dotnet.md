@@ -10,11 +10,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.openlocfilehash: d2d54d1425bbb67a3f5ba1b6081a9f74ff87f4d6
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286915"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871054"
 ---
 # <a name="quickstart-2---load-data-to-an-azure-search-index-using-c"></a>Snabbstart: 2 – Läs in data till en Azure Search-index medC#
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du importerar data till [ett Azure Search-index](sea
 > * Skapa en [ `IndexBatch` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) objekt som innehåller dokumenten som ska läggas till, ändrats eller tagits bort.
 > * Anropa den `Documents.Index` metoden på `SearchIndexClient` ladda upp dokument till ett index.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [Skapa ett Azure Search-index](search-create-index-dotnet.md) och en `SearchServiceClient` objekt enligt [”skapa en klient”](search-create-index-dotnet.md#CreateSearchServiceClient).
 

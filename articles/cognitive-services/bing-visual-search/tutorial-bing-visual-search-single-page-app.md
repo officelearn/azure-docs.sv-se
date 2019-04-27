@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: aahi
 ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829607"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Skapa en enda sida i Visual Search webbapp
 
@@ -123,4 +123,4 @@ Med all ny JavaScript-kod och HTML-element på plats visas sökresultatet med en
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Beskär en bild med Bing Visual Search SDK förC#](tutorial-visual-search-crop-area-results.md)
+> [Självstudie: Beskär en bild med Bing Visual Search SDK förC#](tutorial-visual-search-crop-area-results.md)

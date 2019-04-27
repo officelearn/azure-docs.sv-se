@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
 ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812906"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
 Använd appredigeringsprocessen för att skapa LUIS-appen. 
@@ -62,7 +62,7 @@ Om ordförråd mellan två avsikter är samma, kombinera avsikten och Använd en
 Mer information:
 * Begrepp: [Begrepp om avsikter i LUIS-appen](luis-concept-intent.md)
 * Självstudier: [Skapa LUIS-app för att fastställa användarens avsikter](luis-quickstart-intents-only.md)
-* Så här: [Lägg till avsikter att fastställa användarens avsikt är att yttranden](luis-how-to-add-intents.md)
+* Anvisningar: [Lägg till avsikter att fastställa användarens avsikt är att yttranden](luis-how-to-add-intents.md)
 
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Hitta söta plats för avsikter
@@ -126,7 +126,7 @@ Använd [aktiv inlärning](luis-how-to-review-endpoint-utterances.md)'s **gransk
 
 Mer information:
 * Begrepp: [Begrepp för att aktivera aktiv inlärning genom att granska endpoint yttranden](luis-concept-review-endpoint-utterances.md)
-* Självstudier: [Självstudier: Åtgärda osäker förutsägelser genom att granska endpoint yttranden](luis-tutorial-review-endpoint-utterances.md)
+* Självstudier: [Självstudie: Åtgärda osäker förutsägelser genom att granska endpoint yttranden](luis-tutorial-review-endpoint-utterances.md)
 * Så här gör du: [Granska endpoint yttranden LUIS-portalen](luis-how-to-review-endpoint-utterances.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Att övervaka prestanda för din app

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
 ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681106"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: Utvärdera lokala arbetsbelastningar för migrering till Azure
 
@@ -113,7 +113,7 @@ I det här scenariot Contoso laddar ned och kör Data Migration Assistant för a
     - **OSTICKETWEB** kör Apache-2 och PHP 7.0.
     - **OSTICKETMYSQL** MySQL 5.7.22 körs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Contoso och andra användare måste uppfylla följande krav för utvärderingen:
 

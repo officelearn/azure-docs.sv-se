@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848273"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Så här distribuerar du en robot som Konversationsdeltagare
 
@@ -113,7 +113,7 @@ Nedan finns stegvisa instruktioner för att distribuera en konversation Learner 
    1. Rulla ned till avsnittet ”Appinställningar”
    2. Lägg till de här inställningarna:
 
-       Miljövariabel | värde
+       Miljövariabel | value
        --- | --- 
        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
        CONVERSATION_LEARNER_MODEL_ID      | Program-Id-GUID som hämtas från konversationen Learner Användargränssnittet under ”inställningar” för modellen >

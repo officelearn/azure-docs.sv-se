@@ -12,11 +12,11 @@ ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60820298"
 ---
 # <a name="access-data-from-your-datastores"></a>Komma åt data från ditt datalager
 
@@ -28,7 +28,7 @@ Den här anvisningen visar exempel på följande uppgifter:
 * [Ladda upp och ladda ned data till datalager](#up-and-down)
 * [Åtkomst till datalagret under utbildning](#train)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda datalager måste du först en [arbetsytan](concept-azure-machine-learning-architecture.md#workspace).
 

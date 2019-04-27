@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880299"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ I den här artikeln lär du dig hur du använder .NET SDK för att göra slutanv
 2. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på **Projekt**.
 3. Från **Nytt projekt** anger eller väljer du följande värden:
 
-   | Egenskap | Värde |
+   | Egenskap  | Värde |
    | --- | --- |
-   | Kategori |Mallar/Visual C#/Windows |
+   | Category |Mallar/Visual C#/Windows |
    | Mall |Konsolprogram |
    | Namn |CreateADLApplication |
 

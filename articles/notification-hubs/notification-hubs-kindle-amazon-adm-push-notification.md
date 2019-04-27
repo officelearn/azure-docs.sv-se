@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 7dc969fdcf8b819f5223bdbff3cc1b9d4439c370
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873622"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kom igång med Notification Hubs för Kindle-appar
 
@@ -40,7 +40,7 @@ I den här självstudiekursen får du skapa/uppdatera kod för att utföra följ
 > * Kör appen
 > * Skicka ett testmeddelande
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Hämta Android-SDK:n (vi antar att du använder Eclipse) från [Android-utvecklarportalen](https://go.microsoft.com/fwlink/?LinkId=389797).
 * Följ stegen i [Konfigurera din utvecklingsmiljö](https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html) för att ställa in din utvecklingsmiljö för Kindle.

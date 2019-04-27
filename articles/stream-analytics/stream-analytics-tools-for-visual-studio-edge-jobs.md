@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 684690baa63f5ccd65c69e3a1b7e310c2f809e59
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60762720"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Utveckla Stream Analytics Edge-jobb med hjälp av Visual Studio-verktyg
 
 I den här självstudien får du lära dig hur du använder Stream Analytics-verktyg för Visual Studio för att skapa, felsöka och skapa Stream Analytics Edge-jobb. När du skapar och testar jobbet går du till Azure portal för att distribuera den till dina enheter. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande förutsättningar för att kunna slutföra den här kursen behöver du:
 

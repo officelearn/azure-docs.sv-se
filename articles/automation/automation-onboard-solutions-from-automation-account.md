@@ -10,11 +10,11 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739257"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
@@ -32,7 +32,7 @@ Välj Log Analytics-arbetsytan och Automation-kontot och klicka på **aktivera**
 
 ![Publicera inventeringslösningen](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-När du aktiverar lösningar stöds endast i vissa regioner för att länka en Log Analytics-arbetsyta och ett Automation-konto.
+När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
 
 I följande tabell visas mappningarna som stöds:
 
@@ -82,7 +82,7 @@ När en dator läggs till i uppdateringshantering eller ändringsspårning och i
 
 Gå till ditt Automation-konto och välj **sparade sökningar** under **Allmänt**. Två sparade sökningar som används av dessa lösningar kan ses i följande tabell:
 
-|Namn     |Kategori  |Alias  |
+|Namn     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Uppdateringar        | Updates__MicrosoftDefaultComputerGroup         |

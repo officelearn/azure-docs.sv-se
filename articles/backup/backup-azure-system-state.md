@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
 ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782722"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Säkerhetskopiering av systemtillstånd för Windows i Resource Manager-distribution
 Den här artikeln förklarar hur du säkerhetskopierar dina Windows Server-systemtillstånd till Azure. I den här självstudiekursen går vi igenom grunderna.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 319f9cba23d088553f361b6a0d648bbde94e0743
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: be3c31951c4721a861f9239c5220419dec11b6bf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968569"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799145"
 ---
 # <a name="extending-geojson-geometries"></a>Utöka GeoJSON geometrier
 
@@ -30,7 +30,7 @@ Den [GeoJSON-specifikationen] [ 1] stöder endast följande geometrier:
 * Återställningspunkt
 * Polygon
 
-Vissa API: er för Azure Maps (till exempel: [sökning i geometri](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) accepterar geometrier som ”cirkel”, som inte är en del av den [GeoJSON-specifikationen][1].
+Vissa API: er för Azure Maps (till exempel: [Sök i geometri](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) accepterar geometrier som ”cirkel”, som inte är en del av den [GeoJSON-specifikationen][1].
 
 Den här artikeln innehåller en detaljerad förklaring på hur Azure Maps utökar den [GeoJSON-specifikationen] [ 1] som motsvarar vissa geometrier.
 

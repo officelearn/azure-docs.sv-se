@@ -3,21 +3,22 @@ title: Kopiera data från SAP Business Warehouse via Open-hubb med Azure Data Fa
 description: Lär dig hur du kopierar data från SAP Business Warehouse (BW) via öppna hubben till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/08/2019
-ms.author: jingwang
+origin.date: 03/08/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103918"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848902"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via Open-hubb med Azure Data Factory
 
@@ -65,7 +66,7 @@ Du kan vanligtvis lagra max kopierade begäran-ID i den senaste körningen av AD
 
 För rätt delta är hantera det. inte tillåtet att ha begäran-ID från olika DTPs i samma öppna Hub tabell. Du måste därför inte skapa fler än en DTP för varje öppen Hub mål (OHD). Om du behöver fullständig och Förändringsspecifik extrahering från samma InfoProvider, bör du skapa två OHDs för samma InfoProvider. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda denna anslutning för SAP Business Warehouse öppna Hub måste du:
 
@@ -98,12 +99,12 @@ Följande egenskaper har stöd för SAP Business Warehouse öppna hubben som är
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **SapOpenHub** | Ja |
+| type | Type-egenskapen måste anges till: **SapOpenHub** | Ja |
 | server | Namnet på den server som SAP BW-instansen finns. | Ja |
 | systemNumber | Systemnummer för SAP BW-system.<br/>Tillåtna värdet: tvåsiffrig decimaltal representeras som en sträng. | Ja |
 | ClientId | Klient-ID för klienten i SAP W systemet.<br/>Tillåtna värdet: tresiffrig decimaltal representeras som en sträng. | Ja |
 | language | Språk som använder SAP-system. | Nej (standardvärdet är **EN**)|
-| Användarnamn | Namnet på den användare som har åtkomst till SAP-server. | Ja |
+| userName | Namnet på den användare som har åtkomst till SAP-server. | Ja |
 | lösenord | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
 

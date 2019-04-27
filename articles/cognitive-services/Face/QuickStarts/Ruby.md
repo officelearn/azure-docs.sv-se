@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815308"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Ruby
 
@@ -62,9 +62,9 @@ end
 puts response.body
 ```
 
-Du måste uppdatera värdet `request['Ocp-Apim-Subscription-Key']` med din prenumerationsnyckel och du kan behöva ändra strängen `uri` så att den innehåller rätt regionsidentifierare (en lista över alla regionslutpunkter finns i [dokumentet om Ansikts-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). 
+Du måste uppdatera värdet `request['Ocp-Apim-Subscription-Key']` med din prenumerationsnyckel, och du kan behöva ändra strängen `uri` så att den innehåller rätt regionsidentifierare (en lista med alla regionslutpunkter finns i [dokumenten om Ansikts-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). 
 
-Du kanske också vill ändra fältet `imageUri` så att det pekar på din inmatade bild. Du kan dessutom ändra det `returnFaceAttributes`-fält som anger vilka ansiktsattribut som ska hämtas.
+Du kanske också vill ändra fältet `imageUri` så att det pekar på din egna inmatade bild. Du kan dessutom ändra det `returnFaceAttributes`-fält som anger vilka ansiktsattribut som ska hämtas.
 
 ## <a name="run-the-script"></a>Kör skriptet
 

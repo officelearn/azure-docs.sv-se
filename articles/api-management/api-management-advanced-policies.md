@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756627"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795874"
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 
@@ -127,7 +127,7 @@ Det här exemplet visar hur du utför innehållsfiltrering genom att ta bort dat
 
 ### <a name="elements"></a>Element
 
-| Element   | Beskrivning                                                                                                                                                                                                                                                               | Krävs |
+| Element   | Beskrivning                                                                                                                                                                                                                                                               | Obligatoriskt |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Välj    | Rotelement.                                                                                                                                                                                                                                                             | Ja      |
 | när      | De villkor du vill använda för den `if` eller `ifelse` delar av den `choose` principen. Om den `choose` princip har flera `when` avsnitt, utvärderas de sekventiellt. När den `condition` av ett när element utvärderas till `true`, ingen ytterligare `when` villkoren utvärderas. | Ja      |
@@ -135,7 +135,7 @@ Det här exemplet visar hur du utför innehållsfiltrering genom att ta bort dat
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut                                              | Beskrivning                                                                                               | Krävs |
+| Attribut                                              | Beskrivning                                                                                               | Obligatoriskt |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | villkor = ”booleskt uttryck &#124; booleskt konstant” | Booleska uttryck eller konstant som utvärderas när den som innehåller `when` Principframställning utvärderas. | Ja      |
 
@@ -245,13 +245,13 @@ Den här åtgärden säkerhetsnivå för vidarebefordrar inte begäranden till b
 
 ### <a name="elements"></a>Element
 
-| Element         | Beskrivning   | Krävs |
+| Element         | Beskrivning   | Obligatoriskt |
 | --------------- | ------------- | -------- |
 | forward-request | Rotelement. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut                               | Beskrivning                                                                                                      | Krävs | Standard     |
+| Attribut                               | Beskrivning                                                                                                      | Obligatoriskt | Standard     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
 | timeout="integer"                       | Hur lång tid i sekunder att vänta på HTTP-svarshuvuden som returneras av backend-tjänsten innan ett tidsgränsfel utlöses. Lägsta värdet är 0 sekunder. Värden som är större än 240 sekunder är inte kanske hanterades som underliggande nätverksinfrastruktur kan ta bort inaktiva anslutningar efter den tidpunkten. | Nej       | Ingen |
 | follow-redirects="true &#124; false"    | Anger om omdirigeringar från backend-tjänsten är följt av gatewayen eller returneras till anroparen.      | Nej       | false       |
@@ -296,13 +296,13 @@ I följande exempel visar hur du begränsar antalet begäranden som vidarebeford
 
 ### <a name="elements"></a>Element
 
-| Element           | Beskrivning   | Krävs |
+| Element           | Beskrivning   | Obligatoriskt |
 | ----------------- | ------------- | -------- |
 | gränsen för samtidighet | Rotelement. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut | Beskrivning                                                                                        | Krävs | Standard |
+| Attribut | Beskrivning                                                                                        | Obligatoriskt | Standard |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | key       | En sträng. Uttryck tillåts. Anger vilka samtidighet. Kan delas av flera principer. | Ja      | Gäller inte     |
 | Maximalt antal | Ett heltal. Anger ett maximalt antal begäranden som tillåts att ange principen.           | Ja      | Gäller inte     |
@@ -349,13 +349,13 @@ Valfri sträng kan användas som värde som ska loggas i Event Hubs. I det här 
 
 ### <a name="elements"></a>Element
 
-| Element         | Beskrivning                                                                     | Krävs |
+| Element         | Beskrivning                                                                     | Obligatoriskt |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
 | log-to-eventhub | Rotelement. Värdet för det här elementet är en sträng att logga in till din event hub. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut     | Beskrivning                                                               | Krävs                                                             |
+| Attribut     | Beskrivning                                                               | Obligatoriskt                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | Id för loggaren registrerad med API Management-tjänsten.         | Ja                                                                  |
 | partition-id  | Anger index för partitionen där meddelanden skickas.             | Valfri. Det här attributet kan inte användas om `partition-key` används. |
@@ -394,13 +394,13 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Element
 
-| Element       | Beskrivning   | Krävs |
+| Element       | Beskrivning   | Obligatoriskt |
 | ------------- | ------------- | -------- |
 | mock-response | Rotelement. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut    | Beskrivning                                                                                           | Krävs | Standard |
+| Attribut    | Beskrivning                                                                                           | Obligatoriskt | Standard |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | statuskod  | Anger svarsstatuskod och används för att välja motsvarande exempel eller schema.                 | Nej       | 200     |
 | innehållstyp | Anger `Content-Type` svar huvudets värde och används för att välja motsvarande exempel eller schema. | Nej       | Ingen    |
@@ -453,13 +453,13 @@ I följande exempel görs begäran vidarebefordran upp till tio gånger med en a
 
 ### <a name="elements"></a>Element
 
-| Element | Beskrivning                                                         | Krävs |
+| Element | Beskrivning                                                         | Obligatoriskt |
 | ------- | ------------------------------------------------------------------- | -------- |
 | retry   | Rotelement. Kan innehålla andra principer som dess underordnade element. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut        | Beskrivning                                                                                                                                           | Krävs | Standard |
+| Attribut        | Beskrivning                                                                                                                                           | Obligatoriskt | Standard |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | villkor        | En boolesk literal eller [uttryck](api-management-policy-expressions.md) att ange om återförsök ska stoppas (`false`) eller fortsatt (`true`).      | Ja      | Gäller inte     |
 | count            | Ett positivt tal som anger det maximala antalet nya försök att försöka.                                                                                | Ja      | Gäller inte     |
@@ -510,7 +510,7 @@ Den `return-response` principen avbryter pipeline-åtgärd och returnerar en sta
 
 ### <a name="elements"></a>Element
 
-| Element         | Beskrivning                                                                               | Krävs |
+| Element         | Beskrivning                                                                               | Obligatoriskt |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | returnera svar | Rotelement.                                                                             | Ja      |
 | set-header      | En [angivet sidhuvud](api-management-transformation-policies.md#SetHTTPheader) Principframställning. | Nej       |
@@ -519,7 +519,7 @@ Den `return-response` principen avbryter pipeline-åtgärd och returnerar en sta
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut              | Beskrivning                                                                                                                                                                          | Krävs  |
+| Attribut              | Beskrivning                                                                                                                                                                          | Obligatoriskt  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | response-variable-name | Namnet på sammanhangsvariabeln refereras från, till exempel en uppströms [-begäran om att skicka](api-management-advanced-policies.md#SendRequest) principen och som innehåller en `Response` objekt | Valfri. |
 
@@ -580,7 +580,7 @@ Princip för det här exemplet visar ett exempel på hur du använder den `send-
 
 ### <a name="elements"></a>Element
 
-| Element                    | Beskrivning                                                                                                 | Krävs                        |
+| Element                    | Beskrivning                                                                                                 | Obligatoriskt                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Rotelement.                                                                                               | Ja                             |
 | url                        | URL för begäran.                                                                                     | Inga om läge = kopia. Annars Ja. |
@@ -591,7 +591,7 @@ Princip för det här exemplet visar ett exempel på hur du använder den `send-
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut     | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard  |
+| Attribut     | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatoriskt | Standard  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string" | Anger om detta är en ny begäran eller en kopia av den aktuella begäran. I läget för utgående, läge = Kopiera inte initiera begärandetexten.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nej       | Ny      |
 | namn          | Anger namnet på rubriken anges.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte      |
@@ -664,7 +664,7 @@ Det här exemplet visar ett sätt att kontrollera en referens token med en aukto
 
 ### <a name="elements"></a>Element
 
-| Element                    | Beskrivning                                                                                                 | Krävs                        |
+| Element                    | Beskrivning                                                                                                 | Obligatoriskt                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | Rotelement.                                                                                               | Ja                             |
 | url                        | URL för begäran.                                                                                     | Inga om läge = kopia. Annars Ja. |
@@ -675,7 +675,7 @@ Det här exemplet visar ett sätt att kontrollera en referens token med en aukto
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut                       | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard  |
+| Attribut                       | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatoriskt | Standard  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string"                   | Anger om detta är en ny begäran eller en kopia av den aktuella begäran. I läget för utgående, läge = Kopiera inte initiera begärandetexten.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nej       | Ny      |
 | response-variable-name="string" | Namnet på sammanhangsvariabeln som tar emot ett svarsobjekt. Om variabeln inte finns det skapas efter en lyckad körning av principen och blir tillgängliga via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) samling.                                                                                                                                                                                                                                                                                                                          | Ja      | Gäller inte      |
@@ -714,13 +714,13 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 ### <a name="elements"></a>Element
 
-| Element | Beskrivning  | Krävs |
+| Element | Beskrivning  | Obligatoriskt |
 | ------- | ------------ | -------- |
 | Proxy   | Rotelement | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut         | Beskrivning                                            | Krävs | Standard |
+| Attribut         | Beskrivning                                            | Obligatoriskt | Standard |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="string"      | Proxy-URL i form av http://host:port.             | Ja      | Gäller inte     |
 | username="string" | Användarnamnet som ska användas för autentisering med proxyn. | Nej       | Gäller inte     |
@@ -777,7 +777,7 @@ Det här exemplet-princip som använder den `set-method` principen visar ett exe
 
 ### <a name="elements"></a>Element
 
-| Element    | Beskrivning                                                       | Krävs |
+| Element    | Beskrivning                                                       | Obligatoriskt |
 | ---------- | ----------------------------------------------------------------- | -------- |
 | set-metod | Rotelement. Värdet för elementet anger HTTP-metoden. | Ja      |
 
@@ -820,13 +820,13 @@ Det här exemplet visar hur du skickar tillbaka ett 401-svar om autentiseringsto
 
 ### <a name="elements"></a>Element
 
-| Element    | Beskrivning   | Krävs |
+| Element    | Beskrivning   | Obligatoriskt |
 | ---------- | ------------- | -------- |
 | set-status | Rotelement. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut       | Beskrivning                                                | Krävs | Standard |
+| Attribut       | Beskrivning                                                | Obligatoriskt | Standard |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="integer"  | HTTP-statuskoden ska returneras.                            | Ja      | Gäller inte     |
 | reason="string" | En beskrivning av orsaken för att returnera statuskod. | Ja      | Gäller inte     |
@@ -858,16 +858,16 @@ I följande exempel visar en uppsättning variabeln princip under inkommande. De
 
 ### <a name="elements"></a>Element
 
-| Element      | Beskrivning   | Krävs |
+| Element      | Beskrivning   | Obligatoriskt |
 | ------------ | ------------- | -------- |
 | set-variable | Rotelement. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut | Beskrivning                                                              | Krävs |
+| Attribut | Beskrivning                                                              | Obligatoriskt |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | namn      | Namnet på variabeln.                                                | Ja      |
-| värde     | Värdet på variabeln. Detta kan vara ett uttryck eller ett literalvärde. | Ja      |
+| value     | Värdet på variabeln. Detta kan vara ett uttryck eller ett literalvärde. | Ja      |
 
 ### <a name="usage"></a>Användning
 
@@ -928,13 +928,13 @@ Den `trace` principen lägger till en sträng i den [API Inspector](https://azur
 
 ### <a name="elements"></a>Element
 
-| Element | Beskrivning   | Krävs |
+| Element | Beskrivning   | Obligatoriskt |
 | ------- | ------------- | -------- |
 | Spårning   | Rotelement. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut | Beskrivning                                                                             | Krävs | Standard |
+| Attribut | Beskrivning                                                                             | Obligatoriskt | Standard |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
 | källa    | Exakt sträng är meningsfulla för visningsprogram och ange källan för meddelandet. | Ja      | Gäller inte     |
 
@@ -998,13 +998,13 @@ I följande exempel finns två `choose` principer som direkt underordnade princi
 
 ### <a name="elements"></a>Element
 
-| Element | Beskrivning                                                                                                   | Krävs |
+| Element | Beskrivning                                                                                                   | Obligatoriskt |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
 | Vänta    | Rotelement. Kan innehålla som underordnade element endast `send-request`, `cache-lookup-value`, och `choose` principer. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                            | Krävs | Standard |
+| Attribut | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatoriskt | Standard |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | för       | Avgör om den `wait` principen väntar tills alla direkt underordnade principer som slutförda eller bara en. Tillåtna värden är:<br /><br /> - `all` -Vänta tills alla direkt underordnade principer att slutföra<br />-alla - vänta tills alla direkt underordnade principen att slutföra. När den första principen direkt underordnade har slutförts, den `wait` principen har slutförts och körning av alla andra principer för omedelbar underordnade avslutas. | Nej       | all     |
 

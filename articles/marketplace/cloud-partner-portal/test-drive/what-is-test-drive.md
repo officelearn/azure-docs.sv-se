@@ -1,5 +1,5 @@
 ---
-title: Vad är en provkörning? | Microsoft Docs
+title: Vad är Test Drive? | Microsoft Docs
 description: Förklaring av Marketplace Test Drive-funktionen
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0bdff77a4be6a28e2799d4f481492d2c7ba6bda0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744882"
 ---
-<a name="what-is-test-drive"></a>Vad är en provkörning?
+<a name="what-is-test-drive"></a>Vad är Test Drive?
 ===================
 
 Test Drive är ett bra sätt att visa upp ditt erbjudande till potentiella kunder genom att ge dem kan \'testa innan du köper\', vilket resulterar i ökad konvertering och högt kvalificerade leads generation.

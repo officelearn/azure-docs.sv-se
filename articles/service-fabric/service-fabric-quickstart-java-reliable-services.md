@@ -16,11 +16,11 @@ ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
 ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726559"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera ett Java-program för tillförlitliga tjänster till Service Fabric
 
@@ -36,7 +36,7 @@ I den här snabbstarten lär du dig att:
 * Distribuera programmet till ditt lokala kluster
 * Skala ut programmet över flera noder
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 

@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874673"
 ---
 # <a name="create-an-environment-from-a-blueprint-sample"></a>Skapa en miljö från ett exempel på skiss
 
@@ -105,10 +105,10 @@ När kopian av exemplet skissen har installerats utan **publicerad**, så kan de
      |Namn på artefakt|Artefakttyp|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
      |ProdRG resursgrupp|Resursgrupp|Namn|ProductionRG|Definierar namnet på den första resursgruppen.|
-     |ProdRG resursgrupp|Resursgrupp|Plats|Västra USA 2|Anger platsen för den första resursgruppen.|
+     |ProdRG resursgrupp|Resursgrupp|Location|Västra USA 2|Anger platsen för den första resursgruppen.|
      |Deltagare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilka användare eller grupp för att bevilja den _deltagare_ rolltilldelning i den första resursgruppen.|
      |PreProdRG resursgrupp|Resursgrupp|Namn|PreProductionRG|Definierar namnet på resursgruppen som andra.|
-     |PreProdRG resursgrupp|Resursgrupp|Plats|Västra USA|Anger platsen för andra resursgruppen.|
+     |PreProdRG resursgrupp|Resursgrupp|Location|Västra USA|Anger platsen för andra resursgruppen.|
      |Ägare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilka användare eller grupp för att bevilja den _ägare_ rolltilldelning i andra resursgruppen.|
      |Läsare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilka användare eller grupp för att bevilja den _läsare_ rolltilldelning i andra resursgruppen.|
 

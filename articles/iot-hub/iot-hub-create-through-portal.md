@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742077"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Skapa en IoT hub med Azure portal
 
@@ -34,13 +34,13 @@ Du kan ändra inställningarna för en befintlig IoT hub när den har skapats fr
 
 Här följer några av de egenskaper som du kan ange för en IoT-hubb:
 
-**Pris- och**: du kan använda den här egenskapen för att migrera till en annan nivå eller ange antalet IoT Hub enheter. 
+**Pris- och**: Du kan använda den här egenskapen för att migrera till en annan nivå eller ange antalet IoT Hub enheter. 
 
-**Åtgärdsövervakning**: aktivera och inaktivera olika övervakning kategorier, till exempel loggning för händelser relaterade till meddelanden från enheten till molnet eller meddelanden från molnet till enheten.
+**Åtgärdsövervakning**: Aktivera olika övervakning kategorier eller inaktivera, till exempel loggning för händelser relaterade till meddelanden från enheten till molnet eller meddelanden från molnet till enheten.
 
 **IP-adressfilter**: Ange ett intervall med IP-adresser som ska godkännas eller avvisas av IoT hub.
 
-**Egenskaper för**: innehåller en lista över egenskaper som du kan kopiera och använda någon annanstans, till exempel resurs-ID, resursgrupp, plats och så vidare.
+**Egenskaper för**: Innehåller en lista över egenskaper som du kan kopiera och använda någon annanstans, till exempel resurs-ID, resursgrupp, plats och så vidare.
 
 ### <a name="shared-access-policies"></a>Principer för delad åtkomst
 

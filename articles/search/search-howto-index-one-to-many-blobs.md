@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
 ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871207"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexera blobar producera flera söka efter dokument
 Som standard behandlar en blob-indexeraren innehållet i en blob som ett enda search-dokument. Vissa **parsingMode** värden stöder scenarier där en enskild blob kan resultera i flera söka efter dokument. De olika typerna av **parsingMode** som tillåter en indexerare för att extrahera som är mer än en sökning dokument från en blob är:

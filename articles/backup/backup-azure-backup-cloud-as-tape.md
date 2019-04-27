@@ -10,11 +10,11 @@ ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646978"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Flytta din långsiktig lagring från ett band till Azure-molnet
 Azure Backup och System Center Data Protection Manager-kunder kan:
@@ -44,10 +44,10 @@ Det totala antalet ”kvarhållningspunkterna” anges i den här principen är 
 ## <a name="example--putting-both-together"></a>Exempel – installera båda
 ![Exempelskärm](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Dagliga bevarandeprincip**: säkerhetskopieringar per dag lagras i sju dagar.
-2. **Kvarhållningsprincip för veckovis**: säkerhetskopieringar varje dag vid midnatt och 18: 00 lördag bevaras i fyra veckor
-3. **Månatliga bevarandeprincip**: bevaras säkerhetskopieringar vid midnatt och 18: 00 på den sista lördagen för varje månad i 12 månader
-4. **Bevarandeprincip per år**: säkerhetskopieringar vid midnatt på den sista lördagen av varje mars bevaras under tio år
+1. **Dagliga bevarandeprincip**: Säkerhetskopieringar per dag lagras i sju dagar.
+2. **Kvarhållningsprincip för veckovis**: Säkerhetskopieringar varje dag vid midnatt och 18: 00 lördag bevaras i fyra veckor
+3. **Månatliga bevarandeprincip**: Bevaras säkerhetskopieringar vid midnatt och 18: 00 på den sista lördagen för varje månad i 12 månader
+4. **Bevarandeprincip per år**: Säkerhetskopieringar vid midnatt på den sista lördagen av varje mars bevaras under tio år
 
 Det totala antalet ”kvarhållningspunkterna” (poäng som en kund kan återställa data) i föregående diagram beräknas enligt följande:
 

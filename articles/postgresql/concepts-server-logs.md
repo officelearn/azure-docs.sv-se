@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871545"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Serverloggar i Azure Database for PostgreSQL 
 Azure Database för PostgreSQL genererar fråge- och loggar. Fråga och felloggar kan användas för att identifiera, felsöka och reparera konfigurationsfel och icke-optimal prestanda. (Åtkomst till transaktionsloggar ingår inte). 
@@ -40,14 +40,14 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på den slutpun
 | TenantId | Ditt klient-ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Tidsstämpel när loggen registrerades i UTC |
-| Type | Typ av loggen. Alltid `AzureDiagnostics` |
+| Typ | Typ av loggen. Alltid `AzureDiagnostics` |
 | SubscriptionId | GUID för den prenumeration som servern tillhör |
 | ResourceGroup | Namnet på den resursgrupp som servern tillhör |
 | ResourceProvider | Namnet på resursprovidern. Alltid `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | Resurs-URI |
 | Resurs | Namnet på servern |
-| Kategori | `PostgreSQLLogs` |
+| Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Loggning nivå, exempel: LOGGEN, FEL, MEDDELANDE |
 | Meddelande | Primär loggmeddelande | 

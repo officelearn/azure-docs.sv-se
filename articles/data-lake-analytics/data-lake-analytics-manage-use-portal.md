@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813448"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Hantera Azure Data Lake Analytics med hjälp av Azure portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -32,11 +32,11 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **skapa en resurs** > **information + analys** > **Datasjöanalys**.
 3. Välj värden för följande objekt: 
-   1. **Namn på**: namnet på Data Lake Analytics-kontot.
-   2. **Prenumeration**: Azure-prenumeration som används för kontot.
-   3. **Resursgrupp**: Azure-resursgrupp där du vill skapa kontot. 
-   4. **Plats**: Azure-datacenter för Data Lake Analytics-kontot. 
-   5. **Data Lake Store**: standardlagringsplatsen som ska användas för Data Lake Analytics-kontot. Azure Data Lake Store-konto och Data Lake Analytics-konto måste vara på samma plats.
+   1. **Namn**: Namnet på Data Lake Analytics-kontot.
+   2. **Prenumeration**: Den Azure-prenumeration som används för kontot.
+   3. **Resursgrupp**: Azure-resursgruppen där kontot skapas i. 
+   4. **Plats**: Azure-datacentret för Data Lake Analytics-kontot. 
+   5. **Data Lake Store**: Standardplatsen som ska användas för Data Lake Analytics-kontot. Azure Data Lake Store-konto och Data Lake Analytics-konto måste vara på samma plats.
 4. Klicka på **Skapa**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Ta bort ett Data Lake Analytics-konto
@@ -98,9 +98,9 @@ Du kan använda den **guiden Lägg till användare** att etablera nya Data Lake-
 Liksom andra Azure-tjänster, kan du använda rollbaserad åtkomstkontroll (RBAC) för att styra hur användarna samverkar med tjänsten.
 
 Standard RBAC-roller har följande funktioner:
-* **Ägare**: kan skicka jobb, övervaka jobb, avbryta jobb från alla användare och konfigurera kontot.
-* **Deltagare**: kan skicka jobb, övervaka jobb, avbryta jobb från alla användare och konfigurera kontot.
-* **Läsare**: övervaka jobb.
+* **Ägare**: Kan skicka jobb, övervaka jobb, avbryta jobb från alla användare och konfigurerar du kontot.
+* **Deltagare**: Kan skicka jobb, övervaka jobb, avbryta jobb från alla användare och konfigurerar du kontot.
+* **Reader**: Övervaka jobb.
 
 Aktivera U-SQL-utvecklare kan använda Data Lake Analytics-tjänsten med hjälp av rollen Data Lake Analytics-utvecklare. Du kan använda rollen Data Lake Analytics-utvecklare för att:
 * Skicka jobb.
@@ -113,7 +113,7 @@ Aktivera U-SQL-utvecklare kan använda Data Lake Analytics-tjänsten med hjälp 
 1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
 2. Klicka på **åtkomstkontroll (IAM)** > **Lägg till rolltilldelning**.
 3. Välj en roll.
-4. Lägga till en användare.
+4. Lägg till en användare.
 5. Klicka på **OK**.
 
 >[!NOTE]
@@ -131,9 +131,9 @@ Aktivera U-SQL-utvecklare kan använda Data Lake Analytics-tjänsten med hjälp 
 
 2. Klicka på **nytt jobb**. Konfigurera för varje jobb:
 
-    1. **Jobbnamnet**: namnet på jobbet.
-    2. **Prioritet**: låga tal har högre prioritet. Om två jobb i kö, körs som har lägre prioritetsvärde första.
-    3. **Parallellitet**: maximalt antal beräkningsprocesser att reservera för det här jobbet.
+    1. **Jobbnamn**: Namnet på jobbet.
+    2. **Prioritet**: Låga tal har högre prioritet. Om två jobb i kö, körs som har lägre prioritetsvärde första.
+    3. **Parallellitet**: Maximalt antal beräkningsprocesser att reservera för det här jobbet.
 
 3. Klicka på **Skicka jobb**.
 

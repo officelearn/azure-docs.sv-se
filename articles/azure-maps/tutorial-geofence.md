@@ -10,11 +10,11 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795691"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Konfigurera en geofence med hjälp av Azure Maps
 
@@ -32,7 +32,7 @@ I den här självstudien lär du dig att:
 > *   Använda Azure Maps geofence-tjänst-API:er för att spåra huruvida en byggsresurs befinner sig på byggarbetsplatsen.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
 

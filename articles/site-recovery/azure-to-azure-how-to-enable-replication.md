@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: c8b5cf840b8cb5eec2a993cfe35c8a8a7ac904fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60791397"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 
@@ -21,7 +21,7 @@ ms.locfileid: "58079790"
 
 Den här artikeln beskriver hur du aktiverar replikering av virtuella Azure-datorer från en Azure-region till en annan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du har ställt in Site Recovery för det här scenariot som beskrivs i den [Azure till Azure-självstudie](azure-to-azure-tutorial-enable-replication.md). Se till att du har förberett kraven och skapat Recovery Services-valvet.
 

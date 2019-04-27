@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800303"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Använda Azure anpassade skript-tillägget Version 1 med Linux-datorer
 
@@ -65,15 +65,15 @@ Om skriptet finns på en lokal server så kan du fortfarande behöver ytterligar
 
 ### <a name="tips-and-tricks"></a>Tips
 
-* Högsta Felfrekvensen för det här tillägget är på grund av ett syntaxfel i skriptet test som skriptet körs utan fel, och även placera i ytterligare loggning till skriptet att göra det enklare att hitta där det misslyckades.
-* Skriva skript som är idempotenta, så om de få kör igen mer än en gång av misstag kan den inte orsakar ändringarna.
+* Den högsta felfrekvensen för det här tillägget beror på syntaxfel i skriptet. Kontrollera att skriptet körs utan fel, och implementera ytterligare loggning i skriptet så att det blir enklare att identifiera var felet inträffade.
+* Skriv skript som är idempotenta, så att inga systemändringar görs om de oavsiktligt körs mer än en gång.
 * Se till att skript som inte kräver indata från användaren när de körs.
 * Det är 90 minuter som tillåts för skriptet att köra, något längre resulterar i en misslyckad tillhandahållande av tillägget.
 * Placera inte omstarter i skriptet och detta kan orsaka problem med andra tillägg installeras efter omstarten tillägget kommer inte att fortsätta efter omstarten. 
-* Om du har ett skript som gör att en omstart kan installera program och kör skript osv. Du bör schemalägga omstarten med ett Cron-jobb eller med verktyg som DSC eller Chef, Puppet-tillägg.
+* Om du har ett skript som utlöser en omstart installerar program, kör skript osv. Du bör schemalägga omstarten med ett Cron-jobb eller med verktyg som DSC eller Chef, Puppet-tillägg.
 * Tillägget körs bara ett skript en gång, om du vill köra ett skript på varje start kan du använda [cloud-init bild](../linux/using-cloud-init.md) och använda en [skript Per Start](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) modulen. Du kan också använda skriptet för att skapa en Systemd service-enhet.
 * Om du vill schemalägga när ett skript som körs ska du använda tillägget för att skapa ett Cron-jobb.
-* När skriptet körs, visas bara statusen ”transitioning' tillägg från Azure-portalen eller CLI. Om du vill mer frekventa statusuppdateringar ett skript som körs, behöver du skapa en egen lösning.
+* När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du vill mer frekventa statusuppdateringar ett skript som körs, behöver du skapa en egen lösning.
 * Anpassat skripttillägg internt stöder inte proxy-servrar, men du kan använda ett filöverföringsverktyg som stöder proxyservrar i skriptet som *Curl*.
 * Tänk på inte är standard directory-platser som dina skript eller kommandon kan förlita sig på, har logik för att hantera det.
 
@@ -121,15 +121,15 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
-| utgivare | Microsoft.OSTCExtensions | sträng |
-| typ | CustomScriptForLinux | sträng |
+| apiVersion | 2015-06-15 | date |
+| utgivare | Microsoft.OSTCExtensions | string |
+| typ | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
-| commandToExecute (t.ex.) | python MyPythonScript.py \<my-param1\> | sträng |
+| commandToExecute (t.ex.) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolesk |
-| storageAccountName (t.ex.) | examplestorageacct | sträng |
-| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
+| storageAccountName (t.ex.) | examplestorageacct | string |
+| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Information om egenskapen
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ms.openlocfilehash: 8288d5cf3ffbc6d1721a9c28c48ff89d93bf2c1b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870748"
 ---
 # <a name="use-the-anomaly-finder-api-with-c"></a>Använda Avvikelsesökare API med C#
 
@@ -22,7 +22,7 @@ ms.locfileid: "56736642"
 
 Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering Finder med C# för att utföra uppgiften för att få avvikelseidentifiering resultatet av time series-data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

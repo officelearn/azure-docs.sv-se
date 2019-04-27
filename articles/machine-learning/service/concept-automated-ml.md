@@ -12,11 +12,11 @@ ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
 ms.openlocfilehash: 620dbd22613df37fdc3c20e34906684446b2251f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821178"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -56,7 +56,7 @@ Du kan granska loggade kör informationen, som innehåller mätvärden som samla
 
 Se exempel och lär dig hur du skapar modeller med hjälp av automatisk Machine Learning:
 
-+ [Självstudier: Automatiskt träna en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md)
++ [Självstudie: Automatiskt träna en modell för klassificering med Azure automatiserad Machine Learning](tutorial-auto-train-models.md)
 
 + [Notebook-exempel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 

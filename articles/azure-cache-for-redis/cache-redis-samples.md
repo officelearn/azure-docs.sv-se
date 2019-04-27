@@ -12,14 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: yegu
+origin.date: 01/23/2017
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.openlocfilehash: 73c771ab18d1cc2944298818c1cab90eb2f277ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829811"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exempel för Azure Cache for Redis
 Det här avsnittet innehåller en lista över Azure Cache för Redis-exempel som täcker scenarier, till exempel ansluta till en cache, läsa och skrivdata till och från ett cacheminne och använda ASP.NET Azure Cache för Redis-leverantörer. Vissa av exemplen är nedladdningsbara projekt och vissa stegvis vägledning och inkludera kodfragment men Länka inte till ett nedladdningsbart projekt.
@@ -31,14 +32,14 @@ Den [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 
 
 Det här exemplet visas hur du:
 
-* Använd olika anslutningsalternativ
-* Läsa och skriva objekt till och från cachen med synkrona och asynkrona åtgärder
-* Använda Redis MGET/MSET-kommandon för att returnera värden av angivna nycklar
-* Utför Redis transaktionella åtgärder
-* Arbeta med Redis-listor och sorterade uppsättningar
-* Store .NET-objekt med hjälp av JsonConvert serializers
-* Använd Redis implementerar taggning
-* Arbeta med Redis-kluster
+- Använd olika anslutningsalternativ
+- Läsa och skriva objekt till och från cachen med synkrona och asynkrona åtgärder
+- Använda Redis MGET/MSET-kommandon för att returnera värden av angivna nycklar
+- Utför Redis transaktionella åtgärder
+- Arbeta med Redis-listor och sorterade uppsättningar
+- Store .NET-objekt med hjälp av JsonConvert serializers
+- Använd Redis implementerar taggning
+- Arbeta med Redis-kluster
 
 Mer information finns i den [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) dokumentation på GitHub och för flera Användningsscenarier finns i den [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) enhetstester.
 
@@ -52,8 +53,8 @@ Den [använder Azure Cache för Redis som en skalbar bakplan för ASP.NET Signal
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure Cache för Redis Kundexempel för fråga
 Detta exempel visar jämför prestanda mellan kommer åt data från en cache och komma åt data från lagring för persistence. Det här exemplet har två projekt.
 
-* [Demonstrera hur Azure Cache för Redis kan förbättra prestanda genom att cachelagra data](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-* [Dirigera databasen och cachen för demon](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+- [Demonstrera hur Azure Cache för Redis kan förbättra prestanda genom att cachelagra data](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+- [Dirigera databasen och cachen för demon](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## <a name="aspnet-session-state-and-output-caching"></a>ASP.NET-sessionstillstånd och cachelagring av utdata
 Den [använder Azure Cache att lagra ASP.NET SessionState och OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) exempel visar hur du använder Azure Cache för att lagra ASP.NET-sessionen och utdatacache med SessionState och OutputCache-providers för Redis .
@@ -69,4 +70,6 @@ Den [Retwis](https://github.com/SyntaxC4-MSFT/retwis) exemplet är den Redis Hel
 
 ## <a name="bandwidth-monitor"></a>Övervakare för bandbredd
 Den [bandbredd övervakaren](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) exemplet kan du övervaka den bandbredd som används på klienten. För att mäta bandbredd, kör exemplet på klientdatorn cache, göra anrop till cacheminnet och notera den bandbredd som rapporterats av bandbredd övervakaren exemplet.
+
+<!-- Update_Description: update metedata properties -->
 

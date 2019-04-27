@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
 ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60762528"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services operations REST API-översikt 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -55,7 +55,7 @@ Följande gäller när du använder REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standard HTTP-begäranshuvuden som stöds av Media Services
 Det finns en uppsättning nödvändiga rubriker som du måste inkludera i din begäran för varje anrop till Media Services, och också en uppsättning valfria huvuden kan du inkludera. I tabellen nedan visas rubrikerna som krävs:
 
-| Huvud | Type | Värde |
+| Huvud | Typ | Värde |
 | --- | --- | --- |
 | Auktorisering |Ägar |Ägar är de enda godkända auktoriseringsmekanism. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (eller den senaste versionen)|
@@ -69,7 +69,7 @@ Det finns en uppsättning nödvändiga rubriker som du måste inkludera i din be
 
 Följande är en uppsättning valfria rubriker:
 
-| Huvud | Type | Värde |
+| Huvud | Typ | Värde |
 | --- | --- | --- |
 | Date |RFC 1123 datum |Tidsstämpel för begäran |
 | Godkänn |Innehållstyp |Den begärda innehållstypen för svar som följande:<p> -application/json;odata=verbose<p> -application/atom + xml<p> Svaren kan ha en annan innehållstyp, till exempel en blob-fetch där ett lyckat svar innehåller blob-dataströmmen som skickas. |
@@ -83,7 +83,7 @@ Följande är en uppsättning valfria rubriker:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>HTTP-svarshuvuden stöds av Media Services
 Följande är en uppsättning rubriker som kan returneras till dig beroende på den resurs som du begär och du försöker att utföra åtgärden.
 
-| Huvud | Type | Värde |
+| Huvud | Typ | Värde |
 | --- | --- | --- |
 | request-id |String |En unik identifierare för den aktuella åtgärden på tjänsten som genereras. |
 | client-request-id |String |En identifierare som angetts av anroparen i den ursprungliga begäran om sådan finns. |

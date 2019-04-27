@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a1398d172a5c578ec3c0f16627eadd1da3fd1e45
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60778162"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Konfigurera lead-hantering för Dynamics CRM online
 
 Den här artikeln beskriver hur du ställer in Dynamics CRM Online för att bearbeta säljleads.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande användarbehörigheter är behöver för att slutföra stegen i den här artikeln:
 - Du måste vara administratör för din Dynamics CRM Online-instans att installera en lösning.

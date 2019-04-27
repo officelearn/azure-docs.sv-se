@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861862"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure Event Grid-Händelseschema för Azure Maps
 
@@ -104,21 +104,21 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
-| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
+| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | string | Unik identifierare för händelsen. |
 | data | objekt | Geofencing händelsedata. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| apiCategory | sträng | API-kategori för händelsen. |
-| ApiName | sträng | API-namnet på händelsen. |
+| apiCategory | string | API-kategori för händelsen. |
+| ApiName | string | API-namnet på händelsen. |
 | Problem | objekt | Visar en lista över problem som uppstod under bearbetning. Om eventuella problem returneras det blir inga geometrier som returneras med svaret. |
 | responseCode | nummer | HTTP-svarskoden |
 | geometrier | objekt | Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |
@@ -133,26 +133,26 @@ ErrorDetails objekt returnerades när ett fel uppstår i Maps-API. Den felinform
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Kod | sträng | HTTP-statuskoden. |
-| meddelande | sträng | Om det finns en mänsklig läsbar beskrivning av felet. |
+| Kod | string | HTTP-statuskoden. |
+| meddelande | string | Om det finns en mänsklig läsbar beskrivning av felet. |
 | innererror | InnerError | Om det finns ett objekt som innehåller service-specifik information om felet. |
 
 InnerError är ett objekt som innehåller service-specifik information om felet. Objektet InnerError har följande egenskaper: 
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Kod | sträng | Ett felmeddelande. |
+| Kod | string | Ett felmeddelande. |
 
 Objektet geometrier listar geometri ID: N för geofence-områden som har upphört att gälla i förhållande till Användartid i begäran. Objektet geometrier har geometri objekt med följande egenskaper: 
 
 | Egenskap  | Typ | Beskrivning |
 |:-------- |:---- |:----------- |
-| deviceid | sträng | ID för enheten. |
-| avstånd | sträng | <p>Avståndet från koordinaten till den närmaste kantlinjen för geofence-området. Positiv innebär koordinaten ligger utanför geofence-området. Om koordinaten ligger utanför geofence-området, men mer än värdet för searchBuffer bort från den närmaste geofence-området kantlinjen, är värdet 999. Negativt innebär koordinaten inuti geofence-området. Om koordinaten som finns i polygonen, men mer än värdet för searchBuffer bort från den närmaste geofencing kantlinjen, är värdet-999. Värdet 999 innebär att det finns säkert koordinaten är väl utanför geofence-området. Värdet-999 innebär att det finns säkert koordinaten är väl inom geofence-området.<p> |
-| geometryid |sträng | Unikt id identifierar geofence-området geometri. |
+| deviceid | string | ID för enheten. |
+| avstånd | string | <p>Avståndet från koordinaten till den närmaste kantlinjen för geofence-området. Positiv innebär koordinaten ligger utanför geofence-området. Om koordinaten ligger utanför geofence-området, men mer än värdet för searchBuffer bort från den närmaste geofence-området kantlinjen, är värdet 999. Negativt innebär koordinaten inuti geofence-området. Om koordinaten som finns i polygonen, men mer än värdet för searchBuffer bort från den närmaste geofencing kantlinjen, är värdet-999. Värdet 999 innebär att det finns säkert koordinaten är väl utanför geofence-området. Värdet-999 innebär att det finns säkert koordinaten är väl inom geofence-området.<p> |
+| geometryid |string | Unikt id identifierar geofence-området geometri. |
 | nearestlat | nummer | Latitud för den närmaste punkten i geometrin. |
 | nearestlon | nummer | Longitud för den närmaste punkten i geometrin. |
-| udId | sträng | Unikt id som returneras från användare ladda upp tjänsten när du överför en geofence-området. Inkluderas inte i API: et för geofencing-post. |
+| udId | string | Unikt id som returneras från användare ladda upp tjänsten när du överför en geofence-området. Inkluderas inte i API: et för geofencing-post. |
 
 Dataobjektet har följande egenskaper:
 

@@ -12,11 +12,11 @@ author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 1e403ac0d2fbe9572a44fb3cde9d25e4df9b3db4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60818510"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Kör batch förutsägelser på stora datauppsättningar med Azure Machine Learning-tjänsten
 
@@ -29,7 +29,7 @@ Batch-förutsägelse (eller batchbedömning) ger kostnadseffektiv inferens med o
 
 I följande steg ska du skapa en [maskininlärningspipeline](concept-ml-pipelines.md) att registrera en tränats modellen för visuellt innehåll ([Start-V3](https://arxiv.org/abs/1512.00567)). Sedan använder du pretrained modellen för att batch-bedömning på avbildningar som är tillgängliga i Azure Blob storage-kontot. Dessa avbildningar som används för bedömning är utan etikett avbildningar från den [ImageNet](http://image-net.org/) datauppsättning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree).
 

@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: ff9868dd7347812eb6ef566288ec364bc89b6955
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681550"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Självstudier: Dela Azure Spatial ankare flera sessioner och enheter
 
@@ -59,4 +59,4 @@ I den här självstudien har du distribuerat en ASP.NET Core-webbapp i Azure, oc
 Om du vill veta mer om hur du kan förbättra din ASP.NET Core-Webbapp så att den använder Azure Cosmos DB för att lagra dina delade Spatial ankar-ID: n kan du fortsätta till nästa självstudie. Azure Cosmos DB ger persistence ASP.NET Core-Webbappen. Detta så kan din app för att skapa en fästpunkt i dag och gå tillbaka dagar senare för att kunna hitta den igen, med hjälp av ankar-ID lagras i din webbapp.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Använda Azure Cosmos DB till Store fästpunkter](./tutorial-use-cosmos-db-to-store-anchors.md)
+> [Självstudie: Använda Azure Cosmos DB till Store fästpunkter](./tutorial-use-cosmos-db-to-store-anchors.md)

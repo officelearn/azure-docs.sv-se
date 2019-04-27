@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749672"
 ---
-# <a name="offer-settings-tab"></a>Inställningsfliken för erbjudandet
+# <a name="offer-settings-tab"></a>Fliken Erbjudandeinställningar
 
 På den **nytt erbjudande** skärmen det första steget är att skapa erbjudandet identiteten. Erbjudandet identiteten består av tre delar: **ID för erbjudande**, **Publicerings-ID**, och **namn**. De olika delarna beskrivs i följande avsnitt.
 
@@ -66,7 +66,7 @@ Följande lista innehåller flera väl namngivna erbjudandet namn:
 -   Azure Machine Learning-tjänster: 3 veckor PoC
 -   Bricka och klicka på Retail-lösningen: Genomgång för 1 tim
 -   Hämta dina egna Data: 1 vecka Workshop
--   Molnet Analytics: 3 dagars Workshop
+-   Cloud Analytics: 3 dagars Workshop
 -   Utbildning för Power BI: 3 dagars Workshop
 -   Försäljning hanteringslösning: 1 vecka implementering
 -   CRM-Snabbstart: 1-dagars Workshop

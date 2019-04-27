@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605329"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analysera video innehåll för stötande material iC#
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller information och kodexempel som hjälper dig att ko
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="set-up-azure-resources"></a>Ställa in Azure-resurser

@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611507"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformera data med Hadoop-MapReduce-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,10 +60,10 @@ Se [Pig](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-had
 
 ## <a name="syntax-details"></a>Information om syntax
 
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Obligatoriskt |
 | ----------------- | ---------------------------------------- | -------- |
 | namn              | Namn på aktiviteten                     | Ja      |
-| beskrivning       | Text som beskriver vad aktiviteten används till | Nej       |
+| description       | Text som beskriver vad aktiviteten används till | Nej       |
 | typ              | Aktivitetstypen är HDinsightMapReduce för MapReduce-aktivitet | Ja      |
 | linkedServiceName | Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
 | Klassnamn         | Namnet på klassen som ska köras         | Ja      |

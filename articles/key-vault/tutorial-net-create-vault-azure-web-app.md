@@ -2,22 +2,19 @@
 title: Självstudie – Använda Azure Key Vault med Azure Web App i .NET | Microsoft Docs
 description: I den här självstudien konfigurerar du ett ASP.NET core-program att läsa en hemlighet från ditt nyckelvalv.
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: mbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
 ms.openlocfilehash: 2c2bb3e4064294bb8d4a63b009069fd6834ca31e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777652"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Självstudier: Använda Azure Key Vault med en Azure-webbapp i .NET
 
@@ -40,7 +37,7 @@ Innan du börjar läsa [grundläggande begrepp för Key Vault](key-vault-whatis.
 
 Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * För Windows: [SDK för .NET Core 2.1 eller senare](https://www.microsoft.com/net/download/windows)
 * För Mac: [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/)

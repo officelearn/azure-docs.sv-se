@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
 ms.openlocfilehash: d3e6d3c534a9295b76043dc8a6e01b9c1bb1496e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743215"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av Azure-dator
 Kraftfulla förbrukning insikter som kan uppnås genom att analysera dina data i Azure-användning – insikter som kan aktivera kostnad bättre hantering och tilldelning i hela organisationen. Det här dokumentet innehåller en djupdykning i din information på Azure Compute-förbrukning. För ytterligare information om allmänna Azure-användning, går du till [förstå din faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f57a83fb83152055692e6f614b7958d099b6c70d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808911"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Kopiera data från Concur med Azure Data Factory (förhandsversion)
 
@@ -47,7 +47,7 @@ Följande egenskaper har stöd för Concur länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Concurs** | Ja |
+| type | Type-egenskapen måste anges till: **Concurs** | Ja |
 | ClientId | Programmet client_id som tillhandahålls av Concurs Apphantering.  | Ja |
 | användarnamn | Användarnamnet som används för att komma åt Concurs-tjänsten.  | Ja |
 | lösenord | Lösenordet för det användarnamn som du angav i fältet för användarnamn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -82,7 +82,7 @@ Kopiera data från Concur genom att ange typegenskapen på datauppsättningen ti
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **ConcurObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **ConcurObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 
@@ -112,7 +112,7 @@ Om du vill kopiera data från Concur, ange typ av datakälla i kopieringsaktivit
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ConcurSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ConcurSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Opportunities where Id = xxx "`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

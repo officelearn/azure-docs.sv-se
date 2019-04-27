@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: 930676a396ae316ec761ba5d03ad1a1d0fd7a425
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1441ee9a3d4a563ab35cd9b01e8347d8f51b827a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743405"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Kontrollera Routning och använder virtuella installationer (klassisk) med hjälp av PowerShell
 
@@ -33,7 +33,7 @@ ms.locfileid: "38232574"
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Innan du börjar arbeta med Azure-resurser är det viktigt att du vet att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-resource-manager/resource-manager-deployment-model.md) innan du börjar arbeta med Azure-resurser. Du kan visa dokumentationen för olika verktyg genom att välja ett alternativ överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen.
+> Innan du börjar arbeta med Azure-resurser, är det viktigt att förstå att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-resource-manager/resource-manager-deployment-model.md) innan du börjar arbeta med Azure-resurser. Du kan visa dokumentationen för olika verktyg genom att välja ett alternativ överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]

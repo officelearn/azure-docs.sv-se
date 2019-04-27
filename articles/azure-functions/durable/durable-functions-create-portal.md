@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
+origin.date: 10/23/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108077"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710956"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Skapa varaktiga funktioner med hjälp av Azure portal
 
@@ -91,7 +92,7 @@ Om du skapar varaktiga funktioner i JavaScript, behöver du installera den [ `du
 1. Använda en HTTP-verktyg som Postman eller cURL för att skicka en POST-begäran till den URL som du kopierade. I följande exempel är ett cURL-kommando som skickar en POST-begäran till funktionen varaktiga:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
     ```
 
     I det här exemplet `{your-function-app-name}` är den domän som är namnet på din funktionsapp. Svarsmeddelandet innehåller en uppsättning URI-slutpunkter som du kan använda för att övervaka och hantera körningen som ser ut som i följande exempel:
@@ -140,3 +141,5 @@ Din första varaktiga funktion är nu aktiv och körs i Azure.
 
 > [!div class="nextstepaction"]
 > [Läs mer om vanliga mönster för beständiga funktioner](durable-functions-concepts.md)
+
+<!-- Update_Description: wording update -->

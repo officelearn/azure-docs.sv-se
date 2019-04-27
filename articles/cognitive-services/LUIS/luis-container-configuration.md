@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599398"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurera Language Understanding Docker-behållare 
 
@@ -67,7 +67,7 @@ Den här inställningen kan hittas på följande platser:
 Kom ihåg att inkludera den `luis/v2.0` routning i URL: en som visas i följande tabell:
 
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Obligatoriskt| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 

@@ -7,18 +7,18 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
-ms.subservice: ''
+ms.component: ''
 ms.openlocfilehash: fa3293346fee6f6666db01dab5587dd760df84b2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740891"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Snabbstartsexempel för Azure Monitor-CLI
 Den här artikeln visar exempel kommandoradsgränssnittet (CLI)-kommandon för att få åtkomst till Azure Monitor-funktioner. Azure Monitor kan du att automatisk skalning molntjänster, virtuella datorer och Webbappar och för att skicka aviseringar eller anropa webbadresser som baseras på värden för konfigurerade telemetridata.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte redan har installerat Azure CLI, följer du anvisningarna för [installera Azure CLI](/cli/azure/install-azure-cli). Du kan också använda [Azure Cloud Shell](/azure/cloud-shell) att köra CLI som en interaktiv upplevelse i din webbläsare. Se fullständiga referenser för alla tillgängliga kommandon finns i den [Azure Monitor CLI-referensen](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
@@ -208,4 +208,3 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
-

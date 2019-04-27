@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605118"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Språk
 
 Hämtar antal språk som stöds för närvarande av andra åtgärder för Translator Text API. 
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `GET` begäran om att:
 ```HTTP
@@ -48,7 +48,7 @@ Parametrarna som skickades mot frågesträngen är:
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Huvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
     <td>Accept-Language</td>
@@ -229,7 +229,7 @@ Listan över språk som stöds kommer inte ändras ofta. Spara nätverksbandbred
 ## <a name="response-headers"></a>Svarshuvud
 
 <table width="100%">
-  <th width="20%">Huvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
     <td>ETag</td>

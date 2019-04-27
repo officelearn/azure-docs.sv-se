@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: cb984bcbe79b69c0614579d66a3b853cd38a7e12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60690261"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso-migrering: Omforma en lokal app till en Azure container och Azure SQL Database
 
@@ -117,7 +117,7 @@ Contoso utvärderar den föreslagna designen genom att sätta ihop en lista med 
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Skapar och driva ständig, skalbara och distribuerade appar | Kostnader beroende på storleken, plats och varaktigheten för beräkningsnoderna. [Läs mer](https://azure.microsoft.com/pricing/details/service-fabric/).
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Innehåller en kontinuerlig integrering och kontinuerlig distribution (CI/CD) pipeline för utveckling av appar. Pipelinen börjar med en Git-lagringsplats för att hantera kod, ett versionssystem för att producera paket och andra byggartefakter och ett Release Management-system för att distribuera ändringar i utveckling, testning och produktionsmiljöer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Här är vad som behöver Contoso att köra det här scenariot:
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749452"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Event Hubs-protokollguide
 
@@ -361,9 +361,9 @@ Meddelandet med begäran har följande egenskaper för program:
 
 | Nyckel | Valfri | Värdetyp | Värdet innehållet |
 | --- | --- | --- | --- |
-| åtgärd |Nej |sträng |**PUT-token** |
-| typ |Nej |sträng |Typ av token som är put. |
-| namn |Nej |sträng |Den ”målgruppen” som gäller för token. |
+| åtgärd |Nej |string |**PUT-token** |
+| typ |Nej |string |Typ av token som är put. |
+| namn |Nej |string |Den ”målgruppen” som gäller för token. |
 | upphörande |Ja |tidsstämpel |Förfallotid för token. |
 
 Den *namn* egenskapen identifierar den entitet som token vara associerad. Det är sökvägen till köer eller ämnen/prenumerationer i Service Bus. Den *typ* egensapen identifierar vydat typ:
@@ -381,7 +381,7 @@ Svarsmeddelande har följande *egenskaper för program* värden
 | Nyckel | Valfri | Värdetyp | Värdet innehållet |
 | --- | --- | --- | --- |
 | statuskod |Nej |int |HTTP-svarskoden **[RFC2616]**. |
-| status-description |Ja |sträng |Beskrivning av status. |
+| status-description |Ja |string |Beskrivning av status. |
 
 Klienten kan anropa *put-token* flera gånger och för entiteter i meddelandeinfrastrukturen. Token är begränsade till den befintliga klienten och Fäst mot den aktuella anslutningen, vilket innebär att servern avslutar de sparade token när anslutningen bryts.
 

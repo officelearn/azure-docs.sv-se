@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: c9e771d97c037ddd07834025063233c3ede1f0c2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 585d918026ca40bc1a04c55e2bac454492c55936
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711041"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Lägga till eller ta bort noder till fristående Service Fabric-kluster som körs på Windows Server
 När du har [skapade ditt fristående Service Fabric-kluster på Windows Server-datorer](service-fabric-cluster-creation-for-windows-server.md), behoven (företag) kan ändras och du måste lägga till eller ta bort noder i klustret. Den här artikeln innehåller detaljerade anvisningar för att uppnå detta. Observera att lägga till/ta bort noden funktionen inte stöds i kluster för lokal utveckling.

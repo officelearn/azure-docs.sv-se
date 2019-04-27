@@ -6,18 +6,16 @@ author: mumian
 manager: dougeby
 tags: azure-resource-manager
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/04/2019
 ms.author: jgao
 ms.openlocfilehash: 4b774e5b0a5c64a9af9a5a54ba264c6226558a24
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777760"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Resource Manager-mall
 
@@ -25,7 +23,7 @@ ms.locfileid: "57880048"
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna följa stegen i den här artikeln behöver du:
 

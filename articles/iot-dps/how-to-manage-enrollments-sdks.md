@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627277"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Hantera enhetsregistreringar med Azure Device Provisioning Service-SDK: er
 En *enhetsregistrering* skapar en post för en enstaka enhet eller en grupp av enheter som kan någon gång registreras med Device Provisioning-tjänsten. Registreringsposten innehåller inledande önskad konfiguration för enheter som en del av att registreringen, inklusive önskad IoT hub. Den här artikeln visar hur du hanterar enhetsregistreringar för etableringstjänsten genom programmering med Azure IoT Provisioning Service SDK.  SDK: erna finns på GitHub i samma lagringsplats som Azure IoT SDK: er.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * Hämta anslutningssträngen från din instans av Device Provisioning-tjänsten.
 * Hämta enheten säkerhetsartefakterna för den [attesteringsmetod](concepts-security.md#attestation-mechanism) används:
     * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):

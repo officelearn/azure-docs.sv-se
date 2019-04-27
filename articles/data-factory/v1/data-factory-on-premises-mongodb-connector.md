@@ -14,11 +14,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824192"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data F
 
 Du kan kopiera data från ett datalager för lokal MongoDB till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från en MongoDB-datalager till datalager, men inte för att flytta data från andra datalager till en MongoDB-databasen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För Azure Data Factory-tjänsten ska kunna ansluta till din lokala MongoDB-databas, måste du installera följande komponenter:
 
 - MongoDB-versioner som stöds är: 2.4, 2.6, 3.0, 3.2, 3.4 och 3.6.
@@ -66,12 +66,12 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **OnPremisesMongoDb** |Ja |
+| type |Type-egenskapen måste anges till: **OnPremisesMongoDb** |Ja |
 | server |IP-adressen eller värdnamnet namnet på MongoDB-servern. |Ja |
 | port |TCP-port som MongoDB-servern använder för att lyssna efter klientanslutningar. |Valfritt, standardvärde: 27017 |
 | authenticationType |Grundläggande eller anonym. |Ja |
 | användarnamn |Användarkonto för att få åtkomst till MongoDB. |Ja (om du använder grundläggande autentisering). |
-| lösenord |Lösenordet för användaren. |Ja (om du använder grundläggande autentisering). |
+| password |Lösenordet för användaren. |Ja (om du använder grundläggande autentisering). |
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrollera dina autentiseringsuppgifter för autentisering. |Valfritt (om du använder grundläggande autentisering). standard: använder administratörskontot och databasen som anges med egenskapen databaseName. |
 | databaseName |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
 | gatewayName |Namnet på den gateway som ansluter till datalagret. |Ja |
@@ -82,7 +82,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **MongoDbCollection** har följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | Samlingsnamn |Namnet på samlingen i MongoDB-databas. |Ja |
 
@@ -93,7 +93,7 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 När källan är av typen **MongoDbSource** följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-92 frågesträngen. Till exempel: Välj * från MyTable. |Nej (om **collectionName** av **datauppsättning** har angetts) |
 
@@ -295,16 +295,16 @@ När data flyttas till MongoDB används följande mappningar från MongoDB-typer
 
 | MongoDB-typ | .NET framework-typ |
 | --- | --- |
-| Binär |Byte] |
-| Boolesk |Boolesk |
-| Date |DateTime |
-| NumberDouble |Double-värde |
+| Binär |Byte[] |
+| Boolean |Boolean |
+| Date |Datetime |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectId |Sträng |
-| Sträng |Sträng |
-| UUID |GUID |
-| Objekt |Renormalized till att platta ut kolumner med ”_” som kapslade avgränsare |
+| ObjectId |String |
+| Sträng |String |
+| UUID |Guid |
+| Object |Renormalized till att platta ut kolumner med ”_” som kapslade avgränsare |
 
 > [!NOTE]
 > Mer information om stöd för matriser med virtuella tabeller, som avser [stöd för komplexa typer med hjälp av virtuella tabeller](#support-for-complex-types-using-virtual-tables) nedan.

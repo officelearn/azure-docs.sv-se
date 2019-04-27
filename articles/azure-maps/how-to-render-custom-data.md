@@ -10,11 +10,11 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 46f08aaa33563f620e7a011620730249e903f7b7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794580"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Rendera anpassade data på en karta för raster
 
@@ -23,7 +23,7 @@ Den här artikeln förklarar hur du använder den [statisk avbildning service](h
 För att rendera anpassade kartnålar, etiketter och geometri överlägg ska använda du Postman-programmet. Du kan använda Azure Maps [Data Service API: er](https://docs.microsoft.com/rest/api/maps/data) kan lagra och återge överlägg.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594929"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Felsök autentiseringsfel när du använder RDP för att ansluta till virtuella Azure-datorer
 
@@ -210,7 +210,7 @@ Baserat på registervärdet, Följ dessa steg:
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2 /f
     ```
 
-* 2 (högsta kryptering möjligt, enligt klienten): du kan försöka att ange krypteringen till det lägsta värdet på **1** genom att köra följande kommando:
+* 2 (högsta kryptering möjligt, enligt klienten): Du kan försöka att ange krypteringen till det lägsta värdet på **1** genom att köra följande kommando:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 1 /f

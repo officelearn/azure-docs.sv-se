@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620180"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Anger sekvens tillägget etablering i VM-skalningsuppsättning
 Azure VM-tillägg ger funktioner, till exempel konfigurationen efter distribution och hantering, övervakning, säkerhet och mer. Produktionsdistribution använder vanligtvis en kombination av flera tillägg som konfigurerats för VM-instanser för att uppnå önskat resultat.
@@ -29,7 +29,7 @@ När du använder flera tillägg på en virtuell dator, är det viktigt att se t
 
 Den här artikeln beskriver hur du kan ordna tillägg som ska konfigureras för VM-instanser i skalningsuppsättningar för virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här artikeln förutsätter att du är bekant med:
 -   Azure-dator [tillägg](../virtual-machines/extensions/overview.md)
 -   [Ändra](virtual-machine-scale-sets-upgrade-scale-set.md) VM-skalningsuppsättningar

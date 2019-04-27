@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605250"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -49,7 +49,7 @@ Om du vill tvinga begäran som ska hanteras av en specifik datacenter, ändrar d
 |Azure|Asien och stillahavsområdet|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Prenumererar på Translator Text API eller [flera-tjänsten för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) i Microsoft Cognitive Services och använda din prenumeration tangent (tillgängligt i Azure-portalen) för att autentisera. 
 

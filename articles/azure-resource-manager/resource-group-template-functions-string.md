@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782930"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Strängfunktioner för Azure Resource Manager-mallar
 
@@ -67,7 +67,7 @@ Returnerar en base64-representation av den inmatade strängen.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |sträng |Värdet som returneras som en base64-representation. |
+| inputString |Ja |string |Värdet som returneras som en base64-representation. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -120,7 +120,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | Ett två tre |
-| toJsonOutput | Objekt | {"one": "a", "two": "b"} |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
@@ -132,7 +132,7 @@ Konverterar en base64-representation till en JSON-objekt.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |sträng |Base64-representation att konvertera till en JSON-objekt. |
+| base64Value |Ja |string |Base64-representation att konvertera till en JSON-objekt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -185,7 +185,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | Ett två tre |
-| toJsonOutput | Objekt | {"one": "a", "two": "b"} |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
 
@@ -197,7 +197,7 @@ Konverterar en base64-representation till en sträng.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |sträng |Base64-representation att konvertera till en sträng. |
+| base64Value |Ja |string |Base64-representation att konvertera till en sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -250,7 +250,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | Ett två tre |
-| toJsonOutput | Objekt | {"one": "a", "two": "b"} |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
 
@@ -263,7 +263,7 @@ Kombinerar flera strängvärden och returnerar en sammanfogad sträng eller komb
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |sträng eller matris |Det första värdet för sammanfogning. |
-| ytterligare argument |Nej |sträng |Ytterligare värden i sekventiell ordning för sammanfogning. |
+| ytterligare argument |Nej |string |Ytterligare värden i sekventiell ordning för sammanfogning. |
 
 ### <a name="return-value"></a>Returvärde
 En sträng eller en matris med sammansatta värden.
@@ -430,7 +430,7 @@ Konverterar ett värde till ett data-URI.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Ja |sträng |Värdet att konvertera till ett data-URI. |
+| stringToConvert |Ja |string |Värdet att konvertera till ett data-URI. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -485,7 +485,7 @@ Konverterar ett data-URI formaterad värdet till en sträng.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Ja |sträng |URI-värdet att konvertera data. |
+| dataUriToConvert |Ja |string |URI-värdet att konvertera data. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -605,8 +605,8 @@ Anger om en sträng som slutar med ett värde. Jämförelse är skiftlägeskäns
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet du vill hitta. |
-| stringToFind |Ja |sträng |Värde att söka efter. |
+| stringToSearch |Ja |string |Det värde som innehåller objektet du vill hitta. |
+| stringToFind |Ja |string |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -723,7 +723,7 @@ Skapar en formaterad sträng från indatavärden.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| formatString | Ja | sträng | Den sammansatta Formatsträngen. |
+| formatString | Ja | string | Den sammansatta Formatsträngen. |
 | arg1 | Ja | sträng, heltal eller booleskt värde | Värdet som ska ingå i den formaterade strängen. |
 | ytterligare argument | Nej | sträng, heltal eller booleskt värde | Ytterligare värden som ska ingå i den formaterade strängen. |
 
@@ -780,8 +780,8 @@ Skapar ett värde i formatet av en globalt unik identifierare som baserat på de
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |sträng |Det värde som används i hash-funktionen för att skapa GUID. |
-| ytterligare parametrar som behövs |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa det värde som anger vilken nivå av unikhet. |
+| baseString |Ja |string |Det värde som används i hash-funktionen för att skapa GUID. |
+| ytterligare parametrar som behövs |Nej |string |Du kan lägga till så många strängar som behövs för att skapa det värde som anger vilken nivå av unikhet. |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -851,8 +851,8 @@ Returnerar den första positionen för ett värde i en sträng. Jämförelse är
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet du vill hitta. |
-| stringToFind |Ja |sträng |Värde att söka efter. |
+| stringToSearch |Ja |string |Det värde som innehåller objektet du vill hitta. |
+| stringToFind |Ja |string |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -964,8 +964,8 @@ Returnerar den sista positionen för ett värde i en sträng. Jämförelse är s
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet du vill hitta. |
-| stringToFind |Ja |sträng |Värde att söka efter. |
+| stringToSearch |Ja |string |Det värde som innehåller objektet du vill hitta. |
+| stringToFind |Ja |string |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1125,7 +1125,7 @@ Utdata från föregående exempel varierar för varje distribution, men ska vara
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| guidOutput | sträng | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 I följande exempel används funktionen newGuid för att skapa ett unikt namn för ett lagringskonto. Den här mallen kan användas i testmiljö där lagringskontot finns en kort tid och är inte omdistribueras.
 
@@ -1168,7 +1168,7 @@ Utdata från föregående exempel varierar för varje distribution, men ska vara
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| nameOutput | sträng | storagenziwvyru7uxie |
+| nameOutput | string | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1231,9 +1231,9 @@ Returnerar en ny sträng med alla instanser av en sträng som har ersatts av en 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| originalString |Ja |sträng |Det värde som har alla instanser av en sträng som har ersatts av en annan sträng. |
-| oldString |Ja |sträng |Strängen som ska tas bort från den ursprungliga strängen. |
-| newString |Ja |sträng |Strängen som du lägger till i stället för strängen som har tagits bort. |
+| originalString |Ja |string |Det värde som har alla instanser av en sträng som har ersatts av en annan sträng. |
+| oldString |Ja |string |Strängen som ska tas bort från den ursprungliga strängen. |
+| newString |Ja |string |Strängen som du lägger till i stället för strängen som har tagits bort. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1352,7 +1352,7 @@ Returnerar en matris med strängar som innehåller delsträngar indatasträngens
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |sträng |Strängen som ska delas. |
+| inputString |Ja |string |Strängen som ska delas. |
 | avgränsare |Ja |sträng eller en matris med strängar |Avgränsaren som ska användas för uppdelningen av strängen. |
 
 ### <a name="return-value"></a>Returvärde
@@ -1411,8 +1411,8 @@ Anger om en sträng som börjar med ett värde. Jämförelse är skiftlägeskän
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet du vill hitta. |
-| stringToFind |Ja |sträng |Värde att söka efter. |
+| stringToSearch |Ja |string |Det värde som innehåller objektet du vill hitta. |
+| stringToFind |Ja |string |Värde att söka efter. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1467,7 +1467,7 @@ Utdata från föregående exempel med standardvärdena är:
 | endsCapTrue | Booleskt | True |
 | endsFalse | Booleskt | False |
 
-## <a name="string"></a>sträng
+## <a name="string"></a>string
 
 `string(valueToConvert)`
 
@@ -1548,7 +1548,7 @@ Returnerar en understräng som börjar vid angiven position och innehåller det 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Ja |sträng |Den ursprungliga strängen från vilket delsträngen ska extraheras. |
+| stringToParse |Ja |string |Den ursprungliga strängen från vilket delsträngen ska extraheras. |
 | startIndex |Nej |int |Nollbaserade tecken startposition delsträngen. |
 | Längd |Nej |int |Antalet tillåtna tecken för delsträngen. Måste referera till en plats i strängen. Måste vara noll eller större. |
 
@@ -1677,7 +1677,7 @@ Konverterar den angivna strängen till gemener.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |sträng |Värdet att konvertera till gemener. |
+| stringToChange |Ja |string |Värdet att konvertera till gemener. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1728,7 +1728,7 @@ Konverterar den angivna strängen till versaler.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |sträng |Värdet att konvertera till versaler. |
+| stringToChange |Ja |string |Värdet att konvertera till versaler. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1779,7 +1779,7 @@ Tar bort alla inledande och avslutande blanksteg från den angivna strängen.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Ja |sträng |Värde att trimma. |
+| stringToTrim |Ja |string |Värde att trimma. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1825,8 +1825,8 @@ Skapar en deterministisk hash-sträng som baseras på de värden som anges som p
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |sträng |Det värde som används i hash-funktionen för att skapa en unik sträng. |
-| ytterligare parametrar som behövs |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa det värde som anger vilken nivå av unikhet. |
+| baseString |Ja |string |Det värde som används i hash-funktionen för att skapa en unik sträng. |
+| ytterligare parametrar som behövs |Nej |string |Du kan lägga till så många strängar som behövs för att skapa det värde som anger vilken nivå av unikhet. |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -1903,8 +1903,8 @@ Skapar en absolut URI genom att kombinera baseUri och relativeUri strängen.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseUri |Ja |sträng |Bas-uri-sträng. |
-| relativeUri |Ja |sträng |Relativ uri-strängen att lägga till bas-uri-strängen. |
+| baseUri |Ja |string |Bas-uri-sträng. |
+| relativeUri |Ja |string |Relativ uri-strängen att lägga till bas-uri-strängen. |
 
 Värdet för den **baseUri** parameter kan innehålla en viss fil, men endast bassökväg används när URI: N. Till exempel skicka `http://contoso.com/resources/azuredeploy.json` som baseUri parametern resultaten i en bas-URI för `http://contoso.com/resources/`.
 
@@ -1967,7 +1967,7 @@ Kodar en URI.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Ja |sträng |Värdet som ska kodas. |
+| stringToEncode |Ja |string |Värdet som ska kodas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -2022,7 +2022,7 @@ Returnerar en sträng med en URI-kodad värde.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Ja |sträng |URI-kodad värdet att konvertera till en sträng. |
+| uriEncodedString |Ja |string |URI-kodad värdet att konvertera till en sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -2077,7 +2077,7 @@ Returnerar det aktuella (UTC) datetime-värdet i formatet som anges. Om inget fo
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Format |Nej |sträng |URI-kodad värdet att konvertera till en sträng. Använd antingen [standard formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| Format |Nej |string |URI-kodad värdet att konvertera till en sträng. Använd antingen [standard formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -2136,9 +2136,9 @@ Utdata från föregående exempel varierar för varje distribution, men ska vara
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| utcOutput | sträng | 20190305T175318Z |
-| utcShortOutput | sträng | 03/05/2019 |
-| utcCustomOutput | sträng | 3 5 |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 03/05/2019 |
+| utcCustomOutput | string | 3 5 |
 
 I nästa exempel visas hur du använder ett värde från funktionen när du anger ett taggvärde.
 

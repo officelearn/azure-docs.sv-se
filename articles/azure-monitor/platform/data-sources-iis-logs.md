@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614522"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Samla in IIS-loggar i Azure Monitor
 Internet Information Services (IIS) lagrar användaraktivitet i loggfilerna som kan samlas in av Azure Monitor och lagras som [logga data över](data-platform.md).
@@ -40,9 +40,9 @@ Azure Monitor samlar in IIS-loggposter från varje agent som skapas varje gång 
 ## <a name="iis-log-record-properties"></a>Egenskaper för IIS-post
 IIS-loggposter har en typ av **W3CIISLog** och har egenskaperna i följande tabell:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
-| Dator |Namnet på den dator som händelsen har samlats in från. |
+| Computer |Namnet på den dator som händelsen har samlats in från. |
 | cIP |IP-adressen för klienten. |
 | csMethod |Metod för begäran, till exempel GET eller POST. |
 | csReferer |Plats att användaren följt en länk från den aktuella platsen. |

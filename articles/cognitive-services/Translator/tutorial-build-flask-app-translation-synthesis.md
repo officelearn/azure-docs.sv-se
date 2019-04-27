@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 69e6797e91fc645e3bd3e3b300cea6852a662214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59007392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610545"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudier: Skapa en Flask-app med Azure Cognitive Services
 
@@ -59,9 +59,9 @@ Nu ska vi se tangenterna programvara och prenumeration som du behöver för den 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>Skapa ett konto och prenumererar på resurser
 
 Som tidigare nämnts bör kommer du att behöva tre prenumerationsnycklar för den här självstudiekursen. Det innebär att du behöver skapa en resurs i ditt Azure-konto för:
-* Translator för textöversättning
+* Translator Text
 * Textanalys
-* Taltjänster
+* Speech Services
 
 Använd [skapa ett Cognitive Services-konto i Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för stegvisa instruktioner för att skapa resurser.
 
@@ -107,7 +107,7 @@ Nu ska vi skapa en virtuell miljö för vår Flask-app med `virtualenv`. Med hj�
    |----------|-------|---------|
    | macOS/Linux | Bash/zsh | `source venv/bin/activate` |
    | Windows | Bash | `source venv/Scripts/activate` |
-   | | Kommandoraden | `venv\Scripts\activate.bat` |
+   | | Kommandorad | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
    När du har kört det här kommandot din kommandorad eller en terminalsession ska föregås av `venv`.

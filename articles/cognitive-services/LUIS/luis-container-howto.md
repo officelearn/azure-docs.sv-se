@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598769"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att kunna köra LUIS-behållare, måste du ha följande: 
 
-|Krävs|Syfte|
+|Obligatoriskt|Syfte|
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Platshållare | Value |
+| Platshållare | Värde |
 |-------------|-------|
 |{APPLICATION_ID} | Program-ID för den publicerade LUIS-appen. |
 |{APPLICATION_ENVIRONMENT} | Miljö av den publicerade LUIS-appen. Använd någon av följande värden:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Platshållare | Value |
+| Platshållare | Värde |
 |-------------|-------|
 |{APPLICATION_ID} | Program-ID för tränade LUIS-programmet. |
 |{APPLICATION_VERSION} | Programversion för tränade LUIS-programmet. |
@@ -218,7 +218,7 @@ Om detta lyckas är svaret en LUIS-paketfil. Spara filen på den lagringsplats s
 
 Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando för att köra behållaren. Kommandot använder följande parametrar:
 
-| Platshållare | Value |
+| Platshållare | Värde |
 |-------------|-------|
 |{ENDPOINT_KEY} | Den här nyckeln används för att starta behållaren. Använd inte den starter-nyckeln. |
 |{BILLING_ENDPOINT} | Fakturering slutpunktsvärdet är tillgänglig på Azure portal `Cognitive Services` översiktssidan. Du måste lägga till den `luis/v2.0` routning till slutpunkten URI som visas i följande exempel: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
@@ -269,13 +269,13 @@ Använd värden `https://localhost:5000`, för behållaren API: er.
 
 Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 
-|Frågeparameter|Type|Syfte|
+|Frågeparameter|Typ|Syfte|
 |--|--|--|
 |`q`|string|Användarens uttryck.|
 |`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|
-|`verbose`|boolean|Returnerar alla avsikter och deras resultat om värdet är true. Standardvärdet är false, vilket returnerar endast de översta avsikten.|
-|`staging`|boolean|Returnerar frågan från mellanlagring resultat miljön om inställd true. |
-|`log`|boolean|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md). Standardvärdet är true.|
+|`verbose`|boolesk|Returnerar alla avsikter och deras resultat om värdet är true. Standardvärdet är false, vilket returnerar endast de översta avsikten.|
+|`staging`|boolesk|Returnerar frågan från mellanlagring resultat miljön om inställd true. |
+|`log`|boolesk|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md). Standardvärdet är true.|
 
 ### <a name="query-published-app"></a>Fråga efter publicerade appen
 

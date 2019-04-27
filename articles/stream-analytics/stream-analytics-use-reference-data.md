@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761496"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 

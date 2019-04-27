@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598073"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatisera installation av Mobilitetstjänsten med System Center Configuration Manager
 
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    | **Parameternamn** | **Värde** |
    |--|--|
-   | Name | Installera Mobilitetstjänsten för Microsoft Azure (Windows) |
+   | Namn | Installera Mobilitetstjänsten för Microsoft Azure (Windows) |
    | Kommandorad | install.bat |
    | Programmet kan köras | Om en användare är inloggad |
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **Parameternamn** | **Värde** |
    |--|--|
-   | Name | Installera Mobilitetstjänsten för Microsoft Azure (Linux) |
+   | Namn | Installera Mobilitetstjänsten för Microsoft Azure (Linux) |
    | Kommandorad | ./install_linux.sh |
    | Programmet kan köras | Om en användare är inloggad |
 

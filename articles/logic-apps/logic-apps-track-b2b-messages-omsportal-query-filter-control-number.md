@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60846619"
 ---
 # <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Skapa frågor om att spåra B2B-meddelanden i Azure Monitor-loggar för Azure Logic Apps
 
@@ -25,7 +25,7 @@ Om du vill hitta AS2 X12 eller EDIFACT meddelanden du spårar med [Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En logikapp som har konfigurerats med diagnostikloggning. Lär dig [så här skapar du en logikapp](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den logikappen](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 

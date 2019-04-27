@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
 ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614178"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>Med flera faktorer AAD-autentisering med Azure SQL Database och Azure SQL Data Warehouse (SSMS-stöd för MFA)
 Azure SQL Database och Azure SQL Data Warehouse stöder anslutningar från SQL Server Management Studio (SSMS) med hjälp av *Active Directory Universal-autentisering*. Den här artikeln beskrivs skillnaderna mellan de olika autentiseringsalternativen och begränsningar med hjälp av universell autentisering. 
@@ -74,7 +74,7 @@ Azure AD-användare som stöds för Azure AD B2B-scenarier som gästanvändare (
 - [Konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
-- [Importera en BACPAC-fil till en ny Azure SQ Database](../sql-database/sql-database-import.md)  
+- [Importera en BACPAC-fil till en ny Azure SQL-databas](../sql-database/sql-database-import.md)  
 - [Exportera en Azure SQL-databas till en BACPAC-fil](../sql-database/sql-database-export.md)  
 - C#-gränssnitt [IUniversalAuthProvider gränssnitt](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - När du använder **Active Directory - Universal med MFA** autentisering, ADAL spårning är tillgängliga från och med [SSMS 17,3 tum](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Inaktivera som standard, du kan aktivera ADAL spårning med hjälp av den **verktyg**, **alternativ** menyn under **Azure Services**, **Azure-molnet**,  **ADAL utdata fönstret spårningsnivån**, följt av att aktivera **utdata** i den **visa** menyn. Spårningarna är tillgängliga i utdatafönstret när du väljer **Azure Active Directory-alternativet**.  

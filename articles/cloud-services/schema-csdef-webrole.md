@@ -14,11 +14,11 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613232"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services Definition WebRole Schema
 Azure web-roll är en roll som är anpassade för web application programming som stöds av IIS 7, till exempel ASP.NET, PHP, Windows Communication Foundation och FastCGI.
@@ -165,9 +165,9 @@ I följande tabell beskrivs attributen för den `WebRole` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Namnet för webbrollen. Rollens namn måste vara unikt.|  
+|namn|string|Krävs. Namnet för webbrollen. Rollens namn måste vara unikt.|  
 |enableNativeCodeExecution|boolesk|Valfri. Standardvärdet är `true`; native fjärrkörning av kod och fullständigt förtroende är aktiverade som standard. Anger du attributet till `false` att inaktivera interna kodkörning för webbrollen och Använd Azure partiellt förtroende i stället.|  
-|vmsize|sträng|Valfri. Ange ett värde att ändra storleken på den virtuella dator som tilldelas till rollen. Standardvärdet är `Small`. Mer information finns i [storlekar för virtuella datorer för Cloud Services](cloud-services-sizes-specs.md).|  
+|vmsize|string|Valfri. Ange ett värde att ändra storleken på den virtuella dator som tilldelas till rollen. Standardvärdet är `Small`. Mer information finns i [storlekar för virtuella datorer för Cloud Services](cloud-services-sizes-specs.md).|  
 
 ##  <a name="ConfigurationSettings"></a> ConfigurationSettings  
 Den `ConfigurationSettings` element beskriver samling med konfigurationsinställningar för en webbroll. Det här elementet har överordnat den `Setting` element.
@@ -179,7 +179,7 @@ I följande tabell beskrivs attributen för den `Setting` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Ett unikt namn för konfigurationsinställningen.|  
+|namn|string|Krävs. Ett unikt namn för konfigurationsinställningen.|  
 
 Konfigurationsinställningarna för en roll är namn och värdepar som är deklarerad i tjänstdefinitionsfilen och ange i tjänstekonfigurationsfilen.
 
@@ -196,7 +196,7 @@ I följande tabell beskrivs attributen för den `LocalStorage` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Ett unikt namn för det lokala arkivet.|  
+|namn|string|Krävs. Ett unikt namn för det lokala arkivet.|  
 |cleanOnRoleRecycle|boolesk|Valfri. Anger om det lokala arkivet ska rensas när rollen startas om. Standardvärdet är `true`.|  
 |sizeInMb|int|Valfri. Önskade mängden lagringsutrymme för att allokera för det lokala arkivet, i MB. Om inte anges är tilldelat lagringsutrymme standard 100 MB. Den minsta mängden lagringsutrymme som kan allokeras är 1 MB.<br /><br /> Den maximala storleken för de lokala resurserna beror på storleken på virtuella datorn. Mer information finns i [storlekar för virtuella datorer för Cloud Services](cloud-services-sizes-specs.md).|  
   
@@ -219,13 +219,13 @@ I följande tabell beskrivs attributen för den `InputEndpoint` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Ett unikt namn för den externa slutpunkten.|  
-|protokoll|sträng|Krävs. Transportprotokoll för den externa slutpunkten. För en webbroll möjliga värden är `HTTP`, `HTTPS`, `UDP`, eller `TCP`.|  
+|namn|string|Krävs. Ett unikt namn för den externa slutpunkten.|  
+|protokoll|string|Krävs. Transportprotokoll för den externa slutpunkten. För en webbroll möjliga värden är `HTTP`, `HTTPS`, `UDP`, eller `TCP`.|  
 |port|int|Krävs. Porten för den externa slutpunkten. Du kan ange ett portnummer som du väljer, men de portnummer som anges för varje roll i tjänsten måste vara unikt.<br /><br /> Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).|  
-|certifikat|sträng|Krävs för en HTTPS-slutpunkt. Namnet på ett certifikat som definieras av en `Certificate` element.|  
+|certifikat|string|Krävs för en HTTPS-slutpunkt. Namnet på ett certifikat som definieras av en `Certificate` element.|  
 |localPort|int|Valfri. Anger en port som används för interna anslutningar på slutpunkten. Den `localPort` attribut mappar den externa porten på slutpunkten till en intern port för en roll. Detta är användbart i scenarier där en roll måste kommunicera med en intern komponent på en port att skiljer sig från det som är tillgänglig externt.<br /><br /> Om inte anges värdet för `localPort` är samma som den `port` attribut. Ange värdet för `localPort` till ”*” att automatiskt tilldela en oallokerad port som är synliga med runtime API.<br /><br /> Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).<br /><br /> Den `localPort` attributet är endast tillgängligt med hjälp av Azure SDK-version 1.3 eller högre.|  
 |ignoreRoleInstanceStatus|boolesk|Valfri. När värdet för det här attributet anges till `true`, status för en tjänst ignoreras och slutpunkten tas inte bort av belastningsutjämnaren. Värdet `true` användbart för felsökning av upptagen instanser av en tjänst. Standardvärdet är `false`. **Obs!**  En slutpunkt kan fortfarande ta emot trafik även om rollen inte är i tillståndet redo.|  
-|loadBalancerProbe|sträng|Valfri. Namnet på belastningsutjämnaravsökningen som är associerade med slutpunkten för indata. Mer information finns i [LoadBalancerProbe-Schema](schema-csdef-loadbalancerprobe.md).|  
+|loadBalancerProbe|string|Valfri. Namnet på belastningsutjämnaravsökningen som är associerade med slutpunkten för indata. Mer information finns i [LoadBalancerProbe-Schema](schema-csdef-loadbalancerprobe.md).|  
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint  
 Den `InternalEndpoint` element beskriver en intern slutpunkt i en webbroll. En intern slutpunkt är endast tillgängligt för andra rollinstanser som körs i tjänsten; Det är inte tillgängliga för klienter utanför tjänsten. Webbroller som inte innehåller den `Sites` element kan bara ha en enda HTTP, UDP eller TCP intern slutpunkt.
@@ -234,8 +234,8 @@ I följande tabell beskrivs attributen för den `InternalEndpoint` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Ett unikt namn för den interna slutpunkten.|  
-|protokoll|sträng|Krävs. Transportprotokoll för den interna slutpunkten. Möjliga värden är `HTTP`, `TCP`, `UDP`, eller `ANY`.<br /><br /> Värdet `ANY` anger att alla protokoll, alla portar tillåts.|  
+|namn|string|Krävs. Ett unikt namn för den interna slutpunkten.|  
+|protokoll|string|Krävs. Transportprotokoll för den interna slutpunkten. Möjliga värden är `HTTP`, `TCP`, `UDP`, eller `ANY`.<br /><br /> Värdet `ANY` anger att alla protokoll, alla portar tillåts.|  
 |port|int|Valfri. Den port som används för interna belastningsutjämnade anslutningar på slutpunkten. En belastningsutjämnade slutpunkten använder två portar. Den port som används för den offentliga IP-adressen och porten som används på privata IP-adress. Vanligtvis är dessa sätts de till samma, men du kan välja att använda olika portar.<br /><br /> Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).<br /><br /> Den `Port` attributet är endast tillgängligt med hjälp av Azure SDK-version 1.3 eller högre.|  
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint  
@@ -247,9 +247,9 @@ I följande tabell beskrivs attributen för den `InstanceInputEndpoint` element.
   
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Ett unikt namn för slutpunkten.|  
+|namn|string|Krävs. Ett unikt namn för slutpunkten.|  
 |localPort|int|Krävs. Anger den interna porten som alla rollinstanser ska lyssna på för att kunna ta emot inkommande trafik vidarebefordras från belastningsutjämnaren. Möjliga värden intervallet mellan 1 och 65535, inklusive.|  
-|protokoll|sträng|Krävs. Transportprotokoll för den interna slutpunkten. Möjliga värden är `udp` eller `tcp`. Använd `tcp` för http/https-baserad trafik.|  
+|protokoll|string|Krävs. Transportprotokoll för den interna slutpunkten. Möjliga värden är `udp` eller `tcp`. Använd `tcp` för http/https-baserad trafik.|  
   
 ##  <a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom  
 Den `AllocatePublicPortFrom` element beskriver offentliga portintervallet som kan användas av externa kunder att få åtkomst till en slutpunkt för indata på varje instans. Det offentliga portnumret (VIP) är allokerade från det här intervallet och tilldelas varje enskild roll instans slutpunkt under distribution för klienter och uppdatera. Det här elementet har överordnat den `FixedPortRange` element.
@@ -280,7 +280,7 @@ I följande tabell beskrivs attributen för den `FixedPortRange` element.
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
 |min.|int|Krävs. Den minsta porten i intervallet. Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).|  
-|max|sträng|Krävs. Den maximala porten i intervallet. Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).|  
+|max|string|Krävs. Den maximala porten i intervallet. Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).|  
 
 ##  <a name="Certificates"></a> Certifikat  
 Den `Certificates` element beskriver insamling av certifikat för en webbroll. Det här elementet har överordnat den `Certificate` element. En roll kan ha valfritt antal associerade certifikat. Läs mer om hur du använder certifikat elementet [ändra filen tjänstdefinitionen med ett certifikat](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
@@ -292,10 +292,10 @@ I följande tabell beskrivs attributen för den `Certificate` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Ett namn för det här certifikatet som används för att se den när den är associerad med en HTTPS `InputEndpoint` element.|  
-|storeLocation|sträng|Krävs. Platsen för arkivet där det här certifikatet kan hittas på den lokala datorn. Möjliga värden är `CurrentUser` och `LocalMachine`.|  
-|storeName|sträng|Krävs. Namnet på arkivet där det här certifikatet finns på den lokala datorn. Några möjliga värden är de inbyggda arkivnamn `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, eller ett eget Arkiv-namn. Om ett eget Arkiv-namn har angetts, skapas automatiskt i store.|  
-|permissionLevel|sträng|Valfri. Anger de åtkomstbehörigheter som ges till processerna som rollen. Om du vill att endast utökade processer för att kunna komma åt den privata nyckeln och sedan ange `elevated` behörighet. `limitedOrElevated` tillåter alla rollen processer att få åtkomst till den privata nyckeln. Möjliga värden är `limitedOrElevated` eller `elevated`. Standardvärdet är `limitedOrElevated`.|  
+|namn|string|Krävs. Ett namn för det här certifikatet som används för att se den när den är associerad med en HTTPS `InputEndpoint` element.|  
+|storeLocation|string|Krävs. Platsen för arkivet där det här certifikatet kan hittas på den lokala datorn. Möjliga värden är `CurrentUser` och `LocalMachine`.|  
+|storeName|string|Krävs. Namnet på arkivet där det här certifikatet finns på den lokala datorn. Några möjliga värden är de inbyggda arkivnamn `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, eller ett eget Arkiv-namn. Om ett eget Arkiv-namn har angetts, skapas automatiskt i store.|  
+|permissionLevel|string|Valfri. Anger de åtkomstbehörigheter som ges till processerna som rollen. Om du vill att endast utökade processer för att kunna komma åt den privata nyckeln och sedan ange `elevated` behörighet. `limitedOrElevated` tillåter alla rollen processer att få åtkomst till den privata nyckeln. Möjliga värden är `limitedOrElevated` eller `elevated`. Standardvärdet är `limitedOrElevated`.|  
 
 ##  <a name="Imports"></a> Import  
 Den `Imports` element beskriver en uppsättning importera moduler för en webbroll som Lägg till komponenter till gästoperativsystemet. Det här elementet har överordnat den `Import` element. Det här elementet är valfritt och en roll kan ha endast en import-block. 
@@ -311,7 +311,7 @@ I följande tabell beskrivs attributen för den `Import` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|moduleName|sträng|Krävs. Namnet på modulen att importera. Giltigt importera moduler är:<br /><br /> -RemoteAccess<br />-   RemoteForwarder<br />-Diagnostik<br /><br /> RemoteAccess- och RemoteForwarder-moduler kan du konfigurera din rollinstans för anslutningar till fjärrskrivbord. Mer information finns i [aktivera anslutning till fjärrskrivbord](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Modulen diagnostik kan du samla in diagnostikdata för en rollinstans.|  
+|moduleName|string|Krävs. Namnet på modulen att importera. Giltigt importera moduler är:<br /><br /> -RemoteAccess<br />-   RemoteForwarder<br />-Diagnostik<br /><br /> RemoteAccess- och RemoteForwarder-moduler kan du konfigurera din rollinstans för anslutningar till fjärrskrivbord. Mer information finns i [aktivera anslutning till fjärrskrivbord](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Modulen diagnostik kan du samla in diagnostikdata för en rollinstans.|  
 
 ##  <a name="Runtime"></a> Runtime  
 Den `Runtime` element beskriver en uppsättning miljövariabelinställningar för en webbroll som styr körningsmiljö processens Azure-värd. Det här elementet har överordnat den `Environment` element. Det här elementet är valfritt och en roll kan ha endast en runtime-block.
@@ -322,7 +322,7 @@ I följande tabell beskrivs attributen för den `Runtime` element:
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|executionContext|sträng|Valfri. Anger kontexten där roll-processen startas. Standardkontexten är `limited`.<br /><br /> -   `limited` – Processen startas utan administratörsbehörighet.<br />-   `elevated` – Processen startas med administratörsbehörighet.|  
+|executionContext|string|Valfri. Anger kontexten där roll-processen startas. Standardkontexten är `limited`.<br /><br /> -   `limited` – Processen startas utan administratörsbehörighet.<br />-   `elevated` – Processen startas med administratörsbehörighet.|  
 
 ##  <a name="Environment"></a> Miljö  
 Den `Environment` element beskriver en uppsättning miljövariabelinställningar för en webbroll. Det här elementet har överordnat den `Variable` element. En roll kan ha valfritt antal miljövariabler som anges.
@@ -336,8 +336,8 @@ I följande tabell beskrivs attributen för den `Variable` element:
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Namnet på miljövariabeln för att ställa in.|  
-|värde|sträng|Valfri. Värdet som angetts för miljövariabeln. Du måste inkludera värdeattributet eller en `RoleInstanceValue` element.|  
+|namn|string|Krävs. Namnet på miljövariabeln för att ställa in.|  
+|value|string|Valfri. Värdet som angetts för miljövariabeln. Du måste inkludera värdeattributet eller en `RoleInstanceValue` element.|  
 
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue  
 Den `RoleInstanceValue` elementet anger xPath som du kan hämta värdet för variabeln.
@@ -346,7 +346,7 @@ I följande tabell beskrivs attributen för den `RoleInstanceValue` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|XPath|sträng|Valfri. Sökvägen till distributionsinställningar för instansen. Mer information finns i [Configuration variabler med XPath](cloud-services-role-config-xpath.md).<br /><br /> Du måste inkludera värdeattributet eller en `RoleInstanceValue` element.|  
+|XPath|string|Valfri. Sökvägen till distributionsinställningar för instansen. Mer information finns i [Configuration variabler med XPath](cloud-services-role-config-xpath.md).<br /><br /> Du måste inkludera värdeattributet eller en `RoleInstanceValue` element.|  
 
 ##  <a name="EntryPoint"></a> EntryPoint  
 Den `EntryPoint` elementet anger startpunkten för en roll. Det här elementet har överordnat den `NetFxEntryPoint` element. De här elementen kan du ange ett annat program än standard WaWorkerHost.exe kan fungera som startpunkt för rollen.
@@ -363,8 +363,8 @@ I följande tabell beskrivs attributen för den `NetFxEntryPoint` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|assemblyName|sträng|Krävs. Sökvägen och namnet på den sammansättning som innehåller startpunkten. Sökvägen är i förhållande till mappen  **\\%ROLEROOT%\Approot** (ange  **\\%ROLEROOT%\Approot** i `commandLine`, förutsätts). **% ROLEROOT %** är en miljövariabel som underhålls av Azure och rollen representerar roten mappens plats för din roll. Den  **\\%ROLEROOT%\Approot** mappen representerar programmappen för din roll.<br /><br /> För programtillägget för hysningsbar Webbinstans roller är alltid förhållande till den  **\\%ROLEROOT%\Approot\bin** mapp.<br /><br /> För fullständiga IIS och IIS Express webbroller, om det inte går att hitta sammansättningen relativt till  **\\%ROLEROOT%\Approot** mappen den  **\\%ROLEROOT%\Approot\bin** söks igenom.<br /><br /> Den här faller tillbaka beteende för fullständig IIS är inte bästa praxis rekommenderar och kanske bort i framtida versioner.|  
-|targetFrameworkVersion|sträng|Krävs. Version av .NET framework som sammansättningen har skapats. Till exempel `targetFrameworkVersion="v4.0"`.|  
+|assemblyName|string|Krävs. Sökvägen och namnet på den sammansättning som innehåller startpunkten. Sökvägen är i förhållande till mappen  **\\%ROLEROOT%\Approot** (ange  **\\%ROLEROOT%\Approot** i `commandLine`, förutsätts). **% ROLEROOT %** är en miljövariabel som underhålls av Azure och rollen representerar roten mappens plats för din roll. Den  **\\%ROLEROOT%\Approot** mappen representerar programmappen för din roll.<br /><br /> För programtillägget för hysningsbar Webbinstans roller är alltid förhållande till den  **\\%ROLEROOT%\Approot\bin** mapp.<br /><br /> För fullständiga IIS och IIS Express webbroller, om det inte går att hitta sammansättningen relativt till  **\\%ROLEROOT%\Approot** mappen den  **\\%ROLEROOT%\Approot\bin** söks igenom.<br /><br /> Den här faller tillbaka beteende för fullständig IIS är inte bästa praxis rekommenderar och kanske bort i framtida versioner.|  
+|targetFrameworkVersion|string|Krävs. Version av .NET framework som sammansättningen har skapats. Till exempel `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="Sites"></a> Platser  
 Den `Sites` element beskriver en uppsättning webbplatser och webbprogram program som finns i en webbroll. Det här elementet har överordnat den `Site` element. Om du inte anger en `Sites` element, web-roll finns som äldre webbroll och du kan bara ha en webbplats på web-roll. Det här elementet är valfritt och en roll kan ha endast en platser-block.
@@ -380,8 +380,8 @@ I följande tabell beskrivs attributen för den `Site` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Namnet på webbplatsen eller programmet.|  
-|physicalDirectory|sträng|Platsen för innehållskatalog för platsens rot. Platsen kan anges som en absolut sökväg eller i förhållande till .csdef-platsen.|  
+|namn|string|Krävs. Namnet på webbplatsen eller programmet.|  
+|physicalDirectory|string|Platsen för innehållskatalog för platsens rot. Platsen kan anges som en absolut sökväg eller i förhållande till .csdef-platsen.|  
 
 ##  <a name="VirtualApplication"></a> VirtualApplication  
 Den `VirtualApplication` elementet definierar ett program i Internet Information Services (IIS) 7 är en gruppering av filer som levererar innehåll eller tillhandahåller tjänster över protokoll, t.ex HTTP. När du skapar ett program i IIS 7 blir programmets sökväg en del av webbplatsens URL.
@@ -392,8 +392,8 @@ I följande tabell beskrivs attributen för den `VirtualApplication` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Anger ett namn som identifierar det virtuella programmet.|  
-|physicalDirectory|sträng|Krävs. Anger sökvägen på utvecklingsdator som innehåller det virtuella programmet. IIS har konfigurerats för att hämta innehåll från den här platsen i compute-emulatorn. När du distribuerar till Azure måste paketeras innehållet i den fysiska katalogen tillsammans med resten av tjänsten. När service-paketet har distribuerats till Azure, har IIS konfigurerats med platsen för packa upp innehållet.|  
+|namn|string|Krävs. Anger ett namn som identifierar det virtuella programmet.|  
+|physicalDirectory|string|Krävs. Anger sökvägen på utvecklingsdator som innehåller det virtuella programmet. IIS har konfigurerats för att hämta innehåll från den här platsen i compute-emulatorn. När du distribuerar till Azure måste paketeras innehållet i den fysiska katalogen tillsammans med resten av tjänsten. När service-paketet har distribuerats till Azure, har IIS konfigurerats med platsen för packa upp innehållet.|  
 
 ##  <a name="VirtualDirectory"></a> VirtualDirectory  
 Den `VirtualDirectory` elementet anger namnet på en katalog (kallas även sökväg) som du anger i IIS och mappa till en fysisk katalog på en lokal eller fjärransluten server.
@@ -404,8 +404,8 @@ I följande tabell beskrivs attributen för den `VirtualDirectory` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Anger ett namn som identifierar den virtuella katalogen.|  
-|värde|physicalDirectory|Krävs. Anger sökvägen på utvecklingsdator som innehåller webbplats eller virtuella kataloginnehållet. IIS har konfigurerats för att hämta innehåll från den här platsen i compute-emulatorn. När du distribuerar till Azure måste paketeras innehållet i den fysiska katalogen tillsammans med resten av tjänsten. När service-paketet har distribuerats till Azure, har IIS konfigurerats med platsen för packa upp innehållet.|  
+|namn|string|Krävs. Anger ett namn som identifierar den virtuella katalogen.|  
+|value|physicalDirectory|Krävs. Anger sökvägen på utvecklingsdator som innehåller webbplats eller virtuella kataloginnehållet. IIS har konfigurerats för att hämta innehåll från den här platsen i compute-emulatorn. När du distribuerar till Azure måste paketeras innehållet i den fysiska katalogen tillsammans med resten av tjänsten. När service-paketet har distribuerats till Azure, har IIS konfigurerats med platsen för packa upp innehållet.|  
 
 ##  <a name="Bindings"></a> Bindningar  
 Den `Bindings` element beskriver en uppsättning bindningar för en webbplats. Det är det överordnade elementet i den `Binding` element. Elementet måste anges för varje `Site` element. Mer information om hur du konfigurerar slutpunkter finns i [aktivera kommunikation för Rollinstanser](cloud-services-enable-communication-role-instances.md).
@@ -419,9 +419,9 @@ Den `Binding` element är bara tillgängliga med hjälp av Azure SDK-version 1.3
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|namn|sträng|Krävs. Anger ett namn som identifierar bindningen.|  
-|EndpointName|sträng|Krävs. Anger namnet på slutpunkten ska bindas till.|  
-|hostHeader|sträng|Valfri. Anger ett värdnamn som gör det möjligt att vara värd för flera platser med olika värdnamn, på en enda antalet IP-adress/Port-kombination.|  
+|namn|string|Krävs. Anger ett namn som identifierar bindningen.|  
+|EndpointName|string|Krävs. Anger namnet på slutpunkten ska bindas till.|  
+|hostHeader|string|Valfri. Anger ett värdnamn som gör det möjligt att vara värd för flera platser med olika värdnamn, på en enda antalet IP-adress/Port-kombination.|  
 
 ##  <a name="Startup"></a> Start  
 Den `Startup` element beskriver en uppsättning aktiviteter som körs när rollen har startats. Det här elementet kan vara överordnad till den `Variable` element. Läs mer om hur du använder startåtgärder rollen [så här konfigurerar du startåtgärder](cloud-services-startup-tasks.md). Det här elementet är valfritt och en roll kan ha endast en start-block.
@@ -441,9 +441,9 @@ I följande tabell beskrivs attributen för den `Task` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|Kommandorad|sträng|Krävs. Ett skript, till exempel en CMD-fil som innehåller kommandona som ska köras. Kommandot och batch startfiler måste sparas i ANSI-format. Filformat som en byte-ordningsmarkering markör i början av filen bearbetas inte korrekt.|  
-|executionContext|sträng|Anger kontext där skriptet körs.<br /><br /> -   `limited` [Standard] – köras med samma behörigheter som rollen som är värd för processen.<br />-   `elevated` – Kör med administratörsbehörighet.|  
-|taskType|sträng|Anger körningsbeteende av kommandot.<br /><br /> -   `simple` [Standard] – systemet väntar tills aktiviteten för att avsluta innan andra aktiviteter startas.<br />-   `background` – System väntar inte aktiviteten för att avsluta.<br />-   `foreground` – Liknar bakgrund, förutom rollen inte startas förrän alla uppgifter i förgrunden avsluta.|  
+|Kommandorad|string|Krävs. Ett skript, till exempel en CMD-fil som innehåller kommandona som ska köras. Kommandot och batch startfiler måste sparas i ANSI-format. Filformat som en byte-ordningsmarkering markör i början av filen bearbetas inte korrekt.|  
+|executionContext|string|Anger kontext där skriptet körs.<br /><br /> -   `limited` [Standard] – köras med samma behörigheter som rollen som är värd för processen.<br />-   `elevated` – Kör med administratörsbehörighet.|  
+|taskType|string|Anger körningsbeteende av kommandot.<br /><br /> -   `simple` [Standard] – systemet väntar tills aktiviteten för att avsluta innan andra aktiviteter startas.<br />-   `background` – System väntar inte aktiviteten för att avsluta.<br />-   `foreground` – Liknar bakgrund, förutom rollen inte startas förrän alla uppgifter i förgrunden avsluta.|  
 
 ##  <a name="Contents"></a> Innehållet  
 Den `Contents` element beskriver det innehåll för en webbroll. Det här elementet har överordnat den `Content` element.
@@ -459,7 +459,7 @@ I följande tabell beskrivs attributen för den `Content` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|mål|sträng|Krävs. Plats på virtuella Azure-datorer som innehållet ska placeras. Den här platsen är i förhållande till mappen **%ROLEROOT%\Approot**.|  
+|mål|string|Krävs. Plats på virtuella Azure-datorer som innehållet ska placeras. Den här platsen är i förhållande till mappen **%ROLEROOT%\Approot**.|  
 
 Det här elementet har det överordnade elementet i den `SourceDirectory` element.
 
@@ -472,7 +472,7 @@ I följande tabell beskrivs attributen för den `SourceDirectory` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|sökväg|sträng|Krävs. Relativ eller absolut sökväg till en lokal katalog vars innehåll ska kopieras till Azure-dator. Utökningen av miljövariabler i sökvägen till stöds.|  
+|sökväg|string|Krävs. Relativ eller absolut sökväg till en lokal katalog vars innehåll ska kopieras till Azure-dator. Utökningen av miljövariabler i sökvägen till stöds.|  
   
 ## <a name="see-also"></a>Se även
 [Molnet (klassisk) Tjänstdefinitionsschemat](schema-csdef-file.md)

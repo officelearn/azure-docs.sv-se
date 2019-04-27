@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771981"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurera aviseringar för Azure Stream Analytics-jobb
 
@@ -46,7 +46,7 @@ I följande exempel visar hur du ställer in aviseringar för när dina jobb fö
 
    ![Ställa in en avisering för Azure Streaming Analytics-jobb](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. Den **RESOURCE**, **villkor**, och **ÅTGÄRDSGRUPPER** måste var och en post. Observera att de definierade villkoren för aviseringar som utlöses, måste vara uppfyllda. Du kan till exempel mäta medelvärdet för ett mått på under de senaste 15 minuterna, var femte minut.
+7. Den **RESOURCE**, **villkor**, och **ÅTGÄRDSGRUPPER** måste var och en post. Observera att de definierade villkoren för aviseringar som utlöses, måste vara uppfyllda. Du kan till exempel mäta medelvärdet för ett mått för de senaste 15 minuterna, var femte minut.
 
    ![Skapa aviseringsregel för Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 

@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 3c98359950bd9539ea75f5a031ac1ce9f2ebe812
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736725"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Självstudier: Lägg till en anpassad domän i din Front Door
 I den här självstudien får du lära dig hur du lägger till en anpassad domän i Front Door. När du använder Azure Front Door-tjänsten för programleverans behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din slutanvändarbegäran. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte.
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du kan slutföra stegen i den här kursen behöver du skapa en Front Door. Mer information finns i [ Snabbstart: Skapa en Front Door](quickstart-create-front-door.md).
 
@@ -62,7 +62,7 @@ Så här skapar du en CNAME-post med underdomänen afdverify:
 
 3. Skapa en CNAME-post för din anpassade domän och fyll i fälten enligt tabellen nedan (fältnamnen kan variera):
 
-    | Källa                    | Type  | Mål                     |
+    | Källa                    | Typ  | Mål                     |
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso.azurefd.net |
 
@@ -139,7 +139,7 @@ Skapa en CNAME-post för den anpassade domänen:
 
 3. Skapa en CNAME-post för din anpassade domän och fyll i fälten enligt tabellen nedan (fältnamnen kan variera):
 
-    | Källa          | Type  | Mål           |
+    | Källa          | Typ  | Mål           |
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso.azurefd.net |
 

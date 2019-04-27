@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
 ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60728074"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Med hjälp av funktioner i Azure Monitor log-frågor
 
@@ -39,7 +39,7 @@ Skapa en funktion med Log Analytics i Azure portal genom att klicka på **spara*
 | Namn           | Namn för frågan i **frågeutforskaren**. |
 | Spara som        | Funktion |
 | Funktionsalias | Kort namn att använda funktionen i andra frågor. Får inte innehålla blanksteg och måste vara unika. |
-| Kategori       | En kategori för att organisera sparade frågor och funktioner i **frågeutforskaren**. |
+| Category       | En kategori för att organisera sparade frågor och funktioner i **frågeutforskaren**. |
 
 > [!NOTE]
 > En funktion i Azure Monitor får inte innehålla en annan funktion.

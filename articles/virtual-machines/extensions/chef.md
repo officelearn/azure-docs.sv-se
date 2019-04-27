@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
 ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800277"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Chef VM-tillägg för Linux och Windows
 
 Chef Software tillhandahåller en DevOps-plattform för automatisering för Linux och Windows som möjliggör hantering av både fysiska och virtuella serverkonfigurationer. VM-tillägget Chef är ett tillägg som möjliggör Chef på virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -71,8 +71,8 @@ Följande JSON visar schemat för VM-tillägget Chef. Tillägget som kräver min
 | Namn | Värdet / exempel | Datatyp
 | ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | sträng (datum) |
-| utgivare | `Chef.Bootstrap.WindowsAzure` | sträng |
-| typ | `LinuxChefClient` (Linux), `ChefClient` (Windows) | sträng |
+| utgivare | `Chef.Bootstrap.WindowsAzure` | string |
+| typ | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | sträng (double) |
 
 ### <a name="settings"></a>Inställningar
@@ -80,14 +80,14 @@ Följande JSON visar schemat för VM-tillägget Chef. Tillägget som kräver min
 | Namn | Värdet / exempel | Datatyp | Krävs?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | sträng (url) | Y |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | sträng | Y |
-| inställningar/runlist | `recipe[mycookbook::default]` | sträng | Y |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
+| inställningar/runlist | `recipe[mycookbook::default]` | string | Y |
 
 ### <a name="protected-settings"></a>Skyddade inställningarna
 
 | Namn | Exempel | Datatyp | Krävs?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | sträng | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 
 <!--
 ### Linux-specific settings

@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7827cee2af2dfc0c1fddc407c1d146dc9a66c514
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607596"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Definiera och Använd moderering jobb (REST)
 
 Ett jobb för moderering fungerar som en sorts Omslutning för funktionerna i innehållsmoderering, arbetsflöden och granskningar. Den här guiden visar hur du använder jobbet REST API: er för att initiera och kontrollera innehållsmoderering jobb. När du förstår hur API: er kan portera du enkelt dessa anrop till valfri REST-kompatibel plattform.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
 - (Valfritt) [Definierar ett anpassat arbetsflöde](./Review-Tool-User-Guide/Workflows.md) ska användas med dina jobb; du kan också använda standardarbetsflödet.

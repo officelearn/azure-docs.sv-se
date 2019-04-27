@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f525e68502e32a3f9c7e7cebe6d45627f9077c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 09df1421d6deae6db305cef2a46d6c40d0c12ba3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835897"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Haveriberedskap för en Oracle Database 12c-databas i en Azure-miljö
 
@@ -32,7 +32,7 @@ ms.locfileid: "39495035"
 ## <a name="goals"></a>Mål
 - Utforma topologi och konfiguration som uppfyller dina krav på disaster recovery (DR).
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scenario 1: Den primära servern och DR-platser på Azure
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scenario 1: Primära och DR-platser på Azure
 
 En kund med en Oracle database set upp på den primära platsen. Det är en DR-plats i en annan region. Kunden använder Oracle Data Guard för snabb återställning mellan dessa platser. Den primära platsen har också en sekundär databas för rapportering och andra användningsområden. 
 
@@ -52,7 +52,7 @@ Här följer en sammanfattning av installationsprogrammet för Azure:
 
 ![Skärmbild av sidan DR-topologi](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
-## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scenario 2: Primär plats på plats och DR-webbplats på Azure
+## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scenario 2: Primär plats på lokalt och DR-webbplats på Azure
 
 En kund har en lokal Oracle database-installation (primär plats). En DR-plats finns på Azure. Oracle Data Guard används för snabb återställning mellan dessa platser. Den primära platsen har också en sekundär databas för rapportering och andra användningsområden. 
 

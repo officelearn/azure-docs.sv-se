@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734362"
 ---
 # <a name="assets"></a>Tillgångar
 
@@ -34,18 +34,18 @@ Den **Arkiv** lagringsnivå rekommenderas endast för mycket stora källfiler so
 
 En av de vanliga arbetsflödena för Media Services är att överföra, koda och överföra en fil. Det här avsnittet beskrivs de allmänna stegen.
 
-1. Använd Media Services v3-API för att skapa en ny ”in” tillgång. Den här åtgärden skapar en behållare i lagringskontot som associerats med Media Services-kontot. API: et returnerar behållarens namn (till exempel `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+1. Använd Media Services v3 API för att skapa en ny ”indataresurs”. Den här åtgärden skapar en container i det lagringskonto som associeras med ditt Media Services-konto. API: et returnerar behållarens namn (till exempel `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
-    Om du redan har en blob-behållare som du vill associera med en tillgång kan du ange behållarens namn när du skapar tillgången. Media Services stöder för närvarande endast blobbar i behållaren roten och inte med sökvägar i filnamnet. Därför fungerar en behållare med namnet ”input.mp4”. En behållare med filnamnet ”videos/inputs/input.mp4” fungerar dock inte.
+    Om du redan har en blobcontainer som du vill associera med en tillgång kan du ange containerns namn när du skapar tillgången. Media Services stöder för närvarande endast blobar i containerroten och inte med sökvägar i filnamnet. Därmed fungerar en container med namnet ”input.mp4”. En container med filnamnet ”videos/inputs/input.mp4” fungerar dock inte.
 
-    Du kan använda Azure CLI för att ladda upp direkt till lagringskontot och behållaren som du har rättigheter till i din prenumeration. <br/>Behållarens namn måste vara unikt och Följ riktlinjerna för namngivning lagring. Namnet behöver inte följa Media Services tillgången behållarens namn (tillgångar-GUID) formatering. 
+    Du kan använda Azure CLI för att ladda upp direkt till valfritt lagringskonto och container som du har rättigheter till i din prenumeration. <br/>Containerns namn måste vara unikt och följa riktlinjerna för namngivning för lagring. Namnet måste inte följa formateringen för Media Services-tillgångscontainerns namn (tillgångs-GUID). 
     
     ```azurecli
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
-2. Hämta en SAS-URL med läs-och behörigheter som används för att ladda upp digitala filer till tillgången behållaren. Du kan använda Media Services-API till [lista över URL: er för tillgången behållare](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Använda Azure Storage API: er eller SDK: er (till exempel den [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) att ladda upp filer till tillgången behållaren. 
-4. Använd Media Services v3-API: er för att skapa en transformering och ett jobb för att bearbeta din ”in” tillgång. Mer information finns i [Transformeringar och jobb](transform-concept.md).
+2. Hämta en SAS-URL med läs- och skrivbehörigheter som används för att ladda upp digitala filer till tillgångscontainern. Du kan använda Media Services API för att [lista URL:er för tillgångscontainern](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+3. Använd Azure Storage-API:er eller -SDK:er (till exempel [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att ladda upp filer till tillgångscontainern. 
+4. Använd Media Services v3-API:er för att skapa en transformering och ett jobb för att bearbeta din ”indatatillgång”. Mer information finns i [Transformeringar och jobb](transform-concept.md).
 5. Stream innehållet från ”utdatatillgången”.
 
 För en fullständig .NET-exempel som visar hur du: skapa tillgången, få en skrivbar SAS-URL till den tillgången behållare i storage, ladda upp filen till behållaren i storage med SAS-Webbadressen, se [skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md).
@@ -60,7 +60,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 En REST-exempel finns i den [skapa en tillgång med REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) exempel.
 
-Exemplet visar hur du skapar den **Begärandetext** där du kan ange användbar information som beskrivning, behållarnamn, storage-konto och annan information.
+Exemplet visar hur du skapar **begärandetexten**, där du kan ange användbar information såsom beskrivning, containernamn, lagringskonto och annat.
 
 #### <a name="curl"></a>cURL
 
@@ -105,5 +105,5 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 ## <a name="next-steps"></a>Nästa steg
 
 * [Strömma en fil](stream-files-dotnet-quickstart.md)
-* [Med hjälp av ett moln-DVR](live-event-cloud-dvr.md)
+* [Använda en molnbaserad DVR-spelare](live-event-cloud-dvr.md)
 * [Skillnader mellan Media Services v2 och v3](migrate-from-v2-to-v3.md)

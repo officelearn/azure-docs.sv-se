@@ -1,5 +1,5 @@
 ---
-title: Med CI/CD med Azure Dev blanksteg
+title: Använda CI/CD med Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,11 +11,11 @@ manager: yuvalm
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
 ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768288"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60687375"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Använda CI/CD med Azure Dev blanksteg
 
@@ -25,7 +25,7 @@ Den här artikeln hjälper dig att konfigurera kontinuerlig integrering/kontinue
 
 Även om den här artikeln hjälper dig med Azure DevOps, skulle samma koncept gäller för CI/CD-system som Jenkins, TeamCity, osv.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * [Azure Kubernetes Service (AKS)-kluster med Azure Dev blanksteg aktiverat](../get-started-netcore.md)
 * [Azure CLI för utveckling blanksteg installerat](upgrade-tools.md)
 * [Azure DevOps-organisation med ett projekt](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)

@@ -12,13 +12,13 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827909"
 ---
-# <a name="translator-speech-api-languages"></a>API för Talöversättning: Languages
+# <a name="translator-speech-api-languages"></a>API för Talöversättning: Språk
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -132,18 +132,18 @@ Langagues {tal (object, valfritt), text (object, valfritt), text till tal (objec
 
 ### <a name="headers"></a>Rubriker
 
-|Huvud|Beskrivning|Type|
+|Huvud|Beskrivning|Typ|
 :--|:--|:--|
-X-RequestId|Värde som genereras av server för att identifiera begäran och används för felsökning.|sträng|
+X-RequestId|Värde som genereras av server för att identifiera begäran och används för felsökning.|string|
 
 ### <a name="parameters"></a>Parametrar
 
 |Parameter|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|
-|API-versionen    |Versionen av API: et som begärs av klienten. Tillåtna värden är: `1.0`.|DocumentDB|sträng|
-|omfång  |Uppsättningar med språk som stöds eller röster för att återgå till klienten. Den här parametern har angetts som en kommaavgränsad lista över nyckelord. Följande nyckelord är tillgängliga:<ul><li>`speech`: Innehåller en uppsättning språk som stöds för att transkribera tal.</li><li>`tts`: Innehåller antal röster som stöds för text till tal-konvertering.</li><li>`text`: Innehåller en uppsättning språk som stöds för att översätta text.</li></ul>Om ett värde inte anges värdet för `scope` som standard `text`.|DocumentDB|sträng|
-|X-ClientTraceId    |En klientgenererade GUID som används för att spåra en begäran. För att underlätta felsökning av problem bör klienter ange ett nytt värde med varje begäran och logga den.|sidhuvud|sträng|
-|Accept-Language    |Vissa av fälten i svaret är namnen på språk eller regioner. Använd den här parametern för att ange språket där namnen som returneras. Språket har angetts genom att tillhandahålla en korrekt strukturerad BCP-47 som språktagg. Välj en tagg i listan över språkidentifierare som returneras med den `text` omfång. Språk som stöds inte tillhandahålls namnen på engelska.<br/>Till exempel använda värdet `fr` att begära namnen på franska eller använda värdet `zh-Hant` i begäran namn i traditionell kinesiska.|sidhuvud|sträng|
+|API-versionen    |Versionen av API: et som begärs av klienten. Tillåtna värden är: `1.0`.|DocumentDB|string|
+|omfång  |Uppsättningar med språk som stöds eller röster för att återgå till klienten. Den här parametern har angetts som en kommaavgränsad lista över nyckelord. Följande nyckelord är tillgängliga:<ul><li>`speech`: Innehåller en uppsättning språk som stöds för att transkribera tal.</li><li>`tts`: Innehåller antal röster som stöds för text till tal-konvertering.</li><li>`text`: Innehåller en uppsättning språk som stöds för att översätta text.</li></ul>Om ett värde inte anges värdet för `scope` som standard `text`.|DocumentDB|string|
+|X-ClientTraceId    |En klientgenererade GUID som används för att spåra en begäran. För att underlätta felsökning av problem bör klienter ange ett nytt värde med varje begäran och logga den.|sidhuvud|string|
+|Accept-Language    |Vissa av fälten i svaret är namnen på språk eller regioner. Använd den här parametern för att ange språket där namnen som returneras. Språket har angetts genom att tillhandahålla en korrekt strukturerad BCP-47 som språktagg. Välj en tagg i listan över språkidentifierare som returneras med den `text` omfång. Språk som stöds inte tillhandahålls namnen på engelska.<br/>Till exempel använda värdet `fr` att begära namnen på franska eller använda värdet `zh-Hant` i begäran namn i traditionell kinesiska.|sidhuvud|string|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 

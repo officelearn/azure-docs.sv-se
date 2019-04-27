@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d5b6f183a59e3f47aa5867b5e09e06541a6a67db
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60803238"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -21,7 +21,7 @@ Azure Service Fabric-kommandoradsgränssnittet (CLI) är ett kommandoradsverktyg
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera att din miljö har både Python och pip installerade före installationen. Mer information finns i [snabbstartdokumentationen för pip](https://pip.pypa.io/en/latest/quickstart/) och den officiella [dokumentationen för installation av Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 

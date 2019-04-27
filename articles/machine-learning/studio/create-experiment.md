@@ -11,11 +11,11 @@ ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
 ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753446"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Snabbstart: Skapa ditt första dataexperiment i Azure Machine Learning Studio
 
@@ -240,7 +240,7 @@ För all felstatistik gäller att mindre är bättre. Ett mindre värde anger at
 I den här snabbstarten skapade du ett enkelt experiment med hjälp av en exempeldatamängd. Fortsätt till självstudien om en förutsägande lösning för att utforska processen med att skapa och distribuera en modell i närmare detalj.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Utveckla en förutsägande lösning i Studio](tutorial-part1-credit-risk.md)
+> [Självstudie: Utveckla en förutsägande lösning i Studio](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 46b0599e6c4d5b4cc2dd9370a28616019b79b50d
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: f56882d2d73c85434c6f81972a06e5ea9ccdff99
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822050"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Översikt över Event Hubs – .NET Framework API
 
@@ -22,7 +22,7 @@ Den här artikeln sammanfattas några av nyckeln för Azure Event Hubs [.NET Fra
 
 [Övervakningsscenarier](event-hubs-metrics-azure-monitor.md) omfattar både hantering och körning. Detaljerad dokumentation om .NET-API: er, finns det [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs), och [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) referenser.
 
-## <a name="management-apis"></a>Management-API: er
+## <a name="management-apis"></a>API:er för hantering
 
 Om du vill utföra följande hanteringsåtgärder för måste du ha **hantera** behörigheter för Event Hubs-namnområde:
 
@@ -35,7 +35,7 @@ ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-### <a name="update"></a>Uppdatera
+### <a name="update"></a>Uppdatering
 
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);

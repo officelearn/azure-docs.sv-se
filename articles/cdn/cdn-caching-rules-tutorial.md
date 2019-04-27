@@ -15,22 +15,22 @@ ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684309"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Självstudie: Konfigurera Azure CDN-cachelagringsregler
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Självstudier: Ange Azure CDN-cachelagringsregler
 
 > [!NOTE] 
 > Azure CDN-cachelagringsregler är bara tillgängliga för **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai**. För **Azure CDN Premium från Verizon**, använd [Azure CDN-regelmotor](cdn-rules-engine.md) i portalen **Hantera** för liknande funktionalitet.
  
 
 Den här självstudien beskriver hur du kan använda cachelagringsregler i Azure Content Delivery Network (CDN) för att ange eller ändra standardbeteendet för giltighetstid för cache, både globalt och med anpassade villkor, till exempel en URL-sökväg och ett filnamnstillägg. Azure CDN har två typer av cachelagringsregler:
-- Globala cachelagringsregler: Du kan ange en regel för globala cachelagringsregler för varje slutpunkt i din profil, vilket påverkar alla förfrågningar till slutpunkten. Den globala cachelagringsregeln åsidosätter eventuella huvuden för HTTP-cachedirektiv, om angivna.
+- Globala cachelagringsregler: Du kan ange en global cachelagringsregeln för varje slutpunkt i din profil, vilket påverkar alla förfrågningar till slutpunkten. Den globala cachelagringsregeln åsidosätter eventuella huvuden för HTTP-cachedirektiv, om angivna.
 
-- Anpassade cachelagringsregler: Du kan ange en eller flera anpassade cachelagringsregler för varje slutpunkt i din profil. Anpassade cachelagringsregler matchar specifika sökvägar och filnamnstillägg, bearbetas i ordning och åsidosätter den globala cacheregeln om sådan finns. 
+- Anpassade cachelagringsregler: Du kan ange en eller flera anpassade cachelagringsreglerna för varje slutpunkt i din profil. Anpassade cachelagringsregler matchar specifika sökvägar och filnamnstillägg, bearbetas i ordning och åsidosätter den globala cacheregeln om sådan finns. 
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
+Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [ Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Öppna sidan för Azure CDN-cachelagringsregler
 

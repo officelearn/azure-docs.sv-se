@@ -9,11 +9,11 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729071"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
@@ -244,7 +244,7 @@ Mer detaljerad information om hur du använder signaturer för delad åtkomst oc
 
     Den här artikeln innehåller en förklaring av den SAS-modellen, exempel på signaturer för delad åtkomst och rekommendationer för bästa praxis använder SAS. Vi beskriver även återkallande av vilken behörighet.
 
-* Authentication
+* Autentisering
 
   * [Autentisering för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Signaturer för delad åtkomst har börjat självstudie

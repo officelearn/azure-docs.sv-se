@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608312"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudier: Moderering av videor och avskrifter
 
@@ -32,7 +32,7 @@ I den här självstudiekursen lär du dig att:
 > - Moderera avskriften med textändringstjänsten
 > - Lägga till den modererade avskriften i videogranskningen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Registrera dig för den [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) webbplats och skapa anpassade taggar. Se [använda taggar](Review-Tool-User-Guide/tags.md) om du behöver hjälp med det här steget.
 

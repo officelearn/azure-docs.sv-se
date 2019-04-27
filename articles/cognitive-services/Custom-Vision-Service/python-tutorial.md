@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
 ms.openlocfilehash: 47e2f2a03c08ae1e44dcba35b440880ce06f6f95
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816869"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision för Python SDK
 
 Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Python för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta projektets publicerade förutsägelse slutpunkts-URL och använder slutpunkten programmatiskt en bild. Använd det här exemplet som en mall för att skapa ditt eget Python-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du i stället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - [Python 2.7+ eller 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/)-verktyget

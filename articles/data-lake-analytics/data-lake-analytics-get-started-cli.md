@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 9d9d5a7232529989901709013dcfac12f94afad0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812757"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure CLI
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Den här artikeln beskriver hur du använder kommandoradsgränssnittet för Azure CLI för att skapa Azure Data Lake Analytics-konton, skicka USQL jobb och kataloger. Jobbet läser en fil med tabbavgränsade värden (TVS) och konverterar den till en fil med kommaavgränsade värden (CSV). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar behöver du följande:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).

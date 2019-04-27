@@ -12,11 +12,11 @@ ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
 ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60781348"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Säkerhetskopiera en virtuell dator i Azure
 Du kan skapa Azure-säkerhetskopior via Azure Portal. Med den här metoden får du ett webbläsarbaserat användargränssnitt för att skapa och konfigurera Azure-säkerhetskopior och alla relaterade resurser. Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som kan lagras i geo-redundanta återställningsvalv. Den här artikeln beskriver hur du säkerhetskopierar en virtuell dator med Azure Portal. 

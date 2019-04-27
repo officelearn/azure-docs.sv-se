@@ -15,11 +15,11 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 576627c96b19dd3563ab21a5d478b779e4a3ed64
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731602"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60839002"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- och runtime korrigeringar i Azure App Service
 
@@ -88,8 +88,8 @@ I följande tabell visas de versioner av Windows och språk-runtime som kör din
 | Information | Var du hittar den | 
 |-|-|
 | Windows-version | Se `https://<appname>.scm.azurewebsites.net/Env.cshtml` (under systeminformation) |
-| .NET-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
-| .NET core-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br> `dotnet --version` |
+| .NET version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| .NET Core version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br> `dotnet --version` |
 | PHP-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br> `php --version` |
 | Node.js-standardversion | I den [Cloud Shell](../cloud-shell/overview.md), kör du följande kommando: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Python-version | Vid `https://<appname>.scm.azurewebsites.net/DebugConsole`, kör du följande kommando i Kommandotolken: <br> `python --version` |  

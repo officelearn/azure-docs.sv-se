@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fa5280fd834d6defaf2816167a73bf72dc3d0a1c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729876"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Hantera Azure och AppSource Marketplace-erbjudanden
 
@@ -33,9 +33,9 @@ Partnerportalen i molnet gör det möjligt för utgivare att utföra följande g
 |     Åtgärd      |  Beskrivning                                           |
 |     ---------      |  -----------                                           |
 | [Skapa erbjudande](./cpp-create-offer.md)   | Skapar en väntande erbjudandet post i onboarding-databasen, men automatiskt publicerar inte den till en Microsoft-marknadsplats | 
-| [Visa status för erbjudande](./cpp-view-status-offer.md)   | Innehåller publiceringsstatus för ett erbjudande.  Det finns flera platser i portalen där statusinformation visas. |
+| [Visa erbjudandestatus](./cpp-view-status-offer.md)   | Innehåller publiceringsstatus för ett erbjudande.  Det finns flera platser i portalen där statusinformation visas. |
 | [Publicera erbjudande](./cpp-publish-offer.md) | Verifierar och sedan publicerar en slutförd erbjudande-post till rätt Microsoft marketplace.  Erbjudandet anses sedan vara *live*. |
-| [Uppdatera erbjudandet](./cpp-update-offer.md)   | Tillåter ändringar av vissa egenskaper för ett befintligt erbjudande.  Gäller för både väntande och publicerade erbjudanden. |
+| [Uppdatera erbjudande](./cpp-update-offer.md)   | Tillåter ändringar av vissa egenskaper för ett befintligt erbjudande.  Gäller för både väntande och publicerade erbjudanden. |
 | [Ta bort erbjudande](./cpp-delete-offer.md)   | Tar bort en befintlig väntande eller live-erbjudandet.  | 
 |  |  |
   

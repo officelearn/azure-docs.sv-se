@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743673"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduktion till Service Fabric cluster resource manager
 Traditionellt hanterar IT-system eller onlinetjänster avsedda tilldela specifika fysiska eller virtuella datorer till de specifika tjänster eller system. Tjänster har byggts som nivåer. Det skulle vara en ”web” och en ”data” eller ”storage” nivå. Program behöver messaging-nivån där förfrågningar federationssida in och ut, samt en uppsättning datorer som är dedikerad till cachelagring. Varje nivå eller typ av arbetsbelastning hade specifika datorer som är dedikerad till den: databasen har några datorer som är dedikerad till den, webbservrar ett fåtal. Om en viss typ av arbetsbelastning orsakade de datorer som den var på att köra för varmt och sedan du har lagt till fler datorer med samma konfigurationen till den nivån. Men inte alla arbetsbelastningar kan skaländras ut så enkelt – särskilt med datanivå skulle du normalt ersätta datorer med större datorer. Enkelt. Om en dator inte kördes som en del av det övergripande programmet vid lägre kapacitet tills datorn kunde återställas. Fortfarande ganska enkelt (om det är inte nödvändigtvis roliga).

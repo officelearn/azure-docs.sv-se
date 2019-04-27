@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740447"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
 
@@ -113,7 +113,7 @@ Du kan fråga efter jobbstatus för körning på varje enhet med hjälp av den [
 
 I följande lista visar egenskaper och motsvarande beskrivningar som kan användas vid fråga för jobb eller jobbresultat.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 | --- | --- |
 | **jobId** |Programmet ange ID för jobbet. |
 | **startTime** |Program tillhandahålls Starttid (ISO 8601-) för jobbet. |

@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708625"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob-filsystem drivrutinen (ABFS): En dedikerad Azure Storage-drivrutin för Hadoop
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Internt ABFS drivrutinen översätter resurserna som anges i URI: N till filer och kataloger och gör anrop till Azure Data Lake Storage REST API med dessa referenser.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 ABFS-drivrutinen stöder två typer av autentisering så att Hadoop-program kan få säker åtkomst till resurser som ingår i ett kompatibelt Gen2 för Data Lake Storage-konto. Fullständig information om tillgängliga autentiseringsmetoder finns i den [säkerhetsguiden för Azure Storage](../common/storage-security-guide.md). De är:
 

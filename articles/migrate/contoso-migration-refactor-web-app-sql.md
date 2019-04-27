@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60673075"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso-migrering: Omstrukturera en lokal app till en Azure Web App och Azure SQL-databas
 
@@ -113,7 +113,7 @@ Contoso utvärderar sina föreslagna design genom att sätta ihop en lista med f
 [Azure App Services – Web Apps](https://docs.microsoft.com/azure/app-service/overview) | Skapa kraftfulla molnappar med en helt hanterad plattform | Kostnader beroende på storleken, plats och användning varaktighet. [Läs mer](https://azure.microsoft.com/pricing/details/app-service/windows/).
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Innehåller en kontinuerlig integrering och kontinuerlig distribution (CI/CD) pipeline för utveckling av appar. Pipelinen börjar med en Git-lagringsplats för att hantera kod, ett versionssystem för att producera paket och andra byggartefakter och ett Release Management-system för att distribuera ändringar i utveckling, testning och produktionsmiljöer. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Här är Contoso måste köra det här scenariot:
 

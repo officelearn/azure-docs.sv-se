@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741038"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Ladda upp filer från din enhet till molnet med IoT Hub med .NET
 
@@ -29,7 +29,7 @@ Den här självstudien bygger på koden i den [skicka meddelanden från moln til
 Den [skickar telemetri från en enhet till IoT hub](quickstart-send-telemetry-dotnet.md) och [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-csharp-csharp-c2d.md) artiklar visar de grundläggande funktionerna av enhet till moln och från moln till enhet meddelanden i IoT Hub. Den [konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) självstudien beskrivs ett sätt att pålitligt lagra meddelanden från enheten till molnet i Azure blob storage. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
 
 * Stora filer som innehåller bilder
-* Videor
+* Videoklipp
 * Vibrationer data samplas med hög frekvens
 * Någon form av förbearbetade data
 

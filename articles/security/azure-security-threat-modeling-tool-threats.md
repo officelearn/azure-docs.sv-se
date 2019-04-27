@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611561"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft Threat Modeling Tool hot
 
@@ -37,7 +37,7 @@ Threat Modeling Tool får du svar på vissa frågor, såsom nedan:
 
 För bättre hjälp du formulera dessa typer av frågor som pekar, Microsoft använder STRIDE-modell som kategoriserar olika typer av hot och förenklar de övergripande säkerheten konversationerna.
 
-| Kategori | Beskrivning |
+| Category | Beskrivning |
 | -------- | ----------- |
 | **Spoofing** | Omfattar åtkomst till mjukvara och sedan använda en annan användares autentiseringsinformation, till exempel användarnamn och lösenord |
 | **Tampering** | Innebär att ändringar av data. Exempel obehöriga ändringar som gjorts beständiga data som lagras i en databas och ändring av data när den förs vidare mellan två datorer öppna nätverk, till exempel Internet |

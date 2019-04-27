@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618480"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Designöverväganden för Skalningsuppsättningar
 Den här artikeln beskriver designöverväganden för Skalningsuppsättningar för virtuella datorer. Information om Virtual Machine Scale Sets finns i [översikt över Skaluppsättningar för virtuell dator](virtual-machine-scale-sets-overview.md).
@@ -66,7 +66,7 @@ Medan överetablering förbättrar etablering framgångsfrekvens, kan det orsaka
 
 Om din skalningsuppsättning använder användarhanterade lagring och du väljer att inaktivera överetablering, du kan ha fler än 20 virtuella datorer per lagringskonto, men det rekommenderas inte att gå över 40 på grund av i/o-prestanda. 
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Limits
 En skalningsuppsättning som bygger på en Marketplace-avbildning (kallas även en plattformsavbildning) och konfigurerad för att använda Azure Managed Disks har stöd för en kapacitet på upp till 1 000 virtuella datorer. Om du konfigurerar din skalningsuppsättning till stöd för fler än 100 virtuella datorer fungerar på samma sätt (till exempel Utjämning av nätverksbelastning) i alla scenarier. Mer information finns i [arbeta med stora VM-skalningsuppsättningar](virtual-machine-scale-sets-placement-groups.md). 
 
 En skalningsuppsättning som är konfigurerade med användarhanterade storage-konton är för närvarande begränsad till 100 virtuella datorer (och rekommenderas för skalans 5 storage-konton).

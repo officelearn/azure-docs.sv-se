@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636765"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimering för nedladdning av stora filer med Azure CDN
 
@@ -110,8 +110,8 @@ Optimering av stora filer använder olika cachelagring giltighetstid standardtid
 
 |    | Allmän | Optimering av stora filer 
 --- | --- | --- 
-Cachelagring: positivt <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |1 dag  
-Cachelagring: negativt <br> HTTP 204, 305, 404, <br> och 405 | Ingen | 1 sekund 
+Caching: Positivt <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |1 dag  
+Caching: Negativt <br> HTTP 204, 305, 404, <br> och 405 | Ingen | 1 sekund 
 
 ### <a name="deal-with-origin-failure"></a>Hantera ursprung fel
 
@@ -125,7 +125,7 @@ I följande tabell visas en uppsättning kriterier uppfyllas för optimering av 
 
 Tillstånd | Värden 
 --- | --- 
-Filtyper som stöds | 3g 2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> GZ, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> MPEG, mpg, mts, pkg, qt, rm, SWF-, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
+Filtyper som stöds | 3g 2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> MPEG, mpg, mts, pkg, qt, rm, SWF-, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Minsta filstorlek | 10 MB 
 Maximal filstorlek | 150 GB 
 Ursprung server egenskaper | Måste ha stöd för begäranden med byte-intervall 

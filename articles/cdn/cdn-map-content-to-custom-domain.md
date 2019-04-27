@@ -15,11 +15,11 @@ ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636917"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudier: Lägga till en anpassad domän i din Azure CDN-slutpunkt
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
@@ -232,6 +232,6 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa kurs om du vill lära dig hur du konfigurerar HTTPS på en anpassad Azure CDN-domän.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md)
+> [Självstudie: Konfigurera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md)
 
 

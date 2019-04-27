@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60853328"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurera en anpassad Linux-behållare för Azure App Service
 
@@ -199,7 +199,7 @@ Följande konfigurationsalternativ har stöd för Kubernetes:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
+> [Självstudie: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Flera behållare WordPress-appen](tutorial-multi-container-app.md)
+> [Självstudie: Flera behållare WordPress-appen](tutorial-multi-container-app.md)

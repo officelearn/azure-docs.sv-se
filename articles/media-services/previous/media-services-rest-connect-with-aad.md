@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: 4b6bd97d7e87832f774f7a09f7e0deeb4047e695
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598572"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Använda Azure AD-autentisering för att få åtkomst till Media Services-API med REST
 
@@ -43,7 +43,7 @@ I den här guiden får du lära dig att:
 > [!IMPORTANT]
 > Media Services stöder för närvarande Azure Access Control services autentisering-modell. Dock gälla autentisering för Access Control upphör att den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - [Skapa ett Azure Media Services-konto med Azure portal](media-services-portal-create-account.md).

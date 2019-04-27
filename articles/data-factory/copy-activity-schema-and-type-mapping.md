@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615624"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktivitet
 Den här artikeln beskriver hur Azure Data Factory Kopieringsaktivitet utför schemamappning och datatypmappningen från källdata till mottagare data när kör Datakopieringen.
@@ -144,7 +144,7 @@ Om du använder syntaxen för `"columnMappings": "UserId: MyUserId, Group: MyGro
 
 Schemamappning gäller när du kopierar data mellan hierarkisk formade data och tabular-formade data, t.ex. kopiera från MongoDB/REST till textfil och kopiera från SQL till Azure Cosmos DB-API för MongoDB. Följande egenskaper stöds i kopieringsaktiviteten `translator` avsnittet:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för kopiera aktivitet translator måste anges till: **TabularTranslator** | Ja |
 | schemaMapping | En samling nyckel / värde-par som representerar mappning relationen **från källan sida till sida för mottagare**.<br/>- **Nyckel:** representerar källan. För **tabular källa**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska källa**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa.<br/>- **Värde:** representerar mottagare. För **tabular mottagare**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska mottagare**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa. <br/> När det gäller hierarkiska data för fält under rotobjektet, JSON-sökvägen som börjar med $; för fält inuti matrisen som väljs av `collectionReference` egenskapen startar JSON-sökvägen från matriselementet.  | Ja |
@@ -229,9 +229,9 @@ Du kan hitta mappningen mellan ursprunglig typ. till tillfälliga typ i avsnitte
 Data Factory stöder följande datatyper av mellanliggande: Du kan ange värdena nedan när du konfigurerar anger du följande information i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) konfiguration:
 
 * Byte[]
-* Boolesk
+* Boolean
 * DateTime
-* DateTimeOffset
+* Datetimeoffset
 * Decimal
 * Double
 * Guid

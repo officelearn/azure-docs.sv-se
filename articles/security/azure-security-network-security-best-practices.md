@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: TomSh
-ms.openlocfilehash: 86246d3d580737837ec07ccdc89ed82914cde209
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610964"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure-nätverk säkerhetsmetoder
 Du kan ansluta [virtuella Azure-datorer (VM)](https://azure.microsoft.com/services/virtual-machines/) och till andra nätverksenheter genom att placera dem på [virtuella Azure-nätverk](https://azure.microsoft.com/documentation/services/virtual-network/). Det vill säga kan du ansluta virtuella nätverkskort till ett virtuellt nätverk till att tillåta TCP/IP-baserad kommunikation mellan nätverk-aktiverade enheter. Virtuella datorer är anslutna till en Azure-nätverk kan ansluta till enheter på samma virtuella nätverk, olika virtuella nätverk, internet eller dina egna lokala nätverk.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441918"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656817"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Mallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
@@ -101,7 +101,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ### <a name="controls"></a>Kontroller  
  Den här mallen kan använda följande [sidan kontroller](api-management-page-controls.md).  
   
--   [Basic-inloggning](api-management-page-controls.md#basic-signin)  
+-   [basic-signin](api-management-page-controls.md#basic-signin)  
   
 -   [Providers](api-management-page-controls.md#providers)  
   
@@ -160,7 +160,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ### <a name="controls"></a>Kontroller  
  Den här mallen kan använda följande [sidan kontroller](api-management-page-controls.md).  
   
--   [Registrera dig](api-management-page-controls.md#sign-up)  
+-   [sign-up](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>Datamodell  
  [Användarregistrering](api-management-template-data-model-reference.md#UserSignUp) entitet.  
@@ -228,11 +228,11 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 |Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|referenceCode|sträng|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
-|errorCode|sträng|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
-|emailBody|sträng|E-brödtext som genereras om den här sidan visades som ett resultat av ett internt fel.|  
-|requestedUrl|sträng|Den Webbadress som efterfrågas när sidan inte hittades.|  
-|referrerUrl|sträng|Den begärda Webbadressen referent URL.|  
+|referenceCode|string|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
+|Felkod|string|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
+|emailBody|string|E-brödtext som genereras om den här sidan visades som ett resultat av ett internt fel.|  
+|requestedUrl|string|Den Webbadress som efterfrågas när sidan inte hittades.|  
+|referrerUrl|string|Den begärda Webbadressen referent URL.|  
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  
   

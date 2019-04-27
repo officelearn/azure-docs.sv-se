@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
 ms.openlocfilehash: 8a6a46708b78b3f92087ace02173f9f081fa85b2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794482"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med C#
 
@@ -25,7 +25,7 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på instrumentpanelen. 

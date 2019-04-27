@@ -11,11 +11,11 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809510"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -50,7 +50,7 @@ Traditionella säkerhetskopieringslösningar har utvecklats för att behandla mo
 ## <a name="which-azure-backup-components-should-i-use"></a>Vilka Azure Backup-komponenter ska jag använda?
 Använd följande tabell och få information om vad du kan skydda med varje Azure Backup-komponent.
 
-| Komponent | Fördelar | Begränsningar | Vad skyddas? | Var lagras säkerhetskopiorna? |
+| Komponent | Fördelar | Limits | Vad skyddas? | Var lagras säkerhetskopiorna? |
 | --- | --- | --- | --- | --- |
 | Azure Backup-agent (MARS) |<li>Säkerhetskopiera filer och mappar på en fysisk eller virtuell dator med Windows OS (virtuella datorer kan finnas lokalt eller i Azure)<li>Ingen separat säkerhetskopieringsserver krävs. |<li>Säkerhetskopiera 3 gånger per dag <li>Inte programmedveten, endast återställning på fil-/mapp-/volymnivå, <li>  Inget stöd för Linux. |<li>Filer, <li>Mappar, <li>Systemtillstånd |Recovery Services-valv |
 | System Center DPM |<li>Programmedvetna ögonblicksbilder (VSS)<li>Fullständig flexibilitet när du vill skapa säkerhetskopior<li>Återställningsprecision (allt)<li>Kan använda Recovery Services-valv<li>Linux-stöd på Hyper-V- och VMware-baserade virtuella datorer <li>Säkerhetskopiera och återställ virtuella VMware-datorer med DPM 2012 R2 |Det går inte att säkerhetskopiera Oracle-arbetsbelastningar.|<li>Filer, <li>Mappar,<li> Volymer, <li>Virtuella datorer,<li> Program,<li> Arbetsbelastningar <li>Systemtillstånd |<li>Recovery Services-valv,<li> Lokalt ansluten disk,<li>  Band (endast lokalt) |

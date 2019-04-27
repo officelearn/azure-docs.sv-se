@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
 ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799818"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-kommandon i Resource Manager-läge
 Den här artikeln innehåller syntax och alternativ för Azure-kommandoradsgränssnittet (CLI)-kommandon som du ofta använder för att skapa och hantera Azure-resurser i Azure Resource Manager-distributionsmodellen. Du har åtkomst till dessa kommandon genom att köra CLI i Resource Manager (arm)-läge. Detta är inte en fullständig referens och din CLI-version kan indikera att något annorlunda kommandon eller parametrar. En allmän översikt över Azure-resurser och resursgrupper finns [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -48,7 +48,7 @@ Använd följande kommando för att aktivera kommandon för Azure CLI Resource M
 > 
 > 
 
-## <a name="azure-account-manage-your-account-information"></a>Azure-konto: hantera din kontoinformation
+## <a name="azure-account-manage-your-account-information"></a>Azure-konto: Hantera din kontoinformation
 Din Azure-prenumerationsinformationen används av verktyget för att ansluta till ditt konto.
 
 **Lista över importerade prenumerationer**
@@ -75,7 +75,7 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad-commands-to-display-active-directory-objects"></a>Azure ad: kommandon för att visa Active Directory-objekt
+## <a name="azure-ad-commands-to-display-active-directory-objects"></a>Azure ad: Kommandon för att visa Active Directory-objekt
 **Kommandon för att visa active directory-program**
 
     ad app create [options]
@@ -150,7 +150,7 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group-commands-to-manage-your-resource-groups"></a>Azure-grupp: kommandon för att hantera dina resursgrupper
+## <a name="azure-group-commands-to-manage-your-resource-groups"></a>Azure-grupp: Kommandon för att hantera dina resursgrupper
 **Skapar en resursgrupp**
 
     group create [options] <name> <location>
@@ -189,7 +189,7 @@ Din Azure-prenumerationsinformationen används av verktyget för att ansluta til
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>Azure hdinsight: kommandon för att hantera dina HDInsight-kluster
+## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight: Kommandon för att hantera dina HDInsight-kluster
 **Kommandon för att skapa eller lägga till en konfigurationsfil för klustret**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -307,17 +307,17 @@ Parameteralternativ för:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>Azure insights: kommandon som är relaterade till övervakning insikter (händelse, Varningsregler, inställningarna för automatisk skalning, mått)
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>Azure insights: Kommandon som används för övervakning av insikter (händelse, Varningsregler, inställningarna för automatisk skalning, mått)
 **Hämta loggar för en prenumeration, en Korrelations-ID, en resursgrupp, resurs eller provider för nätverksresurser**
 
     insights logs list [options]
 
-## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure-plats: kommandon för att hämta de tillgängliga platserna för alla resurstyper
+## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure-plats: Kommandon för att hämta de tillgängliga platserna för alla resurstyper
 **Lista över tillgängliga platser**
 
     location list [options]
 
-## <a name="azure-network-commands-to-manage-network-resources"></a>Azure-nätverk: kommandon för att hantera nätverksresurser
+## <a name="azure-network-commands-to-manage-network-resources"></a>Azure-nätverk: Kommandon för att hantera nätverksresurser
 **Kommandon för att hantera virtuella nätverk**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -1504,7 +1504,7 @@ Parameteralternativ för:
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Azure-leverantören: kommandon för att hantera resource provider registreringar
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Azure-provider: Kommandon för att hantera resource provider registreringar
 **Lista över providers som är registrerade i Resource Manager**
 
     provider list [options]
@@ -1521,7 +1521,7 @@ Parameteralternativ för:
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource-commands-to-manage-your-resources"></a>Azure-resurs: kommandon för att hantera dina resurser
+## <a name="azure-resource-commands-to-manage-your-resources"></a>Azure-resurs: Kommandon för att hantera dina resurser
 **Skapar en resurs i en resursgrupp**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1542,7 +1542,7 @@ Parameteralternativ för:
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure-roll: kommandon för att hantera dina Azure-roller
+## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure-roll: Kommandon för att hantera dina Azure-roller
 **Hämta alla tillgängliga rolldefinitioner**
 
     role list [options]
@@ -1557,7 +1557,7 @@ Parameteralternativ för:
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>Azure storage: kommandon för att hantera din lagringsobjekt
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>Azure storage: Kommandon för att hantera din lagringsobjekt
 **Kommandon för att hantera dina lagringskonton**
 
     storage account list [options]
@@ -1680,7 +1680,7 @@ Parameteralternativ för:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Azure-tagg: kommandon för att hantera dina resource manager-tagg
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Azure-tagg: Kommandon för att hantera dina resource manager-tagg
 **Lägga till en tagg**
 
     tag create [options] <name> <value>
@@ -1697,7 +1697,7 @@ Parameteralternativ för:
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>Azure vm: kommandon för att hantera dina Azure-datorer
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>Azure vm: Kommandon för att hantera dina Azure-datorer
 **Skapa en virtuell dator**
 
     vm create [options] <resource-group> <name> <location> <os-type>

@@ -1,6 +1,6 @@
 ---
 title: GlusterFS på Azure virtuella datorer på Red Hat Enterprise Linux för SAP NetWeaver | Microsoft Docs
-description: GlusterFS på Azure virtuella datorer på Red Hat Enterprise Linux för SAP NetWeaver
+description: GlusterFS på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
 ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711277"
 ---
-# <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS på Azure virtuella datorer på Red Hat Enterprise Linux för SAP NetWeaver
+# <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP NetWeaver
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -117,7 +117,7 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
    Välj Tillgänglighetsuppsättning skapade tidigare  
 1. Lägga till en datadisk för alla SAP-system till båda de virtuella datorerna.
 
-### <a name="configure-glusterfs"></a>Konfigurera GlusterFS
+### <a name="configure-glusterfs"></a>Configure GlusterFS
 
 Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1, **[2]** – gäller endast för nod 2, **[3].**  – gäller endast för noden 3.
 
@@ -182,7 +182,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    sudo systemctl enable glusterd
    </code></pre>
 
-1. **[1]**  Skapa GluserFS
+1. **[1]** Create GluserFS
 
    Kör följande kommandon för att skapa klustret GlusterFS
 

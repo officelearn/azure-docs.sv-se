@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611324"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft Threat Modeling Tool åtgärder
 
@@ -31,7 +31,7 @@ Gå till den **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)*
 
 Threat Modeling Tool åtgärder kategoriseras enligt Web Application Security tidsperiod, som består av följande:
 
-| Kategori | Beskrivning |
+| Category | Beskrivning |
 | -------- | ----------- |
 | **[Granskning och loggning](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Vem gjorde vad och när? Granskning och loggning refererar till hur ditt program registrerar säkerhetsrelaterade händelser |
 | **[Autentisering](./azure-security-threat-modeling-tool-authentication.md)** | Vem är du? Autentisering är en process där en entitet bevisar identiteten för en annan entitet, vanligtvis via autentiseringsuppgifter, till exempel ett användarnamn och lösenord |

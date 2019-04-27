@@ -17,11 +17,11 @@ ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60863200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Självstudier: Azure Active Directory-integrering med Yonyx interaktiva guider
 
@@ -35,7 +35,7 @@ Integrera Yonyx interaktiva guider med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Yonyx interaktiva guider, behöver du följande objekt:
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 26041bbf392f9b2afaaf5af38f758deb7708b651
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734991"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Publicera checklista för Azure Marketplace    
 Granska nödvändiga komponenter innan du startar publiceringsprocessen.  
@@ -34,7 +34,7 @@ Följande artefakter krävs för att slutföra skapa erbjuder publicering på pa
 | Alla | Virtuell dator | <table> <tr><th>Teknisk Information</th></tr> <tr><td>Support-URL</td></tr> </table> |
 | Visa lista | Konsulttjänst | <table> <tr><th>Storefront information</th></tr> <tr><td>Varaktigheten för kundengagemang</td></tr> <tr><td>Logotyp (48 x 48, 216 x 216)</td></tr> </table> |  
 | Utvärdering | Alla | <table> <tr><th>Teknisk Information</th></tr> <tr><td>Utvärderingsversion URL</td></tr> <tr><td>Språk som stöds</td></tr> <tr><td>Appversionsnumret</td></tr> <tr><td>App lanseringsdatum</td></tr> <tr><td>Support-URL</td></tr> </table> |  
-| Utvärdering | Testkör | <table> <tr><th>Test Drive</th></tr> <tr><td>Beskrivning</td></tr> <tr><td>Varaktighet</td></tr> <tr><td>Användarhandbok</td></tr> <tr><td>Provkörning video (maximalt 1)</td></tr> <tr><td>Testa tillgängligheten för enheten land/region</td></tr> <tr><td>Azure-prenumerations-ID</td></tr> <tr><td>Azure AD-klient-ID</td></tr> <tr><td>Azure AD app-ID</td></tr> <tr><td>Azure AD app-nyckel</td></tr> </table> |  
+| Utvärdering | Testkör | <table> <tr><th>Test Drive</th></tr> <tr><td>Beskrivning</td></tr> <tr><td>Varaktighet</td></tr> <tr><td>Användarhandbok</td></tr> <tr><td>Provkörning video (maximalt 1)</td></tr> <tr><td>Testa tillgängligheten för enheten land/region</td></tr> <tr><td>Azure prenumerations-ID</td></tr> <tr><td>Azure AD-klient-ID</td></tr> <tr><td>Azure AD app-ID</td></tr> <tr><td>Azure AD app-nyckel</td></tr> </table> |  
 | Transaktion | Virtuell dator | <table> <tr><th>Butiker</th></tr> <tr><td>Rubrik (50 tecken)</td></tr> <tr><td>Sammanfattning (200 tecken)</td></tr> <tr><td>Lång Sammanfattning (256 tecken)</td></tr> <tr><td>HTML-baserad beskrivning (3 000 tecken)</td></tr> <tr><td>Logotyp (40 x 40, 90 x 90, 115 x 115, 255 x 115, 815 x 290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Information om operativsystem</td></tr> <tr><td>Portarna som används</td></tr> <tr><td>Protokoll som används</td></tr> <tr><td>Disk-version för varje virtuell Hårddisk som används</td></tr> <tr><td>SAS-URL för varje VHD används</td></tr> </table> |  
 | Transaktion | Azure-appar: Lösningsmall | <table> <tr><th>Butiker</th></tr> <tr><td>Rubrik (50 tecken)</td></tr> <tr><td>Sammanfattning (200 tecken)</td></tr> <tr><td>Lång Sammanfattning (256 tecken)</td></tr> <tr><td>HTML-baserad beskrivning (3 000 tecken)</td></tr> <tr><td>Logotyp (40 x 40, 90 x 90, 115 x 115, 255 x 115, 815 x 290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Versionsnummer</td></tr> <tr><td>Paketfil som innehåller<ul> <li>alla mallfiler</li> <li>filen createUIDefinition</li> </ul> </td></tr> </table> |  
 | Transaktion | Azure-appar: Hanterad app | <table> <tr><th>Butiker</th></tr> <tr><td>Rubrik (50 tecken)</td></tr> <tr><td>Sammanfattning (200 tecken)</td></tr> <tr><td>Lång Sammanfattning (256 tecken)</td></tr> <tr><td>HTML-baserad beskrivning (3 000 tecken)</td></tr> <tr><td>Logotyp (40 x 40, 90 x 90, 115 x 115, 255 x 115, 815 x 290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Versionsnummer</td></tr> <tr><td>Paketfil som innehåller<ul> <li>alla mallfiler</li> <li>filen createUIDefinition</li> </ul> </td></tr> </table> |  

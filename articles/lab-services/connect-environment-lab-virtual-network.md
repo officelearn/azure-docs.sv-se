@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: bb8b5f7d6578390fd0f48c3de154cfdb034ac6c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777176"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Ansluta en miljö till ditt labb-nätverk i Azure DevTest Labs
 Azure DevTest Labs gör det enkelt att skapa virtuella datorer i ett testlabb med [inbyggda funktioner för nätverk](devtest-lab-configure-vnet.md). Den har en massa flexibilitet med möjligheten att [skapa Konsekvens miljöer](devtest-lab-test-env.md). Den här artikeln visar hur du ansluter virtuella datorer i en miljö till det virtuella nätverket i labbet. Ett scenario där du använder den här funktionen kan du ställa in en N-nivå-app med en SQL Server-datanivå som är ansluten till lab VNet så att testet virtuella datorer i labbet för att komma åt den.  

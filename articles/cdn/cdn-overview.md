@@ -16,11 +16,11 @@ ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57843682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627459"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Vad är CDN på Azure?
 Ett nätverk för innehållsleverans (CDN, Content Delivery Network) är ett distribuerat nätverk av servrar som effektivt kan leverera webbinnehåll till användare. CDN-nät cachelagrar innehåll på edge-servrar på POP-platser (Point-of-Presence) som är nära slutanvändarna för att minimera fördröjningen. 

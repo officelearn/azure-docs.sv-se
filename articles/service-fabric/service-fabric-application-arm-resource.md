@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
 ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663136"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621470"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager-resurser
 
-Du kan distribuera program och tjänster till ditt Service Fabric-kluster via Azure Resource Manager. Det innebär att i stället för att distribuera och hantera program via PowerShell eller CLI efter att behöva vänta på att klustret är klar finns nu express program och tjänster i JSON och distribuera dem i samma Resource Manager-mallen som klustret. Processen för programregistrering, etablering och distribuera alla sker i ett steg.
+Du kan distribuera program och tjänster på ditt Service Fabric-kluster via Azure Resource Manager. Det innebär att i stället för att distribuera och hantera program via PowerShell eller CLI efter att behöva vänta på att klustret är klar finns nu express program och tjänster i JSON och distribuera dem i samma Resource Manager-mallen som klustret. Programregistrering, etablering och distribuering sker i ett enda steg.
 
 Det här är det rekommenderade sättet att distribuera valfri installation, styrning eller kluster hanteringsprogram som du behöver i ditt kluster. Detta inkluderar den [Patch Orchestration Application](service-fabric-patch-orchestration-application.md), Watchdogs eller program som måste köras i klustret innan andra program eller tjänster distribueras. 
 

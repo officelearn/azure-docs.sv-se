@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.openlocfilehash: 4fec60cdf3fcf24378567ea97dd7922c805cde18
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821621"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Strömma till Event Hubs för Apache Kafka
 Den här snabbstarten visar hur du strömmar till Kafka-aktiverade Event Hubs utan att ändra protokoll-klienter eller köra dina egna kluster. Du lär dig att använda dina tillverkare och konsumenter för att kommunicera med Kafka-aktiverade Event Hubs med bara en konfigurationsändring i dina program. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -21,7 +21,7 @@ Den här snabbstarten visar hur du strömmar till Kafka-aktiverade Event Hubs ut
 > [!NOTE]
 > Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här snabbstarten behöver du följande:
 

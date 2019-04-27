@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: b824c99a015cfa2c1d1c75e2a1257eff482e8dd6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60833308"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du använder Visual Studio 2017 för att skapa ett p
 
 Mer information om hur du arbetar med WebJobs SDK finns [hur du använder Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning](webjobs-sdk-how-to.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Installera Visual Studio 2017](/visualstudio/install/) med den **Azure development** arbetsbelastning. Om du redan har Visual Studio men inte har den arbetsbelastningen, lägger du till arbetsbelastningen genom att välja **Verktyg > Hämta verktyg och funktioner**.
 

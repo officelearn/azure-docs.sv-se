@@ -3,17 +3,17 @@ title: Azure IoT Hub Device Provisioning-tjänsten – symmetriska nyckelatteste
 description: Den här artikeln innehåller en översikt över symmetriska nyckelattestering med hjälp av IoT Device Provisioning-tjänsten.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 08/18/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
+manager: timlt
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746255"
 ---
 # <a name="symmetric-key-attestation"></a>Symmetrisk nyckelattestering
 

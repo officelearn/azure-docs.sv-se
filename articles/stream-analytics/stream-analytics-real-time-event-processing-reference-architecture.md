@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
 ms.openlocfilehash: 7f9748a4e4f1c86362781aa80d8958237c97106a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555446"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816956"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Referensarkitektur: Händelsebearbetning i realtid med Microsoft Azure Stream Analytics
 Referensarkitektur för händelsebearbetning i realtid med Azure Stream Analytics är avsedd att ge en allmän skiss för att distribuera en i realtid plattform som en tjänst (PaaS) bearbetning av dataströmmen lösning med Microsoft Azure.
@@ -36,7 +36,7 @@ Microsoft Azure tillhandahåller en omfattande katalog med analytics-tekniker so
   * Presentation / förbrukning Layer
 * Sammanfattning
 
-**Skapad av:** Charles Feddersen, Lösningsarkitekt, Insights Datacenter av expertcenter, Microsoft Corporation
+**Skapad av:** Charles Feddersen, Solution Architect, Data Insights Center of Excellence, Microsoft Corporation
 
 **Publicerad:** Januari 2015
 

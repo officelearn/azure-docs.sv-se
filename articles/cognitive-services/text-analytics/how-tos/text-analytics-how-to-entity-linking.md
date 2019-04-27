@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829726"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Hur du använder med namnet Entitetsidentifiering i textanalys
 
@@ -39,7 +39,7 @@ Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskaps
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Typer som stöds för igenkänning av namngivna entiteter
 
-| Type  | Undertyp | Exempel |
+| Typ  | Undertyp | Exempel |
 |:-----------   |:------------- |:---------|
 | Person        | EJ TILLÄMPLIGT\*         | "Jeff", "Bill Gates"     |
 | Location      | EJ TILLÄMPLIGT\*         | "Redmond, Washington", "Paris"  |

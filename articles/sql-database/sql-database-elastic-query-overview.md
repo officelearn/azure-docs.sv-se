@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/19/2019
 ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585718"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastisk fråga översikt (förhandsversion)
 
@@ -134,7 +134,7 @@ Du kan använda vanliga SQL Server-anslutningssträngar för att ansluta dina pr
 
 Elastisk fråga ingår i kostnaden för Azure SQL Database-databaser. Observera att topologier där remote databaserna är i ett annat Datacenter elastisk fråga slutpunkt stöds, men utgående data från fjärranslutna databaser debiteras regelbundet [Azure-avgifter](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
+## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
 * Kör din första elastisk fråga kan ta upp till några minuter på Standard-tjänstnivå. Nu är nödvändigt att läsa in de elastiska frågefunktioner; läser in prestanda förbättras med högre tjänste- och storlekar.
 * Kör skript på externa datakällor eller externa tabeller från SSMS eller SSDT stöds inte ännu.

@@ -11,11 +11,11 @@ ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646664"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -37,7 +37,7 @@ Den *hämta* URI: N har de obligatoriska parametrarna. Det finns inget behov av 
 
 ### <a name="responses"></a>Svar
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       Ok  |
 
@@ -137,7 +137,7 @@ Den `{containerName}` och `{protectedItemName}` som konstruerats [här](backup-a
 
 Här följer komponenterna i begärandetexten för att utlösa en diskåterställning från en virtuell Azure-säkerhetskopiering.
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -171,7 +171,7 @@ Utlösningen av en återställning disk är en [asynkron åtgärd](https://docs.
 
 Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |202-accepterad     |         |     Accepterad    |
 

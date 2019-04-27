@@ -1,10 +1,10 @@
 ---
-title: Introduktion till paketinsamling i Azure-Nätverksbevakaren | Microsoft Docs
-description: Den här sidan innehåller en översikt över Nätverksbevakaren paket avbilda kapaciteten
+title: Introduktion till infångade paket i Azure Network Watcher | Microsoft Docs
+description: Den här sidan innehåller en översikt över funktionen Network Watcher packet capture
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
 ms.service: network-watcher
@@ -13,48 +13,48 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 152cc8fb61aa6115c7b5863e4d798db9e7aa5b7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 3ca9619dcfe9054ab69d248e20f6d8e59324d308
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23864296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727037"
 ---
-# <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduktion till variabeln paketinsamling i Azure Nätverksbevakaren
+# <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduktion till variabla infångade paket i Azure Network Watcher
 
-Nätverket Watcher variabeln paketinsamling kan du skapa paket capture-sessioner för att spåra trafik till och från en virtuell dator. Paketet avbilda bidrar till att diagnostisera nätverk avvikelser båda reaktivt och proactivity. Andra användningsområden omfattar att samla in nätverksstatistik får information om nätverket intrång felsöka klient-/ serverkommunikation och mycket mer.
+Variabla infångade paket Network Watcher kan du skapa packet capture-sessioner för att spåra trafik till och från en virtuell dator. Packet capture bidrar till att diagnostisera nätverk avvikelser både reaktivt och proactivity. Andra användningsområden är att samla in nätverksstatistik, få information om nätverk intrång, felsöka klient-/ serverkommunikation och mycket mer.
 
-Paketinsamling är ett tillägg för virtuell dator som startas från en fjärrdator via Nätverksbevakaren. Den här funktionen underlättar för att köra en paketinsamling manuellt på den önskade virtuella datorn, vilket sparar värdefull tid. Paketinsamling kan aktiveras via portalen, PowerShell, CLI eller REST API. Ett exempel på hur paketinsamling kan utlösas är med virtuella aviseringar. Filter har angetts för hämtningens så du fånga in trafik som du vill övervaka. Filter baseras på 5-tuppel (protokoll, lokal IP-adress, fjärranslutna IP-adress, lokal port och Fjärrport) information. Fångade data lagras i den lokala disken eller en lagringsblob. Det finns en begränsning på 10 paket avbilda sessioner per region per prenumeration. Den här gränsen gäller bara för sessioner och gäller inte för sparade paket avbilda filer lokalt på den virtuella datorn eller i ett lagringskonto.
+Paketfångsten är ett tillägg för virtuell dator som startas via en fjärranslutning via Network Watcher. Den här funktionen förenklar arbetet med att köra ett infångat manuellt på den önskade virtuella datorn, vilket sparar värdefull tid. Paketfångsten kan aktiveras via portal, PowerShell, CLI eller REST API. Ett exempel på hur du kan aktivera infångade paket är med VM-aviseringar. Filter tillhandahålls för avbildningssessionen att se till att du fånga in trafik som du vill övervaka. Filter baseras på 5-tuppel (protokoll, lokala IP-adressen, IP-Fjärradress, lokal port och portar) information. Hämtade data lagras i den lokala disken eller en storage-blob. Det finns en gräns på 10 packet capture sessioner per region per prenumeration. Den här gränsen gäller enbart för sessioner och gäller inte för sparade paket avbilda filer lokalt på den virtuella datorn eller i ett lagringskonto.
 
 > [!IMPORTANT]
-> Paketinsamling kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Paketfångsten kräver tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows-VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och Linux VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
 
-För att minska den information du fånga in till bara den information som du vill, finns följande alternativ för en paket-avbildningssessionen:
+För att minska den information du avbildning till bara den information som du vill, finns följande alternativ för en packet capture session:
 
-**Samla in konfiguration**
+**Avbilda konfiguration**
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
-|**Maximalt antal byte per paket (byte)** | Antalet byte från varje paket som har hämtats avbildas alla byte om värdet är tomt. Antalet byte från varje paket som har hämtats avbildas alla byte om värdet är tomt. Om du behöver endast IPv4-huvud – ange 34 här |
-|**Maximalt antal byte per session (byte)** | Sammanlagt antal byte som fångas när värdet är nådd sessionen avslutas.|
+|**Maximalt antal byte per paket (byte)** | Hur många byte från varje paket som har hämtats, samlas alla byte om det lämnas tomt. Hur många byte från varje paket som har hämtats, samlas alla byte om det lämnas tomt. Om du behöver endast IPv4-rubrik – ange 34 här |
+|**Maximalt antal byte per session (byte)** | Sammanlagt antal byte i som fångas när värdet har nåtts sessionen avslutas.|
 |**Tidsgräns (sekunder)** | Anger en tidsbegränsning på paketet avbilda session. Standardvärdet är 18000 sekunder eller 5 timmar.|
 
 **Filtrering (valfritt)**
 
-|Egenskap|Beskrivning|
+|Egenskap |Beskrivning|
 |---|---|
-|**Protokoll** | Protokoll att filtrera för paket-avbildning. Tillgängliga värden är TCP, UDP och alla.|
-|**Lokal IP-adress** | Det här värdet filtrerar paketinsamling att paket där den lokala IP-adressen matchar den här filtervärdet.|
-|**Lokal port** | Det här värdet filtrerar paketinsamling att paket där den lokala porten matchar filtret värdet.|
-|**Fjärranslutna IP-adress** | Det här värdet filtrerar paketinsamling att paket där fjärranslutna IP-Adressen matchar den här filtervärdet.|
-|**Fjärrport** | Det här värdet filtrerar paketinsamling att paket där fjärrporten matchar filtret värdet.|
+|**Protokoll** | Protokollet som används för att filtrera för paketfångsten. Tillgängliga värden är TCP, UDP och alla.|
+|**Lokal IP-adress** | Det här värdet filtrerar infångade att paket där den lokala IP-adressen matchar den här filtervärde.|
+|**Lokal port** | Det här värdet filtrerar infångade att paket där den lokala porten som matchar den här filtervärde.|
+|**IP-Fjärradress** | Det här värdet filtrerar infångade att paket där fjärr-IP matchar den här filtervärde.|
+|**Fjärrport** | Det här värdet filtrerar infångade att paket där fjärrporten matchar den här filtervärde.|
 
 ### <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du kan hantera paket insamlingar via portalen genom att besöka [hantera paketinsamling i Azure portal](network-watcher-packet-capture-manage-portal.md) eller med PowerShell genom att besöka [hantera paket avbilda med PowerShell](network-watcher-packet-capture-manage-powershell.md).
+Lär dig hur du kan hantera infångade paket via portalen genom att besöka [hantera infångade paket i Azure-portalen](network-watcher-packet-capture-manage-portal.md) eller med PowerShell genom att besöka [hantera Paketfångst med PowerShell](network-watcher-packet-capture-manage-powershell.md).
 
-Lär dig hur du skapar proaktiv paket insamlingar baserat på virtuella aviseringar genom att besöka [skapar en avisering utlösta paketinsamling](network-watcher-alert-triggered-packet-capture.md)
+Lär dig hur du skapar proaktiv infångade paket baserat på varningar för virtuell dator genom att besöka [skapar en avisering utlösta paketfångsten](network-watcher-alert-triggered-packet-capture.md)
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png

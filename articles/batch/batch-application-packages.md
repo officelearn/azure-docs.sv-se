@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/15/2018
+ms.date: 04/05/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60722222"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till beräkningsnoder med Batch-programpaket
 
@@ -29,14 +29,11 @@ Funktionen programmet paket i Azure Batch tillhandahåller enkelt hantera uppgif
 I den här artikeln får lära du att ladda upp och hantera programpaket i Azure-portalen. Du lär dig sedan att installera dem på en poolens beräkningsnoder med den [Batch .NET] [ api_net] biblioteket.
 
 > [!NOTE]
-> 
 > Programpaket kan användas för alla Batch-pooler som skapats efter 5 juli 2017. De kan användas för Batch-pooler som skapats mellan 10 mars 2016 och 5 juli 2017, men endast om poolen skapades med en molntjänstkonfiguration. Programpaket kan inte användas för Batch-pooler som har skapats före 10 mars 2016.
 >
 > API: er för att skapa och hantera programpaket är en del av den [Batch Management .NET] [ api_net_mgmt] biblioteket. API: er för att installera programpaket på en beräkningsnod är en del av den [Batch .NET] [ api_net] biblioteket. Jämförbara funktioner finns i de tillgängliga Batch API: er för andra språk. 
 >
 > Funktionen programmet paket som beskrivs här ersätter funktionen Batch Apps finns i tidigare versioner av tjänsten.
-> 
-> 
 
 ## <a name="application-package-requirements"></a>Paketet programkrav
 Om du vill använda programpaket måste du [länkar ett Azure Storage-konto](#link-a-storage-account) till Batch-kontot.
@@ -116,6 +113,14 @@ Det här fönstret visar ID för varje program i ditt konto och följande egensk
 * **Paket**: Antal versioner som är associerade med det här programmet.
 * **Standardversion**: Programmets version installeras om du inte anger en version när du anger att programmet för en pool. Den här inställningen är valfri.
 * **Tillåt uppdateringar**: Det värde som anger om paketet uppdateringar, borttagningar och tillägg är tillåtna. Om detta är inställt på **nr**, paketuppdateringar och borttagningar är inaktiverat för programmet. Endast nya programpaketversioner kan läggas till. Standardinställningen är **Ja**.
+
+Om du skulle vilja se filstruktur av programpaketet på compute-nod, navigerar du till ditt Batch-konto i portalen. Batch-kontot, navigera till **pooler**. Välj den pool som innehåller compute-noder som du är intresserad av.
+
+![Noder i poolen][13]
+
+När du har valt din pool, navigera till Beräkningsnoden som programpaketet är installerad på. Därifrån kan information om programpaketet finns i den **program** mapp. Ytterligare mappar på Beräkningsnoden innehålla andra filer, till exempel startaktiviteter, utdatafilerna, Felutdata osv.
+
+![Filer i nod][14]
 
 ### <a name="view-application-details"></a>Visa programinformation
 Om du vill se information om ett program, väljer du programmet i den **program** fönster.
@@ -374,3 +379,5 @@ Med programpaket kan hjälpa du dina kunder Välj program för sitt arbete och a
 [10]: ./media/batch-application-packages/app_pkg_10.png "Välj bladet lagringskonto i Azure-portalen"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Uppdatera paketet bladet i Azure-portalen"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Ta bort paketet bekräftelsedialogrutan i Azure-portalen"
+[13]: ./media/batch-application-packages/package-file-structure.png "Compute-nodinformation i Azure-portalen"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Filer på Beräkningsnoden visas i Azure portal"

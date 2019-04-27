@@ -10,16 +10,16 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 348c28f6a2d72048e34f117e802abf243597b458
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425228"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737639"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario – etablera en virtuell dator i AWS
 I den här artikeln får du lära dig hur du kan utnyttja Azure Automation för att etablera en virtuell dator i Amazon Web Service (AWS)-prenumeration och ge den virtuella datorn till ett visst namn – AWS refererar till som ”taggning” den virtuella datorn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha ett Azure Automation-konto och en AWS-prenumeration för den här artikeln. Mer information om hur du konfigurerar ett Azure Automation-konto och konfigurera den med autentiseringsuppgifterna för din AWS-prenumeration [konfigurera autentisering med Amazon Web Services](automation-config-aws-account.md). Det här kontot ska skapas eller uppdateras med autentiseringsuppgifterna för din AWS prenumeration innan du fortsätter när du refererar till det här kontot i stegen nedan.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Distribuera Amazon Web Services PowerShell-modul

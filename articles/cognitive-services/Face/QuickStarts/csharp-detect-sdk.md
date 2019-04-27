@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630709"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815436"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Snabbstart: Identifiera ansikten i en bild med .NET SDK för ansiktsigenkänning
 
@@ -23,7 +23,7 @@ I den här snabbstarten ska du använda SDK för ansiktsigenkänningstjänsten m
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
@@ -98,4 +98,4 @@ Male 37   Female 56
 I den här snabbstarten har du skapat ett enkelt .NET-konsolprogram som kan använda tjänsten Ansikts-API till att identifiera ansikten i både lokala och fjärranslutna bilder. Följ sedan en mer djupgående självstudie för att se hur du kan visa ansiktsinformation för användaren på ett intuitivt sätt.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skapa en WPF-app för att upptäcka och analysera ansikten i en bild](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [Självstudie: Skapa en WPF-app för att upptäcka och analysera ansikten i en bild](../Tutorials/FaceAPIinCSharpTutorial.md)

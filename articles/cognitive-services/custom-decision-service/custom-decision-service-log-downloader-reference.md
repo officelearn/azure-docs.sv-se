@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
 ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109417"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829998"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
 Ladda ned loggfiler som produceras av Azure Custom Decision Service och generera de *.gz* filer som används av experimentering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Python 3: Installerad och i sökvägen. Vi rekommenderar den 64-bitars-versionen för att hantera stora filer.
 - Den *Microsoft/mwt-ds* lagringsplats: [Klona lagringsplatsen](https://github.com/Microsoft/mwt-ds).
@@ -44,8 +44,8 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | Indata | Beskrivning | Standard |
 | --- | --- | --- |
 | `-h`, `--help` | Visa hjälpmeddelande och avsluta. | |
-| `-a APP_ID`, `--app_id APP_ID` | App-ID (det vill säga namnet på Azure Storage blob-behållare). | Krävs |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | Den grundläggande katalogen för att ladda ned data (en undermapp skapas).  | Krävs |
+| `-a APP_ID`, `--app_id APP_ID` | App-ID (det vill säga namnet på Azure Storage blob-behållare). | Obligatoriskt |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | Den grundläggande katalogen för att ladda ned data (en undermapp skapas).  | Obligatoriskt |
 | `-s START_DATE`, `--start_date START_DATE` | Hämtning startdatum (inkluderat) är i *åååå-MM-DD* format. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | Hämtar slutdatumet (ingår), i *åååå-MM-DD* format. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Överskrivningsläge att använda. | |

@@ -10,17 +10,17 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770389"
 ---
 # <a name="how-to-use-the-azure-maps-android-sdk"></a>Hur du använder Azure Maps Android SDK
 
 Android SDK för Azure Maps är ett vector map-bibliotek för Android. Den här artikeln vägleder dig genom processerna för installation av Android SDK för Azure Maps, läser in en karta och placera en PIN-kod på kartan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 

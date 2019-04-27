@@ -12,11 +12,11 @@ author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
 ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819577"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Skapa och hantera Azure Machine Learning-tjänstens arbetsytor
 
@@ -59,4 +59,4 @@ Använd knappen Ta bort överst på arbetsytan som du vill ta bort.
 Följ den kompletta självstudiekursen lär du dig hur du använder en arbetsyta för att skapa, träna och distribuera modeller med Azure Machine Learning-tjänsten.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skapa modeller](tutorial-train-models-with-aml.md)
+> [Självstudie: Skapa modeller](tutorial-train-models-with-aml.md)

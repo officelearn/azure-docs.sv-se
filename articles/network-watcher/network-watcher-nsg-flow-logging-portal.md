@@ -3,8 +3,8 @@ title: Logga nätverkstrafik till och från en virtuell dator – Azure Portal |
 description: Lär dig hur du loggar nätverkstrafik till och från en virtuell dator med funktionen NSG-flödesloggar i Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726781"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure-portalen
 
@@ -50,7 +50,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
-    |Plats| Välj **USA, östra**|
+    |Location| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -89,7 +89,7 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
     | Inställning        | Värde                                                        |
     | ---            | ---   |
     | Namn           | 3 till 24 tecken långt, får endast innehålla gemener och siffror och måste vara unikt bland alla Azure Storage-konton.                                                               |
-    | Plats       | Välj **USA, östra**                                           |
+    | Location       | Välj **USA, östra**                                           |
     | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
 
     Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. Om du använder ett befintligt lagringskonto i stället för att skapa ett nytt väljer du ett lagringskonto där **Alla nätverk** (standard) har valts för **Brandväggar och virtuella nätverk** under **Inställningar** för lagringskontot.
@@ -205,7 +205,7 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 | 44931        | Källport            | Källporten som flödet kom från.                                           |
 | 443         | Målport       | Målporten som flödet skickades till. Eftersom trafiken skulle till port 443 bearbetades flödet av regeln med namnet **UserRule_default-allow-rdp** i loggfilen.                                                |
 | T            | Protokoll               | Anger om protokollet för flödet var TCP (T) eller UDP (U).                                  |
-| O            | Riktning              | Anger om trafiken var inkommande (I) eller utgående (O).                                     |
+| O            | Direction              | Anger om trafiken var inkommande (I) eller utgående (O).                                     |
 | A            | Åtgärd                 | Anger om trafiken tilläts (A) eller nekades (D).  
 | C            | Flödestillstånd **endast version 2** | Registrerad flödets tillstånd. Möjliga tillstånd är **B**: Början när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter för ett pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls. |
 | 30 | Skickade paket – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från källa till mål sedan den senaste uppdateringen. |

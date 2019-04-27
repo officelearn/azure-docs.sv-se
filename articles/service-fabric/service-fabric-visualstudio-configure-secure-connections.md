@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: 8d76a2144234591792359ed8dd4a0779e6a2fc5c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42054559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628310"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Konfigurera säkra anslutningar till ett Service Fabric-kluster från Visual Studio
 Lär dig hur du använder Visual Studio för att få säker åtkomst till ett Azure Service Fabric-kluster med principer för åtkomstkontroll konfigureras.
@@ -44,7 +44,7 @@ Den **publicera Service Fabric-program** dialogrutan verifierar automatiskt klus
 3. Välj den **publicera...**  på snabbmenyn för projektet för att öppna den **publicera Azure-program** dialogrutan och välj sedan målklustret. Verktyget löser anslutningen och sparar säker anslutningsparametrarna i profilen som automatiskt.
 4. Valfritt: Du kan redigera profilen som du anger en anslutning till ett säkert kluster.
    
-   Eftersom du redigerar manuellt publicera profil-XML-fil se till att notera Certifikatarkivets namn om du vill ange certifikatinformationen kan lagra plats och tumavtrycket för certifikatet. Du måste ange dessa värden för certifikatets store namn och plats. Se [så här: hämta tumavtrycket för ett certifikat](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) för mer information.
+   Eftersom du redigerar manuellt publicera profil-XML-fil se till att notera Certifikatarkivets namn om du vill ange certifikatinformationen kan lagra plats och tumavtrycket för certifikatet. Du måste ange dessa värden för certifikatets store namn och plats. Se [Anvisningar: Hämta tumavtrycket för ett certifikat](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) för mer information.
    
    Du kan använda den *ClusterConnectionParameters* parametrar för att ange PowerShell-parametrar som ska användas vid anslutning till Service Fabric-klustret. Giltiga parametrar är någon som accepteras av cmdleten Connect-ServiceFabricCluster. Se [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) en lista över tillgängliga parametrar.
    

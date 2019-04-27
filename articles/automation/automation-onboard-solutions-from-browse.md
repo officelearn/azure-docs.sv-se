@@ -10,11 +10,11 @@ ms.topic: article
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739039"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och inventering lösningar på flera virtuella datorer
 
@@ -59,7 +59,7 @@ Om arbetsytan som valts inte är länkad till ett Automation-konto, visas följa
 
 ![Ingen arbetsyta](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-När du aktiverar lösningar stöds endast i vissa regioner för att länka en Log Analytics-arbetsyta och ett Automation-konto.
+När du aktiverar lösningar går det endast att länka en Log Analytics-arbetsyta och ett Automation-konto i vissa regioner.
 
 I följande tabell visas mappningarna som stöds:
 

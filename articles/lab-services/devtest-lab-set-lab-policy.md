@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636527"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Hantera alla principer för ett labb i Azure DevTest Labs
 
@@ -91,7 +91,7 @@ Som labbägare kan konfigurera du ett schema för avstängning för alla virtuel
 
 1. På startsidan för labbet, väljer **konfiguration och principer**.
 2. Välj **automatisk avstängning princip** i den **scheman** avsnitt i den vänstra menyn.
-3. Välj något av alternativen. I följande avsnitt innehåller mer information om de här alternativen: set-principen gäller endast för nya virtuella datorer som skapas i labbet och inte för redan befintliga virtuella datorer. 
+3. Välj något av alternativen. I följande avsnitt innehåller mer information om dessa alternativ: Set-principen gäller endast för nya virtuella datorer som skapas i labbet och inte till de befintliga virtuella datorerna. 
 
     ![Alternativ för automatisk avstängning](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 

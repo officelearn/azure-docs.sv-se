@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691858"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
 Undantag i ditt live-webbapp som rapporteras av [Application Insights](../../azure-monitor/app/app-insights-overview.md). Du kan jämföra misslyckade begäranden med undantag och andra händelser på både klienten och servern, så att du kan snabbt diagnostisera orsakerna.
@@ -247,7 +247,7 @@ Ersätt attributet HandleError med din nya attribut i dina domänkontrollanter.
     ...
 ```
 
-[Exemplet](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
+[Exempel](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Registrera `AiHandleErrorAttribute` som ett globalt filter i Global.asax.cs:
@@ -262,7 +262,7 @@ Registrera `AiHandleErrorAttribute` som ett globalt filter i Global.asax.cs:
      ...
 ```
 
-[Exemplet](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
+[Exempel](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
@@ -278,7 +278,7 @@ Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
     }
 ```
 
-[Exemplet](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
+[Exempel](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## <a name="web-api"></a>Webb-API
 Från och med Application Insights Web SDK version 2.6 (beta3 och senare), Application Insights samlar in ett ohanterat undantag i kontrollantmetoder automatiskt för WebAPI 2 +. Om du har nyligen lagt till en anpassad hanterare för att spåra sådana undantag (som beskrivs i följande exempel), kan du ta bort den för att förhindra att dubbla spårning av undantag.
@@ -346,7 +346,7 @@ Du kan lägga till det här åsidosatt attributet till specifika domänkontrolla
     }
 ```
 
-[Exemplet](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
+[Exempel](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
 #### <a name="web-api-2x"></a>Webb-API 2.x
 Lägg till en implementering av IExceptionLogger:
@@ -401,7 +401,7 @@ Lägg till detta till tjänsterna i WebApiConfig:
      }
 ```
 
-[Exemplet](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
+[Exempel](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
 Alternativt kan du:
 
@@ -471,7 +471,7 @@ Add the attribute to the service implementations:
          ...
 ```
 
-[Exemplet](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
+[Exempel](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Prestandaräknare för undantag
 Om du har [installerat Application Insights-agenten](../../azure-monitor/app/monitor-performance-live-website-now.md) på servern, du kan få ett diagram över undantagshastighet, mätt av .NET. Detta inkluderar både hanterade och ohanterade undantag i .NET.

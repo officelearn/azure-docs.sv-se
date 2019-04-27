@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
 ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845791"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Skapa scheman för att spåra AS2-meddelanden och mdn måste specificeras i integrationskonton för Azure Logic Apps
 
@@ -67,15 +67,15 @@ För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-b
 | messageId | String | AS2 meddelande-ID, från rubriker för AS2-meddelande (valfritt) |
 | dispositionType |String | Meddelandet Disposition-Notification (MDN) disposition TYPVÄRDE. (Valfritt) |
 | fileName | String | Namnet på filen från rubriken för AS2-meddelandet. (Valfritt) |
-| isMessageFailed |Boolesk | Om AS2-meddelandet misslyckades. (Obligatorisk) |
-| isMessageSigned | Boolesk | Om AS2-meddelandet var signerad. (Obligatorisk) |
-| isMessageEncrypted | Boolesk | Om AS2-meddelandet krypterades. (Obligatorisk) |
-| isMessageCompressed |Boolesk | Om AS2-meddelandet har komprimerats. (Obligatorisk) |
+| isMessageFailed |Boolean | Om AS2-meddelandet misslyckades. (Obligatorisk) |
+| isMessageSigned | Boolean | Om AS2-meddelandet var signerad. (Obligatorisk) |
+| isMessageEncrypted | Boolean | Om AS2-meddelandet krypterades. (Obligatorisk) |
+| isMessageCompressed |Boolean | Om AS2-meddelandet har komprimerats. (Obligatorisk) |
 | correlationMessageId | String | AS2 meddelande-ID, att korrelera meddelanden med mdn måste specificeras. (Valfritt) |
 | incomingHeaders |Ordlista med JToken | AS2-huvud detaljer för inkommande meddelanden. (Valfritt) |
 | outgoingHeaders |Ordlista med JToken | Utgående AS2 information om meddelandet. (Valfritt) |
-| isNrrEnabled | Boolesk | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
-| isMdnExpected | Boolesk | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
+| isNrrEnabled | Boolean | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
+| isMdnExpected | Boolean | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
 | mdnType | Enum | Tillåtna värden är **NotConfigured**, **synkronisering**, och **Async**. (Obligatorisk) |
 ||||
 
@@ -120,9 +120,9 @@ För att du övervakar lyckades, fel och meddelandeegenskaper för business-to-b
 | messageId | String | AS2-meddelande-ID. (Valfritt) |
 | originalMessageId |String | AS2 ursprungliga meddelande-ID. (Valfritt) |
 | dispositionType | String | MDN disposition TYPVÄRDE. (Valfritt) |
-| isMessageFailed |Boolesk | Om AS2-meddelandet misslyckades. (Obligatorisk) |
-| isMessageSigned |Boolesk | Om AS2-meddelandet var signerad. (Obligatorisk) |
-| isNrrEnabled | Boolesk | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
+| isMessageFailed |Boolean | Om AS2-meddelandet misslyckades. (Obligatorisk) |
+| isMessageSigned |Boolean | Om AS2-meddelandet var signerad. (Obligatorisk) |
+| isNrrEnabled | Boolean | Använd standardvärdet om värdet inte är känd. (Obligatorisk) |
 | statusCode | Enum | Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
 | micVerificationStatus | Enum | Tillåtna värden är **NotApplicable**, **lyckades**, och **misslyckades**. (Obligatorisk) |
 | correlationMessageId | String | Korrelations-ID. Ursprungligt postmeddelandet ID (meddelande-ID för meddelandet som MDN har konfigurerats). (Valfritt) |

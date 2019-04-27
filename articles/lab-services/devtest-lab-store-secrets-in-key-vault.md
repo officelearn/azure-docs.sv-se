@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186840"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622942"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Store-hemligheter i key vault i Azure DevTest Labs
 Du kan behöva ange en komplex hemlighet när du använder Azure DevTest Labs: lösenordet för din Windows-VM, offentlig SSH-nyckel för Linux VM eller personlig åtkomsttoken att klona Git-lagringsplats via en artefakt. Hemligheter är vanligtvis långa och ha slumpmässiga tecken. Lägger till dem kan därför vara svårt och olämplig, särskilt om du använder samma hemlighet flera gånger.

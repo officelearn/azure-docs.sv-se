@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825446"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Data Factory
 > [!NOTE]
@@ -45,7 +45,7 @@ Den här artikeln innehåller stegvisa instruktioner för att flytta data till A
 >
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * Azure Blob Storage: det här experimentet använder Azure Blob Storage (GRS) för att lagra TPC-H testning datauppsättning.  Om du inte har ett Azure storage-konto, lär du dig [hur du skapar ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
 * [TPC-H](http://www.tpc.org/tpch/) data: Vi kommer att använda TPC-H som testar datamängd.  Om du vill göra det, måste du använda `dbgen` från TPC-H toolkit, som hjälper dig att skapa datauppsättningen.  Du kan antingen ladda ned källkoden för `dbgen` från [TPC verktyg](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) och kompilera den själv eller hämta kompilerade binärfilen från [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Kör dbgen.exe med följande kommandon för att generera 1 TB flat fil för `lineitem` tabellen sprids över 10 filer:
 
@@ -117,7 +117,7 @@ Den här artikeln innehåller stegvisa instruktioner för att flytta data till A
 3. I den **ny datafabrik** fönstret:
 
    1. Ange **LoadIntoSQLDWDataFactory** för den **namn**.
-       Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande fel: **Datafabriksnamnet ”LoadIntoSQLDWDataFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
+       Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **Datafabriksnamnet ”LoadIntoSQLDWDataFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
    2. Välj din Azure-**prenumeration**.
    3. För resursgruppen utför du något av följande steg:
       1. Välj **Använd befintlig** och välj en befintlig resursgrupp.

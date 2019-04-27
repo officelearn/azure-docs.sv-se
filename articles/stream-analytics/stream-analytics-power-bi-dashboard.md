@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817798"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Självstudier: Stream Analytics och Power BI: En instrumentpanel för analys i realtid för strömmande data
 Azure Stream Analytics kan du dra nytta av en av de ledande business intelligence-verktyg, [Microsoft Power BI](https://powerbi.com/). I den här artikeln får du lära dig hur skapa business intelligence-verktyg med Power BI som utdata för dina Azure Stream Analytics-jobb. Du också lära dig hur du skapar och använder en realtidsinstrumentpanel.
@@ -24,7 +24,7 @@ Den här artikeln fortsätter från Stream Analytics [bedrägerier i realtid](st
 Du kan titta på [en video](https://www.youtube.com/watch?v=SGUpT-a99MA) som illustrerar det här scenariot.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att du har följande innan du börjar:
 

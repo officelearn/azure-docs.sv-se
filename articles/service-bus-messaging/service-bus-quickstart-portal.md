@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594456"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabbstart: Skapa en Service Bus-kö i Azure-portalen
 Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med [Azure-portalen][Azure portal] för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).

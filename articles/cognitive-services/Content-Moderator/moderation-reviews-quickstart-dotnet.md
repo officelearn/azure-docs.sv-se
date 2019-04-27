@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
 ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607172"
 ---
 # <a name="create-human-reviews-net"></a>Skapa mänsklig granskning (.NET)
 
@@ -24,7 +24,7 @@ Granskningar lagra och visa innehållet för mänskliga moderatorer att utvärde
 - Skapa en uppsättning granskningar för mänskliga moderatorer
 - Hämta status för befintliga granskningar för mänskliga moderatorer
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
 

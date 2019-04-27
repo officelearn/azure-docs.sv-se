@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f84cb59e7d4fd7d8301d22348ca066a7f9d9e94e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813426"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Hantera Azure Data Lake Analytics med hjälp av principer
 
@@ -68,8 +68,8 @@ Du kan styra de maximala AU: er och den högsta prioritet som enskilda användar
 
 Data Lake Analytics har två principer som du kan ange på jobbnivån:
 
-* **AU-gräns per jobb**: användare kan bara skicka jobb som kan ha upp till det här antalet AU. Som standard är den här gränsen samma som den maximala AU-gränsen för kontot.
-* **Prioritet**: användare kan bara skicka jobb som har en prioritet lägre än eller lika med det här värdet. En hög siffra anger lägre prioritet. Den här gränsen är som standard till 1, vilket är den högsta möjliga prioriteten.
+* **AU-gräns per jobb**: Användare kan bara skicka jobb som kan har upp till det här antalet AU. Som standard är den här gränsen samma som den maximala AU-gränsen för kontot.
+* **Prioritet**: Användare kan bara skicka jobb som har en prioritet lägre än eller lika med det här värdet. En hög siffra anger lägre prioritet. Den här gränsen är som standard till 1, vilket är den högsta möjliga prioriteten.
 
 Det finns en standardprincip som på varje konto. Standardprincipen gäller för alla användare på kontot. Du kan ange ytterligare principer för specifika användare och grupper. 
 
@@ -82,8 +82,8 @@ Det finns en standardprincip som på varje konto. Standardprincipen gäller för
 1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
 2. Klicka på **Egenskaper**.
 3. Under **begränsningar för Jobbinlämning**, klickar du på den **Lägg till princip** knappen. Sedan, Välj eller ange följande inställningar:
-    1. **Compute principnamn**: Ange ett principnamn, som påminner dig om syftet med principen.
-    2. **Välj användare eller grupp**: Välj den användare eller grupper som principen gäller.
+    1. **Compute principnamn**: Ange ett namn på principen, som påminner dig om syftet med principen.
+    2. **Välj användare eller grupp**: Välj användaren eller gruppen som principen gäller.
     3. **Ställ in gräns för Australien i jobbet**: Ange AU-gräns som gäller för den valda användare eller grupp.
     4. **Ställ in gräns för prioritet**: Ställ in gräns för den priority som gäller för den valda användare eller grupp.
 

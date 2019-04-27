@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 4ff3f129838a43bd7684dc10e1653dab969e9c1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60669781"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso-migrering: Omstrukturera en Contoso Linux service desk-app till flera regioner med Azure App Service, Traffic Manager och Azure MySQL
 
@@ -113,7 +113,7 @@ Contoso kommer att slutföra migreringen på följande sätt:
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | Databasen är baserad på öppen källkod MySQL Server-motorn. Det ger en fullständigt hanterad, företagsfärdig community MySQL-databas som en tjänst för apputveckling och distribution. | Priser som baseras på beräkning, lagring och säkerhetskopiering. [Läs mer](https://azure.microsoft.com/pricing/details/mysql/).
 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Här är vad som behöver Contoso att köra det här scenariot.
 

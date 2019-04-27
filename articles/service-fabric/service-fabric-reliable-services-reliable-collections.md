@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 1/3/2019
 ms.author: aljo
 ms.openlocfilehash: 4ed76b207db4712058b5524cd1b31fd65b0e19a4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773641"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduktion till tillförlitliga samlingar i Azure Service Fabric tillståndskänsliga tjänster
 

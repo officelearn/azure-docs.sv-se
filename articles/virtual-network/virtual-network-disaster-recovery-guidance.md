@@ -1,6 +1,6 @@
 ---
-title: Kontinuitet för företag för virtuellt nätverk | Microsoft Docs
-description: Lär dig vad du ska göra om ett avbrott i Azure-tjänsten påverkar virtuella Azure-nätverk.
+title: Affärskontinuitet för virtuellt nätverk | Microsoft Docs
+description: Lär dig vad du gör i händelse av ett avbrott i Azure-tjänst påverkar Azure-nätverk.
 services: virtual-network
 documentationcenter: ''
 author: NarayanAnnamalai
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: d993144006d1fb17d79ffee4f2da538264a309a4
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742722"
 ---
 # <a name="virtual-network--business-continuity"></a>Virtuellt nätverk – kontinuitet för företag
 
 ## <a name="overview"></a>Översikt
-Ett virtuellt nätverk (VNet) är en logisk representation av ditt nätverk i molnet. Det gör att du kan definiera dina egna privata IP-adressutrymme och segmentera nätverket i undernät. Vnet fungerar som en förtroendegräns som värd för dina beräkningsresurser som Azure virtuella datorer och molntjänster (web/worker-roller). Ett virtuellt nätverk kan direkt privata IP-kommunikation mellan resurser i den. Du kan länka ett virtuellt nätverk till ett lokalt nätverk via en VPN-Gateway eller ExpressRoute.
+Ett virtuellt nätverk (VNet) är en logisk representation av ditt nätverk i molnet. Det kan du definiera egna privata IP-adressutrymme och segmentera nätverket i undernät. Virtuella nätverk fungerar som en förtroendegräns som värd för dina beräkningsresurser som Azure Virtual Machines och Cloud Services (web/worker-roller). Ett virtuellt nätverk kan direkt privata IP-kommunikation mellan de resurser som finns i den. Du kan länka ett virtuellt nätverk till ett lokalt nätverk via en VPN-Gateway eller ExpressRoute.
 
-Ett virtuellt nätverk skapas inom omfånget för en region. Du kan skapa Vnet med samma adressutrymme i två olika regioner (till exempel oss Öst och oss Väst), men det går inte att ansluta dem till varandra. 
+Ett virtuellt nätverk skapas inom omfånget för en region. Du kan skapa virtuella nätverk med samma adressutrymme i två olika regioner (till exempel USA, östra och USA, Väst), men det går inte att ansluta dem tillsammans. 
 
 ## <a name="business-continuity"></a>Verksamhetskontinuitet
 
-Det kan finnas flera olika sätt att programmet kan avbrytas. En region kan vara helt bruten på grund av en naturkatastrof eller partiell katastrofåterställning, på grund av ett fel i flera enheter eller tjänster. Påverkan på VNet-tjänsten är samma i alla dessa situationer.
+Det kan finnas flera olika sätt att ditt program kan avbrytas. En region kan helt klipps bort på grund av naturkatastrofer eller en partiell katastrof på grund av ett fel på flera enheter eller tjänster. Påverkan på VNet-tjänsten skiljer sig i var och en av dessa situationer.
 
-**F: Vad gör jag om ett avbrott inträffar för en hel region? Om exempelvis en region klipps helt av på grund av en naturkatastrof? Vad händer med virtuella nätverk finns i regionen?**
+**F: Vad gör jag om ett avbrott inträffar för en hel region? Om exempelvis en region är helt klipps bort på grund av en naturkatastrof? Vad händer med de virtuella nätverken finns i regionen?**
 
-S: det virtuella nätverket och resurser i den berörda regionen förblir oåtkomlig under tid då avbrott i tjänsten.
+S: Det virtuella nätverket och resurser i den berörda regionen förblir oåtkomlig vid tidpunkten för avbrott i tjänsten.
 
-![Enkel virtuella nätverksdiagram](./media/virtual-network-disaster-recovery-guidance/vnet.png)
+![Diagram över enkla virtuellt nätverk](./media/virtual-network-disaster-recovery-guidance/vnet.png)
 
-**F: Vad kan jag återskapa samma virtuella nätverk i en annan region?**
+**F: Vad kan jag göra återskapa samma virtuella nätverk i en annan region?**
 
-S: virtuella nätverk är ganska enkel resurser. Du kan anropa Azure API: er för att skapa ett virtuellt nätverk med samma adressutrymmet i en annan region. Om du vill återskapa samma miljö som fanns i den berörda regionen du API-anrop för att distribuera om Cloud Services-webb- och arbetsroller- och de virtuella datorerna som du hade. Om du har en lokal anslutning, måste som i en hybriddistribution du distribuera en ny VPN-Gateway och ansluta till ditt lokala nätverk.
+S: Virtuella nätverk är ganska enkelt resurser. Du kan anropa API: erna för Azure för att skapa ett virtuellt nätverk med samma adressutrymmet i en annan region. Om du vill återskapa samma miljö som fanns i den berörda regionen, kan du göra API-anrop för att distribuera om Cloud Services web och worker-roller och de virtuella datorerna som du tidigare. Om du har en lokal anslutning behöver som i en hybriddistribution, du distribuera en ny VPN-Gateway och Anslut till ditt lokala nätverk.
 
 För att skapa ett virtuellt nätverk, se [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network).
 
-**F: kan en replik av ett VNet i en viss region skapas på nytt i en annan region i förväg?**
+**F: Kan en replik av ett virtuellt nätverk i en viss region återskapas i en annan region förväg?**
 
-S: Ja, kan du skapa två Vnet som använder samma privata IP-adressutrymme och resurser i två olika områden i förväg. Om du är värd för internet-riktade i virtuella nätverk, kan du har lagt upp Traffic Manager att geo dirigera trafik till den region som är aktiv. Men du kan inte ansluta två virtuella nätverk med samma adressutrymme till ditt lokala nätverk eftersom det skulle orsaka problem med routning. Vid tiden för en katastrofåterställning och förlust av ett VNet i en region, kan du ansluta andra VNet i tillgängliga region med matchande adressutrymmet till ditt lokala nätverk.
+S: Ja, kan du skapa två virtuella nätverk med samma privata IP-adressutrymme och resurser i två olika regioner förbereds i förväg. Om du är värd för webbservergrupper på internet-tjänster i det virtuella nätverket, kan du har lagt upp Traffic Manager att geo-dirigera trafik till den region som är aktiv. Men du kan inte ansluta två virtuella nätverk med samma-adressutrymme i dina lokala nätverk, eftersom det skulle orsaka routningsproblem. Vid tidpunkten för en katastrof och förlust av ett virtuellt nätverk i en region, kan du ansluta det andra virtuella nätverket i regionen tillgängliga med matchande adressutrymme till ditt lokala nätverk.
 
 För att skapa ett virtuellt nätverk, se [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network).
 

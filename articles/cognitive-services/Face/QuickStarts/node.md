@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: pafarley
 ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815222"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snabbstart: Identifiera ansikten i en bild med Ansikts-REST API och Node.js
 

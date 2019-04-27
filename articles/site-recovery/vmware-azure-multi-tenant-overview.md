@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60718129"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Översikt över stöd för flera klienter för VMware-haveriberedskap till Azure med CSP
 
@@ -89,7 +89,7 @@ Konfigurera konfigurationsservern med ett konto som har en särskild roll som ti
 
 3. Tilldela åtkomstnivåer till vCenter-konto (används på konfigurationsservern för klient) för olika objekt på följande sätt:
 
->| Objekt | Roll | Kommentarer |
+>| Object | Roll | Kommentarer |
 >| --- | --- | --- |
 >| vCenter | Skrivskyddad | Krävs endast att tillåta vCenter åtkomst för att hantera olika objekt. Du kan ta bort den här behörigheten om kontot aldrig ska anges till en klient eller används för alla hanteringsåtgärder på vCenter. |
 >| Datacenter | Azure_Site_Recovery |  |

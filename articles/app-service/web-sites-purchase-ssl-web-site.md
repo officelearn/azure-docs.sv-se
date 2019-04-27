@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832883"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
@@ -30,7 +30,7 @@ Den här självstudiekursen visar hur du skyddar dina [App Service-app](https://
 > App Service-certifikat kan användas för alla Azure- eller icke - Azure-tjänster och är inte begränsat till App Services. Om du vill göra det måste du skapa en lokal PFX-kopia av en App Service-certifikat som du kan använda det var du vill. Mer information finns i [skapar en lokal PFX-kopia av ett App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Att följa den här guiden:
 
@@ -72,7 +72,7 @@ I den **Key Vault-Status** klickar du på **Key Vault-lagret** att skapa ett nyt
 |-|-|
 | Namn | Ett unikt namn som består för alfanumeriska tecken och bindestreck. |
 | Resursgrupp | Välj samma resursgrupp som din App Service-certifikat som en rekommendation. |
-| Plats | Välj samma plats som din App Service-app. |
+| Location | Välj samma plats som din App Service-app. |
 | Prisnivå | Mer information finns i [prisinformation för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Åtkomstprinciper| Definierar program och kunna komma till valvet-resurser. Du kan konfigurera den senare, följa stegen i [bevilja flera program åtkomst till key vault](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Virtual Network-åtkomst | Begränsa vault åtkomsten till vissa Azure-nätverk. Du kan konfigurera den senare, följa stegen i [konfigurera Azure Key Vault brandväggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |

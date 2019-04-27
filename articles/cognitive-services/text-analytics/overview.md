@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
 ms.openlocfilehash: ae1d8f18705b1058c10d4720c64f624ed0ef4a3d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829539"
 ---
 # <a name="what-is-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -83,7 +83,7 @@ Det här avsnittet har flyttats till en separat artikel för bättre synlighet. 
 
 Alla av slutpunkterna för API för textanalys accepterar råtextdata. Den aktuella gränsen är 5 120 tecken för varje dokument. Om du behöver analysera större dokument kan du dela upp dem i mindre bitar. Om du fortfarande kräver en högre gräns kan du [kontakta oss](https://azure.microsoft.com/overview/sales-number/) så att vi kan diskutera dina krav.
 
-| Gräns | Value |
+| Gräns | Värde |
 |------------------------|---------------|
 | Maximal storlek på ett enskilt dokument | 5 120 tecken enligt [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximal storlek på hela begäran | 1 MB |

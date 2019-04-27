@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.openlocfilehash: b0b0c256db3cc93e515b38bf7daad72b082d2d3d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621165"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Snabbstart: Översätt tal med Speech-SDK för .NET Core
 
@@ -23,7 +23,7 @@ I den här snabbstarten skapar du ett enkelt .NET Core-program som samlar in anv
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För den här snabbstarten krävs:
 

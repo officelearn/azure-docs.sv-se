@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.openlocfilehash: c1b8f711a6984a6134e6df0ae6ae12bf0b62cc0d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640165"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka på HDInsight-kluster
 
@@ -27,7 +27,7 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 >
 > Mer information finns i dokumentet [Anslut till Apache Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -56,7 +56,7 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
     | --- | --- |
     | Prenumeration | Din Azure-prenumeration. |
     | Resursgrupp | Den resursgrupp i vilken klustret har skapats. |
-    | Plats | Den Azure-region i vilken klustret har skapats. |
+    | Location | Den Azure-region i vilken klustret har skapats. |
     | Klusternamn | Namnet på Kafka-klustret. |
     | Användarnamn för klusterinloggning | Det kontonamn som används för att logga in på HTTPs-baserade tjänster som finns i klustret. |
     | Lösenord för klusterinloggning | Ange lösenordet för det inloggande användarnamnet. |

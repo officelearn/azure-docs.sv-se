@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735792"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  

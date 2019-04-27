@@ -11,13 +11,13 @@ ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
 ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616914"
 ---
-# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET-API
+# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET API
 
 Denna snabbstart kör ett Azure Batch-jobb från ett C#-program som bygger på Azure Batch .NET API. Appen överför flera indatafiler till Azure-lagring och skapar sedan en *pool* med Batch-beräkningsnoder (virtuella datorer). Sedan skapar den ett *exempeljobb* som kör *aktiviteter* för att bearbeta varje indatafil på poolen med ett grundläggande kommando. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
 

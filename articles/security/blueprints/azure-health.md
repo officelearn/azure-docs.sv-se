@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609696"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -342,7 +342,7 @@ Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera 
 
 ## <a name="analyze"></a>ANALYSERA
 
-### <a name="machine-learning"></a>Maskininlärning
+### <a name="machine-learning"></a>Machine Learning
 
 
 - [Loggning är aktiverat](/azure/machine-learning/studio/web-services-logging) för Machine Learning Studio-webbtjänster.
@@ -378,7 +378,7 @@ Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera 
 
     -   [Azure WebApp Analytics](/azure/log-analytics/log-analytics-azure-web-apps-analytics) lösning
 
-    -   Key Vault Analytics
+    -   Key Vault-analys
 
     -   Spårning av ändringar
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
 ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612732"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudier: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:

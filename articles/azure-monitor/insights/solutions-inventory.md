@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
 ms.openlocfilehash: 6da2b63b7a9c8dc490bd30bb02ae6e7d932b2f7b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595963"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Data samling information om lösningar i Azure
 Den här artikeln innehåller en lista över [hanteringslösningar](solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det innehåller även information om deras metod och frekvensen för insamling av data i Azure Monitor.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. 

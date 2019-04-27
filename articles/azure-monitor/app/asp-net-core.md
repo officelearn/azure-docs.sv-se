@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
 ms.openlocfilehash: ae0d3658d9ae8534b1596fa7363495926cd0dfe7
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60693914"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights för ASP.NET Core
 
@@ -25,7 +25,7 @@ Azure Application Insights erbjuder djupgående övervakning av webbprogrammet k
 
 Den här artikeln vägleder dig genom stegen för hur du skapar en ASP.NET Core [Razor Pages](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) program i Visual Studio. Den också visar hur du startar övervakningen med hjälp av Application Insights.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - .NET core 2.0.0 SDK eller senare
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) version 15.7.3 eller senare med arbetsbelastningen ASP.NET och utveckling

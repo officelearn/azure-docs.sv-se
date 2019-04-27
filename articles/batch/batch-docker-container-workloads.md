@@ -12,11 +12,11 @@ ms.date: 11/19/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 51037e66ec649fc275a746c9f5316b91d82e186a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776279"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör program med behållare på Azure Batch
 
@@ -28,7 +28,7 @@ Du bör känna till behållaren begrepp och hur du skapar ett Batch-poolen och j
 
 Med hjälp av behållare ger ett enkelt sätt att köra Batch-aktiviteterna utan att behöva hantera en miljö och beroenden för att köra program. Behållare kan du distribuera program som enkel och smidig oberoende enheter som kan köras i flera olika miljöer. Till exempel skapa och testa en behållare lokalt och sedan överföra behållaravbildningen till ett register i Azure eller någon annanstans. Distributionsmodell för behållaren säkerställer att körningsmiljö för ditt program alltid korrekt installerat och konfigurerat oavsett var du vara värd för programmet. Behållarbaserad aktiviteter i Batch kan också dra nytta av funktionerna i icke-container aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafiler. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **SDK-versioner**: Batch-SDK: er stöder behållaravbildningar från och med följande versioner:
     * Batch REST-API version 2017-09-01.6.0

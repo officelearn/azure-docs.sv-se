@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
 ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626748"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ ms.locfileid: "54033595"
 * Växla till referens direktiv för AsyncIterable typen. Typescript-användare behöver inte längre anpassa sina ”lib”-inställning.
 * Skrivfel korrigeringar
 
-### <a name="2.0.2"/>punkt 2.0.2</a>
+### <a name="2.0.2"/>2.0.2</a>
 * Åtgärda readme-länkar
 
 ### <a name="2.0.1"/>2.0.1</a>
@@ -201,7 +201,7 @@ ms.locfileid: "54033595"
 * Problemet [#41](https://github.com/Azure/azure-documentdb-node/issues/41) -client.createDocumentAsync fel.
 
 ### <a name="1.0.0"/>1.0.0</a>
-* GA-SDK.
+* GA SDK.
 
 ## <a name="release--retirement-dates"></a>Fri & Släpp dras tillbaka datum
 Microsoft meddelar minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.

@@ -11,11 +11,11 @@ ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60687695"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Lägga till och köra egna i Azure Logic Apps med Azure Functions
 
@@ -27,7 +27,7 @@ När du vill köra tillräckligt med kod som utför ett specifikt jobb i dina lo
 
 Du kan också [anropa logic apps från inuti Azure functions](#call-logic-app).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa den här artikeln behöver du följande objekt:
 

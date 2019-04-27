@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: d2fcdd4aa28a7d3b1a8e50629e5be1d88046a12b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621217"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747565"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Integrera andra tjänster med SQL Data Warehouse
 Utöver dess huvudfunktioner kan SQL Data Warehouse du integrera med många av de andra tjänsterna i Azure. Några av de här tjänsterna är:

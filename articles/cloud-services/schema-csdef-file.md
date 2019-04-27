@@ -14,11 +14,11 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613256"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure Cloud Services Definition Schema (.csdef File)
 Tjänstdefinitionsfilen definierar tjänstmodellen för ett program. Filen innehåller definitionerna för de roller som är tillgängliga för en molntjänst, anger Tjänsteslutpunkter och upprättar konfigurationsinställningarna för tjänsten. Konfigurationsvärden för inställningen är inställda i tjänstkonfigurationsfilen, enligt beskrivningen av den [molntjänst (klassisk) konfigurationsschema](/previous-versions/azure/reference/ee758710(v=azure.100)).

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: fd68846b9144c3efcc71dec369d64119427758a3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639908"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744558"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Ansluta till din Azure-baserad virtuell dator
 
@@ -29,7 +29,7 @@ Den här artikeln förklarar hur du ansluter till och logga in på de virtuella 
 
 Du använder fjärrskrivbordsklienten för att ansluta till den Windows-baserade virtuella datorn finns i Azure.  De flesta versioner av Windows innehåller inbyggt stöd för remote desktop protocol (RDP).  För andra datorer kan du hitta mer information om klienter i [fjärrskrivbordsklienter](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-I följande artikel beskriver hur du använder det inbyggda stödet för Windows RDP för att ansluta till den virtuella datorn: [hur du ansluter och logga in på Azure-datorer som kör Windows](../../../virtual-machines/windows/connect-logon.md).  
+I följande artikel beskriver hur du använder det inbyggda stödet för Windows RDP för att ansluta till den virtuella datorn: [Hur du ansluter och logga in på Azure-datorer som kör Windows](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
 > Du kan få säkerhetsvarningar under processen, till exempel att RDP-filen är från en okänd utgivare eller att det inte går att verifiera dina autentiseringsuppgifter.  Det är säkert att ignorera dessa varningar.
@@ -54,7 +54,7 @@ För att kunna ansluta den virtuella Linux-baserade datorn, behöver du en secur
 7. Klicka på **öppna** att öppna en terminal för PuTTY.  
 8. När du uppmanas, ange kontonamnet och lösenordet för ditt Linux VM-konto. 
 
-   Om du har anslutningsproblem finns i dokumentationen för SSH-klienten, till exempel [kapitel 10: vanliga felmeddelanden](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+   Om du har anslutningsproblem finns i dokumentationen för SSH-klienten, till exempel [kapitel 10: Vanliga felmeddelanden](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
 Mer information, inklusive hur du lägger till en stationär dator till en etablerad Linux-VM finns i [installera och konfigurera Fjärrskrivbord för att ansluta till en Linux-VM i Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 

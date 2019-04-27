@@ -10,11 +10,11 @@ ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
 ms.openlocfilehash: 0dfe88966deeb4dcf0196aa1f1584a06794b36a7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686332"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Använda kubectl med ett adressutrymme för Azure-utveckling
 

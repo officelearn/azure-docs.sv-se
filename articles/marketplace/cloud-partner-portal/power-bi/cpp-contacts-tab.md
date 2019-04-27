@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 191f58252aadf776465bb097207a7e76c0f92003
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594980"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Power BI-appen Contacts fliken
 
 Använd den **kontakter** fliken den **nytt erbjudande** sidan för att ge teknisk hjälp och användaren Supportresurser för ditt erbjudande. Den är uppdelad i två delar: **Tekniska** och **kundsupport**.
 
-![Fliken kontakter](media/contacts-tab.png)
+![Fliken Kontakter](media/contacts-tab.png)
 
 
 ## <a name="contacts-fields"></a>Kontaktfält 

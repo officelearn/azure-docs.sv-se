@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: monhaber
 ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612484"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudier: Skydda dina resurser med Azure Security Center
 Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. JIT-åtkomst (just-in-time) till virtuella datorer (VM) minskar din exponering för attacker genom att du kan neka beständig åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
@@ -128,7 +128,7 @@ I den här självstudien har du lärt dig att begränsa din exponering för hot 
 Gå vidare till nästa kurs om du vill veta mer om att hantera säkerhetsincidenter.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
+> [Självstudie: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

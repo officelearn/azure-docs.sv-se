@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: a9629cd14c71a163612c2c4ba3c7b109a52b91ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622447"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Skapa en virtuell dator med DevTest Labs med Azure PowerShell
 Den här artikeln visar hur du skapar en virtuell dator i Azure DevTest Labs med hjälp av Azure PowerShell. Du kan använda PowerShell-skript för att automatisera skapandet av virtuella datorer i ett labb i Azure DevTest Labs. 

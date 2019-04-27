@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
 ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848557"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Komma igång med att skapa en intern lastbalanserare (klassisk) med hjälp av PowerShell
 
@@ -30,7 +30,7 @@ ms.locfileid: "53097989"
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](load-balancer-get-started-ilb-arm-ps.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -75,7 +75,7 @@ $ilb="ilbset"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Steg 3: Konfigurera servrarna så att de skickar trafiken till slutpunkten för den nya interna belastningsutjämningen
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Steg 3: Konfigurera servrarna så att de skickar trafiken till den nya slutpunkten för intern belastningsutjämning
 
 Du måste konfigurera servrarna vars trafik ska belastningsutjämnas så att de använder den nya IP-adressen (VIP-adressen) för instansen för intern belastningsutjämning. Det här är den adress som instansen för intern belastningsutjämning lyssnar på. I de flesta fall behöver du bara lägga till eller ändra en DNS-post för VIP-adressen för instansen för intern belastningsutjämning.
 

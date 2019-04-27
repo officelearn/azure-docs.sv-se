@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: cf7216d5634adf42c2e3435b122dcff58446821a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160866"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625320"
 ---
 # <a name="build-your-landing-page"></a>Skapa din landningssida
 
@@ -43,7 +43,7 @@ Ju mer konsekvent du är i ditt meddelande och anrop till åtgärden, desto lät
 
 När du har en kampanj plan är klara kan du skapa din landningssida i Marketplace. I följande tabell beskrivs olika sätt du kan hjälpa att maximera effektiviteten i din landningssida: 
 
-| Bästa praxis | Undvika |
+| Regelverk | Avoid |
 |:--- |:--- |
 | **Kommunicera vilket kundernas problem löser din lösning och hur du använder Azure för att göra det direkt** | Inte kommunicerar på sätt som din lösning som fungerar med Azure. |
 | **Skapa en kort, enkelt att komma ihåg URL** | Med hjälp av långa URL: er. Långa URL: er är inte lätt att komma ihåg och är svåra att hitta. |

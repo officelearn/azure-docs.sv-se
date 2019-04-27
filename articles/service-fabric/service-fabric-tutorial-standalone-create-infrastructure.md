@@ -16,11 +16,11 @@ ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: aa50cbe640c928c4113fb64c1b503548a95ee0a9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60718351"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudier: Skapa AWS-infrastruktur för att vara värd för Service Fabric-kluster
 
@@ -36,7 +36,7 @@ I del ett i den här serien lärde du dig att:
 > * Logga in på någon av instanserna
 > * Förbereda instansen för Service Fabric
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver ett AWS-konto för att kunna slutföra den här självstudien.  Om du inte redan har ett konto kan du gå till [AWS-konsolen](https://aws.amazon.com/) för att skapa ett.
 

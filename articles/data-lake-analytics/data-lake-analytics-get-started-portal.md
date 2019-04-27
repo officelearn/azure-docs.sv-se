@@ -9,19 +9,19 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 1e6c71a68c4357d82d086f3e2ca098e4039def5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25d58bdc5791de868c6302b4d2763fa34e98af17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615047"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Den här artikeln beskriver hur du använder Azure Portal till att skapa Azure Data Lake Analytics-konton, definiera jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md) och skicka jobb till Data Lake Analytics-tjänsten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar följa de här självstudierna måste du ha en **Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -32,8 +32,8 @@ Nu, ska du skapa ett Data Lake Analytics och ett konto för Azure Data Lake Stor
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **Skapa en resurs** >  **Data och analys** > **Data Lake Analytics**.
 3. Välj värden för följande objekt:
-   * **Namn**: Ange ett namn på ditt Data Lake Analytics-konto (endast gemena bokstäver och siffror tillåts).
-   * **Prenumeration**: Välj den Azure-prenumeration som används för Analytics-kontot.
+   * **Namn**: Namnge ditt Data Lake Analytics-konto (endast gemena bokstäver och siffror tillåts).
+   * **Prenumeration**: Välj den Azure-prenumeration används för Analytics-kontot.
    * **Resursgrupp**. Välj en befintlig Azure-resursgrupp eller skapa en ny.
    * **Plats**. Välj ett Azure-datacenter för Data Lake Analytics-kontot.
    * **Data Lake Storage Gen1**: Följ anvisningarna för att skapa ett nytt Data Lake Storage Gen1-konto eller välj en befintlig. 

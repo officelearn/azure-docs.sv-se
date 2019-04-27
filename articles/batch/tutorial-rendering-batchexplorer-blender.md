@@ -8,11 +8,11 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60617680"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Självstudier: Rendera en scen för Blender med Batch Explorer
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > * Rendera flera bildrutor
 > * Visa och ladda ned de renderade bildrutefilerna
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 5fb62c38bde98d946694790adb860240eaa59fa9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709720"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>URL: en fördefinierade entitet för en LUIS-app
 URL: en entitet extraherar URL: er med domännamn eller IP-adresser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller URL: er till programmet. URL: en entitet har stöd för `en-us` kultur endast. 

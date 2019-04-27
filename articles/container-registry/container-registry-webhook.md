@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: danlep
 ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787282"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Med Azure Container Registry-webhookar
 
@@ -20,7 +20,7 @@ En Azure-behållarregister lagrar och hanterar privata Docker-behållaravbildnin
 
 Mer information om webhook-begäranden finns [Schemareferens i Azure Container Registry webhook](container-registry-webhook-reference.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Azure container registry – skapa ett behållarregister i Azure-prenumerationen. Till exempel använda den [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md). Den [Azure Container Registry SKU: er](container-registry-skus.md) har olika webhooks kvoter.
 * Docker CLI - att konfigurera din lokala dator som Docker-värd och komma åt Docker CLI-kommandona installera [Docker-motorn](https://docs.docker.com/engine/installation/).

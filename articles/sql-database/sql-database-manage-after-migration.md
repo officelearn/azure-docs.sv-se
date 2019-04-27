@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703379"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera din enda och delade databaser i Azure SQL Database
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 48a30ef86cdb10b540ffe1231294542ccff87255
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622328"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Skapa och hantera virtuella datorer med DevTest Labs med Azure CLI
 Den här snabbstarten får du hjälp att skapa, starta, ansluta, uppdaterar och rensar en utvecklingsdator i labbet. 

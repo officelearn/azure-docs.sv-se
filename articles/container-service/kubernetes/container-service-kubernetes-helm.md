@@ -10,11 +10,11 @@ ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997890"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712330"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(INAKTUELL) Använd Helm för att distribuera behållare i ett Kubernetes-kluster
 
@@ -30,7 +30,7 @@ Helm består av två komponenter:
 
 * **Tiller** är en server som körs på Kubernetes-kluster och hanterar livscykeln för Kubernetes-program 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Skapa ett Kubernetes-kluster](container-service-kubernetes-walkthrough.md) i Azure Container Service
 

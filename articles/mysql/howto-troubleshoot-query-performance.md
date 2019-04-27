@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 819e2393619766d46385cdd6fe550fff1e1a7631
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720220"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Hur du använder FÖRKLARA att profil-frågeprestanda i Azure Database för MySQL
 **FÖRKLARA** är ett praktiskt verktyg för att optimera frågor. FÖRKLARA instruktionen kan användas för att få information om hur SQL-uttryck körs. Följande utdata visar ett exempel på körning av en förklaring-instruktion.

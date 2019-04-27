@@ -14,14 +14,14 @@ ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0de8d4145ff41b498149774af8ed74c56375dea9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605183"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Flytta data från Sybase med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-sybase-connector.md)
 > * [Version 2 (aktuell version)](../connector-sybase.md)
 
@@ -32,7 +32,7 @@ Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data F
 
 Du kan kopiera data från ett datalager för den lokala Sybase till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från en Sybase-datalager till datalager, men inte för att flytta data från andra datalager till en Sybase-datalager. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Data Factory-tjänsten stöder anslutning till lokala Sybase källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) du lär dig om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar gatewayen.
 
 Gateway krävs även om Sybase-databasen finns i en Azure IaaS-VM. Du kan installera gatewayen på samma IaaS VM som datalager eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
@@ -66,13 +66,13 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **OnPremisesSybase** |Ja |
+| type |Type-egenskapen måste anges till: **OnPremisesSybase** |Ja |
 | server |Namnet på Sybase-servern. |Ja |
 | databas |Namnet på Sybase-databas. |Ja |
 | schemat |Namnet på schemat i databasen. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till Sybase-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
-| lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala Sybase-databas. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -91,7 +91,7 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 
 När källan är av typen **RelationalSource** (som innehåller Sybase), följande egenskaper är tillgängliga i **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej (om **tableName** av **datauppsättning** har angetts) |
 

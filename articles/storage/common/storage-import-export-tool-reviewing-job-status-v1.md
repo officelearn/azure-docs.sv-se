@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 306e3ccf19ba8db2de01e4b20a52707215a4a040
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320714"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Granska Azure Import/Export jobbstatus med kopiera loggfiler
 När Microsoft Azure Import/Export-tjänsten bearbetar enheter som är associerade med ett import eller export-jobb, skriver kopiera loggfiler till storage-kontot till eller från vilken du importerar eller exporterar blobar. Loggfilen innehåller detaljerad statusinformation om varje fil som importeras eller exporteras. URL: en loggfil varje kopia returneras när du frågar status för ett slutfört jobb; Se [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get) för mer information.  

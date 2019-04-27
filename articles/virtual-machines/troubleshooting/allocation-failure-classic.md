@@ -13,19 +13,19 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7cd7897e3a0b940bbc636b2fbc3dbbc13b7cf540
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505565"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Felsökningssteg för specifika att allokering scenarier i den klassiska distributionsmodellen
 
 Här följer några vanliga scenarier för allokering som orsakar en begäran om minnesallokering till fästas. Vi kommer att fördjupa dig i varje scenario senare i den här artikeln.
 
 - Ändra storlek på en virtuell dator eller lägga till virtuella datorer eller rollinstanser i en befintlig molntjänst
-- Starta om delvis stoppad (frigjord) virtuella datorer
-- Starta om fullständigt Stoppad (frigjord) virtuella datorer
+- Starta om delvis stoppade (frigjorda) virtuella datorer
+- Starta om fullständigt stoppade (frigjorda) virtuella datorer
 - Mellanlagring och produktion distributioner (plattform som en tjänst endast)
 - Tillhörighetsgruppen (virtuell dator eller tjänst närhet)
 - Tillhörighet – grupp-baserat virtuellt nätverk
@@ -54,10 +54,10 @@ Om felet är Upgrade_VMSizeNotSupported *, prova en annan VM-storlek. Om du anv�
 
 Om felet är GeneralError *, är det troligt att typ av resurs (till exempel en viss VM-storlek) stöds av klustret, men klustret inte har kostnadsfria resurser för tillfället. Lägg till önskade beräkningsresursen genom att skapa en ny molntjänst (Observera att den nya Molntjänsten måste använda en annan VIP) för liknande sätt för scenariot ovan och använda ett regionalt virtuellt nätverk för att ansluta dina molntjänster.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Starta om delvis stoppad (frigjord) virtuella datorer
+## <a name="restart-partially-stopped-deallocated-vms"></a>Starta om delvis stoppade (frigjorda) virtuella datorer
 **Fel**
 
-GeneralError *
+GeneralError*
 
 **Orsaken till att fästa klustret**
 
@@ -70,10 +70,10 @@ Om det går att använda en annan VIP, ta bort de Stoppad (frigjord) virtuella d
 * Om din befintliga Molntjänsten använder ett regionalt virtuellt nätverk kan bara lägga till ny molntjänst till samma virtuella nätverk.
 * Om din befintliga Molntjänsten inte använder ett regionalt virtuellt nätverk skapar du ett nytt virtuellt nätverk för den nya Molntjänsten och sedan [Anslut det befintliga virtuella nätverket till det nya virtuella nätverket](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer om [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Starta om fullständigt Stoppad (frigjord) virtuella datorer
+## <a name="restart-fully-stopped-deallocated-vms"></a>Starta om fullständigt stoppade (frigjorda) virtuella datorer
 **Fel**
 
-GeneralError *
+GeneralError*
 
 **Orsaken till att fästa klustret**
 
@@ -116,7 +116,7 @@ New_General * eller New_VMSizeNotSupported *
 
 **Orsaken till att fästa klustret**
 
-Innan regionala virtuella nätverk har introducerats tvungen du att koppla ett virtuellt nätverk med en tillhörighetsgrupp. Därför compute resurser placeras i en tillhörighetsgrupp som är bundna av samma begränsningar som beskrivs i den ”allokering scenario: tillhörighetsgrupp (VM/tjänst närhet)” ovan. Beräkningsresurserna är knutna till ett kluster.
+Innan regionala virtuella nätverk har introducerats tvungen du att koppla ett virtuellt nätverk med en tillhörighetsgrupp. Därför kan beräkna resurser placeras i en tillhörighetsgrupp som är bundna av samma begränsningar som beskrivs i den ”allokering scenariot: Tillhörighetsgruppen (VM/tjänst närhet) ”ovan. Beräkningsresurserna är knutna till ett kluster.
 
 **Lösning**
 

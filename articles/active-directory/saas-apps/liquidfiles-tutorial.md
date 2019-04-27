@@ -16,11 +16,11 @@ ms.date: 07/14/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20a3144f2a8727420803034426106a29a7924727
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167311"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60258245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Självstudier: Azure Active Directory-integrering med LiquidFiles
 
@@ -34,7 +34,7 @@ Integrera LiquidFiles med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med LiquidFiles, behöver du följande objekt:
 
@@ -233,7 +233,7 @@ När du klickar på panelen LiquidFiles i åtkomstpanelen du bör få automatisk
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948528"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveriberedskap i Azure Service Fabric
 En viktig del av att leverera hög tillgänglighet är att säkerställa att tjänster kan överleva alla olika typer av fel. Detta är särskilt viktigt för fel som är oplanerade och utanför din kontroll. Den här artikeln beskriver några vanliga feltillstånd som kan vara katastrofer om inte modelleras och hanteras korrekt. Här beskrivs även åtgärder och åtgärder som ska vidtas om en katastrof har inträffat ändå. Målet är att begränsa eller eliminera risken för avbrott eller dataförluster när de uppstår fel, planerat eller i annat fall sker.

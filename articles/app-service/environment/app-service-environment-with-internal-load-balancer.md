@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130610"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Med hjälp av en intern belastningsutjämnare med en App Service Environment
 
@@ -35,7 +35,7 @@ En ASE kan distribueras med en internet-tillgänglig slutpunkt eller med en IP-a
 
 * din egen domän eller underdomän. Om du vill göra det enklare, det här dokumentet förutsätts underdomän men du kan konfigurera det i båda fallen. 
 * certifikatet som används för HTTPS
-* DNS-hantering för din underdomän. 
+* DNS management for your subdomain. 
 
 I utbyte kan du göra saker om att:
 

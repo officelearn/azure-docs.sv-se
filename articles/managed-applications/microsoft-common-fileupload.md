@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895260"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61044666"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI-element
 En kontroll som gör att användaren kan ange en eller flera filer som ska överföras.

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74be798106ef5d028f3ad497a6e726439e86ad51
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125346"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Självstudier: Strömma live med Media Services v3 med hjälp av .NET
 
@@ -38,7 +38,7 @@ Självstudien visar hur du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att kunna genomföra självstudien.
 
@@ -182,6 +182,10 @@ az group delete --name amsResourceGroup
 
 > [!IMPORTANT]
 > Om du lämnar livehändelsen igång så medför det kostnader. Obs! Om projektet/programmet kraschar eller stängs av någon anledning så kan det lämna livehändelsen igång i ett debiterbart tillstånd.
+
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

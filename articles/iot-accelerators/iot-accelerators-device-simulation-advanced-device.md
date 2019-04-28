@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449058"
 ---
 # <a name="create-an-advanced-device-model"></a>Skapa en avancerad enhetsmodell
 
@@ -22,7 +22,7 @@ Den här guiden beskriver JSON och JavaScript-filer som definierar en anpassad e
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa stegen i den här guiden, måste en distribuerad Enhetssimulering-instans i Azure-prenumerationen.
 
@@ -162,7 +162,7 @@ Fält som anges i schemat kan vara av följande typer:
 * Objekt - serialiseras med JSON
 * Binary - serialiseras base64
 * Text
-* Boolesk
+* Boolean
 * Integer
 * Double
 * DateTime

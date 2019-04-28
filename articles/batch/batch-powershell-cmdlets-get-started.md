@@ -16,11 +16,11 @@ ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118892"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Hantera Batch-resurser med PowerShell-cmdletar
 
@@ -30,7 +30,7 @@ En fullständig lista över alla Batch-cmdlets och en detaljerad cmdlet-syntax f
 
 Den har artikeln baseras på cmdletar i Azure Batch-modulen 1.0.0. Vi rekommenderar att du uppdaterar Azure PowerShell-moduler ofta för att dra nytta av tjänstuppdateringar och förbättringar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Installera och konfigurera Azure PowerShell-modulen](/powershell/azure/overview). Information om hur du installerar en viss Azure Batch-modul, till exempel en förhandsversion av en modul, finns i [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 

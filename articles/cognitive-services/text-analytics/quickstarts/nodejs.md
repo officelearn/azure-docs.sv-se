@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: a2fdeeab2e8027dc3b548f7004912906d4574ccc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 4c77477e31e7513cb806dda968a68fc1ac5030ed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007446"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122153"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Node.js  
 <a name="HOLTop"></a>
@@ -156,7 +156,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). Attitydanalys kan användas för att ta reda på vad kunderna tycker om ditt märke eller ämne genom att analysera rå text efter ledtrådar om positiv eller negativ attityd. I följande exempel ger poäng för två dokument, en på engelska och en annan på spanska.
+API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). Attitydanalys kan användas för att ta reda på vad kunderna tycker om ditt märke eller ämne genom att analysera rå text efter ledtrådar om positiv eller negativ attityd. I följande exempel ger poäng för två dokument, en på engelska och en annan på spanska.
 
 1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
 2. Lägg till koden nedan till en ny `.js` fil.
@@ -252,7 +252,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
 
-API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av diskussionsämne används för att snabbt identifiera de viktigaste aspekterna av ett dokument eller text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
+API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av diskussionsämne används för att snabbt identifiera de viktigaste aspekterna av ett dokument eller text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
 1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
 2. Lägg till koden nedan till en ny `.js` fil.

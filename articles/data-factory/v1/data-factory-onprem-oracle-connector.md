@@ -14,11 +14,11 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462419"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle på plats med hjälp av Azure Data Factory
 
@@ -42,7 +42,7 @@ Du kan kopiera data från följande datalager *till en Oracle-databas*:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Data Factory stöder anslutning till en lokal Oracle källor med hjälp av Data Management Gateway. Se [Data Management Gateway](data-factory-data-management-gateway.md) mer information om Data Management Gateway. Stegvisa instruktioner om hur du ställer in gateway i en datapipeline för att flytta data finns i [flytta data från lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -170,7 +170,7 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande egenskaper är tillgängliga i den **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Använd anpassad fråga för att läsa data. |En SQL-sträng. Till exempel ”Välj \* från **MyTable**”. <br/><br/>Om inte anges den här SQL-instruktionen körs ”: Välj \* från **MyTable**” |Nej<br />(om **tableName** av **datauppsättning** har angetts) |
 
@@ -181,7 +181,7 @@ I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande ege
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Väntetid för batch Infoga åtgärden har slutförts innan tidsgränsen uppnås. |**timespan**<br/><br/> Exempel: 00:30:00 (30 minuter) |Nej |
-| WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når värdet för **writeBatchSize**. |Heltal (antal rader) |Nej (standard: 100) |
+| writeBatchSize |Infogar data i SQL-tabell när buffertstorleken når värdet för **writeBatchSize**. |Heltal (antal rader) |Nej (standard: 100) |
 | sqlWriterCleanupScript |Anger en fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. |Ett frågeuttryck. |Nej |
 | sliceIdentifierColumnName |Anger kolumnens namn för Kopieringsaktiviteten att fylla med en identifierare som genererats automatiskt sektorn. Värdet för **sliceIdentifierColumnName** används för att rensa data för en viss sektor när köras på nytt. |Kolumnnamnet för en kolumn med datatypen för **binary(32)**. |Nej |
 

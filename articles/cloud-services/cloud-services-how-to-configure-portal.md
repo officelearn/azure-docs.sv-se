@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 904056363c685ef0a16b229ce72383eb80701a39
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435871"
 ---
 # <a name="how-to-configure-cloud-services"></a>Så här konfigurerar du Cloud Services
 
@@ -58,7 +58,7 @@ Du kan lägga till aviseringar i din molntjänst. Klicka på **inställningar** 
 
 Härifrån kan ställa du in en avisering. Med den **mått** nedrullningsbara listrutan som du kan ställa in en avisering för följande typer av data.
 
-* Disk-lästa
+* Diskläsning
 * Diskskrivning
 * Nätverk in
 * Nätverk ut
@@ -70,7 +70,7 @@ Härifrån kan ställa du in en avisering. Med den **mått** nedrullningsbara li
 
 Istället för att använda **inställningar** > **Aviseringsregler**, du kan klicka på någon av mått paneler på den **övervakning** avsnittet av Molntjänsten.
 
-![Molntjänst övervakning](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
+![Cloud Service Monitoring](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
 Härifrån kan du anpassa diagram som används med panelen eller Lägg till en varningsregel.
 

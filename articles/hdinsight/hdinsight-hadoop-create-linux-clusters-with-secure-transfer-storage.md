@@ -1,7 +1,6 @@
 ---
 title: Skapa ett Hadoop-kluster med lagringskonton som använder säker överföring i Azure HDInsight
 description: Lär dig hur du skapar HDInsight-kluster med Azure-lagringskonton som använder säker överföring.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 15c0a3d90b4a6493c49b67058f1d989a4ab72346
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 10ec4b55bab741f19adaf193295659b7876fe02c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124772"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Skapa Apache Hadoop-kluster med säker överföring storage-konton i Azure HDInsight
 
 Funktionen [Säker överföring krävs](../storage/common/storage-require-secure-transfer.md) förbättrar säkerheten för ditt Azure Storage-konto genom att kräva att alla förfrågningar till ditt konto görs via en säker anslutning. Den här funktionen och wasbs-schemat stöds endast av HDInsight-kluster med version 3.6 eller senare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar den här vägledningen måste du ha:
 
 * **Azure-prenumeration**: Om du vill skapa ett kostnadsfritt utvärderingskonto för en månad, bläddra till [azure.microsoft.com/free](https://azure.microsoft.com/free).

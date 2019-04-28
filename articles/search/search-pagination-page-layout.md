@@ -11,11 +11,11 @@ ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61283841"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Hur du arbetar med sökning resulterar i Azure Search
 Den här artikeln innehåller råd om hur du implementerar standardelement på en sökresultatsida, till exempel totala antalet, hämta dokument, sorteringsordningar och navigering. Sidan-relaterade alternativ som bidrar data eller information till dina sökresultat anges via den [Dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) begäranden som skickas till din Azure Search-tjänst. 

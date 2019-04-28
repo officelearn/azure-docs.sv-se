@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 29d0dc032bd14161674c58d6e502ad77c3bf75e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116857"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Snabbstart: Sök efter videor med REST API för videosökning i Bing och C#
 
@@ -23,7 +23,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) tillsammans med ytterligare kommentarer om hantering av fel, funktioner och kodanteckningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).

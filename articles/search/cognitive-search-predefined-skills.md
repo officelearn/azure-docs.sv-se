@@ -11,11 +11,11 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: eddbb41f346661e86c64b1dd703321f434c5bbb6
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342618"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Fördefinierade kunskaper för innehåll berikande (Azure Search)
 
@@ -50,4 +50,4 @@ Anvisningar om hur du skapar en [anpassade färdighet](cognitive-search-custom-s
 
 + [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
 + [Anpassade egenskapsdefinition gränssnitt](cognitive-search-custom-skill-interface.md)
-+ [Självstudier: Utökad indexering med kognitiva search](cognitive-search-tutorial-blob.md)
++ [Självstudie: Utökad indexering med kognitiva search](cognitive-search-tutorial-blob.md)

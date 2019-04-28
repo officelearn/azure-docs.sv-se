@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.openlocfilehash: 7dd313789665348ce0a7bfa2da3569867854be94
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61250081"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Skapa en Azure Database för MySQL-server med Azure Portal
 

@@ -1,7 +1,6 @@
 ---
 title: 'Självstudier: Bearbeta data från Azure Event Hubs med Apache Spark i Azure HDInsight '
 description: Anslut Apache Spark i Azure HDInsight till Azure Event Hubs och bearbeta strömmande data.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
 ms.date: 12/28/2018
-ms.openlocfilehash: 81104c7b206d4fe158df1ae9d329084ad88c3bdd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 02f7bbca127ba33fcfdd15d6f00d1660bf72970c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976638"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124364"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Självstudier: Bearbeta tweets med Azure Event Hubs och Apache Spark i HDInsight
 
@@ -27,9 +26,9 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* **Slutför artikeln [självstudien: Läs in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Slutför artikeln [Självstudie: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 
 ## <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
@@ -59,7 +58,7 @@ Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ a
     - **Åtkomsttoken**
     - **Åtkomsttokenhemligheten**   
 
-## <a name="create-an-azure-event-hubs-namespace"></a>Skapa ett Azure Event Hubs-namnområde
+## <a name="create-an-azure-event-hubs-namespace"></a>Skapa en Event Hubs-namnrymd
 
 Du kan använda den här händelsehubben för att lagra tweets.
 

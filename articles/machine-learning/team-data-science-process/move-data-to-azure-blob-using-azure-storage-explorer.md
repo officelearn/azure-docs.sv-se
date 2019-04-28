@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57879862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61430819"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Flytta data till och från Azure Blob Storage med Azure Storage Explorer
 Azure Storage Explorer är ett kostnadsfritt verktyg från Microsoft som gör det möjligt att arbeta med Azure Storage-data i Windows, macOS och Linux. Det här avsnittet beskriver hur du använder den för att ladda upp och hämta data från Azure blob storage. Verktyget kan laddas ned från [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com/).

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 9dcfbd4b5fcc8462c88b16f585424166ecd3d499
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61361903"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Kontrollpunkt och återuppspelning begrepp i Azure Stream Analytics-jobb
 Den här artikeln beskriver interna kontrollpunkt och återuppspelning begreppen i Azure Stream Analytics och inverkan de har på jobbet återställning. Varje gång bibehålls ett Stream Analytics-jobb körs, information om tillstånd internt. Den statusinformation sparas i en kontrollpunkt med jämna mellanrum. I vissa situationer används kontrollpunkt informationen för återställning av jobbet om ett jobb strömavbrott eller en uppgradering. I andra fall kontrollpunkten kan inte användas för återställning och spela krävs.

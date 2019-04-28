@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61425016"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Hur du skapar och hanterar Läs repliker i Azure Database för MySQL med Azure portal
 
 I den här artikeln får lära du dig att skapa och hantera skrivskyddade kopior på samma Azure-region som hanterare i tjänsten Azure Database for MySQL med Azure portal. Funktionen är för närvarande i offentlig förhandsversion.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md) som ska användas som huvudserver.
 

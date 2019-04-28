@@ -1,7 +1,6 @@
 ---
 title: Skapa Apache Hadoop-kluster med hjälp av en webbläsare, Azure HDInsight
 description: Lär dig hur du skapar Apache Hadoop, Apache HBase, Apache Storm eller Apache Spark-kluster på Linux för HDInsight med hjälp av en webbläsare och Azure preview portal.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 13d053c14b083390bfdd28fdad616caf13e7e4e0
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124806"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure-portalen är ett webbaserat verktyg för tjänster och resurser som finns i Microsoft Azure-molnet. I den här artikeln lär du dig att skapa Linux-baserade Azure HDInsight-kluster med hjälp av portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **En Azure-prenumeration**. Se [så här hämtar du Azure kostnadsfria utvärderingsversionen för att testa Hadoop i HDInsight](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

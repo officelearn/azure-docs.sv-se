@@ -1,7 +1,6 @@
 ---
 title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 description: Lär dig Metodtips för infrastruktur för att migrera lokala Hadoop-kluster till Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonwhowell
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1bd06507bd8a20cf504c1ff4cd9fe7e3b9196a3c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129322"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 
@@ -177,7 +176,7 @@ HDInsight stöder [virtuella nätverksslutpunkter](../../virtual-network/virtual
 
 Mer information finns i följande artiklar:
 
-- [Slutpunkter för virtuellt nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Tjänstslutpunkter för virtuellt nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Förbättra säkerheten för HDInsight med Tjänsteslutpunkter](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket

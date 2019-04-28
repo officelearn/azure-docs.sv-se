@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61305040"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Börja använda en Azure Automation-runbook med en webhook
 

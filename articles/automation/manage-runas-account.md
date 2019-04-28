@@ -10,11 +10,11 @@ ms.date: 03/26/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61301175"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -72,7 +72,7 @@ I det här avsnittet utför du följande steg för att uppdatera ditt Azure Auto
 
 ## <a name="create-run-as-account-using-powershell"></a>Skapa kör som-konto med hjälp av PowerShell
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande lista innehåller kraven för att skapa ett kör som-konto i PowerShell:
 

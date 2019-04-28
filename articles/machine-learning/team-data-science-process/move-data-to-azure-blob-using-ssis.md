@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61429896"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Flytta data till eller från Azure Blob Storage med SSIS-anslutningsappar
 Den [Funktionspaketet för SQL Server Integration Services för Azure](https://msdn.microsoft.com/library/mt146770.aspx) innehåller komponenter för att ansluta till Azure, överföra data mellan Azure och lokala datakällor och bearbeta data som lagras i Azure.

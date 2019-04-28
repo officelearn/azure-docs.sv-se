@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cbb18212f70343d8b9933bd2c787ce6aae8b145d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61401005"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Kopiera data från Jira med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Jira länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Jira** | Ja |
+| type | Type-egenskapen måste anges till: **Jira** | Ja |
 | värd | IP-adressen eller värdnamnet namnet på Jira-tjänsten. (till exempel jira.example.com)  | Ja |
 | port | TCP-porten som Jira-servern använder för att lyssna efter klientanslutningar. Standardvärdet är 443 om ansluter via HTTPS eller 8080 om ansluter via HTTP.  | Nej |
 | användarnamn | Användarnamnet som används för att komma åt Jira Service.  | Ja |
@@ -81,7 +81,7 @@ Om du vill kopiera data från Jira, ange typegenskapen på datauppsättningen ti
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **JiraObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **JiraObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -110,7 +110,7 @@ Om du vill kopiera data från Jira, ange typ av datakälla i kopieringsaktivitet
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **JiraSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **JiraSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

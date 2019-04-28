@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129407"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Använd Apache Sqoop med Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -45,14 +45,14 @@ HDInsight-kluster levereras med exempeldata. Du kan använda följande två exem
   
   | Fält | Datatyp |
   | --- | --- |
-  | clientid |sträng |
-  | querytime |sträng |
-  | marknaden |sträng |
-  | deviceplatform |sträng |
-  | devicemake |sträng |
-  | devicemodel |sträng |
-  | state |sträng |
-  | Land |sträng |
+  | clientid |string |
+  | querytime |string |
+  | marknaden |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | Land |string |
   | querydwelltime |double |
   | sessions-ID |bigint |
   | sessionpagevieworder |bigint |
@@ -80,7 +80,7 @@ Klustret, SQL-databas och andra objekt skapas via Azure-portalen med en Azure Re
     |---|---|
     |Prenumeration |Välj din Azure-prenumeration från den nedrullningsbara listan.|
     |Resursgrupp |Välj din resursgrupp i listrutan eller skapa en ny|
-    |Plats |Välj en region från den nedrullningsbara listan.|
+    |Location |Välj en region från den nedrullningsbara listan.|
     |Klusternamn |Ange ett namn för Hadoop-klustret. Använd endast gemena bokstäver.|
     |Användarnamn för klusterinloggning |Behåll värdet i förväg `admin`.|
     |Lösenord för klusterinloggning |Ange ett lösenord.|
@@ -91,7 +91,7 @@ Klustret, SQL-databas och andra objekt skapas via Azure-portalen med en Azure Re
     |_artifacts plats | Använd standardvärdet om du inte vill använda din egen bacpac-fil på en annan plats.|
     |_artifacts plats Sas-Token |Lämna tomt.|
     |Namn på Bacpac-fil |Använd standardvärdet om du inte vill använda din egen bacpac-fil.|
-    |Plats |Använd standardvärdet.|
+    |Location |Använd standardvärdet.|
 
     Azure SQL Server-namnet blir `<ClusterName>dbserver`. Namnet på databasen kommer att `<ClusterName>db`. Standard lagringskontonamn kommer att `e6qhezrh2pdqu`.
 

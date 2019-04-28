@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111315"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala ett Service Fabric-kluster programmässigt 
 

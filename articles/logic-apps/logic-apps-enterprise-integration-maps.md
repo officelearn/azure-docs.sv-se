@@ -12,11 +12,11 @@ ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
 ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61468014"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformera XML med kartor i Azure Logic Apps med Enterprise-Integrationspaket
 
@@ -26,7 +26,7 @@ Anta exempelvis att du regelbundet ta emot B2B order eller fakturor från en kun
 
 Begränsningar som rör integrationskonton och artefakter som maps, se [begränsningar och konfigurationsinformation för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 

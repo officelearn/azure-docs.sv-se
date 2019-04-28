@@ -14,11 +14,11 @@ ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61299105"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – Felavvikelser
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) meddelar i nära realtid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en onormal ökning av HTTP-begäranden eller beroendeanrop som rapporteras som misslyckad. För begäranden är misslyckade förfrågningar vanligtvis de med svarskoder på 400 eller högre. För att hjälpa dig att hantera och diagnostisera problemet, finns en analys av egenskaperna för fel och relaterad telemetri i meddelandet. Det finns också länkar till Application Insights-portalen för ytterligare diagnos. Funktionen behöver ingen installation eller konfiguration, eftersom den använder machine learning-algoritmer för att förutsäga normalt felintervall.

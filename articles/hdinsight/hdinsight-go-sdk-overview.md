@@ -1,19 +1,18 @@
 ---
 title: Azure HDInsight Go SDK
 description: Referens för Azure HDInsight Go SDK
-services: hdinsight
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 2e5b7816fda89e25dcb0de26f526e5187e0640b9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098566"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Förhandsversionen av HDInsight Go Management SDK
 
@@ -23,7 +22,7 @@ HDInsight Go SDK innehåller klasser och funktioner som gör att du kan hantera 
 > [!NOTE]  
 >GoDoc referensmaterial för denna SDK är också [tillgänglig här](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett Azure-konto. Om du inte har någon, [skaffa en kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 * [Gå](https://golang.org/dl/).
@@ -32,7 +31,7 @@ HDInsight Go SDK innehåller klasser och funktioner som gör att du kan hantera 
 
 Kör från din GOPATH-plats `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 SDK: N måste först autentiseras med Azure-prenumerationen.  Följ stegen i exemplet nedan för att skapa ett huvudnamn för tjänsten och använda den för att autentisera. När det är klart, har du en instans av en `ClustersClient`, som innehåller många funktioner (se nedan avsnitt) som kan användas för att utföra hanteringsåtgärder.
 

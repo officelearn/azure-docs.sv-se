@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/14/2019
 ms.openlocfilehash: 6a2b3af4240a5c400bd1eaf4fd1e93b09fc702b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075260"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Resurser-gränser för elastiska pooler med den DTU-baserade inköpsmodellen
 
@@ -121,7 +121,7 @@ Om alla DTU:er för en elastisk pool används får varje databas i poolen lika m
 
 I följande tabell beskrivs egenskaperna för databaser i en pool.
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--- |:--- |
 | Maximalt antal eDTU:er per databas |Det högsta antalet eDTU:er som en databas i poolen kan använda, om de är tillgängliga beroende på användningen av andra databaser i poolen. Det högsta antalet eDTU:er per databas utgör ingen resursgaranti för en databas. Den här inställningen är en global inställning som gäller för alla databaser i poolen. Ange ett högsta antal eDTU:er per databas som är tillräckligt högt för att hantera toppar i databasanvändningen. En viss grad av övertilldelning är att förvänta eftersom poolen normalt arbetar efter ett mönster med frekvent och lågfrekvent användning av databaser där inte alla databaser har aktivitetstoppar samtidigt. Anta exempelvis att toppanvändningen per databas är 20 eDTU:er och att endast 20 % av de 100 databaserna i poolen har hög belastning samtidigt. Om det högsta antalet eDTU:er per databas har angetts till 20 eDTU:er är det rimligt att övertilldela poolen med 5 gånger så mycket och ange eDTU:erna per pool till 400. |
 | Minimalt antal eDTU:er per databas |Det minsta antalet eDTU:er som en databas i poolen är garanterad. Den här inställningen är en global inställning som gäller för alla databaser i poolen. Det minsta antalet eDTU:er per databas kan anges till 0, vilket även är standardvärdet. Den här egenskapen anges till ett värde mellan 0 och den genomsnittliga eDTU-användningen per databas. Produkten av antalet databaser i poolen och det minsta antalet eDTU:er per databas får inte överskrida antalet eDTU:er per pool. Om en pool till exempel har 20 databaser och det minsta antalet eDTU:er per databas har angetts till 10 eDTU:er så måste antalet eDTU:er per pool vara minst 200 eDTU:er. |

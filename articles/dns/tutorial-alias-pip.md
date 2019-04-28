@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
 ms.openlocfilehash: 7dcbfdaf00b0e628541cfd1a3b79df8cf8334ed3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61430621"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Självstudier: Konfigurera en aliaspost för att referera till en Azure offentlig IP-adress 
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
 Anvisningar för att vara värd för din domän i Azure DNS finns i [självstudien: Använda Azure DNS som värd för din domän.](dns-delegate-domain-azure-dns.md)

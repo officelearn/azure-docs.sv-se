@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: e0ad1e85a4cd47de823bc4f224b5a8834b1068b9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459325"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Konfigurera en web application rate gränsen brandväggsregel med hjälp av Azure PowerShell
 Azure web application firewall (WAF) hastighet gränsen regel för Azure ytterdörren styr antalet begäranden som tillåts från en enskild klient-IP-adress under en tid för en minut.

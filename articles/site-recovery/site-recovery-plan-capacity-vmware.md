@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124974"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware-haveriberedskap till Azure
 
@@ -120,7 +120,7 @@ Innan du konfigurerar Site Recovery-infrastruktur kan du komma åt miljön för 
 
 ## <a name="deploy-additional-process-servers"></a>Distribuera ytterligare processervrar
 
-Om du skala upp distributionen utöver 200 källdatorer, eller om du har en total daglig dataomsättningsfrekvensen på mer än 2 TB, måste du lägga till processervrar för att hantera trafik. Läs hur du ställer in processervern i [skala för återställning efter fel med hjälp av ytterligare processervrar](vmware-azure-set-up-process-server-scale.md). När du har konfigurerat processervern kan migrera du källdatorer för att använda den.
+Om du skala upp distributionen utöver 200 källdatorer, eller om du har en total daglig dataomsättningsfrekvensen på mer än 2 TB, måste du lägga till processervrar för att hantera trafik. Vi har utökat produkten i 9.24 versionen för att tillhandahålla [i produkten vägledning](vmware-azure-manage-process-server.md#process-server-selection-guidance) på när du skapar en skalbar processerver. [Konfigurera processervern](vmware-azure-set-up-process-server-scale.md) att skydda nya källdatorer eller [utjämna belastningen](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrera datorer om du vill använda den nya processervern
 

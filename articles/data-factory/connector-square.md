@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317739"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462368"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Kopiera data från ruta med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för kvadratisk länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Ruta** | Ja |
+| type | Type-egenskapen måste anges till: **Ruta** | Ja |
 | värd | URL till kvadratisk instansen. (d.v.s. mystore.mysquare.com)  | Ja |
 | ClientId | Klient-ID som är associerade med ditt kvadratisk program.  | Ja |
 | ClientSecret | Klienthemlighet som är kopplad till kvadratisk programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -81,7 +81,7 @@ Om du vill kopiera data från ruta, ange typegenskapen på datauppsättningen ti
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **SquareObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **SquareObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -110,7 +110,7 @@ För att kopiera data från ruta, ange typ av datakälla i kopieringsaktiviteten
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SquareSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SquareSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Business"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

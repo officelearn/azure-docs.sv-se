@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 3ebeb3c601dd3f734265d49d60728056561928be
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61127829"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Ladda upp filer till ett Media Services-konto på Azure-portalen 
 
@@ -38,11 +38,11 @@ Media Services har en maximal filstorlek för bearbetning av filer. Mer informat
 
 Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i avsnittet om [den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
-## <a name="upload-files"></a>Ladda upp filer
+## <a name="upload-files"></a>Överföra filer
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
 2. Välj **Inställningar** > **Tillgångar**. Välj sedan knappen **Ladda upp**.
    
-    ![Ladda upp filer](./media/media-services-portal-vod-get-started/media-services-upload.png)
+    ![Överföra filer](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
     Fönstret **Överför en videotillgång** visas.
    

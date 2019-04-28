@@ -2,7 +2,6 @@
 title: Ansluta Excel till Apache Hadoop med Hive ODBC-drivrutin - Azure HDInsight
 description: Lär dig hur du konfigurerar och använder Microsoft Hive ODBC driver för Excel för att fråga efter data i HDInsight-kluster från Microsoft Excel.
 keywords: hadoop excel, hive excel, hive odbc
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3a47b18051036e925e54b9507bf2cb4e40aad844
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 37fed781629351475b384ac843a588bdaf7b5b66
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121851"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ansluta Excel till Apache Hadoop i Azure HDInsight med Microsoft Hive ODBC-drivrutin
 
@@ -26,7 +25,7 @@ Microsofts Big Data-lösning integrerar Microsoft Business Intelligence (BI)-kom
 Det är också möjligt att ansluta de data som hör till ett HDInsight-kluster och andra datakällor, inklusive andra Hadoop-kluster med (icke-HDInsight), från Excel med hjälp av Microsoft Power Query-tillägget för Excel. Information om att installera och använda Power Query finns i [Anslut Excel till HDInsight med Power Query][hdinsight-power-query].
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du påbörjar den här artikeln måste du ha följande objekt:
 

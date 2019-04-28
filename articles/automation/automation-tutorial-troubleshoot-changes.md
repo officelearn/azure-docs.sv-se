@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116642"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
 
@@ -99,7 +99,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 
 1. I **Lägg till Windows-register för ändringsspårning** anger du informationen för nyckeln som ska spåras och klickar på **Spara**
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
@@ -112,7 +112,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 
 1. I **Lägg till Windows-fil för ändringsspårning** anger du informationen för filen eller katalogen som ska spåras och klickar på **Spara**
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |
@@ -127,7 +127,7 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 
 1. I **Lägg till Linux-fil för ändringsspårning** anger du informationen för filen eller katalogen som ska spåras och klickar på **Spara**
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Fastställer om inställningen tillämpas        |
 |Objektnamn     | Eget namn på filen som ska spåras        |

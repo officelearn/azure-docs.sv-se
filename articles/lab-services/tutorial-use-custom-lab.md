@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
 ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61083591"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Självstudier: Komma åt ett labb i Azure DevTest Labs
 I den här självstudien använder du det labb som skapades i [Självstudie: Skapa ett labb i Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="access-the-lab"></a>Åtkomst till labbet
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Alla resurser** på menyn till vänster. 
 3. Välj **DevTest Labs** som resurstyp. 
 4. Välj labbet. 

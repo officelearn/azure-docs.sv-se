@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127335"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure-säkerhet och efterlevnad skissen - PaaS webbprogram för NIST Specialpublicering 800-171
 

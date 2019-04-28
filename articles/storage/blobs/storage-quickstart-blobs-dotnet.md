@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
 ms.openlocfilehash: 50bb13ecaa9e6076f00749d54b492a1e6663a93e
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110074"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Snabbstart: Använda .NET för att skapa en blob i objektlagring
 
 I den här snabbstarten får du lära dig använda Azure Storage-klientbiblioteket för .NET för att skapa en behållare och en blob i bloblagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

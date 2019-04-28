@@ -16,11 +16,11 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129889"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en Windows SQL Server-dator i Azure portal
 
@@ -186,7 +186,7 @@ I allmänhet kan du förbättra säkerheten genom att välja den mest restriktiv
 
 
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 Om du kräver SQL Server-autentisering klickar du på **Aktivera** under **SQL-autentisering**.
 

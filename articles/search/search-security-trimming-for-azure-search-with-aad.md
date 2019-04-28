@@ -10,11 +10,11 @@ ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61282224"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhetsfilter för att trimma Azure-sökresultaten med hjälp av Active Directory-identiteter
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver följande uppgifter:
 > [!NOTE]
 > Exemplet kodfragment i den här artikeln är skrivna i C#. Du hittar den fullständiga källkoden [på GitHub](https://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Ditt Azure Search-index måste ha en [security fältet](search-security-trimming-for-azure-search.md) lagra listan grupp identiteter har läsbehörighet till dokumentet. Det här användningsfallet förutsätter en överensstämmelsen mellan ett skyddbara objekt (till exempel en enskild persons college program) och ett fält för säkerhet som anger vem som har åtkomst till det objektet (sjukhusvistelse personal).
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
 ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114450"
 ---
 # <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>Vad är Apache HBase i HDInsight: En NoSQL-databas som tillhandahåller BigTable-liknande kapacitet för Apache Hadoop
 [Apache HBase](https://hbase.apache.org/) är en NoSQL-databas med öppen källkod som bygger på [Apache Hadoop](https://hadoop.apache.org/) och modellerade efter [Google BigTable](https://cloud.google.com/bigtable/). HBase ger direktåtkomst och stark konsekvens för stora mängder ostrukturerade och halvstrukturerade data i en schemalös databas sorterad per kolumnfamiljer.

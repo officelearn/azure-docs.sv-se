@@ -8,17 +8,17 @@ ms.service: service-health
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.openlocfilehash: d2a77e831290aa1ee0fcb6d4addf8f6e90786d52
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119865"
 ---
 # <a name="azure-resource-health-overview"></a>Översikt över Azure Resource Health
  
 Azure Resource Health hjälper dig att diagnostisera och få support när ett Azure-tjänst-problem påverkar dina resurser. Informerar dig om nya och gamla hälsotillståndet för dina resurser. Och du får teknisk support för att hjälpa dig att lösa problem.
 
-Medan [Azure-Status](https://status.azure.com) meddelar dig om tjänstproblem med som påverkar en bred uppsättning Azure-kunder, Resource Health ger dig en anpassad instrumentpanel för hälsotillståndet för dina resurser. Resource Health visar hela tiden resurserna inte var tillgänglig tidigare på grund av problem med Azure-tjänsten. Sedan är det enkelt för dig att förstå om serviceavtal (SLA) har överskridits. 
+Medan [Azure-Status](https://status.azure.com) meddelar dig om tjänstproblem med som påverkar en bred uppsättning Azure-kunder, Resource Health ger dig en anpassad instrumentpanel för hälsotillståndet för dina resurser. Resource Health visar alla gånger då dina resurser har varit otillgängliga på grund av problem med Azure-tjänster. Sedan är det enkelt för dig att förstå om serviceavtal (SLA) har överskridits. 
 
 ## <a name="resource-definition-and-health-assessment"></a>Resursen definitions- och utvärdering
 En resurs är en specifik instans av en Azure-tjänst: till exempel en virtuell dator, en webbapp eller en SQL-databas.
@@ -35,7 +35,7 @@ Statusen **tillgänglig** innebär att tjänsten inte har identifierats eventuel
 
 ![Status för ”tillgänglig” för en virtuell dator med ett meddelande om ”nyligen löst”](./media/resource-health-overview/Available.png)
 
-### <a name="unavailable"></a>Ej tillgänglig
+### <a name="unavailable"></a>Inte tillgängligt
 Statusen **ej tillgänglig** innebär att tjänsten har identifierat en pågående eller icke-plattformen händelse som påverkar hälsotillståndet för resursen.
 
 #### <a name="platform-events"></a>Plattformshändelser

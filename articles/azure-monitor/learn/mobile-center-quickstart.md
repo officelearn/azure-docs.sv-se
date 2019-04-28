@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/22/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6f0a59d2b0954c9847219ad1ac8b2fa805767084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126875"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Börja analysera mobilappen med App Center och Application Insights
 
@@ -67,7 +67,7 @@ Om du vill säkerställa att de anpassade händelserna tas emot går du till fli
 
 När appen skickar anpassade händelser och dessa händelser tas emot av App Center måste du skapa en Application Insights-resurs av App Center-typ i Azure-portalen:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **Skapa en resurs** > **Hanteringsverktyg** > **Application Insights**.
 
     ![Lägga till en Application Insights-resurs](./media/mobile-center-quickstart/add-b.png)
@@ -87,7 +87,9 @@ Om appen har stöd för flera plattformar (iOS, Android osv.) är det bäst att 
 
 ## <a name="export-to-application-insights"></a>Exportera till Application Insights
 
-I den nya Application Insights-resursen kopierar du instrumentationsnyckeln för den här resursen på sidan **Översikt** i avsnittet **Grundläggande** längst upp.
+I nya Application Insights-resursen på den **översikt** sidan. Kopiera instrumenteringsnyckeln från din resurs.
+
+   ![Knappen Analys i Application Insights](./media/mobile-center-quickstart/overview-01.png)
 
 I App Center-instansen för appen:
 
@@ -108,7 +110,7 @@ Application Insights kan fråga, segmentera, filtrera och analysera den anpassad
 
 1. **Fråga den anpassade händelsetelemetrin.** Från sidan **Översikt** i Application Insights väljer du **Analys**. 
 
-   ![Knappen Analys i Application Insights](./media/mobile-center-quickstart/analytics.png)
+   ![Knappen Analys i Application Insights](./media/mobile-center-quickstart/analytics-001.png)
 
    Application Insights Analytics-portalen som är kopplad till din Application Insights-resurs öppnas. I Analytics-portalen kan du fråga data direkt med hjälp av Log Analytics-frågespråket, så att du kan ställa godtyckligt komplexa frågor om appen och dess användare.
    
@@ -121,7 +123,7 @@ Application Insights kan fråga, segmentera, filtrera och analysera den anpassad
    | order by dcount_user_Id desc 
    ```
 
-   ![Analytics-portal](./media/mobile-center-quickstart/analytics-portal.png)
+   ![Analytics-portal](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Välj frågan genom att klicka var som helst på frågan i textredigeraren.
    2. Klicka sedan på **Kör** för att köra frågan. 
@@ -131,17 +133,17 @@ Application Insights kan fråga, segmentera, filtrera och analysera den anpassad
 
 2. **Segmentera och filtrera din anpassade händelsetelemetri.** Från sidan **Översikt** i Application Insights väljer du **Användare** i innehållsförteckningen.
 
-   ![Verktygsikon för användare](./media/mobile-center-quickstart/users-icon.png)
+   ![Verktygsikon för användare](./media/mobile-center-quickstart/users-icon-001.png)
 
    Användarverktyget visar hur många av appens användare som har klickat på vissa knappar, besökt vissa skärmar eller utfört någon annan åtgärd som du spårar som en händelse med App Center SDK. Om du är ute efter ett sätt att segmentera och filtrera App Center-händelserna är användarverktyget ett mycket bra val.
 
-   ![Verktyget Användare](./media/mobile-center-quickstart/users.png) 
+   ![Verktyget Användare](./media/mobile-center-quickstart/users-001.png) 
 
    Du kan till exempel segmentera användningen efter geografi genom att välja **Land eller region** i listrutan **Dela efter**.
 
 3. **Analysera konverterings-, kvarhållnings- och navigeringsmönster i appen.** Från sidan **Översikt** i Application Insights väljer du **Användarflöden** i innehållsförteckningen.
 
-   ![Verktyget Användarflöden](./media/mobile-center-quickstart/user-flows.png)
+   ![Verktyget Användarflöden](./media/mobile-center-quickstart/user-flows-001.png)
 
    Verktyget Användarflöden visualiserar vilka händelser användarna skickar efter en viss starthändelse. Det är användbart för att få en övergripande bild av hur användare navigerar i appen. Det kan också avslöja platser där många användare lämnar appen eller upprepar samma åtgärder om och om igen.
 

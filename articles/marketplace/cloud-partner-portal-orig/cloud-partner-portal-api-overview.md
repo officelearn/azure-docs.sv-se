@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 116eb48330381c7560c55ea9535b3c1b7c6a6a70
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094414"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Cloud Partner Portal API-referens
 ==================================
@@ -45,11 +45,11 @@ strategier som kan användas för att anropa API: erna.
 Den här referensen detaljerad information om API: er för att utföra följande vanliga aktiviteter.
 
 
-### <a name="offers"></a>Erbjudande
+### <a name="offers"></a>Erbjudanden
 
 -   [Hämta alla erbjudanden](./cloud-partner-portal-api-retrieve-offers.md)
 -   [Hämta ett specifikt erbjudande](./cloud-partner-portal-api-retrieve-specific-offer.md)
--   [Hämta status för erbjudande](./cloud-partner-portal-api-retrieve-offer-status.md)
+-   [Hämta erbjudandestatus](./cloud-partner-portal-api-retrieve-offer-status.md)
 -   [Skapa ett erbjudande](./cloud-partner-portal-api-creating-offer.md)
 -   [Publicera ett erbjudande](./cloud-partner-portal-api-publish-offer.md)
 
@@ -60,7 +60,7 @@ Den här referensen detaljerad information om API: er för att utföra följande
 
 ### <a name="publish-an-app"></a>Publicera en app
 
--   [Driftsätt](./cloud-partner-portal-api-go-live.md)
+-   [Sätt igång](./cloud-partner-portal-api-go-live.md)
 
 ### <a name="other-tasks"></a>Andra uppgifter
 

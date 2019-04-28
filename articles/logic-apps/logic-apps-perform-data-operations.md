@@ -11,11 +11,11 @@ ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120187"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Utföra åtgärder i Azure Logic Apps
 
@@ -38,7 +38,7 @@ De här åtgärderna hjälper dig att arbeta med data i matriser.
 | [**Skapa CSV-tabell**](#create-csv-table-action) | Skapa en fil med kommaavgränsade värden (CSV) från en matris. | 
 | [**Skapa HTML-tabell**](#create-html-table-action) | Skapa en HTML-tabell från en matris. | 
 | [**Filtrera matris**](#filter-array-action) | Skapa en matris delmängd från en matris som baseras på det angivna filtret eller ett villkor. | 
-| [**Anslut till**](#join-action) | Skapa en sträng från alla objekt i en matris och avgränsa varje objekt med det angivna tecknet. | 
+| [**Join**](#join-action) | Skapa en sträng från alla objekt i en matris och avgränsa varje objekt med det angivna tecknet. | 
 | [**Välj**](#select-action) | Skapa en matris från de angivna egenskaperna för alla objekt i en annan matris. | 
 ||| 
 
@@ -54,7 +54,7 @@ De här åtgärderna hjälper dig att arbeta med data i JavaScript Object Notati
 
 Om du vill skapa mer komplexa JSON-transformationer [utför avancerad JSON-transformationer med en flytande mallar](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa exemplen i den här artikeln behöver du följande objekt:
 
@@ -62,7 +62,7 @@ Om du vill följa exemplen i den här artikeln behöver du följande objekt:
 
 * Logikappen där du behöver igen för att arbeta med data 
 
-  Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * En [utlösaren](../logic-apps/logic-apps-overview.md#logic-app-concepts) som det första steget i din logikapp 
 
@@ -82,7 +82,7 @@ och skapar dessa utdata:
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-Följ dessa steg om du vill prova ett exempel med hjälp av Logic App Designer. Eller, om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **Compose** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflöde definition: [Data åtgärden kodexempel - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+Följ dessa steg om du vill prova ett exempel med hjälp av Logic App Designer. Eller, om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **Compose** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflöde definition av: [Data åtgärden kodexempel - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> eller Visual Studio, öppna logikappen i Logic App Designer. 
 
@@ -100,7 +100,7 @@ Följ dessa steg om du vill prova ett exempel med hjälp av Logic App Designer. 
    * Om du vill lägga till en åtgärd mellan stegen, musen över den anslutande pilen så visas på plustecknet (+). 
    Välj på plustecknet och välj sedan **Lägg till en åtgärd**.
 
-3. I sökrutan anger du ”skapa” som filter. Välj den här åtgärden från åtgärdslistan över: **Compose**
+3. I sökrutan anger du ”skapa” som filter. Välj den här åtgärden från åtgärdslistan över: **Skriva**
 
    ![Välj åtgärden ”Skriv”](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -142,7 +142,7 @@ Bekräfta om de **Compose** åtgärden skapar de förväntade resultaten, skicka
 
 Du kan skapa en fil med kommaavgränsade värden (CSV)-tabell som har egenskaper och värden från JavaScript Object Notation (JSON) objekt i en matris med de **dataåtgärder - skapa CSV tabell** åtgärd. Du kan sedan använda den resulterande tabellen i åtgärder som följer den **skapa CSV tabell** åtgärd. 
 
-Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **skapa CSV tabell** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflöde definition: [Data åtgärden kodexempel - skapa CSV tabell](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
+Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **skapa CSV tabell** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflöde definition av: [Data åtgärden kodexempel - skapa CSV tabell](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
 
 1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> eller Visual Studio, öppna logikappen i Logic App Designer. 
 
@@ -161,7 +161,7 @@ Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **skapa CSV tabell
    * Om du vill lägga till en åtgärd mellan stegen, musen över den anslutande pilen så visas på plustecknet (+). 
    Välj på plustecknet och välj sedan **Lägg till en åtgärd**.
 
-3. I sökrutan anger du ”skapa csv tabell” som filter. Välj den här åtgärden från åtgärdslistan över: **skapa CSV tabell**
+3. I sökrutan anger du ”skapa csv tabell” som filter. Välj den här åtgärden från åtgärdslistan över: **Skapa CSV-tabell**
 
    ![Välj ”Skapa CSV tabell” åtgärd](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -211,7 +211,7 @@ Bekräfta om de **skapa CSV tabell** åtgärden skapar de förväntade resultate
 
 Du kan skapa en HTML-tabell som har egenskaper och värden från JavaScript Object Notation (JSON) objekt i en matris med de **dataåtgärder - skapa HTML-tabell** åtgärd. Du kan sedan använda den resulterande tabellen i åtgärder som följer den **skapa HTML-tabell** åtgärd.
 
-Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **skapa HTML-tabell** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflöde definition: [Data åtgärden kodexempel - skapa HTML-tabell](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **skapa HTML-tabell** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflöde definition av: [Data åtgärden kodexempel - skapa HTML-tabell](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> eller Visual Studio, öppna logikappen i Logic App Designer. 
 
@@ -230,7 +230,7 @@ Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **skapa HTML-tabel
    * Om du vill lägga till en åtgärd mellan stegen, musen över den anslutande pilen så visas på plustecknet (+). 
    Välj på plustecknet och välj sedan **Lägg till en åtgärd**.
 
-3. I sökrutan anger du ”skapa html-tabell” som filter. Välj den här åtgärden från åtgärdslistan över: **skapa HTML-tabell**
+3. I sökrutan anger du ”skapa html-tabell” som filter. Välj den här åtgärden från åtgärdslistan över: **Skapa HTML-tabell**
 
    ![Välj ”skapa HTML-”-Tabellåtgärd](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -288,7 +288,7 @@ Om du vill skapa en mindre matris med objekt som uppfyller specifika villkor, fr
 > 
 > För åtgärder för att använda matrisutdata från den **filtermatris** åtgärd, antingen dessa åtgärder måste acceptera matriser som indata, eller du kanske omvandla utdata-matris till en annan kompatibelt format. 
 
-Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **filtermatris** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflöde definition: [Data åtgärden kodexempel - filtermatris](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
+Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **filtermatris** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflöde definition av: [Data åtgärden kodexempel - filtermatris](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
 
 1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> eller Visual Studio, öppna logikappen i Logic App Designer. 
 
@@ -309,7 +309,7 @@ Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **filtermatris** o
    * Om du vill lägga till en åtgärd mellan stegen, musen över den anslutande pilen så visas på plustecknet (+). 
    Välj på plustecknet och välj sedan **Lägg till en åtgärd**.
 
-3. I sökrutan anger du ”filtermatris” som filter. Välj den här åtgärden från åtgärdslistan över: **filtermatris**
+3. I sökrutan anger du ”filtermatris” som filter. Välj den här åtgärden från åtgärdslistan över: **Filtrera matris**
 
    ![Välj ”filtrera matris” åtgärd](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -357,7 +357,7 @@ Bekräfta om **filtermatris** åtgärden skapar de förväntade resultaten, skic
 
 Om du vill skapa en sträng som innehåller alla element från en matris och avgränsa de objekt med en specifik avgränsningstecken, använda den **dataåtgärder - koppla** åtgärd. Du kan sedan använda strängen i åtgärder som följer efter den **ansluta** åtgärd.
 
-Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **ansluta** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflödesdefinitionen: [ Data åtgärden kodexempel - koppling](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
+Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **ansluta** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflödesdefinitionen: [Data åtgärden kodexempel - koppling](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
 
 1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> eller Visual Studio, öppna logikappen i Logic App Designer. 
 
@@ -376,7 +376,7 @@ Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **ansluta** och **
    * Om du vill lägga till en åtgärd mellan stegen, musen över den anslutande pilen så visas på plustecknet (+). 
    Välj på plustecknet och välj sedan **Lägg till en åtgärd**.
 
-3. I sökrutan anger du ”Anslut” som filter. Välj den här åtgärden från åtgärdslistan över: **delta**
+3. I sökrutan anger du ”Anslut” som filter. Välj den här åtgärden från åtgärdslistan över: **Anslut dig**
 
    ![Välj ”Data Operations--anslutning till”-åtgärd](./media/logic-apps-perform-data-operations/select-join-action.png)
 
@@ -440,7 +440,7 @@ Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **parsa JSON** och
    * Om du vill lägga till en åtgärd mellan stegen, musen över den anslutande pilen så visas på plustecknet (+). 
    Välj på plustecknet och välj sedan **Lägg till en åtgärd**.
 
-3. I sökrutan anger du ”parsa json” som filter. Välj den här åtgärden från åtgärdslistan över: **parsa JSON**
+3. I sökrutan anger du ”parsa json” som filter. Välj den här åtgärden från åtgärdslistan över: **Parsa JSON**
 
    ![Välj ”parsa JSON”-åtgärd](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -499,7 +499,7 @@ Du kan skapa en matris med JSON-objekt som bygger på värdena i en befintlig ma
 > [!NOTE]
 > För åtgärder för att använda matrisutdata från den **Välj** åtgärden, antingen dessa åtgärder måste acceptera matriser som indata, eller du kanske omvandla utdata-matris till en annan kompatibelt format. 
 
-Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **Välj** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflödesdefinitionen: [Data åtgärden kodexempel - Välj](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+Om du vill arbeta i kodredigeraren vy kan du kopiera exemplet **Välj** och **initieras variabeln** åtgärd definitionerna från den här artikeln i din egen logikapp underliggande arbetsflödesdefinitionen: [Välj data åtgärden kodexempel-](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. I den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> eller Visual Studio, öppna logikappen i Logic App Designer. 
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 2a3e84de6d956e4b45945c77c11f789d4455bfe2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473203"
 ---
 # <a name="phonenumber-prebuilt-entity-for-a-luis-app"></a>PhoneNumber fördefinierade entitet för en LUIS-app
 Den `phonenumber` entiteten extraherar en mängd olika telefonnummer inklusive landskoden. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden i programmet. Den `phonenumber` entitet stöds i `en-us` kultur endast. 

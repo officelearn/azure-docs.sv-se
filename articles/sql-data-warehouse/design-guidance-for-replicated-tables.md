@@ -11,11 +11,11 @@ ms.date: 03/19/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082954"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Designriktlinjer för att använda replikerade tabeller i Azure SQL Data Warehouse
 Den här artikeln ger rekommendationer för att utforma replikerade tabeller i SQL Data Warehouse-schemat. Använd de här rekommendationerna för att förbättra frågeprestanda genom att minska komplexiteten för data movement och fråga.

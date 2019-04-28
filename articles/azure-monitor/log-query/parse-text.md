@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
 ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620867"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61426739"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parsa textdata i Azure Monitor-loggar
 Vissa loggdata som samlas in av Azure Monitor innehåller flera typer av information i en enskild egenskap. Dela dessa data i flera egenskaper gör det enklare att använda i frågor. Ett vanligt exempel är en [anpassad logg](../../log-analytics/log-analytics-data-sources-custom-logs.md) som samlar in en hel loggpost med flera värden i en enskild egenskap. Du kan söka genom att skapa olika egenskaper för de olika värdena och sammanställda på var och en.

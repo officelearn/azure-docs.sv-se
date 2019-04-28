@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5534086d5754691f650370e465fa2c63210e0dc7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739765"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437862"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrera Azure Functions tillägg av bindning
 
@@ -37,7 +38,7 @@ Följande bindningstyper av är undantag som inte kräver registrering av explic
 
 ## <a name="azure-portal-development"></a>Azure portal-utveckling
 
-När du skapar en funktion eller lägga till en bindning, uppmanas du när tillägget för lagringsutlösare eller bindning kräver registrering. Besvarar frågan genom att klicka på **installera** att registrera tillägget. Installationen kan ta upp till 10 minuter i en förbrukningsplan.
+När du skapar en funktion eller lägga till en bindning, uppmanas du när tillägget för lagringsutlösare eller bindning kräver registrering. Besvarar frågan genom att klicka på **installera** att registrera tillägget. Installationen kan ta upp till 10 minuter i en förbrukningsplan. 
 
 Du behöver bara installera varje tillägg en gång för en viss funktionsapp. För stöds bindningar som inte är tillgängliga i portalen eller för att uppdatera den ett installerade tillägg, du kan också [manuellt installera eller uppdatera Azure Functions bindande tillägg från portalen](install-update-binding-extensions-manual.md).  
 
@@ -75,4 +76,5 @@ Ersätt `<target_version>` i det här exemplet med en specifik version av pakete
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Azure Function-utlösare och bindningen exempel](./functions-bindings-example.md)
+
 

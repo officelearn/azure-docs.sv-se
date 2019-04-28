@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 3/18/2019
 ms.author: raynew
 ms.openlocfilehash: 9d7b94500320315c1379ba3dfb8b6460bc105b49
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311206"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61272701"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Om haveriberedskap för virtuella VMware-datorer till Azure
 

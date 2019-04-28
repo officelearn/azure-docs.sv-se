@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58804538"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121834"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå rolldefinitioner för Azure-resurser
 

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: a4fb31721da679b21fa311340269cf07f93cd903
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 50adab1eaa199473a8da857d38c3a08c424c677a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123796"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Felsöka fjärrskrivbordsanslutningar till virtuella Azure-datorer
-Remote Desktop Protocol (RDP)-anslutning till din Windows-baserade Azure-dator (VM) kan misslyckas av olika skäl, så att du inte kan komma åt den virtuella datorn. Problemet kan vara med Remote Desktop-tjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbord-klienten på värddatorn. Den här artikeln vägleder dig igenom några av de vanligaste sätt att lösa problem med RDP-anslutningen. 
+Det kan finnas flera orsaker till att det uppstår problem med RDP-anslutningen till den Windows-baserade virtuella Azure-datorn så att du inte kan komma åt den virtuella datorn. Problemet kan röra fjärrskrivbordstjänsten på den virtuella datorn, nätverksanslutningen eller fjärrskrivbordsklienten på din värddator. Den här artikeln vägleder dig igenom några av de vanligaste sätt att lösa problem med RDP-anslutningen. 
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **hämta stöder**.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 <a id="quickfixrdp"></a>
 

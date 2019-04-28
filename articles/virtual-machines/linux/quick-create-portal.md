@@ -17,13 +17,13 @@ ms.date: 10/12/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 693f9144d1cb454b0a9dd98b5ae63938abd7d26d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473845"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure Portal
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en Linux-dator i Azure portal
 
 Det går att skapa virtuella Azure-datorer via Azure Portal. Azure-portalen är ett webbläsarbaserat användargränssnitt för att skapa virtuella datorer och alla relaterade resurser. Den här snabbstarten visar hur du använder Azure-portalen för att distribuera en virtuell Linux-dator (VM) som kör Ubuntu 16.04 LTS. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
@@ -53,7 +53,7 @@ Om du skapar SSH-nyckelpar med Cloud Shell kommer det att lagras i en Azure-filr
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 

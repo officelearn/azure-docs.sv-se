@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456231"
 ---
 # <a name="monitor-and-tune"></a>Övervaka och finjustera
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika övervakningsalternativ att ge insikter i beteendet för din server.
@@ -35,8 +35,8 @@ De här måtten är tillgängliga för Azure Database för PostgreSQL:
 |serverlog_storage_limit|Log storage gränsen|Byte|Det maximala server log lagringsutrymmet för den här servern.|
 |active_connections|Aktiva anslutningar|Antal|Antal aktiva anslutningar till servern.|
 |connections_failed|Misslyckade anslutningar|Antal|Antal misslyckade anslutningar till servern.|
-|network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
-|network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
+|network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
+|network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
 |backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|
 
 ## <a name="server-logs"></a>Serverloggar

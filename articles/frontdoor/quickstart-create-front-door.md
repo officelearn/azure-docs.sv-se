@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 39e7626e6b4c545649e39ff2120d1f1fd105d764
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461994"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en Front Door för en global webbapp med hög tillgänglighet
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en ytterdörren för en högtillgänglig globala webbprogram
 
 I den här snabbstartsartikeln beskrivs hur du skapar en Front Door-profil som ger hög tillgänglighet och höga prestanda för din globala webbapp. 
 
@@ -42,7 +42,7 @@ Den här snabbstarten kräver att du har distribuerat två instanser av en webba
      | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD1* |
      | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanEastUS* och väljer sedan **OK**. 
-     |      Plats  |   Östra USA        |
+     |      Location  |   Östra USA        |
     |||
 
 3. Välj **Skapa**.
@@ -54,7 +54,7 @@ Den här snabbstarten kräver att du har distribuerat två instanser av en webba
      | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD2* |
      | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanWestEurope* och väljer sedan **OK**. 
-     |      Plats  |   Västra Europa      |
+     |      Location  |   Västra Europa      |
     |||
 
 

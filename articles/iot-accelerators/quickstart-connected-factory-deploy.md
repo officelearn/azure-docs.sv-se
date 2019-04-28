@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127471"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Snabbstart: Testa en molnbaserad lösning för att hantera mina industriella IoT-enheter
 

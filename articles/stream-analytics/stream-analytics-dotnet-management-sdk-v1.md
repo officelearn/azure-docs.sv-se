@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 9c4ddb1375154fef3290008a7b981a4e9069ae94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104838"
 ---
 # <a name="set-up-and-run-analytics-jobs-using-azure-stream-analytics-api-for-net"></a>Konfigurera och kör analytics-jobb med Azure Stream Analytics-API för .NET
 Lär dig hur du konfigurerar och kör analytics-jobb med hjälp av Stream Analytics-API för .NET med hjälp av .NET SDK. Ställ in ett projekt, skapa inkommande och utgående källor, transformeringar och starta och stoppa jobb. Du kan strömma data från Blob storage eller från en händelsehubb för analytics-jobb.

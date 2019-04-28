@@ -12,11 +12,11 @@ ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890866"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61045804"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process i praktiken: med SQL Server
 I den här självstudien får du går igenom processen för att skapa och distribuera en maskininlärningsmodell med SQL Server och en datauppsättning som är allmänt tillgängliga – [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning. Proceduren följer en standard arbetsflöde för datavetenskap: mata in och utforska data, bygg funktioner för att förenkla inlärningen, och sedan skapa och distribuera en modell.

@@ -13,11 +13,11 @@ ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: fb7fe0689ce54031880565c0c6409afeab2ff523
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126982"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR kognitiva kunskaper
 
@@ -52,7 +52,7 @@ Parametrar är skiftlägeskänsliga.
 
 ## <a name="skill-inputs"></a>Färdighet indata
 
-| Indatanamnet      | Beskrivning                                          |
+| Indatanamn      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
 | image         | Komplexa typen. För närvarande bara fungerar med ”/ dokument/normalized_images” fältet genereras av Azure Blob-indexeraren när ```imageAction``` anges till ett värde annat än ```none```. Se den [exempel](#sample-output) för mer information.|
 

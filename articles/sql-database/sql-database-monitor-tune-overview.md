@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 0c93888af16ed7f7162f38c73be5f6330c886c65
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 2a7a6ed5bd28bcc83500da6e82b6c4ff48b2989c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097784"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
@@ -87,7 +87,7 @@ Om du har fastställt att du har ett körs minnesrelaterade prestandaproblem, ä
 
 ### <a name="ParamSniffing"></a> Felsöka frågor med parametern-känsliga fråga körningsproblem för plan
 
-Känsliga plan (PSP) parameterproblemet refererar till ett scenario där Frågeoptimeringen genererar en frågeplan för körning som är optimalt endast för en specifik parametervärdet (eller uppsättning värden) och cachelagrad plan sedan är icke-optimala för parametervärden som används i efterföljande körningar. Icke-optimala planer kan sedan resultera i prestandaproblem för frågan och övergripande arbetsbelastningen dataflöde försämring. Mer information om parametern kontroll och frågebearbetning finns i den [fråga bearbetning Architecture-guiden](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing).
+Känsliga plan (PSP) parameterproblemet refererar till ett scenario där Frågeoptimeringen genererar en frågeplan för körning som är optimalt endast för en specifik parametervärdet (eller uppsättning värden) och cachelagrad plan sedan är icke-optimala för parametervärden som används i efterföljande körningar. Icke-optimala planer kan sedan resultera i prestandaproblem för frågan och övergripande arbetsbelastningen dataflöde försämring. Mer information om parametern kontroll och frågebearbetning finns i den [fråga bearbetning Architecture-guiden](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
 Det finns flera sätt för att åtgärda problem med associerade kompromisser och nackdelar:
 

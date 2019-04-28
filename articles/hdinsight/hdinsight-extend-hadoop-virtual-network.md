@@ -1,19 +1,18 @@
 ---
 title: Utöka HDInsight med virtuellt nätverk – Azure
 description: Lär dig hur du använder Azure Virtual Network för att ansluta HDInsight till andra resurser i molnet eller resurser i ditt datacenter
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f97c07c522dfb22818aca84d41d30c023f564d84
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097345"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -259,7 +258,7 @@ Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azure
 
 1. Du måste alltid tillåta trafik från följande IP-adresser:
 
-    | IP-källadress | Målport | Riktning |
+    | Källans IP-adress | Målport | Direction |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | Inkommande |
     | 23.99.5.239 | 443 | Inkommande |
@@ -271,7 +270,7 @@ Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azure
     > [!IMPORTANT]  
     > Om du använder den Azure-region inte visas kan sedan bara använda fyra IP-adresser från steg 1.
 
-    | Land | Region | Tillåtna käll-IP-adresser | Tillåtna målport | Riktning |
+    | Land/region | Region | Tillåtna käll-IP-adresser | Tillåtna målport | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Asien | Östasien | 23.102.235.122</br>52.175.38.134 | 443 | Inkommande |
     | &nbsp; | Sydostasien | 13.76.245.160</br>13.76.136.249 | 443 | Inkommande |
@@ -284,12 +283,12 @@ Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azure
     | &nbsp; | Östra Kina | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | Inkommande |
     | &nbsp; | Kina, norra 2 | 40.73.37.141</br>40.73.38.172 | 443 | Inkommande |
     | &nbsp; | Kina, östra 2 | 139.217.227.106</br>139.217.228.187 | 443 | Inkommande |
-    | Europa | Nordeuropa | 52.164.210.96</br>13.74.153.132 | 443 | Inkommande |
-    | &nbsp; | Västeuropa| 52.166.243.90</br>52.174.36.244 | 443 | Inkommande |
-    | Frankrike | Centrala Frankrike| 20.188.39.64</br>40.89.157.135 | 443 | Inkommande |
+    | Europa | Norra Europa | 52.164.210.96</br>13.74.153.132 | 443 | Inkommande |
+    | &nbsp; | Västra Europa| 52.166.243.90</br>52.174.36.244 | 443 | Inkommande |
+    | Frankrike | Frankrike, centrala| 20.188.39.64</br>40.89.157.135 | 443 | Inkommande |
     | Tyskland | Centrala Tyskland | 51.4.146.68</br>51.4.146.80 | 443 | Inkommande |
     | &nbsp; | Nordöstra Tyskland | 51.5.150.132</br>51.5.144.101 | 443 | Inkommande |
-    | Indien | Centrala Indien | 52.172.153.209</br>52.172.152.49 | 443 | Inkommande |
+    | Indien | Indien, centrala | 52.172.153.209</br>52.172.152.49 | 443 | Inkommande |
     | &nbsp; | Södra Indien | 104.211.223.67<br/>104.211.216.210 | 443 | Inkommande |
     | Japan | Östra Japan | 13.78.125.90</br>13.78.89.60 | 443 | Inkommande |
     | &nbsp; | Västra Japan | 40.74.125.69</br>138.91.29.150 | 443 | Inkommande |
@@ -300,9 +299,9 @@ Om du använder nätverkssäkerhetsgrupper måste du tillåta trafik från azure
     | USA | Centrala USA | 13.67.223.215</br>40.86.83.253 | 443 | Inkommande |
     | &nbsp; | Östra USA | 13.82.225.233</br>40.71.175.99 | 443 | Inkommande |
     | &nbsp; | Norra centrala USA | 157.56.8.38</br>157.55.213.99 | 443 | Inkommande |
-    | &nbsp; | USA, västra centrala | 52.161.23.15</br>52.161.10.167 | 443 | Inkommande |
+    | &nbsp; | Västra centrala USA | 52.161.23.15</br>52.161.10.167 | 443 | Inkommande |
     | &nbsp; | Västra USA | 13.64.254.98</br>23.101.196.19 | 443 | Inkommande |
-    | &nbsp; | USA, västra 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inkommande |
+    | &nbsp; | Västra USA 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inkommande |
 
     Information om IP-adresser för Azure Government finns i den [Azure Government information + analys](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) dokumentet.
 

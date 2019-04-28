@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: 7f132c513354a87b4f1bd37db4c6c6ed8e0fd041
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61293837"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Så här hanterar du DNS-zoner i Azure DNS med Azure CLI
 
@@ -68,7 +68,7 @@ Välj vilka av dina Azure-prenumerationer som du vill använda.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Valfritt: Installera/använda Azure DNS Private Zones funktion (förhandsversion)
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Valfritt: Installera/använda funktionen för Azure DNS Private Zones (allmänt tillgänglig förhandsversion)
 Funktionen för privata Azure DNS-zoner släpps i en allmänt tillgänglig förhandsversion via ett tillägg till Azure CLI. Installera dns-tillägget för Azure CLI 
 ```
 az extension add --name dns

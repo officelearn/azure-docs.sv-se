@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
 ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216136"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -35,7 +35,7 @@ Här är hur du löser problem som kan uppstå under konfiguration, registrering
 
 | Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
 | ---     | ---     | ---    |
-| **Fel** <br /><ol><li>*Microsoft Azure Recovery Service-agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) kontrollera nätverksinställningarna och se till att du kan ansluta till internet*<li>*(407) proxyautentisering krävs* |Proxy blockerar anslutningen. |  <ul><li>Starta **IE** > **inställningen** > **Internetalternativ** > **Security**  >  **Internet**. Välj sedan **Anpassad nivå** och Bläddra tills du ser att hämta filen. Välj **Aktivera**.<li>Du kan också behöva lägga till dessa webbplatser i Internet Explorer [betrodda platser](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Ändra inställningarna för att använda en proxyserver. Ange sedan proxyn serverinformation. <li>Om du har ett antivirusprogram installerat på servern, Uteslut följande filer från virusgenomsökning. <ul><li>CBEngine.exe (i stället för dpmra.exe).<li>CSC.exe (relaterade till .NET Framework). Det finns en CSC.exe för varje .NET-version som är installerad på servern. Undanta CSC.exe-filer som är knutna till alla versioner av .NET framework på den berörda servern. <li>Tillfällig plats för mappen eller cache. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>Bin-mappen C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **Fel** <br /><ol><li>*Microsoft Azure Recovery Service-agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) kontrollera nätverksinställningarna och se till att du kan ansluta till internet*<li>*(407) Proxyautentisering krävs* |Proxy blockerar anslutningen. |  <ul><li>Starta **IE** > **inställningen** > **Internetalternativ** > **Security**  >  **Internet**. Välj sedan **Anpassad nivå** och Bläddra tills du ser att hämta filen. Välj **Aktivera**.<li>Du kan också behöva lägga till dessa webbplatser i Internet Explorer [betrodda platser](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Ändra inställningarna för att använda en proxyserver. Ange sedan proxyn serverinformation. <li>Om du har ett antivirusprogram installerat på servern, Uteslut följande filer från virusgenomsökning. <ul><li>CBEngine.exe (i stället för dpmra.exe).<li>CSC.exe (relaterade till .NET Framework). Det finns en CSC.exe för varje .NET-version som är installerad på servern. Undanta CSC.exe-filer som är knutna till alla versioner av .NET framework på den berörda servern. <li>Tillfällig plats för mappen eller cache. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>Bin-mappen C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Det gick inte att ange krypteringsnyckeln för säker säkerhetskopiering

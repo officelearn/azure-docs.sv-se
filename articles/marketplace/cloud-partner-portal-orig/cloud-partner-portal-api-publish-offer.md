@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094377"
 ---
 <a name="publish-an-offer"></a>Publicera ett erbjudande
 ================
@@ -33,18 +33,18 @@ Startar publiceringsprocessen för det angivna erbjudanden. Det här anropet är
 
 |  **Namn**      |    **Beskrivning**                               |  **Datatyp** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identifierare för utgivare, till exempel `contoso`      |   Sträng       |
-|  offerId       | Erbjudande-ID                                 |   Sträng       |
+|  publisherId   | Identifierare för utgivare, till exempel `contoso`      |   String       |
+|  offerId       | Erbjudande-ID                                 |   String       |
 |  API-versionen   | Senaste versionen av API: et                        |   Date         |
 |  |  |
 
 
-<a name="header"></a>Sidhuvud
+<a name="header"></a>Huvud
 ------
 
 |  **Namn**        |    **Värde**          |
 |  --------        |    ---------          |
-|  Innehållstyp    | `application/json`    |
+|  Content-Type    | `application/json`    |
 |  Auktorisering   |  `Bearer YOUR_TOKEN`  |
 |  |  |
 
@@ -80,7 +80,7 @@ Startar publiceringsprocessen för det angivna erbjudanden. Det här anropet är
 
 |  **Namn**             |    **Värde**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Åtgärden-plats    | URL som kan efterfrågas för att fastställa den aktuella statusen för åtgärden.    |
+| Operation-Location    | URL som kan efterfrågas för att fastställa den aktuella statusen för åtgärden.    |
 |  |  |
 
 

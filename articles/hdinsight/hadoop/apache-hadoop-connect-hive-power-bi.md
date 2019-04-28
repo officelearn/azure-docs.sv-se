@@ -2,7 +2,6 @@
 title: Visualisera Apache Hive-data med Power BI – Azure HDInsight
 description: Lär dig hur du använder Microsoft Power BI för att visualisera Hive-data som bearbetas av Azure HDInsight.
 keywords: hdinsight, hadoop, hive, interaktiv fråga, interactive hive, LLAP, odbc
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9fa1d0efc98627b976118a9e81ca430e1645a946
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ac5ca3d9501718cd5b538f6bb8c1fafee78063b2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122106"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualisera Apache Hive-data med Microsoft Power BI med hjälp av ODBC i Azure HDInsight
 
@@ -32,7 +31,7 @@ Informationen gäller även för den nya [interaktiv fråga](../interactive-quer
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du går igenom den här artikeln, måste du ha följande objekt:
 
 * **HDInsight-kluster**. Klustret kan vara antingen ett HDInsight-kluster med Hive eller en nyligen utgiven klustret för interaktiv fråga. Skapa kluster finns i [Skapa kluster](apache-hadoop-linux-tutorial-get-started.md#create-cluster).

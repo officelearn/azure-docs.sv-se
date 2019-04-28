@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 7533d1a133c9c474bc39f0f64c5f1a8183ab30f8
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472893"
 ---
-# <a name="publish-container-offer"></a>Publicera erbjudande för behållare
+# <a name="publish-container-offer"></a>Erbjudande om att skapa containrar
 
  När du har skapat ett nytt erbjudande med den **nytt erbjudande** kan du publicera erbjudandet. Välj **publicera** att starta publiceringsprocessen.
 
@@ -34,13 +34,13 @@ I följande diagram visas de viktigaste stegen i publiceringsprocessen i ett erb
 I följande tabell beskrivs varje publiceringen. Det ges även en uppskattad tid att slutföra varje steg.
 
 
-|  **Publiceringen**           | **tid**    | **Beskrivning**                                                            |
+|  **Publiceringen**           | **Time**    | **Beskrivning**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Verifiera förutsättningar         | 15 min   | Ger information och erbjuder inställningarna verifieras.                        |
 | Certifiering                  | 1 vecka | Erbjudandet analyseras av Azure-certifiering-teamet. Erbjudandet genomsöks efter virus, skadlig kod, säkerhet och säkerhetsproblem. Erbjudandet kontrolleras för att se att den uppfyller alla urvalskriterier. Mer information finns i [krav](./cpp-prerequisites.md) och [förbereda dina tekniska resurser](./cpp-create-technical-assets.md). Feedbacks tillhandahålls om ett problem hittas. |
-| Packas | 1 timme  | Erbjudandets tekniska resurser som är packade för kundens användning och lead-system har konfigurerats och konfigurera. |
+| Paketering | 1 timme  | Erbjudandets tekniska resurser som är packade för kundens användning och lead-system har konfigurerats och konfigurera. |
 |  Utgivaren signering             |  -        | Sista publisher granska och bekräfta innan erbjudandet lanseras. Du kan distribuera ditt erbjudande i de valda prenumerationerna (i erbjudandet information steg) för att kontrollera att den uppfyller dina krav.  Välj **Go Live** så att ditt erbjudande kan flytta till nästa steg. |
-| Packas                 | 1 timme | Klar erbjudandet replikeras i regionerna och marketplace produktionssystem. | 
+| Paketering                 | 1 timme | Klar erbjudandet replikeras i regionerna och marketplace produktionssystem. | 
 | Live                           | fyra dagar |Erbjudandet är publicerat, replikeras till de nödvändiga regionerna och blir tillgängliga för allmänheten. |
 
 Tillåt för upp till 10 arbetsdagar att slutföra publiceringsprocessen och erbjudandet släpps. När du har slutfört publiceringsprocessen erbjudandet behållaren visas i den [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).

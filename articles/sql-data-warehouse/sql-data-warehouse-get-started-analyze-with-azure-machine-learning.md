@@ -11,11 +11,11 @@ ms.date: 03/22/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61440035"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Denna självstudie använder Azure Machine Learning för att skapa en förutsäg
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom de här självstudierna, behöver du:
 
 * Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta läser du [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] och väljer att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata kan du [läsa in exempeldata manuellt][load sample data manually].

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fa7b9289f4fef6962c896dba72a35088134431d9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120371"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabbstart: Skapa, söka och bläddra i en Azure Cosmos DB-grafdatabas med Gremlin-konsolen
 
@@ -55,7 +55,7 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/). A
 
     Inställning|Föreslaget värde|Beskrivning
     ---|---|---
-    värdar|[*kontonamn*.gremlin.cosmosdb.azure.com] eller [*kontonamn*.graphs.azure.com] för konton som skapats före 20 december 2017|Se följande skärmbild. Detta är det Gremlin URI-värdet på översiktssidan för Azure-portalen inom hakparenteser utan : 443/ på slutet.
+    värdar|[*account-name*.gremlin.cosmos.azure.com]|Se följande skärmbild. Detta är det Gremlin URI-värdet på översiktssidan för Azure-portalen inom hakparenteser utan : 443/ på slutet.
     port|443|Ställ in på 443.
     användarnamn|*Ditt användarnamn*|Resursen i formuläret `/dbs/<db>/colls/<coll>` där `<db>` är databasnamnet och `<coll>` är samlingens namn.
     lösenord|*Din primärnyckel*| Se andra skärmbilden nedan. Det här är din primärnyckel som du kan hämta från sidan Nycklar i Azure-portalen i rutan Primärnyckel. Använd kopieringsknappen till vänster om rutan för att kopiera värdet.
@@ -69,7 +69,7 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/). A
 Filen remote-secure.yaml bör se ut så här:
 
 ```
-hosts: [your_database_server.gremlin.cosmosdb.azure.com]
+hosts: [your_database_server.gremlin.cosmos.azure.com] 
 port: 443
 username: /dbs/your_database_account/colls/your_collection
 password: your_primary_key

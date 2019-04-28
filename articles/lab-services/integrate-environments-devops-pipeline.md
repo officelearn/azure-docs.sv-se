@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61318402"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrera miljöer i din Azure DevOps CI/CD-pipelines
 Du kan använda tillägget Azure DevTest Labs-uppgifter som är installerad i Azure DevOps-tjänsterna (kallades tidigare Visual Studio Team Services) för att enkelt integrera din kontinuerlig integrering (CI) / kontinuerlig leverans (CD) version och versionen pipeline med Azure DevTest Labs. De här tilläggen gör det lättare att snabbt distribuera en [miljö](devtest-lab-test-env.md) för en specifik testa aktivitet och tar bort den när testet är klart. 

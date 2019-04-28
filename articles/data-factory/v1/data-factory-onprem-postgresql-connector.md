@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462011"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data F
 
 Du kan kopiera data från ett datalager för lokal PostgreSQL till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory stöder för närvarande flyttar data från en PostgreSQL-databas till datalager, men inte för att flytta data från andra datalager till en PostgreSQL-databas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Data Factory-tjänsten stöder anslutning till den lokala PostgreSQL-källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) du lär dig om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar gatewayen.
 
@@ -74,13 +74,13 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **OnPremisesPostgreSql** |Ja |
+| type |Type-egenskapen måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-servern. |Ja |
 | databas |Namnet på PostgreSQL-databasen. |Ja |
 | schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänsligt. |Nej |
 | authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden: Anonym, Basic och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
-| lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -99,7 +99,7 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 
 När källan är av typen **RelationalSource** (som innehåller PostgreSQL), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **tableName** av **datauppsättning** har angetts) |
 
@@ -311,7 +311,7 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | bigserial |serial8 |Int64 |
 | bitars [(n)] | |Byte[], String |
 | bit varierande [(n)] |varbit |Byte[], String |
-| boolesk |bool |Boolesk |
+| boolesk |bool |Boolean |
 | Box | |Byte[], String |
 | bytea | |Byte[], String |
 | tecknet [(n)] |char [(n)] |String |
@@ -319,7 +319,7 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | CID | |String |
 | cidr | |String |
 | Cirkel | |Byte[], String |
-| datum | |DateTime |
+| date | |DateTime |
 | DateRange | |String |
 | dubbel precision |FLOAT8 |Double |
 | inet | |Byte[], String |
@@ -333,15 +333,15 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | linje | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
-| pengar | |Decimal |
+| money | |Decimal |
 | numeriska [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |String |
 | oid | |Int32 |
-| sökväg | |Byte[], String |
+| path | |Byte[], String |
 | pg_lsn | |Int64 |
 | punkt | |Byte[], String |
 | polygon | |Byte[], String |
-| verkliga |FLOAT4 |Single |
+| real |FLOAT4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serie |serial4 |Int32 |

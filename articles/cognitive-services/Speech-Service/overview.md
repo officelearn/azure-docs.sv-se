@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: erhopf
 ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460498"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
@@ -28,10 +28,10 @@ Dessa funktioner utgör Azure Speech Services. Använd länkarna i den här tabe
 
 | Tjänst | Funktion | Beskrivning | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Speech-to-Text](speech-to-text.md) | Tal-till-text | Tal till text transkriberar ljudströmmar till text i realtid som dina program, verktyg eller enheter kan använda eller visa. Använd tal till text med [Språkförståelse (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) att härleda användaren avsikter från transkriberade tal och vidta åtgärder för röstkommandon. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Speech-to-Text](speech-to-text.md) | Tal till text | Tal till text transkriberar ljudströmmar till text i realtid som dina program, verktyg eller enheter kan använda eller visa. Använd tal till text med [Språkförståelse (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) att härleda användaren avsikter från transkriberade tal och vidta åtgärder för röstkommandon. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch avskrift](batch-transcription.md) | Batch avskrift gör det möjligt för asynkron tal till text transkription av stora mängder data. Det här är en REST-baserad tjänst som använder samma slutpunkt som anpassning och modellhantering. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
 | | [Anpassning](#customize-your-speech-experience) | Om du använder tal till text för taligenkänning och taltranskription i en miljö kan du skapa och skapa anpassade akustiska, språk och uttal av modeller till adress omgivande ljuden eller branschspecifika ordförråd. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
-| [Text till tal](text-to-speech.md) | Text-till-tal | Text till tal konverterar indata-text till människoliknande syntetiskt tal. Välj mellan standard röster och neural röster (se [språkstöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Text till tal](text-to-speech.md) | Text till tal | Text till tal konverterar indata-text till människoliknande syntetiskt tal. Välj mellan standard röster och neural röster (se [språkstöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Anpassning](#customize-your-speech-experience) | Skapa anpassade rösttyper unika för ditt varumärke eller din produkt. | Nej | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Talöversättning](speech-translation.md) | Talöversättning | Talöversättning gör i realtid, flera språk översättning av tal till dina program, verktyg och enheter. Använd den här tjänsten för tal-till-tal- och tal till text. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Nej |
 
@@ -57,7 +57,7 @@ Vi erbjuder snabbstarterna i mest populära programmeringsspråk, alla har utfor
 
 När du har haft möjlighet att använda Speech Services, prova vår självstudie som Lär dig hur du identifierar intentioner från tal med hjälp av tal SDK och LUIS.
 
-* [Självstudier: Identifiera avsikter från tal med tal SDK och LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Självstudie: Identifiera avsikter från tal med tal SDK och LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
 
 ## <a name="get-sample-code"></a>Hämta exempelkod
 

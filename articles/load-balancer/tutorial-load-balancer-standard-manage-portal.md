@@ -16,11 +16,11 @@ ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320862"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Självstudie: Belastningsutjämna internettrafik till virtuella datorer med hjälp av Azure-portalen
 
@@ -53,7 +53,7 @@ I det här avsnittet skapar du en Standardbelastningsutjämnare som hjälper til
     | Resursgrupp         | Välj **Skapa nytt** och skriv *myResourceGroupSLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Type          | Välj **Offentligt**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -88,7 +88,7 @@ För att belastningsutjämnaren ska övervaka status för din app måste använd
     | Namn | Ange *myHealthProbe*. |
     | Protokoll | Välj **HTTP**. |
     | Port | Ange *80*.|
-    | Intervall | Ange *15* för antal **intervall** i sekunder mellan avsökningsförsöken. |
+    | Interval | Ange *15* för antal **intervall** i sekunder mellan avsökningsförsöken. |
     | Tröskelvärde för Ej felfri | Välj *2* för antal **tröskelvärde för ej felfri** eller avsökningsfel som måste inträffa innan en virtuell dator betraktas som defekt.|
     | Hälsoavsökning | Välj *myHealthProbe*. |
     
@@ -128,7 +128,7 @@ I det här avsnittet, skapa ett virtuellt nätverk, skapa tre virtuella datorer 
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj befintlig resurs - *myResourceGroupSLB*. |
-    | Plats | Välj **Västeuropa**.|
+    | Location | Välj **Västeuropa**.|
     | Undernät – Namn | Ange *myBackendSubnet*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
     

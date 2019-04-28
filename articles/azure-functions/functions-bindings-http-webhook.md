@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104383"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -800,7 +800,7 @@ Använd HTTP-utdatabindning svarar på http-begäran avsändaren. Den här bindn
 
 I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil. Det finns inga attributegenskaper som motsvarar dessa för C#-klassbibliotek, *function.json* egenskaper.
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 | **typ** |Måste anges till `http`. |
 | **riktning** | Måste anges till `out`. |

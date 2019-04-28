@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601091"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447462"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Använda azureiotsolutions.com plats för att distribuera din lösningsaccelerator
 
@@ -27,7 +27,7 @@ Du kan distribuera Azure IoT-Lösningsacceleratorer till din Azure-prenumeration
 Du kan distribuera Lösningsacceleratorer i följande konfigurationer:
 
 * **Standard**: En för utökad infrastrukturdistribution för att utveckla en produktionsmiljö. Azure Container Service distribuerar mikrotjänsterna till flera virtuella Azure-datorer. Kubernetes orkestrerar Docker-containrar som värdar för enskilda mikrotjänster.
-* **Grundläggande**: En lägre kostnadsversion för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
+* **Basic**: En lägre kostnadsversion för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
 * **Lokala**: En lokal datordistribution för testning och utveckling. Den här metoden distribuerar mikrotjänsterna till en lokal Docker-behållare och ansluter till IoT Hub, Azure Cosmos DB och Azure storage-tjänster i molnet.
 
 Var och en av Lösningsacceleratorer använder en annan kombination av Azure-tjänster som IoT Hub, Azure Stream Analytics och Cosmos DB. För mer information, besök [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) och välj en lösningsaccelerator.

@@ -12,11 +12,11 @@ ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61045481"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process i praktiken: använda SQL Data Warehouse
 I de här självstudierna vi vägleder genom att skapa och distribuera en maskininlärningsmodell med SQL Data Warehouse (SQL DW) för en datauppsättning som allmänt tillgängliga – den [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning. Binära klassificeringsmodellen konstrueras förutsäger huruvida ett tips är betalas för en resa och modeller för multiklass-baserad klassificering och regression beskrivs som förutsäga fördelningen för tips belopp som har betalats.

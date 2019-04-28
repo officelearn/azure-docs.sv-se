@@ -10,11 +10,11 @@ ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125602"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Överföra Data med Microsoft Azure Storage Data Movement Library
 
@@ -42,7 +42,7 @@ Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som körs p�
 >
 >
 
-## <a name="setup"></a>Inställningar
+## <a name="setup"></a>Konfiguration
 
 1. Gå till den [installationsguide för .NET Core](https://www.microsoft.com/net/core) att installera .NET Core. När du väljer miljön väljer du kommandoradsalternativet.
 2. Skapa en katalog för ditt projekt från kommandoraden. Navigera till den här katalogen, Skriv `dotnet new console -o <sample-project-name>` att skapa ett C#-konsollprojekt.

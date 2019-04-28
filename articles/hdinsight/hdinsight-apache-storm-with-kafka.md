@@ -1,7 +1,6 @@
 ---
 title: 'Självstudie: Använda Apache Storm för att läsa och skriva data med Apache Kafka – Azure HDInsight'
 description: Lär dig att skapa en direktuppspelnings-pipeline med Apache Storm och Apache Kafka i HDInsight. I den här självstudien använder du KafkaBolt- och KafkaSpout-komponenter till att strömma data från Kafka.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bf62b4f8f8dbfc7df73102bb06e4f16c0fdb806c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097328"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
 
@@ -33,7 +32,7 @@ I den här guiden får du lära dig att:
 > * Stoppa topologierna
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Känna till hur man skapar Kafka-ämnen. Mer information finns i dokumentet [Snabbstart för Kafka i HDInsight](./kafka/apache-kafka-get-started.md).
 
@@ -411,7 +410,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
       | --- | --- |
       | Prenumeration | Din Azure-prenumeration |
       | Resursgrupp | Resursgruppen som innehåller resurserna. |
-      | Plats | Azure-regionen som resurserna skapas i. |
+      | Location | Azure-regionen som resurserna skapas i. |
       | Kafka-klusternamn | Namnet på Kafka-klustret. |
       | Namn på Storm-kluster | Namnet på Storm-klustret. |
       | Användarnamn för klusterinloggning | Ett administratörsanvändarnamn för klustren. |

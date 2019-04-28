@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 90af9d40f797e493696d52e4cd744b99e3b57911
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104130"
 ---
 # <a name="dynamic-packaging"></a>Dynamisk paketering
 
@@ -73,7 +73,7 @@ En direktsänd händelse kan vara något av två typer: direkt och live encoding
 
 Följande diagram visar direktsänd strömning med dynamisk paketering arbetsflöde.
 
-![direktautentisering](./media/live-streaming/pass-through.svg)
+![direkt](./media/live-streaming/pass-through.svg)
 
 ## <a name="delivery-protocols"></a>Leveransprotokoll
 
@@ -197,6 +197,10 @@ Dynamisk filtrering används för att styra antalet spår, format, olika bithast
 
 > [!NOTE]
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
+
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

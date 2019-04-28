@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117593"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudier: Skapa en anpassad avbildning och kör i App Service från ett privat register
 
@@ -347,7 +347,7 @@ Vad du lärt dig:
 Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
+> [Självstudie: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
 
 Eller titta på andra resurser:
 
@@ -355,4 +355,4 @@ Eller titta på andra resurser:
 > [Konfigurera anpassade behållaren](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Flera behållare WordPress-appen](tutorial-multi-container-app.md)
+> [Självstudie: Flera behållare WordPress-appen](tutorial-multi-container-app.md)

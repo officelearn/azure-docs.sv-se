@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471527"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Redundansväxla och återställa Hyper-V-datorer som replikeras till din sekundära lokala platsen
 
@@ -35,7 +35,7 @@ Redundans och återställning efter fel har tre steg:
 3. Efter den planerade redundansväxlingen att du kan också starta replikeras från den primära platsen till sekundärt igen.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Kontrollera att du har slutfört en [programåterställningstest](hyper-v-vmm-test-failover.md) att kontrollera att allt fungerar som förväntat.
 - Kontrollera att den primära och sekundära VMM-servern är ansluten till Site Recovery för att slutföra återställning efter fel.

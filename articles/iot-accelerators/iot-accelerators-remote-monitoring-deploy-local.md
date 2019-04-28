@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: fdb9b6c09e81ce29d2587fb0faca1aa80d28ea38
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450604"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärröv
 
 Om du vill köra lösningsacceleratorn för fjärrövervakning i Docker på din lokala dator, se [och distribuera lösningsacceleratorn för fjärrövervakning lokalt - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att distribuera Azure-tjänsterna används av lösningsacceleratorn för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 

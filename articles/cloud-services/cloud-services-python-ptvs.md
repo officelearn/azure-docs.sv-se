@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2cfb8f922819802834d9833ae614f5bc5b4ff886
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125448"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
 
 I den här artikeln ges en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][Python Tools for Visual Studio]. Lär dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * [Visual Studio 2013, 2015 eller 2017](https://www.visualstudio.com/)
 * [Python Tools för Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools för VS 2013][Azure SDK Tools for VS 2013] eller  

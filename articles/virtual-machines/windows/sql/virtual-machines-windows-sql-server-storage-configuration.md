@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
 ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328443"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477454"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server-datorer
 
@@ -29,7 +29,7 @@ Det här avsnittet förklarar hur Azure konfigurerar lagring för dina SQL Serve
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda inställningarna för automatisk lagring, kräver den virtuella datorn följande egenskaper:
 
@@ -143,7 +143,7 @@ Azure använder du följande inställningar för att skapa lagringspoolen på SQ
 
 I följande tabell beskrivs de tre arbetsbelastning typ tillgängliga alternativen och deras motsvarande optimeringar:
 
-| Typer av arbetsbelastningar | Beskrivning | Optimeringar |
+| Typ av arbetsbelastning | Beskrivning | Optimeringar |
 | --- | --- | --- |
 | **Allmänt** |Standardinställningen som har stöd för de flesta arbetsbelastningar |Ingen |
 | **Transaktionsbearbetning** |Optimerar lagringen för traditionella OLTP databasarbetsbelastningar |Spårningsflaggan 1117<br/>Spårningsflaggan 1118 |

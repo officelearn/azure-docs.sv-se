@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
 ms.openlocfilehash: 1c2ec576211741390ef91233101261a7881e4180
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466756"
 ---
 # <a name="transforms-and-jobs"></a>Transformeringar och jobb
 
@@ -63,11 +63,11 @@ Anta att du vill extrahera första bildruta från dina videor som en miniatyrbil
 
 En **transformera** hjälper dig att skapa receptet en gång (steg 1) och skicka jobb med hjälp av det receptet (steg 2).
 
-## <a name="job-error-codes"></a>Felkoder för jobbet
+## <a name="job-error-codes"></a>Jobbfelkoder
 
-Se [felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Se [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="paging"></a>Sidindelning
+## <a name="paging"></a>Paging
 
 Se [filtrering, sortering, växling av Media Services entiteter](entities-overview.md).
 
@@ -79,5 +79,5 @@ Mer information finns i [skala mediebearbetning med CLI](media-reserved-units-cl
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)
-- [Självstudier: Analysera videoklipp med Media Services v3 med hjälp av .NET](analyze-videos-tutorial-with-api.md)
+- [Självstudie: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)
+- [Självstudie: Analysera videoklipp med Media Services v3 med hjälp av .NET](analyze-videos-tutorial-with-api.md)

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098853"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Självstudier: Använda en ONNX-modell från Custom Vision med Windows ML (förhandsversion)
 
@@ -29,7 +29,7 @@ Informationen i det här dokumentet visar hur du använder en ONNX-fil som expor
 > * Kör exemplet
 > * Använd din egen modell
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Windows 10 version 17738 eller senare
 
@@ -85,4 +85,4 @@ Om du vill upptäcka andra sätt att exportera och använda Custom Vision-modell
 * [Använda en exporterad CoreML-modell i ett Swift iOS-program](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Använda en exporterad CoreML-modell i ett iOS-program med Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
-Mer information om hur du använder ONNX-modeller med Windows ML finns i dokumentet [Integrera en modell i din app med Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model).
+Mer information om hur du använder ONNX-modeller med Windows ML finns i dokumentet [Integrera en modell i din app med Windows ML](/windows/ai/windows-ml/integrate-model).

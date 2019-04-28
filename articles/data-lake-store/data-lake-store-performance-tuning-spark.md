@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: dc92e7d2fcc911aeb6d92b91dd2d430af3c502ad
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61436519"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestandajusteringsvägledning för Spark på HDInsight och Azure Data Lake Storage Gen1
 
 Du måste fundera över hur många appar som körs i klustret när du anpassar prestanda på Spark.  Som standard kan du köra 4 appar samtidigt på HDI-kluster (Obs: standardinställningen kan komma att ändras).  Du kan välja att använda färre appar så att du kan åsidosätta standardinställningarna och använda flera av klustret för dessa appar.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett konto med Azure Data Lake Storage Gen1**. Anvisningar för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

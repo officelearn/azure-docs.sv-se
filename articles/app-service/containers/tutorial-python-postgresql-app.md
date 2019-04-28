@@ -13,11 +13,11 @@ ms.date: 03/27/2019
 ms.author: beverst;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b3d262a33ecbc35ada278019ee0998486bc92efe
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130202"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Skapa en Python- och PostgreSQL-app i Azure App Service
 
@@ -424,7 +424,7 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
+> [Självstudie: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
 
 Eller titta på andra resurser:
 

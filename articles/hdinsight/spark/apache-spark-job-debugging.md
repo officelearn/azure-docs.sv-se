@@ -1,7 +1,6 @@
 ---
 title: Felsöka Apache Spark-jobb som körs på Azure HDInsight
 description: Använd YARN-Användargränssnittet, Spark-Användargränssnittet och Spark-historikserver att spåra och felsöka jobb som körs på ett Spark-kluster i Azure HDInsight
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1601663266f59668918e6799b5c4a7ff606431c4
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124296"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark-jobb som körs på Azure HDInsight
 
 I den här artikeln får du lära att spåra och felsöka [Apache Spark](https://spark.apache.org/) HDInsight-jobb som körs på kluster med den [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Användargränssnittet, Spark-Användargränssnittet och Spark-Historikserver. Du startar ett Spark-jobb med hjälp av en bärbar dator som är tillgängliga med Spark-kluster **Machine learning: Förutsägande analys mat inspektion data med hjälp av MLLib**. Du kan använda följande steg för att spåra ett program som du skickade med hjälp av någon annan metod, till exempel **spark-submit**.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha följande:
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -78,7 +77,7 @@ I Användargränssnittet för Spark kan du granska nedåt i Spark-jobb som skapa
    
    * Fliken lagring – om programmet skapar en Rdd du hittar information om de på fliken lagring.
    * Fliken miljö – den här fliken innehåller mycket användbar information om Spark-instans som den 
-     * Scala-version
+     * Scala version
      * Händelseloggen directory kopplat till klustret
      * Antal kärnor executor för programmet
      * O.s.v.

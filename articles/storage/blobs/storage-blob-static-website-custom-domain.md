@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: tamram
 ms.custom: seodec18
 ms.openlocfilehash: 6ccd33805fe4b62d3456121321edc4eec3bff2e5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61427527"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Självstudie: Använda Azure CDN för att aktivera en anpassad domän med SSL för en statisk webbplats
 

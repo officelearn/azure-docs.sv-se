@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: rosh
 ms.openlocfilehash: 182783576c8b47db8dd1c60ed2d5c5948fb98672
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61431981"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Självstudier: Enkelsidig app med videosökning
 Med API för videosökning i Bing kan du söka på webben och få videoresultat som är relevanta för en sökfråga. I de här självstudierna skapar vi ett enkelsidigt program som använder API för sökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.

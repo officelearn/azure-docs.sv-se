@@ -12,11 +12,11 @@ ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065281"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61318543"
 ---
 # <a name="what-is-azure-logic-apps"></a>Vad är Azure Logic Apps?
 

@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: e0513bc18f1cf14beb4c1becfc1835235a5ddc96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483102"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Skapa ett exportjobb för tjänsten Azure Import/Export
 Skapa ett exportjobb för Microsoft Azure Import/Export-tjänsten med hjälp av REST-API omfattar följande steg:

@@ -12,11 +12,11 @@ ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 tags: connectors
 ms.date: 08/24/2018
 ms.openlocfilehash: 01573871700bbeeb653ce3efdbf6c6aca88fd454
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104892"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Hantera RSS-flöden med hjälp av Azure Logic Apps
 
@@ -29,7 +29,7 @@ RSS (Rich Site sammanfattning), även kallat verkligen enkelt syndikering är et
 
 Du kan använda en RSS-utlösare som får svar från en RSS-feed och gör utdata som är tillgängliga för andra åtgärder. Du kan använda en RSS-åtgärd i dina logic apps för att utföra en uppgift med RSS-flödet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 

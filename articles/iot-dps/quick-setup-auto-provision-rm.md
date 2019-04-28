@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 45558e25f2f61090cfb3ddb5c382170ab40792d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126485"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Konfigurera tjänsten IoT Hub Device Provisioning med en Azure Resource Manager-mall
 

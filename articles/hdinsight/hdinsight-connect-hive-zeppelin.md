@@ -2,7 +2,6 @@
 title: Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight
 description: Lär dig hur du använder Apache Zeppelin du kör Apache Hive-frågor.
 keywords: hdinsight, hadoop, hive, LLAP interaktiv fråga
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,18 +9,18 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 035e70eef88d5d5dae08c329017430db25c20464
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 417e9f8ae78889374983bf77900ee00fa7fc6338
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098768"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-hive-queries-in-azure-hdinsight"></a>Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight 
 
 Interaktiv HDInsight-fråga innehåller [Apache Zeppelin](https://zeppelin.apache.org/) anteckningsböcker som du kan använda för att köra interaktiva Hive-frågor. I den här artikeln får du lära dig hur du använder Apache Zeppelin för att köra [Apache Hive](https://hive.apache.org/) frågor i Azure HDInsight. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du går igenom den här artikeln, måste du ha följande objekt:
 
 * **Klustret HDInsight interaktiv fråga**. Se [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) att skapa ett HDInsight-kluster.  Se till att välja typen interaktiv fråga. 

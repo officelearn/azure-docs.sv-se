@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 361d0ce5091d80198d47e4ad164f7cba8e21a55d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485299"
 ---
 Med en *anpassad* virtuell dator avses en virtuell dator som du skapar med en **aktuell app** från **Marketplace** eftersom den gör en stor del av arbetet åt dig. Men du kan fortfarande välja olika konfigurationsalternativ:
 
@@ -28,9 +29,11 @@ Med en *anpassad* virtuell dator avses en virtuell dator som du skapar med en **
 
 > [!IMPORTANT]
 > Om du vill att den virtuella datorn ska använda ett virtuellt nätverk måste du ange det virtuella nätverket när du skapar den virtuella datorn.
-> 
 > * Två fördelar med att använda ett virtuellt nätverk är att du kan ansluta direkt till den virtuella datorn och konfigurera anslutningar mellan platser.
-> 
 > * En virtuell dator kan endast konfigureras för att ansluta till ett virtuellt nätverk när du skapar den virtuella datorn. Mer information om virtuella nätverk finns i [Översikt över Azure Virtual Network](../articles/virtual-network/virtual-networks-overview.md).
+>
+>
 
 ## <a name="to-create-the-virtual-machine"></a>Skapa en virtuell dator
+
+<!-- Update_Description: update meta properties -->

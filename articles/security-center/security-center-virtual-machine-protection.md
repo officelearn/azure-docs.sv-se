@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 3/20/2019
 ms.author: monhaber
 ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121823"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet för dina Azure-resurser, icke-Azure-servrar och virtuella datorer. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.

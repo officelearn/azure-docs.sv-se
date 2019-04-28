@@ -18,13 +18,13 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125330"
 ---
-# <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfigurationer för SAP-arbetsbelastning med Tillgänglighetszoner i Azure
+# <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
 [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med hjälp av Tillgänglighetszoner förbättrar den övergripande tillgängligheten för SAP-arbetsbelastningar på Azure. Den här funktionen finns redan i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer blir den tillgänglig i fler regioner.
 
 Den här bilden visar grundläggande hög tillgänglighet för SAP-arkitektur:

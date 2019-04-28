@@ -1,6 +1,6 @@
 ---
 title: Core-rapporter från Verizon | Microsoft Docs
-description: 'Du kan visa användningsmönster i CDN-nätverket med hjälp av följande rapporter: bandbredd, överförda Data, träffar, cachelagring, Cache träffar förhållande, IPV4/IPv6-Data överförs.'
+description: 'Du kan visa användningsmönster i CDN-nätverket med hjälp av följande rapporter: Bandbredd, överförda Data, träffar, cachelagring, träffrekvensen för cacheminnet, IPV4/IPV6-Data som överförs.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061586"
 ---
 # <a name="core-reports-from-verizon"></a>Core-rapporter från Verizon
 
@@ -88,15 +88,15 @@ Ange en tillgång för att minska har upphört att gälla cacheträffar `max-age
 ### <a name="main-cache-statuses-include"></a>Viktigaste för cachelagring är:
 * TCP_HIT: Hanteras från edge-servern. Objektet har i cachen och inte har överskridit sin maxåldern.
 * TCP_MISS: Hanteras från ursprungsservern. Objektet var inte i cacheminnet och svaret tillbaka till ursprunget.
-* TCP_EXPIRED _MISS: hanteras från ursprungsservern efter omverifieringen med ursprung. Objektet har i cacheminnet, men har överskridit sin maxåldern. En omverifieringen med ursprung resulterade i cacheobjektet ersättas med ett nytt svar från ursprunget.
-* TCP_EXPIRED _HIT: hanteras från Edge efter omverifieringen med ursprung. Objektet är i cacheminnet, men har överskridit sin maxåldern. En omverifieringen med den ursprungliga servern resulterade i cacheobjektet som ska ändras.
+* TCP_EXPIRED _MISS: Hanteras från ursprungsservern efter omverifieringen med ursprung. Objektet har i cacheminnet, men har överskridit sin maxåldern. En omverifieringen med ursprung resulterade i cacheobjektet ersättas med ett nytt svar från ursprunget.
+* TCP_EXPIRED _HIT: Hanteras från Edge efter omverifieringen med ursprung. Objektet är i cacheminnet, men har överskridit sin maxåldern. En omverifieringen med den ursprungliga servern resulterade i cacheobjektet som ska ändras.
 
 ### <a name="full-list-of-cache-statuses"></a>Fullständig lista över för cachelagring
 * TCP_HIT – denna status rapporteras när en begäran hanteras direkt från POP till klienten. En tillgång hanteras direkt från en POP när den cachelagras på POP närmast klienten och har en giltig time to live (TTL). TTL bestäms av de följande svarshuvuden:
   
   * Cache-Control: s-maxage
   * Cache-Control: max-age
-  * Upphör att gälla
+  * Går ut
 * TCP_MISS: Denna status anger att en cachelagrad version av den begärda tillgången inte hittades på den POP-plats som är närmast klienten. Tillgången har begärts från en ursprungsserver eller en shield ursprungsservern. Om den ursprungliga servern eller shield ursprungsservern returnerar du en tillgång, den hanteras av klienten och cachelagras på både klienten och edge-servern. I annat fall en icke-200-statuskod (till exempel 403 förbjudet eller 404 hittades inte) returneras.
 * TCP_EXPIRED_HIT: Denna status rapporteras när en begäran som riktar sig mot en tillgång med en har upphört att gälla TTL behandlades direkt från POP till klienten. Till exempel när tillgången är maxåldern har gått ut. 
   
@@ -123,7 +123,7 @@ Rapporten innehåller inte:
 * Begäranden för tillgångar vars rubriker tyda på att de inte ska cachelagras. Till exempel `Cache-Control: private`, `Cache-Control: no-cache`, eller `Pragma: no-cache` rubriker förhindra att en tillgång att cachelagras.
 * Begäranden med byte-intervall för delvis cachelagrat innehåll.
 
-Formeln är: (TCP_ träffar / (TCP_ träffar + TCP_MISS)) * 100
+Formeln är: (TCP_ HIT/(TCP_ HIT+TCP_MISS))*100
 
 ![Cacheträff rapport](./media/cdn-reports/cdn-cache-hit-ratio.png)
 

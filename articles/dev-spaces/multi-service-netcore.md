@@ -10,11 +10,11 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
 ms.openlocfilehash: 575a14416835337d9aad45c4328f3119288f04c8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359194"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127063"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Utveckling av flera tjänster med Azure Dev Spaces
 

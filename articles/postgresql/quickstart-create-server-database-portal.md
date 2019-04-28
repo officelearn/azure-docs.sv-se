@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61092316"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snabbstart: Skapa en Azure-databas för PostgreSQL i Azure-portalen
 
@@ -46,7 +46,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du väljer *Säkerhetskopiering* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for PostgreSQL-server).
     inloggning för serveradministratör |*myadmin*| Ett eget inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** eller **public**. Det får inte börja med **pg_**.
     Lösenord |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Ditt lösenord måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
-    Plats|Den region som är närmast dina användare| Den plats som är närmast dina användare.
+    Location|Den region som är närmast dina användare| Den plats som är närmast dina användare.
     Version|Senaste huvudversion| Den senaste PostgreSQL-huvudversionen, om du inte har andra särskilda krav.
     Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 5*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
 
@@ -123,7 +123,7 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
 
     psql-parameter |Föreslaget värde|Beskrivning
     ---|---|---
-    lösenord | Ditt administratörslösenord | Det angivna lösenordet visas inte i bash-kommandotolken. Tryck på Retur när du har skrivit alla tecken för att autentisera och ansluta.
+    password | Ditt administratörslösenord | Det angivna lösenordet visas inte i bash-kommandotolken. Tryck på Retur när du har skrivit alla tecken för att autentisera och ansluta.
 
     När du har anslutit visar psql-verktyget en postgres-kommandotolk där du skriver sql-kommandon. Vid den första anslutningen kanske en varning visas eftersom det psql-verktyg du använder kan vara en annan version än Azure Database for PostgreSQL-serverversionen. 
     

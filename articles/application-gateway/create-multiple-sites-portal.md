@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/18/2019
 ms.author: victorh
 ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122277"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Självstudier: Skapa och konfigurera en Programgateway som värd för flera webbplatser med hjälp av Azure portal
 

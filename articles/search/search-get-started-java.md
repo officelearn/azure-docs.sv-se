@@ -10,11 +10,11 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61289883"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
 > [!div class="op_single_selector"]
@@ -46,13 +46,13 @@ I det här programmet bygger och läser programmet **SearchServlet.java** in ind
 ## <a name="about-the-program-files"></a>Om programfilerna
 Följande lista beskriver de filer som är relevanta för det här exemplet.
 
-* Search.JSP: Tillhandahåller användargränssnittet
+* Search.jsp: Tillhandahåller användargränssnittet
 * SearchServlet.java: Tillhandahåller metoder (liknar en kontrollant i MVC)
 * SearchServiceClient.java: Hanterar HTTP-begäranden
 * SearchServiceHelper.java: En hjälparklass som tillhandahåller statiska metoder
-* Document.Java: Tillhandahåller datamodellen
-* Config.Properties: Anger Search-tjänstens URL och api-nyckel
-* pom.XML: Ett Maven-beroende
+* Document.java: Tillhandahåller datamodellen
+* config.properties: Anger Search-tjänstens URL och api-nyckel
+* pom.xml: Ett Maven-beroende
 
 <a id="sub-2"></a>
 

@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 63d036ea4faaf7e24f337fa3956986d165c84854
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466977"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI-exempel: Skapa och skicka ett jobb
 
 När du skickar in jobb för att bearbeta videor i Media Services v3 måste du informera Media Services om var indatavideo finns. Något av alternativen är att ange en HTTPS-URL som ett jobb som indata (som visas i den här artikeln). 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 [Skapa ett Media Services-konto](../create-account-cli-how-to.md).
 

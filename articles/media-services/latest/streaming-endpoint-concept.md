@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999458"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125431"
 ---
 # <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning
 
@@ -39,7 +39,7 @@ Det finns två typer av **slutpunkter för direktuppspelning**: **Standard** och
 
 I tabellen beskrivs typerna:  
 
-|Type|Skalningsenheter|Beskrivning|
+|Typ|Skalningsenheter|Beskrivning|
 |--------|--------|--------|  
 |**Standardslutpunkt för direktuppspelning** (rekommenderas)|0|Standard-slutpunkt för direktuppspelning är en **Standard** Skriv, men kan ändras till typen Premium.<br/> Standardtypen är det rekommenderade alternativet för i stort sett alla strömmande scenarier och Publiker. Typen **Standard** skalar utgående bandbredd automatiskt. Dataflödet från den här typen av slutpunkt för direktuppspelning är upp till 600 Mbit/s. Video fragment som cachelagras i CDN, Använd inte bandbredden som slutpunkt för direktuppspelning.<br/>För kunder med mycket stora krav erbjuder Media Services **Premium**-slutpunkter för direktuppspelning, som kan användas för att skala ut kapacitet för de största Internet-publikerna. Om du förväntar dig stora målgrupper och samtidiga läsare du kontakta oss på amsstreaming\@microsoft.com anvisningar om du behöver flytta till den **Premium** typen. |
 |**Premium-slutpunkt för direktuppspelning**|> 0|**Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Du flyttar till en **Premium** typ genom att justera `scaleUnits`. `scaleUnits` ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. När du använder typen **Premium** ger varje aktiverad enhet ytterligare bandbreddskapacitet till programmet. |
@@ -149,6 +149,10 @@ CDN-integreringen har aktiverats i alla Azure-Datacenter förutom Kina och feder
 ### <a name="determine-if-dns-change-has-been-made"></a>Avgöra om DNS-ändring har gjorts
 
 Du kan fastställa om DNS-ändring har gjorts på en slutpunkt för direktuppspelning (är att dirigeras trafiken till Azure CDN) genom att använda https://www.digwebinterface.com. Om resultatet har azureedge.net domännamn i resultatet, är trafiken nu att riktas till CDN.
+
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

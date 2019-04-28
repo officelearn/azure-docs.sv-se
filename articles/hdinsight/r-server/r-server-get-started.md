@@ -1,7 +1,6 @@
 ---
 title: Komma igång med ML-tjänster på HDInsight – Azure
 description: Lär dig att skapa en Apache Spark i ett HDInsight-kluster som innehåller ML-tjänster och sedan skicka ett R-skript i klustret.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,18 +8,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 465b53e1c5f56c5c05c860ebd69a825141f7e703
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124619"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Komma igång med ML-tjänster på Azure HDInsight
 
 Med Azure HDInsight kan du skapa ett ML-tjänstkluster. Det här alternativet kan R-skript att använda [Apache Spark](https://spark.apache.org/) och [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) att köra distribuerade beräkningar. I den här artikeln får du lära dig att skapa ett ML-tjänstkluster på HDInsight och sedan köra ett R-skript som visar hur du använder Spark för distribuerade R-beräkningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **En Azure-prenumeration**: Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Mer information finns i [Get Microsoft Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Få en kostnadsfri utvärderingsversion av Azure).
 * **En Secure Shell-klient (SSH)**: En SSH-klient används för att ansluta till HDInsight-kluster och köra kommandon direkt i klustret. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).

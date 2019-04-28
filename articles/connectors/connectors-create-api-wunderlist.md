@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230177"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105674"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Övervaka och hantera Wunderlist med hjälp av Azure Logic Apps
 
@@ -29,7 +29,7 @@ Med Azure Logic Apps och Wunderlist-anslutningsapp kan skapa du automatiserade u
 
 [Wunderlist](https://www.wunderlist.com/) är en tjänst som hjälper dig att planera, hantera och slutför ditt projekt, att göra-listor och uppgifter – på alla enheter, var som helst. Du kan använda utlösare som få svar från din Wunderlist-konto och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med din Wunderlist-konto. Du kan också ha andra åtgärder som använder utdata från Wunderlist åtgärder. När nya aktiviteter förfaller, kan du till exempel skicka meddelanden med Slack-anslutningsprogrammet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 

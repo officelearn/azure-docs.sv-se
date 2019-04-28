@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: e9d6badf76efd03c0520a728af7b3e47b25f200a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61339593"
 ---
 # <a name="field-of-study-entity"></a>Fältet för studier entitet
 
 <sub> * Följande attribut är specifika för fältet för studier entitet. (Ty = '6') </sub>
 
-Namn    |Beskrivning                            |Type       | Åtgärder
+Namn    |Beskrivning                            |Typ       | Åtgärder
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |Enhets-id                              |Int64      |Lika med
 FN      |Fältet för studier normaliserade namn         |String     |Lika med

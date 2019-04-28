@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426443"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457659"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Använda Twilio för röst- och SMS-funktioner i Ruby
 Den här guiden visar hur du utför vanliga programmeringsspråk uppgifter med Twilio-API-tjänsten på Azure. Scenarier som omfattas är ringa ett samtal och skicka ett meddelande om tjänsten SMS (Short Message). Mer information om Twilio och använda röst och SMS i dina program finns i den [nästa steg](#NextSteps) avsnittet.
@@ -52,16 +52,16 @@ Twilio-verb är XML-taggar som talar om för Twilio vad du **gör**. Till exempe
 
 Här följer en lista över Twilio-verb.
 
-* **&lt;Uppringning&gt;**: anroparen ansluter till en annan telefon.
-* **&lt;Samla in&gt;**: samlar in siffror som anges på telefon-tangentbordet.
-* **&lt;Koppla ned&gt;**: slutar ett anrop.
-* **&lt;Spela upp&gt;**: spelar upp en ljudfil.
-* **&lt;Pausa&gt;**: tyst väntar på ett angivet antal sekunder.
-* **&lt;Post&gt;**: registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
-* **&lt;Omdirigera&gt;**: Överför kontroll över ett samtal eller SMS till TwiML på en annan URL.
-* **&lt;Avvisa&gt;**: avvisar ett inkommande samtal till din Twilio-nummer utan fakturering du
-* **&lt;Anta att&gt;**: konverterar text till tal som görs på ett anrop.
-* **&lt;SMS&gt;**: skickar ett SMS-meddelande.
+* **&lt;Dial&gt;**: Ansluter anroparen till en annan telefon.
+* **&lt;Gather&gt;**: Samlar in siffror som anges på telefon-tangentbordet.
+* **&lt;Hangup&gt;**: Slutar ett anrop.
+* **&lt;Play&gt;**: Spelar upp en ljudfil.
+* **&lt;Pause&gt;**: Väntar tyst under ett angivet antal sekunder.
+* **&lt;Post&gt;**: Registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
+* **&lt;Redirect&gt;**: Överföringar kontroll över ett samtal eller SMS till TwiML på en annan URL.
+* **&lt;Reject&gt;**: Avvisar inkommande samtal till din Twilio-nummer utan fakturering du
+* **&lt;Say&gt;**: Konverterar text till tal som görs på ett anrop.
+* **&lt;Sms&gt;**: Skickar ett SMS-meddelande.
 
 Läs mer om Twilio-verb, deras attribut och TwiML [TwiML][twiml]. Mer information om Twilio-API finns i [Twilio-API][twilio_api].
 
@@ -109,7 +109,7 @@ Kör på kommandoraden, `bundle install`. Öppna nu `web.rb` och med den här ra
 
 Du är nu allt klart att använda Twilio-hjälpbibliotek för Ruby i web Apps.
 
-## <a id="howto_make_call"></a>Så här: göra ett externt anrop
+## <a id="howto_make_call"></a>Hur: Göra ett externt anrop
 Nedan visas hur du gör en utgående samtal. Viktiga begrepp exempel med Twilio hjälpbibliotek för Ruby för att göra REST API-anrop och rendering TwiML. Ersätt värdena för den **från** och **till** telefonnummer och se till att du kontrollerar den **från** telefonnummer för ditt Twilio-konto innan du kör koden.
 
 Lägg till den här funktionen till `web.md`:
@@ -146,7 +146,7 @@ Om du in `http://yourdomain.cloudapp.net/make_call` i en webbläsare som ska utl
 
 Den tredje parametern (`url`) är den URL som Twilio begär vill ha information om vad du gör när anropet är ansluten. I det här fallet vi ställa in en URL (`http://yourdomain.cloudapp.net`) som returnerar ett vanligt TwiML dokument och använder den `<Say>` verb som gör vissa text till tal och säger ”Hello apa” till den person som tar emot samtalet.
 
-## <a id="howto_receive_sms"></a>Så här: får ett SMS-meddelande
+## <a id="howto_receive_sms"></a>Hur: Få ett SMS-meddelande
 I föregående exempel startade vi en **utgående** telefonsamtal. Den här gången, använder vi det telefonnummer som Twilio gav oss under registrering för att bearbeta en **inkommande** SMS: et.
 
 Första, logga in på din [Twilio-instrumentpanel][twilio_account]. Klicka på ”tal” i det övre navigeringsfältet och klicka sedan på Twilio-talet som du har angett. Du ser två URL: er som du kan konfigurera. En röst begärd URL och ett SMS URL för begäran. Det här är URL: er som Twilio anropar när det görs ett telefonsamtal eller ett SMS skickas till ditt nummer. URL: er är också kända som ”webhooks”.
@@ -161,13 +161,13 @@ Vi vill bearbeta inkommande SMS-meddelanden, så vi uppdaterar URL: en till `htt
 
 När du gjort ändringen, se till att starta webbappen. Nu kan ta reda på din telefon och skicka ett SMS till din Twilio-nummer. Du får direkt ett SMS-svar som säger ”Hey, Tack för att ping! Twilio och Azure rock ”!.
 
-## <a id="additional_services"></a>Så här: använda ytterligare Twilio-tjänster
+## <a id="additional_services"></a>Hur: Använda ytterligare Twilio-tjänster
 Förutom de exempel som visas här, erbjuder Twilio webbaserade API: er som du kan använda för att utnyttja ytterligare Twilio-funktioner från ditt Azure-program. Fullständig information finns i [Twilio-API-dokumentation][twilio_api_documentation].
 
 ### <a id="NextSteps"></a>Nästa steg
 Nu när du har lärt dig grunderna för Twilio-tjänsten kan du följa dessa länkar om du vill veta mer:
 
-* [Riktlinjer för Twilio-säkerhet][twilio_security_guidelines]
+* [Twilio Security Guidelines][twilio_security_guidelines]
 * [Twilio HowTos och exempelkod][twilio_howtos]
 * [Twilio Snabbstartsguider][twilio_quickstarts] 
 * [Twilio på GitHub][twilio_on_github]

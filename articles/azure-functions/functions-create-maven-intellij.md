@@ -13,11 +13,11 @@ ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342247"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Skapa din första Azure-funktion med Java och IntelliJ
 
@@ -30,7 +30,7 @@ Den här artikeln visar:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
+## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 
 Om du vill utveckla en funktion med Java och IntelliJ, installera följande programvara:
 

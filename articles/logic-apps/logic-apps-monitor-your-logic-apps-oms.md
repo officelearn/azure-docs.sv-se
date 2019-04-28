@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106218"
 ---
 # <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Övervaka logikappar med Azure Monitor-loggar
 
@@ -27,7 +27,7 @@ Följ dessa steg för att aktivera Azure Monitor-loggar för befintliga logikapp
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar behöver du en Log Analytics-arbetsyta. Lär dig [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md). 
 

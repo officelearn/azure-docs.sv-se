@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038610"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Så här konfigurerar du Azure-databas för MariaDB-Data i replikering
 
@@ -23,7 +23,7 @@ Den här artikeln förutsätter att du har minst tidigare erfarenhet med MariaDB
 
 1. Skapa en ny Azure-databas för MariaDB-server
 
-   Skapa en ny MariaDB-server (t.ex. ”replica.mariadb.database.azure.com”). Referera till [skapa en Azure Database for MariaDB-server med hjälp av Azure-portalen](quickstart-create-mariadb-server-database-using-azure-portal.md) för servern har skapats. Den här servern är ”replikservern” i Data i replikeringen.
+   Skapa en ny MariaDB-server (t.ex. "replica.mariadb.database.azure.com"). Referera till [skapa en Azure Database for MariaDB-server med hjälp av Azure-portalen](quickstart-create-mariadb-server-database-using-azure-portal.md) för servern har skapats. Den här servern är ”replikservern” i Data i replikeringen.
 
    > [!IMPORTANT]
    > Azure Database for MariaDB-server måste skapas i generell användning eller Minnesoptimerade prisnivåer.

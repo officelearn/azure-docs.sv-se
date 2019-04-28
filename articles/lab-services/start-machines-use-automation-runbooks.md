@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: 8d3885ba25e479316f97ecbb0681a1680650fc09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996670"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61083629"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Starta virtuella datorer i ett labb i ordning med hjälp av Azure Automation-runbooks
 Den [autostart](devtest-lab-set-lab-policy.md#set-autostart) funktion i DevTest Labs kan du konfigurera virtuella datorer att starta automatiskt vid en viss tidpunkt. Den här funktionen stöder dock inte datorer att starta i en viss ordning. Det finns flera scenarier där den här typen av automation är användbart.  Ett scenario är där en Jumpbox VM i ett laboratorium måste startas först, innan andra virtuella datorer, som Jumpbox används som åtkomstpunkt till andra virtuella datorer.  Den här artikeln visar hur du konfigurerar ett Azure Automation-konto med en PowerShell-runbook som kör ett skript. Skriptet använder taggar på virtuella datorer i labbet att styra startordningen utan att ändra skriptet.

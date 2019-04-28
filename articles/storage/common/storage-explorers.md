@@ -9,11 +9,11 @@ ms.date: 09/06/2017
 ms.author: dineshmurthy
 ms.subservice: common
 ms.openlocfilehash: ae6ceee33aa6d96c360782c33232e0c7561cf209
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483119"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage-klientverktyg
 Användare av Azure Storage vill ofta kunna visa/interagera med sina data med ett Azure Storage-klientverktyg. I tabellerna nedan listas vi ett antal verktyg som gör det möjligt att göra detta. Vi placera ett ”X” i varje block om tjänsten ger möjlighet att antingen räkna upp och/eller få åtkomst till data abstraction. Tabellen visar även om verktyg är kostnadsfria eller inte. ”Utvärderingsversion” anger att det finns en kostnadsfri utvärderingsversion, men den fullständiga produkten är inte kostnadsfri. ”J/N” anger att en version är tillgänglig kostnadsfritt, medan en annan version är tillgänglig för köp.

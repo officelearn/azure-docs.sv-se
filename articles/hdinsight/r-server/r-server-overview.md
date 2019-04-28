@@ -1,7 +1,6 @@
 ---
 title: Introduktion till ML-tjänster på Azure HDInsight
 description: Lär dig hur du använder ML-tjänster på HDInsight för att skapa program för stordataanalys.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: a07f052cf89da039bb9fe091f1cd997c19d2fcc7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 56a11a17de3c66a3d45edb71c72be20ce1a1c89e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584538"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124738"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till ML-tjänster och funktioner för öppen källkod-R på HDInsight
 
@@ -64,7 +63,7 @@ Följande funktioner ingår i ML-tjänster på HDInsight.
 | Funktionskategori | Beskrivning |
 |------------------|-------------|
 | R-aktiverad | [R-paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) för lösningar som är skrivna i R, med en öppen källkod fördelning av R- och körning infrastrukturen för körning av skript. |
-| Python-aktiverad | [Python-moduler](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) för lösningar som skrivits i Python med en öppen källkod fördelning av Python och körning infrastrukturen för körning av skript.
+| Python-enabled | [Python-moduler](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) för lösningar som skrivits i Python med en öppen källkod fördelning av Python och körning infrastrukturen för körning av skript.
 | [Förtränade modeller](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | För visuella analyser och textkänsloanalys, redo att bedöma de data du anger. |
 | [Distribuera och använda](r-server-operationalize.md) | Utföra åtgärder för din server och distribuera lösningar som en webbtjänst. |
 | [Fjärrkörning](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Starta fjärrsessioner på ML Services-kluster i ditt nätverk från din arbetsstation för klienten. |

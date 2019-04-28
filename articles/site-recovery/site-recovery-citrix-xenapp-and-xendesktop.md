@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038260"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Konfigurera haveriberedskap för en distribution av flera nivåer Citrix XenApp och XenDesktop
 
@@ -26,7 +26,7 @@ En bra katastrofåterställningslösning ska tillåta modellering av återställ
 Det här dokumentet innehåller stegvisa anvisningar för att skapa en lösning för haveriberedskap för din lokala Citrix XenApp-distributioner på Hyper-V och VMware vSphere-plattformar. Det här dokumentet beskriver också hur du utför ett redundanstest (programåterställningstest) och en oplanerad redundansväxling till Azure med hjälp av återställningsplaner, konfigurationer som stöds och nödvändiga komponenter.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar bör du kontrollera att du förstår följande:
 

@@ -1,8 +1,8 @@
 ---
 title: H264, Flera bithastigheter, 16 x 9, SD | Microsoft Docs
 description: Avsnittet ger en översikt över den **H264, flera bithastigheter, 16 x 9, SD** uppgiften förinställd.
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: a0d272a01a6969f702ff4eedf05660833ba1f531
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463725"
 ---
-# <a name="h264-multiple-bitrate-16x9-sd"></a>H264, Flera bithastigheter, 16 x 9, SD
+# <a name="h264-multiple-bitrate-16x9-sd"></a>H264, flera bithastigheter, 16x9, SD
 `Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Det här avsnittet beskrivs de `H264 Multiple Bitrate 16x9 SD` förinställda i XML- och JSON-format.  

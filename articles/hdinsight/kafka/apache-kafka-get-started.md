@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/01/2019
-ms.openlocfilehash: 4099d6ea12774fec2b24895b42d8e780bd36e2a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8600e9c9d8566d3b9f6cd0fbca60d7db904a6265
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917353"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115269"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka på HDInsight-kluster
 
@@ -58,7 +58,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
     | Inställning | Värde |
     | --- | --- |
-    | Klustertyp | Kafka |
+    | Typ av kluster | Kafka |
     | Version | Kafka 1.1.0 (HDI 3.6) |
 
     Välj **Välj** att spara inställningarna för klustret och återgå till __grunderna__.
@@ -73,14 +73,14 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
     | Lösenord för klusterinloggning | Inloggningslösenordet vid åtkomst till webbtjänster eller REST API:er som hanteras i klustret. |
     | Secure Shell (SSH)-användarnamn | Den inloggning som används vid åtkomst till klustret via SSH. Som standard är lösenordet detsamma som lösenordet för klusterinloggning. |
     | Resursgrupp | Resursgruppen som klustret ska skapas i. |
-    | Plats | Azure-region som klustret ska skapas i. |
+    | Location | Azure-region som klustret ska skapas i. |
 
     > [!TIP]  
     > Varje Azure-region (plats) har _feldomäner_. En feldomän är en logisk gruppering av underliggande maskinvara i ett Azure-datacenter. Varje feldomän delar en gemensam strömkälla och nätverksbrytare. De virtuella datorer och hanterade diskar som implementerar noderna i ett HDInsight-kluster är fördelade mellan dessa feldomäner. Den här arkitekturen begränsar de potentiella problemen vid fysiska maskinvarufel.
     >
     > För hög datatillgänglighet, välj en plats (region) som innehåller __tre feldomäner__. Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
 
-   ![Välj prenumeration](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+   ![Välj en prenumeration](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
     Välj __nästa__ att slutföra den grundläggande konfigurationen.
 

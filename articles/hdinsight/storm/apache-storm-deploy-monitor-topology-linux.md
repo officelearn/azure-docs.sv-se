@@ -1,7 +1,6 @@
 ---
 title: Distribuera och hantera Apache Storm-topologier i Azure HDInsight
 description: Lär dig mer om att distribuera, övervaka och hantera Apache Storm-topologier på Linux-baserade HDInsight Storm-instrumentpanelen. Använda Hadoop-verktyg för Visual Studio.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 32ad4434db8c2816fe7792b1b851e020021d543a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8b27ad34bdc6fcbd7a1eb46515fbf33c96d02528
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125246"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm-topologier i Azure HDInsight 
 
@@ -25,7 +24,7 @@ I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apac
 >
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Ett Linux-baserade Storm på HDInsight-kluster**: se [Kom igång med Apache Storm på HDInsight](apache-storm-tutorial-get-started-linux.md) anvisningar om hur du skapar ett kluster
 
@@ -222,7 +221,7 @@ Du kan hitta det fullständigt kvalificerade domännamnet (FQDN) för klustrets 
 * **Från Ambari Web**: Välj **Services** högst upp på sidan Välj **Storm**. Från den **sammanfattning** fliken **Storm UI Server**. Det fullständiga Domännamnet för den nod som är värd för Storm-Användargränssnittet och REST API visas överst på sidan.
 * **Från Ambari REST API: et**: Använd kommandot `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` att hämta information om den nod som Storm-Användargränssnittet och REST API körs på. Ersätt **CLUSTERNAME** med klustrets namn. När du uppmanas, anger du lösenordet för inloggningskonto (admin). I svaret innehåller posten ”värddatornamn” FQDN för noden.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 REST API-begäranden måste använda **grundläggande autentisering**, så att du använder HDInsight-kluster databasadministratörens namn och lösenord.
 

@@ -1,18 +1,17 @@
 ---
 title: Förbättra prestanda för Apache Spark-arbetsbelastningar med Azure HDInsight-i/o-Cache (förhandsversion)
 description: Läs mer om Azure HDInsight-i/o-Cache och hur du använder den för att förbättra prestanda för Apache Spark.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 5422f4796d2451b652222332799d8ad1a9fc4803
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: b77e7e9d5a68439e7f336ecb26e91031d80a7606
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124433"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Förbättra prestanda för Apache Spark-arbetsbelastningar med Azure HDInsight-i/o-Cache (förhandsversion)
 

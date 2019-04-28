@@ -14,11 +14,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 46232afcaf9504d4cfbd80160e2d7e7ea958d600
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61488214"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Designa globalt tillgängliga tjänster som använder Azure SQL Database
 
@@ -153,7 +153,7 @@ Men det finns några **kompromisser**:
 
 Din strategi för katastrofåterställning specifika molnet kan kombinera eller utöka dessa designmönster för att de passar bäst för ditt program.  Såsom nämnts tidigare baseras vilken strategi du väljer på serviceavtalet som du vill att erbjuda dina kunder och topologi för distribution av programmet. I följande tabell jämförs alternativen baserat på mål för återställningspunkt (RPO) och uppskattad återställningstid (ERT) för att hjälpa ditt beslut.
 
-| Mönster | RPO-MÅL | ERT |
+| Mönster | Mål för återställningspunkt | ERT |
 |:--- |:--- |:--- |
 | Aktivt-passivt distribution för haveriberedskap med samordnade databasåtkomst |Läs-/ skrivåtkomst < 5 SEK |Fel vid tidpunkten för identifieringen + TTL för DNS |
 | Aktiv-aktiv distribution för belastningsutjämning för programmet |Läs-/ skrivåtkomst < 5 SEK |Fel vid tidpunkten för identifieringen + TTL för DNS |

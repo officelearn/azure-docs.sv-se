@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: I den här självstudien får du lära dig att dirigera nätverkstrafik med en routningstabell med hjälp av Azure-portalen.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098649"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Självstudie: Dirigera nätverkstrafik med en routningstabell med hjälp av Azure-portalen
 
@@ -44,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Skapa en routningstabell
 
@@ -57,7 +57,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
     | Namn | Ange *myRouteTablePublic*. |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj *OK*. |
-    | Plats | Låt standardvärdet **USA, östra** vara kvar.
+    | Location | Låt standardvärdet **USA, östra** vara kvar.
     | BGP-vägspridning | Låt standardvärdet **Aktiverad** vara kvar. |
 
 1. Välj **Skapa**.
@@ -99,7 +99,7 @@ Innan du kan associera en routningstabell till ett undernät måste du skapa ett
     | Adressutrymme | Ange *10.0.0.0/16*. |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj ***Välj befintlig*** > **myResourceGroup**. |
-    | Plats | Låt standardvärdet **USA, östra** vara kvar. |
+    | Location | Låt standardvärdet **USA, östra** vara kvar. |
     | Undernät – Namn | Ange *Offentligt*. |
     | Undernät – adressintervall | Ange *10.0.0.0/24*. |
 
@@ -160,7 +160,7 @@ NVA:er är virtuella datorer som hjälper till med nätverksfunktioner såsom ro
     | Namn på virtuell dator | Ange *myVmNva*. |
     | Region | Välj **USA, östra**. |
     | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
-    | Bild | Lämna kvar standardinställningen **Windows Server 2016 Datacenter**. |
+    | Image | Lämna kvar standardinställningen **Windows Server 2016 Datacenter**. |
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett valfritt användarnamn. |

@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103870"
 ---
 # <a name="media-services-concepts"></a>Media Services-koncepten
 
 Det här avsnittet ger en kort översikt över Azure Media Services-begrepp och innehåller länkar till artiklar med detaljerad förklaring av Media Services v3 begrepp och funktioner. De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utveckling påbörjas.
 
 > [!NOTE]
-> För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), eller någon av stöds [SDK: er](developers-guide.md).
+> För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
 
 ## <a name="cloud-upload-and-storage"></a>Uppladdning till och lagring i molnet
 
@@ -89,7 +89,7 @@ Azure Media Services kan du leverera händelser till dina kunder på Azure-molne
 
 Följande bild illustrerar arbetsflödet direkt typ:
 
-![direktautentisering](./media/live-streaming/pass-through.svg)
+![direkt](./media/live-streaming/pass-through.svg)
 
 - [Direktsänd strömning översikt](live-streaming-overview.md)
 - [Livehändelser och liveutdata](live-events-outputs-concept.md)
@@ -115,6 +115,10 @@ Om du vill se förloppet för jobbet, bör du använda **Event Grid**. Media Ser
 Du kan använda Azure Media Player för att spela upp mediainnehåll strömmas av Media Services på en mängd olika webbläsare och enheter. Azure Media Player används branschstandarder som HTML5, Media käll-tillägg (MSE) och tillägg EME (Encrypted Media) för att ge en avancerad och anpassningsbar direktuppspelning. 
 
 - [Azure Media Player-översikt](use-azure-media-player.md)
+
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

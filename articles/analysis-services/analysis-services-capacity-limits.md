@@ -9,11 +9,11 @@ ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023565"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services-resurs och objekt gränser
 
@@ -58,7 +58,7 @@ Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kr�
 
 Dessa gränser är teoretisk. Prestanda kommer följd vid låga tal.
 
-|Objekt|Maximal storlek/siffror|  
+|Object|Maximal storlek/siffror|  
 |------------|----------------------------|  
 |Databaser i en instans|16,000|  
 |Kombinerade antalet tabeller och kolumner i en databas|16,000|  

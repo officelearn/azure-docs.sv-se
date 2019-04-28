@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106978"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Anropa en funktion från Microsoft Flow
 
@@ -36,7 +36,7 @@ I det här avsnittet lär du dig hur du:
 > * Skapa ett flöde för att skicka e-postmeddelande om en reparation är kostnadseffektiv.
 > * Kör flödet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + En aktiv [Microsoft Flow-konto](https://flow.microsoft.com/documentation/sign-up-sign-in/) med samma tecken i autentiseringsuppgifter som din Azure-konto. 
 + SharePoint, som du använder som en datakälla för det här flödet. Registrera dig för [en utvärderingsversion av Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) om du inte redan har SharePoint.
@@ -132,7 +132,7 @@ Du först skapa ett flöde från början (utan en mall) och lägga till en *utl�
 
     ![Lägg till ett villkor](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow lägger till två grenar till flödet: **om Ja** och **om ingen**. Lägger du till steg en eller båda grenar när du definierar de villkor som du vill matcha.
+    Microsoft Flow lägger till två grenar till flödet: **Om Ja** och **om ingen**. Lägger du till steg en eller båda grenar när du definierar de villkor som du vill matcha.
 
     ![Villkoret grenar](media/functions-flow-scenario/condition-branches.png)
 

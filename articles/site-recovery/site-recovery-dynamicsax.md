@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61281481"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurera haveriberedskap för ett skikt Dynamics AX-program   
 
@@ -27,7 +27,7 @@ Den här artikeln förklarar hur du kan skapa en lösning för haveriberedskap f
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Implementera haveriberedskap för Dynamics AX-program med hjälp av Site Recovery kräver följande förutsättningar:
 

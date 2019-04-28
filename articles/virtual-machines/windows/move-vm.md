@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
 ms.openlocfilehash: ede2092be4e4eaf201e15307a7d9934ea267ae37
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481521"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Flytta en virtuell Windows-dator till en annan Azure-prenumeration eller resursgrupp grupp
 Den här artikeln vägleder dig genom hur du flyttar en Windows virtuell dator (VM) mellan resursgrupper eller prenumerationer. Flytta mellan prenumerationer kan vara användbart om du skapade en virtuell dator i en personlig prenumeration och nu vill flytta det till ditt företags prenumeration och fortsätt ditt arbete.

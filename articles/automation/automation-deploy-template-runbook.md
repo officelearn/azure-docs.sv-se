@@ -11,11 +11,11 @@ ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
 ms.openlocfilehash: 2008ba697665baa0e8cf73564ec31d6267425404
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073754"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
 
@@ -25,7 +25,7 @@ På så sätt kan du automatisera distributionen av Azure-resurser. Du kan under
 
 I den här artikeln ska vi skapa en PowerShell-runbook som använder en Resource Manager-mall som lagras i [Azure Storage](../storage/common/storage-introduction.md) att distribuera ett nytt Azure Storage-konto.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här kursen behöver du följande objekt:
 

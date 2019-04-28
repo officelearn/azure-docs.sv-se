@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: rogarana
 ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128935"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Hur du laddar upp, ladda ned och lista blobar med hjälp av klientbiblioteket för Java v7
 
@@ -22,7 +22,7 @@ I den här guiden att lära dig hur du använder klientbiblioteket för Java v7 
 > [!TIP]
 > Den senaste versionen av Azure Storage-klientbibliotek för Java är v10. Microsoft rekommenderar att du använder den senaste versionen av klientbiblioteket när det är möjligt. Kom igång med v10, se [snabbstarten: Ladda upp, ladda ned och lista blobar med hjälp av Java Storage SDK V10](storage-quickstart-blobs-java-v10.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

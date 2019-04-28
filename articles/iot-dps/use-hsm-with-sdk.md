@@ -10,17 +10,17 @@ services: iot-dps
 manager: arjmands
 ms.custom: mvc
 ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248138"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Använda olika attesteringsmetoder för maskinvara med klient-SDK för enhetsetableringstjänsten för C
 
 I den här artikeln beskrivs hur du använder olika [attesteringsmetoder](concepts-security.md#attestation-mechanism) med klient-SDK för enhetsetableringstjänsten för C. Du kan antingen använda en fysisk enhet eller en simulator. Etableringstjänsten stöder autentisering för två typer av attesteringsmetoder: X.509 och Trusted Platform Module (TPM).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Förbered din utvecklingsmiljö enligt avsnittet "Prepare the development environment" (förbereda utvecklingsmiljön) i guiden [Create and provision simulated device](./quick-create-simulated-device.md) (Skapa och etablera en simulerad enhet).
 

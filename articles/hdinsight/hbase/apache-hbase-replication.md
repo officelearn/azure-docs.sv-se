@@ -1,7 +1,6 @@
 ---
 title: Konfigurera HBase-kluster-replikering i Azure-nätverk – Azure HDInsight
 description: Lär dig hur du ställer in HBase-replikering från en HDInsight-version till en annan för Utjämning av nätverksbelastning, hög tillgänglighet, noll stilleståndstid vid migrering och uppdateringar och katastrofåterställning.
-services: hdinsight,virtual-network
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123094"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera replikering för Apache HBase-kluster i Azure-nätverk
 
@@ -39,7 +38,7 @@ Följande är HBase-replikering användning ärenden för två virtuella nätver
 
 Du kan replikera kluster med hjälp av [skripta åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) skript från [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [få en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Ställ in miljöer
@@ -69,7 +68,7 @@ Vissa hårdkodade värden i mallen:
 
 | Egenskap  | Värde |
 |----------|-------|
-| Plats | Västra USA |
+| Location | Västra USA |
 | Namn på virtuellt nätverk | &lt;ClusterNamePrevix >-vnet1 |
 | Adressutrymmets prefix | 10.1.0.0/16 |
 | Namn på undernät | subnät 1 |
@@ -86,7 +85,7 @@ Vissa hårdkodade värden i mallen:
 
 | Egenskap  | Värde |
 |----------|-------|
-| Plats | Östra USA |
+| Location | Östra USA |
 | Namn på virtuellt nätverk | &lt;ClusterNamePrevix>-vnet2 |
 | Adressutrymmets prefix | 10.2.0.0/16 |
 | Namn på undernät | subnät 1 |

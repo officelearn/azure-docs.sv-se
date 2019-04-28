@@ -1,28 +1,30 @@
 ---
-title: Konfigurera en processerver i Azure för att växla tillbaka under haveriberedskap för virtuella VMware-datorer och fysiska servrar med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du ställer in en processerver i Azure, för att återställa från Azure till lokala under haveriberedskap för virtuella VMware-datorer och fysiska servrar.
+title: Konfigurera en skalbar processerver under haveriberedskap för virtuella VMware-datorer och fysiska servrar med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar skalbar processerver under haveriberedskap för virtuella VMware-datorer och fysiska servrar.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101905"
 ---
-# <a name="scale-for-failback-with-additional-process-servers"></a>Skala för återställning efter fel med ytterligare processervrar
+# <a name="scale-with-additional-process-servers"></a>Skala med ytterligare processervrar
 
-Som standard när du replikerar virtuella VMware-datorer eller fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md), en processerver är installerad på configuration server-datorn och används för att samordna data som överförs mellan Site Recovery och den lokala infrastrukturen. För att öka kapacitet och skala upp replikeringsdistributionen kan du lägga till ytterligare fristående processervrar. Den här artikeln beskriver hur du gör detta.
+Som standard när du replikerar virtuella VMware-datorer eller fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md), en processerver är installerad på configuration server-datorn och används för att samordna data som överförs mellan Site Recovery och den lokala infrastrukturen. För att öka kapacitet och skala upp replikeringsdistributionen kan du lägga till ytterligare fristående processervrar. Den här artikeln beskriver hur du ställer in en skalbar processerver.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 ### <a name="capacity-planning"></a>Kapacitetsplanering
 
 Kontrollera att du har utfört [kapacitetsplanering](site-recovery-plan-capacity-vmware.md) för VMware-replikering. Detta hjälper dig att identifiera hur och när du ska distribuera ytterligare processervrar.
+
+Från 9.24 version läggs vägledning vid valet av processervern för nya replikeringar. Processervern markeras felfri-, varnings- och kritiska baserat på angivna kriterier. För att förstå olika scenarier som kan påverka tillståndet för processervern, besök [bearbeta server-vägledning för val av](vmware-azure-manage-process-server.md#process-server-selection-guidance).
 
 > [!NOTE]
 > Användning av klonade Process Server komponent stöds inte. Följ stegen nedan för varje PS-utskalning.
@@ -44,8 +46,6 @@ Där varje skyddad källdatorn är konfigurerad med 3 diskar på 100 GB vardera.
 Krav för den kompletterande processervern sammanfattas i tabellen nedan.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
 
 ## <a name="download-installation-file"></a>Ladda ned installationsfilen
 

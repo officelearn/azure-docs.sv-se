@@ -10,11 +10,11 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457383"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(INAKTUELL) Aktivera offentlig åtkomst till ett Azure Container Service-program
 
@@ -40,8 +40,8 @@ Vi måste först öppna porten som vi vill.
    | Namn |Ett beskrivande namn på avsökningen. |
    | Port |Porten för behållaren för att testa. |
    | Sökväg |(När du är i läget för HTTP) Relativa webbplats sökvägen till avsökning. HTTPS stöds inte. |
-   | Intervall |Tiden mellan avsökningen försök i sekunder. |
-   | Tröskelvärde för ej felfri |Antal upprepade inloggningsförsök innan behållaren feltillstånd. |
+   | Interval |Tiden mellan avsökningen försök i sekunder. |
+   | Tröskelvärde för Ej felfri |Antal upprepade inloggningsförsök innan behållaren feltillstånd. |
 6. Tillbaka på egenskaperna för agentens belastningsutjämnare, klickar du på **belastningsutjämningsregler** och sedan **Lägg till**.
    
     ![Azure container service-belastningsutjämningsregler](./media/container-service-enable-public-access/add-balancer-rule.png)
@@ -54,7 +54,7 @@ Vi måste först öppna porten som vi vill.
    | Serverdelsport |Intern-offentlig port på behållaren att dirigera trafik till. |
    | Serverdelspool |Behållare i den här poolen är målet för den här belastningsutjämnaren. |
    | Avsökningen |Avsökningen används för att avgöra om ett mål i den **serverdelspool** är felfri. |
-   | Sessionspermanens |Anger hur trafik från en klient ska hanteras för hela sessionen.<br><br>**Ingen**: efterföljande förfrågningar från samma klient kan hanteras av någon behållare.<br>**Klientens IP**: efterföljande förfrågningar från samma klient-IP hanteras av samma behållare.<br>**Klientens IP och protokoll**: efterföljande förfrågningar från samma klient IP och protokoll kombination hanteras av samma behållare. |
+   | Sessionspermanens |Anger hur trafik från en klient ska hanteras för hela sessionen.<br><br>**Ingen**: Efterföljande förfrågningar från samma klient kan hanteras av någon behållare.<br>**Klientens IP**: Efterföljande förfrågningar från samma klient-IP hanteras av samma behållare.<br>**Klientens IP och protokoll**: Efterföljande förfrågningar från samma klient IP och protokoll kombination hanteras av samma behållare. |
    | Timeout för inaktivitet |(TCP) Tid att behålla en TCP/HTTP-klient öppna i minuter, utan att behöva *keep-alive* meddelanden. |
 
 ## <a name="add-a-security-rule-portal"></a>Lägg till en säkerhetsregel (portal)

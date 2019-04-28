@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
 ms.openlocfilehash: eeab0311519d7e3410ddb625c1801101ad63ad18
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400122"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiera data från en OData-källan med hjälp av Azure Data Factory
 
@@ -274,7 +274,7 @@ När du kopierar data från OData-, används följande mappningar mellan OData-d
 | OData-datatypen | Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | Bool |
+| Edm.Boolean | Booleskt |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |

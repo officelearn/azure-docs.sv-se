@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733556"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor och svar om SQL Server-databaser som körs på en virtuell Azure-säkerhetskopiering
 
 Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar SQL Server-databaser som kör på Azure virtual machines (VMs) och som använder den [Azure Backup](backup-overview.md) service.
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Kan jag använda Azure backup för IaaS VM som SQL Server på samma dator?
+Ja, du kan ha både säkerhetskopiering av virtuella datorer och SQL-säkerhetskopiering på samma virtuella dator. I så fall utlöser vi internt fullständig säkerhetskopiering med endast kopiering på den virtuella datorn inte trunkera loggar.
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>Varken lösningen försök eller automatisk-reparation av nodtjänst säkerhetskopiorna?
 
@@ -45,7 +49,8 @@ Ja. Du kan begränsa den hastighet som principen för säkerhetskopiering körs 
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Spara ändringarna och stäng filen.
-4. I SQL Server-instansen öppnar du **Aktivitetshanteraren**. Starta om tjänsten **AzureWLBackupCoordinatorSvc**.
+4. I SQL Server-instansen öppnar du **Aktivitetshanteraren**. Starta om tjänsten **AzureWLBackupCoordinatorSvc**.<br/> <br/>
+ Även om den här metoden hjälper om säkerhetskopieringsprogrammet förbrukar för mycket resurser, SQL Server [Resursstyrningen](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) är ett mer allmänt sätt att ange gränser för mängden CPU, fysiska i/o och minne som kan förfrågningar till programmet Använd.
 
 > [!NOTE]
 > I UX-Gränssnittet du fortfarande kan gå vidare och schemalägga så många säkerhetskopior vid något tillfälle, behandlas men de kommer i ett skjutfönster på säga 5, enligt exemplet ovan.

@@ -16,11 +16,11 @@ ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127641"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visa och hämta din organisations Azure-prissättning
 
@@ -51,7 +51,7 @@ Du måste vara den fakturering profilens ägare, deltagare, läsare eller faktur
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Ladda ned prisdokument för den aktuella faktureringsperioden
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 1. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
 1. I den **översikt** bladet hitta nedladdningslänkarna under månaden-till-date-avgifter.
 1. Välj **Azure prisdokument**.
@@ -60,9 +60,9 @@ Du måste vara den fakturering profilens ägare, deltagare, läsare eller faktur
 ### <a name="download-price-sheets-for-billed-charges"></a>Ladda ned prisdokument för fakturerade kostnader
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 1. Välj en profil för fakturering. Du kan behöva välja ett faktureringskonto först beroende på din åtkomst.
-1. Välj **fakturor**.
+1. Välj **Fakturor**.
 1. Hitta raden motsvarar prisdokument som du vill hämta fakturans i rutnätet för fakturan.
 1. Klicka på ellipsknappen (`...`) i slutet av raden.
 ![Skärmbild som visar de tre punkterna valt](./media/billing-ea-pricing/billingprofile-invoicegrid.png)

@@ -13,11 +13,11 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485248"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Hantera schemat i ett SaaS-program som använder delat SQL-databaser för flera innehavare
 
@@ -41,7 +41,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Uppdatera referensdata i alla klientdatabaser.
 > * Skapa ett index för en tabell i alla klientdatabaser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Appen Wingtip biljetter databas för flera innehavare måste redan distribueras:
     - Instruktioner finns i den första självstudiekursen, vilket medför en Wingtip biljetter SaaS-databas för flera innehavare appen:<br />[Distribuera och utforska ett delat program för flera klienter som använder Azure SQL Database](saas-multitenantdb-get-started-deploy.md).

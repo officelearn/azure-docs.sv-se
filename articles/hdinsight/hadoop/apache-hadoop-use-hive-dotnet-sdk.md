@@ -2,19 +2,18 @@
 title: Kör Apache Hive-frågor med hjälp av HDInsight .NET SDK - Azure
 description: Lär dig mer om att skicka Apache Hadoop-jobb till Azure HDInsight Apache Hadoop med HDInsight .NET SDK.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 31e759baa4f5e7b220eabf2bb9ffcc5cc011a354
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 947e797842000e4da2f9e22077bc32c24d6c6a74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095395"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Kör Apache Hive-frågor med hjälp av HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -24,7 +23,7 @@ Lär dig hur du skickar in Apache Hive-frågor med hjälp av HDInsight .NET SDK.
 > [!NOTE]  
 > Stegen i den här artikeln måste utföras från en Windows-klient. Använd flikväljaren visas överst i artikeln för information om hur du använder en Linux-, OS X- eller Unix-klient för att arbeta med Hive.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du påbörjar den här artikeln måste du ha följande objekt:
 
 * **Ett Apache Hadoop-kluster i HDInsight**. Se [komma igång med Linux-baserat Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md).

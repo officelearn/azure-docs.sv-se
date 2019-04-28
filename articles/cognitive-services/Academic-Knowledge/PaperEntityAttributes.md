@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61336832"
 ---
 # <a name="paper-entity"></a>Dokumentet entitet
 
 <sub> * Nedan attribut är specifika för dokumentet entitet. (Ty = ”0”) </sub>
 
 
-Namn    |Beskrivning                                        |Type       | Åtgärder
+Namn    |Beskrivning                                        |Typ       | Åtgärder
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |Enhets-id                                          |Int64      |Lika med
 Ti      |Dokumentet rubrik                                        |String     |Är lika med,<br/>StartsWith

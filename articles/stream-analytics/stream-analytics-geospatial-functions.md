@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479991"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduktion till Stream Analytics geospatiala funktioner
 
@@ -27,7 +27,7 @@ Exempel på scenarier som kan dra nytta av geospatiala funktioner:
 * Geografiska avgränsningar
 * Phone spårning på cell platser
 
-Stream Analytics-frågespråket har sju inbyggda geospatiala funktioner: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE** , **ST_OVERLAPS**, **ST_INTERSECTS**, och **ST_WITHIN**.
+Stream Analytics-frågespråket har sju inbyggda geospatiala funktioner: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_ KORSAR**, och **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -50,9 +50,9 @@ FROM input
   
 ### <a name="output-example"></a>Exempel på utdata  
 
- {”type”: ”LineString”, ”coordinates”: [[-10.2, 3.0], [10.0, 10.0], [10,5, 10,5]]}
+ {”type”: "LineString", "coordinates" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
 
- {”type”: ”LineString”, ”coordinates”: [[20.2321,-87.33], [10.0, 10.0], [10,5, 10,5]]}
+ {”type”: "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
 Mer information finns i [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) referens.
 
@@ -77,9 +77,9 @@ FROM input
   
 ### <a name="output-example"></a>Exempel på utdata
   
- {”type”: ”Point”, ”coordinates”: [-10.2, 3.0]}  
+ {”type”: "Point", "coordinates" : [-10.2, 3.0]}  
   
- {”type”: ”Point”, ”coordinates”: [20.2321,-87.33]}  
+ {”type”: "Point", "coordinates" : [20.2321, -87.33]}  
 
 Mer information finns i [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) referens.
 

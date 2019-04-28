@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109825"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Snabbstart: Skapa och köra en behållaravbildning med hjälp av Azure Container Registry uppgifter
 
@@ -52,7 +52,7 @@ Det här exemplet skapar en *grundläggande* register, ett alternativ för optim
 Nu använda Azure Container Registry för att skapa en avbildning. Först skapar du en arbetskatalog och skapa en docker-fil med namnet *Dockerfile* med följande innehåll. Det här är ett enkelt exempel att skapa en Linux-behållaravbildning, men du kan skapa egna standard Dockerfile och skapa avbildningar för andra plattformar.
 
 ```bash
-echo "FROM hello-world" > Dockerfile
+echo FROM hello-world > Dockerfile
 ```
 
 Kör den [az acr build] [ az-acr-build] kommando för att skapa avbildningen. När du har skapat, skickas avbildningen till registret. I följande exempel skickar den `sample/hello-world:v1` bild. Den `.` i slutet av kommandot anger platsen för Dockerfilen i det här fallet den aktuella katalogen.

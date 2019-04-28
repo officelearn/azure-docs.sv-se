@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096291"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 En Azure IoT Edge-enhet:
 
@@ -66,7 +66,7 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
    | Fält | Värde |
    | ----- | ----- |
    | Namn | Ange ett unikt namn för lagringskontot. | 
-   | Plats | Välj en plats i närheten av dig. |
+   | Location | Välj en plats i närheten av dig. |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
 

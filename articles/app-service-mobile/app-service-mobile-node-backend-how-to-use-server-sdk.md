@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997543"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128108"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Hur du använder Mobile Apps Node.js-SDK
 
@@ -372,7 +372,7 @@ De flesta inställningarna i filen azureMobile.js har en motsvarande appinställ
 
 | App-inställning | azureMobile.js setting | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |namn |Namnet på appen |sträng |
+| **MS_MobileAppName** |namn |Namnet på appen |string |
 | **MS_MobileLoggingLevel** |logging.level |Minimiloggnivå meddelanden att logga in |fel, varning, information, utförlig, felsökning, stökigt – |
 | **MS_DebugMode** |felsök |Aktiverar eller inaktiverar felsökningsläge |SANT, FALSKT |
 | **MS_TableSchema** |data.schema |Standardnamnet för schemat för SQL-tabeller |String (standard: dbo) |
@@ -426,7 +426,7 @@ Du kan välja att antingen ansluta en befintlig SQL-databas till serverdelen fö
 1. I den **Lägg till dataanslutning** väljer **SQL Database - Konfigurera obligatoriska inställningar** > **skapa en ny databas**. Ange namnet på den nya databasen i den **namn** box.
 1. Välj **Server**. I den **ny server** rutan Ange ett unikt namn i den **servernamn** rutan och ange en lämplig användarnamn och lösenord. Se till att **ge azure-tjänster åtkomst till servern** har valts. Välj **OK**.
 
-   ![Skapa en Azure SQL Database][6]
+   ![Skapa en Azure SQL-databas][6]
 1. I den **ny databas** väljer **OK**.
 1. I den **Lägg till dataanslutning** väljer **anslutningssträngen**, och ange det användarnamn och lösenord som du angav när du skapade databasen. Om du använder en befintlig databas, kan du ange inloggningsuppgifterna för den här databasen. Välj **OK**.
 1. I den **Lägg till dataanslutning** panelen igen och väljer **OK** att skapa databasen.

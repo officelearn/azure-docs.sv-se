@@ -11,11 +11,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126377"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure portal
 

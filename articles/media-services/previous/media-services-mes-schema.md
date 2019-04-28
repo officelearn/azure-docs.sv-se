@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61131593"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard-schema
 Den här artikeln beskriver några av de elementen och typer av XML-schema som [Media Encoder Standard förinställningar](media-services-mes-presets-overview.md) baseras. Artikeln ger förklaring av element och deras giltiga värden.  
@@ -38,7 +38,7 @@ Definierar en förinställningen för kodningen.
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Version**<br/><br/> Krävs |**xs: decimal** |Den förinställda versionen. Följande begränsningar gäller: xs:fractionDigits värde = ”1” och xs:minInclusive value = ”1” till exempel **version = ”1.0”**. |
+| **Version**<br/><br/> Obligatoriskt |**xs: decimal** |Den förinställda versionen. Följande begränsningar gäller: xs:fractionDigits värde = ”1” och xs:minInclusive value = ”1” till exempel **version = ”1.0”**. |
 
 ## <a name="Encoding"></a> Kodning
 Innehåller en sekvens av följande element:  

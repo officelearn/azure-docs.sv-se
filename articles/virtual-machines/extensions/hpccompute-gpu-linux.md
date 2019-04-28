@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129084"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutinen tillägg för Linux
 
@@ -29,7 +29,7 @@ Det här tillägget installerar NVIDIA GPU-drivrutiner på Linux N-serien virtue
 
 Ett tillägg kan även installera NVIDIA GPU-drivrutiner på [Windows virtuella datorer i N-serien](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -73,9 +73,9 @@ Följande JSON visar schemat för tillägget.
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
-| utgivare | Microsoft.HpcCompute | sträng |
-| typ | NvidiaGpuDriverLinux | sträng |
+| apiVersion | 2015-06-15 | date |
+| utgivare | Microsoft.HpcCompute | string |
+| typ | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Inställningar
@@ -85,7 +85,7 @@ Alla inställningar är valfria. Standardinställningen är att inte uppdatera k
 | Namn | Beskrivning | Standardvärde | Giltiga värden | Datatyp |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Uppdatera kernel även om det inte krävs för installation av drivrutiner | false | SANT, FALSKT | boolesk |
-| driverVersion | NV: RUTNÄTET drivrutinsversion<br> NC/ND: CUDA toolkit-version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | senaste | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | sträng |
+| driverVersion | NV: RUTNÄTET drivrutinsversion<br> NC/ND: CUDA toolkit-version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | senaste | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Installera CUDA toolkit. Detta gäller endast för NC/ND-serien virtuella datorer. | true | SANT, FALSKT | boolesk |
 
 

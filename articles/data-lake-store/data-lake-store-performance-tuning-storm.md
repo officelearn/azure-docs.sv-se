@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61436485"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestandajusteringsvägledning för Storm på HDInsight och Azure Data Lake Storage Gen1
 
 Förstå de faktorer som ska beaktas när du finjustera prestanda för en Azure Storm-topologi. Till exempel är det viktigt att förstå egenskaperna för arbetet som utförs av kanaler och bultar (om arbetet är i/o eller minnesintensiva). Den här artikeln innehåller en mängd prestandajustering riktlinjer, inklusive felsöka vanliga problem.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett konto med Azure Data Lake Storage Gen1**. Anvisningar för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).

@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: bc058baa01021f94cf5906dd492153a8d367cc90
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51033987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117289"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Prenumerera på händelser för en resursgrupp och filtrera efter en resurs med Azure CLI
 
@@ -26,13 +26,13 @@ Det här skriptet skapar en Event Grid-prenumeration på händelser för en resu
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Förhandsversionen av exempelskript kräver Event Grid-tillägget. Installera genom att köra `az extension add --name eventgrid`.
+Förhandsversionen av exempelskriptet kräver Event Grid-tillägget. Installera genom att köra `az extension add --name eventgrid`.
 
-## <a name="sample-script---stable"></a>Exempelskript – stabil
+## <a name="sample-script---stable"></a>Exempelskript – stabilt
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/filter-events/filter-events.sh "Subscribe to Azure subscription")]
 
-## <a name="sample-script---preview-extension"></a>Exempelskript – förhandsversion av tillägg
+## <a name="sample-script---preview-extension"></a>Exempelskript – tillägg för förhandsversion
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/filter-events-preview/filter-events-preview.sh "Subscribe to Azure subscription")]
 

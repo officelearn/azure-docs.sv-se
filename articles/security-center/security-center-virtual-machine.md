@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
 ms.openlocfilehash: 527ae9eb59e09885b9b606d74e72817351c31a7f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121775"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center och Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
@@ -43,7 +43,7 @@ Utöver att skydda virtuella datorer i Azure tillhandahåller även Security Cen
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att komma igång med Azure Security Center måste du veta och tänka på följande:
 
 * Du måste ha en prenumeration på Microsoft Azure. Läs [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) (Priser för Security Center) för att få mer information om kostnadsfria nivåer och standardnivåer i Security Center.

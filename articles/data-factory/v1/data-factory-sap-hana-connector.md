@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258444"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Flytta data från SAP HANA med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-sap-hana-connector.md)
 > * [Version 2 (aktuell version)](../connector-sap-hana.md)
 
@@ -58,14 +58,14 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för SAP HANA-länkad tjänst.
 
-Egenskap  | Beskrivning | Tillåtna värden | Krävs
+Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
 -------- | ----------- | -------------- | --------
-server | Namnet på den server som SAP HANA-instans finns. Om servern använder en anpassad port, ange `server:port`. | sträng | Ja
+server | Namnet på den server som SAP HANA-instans finns. Om servern använder en anpassad port, ange `server:port`. | string | Ja
 authenticationType | Typ av autentisering. | sträng. ”Grundläggande” eller ”Windows” | Ja 
-användarnamn | Namnet på den användare som har åtkomst till SAP-server | sträng | Ja
-lösenord | Lösenordet för användaren. | sträng | Ja
-gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till en lokal SAP HANA-instans. | sträng | Ja
-encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | sträng | Nej
+användarnamn | Namnet på den användare som har åtkomst till SAP-server | string | Ja
+lösenord | Lösenordet för användaren. | string | Ja
+gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till en lokal SAP HANA-instans. | string | Ja
+encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | string | Nej
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av (Azure SQL, Azure-blob, Azure-tabell osv.).
@@ -80,7 +80,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 När källan i kopieringsaktiviteten är av typen **RelationalSource** (som inkluderar SAP HANA), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
 | --- | --- | --- | --- |
 | DocumentDB | Anger SQL-frågan som läser data från SAP HANA-instans. | SQL-fråga. | Ja |
 
@@ -288,17 +288,17 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-VERKLIGA | Enkel
-DOUBLE-VÄRDE | Enkel
-DECIMALTAL | Decimal
+VERKLIGA | Single
+DOUBLE-VÄRDE | Single
+DECIMAL | Decimal
 BOOLESKT VÄRDE | Byte
-VARCHAR | Sträng
-NVARCHAR | Sträng
-CLOB | Byte]
-ALPHANUM | Sträng
-BLOB | Byte]
+VARCHAR | String
+NVARCHAR | String
+CLOB | Byte[]
+ALPHANUM | String
+BLOB | Byte[]
 DATE | DateTime
-TIME | Tidsintervall
+TIME | TimeSpan
 TIDSSTÄMPEL | DateTime
 SECONDDATE | DateTime
 

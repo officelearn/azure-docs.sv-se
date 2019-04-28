@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 805868617fe7161159c72ba53ac0c94247722ac9
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113465"
 ---
 # <a name="create-an-android-app"></a>Skapa en Android-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -29,7 +29,7 @@ I den här kursen får du lära dig hur du lägger till en molnbaserad serverdel
 
 Du måste slutföra den här kursen innan du påbörjar någon annan Androidkurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att kunna genomföra den här kursen behöver du följande:
 
 * [Utvecklingsverktyg för Android](https://developer.android.com/sdk/index.html), vilket omfattar Android Studio Integrated Development Environment och den senaste Android-plattformen.

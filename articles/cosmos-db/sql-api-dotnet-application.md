@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.openlocfilehash: 3f19c442d0f5806147ee05b3f0d2d32740a8ecdd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61439680"
 ---
 # <a name="_Toc395809351"></a>Självstudie om ASP.NET MVC: Utveckling av webbprogram med Azure Cosmos DB
 

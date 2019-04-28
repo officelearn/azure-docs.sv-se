@@ -1,7 +1,6 @@
 ---
 title: Microsoft Cognitive Toolkit med Azure HDInsight Spark för djupinlärning
 description: Lär dig hur en tränad modell med djupinlärning för Microsoft Cognitive Toolkit kan användas på en datauppsättning med hjälp av Spark Python-API i ett Azure HDInsight Spark-kluster.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 093685ff2fa48799f0a91ee25727f5124dec6292
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097295"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Använd Microsoft Cognitive Toolkit deep learning-modell med Azure HDInsight Spark-kluster
 
@@ -24,7 +23,7 @@ I den här artikeln får göra du följande steg.
 
 2. Ladda upp en [Jupyter Notebook](https://jupyter.org/) till den [Apache Spark](https://spark.apache.org/) klustret för att se hur du använder en träningsmodell Microsoft Cognitive Toolkit djupinlärning för filer i en Azure Blob Storage-konto med hjälp av den [ Spark Python API (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free).
 

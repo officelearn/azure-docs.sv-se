@@ -9,11 +9,11 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119885"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -32,7 +32,7 @@ Du kanske vill flytta Azure-infrastruktur som en tjänst (IaaS) virtuella datore
 > [!IMPORTANT]
 > Den här artikeln beskriver hur du flyttar virtuella Azure-datorer från en region till en annan *skick*. Om målet är att förbättra tillgängligheten för din infrastruktur genom att flytta virtuella datorer till tillgänglighetszoner finns i [flytta virtuella Azure-datorer till Tillgänglighetszoner](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Se till att du har virtuella Azure-datorer i Azure-region som du vill flytta källan *från*.
 - Kontrollera att ditt val av [källa / mål-region region kombinationen stöds](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), och välj noggrant målregionen.

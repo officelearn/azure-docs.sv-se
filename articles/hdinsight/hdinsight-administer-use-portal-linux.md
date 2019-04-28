@@ -1,7 +1,6 @@
 ---
 title: Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure portal
 description: Lär dig mer om att skapa och hantera HDInsight-kluster med Azure portal.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 80c27d588bb8b4c60ae8432fbd3a2ac3d2db1394
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096374"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -90,8 +89,8 @@ Välj klusternamnet från den [ **HDInsight-kluster** ](#showClusters) sidan.  D
 
     | Objekt| Beskrivning |
     |---|---|
-    |Resource Health|Se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).|
-    |Ny supportförfrågan|Kan du skapa ett supportärende hos Microsoft support.|
+    |Resurshälsa|Se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).|
+    |Ny supportbegäran|Kan du skapa ett supportärende hos Microsoft support.|
 
 ## <a name="properties"></a> Egenskaper för klustret
 
@@ -99,7 +98,7 @@ Från den [kluster startsida](#homePage)under **inställningar** Välj **egenska
 
 |Objekt | Beskrivning |
 |---|---|
-|Värddatornamn|Klustrets namn.|
+|Värdnamn|Klustrets namn.|
 |Kluster-URL|URL till Ambari-webbgränssnittet.|
 |Secure shell (SSH)|Användarnamn och värden namnet ska användas i åtkomst till klustret via SSH.|
 |Status|En av: Avbröts, godkända ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, drift, kör, fel, tar bort, tas bort, nådde sin tidsgräns, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, eller ClusterCustomization.|

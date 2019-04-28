@@ -1,7 +1,6 @@
 ---
 title: Aktivera heap dumps för tjänster som Apache Hadoop på HDInsight - Azure
 description: Aktivera heap dumps för Apache Hadoop-tjänster från Linux-baserade HDInsight-kluster för felsökning och analys.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a1b816656e019a214e8c0dc72b79575c49d99e68
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098362"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight
 
@@ -45,8 +44,8 @@ I varje skript finns en export för  **\* \_OPTS**, som innehåller de alternati
 
 Mappa och minska processer är något annorlunda, eftersom de här åtgärderna är en underordnad process för MapReduce-tjänsten. Var och en mappa eller minska processen körs i en underordnad behållare och det finns två poster som innehåller alternativ för JVM. Både i **mapred site.xml**:
 
-* **mapreduce.Admin.Map.child.Java.opts**
-* **mapreduce.Admin.Reduce.child.Java.opts**
+* **mapreduce.admin.map.child.java.opts**
+* **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]  
 > Vi rekommenderar att du använder [Apache Ambari](https://ambari.apache.org/) om du vill ändra inställningar för både skript och mapred site.xml som Ambari hantera replikering av ändringar över noder i klustret. Se den [med hjälp av Apache Ambari](#using-apache-ambari) för specifika steg.

@@ -1,7 +1,6 @@
 ---
 title: 'Snabbstart: Skapa ett Spark-kluster i HDInsight med Azure PowerShell'
 description: Den här snabbstarten visar hur du använder Azure PowerShell för att skapa ett Apache Spark-kluster i Azure HDInsight och köra en enkel Spark SQL-fråga.
-services: azure-hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: f56595abf354d1124a40729ce93f97ab2acdeeeb
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 41311dce20237a300ae57f21bcc969c91da617b1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097283"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Snabbstart: Skapa ett Apache Spark-kluster i HDInsight med PowerShell
 Lär dig hur du skapar [Apache Spark](https://spark.apache.org/)-kluster i Azure HDInsight och hur du kör Spark SQL-frågor mot [Apache Hive](https://hive.apache.org/)-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md).
@@ -41,7 +40,7 @@ Du använder ett PowerShell-skript för att skapa resurserna.  När du kör skri
 |Parameter|Värde|
 |------|------|
 |Azure-resursgruppsnamn | Ange ett unikt namn för resursgruppen.|
-|Plats| Ange Azure-regionen, t.ex. Centrala USA. |
+|Location| Ange Azure-regionen, t.ex. Centrala USA. |
 |Namn på standardlagringskonto | Ange ett unikt namn för lagringskontot. |
 |Klusternamn | Ange ett unikt namn för HDInsight Spark-klustret.|
 |Autentiseringsuppgifter för klusterinloggning | Du kan använda det här kontot för att ansluta till klusterinstrumentpanelen senare i snabbstarten.|

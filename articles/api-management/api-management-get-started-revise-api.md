@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107235"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Använd revideringar för att göra bakåtkompatibla ändringar på ett säkert sätt
 När ditt API är klart och börjar användas av utvecklare, måste du så småningom göra ändringar för det API:et och samtidigt se till att du inte stör anropen till API:et. Det är också bra att informera utvecklarna om de ändringar du gjort. Det kan vi göra i Azure API Management med hjälp av **revisioner**. Mer information finns i avsnittet om [versioner & revisioner](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) och [API-versioner med Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).

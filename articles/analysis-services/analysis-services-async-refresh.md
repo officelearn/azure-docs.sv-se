@@ -9,11 +9,11 @@ ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61025329"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 
@@ -57,7 +57,7 @@ Du kan till exempel använda verbet INLÄGG på samlingen uppdateras för att ut
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Alla anrop måste autentiseras mot en giltig Azure Active Directory (OAuth 2)-token i auktoriseringshuvudet och måste uppfylla följande krav:
 

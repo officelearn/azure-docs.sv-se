@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: d34ac159a216c5c77214b4c8b799a233c3671235
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447372"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Lägga till en IoT Edge-enhet i lösningsacceleratorn för fjärrövervakning
 
@@ -24,7 +24,7 @@ Att lägga till en [IoT Edge](../iot-edge/about-iot-edge.md) enheten utvecklings
 
 ## <a name="add-the-iot-edge-device"></a>Lägg till IoT Edge-enhet
 
-Om du vill lägga till en IoT Edge-enhet att lösningsacceleratorn för fjärrövervakning, navigera till den **Device Explorer** i webbläsaren och klicka på **+ ny enhet**.
+Om du vill lägga till en IoT Edge-enhet till acceleratorn för fjärrövervakningslösningen navigerar du till sidan **Device Explorer** i webbgränssnittet och klickar på **+ Ny enhet**.
 
 I den **ny enhet** panelen, väljer **IoT Edge-enhet**. Du kan behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
 

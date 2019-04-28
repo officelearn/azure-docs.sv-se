@@ -9,11 +9,11 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: f8af19056a343abdbafcd4ead8b072330cb41fd9
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61438535"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Ange in ett program utvecklare kontrollerad Distribution (ADCD) i IBM zD & T v1
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du ställer in en ADCD-instans i en zD & T miljön i
 
 Precis som zD & T, ADCDs är endast tillgängliga för IBM-kunder och partner och är exklusivt för utveckling och testning. De är inte ska användas för produktionsmiljöer. Ett stort antal IBM-paket är tillgängliga för hämtning via [Passport nytta](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) eller [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

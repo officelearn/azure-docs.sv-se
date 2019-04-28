@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112297"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft identity-plattformen och OAuth 2.0-resurs för resursägarlösenord
 
@@ -66,10 +66,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | Directory-klient som du vill logga in användaren i. Detta kan vara i GUID eller eget namnformat. Den här parametern kan inte anges till `common` eller `consumers`, men kan anges till `organizations`. |
-| `grant_type` | Krävs | Måste anges till `password`. |
-| `username` | Krävs | Användarens e-postadress. |
-| `password` | Krävs | Användarens lösenord. |
+| `tenant` | Obligatoriskt | Directory-klient som du vill logga in användaren i. Detta kan vara i GUID eller eget namnformat. Den här parametern kan inte anges till `common` eller `consumers`, men kan anges till `organizations`. |
+| `grant_type` | Obligatoriskt | Måste anges till `password`. |
+| `username` | Obligatoriskt | Användarens e-postadress. |
+| `password` | Obligatoriskt | Användarens lösenord. |
 | `scope` | Rekommenderas | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md), eller behörigheter som appen kräver. I en interaktiv flow, måste administratören eller användaren godkänner du dessa scope förbereds i förväg. |
 
 ### <a name="successful-authentication-response"></a>Lyckad autentiseringssvar

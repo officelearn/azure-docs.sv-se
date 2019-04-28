@@ -11,11 +11,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a52907fa6c0e2483479031fbb3d1ad68a121d95
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61043351"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Uppgifter för en enskild deltagare i Team Data Science Process
 
@@ -45,7 +45,7 @@ Den här självstudien använder förkortade namnen för databaser och kataloger
 - **D5**: Den lokala katalogen klonas från R5.
 
 
-## <a name="step-0-prerequisites"></a>Steg-0: Förutsättningar
+## <a name="step-0-prerequisites"></a>Steg-0: Nödvändiga komponenter
 
 Kraven är uppfyllda genom att slutföra de uppgifter som tilldelats till din gruppchef som beskrivs i [Gruppansvarig uppgifter för team data science](group-manager-tasks.md). Följande krav måste uppfyllas innan du påbörjar lead gruppaktiviteter för att sammanfatta här: 
 - Chefen grupp har konfigurerat den **GroupUtilities** databasen (om sådan finns). 

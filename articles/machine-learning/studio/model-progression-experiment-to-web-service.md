@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61066061"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Hur en Machine Learning Studio-modell övergår från ett experiment till en webbtjänst
 Azure Machine Learning Studio tillhandahåller en interaktiv arbetsyta där du kan utveckla, köra, testa och iterera ett ***experimentera*** som representerar en prediktiv analysmodell. Det finns en mängd olika moduler som kan:

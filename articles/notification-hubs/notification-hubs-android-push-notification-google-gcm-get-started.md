@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 6e82ec9563832c7569fa1cff735a46dad50a8b3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462352"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Självstudier: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging
 
@@ -48,7 +48,7 @@ I de här självstudierna gör du följande:
 > * Anslut appen till meddelandehubben
 > * Testa appen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).

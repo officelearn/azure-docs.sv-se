@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 984c5d6b5e6e2010489533a3889501c5b524a6bd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: HT
+ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311330"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103728"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Innehållsskydd med dynamisk kryptering
 
@@ -206,6 +206,9 @@ Om du får den `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` fel, kontrollera 
 
 Om det uppstår fel som slutar med `_NOT_SPECIFIED_IN_URL`, se till att du anger krypteringsformat i URL: en. Till exempel `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Se [Streaming protokoll och krypteringstyper](#streaming-protocols-and-encryption-types).
 
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

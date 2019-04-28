@@ -17,11 +17,11 @@ ms.date: 07/25/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89412040fdea32746574d8ae5bada9c017617b80
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Självstudier: Azure Active Directory-integrering med TOPdesk – offentlig
 
@@ -35,7 +35,7 @@ Integrera TOPdesk - offentliga med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Konfigurera Azure AD-integrering med TOPdesk - offentlig, behöver du följande objekt:
 
@@ -172,7 +172,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 1. I avsnittet **Offentligt** klickar du på **Lägg till**.
     
-    ![SAML-inloggningen](./media/topdesk-public-tutorial/ic790625.png "SAML-inloggning")
+    ![SAML-inloggning](./media/topdesk-public-tutorial/ic790625.png "SAML-inloggning")
 
 1. I dialogrutan **SAML-konfigurationsassistent** utför du följande steg:
     
@@ -291,7 +291,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

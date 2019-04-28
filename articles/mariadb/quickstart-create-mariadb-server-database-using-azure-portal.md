@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.openlocfilehash: 536d06948510dd5df05bfc2d46cc79b9cf1559ae
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467142"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Skapa en Azure Database for MariaDB-server med Azure-portalen
 
@@ -49,7 +49,7 @@ Skapa en Azure Database for MariaDB-server:
     inloggning för serveradministratör | **myadmin** | Ett inloggningskonto som du använder när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
     Lösenord | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: Engelska versala bokstäver, engelska gemena bokstäver, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
     Bekräfta lösenord | *ditt val*| Bekräfta administratörslösenordet.
-    Plats | *den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
+    Location | *den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *den senaste versionen*| Välj den senaste versionen (om du inte har särskilda krav på att använda en annan version).
     Prisnivå | Se beskrivningen. | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå** > **Generell användning**. Behåll standardvärdena för följande inställningar:<br><ul><li>**Compute-generering** (Gen 5)</li><li>**vCore** (4 virtuella kärnor)</li><li>**Storage** (100 GB)</li><li>**Kvarhållningsperiod för säkerhetskopiering** (7 dagar)</li></ul><br>Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. <br><br>Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
   

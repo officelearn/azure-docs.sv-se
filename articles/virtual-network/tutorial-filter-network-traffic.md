@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: I den här självstudien får du lära dig hur du filtrerar nätverkstrafik till ett undernät, med en nätverkssäkerhetsgrupp, med hjälp av Azure-portalen.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: caf9b91d5b98d028d7c9e971df30ad1f6ec448ad
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456773"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudie: Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med hjälp av Azure-portalen
 
@@ -51,7 +51,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     | Adressutrymme           | 10.0.0.0/16                                        |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj **Skapa ny** och ange *myResourceGroup*. |
-    | Plats                | Välj **USA, östra**.                                |
+    | Location                | Välj **USA, östra**.                                |
     | Undernät – namn            | mySubnet                                           |
     | Undernät – adressintervall  | 10.0.0.0/24                                        |
 
@@ -68,7 +68,7 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
     | Namn           | myAsgWebServers                                               |
     | Prenumeration   | Välj din prenumeration.                                     |
     | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
-    | Plats       | Östra USA                                                       |
+    | Location       | Östra USA                                                       |
 
 4. Slutför steg 3 igen och ange följande värden:
 
@@ -77,7 +77,7 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
     | Namn           | myAsgMgmtServers                                              |
     | Prenumeration   | Välj din prenumeration.                                     |
     | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
-    | Plats       | Östra USA                                                       |
+    | Location       | Östra USA                                                       |
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
@@ -90,7 +90,7 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
     |Namn|myNsg|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp | Välj **Använd befintlig** och sedan *myResourceGroup*.|
-    |Plats|Östra USA|
+    |Location|Östra USA|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associera nätverkssäkerhetsgrupp till undernät
 
@@ -149,7 +149,7 @@ Skapa två virtuella datorer i det virtuella nätverket.
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Plats| Välj **USA, östra**|
+    |Location| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Under **Inställningar** anger eller väljer du följande värden, accepterar standardvärdena för resten av inställningarna och väljer sedan **OK**:

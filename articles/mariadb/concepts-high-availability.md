@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: ba561cba21b0b83b6a19fffc2fdfebe8ec8b8ed9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61042154"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Begrepp för hög tillgänglighet i Azure Database for MariaDB
 Tjänsten Azure Database for MariaDB tillhandahåller garanterat hög tillgänglighet. Ekonomisk servicenivåavtalet (SLA) är 99,99% vid allmän tillgänglighet. Det är praktiskt taget ingen program driftstopp när du använder den här tjänsten.

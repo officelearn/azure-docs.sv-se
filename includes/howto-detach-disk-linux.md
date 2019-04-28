@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476276"
 ---
 När du inte längre behöver en datadisk som är ansluten till en virtuell dator (VM) kan du enkelt koppla bort den. När du kopplar bort en disk från den virtuella datorn tas den inte bort från lagringsutrymmet. Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator eller till en annan.  
 

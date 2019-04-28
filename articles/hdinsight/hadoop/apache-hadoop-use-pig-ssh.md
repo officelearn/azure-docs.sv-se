@@ -1,7 +1,6 @@
 ---
 title: Använda Apache Pig med SSH på ett HDInsight-kluster – Azure
 description: Lär dig hur ansluter till ett Linux-baserade Apache Hadoop-kluster med SSH och använder sedan Pig-kommando för att köra satser i Pig Latin interaktivt eller som ett batch-jobb.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a674ee52ae5e8f8f800d4584a53c808ceae70156
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 503449e36b2b11e5663449dd732fdaf785417570
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110760"
 ---
 # <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Kör Apache Pig-jobb på en Linux-baserat kluster med kommandot Pig (SSH)
 

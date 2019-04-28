@@ -15,13 +15,13 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811717"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093989"
 ---
-<a name="retrieve-offer-status"></a>Hämta status för erbjudande 
+<a name="retrieve-offer-status"></a>Hämta erbjudandestatus 
 =====================
 
 Hämtar den aktuella statusen för erbjudandet.
@@ -33,18 +33,18 @@ Hämtar den aktuella statusen för erbjudandet.
 
 |  **Namn**       |   **Beskrivning**                            |  **Datatyp** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identifierare för utgivare, till exempel `Contoso`  |     Sträng     |
-|  offerId        | GUID som unikt identifierar erbjudandet      |     Sträng     |
+|  publisherId    | Identifierare för utgivare, till exempel `Contoso`  |     String     |
+|  offerId        | GUID som unikt identifierar erbjudandet      |     String     |
 |  API-versionen    | Senaste versionen av API                        |     Date       |
 |  |  |
 
 
-<a name="header"></a>Sidhuvud
+<a name="header"></a>Huvud
 ------
 
 |  Namn           |  Värde               |
 |  -------------  | -------------------  |
-|  Innehållstyp   |  `application/json`  |
+|  Content-Type   |  `application/json`  |
 |  Auktorisering  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
@@ -137,7 +137,7 @@ Hämtar den aktuella statusen för erbjudandet.
 |  estimatedTimeFrame   | Uppskattning av tid det tar för att slutföra det här steget i egna format                       |
 |  id                   | Identifierare för steget                                                                         |
 |  stepName             | Namn på steget                                                                               |
-|  beskrivning          | Beskrivning av steget                                                                        |
+|  description          | Beskrivning av steget                                                                        |
 |  status               | Status för steget. Listan över möjliga värden, se [steg status](#step-status) nedan.    |
 |  meddelanden             | Matris med meddelanden som är relaterade till steg                                                          |
 |  processPercentage    | Procentsats slutförandet av steget                                                              |

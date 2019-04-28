@@ -17,11 +17,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098124"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Skapa ett virtuellt nätverk (klassiskt) med flera undernät
 
@@ -60,7 +60,7 @@ Du kan skapa ett virtuellt nätverk (klassisk) med hjälp av den [Azure-portalen
 6. Klicka på **+ Lägg till** på den **myVnet – undernät** fönstret som visas.
 7. Ange **privata** för **namn** på den **Lägg till undernät** fönstret. Ange **10.0.1.0/24** för **adressintervall**.  Klicka på **OK**.
 8. På den **myVnet – undernät** fönstret du ser den **offentliga** och **privata** undernät som du skapade.
-9. **Valfritt**: när du är klar med den här självstudien kanske du vill ta bort de resurser som du har skapat, så att du inte betalar användningsavgifter:
+9. **Valfritt**: När du är klar med den här självstudien kanske du vill ta bort de resurser som du har skapat, så att du inte betalar användningsavgifter:
     - Klicka på **översikt** på den **myVnet** fönstret.
     - Klicka på den **ta bort** -ikonen i den **myVnet** fönstret.
     - Bekräfta borttagningen genom att klicka på **Ja** i den **ta bort virtuellt nätverk** box.
@@ -98,7 +98,7 @@ Du kan skapa ett virtuellt nätverk (klassisk) med hjälp av den [Azure-portalen
     azure network vnet show --vnet myVnet
     ```
 
-7. **Valfritt**: du kanske vill ta bort alla resurser som du skapade när du är klar med den här självstudien så att du inte betalar användningsavgifter:
+7. **Valfritt**: Du kanske vill ta bort de resurser som du skapade när du är klar med den här självstudien så att du inte betalar användningsavgifter:
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
@@ -153,7 +153,7 @@ Du kan skapa ett virtuellt nätverk (klassisk) med hjälp av den [Azure-portalen
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **Valfritt**: du kanske vill ta bort alla resurser som du skapade när du är klar med den här självstudien så att du inte betalar användningsavgifter. Om du vill ta bort det virtuella nätverket, Slutför stegen 4 – 6 igen, den här tiden tar bort den **VirtualNetworkSite** element som du lade till i steg 5.
+8. **Valfritt**: Du kanske vill ta bort alla resurser som du skapade när du är klar med den här självstudien så att du inte betalar användningsavgifter. Om du vill ta bort det virtuella nätverket, Slutför stegen 4 – 6 igen, den här tiden tar bort den **VirtualNetworkSite** element som du lade till i steg 5.
  
 > [!NOTE]
 > Även om du inte kan ange en resursgrupp för att skapa ett virtuellt nätverk (klassiskt) i med hjälp av PowerShell, Azure skapar det virtuella nätverket i en resursgrupp med namnet *standard-nätverk*.

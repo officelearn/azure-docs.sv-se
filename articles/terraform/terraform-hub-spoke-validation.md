@@ -10,11 +10,11 @@ ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.openlocfilehash: 157be65a19a1f790b911aa9d861c5f18fc8c0813
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006168"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128271"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>Självstudier: Verifiera ett nav och ekrar nätverk med Terraform i Azure
 
@@ -29,7 +29,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Kontrollera anslutningen mellan olika nätverk
 > * Använd Terraform till att ta bort alla resurser
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. [Skapa ett nav och ekrar hybrid nätverkets topologi med Terraform i Azure](./terraform-hub-spoke-introduction.md).
 1. [Skapa en lokal virtuellt nätverk med Terraform i Azure](./terraform-hub-spoke-on-prem.md).

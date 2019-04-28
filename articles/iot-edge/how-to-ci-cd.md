@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61222057"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du använder de inbyggda Azure IoT Edg
 ![Diagram - CI och CD grenar för utveckling och produktion](./media/how-to-ci-cd/cd.png)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En lagringsplats för Azure-databaser. Om du inte har något, kan du [skapa en ny Git-lagringsplats i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
 * En IoT Edge-lösning allokeras och skickas till din lagringsplats. Om du vill skapa en ny lösning för exemplet för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C# moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md).

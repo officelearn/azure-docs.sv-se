@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 90a103bcdfdcd5d61433c05d4cadfa746c67e192
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472744"
 ---
 # <a name="container-support-tab"></a>Fliken stöd för behållare
 
-Använd den **stöder** fliken den **nytt erbjudande** sidan för att ge teknisk hjälp och användaren Supportresurser för ditt erbjudande.  Följande indata områden tillhandahålls i formuläret Support: **Engineering Contact**, **kundsupport**, och **Support URL: er**. En asterisk (*) läggs till fältnamnet anger att det krävs.
+Använd den **stöder** fliken den **nytt erbjudande** sidan för att ge teknisk hjälp och användaren Supportresurser för ditt erbjudande.  Följande indata områden tillhandahålls i formuläret Support: **Tekniska kontakt**, **kundsupport**, och **stöd för URL: er**. En asterisk (*) läggs till fältnamnet anger att det krävs.
 
 ## <a name="support-form-fields"></a>Stöd för formulärfält
 

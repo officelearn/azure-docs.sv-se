@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098600"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Länkning av Service Bus-entiteter med autoforwarding
 
@@ -47,6 +47,10 @@ Du kan också använda autoforwarding för att frikoppla avsändare från mottag
 
 Om Alice går på semester, sin personliga kön i stället ERP-avsnittet, blir fullt. I detta scenario eftersom en säljare inte har fått några meddelanden nå ingen av ERP-ämnen någonsin kvot.
 
+> [!NOTE]
+> När autoforwarding har konfigurerats, anges automatiskt värdet för AutoDeleteOnIdle på mål-det maximala värdet för datatypen.
+> Detta görs för att säkerställa att det finns alltid ett mål för att vidarebefordra meddelandet till.
+
 ## <a name="autoforwarding-considerations"></a>Autoforwarding överväganden
 
 Om målentitet ackumulerar för många meddelanden och överskrider kvoten eller mål-entiteten är inaktiverad, källentiteten lägger till meddelanden till dess [obeställbara meddelanden](service-bus-dead-letter-queues.md) tills det finns utrymme i målet (eller entiteten aktiveras på nytt). Meddelandena fortsätta att finnas i kön för obeställbara meddelanden, så du måste uttryckligen tar emot och bearbetar dem från kön för obeställbara meddelanden.
@@ -67,7 +71,7 @@ Detaljerad information om autoforwarding finns i följande referensavsnitt:
 
 Läs mer om Service Bus prestandaförbättringar i 
 
-* [Metodtips för prestandaförbättringar med hjälp av Service Bus-meddelanden](service-bus-performance-improvements.md)
+* [Bra metoder för att öka prestanda med hjälp av meddelanden i Service Bus](service-bus-performance-improvements.md)
 * [Partitionerade meddelandeentiteter][Partitioned messaging entities].
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo

@@ -1,7 +1,6 @@
 ---
 title: Ansluta till Kafka med hjälp av virtuella nätverk – Azure HDInsight
 description: Lär dig mer om att ansluta direkt till Kafka på HDInsight med Azure Virtual Network. Lär dig hur du ansluter till Kafka från utveckling-klienter som använder en VPN-gateway eller från klienter i ditt lokala nätverk med hjälp av en VPN-gateway-enhet.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6807a14bb7b46389abbc4c5a44e7699c79e29dff
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 93b5aeafafdc6ab7ee233f6360bb5e09f45b387f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361637"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115360"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Apache Kafka på HDInsight via Azure-nätverk
 

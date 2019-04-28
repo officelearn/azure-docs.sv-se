@@ -13,11 +13,11 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58891898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120746"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela några tekniska nyckelkoncept och komponenter, oavsett språk eller bindning som du använder specifika funktioner. Innan du sätter igång till learning information som gäller för ett visst språk eller en bindning, bör du läsa igenom den här översikten som gäller för alla.
@@ -46,11 +46,11 @@ Filen function.json definierar funktionens utlösare och bindningar andra konfig
 
 Den `bindings` egenskapen är där du konfigurerar både utlösare och bindningar. Varje bindning beskriver några vanliga inställningar och vissa inställningar som är specifika för en viss typ av bindning. Alla bindningar kräver följande inställningar:
 
-| Egenskap | Värdetyper / | Kommentarer |
+| Egenskap  | Värdetyper / | Kommentarer |
 | --- | --- | --- |
-| `type` |sträng |Bindningstyp. Till exempel `queueTrigger`. |
+| `type` |string |Bindningstyp. Till exempel `queueTrigger`. |
 | `direction` |”i”, ”ut” |Anger om bindningen för mottagning av data i funktionen eller skickar data från funktionen. |
-| `name` |sträng |Namnet som används för bundna data i funktionen. Detta är ett argument-name; för C# för JavaScript är det nyckeln i en nyckel/värde-lista. |
+| `name` |string |Namnet som används för bundna data i funktionen. Detta är ett argument-name; för C# för JavaScript är det nyckeln i en nyckel/värde-lista. |
 
 ## <a name="function-app"></a>Funktionsapp
 En funktionsappen är en körningskontexten i Azure där dina funktioner körs. En funktionsapp består av en eller flera enskilda funktioner som hanteras, distribueras och skalas tillsammans. Alla funktioner i en funktionsapp delar samma prisplanen, kontinuerlig distribution och runtime-versionen. Tänk på en funktionsapp som ett sätt att ordna och hantera dina funktioner gemensamt. 

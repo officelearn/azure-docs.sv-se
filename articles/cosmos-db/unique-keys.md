@@ -1,18 +1,19 @@
 ---
 title: Använd unika nycklar i Azure Cosmos DB
 description: Lär dig att använda unika nycklar i din Azure Cosmos-databas
-author: rimman
-ms.author: rimman
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799124"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115731"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Unika viktiga begränsningar i Azure Cosmos DB
 
@@ -26,14 +27,14 @@ För att skapa objekt med samma e-postmeddelandet adress, men inte i samma förn
 
 Behållaren kan exempelvis innehålla objekt med följande värden, där varje objekt godkänner unika nyckelvillkor.
 
-|CompanyID|Förnamn|Efternamn|E-postadress|
-|---|---|---|---|
-|Contoso|Gaby|Duperre|gaby@contoso.com |
-|Contoso|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
-|Fabrkam|   |Duperre|gaby@fabraikam.com|
-|Fabrkam|   |   |gaby@fabraikam.com|
+| CompanyID | Förnamn | Efternamn |   E-postadress    |
+|-----------|------------|-----------|--------------------|
+|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
+|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
+|  Fabrkam  |            |  Duperre  | gaby@fabraikam.com |
+|  Fabrkam  |            |           | gaby@fabraikam.com |
 
 Om du försöker infoga ett annat objekt med kombinationer som anges i föregående tabell visas felmeddelande ett. Felet indikerar att unika nyckelvillkor inte uppfylldes. Du får något `Resource with specified ID or name already exists` eller `Resource with specified ID, name, or unique index already exists` som ett returnerade meddelande. 
 
@@ -56,3 +57,5 @@ Du kan definiera unika nycklar endast när du skapar en Azure Cosmos-behållare.
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [logiska partitioner](partition-data.md).
+
+<!-- Update_Description: update meta propreties, wording update -->

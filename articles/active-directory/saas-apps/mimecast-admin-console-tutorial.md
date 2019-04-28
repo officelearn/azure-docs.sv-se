@@ -16,11 +16,11 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2019c61ccbffa1e68c1ef53c718d4839a604aa44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Självstudier: Azure Active Directory-integrering med Mimecast Admin Console
 
@@ -34,7 +34,7 @@ Integreringen av Mimecast Admin Console med Azure AD medför följande fördelar
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Mimecast Admin Console behöver du följande:
 

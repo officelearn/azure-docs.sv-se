@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 08/10/2018
+origin.date: 08/10/2018
+ms.date: 12/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112546"
 ---
 # <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt  
 

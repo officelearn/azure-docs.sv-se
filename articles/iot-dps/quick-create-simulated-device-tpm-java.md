@@ -11,11 +11,11 @@ manager: timlt
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: a83f027cbfcf84beb43ceeb79971807366f22626
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258853"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Java-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten
 
@@ -97,9 +97,9 @@ Den här artikeln visar enskilda registreringar.
 
 1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
 
-1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
+2. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
-1. Under **Lägg till registrering** anger du följande information:
+3. Under **Lägg till registrering** anger du följande information:
    - Välj **TPM** som identitet för bestyrkande *mekanism*.
    - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet enligt tidigare notering. 
    - Välj en IoT hub som är länkad till din etableringstjänst.

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110493"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure queue storage och Visual Studio anslutna tjänster (ASP.NET)
 
@@ -29,7 +29,7 @@ Azure queue storage innehåller molnmeddelandehantering mellan programkomponente
 
 Den här självstudiekursen visar hur du skriver ASP.NET-kod för några vanliga scenarier med hjälp av Azure queue storage-entiteter. De här scenarierna omfattar vanliga åtgärder, till exempel skapa en Azure-kö och att lägga till, ändra, läsa och ta bort Kömeddelanden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage-konto](../storage/common/storage-quickstart-create-account.md)

@@ -10,11 +10,11 @@ ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230393"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(INAKTUELL) Skala ut Kubernetes-poddar och Kubernetes-infrastrukturen
 
@@ -48,7 +48,7 @@ Hittills har vi distribuerat klientdelen av Azure Vote och Redisinstansen, var o
 kubectl get pods
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -68,7 +68,7 @@ Kör [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/k
 kubectl get pods
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -107,7 +107,7 @@ Om du vill se status för autoskalningen kör du följande kommando:
 kubectl get hpa
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE

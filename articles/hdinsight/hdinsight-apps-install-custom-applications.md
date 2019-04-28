@@ -1,7 +1,6 @@
 ---
 title: Installera egna anpassade Apache Hadoop-program i Azure HDInsight
 description: Ta reda på hur du installerar HDInsight-program på HDInsight-appar.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: c51cb797ff4465f4efcbc526444cddeb5b923262
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: ec2e53624ad48650f922439c5f16d1cf1f25c280
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097260"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installera anpassade Apache Hadoop-program i Azure HDInsight
 
@@ -28,7 +27,7 @@ Andra relaterade artiklar:
 * [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): Lär dig hur du publicerar dina anpassade HDInsight-program på Azure Marketplace.
 * [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): Lär dig hur du definierar HDInsight-program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill installera HDInsight-program i ett befintligt HDInsight-kluster måste du ha ett HDInsight-kluster. Om du vill skapa ett läser du [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Du kan även installera HDInsight-program när du skapar ett HDInsight-kluster.
 
 ## <a name="install-hdinsight-applications"></a>Installera HDInsight-program

@@ -1,7 +1,6 @@
 ---
 title: Spegling av Apache Kafka-avsnitt – Azure HDInsight
 description: Lär dig hur du använder Apache Kafka databasspegling funktionen för att underhålla en replik av en Kafka på HDInsight-klustret genom att spegla ämnen till ett sekundärt kluster.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 0c37ad6de867c4abe4ebf0e6c7a40b5cf27c4541
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ba04ed7c95cbf00d5996ef237d3ac65053da0662
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115068"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka-ämnen med Kafka på HDInsight
 

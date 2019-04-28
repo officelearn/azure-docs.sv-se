@@ -1,17 +1,12 @@
 ---
-author: ecfan
-ms.service: logic-apps
-ms.topic: include
-ms.date: 11/03/2016
-ms.author: estfan
 ms.openlocfilehash: b06c57f50f759677770839ae06cb05e4de36f84c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103688"
 ---
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 * En [SendGrid](https://www.SendGrid.com/) konto 
 
 Innan du kan använda SendGrid-konto i en logikapp, måste du godkänna logikappen att ansluta till SendGrid-konto. Som tur är kan göra du det enkelt från i logikappen på Azure Portal. 

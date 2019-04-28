@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6508e90f76a374d628fdd5032c475e4dde8ffa78
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 48d08af1c33eaddd8d963d9e1ab0322c3972997e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103561"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Självstudier: Analysera videor med Media Services v3 med .NET
 
@@ -34,7 +34,7 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
@@ -166,6 +166,10 @@ az group delete --name amsResourceGroup
 ## <a name="multithreading"></a>Flertrådsteknik
 
 SDK:erna i Azure Media Services v3 är inte trådsäkra. När du arbetar med flertrådade program bör du skapa ett nytt AzureMediaServicesClient-objekt per tråd.
+
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

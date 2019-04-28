@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113876"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definiera och Använd moderering jobb (.NET)
 
@@ -26,7 +26,7 @@ Ett jobb för moderering fungerar som en sorts Omslutning för funktionerna i in
 - Spåra och hämta den slutgiltiga statusen för granskningen
 - Skicka granskningsresultaten till Motringnings-URL
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Logga in eller skapa ett konto på Content Moderator [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats.
 

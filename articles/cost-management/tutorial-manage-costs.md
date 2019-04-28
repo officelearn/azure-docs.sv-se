@@ -11,11 +11,11 @@ ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
 ms.openlocfilehash: df4994475bf10fa902a2902b69b231821601d33b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58174349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130036"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Självstudie: Hantera kostnader med hjälp av Cloudyn
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha ett Azure-konto.
 - Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.

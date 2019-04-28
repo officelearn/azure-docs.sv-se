@@ -1,6 +1,6 @@
 ---
-title: Terminologi för Azure API Management | Microsoft Docs
-description: Den här artikeln innehåller definitioner för de villkor som är specifika för API-hantering.
+title: Azure API Management-terminologi | Microsoft Docs
+description: Den här artikeln innehåller definitioner för termer som är specifika för API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,26 +11,26 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
-ms.openlocfilehash: 81cf34cacdfe37e25d6b745304ab0879245fd8da
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b99ca444532799d21850058eae0e3f40ed871135
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61074062"
 ---
 # <a name="terminology"></a>Terminologi
 
-Den här artikeln innehåller definitioner för de villkor som är specifika för API Management (APIM).
+Den här artikeln innehåller definitioner för termer som är specifika för API Management (APIM).
 
 ## <a name="term-definitions"></a>Termdefinitioner
 
-* **Backend-API** -en HTTP-tjänsten som implementerar din API och dess åtgärder. 
-* **Klientdel API**/**APIM API** -en APIM API inte är värd för API: er, skapar den facades för dina API: er för att anpassa facade efter dina behov utan att röra baksidan avslutas API. Mer information finns i [Import och publicera en API](import-and-publish.md).
-* **APIM produkten** -en produkt som innehåller en eller flera API: er som en kvot för användning och villkor för användning. Du kan innehålla ett antal API: er och erbjuda utvecklare via Developer-portalen. Mer information finns i [skapa och publicera en produkt](api-management-howto-add-products.md).
-* **APIM API-åtgärd** -API för varje APIM representerar en uppsättning åtgärder som är tillgänglig för utvecklare. Varje APIM API innehåller en referens till backend-tjänst som implementerar API: et och dess åtgärder mappar till åtgärder som implementerats av tjänst serverdel. Mer information finns i [Mock API-svar](mock-api-responses.md).
-* **Version** – ibland du vill publicera ny eller annan API-funktioner till vissa användare, medan andra vill behålla med API som för närvarande fungerar för dem. Mer information finns i [publicera flera versioner av din API](api-management-get-started-publish-versions.md).
-* **Revision** – när din API är redo för att gå och startar som ska användas av utvecklare du vanligtvis måste vara försiktig i ändrar den-API: et och samtidigt inte att störa anropare av din API. Det är också bra att informera utvecklarna om de ändringar du gjort. Mer information finns i [använda revisioner](api-management-get-started-revise-api.md).
-* **Developer-portalen** -kunderna (utvecklare) ska använda Developer-portalen för att komma åt dina API: er. Developer-portalen kan anpassas. Mer information finns i [anpassa Developer-portalen](api-management-customize-styles.md).
+* **Serverdels-API** – en HTTP-tjänsten som implementerar ditt API och åtgärderna. 
+* **Klientdelens API**/**APIM API** -API: er inte värd för en APIM-API, fasader skapas för dina API: er för att anpassa fasaden efter dina behov utan att röra baksidan sluta API. Mer information finns i [importera och publicera en API](import-and-publish.md).
+* **APIM-produkten** – en produkt innehåller en eller flera API: er samt en användningskvot och användningsvillkoren. Du kan inkludera flera API: er och erbjuda dem till utvecklare via utvecklarportalen. Mer information finns i [skapa och publicera en produkt](api-management-howto-add-products.md).
+* **APIM API-åtgärden** -varje APIM API representerar en uppsättning åtgärder som är tillgängliga för utvecklare. Varje APIM API innehåller en referens till backend-tjänst som implementerar API: et och dess åtgärder mappar till åtgärderna som implementeras av backend-tjänst. Mer information finns i [Fingera API-svar](mock-api-responses.md).
+* **Version** – ibland du vill publicera ny eller annan API-funktioner till vissa användare, medan andra vill Håll dig till API: et som för närvarande tycker passar. Mer information finns i [publicera flera versioner av ditt API](api-management-get-started-publish-versions.md).
+* **Revision** – när ditt API är redo för att gå och börjar användas av utvecklare du vanligtvis måste du vara försiktig gör ändringar till det API: et och samtidigt till att inte stör anropen av ditt API. Det är också bra att informera utvecklarna om de ändringar du gjort. Mer information finns i [Använd revideringar](api-management-get-started-revise-api.md).
+* **Utvecklarportalen** -kunderna (utvecklare) bör använda Developer-portalen för att komma åt dina API: er. Developer-portalen kan anpassas. Mer information finns i [anpassa utvecklarportalen](api-management-customize-styles.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

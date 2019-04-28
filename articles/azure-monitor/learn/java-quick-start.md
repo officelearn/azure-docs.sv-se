@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61387990"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -54,7 +54,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
-    | Inställningar        | Value           | Beskrivning  |
+    | Inställningar        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
    | **Programtyp** | Java-webapp | Typen av app du övervakar |

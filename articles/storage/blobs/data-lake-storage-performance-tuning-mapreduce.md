@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
 ms.openlocfilehash: 1df7765f4f006d3d79f867fbf23929f6b9b0cf08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127165"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestandajusteringsvägledning för MapReduce på HDInsight och Azure Data Lake Storage Gen2
 
 Förstå de faktorer som du bör tänka på när du finjustera prestanda för Map Reduce-jobb. Den här artikeln innehåller en uppsättning riktlinjer för prestandajustering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett konto med Azure Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [snabbstarten: Skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).

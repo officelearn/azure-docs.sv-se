@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 532701eb2c5e92e5443f69c464b561d6fa242598
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: ed798995807f4037f0127b08e25e04bdd0340d42
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103623"
 ---
 # <a name="encoding-with-media-services"></a>Encoding med Media Services
 
@@ -90,6 +90,10 @@ Media Services stöder helt anpassa alla värden i förinställningar för att u
 ## <a name="scaling-encoding-in-v3"></a>Skala kodning i v3
 
 Om du vill skala mediebearbetning Se [skala med CLI](media-reserved-units-cli-how-to.md).
+
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,11 +12,11 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 6d9ef67f39a67fd06a5b42afe4432b5a0156fead
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130236"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Skapa en PHP- och MySQL-app i Azure App Service i Linux
 
@@ -606,7 +606,7 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
+> [Självstudie: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
 
 Eller titta på andra resurser:
 

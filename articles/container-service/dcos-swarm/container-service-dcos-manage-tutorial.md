@@ -10,11 +10,11 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456669"
 ---
 # <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(INAKTUELL) Självstudie för Azure Container Service – Hantera DC/OS
 

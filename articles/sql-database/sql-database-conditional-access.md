@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/29/2019
 ms.openlocfilehash: 79d15a46affb2a6b7159ba080d4235073c59919c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61413708"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Villkorlig åtkomst (MFA) med Azure SQL Database och Data Warehouse  
 
@@ -28,7 +28,7 @@ Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql
 
 Följande steg visar hur du konfigurerar SQL-databas om du vill framtvinga principer för villkorlig åtkomst.  
 
-## <a name="prerequisites"></a>Förutsättningar  
+## <a name="prerequisites"></a>Nödvändiga komponenter  
 - Du måste konfigurera SQL Database eller SQL Data Warehouse för att stödja Azure Active Directory-autentisering. Specifika anvisningar finns i [konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
 - När multifaktorautentisering har aktiverats måste du ansluter till vid stöds verktyg, till exempel den senaste SSMS. Mer information finns i [konfigurera Azure SQL Database Multi-Factor authentication för SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 

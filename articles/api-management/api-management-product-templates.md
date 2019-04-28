@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61088196"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Produktmallar i Azure API Management
 
@@ -72,9 +72,9 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ### <a name="controls"></a>Kontroller  
  Den `Product list` mall kan använda följande [sidan kontroller](api-management-page-controls.md).  
   
--   [växling-kontroll](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [Sök-kontroll](api-management-page-controls.md#search-control)  
+-   [search-control](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>Datamodell  
   
@@ -199,7 +199,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ### <a name="controls"></a>Kontroller  
  Den `Product list` mall kan använda följande [sidan kontroller](api-management-page-controls.md).  
   
--   [prenumerera på knappen](api-management-page-controls.md#subscribe-button)  
+-   [subscribe-button](api-management-page-controls.md#subscribe-button)  
   
 ### <a name="data-model"></a>Datamodell  
   

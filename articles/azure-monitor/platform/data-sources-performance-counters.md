@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363519"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows- och Linux prestanda datakällor i Azure Monitor
 Prestandaräknare i Windows och Linux ger information om prestanda för maskinvarukomponenter, operativsystem och program.  Azure Monitor kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.
@@ -206,7 +206,7 @@ Prestandaposter har en typ av **Perf** och har egenskaperna i följande tabell.
 ## <a name="log-queries-with-performance-records"></a>Loggfrågor med prestandaposter
 I följande tabell innehåller olika exempel på loggfrågor som hämtar prestandaposter.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 |:--- |:--- |
 | Perf |Alla prestandadata |
 | Perf &#124; där dator == ”den här datorn” |Alla prestandadata från en viss dator |

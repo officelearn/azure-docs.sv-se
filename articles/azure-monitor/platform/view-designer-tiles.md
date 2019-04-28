@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342061"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Referensguide till Vydesigner paneler i Azure Monitor
 Genom att använda Vydesigner i Azure Monitor kan skapa du en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln är en referensguide i inställningarna för panelerna som är tillgängliga i dina anpassade vyer.

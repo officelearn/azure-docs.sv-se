@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
 ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461650"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Snabbstart: Taligenkänning med Speech SDK för .NET Core
 

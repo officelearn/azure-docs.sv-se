@@ -1,7 +1,6 @@
 ---
 title: Hög tillgänglighet med Apache Kafka – Azure HDInsight
 description: Lär dig mer om att säkerställa hög tillgänglighet med Apache Kafka på Azure HDInsight. Lär dig mer om att balansera om partitionsrepliker i Kafka så att de är inom olika feldomäner i Azure-regionen som innehåller HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 3d048618fef04b630366b3f575e420b329f102cb
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 70843c368b0446a7c0e09559fa759a3cd51912d4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53597672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115236"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Hög tillgänglighet för dina data med Apache Kafka på HDInsight
 

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475821"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
@@ -1218,7 +1218,7 @@ Visar jobbhistorik körning.
 |**job_id** |uniqueidentifier|  Unikt ID för jobbet.
 |**job_version**    |int    |Version av jobbet (uppdateras automatiskt varje gång som jobbet har ändrats).
 |**step_id**    |int|   Unika (för jobbets) identifieraren för steget. NULL anger det här är den överordnade jobbkörningen.
-|**is_active**| bitars |Anger om informationen är aktiv eller inaktiv. 1 anger aktiva jobb och 0 indikerar inaktiva.
+|**is_active**| bit |Anger om informationen är aktiv eller inaktiv. 1 anger aktiva jobb och 0 indikerar inaktiva.
 |**livscykel**| nvarchar(50)|Värde som anger status för jobbet: ”skapa”, ”pågår”, ”misslyckad”, ”lyckades”, ”överhoppade', 'SucceededWithSkipped'|
 |**create_time**|   datetime2(7)|   Datum och tid då jobbet skapades.
 |**start_time** |datetime2(7)|  Datum och tid som jobbet startade körningen. NULL om jobbet inte har körts ännu.
@@ -1285,7 +1285,7 @@ Visar alla steg i den aktuella versionen av varje jobb.
 |**target_group_id**|   uniqueidentifier|   Unikt ID för målgruppen.|
 |**initial_retry_interval_seconds**|    int |Fördröjning före den första återförsök. Standardvärdet är 1.|
 |**maximum_retry_interval_seconds** |int|   Max. fördröjning mellan försöken. Om fördröjningen mellan återförsök skulle bli större än det här värdet, är det begränsat till det här värdet i stället. Standardvärdet är 120.|
-|**retry_interval_backoff_multiplier**  |verkliga|  Multiplikatorn som ska gälla för försök fördröjningen om flera jobb stegvis körning inloggningsförsök misslyckas. Standardvärdet är 2.0.|
+|**retry_interval_backoff_multiplier**  |real|  Multiplikatorn som ska gälla för försök fördröjningen om flera jobb stegvis körning inloggningsförsök misslyckas. Standardvärdet är 2.0.|
 |**retry_attempts** |int|   Antal försök försöker använda om det här steget misslyckas. Standardvärdet 10, vilket betyder att inga nya försök.|
 |**step_timeout_seconds**   |int|   Hur lång tid i minuter mellan nya försök. Standardvärdet är 0, vilket anger en 0-minutersintervall.|
 |**output_type**    |nvarchar(11)|  Platsen för kommandot. I den aktuella förhandsversionen 'infogat-är standard och endast godkända värde.|

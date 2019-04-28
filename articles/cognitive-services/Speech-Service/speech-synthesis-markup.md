@@ -12,13 +12,13 @@ ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 57fc7e699d88dbe777750e3acdb7f96794b66fc0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460294"
 ---
-# <a name="speech-synthesis-markup-language-ssml"></a>Tal syntes Markup Language (SSML)
+# <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
 Tal syntes Markup Language (SSML) är en XML-baserade märkspråk som gör det möjligt att styra uttal och *prosody* av text till tal. Prosody refererar till om du vill och försäljningsargument tal – dess musik, om du vill. Du kan ange ord fonetiskt, ge tips för att tolka siffror, infoga pauser, kontroll försäljningsargument, volym, och priset med mera. Mer information finns i [tal syntes Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 

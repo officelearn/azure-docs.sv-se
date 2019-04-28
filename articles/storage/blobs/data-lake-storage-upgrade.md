@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107881"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Uppgradera din big data analytics-lösningar från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2
 
@@ -249,7 +249,7 @@ Den huvudsakliga uppgiften här är att översätta URI: er som har ett prefix p
 
 URI-schemat för Data Lake Storage Gen1 nämns [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) i detalj, men i stora drag, är det *adl://mydatalakestore.azuredatalakestore.net/\<filsökväg\>.*
 
-URI-schemat för att komma åt Data Lake Storage Gen2 filer förklaras [här](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) i detalj, men i stora drag, är det `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+URI-schemat för att komma åt Data Lake Storage Gen2 filer förklaras [här](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) i detalj, men i stora drag, är det `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 Du behöver gå igenom dina befintliga program och se till att du har ändrat URI: er på rätt sätt för att peka till Data Lake Storage Gen2 sådana. Dessutom måste du lägga till rätt autentiseringsuppgifter. Slutligen måste hur du dra tillbaka de ursprungliga program och Ersätt med det nya programmet justeras nära till din strategi för övergripande uppgradering.
 

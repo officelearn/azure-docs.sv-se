@@ -14,11 +14,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409731"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använda SQL Server Management Studio för att ansluta till och fråga i en Azure SQL-databas
 
@@ -48,7 +48,7 @@ Innan du börjar bör du kontrollera att du har installerat senaste [SSMS][ssms-
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 

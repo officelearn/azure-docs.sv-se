@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61346351"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort aktivitet i Azure Data Factory
 
@@ -79,7 +79,7 @@ Här följer några rekommendationer för att använda aktiviteten Ta bort:
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | dataset | Tillhandahåller datamängdsreferens för att avgöra vilka filer eller mappen ska tas bort | Ja |
 | rekursiv | Anger om filerna är borttagna rekursivt från undermapparna eller endast från den angivna mappen.  | Nej. Standardvärdet är `false`. |
@@ -87,7 +87,7 @@ Här följer några rekommendationer för att använda aktiviteten Ta bort:
 | EnableLogging | Anger om du behöver registrera mapp eller fil namnen som har tagits bort. Om sant, måste du ange ytterligare ett lagringskonto att spara loggfil, så att du kan spåra funktioner för aktiviteten Ta bort genom att läsa loggfilen. | Nej |
 | logStorageSettings | Gäller endast när enablelogging = true.<br/><br/>En grupp med lagringsegenskaper som kan vara angetts där du vill spara loggfilen som innehåller mappen eller filen namnen som har tagits bort av aktiviteten Ta bort. | Nej |
 | linkedServiceName | Gäller endast när enablelogging = true.<br/><br/>Den länkade tjänsten av [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra filen som innehåller mappen eller filnamnen som har tagits bort av aktiviteten Ta bort. | Nej |
-| sökväg | Gäller endast när enablelogging = true.<br/><br/>Sökvägen för att spara loggfilen i ditt lagringskonto. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej |
+| path | Gäller endast när enablelogging = true.<br/><br/>Sökvägen för att spara loggfilen i ditt lagringskonto. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej |
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -115,7 +115,7 @@ Det finns två platser där du kan se och övervaka resultatet av aktiviteten Ta
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Exempel på loggfil för aktiviteten Ta bort
 
-| Namn | Kategori | Status | Fel |
+| Namn | Category | Status | Fel |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | Fil | Borttagen |  |
 | test2/hello789.txt | Fil | Borttagen |  |

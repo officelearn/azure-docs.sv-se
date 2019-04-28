@@ -12,11 +12,11 @@ ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61037139"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logic Apps
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Anslut logikappen till funktionen.
 > * Skicka ett e-postmeddelande baserat på svar från funktionen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + Ett aktivt [Twitter](https://twitter.com/)-konto. 
 + Ett [Outlook.com](https://outlook.com/)-konto (för att skicka meddelanden).

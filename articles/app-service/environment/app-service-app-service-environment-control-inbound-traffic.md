@@ -16,11 +16,11 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130797"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Så här kontrollerar du inkommande trafik till App Service Environment
 ## <a name="overview"></a>Översikt
@@ -60,7 +60,7 @@ Vi rekommenderar också att eventuella anpassade DNS-servrar på det virtuella n
 ## <a name="creating-a-network-security-group"></a>Skapa en Nätverkssäkerhetsgrupp
 Fullständig information om hur nätverkssäkerhet grupper arbetar i följande [information][NetworkSecurityGroups].  Azure Service Management som exemplet nedan vidrör på visar för nätverkssäkerhetsgrupperna, med fokus på att konfigurera och använda en nätverkssäkerhetsgrupp för ett undernät som innehåller en App Service Environment.
 
-**Obs:** Nätverkssäkerhetsgrupper kan konfigureras med grafiskt den [Azure-portalen](https://portal.azure.com) eller via Azure PowerShell.
+**Obs!** Nätverkssäkerhetsgrupper kan konfigureras med grafiskt den [Azure-portalen](https://portal.azure.com) eller via Azure PowerShell.
 
 Nätverkssäkerhetsgrupper skapas första gången som en fristående enhet som är associerade med en prenumeration. Eftersom nätverkssäkerhetsgrupper skapas i en Azure-region, se till att nätverkssäkerhetsgruppen har skapats i samma region som App Service Environment.
 
@@ -113,7 +113,7 @@ I följande exempel visas hur du ta bort och därför ej associerar nätverkssä
 ## <a name="special-considerations-for-explicit-ip-ssl"></a>Att tänka på för explicita IP-SSL
 Om en app har konfigurerats med en explicit IP SSL-adress (tillämpliga *endast* till ase-miljöer som har en offentlig VIP), istället för att använda standard-IP-adressen för App Service Environment, både HTTP och HTTPS-trafik flöden till undernätet via en olika uppsättningar av andra portar än portarna 80 och 443.
 
-De enskilda två portar som används av varje IP SSL-adress kan hittas i portalens användargränssnitt från App Service Environment UX informationsblad.  Välj ”alla inställningar”--> ”IP-adresser”.  Bladet ”IP-adresser” innehåller en tabell med alla explicit konfigurerade IP SSL-adresser för App Service Environment, tillsammans med särskilda port-par som används för att dirigera HTTP och HTTPS-trafik som är associerade med varje IP SSL-adress.  Det är den här porten-par som ska användas för DestinationPortRange parametrar när du konfigurerar regler i en grupp.
+De enskilda två portar som används av varje IP SSL-adress kan hittas i portalens användargränssnitt från App Service Environment UX informationsblad.  Select "All settings" --> "IP addresses".  Bladet ”IP-adresser” innehåller en tabell med alla explicit konfigurerade IP SSL-adresser för App Service Environment, tillsammans med särskilda port-par som används för att dirigera HTTP och HTTPS-trafik som är associerade med varje IP SSL-adress.  Det är den här porten-par som ska användas för DestinationPortRange parametrar när du konfigurerar regler i en grupp.
 
 När en app på en ASE är konfigurerad för att använda IP-SSL, externa kunder ser inte och behöver inte bekymra dig om den särskilda portmappning par.  Trafik till apparna som flödar normalt till den konfigurerade IP SSL-adressen.  Översättningen till särskilda port paret händer automatiskt internt under den sista delen av dirigera trafiken till undernätet som innehåller ASE. 
 

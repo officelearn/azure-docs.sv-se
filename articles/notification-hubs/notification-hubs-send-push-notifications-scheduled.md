@@ -13,16 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
-ms.author: jowargo
+origin.date: 04/14/2018
+ms.date: 02/25/2019
+ms.author: v-biyu
 ms.openlocfilehash: af0de9e8c18644f4ae200f6546c0dd0a41320f9f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457693"
 ---
-# <a name="how-to-send-scheduled-notifications"></a>Hur: Skicka schemalagda meddelanden
+# <a name="how-to-send-scheduled-notifications"></a>Instruktioner: Skicka schemalagda meddelanden
 
 Om du har ett scenario där du vill skicka ett meddelande vid en viss tidpunkt i framtiden, men som inte har ett enkelt sätt att aktivera in backend-koden så att skicka meddelandet. Standard-nivån för meddelandehubbar stöd för en funktion som gör att du kan schemalägga meddelanden upp till sju dagar i framtiden.
 

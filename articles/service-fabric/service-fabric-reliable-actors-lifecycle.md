@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: f81fde441a2f0dc2504601f82e5b890eb6e216de
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105300"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktören livscykel, skräpinsamling för automatisk och manuell delete
 En aktör aktiveras första gången ett anrop görs till någon av dess metoder. En aktör är inaktiverad (skräpinsamling som samlats in av aktörer runtime) om den inte används för en konfigurerbar tidsperiod. En aktör och dess tillstånd kan också tas bort manuellt när som helst.

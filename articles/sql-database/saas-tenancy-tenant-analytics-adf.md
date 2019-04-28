@@ -13,11 +13,11 @@ ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850300"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485109"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Utforska SaaS-analyser med Azure SQL Database, SQL Data Warehouse, Data Factory och Power BI
 
@@ -65,7 +65,7 @@ Den här självstudiekursen innehåller grundläggande exempel på insikter som 
 
 ## <a name="setup"></a>Konfiguration
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 > [!NOTE]
 > Den här självstudien använder funktioner i Azure Data Factory som finns för närvarande i en begränsad förhandsversion (länkad tjänst parameterisering). Om du vill följa den här guiden kan du ange ditt prenumerations-ID [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Vi skickar en bekräftelse när prenumerationen har aktiverats.

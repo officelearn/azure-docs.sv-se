@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 2a8a0bf1e63f06bbe6b6a073af6b3da8904dcaeb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450231"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Anslut enheten till lösningsacceleratorn för fjärrövervakning (Windows)
 
@@ -25,7 +25,7 @@ Precis som med de flesta embedded-program som körs på begränsade enheter, är
 
 Om du föredrar att simulera en enhet, se [skapa och testa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra stegen i den här guiden följer du stegen i [konfigurera din Windows-utvecklingsmiljö](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) att lägga till de nödvändiga utvecklingsverktygen och -bibliotek i din Windows-dator.
 

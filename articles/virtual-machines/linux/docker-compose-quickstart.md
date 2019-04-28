@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
 ms.openlocfilehash: 03501ea774cf58a4be88ed9155e5cfdfb99f0379
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474083"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Kom igång med Docker och Compose för att definiera och köra program med flera behållare i Azure
 Med [Compose](https://github.com/docker/compose), du använda en exempeltextfil för att definiera ett program som består av flera Docker-behållare. Sedan sätta upp ditt program i ett enda kommando som gör allt för att distribuera din definierade miljö. Exempelvis kan visar den här artikeln hur du snabbt konfigurera en WordPress-blogg med en serverdel MariaDB SQL-databas på en Ubuntu-VM. Du kan också använda Skriv för att ställa in mer komplexa program.

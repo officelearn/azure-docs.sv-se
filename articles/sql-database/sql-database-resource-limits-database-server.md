@@ -13,11 +13,11 @@ ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
 ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998285"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482048"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resursgränser för Azure SQL Database-server
 

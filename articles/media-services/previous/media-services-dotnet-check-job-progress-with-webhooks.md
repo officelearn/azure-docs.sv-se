@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465702"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks för att övervaka jobbmeddelanden för Media Services med .NET 
 
@@ -39,7 +39,7 @@ Den här artikeln visar hur du
 
 Du kan hitta definitioner av olika Media Services .NET Azure-funktioner (inklusive den som visas i den här artikeln) [här](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att kunna genomföra vägledningen:
 

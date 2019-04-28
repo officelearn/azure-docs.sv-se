@@ -1,6 +1,6 @@
 ---
-title: Ersätta en StorSimple 8000-serien enhetskontroll | Microsoft Docs
-description: Beskriver hur du tar bort och ersätter en eller båda controller moduler på enheten StorSimple 8000-serien.
+title: Ersätt enhetskontrollanten en StorSimple 8000-serien | Microsoft Docs
+description: Beskriver hur du tar bort och ersätter en eller båda controller-moduler på din enhet i StorSimple 8000-serien.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,228 +14,228 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 849eccff114c2fd6d952e44d095d0cc89a238675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482914"
 ---
-# <a name="replace-a-controller-module-on-your-storsimple-device"></a>Ersätta en domänkontrollant modul på din StorSimple-enhet
+# <a name="replace-a-controller-module-on-your-storsimple-device"></a>Ersätta en controller-modulen på StorSimple-enheten
 ## <a name="overview"></a>Översikt
-Den här självstudiekursen beskrivs hur du tar bort och ersätter en eller båda controller moduler i en StorSimple-enhet. Här beskrivs även den underliggande logiken för enkla och dubbla domänkontrollant ersättning scenarier.
+Den här självstudien beskrivs hur du tar bort och ersätter en eller båda controller-moduler i en StorSimple-enhet. Det innehåller också information om den underliggande logiken för enkla och dubbla domänkontrollant ersättning scenarier.
 
 > [!NOTE]
-> Innan du utför en annan domänkontrollant, rekommenderar vi att du uppdaterar den inbyggda programvaran domänkontrollant alltid till den senaste versionen.
+> Innan du utför en domänkontrollant ersättning, rekommenderar vi att du uppdaterar din inbyggd programvara för controller alltid till den senaste versionen.
 > 
-> Att skada din StorSimple-enhet, du inte matar styrenheten tills indikatorer visas som något av följande:
+> Att skada din StorSimple-enhet, du inte matar kontrollanten tills de led: ar visas som något av följande:
 > 
-> * Alla ljus är AVSTÄNGD.
-> * Indikator 3 ![grön kryssikonen](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png), och ![rött kryss ikonen](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) är blinkande och Indikator 0 och Indikator 7 **på**.
+> * Alla lamporna är OFF.
+> * LED 3, ![grön kryssikon](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png), och ![röda krysset ikonen](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) är blinkar och LED 0 och 7 LED är **på**.
 
 
-I följande tabell visas scenarierna för ersättning av stöds domänkontrollant.
+I följande tabell visas scenarierna för ersättning av stöds controller.
 
-| Ärende | Ersättning scenario | Proceduren |
+| Fall | Ersättning scenario | Aktuella proceduren |
 |:--- |:--- |:--- |
-| 1 |En domänkontrollant är i ett felaktigt tillstånd, den andra styrenheten är felfri och aktiva. |[Enkel domänkontrollant ersättning](#replace-a-single-controller), vilket beskriver den [logiken bakom en enda domänkontrollant ersättning](#single-controller-replacement-logic), samt de [ersättning steg](#single-controller-replacement-steps). |
-| 2 |Båda domänkontrollanterna har misslyckats och kräva ersättning. Chassi, diskar och diskhölje är hälsosamma. |[Dubbla domänkontrollant ersättning](#replace-both-controllers), vilket beskriver den [logiken bakom en dubbel domänkontrollant ersättning](#dual-controller-replacement-logic), samt de [ersättning steg](#dual-controller-replacement-steps). |
-| 3 |Domänkontrollanter från samma enhet eller från olika enheter bytts. Chassi, diskar och diskenheter är hälsosamma. |Varningsmeddelande för matchning av datatyp som ska användas som plats visas. |
-| 4 |En domänkontrollant saknas och den andra styrenheten misslyckas. |[Dubbla domänkontrollant ersättning](#replace-both-controllers), vilket beskriver den [logiken bakom en dubbel domänkontrollant ersättning](#dual-controller-replacement-logic), samt de [ersättning steg](#dual-controller-replacement-steps). |
-| 5 |En eller båda domänkontrollanter har misslyckats. Du kan inte komma åt enheten via seriekonsolen eller Windows PowerShell-fjärrkommunikation. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) manuell controller ersättning anvisningar. |
-| 6 |Domänkontrollanter har en annan version, vilket kan bero på följande:<ul><li>Domänkontrollanter har en annan programvaruversion.</li><li>Domänkontrollanter har en annan firmware-version.</li></ul> |Om domänkontrollanten programvaruversioner är olika, upptäcker att ersättning logik och uppdaterar programvaruversionen på styrenheten för ersättning.<br><br>Om domänkontrollanten firmware-versioner är olika och den gamla versionen av inbyggd programvara är **inte** automatiskt kan uppgraderas ett varningsmeddelande visas i Azure-portalen. Du ska söka efter uppdateringar och installera firmware-uppdateringar.</br></br>Om domänkontrollanten firmware-versioner är olika och den gamla versionen av inbyggd programvara kan uppgraderas automatiskt, domänkontrollant ersättning logiken identifiera detta och när styrenheten har startat den inbyggda programvaran uppdateras automatiskt. |
+| 1 |En kontrollenhet är i ett felaktigt tillstånd, den andra styrenheten är felfri och aktiv. |[Enkel controller ersättning](#replace-a-single-controller), som beskriver den [logiken bakom en enda domänkontrollant ersättning](#single-controller-replacement-logic), samt de [ersättning steg](#single-controller-replacement-steps). |
+| 2 |Båda styrenheterna har misslyckats och kräva ersättning. De chassin, diskar och hölje är hälsosamma. |[Dubbel domänkontrollant ersättning](#replace-both-controllers), som beskriver den [logiken bakom en dubbel domänkontrollant ersättning](#dual-controller-replacement-logic), samt de [ersättning steg](#dual-controller-replacement-steps). |
+| 3 |Domänkontrollanter från samma enhet eller från olika enheter växlas ut. De chassin, diskar och diskenheter är hälsosamma. |Varningsmeddelande för matchning av datatyp som ska användas som platsen visas. |
+| 4 |En domänkontrollant saknas och den andra styrenheten misslyckas. |[Dubbel domänkontrollant ersättning](#replace-both-controllers), som beskriver den [logiken bakom en dubbel domänkontrollant ersättning](#dual-controller-replacement-logic), samt de [ersättning steg](#dual-controller-replacement-steps). |
+| 5 |En eller båda styrenheterna har misslyckats. Du kan inte komma åt enheten via seriekonsolen eller Windows PowerShell-fjärrkommunikation. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) manuell controller ersättning anvisningar. |
+| 6 |Styrenheterna har en annan version, vilket kan bero på följande:<ul><li>Domänkontrollanter har olika version.</li><li>Domänkontrollanter har en annan firmware-version.</li></ul> |Om programvaruversioner controller är olika, upptäcker att logiken som ersättning och uppdaterar programvaruversionen på kontrollanten ersättning.<br><br>Om domänkontrollanten-versioner av inbyggd programvara är olika och den gamla versionen för inbyggd programvara är **inte** automatiskt kan uppgraderas ett varningsmeddelande visas i Azure-portalen. Du ska söka efter uppdateringar och installera uppdateringar av inbyggd programvara.</br></br>Om skiljer sig controller-versioner av inbyggd programvara och den gamla versionen för inbyggd programvara kan automatiskt uppgraderas, controller ersättning logiken identifierar detta och när kontrollanten har startat den inbyggda programvaran uppdateras automatiskt. |
 
-Du måste ta bort en domänkontrollant modul om den har misslyckats. En eller båda controller moduler kan misslyckas, vilket kan resultera i en enda domänkontrollant ersättare eller ett dual-styrenheten ersättning. Ersättning procedurer och logiken bakom dem, finns i följande avsnitt:
+Du måste ta bort en domänkontrollant modul om det har misslyckats. En eller båda controller moduler kan misslyckas, vilket kan resultera i en enskild domänkontrollant ersättare eller dubbel domänkontrollant ersättning. Ersättning procedurer och logiken bakom dem finns i följande:
 
 * [Ersätta en enskild domänkontrollant](#replace-a-single-controller)
-* [Ersätt både domänkontrollanter](#replace-both-controllers)
+* [Ersätt båda styrenheterna](#replace-both-controllers)
 * [Ta bort en domänkontrollant](#remove-a-controller)
-* [Infoga en domänkontrollant](#insert-a-controller)
-* [Identifiera den aktiva styrenheten på enheten](#identify-the-active-controller-on-your-device)
+* [Infoga en kontrollant](#insert-a-controller)
+* [Identifiera den aktiva kontrollanten på din enhet](#identify-the-active-controller-on-your-device)
 
 > [!IMPORTANT]
-> Innan du tar bort och ersätter en domänkontrollant kan granska säkerhetsinformation i [ersättning av StorSimple maskinvara komponenten](storsimple-8000-hardware-component-replacement.md).
+> Innan du tar bort och ersätter en kontrollant att granska säkerhetsinformation i [StorSimple maskinvaruersättning komponenten](storsimple-8000-hardware-component-replacement.md).
 > 
 > 
 
-## <a name="replace-a-single-controller"></a>Ersätta en enda domänkontrollant
-Du måste ersätta en enda domänkontrollant när något av två domänkontrollanter på Microsoft Azure StorSimple-enheten har misslyckats, är fel eller saknas.
+## <a name="replace-a-single-controller"></a>Ersätta en enskild domänkontrollant
+När en av de två styrenheterna på Microsoft Azure StorSimple-enheten har misslyckats, inte fungerar eller saknar, måste du ersätta en enskild domänkontrollant.
 
-### <a name="single-controller-replacement-logic"></a>Styrenhet ersättning logik
-Du bör ta bort misslyckade domänkontrollant i en enda domänkontrollant ersättning. (Den återstående domänkontrollanten i enheten är den aktiva styrenheten.) När du infogar ersättning domänkontrollant sker följande åtgärder:
+### <a name="single-controller-replacement-logic"></a>Enskild domänkontrollant ersättning logik
+I en enskild domänkontrollant ersättning, bör du först ta bort den misslyckade styrenheten. (Den återstående controller i enheten är den aktiva kontrollenheten.) När du infogar kontrollanten ersättning utförs följande åtgärder:
 
-1. Ersättning av domänkontrollant startar direkt kommunikation med StorSimple-enheten.
-2. En ögonblicksbild av den virtuella hårddisken (VHD) för den aktiva styrenheten kopieras på styrenheten för ersättning.
-3. Ögonblicksbilden har ändrats så att när ersättning domänkontrollant startar från den här virtuella Hårddisken, det tolkas som en vänteläge domänkontrollant.
-4. När ändringarna har slutförts startar ersättning domänkontrollant som vänteläge domänkontrollant.
-5. När båda domänkontrollanterna kör är klustret online.
+1. Kontrollanten ersättning startar direkt kommunicera med StorSimple-enheten.
+2. En ögonblicksbild av den virtuella hårddisken (VHD) för den aktiva kontrollenheten kopieras på kontrollanten ersättning.
+3. Ögonblicksbilden har ändrats så att när kontrollanten ersättning startar från den här virtuella Hårddisken, det tolkas som en kontrollenhet i vänteläge.
+4. När ändringarna har slutförts startar kontrollanten ersättning som kontrollenheten i vänteläge.
+5. När båda styrenheterna kör är klustret online.
 
-### <a name="single-controller-replacement-steps"></a>Styrenhet steg för ersättning
-Utför följande steg om en av domänkontrollanterna i din Microsoft Azure StorSimple-enhet misslyckas. (Den andra styrenheten måste vara aktiv och körs. Om båda domänkontrollanter misslyckas eller fungera, gå till [dual-styrenheten ersättning steg](#dual-controller-replacement-steps).)
+### <a name="single-controller-replacement-steps"></a>Enskild domänkontrollant ersättning steg
+Utför följande steg om en av kontrollenheterna i din Microsoft Azure StorSimple-enhet misslyckas. (Den andra styrenheten måste vara aktiv och körs. Om båda styrenheterna misslyckas eller fungera, går du till [dual-styrenheten ersättning steg](#dual-controller-replacement-steps).)
 
 > [!NOTE]
-> Det kan ta 30 – 45 minuter att starta om och återställa helt från styrenhet ersättning procedur-styrenhet. Den sammanlagda tiden för hela proceduren, är inklusive kopplar kablar, cirka 2 timmar.
+> Det kan ta 30 – 45 minuter att starta om och återställa helt från styrenhet ersättning procedur-styrenhet. Den totala tiden för hela proceduren, är inklusive koppla kablar, cirka 2 timmar.
 
 
-#### <a name="to-remove-a-single-failed-controller-module"></a>Ta bort en modul misslyckades styrenhet
-1. Gå till Enhetshanteraren för StorSimple-tjänsten i Azure-portalen, klicka på **enheter**, och klicka sedan på namnet på den enhet som du vill övervaka.
-2. Gå till **övervakaren > maskinvara hälsa**. Status för styrenhet 0 eller 1 för domänkontrollanten ska vara röd, vilket tyder på ett fel.
+#### <a name="to-remove-a-single-failed-controller-module"></a>Ta bort en enskild misslyckade domänkontrollant-modul
+1. Gå till StorSimple Device Manager-tjänsten i Azure-portalen, klickar du på **enheter**, och klicka sedan på namnet på den enhet som du vill övervaka.
+2. Gå till **övervakaren > hälsotillstånd för maskinvara**. Status för kontrollenhet 0 eller kontrollenhet 1 ska vara röd, vilket betyder att ett fel.
    
    > [!NOTE]
-   > Misslyckade domänkontrollant i en enda domänkontrollant ersättning är alltid en standby-styrenhet.
+   > Misslyckade controller i en enskild domänkontrollant ersättning är alltid en kontrollenhet i vänteläge.
    
-3. Använd bild 1 och i följande tabell för att hitta modulen felaktig styrenhet.
+3. Använd bild 1 och i följande tabell för att hitta modulen misslyckade controller.
    
-    ![Bakplan av primära Höljesmoduler](./media/storsimple-controller-replacement/IC740994.png)
+    ![Serverdelen av enhetens primära Höljesmoduler](./media/storsimple-controller-replacement/IC740994.png)
    
-    **Bild 1** tillbaka på StorSimple-enhet
+    **Bild 1** tillbaka av StorSimple-enhet
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
-   | 3 |Styrenhet 0 |
-   | 4 |Kontrollant 1 |
-4. Ta bort alla anslutna nätverkskablarna från data hamnar på felaktig styrenhet. Om du använder en 8600 modell kan också ta bort SAS-kablar som ansluter styrenheten till EBOD-styrenhet.
-5. Följ stegen i [ta bort en domänkontrollant](#remove-a-controller) att ta bort misslyckade domänkontrollant.
-6. Installera factory ersättning på samma plats som felaktig styrenhet har tagits bort. Detta utlöser styrenhet ersättning logik. Mer information finns i [enkel domänkontrollant ersättning logik](#single-controller-replacement-logic).
-7. Medan styrenhet ersättning logiken fortskrider i bakgrunden, ansluta kablar. Var noga med för att ansluta alla kablar på samma sätt som de var anslutna innan du ersätter.
-8. När domänkontrollanten har startats om kontrollerar du den **status domänkontrollanten** och **kluster status** i Azure portal för att kontrollera att kontrollanten är tillbaka till felfritt tillstånd och är i vänteläge.
+   | 3 |Kontrollenhet 0 |
+   | 4 |Kontrollenhet 1 |
+4. Ta bort alla anslutna nätverkskablarna från data hamnar på kontrollanten misslyckades. Om du använder en 8600 modell kan du också ta bort SAS-kablar som ansluter kontrollanten till EBOD-kontrollanten.
+5. Följ stegen i [ta bort en kontrollant](#remove-a-controller) att ta bort den misslyckade styrenheten.
+6. Installera factory ersättningen på samma plats som den misslyckade styrenheten har tagits bort. Detta utlöser styrenhet ersättning logiken. Mer information finns i [enkel controller ersättning logic](#single-controller-replacement-logic).
+7. Medan logiken som enskild domänkontrollant ersättning fortsätter i bakgrunden, Återanslut kablarna. Var noga med för att ansluta alla kablar exakt på samma sätt som de var anslutna innan ersättningen.
+8. När kontrollanten har startats om kontrollerar du den **status för domänkontrollanten** och **kluster status** i Azure portal för att kontrollera att kontrollanten är tillbaka till felfritt tillstånd och är i vänteläge.
 
 > [!NOTE]
-> Om du övervakar enheten via seriekonsolen kan du se flera omstarter medan styrenheten återställning från förfarandet som ersättning. När menyn för seriekonsolen visas vet att ersättningen har slutförts. Om inte visas menyn inom två timmar för att starta controller ersätter du [kontaktar Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+> Om du övervakar enheten via seriekonsolen, eventuellt flera omstarter när kontrollanten håller på att återställas från den ersättning proceduren. När menyn för seriekonsolen visas vet att ersättningen har slutförts. Om inte visas menyn inom två timmar för att starta ersättningen controller [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 >
-> Starta uppdatering 4, du kan också använda cmdlet `Get-HCSControllerReplacementStatus` i Windows PowerShell-gränssnittet på enheten för att övervaka status för styrenheten ersättningsprocessen.
+> Uppdatering 4 startar du kan också använda cmdlet: en `Get-HCSControllerReplacementStatus` i Windows PowerShell-gränssnittet på enheten för att övervaka status för controller ersättningsprocessen.
 > 
 
-## <a name="replace-both-controllers"></a>Ersätt både domänkontrollanter
-När både domänkontrollanter på Microsoft Azure StorSimple-enheten har misslyckats, är felaktiga eller saknas, måste du ersätta båda domänkontrollanter. 
+## <a name="replace-both-controllers"></a>Ersätt båda styrenheterna
+När båda styrenheterna på Microsoft Azure StorSimple-enheten har misslyckats, är inte fungerar eller saknar, måste du ersätta båda styrenheterna. 
 
-### <a name="dual-controller-replacement-logic"></a>Dubbla domänkontrollant ersättning logik
-I en dubbel domänkontrollant ersättning du först ta bort både misslyckade domänkontrollanter och infoga ersättningar. När två ersättning domänkontrollanter infogas sker följande åtgärder:
+### <a name="dual-controller-replacement-logic"></a>Dubbel domänkontrollant ersättning logik
+I en dubbel domänkontrollant ersättning kommer du först ta bort båda misslyckade styrenheterna och sedan infogar ersättningar. När två ersättning styrenheterna infogas utförs följande åtgärder:
 
-1. Ersättning domänkontrollanten i uttag 0 kontrollerar du följande:
+1. Kontrollanten ersättning i fack 0 kontrollerar följande:
    
    1. Använder den aktuella versioner av inbyggd programvara och programvara?
-   2. Det är en del av klustret?
-   3. Peer-domänkontrollant som körs och är det klustrade?
+   2. Är det en del av klustret?
+   3. Är peer-domänkontrollanten körs och är klustrad?
       
-      Om ingen av dessa villkor är SANT kontrollanten söker efter de senaste daglig säkerhetskopieringen (finns i den **nonDOMstorage** på enheten S). Styrenheten kopierar senaste ögonblicksbilden av den virtuella Hårddisken från säkerhetskopian.
-2. Domänkontrollanten i uttag 0 använder ögonblicksbilden för att avbilda sig själv.
-3. Domänkontrollanten i uttag 1 väntar under tiden för styrenhet 0 för att slutföra avbildning och starta.
-4. När styrenhet 0 startas, identifierar kontrollant 1 klustret skapas av styrenhet 0, vilket utlöser styrenhet ersättning logik. Mer information finns i [enkel domänkontrollant ersättning logik](#single-controller-replacement-logic).
-5. Därefter kan både domänkontrollanter ska köras och klustret kommer att försättas online.
+      Om ingen av dessa villkor är uppfyllda kontrollanten söker efter den senaste daglig säkerhetskopieringen (som finns i den **nonDOMstorage** på enheten S). Kontrollanten kopierar den senaste ögonblicksbilden av den virtuella Hårddisken från säkerhetskopian.
+2. Kontrollanten i fack 0 använder ögonblicksbilden för att avbilda själva.
+3. Under tiden kan controller i fack 1 väntar styrenhet 0 och slutföra avbildning som du kan starta.
+4. När kontrollenhet 0 startas, identifierar kontrollenhet 1 klustret som skapats av kontrollenhet 0, som utlöser styrenhet ersättning logiken. Mer information finns i [enkel controller ersättning logic](#single-controller-replacement-logic).
+5. Därefter körs båda styrenheterna och klustret kommer att försättas online.
 
 > [!IMPORTANT]
-> Efter en dubbel domänkontrollant ersättning när StorSimple-enheten har konfigurerats, är det viktigt att du utföra en manuell säkerhetskopiering för enheten. Dagliga säkerhetskopior för konfiguration av enheter aktiveras inte förrän efter 24 timmar har löpt ut. Arbeta med [Microsoft-supporten](storsimple-8000-contact-microsoft-support.md) att göra en manuell säkerhetskopiering av din enhet.
+> Efter en dubbel domänkontrollant ersättning när StorSimple-enheten har konfigurerats är det viktigt att du utför en manuell säkerhetskopiering av enheten. Dagliga säkerhetskopior för konfiguration av enheter utlöses inte förrän efter 24 timmar har gått. Arbeta med [Microsoft Support](storsimple-8000-contact-microsoft-support.md) att göra en manuell säkerhetskopiering av din enhet.
 
 
-### <a name="dual-controller-replacement-steps"></a>Dubbla domänkontrollant ersättning steg
-Det här arbetsflödet krävs när båda av domänkontrollanter i din Microsoft Azure StorSimple-enhet har misslyckats. Detta kan inträffa i ett datacenter där kylning systemet slutar fungera och därför båda domänkontrollanterna misslyckas inom en kort tidsperiod. Beroende på om StorSimple-enheten är avstängd eller på och om du använder en 8600 eller en 8100-modell, en annan uppsättning steg krävs.
+### <a name="dual-controller-replacement-steps"></a>Dubbel domänkontrollant ersättning steg
+Det här arbetsflödet är obligatorisk när båda styrenheterna i din Microsoft Azure StorSimple-enhet har misslyckats. Detta kan inträffa i ett datacenter där kylning systemet slutar fungera och därför båda styrenheterna misslyckas inom en kort tidsperiod. Beroende på om StorSimple-enheten är avstängd eller på och om du använder en 8600 eller en 8100-modell, krävs en annan uppsättning steg.
 
 > [!IMPORTANT]
-> Det kan ta 45 minuter till 1 timme att starta om och återställa helt från en dubbel domänkontrollant ersättning procedur-styrenhet. Den sammanlagda tiden för hela proceduren, är inklusive kopplar kablar, ungefär 2,5 timmar.
+> Det kan ta 45 minuter till 1 timme att starta om och återställa helt från en dubbel domänkontrollant ersättning procedur-styrenhet. Den totala tiden för hela proceduren, är inklusive koppla kablar, cirka 2,5 timmar.
 
-#### <a name="to-replace-both-controller-modules"></a>Ersätta båda styrenhet-moduler
-1. Om enheten är inaktiverad, hoppa över det här steget och gå vidare till nästa steg. Om enheten är påslagen, stänga av enheten.
+#### <a name="to-replace-both-controller-modules"></a>Ersätt båda controller-moduler
+1. Om enheten är avstängd, hoppa över det här steget och gå vidare till nästa steg. Om enheten är påslagen, stänga av enheten.
    
-   1. Om du använder en 8600-modell, stänga av primära höljet först och sedan inaktivera EBOD höljet.
-   2. Vänta tills enheten har avslutats helt. Alla indikatorer på baksidan enheten ska vara inaktiverat.
-2. Ta bort alla nätverkskablarna som ansluts till dataportar. Om du använder en 8600 modell kan du också ta bort SAS-kablar som ansluter primära höljet till EBOD höljet.
-3. Ta bort både domänkontrollanter från StorSimple-enhet. Mer information finns i [ta bort en domänkontrollant](#remove-a-controller).
-4. Infoga factory ersättning för styrenhet 0 först och infoga Controller 1. Mer information finns i [infoga en domänkontrollant](#insert-a-controller). Detta utlöser dubbla domänkontrollant ersättning logik. Mer information finns i [dual-styrenheten ersättning logik](#dual-controller-replacement-logic).
-5. Medan controller ersättning logiken fortskrider i bakgrunden, ansluta kablar. Var noga med för att ansluta alla kablar på samma sätt som de var anslutna innan du ersätter. Avsnittet detaljerade instruktioner för din modell kabeln din enhet i [installerar StorSimple 8100-enhet](storsimple-8100-hardware-installation.md) eller [installera din StorSimple-8600-enhet](storsimple-8600-hardware-installation.md).
-6. Aktivera på StorSimple-enheten. Om du använder en 8600-modellen:
+   1. Om du använder en modell 8600 först tar bort primära höljet och inaktiverar EBOD-höljet.
+   2. Vänta tills enheten har avslutats helt. Alla led: ar på baksidan enheten är inaktiverad.
+2. Ta bort alla nätverkskablarna som är anslutna till dataportar. Om du använder en 8600 modell kan du också ta bort SAS-kablar som ansluter primära höljet till EBOD-höljet.
+3. Ta bort båda styrenheterna från StorSimple-enheten. Mer information finns i [ta bort en kontrollant](#remove-a-controller).
+4. Infoga factory ersättning för kontrollenhet 0 först och sedan infogar kontrollenhet 1. Mer information finns i [infoga en kontrollant](#insert-a-controller). Detta utlöser dual-styrenheten ersättning logiken. Mer information finns i [dual-styrenheten ersättning logic](#dual-controller-replacement-logic).
+5. När domänkontrollanten ersättning logiken fortsätter i bakgrunden, Återanslut kablarna. Var noga med för att ansluta alla kablar exakt på samma sätt som de var anslutna innan ersättningen. Avsnittet de detaljerade anvisningarna för din modell kabeln din enhet i [installerar enheten StorSimple 8100](storsimple-8100-hardware-installation.md) eller [installera din StorSimple 8600-enhet](storsimple-8600-hardware-installation.md).
+6. Aktivera StorSimple-enheten. Om du använder en modell 8600:
    
-   1. Se till att EBOD höljet är aktiverat på första.
-   2. Vänta tills EBOD höljet körs.
+   1. Se till att EBOD-höljet aktiveras först.
+   2. Vänta tills EBOD-höljet körs.
    3. Aktivera primära höljet.
-   4. När den första enheten startas om och är i felfritt tillstånd, körs i systemet.
+   4. När den första enheten startas om och är i felfritt tillstånd kan körs systemet.
       
       > [!NOTE]
-      > Om du övervakar enheten via seriekonsolen kan du se flera omstarter medan styrenheten återställning från förfarandet som ersättning. När menyn för seriekonsolen visas vet att ersättningen har slutförts. Om inte visas menyn inom 2,5 timmar för att starta controller ersätter du [kontaktar Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+      > Om du övervakar enheten via seriekonsolen, eventuellt flera omstarter när kontrollanten håller på att återställas från den ersättning proceduren. När menyn för seriekonsolen visas vet att ersättningen har slutförts. Om inte visas menyn inom 2,5 timmar för att starta ersättningen controller [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
      
 ## <a name="remove-a-controller"></a>Ta bort en domänkontrollant
-Använd följande procedur för att ta bort en felaktig Styrenhetsmodul från din StorSimple-enhet.
+Använd följande procedur för att ta bort en felaktiga controller-modul från din StorSimple-enhet.
 
 > [!NOTE]
-> Följande bilder är för styrenhet 0. Kontrollant 1 skulle dessa vara omvänd.
+> Följande bilder är för kontrollenhet 0. För kontrollenhet 1 skulle dessa ångras.
 
 
 #### <a name="to-remove-a-controller-module"></a>Ta bort en domänkontrollant-modul
-1. Tag i modulen spärren mellan USB och pekfingret.
-2. Försiktigt klämma dina USB och pekfingret tillsammans för att frigöra controller spärren.
+1. Rapportelementen modulen spärr mellan tummen och pekfingret.
+2. Försiktigt klämma dina tummen och pekfingret tillsammans att frigöra controller spärr.
    
-    ![Släppa controller spärren](./media/storsimple-controller-replacement/IC741047.png)
+    ![Släpper controller spärr](./media/storsimple-controller-replacement/IC741047.png)
    
-    **Bild 2** frisläppning controller spärren
-3. Använd låset som en referens till domänkontrollanten utanför chassit bild.
+    **Bild 2** frisläppning spärren för domänkontrollant
+3. Använd låset som en referens till bild kontrollanten utanför chassit.
    
-    ![Glidande controller out-of-chassi](./media/storsimple-controller-replacement/IC741048.png)
+    ![Glidande domänkontrollant utanför chassi](./media/storsimple-controller-replacement/IC741048.png)
    
-    **Bild 3** glidande domänkontrollant utanför chassit
+    **Bild 3** glidande kontrollanten utanför chassit
 
-## <a name="insert-a-controller"></a>Infoga en domänkontrollant
-Använd följande procedur för att installera en modul levererats från fabriken domänkontrollant när du tar bort en felaktig modul från din StorSimple-enhet.
+## <a name="insert-a-controller"></a>Infoga en kontrollant
+Använd följande procedur för att installera en levererats från fabriken controller-modulen när du tar bort en felaktig modul från din StorSimple-enhet.
 
-#### <a name="to-install-a-controller-module"></a>Att installera en domänkontrollant-modul
-1. Kontrollera om det finns skador på gränssnittet kopplingar. Installera inte modulen om någon PIN-koder för anslutningen är skadad eller böjda.
-2. Dra modulen domänkontrollant i chassit medan låset frigörs fullständigt.
+#### <a name="to-install-a-controller-module"></a>Installera en domänkontrollant-modul
+1. Kontrollera om det finns skador till gränssnittet kopplingar. Installera inte modulen om någon av koppling PIN-koder har skadats eller böjda.
+2. Dra modulen controller i chassit medan spärren har släppts helt.
    
-    ![Glidande domänkontrollant i chassi](./media/storsimple-controller-replacement/IC741053.png)
+    ![Glidande controller i chassi](./media/storsimple-controller-replacement/IC741053.png)
    
-    **Bild 4** glidande domänkontrollant i chassit
-3. Börja stänger låset medan fortsätter att skicka modulen domänkontrollant i chassit med modulen controller infogas. Låset anlitar guide styrenheten till rätt plats.
+    **Bild 4** glidande controller i chassit
+3. Börja stänger låset medan du fortsätter att skicka controller-modulen till chassit med modulen controller infogas. Låset som engagerar att vägleda kontrollanten på plats.
    
-    ![Stänger controller spärren](./media/storsimple-controller-replacement/IC741054.png)
+    ![Avslutande controller spärr](./media/storsimple-controller-replacement/IC741054.png)
    
-    **Bild 5** stänger controller spärren
-4. Du är klar när låset fästs på plats. Den **OK** Indikator bör nu vara på.
+    **Bild 5** stänger controller spärr
+4. Du är klar när låset fästs på plats. Den **OK** LED bör nu finnas på.
    
    > [!NOTE]
-   > Det kan ta upp till 5 minuter för styrenheten och Indikator för att aktivera.
+   > Det kan ta upp till 5 minuter för kontrollanten och LED att aktivera.
   
-5. Verifiera att ersättningen är lyckas i Azure portal, gå till din enhet och gå sedan till **övervakaren** > **maskinvara hälsa**, och kontrollera att både styrenhet 0 och kontrollant 1 är felfri (statusen är grön).
+5. Om du vill verifiera att ersättningen har genomförts i Azure-portalen, gå till din enhet och gå sedan till **övervakaren** > **hälsotillstånd för maskinvara**, och se till att både styrenhet 0 och controller 1 är felfria (statusen är grön).
 
-## <a name="identify-the-active-controller-on-your-device"></a>Identifiera den aktiva styrenheten på enheten
-Det finns många situationer, till exempel första gången enheten registreringen eller domänkontrollant ersättning, som kräver att du att hitta den aktiva styrenheten på StorSimple-enhet. Den aktiva styrenheten bearbetar alla disk inbyggd programvara och nätverk åtgärder. Du kan använda någon av följande metoder för att identifiera den aktiva styrenheten:
+## <a name="identify-the-active-controller-on-your-device"></a>Identifiera den aktiva kontrollanten på din enhet
+Det finns många situationer, till exempel registrering eller domänkontrollant ersättning för första gången enheten, som uppmanar dig att hitta den aktiva kontrollenheten på en StorSimple-enhet. Den aktiva kontrollenheten bearbetar alla disk av inbyggd programvara och nätverk åtgärder. Du kan använda någon av följande metoder för att identifiera den aktiva kontrollenheten:
 
-* [Använd Azure-portalen för att identifiera den aktiva styrenheten](#use-the-azure-portal-to-identify-the-active-controller)
-* [Använda Windows PowerShell för StorSimple för att identifiera den aktiva styrenheten](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
-* [Kontrollera den fysiska enheten för att identifiera den aktiva styrenheten](#check-the-physical-device-to-identify-the-active-controller)
+* [Använd Azure portal för att identifiera den aktiva kontrollanten](#use-the-azure-portal-to-identify-the-active-controller)
+* [Använda Windows PowerShell för StorSimple för att identifiera den aktiva kontrollanten](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
+* [Kontrollera den fysiska enheten för att identifiera den aktiva kontrollenheten](#check-the-physical-device-to-identify-the-active-controller)
 
 Var och en av de här procedurerna beskrivs nedan.
 
-### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Använd Azure-portalen för att identifiera den aktiva styrenheten
-Navigera till din enhet i Azure-portalen och sedan till **övervakaren** > **maskinvara hälsa**, och bläddra till den **domänkontrollanter** avsnitt. Här kan du kontrollera vilka domänkontrollanten är aktiv.
+### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Använd Azure portal för att identifiera den aktiva kontrollanten
+Navigera till din enhet i Azure-portalen och sedan till **övervakaren** > **hälsotillstånd för maskinvara**, och bläddra till den **domänkontrollanter** avsnittet. Här kan du kontrollera vilken domänkontrollant som är aktiv.
 
-![Identifiera aktiva styrenheten i Azure-portalen](./media/storsimple-controller-replacement/IC752072.png)
+![Identifiera aktiva kontrollenheten i Azure-portalen](./media/storsimple-controller-replacement/IC752072.png)
 
-**Bild 6** Azure portal som visar den aktiva styrenheten
+**Bild 6** Azure-portalen visar den aktiva kontrollenheten
 
-### <a name="use-windows-powershell-for-storsimple-to-identify-the-active-controller"></a>Använda Windows PowerShell för StorSimple för att identifiera den aktiva styrenheten
-När du har åtkomst till din enhet via seriekonsolen visas Banderollmeddelandet. Banderollmeddelandet innehåller grundläggande enhetsinformation som modellen, namn, version installerad programvara och status för den domänkontrollant som du ansluter till. Följande bild visar ett exempel på Banderollmeddelandet:
+### <a name="use-windows-powershell-for-storsimple-to-identify-the-active-controller"></a>Använda Windows PowerShell för StorSimple för att identifiera den aktiva kontrollanten
+När du har åtkomst till din enhet via seriekonsolen visas Banderollmeddelandet. Banderollmeddelandet innehåller grundläggande information, till exempel modell, namn, version installerad programvara och status för den domänkontrollant som du ansluter till. Följande bild visar ett exempel på Banderollmeddelandet:
 
 ![Seriell Banderollmeddelandet](./media/storsimple-controller-replacement/IC741098.png)
 
-**Bild 7** banderoll meddelande visar styrenhet 0 som aktiv
+**Bild 7** banderoll meddelande som visar kontrollenhet 0 som aktiv
 
 Du kan använda Banderollmeddelandet för att avgöra om den domänkontrollant som du är ansluten till är aktiva eller passiva.
 
-### <a name="check-the-physical-device-to-identify-the-active-controller"></a>Kontrollera den fysiska enheten för att identifiera den aktiva styrenheten
-Att identifiera den aktiva styrenheten på enheten, leta upp blå VÄGLEDS ovan DATA 5 port på baksidan av primära höljet.
+### <a name="check-the-physical-device-to-identify-the-active-controller"></a>Kontrollera den fysiska enheten för att identifiera den aktiva kontrollenheten
+Att identifiera den aktiva kontrollenheten på din enhet, leta upp det blå fältet LEDDE överskrider DATA 5 port på baksidan av primära höljet.
 
-Om denna Indikator blinkar på domänkontrollanten är aktiv och andra domänkontrollanter är i vänteläge. Använd följande diagram och tabell som hjälp.
+Om den här LED blinkar kontrollanten är aktiv och den andra styrenheten är i vänteläge. Använd följande diagram och tabell som hjälp.
 
-![Enheten primära höljet bakplan med dataportar](./media/storsimple-controller-replacement/IC741055.png)
+![Enhetens primära hölje bakplan med dataportar](./media/storsimple-controller-replacement/IC741055.png)
 
-**Figur 8** baksidan primär enhet med dataportar och övervakning indikatorer
+**Bild 8** baksidan av primär enhet med dataportar och övervaknings-led: ar
 
-| Etikett | Beskrivning |
+| Label (Etikett) | Beskrivning |
 |:--- |:--- |
 | 1-6 |DATA 0 – 5 nätverksportar |
 | 7 |Blå Indikator |
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om [ersättning av StorSimple maskinvara komponenten](storsimple-8000-hardware-component-replacement.md).
+Läs mer om [StorSimple maskinvaruersättning komponenten](storsimple-8000-hardware-component-replacement.md).
 

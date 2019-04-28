@@ -2,7 +2,6 @@
 title: Storm-startexempel på Apache Storm på HDInsight – Azure
 description: Lär dig hur du analyserar stordata och bearbeta data i realtid med storm starter-exempel och Apache Storm på HDInsight.
 keywords: storm-starter apache storm-exempel
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5c0fe0921446dde12771bacf096f806701b90444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 40757c80878ef5a06d3368d4c20f65ebfa11e47b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116395"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
 
@@ -26,7 +25,7 @@ Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkni
 > [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

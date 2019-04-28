@@ -10,11 +10,11 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: efaf82c3f378f572c289b587dbe5df1923a58c62
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457064"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(INAKTUELL) Distribuera ett DC/OS-kluster
 

@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124721"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera Azure Stack-datorer till Azure
 
@@ -61,7 +61,7 @@ Replikeringen fungerar på följande sätt:
 7. Replikerade datorer kommunicerar med konfigurationsservern (port HTTPS 443 inkommande, för replikeringshantering. Datorer skickar replikeringsdata till processervern (port HTTPS 9443 inkommande - kan ändras).
 8. Trafik replikeras till offentliga Azure Storage-slutpunkter, över Internet. Alternativt kan använda du Azure ExpressRoute offentliga peering. Replikering av trafik via en plats-till-plats-VPN från en lokal plats till Azure stöds inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Här är vad du behöver att ställa in det här scenariot.
 

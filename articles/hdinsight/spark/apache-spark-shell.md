@@ -1,7 +1,6 @@
 ---
 title: Använd en interaktiv Spark Shell i Azure HDInsight
 description: En interaktiv Spark Shell tillhandahåller en Läs köra utskrifts-process för att köra Spark kommandon ett i taget och se resultaten.
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116081"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Kör Apache Spark från Spark Shell
 
@@ -60,10 +59,10 @@ För att komma åt SparkSession-instans, ange `spark`. För att komma åt SparkC
 
 Spark-Shell-kommando (`spark-shell`, `pyspark`, eller `sparkR`) har stöd för många kommandoradsparametrar. Om du vill se en fullständig lista över parametrar, startar du Spark-Shell med växeln `--help`. Observera att vissa av dessa parametrar kan bara gäller `spark-submit`, som omsluter Spark-Shell.
 
-| Växel | beskrivning | Exempel |
+| Växel | description | Exempel |
 | --- | --- | --- |
 | --MASTER_URL-huvudnod | Anger den överordnade URL. I HDInsight, det här värdet är alltid `yarn`. | `--master yarn`|
-| --JAR: er JAR_LIST | Kommaavgränsad lista över lokala JAR-filer till på drivrutinen och executor klassökvägar. I HDInsight består den här listan av sökvägar till standard-filsystem i Azure Storage eller Data Lake Storage. | `--jars /path/to/examples.jar` |
+| --jars JAR_LIST | Kommaavgränsad lista över lokala JAR-filer till på drivrutinen och executor klassökvägar. I HDInsight består den här listan av sökvägar till standard-filsystem i Azure Storage eller Data Lake Storage. | `--jars /path/to/examples.jar` |
 | --MAVEN_COORDS-paket | Kommaavgränsad lista med maven-koordinaterna för JAR-filer till på drivrutinen och executor klassökvägar. Söker lokala maven-lagringsplatsen och sedan maven central, och sedan alla ytterligare remote databaser som har angetts med `--repositories`. Formatet för koordinaterna är *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | listan över--py-filer | För Python, en kommaavgränsad lista över .zip eller .egg .py filer att placera på PYTHONPATH. | `--pyfiles "samples.py"` |
 

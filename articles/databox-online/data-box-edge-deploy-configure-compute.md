@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 31911c124aeafecb8ee37d14e58d3a0bdc0d4955
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112621"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Självstudier: Transformera data med Azure Data Box Edge
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Verifiera datatransformering och överföring
 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du konfigurerar en beräkningsroll på din Data Box Edge-enhet, ser du till att:
 

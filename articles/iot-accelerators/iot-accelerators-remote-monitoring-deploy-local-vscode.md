@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61446188"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio Code
 
@@ -21,7 +21,7 @@ ms.locfileid: "58316226"
 
 Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för utveckling och testning. Du lär dig hur du kör mikrotjänster i Visual Studio Code. En lokal mikrotjänster distribution använder följande molntjänster: IoT-hubb, Cosmos DB, Azure Strömningsanalys och Azure Time Series Insights.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att distribuera Azure-tjänsterna används av lösningsacceleratorn för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 

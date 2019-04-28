@@ -13,11 +13,11 @@ ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117755"
 ---
 # <a name="run-a-custom-linux-container-in-azure-app-service"></a>Kör en anpassad Linux-behållare i Azure App Service
 
@@ -75,10 +75,10 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
+> [Självstudie: Distribuera från privata lagringsplats](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera en anpassad behållare](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Flera behållare WordPress-appen](tutorial-multi-container-app.md)
+> [Självstudie: Flera behållare WordPress-appen](tutorial-multi-container-app.md)

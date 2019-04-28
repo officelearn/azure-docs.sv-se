@@ -13,17 +13,17 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 460f79eb0679dc7d71bc929e4e790b68bd0f6774
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61410200"
 ---
-# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snabbstart: Köra frågor mot Azure SQL Database med hjälp av .NET Core (C#)
+# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snabbstart: Köra frågor mot en Azure SQL-databas med hjälp av .NET Core (C#)
 
 I den här snabbstarten använder du [.NET Core](https://www.microsoft.com/net/) och C#-kod för att ansluta till en Azure SQL-databas. Sedan kör du en Transact-SQL-instruktion för att fråga efter data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för den här självstudien:
 
@@ -50,7 +50,7 @@ Du behöver följande för den här självstudien:
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61436625"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Använd CloudEvents-schema med Event Grid
 
@@ -62,7 +62,7 @@ Här är ett exempel på en Azure Blob Storage-händelse i CloudEvents-format:
 
 CloudEvents v0.1 har följande egenskaper som är tillgängliga:
 
-| CloudEvents        | Type     | Värdet för exempel-JSON             | Beskrivning                                                        | Event Grid-mappning
+| CloudEvents        | Typ     | Värdet för exempel-JSON             | Beskrivning                                                        | Event Grid-mappning
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | Händelsetyp          | String   | "com.example.someevent"          | Typ av händelse som inträffade                                   | Händelsetyp
 | eventTypeVersion   | String   | "1.0"                            | Versionen av händelsetyp (valfritt)                            | dataVersion
@@ -73,7 +73,7 @@ CloudEvents v0.1 har följande egenskaper som är tillgängliga:
 | schemaURL          | URI      | "https:\//myschema.com"           | En länk till det schema som dataattributet följer (valfritt) | *används inte*
 | contentType        | String   | "application/json"               | Beskriv data Kodningsformatet (valfritt)                       | *används inte*
 | Tillägg         | Karta      | { "extA": "vA", "extB", "vB" }  | Alla ytterligare metadata (valfritt)                                 | *används inte*
-| data               | Objekt   | { "objA": "vA", "objB", "vB" }  | Händelsenyttolast (valfritt)                                       | data
+| data               | Object   | { "objA": "vA", "objB", "vB" }  | Händelsenyttolast (valfritt)                                       | data
 
 Mer information finns i den [CloudEvents-specifikationen](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

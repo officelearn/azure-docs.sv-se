@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: c26418d36271b4d2d39a43eda7e8b23585d69f4a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127403"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -350,7 +350,7 @@ För andra kontinuerlig integrering (CI) / kontinuerlig leverans (CD) verktygske
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>När bör jag skapa ett nytt virtuellt nätverk för min labb-miljö och att använda ett befintligt virtuellt nätverk?
 Om dina virtuella datorer behöver interagera med befintlig infrastruktur, Överväg att använda ett befintligt virtuellt nätverk i labb-miljö. Om du använder ExpressRoute, kan du minska mängden virtuella nätverk / undernät så att du inte Fragmentera ditt IP-adressutrymme som hämtar tilldelade för användning i prenumerationerna. 
 
-Överväg att använda mönstret VNet peering här ([modell av typen Hub-Spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke)) för. Den här metoden möjliggör kommunikation för virtuellt nätverk/undernät mellan prenumerationer. I annat fall kan varje labb-miljö ha sitt eget virtuella nätverk. 
+Överväg att använda mönstret VNet peering här ([modell av typen Hub-Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) för. Den här metoden möjliggör kommunikation för virtuellt nätverk/undernät mellan prenumerationer. I annat fall kan varje labb-miljö ha sitt eget virtuella nätverk. 
 
 Det finns [gränser](../azure-subscription-service-limits.md) på antalet virtuella nätverk per prenumeration. Standardvärdet är 50, även om den här gränsen kan höjas upp till 100.
 

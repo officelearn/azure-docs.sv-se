@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 0f68627e2db3c08049f0273045906057526bd6aa
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094926"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Kopiera data från Google AdWords med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper stöds för Google AdWords länkad tjänst:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **GoogleAdWords** | Ja |
+| type | Type-egenskapen måste anges till: **GoogleAdWords** | Ja |
 | clientCustomerID | Klient-kund-ID för AdWords-konto som du vill hämta rapportdata för.  | Ja |
 | developerToken | Developer token som är associerade med det konto som används för att ge åtkomst till AdWords-API.  Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | authenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan bara användas på lokal IR. <br/>Tillåtna värden är: **ServiceAuthentication**, **UserAuthentication** | Ja |
@@ -100,7 +100,7 @@ Kopiera data från Google AdWords genom att ange typegenskapen på datauppsättn
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **GoogleAdWordsObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **GoogleAdWordsObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -130,7 +130,7 @@ För att kopiera data från Google AdWords, ange typ av datakälla i kopieringsa
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **GoogleAdWordsSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **GoogleAdWordsSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

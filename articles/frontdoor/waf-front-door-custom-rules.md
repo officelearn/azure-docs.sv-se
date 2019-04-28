@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459716"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Anpassade regler för brandväggen för webbaserade program med Azure ytterdörren
 Azure waf (WAF) med ytterdörren-tjänsten kan du styra åtkomsten till dina webbprogram baserat på de villkor som du definierar. En anpassad regel för WAF består av flera prioritet, en regeltyp, matchningsvillkor och en åtgärd. Det finns två typer av anpassade regler: matchar regler och Betygsätt gränsen regler. En match-regel styr åtkomsten baserat på matchning villkor när en gräns rate-regel styr åtkomsten baserat på matchning villkor och räntorna för inkommande begäranden. Du kan inaktivera en anpassad regel om du vill förhindra att utvärderas, utan att konfigurationen. Den här artikeln beskriver matchar regler som baseras på http-parametrar.

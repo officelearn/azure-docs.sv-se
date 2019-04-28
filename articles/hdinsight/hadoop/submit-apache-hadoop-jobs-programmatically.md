@@ -2,19 +2,18 @@
 title: Skicka Apache Hadoop-jobb i HDInsight
 description: Lär dig hur du skickar in Apache Hadoop-jobb i Azure HDInsight.
 ms.reviewer: jasonh
-services: hdinsight
 ms.author: hrasheed
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 419f34d6240df9b4df160c6ff9665b32aef1e3ca
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 48365d8fcb5e95fc9b9fa605321baf28e07eee66
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114565"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Skicka Apache Hadoop-jobb i HDInsight
 
@@ -30,7 +29,7 @@ Du kan skicka Apache Hadoop-jobb i Azure HDInsight med hjälp av Microsoft .NET 
   - [Kör Apache Sqoop jobb med hjälp av .NET SDK för Apache Hadoop i HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [Köra MapReduce-jobb med hjälp av HDInsight .NET SDK](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- **cURL**:
+- **curl**:
 
   - [Kör Apache Hive-frågor med Apache Hadoop i HDInsight med hjälp av curl](apache-hadoop-use-hive-curl.md)
   - [Kör Apache Pig-jobb med Apache Hadoop i HDInsight med hjälp av curl](apache-hadoop-use-pig-curl.md)

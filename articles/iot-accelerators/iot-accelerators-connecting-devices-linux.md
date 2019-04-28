@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: dobett
 ms.openlocfilehash: 91d4eda566c8b534daa10c62637db28ccb01bbb6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61454510"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Anslut enheten till lösningsacceleratorn för fjärrövervakning (Linux)
 
@@ -25,7 +25,7 @@ Precis som med de flesta embedded-program som körs på begränsade enheter, är
 
 Om du föredrar att simulera en enhet, se [skapa och testa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra stegen i den här guiden behöver du en enhet som kör Ubuntu version 15.04 eller senare. Innan du fortsätter [konfigurera Linux-utvecklingsmiljön](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux).
 

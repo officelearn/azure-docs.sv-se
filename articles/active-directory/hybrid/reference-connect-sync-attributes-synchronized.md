@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fb7010ec16592fea2f530329916e00056ca03a70
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096138"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut som synkroniseras till Azure Active Directory
 Det här avsnittet listas de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -61,10 +61,10 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | c |X |X | | |
 | CN |X | |X | |
 | CO |X |X | | |
-| Företagets |X |X | | |
+| company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| beskrivning |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -183,10 +183,10 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | c |X |X | | |
 | CN |X | |X | |
 | CO |X |X | | |
-| Företagets |X |X | | |
+| company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| beskrivning |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -264,9 +264,9 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | c |X |X | | |
 | CN |X | |X | |
 | CO |X |X | | |
-| Företagets |X |X | | |
+| company |X |X | | |
 | avdelning |X |X | | |
-| beskrivning |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -328,7 +328,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | c |X |X | | |
 | CN |X | |X | |
-| beskrivning |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | e-post |X |X |X | |
 | mailNickname |X |X |X | |
@@ -348,9 +348,9 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | c |X |X | | |
 | CN |X | |X | |
 | CO |X |X | | |
-| Företagets |X |X | | |
+| company |X |X | | |
 | countryCode |X |X | | |
-| beskrivning |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |

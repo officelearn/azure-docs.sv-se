@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 45208b5c6538ea523a7b87d6dbdeb99e792783ff
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61262309"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Kopiera data från Amazon Marketplace-webbtjänst med hjälp av Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Amazon Marketplace Web Service-länkade tjä
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **AmazonMWS** | Ja |
+| type | Type-egenskapen måste anges till: **AmazonMWS** | Ja |
 | slutpunkt | Slutpunkten för Amazon MWS-servern (det vill säga mws.amazonservices.com)  | Ja |
 | marketplaceID | Marketplace Amazon ID du vill hämta data från. Om du vill hämta data från flera Marketplace-ID: N, avgränsar du dem med kommatecken (`,`). (det vill säga A2EUQ1WTGCTBG2)  | Ja |
 | sellerID | Amazon försäljning-ID.  | Ja |
@@ -88,7 +88,7 @@ Om du vill kopiera data från Amazon Marketplace Web Service, ange typegenskapen
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **AmazonMWSObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **AmazonMWSObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -118,7 +118,7 @@ Om du vill kopiera data från Amazon Marketplace Web Service, ange källtypen i 
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AmazonMWSSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AmazonMWSSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

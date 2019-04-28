@@ -12,11 +12,11 @@ ms.date: 08/18/2016
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: fd6836451a73551487b8f97903594154a2efc894
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50228763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105810"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Hantera e-post, kalendrar och kontakter i Outlook.com med Azure Logic Apps
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du kan skapa och hantera din Outlook.com-konto i en 
 
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En [Outlook.com-konto](https://outlook.live.com/owa/)
 

@@ -15,11 +15,11 @@ ms.date: 04/12/2018
 ms.author: spelluru
 ms.custom: mvc
 ms.openlocfilehash: 2159e594f0cc6a43905f3562c0ad6f3e3c9984fe
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61084476"
 ---
 # <a name="use-azure-cli-to-start-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Använd Azure CLI för att starta en virtuell dator i ett labb i Azure DevTest Labs
 

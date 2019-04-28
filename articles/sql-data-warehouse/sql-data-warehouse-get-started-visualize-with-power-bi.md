@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474816"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualisera data med Power BI
 De här självstudierna visar hur du använder Power BI för att ansluta till SQL Data Warehouse och skapa några grundläggande visualiseringar.
@@ -24,7 +24,7 @@ De här självstudierna visar hur du använder Power BI för att ansluta till SQ
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom de här självstudierna, behöver du:
 
 * En SQL Data Warehouse förinstallerad med AdventureWorksDW-databasen. För att etablera ett informationslager, se [skapa ett SQL Data Warehouse](create-data-warehouse-portal.md) och väljer att läsa in exempeldata. Om du redan har ett data warehouse men inte har exempeldata, kan du [läsa in WideWorldImportersDW](load-data-wideworldimportersdw.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
-ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9f6e5b606caa661429a3c4d4a53e2021d57730aa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116966"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuera StorSimple Device Manager-tjänsten för StorSimple Virtual Array
 ## <a name="overview"></a>Översikt
@@ -67,7 +67,7 @@ Utför följande steg för att ta bort en tjänst.
 
 #### <a name="to-delete-a-service"></a>Att ta bort en tjänst
 
-1. Gå till **alla resurser**. Sök efter din StorSimple Device Manager-tjänsten. Välj den tjänst som du vill ta bort.
+1. Gå till **Alla resurser**. Sök efter din StorSimple Device Manager-tjänsten. Välj den tjänst som du vill ta bort.
    
     ![Välj tjänsten för att ta bort](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
 2. Gå till instrumentpanelen så det finns inga enheter är anslutna till tjänsten. Om det finns inga enheter registrerade med den här tjänsten kan visas du dessutom en Banderollmeddelande om att. Klicka på **Ta bort**.

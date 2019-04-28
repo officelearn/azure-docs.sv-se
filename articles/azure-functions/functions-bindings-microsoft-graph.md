@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61438116"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindningar för Azure Functions
 
@@ -674,7 +674,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 Bindningen visar följande typer till .NET-funktioner:
 - byte
 - Strömma
-- sträng
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -822,7 +822,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 Bindningen visar följande typer till .NET-funktioner:
 - byte
 - Strömma
-- sträng
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -972,7 +972,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 Bindningen visar följande typer till .NET-funktioner:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- sträng
+- string
 - Anpassade objektgrupper (med strukturella modellen bindning)
 
 
@@ -1402,7 +1402,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 ### <a name="webhook-output---usage"></a>Webhook utdata - användning
 
 Bindningen visar följande typer till .NET-funktioner:
-- sträng
+- string
 - Microsoft.Graph.Subscription
 
 

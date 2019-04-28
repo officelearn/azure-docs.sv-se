@@ -2,7 +2,6 @@
 title: Azure HDInsight Tools - använder Visual Studio Code för Hive, LLAP eller PySpark | Microsoft Docs
 description: Lär dig hur du använder Azure HDInsight Tools för Visual Studio Code för att skapa och skicka frågor och skript.
 Keywords: Visual Studio Code, Azure HDInsight-verktyg, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, interaktiv fråga
-services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098345"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -24,7 +23,7 @@ Lär dig hur du använder Azure HDInsight Tools för Visual Studio Code för att
 Azure HDInsight-verktyg som kan installeras på plattformar som stöds av Visual Studio Code, inklusive Windows, Linux och macOS. Nedan hittar du de nödvändiga förutsättningarna för olika plattformar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att slutföra stegen i den här artikeln:
 
@@ -307,35 +306,35 @@ Skickar en fil kan du se mappen .vscode läggs automatiskt till mappen arbete. D
     **POST /batches**   
     Begärandetext
 
-    | namn | beskrivning | typ | 
+    | namn | description | typ | 
     | :- | :- | :- | 
     | fil | Fil som innehåller programmet ska köras | sökvägen (krävs) | 
-    | proxyUser | Användaren att personifiera när jobbet körs | sträng | 
-    | Klassnamn | Programmet Java/Spark-huvudklass | sträng |
+    | proxyUser | Användaren att personifiera när jobbet körs | string | 
+    | Klassnamn | Programmet Java/Spark-huvudklass | string |
     | args | Kommandoradsargument för programmet | lista med strängar | 
     | JAR-filer | JAR-filer som ska användas i den här sessionen | Lista över strängar | 
     | pyFiles | Python-filer som ska användas i den här sessionen | Lista över strängar |
     | filer | filer som ska användas i den här sessionen | Lista över strängar |
-    | driverMemory | Mängden minne som ska användas för processen för drivrutinen | sträng |
+    | driverMemory | Mängden minne som ska användas för processen för drivrutinen | string |
     | driverCores | Antalet kärnor som ska användas för processen för drivrutinen | int |
-    | executorMemory | Mängden minne för att använda per körningsprocess | sträng |
+    | executorMemory | Mängden minne för att använda per körningsprocess | string |
     | executorCores | Antalet kärnor som ska användas för varje executor | int |
     | numExecutors | Antal executors att starta för den här sessionen | int |
     | Arkiv | Arkiv som ska användas i den här sessionen | Lista över strängar |
-    | kö | Namnet på YARN-kö som har skickats | sträng |
-    | namn | Namnet på den här sessionen | sträng |
+    | kö | Namnet på YARN-kö som har skickats | string |
+    | namn | Namnet på den här sessionen | string |
     | conf | Egenskaper för Spark-konfiguration | Karta över nyckel = värde |
 
     Svarstext   
     Det Batch-objektet.
 
-    | namn | beskrivning | typ | 
+    | namn | description | typ | 
     | :- | :- | :- | 
     | id | Sessions-id | int | 
     | appId | Program-id för den här sessionen |  String |
     | appInfo | Detaljerad programinformation | Karta över nyckel = värde |
     | log | Log-rader | lista med strängar |
-    | state |   Batch-tillstånd | sträng |
+    | state |   Batch-tillstånd | string |
 
 >[!NOTE]
 >Tilldelade livy konfig visas i utdatafönstret när skicka skript.

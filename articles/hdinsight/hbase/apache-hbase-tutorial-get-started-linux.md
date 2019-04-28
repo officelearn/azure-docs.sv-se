@@ -2,7 +2,6 @@
 title: Kom igång med HBase-exempel på HDInsight - Azure
 description: Följ stegen i det här exemplet om Apache HBase om du vill börja använda hadoop med HDInsight. Skapa tabeller från HBase-gränssnittet och ställ frågor för dem med Hive.
 keywords: hbasecommand,hbase example
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7f162412a099078302bb348dab9ad3171f9e2913
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: c1c582c60a7c91de40983daa07bdec1e8d748f8a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123135"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Kom igång med ett Apache HBase-exempel i HDInsight
 
@@ -23,7 +22,7 @@ Lär dig hur du skapar en [Apache HBase](https://hbase.apache.org/) kluster i HD
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du testar det här HBase-exemplet måste du ha följande objekt:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

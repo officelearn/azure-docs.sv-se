@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
 ms.openlocfilehash: 3020d7b29f19ec2ab578acbebac8db8ea320a844
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103587"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure portal
 
@@ -29,7 +29,7 @@ ms.locfileid: "58098033"
 Se [Nätverksrelaterade aspekter att tänka på med Azure Active Directory Domain Services](active-directory-ds-networking.md).
 
 
-## <a name="task-2-configure-network-settings"></a>Uppgift 2: konfigurera nätverksinställningar
+## <a name="task-2-configure-network-settings"></a>Uppgift 2: Konfigurera nätverksinställningar
 Nästa konfigurationsåtgärd är att skapa ett Azure-nätverk och ett dedikerat undernät i den. Du aktiverar Azure Active Directory Domain Services i detta undernät inom ditt virtuella nätverk. Du kan också välja ett befintligt virtuellt nätverk eller skapa dedikerat undernät i den.
 
 1. Klicka på **virtuellt nätverk** att välja ett virtuellt nätverk.

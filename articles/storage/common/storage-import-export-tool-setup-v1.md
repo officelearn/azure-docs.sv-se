@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477577"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Konfigurera Azure Import/Export-verktyget
 Microsoft Azure Import/Export-verktyget är den enhet förberedelser och reparera verktyg som du kan använda med Microsoft Azure Import/Export-tjänsten. Du kan använda verktyget för följande funktioner:  
@@ -24,7 +24,7 @@ Microsoft Azure Import/Export-verktyget är den enhet förberedelser och reparer
   
 -   Du kan använda det här verktyget för att reparera alla filer som var skadad eller saknas på enheter när du har fått enheterna från en slutförd export-jobbet.  
   
-## <a name="prerequisites"></a>Förutsättningar  
+## <a name="prerequisites"></a>Nödvändiga komponenter  
 Om du förbereder enheter för ett importjobb måste uppfylla följande krav:  
   
 -   Du måste ha en aktiv Azure-prenumeration.  

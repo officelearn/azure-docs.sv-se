@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093973"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Inloggningstid datainmatning i Azure Monitor
 Azure Monitor är en hög skala tjänst som hanterar tusentals kunder skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om den tid det tar för loggdata som ska bli tillgänglig när den har samlats in. Den här artikeln beskrivs de olika faktorer som påverkar den här fördröjningen.
@@ -30,7 +30,7 @@ Svarstid refererar till den tid som data skapas på den övervakade datorn och d
 Totalt antal inmatning tiden för en viss uppsättning data kan delas upp i följande övergripande områden. 
 
 - Agenttid - tiden för att upptäcka en händelse, samla in den och skicka den till Azure Monitor inläsningspunkten som en loggpost. I de flesta fall är den här processen hanteras av en agent.
-- Pipeline tid - format för pipelinen att bearbeta loggposten inmatning. Detta inkluderar parsning egenskaperna för händelsen och eventuellt att lägga till beräknade information.
+- Pipeline-tid – Den tid det tar inmatnings-pipelinen att bearbeta loggposten. Detta inkluderar parsning egenskaperna för händelsen och eventuellt att lägga till beräknade information.
 - Indexering tid – den tid som krävs för att mata in data i Azure Monitor stordataarkiv.
 
 Information om olika svarstiden i den här processen beskrivs nedan.

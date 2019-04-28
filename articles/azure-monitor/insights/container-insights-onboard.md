@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 22c063cb4eade00db1e400787aa7e46000bb03d3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: b5ba9a0abe8ec0f72cfaf42c747616e733fb3f32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995344"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101163"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Hur du integrera Azure Monitor för behållare  
 
@@ -36,7 +36,7 @@ Innan du börjar bör du kontrollera att du har följande:
 
 - **En Log Analytics-arbetsyta.** Du kan skapa den när du aktiverar övervakning av din nya AKS-klustret eller låta publiceringsupplevelsen skapa en standardarbetsyta i standardresursgruppen för prenumerationen för AKS-kluster. Om du väljer att skapa den själv, kan du skapa den via [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md).
 - Du är medlem i den **Log Analytics deltagarrollen** att aktivera behållarövervakning. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../azure-monitor/platform/manage-access.md).
-- Du är medlem i den **[ägare](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** -rollen på AKS-klusterresursen. 
+- Du är medlem i den **[ägare](../../role-based-access-control/built-in-roles.md#owner)** -rollen på AKS-klusterresursen. 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

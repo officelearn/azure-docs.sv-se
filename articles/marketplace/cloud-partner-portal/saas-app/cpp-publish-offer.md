@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 25c9ab0008e7f056789536d8cc737b69e83d6db5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197464"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120245"
 ---
 # <a name="publish-a-saas-application-offer"></a>Publicera ett erbjudande för SaaS-program
 
@@ -33,12 +33,12 @@ I följande diagram visas de övergripande stegen för att publicera ett nytt er
 
 I följande tabell beskrivs varje publishing steg, med en Uppskattad tidsåtgång (max) att slutföra varje steg.
 
-|     **Steg**       |     **tid**      |  **Beskrivning**  |
+|     **Steg**       |     **Time**      |  **Beskrivning**  |
 |  ---------------   |  ---------------  |  ---------------  |
 |         Certifiering           |       2 veckor            |          Erbjudandet analyseras av Azure-certifiering-teamet. Det här steget utför genomsökningar efter virus, skadlig kod, säkerhet och säkerhetsproblem. Den kontrollerar också att det här erbjudandet uppfyller alla urvalskriterier (se [krav](./cpp-prerequisites.md)). Feedback tillhandahålls om ett problem hittas.         |
-|           Packas         |       1 timme            |       Erbjudandets tekniska resurser som är packade för kundens användning och lead-system har konfigurerats och konfigurera.            |
+|           Paketering         |       1 timme            |       Erbjudandets tekniska resurser som är packade för kundens användning och lead-system har konfigurerats och konfigurera.            |
 |        Utgivaren signering            |         -          |        Sista publisher granska och bekräfta innan erbjudandet lanseras. Du kan distribuera ditt erbjudande i de valda prenumerationerna (i erbjudandet information steg) för att kontrollera att den uppfyller dina krav. Välj **Go Live** så att ditt erbjudande kan flytta till nästa steg.           |
-|        Packas            |        1 timme           |        Slutförda erbjudandet replikeras i regionerna och marketplace produktionssystem.           |
+|        Paketering            |        1 timme           |        Slutförda erbjudandet replikeras i regionerna och marketplace produktionssystem.           |
 |        Live            |       fyra dagar            |         Erbjudandet är publicerat, replikeras till de nödvändiga regionerna och blir tillgängliga för allmänheten.          |
 
 Tillåt för upp till 10 arbetsdagar att slutföra publiceringsprocessen och erbjudandet släpps. När du har slutfört publiceringsprocessen ditt SaaS-erbjudande visas i den [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).

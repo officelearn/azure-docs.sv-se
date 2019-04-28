@@ -1,6 +1,6 @@
 ---
-title: Ansluta till GitHub - Azure Logikappar | Microsoft Docs
-description: 'Övervaka GitHub-händelser med GitHub REST API: er och Azure Logic Apps'
+title: Ansluta till GitHub – Azure Logic Apps | Microsoft Docs
+description: 'Övervaka GitHub händelser med GitHub REST API: er och Azure Logic Apps'
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,36 +11,36 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: ce567dc631c3a147b795eb2355a4961faa8881d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0d2ff9368bc244a5afd6fafc40cf476b90a80a52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462600"
 ---
-# <a name="connect-to-github"></a>Ansluta till GitHub
+# <a name="connect-to-github"></a>Anslut till GitHub
 
-GitHub är en webbaserad Git-lagringsplatsen värd tjänst som erbjuder alla distribuerade revision kontrollen och källa kod (SCM) hanteringsfunktioner i Git samt andra funktioner.
+GitHub är en webbaserad Git-lagringsplats värdtjänst som erbjuder alla distribuerad revideringskontroll och källa kod management (SCM)-funktionerna i Git samt andra funktioner.
 
-Du kommer igång med GitHub-kopplingen [först skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Du kommer igång med GitHub-anslutningsapp [först skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>Skapa en anslutning till GitHub
 
-Om du vill använda GitHub-kopplingen i en logikapp, måste du först skapa en *anslutning* och ange information för dessa egenskaper: 
+Om du vill använda GitHub-anslutningsapp i en logikapp, måste du först skapa en *anslutning* och ange information för de här egenskaperna: 
 
 | Egenskap  | Krävs | Beskrivning | 
 | -------- | -------- | ----------- | 
 | Token | Ja | Ange dina autentiseringsuppgifter för GitHub. |
 
-När du skapar anslutningen kan du utföra åtgärderna och lyssna efter utlösare som beskrivs i den här artikeln.
+När du har skapat anslutningen kan du köra åtgärderna och lyssna efter utlösare som beskrivs i den här artikeln.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
-## <a name="connector-specific-details"></a>Connector-specifik information
+## <a name="connector-specific-details"></a>Information om specifika
 
-Utlösare och åtgärder som definierats i Swagger och alla gränser, granska den [connector information](/connectors/github/).
+För utlösare och åtgärder som definierats i Swagger och eventuella gränser kan du granska den [anslutningsinformationen](/connectors/github/).
 
-## <a name="find-more-connectors"></a>Sök efter fler kopplingar
+## <a name="find-more-connectors"></a>Sök efter fler anslutningar
 
-* Granska de [kopplingar listan](apis-list.md).
+* Granska den [lista över Anslutningsappar](apis-list.md).

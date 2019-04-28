@@ -3,18 +3,19 @@ title: Automatiskt etablera Linux-enheter med DPS – Azure IoT Edge | Microsoft
 description: Använd en simulerad TPM på en Linux VM för att testa Azure Device Provisioning-tjänsten för Azure IoT Edge
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 03/01/2019
+ms.author: v-yiso
+origin.date: 03/01/2019
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 9a549221a9e1864e1b7565f35139cb4c2a6ca65e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248121"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Skapa och etablera en IoT Edge-enhet med en virtuell TPM på en Linux-dator
 

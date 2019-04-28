@@ -16,14 +16,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: kumud
-ms.openlocfilehash: c6413f923ca39293951044694303c50c049511c0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: fff34f6a36f9c01b1f28b6b1f13189537d8c9060
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61323495"
 ---
-# <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exempel på Azure CLI-skript: Virtuella datorer med belastningsutjämnare i flera tillgänglighetszoner
+# <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exempel för Azure CLI-skript: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner
 
 Det här Azure CLI-skriptexemplet skapar allt som behövs för att köra flera virtuella Ubuntu-datorer, konfigurerade med hög tillgänglighet och belastningsutjämning. När du har kört skriptet har du tre virtuella datorer i alla tillgänglighetszoner inom ett område som kan nås via en Azure Standard Load Balancer. 
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481027"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Utveckla .NET Standard användardefinierade funktioner för Azure Stream Analytics Edge-jobb (förhandsversion)
 
@@ -134,6 +134,6 @@ UDF-förhandsgranskning har för närvarande följande begränsningar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudier: Skriva en C#-användardefinierade funktion för ett Azure Stream Analytics Edge-jobb (förhandsversion)](stream-analytics-edge-csharp-udf.md)
-* [Självstudier: Azure Stream Analytics JavaScript-användardefinierade funktioner](stream-analytics-javascript-user-defined-functions.md)
+* [Självstudie: Skriv en C# användardefinierad funktion för ett Azure Stream Analytics Edge-jobb (förhandsversion)](stream-analytics-edge-csharp-udf.md)
+* [Självstudie: Azure Stream Analytics JavaScript-användardefinierade funktioner](stream-analytics-javascript-user-defined-functions.md)
 * [Använda Visual Studio för att visa Azure Stream Analytics-jobb](stream-analytics-vs-tools.md)

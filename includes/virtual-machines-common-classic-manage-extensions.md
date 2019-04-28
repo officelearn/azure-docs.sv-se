@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485201"
 ---
 ## <a name="using-vm-extensions"></a>Med VM-tillägg
 Azure VM-tillägg implementera beteenden eller funktioner som antingen underlättar för andra program som fungerar på virtuella Azure-datorer (till exempel den **WebDeployForVSDevTest** tillägget kan Visual Studio Web Deploy lösningar på Azure-VM) eller ange den möjlighet att interagera med den virtuella datorn för att hantera vissa andra beteenden (du kan till exempel använda tillägg för åtkomst till virtuell dator från PowerShell, Azure CLI och REST-klienter att återställa eller ändra värden för fjärråtkomst på din Azure-VM).

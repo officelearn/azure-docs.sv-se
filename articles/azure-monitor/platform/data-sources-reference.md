@@ -9,11 +9,11 @@ ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: c703f735f59a8425c2a14641781f482a6e2d1c78
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61364525"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Använda övervakningsdata från Azure
 
@@ -23,7 +23,7 @@ I Azure-plattformen samman vi övervakningsdata i en enda plats med Azure Monito
 
 ## <a name="options-for-data-consumption"></a>Alternativ för dataförbrukning
 
-| Datatyp | Kategori | Tjänster som stöds | Åtkomstmetoder |
+| Datatyp | Category | Tjänster som stöds | Åtkomstmetoder |
 | --- | --- | --- | --- |
 | Azure Monitor på plattformsnivå-mått | Mått | [Se listan här](metrics-supported.md) | <ul><li>**REST-API:** [Azure Monitor mått-API](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Storage blob eller event hub:** [Diagnostikinställningar](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
 | Compute OS gästmått (t.ex.) prestandaräknare) | Mått | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) och Linux-datorer (v2), [molntjänster](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabell eller blob:** [Windows eller Linux Azure-diagnostik](diagnostics-extension-to-storage.md)</li><li>**Händelsehubb:** [Windows Azure diagnostics](diagnostics-extension-stream-event-hubs.md)</li></ul> |

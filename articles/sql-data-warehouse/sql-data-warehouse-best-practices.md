@@ -11,11 +11,11 @@ ms.date: 11/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 519eae012db30d772a388865380e4909d91b711a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878150"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476863"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Metodtips för Azure SQL Data Warehouse
 Den här artikeln är en samling metodtips som hjälper dig att uppnå optimala prestanda med Azure SQL Data Warehouse.  Vissa begrepp i artikeln är grundläggande och enkla att förklara. Andra begrepp är mer avancerade och vi kommer bara att skrapa på ytan i den här artikeln.  Avsikten med den här artikeln är att ge dig grundläggande vägledning och att göra dig uppmärksam på viktiga områden som du bör fokusera på när du skapar ditt informationslager.  Varje avsnitt innehåller en introduktion till ett begrepp och hänvisar till mer detaljerade artiklar som beskriver begreppet i mer detalj.

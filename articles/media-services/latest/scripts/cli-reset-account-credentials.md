@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
 ms.openlocfilehash: 7b9976d7f9d0644c11a5decf607e95ac05508e06
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466960"
 ---
 # <a name="cli-example-reset-the-account-credentials"></a>CLI-exempel: Återställa autentiseringsuppgifterna för kontot
 

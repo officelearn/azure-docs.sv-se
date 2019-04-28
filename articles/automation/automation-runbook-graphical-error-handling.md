@@ -2,19 +2,25 @@
 title: Felhantering i Azure Automation grafiska runbooks
 description: Den här artikeln beskriver hur du implementerar felhanteringslogik i Azure Automation grafiska runbooks.
 services: automation
+documentationcenter: ''
+author: yunan2016
+manager: digimobile
+editor: tysonn
+ms.assetid: ''
 ms.service: automation
-ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: conceptual
-manager: carmonm
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 03/16/2018
+ms.date: 05/14/2018
+ms.author: v-nany
 ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61233128"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Felhantering i Azure Automation grafiska runbooks
 
@@ -69,4 +75,3 @@ Fellänkar flödar från dessa aktiviteter till en enda **felhanteringsaktivitet
 * Om du vill veta mer om länkar och länktyper i grafiska runbooks kan du läsa [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow) (Grafisk redigering i Azure Automation).
 
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra ett runbook-jobb](automation-runbook-execution.md).
-

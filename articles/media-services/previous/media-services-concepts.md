@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 3b7b821227478d8c6b5859f24c50407f9eb213fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61235288"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-begrepp 
 
@@ -105,7 +105,7 @@ Media Services stöder följande på begäran-kodare som beskrivs i den här art
 
 Information om kodare som stöds finns i [kodare](media-services-encode-asset.md).
 
-## <a name="live-streaming"></a>Liveströmning
+## <a name="live-streaming"></a>Liveuppspelning
 I Azure Media Services representerar en kanal en pipeline för bearbetning av liveuppspelningsinnehåll. En kanal tar emot inkommande direktsändningar i ett av två sätt:
 
 * En lokal livekodare skickar med flera bithastigheter RTMP eller Smooth Streaming (fragmenterad MP4) till kanalen. Du kan använda följande livekodare som Smooth Streaming med flera bithastigheter: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco och Elemental. I följande livekodare RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision och Tricaster-kodare. De infogade strömmarna passerar via kanaler utan vidare transkodning eller kodning. På begäran levererar Media Services strömmen till kunder.

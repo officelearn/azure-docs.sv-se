@@ -11,17 +11,17 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.openlocfilehash: 6c8ce090039e3d5cc85c86d920710294de2165f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748928"
 ---
 # <a name="monitor-workload---azure-portal"></a>Övervaka arbetsbelastning – Azure-portalen
 
 Den här artikeln beskriver hur du använder Azure-portalen för att övervaka din arbetsbelastning. Detta omfattar att konfigurera Azure Monitor-loggar att undersöka fråga körning och arbetsbelastningen trender med hjälp av log analytics för [Azure SQL Data Warehouse](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Azure SQL Data Warehouse: Vi kommer samla in loggar för ett SQL data warehouse. Om du inte har ett SQL data warehouse etableras, se anvisningarna i [skapa ett SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).

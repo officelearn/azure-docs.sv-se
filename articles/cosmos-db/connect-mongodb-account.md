@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 737e179c2c16937d00bc9b6601f12ebe392c1906
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60892543"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Anslut en MongoDB-program till Azure Cosmos DB
 Lär dig hur du ansluter din MongoDB-app till en Azure Cosmos DB med hjälp av en anslutningssträng för MongoDB. Du kan sedan använda ett Azure Cosmos DB-databasen som data store för din MongoDB-app. 
@@ -23,7 +23,7 @@ Den här självstudien ger dig två sätt att hämta information om anslutningss
 - [Metoden Snabbstart](#QuickstartConnection), för användning med .NET, Node.js, MongoDB-gränssnittet, Java och Python-drivrutiner
 - [Anpassad sträng anslutningsmetoden](#GetCustomConnection), för användning med andra drivrutiner
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Ett Azure-konto. Om du inte har ett Azure-konto kan du skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) nu. 
 - Ett Cosmos-konto. Anvisningar finns i [bygga en webbapp med Azure Cosmos DB API för MongoDB och .NET SDK](create-mongodb-dotnet.md).
@@ -70,6 +70,6 @@ Anta exempelvis att kontot som visas på den **Connection String** bladet. En gi
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [använda Studio 3T](mongodb-mongochef.md) med Azure Cosmos DB-API för MongoDB.
-- Lär dig hur du [använda Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB-API för MongoDB.
-- Utforska MongoDB [exempel](mongodb-samples.md) med Azure Cosmos DB-API för MongoDB.
+- Lär dig hur du [använder Studio 3T](mongodb-mongochef.md) med Azure Cosmos DB:s API för MongoDB.
+- Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
+- Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.

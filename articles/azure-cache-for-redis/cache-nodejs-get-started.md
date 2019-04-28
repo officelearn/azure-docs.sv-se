@@ -16,11 +16,11 @@ ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 739f0bd6381e872b5f989f9ecb4dd97fdbdb52c9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830219"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>Snabbstart: Så här använder du Azure Cache for Redis med Node.js
 

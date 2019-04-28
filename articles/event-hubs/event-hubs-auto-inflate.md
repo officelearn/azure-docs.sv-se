@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822782"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs-dataflödesenheter
 Azure Event Hubs är en mycket skalbar dataströmningsplattform. Event Hubs användning ökar därför ofta när du börjar använda tjänsten. Denna användning kräver ökar den förinställt [genomflödesenheter](event-hubs-features.md#throughput-units) att skalas Event Hubs och hantera större överföringshastighet. Den **automatisk ökning** i Event Hubs automatiskt skalar upp genom att öka antalet dataflödesenheter, för användning behov. Öka genomflödesenheter förhindrar begränsningsscenarier där:

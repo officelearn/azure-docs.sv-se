@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275563"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888561"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
 Azure Cosmos DB stöder [Apache Tinkerpop](https://tinkerpop.apache.org) graph edge traversal språk, kallas [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
@@ -125,7 +125,7 @@ Följande kodavsnitt visar exempelvis en GraphSON-representation av en brytpunkt
 
 Egenskaper som används av GraphSON för hörn beskrivs nedan:
 
-| Egenskap | Beskrivning | 
+| Egenskap  | Beskrivning | 
 | --- | --- | --- |
 | `id` | ID för brytpunkten. Måste vara unika (i kombination med värdet för `_partition` om tillämpligt). Om inget värde har angetts och kommer den att automatiskt tillgång till ett GUID | 
 | `label` | Etiketten för brytpunkten. Det här används för att beskriva entitetstypen. |

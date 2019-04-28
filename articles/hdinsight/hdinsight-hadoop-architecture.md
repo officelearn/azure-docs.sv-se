@@ -1,7 +1,6 @@
 ---
 title: Apache Hadoop-arkitektur – Azure HDInsight
 description: Beskriver Apache Hadoop-lagring och bearbetning i HDInsight-kluster.
-services: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 9f45b1603fe0e34bfdf6192fd85ecaf27311ae32
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: edf7655c20f1b3bad5ce4d337861bd2ff3e029db
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097205"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Apache Hadoop-arkitektur i HDInsight
 

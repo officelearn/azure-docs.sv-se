@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448570"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Självstudier: Skapa och köra en IoT-enhetssimulering
 
@@ -30,7 +30,7 @@ I den här kursen för du göra följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att följa den här självstudien behöver du en distribuerad instans av enhetssimuleringen i din Azure-prenumeration.
 

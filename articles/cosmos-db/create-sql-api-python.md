@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
 ms.openlocfilehash: b257c1dbbed225bee9adfdb427bd036f0230ea47
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127522"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Skapa ett Python-program med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -32,7 +32,7 @@ Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Python 3.6](https://www.python.org/downloads/), med den `python` körbar fil som är tillgängliga i din `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)

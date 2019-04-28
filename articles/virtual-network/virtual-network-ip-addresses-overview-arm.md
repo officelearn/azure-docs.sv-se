@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Läs mer om offentliga och privata IP-adresser i Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
-ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 69fd70fc45f734f8267db6d770d09b14f3a071f5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108152"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
@@ -78,6 +79,9 @@ Offentliga IP-adresser för standard-SKU:
  
 > [!NOTE]
 > Inkommande kommunikation med en resurs med standard-SKU misslyckas tills du har skapat och kopplat en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups) och uttryckligen tillåtit önskad inkommande trafik.
+
+> [!NOTE]
+> Endast offentliga IP-adresser med grundläggande SKU är tillgängliga när du använder [instans av metadatatjänst IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard-SKU stöds inte.
 
 ### <a name="allocation-method"></a>Allokeringsmetod
 
@@ -180,7 +184,7 @@ Följande tabell visar den specifika egenskapen som kan användas för att assoc
 | Lastbalanserare |Konfiguration på klientsidan |Ja |Ja |
 | Programgateway |Konfiguration på klientsidan |Ja |Ja |
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Limits
 Gränserna som gäller för IP-adressering anges i den fullständiga förteckningen över [nätverksgränserna](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) i Azure. Gränserna anges per region och per prenumeration. Du kan [kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du vill öka standardgränserna upp till de maximala gränserna utifrån dina affärsbehov.
 
 ## <a name="pricing"></a>Prissättning

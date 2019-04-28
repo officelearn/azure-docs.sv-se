@@ -8,11 +8,11 @@ ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61092112"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Självstudier: Utforma en Azure Database for PostgreSQL med hjälp av Azure-portalen
 
@@ -28,7 +28,7 @@ I den här självstudien använder du Azure-portalen till att:
 > * Uppdatera data
 > * Återställa data
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
@@ -51,7 +51,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
    - Prenumeration: Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras.
    - Resursgrupp: **myresourcegroup**
    - Valfritt inloggningsnamn och lösenord för serveradministratören
-   - Plats
+   - Location
    - PostgreSQL-version
 
    > [!IMPORTANT]

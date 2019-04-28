@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466739"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
-Att göra videor i utdata tillgången som är tillgängliga för klienter för uppspelning, måste du skapa en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators) och sedan skapa strömmande URL: er. .NET-exempel finns i [få en Strömningspositionerare](stream-files-tutorial-with-api.md#get-a-streaming-locator).
+För att skapa videor i utdatatillgångar som klienter ska kunna spela upp måste du skapa en [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) och sedan skapa direktuppspelnings-URL:er. .NET-exempel finns i [Hämta en positionerare för direktuppspelning](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
 Processen att skapa en **positionerare för direktuppspelning** kallas för publicering. Som standard kan din **positionerare för direktuppspelning** användas omedelbart efter API-anropen. Den fungerar tills den tas bort, såvida du inte konfigurerar valfria start- och sluttider. 
 
@@ -42,5 +42,5 @@ Se [filtrering, sortering, växling av Media Services entiteter](entities-overvi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudier: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)
-* [Använda DRM dynamisk kryptering och licens video-on-demand](protect-with-drm.md)
+* [Självstudie: Ladda upp, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md)
+* [Använda dynamisk DRM-kryptering och tjänsten för licensleverans](protect-with-drm.md)

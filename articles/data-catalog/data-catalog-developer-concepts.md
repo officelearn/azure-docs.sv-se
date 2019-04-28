@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006700"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61002685"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Begrepp för utvecklare för Azure Data Catalog
 Microsoft **Azure Data Catalog** är en fullständigt hanterad molntjänst som tillhandahåller funktioner för datakällsidentifiering och gemensamt skapade metadata från datakällan. Utvecklare kan använda tjänsten via dess REST-API: er. Förstå koncepten som är implementerade i tjänsten är viktigt för utvecklare att integrera har med **Azure Data Catalog**.
@@ -78,7 +78,7 @@ UX-Gränssnittet kan sedan välja hur du vill visa kombinationen. Det finns tre 
 Som det introducerats i avsnittet nyckelkoncept i **Azure Data Catalog** objektmodellen innehåller objekt som kan vara tillgångar eller kommentarer. Objekt har egenskaper som kan vara valfritt eller krävs. Vissa egenskaper gäller för alla objekt. Vissa egenskaper gäller för alla tillgångar. Vissa egenskaper gäller endast för specifika resurstyper.
 
 ### <a name="system-properties"></a>Systemegenskaper
-<table><tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr><tr><td>tidsstämpel</td><td>Datetime</td><td>Den senaste gången objektet har ändrats. Det här fältet genereras av servern när ett objekt har infogats och varje gång ett objekt uppdateras. Värdet för den här egenskapen ignoreras på indata av åtgärder.</td></tr><tr><td>id</td><td>URI</td><td>Absolut url för objektet (skrivskyddad). Det är unikt adresserbara URI: N för objektet.  Värdet för den här egenskapen ignoreras på indata av åtgärder.</td></tr><tr><td>typ</td><td>String</td><td>Typ av tillgången (skrivskyddad).</td></tr><tr><td>etag</td><td>String</td><td>En sträng som motsvarar versionen av det objekt som kan användas för optimistisk samtidighetskontroll när du utför åtgärder som uppdaterar objekt i katalogen. ”*” kan användas för att matcha alla värden.</td></tr></table>
+<table><tr><td><b>Egenskapsnamn</b></td><td><b>Datatyp</b></td><td><b>Kommentarer</b></td></tr><tr><td>tidsstämpel</td><td>DateTime</td><td>Den senaste gången objektet har ändrats. Det här fältet genereras av servern när ett objekt har infogats och varje gång ett objekt uppdateras. Värdet för den här egenskapen ignoreras på indata av åtgärder.</td></tr><tr><td>id</td><td>URI</td><td>Absolut url för objektet (skrivskyddad). Det är unikt adresserbara URI: N för objektet.  Värdet för den här egenskapen ignoreras på indata av åtgärder.</td></tr><tr><td>typ</td><td>String</td><td>Typ av tillgången (skrivskyddad).</td></tr><tr><td>etag</td><td>String</td><td>En sträng som motsvarar versionen av det objekt som kan användas för optimistisk samtidighetskontroll när du utför åtgärder som uppdaterar objekt i katalogen. ”*” kan användas för att matcha alla värden.</td></tr></table>
 
 ### <a name="common-properties"></a>Gemensamma egenskaper
 Dessa egenskaper gäller för alla typer av roten tillgång och alla anteckningstyper av.

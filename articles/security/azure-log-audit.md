@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: eb2f42b690099002f2f14aa4e782906a76c01d4c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: HT
+ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241518"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121509"
 ---
 # <a name="azure-logging-and-auditing"></a>Loggning och granskning i Azure
 
@@ -135,7 +135,7 @@ Inkluderade rapporter visas i följande tabell:
 |Inloggningar från potentiellt infekterade enheter|   Enskilda användaraktivitet||
 |Användare med avvikande inloggningsaktivitet| Aktivitetsrapport för grupper||
 ||Aktivitetsrapport över registrering för lösenordsåterställning||
-||Lösenordsåterställningsaktivitet|||
+||Lösenordsåterställningsaktivitet||
 
 Data i de här rapporterna kan användas till att dina program, till exempel säkerhetsinformation och händelsehantering (SIEM) system, granskning och business intelligence-verktyg. Azure AD reporting API: er ger programmässig åtkomst till data via en uppsättning REST-baserade API: er. Du kan anropa dessa [API: er](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) från olika programmeringsspråk och verktyg.
 
@@ -230,15 +230,15 @@ Förutom funktionerna som tidigare nämnts loggning har Network Watcher för til
 
 - [Variabla infångade paket](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Samlar in paketdata till och från en virtuell dator. Avancerade alternativ för filtrering och justera kontroller, till exempel inställningar för tid och storlek begränsning, ger flexibiliteten. Paketdata kan lagras i en blob store eller på den lokala disken i *.cap* filformat.
 
-* [IP-flöde verifiering](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Kontrollerar om ett paket tillåts eller nekas baserat på flow information 5-tuppel paket parametrar (det vill säga mål-IP, käll-IP, målport, källport och protokoll). Om paketet nekas av en säkerhetsgrupp, returneras regeln och grupp som nekade paketet.
+- [IP-flöde verifiering](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Kontrollerar om ett paket tillåts eller nekas baserat på flow information 5-tuppel paket parametrar (det vill säga mål-IP, käll-IP, målport, källport och protokoll). Om paketet nekas av en säkerhetsgrupp, returneras regeln och grupp som nekade paketet.
 
-* [Nästa hopp](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Anger nästa hopp för paket som vidarebefordras i Azure nätverksinfrastruktur, så att du kan diagnostisera eventuella felkonfigurerad användardefinierade vägar.
+- [Nästa hopp](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Anger nästa hopp för paket som vidarebefordras i Azure nätverksinfrastruktur, så att du kan diagnostisera eventuella felkonfigurerad användardefinierade vägar.
 
-* [Säkerhetsgruppvy](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Hämtar de effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator.
+- [Säkerhetsgruppvy](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Hämtar de effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator.
 
-* [Virtuell nätverksgateway och anslutning felsökning](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Hjälper dig att felsöka virtuella nätverksgatewayer och anslutningar.
+- [Virtuell nätverksgateway och anslutning felsökning](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Hjälper dig att felsöka virtuella nätverksgatewayer och anslutningar.
 
-* [Nätverks-prenumerationsbegränsningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Kan du visa nätverksresursanvändning mot gränser.
+- [Nätverks-prenumerationsbegränsningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Kan du visa nätverksresursanvändning mot gränser.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -276,17 +276,17 @@ I följande tabell listar och beskriver integrationsscenarier:
 
 | Integreringsscenario | Beskrivning |
 | --------------------- | :---------- |
-|[Programkarta](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Komponenterna i din app, med viktiga mätvärden och aviseringar.||
-|[Diagnostik söka för instans data](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Sök efter och filtrera händelser, till exempel begäranden, undantag, beroendeanrop, loggspårningar och sidvyer.||
-|[Metrics Explorer för aggregerade data](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Utforska, filtrera och segmentera aggregerade data, till exempel begärande-, fel- och undantagsfrekvens, svarstider och sidinläsningstider.||
-|[Instrumentpaneler](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Kombinera data från flera resurser och dela med andra. Perfekt för program med flera komponenter och för kontinuerlig visning i teamutrymmet.||
-|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|När du distribuerar en ny version kan du titta på dessa prestandaindikatorer som visas i realtid för att kontrollera att allt fungerar som förväntat.||
-|[Analys](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Besvara svåra frågor om appens prestanda och användning med hjälp av det här kraftfulla frågespråket.||
-|[Automatiska och manuella aviseringar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatiska aviseringar anpassa appens normala telemetrimönster telemetri och utlöses när det finns något utanför det vanliga mönstret. Du kan också ställa in aviseringar på särskilda nivåer med anpassade mätvärden eller standardmätvärden.||
-|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Visa prestandadata i koden. Gå till kod från stackspårningar.||
-|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integrera användningsmätvärden med annan Business Intelligence.||
-|[REST-API](https://dev.applicationinsights.io/)|Skriv kod för att köra frågor mot dina mätvärden och rådata.||
-|[Löpande export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Massexportera rådata till lagring när det kommer fram.||
+|[Programkarta](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Komponenterna i din app, med viktiga mätvärden och aviseringar.|
+|[Diagnostik söka för instans data](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Sök efter och filtrera händelser, till exempel begäranden, undantag, beroendeanrop, loggspårningar och sidvyer.|
+|[Metrics Explorer för aggregerade data](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Utforska, filtrera och segmentera aggregerade data, till exempel begärande-, fel- och undantagsfrekvens, svarstider och sidinläsningstider.|
+|[Instrumentpaneler](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Kombinera data från flera resurser och dela med andra. Perfekt för program med flera komponenter och för kontinuerlig visning i teamutrymmet.|
+|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|När du distribuerar en ny version kan du titta på dessa prestandaindikatorer som visas i realtid för att kontrollera att allt fungerar som förväntat.|
+|[Analys](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Besvara svåra frågor om appens prestanda och användning med hjälp av det här kraftfulla frågespråket.|
+|[Automatiska och manuella aviseringar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatiska aviseringar anpassa appens normala telemetrimönster telemetri och utlöses när det finns något utanför det vanliga mönstret. Du kan också ställa in aviseringar på särskilda nivåer med anpassade mätvärden eller standardmätvärden.|
+|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Visa prestandadata i koden. Gå till kod från stackspårningar.|
+|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integrera användningsmätvärden med annan Business Intelligence.|
+|[REST-API](https://dev.applicationinsights.io/)|Skriv kod för att köra frågor mot dina mätvärden och rådata.|
+|[Löpande export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Massexportera rådata till lagring när det kommer fram.|
 
 ### <a name="azure-security-center-alerts"></a>Azure Security Center-aviseringar
 
@@ -358,7 +358,7 @@ Det finns fyra sätt att [samla in loggar och mått för Azure-tjänster](https:
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Server webbgrupper|Microsoft.Web/<br>servergrupper||   Diagnostik
 |Websites|  Microsoft.Web/<br>webbplatser ||      Diagnostik|    [Mer information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>platser /<br>fack|||||
+||Microsoft.Web/<br>platser /<br>fack||||
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Loggintegrering med lokala SIEM-system

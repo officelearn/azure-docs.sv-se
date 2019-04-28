@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61358547"
 ---
 # <a name="tutorial-configure-security-agents"></a>Självstudier: Konfigurera säkerhetsagenter
 
@@ -120,20 +120,20 @@ Standardvärden är tillgängliga i rätt schemat i [Github](https://aka.ms/iot-
 
 |Händelsenamn| propertyName | Standardvärde| Ögonblicksbild händelse| Information om Status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Diagnostisk händelse|eventPriorityDiagnostic| Av| Falskt| Agenten relaterade diagnostikhändelser. Använd den här händelsen för utförlig loggning.| 
-|Konfigurationsfel |eventPriorityConfigurationError |Låg |Falskt |Det gick inte att parsa konfigurationen av agenten. Kontrollera konfigurationen mot schemat.| 
-|Statistik för avbrutna händelser |eventPriorityDroppedEventsStatistics |Låg |Sant|Agenten relaterade händelsestatistik. |
-|Meddelandestatistik|eventPriorityMessageStatistics |Låg |Sant |Agenten relaterade meddelandestatistik. |
-|Anslutna maskinvara|eventPriorityConnectedHardware |Låg |Sant |Ögonblicksbild av all maskinvara som är anslutna till enheten.|
-|Lyssnande portar|eventPriorityListeningPorts |Hög |Sant |Ögonblicksbild av alla öppna lyssnande portar på enheten.|
-|Skapa process |eventPriorityProcessCreate |Låg |Falskt |Granskningar bearbetas skapas på enheten.|
-|Avsluta process|eventPriorityProcessTerminate |Låg |Falskt |Granskningar bearbetas avslutning på enheten.| 
-|Systeminformation |eventPrioritySystemInformation |Låg |Sant |En ögonblicksbild av Systeminformation (till exempel: OS- eller CPU).| 
-|Lokala användare| eventPriorityLocalUsers |Hög |Sant|En ögonblicksbild av registrerade lokala användare i systemet. |
-|Logga in|  eventPriorityLogin |Hög|Falskt|Granska inloggningshändelser till enheten (lokala och fjärranslutna inloggningar).|
-|Skapa anslutning |eventPriorityConnectionCreate|Låg|Falskt|Granskar TCP-anslutningar som skapats till och från enheten. |
-|Brandväggskonfiguration| eventPriorityFirewallConfiguration|Låg|Sant|Ögonblicksbild av brandväggskonfiguration för enheten (brandväggsregler). |
-|Grundregler för operativsystem| eventPriorityOSBaseline| Låg|Sant|Kontrollera ögonblicksbild av enheten grundregler för operativsystem.|
+|Diagnostisk händelse|eventPriorityDiagnostic| Av| False| Agenten relaterade diagnostikhändelser. Använd den här händelsen för utförlig loggning.| 
+|Konfigurationsfel |eventPriorityConfigurationError |Låg |False |Det gick inte att parsa konfigurationen av agenten. Kontrollera konfigurationen mot schemat.| 
+|Statistik för avbrutna händelser |eventPriorityDroppedEventsStatistics |Låg |True|Agenten relaterade händelsestatistik. |
+|Meddelandestatistik|eventPriorityMessageStatistics |Låg |True |Agenten relaterade meddelandestatistik. |
+|Anslutna maskinvara|eventPriorityConnectedHardware |Låg |True |Ögonblicksbild av all maskinvara som är anslutna till enheten.|
+|Lyssnande portar|eventPriorityListeningPorts |Hög |True |Ögonblicksbild av alla öppna lyssnande portar på enheten.|
+|Skapa process |eventPriorityProcessCreate |Låg |False |Granskningar bearbetas skapas på enheten.|
+|Avsluta process|eventPriorityProcessTerminate |Låg |False |Granskningar bearbetas avslutning på enheten.| 
+|Systeminformation |eventPrioritySystemInformation |Låg |True |En ögonblicksbild av Systeminformation (till exempel: OS- eller CPU).| 
+|Lokala användare| eventPriorityLocalUsers |Hög |True|En ögonblicksbild av registrerade lokala användare i systemet. |
+|Inloggning|  eventPriorityLogin |Hög|False|Granska inloggningshändelser till enheten (lokala och fjärranslutna inloggningar).|
+|Skapa anslutning |eventPriorityConnectionCreate|Låg|False|Granskar TCP-anslutningar som skapats till och från enheten. |
+|Brandväggskonfiguration| eventPriorityFirewallConfiguration|Låg|True|Ögonblicksbild av brandväggskonfiguration för enheten (brandväggsregler). |
+|Grundregler för operativsystem| eventPriorityOSBaseline| Låg|True|Kontrollera ögonblicksbild av enheten grundregler för operativsystem.|
  
 
 ## <a name="next-steps"></a>Nästa steg

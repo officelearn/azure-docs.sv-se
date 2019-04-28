@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999543"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732425"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -451,7 +451,11 @@ Läs [i den här artikeln] [ vpn-gateway-create-site-to-site-rm-powershell] för
 >
 > Orsaken till dessa begränsningar är krav för ett nätverk med låg latens höga prestanda i ett SAP-system, särskilt mellan programinstanserna och DBMS-lager med ett SAP-system.
 >
->
+> Särskilda planering för system och regioner måste ske när du använder flera SAP-system som är integrerade med hög. Se till att distribuera dessa system så nära som möjligt till varandra för att minimera nätverkssvarstiden. Exempel på hög integrerade SAP-system är:
+> * SAP BW läsning av data från SAP OLTP-system som ERP eller CRM eller SRM; eller
+> * SAP SLT som används för att replikera data mellan flera SPA-system eller även mellan SAP och icke-SAP-system. eller
+> * SAP s/4 är ansluten till ett SAP ERP-system. osv.
+
 
 ### <a name="supported-os-and-database-releases"></a>OS- och databas-versioner som stöds
 * Microsoft-serverprogramvara stöds för Azure Virtual Machine-tjänsterna visas i den här artikeln: <https://support.microsoft.com/kb/2721672>.

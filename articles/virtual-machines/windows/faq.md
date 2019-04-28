@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
 ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61095683"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Vanliga frågor och svar om Windows virtuella datorer
 Den här artikeln tar upp några vanliga frågor om Windows virtuella datorer som skapats i Azure med hjälp av Resource Manager-distributionsmodellen. Linux-version av det här avsnittet finns [vanliga frågor och svar om virtuella Linux-datorer](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -33,7 +33,7 @@ Vissa versioner av Windows 7, Windows 8.1 och Windows 10 är tillgängliga för 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hur mycket lagringsutrymme kan jag använda med en virtuell dator?
 Varje datadisk kan vara upp till 4 TB (4095 GB). Antalet datadiskar som du kan använda beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Azure Managed Disks är de rekommenderade disklagringsalternativet för användning med Azure Virtual Machines för beständig datalagring. Du kan använda flera Managed Disks till varje virtuell dator. Managed Disks tillhandahåller två lagringsalternativ: Premium och Standard. Information om priser finns i [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
+Azure Managed Disks är de rekommenderade disklagringsalternativet för användning med Azure Virtual Machines för beständig datalagring. Du kan använda flera Managed Disks till varje virtuell dator. Hanterade diskar två typer av erbjudanden lagringsalternativ: Premium och Standard Managed Disks. Information om priser finns i [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Azure storage-konton kan också ge lagringsutrymme för operativsystemsdisken och eventuella datadiskar. Varje disk är en VHD-fil som lagras som en sidblob. Information om priser finns i [Information om lagringspriser](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -92,12 +92,12 @@ Följande användarnamn tillåts inte:
         <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
     </tr>
     <tr>
-        <td style="text-align:center">ADM</td><td style="text-align:center">Admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
+        <td style="text-align:center">adm</td><td style="text-align:center">admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
     </tr>   <tr>
-        <td style="text-align:center">administratör</td><td style="text-align:center">ASPNET</td><td style="text-align:center">säkerhetskopiering</td><td style="text-align:center">konsol</td>
+        <td style="text-align:center">administratör</td><td style="text-align:center">aspnet</td><td style="text-align:center">säkerhetskopiering</td><td style="text-align:center">konsol</td>
     </tr>
     <tr>
-        <td style="text-align:center">David </td><td style="text-align:center">Gäst</td><td style="text-align:center">John</td><td style="text-align:center">ägare</td>
+        <td style="text-align:center">David </td><td style="text-align:center">Gäst</td><td style="text-align:center">john</td><td style="text-align:center">ägare</td>
     </tr>
     <tr>
         <td style="text-align:center">rot</td><td style="text-align:center">server</td><td style="text-align:center">sql</td><td style="text-align:center">support</td>
@@ -106,7 +106,7 @@ Följande användarnamn tillåts inte:
         <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test2</td><td style="text-align:center">test3</td><td style="text-align:center">Användare</td><td style="text-align:center">User1</td>
+        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">Användare</td><td style="text-align:center">User1</td>
     </tr>
     <tr>
         <td style="text-align:center">Användare2</td><td style="text-align:center">USER3</td><td style="text-align:center">Användare4 lade</td><td style="text-align:center">user5</td>

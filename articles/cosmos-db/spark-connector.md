@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: ramkris
 ms.openlocfilehash: 60afd8128224050d456699e798d814a259e106ae
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330254"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Påskynda analyser av stordata med Apache Spark för Azure Cosmos DB-anslutningsapp
 
@@ -203,7 +203,7 @@ Vi har mer information i den `azure-cosmosdb-spark` [wiki](https://github.com/Az
 * [Fråga Testkörningar](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs)
 * [Skriva Testkörningar](https://github.com/Azure/azure-cosmosdb-spark/wiki/Writing-Test-Runs)
 
-### <a name="change-feed"></a>Ändringsfeed
+### <a name="change-feed"></a>Ändringsflöde
 
 * [Stream bearbetning av ändringar med hjälp av Azure Cosmos DB Change Feed och Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 * [Ändra Feed demonstrationer](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)

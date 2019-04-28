@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
 ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123186"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostik och övervakning av programprestanda för fjärrstyrd tillförlitlig tjänst
 Tillförlitlig ServiceRemoting runtime genererar [prestandaräknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Det här ger insikt i hur ServiceRemoting fungerar och hjälpa till med felsökning och övervakning av programprestanda.
@@ -28,7 +28,7 @@ Tillförlitlig ServiceRemoting runtime genererar [prestandaräknare](https://msd
 ## <a name="performance-counters"></a>Prestandaräknare
 Tillförlitlig ServiceRemoting runtime definierar följande prestandaräknarkategorier:
 
-| Kategori | Beskrivning |
+| Category | Beskrivning |
 | --- | --- |
 | Service Fabric-tjänst |Räknare som är specifika för Azure Service Fabric Service Remoting, till exempel Genomsnittlig tid det tar att bearbeta begäran |
 | Service Fabric-tjänstmetod |Räknare som är specifika för metoder implementeras av fjärrkommunikation i Service Fabric, till exempel hur ofta en tjänst-metoden har anropats |

@@ -15,11 +15,11 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: f53ae122e9888f3e537a3557b6ac5bd76856c2eb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995878"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Använda leveranstjänst för dynamisk DRM-krypteringstjänst
 
@@ -61,7 +61,7 @@ Exemplet som beskrivs i den här artikeln ger följande resultat:
 
 ![AMS med DRM-skyddad video](./media/protect-with-drm/ams_player.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att kunna genomföra självstudien.
 

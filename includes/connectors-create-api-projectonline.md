@@ -1,17 +1,12 @@
 ---
-author: ecfan
-ms.service: logic-apps
-ms.topic: include
-ms.date: 11/03/2016
-ms.author: estfan
 ms.openlocfilehash: 975d6625f46a6c10417793764b28d0a529a5c0cd
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921250"
 ---
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 * En [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) konto 
 
 Innan du kan använda ditt ProjectOnline-konto i en logikapp, måste du godkänna logikappen som ska ansluta till ditt ProjectOnline-konto. Som tur är kan göra du det enkelt från i logikappen på Azure Portal. 

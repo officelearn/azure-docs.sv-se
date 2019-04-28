@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 9212e065ff7f6b0e3df1b90296f54159762bdaf9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61030546"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudier: Förbered ett program för Azure Kubernetes Service (AKS)
 

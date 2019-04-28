@@ -12,11 +12,11 @@ ms.reviewer: v-masebo
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61408987"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Snabbstart: Fråga Azure SQL Database med Java
 
@@ -52,7 +52,7 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -168,7 +168,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforma din första Azure SQL Database](sql-database-design-first-database.md)  
+- [Utforma din första Azure SQL-databas](sql-database-design-first-database.md)  
 
 - [Microsoft JDBC-drivrutin för SQL Server](https://github.com/microsoft/mssql-jdbc)  
 

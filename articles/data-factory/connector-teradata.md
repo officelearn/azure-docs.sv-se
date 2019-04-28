@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347759"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopiera data från Teradata med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Mer specifikt stöder den här Teradata-anslutningen:
 - Teradata **version 12 och senare**.
 - Kopiera data med hjälp av **grundläggande** eller **Windows** autentisering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda denna Teradata-anslutning måste du:
 
@@ -54,11 +54,11 @@ Följande egenskaper har stöd för Teradata länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Teradata** | Ja |
+| type | Type-egenskapen måste anges till: **Teradata** | Ja |
 | server | Namnet på Teradata-servern. | Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till Teradata-databasen.<br/>Tillåtna värden är: **Grundläggande**, och **Windows**. | Ja |
 | användarnamn | Ange användarnamn för att ansluta till Teradata-databasen. | Ja |
-| lösenord | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
 
 **Exempel:**
@@ -93,7 +93,7 @@ Kopiera data från Teradata genom att ange typegenskapen på datauppsättningen 
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
 | tableName | Namnet på tabellen i Teradata-databasen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel:**
@@ -122,7 +122,7 @@ För att kopiera data från Teradata, ange typ av datakälla i kopieringsaktivit
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
@@ -164,44 +164,44 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Datatypen för Teradata | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blob |Byte] |
-| Byte |Byte] |
+| Blob |Byte[] |
+| Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |Sträng |
-| CLOB |Sträng |
+| char |String |
+| Clob |String |
 | Date |DateTime |
 | Decimal |Decimal |
-| Double-värde |Double-värde |
-| Bild |Sträng |
+| Double |Double |
+| Bild |String |
 | Integer |Int32 |
-| Intervall för dag |Tidsintervall |
-| Dag för intervall och timme |Tidsintervall |
-| Intervall dag till minut |Tidsintervall |
-| Intervall dag till andra |Tidsintervall |
-| Intervall timme |Tidsintervall |
-| Intervall för timme och minut |Tidsintervall |
-| Intervall timme till andra |Tidsintervall |
-| Intervall minut |Tidsintervall |
-| Intervall minut till andra |Tidsintervall |
-| Intervall för månad |Sträng |
-| Intervall för andra |Tidsintervall |
-| Intervall år |Sträng |
-| Intervall årets månad |Sträng |
-| Tal |Double-värde |
-| Period(Date) |Sträng |
-| Period(Time) |Sträng |
-| Period (tid med tidszon) |Sträng |
-| Period(timestamp) |Sträng |
-| Period (tidsstämpel med tidszon) |Sträng |
+| Intervall för dag |TimeSpan |
+| Dag för intervall och timme |TimeSpan |
+| Intervall dag till minut |TimeSpan |
+| Intervall dag till andra |TimeSpan |
+| Intervall timme |TimeSpan |
+| Intervall för timme och minut |TimeSpan |
+| Intervall timme till andra |TimeSpan |
+| Intervall minut |TimeSpan |
+| Intervall minut till andra |TimeSpan |
+| Intervall för månad |String |
+| Intervall för andra |TimeSpan |
+| Intervall år |String |
+| Intervall årets månad |String |
+| Tal |Double |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period (tid med tidszon) |String |
+| Period(Timestamp) |String |
+| Period (tidsstämpel med tidszon) |String |
 | SmallInt |Int16 |
-| Tid |Tidsintervall |
-| Tid med tidszon |Sträng |
+| Tid |TimeSpan |
+| Tid med tidszon |String |
 | Tidsstämpel |DateTime |
-| Tidsstämpel med tidszon |DateTimeOffset |
-| VarByte |Byte] |
-| VarChar |Sträng |
-| VarGraphic |Sträng |
-| Xml |Sträng |
+| Tidsstämpel med tidszon |Datetimeoffset |
+| VarByte |Byte[] |
+| VarChar |String |
+| VarGraphic |String |
+| Xml |String |
 
 
 ## <a name="next-steps"></a>Nästa steg

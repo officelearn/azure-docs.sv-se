@@ -10,11 +10,11 @@ custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
 ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477475"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Använda Azure Storage med en lösning för kontinuerlig integrering av Jenkins
 
@@ -35,7 +35,7 @@ Fördelar med att använda Blob service som värd för din smidig utveckling byg
 * Prestanda när hämtar din byggartefakter, kunder och partner.
 * Kontroll över principer för åtkomst, med olika alternativ anonym åtkomst, upphör att gälla-baserad delad åtkomst signatur åtkomst, privat åtkomst, osv.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * En lösning för kontinuerlig integrering av Jenkins.
   
     Om du för närvarande inte har en Jenkins CI-lösning kan du köra ett Jenkins CI-lösning med hjälp av följande metod:

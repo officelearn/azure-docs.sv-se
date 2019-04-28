@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127437"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
@@ -213,13 +213,13 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 | userId | sträng | Användarentitetsidentifierare för aktuell begäran | 
 | apimSubscriptionId | sträng | Prenumerationsentitetsidentifierare för aktuell begäran | 
 | backendId | sträng | Serverdelentitetsidentifierare för aktuell begäran | 
-| lastError | objekt | Bearbetningsfel för senaste begäran | 
+| LastError | objekt | Bearbetningsfel för senaste begäran | 
 | elapsed | heltal | Antalet förflutna millisekunder sedan gatewayen tog emot begäran till den tidpunkt då felet inträffade | 
-| source | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
-| scope | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
-| section | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 
-| reason | sträng | Felorsak | 
-| message | sträng | Felmeddelande | 
+| källa | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
+| omfång | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
+| avsnitt | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 
+| orsak | sträng | Felorsak | 
+| meddelande | sträng | Felmeddelande | 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,17 +9,17 @@ ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478525"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 
 Verktyget WAImportExport är den enhet förberedelser och reparera verktyg som du kan använda med den [Microsoft Azure Import/Export-tjänsten](../storage-import-export-service.md). Du kan använda det här verktyget för att kopiera data till hårddiskar som du ska skicka till ett Azure-datacenter. När importen har slutförts kan använda du det här verktyget för att reparera alla blobbar som var skadade saknades eller är i konflikt med andra blobar. Du kan använda det här verktyget för att reparera alla filer som var skadad eller saknas på enheter när du har fått enheterna från en slutförd export-jobbet. I den här artikeln ska gå vi över användningen av det här verktyget.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="requirements-for-waimportexportexe"></a>Krav för WAImportExport.exe
 
@@ -333,7 +333,7 @@ För varje hårddisk som du förbereder med verktyget Azure Import/Export-verkty
 
 Loggkatalogen anger en katalog som används för att lagra utförliga loggar samt tillfällig manifestfiler. Om den inte anges används den aktuella katalogen som log-katalogen. Loggarna finns utförliga loggar.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 #### <a name="what-are-the-specifications-of-my-disk"></a>Vilka är specifikationerna av disken?
 
@@ -366,7 +366,7 @@ Alla Microsoft .NET Framework-versioner är installerade i följande katalog: %w
 
 Navigera till den ovan nämnda delen på måldatorn där verktyget ska köras. Leta efter namnet på mappen som börjar med ”v4”. Avsaknad av sådana directory innebär .NET 4 inte är installerat på datorn. Du kan ladda ned .NET 4 på datorn med hjälp av [Microsoft .NET Framework 4 (Webbinstallationsprogram)](https://www.microsoft.com/download/details.aspx?id=17851).
 
-### <a name="limits"></a>Begränsningar
+### <a name="limits"></a>Limits
 
 #### <a name="how-many-drives-can-i-preparesend-at-the-same-time"></a>Hur många enheter kan jag förbereda/skicka på samma gång?
 

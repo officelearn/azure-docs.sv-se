@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 39eea84cc9301263381533e03e8f783e0a73ea19
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127013"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuera OpenShift Container Platform i Azure
 
@@ -249,9 +249,9 @@ Olika versioner kan ha olika parametrar, så kontrollera de nödvändiga paramet
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Parameters.JSON förklarad
 
-| Egenskap | Beskrivning | Giltiga alternativ | Standardvärde |
+| Egenskap  | Beskrivning | Giltiga alternativ | Standardvärde |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL: en för artefakter (json, skript osv.) |  |  https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
+| `_artifactsLocation`  | URL: en för artefakter (json, skript osv.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Distribuera resurser till Azure-region |  |  |
 | `masterVmSize` | Storlek på virtuell huvuddator. Välj någon av de tillåtna storlekar som anges i filen azuredeploy.JSON |  | Standard_E2s_v3 |
 | `infraVmSize` | Storleken på den Infra VM. Välj någon av de tillåtna storlekar som anges i filen azuredeploy.JSON |  | Standard_D4s_v3 |

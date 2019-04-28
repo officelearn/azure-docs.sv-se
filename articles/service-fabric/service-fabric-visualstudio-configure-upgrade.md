@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
 ms.openlocfilehash: 79120371ca2a62e5ef9f2bf38476635db12e9fcc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082861"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Konfigurera uppgraderingen av ett Service Fabric-program i Visual Studio
 Visual Studio tools för Azure Service Fabric ger uppgradera support för att publicera lokala eller fjärranslutna kluster. Det finns tre scenarier där du vill uppgradera programmet till en nyare version istället för att ersätta programmet under testning och felsökning:
@@ -31,7 +31,7 @@ Visual Studio tools för Azure Service Fabric ger uppgradera support för att pu
 ## <a name="parameters-needed-to-upgrade"></a>Parametrar som behövs för att uppgradera
 Du kan välja mellan två typer av distribution: regelbundet eller uppgradera. En vanlig distribution raderas alla tidigare distributionsinformation och data på klustret, medan en uppgraderingen distribuerades bevarar den. När du uppgraderar en Service Fabric-program i Visual Studio, måste du ange programuppgraderingsparametrar och hälsa kontrollera principer. Programuppgraderingsparametrar bidrar till att kontrollera uppgraderingen, medan kontroll hälsoprinciper avgöra om uppgraderingen lyckades. Se [Service Fabric-Programuppgradering: Uppgraderingsparametrar](service-fabric-application-upgrade-parameters.md) för mer information.
 
-Det finns tre lägen för uppgradering: *övervakade*, *UnmonitoredAuto*, och *UnmonitoredManual*.
+Det finns tre lägen för uppgraderingen: *Övervakas*, *UnmonitoredAuto*, och *UnmonitoredManual*.
 
 * En uppgradering av övervakade automatiserar uppgraderingen och hälsokontrollen för programmet.
 * Uppgradering UnmonitoredAuto automatiserar uppgraderingen, men hoppar över hälsokontrollen för programmet.

@@ -1,27 +1,22 @@
 ---
-title: Installera och använda Giraph på HDInsight (Hadoop) – Azure
-description: Lär dig mer om att installera Giraph på Linux-baserade HDInsight-kluster med skriptåtgärder. Skriptåtgärder kan du anpassa klustret när du skapar genom att ändra konfigurationen för klustret eller installera tjänster och verktyg.
-services: hdinsight
+title: Installera och använda Giraph på Azure HDInsight
+description: Lär dig mer om att installera Giraph på HDInsight-kluster med skriptåtgärder. Du kan använda Giraph för att göra diagrambearbetning i Apache Hadoop i Azure-molnet.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: hrasheed
-ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 04/22/2019
+ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61395391"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installera Apache Giraph på HDInsight Hadoop-kluster och använda Giraph för att bearbeta storskaliga diagram
 
 Lär dig mer om att installera Apache Giraph på ett HDInsight-kluster. Funktionen för åtgärden skriptet i HDInsight kan du anpassa ditt kluster genom att köra ett bash-skript. Skript kan användas för att anpassa kluster under och när klustret har skapats.
-
-> [!IMPORTANT]  
-> Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>Vad är Giraph
 
@@ -58,7 +53,7 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
 > [!NOTE]  
 > En skriptåtgärd kan tillämpas med hjälp av någon av följande metoder:
 > * Azure PowerShell
-> * Den klassiska Azure CLI
+> * Azure CLI
 > * HDInsight .NET SDK
 > * Azure Resource Manager-mallar
 > 
@@ -148,7 +143,7 @@ När klustret har skapats, kan du använda följande steg för att köra exemple
 
     Mer information om dessa och andra parametrar som används med Giraph exempel finns i den [Giraph snabbstarten](https://giraph.apache.org/quick_start.html).
 
-6. När jobbet har slutförts resultaten lagras i den **/example/out/shotestpaths** directory. Utdata-filnamn som börjar med **del-m -** och måste sluta med ett tal som anger först, andra, etc.-fil. Använd följande kommando för att visa utdata:
+6. När jobbet har slutförts resultaten lagras i den **/example/out/shortestpaths** directory. Utdata-filnamn som börjar med **del-m -** och måste sluta med ett tal som anger först, andra, etc.-fil. Använd följande kommando för att visa utdata:
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*

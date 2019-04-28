@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121886"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Självstudier: Bevilja en användare åtkomst till Azure-resurser med hjälp av RBAC och Azure PowerShell
 
@@ -46,7 +46,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 För att skapa åtkomst i RBAC skapar du rolltilldelningar. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång. Här följer två rolltilldelningar som du utför i den här självstudiekursen:
 
-| Säkerhetsobjekt | Rolldefinition | Omfång |
+| Säkerhetsobjekt | Rolldefinition | Scope |
 | --- | --- | --- |
 | Användare<br>(RBAC-kursanvändare) | [Läsare](built-in-roles.md#reader) | Prenumeration |
 | Användare<br>(RBAC-kursanvändare)| [Deltagare](built-in-roles.md#contributor) | Resursgrupp<br>(rbac-tutorial-resource-user) |

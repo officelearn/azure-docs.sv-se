@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jamesbak
 ms.openlocfilehash: a5e7fd200617661c38b65ebbd4473a1a729de457
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682363"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482099"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Apache Hive i Azure HDInsight
 
@@ -252,7 +252,7 @@ Du behöver namnet på servern från SQL-databasen för den här åtgärden. Slu
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Ersätt platshållaren `<server-name>` med lösenordet för namnet på SQL-databasservern.
+   * Ersätt platshållaren `<server-name>` med lösenordet för namnet på SQL Database-servern.
 
    * Ersätt platshållaren `<admin-login>` med administratörsinloggningen för SQL Database.
 

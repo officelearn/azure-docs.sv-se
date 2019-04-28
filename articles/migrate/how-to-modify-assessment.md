@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: raynew
 ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129831"
 ---
 # <a name="customize-an-assessment"></a>Anpassa en utvärdering
 
@@ -45,19 +45,19 @@ ms.locfileid: "54200317"
 
 ### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Vad är skillnaden mellan som lokalt storlek och prestandabaserad storleksändring?
 
-När du anger storlekskriteriet vara som lokalt storlek, Azure Migrate beräknar inte prestandadata för de virtuella datorerna och storlekar på virtuella datorer baserat på den lokala konfigurationen. Om storlekskriteriet är prestandabaserat, görs utskriftsserverns storlek baserat på användningsdata. Exempel: om det finns en lokal virtuell dator med 4 kärnor och 8 GB minne med 50% processoranvändning och minnesanvändning på 50%. Om storlekskriteriet är som lokala ändrar storlek på en Azure VM-SKU med 4 kärnor och 8 GB minne rekommenderas, men om storlekskriteriet är prestandabaserat som VM-SKU på 2 kärnor och 4 GB skulle rekommenderas eftersom utnyttjandeprocent anses medan rekommendera storleken.
+När du anger storlekskriteriet vara som lokalt storlek, Azure Migrate beräknar inte prestandadata för de virtuella datorerna och storlekar på virtuella datorer baserat på den lokala konfigurationen. Om storlekskriteriet är prestandabaserat, görs utskriftsserverns storlek baserat på användningsdata. Anta till exempel att det finns en lokal virtuell dator med 4 kärnor och 8 GB minne med 50 % processoranvändning och en minnesanvändning på 50 %. Om storlekskriteriet är lokal storleksändring rekommenderas en Azure VM SKU med 4 kärnor och 8 GB minne. Om storlekskriteriet däremot är prestandabaserat rekommenderas en VM SKU med 2 kärnor och 4 GB eftersom utnyttjandeprocenten tas i beaktande när storleken rekommenderas.
 
-Diskar beror på samma sätt, disk-storlek på två utvärderingsegenskaperna – ändra storlek på kriterium och lagringstyp. Om storlekskriteriet är prestandabaserat och lagringstyp är automatisk, IOPS och dataflöden värdena för disken är att identifiera disktyp (Standard eller Premium). Om storlekskriteriet är prestandabaserat och lagringstyp är premium, en premiumdisk rekommenderas, premiumdisk SKU: N i Azure är valt baserat på storleken på den lokala disken. Samma logik används för att disk storlek om storlekskriteriet är som lokala storlek och lagringstyp är antingen standard eller premium.
+Diskar beror på samma sätt, disk-storlek på två utvärderingsegenskaperna – ändra storlek på kriterium och lagringstyp. Om storlekskriteriet är prestandabaserat och lagringstypen är automatisk, tas diskens IOPS- och dataflödesvärden i beaktande för att identifiera disktypen (Standard eller Premium). Om storlekskriteriet är prestandabaserat och lagringstypen är Premium, rekommenderas en premiumdisk. SKU för premiumdiskar i Azure väljs baserat på storleken på den lokala disken. Samma logik används för att bestämma diskstorleken när storlekskriteriet är lokal storleksändring och lagringstypen är Standard eller Premium.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Vilken effekt har prestanda historik och percentil belastningen på storleksrekommendationer som?
 
-Dessa egenskaper gäller endast för prestandabaserade storleksändringar. Azure Migrate samlar in prestandahistoriken för lokala datorer och använder den för att rekommendera VM-storlek och disk-typ i Azure.
+Dessa egenskaper gäller endast för prestandabaserad storleksändring. Azure Migrate samlar in prestandahistorik för lokala datorer och använder den för att rekommendera VM-storleken och disktypen i Azure.
 
-- Insamlingsprogrammet profiler kontinuerligt den lokala miljön för att samla in användningsdata i realtid var 20: e sekund.
-- Installationen samlar in 20 sekunder exemplen och skapar en enskild datapunkt för varje kvart. Om du vill skapa den enda datapunkten installationen väljer det högsta värdet 20 sekunder exemplen och skickar det till Azure.
-- När du skapar en utvärdering i Azure, baserat på prestanda, varaktighet och historik: e percentilen prestandavärde, Azure Migrate beräknar effektivt utnyttjande värde och använder den för storleksändringar.
+- Insamlingsprogrammet profilerar kontinuerligt den lokala miljön för att samla in användningsdata i realtid var 20:e sekund.
+- Programmet samlar in stickprov var 20:e sekund och skapar en enskild datapunkt för varje kvart. För att skapa den enskilda datapunkten väljer programmet det högsta värdet från alla 20-sekundersstickprov och skickar det till Azure.
+- När du skapar en utvärdering i Azure, baserat på percentilen för prestandavaraktighet och prestandahistorik, beräknar Azure Migrate det effektiva användningsvärdet och använder det för storleksändring.
 
-Till exempel om du har angett varaktigheten ska vara 1 dag och percentilvärdet till 95: e percentilen, Azure Migrate använder högst 15 minuters exempel-punkter som skickats av insamlaren för den senaste dagen, sorterade i stigande ordning och hämtar det 95-procentigt percentilvärdet som faktiska användning. 95-procentigt percentilvärde säkerställer att du ignorerar några avvikare som kan komma om du väljer den 99: e percentilen. Om du vill välja den högsta användningen för perioden och inte vill missa några avvikare, bör du välja den 99: e percentilen.
+Om du till exempel har ställt in prestandavaraktigheten på 1 dag och percentilvärdet till den 95:e percentilen använder Azure Migrate punkterna från 15-minutersstickproven som skickats av insamlaren den senaste dagen, sorterar dem i stigande ordning och hämtar värdet för den 95:e percentilen som den faktiska användningen. Värdet för den 95:e percentilen ser till att avvikande värden ignoreras, som kan tas med om du väljer den 99:e percentilen. Om du vill välja den högsta användningen för perioden och inte vill missa några avvikande värden bör du välja den 99:e percentilen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485505"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Felsöka Azure VM RDP-anslutningsfel efter händelse-ID 
 
@@ -54,38 +54,38 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Loggnamn:** System <br />
-**Källa:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:** *tid* <br />
-**Händelse-ID:** 1058 <br />
-**Aktivitetskategori:** None <br />
-**Nivå:** fel <br />
-**Nyckelord:** klassiska <br />
-**Användare:** saknas <br />
-**Dator:** *dator* <br />
-**Beskrivning:** värdserver för fjärrskrivbordssession har det gick inte att ersätta det utgångna självsignerat certifikat som används för autentisering av värdserver för fjärrskrivbordssession i SSL-anslutningar. Statuskoden var åtkomst nekas.
+**Loggnamn:**      System <br />
+**Källa:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Datum:***tid* <br />
+**Händelse-ID:**      1058 <br />
+**Aktivitetskategori:** Ingen <br />
+**Nivå:**         Fel <br />
+**Nyckelord:**      Klassisk <br />
+**Användare:**          Gäller inte <br />
+**Dator:***dator* <br />
+**Beskrivning:** Det gick inte att ersätta det utgångna självsignerat certifikat som används för autentisering av värdserver för fjärrskrivbordssession i SSL-anslutningar värdserver för fjärrskrivbordssessioner. Statuskoden var åtkomst nekas.
 
-**Loggnamn:** System <br />
-**Källa:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:** *tid* <br />
-**Händelse-ID:** 1058 <br />
-**Aktivitetskategori:** None <br />
-**Nivå:** fel <br />
-**Nyckelord:** klassiska <br />
-**Användare:** saknas <br />
-**Dator:** *dator* <br />
-**Beskrivning:** värdserver för fjärrskrivbordssessioner kunde inte skapa ett nytt självsignerat certifikat som ska användas för serverautentisering för RD Session host i SSL-anslutningar, statuskod: var objektet finns redan.
+**Loggnamn:**      System <br />
+**Källa:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Datum:***tid* <br />
+**Händelse-ID:**      1058 <br />
+**Aktivitetskategori:** Ingen <br />
+**Nivå:**         Fel <br />
+**Nyckelord:**      Klassisk <br />
+**Användare:**          Gäller inte <br />
+**Dator:***dator* <br />
+**Beskrivning:** Server för RD Session host kunde inte skapa ett nytt självsignerat certifikat som ska användas för serverautentisering för RD Session host i SSL-anslutningar, statuskod: var objektet finns redan.
 
-**Loggnamn:** System <br />
-**Källa:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:** *tid* <br />
-**Händelse-ID:** 1057 <br />
-**Aktivitetskategori:** None <br />
-**Nivå:** fel <br />
-**Nyckelord:** klassiska <br />
-**Användare:** saknas <br />
-**Dator:** *dator* <br />
-**Beskrivning:** värdserver för fjärrskrivbordssessioner kunde inte skapa ett nytt självsignerat certifikat som ska användas för autentisering av värdserver för fjärrskrivbordssession på SSL-anslutningar. Statuskoden var Keyset inte finns
+**Loggnamn:**      System <br />
+**Källa:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Datum:***tid* <br />
+**Händelse-ID:**      1057 <br />
+**Aktivitetskategori:** Ingen <br />
+**Nivå:**         Fel <br />
+**Nyckelord:**      Klassisk <br />
+**Användare:**          Gäller inte <br />
+**Dator:***dator* <br />
+**Beskrivning:** Det gick inte att skapa ett nytt självsignerat certifikat som ska användas för autentisering av värdserver för fjärrskrivbordssession på SSL-anslutningar värdserver för fjärrskrivbordssessioner. Statuskoden var Keyset inte finns
 
 Du kan också leta efter SCHANNEL felhändelser 36872 och 36870 genom att köra följande kommandon:
 
@@ -94,16 +94,16 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Loggnamn:** System <br />
-**Källa:** Schannel <br />
+**Loggnamn:**      System <br />
+**Källa:**        Schannel <br />
 **Datum:** – <br />
-**Händelse-ID:** 36870 <br />
-**Aktivitetskategori:** None <br />
-**Nivå:** fel <br />
+**Händelse-ID:**      36870 <br />
+**Aktivitetskategori:** Ingen <br />
+**Nivå:**         Fel <br />
 **Nyckelord:**       <br />
-**Användare:** SYSTEM <br />
-**Dator:** *dator* <br />
-**Beskrivning:** ett allvarligt fel uppstod vid försök att komma åt den privata nyckeln för SSL server autentiseringsuppgifter. Felkoden som returnerades från den kryptografiska modulen är 0x8009030D.  <br />
+**Användare:**          SYSTEM <br />
+**Dator:***dator* <br />
+**Beskrivning:** Ett allvarligt fel uppstod vid försök att komma åt den privata nyckeln för SSL server autentiseringsuppgifter. Felkoden som returnerades från den kryptografiska modulen är 0x8009030D.  <br />
 Internt fel-tillståndet är 10001.
 
 ### <a name="cause"></a>Orsak
@@ -216,16 +216,16 @@ Kör följande kommandon för att kontrollera om SCHANNEL-felhändelse 36871 log
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Loggnamn:** System <br />
-**Källa:** Schannel <br />
+**Loggnamn:**      System <br />
+**Källa:**        Schannel <br />
 **Datum:** – <br />
-**Händelse-ID:** 36871 <br />
-**Aktivitetskategori:** None <br />
-**Nivå:** fel <br />
+**Händelse-ID:**      36871 <br />
+**Aktivitetskategori:** Ingen <br />
+**Nivå:**         Fel <br />
 **Nyckelord:**       <br />
-**Användare:** SYSTEM <br />
-**Dator:** *dator* <br />
-**Beskrivning:** ett allvarligt fel inträffade när en autentiseringsuppgift för TLS-server. Internt fel-tillståndet är 10013.
+**Användare:**          SYSTEM <br />
+**Dator:***dator* <br />
+**Beskrivning:** Ett allvarligt fel inträffade när en autentiseringsuppgift för TLS-server. Internt fel-tillståndet är 10013.
  
 ### <a name="cause"></a>Orsak
 
@@ -246,36 +246,36 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Loggnamn:** Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
-**Källa:** Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Datum:** *tid* <br />
-**Händelse-ID:** 2056 <br />
+**Loggnamn:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
+**Källa:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
+**Datum:***tid* <br />
+**Händelse-ID:**      2056 <br />
 **Aktivitetskategori:** (109) <br />
-**Nivå:** fel <br />
+**Nivå:**         Fel <br />
 **Nyckelord:**       <br />
-**Användare:** NÄTVERKSTJÄNST <br />
-**Dator:** *datorn fqdn* <br />
-**Beskrivning:** går inte att hitta beskrivningen av händelse-ID 2056 från källan Microsoft-Windows-TerminalServices-SessionBroker. Antingen den komponent som genererar den här händelsen är inte installerad på den lokala datorn eller installationen är skadad. Du kan installera eller reparera komponenten på den lokala datorn. <br />
+**Användare:**          NÄTVERKSTJÄNST <br />
+**Dator:***datorn fqdn* <br />
+**Beskrivning:** Beskrivningen av händelse-ID 2056 från källan Microsoft-Windows-TerminalServices-SessionBroker kan inte hittas. Antingen den komponent som genererar den här händelsen är inte installerad på den lokala datorn eller installationen är skadad. Du kan installera eller reparera komponenten på den lokala datorn. <br />
 Om händelsen skapades på en annan dator, hade visningsinformationen sparas till händelsen. <br />
 Följande information ingick i händelsen: <br />
 NULL <br />
 NULL <br />
 Det gick inte att logga in på databasen.
 
-**Loggnamn:** Microsoft-Windows-TerminalServices-SessionBroker-klient/Operational <br />
-**Källa:** Microsoft-Windows-TerminalServices-SessionBroker-klient <br />
-**Datum:** *tid* <br />
-**Händelse-ID:** 1296 <br />
+**Loggnamn:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
+**Källa:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**Datum:***tid* <br />
+**Händelse-ID:**      1296 <br />
 **Aktivitetskategori:** (104) <br />
-**Nivå:** fel <br />
+**Nivå:**         Fel <br />
 **Nyckelord:**       <br />
-**Användare:** NÄTVERKSTJÄNST <br />
-**Dator:** *datorn fqdn* <br />
-**Beskrivning:** går inte att hitta beskrivningen av händelse-ID 1296 från källan Microsoft-Windows-TerminalServices-SessionBroker-klient. Antingen den komponent som genererar den här händelsen är inte installerad på den lokala datorn eller installationen är skadad. Du kan installera eller reparera komponenten på den lokala datorn.
+**Användare:**          NÄTVERKSTJÄNST <br />
+**Dator:***datorn fqdn* <br />
+**Beskrivning:** Beskrivningen av händelse-ID 1296 från källan Microsoft-Windows-TerminalServices-SessionBroker-klient kan inte hittas. Antingen den komponent som genererar den här händelsen är inte installerad på den lokala datorn eller installationen är skadad. Du kan installera eller reparera komponenten på den lokala datorn.
 Om händelsen skapades på en annan dator, hade visningsinformationen sparas till händelsen.
 Följande information ingick i händelsen:  <br />
-*Text* <br />
-*Text* <br />
+*text* <br />
+*text* <br />
 Anslutningsutjämning för fjärrskrivbord är inte klar för RPC-kommunikation.
 
 ### <a name="cause"></a>Orsak

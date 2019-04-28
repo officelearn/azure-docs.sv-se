@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931825"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka data till Azure Monitor med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Azure Monitor från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Azure Monitor.  Exempel tillhandahålls för PowerShell, C# och Python.
@@ -42,7 +42,7 @@ Alla data i Log Analytics-arbetsytan lagras som en post med en viss posttyp.  Du
 Om du vill använda HTTP Data Collector API måste skapa du en POST-begäran som innehåller data som skickas i JavaScript Object Notation (JSON).  I följande tre tabeller anges de attribut som krävs för varje begäran. Vi beskriver varje attribut i detalj senare i artikeln.
 
 ### <a name="request-uri"></a>Förfrågans URI
-| Attribut | Egenskap |
+| Attribut | Egenskap  |
 |:--- |:--- |
 | Metod |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
@@ -142,7 +142,7 @@ Om du vill identifiera datatypen för en egenskap, lägger Azure Monitor till et
 | Typ av egenskapsdata | Suffix |
 |:--- |:--- |
 | String |_s |
-| Boolesk |_b |
+| Boolean |_b |
 | Double |_d |
 | Datum/tid |_t |
 | GUID |_g |
@@ -171,7 +171,7 @@ Om du skickat sedan följande post innan typ av post skapades, Azure Monitor sku
 ## <a name="reserved-properties"></a>Reserverade egenskaper
 Följande egenskaper är reserverat och ska inte användas i en anpassad posttyp. Du får ett fel om din nyttolasten innehåller något av dessa egenskapsnamn.
 
-- klient
+- tenant
 
 ## <a name="data-limits"></a>Databegränsningar
 Det finns vissa begränsningar kring data som skickats till samlingen övervakningsdata som Azure API.

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790750"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Värden Utjämning av nätverksbelastning Azure-webbappar i basdomänen
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig hur du skapar en aliaspost för din domän
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
@@ -43,7 +43,7 @@ Skapa en resursgrupp för att lagra alla resurser som används i den här artike
 Skapa två Web App Service-planer i resursgruppen med hjälp av tabellen nedan för information om konfiguration. Läs mer om hur du skapar en App Service plan [hantera en App Service-plan i Azure](../app-service/app-service-plan-manage.md).
 
 
-|Namn  |Operativsystem  |Plats  |Prisnivå  |
+|Namn  |Operativsystem  |Location  |Prisnivå  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|Östra USA|Utveckling/testning i D1-delade|
 |ASP-02     |Windows|Centrala USA|Utveckling/testning i D1-delade|
@@ -87,7 +87,7 @@ Nu kan du skapa slutpunkter för de två web apps.
 3. Klicka på **Lägg till**.
 4. Använd tabellen nedan för att konfigurera slutpunkter:
 
-   |Type  |Namn  |Mål  |Plats  |Inställningar för anpassat sidhuvud|
+   |Typ  |Namn  |Mål  |Location  |Inställningar för anpassat sidhuvud|
    |---------|---------|---------|---------|---------|
    |Extern slutpunkt     |End-01|IP-adress som du registrerade för App-01|Östra USA|värden:\<URL: en som du registrerade för App-01\><br>Exempel: **värden: app-01.azurewebsites.net**|
    |Extern slutpunkt     |End-02|IP-adress som du registrerade för App-02|Centrala USA|värden:\<URL: en som du registrerade för App-02\><br>Exempel: **värden: app-02.azurewebsites.net**
@@ -104,7 +104,7 @@ När DNS-zonen är klar kan du lägga till en aliaspost för zonens apex.
 2. Klicka på **Postuppsättning**.
 3. Lägg till posten med hjälp av följande tabell:
 
-   |Namn  |Type  |Alias-postuppsättning  |Aliastypen  |Azure-resurs|
+   |Namn  |Typ  |Alias-postuppsättning  |Aliastypen  |Azure-resurs|
    |---------|---------|---------|---------|-----|
    |@     |A|Ja|Azure-resurs|Traffic Manager - profilen|
 
@@ -141,6 +141,6 @@ Nu kan du testa för att se till att du kan nå din webbapp och att de load-bala
 
 Om du vill veta mer om alias poster, finns i följande artiklar:
 
-- [Självstudier: Konfigurera en aliaspost för att referera till en Azure offentlig IP-adress](tutorial-alias-pip.md)
-- [Självstudier: Konfigurera en aliaspost för att stödja apex-domännamn med Traffic Manager](tutorial-alias-tm.md)
+- [Självstudie: Konfigurera en aliaspost för att referera till en Azure offentlig IP-adress](tutorial-alias-pip.md)
+- [Självstudie: Konfigurera en aliaspost för att stödja apex-domännamn med Traffic Manager](tutorial-alias-tm.md)
 - [Vanliga frågor och svar om DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096258"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använda Azure DNS för att ange inställningar för anpassad domän för en Azure-tjänst
 
@@ -124,7 +124,7 @@ Gå till **Storage** > **Lagringskonton**, Välj ditt lagringskonto och på **Cu
 Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande information på den **lägga till en postuppsättning** bladet och klickar på **OK** att skapa den.
 
 
-|Egenskap  |Värde  |Beskrivning  |
+|Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | asverify.mystorageaccount        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
 |Typ     | CNAME        | Använd en CNAME-post använder ett alias.        |
@@ -152,7 +152,7 @@ Välj vilken slutpunkt du arbetar med och klicka på **+ anpassad domän**. Obs 
 
 Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande information på den **lägga till en postuppsättning** bladet och klickar på **OK** att skapa den.
 
-|Egenskap  |Värde  |Beskrivning  |
+|Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | cdnverify.mycdnendpoint        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
 |Typ     | CNAME        | Använd en CNAME-post använder ett alias.        |

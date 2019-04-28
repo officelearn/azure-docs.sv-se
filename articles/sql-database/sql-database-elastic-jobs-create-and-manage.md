@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: a95b62ab8f639ad38ee3ac9ace4f30b62bd852bf
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476062"
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Skapa och hantera utskalade Azure SQL-databaser med elastiska jobb (förhandsversion)
 
@@ -27,7 +27,7 @@ ms.locfileid: "55565062"
 
 **Elastic Database-jobb** förenkla hanteringen av grupper av databaser genom att köra administrativa åtgärder, till exempel schemaändringar, hantering av autentiseringsuppgifter, uppdateringar av referensdata, insamling av prestandadata eller klient (kund)-telemetri samling. Elastic Database-jobb är för närvarande tillgänglig via Azure-portalen och PowerShell-cmdletar. Men Azure portal hämtar nedsatt funktionalitet begränsad till körning över alla databaser i en [elastisk pool](sql-database-elastic-pool.md). Ställ in åtkomst till ytterligare funktioner och körning av skript i en grupp med databaser, till exempel en samling med fördefinierade eller ett fragment (skapats med hjälp av [Elastic Database-klientbiblioteket](sql-database-elastic-scale-introduction.md)), finns i [skapa och hantera jobb med PowerShell](sql-database-elastic-jobs-powershell.md). Mer information om jobb finns i [översikt över elastiska databasjobb](sql-database-elastic-jobs-overview.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * En Azure-prenumeration. En kostnadsfri utvärderingsversion, se [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * En elastisk pool. Se [om elastiska pooler](sql-database-elastic-pool.md).
 * Installationen av tjänstkomponenter för elastic database-jobb. Se [installera elastiska jobb databastjänsten](sql-database-elastic-jobs-service-installation.md).

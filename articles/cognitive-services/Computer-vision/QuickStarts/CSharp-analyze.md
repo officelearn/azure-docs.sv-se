@@ -12,11 +12,11 @@ ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 7ad03d06325f45aacd53817d92202b07de7c26e9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011171"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61346334"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c-in-computer-vision"></a>Snabbstart: Analysera en lokal bild med hjälp av REST-API:et och C# i visuellt innehåll
 

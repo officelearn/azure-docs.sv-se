@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
 ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61431165"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Skapa en app search konsolklient i C#
 
@@ -27,7 +27,7 @@ Den här kursen visar hur du:
 - Gör en enkel fråga till Bing Web Search API
 - Visa frågeresultaten i rankad ordning
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa självstudiekursen behöver du:
 

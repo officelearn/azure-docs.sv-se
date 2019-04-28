@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 3/18/2019
 ms.custom: mvc
 ms.openlocfilehash: aa0d2a9e990faa8d99355744824f34e26aeb519e
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137920"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61231088"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Snabbstart: Skapa en Azure Database for MySQL med ett enkelt Azure CLI-kommando - az mysql in (förhandsversion)
 
@@ -22,7 +22,7 @@ ms.locfileid: "58137920"
 
 Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du använder den [az mysql in](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) kommando för att skapa en Azure Database for MySQL-server med Azure CLI. Förutom att skapa servern, den `az mysql up` kommandot skapar en exempeldatabas, en rotanvändare i databasen, öppnar brandväggen för Azure-tjänster och skapar brandväggsregler för klientdatorn. Detta hjälper till att påskynda utvecklingen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 4/23/2019
 ms.author: victorh
-ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738796"
 ---
 # <a name="fqdn-tags-overview"></a>Översikt över FQDN-taggar
 
@@ -35,7 +35,7 @@ I följande tabell visas de aktuella FQDN-taggar som du kan använda. Microsoft 
 |MAPS (Microsoft Active Protection Service)|Tillåter utgående åtkomst till [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service Environment (ASE)|Tillåter utgående åtkomst till ASE plattform-trafik. Den här taggen täcker inte kundspecifika-lagring och SQL-slutpunkter som skapats av ASE. Dessa ska aktiveras [tjänstslutpunkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller läggs till manuellt.<br><br>Mer information om hur du integrerar Azure-brandvägg med ASE finns i [låsa en App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Azure Backup|Tillåter utgående åtkomst till tjänsterna Azure Backup.|
-|Azure HDInsight<br>(Förhandsversion)|Tillåter utgående åtkomst för trafik för HDInsight-plattformen. Den här taggen täcker inte kundspecifika lagrings- eller SQL-trafik från HDInsight. De aktiveras [tjänstslutpunkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller läggs till manuellt.|
+|Azure HDInsight<br>(Förhandsversion)|Tillåter utgående åtkomst för trafik för HDInsight-plattformen. Den här taggen täcker inte kundspecifika lagrings- eller SQL-trafik från HDInsight. Aktivera de här med hjälp av [tjänstslutpunkter](../virtual-network/tutorial-restrict-network-access-to-resources.md) eller lägga till dem manuellt.|
 
 > [!NOTE]
 > När du väljer FQDN-tagg i en regel för programmet, fältet protocol: port måste anges till **https**.

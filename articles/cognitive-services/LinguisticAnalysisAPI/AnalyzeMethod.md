@@ -12,11 +12,11 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61401195"
 ---
 # <a name="analyze-method"></a>Analysera metod
 
@@ -40,9 +40,9 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 Namn | Type | Obligatoriskt | Beskrivning
 -----|-------|----------|------------
-**language**    | sträng | Ja | De två enhetsbokstaven ISO språkkoden som ska användas för analys. Engelska är till exempel ”SV”.
+**language**    | string | Ja | De två enhetsbokstaven ISO språkkoden som ska användas för analys. Engelska är till exempel ”SV”.
 **analyzerIds** | lista med strängar | Ja | Lista över GUID-numren för analysverktyg tillämpas. Analysverktyg dokumentationen för mer information.
-**text**        | sträng | Ja | Rå-indata som ska analyseras. Det kan vara en kort sträng, till exempel ett ord eller fraser, en fullständig mening eller en fullständig punkt eller discourse.
+**text**        | string | Ja | Rå-indata som ska analyseras. Det kan vara en kort sträng, till exempel ett ord eller fraser, en fullständig mening eller en fullständig punkt eller discourse.
 
 ## <a name="response-json"></a>Svar (JSON)
 
@@ -52,7 +52,7 @@ Resultaten se ut så här:
 
 Namn | Typ | Beskrivning
 -----|------|--------------
-analyzerId | sträng | GUID för analysatorn anges
+analyzerId | string | GUID för analysatorn anges
 Resultatet | objekt | Analyzer-resultat
 
 Observera att typ av resultatet beror på vilken typ av inkommande analyzer.
@@ -67,8 +67,8 @@ result[x].Len | int | Längden i tecken för varje mening |
 result[x].Tokens | lista över token-objekt | token gränser som anges i meningen |
 result[x].Tokens[y].Offset | int | Starta en teckenförskjutning av token |
 result[x].Tokens[y].Len | int | Längden i tecken för token |
-result[x].Tokens[y].RawToken | sträng | tecknen inom denna token innan normalisering |
-resultatet [x]. Token [y]. NormalizedToken | sträng | en normaliserad form av tecknet säker för användning i en [parsa trädet](Constituency-Parsing.md); exempelvis ett öppna parentesen tecken ' (' blir - LRB - |
+result[x].Tokens[y].RawToken | string | tecknen inom denna token innan normalisering |
+resultatet [x]. Token [y]. NormalizedToken | string | en normaliserad form av tecknet säker för användning i en [parsa trädet](Constituency-Parsing.md); exempelvis ett öppna parentesen tecken ' (' blir - LRB - |
 
 Exempel på indata ”: det här är ett test. Hello.'
 Exempel-JSON-svar:

@@ -10,11 +10,11 @@ ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467776"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(INAKTUELL) Övervaka ett Azure Container Service-kluster med ELK
 
@@ -22,7 +22,7 @@ ms.locfileid: "52998145"
 
 I den här artikeln visar vi hur du distribuerar ELK (Elasticsearch, Logstash, Kibana)-stacken på ett DC/OS-kluster i Azure Container Service. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 [Distribuera](container-service-deployment.md) och [ansluta](../container-service-connect.md) ett DC/OS-kluster som har konfigurerats med Azure Container Service. Utforska instrumentpanelen för DC/OS och Marathon tjänster [här](container-service-mesos-marathon-ui.md). Även installera den [Marathon Load Balancer](container-service-load-balancing.md).
 
 

@@ -1,5 +1,5 @@
 ---
-title: Principer för tjänstslutpunkter för virtuella Azure-nätverk | Microsoft Docs
+title: Principer för tjänstslutpunkter för virtuellt nätverk i Azure | Microsoft Docs
 description: Lär dig hur du filtrerar virtuell nätverkstrafik till Azure-tjänstresurser med hjälp av tjänstslutpunktsprinciper
 services: virtual-network
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61033908"
 ---
-# <a name="virtual-network-service-endpoint-policies-preview"></a>Principer för tjänstslutpunkter för virtuella nätverk (förhandsversion)
+# <a name="virtual-network-service-endpoint-policies-preview"></a>Principer för tjänstslutpunkter för virtuellt nätverk (förhandsversion)
 
 Med principer för tjänstslutpunkter för virtuella nätverk (VNet) kan du filtrera trafik i virtuella nätverk till Azure-tjänster för att endast tillåta specifika Azure-tjänstresurser över tjänstslutpunkter. Slutpunktsprinciper ger detaljerad åtkomstkontroll för trafik i virtuella nätverk till Azure-tjänster.
 
@@ -29,11 +29,11 @@ __Azure Storage__: Västra centrala USA, västra USA 2, Usanorracentrala, Usasö
 De mest uppdaterade meddelandena för förhandsversionen finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
 > [!NOTE]  
-> Under förhandsversionen har principerna för tjänstslutpunkter för virtuella nätverk kanske inte har samma tillgänglighet och pålitlighet som funktioner som är allmänt tillgängliga. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Under förhandsversionen har principerna för tjänstslutpunkt för virtuellt nätverk kanske inte samma tillgänglighet och pålitlighet som funktioner som är allmänt tillgängliga. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
-Principer för tjänstslutpunkter för virtuella nätverk ger följande fördelar:
+Principer för tjänstslutpunkt för virtuellt nätverk ger följande fördelar:
 
 - __Förbättrad säkerhet för dina virtuella nätverkstrafik till Azure-tjänster__
 
@@ -190,6 +190,6 @@ Följande begränsningar tillämpas på tjänstslutpunktsprinciper:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig [hur du konfigurerar tjänstslutpunktsprinciper i virtuella nätverk](virtual-network-service-endpoint-policies-portal.md)
-- Läs mer om [tjänstslutpunkter för virtuella nätverk](virtual-network-service-endpoints-overview.md)
+- Lär dig [hur du konfigurerar principer för tjänstslutpunkt för virtuellt nätverk](virtual-network-service-endpoint-policies-portal.md)
+- Läs mer om [tjänstslutpunkter för virtuellt nätverk](virtual-network-service-endpoints-overview.md)
 

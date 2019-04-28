@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9d9369afd36f64c27cd2222cab0de5912aa913de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909204"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Azure säkerhetsprinciper som övervakas av Security Center
 Den här artikeln innehåller en lista över Azure Policy-definitioner som du kan övervaka i Azure Security Center. Mer information om säkerhetsprinciper finns [arbeta med säkerhetsprinciper](tutorial-security-policy.md).
@@ -59,28 +59,28 @@ Mer om de inbyggda principer som övervakas av Security Center finns i följande
 |Granska granskningsinställningar på SQL-servernivå|Granska förekomst av SQL-granskning på servernivå.|
 |\[Förhandsversion]: Övervaka okrypterade SQL-databas i Azure Security Center|Azure Security Center övervakar okrypterade SQL-servrar eller databaser som rekommenderas.|
 |\[Förhandsversion]: Övervaka ogranskad SQL-databas i Azure Security Center|Azure Security Center övervakar SQL-servrar och databaser som inte har SQL-granskning aktiverat vilket rekommenderas.|
-|\[Förhandsversion]: Övervaka systemuppdateringar som saknas i Azure Security Center|Azure Security Center övervakar system säkerhetsuppdateringar som saknas på dina servrar, vilket rekommenderas.|
-|\[Förhandsversion]: Granska blobbkryptering som saknas för lagringskonton|Granska lagringskonton som inte använder blobbkryptering. Detta gäller endast Microsoft storage resurstyper, inte storage från andra leverantörer. Azure Security Center övervakar möjlig just-in-time-nätverksåtkomst som rekommenderas.|
+|\[Förhandsversion]: Övervaka avsaknad av systemuppdateringar i Azure Security Center|Azure Security Center övervakar system säkerhetsuppdateringar som saknas på dina servrar, vilket rekommenderas.|
+|\[Förhandsversion]: Granska avsaknad av blobkryptering för lagringskonton|Granska lagringskonton som inte använder blobbkryptering. Detta gäller endast Microsoft storage resurstyper, inte storage från andra leverantörer. Azure Security Center övervakar möjlig just-in-time-nätverksåtkomst som rekommenderas.|
 |\[Förhandsversion]: Övervaka nätverket just-in-time-åtkomst i Azure Security Center|Azure Security Center övervakar möjlig just-in-time-nätverksåtkomst som rekommenderas.|
-|\[Förhandsversion]: Övervaka möjliga tillåtna appar i Azure Security Center|Azure Security Center övervakar möjliga godkända programkonfiguration.|
+|\[Förhandsversion]: Övervaka möjlig lista över tillåtna program i Azure Security Center|Azure Security Center övervakar möjliga godkända programkonfiguration.|
 |\[Förhandsversion]: Övervaka tillåten åtkomst till nätverk i Azure Security Center|Azure Security Center övervakar nätverkssäkerhetsgrupper med alltför Tillåtande regler som rekommenderas.|
-|\[Förhandsversion]: Övervaka OS-säkerhetsproblem i Azure Security Center|Azure Security Center övervakar servrar som inte uppfyller grundkonfigurationen enligt rekommendationer.| 
-|\[Förhandsversion]: Övervaka saknad Endpoint Protection i Azure Security Center|Azure Security Center övervakar servrar som inte har en installerad agent för Microsoft System Center Endpoint Protection, vilket rekommenderas.|
+|\[Förhandsversion]: Övervaka säkerhetsrisker i operativsystem i Azure Security Center|Azure Security Center övervakar servrar som inte uppfyller grundkonfigurationen enligt rekommendationer.| 
+|\[Förhandsversion]: Övervaka avsaknad av slutpunktsskydd i Azure Security Center|Azure Security Center övervakar servrar som inte har en installerad agent för Microsoft System Center Endpoint Protection, vilket rekommenderas.|
 |\[Förhandsversion]: Övervaka okrypterade VM-diskar i Azure Security Center|Azure Security Center övervakar virtuella datorer som inte har aktiverat enligt rekommendationer för diskkryptering.|
 |\[Förhandsversion]: Övervaka säkerhetsrisker i virtuell dator i Azure Security Center|Övervaka sårbarheter som identifieras av lösning för sårbarhetsbedömning och virtuella datorer som inte har en lösning för sårbarhetsbedömning i Azure Security Center enligt rekommendationer.|
 |\[Förhandsversion]: Övervaka oskyddat webbprogram i Azure Security Center|Azure Security Center ska övervaka webbprogram som saknar Brandvägg för web application enligt rekommendationer.|
 |\[Förhandsversion]: Övervaka oskyddade nätverksslutpunkter i Azure Security Center|Azure Security Center övervakar nätverks-slutpunkter som saknar nästa generations brandväggsskydd enligt rekommendationer.|
-|\[Förhandsversion]: Övervaka SQL sårbarhetsbedömning resulterar i Azure Security Center|Övervaka sårbarhetsbedömning skanningsresultat och rekommenderar så åtgärda sårbarheter i databasen.|
-|\[Förhandsversion]: Granska högsta antalet ägare för en prenumeration|Vi rekommenderar att du anger upp till tre prenumerationsägare att minska risken för intrång genom en komprometterad ägare.|
-|\[Förhandsversion]: Granska minsta antalet ägare för prenumeration|Vi rekommenderar att du anger mer än en prenumerationsägare så administratörsåtkomst redundans.|
-|\[Förhandsversion]: Granska konton med ägarbehörigheter som inte är MFA är aktiverat på en prenumeration|Multifaktorautentisering (MFA) bör aktiveras för alla prenumerationskonton som har ägarbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
-|\[Förhandsversion]: Granska konton med skrivbehörigheter som inte är MFA är aktiverat på en prenumeration|Multifaktorautentisering ska aktiveras för alla prenumerationskonton med skrivbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
-|\[Förhandsversion]: Granska konton med läsbehörigheter som inte är MFA är aktiverat på en prenumeration|Multifaktorautentisering ska aktiveras för alla prenumerationskonton som har läsbehörighet till att förhindra att överträdelser görs avseende konton och resurser.|
-|\[Förhandsversion]: Granska inaktuella konton med ägarbehörigheter för en prenumeration|Inaktuella konton som har ägarbehörighet bör tas bort från prenumerationen. Inaktuella konton har blockerats från att logga in.|
-|\[Förhandsversion]: Granska inaktuella konton på en prenumeration|Du bör ta bort inaktuella konton från dina prenumerationer. Inaktuella konton har blockerats från att logga in.|
-|\[Förhandsversion]: Granska externa konton med ägarbehörigheter för en prenumeration|Externa konton som har ägarbehörighet ska tas bort från din prenumeration för att förhindra åtkomst av behörigheter.|
-|\[Förhandsversion]: Granska externa konton med skrivbehörigheter för en prenumeration|Externa konton som har Skriv behörigheter ska tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
-|\[Förhandsversion]: Granska externa konton med läsbehörigheter för en prenumeration|Externa konton som har läsbehörighet ska tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
+|\[Förhandsversion]: Övervaka resultaten av SQL-sårbarhetsbedömning i Azure Security Center|Övervaka sårbarhetsbedömning skanningsresultat och rekommenderar så åtgärda sårbarheter i databasen.|
+|\[Förhandsversion]: Granska högsta antal ägare av en prenumeration|Vi rekommenderar att du anger upp till tre prenumerationsägare att minska risken för intrång genom en komprometterad ägare.|
+|\[Förhandsversion]: Granska lägsta antal ägare av en prenumeration|Vi rekommenderar att du anger mer än en prenumerationsägare så administratörsåtkomst redundans.|
+|\[Förhandsversion]: Granska konton med ägarbehörighet som inte är MFA-aktiverade i en prenumeration|Multifaktorautentisering (MFA) bör aktiveras för alla prenumerationskonton som har ägarbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
+|\[Förhandsversion]: Granska konton med skrivbehörighet som inte är MFA-aktiverade i en prenumeration|Multifaktorautentisering ska aktiveras för alla prenumerationskonton med skrivbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
+|\[Förhandsversion]: Granska konton med läsbehörighet som inte är MFA-aktiverade i en prenumeration|Multifaktorautentisering ska aktiveras för alla prenumerationskonton som har läsbehörighet till att förhindra att överträdelser görs avseende konton och resurser.|
+|\[Förhandsversion]: Granska föråldrade konton med skrivbehörighet i en prenumeration|Inaktuella konton som har ägarbehörighet bör tas bort från prenumerationen. Inaktuella konton har blockerats från att logga in.|
+|\[Förhandsversion]: Granska föråldrade konton i en prenumeration|Du bör ta bort inaktuella konton från dina prenumerationer. Inaktuella konton har blockerats från att logga in.|
+|\[Förhandsversion]: Granska externa konton med ägarbehörighet i en prenumeration|Externa konton som har ägarbehörighet ska tas bort från din prenumeration för att förhindra åtkomst av behörigheter.|
+|\[Förhandsversion]: Granska externa konton med skrivbehörighet i en prenumeration|Externa konton som har Skriv behörigheter ska tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
+|\[Förhandsversion]: Granska externa konton med läsbehörighet i en prenumeration|Externa konton som har läsbehörighet ska tas bort från din prenumeration för att förhindra oövervakad åtkomst.|
 
 
 

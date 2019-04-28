@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733975"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -168,7 +168,7 @@ Lägg till disk till skyddad virtuell dator | Stöds.
 Delad lagring| Det rekommenderas inte att säkerhetskopiera virtuella datorer med hjälp av klusterdelade volymer (CSV) eller skalbar filserver. CSV-skrivare har antagligen misslyckas under säkerhetskopieringen. Vid återställning, diskar som innehåller CSV-volymer kan inte komma upp.
 
 > [!NOTE]
-> Azure Backup stöder inte stripe diskar. Storleksändring av disk rekommenderas inte av Azure Backup.
+> Storleksändring av disk rekommenderas inte av Azure Backup.
 
 
 ## <a name="vm-network-support"></a>Stöd för VM-nätverk
@@ -187,7 +187,7 @@ Azure Traffic Manager   | Stöds.<br/><br/>Om den säkerhetskopierade virtuella 
 Azure DNS | Stöds.
 Anpassad DNS |    Stöds.
 Utgående anslutning via en HTTP-proxy | Stöds.<br/><br/> En autentiserad proxyserver stöds inte.
-Slutpunkter för virtuellt nätverk   | Stöds.<br/><br/> Brandvägg och virtuellt nätverksinställningarna för lagringskontot ska tillåta åtkomst från alla nätverk.
+Tjänstslutpunkter för virtuellt nätverk   | Stöds.<br/><br/> Brandvägg och virtuellt nätverksinställningarna för lagringskontot ska tillåta åtkomst från alla nätverk.
 
 
 

@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e79f4b58582ab6643a7a13ffee25503060a2208c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60929279"
 ---
 # <a name="my-first-python-runbook"></a>Min första Python-runbook
 
@@ -29,7 +29,7 @@ Den här självstudien vägleder dig genom skapandet av en [Python-runbook](auto
 > [!NOTE]
 > Med en webhook för att starta en Python-runbook stöds inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna genomföra den här kursen behöver du följande:
 

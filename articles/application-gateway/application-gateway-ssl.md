@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
 ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122208"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Konfigurera en Programgateway för SSL-avlastning med hjälp av den klassiska distributionsmodellen
 
@@ -99,17 +99,17 @@ En konfiguration för programgatewayen består av flera värden. Värdena kan ko
 
 Värdena är:
 
-* **Backend-serverpoolen**: listan över IP-adresser för backend servrarna. De IP-adresser som anges måste tillhöra det virtuella undernätet eller vara en offentlig IP-adress eller VIP-adress.
-* **Inställningar för backend-serverpool**: varje pool har inställningar som port, protokoll och Cookiebaserad tillhörighet. Dessa inställningar är knutna till en pool och tillämpas på alla servrar i poolen.
-* **Frontend-porten**: den här porten är den offentliga porten som är öppen på programgatewayen. Trafiken kommer till den här porten och omdirigeras till en av backend-servrarna.
-* **Lyssnaren**: lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga), och SSL-certifikatnamnet (om du konfigurerar en SSL-avlastning).
-* **Regeln**: regeln Binder lyssnaren och backend-serverpoolen och definierar vilken backend-serverpool för att dirigera trafiken till när den når en viss lyssnare. För närvarande stöds endast regeln *basic*. Regeln *basic* använder belastningsutjämning med resursallokering.
+* **Backend-serverpoolen**: Listan med IP-adresser för backend-servrarna. De IP-adresser som anges måste tillhöra det virtuella undernätet eller vara en offentlig IP-adress eller VIP-adress.
+* **Inställningar för backend-serverpool**: Varje pool har inställningar som port, protokoll och cookie-baserad tillhörighet. Dessa inställningar är knutna till en pool och tillämpas på alla servrar i poolen.
+* **Frontend-porten**: Den här porten är den offentliga porten som är öppen på programgatewayen. Trafiken kommer till den här porten och omdirigeras till en av backend-servrarna.
+* **Lyssnaren**: Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga), och SSL-certifikatnamnet (om du konfigurerar en SSL-avlastning).
+* **Regeln**: Regeln Binder lyssnaren och backend-serverpoolen och definierar vilken backend-serverpool för att dirigera trafiken till när den når en viss lyssnare. För närvarande stöds endast regeln *basic*. Regeln *basic* använder belastningsutjämning med resursallokering.
 
 **Ytterligare konfigurationsanmärkningar**
 
 För konfiguration av SSL-certifikat bör protokollet i **HttpListener** ändras till **Https** (skiftlägeskänsligt). Lägg till den **SslCert** elementet mot **HttpListener** med värdet satt till samma namn som används i den [ladda upp SSL-certifikat](#upload-ssl-certificates) avsnittet. Frontend-porten ska uppdateras till **443**.
 
-**Aktivera Cookiebaserad tillhörighet**: du kan konfigurera en Programgateway för att säkerställa att en begäran från en klientsession alltid dirigeras till samma virtuella dator i webbservergruppen. Du åstadkommer detta genom att infoga en sessions-cookie som ser till att gatewayen dirigerar trafiken på rätt sätt. Du kan aktivera cookiebaserad tillhörighet genom att ange **CookieBasedAffinity** till **Enabled** i elementet **BackendHttpSettings**.
+**Aktivera Cookiebaserad tillhörighet**: Du kan konfigurera en Programgateway för att säkerställa att en begäran från en klientsession alltid dirigeras till samma virtuella dator i webbservergruppen. Du åstadkommer detta genom att infoga en sessions-cookie som ser till att gatewayen dirigerar trafiken på rätt sätt. Du kan aktivera cookiebaserad tillhörighet genom att ange **CookieBasedAffinity** till **Enabled** i elementet **BackendHttpSettings**.
 
 Du kan skapa din konfiguration genom att skapa ett konfigurationsobjekt eller med hjälp av en XML-konfigurationsfilen.
 Ange följande exempel för att konstruera konfigurationen med hjälp av en XML-konfigurationsfil:

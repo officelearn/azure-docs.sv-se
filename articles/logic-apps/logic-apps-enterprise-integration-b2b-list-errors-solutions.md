@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998838"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B-fel och lösningar för Azure Logic Apps
 
@@ -34,7 +34,7 @@ Den här artikeln hjälper dig att felsöka fel som kan inträffa i Logic Apps B
 
 |   |   | 
 |---|---|
-| Felbeskrivning | Hitta något avtal med identiteter: 'AS2Identity ”::” Partner1' och 'AS2Identity ”::” Partner3 ” | 
+| Felbeskrivning | Hitta något avtal med identiteter: ”AS2Identity”:: ”Partner1' och 'AS2Identity”:: ”Partner3” | 
 | Användaråtgärd | Ogiltigt AS2-från eller AS2-till konfigurerade för avtalet. </br>Korrigera AS2-meddelandet ”AS2-från” eller ”AS2-att” rubriker eller avtalet som matchar AS2-ID: N i meddelandehuvudena AS2 med avtal konfigurationer. |
 |   |   |     
 
@@ -145,7 +145,7 @@ Exempel:
 
 |   |   | 
 |---|---|
-| Felbeskrivning | InvalidTemplate. Det går inte att bearbeta mallspråksuttryck i indata för åtgärden 'Flat_File_Decoding' på '1' för rad och kolumn '1902': ' krävs egenskapen ”innehåll” förväntar sig ett värde men har null. Sökvägen '.'. |
+| Felbeskrivning | InvalidTemplate. Det går inte att bearbeta mallspråksuttryck i praktiken 'Flat_File_Decoding' indata på rad '1' och kolumnen '1902 ”: ”Krävs för egenskapen” innehåll ”förväntar sig ett värde men har null. Sökvägen '.'. |
 | Användaråtgärd | Det här felet indikerar det inkommande meddelandet inte innehåller en brödtext. |
 |   |   | 
 

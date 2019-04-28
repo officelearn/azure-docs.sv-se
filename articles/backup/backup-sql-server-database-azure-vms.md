@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 08eff24dc42f594424d109b82933b01b5c1be454
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733908"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -40,7 +40,7 @@ Kontrollera följande villkor innan du säkerhetskopierar SQL Server-databasen:
 
 ### <a name="establish-network-connectivity"></a>Etablera nätverksanslutning
 
-Den virtuella SQL Server-datorn behöver ha anslutning till offentliga Azure-IP-adresser för alla åtgärder. VM-åtgärder (databasen identifiering, säkerhetskopieringar, schemalägga säkerhetskopieringar, återställa återställningspunkter och så vidare) misslyckas utan anslutning till offentliga IP-adresser. Upprätta en anslutning med något av följande alternativ:
+Den virtuella SQL Server-datorn behöver ha anslutning till offentliga Azure-IP-adresser för alla åtgärder. VM-åtgärder (databasidentifiering, säkerhetskopieringar, schemalägga säkerhetskopieringar, återställa återställningspunkter och så vidare) misslyckas utan anslutning till offentliga IP-adresser. Upprätta en anslutning med något av följande alternativ:
 
 - **Tillåt IP-intervallen för Azure-datacenter**: Tillåt [IP-intervallen](https://www.microsoft.com/download/details.aspx?id=41653) i nedladdningen. Om du vill komma åt nätverkssäkerhetsgrupp (NSG) kan använda den **Set-AzureNetworkSecurityRule** cmdlet.
 - **Distribuera en HTTP-proxyserver för att dirigera trafik**: När du säkerhetskopierar en SQL Server-databas på en virtuell Azure-dator använder säkerhetskopieringstillägget på den virtuella datorn HTTPS-API:er för att skicka hanteringskommandon till Azure Backup och data till Azure Storage. Säkerhetskopieringstillägget använder också Azure Active Directory (Azure AD) för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggets är den enda komponenten som är konfigurerad för åtkomst till det offentliga internet.
@@ -60,11 +60,11 @@ Azure Backup gör ett antal saker när du konfigurerar säkerhetskopiering för 
 - För att identifiera databaser på den virtuella datorn skapar Azure Backup kontot **NT SERVICE\AzureWLBackupPluginSvc**. Det här kontot används för säkerhetskopiering och återställning och kräver SQL-sysadmin-behörighet.
 - Azure Backup utnyttjar kontot **NT AUTHORITY\SYSTEM** för databasidentifiering/-förfrågan. Därför behöver det här kontot vara en offentlig inloggning på SQL.
 
-Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om detta inträffar [Följ den här instruktionerna](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Kontrollera riktlinjerna för namngivning av databaser för Azure Backup
 
-Undvik följande för databasnamn:
+Undvika de nedan för databasnamn:
 
   * Avslutande/inledande blanksteg
   * Avslutande ”!”
@@ -106,7 +106,7 @@ Identifiera databaser som körs på den virtuella datorn.
 
     ![Meddelande som anger att distributionen lyckades](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure Backup identifierar alla SQL Server-databaser på den virtuella datorn. Under identifieringen sker följande i bakgrunden:
+8. Azure Backup identifierar alla SQL Server-databaser på den virtuella datorn. Under identifieringen den nedan sker i bakgrunden:
 
     - Azure Backup registrerar den virtuella datorn med valvet för säkerhetskopiering av arbetsbelastning. Alla databaser på den registrerade virtuella datorn kan endast säkerhetskopieras till det här valvet.
     - Azure Backup installerar tillägget **AzureBackupWindowsWorkload** på den virtuella datorn. Det installeras inte någon agent på SQL-databasen.
@@ -171,7 +171,7 @@ En säkerhetskopieringspolicy definierar när säkerhetskopior skapas och hur l�
 Så här skapar du en säkerhetskopieringspolicy:
 
 1. I valvet klickar du på **Säkerhetskopieringspolicyer** > **Lägg till**.
-2. På menyn **Lägg till** klickar du på **SQL Server på Azure VM**. Detta gör så att policytypen definieras.
+2. På menyn **Lägg till** klickar du på **SQL Server på Azure VM**. Definierar typen av till.
 
    ![Välj en policytyp för den nya säkerhetskopieringspolicyn](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -179,7 +179,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 4. I **Policy för fullständig säkerhetskopia** väljer du en **Säkerhetskopieringsfrekvens** och väljer **Dagligen** eller **Varje vecka**.
 
    - För **Dagligen** väljer du den timme och den tidszon då säkerhetskopieringsjobbet börjar.
-   - Du måste köra en fullständig säkerhetskopia. Du kan inte stänga av alternativet **Fullständig säkerhetskopia**.
+   - Du måste köra en fullständig säkerhetskopia som du inte kan inaktivera den **fullständig säkerhetskopiering** alternativet.
    - Klicka på **Fullständig säkerhetskopia** för att visa policyn.
    - Du kan inte skapa differentiella säkerhetskopior för dagliga fullständiga säkerhetskopior.
    - För **Varje vecka** väljer du den veckodag, timme och tidszon då säkerhetskopieringsjobbet börjar.
@@ -238,7 +238,7 @@ Aktivera automatiskt skydd för automatisk säkerhetskopiering av alla befintlig
 
 - Det finns ingen gräns för antalet databaser som du kan välja för automatiskt skydd i en går.
 - Du kan inte selektivt skydda eller utesluta databaserna från skyddet i en instans vid tidpunkten för att aktivera automatiskt skydd.
-- Om din instans innehåller redan vissa skyddade databaser, skulle de fortsätta att vara skyddade enligt deras respektive principer även när du har aktiverat automatiskt skydd. Men alla icke skyddade databaser och de databaser som kommer få läggas till i framtiden, har en enda princip som du definierar vid tidpunkten för att aktivera automatiskt skydd under **Konfigurera säkerhetskopiering**. Du kan dock ändra principen som är associerad med en databas som automatiskt skydd senare.  
+- Om din instans innehåller redan vissa skyddade databaser, skulle de fortsätta att vara skyddade enligt deras respektive principer även när du har aktiverat automatiskt skydd. Men alla oskyddade databaser och de databaser som kommer få läggas till i framtiden, har en enda princip som du definierar vid tidpunkten för att aktivera automatiskt skydd under **Konfigurera säkerhetskopiering**. Du kan dock ändra principen som är associerad med en databas som automatiskt skydd senare.  
 
 Steg för att aktivera automatiskt skydd är följande:
 

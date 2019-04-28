@@ -9,13 +9,13 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284578"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61444767"
 ---
-# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Självstudie: Utföra en rotorsaksanalys för en avisering
+# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Självstudier: Utföra en rotorsaksanalys på en avisering
 
 I den här självstudiekursen lär du dig hur du diagnostiserar rotorsaken till en avisering med acceleratorn Fjärrövervakningslösning. Du ser att en avisering har utlösts i fjärrövervakningslösningens instrumentpanel. Använd sedan Azure Time Series Insights-utforskaren för att undersöka orsaken.
 

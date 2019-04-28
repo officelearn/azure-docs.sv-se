@@ -9,14 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: apimpm
+origin.date: 06/20/2018
+ms.date: 12/31/2018
+ms.author: v-yiso
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123475"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Skala automatiskt en Azure API Management-instans  
 
@@ -24,7 +25,7 @@ Azure API Management-tjänstinstans kan skala automatiskt baserat på en uppsät
 
 Artikeln går igenom processen med att konfigurera automatisk skalning och föreslår optimal konfiguration av regler för automatisk skalning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa stegen från den här artikeln, måste du:
 
@@ -79,7 +80,7 @@ Följ stegen nedan för att konfigurera automatisk skalning för en Azure API Ma
     | Måttnamn           | Kapacitet          | Kapacitet mått är ett mått för Azure API Management som återger användningen av resurser i en Azure API Management-instans.                                                                                                                                                            |
     | Tidsintervallstatistik  | Medel           |                                                                                                                                                                                                                                                                                 |
     | Operator              | Större än      |                                                                                                                                                                                                                                                                                 |
-    | Tröskelvärde             | 80%               | Tröskelvärde för Genomsnittlig kapacitet-mått.                                                                                                                                                                                                                                 |
+    | Tröskelvärde             | 80 %               | Tröskelvärde för Genomsnittlig kapacitet-mått.                                                                                                                                                                                                                                 |
     | Varaktighet (i minuter) | 30                | Timespan att ta medelvärdet kapacitet måttet över är specifik för användningsmönster. Ju längre tidsperioden är, desto jämnare reaktionen kommer att – tillfälliga toppar har mindre effekt på skalbarhet beslutet. Men fördröjs så också skalbar utlösaren. |
     | *Åtgärd*              |                   |                                                                                                                                                                                                                                                                                 |
     | Åtgärd             | Öka antal med |                                                                                                                                                                                                                                                                                 |
@@ -128,4 +129,4 @@ Följ stegen nedan för att konfigurera automatisk skalning för en Azure API Ma
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Hur du distribuerar en Azure API Management-tjänstinstans till flera Azure-regioner](api-management-howto-deploy-multi-region.md)
++ [Så distribuerar du en Azure API Management-tjänstinstans till flera Azure-regioner](api-management-howto-deploy-multi-region.md)

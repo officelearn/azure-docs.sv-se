@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
 ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116183"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Säkerhetskopiera systemtillstånd och återställa till utan operativsystem med Azure Backup Server
 
 Azure Backup Server säkerhetskopierar Systemtillstånd och bare metal recovery (BMR) skyddar.
 
-*   **Säkerhetskopiering av systemtillstånd**: säkerhetskopierar operativsystemfiler, så att du kan återställa när datorn har startats men systemfiler och registret går förlorade. En säkerhetskopiering av systemtillstånd omfattar:
-    * Domänmedlem: startfiler, COM +-klassens registreringsdatabas, register
+*   **Säkerhetskopiering av systemtillstånd**: Säkerhetskopierar operativsystemfiler, så att du kan återställa när datorn har startats men systemfiler och registret går förlorade. En säkerhetskopiering av systemtillstånd omfattar:
+    * Domänmedlem: Startfiler, COM +-klassens registreringsdatabas, register
     * Domänkontrollant: Windows Server Active Directory (NTDS), startfiler, COM +-klassens registreringsdatabas, register, systemvolym (SYSVOL)
-    * Dator som kör klustertjänster: klusterserverns metadata
-    * Dator som kör Certifikattjänster: certifikatdata
-* **Bare metal-säkerhetskopiering**: säkerhetskopierar operativsystemfiler och alla data på kritiska volymer (utom användardata). Per definition omfattar en säkerhetskopiering av BMR en säkerhetskopiering av systemtillstånd. Det ger skydd när en dator inte startar och du måste återställa allt.
+    * Dator som kör klustertjänster: Klusterserverns metadata
+    * Dator som kör Certifikattjänster: Certifikatdata
+* **Bare metal-säkerhetskopiering**: Säkerhetskopierar operativsystemfiler och alla data på kritiska volymer (utom användardata). Per definition omfattar en säkerhetskopiering av BMR en säkerhetskopiering av systemtillstånd. Det ger skydd när en dator inte startar och du måste återställa allt.
 
 I följande tabell sammanfattas vad du kan säkerhetskopiera och återställa. Detaljerad information om appversioner av som kan skyddas med Systemtillstånd och BMR finns [vad gör Azure Backup Server säkerhetskopiera?](backup-mabs-protection-matrix.md).
 

@@ -13,11 +13,11 @@ ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
 ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010124"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61032443"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -348,7 +348,7 @@ HTTP- och webhook-utlösare och HTTP-utdata bindningar använda begäranden och 
 
 Den `context.req` (begäran) objekt har följande egenskaper:
 
-| Egenskap      | Beskrivning                                                    |
+| Egenskap       | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Ett objekt som innehåller brödtext för begäran.               |
 | _Rubriker_     | Ett objekt som innehåller de begärda rubrikerna.                   |
@@ -363,7 +363,7 @@ Den `context.req` (begäran) objekt har följande egenskaper:
 
 Den `context.res` ()-svarsobjekt har följande egenskaper:
 
-| Egenskap  | Beskrivning                                               |
+| Egenskap   | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Ett objekt som innehåller brödtexten i svaret.         |
 | _Rubriker_ | Ett objekt som innehåller svarshuvuden.             |
@@ -577,7 +577,7 @@ TypeScript-filer (TS) är transpiled i JavaScript-filer (.js) i den `dist` utdat
 
 Det sätt som du utvecklar lokalt och distribuera från en TypeScript-projektet beror på din utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visual Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio-koden
 
 Den [Azure Functions för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) tillägg kan du utveckla dina funktioner med TypeScript. De viktigaste verktygen är ett krav för Azure Functions-tillägget.
 

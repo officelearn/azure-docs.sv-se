@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476144"
 ---
 # <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Läsa in data från Azure Data Lake Storage Gen1 till SQL Data Warehouse
 Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake Storage Gen1 till Azure SQL Data Warehouse. Även om du kan köra ad hoc-frågor på data som lagras i Data Lake Storage Gen1, rekommenderar vi importerar data till SQL Data Warehouse för bästa prestanda.

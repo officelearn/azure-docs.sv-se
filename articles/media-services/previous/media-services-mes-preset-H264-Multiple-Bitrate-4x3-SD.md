@@ -1,8 +1,8 @@
 ---
 title: H264, Flera bithastigheter, 4 x 3, SD | Microsoft Docs
 description: Avsnittet ger en översikt över den **H264, flera bithastigheter, 4 x 3, SD** uppgiften förinställd.
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+origin.date: 03/18/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: e5a0251ffd7d013a2e90d05609c04cec5c9dc1e0
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61129618"
 ---
-# <a name="h264-multiple-bitrate-4x3-sd"></a>H264, Flera bithastigheter, 4 x 3, SD
+# <a name="h264-multiple-bitrate-4x3-sd"></a>H264, flera bithastigheter, 4x3, SD
 `Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Det här avsnittet beskrivs de `H264 Multiple Bitrate 4x3 SD` förinställda i XML- och JSON-format.  

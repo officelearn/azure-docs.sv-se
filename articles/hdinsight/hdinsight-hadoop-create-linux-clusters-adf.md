@@ -1,7 +1,6 @@
 ---
 title: 'Självstudier: Skapa på begäran Apache Hadoop-kluster i Azure HDInsight med Data Factory '
 description: Lär dig hur du skapar på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8b65cb05643ffca3cbf25a207dce683d2d60fd64
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 11827d8e355483b278a4c5ab5fcce41c03f0565a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62102041"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudier: Skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -35,7 +34,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -242,7 +241,7 @@ I det här avsnittet skapar du två länkade tjänster i din datafabrik.
     | Egenskap  | Beskrivning |
     | --- | --- |
     | Namn | Ange ett namn för den länkade HDInsight-tjänsten |
-    | Type | Välj **på begäran HDInsight** |
+    | Typ | Välj **på begäran HDInsight** |
     | Länkad Azure Storage-tjänst | Välj länkad Storage-tjänst som du skapade tidigare. |
     | Klustertyp | Välj **hadoop** |
     | Time to live | Ange den varaktighet som du vill att HDInsight-klustret ska vara tillgängliga innan de tas bort automatiskt.|

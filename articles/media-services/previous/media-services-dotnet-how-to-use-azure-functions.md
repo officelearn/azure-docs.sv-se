@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 69099fe1369223871142f74d8f6d1c6a8bd66dab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61217529"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure Functions med Media Services
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du kommer igång med att skapa Azure Functions med M
 
 Om du vill utforska och distribuera Azure Functions med Azure Media Services kan du kolla [Media Services, Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Den här lagringsplatsen innehåller exempel som använder Media Services för att visa arbetsflöden som rör mata in innehåll direkt från blob-lagring, kodning och skriva innehåll tillbaka till blob storage. Den innehåller även exempel på hur du övervakar jobbmeddelanden via WebHooks och Azure-köer. Du kan också skapa dina funktioner baserat på exemplen i den [Media Services, Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) lagringsplats. Om du vill distribuera funktionerna, trycker du på den **distribuera till Azure** knappen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Innan du kan skapa din första funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/).
 - Om du ska skapa Azure Functions som utför åtgärder på ditt konto för Azure Media Services (AMS) eller lyssna på händelser som skickas av Media Services, bör du skapa ett AMS-konto som beskrivs [här](media-services-portal-create-account.md).

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/03/2019
 ms.author: juliako
 ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230904"
 ---
 # <a name="streaming-policies"></a>Principer för direktuppspelning
 
@@ -70,5 +70,5 @@ Se [filtrering, sortering, växling av Media Services entiteter](entities-overvi
 ## <a name="next-steps"></a>Nästa steg
 
 * [Strömma en fil](stream-files-dotnet-quickstart.md)
-* [Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst](protect-with-aes128.md)
+* [Använda dynamisk AES-128-kryptering och tjänsten för nyckelleverans](protect-with-aes128.md)
 * [Använda DRM dynamisk kryptering och licens video-on-demand](protect-with-drm.md)

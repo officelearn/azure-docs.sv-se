@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: victorh
 ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61296476"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Hantera DNS-poster och postuppsättningar med hjälp av Azure portal
 
@@ -41,12 +41,12 @@ Du kan lägga till upp till 20 poster valfri uppsättning av poster. En postupps
 
 2. Ange egenskaper postuppsättningens genom att fylla i fälten.
 
-    ![Lägga till en post](./media/dns-operations-recordsets-portal/addrecord500.png)
+    ![Add a record](./media/dns-operations-recordsets-portal/addrecord500.png)
 
 3. Klicka på **spara** överst på bladet för att spara dina inställningar. Stäng bladet.
 4. I hörnet ser du att posten sparas.
 
-    ![Sparar uppsättningen av poster](./media/dns-operations-recordsets-portal/saving150.png)
+    ![Sparar uppsättning av poster](./media/dns-operations-recordsets-portal/saving150.png)
 
 När posten har sparats, värdena på den **DNS-zon** bladet visas den nya posten.
 
@@ -57,7 +57,7 @@ När du uppdaterar en post i en befintlig uppsättning av poster, beror vilka f�
 1. På den **postuppsättning egenskaper** bladet för postuppsättningen, Sök efter posten.
 2. Ändra posten. När du ändrar en post, kan du ändra de tillgängliga inställningarna för posten. I följande exempel visas den **IP-adress** fält är markerad och IP-adressen håller på att ändras.
 
-    ![Ändra en post](./media/dns-operations-recordsets-portal/modifyrecord500.png)
+    ![Modify a record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
 3. Klicka på **spara** överst på bladet för att spara dina inställningar. I det övre högra hörnet ser du meddelandet som posten har sparats.
 

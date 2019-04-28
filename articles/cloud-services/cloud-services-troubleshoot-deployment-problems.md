@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798578"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106921"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Felsök distributionsproblem med cloud service
 När du distribuerar ett program för molntjänstpaket till Azure kan du kan få information om hur du distribuerar från den **egenskaper** fönstret i Azure-portalen. Du kan använda informationen i det här fönstret för att felsöka problem med Molntjänsten och du kan lämna denna information till supporten för Azure när du öppnar en ny supportbegäran.

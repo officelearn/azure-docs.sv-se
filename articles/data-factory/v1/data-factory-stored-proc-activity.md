@@ -14,11 +14,11 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 77842b60108629168f423f25eb03b01079cf55e5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61256061"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQLServer-lagrad Proceduraktivitet
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -304,10 +304,10 @@ Här är JSON-format för att definiera en lagrade Proceduraktiviteten:
 
 I följande tabell beskrivs de här JSON-egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | namn | Namn på aktiviteten |Ja |
-| beskrivning |Text som beskriver vad aktiviteten används till |Nej |
+| description |Text som beskriver vad aktiviteten används till |Nej |
 | typ | Måste anges till: **SqlServerStoredProcedure** | Ja |
 | inmatningar | Valfri. Om du anger en indatauppsättning, måste den vara tillgänglig (statusen ”klar”) för aktiviteten lagrad procedur att köra. Datauppsättningen för indata kan inte användas i den lagrade proceduren som en parameter. Det är bara används för att kontrollera beroendet innan du startar aktivitet för lagrad procedur. |Nej |
 | utdata | Du måste ange en utdatauppsättning för en lagrad procedur-aktivitet. Datauppsättningen för utdata anger den **schema** för aktiviteten lagrad procedur (varje timme, varje vecka, månadsvis, osv.). <br/><br/>Datauppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller en Azure SQL Data Warehouse eller en SQL Server-databas som du vill att den lagrade proceduren för att köra. <br/><br/>Datauppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriva inte dock automatiskt utdata från en lagrad procedur till den här datauppsättningen. Det är den lagrade proceduren som skriver till en SQLtabell som utdata-datauppsättningen pekar på. <br/><br/>I vissa fall kan datauppsättningen för utdata kan vara en **dummy datauppsättning**, vilket används endast för att ange schemat för att köra aktiviteten lagrad procedur. |Ja |

@@ -9,17 +9,17 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.openlocfilehash: dfb1e0093893fadf22c7a92ef5f351ae8920a977
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60929295"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Hur du distribuerar globalt läser via Azure Cosmos DB API för MongoDB
 
 Den här artikeln visar hur du distribuerar globalt läsåtgärder med [MongoDB läsinställningar](https://docs.mongodb.com/manual/core/read-preference/) inställningar med hjälp av Azure Cosmos DB API för MongoDB.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -77,9 +77,9 @@ MongoDB-protokollet innehåller följande läsinställningar lägen för kliente
 
 1. PRIMÄRT TELEFONNR
 2. PRIMARY_PREFERRED
-3. SEKUNDÄR
+3. SECONDARY
 4. SECONDARY_PREFERRED
-5. NÄRMASTE
+5. NEAREST
 
 Referera till detaljerade [MongoDB läsinställningar beteende](https://docs.mongodb.com/manual/core/read-preference-mechanics/#replica-set-read-preference-behavior) dokumentationen för mer information på beteenden som dessa läsa inställningar lägen. I Cosmos DB mappar primära skrivregionen och sekundära mappar till skrivregion.
 
@@ -172,4 +172,4 @@ Om du inte planerar att fortsätta använda den här appen, tar du bort alla res
 
 * [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
 * [Konfigurera en globalt distribuerad databas med Azure Cosmos DB API för MongoDB](tutorial-global-distribution-mongodb.md)
-* [Utveckla lokalt med Azure Cosmos DB-emulator](local-emulator.md)
+* [Utveckla lokalt med Azure Cosmos DB-emulatorn](local-emulator.md)

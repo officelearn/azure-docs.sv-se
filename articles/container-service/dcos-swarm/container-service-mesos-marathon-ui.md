@@ -10,11 +10,11 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61468303"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(INAKTUELL) Hantera ett Azure Container Service DC/OS-kluster via webbgränssnittet för Marathon
 
@@ -25,7 +25,7 @@ DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastni
 Även om ramverk är tillgängliga för många populära arbetsbelastningar beskriver det här dokumentet hur du kommer igång med att distribuera behållare med Marathon. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar med de här exemplen behöver du ett DC/OS-kluster som har konfigurerats i Azure Container Service. Du måste också kunna fjärransluta till det här klustret. Mer information finns i följande artiklar:
 
 * [Distribuera ett Azure Container Service-kluster](container-service-deployment.md)
@@ -52,7 +52,7 @@ Om du vill distribuera en ny container med hjälp av Marathon klickar du på **S
 | --- | --- |
 | ID |nginx |
 | Minne | 32 |
-| Bild |nginx |
+| Image |nginx |
 | Nätverk |Bryggad |
 | Värdport |80 |
 | Protokoll |TCP |

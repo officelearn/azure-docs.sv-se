@@ -3,8 +3,8 @@ title: Azure PowerShell-exempel för virtuellt nätverk | Microsoft Docs
 description: Azure PowerShell-exempel för virtuellt nätverk.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
-ms.author: jdial
-ms.openlocfilehash: ab3a0935f23cda70cfef49af3563f6b1e85d1d8b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.date: 04/17/2019
+ms.author: kumud
+ms.openlocfilehash: e10f7ad4ae8995d9efffec97a37dc64b28fa37b0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123560"
 ---
 # <a name="azure-powershell-samples-for-virtual-network"></a>Azure PowerShell-exempel för virtuellt nätverk
 
@@ -32,3 +32,4 @@ Följande tabell innehåller länkar till Azure PowerShell-skript:
 | [Peerkoppla två virtuella nätverk](./scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md) | Skapar och kopplar samman två virtuella nätverk i samma region. |
 | [Dirigera trafik via en virtuell nätverksinstallation](./scripts/virtual-network-powershell-sample-route-traffic-through-nva.md) | Skapar ett virtuellt nätverk med klient- och serverdelsundernät och en virtuell dator som kan dirigera trafik mellan de två undernäten. |
 | [Filtrera inkommande och utgående VM-nätverkstrafik](./scripts/virtual-network-powershell-sample-filter-network-traffic.md) | Skapar ett virtuellt nätverk med klient- och serverdelsundernät. Inkommande nätverkstrafik till klientdelsundernätet är begränsad till HTTP och HTTPS. Utgående trafik till Internet från serverdelsundernätet är inte tillåten. |
+|[Konfigurera IPv4 + IPv6 dual stack virtuellt nätverk](./scripts/virtual-network-powershell-sample-ipv6-dual-stack.md)|Distribuerar dual-stack (IPv4 + IPv6) virtuellt nätverk med två virtuella datorer och en grundläggande belastningsutjämnare för Azure med IPv4 och IPv6 offentliga IP-adresser. |

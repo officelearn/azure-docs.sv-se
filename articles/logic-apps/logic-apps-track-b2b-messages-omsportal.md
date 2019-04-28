@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120134"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Spåra B2B-meddelanden med Azure Monitor-loggar
 
@@ -31,7 +31,7 @@ När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En logikapp som har konfigurerats med diagnostikloggning. Lär dig [så här skapar du en logikapp](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den logikappen](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
@@ -153,7 +153,7 @@ Här är Egenskapsbeskrivningar för varje AS2-meddelande.
 | Logikapp | Logikappen där AS2-åtgärder har ställts in |
 | Status | Status för AS2-meddelande <br>Lyckades = mottagna eller skickat ett ogiltigt AS2-meddelande. Inga MDN har ställts in. <br>Lyckades = mottagna eller skickat ett ogiltigt AS2-meddelande. MDN ställs in och tas emot eller MDN skickas. <br>Det gick inte = tagits emot ett ogiltigt AS2-meddelande. Inga MDN har ställts in. <br>Väntande = mottagna eller skickat ett ogiltigt AS2-meddelande. MDN har ställts in och MDN förväntas. |
 | Ack | Status för MDN-meddelandet <br>Godkänt = mottagna eller skickas ett positivt MDN. <br>Väntande = väntar på att ta emot eller skicka en MDN. <br>Avvisade = mottagna eller skickas en negativ MDN. <br>Krävs inte = MDN har inte ställts in i avtalet. |
-| Riktning | Riktning för AS2-meddelande |
+| Direction | Riktning för AS2-meddelande |
 | Korrelations-ID | ID kopplat till alla utlösare och åtgärder i en logikapp |
 | Meddelande-ID | AS2-meddelande-ID från rubriker för AS2-meddelande |
 | Tidsstämpel | Den tid när AS2-åtgärden bearbetas meddelandet |
@@ -184,7 +184,7 @@ Här är Egenskapsbeskrivningar för varje X12 meddelande.
 | Logikapp | Logikappen där X12 åtgärder har ställts in |
 | Status | Den X12 meddelande status <br>Lyckades = mottagna eller skickas en giltig X12 meddelande. Inga funktionella ack har ställts in. <br>Lyckades = mottagna eller skickas en giltig X12 meddelande. Funktionella ack ställs in och tas emot, eller en funktionell ack skickas. <br>Det gick inte = mottagna eller skickade ett ogiltigt X12 meddelande. <br>Väntande = mottagna eller skickas en giltig X12 meddelande. Funktionella ack har konfigurerats och en funktionell ack förväntas. |
 | Ack | Funktionella Ack (997)-status <br>Godkänt = mottagna eller skickas en positiv funktionella bekräftelse <br>Avvisade = mottagna eller skickas en negativ funktionella bekräftelse <br>Väntande = förväntas en funktionell ack, men inte togs emot. <br>= Fram en funktionell ack men det går inte att skicka till partner. <br>Krävs inte = funktionell ack har inte ställts in. |
-| Riktning | Den X12 meddelande riktning |
+| Direction | Den X12 meddelande riktning |
 | Korrelations-ID | ID kopplat till alla utlösare och åtgärder i en logikapp |
 | Meddelandetyp | Meddelandetypen EDI X 12 |
 | ICN | Interchange-kontrollnummer för X12 meddelande |
@@ -217,7 +217,7 @@ Här är Egenskapsbeskrivningar för varje EDIFACT-meddelandet.
 | Logikapp | Logikappen där EDIFACT-åtgärder har ställts in |
 | Status | Status för EDIFACT-meddelande <br>Lyckades = mottagna eller skickat ett giltigt EDIFACT-meddelande. Inga funktionella ack har ställts in. <br>Lyckades = mottagna eller skickat ett giltigt EDIFACT-meddelande. Funktionella ack ställs in och tas emot, eller en funktionell ack skickas. <br>Det gick inte = mottagna eller skickade ett ogiltigt EDIFACT-meddelande <br>Väntande = mottagna eller skickat ett giltigt EDIFACT-meddelande. Funktionella ack har konfigurerats och en funktionell ack förväntas. |
 | Ack | Funktionella Ack (997)-status <br>Godkänt = mottagna eller skickas en positiv funktionella bekräftelse <br>Avvisade = mottagna eller skickas en negativ funktionella bekräftelse <br>Väntande = förväntas en funktionell ack, men inte togs emot. <br>= Fram en funktionell ack men det går inte att skicka till partner. <br>Krävs inte = funktionella Ack har inte ställts in. |
-| Riktning | Riktning för EDIFACT-meddelande |
+| Direction | Riktning för EDIFACT-meddelande |
 | Korrelations-ID | ID kopplat till alla utlösare och åtgärder i en logikapp |
 | Meddelandetyp | Meddelandetypen EDIFACT |
 | ICN | Interchange-kontrollnummer för EDIFACT-meddelande |

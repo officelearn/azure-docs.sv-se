@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61331349"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referens för Azure Container Registry-webhook
 
@@ -40,7 +40,7 @@ Webhook-utlöst när en behållaravbildning skickas till en databas.
 
 ### <a name="push-event-payload"></a>Push-händelsenyttolast
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |-------------|----------|-----------|
 |`id`|String|ID för webhook-händelse.|
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
@@ -50,7 +50,7 @@ Webhook-utlöst när en behållaravbildning skickas till en databas.
 
 ### <a name="target"></a>Mål
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |------------------|----------|-----------|
 |`mediaType`|String|MIME-typ för det refererade objektet.|
 |`size`|Int32|Antal byte av innehållet. Samma som fältet längd.|
@@ -61,7 +61,7 @@ Webhook-utlöst när en behållaravbildning skickas till en databas.
 
 ### <a name="request"></a>request
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |------------------|----------|-----------|
 |`id`|String|ID för begäran som initierade händelsen.|
 |`host`|String|Externt tillgängliga värdnamnet för registry-instans som den anges av HTTP-rubriken på inkommande begäranden.|
@@ -104,7 +104,7 @@ Webhook-utlöst när ett Helm-diagram skickas till en databas.
 
 ### <a name="chart-push-event-payload"></a>Diagrammet push händelsenyttolast
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |-------------|----------|-----------|
 |`id`|String|ID för webhook-händelse.|
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
@@ -113,7 +113,7 @@ Webhook-utlöst när ett Helm-diagram skickas till en databas.
 
 ### <a name="helm_target"></a>Mål
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |------------------|----------|-----------|
 |`mediaType`|String|MIME-typ för det refererade objektet.|
 |`size`|Int32|Antal byte av innehållet.|
@@ -154,7 +154,7 @@ Webhook utlöses när en avbildningslagringsplatsen eller manifest tas bort. Utl
 
 ### <a name="delete-event-payload"></a>Ta bort händelsenyttolast
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |-------------|----------|-----------|
 |`id`|String|ID för webhook-händelse.|
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
@@ -164,7 +164,7 @@ Webhook utlöses när en avbildningslagringsplatsen eller manifest tas bort. Utl
 
 ### <a name="delete_target"></a> Mål
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |------------------|----------|-----------|
 |`mediaType`|String|MIME-typ för det refererade objektet.|
 |`digest`|String|Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen.|
@@ -172,7 +172,7 @@ Webhook utlöses när en avbildningslagringsplatsen eller manifest tas bort. Utl
 
 ### <a name="delete_request"></a> Begäran
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |------------------|----------|-----------|
 |`id`|String|ID för begäran som initierade händelsen.|
 |`host`|String|Externt tillgängliga värdnamnet för registry-instans som den anges av HTTP-rubriken på inkommande begäranden.|
@@ -216,7 +216,7 @@ Webhook-utlöst när en Helm-diagrammet eller tas bort.
 
 ### <a name="chart-delete-event-payload"></a>Händelsenyttolast för diagrammet delete
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |-------------|----------|-----------|
 |`id`|String|ID för webhook-händelse.|
 |`timestamp`|DateTime|Den tid då händelsen webhook utlöstes.|
@@ -225,7 +225,7 @@ Webhook-utlöst när en Helm-diagrammet eller tas bort.
 
 ### <a name="chart_delete_target"></a> Mål
 
-|Element|Type|Beskrivning|
+|Element|Typ|Beskrivning|
 |------------------|----------|-----------|
 |`mediaType`|String|MIME-typ för det refererade objektet.|
 |`size`|Int32|Antal byte av innehållet.|

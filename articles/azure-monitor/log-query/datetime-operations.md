@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112365"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Arbeta med datum-tid-värdena i Azure Monitor log-frågor
 
@@ -153,7 +153,7 @@ Event
 
 ## <a name="related-functions"></a>Relaterade funktioner
 
-| Kategori | Funktion |
+| Category | Funktion |
 |:---|:---|
 | Konvertera-datatyper | [ToDateTime](/azure/kusto/query/todatetimefunction)[totimespan](/azure/kusto/query/totimespanfunction)  |
 | Avrunda värdet till diskretiseringsstorlek | [bin](/azure/kusto/query/binfunction) |

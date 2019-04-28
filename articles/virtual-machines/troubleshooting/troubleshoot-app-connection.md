@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922317"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Felsöka problem med programanslutningar på virtuella datorer i Azure
 
@@ -69,7 +69,7 @@ För klientdatorer som har åtkomst till programmet via en plats-till-plats VPN 
 
 Följ dessa steg för att fastställa orsaken till problemet och dess korrigering.
 
-## <a name="step-1-access-application-from-target-vm"></a>Steg 1: Komma åt programmet från virtuell dator
+## <a name="step-1-access-application-from-target-vm"></a>Steg 1: Åtkomst till programmet från virtuell dator
 Försök att komma åt programmet med rätt klientprogram från den virtuella datorn där den körs. Använd det lokala värdnamnet, den lokala IP-adressen eller loopbackadressen (127.0.0.1).
 
 ![Starta programmet direkt från den virtuella datorn](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
@@ -85,7 +85,7 @@ Om du inte åtkomst till programmet, kontrollerar du följande inställningar:
 
 På både Windows och Linux-baserade virtuella datorer kan använda den **netstat - a** kommando för att visa aktiva lyssnande portar. Granska utdata för de förväntade portar som ditt program bör lyssna. Starta om programmet eller konfigurera den för att använda de förväntade portarna vid behov och försöker komma åt programmet lokalt igen.
 
-## <a id="step2"></a>Steg 2: Komma åt programmet från en annan virtuell dator i samma virtuella nätverk
+## <a id="step2"></a>Steg 2: Åtkomst till programmet från en annan virtuell dator i samma virtuella nätverk
 Försök att komma åt programmet från en annan virtuell dator, men i samma virtuella nätverk med hjälp av den Virtuella datorns värdnamn eller dess tilldelade Azure offentliga, privata eller providern IP-adress. För virtuella datorer som skapats med den klassiska distributionsmodellen, Använd inte den offentliga IP-adressen för Molntjänsten.
 
 ![Starta programmet från en annan virtuell dator](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -105,7 +105,7 @@ Om du inte åtkomst till programmet, kontrollerar du följande inställningar:
 
 På en Windows-baserad virtuell dator, använder du Windows-brandväggen med avancerad säkerhet för att avgöra om brandväggsreglerna exkludera ditt programs inkommande och utgående trafik.
 
-## <a id="step3"></a>Steg 3: Komma åt programmet från utanför det virtuella nätverket
+## <a id="step3"></a>Steg 3: Åtkomst till programmet från utanför det virtuella nätverket
 Försök att komma åt programmet från en dator utanför det virtuella nätverket som den virtuella datorn där programmet körs. Använd ett annat nätverk som din ursprungliga klientdator.
 
 ![Starta programmet från en dator utanför det virtuella nätverket](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)

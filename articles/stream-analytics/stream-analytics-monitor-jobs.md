@@ -10,17 +10,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478903"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Skapa en Övervakare för Stream Analytics-jobb programmässigt
 
 Den här artikeln visar hur du aktiverar övervakning av ett Stream Analytics-jobb. Stream Analytics-jobb som skapas via REST API: er, Azure SDK eller PowerShell har inte övervakning aktiverad som standard. Du kan manuellt aktivera det i Azure portal genom att gå till övervakaren jobbsidan och klicka på Aktivera-knappen eller du kan automatisera processen genom att följa stegen i den här artikeln. Övervakningsdata visas i området mått i Azure-portalen för ditt Stream Analytics-jobb.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här processen, måste du ha följande krav:
 

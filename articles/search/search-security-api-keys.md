@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: heidist
 ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61283743"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Skapa och hantera api-nycklar för en Azure Search-tjänst
 
@@ -31,7 +31,7 @@ En api-nyckel är en sträng som består av slumpmässigt genererat siffror och 
 
 Två typer av nycklar som används för att få åtkomst till din söktjänst: admin (skrivskyddad) och fråga (skrivskyddad).
 
-|Nyckel|Beskrivning|Begränsningar|  
+|Nyckel|Beskrivning|Limits|  
 |---------|-----------------|------------|  
 |Administratör|Bevilja fullständiga rättigheter för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor.<br /><br /> Två administratörsnycklar kallas *primära* och *sekundära* nycklar i portalen genereras när tjänsten har skapats och individuellt kan återskapas på begäran. Har två nycklar kan du förnyar en nyckel medan den andra nyckeln för fortsatt åtkomst till tjänsten.<br /><br /> Administratörsnycklar endast anges i HTTP-begärans sidhuvud. Du kan inte placera en admin api-nyckel i en URL.|Högst 2 per tjänst|  
 |Fråga|Ger läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.<br /><br /> Frågenycklar skapas på begäran. Du kan skapa dem manuellt i portalen eller via programmering via den [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Frågenycklar kan anges i en HTTP-frågehuvudet vid sökning, förslag eller lookup-åtgärden. Du kan också skicka en frågenyckel som en parameter på en URL. Beroende på hur ditt klientprogram formulates begäran, kan det vara enklare att överföra nyckeln som frågeparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|50 per tjänst|  

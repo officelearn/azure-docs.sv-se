@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
 ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347787"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Kopiera data från Dynamics AX genom att använda Azure Data Factory (förhandsversion)
 
@@ -38,7 +38,7 @@ Mer specifikt denna Dynamics AX-anslutning har stöd för kopiering av data frå
 
 Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory-entiteter som är specifika för Dynamics AX-anslutning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn:
 
@@ -101,7 +101,7 @@ För att kopiera data från Dynamics AX, ange den **typ** egenskapen på dataupp
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskap måste anges till **DynamicsAXResource**. | Ja |
-| sökväg | Sökväg till Dynamics AX OData-entitet. | Ja |
+| path | Sökväg till Dynamics AX OData-entitet. | Ja |
 
 **Exempel**
 

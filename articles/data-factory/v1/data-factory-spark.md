@@ -15,11 +15,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61257650"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory-pipelines
 
@@ -45,7 +45,7 @@ Spark-aktivitet är en av de [datatransformeringsaktiviteter](data-factory-data-
 > - Spark-aktiviteten stöder inte HDInsight Spark-kluster som använder Azure Data Lake Store som primär lagring.
 > - Spark-aktiviteten stöder endast befintliga (egna) HDInsight Spark-kluster. Det stöder inte en på begäran länkad HDInsight-tjänst.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Steg-för-steg-beskrivning: Skapa en pipeline med en Spark-aktivitet
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Genomgång: Skapa en pipeline med en Spark-aktivitet
 Här följer vanliga stegen för att skapa en data factory-pipeline med en Spark-aktivitet: 
 
 * Skapa en datafabrik.
@@ -54,7 +54,7 @@ Här följer vanliga stegen för att skapa en data factory-pipeline med en Spark
 * Skapa en datauppsättning som refererar till den länkade Storage-tjänsten. För närvarande måste du ange en utdatauppsättning för en aktivitet, även om det finns inga utdata som genereras. 
 * Skapa en pipeline med Spark-aktivitet som refererar till den länkade HDInsight-tjänst som du skapade. Aktiviteten har konfigurerats med den datauppsättning som du skapade i föregående steg som utdatauppsättning. Utdatauppsättningen är det utdatauppsättningen som skapar schemat (varje timme, varje dag). Därför måste du ange datauppsättningen för utdata, även om aktiviteten inte verkligen producera utdata.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 1. Skapa ett allmänt lagringskonto genom att följa instruktionerna i [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
 
 1. Skapa ett Spark-kluster i HDInsight genom att följa anvisningarna i självstudien [skapa ett Spark-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Koppla lagringskonto som du skapade i steg 1 med det här klustret.
@@ -73,7 +73,7 @@ Gör så här för att skapa en datafabrik:
 1. På den **ny datafabrik** bladet under **namn**, ange **SparkDF**.
 
    > [!IMPORTANT]
-   > Namnet på Azure Data Factory måste vara globalt unikt. Om du ser felet ”datafabriksnamnet SparkDF är inte tillgänglig” kan du ändra namnet på datafabriken. Till exempel använda yournameSparkDFdate och skapa datafabriken igen. Mer information om namngivningsregler finns [Data Factory: Namngivningsregler](data-factory-naming-rules.md).
+   > Namnet på Azure Data Factory måste vara globalt unikt. Om du ser felet ”datafabriksnamnet SparkDF är inte tillgänglig” kan du ändra namnet på datafabriken. Till exempel använda yournameSparkDFdate och skapa datafabriken igen. Mer information om namngivningsregler finns i [Data Factory: Namngivningsregler](data-factory-naming-rules.md).
 
 1. Under **Prenumeration** väljer du den Azure-prenumeration där du vill att datafabriken ska skapas.
 
@@ -267,7 +267,8 @@ I det här steget skapar du en pipeline med en HDInsightSpark aktivitet. För n�
 
     ![Jupyter-frågeresultat](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Detaljerade anvisningar finns i avsnittet [kör en Spark SQL-fråga](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
+Detaljerade anvisningar finns i avsnittet [kör en Spark SQL-fråga](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Felsökning
 Eftersom du inställningen getDebugInfo **alltid**, visas en logg undermapp i mappen pyFiles i din blobbehållare. Loggfilen i loggmappen innehåller ytterligare information. Den här loggfilen är särskilt användbart när det finns ett fel. I en produktionsmiljö kan du ange den till **fel**.
@@ -326,14 +327,14 @@ Här är exempel JSON-definition för en pipeline med en Spark-aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen.
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | -------- | ----------- | -------- |
 | namn | Namnet på aktiviteten i pipelinen. | Ja |
-| beskrivning | Text som beskriver hur aktiviteten ska hantera. | Nej |
+| description | Text som beskriver hur aktiviteten ska hantera. | Nej |
 | typ | Den här egenskapen måste anges till HDInsightSpark. | Ja |
 | linkedServiceName | Namnet på den länkade HDInsight-tjänst som Spark-programmet körs. | Ja |
 | rootPath | Blobbehållaren och mappen som innehåller filen Spark. Filnamnet är skiftlägeskänsligt. | Ja |
-| entryfilepath = | Relativa sökvägen till rotmappen för koden/paketet Spark. | Ja |
+| entryFilePath | Relativa sökvägen till rotmappen för koden/paketet Spark. | Ja |
 | Klassnamn | Programmets Java/Spark-huvudklass. | Nej |
 | argument | En lista med kommandoradsargument till Spark-programmet. | Nej |
 | proxyUser | Användarkontot att personifiera för att köra Spark-programmet. | Nej |
@@ -346,12 +347,12 @@ Spark-aktiviteten har inte stöd för ett infogat skript som Pig och Hive aktivi
 
 Skapa följande mappstrukturen i blob-lagringen som refereras av den länkade HDInsight-tjänsten. Ladda sedan upp beroende filer till lämpliga undermappar i rotmappen som representeras av **entryFilePath**. Till exempel ladda upp Python-filer till undermappen pyFiles och jar-filer till undermappen JAR-filer i rotmappen. Vid körning förväntas i Data Factory-tjänsten följande mappstrukturen i blob storage: 
 
-| Sökväg | Beskrivning | Krävs | Typ |
+| Sökväg | Beskrivning | Obligatoriskt | Typ |
 | ---- | ----------- | -------- | ---- |
 | . | Rotsökvägen för Spark-jobb i länkade storage-tjänsten. | Ja | Mapp |
 | &lt;användardefinierad &gt; | Den sökväg som pekar på Spark-jobbet startfil. | Ja | Fil |
 | . / JAR: er | Alla filer under den här mappen överförs och placeras på Java-klassökvägen för klustret. | Nej | Mapp |
-| . / pyFiles | Alla filer under den här mappen överförs och placeras på PYTHONPATH i klustret. | Nej | Mapp |
+| ./pyFiles | Alla filer under den här mappen överförs och placeras på PYTHONPATH i klustret. | Nej | Mapp |
 | . / filer | Alla filer under den här mappen överförs och placeras i arbetskatalogen executor. | Nej | Mapp |
 | . / arkiverar | Alla filer under den här mappen är okomprimerade. | Nej | Mapp |
 | . / loggar | Den mapp där loggar från Spark-klustret lagras.| Nej | Mapp |

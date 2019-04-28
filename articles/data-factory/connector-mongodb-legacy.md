@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400482"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Mer specifikt stöder MongoDB-anslutningsappen:
 - MongoDB **version 2.4, 2.6, 3.0, 3.2, 3.4 och 3.6**.
 - Kopiera data med hjälp av **grundläggande** eller **anonym** autentisering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill kopiera data från en MongoDB-databas som inte är allmänt tillgänglig, måste du konfigurera en lokal Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) artikeln om du vill få mer detaljerad information. Integreringskörningen innehåller en inbyggd MongoDB-drivrutin, måste du därför inte installera några drivrutinen manuellt när du kopierar data från MongoDB.
 
@@ -54,13 +54,13 @@ Följande egenskaper har stöd för MongoDB-länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Type-egenskapen måste anges till: **MongoDb** |Ja |
+| type |Type-egenskapen måste anges till: **MongoDb** |Ja |
 | server |IP-adressen eller värdnamnet namnet på MongoDB-servern. |Ja |
 | port |TCP-port som MongoDB-servern använder för att lyssna efter klientanslutningar. |Nej (standard är 27017) |
 | databaseName |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till MongoDB-databasen.<br/>Tillåtna värden är: **Grundläggande**, och **anonym**. |Ja |
 | användarnamn |Användarkonto för att få åtkomst till MongoDB. |Ja (om du använder grundläggande autentisering). |
-| lösenord |Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om du använder grundläggande autentisering). |
+| password |Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om du använder grundläggande autentisering). |
 | authSource |Namnet på MongoDB-databasen som du vill använda för att kontrollera dina autentiseringsuppgifter för autentisering. |Nej. Standardinställningen är att använda administratörskontot och databasen som anges med egenskapen databaseName för grundläggande autentisering. |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |
 | allowSelfSignedServerCert | Anger om du vill tillåta självsignerade certifikat från servern. Standardvärdet är FALSKT.  | Nej |
@@ -97,7 +97,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **MongoDbCollection** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **MongoDbCollection** | Ja |
 | Samlingsnamn |Namnet på samlingen i MongoDB-databas. |Ja |
 
 **Exempel:**
@@ -128,7 +128,7 @@ Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MongoDbSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MongoDbSource** | Ja |
 | DocumentDB |Använd anpassade SQL-92 fråga för att läsa data. Till exempel: Välj * från MyTable. |Nej (om ”collectionName” i datauppsättningen har angetts) |
 
 **Exempel:**
@@ -176,16 +176,16 @@ När du kopierar data från MongoDB, används följande mappningar från MongoDB
 
 | Datatypen för MongoDB | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| Binär |Byte] |
-| Boolesk |Boolesk |
+| Binär |Byte[] |
+| Boolean |Boolean |
 | Date |DateTime |
-| NumberDouble |Double-värde |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectId |Sträng |
-| Sträng |Sträng |
-| UUID |GUID |
-| Objekt |Renormalized till att platta ut kolumner med ”_” som kapslade avgränsare |
+| ObjectId |String |
+| Sträng |String |
+| UUID |Guid |
+| Object |Renormalized till att platta ut kolumner med ”_” som kapslade avgränsare |
 
 > [!NOTE]
 > Mer information om stöd för matriser med virtuella tabeller, som avser [stöd för komplexa typer med hjälp av virtuella tabeller](#support-for-complex-types-using-virtual-tables) avsnittet.

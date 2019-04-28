@@ -2,17 +2,18 @@
 title: Delegera en underdomän i Azure DNS
 description: Lär dig mer om att delegera en underdomän i Azure DNS.
 services: dns
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: article
-ms.date: 2/7/2019
-ms.author: victorh
+origin.date: 2/7/2019
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790818"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegera en underdomän i Azure DNS
 
@@ -20,7 +21,7 @@ Du kan använda Azure-portalen för att delegera DNS-underdomänen. Till exempel
 
 Om du vill kan du delegera en underdomän med hjälp av [Azure PowerShell](delegate-subdomain-ps.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill delegera en underdomän i Azure DNS måste du först Delegera din offentliga domän till Azure DNS. Se [delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) anvisningar om hur du konfigurerar dina namnservrar för delegering. När din domän har delegerats till Azure DNS-zon kan delegera du din underdomän.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114357"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Lägg till push-meddelanden till din Apache Cordova-app
 
@@ -240,11 +240,11 @@ De aktuella bibliotek som krävs finns i den [modul phonegap plugin push install
 
 Du kan nu test-push-meddelanden genom att köra appen och lägga till objekt i TodoItem-tabellen. Du kan testa från samma enhet eller från en annan enhet, så länge du använder samma backend-servern. Testa din Cordova-app på Android-plattformen i något av följande sätt:
 
-* *På en fysisk enhet:* koppla din Android-enhet till din utvecklingsdator med en USB-kabel.  I stället för **Google Android-emulatorn**väljer **enhet**. Visual Studio distribuerar programmet till enheten och kör programmet. Du kan sedan interagera med program på enheten.
+* *På en fysisk enhet:* Koppla en Android-enhet till din utvecklingsdator med en USB-kabel.  I stället för **Google Android-emulatorn**väljer **enhet**. Visual Studio distribuerar programmet till enheten och kör programmet. Du kan sedan interagera med program på enheten.
 
   Delning av skärmen program som [Mobizen] [ 20] kan hjälpa dig utveckla Android-program. Mobizen projekt Android skärmen för att en webbläsare på din dator.
 
-* *På en Android-emulator:* det finns ytterligare konfigurationssteg som krävs när du använder en emulator.
+* *På en Android-emulator:* Det finns ytterligare konfigurationssteg som krävs när du använder en emulator.
 
     Kontrollera att du distribuerar till en virtuell enhet som har Google APIs som mål, som visas i hanteraren för Android Virtual Device (AVD).
 
@@ -384,7 +384,7 @@ Kontrollera att ett meddelande tas emot när objektet har lagts till.
 
 Lär dig hur du använder följande SDK: erna:
 
-* [Apache Cordova-SDK][15]
+* [Apache Cordova SDK][15]
 * [ASP.NET Server-SDK][1]
 * [Node.js Server-SDK][16]
 

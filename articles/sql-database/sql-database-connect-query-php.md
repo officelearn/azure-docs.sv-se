@@ -12,11 +12,11 @@ ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/12/2019
 ms.openlocfilehash: 4a53d733b30c06cb48fe2a57f7be232d914dc79c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61408885"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Snabbstart: Använd PHP för att fråga en Azure SQL-databas
 
@@ -52,7 +52,7 @@ För att kunna slutföra det här exemplet behöver du följande:
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -103,7 +103,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforma din första Azure SQL Database](sql-database-design-first-database.md)
+- [Utforma din första Azure SQL-databas](sql-database-design-first-database.md)
 
 - [Microsoft PHP-drivrutiner för SQL Server](https://github.com/Microsoft/msphpsql/)
 

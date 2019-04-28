@@ -3,8 +3,8 @@ title: Planera Azure-nätverk | Microsoft Docs
 description: Lär dig hur du planerar för virtuella nätverk baserat på din isolering, anslutningar och platskrav.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034747"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella datornätverk
 
@@ -37,7 +37,7 @@ Alla Azure-resurser skapas i ett Azure-region och prenumeration. En resurs kan b
 - Har du datakrav för datahemvist, datasuveränitet, efterlevnad eller återhämtning? I så, fall är det viktigt att välja den region som är knutet till kraven. Mer information finns i [geografiska Azure-områden](https://azure.microsoft.com/global-infrastructure/geographies/).
 - Behöver du återhämtning Azures tillgänglighetszoner inom samma Azure-region för de resurser som du distribuerar? Du kan distribuera resurser, till exempel virtuella datorer (VM) till olika tillgänglighetszoner inom samma virtuella nätverk. Inte alla Azure-regioner stöder tillgänglighetszoner men. Läs mer om tillgänglighetszoner och de regioner som stöder dem i [tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="subscriptions"></a>Prenumerationer
+## <a name="subscriptions"></a>Subscriptions
 
 Du kan distribuera så många virtuella nätverk som krävs för varje prenumeration, upp till den [gränsen](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Vissa organisationer har olika prenumerationer för olika avdelningar, till exempel. Mer information och överväganden kring prenumerationer finns i [Prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 

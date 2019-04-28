@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 9e1dde57dc1903e87704bd55fb0b942b7cc349e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61262318"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Mer specifikt stöder den här Amazon Redshift-anslutningsappen data hämtas fr�
 > [!TIP]
 > För att uppnå bästa möjliga prestanda vid kopiering av stora mängder data från Redshift, Överväg att använda den inbyggda Redshift-AVLASTNING via Amazon S3. Se [Använd INAKTIVERAS för att kopiera data från Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) information.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Om du kopierar data till en lokal data datalager med [lokal Integration Runtime](create-self-hosted-integration-runtime.md), ge åtkomst till Amazon Redshift-klustret för Integration Runtime (Använd IP-adressen för datorn). Se [auktorisera åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) anvisningar.
 * Om du kopierar data till ett datalager som Azure, se [IP-intervall för Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653) för Compute IP-adressen och SQL-adressintervall som används av Azure data datacenter.
@@ -53,12 +53,12 @@ Följande egenskaper har stöd för Amazon Redshift länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **AmazonRedshift** | Ja |
+| type | Type-egenskapen måste anges till: **AmazonRedshift** | Ja |
 | server |IP-adressen eller värdnamnet namnet på Amazon Redshift-servern. |Ja |
 | port |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter klientanslutningar. |Nej, standard är 5439 |
 | databas |Namnet på Amazon Redshift-databas. |Ja |
 | användarnamn |Namnet på användaren som har åtkomst till databasen. |Ja |
-| lösenord |Lösenordet för användarkontot. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| password |Lösenordet för användarkontot. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -95,7 +95,7 @@ För att kopiera data från Amazon Redshift, ange typegenskapen på datauppsätt
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
 | tableName | Namnet på tabellen i Amazon Redshift. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -125,7 +125,7 @@ För att kopiera data från Amazon Redshift, ange typ av datakälla i kopierings
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AmazonRedshiftSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AmazonRedshiftSource** | Ja |
 | DocumentDB |Använd anpassad fråga för att läsa data. Till exempel: Välj * från MyTable. |Nej (om ”tableName” i datauppsättningen har angetts) |
 | redshiftUnloadSettings | Egenskapsgruppen när du använder Amazon Redshift-AVLASTNING. | Nej |
 | s3LinkedServiceName | Refererar till en Amazon S3 att-ska använda som en tillfällig lagring genom att ange ett namn för den länkade tjänsten av typen ”AmazonS3”. | Ja om du använder FRÅNKOPPLING |

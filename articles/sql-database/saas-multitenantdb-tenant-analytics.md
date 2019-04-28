@@ -13,11 +13,11 @@ ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
 ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61486658"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Flera klienter analytics med hjälp av extraherade data - app för flera klienter
  
@@ -66,7 +66,7 @@ Förstå hur konsekvent varje klient använder tjänsten ger möjlighet att skap
 
 ## <a name="setup"></a>Konfiguration
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 

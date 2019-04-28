@@ -14,11 +14,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61250623"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webbadress för tabellen med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Data factory stöder för närvarande endast flyttar data från en webbtabell ti
 > [!IMPORTANT]
 > Den här Webbanslutning stöder för närvarande endast extrahering tabellinnehåll från en HTML-sida. Använd för att hämta data från en HTTP/s-slutpunkt, [HTTP-anslutningsappen](data-factory-http-connector.md) i stället.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda den här tabellen Webbanslutning måste du konfigurera en lokal Integration Runtime (även kallat Data Management Gateway) och konfigurera den `gatewayName` -egenskapen i sink länkad tjänst. Till exempel för att kopiera från Webbtabell till Azure Blob storage, konfigurera Azure Storage-länkade tjänst som följande:
 
@@ -73,7 +73,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Type-egenskapen måste anges till: **Webb** |Ja |
+| type |Type-egenskapen måste anges till: **Webb** |Ja |
 | URL |URL: en till webbadressen |Ja |
 | authenticationType |Anonym. |Ja |
 
@@ -102,7 +102,7 @@ Den **typeProperties** avsnittet är olika för varje typ av datauppsättning oc
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ |Typ av datauppsättningen. måste vara inställt på **WebTable** |Ja |
-| sökväg |En relativ URL till den resurs som innehåller tabellen. |Nej. Om sökvägen inte anges används bara den URL som anges i länkade tjänstedefinition. |
+| path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om sökvägen inte anges används bara den URL som anges i länkade tjänstedefinition. |
 | index |Index för tabellen i resursen. Se [Get index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) avsnittet anvisningar för hur du hämtar index för en tabell i en HTML-sida. |Ja |
 
 **Exempel:**

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466807"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Överföra filer till ett Media Services-konto med hjälp av REST
 
@@ -26,7 +26,7 @@ I Media Services överför du dina digitala filer till en blobbehållare som är
 
 Den här artikeln visar hur du laddar upp en lokal fil suing REST.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra stegen som beskrivs i det här avsnittet måste ha du till:
 
@@ -63,4 +63,4 @@ Använda Azure Storage API: er eller SDK: er (till exempel den [Storage REST API
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudier: Koda en fjärrfil baserat på URL: en och strömma video – REST](stream-files-tutorial-with-rest.md)
+[Självstudie: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)

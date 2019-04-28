@@ -5,15 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
+origin.date: 12/26/2018
+ms.date: 03/04/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.openlocfilehash: 28ee64f70cd281a2563a855fb1fca91f229ec7bd
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330606"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Skapa en app med hjälp av Node.js och Azure Cosmos DB:s API för MongoDB 
 > [!div class="op_single_selector"]
@@ -39,7 +40,7 @@ För att följa med i det här exemplet måste du:
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<username>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
+    var url = 'mongodb://<username>:<password>@<endpoint>.documents.azure.cn:10255/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {
@@ -62,7 +63,7 @@ För att följa med i det här exemplet måste du:
         callback();
     });
     };
-    
+
     var findFamilies = function(db, callback) {
     var cursor =db.collection('families').find( );
     cursor.each(function(err, doc) {
@@ -74,7 +75,7 @@ För att följa med i det här exemplet måste du:
         }
     });
     };
-    
+
     var updateFamilies = function(db, callback) {
     db.collection('families').updateOne(
         { "lastName" : "Andersen" },
@@ -89,7 +90,7 @@ För att följa med i det här exemplet måste du:
         callback();
     });
     };
-    
+
     var removeFamilies = function(db, callback) {
     db.collection('families').deleteMany(
         { "lastName": "Andersen" },
@@ -99,7 +100,7 @@ För att följa med i det här exemplet måste du:
         }
     );
     };
-    
+
     MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
     var db = client.db('familiesdb');
@@ -114,7 +115,7 @@ För att följa med i det här exemplet måste du:
     });
     });
     ```
-    
+
     **Valfritt**: Ersätt kodfragmentet nedan om du använder **MongoDB Node.js 2.2-drivrutinen**:
 
     Ursprungligt:
@@ -134,7 +135,7 @@ För att följa med i det här exemplet måste du:
     });
     });
     ```
-    
+
     Bör ersättas med:
 
     ```javascript
@@ -151,7 +152,7 @@ För att följa med i det här exemplet måste du:
     });
     });
     ```
-    
+
 2. Ändra följande variabler i filen *app.js* baserat på dina kontoinställningar ([så här hittar du din anslutningssträng](connect-mongodb-account.md)):
 
     > [!IMPORTANT]
@@ -162,11 +163,11 @@ För att följa med i det här exemplet måste du:
     > **MongoDB Node.js 2.2-drivrutinen** kräver inte kodning av specialtecken i Azure Cosmos DB-lösenordet.
     >
     >
-   
+
     ```javascript
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10255/?ssl=true';
     ```
-     
+
 3. Öppna valfri terminal, kör **npm install mongodb --save** och kör sedan appen med **node app.js**
 
 ## <a name="next-steps"></a>Nästa steg
@@ -174,3 +175,5 @@ För att följa med i det här exemplet måste du:
 - Lär dig hur du [använder Studio 3T](mongodb-mongochef.md) med Azure Cosmos DB:s API för MongoDB.
 - Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
 - Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.
+
+<!-- Update_Description: update meta properties, wording update -->

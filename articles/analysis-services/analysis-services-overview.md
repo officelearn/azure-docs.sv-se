@@ -9,11 +9,11 @@ ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61066148"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -41,7 +41,7 @@ Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic**
 
 Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Den här nivån omfattas inte av något serviceavtal.
 
-|Plan  |QPU:er  |Minne (GB)  |
+|Planera  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |D1    |    20     |    3     |
 
@@ -50,7 +50,7 @@ Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarie
 
 Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begränsad användarsamtidighet och enkla krav för datauppdatering. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Perspektiv, flera partitioner och DirectQuery-funktioner för tabellmodeller *stöds inte* på den här nivån.  
 
-|Plan  |QPU:er  |Minne (GB)  |
+|Planera  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
 |B2    |    80     |    20     |
@@ -59,7 +59,7 @@ Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begr�
 
 Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kräver elastisk användarsamtidighet och har snabbväxande datamodeller. Den har stöd för avancerad datauppdatering för datamodellsuppdateringar i nära realtid och stöder alla funktioner för tabellmodeller.
 
-|Plan  |QPU:er  |Minne (GB)  |
+|Planera  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |S0    |    40     |    10     |
 |S1    |    100     |    25     |
@@ -81,12 +81,12 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Södra Brasilien     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Östra USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Östra USA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Östra USA 2     |     S8, S9   |    1    |
+|USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|USA, östra 2     |     S8, S9   |    1    |
 |Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Södra centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|USA, västra centrala   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|Västra centrala USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Västra USA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |Västra USA     |    S8, S9   |    2  |
 |USA, västra 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
@@ -96,10 +96,10 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Nordeuropa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Västeuropa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Västeuropa    |   S8, S9  |  1  |
+|Västra Europa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Västra Europa    |   S8, S9  |  1  |
 
 ### <a name="asia-pacific"></a>Asien och stillahavsområdet 
 
@@ -110,13 +110,13 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Östra Japan     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
-|Västra Indien     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov
 
 ### <a name="scale-updown-pause-and-resume"></a>Skala upp\ner, pausa och återuppta
 
-Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Du betalar bara för det du använder.  
+Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Betala endast för det du använder.  
 
 ### <a name="scale-out-resources-for-fast-query-responses"></a>Skala ut resurser för snabba frågesvar
 
@@ -126,7 +126,7 @@ Du kan skapa en frågepool med upp till sju ytterligare frågerepliker (åtta to
 
 Du kan skala ut frågerepliker efter dina behov, precis som för att ändra nivån. Konfigurera skalning i portalen eller med hjälp av REST API: er. Läs mer i [Skalning av Azure Analysis Services](analysis-services-scale-out.md).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Totalkostnad beror på ett antal faktorer, exempelvis din valda region, nivå, frågerepliker och paus/återuppta. Använd [Azure Analysis Services pris](https://azure.microsoft.com/pricing/details/analysis-services/)-kalkylator för att fastställa vanlig prissättning för din region. Det här verktyget beräknar prissättning för en enskild serverinstans för en enskild region. Tänk på att frågerepliker debiteras med samma avgift som servern. 
 
@@ -136,7 +136,7 @@ Azure Analysis Services är kompatibelt med många fantastiska funktioner som re
 
 Tabellmodeller både i minnet och DirectQuery-lägena stöds. Tabellmodeller i InMemory-läge (standard) har stöd för flera datakällor. Eftersom modelldata är mycket komprimerat och cachelagrade i minnet ger det här läget snabbast frågesvar över stora mängder data. Det ger också störst flexibilitet för komplexa datauppsättningar och frågor. Partitionering möjliggör stegvis inläsning, ökar parallellisering och minskar minnesanvändningen. Andra avancerade funktioner för datamodeller såsom beräknade tabeller samt alla DAX-funktioner stöds. InMemory-modeller måste uppdateras (bearbetas) för att uppdatera cachelagrade data från datakällor. Tack vare Azures stöd för tjänsthuvudnamn får du en flexibel oövervakad uppdatering med PowerShell, TOM, TMSL och REST, vilket innebär att du alltid kan vara säker på att dina modelldata är aktuella. 
 
-DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Extremt stora datauppsättningar i en enskild SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle och Teradata-datakällor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns vissa begränsningar, till exempel begränsade datakälltyper, DAX-formelbegränsningar, och vissa avancerade funktioner för datamodeller stöds inte. Se [Direkt frågeläge](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
+DirectQuery-läget* använder serverdelens relationsdatabas för lagring och frågekörning. Extremt stora datauppsättningar i en enkel SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle och Teradata-datakällor stöds. Serverdelens datauppsättningar kan överskrida tillgängligt resursminne för servern. Det behövs inga avancerade uppdateringsscenarier för datamodeller. Det finns vissa begränsningar, till exempel begränsade datakälltyper, DAX-formelbegränsningar, och vissa avancerade funktioner för datamodeller stöds inte. Se [Direkt frågeläge](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular) innan du bestämmer det bästa läget för dig.
 
 \* Funktionstillgänglighet beror på nivån.
 
@@ -144,7 +144,7 @@ DirectQuery-läget* använder serverdelens relationsdatabas för lagring och fr�
 
 Tabellmodeller i Azure Analysis Services stöder en mängd olika datakällor från enkla textfiler till stordata i Azure Data Lake Store. Läs mer i avsnittet [Datakällor som stöds i Azure Analysis Services](analysis-services-datasource.md).
 
-## <a name="compatibility-level"></a>Kompatibilitetsnivå
+## <a name="compatibility-level"></a>Efterlevnadsnivå
 
 Kompatibilitetsnivån refererar till release-specifika beteenden i Analysis Services-motorn. Azure Analysis Services stöder tabellmodeller på kompatibilitetsnivå 1200 och högre. Mer information finns i [kompatibilitetsnivån för Analysis Services-tabellmodeller](analysis-services-compat-level.md).
 
@@ -159,7 +159,7 @@ På servernivå har Analysis Services en brandvägg, Azure-autentisering, server
 
 Azure Analysis Services brandvägg blockerar alla klientanslutningar förutom IP-adresserna som anges i regler. Som standard aktiveras inte brandväggsskydd för nya servrar. Vi rekommenderar att brandväggsskyddet är aktiverat och att regler konfigureras som en del av serverns etableringsskript eller i portalen omedelbart efter att servern har skapats. Konfigurera regler för tillåtna IP-adresser av enskilda klient-IP-adresser eller av intervaller. Power BI (service)-anslutningar kan också tillåtas eller blockeras. Konfigurera brandväggen och regler i portalen eller med hjälp av PowerShell. Läs mer i [Konfigurera en serverbrandvägg](analysis-services-qs-firewall.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 Användarautentisering hanteras av [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Vid inloggning använder användare en organisationskontoidentitet med rollbaserad åtkomst till databasen. Användaridentiteter måste vara medlemmar i standard-Azure Active Directory för den prenumeration som servern finns i. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
 

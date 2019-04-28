@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7da57c01b6717b505ea09fa9e6197bab4d4976fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 47db5ba826b94422672dd46b191556da43b70b02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465005"
 ---
 # <a name="media-services-development-with-net"></a>Media Services-utveckling med .NET 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du börja utveckla Media Services-program med hj
 
 Den **Azure Media Services .NET SDK** klientbiblioteket hjälper dig att programmera mot Media Services med hjälp av .NET. Att göra det ännu enklare att utveckla med .NET och den **Azure Media Services .NET SDK-tilläggen** bibliotek har angetts. Det här biblioteket innehåller en uppsättning tilläggsmetoder och hjälpfunktioner som förenklar din .NET-kod. Båda bibliotek är tillgängliga via **NuGet** och **GitHub**.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * Ett Media Services-konto i en ny eller befintlig Azure-prenumeration. Finns i artikeln [så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * Operativsystem: Windows 10, Windows 7, Windows 2008 R2 eller Windows 8.
 * .NET framework 4.5 eller senare.

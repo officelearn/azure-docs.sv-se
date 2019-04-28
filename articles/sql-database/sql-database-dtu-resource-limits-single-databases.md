@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/20/2019
 ms.openlocfilehash: b3514eca8db5d5b68b3e5784ee95e8583813945c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075249"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen
 
@@ -32,7 +32,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 > [!IMPORTANT]
 > Skala vägledning och överväganden finns i [skala en enskild databas](sql-database-single-database-scale.md)
 
-### <a name="basic-service-tier"></a>Grundläggande tjänstenivå
+### <a name="basic-service-tier"></a>Basic tjänstnivå
 
 | **Beräkna storlek** | **Basic** |
 | :--- | --: |
@@ -44,7 +44,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 | Maximalt antal samtidiga sessioner | 300 |
 |||
 
-### <a name="standard-service-tier"></a>Standardtjänstenivå
+### <a name="standard-service-tier"></a>Standardtjänstnivå
 
 | **Beräkna storlek** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
@@ -68,7 +68,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>Premium tjänstenivån
+### <a name="premium-service-tier"></a>Premium tjänstnivån
 
 | **Beräkna storlek** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|

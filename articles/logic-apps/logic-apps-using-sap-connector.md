@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
 ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120171"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
@@ -32,7 +32,7 @@ I Receive scenarier fungerar på samma sätt kan datagateway som en RFC-server s
 
 Den här artikeln visar hur du skapar exemplet logikappar som integreras med SAP samtidigt som täcker de tidigare beskrivna integrationsscenarier.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill följa den här artikeln behöver du följande objekt:
 

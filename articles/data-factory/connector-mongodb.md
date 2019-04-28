@@ -3,21 +3,22 @@ title: Kopiera data från MongoDB med Azure Data Factory | Microsoft Docs
 description: Lär dig hur du kopierar data från Mongo DB till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
-ms.author: jingwang
+origin.date: 12/20/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: ca6040bb74839f30a2f1b13297f6037f05240c67
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400448"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med Azure Data Factory
 
@@ -32,7 +33,7 @@ Du kan kopiera data från MongoDB-databas till alla datalager för mottagare som
 
 Mer specifikt stöder MongoDB-anslutningsappen **versioner upp till 3.4**.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill kopiera data från en MongoDB-databas som inte är allmänt tillgänglig, måste du konfigurera en lokal Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) artikeln om du vill få mer detaljerad information.
 
@@ -48,7 +49,7 @@ Följande egenskaper har stöd för MongoDB-länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Type-egenskapen måste anges till: **MongoDbV2** |Ja |
+| type |Type-egenskapen måste anges till: **MongoDbV2** |Ja |
 | connectionString |Ange t.ex. MongoDB-anslutningssträng `mongodb://[username:password@]host[:port][/[database][?options]]`. Referera till [MongoDB manuell på anslutningssträngen](https://docs.mongodb.com/manual/reference/connection-string/) för mer information. <br/><br />Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | databas | Namnet på databasen som du vill komma åt. | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
@@ -81,7 +82,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **MongoDbV2Collection** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **MongoDbV2Collection** | Ja |
 | Samlingsnamn |Namnet på samlingen i MongoDB-databas. |Ja |
 
 **Exempel:**
@@ -112,7 +113,7 @@ Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MongoDbV2Source** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MongoDbV2Source** | Ja |
 | filter | Anger val av filter som använder frågeoperatorer. Om du vill returnera alla dokument i en samling, utelämnar den här parametern eller skicka ett tomt dokument ({}). | Nej |
 | cursorMethods.project | Anger fälten att returnera i dokumenten för projektion. Om du vill returnera alla fält i matchande dokument, utelämnar du den här parametern. | Nej |
 | cursorMethods.sort | Anger den ordning som frågan returnerar matchande dokument. Referera till [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nej |

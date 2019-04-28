@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60905008"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Datadrivna Style-uttryck (Web SDK)
 
@@ -82,12 +82,12 @@ Data-uttryck ger åtkomst till egenskapsdata i en funktion.
 | Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
 | `['at', number, array]` | objekt | Hämtar ett objekt från en matris. |
-| `['geometry-type']` | sträng | Hämtar funktionstyp geometri: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| `['get', string]` | värde | Hämtar egenskapsvärdet för från egenskaperna för den aktuella funktionen. Returnerar null om den begärda egenskapen saknas. |
-| `['get', string, object]` | värde | Hämtar egenskapsvärdet för från egenskaperna för det angivna objektet. Returnerar null om den begärda egenskapen saknas. |
+| `['geometry-type']` | string | Hämtar funktionstyp geometri: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['get', string]` | value | Hämtar egenskapsvärdet för från egenskaperna för den aktuella funktionen. Returnerar null om den begärda egenskapen saknas. |
+| `['get', string, object]` | value | Hämtar egenskapsvärdet för från egenskaperna för det angivna objektet. Returnerar null om den begärda egenskapen saknas. |
 | `['has', string]` | boolesk | Anger om egenskaperna för en funktion som har den angivna egenskapen. |
 | `['has', string, object]` | boolesk | Anger om egenskaperna för objektet har den angivna egenskapen. |
-| `['id']` | värde | Hämtar den funktions-ID om den har en. |
+| `['id']` | value | Hämtar den funktions-ID om den har en. |
 | `['length', string | array]` | nummer | Hämtar hur lång en sträng eller en matris. |
 
 **Exempel**
@@ -340,8 +340,8 @@ Uttryck av typen innehåller verktyg för testning och konvertering av olika dat
 | `['to-boolean', value]` | boolesk | Konverterar indatavärdet till ett booleskt värde. Resultatet är `false` när indata är en tom sträng, `0`, `false`, `null`, eller `NaN`, annars dess `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Konverterar indatavärdet till en färg. Om flera värden har angetts, ska var och en utvärderas i ordning tills den första lyckade konverteringen erhålls. Om ingen av indata som kan konverteras, är uttrycket ett fel. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | nummer | Konverterar indatavärdet till ett tal, om möjligt. Om indata är `null` eller `false`, resultatet är 0. Om indata är `true`, resultatet är 1. Om indata är en sträng konverteras till ett tal med den [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) funktionen av ECMAScript språkspecifikationen. Om flera värden har angetts, ska var och en utvärderas i ordning tills den första lyckade konverteringen erhålls. Om ingen av indata som kan konverteras, är uttrycket ett fel. |
-| `['to-string', value]` | sträng | Konverterar indatavärdet till en sträng. Om indata är `null`, resultatet är `""`. Om indata är ett booleskt värde, resultatet är `"true"` eller `"false"`. Om indata är ett tal, konverteras det till en sträng med hjälp av den [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number funktionen av ECMAScript språkspecifikationen. Om indata är en färg, konverteras det till RGBA CSS-färgsträng `"rgba(r,g,b,a)"`. I annat fall indata konverteras till en sträng med hjälp av den [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) funktionen av ECMAScript språkspecifikationen. |
-| `['typeof', value]` | sträng | Returnerar en sträng som anger vilken typ av det givna värdet. |
+| `['to-string', value]` | string | Konverterar indatavärdet till en sträng. Om indata är `null`, resultatet är `""`. Om indata är ett booleskt värde, resultatet är `"true"` eller `"false"`. Om indata är ett tal, konverteras det till en sträng med hjälp av den [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number funktionen av ECMAScript språkspecifikationen. Om indata är en färg, konverteras det till RGBA CSS-färgsträng `"rgba(r,g,b,a)"`. I annat fall indata konverteras till en sträng med hjälp av den [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) funktionen av ECMAScript språkspecifikationen. |
+| `['typeof', value]` | string | Returnerar en sträng som anger vilken typ av det givna värdet. |
 
 > [!TIP]
 > Om ett felmeddelande som liknar `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` visas i webbläsarens konsol innebär det att det finns ett uttryck någonstans i din kod som har en matris som inte har en sträng för sitt första värde. Om du vill att uttrycket som returnerar en matris omsluta matrisen med den `literal` uttryck. I följande exempel anger ikonen `offset` möjlighet att en symbol-lager, som måste vara en matris som innehåller två tal med en `match` uttryck för att välja mellan två offset-värden baserat på värdet för den `entityType` egenskapen punktens funktionen.
@@ -399,9 +399,9 @@ Uttryck för anslutningssträng operatorn utföra konverteringen åtgärder på 
 
 | Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | sträng | Sammanfogar flera strängar tillsammans. Varje värde måste vara en sträng. Använd den `to-string` anger uttrycket som ska konverteras andra värdetyper till sträng om det behövs. |
-| `['downcase', string]` | sträng | Konverterar den angivna strängen till gemener. |
-| `['upcase', string]` | sträng | Konverterar den angivna strängen till versaler. |
+| `['concat', string, string, …]` | string | Sammanfogar flera strängar tillsammans. Varje värde måste vara en sträng. Använd den `to-string` anger uttrycket som ska konverteras andra värdetyper till sträng om det behövs. |
+| `['downcase', string]` | string | Konverterar den angivna strängen till gemener. |
+| `['upcase', string]` | string | Konverterar den angivna strängen till versaler. |
 
 **Exempel**
 

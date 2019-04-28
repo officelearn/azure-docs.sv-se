@@ -14,11 +14,11 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61254831"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,12 +43,12 @@ Den här genomgången innehåller stegvisa instruktioner för att skapa en anpas
 > - Det går inte att använda en Gateway för datahantering från en anpassad aktivitet för att komma åt lokala datakällor. För närvarande [Data Management Gateway](data-factory-data-management-gateway.md) stöder endast Kopieringsaktivitet och lagrad proceduraktivitet i Data Factory.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Genomgång: skapa en anpassad aktivitet
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 * Visual Studio 2012/2013/2015
 * Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Krav för Azure Batch
-I den här genomgången kan du köra dina anpassade .NET-aktiviteter med hjälp av Azure Batch som en beräkningsresurs. **Azure Batch** är en plattform som tjänst för att köra storskaliga parallella och högpresterande databehandlingsprogram (HPC) effektivt i molnet. Azure Batch schemalägger beräkningsintensiva arbeten att köras på en hanterad **samling virtuella datorer**, och kan automatiskt skala beräkningsresurser för att uppfylla behoven i dina jobb. Se [grunderna om Azure Batch] [ batch-technical-overview] artikeln en detaljerad översikt över Azure Batch-tjänsten.
+I den här genomgången kan du köra dina anpassade .NET-aktiviteter med hjälp av Azure Batch som en beräkningsresurs. **Azure Batch** är en plattformstjänst för effektiv körning av storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Azure Batch schemalägger beräkningsintensiva arbeten att köras på en hanterad **samling virtuella datorer**, och kan automatiskt skala beräkningsresurser för att uppfylla behoven i dina jobb. Se [grunderna om Azure Batch] [ batch-technical-overview] artikeln en detaljerad översikt över Azure Batch-tjänsten.
 
 Skapa ett Batch-konto med en pool med virtuella datorer för den här självstudien. Här är stegen:
 
@@ -422,7 +422,7 @@ Här följer de steg du utför i det här avsnittet:
    3. Klicka på **Data Factory** på bladet **Dataanalys**.
 
       ![Meny för ny Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. I den **ny datafabrik** bladet ange **CustomActivityFactory** för namnet. Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande fel: **Datafabriksnamnet ”CustomActivityFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel **yournameCustomActivityFactory**) och försöker skapa igen.
+2. I den **ny datafabrik** bladet ange **CustomActivityFactory** för namnet. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **Datafabriksnamnet ”CustomActivityFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel **yournameCustomActivityFactory**) och försöker skapa igen.
 
     ![Nytt Azure Data Factory-blad](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Klicka på **RESURSGRUPPENS namn**, och välj en befintlig resursgrupp eller skapa en resursgrupp.

@@ -11,11 +11,11 @@ ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996612"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -29,7 +29,7 @@ Du kan använda för den mest grundläggande undantag och felhantering, en *åte
 
 Här följer återförsök principtyper: 
 
-| Type | Beskrivning | 
+| Typ | Beskrivning | 
 |------|-------------| 
 | **Standard** | Den här principen skickar upp till fyra återförsök på *ökar exponentiellt* mellanrum, som skalas med 7,5 sekunder men begränsas mellan 5 och 45 sekunder. | 
 | **Exponentiellt intervall**  | Den här principen väntar ett slumpmässigt intervall som väljs från en växande exponentiellt intervall innan nästa förfrågan skickas. | 
@@ -71,7 +71,7 @@ Du kan också manuellt ange återförsöksprincipen i den `inputs` för en åtg�
 
 *Krävs*
 
-| Värde | Type | Beskrivning |
+| Värde | Typ | Beskrivning |
 |-------|------|-------------|
 | <*återförsöksprincipstyp-*> | String | Den typen av återförsöksprincip du vill använda: `default`, `none`, `fixed`, eller `exponential` | 
 | <*retry-interval*> | String | Återförsöksintervallet där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Är standardintervallet för minsta `PT5S` och maximalt intervall är `PT1D`. När du använder exponentiell intervallprincip, kan du ange olika lägsta och högsta värden. | 
@@ -80,7 +80,7 @@ Du kan också manuellt ange återförsöksprincipen i den `inputs` för en åtg�
 
 *Valfritt*
 
-| Värde | Type | Beskrivning |
+| Värde | Typ | Beskrivning |
 |-------|------|-------------|
 | <*Minsta intervall*> | String | För exponentiell intervallprincip, det minsta intervallet för slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <*maximum-interval*> | String | För exponentiell intervallprincip, det största intervallet för slumpmässigt valda intervallet i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 

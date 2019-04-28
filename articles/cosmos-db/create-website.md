@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.openlocfilehash: 1a63de4642850e425cc785e0d89197178ceec1a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889852"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service Web Apps med en Azure Resource Manager-mall
 Den här självstudiekursen visar hur du använder en Azure Resource Manager-mall för att distribuera och integrera [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) webbapp och ett exempelwebbprogram.
@@ -56,7 +56,7 @@ Nu ska vi distribuera din första mall.
    ![Skärmbild av malldistributionen UI](./media/create-website/TemplateDeployment3.png)
 4. Klicka på **redigera parametrar**, ange värden för var och en av de obligatoriska parametrarna och på **OK**.  Parametrarna är följande:
    
-   1. PLATSNAMN: Anger namnet på App Service webbappen och används för att konstruera den URL som du använder för att komma åt webbappen (till exempel om du anger ”mydemodocdbwebapp” och sedan den URL som du komma åt webbappen är mydemodocdbwebapp.azurewebsites.net).
+   1. SITENAME: Anger namnet på App Service webbappen och används för att konstruera den URL som du använder för att komma åt webbappen (till exempel om du anger ”mydemodocdbwebapp” och sedan den URL som du komma åt webbappen är mydemodocdbwebapp.azurewebsites.net).
    2. HOSTINGPLANNAME: Anger namnet på App Service-värdplanen att skapa.
    3. PLATS: Anger den Azure-plats där du kan skapa Azure Cosmos DB och web appresurser.
    4. DATABASEACCOUNTNAME: Anger namnet på Azure Cosmos DB-konto för att skapa.   
@@ -93,7 +93,7 @@ Nu ska vi distribuera andra mallen.  Den här mallen är användbar för att vis
    ![Skärmbild av malldistributionen UI](./media/create-website/TemplateDeployment3.png)
 4. Klicka på **redigera parametrar**, ange värden för var och en av de obligatoriska parametrarna och på **OK**.  Parametrarna är följande:
    
-   1. PLATSNAMN: Anger namnet på App Service webbappen och används för att konstruera den URL som du använder för att komma åt webbappen (till exempel om du anger ”mydemodocdbwebapp” och sedan den URL som du komma åt webbappen är mydemodocdbwebapp.azurewebsites.net).
+   1. SITENAME: Anger namnet på App Service webbappen och används för att konstruera den URL som du använder för att komma åt webbappen (till exempel om du anger ”mydemodocdbwebapp” och sedan den URL som du komma åt webbappen är mydemodocdbwebapp.azurewebsites.net).
    2. HOSTINGPLANNAME: Anger namnet på App Service-värdplanen att skapa.
    3. PLATS: Anger den Azure-plats där du kan skapa Azure Cosmos DB och web appresurser.
    4. DATABASEACCOUNTNAME: Anger namnet på Azure Cosmos DB-konto för att skapa.   

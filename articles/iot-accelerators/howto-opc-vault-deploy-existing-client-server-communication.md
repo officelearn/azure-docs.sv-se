@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450672"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Skydda OPC UA-klienten och OPC UA-serverprogram 
 OPC-valv är en mikrotjänst som kan konfigurera, registrera och hantera livscykeln för användarcertifikatet för OPC UA-servern och klientprogram i molnet. Den här artikeln visar hur du skyddar en OPC UA-klient och en OPC UA serverprogram med ett nytt nyckelpar och certifikat med hjälp av OPC-valvet.

@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: ea223ea3ccd113014ceabff34cc4d0174abb1ddf
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483136"
 ---
 # <a name="backing-up-drive-manifests-for-azure-importexport-jobs"></a>Säkerhetskopiering av enhet manifest för Azure Import/Export-jobb
 

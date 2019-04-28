@@ -11,17 +11,17 @@ ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
 ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58074734"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60999184"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Ta emot B2B-data med Azure Logic Apps och Enterprise-Integrationspaket
 
 När du har skapat ett konto för integrering med partners och avtal du är redo att skapa ett arbetsflöde för företag (B2B) för din logikapp med den [Enterprise-Integrationspaketet](logic-apps-enterprise-integration-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du använder AS2 och X12 åtgärder, du måste ha ett Enterprise-Integrationskonto. Lär dig [så här skapar du en Enterprise-Integrationskonto](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 

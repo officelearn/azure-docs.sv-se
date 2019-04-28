@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472864"
 ---
 # <a name="container-skus-tab"></a>Fliken för behållaren SKU: er
 
@@ -62,7 +62,7 @@ Den **Avbildningsdetaljerna som databasen** i den föregående skärmbilden avbi
     >[!NOTE]
     >Det användarnamn och lösenord krävs för att se till att partner har åtkomst till ACR som nämns i publiceringsprocessen.
 
-### <a name="image-version"></a>Avbildningsversion
+### <a name="image-version"></a>Bildversion
 
 När du publicerar en behållaravbildning, du kan ange en eller flera taggar och SHA Överför sammanfattningar.
 

@@ -10,11 +10,11 @@ ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483574"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Använda Azure CLI med Azure Storage
 
@@ -26,12 +26,12 @@ Exemplen i handboken förutsätter användning av Bash-gränssnittet på Ubuntu,
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här guiden förutsätter att du förstår de grundläggande principerna för Azure Storage. Det förutsätts även att du är uppfyller kontokraven som anges nedan för Azure och Storage-tjänsten.
 
 ### <a name="accounts"></a>Konton
 * **Azure-konto**: Om du inte redan har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/).
-* **Storage-konto**: Se [skapa ett lagringskonto](storage-quickstart-create-account.md) i [om Azure storage-konton](storage-create-storage-account.md).
+* **Lagringskonto**: Se [skapa ett lagringskonto](storage-quickstart-create-account.md) i [om Azure storage-konton](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli"></a>Installera Azure CLI
 

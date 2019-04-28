@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61436179"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid-prenumerationer
 
@@ -109,7 +109,7 @@ Använd följande värden för händelser i Event Grid-schemat för nyckeln:
 
 * Id
 * Avsnitt
-* Subjekt
+* Subject
 * Händelsetyp
 * DataVersion
 * Händelsedata (till exempel Data.key1)
@@ -129,7 +129,7 @@ Använda datafälten som händelse (till exempel Data.key1) för anpassade inmat
 Värdena kan vara:
 
 * nummer
-* sträng
+* string
 * boolesk
 * matris
 

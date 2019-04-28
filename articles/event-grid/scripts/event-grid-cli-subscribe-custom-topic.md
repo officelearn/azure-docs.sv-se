@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: a46c348533468ad037ac092037cb34def2b0405c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127284"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Prenumerera på händelser för ett anpassat ämne med Azure CLI
 
@@ -26,13 +26,13 @@ Det här skriptet skapar en Event Grid-prenumeration på händelser för ett anp
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Förhandsversionen av exempelskript kräver Event Grid-tillägget. För att installera kör du `az extension add --name eventgrid`.
+Förhandsversionen av exempelskriptet kräver Event Grid-tillägget. Installera genom att köra `az extension add --name eventgrid`.
 
-## <a name="sample-script---stable"></a>Exempelskript – stable
+## <a name="sample-script---stable"></a>Exempelskript – stabilt
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic/subscribe-to-custom-topic.sh "Subscribe to custom topic")]
 
-## <a name="sample-script---preview-extension"></a>Exempelskript – förhandsversion av tillägg
+## <a name="sample-script---preview-extension"></a>Exempelskript – tillägg för förhandsversion
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic-preview/subscribe-to-custom-topic-preview.sh "Subscribe to custom topic")]
 
@@ -44,7 +44,7 @@ Det här skriptet använder följande kommandon för att skapa händelseprenumer
 | Kommando | Anteckningar |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Skapa en Event Grid-prenumeration. |
-| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - extension version | Skapa en Event Grid-prenumeration. |
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) – version av tillägg | Skapa en Event Grid-prenumeration. |
 
 ## <a name="next-steps"></a>Nästa steg
 

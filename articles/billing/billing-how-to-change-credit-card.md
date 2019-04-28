@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918829"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kreditkort eller bankkort kort för Azure
 
@@ -35,12 +35,12 @@ I Azure-portalen kan du lägga till ett nytt kreditkort, uppdatera ett befintlig
 ## <a name="add-a-new-credit-or-debit-card-to-an-azure-subscription"></a>Lägga till ett nytt kreditkort eller bankkort kort i en Azure-prenumeration
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar sökning](./media/billing-how-to-change-credit-card/search.png)
 
 1. Välj den prenumeration som du vill lägga till kredit- eller betalkort kortet till.
-1. Välj **betalningsmetoder**.
+1. Välj **Betalningsmetoder**.
 
     ![Skärmbild som visar hantera metoder betalningsalternativ har valt.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -60,11 +60,11 @@ Om du får ett felmeddelande när du lägger till kreditkortet [kreditkort avvis
 Om ditt kreditkort hämtar förnyas och talet förblir oförändrat, uppdatera den befintliga informationen kreditkort som förfallodatumet. Om ändringarna för kreditkort eftersom kortet går förlorad, stulits eller upphört att gälla, följer du stegen i den [lägga till ett kreditkort som betalningssätt](#addcard) avsnittet. Du behöver inte uppdatera CVV.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar sökning](./media/billing-how-to-change-credit-card/search.png)
 
-1. Välj **betalningsmetoder**.
+1. Välj **Betalningsmetoder**.
 
     ![Skärmbild som visar hantera metoder betalningsalternativ har valt.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -80,12 +80,12 @@ Om ditt kreditkort hämtar förnyas och talet förblir oförändrat, uppdatera d
 Om mer än en av dina prenumerationer har samma aktiv betalningsmetod, uppdateras ändra den aktiva betalningsmetoden på någon av de här prenumerationerna dessutom aktiv betalningsmetod på de andra.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök på **Cost Management + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar sökning](./media/billing-how-to-change-credit-card/search.png)
 
 1. Välj den prenumeration som du vill lägga till kredit- eller betalkort kortet till.
-1. Välj **betalningsmetoder**.
+1. Välj **Betalningsmetoder**.
 
     ![Skärmbild som visar hantera metoder betalningsalternativ har valt.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 

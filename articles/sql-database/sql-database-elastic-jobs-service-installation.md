@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 32df3e7ac6dc22e247bd4aecea4f39bf6d3a8017
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475787"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installera översikt över elastiska databasjobb
 
@@ -29,7 +29,7 @@ ms.locfileid: "58316906"
 
 Om du redan har installerat **elastiska databasjobb** via portalen från en befintlig **elastisk pool**, den senaste förhandsversionen av PowerShell innehåller skript för att uppgradera den befintliga installationen. Vi rekommenderar starkt att uppgradera installationen till senast **elastiska databasjobb** komponenter för att kunna dra nytta av nya funktioner som exponeras via PowerShell APIs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * En Azure-prenumeration. En kostnadsfri utvärderingsversion, se [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installera den senaste versionen med hjälp av den [Web Platform Installer](https://go.microsoft.com/fwlink/p/?linkid=320376). Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 * [NuGet Command-line Utility](https://nuget.org/nuget.exe) används för att installera paketet för Elastic Database-jobb. Mer information finns i https://docs.nuget.org/docs/start-here/installing-nuget.

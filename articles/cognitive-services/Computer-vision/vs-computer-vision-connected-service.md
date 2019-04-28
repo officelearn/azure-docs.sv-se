@@ -12,11 +12,11 @@ ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
 ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61270721"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Använda Connected Services i Visual Studio för att ansluta till API för visuellt innehåll
 

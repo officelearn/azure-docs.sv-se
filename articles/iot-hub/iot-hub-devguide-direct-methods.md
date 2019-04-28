@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: caccdcb0d90a817c82e8d7816f0770b09b4ea27a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d7c63ffe5a318507053f59bf3a18242ee8c327a0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61327762"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 
@@ -115,7 +115,7 @@ Backend-appen tar emot ett svar som består av följande objekt:
 
 ### <a name="method-invocation-for-iot-edge-modules"></a>Metodanropet för IoT Edge-moduler
 
-Anropa direktmetoder med hjälp av en modul ID stöds i den [klient-IoT c SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
+Anropa direktmetoder med hjälp av en modul ID stöds i den [IoT Service Client C# SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
 För detta ändamål använder den `ServiceClient.InvokeDeviceMethodAsync()` metoden samt skickar den `deviceId` och `moduleId` som parametrar.
 

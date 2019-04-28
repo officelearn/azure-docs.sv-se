@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119086"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Hur du skapar och hanterar Azure Cache för Redis med hjälp av den klassiska Azure CLI
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Den klassiska Azure CLI är ett bra sätt att hantera Azure-infrastrukturen frå
 > [!NOTE]
 > Läs de senaste Azure CLI-exempelskript [Azure CLI Azure Cache för exempel på Redis](cli-samples.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste slutföra följande steg för att skapa och hantera Azure Cache för Redis-instanser med Azure klassiska CLI.
 
 * Du måste ha ett Azure-konto. Om du inte har någon kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) efter en liten stund.

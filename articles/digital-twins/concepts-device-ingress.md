@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
 ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729531"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926092"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Enhetsanslutning och inkommande telemetri
 
@@ -67,7 +67,7 @@ Du kan anpassa din enhets meddelandeformat och för att anpassa lösningens beho
 
  Nyttolasten innehållet i en **meddelande** kan vara valfri data upp till 256 KB stora. Det finns några krav som förväntat för egenskaperna för den [ `Message.Properties` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) typen. Tabellen visar de obligatoriska och valfria egenskaper som stöds av systemet.
 
-| Egenskapsnamn | Värde | Krävs | Beskrivning |
+| Egenskapsnamn | Värde | Obligatoriskt | Beskrivning |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | Ja | Ett konstantvärde som identifierar ett meddelande i systemet. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | En unik identifierare för sensorn som skickar den **meddelande**. Det här värdet måste matcha ett objekts **HardwareId** -egenskapen för systemet att behandla den. Till exempel `00FF0643BE88-CO2`. |

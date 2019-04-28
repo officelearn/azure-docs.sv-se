@@ -1,6 +1,6 @@
 ---
 title: Använda Go för att köra frågor mot Azure SQL Database | Microsoft Docs
-description: Använd Go för att skapa ett program som ansluter till en Azure SQL Database, och använd Transact-SQL-uttryck för att köra frågor mot och ändra data.
+description: Använd Go för att skapa ett program som ansluter till en Azure SQL-databas, och använd Transact-SQL-uttryck för att köra frågor mot och ändra data.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,17 +13,17 @@ ms.reviewer: MightyPen
 manager: craigg
 ms.date: 02/12/2019
 ms.openlocfilehash: 0014dc0edde0eafc153b40eec06c6bd6dc8446b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409113"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Snabbstart: Använda Golang för att fråga en Azure SQL-databas
 
 I den här snabbstarten kommer du att använda programmeringsspråket [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) för att ansluta till en Azure SQL-databas. Därefter kommer du att köra Transact-SQL-uttryck för att fråga och redigera data. [Golang](https://golang.org/) är ett programmeringsspråk med öppen källkod som gör det enkelt att skapa enkel, pålitlig och effektiv programvara.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 
@@ -51,7 +51,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -328,7 +328,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforma din första Azure SQL Database](sql-database-design-first-database.md)
+- [Utforma din första Azure SQL-databas](sql-database-design-first-database.md)
 - [Golang-drivrutin för Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Rapportera problem eller ställ frågor](https://github.com/denisenkom/go-mssqldb/issues)
 

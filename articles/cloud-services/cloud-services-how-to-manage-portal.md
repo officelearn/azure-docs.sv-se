@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61433964"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Hantera molntjänster i Azure portal
 I den **molntjänster** område i Azure-portalen kan du:
@@ -67,7 +67,7 @@ Du kan växla distributioner från den **molntjänster** sida eller instrumentpa
 
 3. Följande bekräftelsefråga öppnas:
 
-    ![Cloud Services-växling](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
+    ![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
 4. När du har kontrollerat distributionsinformationen Välj **OK** växlar distributioner.
 

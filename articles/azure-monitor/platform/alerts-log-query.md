@@ -9,11 +9,11 @@ ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
 ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996014"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Aviseringen loggfrågor i Azure Monitor
 [Aviseringsregler baserat på Azure Monitor-loggar](alerts-unified-log.md) körs med jämna mellanrum, så bör du se till att de är skrivna för att minimera kostnader och svarstid. Den här artikeln innehåller rekommendationer om hur du skriver effektiva frågor för aviseringar och en process för att konvertera befintliga frågor. 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0cc00b4f2075ba77490d310080b9968bedb8dc1f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61304958"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows Hybrid Runbook Worker
 
@@ -91,9 +91,13 @@ Om du inte redan har en Log Analytics-arbetsyta kan du skapa ett med hjälp av a
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Lägga till Automation-lösningen i Log Analytics-arbetsytan
 
-Lösningar lägger till funktioner i Azure Monitor-loggar. Automation-lösningen lägger till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du lägger till lösningen till din arbetsyta skickar automatiskt worker komponenter till agentdatorn som du ska installera i nästa steg.
+Automation Azure Monitor logs-lösningen lägger till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du lägger till lösningen till din arbetsyta skickar automatiskt worker komponenter till agentdatorn som du ska installera i nästa steg.
 
-Att lägga till den **Automation** lösning till Log Analytics-arbetsytan, följ instruktionerna på [att lägga till en lösning med lösningsgalleriet](../log-analytics/log-analytics-add-solutions.md).
+Att lägga till den **Automation** Azure Monitor loggar lösning på arbetsytan och kör följande PowerShell.
+
+```powershell-interactive
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+```
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installera Microsoft Monitoring Agent
 

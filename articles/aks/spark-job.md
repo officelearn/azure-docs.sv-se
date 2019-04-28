@@ -2,25 +2,26 @@
 title: Kör ett Apache Spark-jobb med Azure Kubernetes Service (AKS)
 description: Använd Azure Kubernetes Service (AKS) för att köra ett Apache Spark-jobb
 services: container-service
-author: lenadroid
-manager: jeconnoc
+author: rockboyfor
+manager: digimobile
 ms.service: container-service
 ms.topic: article
-ms.date: 03/15/2018
-ms.author: alehall
+origin.date: 03/15/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104973"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Kör Apache Spark-jobb på AKS
 
 [Apache Spark] [ apache-spark] är en snabb motor för storskalig databearbetning. Från och med den [Spark 2.3.0 versionen][spark-latest-release], Apache Spark har stöd för inbyggd integration med Kubernetes-kluster. Azure Kubernetes Service (AKS) är en hanterad Kubernetes-miljö som körs i Azure. Det här dokumentet beskriver förbereder och Apache Spark-jobb som körs på ett kluster i Azure Kubernetes Service (AKS).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande för att kunna slutföra stegen i den här artikeln.
 
@@ -40,7 +41,7 @@ Om du behöver ett AKS-kluster som uppfyller den här minsta rekommendationen, k
 Skapa en resursgrupp för klustret.
 
 ```azurecli
-az group create --name mySparkCluster --location eastus
+az group create --name mySparkCluster --location chinaeast2
 ```
 
 Skapa AKS-kluster med noder som är av storleken `Standard_D3_v2`.
@@ -176,7 +177,7 @@ Skapa ett Azure storage-konto och en behållare för jar-filen.
 ```azurecli
 RESOURCE_GROUP=sparkdemo
 STORAGE_ACCT=sparkdemo$RANDOM
-az group create --name $RESOURCE_GROUP --location eastus
+az group create --name $RESOURCE_GROUP --location chinaeast2
 az storage account create --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT --sku Standard_LRS
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $RESOURCE_GROUP --name $STORAGE_ACCT -o tsv`
 ```
@@ -257,7 +258,7 @@ När jobbet har slutförts blir drivrutinen pod med tillståndet ”slutfört”
 kubectl get pods --show-all
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 NAME                                               READY     STATUS      RESTARTS   AGE
@@ -325,16 +326,15 @@ Kolla in Spark-dokumentationen för mer information.
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: https://aka.ms/azure-jdks
+[java-install]: https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
-
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
-[acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-[aks-quickstart]: https://docs.microsoft.com/azure/aks/
-[azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
-[storage-account]: https://docs.microsoft.com/azure/storage/common/storage-azure-cli
+[acr-aks]: /container-registry/container-registry-auth-aks
+[acr-create]: /container-registry/container-registry-get-started-azure-cli
+[aks-quickstart]: /aks/
+[azure-cli]: https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest?view=azure-cli-latest
+[storage-account]: /storage/common/storage-azure-cli

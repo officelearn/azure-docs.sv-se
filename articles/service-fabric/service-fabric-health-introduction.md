@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60949189"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
 Azure Service Fabric introducerar en hälsomodellen som tillhandahåller omfattande, flexibel och utökningsbar hälsotillstånd utvärdering och rapportering. Modellen tillåter nära realtid övervakning av statusen för klustret och de tjänster som körs i den. Du kan enkelt hämta hälsoinformation och korrigera potentiella problem innan de spridas vidare och orsaka avbrott i stora. I den vanliga modellen tjänster skicka rapporter baserat på deras lokala vyer och att informationen sammanställs för att ge en övergripande-klusternivå vy.

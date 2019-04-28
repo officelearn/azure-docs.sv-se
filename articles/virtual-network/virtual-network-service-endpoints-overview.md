@@ -1,5 +1,5 @@
 ---
-title: Tjänstslutpunkter för virtuella Azure-nätverk
+title: Tjänstslutpunkter för virtuellt nätverk i Azure
 titlesuffix: Azure Virtual Network
 description: Lär dig hur du aktiverar direktåtkomst till Azure-resurser från ett virtuellt nätverk med tjänstslutpunkter.
 services: virtual-network
@@ -14,13 +14,13 @@ ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
 ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61032593"
 ---
-# <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
+# <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
 Med tjänstslutpunkter för Virtual Network (VNet) får du ett utökat privat adressutrymme för det virtuella nätverket och identiteten för ditt VNet till Azure-tjänsterna, via en direktanslutning. Med slutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast dina virtuella nätverk. Trafik från ditt VNet till Azure-tjänsten förblir alltid på Microsoft Azure-stamnätverket.
 
@@ -50,7 +50,7 @@ De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-upp
 
 Tjänstslutpunkter har följande fördelar:
 
-- **Förbättrad säkerhet för dina Azure-tjänstresurser**: Privat adressutrymme för virtuella nätverk kan överlappa och kan därför inte användas för att unikt identifiera trafik från ditt virtuella nätverk. Tjänstslutpunkter ger dig möjligheten att skydda Azure-tjänstresurser i ditt virtuella nätverk genom att utöka identitet för virtuellt nätverk till tjänsten. När tjänstslutpunkter är aktiverade i ditt virtuella nätverk kan du skydda Azure-tjänstresurserna i nätverket genom att lägga till en virtuell nätverksregel för resurserna. Detta ger bättre säkerhet genom att helt ta bort åtkomst till offentlig Internetåtkomst för resurser och endast tillåta nätverk från ditt virtuella nätverk.
+- **Förbättrad säkerhet för dina Azure-tjänstresurser**: Privat adressutrymme för virtuella nätverk kan överlappa och kan därför inte användas för att unikt identifiera trafik från ditt virtuella nätverk. Tjänstslutpunkter ger dig möjligheten att skydda Azure-tjänstresurser i ditt virtuella nätverk genom att utöka identitet för virtuellt nätverk till tjänsten. När tjänstslutpunkter är aktiverade i ditt virtuella nätverk kan du skydda Azure-tjänstresurserna i nätverket genom att lägga till en regel för virtuellt nätverk för resurserna. Detta ger bättre säkerhet genom att helt ta bort åtkomst till offentlig Internetåtkomst för resurser och endast tillåta nätverk från ditt virtuella nätverk.
 - **Optimal routning för Azure-tjänsttrafik från ditt virtuella nätverk**: I dag tvingar alla routningar på ditt virtuella nätverk som tvingar internettrafik till dina lokala och/eller virtuella enheter, s.k. tvingad tunneltrafik, även Azure-tjänsttrafiken att ta samma väg som internettrafiken. Med tjänstslutpunkter får du optimal routning för Azure-trafiken. 
 
   Slutpunkter tar alltid tjänsttrafiken direkt från ditt virtuella nätverk till tjänsten i Microsoft Azure-stamnätverket. Om du behåller trafiken i Azure-stamnätverket kan du fortsätta att granska och övervaka den utgående internettrafiken från dina virtuella nätverk, via tvingad tunneltrafik, utan att tjänsttrafiken påverkas. Läs mer om [användardefinierade vägar och tvingad tunneltrafik](virtual-networks-udr-overview.md).
@@ -65,7 +65,7 @@ Tjänstslutpunkter har följande fördelar:
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Skydda Azure-tjänster i virtuella nätverk
 
-- En tjänstslutpunkt i ett virtuellt nätverk anger det virtuella nätverkets identitet för Azure-tjänsten. När tjänstslutpunkter är aktiverade i ditt virtuella nätverk kan du skydda Azure-tjänstresurserna i nätverket genom att lägga till en virtuell nätverksregel för resurserna.
+- En tjänstslutpunkt för virtuellt nätverk anger det virtuella nätverkets identitet för Azure-tjänsten. När tjänstslutpunkter är aktiverade i ditt virtuella nätverk kan du skydda Azure-tjänstresurserna i nätverket genom att lägga till en regel för virtuellt nätverk för resurserna.
 - Idag används offentliga IP-adresser som IP-källadresser för Azure-tjänsttrafiken från ett virtuellt nätverk. Med tjänstslutpunkter använder tjänsttrafiken istället privata adresser i det virtuella nätverket som IP-källadresser vid åtkomst till Azure-tjänsten från det virtuella nätverket. Med det här bytet kan du komma åt tjänsterna utan att behöva reserverade, offentliga IP-adresser som används i brandväggar.
 
 >[!NOTE]
@@ -134,9 +134,9 @@ Det finns ingen begränsning av det totala antalet tjänstslutpunkter i ett virt
 
 Vissa Azure-tjänster, till exempel Azure Storage-konton, kan det finnas begränsningar av antalet undernät som används för att skydda resursen. Mer information finns i dokumentationen för de olika tjänsterna i [Nästa steg](#next-steps).
 
-## <a name="virtual-network-service-endpoint-policies"></a>Principer för tjänstslutpunkter för virtuella nätverk 
+## <a name="virtual-network-service-endpoint-policies"></a>Principer för tjänstslutpunkter för virtuellt nätverk 
 
-Med principer för tjänstslutpunkter för virtuella nätverk kan du filtrera trafik i virtuella nätverk till Azure-tjänster för att endast tillåta specifika Azure-tjänstresurser över tjänstslutpunkter. Principer för tjänstslutpunkt ger detaljerad åtkomstkontroll för trafik i virtuella nätverk till Azure-tjänster. Mer information: [Principer för tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+Med principer för tjänstslutpunkter för virtuellt nätverk kan du filtrera trafik i virtuella nätverk till Azure-tjänster för att endast tillåta specifika Azure-tjänstresurser över tjänstslutpunkter. Principer för tjänstslutpunkt ger detaljerad åtkomstkontroll för trafik i virtuella nätverk till Azure-tjänster. Mer information: [Principer för tjänstslutpunkter för virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
@@ -144,11 +144,11 @@ Vanliga frågor och svar finns i [vanliga frågor och svar om tjänstslutpunkt f
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig att [konfigurera tjänstslutpunkter i virtuellt nätverk](tutorial-restrict-network-access-to-resources.md)
+- Lär dig att [konfigurera tjänstslutpunkter för virtuellt nätverk](tutorial-restrict-network-access-to-resources.md)
 - Lär dig att [skydda ett Azure Storage-konto i ett virtuellt nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig att [skydda en Azure SQL-databas i ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig att [skydda ett Azure SQL Data Warehouse i ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - Lär dig om [Azure-tjänstintegrering i virtuella nätverk](virtual-network-for-azure-services.md)
-- Lär dig om: [Principer för tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- Lär dig om: [Principer för tjänstslutpunkter för virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 -  Snabbstart: [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) för att konfigurera tjänstslutpunkt på ett VNet:s undernät och säkra ett Azure Storage-konto till det undernätet.
 

@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129561"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurera Always On-Tillgänglighetsgrupper i Azure Virtual Machines automatiskt: Resource Manager
 
@@ -115,7 +115,7 @@ På **tillgänglighet gruppinställningar**, granska de förinställda värdena 
 
 Du kan ändra dessa värden om det behövs. Använd de förinställda värdena i den här självstudien.  
 
-![tillgänglighet gruppinställningar](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
+![Tillgänglighet gruppinställningar](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
 Klicka på **OK**.
 

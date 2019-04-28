@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61442247"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrera SIM-data i lösningen för fjärrövervakning
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="telefnica-iot-integration-setup"></a>Installationsprogrammet för Telefónica IoT-integration
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här ytterligare fjärrövervakning funktionen förhandsvisas just nu. Följ dessa steg för att synkronisera dina anslutningsdata till fjärransluten Övervakningslösningen för Azure:
 

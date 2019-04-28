@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 25bc7798853d350139a7802eaad68d52a1d7d99f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996633"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming för iOS 
 
@@ -41,14 +41,14 @@ Offline-läge för skyddat innehåll är också en funktion som begärs ofta ut�
 
 Den här artikeln innehåller stöd för FairPlay Streaming (FPS) offline-läge som riktar sig mot enheter som kör iOS 10 eller senare. Den här funktionen stöds inte för andra Apple-plattformar, till exempel watchOS, tvOS eller Safari på macOS.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du implementerar offline DRM för FairPlay på en iOS 10 +-enhet:
 
 * Granska online content protection för FairPlay: 
 
-    - [Apple FairPlay licenskrav och konfiguration](fairplay-license-overview.md)
-    - [Använda DRM dynamisk kryptering och licens video-on-demand](protect-with-drm.md)
+    - [Licenskrav för och konfiguration av Apple FairPlay](fairplay-license-overview.md)
+    - [Använda dynamisk DRM-kryptering och tjänsten för licensleverans](protect-with-drm.md)
     - Ett .NET-exempel som omfattar konfiguration av online FPS strömning: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
 * Hämta SDK: N FPS från Apple Developer Network. FPS SDK: N innehåller två komponenter:
 

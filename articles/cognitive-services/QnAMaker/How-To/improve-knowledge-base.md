@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61372732"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda active learning för att förbättra din kunskapsbas
 
@@ -171,10 +171,10 @@ Content-Type: application/json
 
 |Egenskapen för HTTP-begäran|Namn|Typ|Syfte|
 |--|--|--|--|
-|URL-parameter för väg|Kunskapsbas-ID|sträng|GUID för kunskapsbasen.|
-|Host subdomain|Resursnamnet för QnAMaker|sträng|Värdnamnet för din QnA Maker i Azure-prenumerationen. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
-|Huvud|Content-Type|sträng|Medietyp i texten som skickas till API: et. Standardvärdet är: `application/json`|
-|Huvud|Auktorisering|sträng|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
+|Host subdomain|Resursnamnet för QnAMaker|string|Värdnamnet för din QnA Maker i Azure-prenumerationen. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
+|Huvud|Content-Type|string|Medietyp i texten som skickas till API: et. Standardvärdet är: `application/json`|
+|Huvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Publicera brödtext|JSON-objekt|JSON|Utbildning feedback|
 
 JSON-texten har flera inställningar:
@@ -182,8 +182,8 @@ JSON-texten har flera inställningar:
 |Brödtext JSON-egenskap|Typ|Syfte|
 |--|--|--|--|
 |`feedbackRecords`|matris|Lista över feedback.|
-|`userId`|sträng|Användar-ID för den person som tar emot de föreslagna frågorna. Format för användar-ID är upp till dig. En e-postadress kan till exempel vara ett giltigt användar-ID i din arkitektur. Valfri.|
-|`userQuestion`|sträng|Exakta texten för frågan. Krävs.|
+|`userId`|string|Användar-ID för den person som tar emot de föreslagna frågorna. Format för användar-ID är upp till dig. En e-postadress kan till exempel vara ett giltigt användar-ID i din arkitektur. Valfri.|
+|`userQuestion`|string|Exakta texten för frågan. Krävs.|
 |`qnaID`|nummer|ID för fråga, finns i den [GenerateAnswer svar](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Det ser ut som ett exempel på JSON-texten:

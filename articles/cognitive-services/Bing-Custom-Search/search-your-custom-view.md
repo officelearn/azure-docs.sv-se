@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946811"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Anropa anpassad sökning i Bing-instans från portalen
 
@@ -33,16 +33,16 @@ Vissa viktiga parametrar finns nedan:
 
 |Parameter  |Beskrivning  |
 |---------|---------|
-|Söka i data     | Den sökterm att söka efter. Endast tillgängligt för webb, bild, Video och automatiska förslag slutpunkter |
+|Fråga     | Den sökterm att söka efter. Endast tillgängligt för webb, bild, Video och automatiska förslag slutpunkter |
 |Anpassade konfigurations-ID | Konfigurations-ID för den valda Custom Search-instansen. Det här fältet är skrivskyddat. |
-|Marknad     | På marknaden som resulterar kommer kommer från. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.        |
+|Market     | På marknaden som resulterar kommer kommer från. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.        |
 |Prenumerationsnyckel | Prenumerationsnyckel att testa med. Du kan välja en nyckel i listrutan eller ange en manuellt.          |
 
 Klicka på **ytterligare parametrar** visar följande parametrar:  
 
 |Parameter  |Beskrivning  |
 |---------|---------|
-|Säker sökning     | Ett filter som används för att filtrera webbsidor för vuxet innehåll. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.        |
+|Safe Search     | Ett filter som används för att filtrera webbsidor för vuxet innehåll. Endast tillgängligt för webb, bild, Video och värdbaserade UI-slutpunkter.        |
 |Språk för användargränssnittet    | Språket som används för användaren gränssnittet strängar. Exempel: Om du aktiverar bilder och videor i Användargränssnittet för värd för den **bild** och **Video** flikarna använder det angivna språket.        |
 |Antal     | Antal resultat från att returnera i svaret. Endast tillgängligt för webb, bild och videoinnehåll slutpunkter.         |
 |Offset    | Antalet sökresultat ska hoppas över innan det returneras resultatet. Endast tillgängligt för webb, bild och videoinnehåll slutpunkter.        |

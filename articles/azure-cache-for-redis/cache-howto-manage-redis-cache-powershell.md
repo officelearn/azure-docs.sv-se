@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: f7f4f9ae6a80052e06b2cafa68cb5c11dfa1333a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097937"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure Cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Det här avsnittet visar hur du utför vanliga uppgifter som att skapa, uppdater
 
 Läs mer om den klassiska distributionsmodellen [Azure Resource Manager och klassisk distribution: Distributionsmodeller och dina resursers tillstånd](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du redan har installerat Azure PowerShell måste du ha Azure PowerShell, version 1.0.0 eller senare. Du kan kontrollera versionen av Azure PowerShell som du har installerat med det här kommandot i Azure PowerShell-Kommandotolken.
 
     Get-Module Az | format-table version
@@ -128,7 +128,7 @@ I följande tabell innehåller egenskaperna och beskrivningar för vanliga param
 | Parameter | Beskrivning | Standard |
 | --- | --- | --- |
 | Namn |Namnet på cachen | |
-| Plats |Platsen för cachen | |
+| Location |Platsen för cachen | |
 | ResourceGroupName |Resursgruppens namn som skapas i cachen | |
 | Storlek |Storleken på cacheminnet. Giltiga värden är: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Antalet partitioner skapa när du skapar en premium-cache med klustring aktiverat. Giltiga värden är: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |

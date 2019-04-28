@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62a74364939fffb6e06f51f1c0cabb6cce8c10e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60999822"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Felsöka och diagnostisera fel i arbetsflödet i Azure Logic Apps
 
@@ -42,7 +42,7 @@ Varje logikapp börjar med utlösare. Om utlösaren inte utlöses, kontrollera f
    | ------ | ----------- | 
    | **Lyckades** | Utlösaren kontrolleras slutpunkten och hitta tillgängliga data. Vanligtvis visas statusen ”Fired” också tillsammans med denna status. Om inte, utlösardefinitionen kanske ett villkor eller `SplitOn` kommando som inte uppfylldes. <p>Den här statusen kan använda för en manuell utlösare eller upprepningsutlösare avsökningen utlösaren. En utlösare kan köras, men körningen själva kan fortfarande misslyckas när åtgärderna som genererar ett ohanterat fel. | 
    | **Överhoppad** | Utlösaren markerat slutpunkten men inga data att hitta. | 
-   | **Det gick inte** | Ett fel uppstod. För att granska eventuella felmeddelanden som genereras för en misslyckad utlösare, Välj det försöket utlösare och välj **utdata**. Exempelvis kanske indata som inte är giltigt. | 
+   | **Misslyckades** | Ett fel uppstod. För att granska eventuella felmeddelanden som genereras för en misslyckad utlösare, Välj det försöket utlösare och välj **utdata**. Exempelvis kanske indata som inte är giltigt. | 
    ||| 
 
    Du kan ha flera utlösare poster med samma datum och tid, som sker när logikappen hittar flera objekt. 
@@ -82,9 +82,9 @@ Varje standardaktiverade utlösaren startar ett arbetsflöde som körs. Du kan g
    | Status | Beskrivning | 
    | ------ | ----------- | 
    | **Lyckades** | Alla åtgärder har slutförts. <p>Om några fel har inträffat i en specifik åtgärd hanterade en följande åtgärd i arbetsflödet som fel. | 
-   | **Det gick inte** | Minst en åtgärd misslyckades och inga senare åtgärder i arbetsflödet har ställts in för att hantera felet. | 
+   | **Misslyckades** | Minst en åtgärd misslyckades och inga senare åtgärder i arbetsflödet har ställts in för att hantera felet. | 
    | **Har avbrutits** | Arbetsflödet kördes men tog emot en begäran om att avbryta. | 
-   | **Kör** | Arbetsflödet körs. <p>Den här statusen kan ske för begränsade arbetsflöden eller på grund av den aktuella prisplanen. Mer information finns i den [åtgärd gränserna på sidan med priser](https://azure.microsoft.com/pricing/details/logic-apps/). Om du har konfigurerat [diagnostikloggning](../logic-apps/logic-apps-monitor-your-logic-apps.md), du kan också få information om eventuella begränsning händelser som inträffar. | 
+   | **Körs** | Arbetsflödet körs. <p>Den här statusen kan ske för begränsade arbetsflöden eller på grund av den aktuella prisplanen. Mer information finns i den [åtgärd gränserna på sidan med priser](https://azure.microsoft.com/pricing/details/logic-apps/). Om du har konfigurerat [diagnostikloggning](../logic-apps/logic-apps-monitor-your-logic-apps.md), du kan också få information om eventuella begränsning händelser som inträffar. | 
    ||| 
 
 2. Granska informationen för varje steg i en specifik körning. Under **Körningshistorik**, Välj det kör som du vill undersöka.

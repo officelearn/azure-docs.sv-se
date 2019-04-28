@@ -12,11 +12,11 @@ ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 8276b86df2dc1bc90fc07da262aa0979f7562619
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996078"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Självstudier: Skapa en anpassad språkmodell
 
@@ -30,7 +30,7 @@ Dokumentet beskriver följande:
 
 Om du inte har ett Cognitive Services-konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Se till att ditt Cognitive Services-konto är anslutet till en prenumeration genom att öppna sidan [Cognitive Services Subscriptions](https://customspeech.ai/Subscriptions) (Cognitive Services-prenumerationer).
 

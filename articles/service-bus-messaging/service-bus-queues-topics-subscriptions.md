@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
 ms.openlocfilehash: 7cacabf4f171189810e943043b5513e20113d962
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125822"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus-köer, -ämnen och -prenumerationer
 
@@ -75,6 +75,6 @@ Mer information och exempel på hur du använder Service Bus-meddelanden finns i
 
 * [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
 * [Snabbstart: Skicka och ta emot meddelanden med Azure-portalen och .NET](service-bus-quickstart-portal.md)
-* [Självstudier: Uppdatera lagret med hjälp av Azure-portalen och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Självstudie: Uppdatera lagret med hjälp av Azure-portalen och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-portal.md)
 
 

@@ -16,11 +16,11 @@ ms.date: 03/28/2019
 ms.author: pbutlerm
 ROBOTS: NOINDEX
 ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101106"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Techtrends API: er Version 1 (inaktuell)
 
@@ -75,7 +75,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 | x-ms-correlationid | Nej           | En unik sträng som värde för åtgärden på klienten. Detta kopplat till alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges något genereras och anges i svarshuvuden. |
 | innehållstyp       | Ja          | `application/json`                                        |
 | Auktorisering      | Ja          | JSON web token (JWT) ägartoken.                    |
-| x-ms-marketplace-token| Ja| Token Frågeparametern i URL: en när användaren omdirigeras till SaaS ISV-webbplats från Azure. **Obs:** Den här variabeln är endast giltig för 1 timme. Dessutom kan avkoda URL: en token-värde från webbläsaren innan du använder den.|
+| x-ms-marketplace-token| Ja| Token Frågeparametern i URL: en när användaren omdirigeras till SaaS ISV-webbplats från Azure. **Obs!** Den här variabeln är endast giltig för 1 timme. Dessutom kan avkoda URL: en token-värde från webbläsaren innan du använder den.|
 |  |  |  |
   
 
@@ -92,7 +92,7 @@ När en användare omdirigeras till en ISV-webbplats, innehåller URL: en en tok
 
 | **Parameternamn** | **Datatyp** | **Beskrivning**                       |
 |--------------------|---------------|---------------------------------------|
-| ID                 | String        | ID för SaaS-prenumerationen.          |
+| id                 | String        | ID för SaaS-prenumerationen.          |
 | subscriptionName| String| Namnet på SaaS-prenumeration som anges av användaren i Azure när du prenumererar på SaaS-tjänsten.|
 | OfferId            | String        | Erbjudande-ID som du prenumererar. |
 | planId             | String        | Plan-ID som du prenumererar.  |
@@ -338,7 +338,7 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 
 | **Parameternamn** | **Datatyp** | **Beskrivning**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| ID                 | String        | ID för åtgärden.                                                                      |
+| id                 | String        | ID för åtgärden.                                                                      |
 | status             | Enum          | Åtgärdsstatus något av följande: `In Progress`, `Succeeded`, eller `Failed`.          |
 | resourceLocation   | String        | Länka till den prenumeration som skapades eller ändrades. Detta hjälper klienten att hämta uppdaterade tillståndet post-åtgärd. Det här värdet har inte angetts för `Unsubscribe` åtgärder. |
 | skapad            | DateTime      | Åtgärden Skapandetid i UTC.                                                           |
@@ -408,7 +408,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
+| id                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
 | offerId                | String        | Erbjudande-ID som du prenumererar.         |
 | planId                 | String        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
@@ -480,7 +480,7 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
+| id                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
 | offerId                | String        | Erbjudande-ID som du prenumererar.         |
 | planId                 | String        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
@@ -530,7 +530,7 @@ En SaaS-webhook används för att Avisera ändringar proaktivt SaaS tjänsten. D
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID  | String       | Unikt ID för den åtgärd som utlöste.                |
+| id  | String       | Unikt ID för den åtgärd som utlöste.                |
 | Aktivitets-ID   | String        | En unik sträng som värde för spårning av förfrågan från tjänsten. Det här används för alla avstämning.               |
 | subscriptionId                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |
 | offerId                | String        | Erbjudande-ID som du prenumererar. Medföljer endast åtgärden ”Uppdatera”.        |

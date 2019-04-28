@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471613"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveriberedskap för en app-distribution för flera nivåer av SAP NetWeaver
 
@@ -28,7 +28,7 @@ Med Site Recovery kan du:
 
 Den här artikeln beskriver hur du skyddar SAP NetWeaver programdistributioner med [Azure Site Recovery](site-recovery-overview.md). Artikeln beskriver Metodtips för att skydda en distribution med tre nivåer SAP NetWeaver på Azure genom att replikera till en annan Azure-datacenter med Site Recovery. Beskriver scenarier som stöds och konfigurationer och hur du utför redundanstestning (tester av haveriberedskap) och faktiska redundans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar måste du se till att du vet hur du utföra följande uppgifter:
 
 * [Replikera en virtuell dator till Azure](azure-to-azure-walkthrough-enable-replication.md)

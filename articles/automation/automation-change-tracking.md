@@ -11,11 +11,11 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5e997d9e9f38fee52cd9fc007fe12cac68e3aa5a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075067"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -77,7 +77,7 @@ Använd följande steg för att konfigurera filspårning på Linux-datorer:
 2. På den **ändringsspårning** väljer **Linux-filer**, klicka sedan på **+ Lägg till** att lägga till en ny fil och spåra.
 3. På den **Lägg till Linux-fil för ändringsspårning**, anger du informationen för filen eller katalogen som ska spåras och klickar på **spara**.
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
@@ -100,7 +100,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 2. På den **ändringsspårning** väljer **Windows filer**, klicka sedan på **+ Lägg till** att lägga till en ny fil och spåra.
 3. På den **Lägg till Windows-fil för ändringsspårning**, anger du informationen för den fil som ska spåras och klickar på **spara**.
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
@@ -132,7 +132,7 @@ Använd följande steg för att konfigurera viktiga registerspårning på Window
 2. På den **ändringsspårning** väljer **Windows-registret**, klicka sedan på **+ Lägg till** att lägga till en ny registernyckel för att spåra.
 3. På den **lägga till Windows-registret för ändringsspårning**, anger du information för nyckeln som ska spåras och klickar på **spara**.
 
-|Egenskap  |Beskrivning  |
+|Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn för registernyckeln som ska spåras.        |

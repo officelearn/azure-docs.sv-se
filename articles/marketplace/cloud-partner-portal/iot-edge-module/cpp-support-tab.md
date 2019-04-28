@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9926c9a0443eb5220e7689dfc6e49e4b8d661d65
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909866"
 ---
 # <a name="iot-edge-module-support-tab"></a>Fliken för stöd av IoT Edge-modul
 
-Använd den **stöder** fliken den **nytt erbjudande** sidan för att ge teknisk hjälp och användaren Supportresurser för ditt erbjudande.  Följande indata områden tillhandahålls i formuläret Support: **Engineering Contact**, **kundsupport**, och **Support URL: er**. En asterisk (*) läggs till fältnamnet anger att det krävs.
+Använd den **stöder** fliken den **nytt erbjudande** sidan för att ge teknisk hjälp och användaren Supportresurser för ditt erbjudande.  Följande indata områden tillhandahålls i formuläret Support: **Tekniska kontakt**, **kundsupport**, och **stöd för URL: er**. En asterisk (*) läggs till fältnamnet anger att det krävs.
 
 ![Fliken stöd i formuläret nytt erbjudande för IoT Edge-moduler](./media/iot-edge-module-support-tab.png)
 
@@ -43,7 +43,7 @@ I följande tabell beskrivs formulärfälten och indata som krävs för varje f�
 | **telefon**                 | Telefonnummer för kundsupport                                            |
 | ***Stöd för URL: er***  | *Stöd för platser som använder Microsoft när kunderna öppna supportärenden* |
 | **Offentlig Azure**          | URL för offentliga internet-supportwebbplats                                         |
-| **Azure Government-molnet**| URL: en för supportwebbplats för government-molnet                                        |
+| **Azure Government Cloud**| URL: en för supportwebbplats för government-molnet                                        |
 
 ## <a name="next-steps"></a>Nästa steg
 

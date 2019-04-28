@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 743246881463d9cb5156677a0c3ec719d80a079c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 18ee967d421eb2a170955a4b75939e5f084a65fb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Självstudier: Azure Active Directory-integrering med Promapp
 
@@ -121,7 +121,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Promapp
     > [!NOTE] 
     > Azure AD-integrering med Promapp har för närvarande endast konfigurerats för initierad tjänstautentisering t.ex. Gå till en URL för Promapp initierar autentiseringen. Men svars-URL måste anges.
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 

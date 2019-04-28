@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473067"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiera data från Sybase med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-sybase-connector.md)
 > * [Aktuell version](connector-sybase.md)
 
@@ -35,7 +35,7 @@ Mer specifikt stöder den här Sybase-anslutningen:
 - SAP Sybase SQL var som helst (ASA) **version 16 och senare**; IQ och ASE stöds inte.
 - Kopiera data med hjälp av **grundläggande** eller **Windows** autentisering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill använda denna Sybase-anslutning måste du:
 
@@ -54,12 +54,12 @@ Följande egenskaper har stöd för Sybase länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Sybase** | Ja |
+| type | Type-egenskapen måste anges till: **Sybase** | Ja |
 | server | Namnet på Sybase-servern. |Ja |
 | databas | Namnet på Sybase-databas. |Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till Sybase-databasen.<br/>Tillåtna värden är: **Grundläggande**, och **Windows**. |Ja |
 | användarnamn | Ange användarnamn för att ansluta till Sybase-databas. |Ja |
-| lösenord | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| password | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
 
 **Exempel:**
@@ -95,7 +95,7 @@ Kopiera data från Sybase genom att ange typegenskapen på datauppsättningen ti
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
 | tableName | Namnet på tabellen i Sybase-databas. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -124,7 +124,7 @@ För att kopiera data från Sybase, ange typ av datakälla i kopieringsaktivitet
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

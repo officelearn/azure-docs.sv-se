@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
 ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461671"
 ---
-# <a name="swagger-documentation"></a>Swagger-dokumentation
+# <a name="swagger-documentation"></a>Dokumentation om Swagger
 
 Speech Services erbjuder en Swagger-specifikation för att interagera med en handfull REST API: er används för att importera data, skapa modeller, testa modellens Precision, skapa anpassade slutpunkter, kö avskrifter för batch och hantera prenumerationer. De flesta åtgärder som är tillgängligt via portalen för anpassat tal kan utföras via programmering med hjälp av dessa API: er. 
 

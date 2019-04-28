@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61314746"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Komma igång med hanterad Azure SQL Database-instans
 
@@ -31,7 +31,7 @@ Med följande snabbstarter kan du snabbt skapa en hanterad instans, konfigurera 
 
 Som ett första steg behöver du skapa din första hanterade instans med nätverksmiljön där den kommer att placeras, och aktivera anslutning från datorn eller den virtuella datorn där du kör frågor till hanterad instans. Du kan använda följande guider:
 
-- [Skapa en hanterad instans med hjälp av Azure-portalen](sql-database-managed-instance-get-started.md). I Azure-portalen konfigurerar du nödvändiga parametrar (användarnamn/lösenord, antal kärnor och maximalt lagringsutrymme) och skapar automatiskt Azure-nätverksmiljön utan att behöva känna till nätverksinformation och infrastrukturskrav. Du behöver bara se till att ha en [prenumerationstyp](sql-database-managed-instance-resource-limits.md#supported-subscription-types) som för närvarande tillåts att skapa en hanterad instans. Om du har ett eget nätverk som du vill använda eller om du vill anpassa nätverket kan du läsa [Konfigurera ett befintligt virtuellt nätverk för Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md) eller [Skapa ett virtuellt nätverk för Azure SQL Database Managed Instance](sql-database-managed-instance-create-vnet-subnet.md).
+- [Skapa en hanterad instans med hjälp av Azure-portalen](sql-database-managed-instance-get-started.md). I Azure-portalen konfigurerar du nödvändiga parametrar (användarnamn/lösenord, antal kärnor och maximal lagringsmängd) och skapar automatiskt Azure-nätverksmiljön utan att behöva känna till nätverksinformation och infrastrukturskrav. Du behöver bara se till att ha en [prenumerationstyp](sql-database-managed-instance-resource-limits.md#supported-subscription-types) som för närvarande tillåts att skapa en hanterad instans. Om du har ett eget nätverk som du vill använda eller om du vill anpassa nätverket kan du läsa [Konfigurera ett befintligt virtuellt nätverk för Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md) eller [Skapa ett virtuellt nätverk för Azure SQL Database Managed Instance](sql-database-managed-instance-create-vnet-subnet.md).
 - En hanterad instans skapas i ett eget virtuellt nätverk utan offentlig slutpunkt. För klientprogramåtkomst kan du skapa antingen **en virtuell dator i samma virtuella nätverk (olika undernät)** eller **en punkt-till-plats-VPN-anslutning till det virtuella nätverket från klientdatorn** med hjälp av någon av dessa snabbstarter:
 
   - Skapa [virtuell Azure-dator i det virtuella nätverket för hanterad instans](sql-database-managed-instance-configure-vm.md) för klientprogrammets anslutning, inklusive SQL Server Management Studio.
@@ -72,7 +72,7 @@ Om du redan har ett virtuellt nätverk och undernät där du vill distribuera di
 
 ## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>Migrera till en hanterad instans med minimal avbrottstid
 
-Med artiklarna i de här snabbstarterna kan du snabbt konfigurera en hanterad instans och flytta databaserna med hjälp av inbyggd `RESTORE`-funktion. Men med inbyggd `RESTORE` måste du vänta på att databaserna återställts (och kopieras till Azure-bloblagring om de inte redan lagras där). Detta leder till viss avbrottstid för ditt program, särskilt för större databaser. Om du vill flytta produktionsdatabasen använder du [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) för att migrera din databas med minimal avbrottstid. DMS åstadkommer detta genom att inkrementellt överföra ändringar som gjorts i källdatabasen till den databas för hanterad instans som återställs. På så sätt kan du snabbt växla programmet från käll- till måldatabas med minimal avbrottstid.
+Med artiklarna i de här snabbstarterna kan du snabbt konfigurera en hanterad instans och flytta databaserna med hjälp av inbyggd `RESTORE`-funktion. Men med inbyggd `RESTORE` måste du vänta på att databaserna återställts (och kopieras till Azure-bloblagring om de inte redan lagras där). Detta leder till viss avbrottstid för ditt program, särskilt för större databaser. Om du vill flytta produktionsdatabasen använder du [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) för att migrera din databas med minimal avbrottstid. DMS åstadkommer detta genom att inkrementellt överföra ändringar som gjorts i källdatabasen till den hanterade instansdatabas som återställs. På så sätt kan du snabbt växla programmet från käll- till måldatabas med minimal avbrottstid.
 
 ## <a name="next-steps"></a>Nästa steg
 

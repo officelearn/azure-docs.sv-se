@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 6f0d2d59ed50c743adb19027c404bfa83a1886f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485618"
 ---
 Beroende på din miljö och alternativ, kan skriptet Skapa hela klustret infrastrukturen, inklusive Azure-nätverk, lagringskonton, molntjänster, domänkontrollant, fjärrdatorer eller lokala SQL-databaser, huvudnod och ytterligare klusternoder. Skriptet kan också använda redan existerande Azure-infrastrukturen och skapa endast noderna för HPC-kluster.
 
 Bakgrundsinformation om hur du planerar ett HPC Pack-kluster finns i den [produktutvärdering och planera](https://technet.microsoft.com/library/jj899596.aspx) och [komma igång](https://technet.microsoft.com/library/jj899590.aspx) innehåll i TechNet-biblioteket HPC Pack 2012 R2.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Azure-prenumeration**: Du kan använda en prenumeration i tjänsten Azure Global eller Azure Kina. Din prenumerationsbegränsningar påverkar antalet och typen av klusternoder som du kan distribuera. Mer information finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../articles/azure-subscription-service-limits.md).
 * **Windows-klientdator med Azure PowerShell 0.8.10 eller senare installerat och konfigurerat**: Se [Kom igång med Azure PowerShell](/powershell/azureps-cmdlets-docs) installationsinstruktioner och stegen att ansluta till din Azure-prenumeration.
 * **HPC Pack IaaS-distributionsskriptet**: Hämta och packa upp den senaste versionen av skriptet från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Kontrollera vilken version av skriptet genom att köra `New-HPCIaaSCluster.ps1 –Version`. Den här artikeln är baserad på version 4.5.2 av skriptet.

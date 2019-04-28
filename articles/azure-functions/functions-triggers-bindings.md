@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58889846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61020970"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -96,3 +97,5 @@ Information om vilka bindningar finns i förhandsversion eller är godkända fö
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Registrera Azure Functions tillägg av bindning](./functions-bindings-register.md)
+
+<!-- Update_Description: wording update -->

@@ -13,11 +13,11 @@ ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
 ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038842"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Skapa och distribuera ditt Linux-program med hjälp av Jenkins
 Jenkins är ett populärt verktyg för kontinuerlig integrering och distribution av appar. Så här skapar och distribuerar du ett Azure Service Fabric-program med Jenkins.
@@ -35,7 +35,7 @@ Den här artikeln beskriver flera möjliga sätt på hur du konfigurerar din Jen
    * Använd för utvecklings- och testmiljöer [konfigurera distributionen med hjälp av slutpunkten för klusterhantering](#configure-deployment-using-cluster-management-endpoint). Det här är den enklaste distributionsmetoden att ställa in.
    * För produktionsmiljöer, använda [konfigurera distributionen med hjälp av autentiseringsuppgifter för Azure](#configure-deployment-using-azure-credentials). Microsoft rekommenderar den här metoden för produktionsmiljöer eftersom med autentiseringsuppgifter för Azure kan du begränsa åtkomsten som ett Jenkins-jobb har till din Azure-resurser. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Kontrollera att Git har installerats lokalt. Du kan installera lämplig Git-version från [nedladdningssidan för Git](https://git-scm.com/downloads) baserat på ditt operativsystem. Om du inte har använt Git kan läsa mer om den från den [Git-dokumentationen](https://git-scm.com/docs).
 - Den här artikeln används den *Service Fabric komma igång exempel* på GitHub: [ https://github.com/Azure-Samples/service-fabric-java-getting-started ](https://github.com/Azure-Samples/service-fabric-java-getting-started) att skapa och distribuera programmet. Du kan duplicera den här lagringsplatsen att följa instruktionerna, eller, med vissa ändringar till anvisningarna kan använda ditt eget GitHub-projektet.
@@ -62,7 +62,7 @@ När du har installerat plugin-programmet kan du gå vidare till [skapa och konf
 
 Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följande avsnitt visas hur du konfigurerar jenkins i ett kluster när ett Azure storage-konto för att spara tillståndet för container-instans.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 - Har ett Service Fabric Linux-kluster med Docker installerat. Service Fabric-kluster som körs i Azure redan ha Docker installerat. Om du kör klustret lokalt (OneBox-utvecklingsmiljö), kontrollera om Docker är installerat på datorn med den `docker info` kommando. Om det inte är installerat installerar du det med hjälp av följande kommandon:
 
    ```sh
@@ -164,7 +164,7 @@ När du har konfigurerat Jenkins, gå vidare till [skapa och konfigurera ett Jen
 
 Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följande avsnitt visas hur du konfigurerar Jenkins utanför ett kluster.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 - Se till att Docker är installerat på din dator. Följande kommandon kan användas för att installera Docker från terminalen:
 
   ```sh

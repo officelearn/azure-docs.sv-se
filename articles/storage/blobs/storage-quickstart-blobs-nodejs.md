@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: tamram
 ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121546"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Hur du laddar upp, ladda ned och lista blobar med hjälp av klientbiblioteket för Node.js v2
 
@@ -22,7 +22,7 @@ I den här guiden att lära dig hur du använder klientbiblioteket för Node.js 
 > [!TIP]
 > Den senaste versionen av Azure Storage-klientbiblioteket för Node.js är v10. Microsoft rekommenderar att du använder den senaste versionen av klientbiblioteket när det är möjligt. Kom igång med v10, se [snabbstarten: Ladda upp, hämta, lista och ta bort blobar med Azure Storage-klientbibliotek för JavaScript v10 (förhandsversion)](storage-quickstart-blobs-nodejs-v10.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

@@ -13,11 +13,11 @@ ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60917150"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Vad är API:et för bildsökning i Bing?
 
@@ -55,7 +55,7 @@ För att komma igång snabbt med din första API-begäran kan du lära dig att:
 * [Skicka sökfrågor till Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp) med hjälp av REST API eller
 * [Begära och filtrera](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart) bilderna som Bing returnerar med hjälp av SDK:et.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
 

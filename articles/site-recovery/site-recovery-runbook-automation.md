@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471946"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation-runbooks i återställningsplaner
 I den här artikeln beskriver vi hur Azure Site Recovery kan integreras med Azure Automation kan du utöka dina återställningsplaner. Återställningsplaner kan dirigera återställning av virtuella datorer som skyddas med Site Recovery. Återställningsplaner fungerar både för replikering till en sekundär molnet och för replikering till Azure. Återställningsplaner även gör återställningen **konsekvent korrekt**, **upprepningsbara**, och **automatiserade**. Om du växlar över dina virtuella datorer till Azure utökar-integrering med Azure Automation dina återställningsplaner. Du kan använda den för att köra runbooks, som erbjuder kraftfulla automatiserade uppgifter.
@@ -27,9 +27,9 @@ I den här artikeln beskriver vi hur du kan integrera Azure Automation-runbooks 
     ![Klicka på knappen Anpassa](media/site-recovery-runbook-automation-new/essentials-rp.png)
 
 
-2. Högerklicka på **grupp 1: starta**, och välj sedan **Lägg till efteråtgärd**.
+2. Högerklicka på **grupp 1: Starta**, och välj sedan **Lägg till efteråtgärd**.
 
-    ![Högerklicka på grupp 1: Starta och Lägg till efteråtgärd](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Högerklicka på grupp 1: Starta och Lägg till åtgärd efter](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. Klicka på **Välj ett skript**.
 
@@ -43,7 +43,7 @@ I den här artikeln beskriver vi hur du kan integrera Azure Automation-runbooks 
 
 6. Välj en runbook i ditt Automation-konto. Denna runbook är det skript som körs under körningen av återställningsplanen, efter återställningen av den första gruppen.
 
-7. Spara skriptet genom att klicka på **OK**. Skriptet har lagts till i **grupp 1: steg efter**.
+7. Spara skriptet genom att klicka på **OK**. Skriptet har lagts till i **grupp 1: Steg efter**.
 
     ![Efter åtgärdsgrupp 1:Start](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
@@ -87,7 +87,7 @@ I den här artikeln beskriver vi hur du kan integrera Azure Automation-runbooks 
     | RecoveryPlanName |Namnet på den plan som körs. Den här variabeln kan du vidta olika åtgärder baserat på namnet på återställningsplanen. Du kan även återanvända skriptet. |
     | FailoverType |Anger om växling vid fel är ett test, planerad eller oplanerad. |
     | FailoverDirection |Anger om återställningen görs till en primär eller sekundär plats. |
-    | Grupp-ID |Identifierar gruppnumret i återställningsplanen när planen körs. |
+    | GroupID |Identifierar gruppnumret i återställningsplanen när planen körs. |
     | VmMap |En matris med alla virtuella datorer i gruppen. |
     | VMMap nyckel |En unik nyckel (GUID) för varje virtuell dator. Det är samma som Azure Virtual Machine Manager (VMM)-ID för den virtuella datorn, om tillämpligt. |
     | SubscriptionId |Azure-prenumerations-ID som den virtuella datorn skapades. |

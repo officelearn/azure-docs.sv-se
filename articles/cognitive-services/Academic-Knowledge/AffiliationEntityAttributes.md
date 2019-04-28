@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 82e6a5b66342e58e62da029d617cbd1d74c28149
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61340527"
 ---
 # <a name="affiliation-entity"></a>Anknytning till entitet
 
 <sub> * Följande attribut är specifika för anknytning till entiteten. (Ty = '5') </sub>
 
-Namn    |Beskrivning                            |Type       | Åtgärder
+Namn    |Beskrivning                            |Typ       | Åtgärder
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |Enhets-id                              |Int64      |Lika med
 AfN     |Anknytning normaliserade namn        |String     |Lika med

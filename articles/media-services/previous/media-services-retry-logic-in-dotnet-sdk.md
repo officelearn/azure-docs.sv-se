@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094667"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logik för omprövning i Media Services SDK för .NET  
 
@@ -37,7 +37,7 @@ När du arbetar med Microsoft Azure-tjänster, kan tillfälliga fel uppstå. Om 
 ## <a name="exception-types"></a>Undantagstyper
 I följande tabell beskrivs undantag som Media Services SDK för .NET hanterar eller hanterar inte för vissa åtgärder som kan orsaka tillfälliga fel.  
 
-| Undantag | Webbegäran | Storage | Söka i data | SaveChanges |
+| Undantag | Webbegäran | Storage | Fråga | SaveChanges |
 | --- | --- | --- | --- | --- |
 | WebException<br/>Mer information finns i den [WebException statuskoder](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) avsnittet. |Ja |Ja |Ja |Ja |
 | DataServiceClientException<br/> Mer information finns i [statuskoder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nej |Ja |Ja |Ja |
@@ -52,7 +52,7 @@ I följande tabell beskrivs undantag som Media Services SDK för .NET hanterar e
 ### <a name="WebExceptionStatus"></a> WebException statuskoder
 I följande tabell visas vilka WebException felkoder omprövningslogiken tillämpas. Den [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) uppräkning definierar statuskoder.  
 
-| Status | Webbegäran | Storage | Söka i data | SaveChanges |
+| Status | Webbegäran | Storage | Fråga | SaveChanges |
 | --- | --- | --- | --- | --- |
 | ConnectFailure |Ja |Ja |Ja |Ja |
 | NameResolutionFailure |Ja |Ja |Ja |Ja |
@@ -70,7 +70,7 @@ I följande tabell visas vilka WebException felkoder omprövningslogiken tilläm
 ### <a name="HTTPStatusCode"></a> Statuskoder för HTTP-fel
 När frågan och SaveChanges kasta DataServiceClientException, DataServiceQueryException eller DataServiceQueryException, returneras HTTP-statuskoden för felet i egenskapen StatusCode.  I följande tabell visas vilka felkoder omprövningslogiken tillämpas.  
 
-| Status | Webbegäran | Storage | Söka i data | SaveChanges |
+| Status | Webbegäran | Storage | Fråga | SaveChanges |
 | --- | --- | --- | --- | --- |
 | 401 |Nej |Ja |Nej |Nej |
 | 403 |Nej |Ja<br/>Hanterar återförsök med längre väntar. |Nej |Nej |

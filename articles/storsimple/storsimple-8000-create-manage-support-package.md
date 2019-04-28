@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481879"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett supportpaket för StorSimple 8000-serien
 
@@ -74,8 +74,8 @@ Du kan använda följande parametrar med cmdleten Export-HcsSupportPackage.
 
 | Parameter | Krävs/valfritt | Beskrivning |
 | --- | --- | --- |
-| `-Path` |Krävs |Använd för att ange platsen för den delade nätverksmappen där supportpaketet är placerad. |
-| `-EncryptionPassphrase` |Krävs |Använd för att ange en lösenfras för att kryptera supportpaketet. |
+| `-Path` |Obligatoriskt |Använd för att ange platsen för den delade nätverksmappen där supportpaketet är placerad. |
+| `-EncryptionPassphrase` |Obligatoriskt |Använd för att ange en lösenfras för att kryptera supportpaketet. |
 | `-Credential` |Valfri |Använd det här alternativet om du vill definiera autentiseringsuppgifter för den delade nätverksmappen. |
 | `-Force` |Valfri |Använd för att hoppa över bekräftelse-steget kryptering lösenfras. |
 | `-PackageTag` |Valfri |Använd för att ange en katalog under *sökväg* i supportpaketet är placerad. Standardvärdet är [enhetsnamn]-[aktuellt datum och time:yyyy-MM-dd-HH-mm-ss]. |

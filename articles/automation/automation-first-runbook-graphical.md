@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61078099"
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
 
@@ -28,7 +28,7 @@ ms.locfileid: "54426802"
 
 Den här självstudien beskriver steg för steg hur du skapar en [grafisk runbook](automation-runbook-types.md#graphical-runbooks) i Azure Automation. Du börjar med en enkel runbook som testar och publicerar och lär dig hur du spårar statusen för runbook-jobbet. Sedan ändrar du runbook-jobbet så att det hanterar Azure-resurser. I det här exemplet ska det starta en virtuell dator i Azure. Därefter slutför du självstudien och gör runbook-jobbet stabilare genom att lägga till runbook-parametrar och villkorliga länkar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna genomföra den här kursen behöver du följande:
 

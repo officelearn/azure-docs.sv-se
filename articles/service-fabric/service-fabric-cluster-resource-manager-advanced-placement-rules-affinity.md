@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118423"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Konfigurera och använda tjänsttillhörighet i Service Fabric
 Tillhörighet är en kontroll som har angetts främst för att underlätta övergången av större oflexibla tillämpningar till molnet och mikrotjänster världen. Den används också som en optimering för att förbättra prestanda för tjänster, även om detta kan ha sidoeffekter.

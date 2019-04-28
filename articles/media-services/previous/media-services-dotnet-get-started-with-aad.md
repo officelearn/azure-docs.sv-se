@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 15b986d4e7567be48c582e4a39b727ab110de2be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230955"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Använda Azure AD-autentisering för att få åtkomst till Azure Media Services-API med .NET
 
 Från och med windowsazure.mediaservices 4.0.0.4, stöder Azure Media Services autentisering baserat på Azure Active Directory (AD Azure). Det här avsnittet visar hur du använder Azure AD-autentisering för att få åtkomst till Azure Media Services-API med Microsoft .NET.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Ett Azure-konto. Mer information finns i avsnittet om [den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Mer information finns i [skapar ett Azure Media Services-konto med Azure-portalen](media-services-portal-create-account.md).

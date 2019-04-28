@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094235"
 ---
 <a name="retrieve-operations"></a>Hämta åtgärder
 ===================
@@ -40,10 +40,10 @@ Hämtar alla åtgärder på erbjudandet, eller för att hämta en viss åtgärd 
 
 |  **Namn**          |      **Beskrivning**                                                                                           | **Datatyp** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identifierare för utgivare, till exempel `Contoso`                                                                   |  Sträng       |
-|  offerId           |  Erbjudande-ID                                                                                              |  Sträng       |
-|  operationId       |  GUID som unikt identifierar åtgärden på erbjudandet. Åtgärds-ID kan hämtas med hjälp av den här API: et och även returneras i HTTP-huvud i svaret för långvariga åtgärder, till exempel den [publicera erbjudandet](./cloud-partner-portal-api-publish-offer.md) API.  |   GUID   |
-|  filteredStatus    | Valfritt frågeparameter som används för att filtrera efter status (till exempel `running`) på den samling som returneras av den här API: et.  |   Sträng |
+|  publisherId       |  Identifierare för utgivare, till exempel `Contoso`                                                                   |  String       |
+|  offerId           |  Erbjudande-ID                                                                                              |  String       |
+|  operationId       |  GUID som unikt identifierar åtgärden på erbjudandet. Åtgärds-ID kan hämtas med hjälp av den här API: et och även returneras i HTTP-huvud i svaret för långvariga åtgärder, till exempel den [publicera erbjudandet](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
+|  filteredStatus    | Valfritt frågeparameter som används för att filtrera efter status (till exempel `running`) på den samling som returneras av den här API: et.  |   String |
 |  API-versionen       | Senaste versionen av API                                                                                           |    Date      |
 |  |  |  |
 
@@ -53,7 +53,7 @@ Hämtar alla åtgärder på erbjudandet, eller för att hämta en viss åtgärd 
 
 |  **Namn**          |  **Värde**           |
 |  ---------------   | -------------------- |
-|  Innehållstyp      | `application/json`   |
+|  Content-Type      | `application/json`   |
 |  Auktorisering     | `Bearer YOUR_TOKEN`  |
 |  |  |
 

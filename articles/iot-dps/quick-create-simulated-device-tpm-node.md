@@ -10,11 +10,11 @@ services: iot-dps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61249012"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -47,19 +47,19 @@ Den här artikeln visar enskilda registreringar.
     git clone https://github.com/Azure/azure-utpm-c.git --recursive
     ```
 
-1. Gå till GitHub-rotmappen och kör [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)-simulatorn. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommandofönstret. Simulatorn måste vara igång under hela snabbstartsguiden: 
+2. Gå till GitHub-rotmappen och kör [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)-simulatorn. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommandofönstret. Simulatorn måste vara igång under hela snabbstartsguiden: 
 
     ```cmd/sh
     .\azure-utpm-c\tools\tpm_simulator\Simulator.exe
     ```
 
-1. Skapa en ny tom mapp med namnet **registerdevice**. I mappen **registerdevice** skapar du en package.json-fil med hjälp av följande kommando i kommandotolken. Svara på alla frågor från `npm`, eller godkänn standardinställningarna om de passar dig:
+3. Skapa en ny tom mapp med namnet **registerdevice**. I mappen **registerdevice** skapar du en package.json-fil med hjälp av följande kommando i kommandotolken. Svara på alla frågor från `npm`, eller godkänn standardinställningarna om de passar dig:
    
     ```cmd/sh
     npm init
     ```
 
-1. Installera följande tidigare paket:
+4. Installera följande tidigare paket:
 
     ```cmd/sh
     npm install node-gyp -g
@@ -70,7 +70,7 @@ Den här artikeln visar enskilda registreringar.
     > Det finns några kända problem som kan uppstå när du installerar ovanstående paket. För att lösa dessa problem kan du köra `npm install --global --production windows-build-tools` med hjälp av en kommandotolk i läget **Kör som administratör**. Kör `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` efter att du ersatt sökvägen med den installerade versionen och kör sedan installationskommandona igen.
     >
 
-1. Installera följande paket som innehåller de komponenter som användes under registreringen:
+5. Installera följande paket som innehåller de komponenter som användes under registreringen:
 
    - en säkerhetsklient som fungerar med TPM: `azure-iot-security-tpm`
    - en transport för att enheten ska kunna ansluta till enhetsetableringstjänsten: antingen `azure-iot-provisioning-device-http` eller `azure-iot-provisioning-device-amqp`
@@ -92,9 +92,9 @@ Den här artikeln visar enskilda registreringar.
        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
        ```
 
-1. Med hjälp av en textredigerare skapar du en ny **ExtractDevice.js**-fil i mappen **registerdevice**.
+6. Med hjälp av en textredigerare skapar du en ny **ExtractDevice.js**-fil i mappen **registerdevice**.
 
-1. Lägg till följande `require`-instruktioner i början av **ExtractDevice.js**-filen:
+7. Lägg till följande `require`-instruktioner i början av **ExtractDevice.js**-filen:
    
     ```
     'use strict';
@@ -105,7 +105,7 @@ Den här artikeln visar enskilda registreringar.
     var myTpm = new tpmSecurity.TpmSecurityClient(undefined, new tssJs.Tpm(true));
     ```
 
-1. Lägg till följande funktion för att implementera metoden:
+8. Lägg till följande funktion för att implementera metoden:
    
     ```
     myTpm.getEndorsementKey(function(err, endorsementKey) {
@@ -125,22 +125,22 @@ Den här artikeln visar enskilda registreringar.
     });
     ```
 
-1. Spara och stäng **ExtractDevice.js**-filen. Kör exemplet:
+9. Spara och stäng **ExtractDevice.js**-filen. Kör exemplet:
 
     ```cmd/sh
     node ExtractDevice.js
     ```
 
-1. Utdatafönstret visar **_Bekräftelsenyckel_** och **_Registrerings-ID_** som krävs för enhetsregistrering. Anteckna dessa värden. 
+10. Utdatafönstret visar **_Bekräftelsenyckel_** och **_Registrerings-ID_** som krävs för enhetsregistrering. Anteckna dessa värden. 
 
 
 ## <a name="create-a-device-entry"></a>Skapa en enhetspost
 
 1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
 
-1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
+2. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
-1. Under **Lägg till registrering** anger du följande information:
+3. Under **Lägg till registrering** anger du följande information:
    - Välj **TPM** som identitet för bestyrkande *mekanism*.
    - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet.
    - Du kan även ange följande information:

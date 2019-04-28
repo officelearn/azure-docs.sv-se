@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122932"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Kom igång med Azure Blob storage och Visual Studio-anslutna tjänster (WebJob-projekt)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -28,7 +28,7 @@ Den här artikeln innehåller C#-kodexempel som visar hur du utlöser en process
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Hur du utlöser en funktion när en blob skapas eller uppdateras
 Det här avsnittet visar hur du använder den **BlobTrigger** attribut.
 
- **Obs:** WebJobs SDK igenom loggfiler för att se upp för nya eller ändrade blobar. Den här processen är sin natur långsamma; en funktion kan hämta aktiveras inte förrän flera minuter eller längre när bloben har skapats.  Om programmet behöver för att bearbeta blobar omedelbart, den rekommenderade metoden är att skapa ett kömeddelande när du skapar bloben och använder den **QueueTrigger** attribut i stället för den **BlobTrigger** den funktion som bearbetar blob-attributet.
+ **Obs!** WebJobs SDK igenom loggfiler för att se upp för nya eller ändrade blobar. Den här processen är sin natur långsamma; en funktion kan hämta aktiveras inte förrän flera minuter eller längre när bloben har skapats.  Om programmet behöver för att bearbeta blobar omedelbart, den rekommenderade metoden är att skapa ett kömeddelande när du skapar bloben och använder den **QueueTrigger** attribut i stället för den **BlobTrigger** den funktion som bearbetar blob-attributet.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Enkel platshållare för blobnamn med filtillägg
 Följande kodexempel kopierar text BLOB-objekt som visas i den *inkommande* behållaren till den *utdata* behållare:
@@ -193,7 +193,7 @@ WebJobs SDK kontrollerar du att ingen **BlobTrigger** funktionen anropas flera g
 
 BLOB kvitton lagras i en behållare med namnet *webjobs-azure-värdar* i Azure storage-kontot som angetts av anslutningssträngen AzureWebJobsStorage. En blob-inleverans har följande information:
 
-* Den funktion som anropades för blob (”*{webbjobbsnamnet}*. Funktioner. *{Funktionsnamn}*”, till exempel:” WebJob1.Functions.CopyBlob ”)
+* Den funktion som anropades för blob (”*{webbjobbsnamnet}*. Funktioner. *{Funktionsnamn}*”, till exempel: "WebJob1.Functions.CopyBlob")
 * Behållarens namn
 * Blobtyp (”BlockBlob” eller ”PageBlob”)
 * Blobnamnet

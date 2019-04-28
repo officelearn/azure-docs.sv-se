@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
 ms.openlocfilehash: 5b60ac28cd8f65d464e659f328872524be59b3ed
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60898584"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Snabbstart: Skapa en konsolapp med Azure Cosmos DB:s API för MongoDB och Golang SDK
 

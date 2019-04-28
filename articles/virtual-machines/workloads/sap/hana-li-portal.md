@@ -17,11 +17,11 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482303"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Kontroll av Azure HANA – stora instanser med Azure Portal
 Det här dokumentet beskriver hur sätt [HANA stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) presenteras i [Azure-portalen](https://portal.azure.com) och vilka aktiviteter kan utföras via Azure-portalen med enheter för stora HANA-instansen som är distribuerade åt dig. Synlighet för stora HANA-instanser i Azure-portalen är tillgängligt via en Azure resource provider för HANA stora instanser, som för närvarande är i offentlig förhandsversion

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052589"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61247564"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Förbereda utvecklings- och testmiljö för IoT Edge
 
@@ -49,18 +49,18 @@ Mer information och för att hämta Se [Azure IoT-verktyg för Visual Studio Cod
 
 Förutom IoT Edge-tillägg, kan det vara bra att installera ytterligare tillägg för att utveckla. Du kan till exempel använda [Docker-stöd för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) att hantera dina bilder, behållare och register. Dessutom har alla större språk tillägg för Visual Studio Code som kan vara till hjälp när du utvecklar moduler. 
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Modul-mallar för vissa språk och tjänster har förutsättningar som krävs för att bygga projektet mappar på en utvecklingsdator med Visual Studio Code.
 
 | Modulen mall | Krav |
 | --------------- | ------------ |
-| Azure Functions | [.NET core SDK 2.1](https://www.microsoft.com/net/download) |
+| Azure Functions | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
-| C# | [.NET core SDK 2.1](https://www.microsoft.com/net/download) |
+| C# | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Ställa in miljövariabeln JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven 3.](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js-modulen generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [PIP](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutteru](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-2017-extension"></a>Tillägget för Visual Studio 2017
 
@@ -80,12 +80,12 @@ Det finns flera testverktyg för att hjälpa dig att simulera en IoT Edge-enhete
 
 Endast IoT Edge-körningen stöds för distributioner av produktion, men följande verktyg kan du simulera eller enkelt skapa IoT Edge-enheter för utveckling och testning. Dessa verktyg är inte ömsesidigt uteslutande, men kan fungera tillsammans för en komplett utvecklings-upplevelse. 
 
-| Verktyget | Även känt som | Plattformar som stöds | Bäst för |
+| Verktyg | Även känt som | Plattformar som stöds | Bäst för |
 | ---- | ------------- | ------------------- | --------- |
 | IoT EdgeHub utvecklingsverktyg  | iotedgehubdev | Windows, Linux, MacOS | Simulera en enhet för att felsöka moduler. |
 | Behållare för IoT Edge-utveckling | Microsoft/iotedgedev | Windows, Linux, MacOS | Utveckla utan att installera beroenden. |
 | IoT Edge-körning i en behållare | iotedgec | Windows, Linux, MacOS, ARM | Tester på en enhet som inte stöder körningen. |
-| IoT Edge-enhetsbehållare | toolboc/azure-iot-edge-enhet-container | Windows, Linux, MacOS, ARM | Testa ett scenario med många IoT Edge-enheter i stor skala. |
+| IoT Edge-enhetsbehållare | toolboc/azure-iot-edge-device-container | Windows, Linux, MacOS, ARM | Testa ett scenario med många IoT Edge-enheter i stor skala. |
 
 ### <a name="iot-edgehub-dev-tool"></a>IoT EdgeHub utvecklingsverktyg
 

@@ -14,11 +14,11 @@ ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61045855"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
@@ -75,7 +75,7 @@ I stället för fakturering per körning och minne som förbrukas baseras faktur
 
 När du kör JavaScript-funktioner på en premiumplan, bör du välja en instans som har färre virtuella processorer. Mer information finns i den [väljer enkel kärna premiumplaner](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## <a name="app-service-plan"></a>Apptjänstavtal
+## <a name="app-service-plan"></a>App Service-plan
 
 Dina funktionsappar kan också köra på samma dedikerade virtuella datorer som andra App Service-appar (Basic, Standard, Premium och isolerade SKU: er). App Service-planer har stöd för Linux.
 

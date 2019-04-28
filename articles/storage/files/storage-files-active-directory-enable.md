@@ -2,17 +2,17 @@
 title: Aktivera Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion), Azure Storage
 description: Lär dig mer om att aktivera identity-baserad autentisering över SMB (Server Message Block) (förhandsversion) för Azure Files via Azure Active Directory (Azure AD) Domain Services. Dina domänanslutna Windows-datorer (VM) kan sedan komma åt Azure-filresurser med Azure AD-autentiseringsuppgifter.
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
-ms.author: tamram
-ms.openlocfilehash: 796e104dd0b3b2cfdef2ee3515625cba0a9fdc1e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: MT
+ms.author: rogarana
+ms.openlocfilehash: 974a4341bd140da60c5e229a644657fe7ab02535
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497149"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766432"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Aktivera Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -35,7 +35,7 @@ Diagrammet nedan illustrerar arbetsflödet slutpunkt till slutpunkt för att akt
 
 ![Diagram över Azure AD via SMB för Azure Files-arbetsflöde](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 Innan du aktiverar Azure AD via SMB för Azure Files, kontrollera att du har slutfört följande krav:
 

@@ -3,16 +3,16 @@ title: Skapa en anpassad principdefinition
 description: Skapa en anpassad principdefinition för Azure Policy för att tillämpa anpassade affärsregler.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e808bd18e2b23c211f1c5257881fc8a8b72271fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267760"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760877"
 ---
 # <a name="create-a-custom-policy-definition"></a>Skapa en anpassad principdefinition
 
@@ -69,9 +69,9 @@ Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-re
 #### <a name="existing-resource-in-the-portal"></a>Befintlig resurs i portalen
 
 Det enklaste sättet att hitta egenskaper är att titta på en befintlig resurs av samma typ. Resurser som redan har konfigurerats med inställningen som du vill framtvinga innehåller också värdet att jämföra med.
-Titta på sidan **Automationsskript** (under **Inställningar**) i Azure-portalen för den specifika resursen.
+Titta på den **exportmallen** sida (under **inställningar**) i Azure-portalen för den specifika resursen.
 
-![Exportera mallsidan på befintlig resurs](../media/create-custom-policy-definition/automation-script.png)
+![Exportera mallsidan på befintlig resurs](../media/create-custom-policy-definition/export-template.png)
 
 Om du gör det för ett lagringskonto visas en mall som liknar det här exemplet:
 
@@ -197,8 +197,9 @@ Som i Azure CLI visar resultatet ett alias som stöds av lagringskonton med namn
 
 [Azure Resource Graph](../../resource-graph/overview.md) är en ny tjänst som finns i förhandsversion. Det gör att en annan metod kan hitta egenskaper för Azure-resurser. Här är en exempelfråga för att titta på ett enda lagringskonto med Resource Graph:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +210,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resultatet liknar vad vi ser i Resource Manager-mallar och via Azure Resource Explorer. Dock innehåller Azure Resource Graph-resultat även [aliasinformation](../concepts/definition-structure.md#aliases). Här är exempel på utdata från ett lagringskonto för alias:
+Resultatet liknar vad vi ser i Resource Manager-mallar och via Azure Resource Explorer. Azure Resource Graph resultat kan dock även innehålla [alias](../concepts/definition-structure.md#aliases) information av _projicera_ den _alias_ matris:
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Här är exempel på utdata från ett lagringskonto för alias:
 
 ```json
 "aliases": {

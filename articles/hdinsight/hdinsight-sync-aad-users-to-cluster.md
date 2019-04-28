@@ -1,7 +1,6 @@
 ---
 title: Synkronisera Azure Active Directory-användare med ett kluster – Azure HDInsight
 description: Synkronisera autentiserade användare från Azure Active Directory till ett kluster.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,18 +8,18 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ebb1e3614309f92fc21442100a13c53291b3acbb
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: MT
+ms.openlocfilehash: 2be67c604bebbe9b4c4356e241d1480ca0778d4a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407295"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764052"
 ---
-# <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synkronisera Azure Active Directory-användare till ett HDInsight-kluster
+# <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synkronisera Azure Active Directory-användare med ett HDInsight-kluster
 
 [HDInsight-kluster med Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) kan använda stark autentisering med Azure Active Directory (Azure AD)-användare, samt använda *rollbaserad åtkomstkontroll* (RBAC)-principer. När du lägger till användare och grupper till Azure AD kan du synkronisera de användare som behöver åtkomst till ditt kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte redan har gjort det, [skapa ett HDInsight-kluster med Enterprise Security Package](hdinsight-domain-joined-configure.md).
 

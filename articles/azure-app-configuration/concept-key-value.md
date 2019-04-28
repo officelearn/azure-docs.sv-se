@@ -4,20 +4,20 @@ description: En översikt över hur konfigurationsdata lagras i Azure-Appkonfigu
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 39367cbe6c001fc782fd899ee3a99b37ece70a77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741197"
 ---
 # <a name="key-value-store"></a>Nyckelvärdeslagring
 
@@ -45,29 +45,27 @@ Du kan organisera nycklar i App Configuration hierarkiskt på många sätt. Se s
 
 Här är flera exempel på hur du kan strukturera nyckelnamnen i en hierarki:
 
-* Baserat på miljöer
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * Baserat på komponenttjänster
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * Baserat på distributionsregioner
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>Etikett-nycklar
+
+Nyckelvärden i konfiguration av kan du kan också ha en etikettattribut. Etiketter för att skilja mellan värden med samma nyckel. En nyckel *app1* med etiketter *A* och *B* utgör två separata nycklar i en appbutik för konfigurationen. Som standard ett nyckelvärde etikett är tomt, eller `null`.
+
+Etiketten är ett enkelt sätt att skapa varianter av en nyckel. Ett vanligt användningsområde för etiketter är att ange flera miljöer för samma nyckel:
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>Version nyckelvärden
-
-Nyckelvärden i konfiguration av kan du kan också ha en etikettattribut. Etiketter för att skilja mellan värden med samma nyckel. En nyckel *app1* med etiketter *v1* och *v2* utgör två separata värden i en appbutik för konfigurationen. Som standard ett nyckelvärde etikett är tomt, eller `null`.
 
 Konfiguration av inte automatiskt version nyckelvärden som de har ändrats. Använda etiketter som ett sätt att skapa flera versioner av ett nyckelvärde. Exempelvis kan du ange ett versionsnummer för programmet eller Git genomförande-ID i etiketter att identifiera viktiga värden som är associerade med en viss programvara-version.
 

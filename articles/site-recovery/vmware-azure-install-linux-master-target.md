@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599851"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
@@ -29,7 +29,7 @@ Den här artikeln innehåller anvisningar för hur du installerar en Linux-huvud
 
 Skicka kommentarer eller frågor i slutet av den här artikeln eller på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Avgör om återställningen ska användas för att en befintlig lokal virtuell dator eller till en ny virtuell dator för att välja den värd som du kan distribuera Huvudmålet. 
     * Värden för Huvudmålet ska ha åtkomst till datalager för den virtuella datorn för en befintlig virtuell dator.

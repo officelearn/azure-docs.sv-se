@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d642addac36c6f3dbf361ec71102eabc00efd191
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361144"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764267"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 
@@ -33,7 +33,7 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | **Region** | **Lägre Gen2 som är tillgängliga** | **Automatiska uppgraderingar börjar** |
 |:--- |:--- |:--- |
 | Östra Australien |Tillgängligt |Den 1 juni 2019 |
-| Sydöstra Australien |Den 15 april 2019 |Den 1 maj 2019 |
+| Sydöstra Australien |26 april 2019 |Den 1 maj 2019 |
 | Södra Brasilien |Den 15 maj 2019 |Den 1 juni 2019 |
 | Centrala Kanada |Tillgängligt |Den 1 juni 2019 |
 | Östra Kanada |\* |\* |
@@ -49,16 +49,16 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | Centrala Tyskland |\* |\* |
 | Tyskland, västra centrala |Den 1 september 2019|Den 2 januari 2020 |
 | Centrala Indien |Tillgängligt |Den 1 juni 2019 |
-| Södra Indien |Den 15 april 2019 |Den 1 juni 2019 |
+| Södra Indien |26 april 2019 |Den 1 juni 2019 |
 | Östra Japan |Tillgängligt |Den 1 juni 2019 |
 | Västra Japan |Tillgängligt |Den 1 maj 2019 |
-| Sydkorea, centrala |Den 15 april 2019 |Den 1 juni 2019 |
-| Sydkorea, södra |Den 15 april 2019 |Den 1 maj 2019 |
-| Norra centrala USA |Den 15 april 2019 |Den 1 maj 2019 |
+| Sydkorea, centrala |26 april 2019 |Den 1 juni 2019 |
+| Sydkorea, södra |26 april 2019 |Den 1 maj 2019 |
+| Norra centrala USA |26 april 2019 |Den 1 maj 2019 |
 | Norra Europa |Tillgängligt |Den 1 juni 2019 |
 | Södra centrala USA |Tillgängligt |Den 1 juni 2019 |
 | Sydostasien |Tillgängligt |Den 1 juni 2019 |
-| Storbritannien, södra |Den 15 april 2019 |Den 1 juni 2019 |
+| Storbritannien, södra |26 april 2019 |Den 1 juni 2019 |
 | Storbritannien, västra |\*|\* |
 | Västra centrala USA |2 september 2019 |Den 2 januari 2020|
 | Västra Europa |Tillgängligt |Den 1 juni 2019 |

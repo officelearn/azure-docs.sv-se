@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 7aadac72aa1c8c7e7085cccba1d8c83ffb3ebc7b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628446"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 
@@ -40,14 +40,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
-* **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Visual Studio** 2015 eller 2017. I den här genomgången används Visual Studio 2017.
 * **Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)**.
 * **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Observera följande värden som du kommer att använda i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program till rollen **Deltagare** enligt instruktionerna i samma artikel.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
 
-Förbered nu Azure-blobblagringen och Azure SQL-databasen för den här självstudien genom att utföra följande steg:
+Förbered nu Azure-blob och Azure SQL Database för den här självstudien genom att utföra följande steg:
 
 #### <a name="create-a-source-blob"></a>Skapa en källblob
 
@@ -62,7 +62,7 @@ Förbered nu Azure-blobblagringen och Azure SQL-databasen för den här självst
 
 #### <a name="create-a-sink-sql-table"></a>Skapa en SQL-mottagartabell
 
-1. Använd följande SQL-skript för att skapa tabellen **dbo.emp** i din Azure SQL Database.
+1. Använd följande SQL-skript för att skapa tabellen **dbo.emp** i Azure SQL Database.
 
     ```sql
     CREATE TABLE dbo.emp

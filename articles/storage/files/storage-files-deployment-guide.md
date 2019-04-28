@@ -2,25 +2,25 @@
 title: Så här distribuerar du Azure Files | Microsoft Docs
 description: Lär dig hur du distribuerar Azure Files från början till slut.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0b6ed366f35368c70f3d2224f430f400ee9656c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 6afe54d269d273c6a93e6431e9f1c1af7b18cc0e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481186"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766386"
 ---
 # <a name="how-to-deploy-azure-files"></a>Så här distribuerar du Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Den här artikeln visar hur du distribuerar Azure Files praktiskt taget i din organisation.
 
 Vi rekommenderar starkt att du läser [planera för distribution av Azure Files](storage-files-planning.md) innan du följa stegen i den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här artikeln förutsätter att du redan har slutfört följande steg:
 
 - Skapat ett Azure Storage-konto med önskade återhämtning och kryptering alternativ, i den region som du önskar. Se [skapa ett Lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för stegvisa instruktioner om hur du skapar ett Lagringskonto.

@@ -2,18 +2,18 @@
 title: Lägg till/ta bort en serverslutpunkt för Azure File Sync | Microsoft Docs
 description: Lär dig att tänka på när du planerar för distribution av Azure Files.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa5f8aaef21967a23505c785eb8ef811cf5767cc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 31bb71f016dd7f9dd37c766ece25caf8f300754b
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486453"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766955"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Lägg till/ta bort en serverslutpunkt för Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -22,7 +22,7 @@ En *serverslutpunkt* representerar en specifik plats på en *registrerad server*
 
 Se [så här distribuerar du Azure File Sync](storage-sync-files-deployment-guide.md) information om hur du distribuerar Azure File Sync slutpunkt till slutpunkt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill skapa en serverslutpunkt, måste du först se till att följande villkor är uppfyllda: 
 - Servern har Azure File Sync-agenten installerad och har registrerats. Instruktioner för installation av Azure File Sync-agenten finns i den [registrera/avregistrera en server med Azure File Sync](storage-sync-files-server-registration.md) artikeln. 
 - Se till att en Storage Sync-tjänsten har distribuerats. Se [så här distribuerar du Azure File Sync](storage-sync-files-deployment-guide.md) mer information om hur du distribuerar en Lagringssynkroniseringstjänst. 

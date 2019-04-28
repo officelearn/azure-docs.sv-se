@@ -2,18 +2,19 @@
 title: ta med fil
 description: ta med fil
 services: virtual-machines-linux
-author: RicksterCDN
+author: rockboyfor
 ms.service: virtual-machines-linux
 ms.topic: include file
-ms.date: 04/20/2018
-ms.author: rclaus
+origin.date: 04/20/2018
+ms.date: 06/04/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ebf03a0fe1f274e3a3bb67dfa2defd623735faf9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ed68d9d2a0e983fbe753360d9f539f5d89a2187f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33953742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387949"
 ---
 > [!IMPORTANT]
-> Det här tillägget är inaktuell och endast dokumenteras här endast i informativt syfte. Vi rekommenderar inte du fortsätta att använda det här tillägget i dina distributioner. 
+> Det här tillägget är inaktuell och endast dokumenteras här endast i informationssyfte. Vi rekommenderar inte du fortsätta att använda det här tillägget i dina distributioner.

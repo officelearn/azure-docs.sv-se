@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: d3dfe51ce65aa24cf3d0a4d1fa4b6a9cd203b7e4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370935"
 ---
 Kontrollera avtalstyp för att avgöra om du har åtkomst till något faktureringskonto för en Microsoft-kundavtal.
 
 1. Logga in på [Azure Portal]( http://portal.azure.com).
 
-2. Sök på **Cost Management + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar Azure portal-sökning](./media/billing-check-mca/billing-search-cost-management-billing.png)
 

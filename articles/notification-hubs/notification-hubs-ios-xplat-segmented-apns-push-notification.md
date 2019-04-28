@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873180"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Självstudier: Push-meddelanden till specifika iOS-enheter med Azure Notification Hubs
 
@@ -39,7 +39,7 @@ I den här självstudien gör du följande:
 > * Skicka meddelanden från enheten
 > * Kör appen och generera meddelanden
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Det här avsnittet bygger på den app som du skapade i [självstudien: Push-meddelanden till iOS-appar med Azure Notification Hubs][get-started]. Innan du påbörjar den här självstudiekursen måste du ha redan slutfört [självstudien: Push-meddelanden till iOS-appar med Azure Notification Hubs][get-started].
 

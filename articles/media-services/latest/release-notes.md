@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266995"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760778"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -33,6 +33,10 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
 
 Mer information finns i [riktlinjer för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="april-2019"></a>April 2019
+
+[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) har lagts till i de inbyggda analyzer förinställningarna.
 
 ## <a name="march-2019"></a>Mars 2019
 
@@ -200,6 +204,10 @@ Följande funktioner finns i .NET SDK:
 ### <a name="known-issues"></a>Kända problem
 
 * När du skickar ett jobb kan du ange för att mata in källvideon med hjälp av HTTPS-adresser, SAS URL: er eller sökvägar till filer i Azure Blob storage. AMS v3 stöder för närvarande inte segmentvis överföringskodning över HTTPS-URL:er.
+
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

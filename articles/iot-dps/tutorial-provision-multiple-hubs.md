@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 784fb99fc2cd721a43c9ca7c767b449a9d0d6cb3
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 887bda92a1165a3dd17e9105e921a5df9e0c5534
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248172"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Etablera enheter över belastningsutjämnade IoT-hubbar
 
@@ -46,11 +46,11 @@ Registreringslistan anger för enhetsetableringstjänsten vilken attesteringsmet
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Ange allokeringsprincipen för enhetsetableringstjänsten
 
-Allokeringsprincipen är en inställning för enhetsetableringstjänsten som bestämmer hur enheter tilldelas till en IoT-hubb. Det finns tre allokeringsprinciper som stöds: 
+Allokeringsprincipen är en inställning för enhetsetableringstjänsten som bestämmer hur enheter tilldelas till en IoT-hubb. Det finns tre allokeringsprinciper som stöds: 
 
 1. **Kortast svarstid**: Enheter etableras till en IoT-hubb baserat på hubben med kortast svarstid till enheten.
-2. **Jämnt viktad distribution** (standard): Det är lika sannolikt att länkade IoT-hubbar får enheter etablerade till sig. Det här är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
-3. **Statisk konfiguration via registreringslistan**: Specificering av den önskade IoT-hubben på registreringslistan har högre prioritet än allokeringsprincipen på Device Provisioning-tjänstnivå.
+2. **Jämnt viktad distribution** (standard): Länkade IoT-hubbar är lika sannolikt att enheter etablerade till sig. Det här är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
+3. **Statisk konfiguration via registreringslistan**: Specifikation av önskad IoT-hubben på registreringslistan har prioritet framför allokeringsprincip Device Provisioning-tjänstnivå.
 
 Följ dessa steg om du vill ange allokeringsprincipen:
 

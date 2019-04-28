@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 379b8ee4a78cd8b487407e92ae32a7525f428bf0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004592"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763851"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Vad är Windows Virtual Desktop förhandsversionen? 
 
@@ -55,15 +55,17 @@ Du kan också tilldela och ansluta användare till dina virtuella skrivbord:
 Det finns några saker som du behöver för att konfigurera virtuella Windows-skrivbordet och ansluta dina användare till sina Windows-skrivbord och program.
 
 Virtuella Windows-skrivbordet stöder för närvarande endast följande två OS:
-- Windows 10 Enterprise flera session
-- Windows Server 2016
+
+* Windows 10 Enterprise flera session
+* Windows Server 2016
 
 Vi planerar att lägga till stöd för följande operativsystem, så se till att du har den [lämpliga licenser](https://azure.microsoft.com/pricing/details/virtual-desktop/) för dina användare baserat på skrivbordet och appar som du planerar att distribuera:
 
 |Operativsystem|Licens som krävs|
 |---|---|
-
-| Flera sessionen för Windows 10 Enterprise eller Windows 10 Enterprise | Microsoft E3, E5, A3, A5, företag<br>Windows E3, E5, A3, A5| |Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5 | | Windows Server 2012 R2, 2016, 2019 | RDS-klientåtkomstlicens (CAL) med Software Assurance |
+|Flera sessionen för Windows 10 Enterprise eller Windows 10 Enterprise|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Windows Server 2012 R2, 2016, 2019|RDS-klientåtkomstlicens (CAL) med Software Assurance|
 
 Din infrastruktur behöver följande för virtuella Windows-skrivbordet:
 

@@ -1,73 +1,68 @@
 ---
-title: Använda Ansible för att hantera en virtuell Linux-dator i Azure
-description: Lär dig hur du använder Ansible för att hantera en virtuell Linux-dator i Azure
-ms.service: virtual-machines-linux
+title: Snabbstart – hantera Linux-datorer i Azure med Ansible | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du hanterar en Linux-dator i Azure med Ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: quickstart
-ms.date: 09/27/2018
-ms.openlocfilehash: 8f97cf8a4231e9a2144f27c0540de96574e13795
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: cab179980f6093bf259556fd690e55c99a817c79
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188208"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760651"
 ---
-# <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Använda Ansible för att hantera en virtuell Linux-dator i Azure
-Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella Azure-datorer på samma sätt som för alla andra resurser. Den här artikeln visar hur du använder en Ansible-spelbok för att starta och stoppa en virtuell Linux-dator. 
+# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Snabbstart: Hantera Linux-datorer i Azure med Ansible
+
+Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. I den här artikeln använder du en Ansible-spelbok för att starta och stoppa en virtuell Linux-dator. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+## <a name="stop-a-virtual-machine"></a>Stoppa en virtuell dator
 
-## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Använda Ansible för att frigöra (stoppa) en virtuell Azure-dator
-Det här avsnittet visar hur du använder Ansible för att frigöra (stoppa) en virtuell Azure-dator
+I det här avsnittet ska använda du Ansible till Frigör (stop) en Azure virtuell dator.
 
-1.  Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1.  Öppna [Cloud Shell](/azure/cloud-shell/overview).
+1. Öppna [Cloud Shell](/azure/cloud-shell/overview).
 
-1.  Skapa en fil (som ska innehålla din spelbok) med namnet `azure-vm-stop.yml` och öppna den i VI-redigeringsprogrammet på följande sätt:
+1. Skapa en fil med namnet `azure-vm-stop.yml`, och öppna den i redigeraren:
 
     ```azurecli-interactive
-    vi azure-vm-stop.yml
+    code azure-vm-stop.yml
     ```
 
-1.  Starta infogningsläget genom att trycka på tangenten **I**.
-
-1.  Klistra in följande exempelkod i redigeringsprogrammet:
+1. Klistra in följande exempelkod i redigeringsprogrammet:
 
     ```yaml
     - name: Stop Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Deallocate the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
-          allocated: no
+        - name: Stop virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
+            allocated: no
     ```
 
-1.  Avsluta infogningsläget genom att trycka på tangenten **Esc**.
+1. Ersätt den `{{ resource_group_name }}` och `{{ vm_name }}` platshållarna med dina värden.
 
-1.  Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
+1. Spara filen och avsluta redigeraren.
 
-    ```bash
-    :wq
-    ```
-
-1.  Kör Ansible-spelboksexemplet.
+1. Kör en spelbok med hjälp av den `ansible-playbook` kommando:
 
     ```bash
     ansible-playbook azure-vm-stop.yml
     ```
 
-1.  Utdata liknar följande exempel som visar att den virtuella datorn har frigjorts (stoppats):
+1. När strategiboken, kan du se utdata som liknar följande resultat:
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -82,49 +77,44 @@ Det här avsnittet visar hur du använder Ansible för att frigöra (stoppa) en 
     localhost                  : ok=2    changed=1    unreachable=0    failed=0
     ```
 
-## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>Använda Ansible för att starta en frigjord (stoppad) virtuell Azure-dator
-Det här avsnittet visar hur du använder Ansible för att starta en frigjord (stoppad) virtuell Azure-dator
+## <a name="start-a-virtual-machine"></a>Starta en virtuell dator
 
-1.  Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+Du använder Ansible för att starta en deallocated (stoppad) Azure-dator i det här avsnittet.
 
-1.  Öppna [Cloud Shell](/azure/cloud-shell/overview).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1.  Skapa en fil (som ska innehålla din spelbok) med namnet `azure-vm-start.yml` och öppna den i VI-redigeringsprogrammet på följande sätt:
+1. Öppna [Cloud Shell](/azure/cloud-shell/overview).
+
+1. Skapa en fil med namnet `azure-vm-start.yml`, och öppna den i redigeraren:
 
     ```azurecli-interactive
-    vi azure-vm-start.yml
+    code azure-vm-start.yml
     ```
 
-1.  Starta infogningsläget genom att trycka på tangenten **I**.
-
-1.  Klistra in följande exempelkod i redigeringsprogrammet:
+1. Klistra in följande exempelkod i redigeringsprogrammet:
 
     ```yaml
     - name: Start Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Start the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
+        - name: Start virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
     ```
 
-1.  Avsluta infogningsläget genom att trycka på tangenten **Esc**.
+1. Ersätt den `{{ resource_group_name }}` och `{{ vm_name }}` platshållarna med dina värden.
 
-1.  Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
+1. Spara filen och avsluta redigeraren.
 
-    ```bash
-    :wq
-    ```
-
-1.  Kör Ansible-spelboksexemplet.
+1. Kör en spelbok med hjälp av den `ansible-playbook` kommando:
 
     ```bash
     ansible-playbook azure-vm-start.yml
     ```
 
-1.  Utdata liknar följande exempel som visar att den virtuella datorn har startats:
+1. När strategiboken, kan du se utdata som liknar följande resultat:
 
     ```bash
     PLAY [Start Azure VM] ********************************************************
@@ -140,5 +130,6 @@ Det här avsnittet visar hur du använder Ansible för att starta en frigjord (s
     ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 > [!div class="nextstepaction"] 
-> [Använda Ansible för att hantera dina dynamiska Azure-lager](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Självstudie: Hantera Azure dynamiska lager med Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: terrylan
 ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107454"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -111,8 +111,8 @@ I följande tabell visar en lista över STRIDE hot och ger vissa exempel åtgär
 
 | Hot | Egenskapen för säkerhet | Möjliga lösningar i Azure-plattformen |
 | --- | --- | --- |
-| Förfalskning | Authentication | Kräv HTTPS-anslutningar. |
-| Tampering | Integritet | Verifiera SSL-certifikat. |
+| Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
+| Manipulation | Integritet | Verifiera SSL-certifikat. |
 | Repudiation | Oavvislighet | Aktivera Azure [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänsten certifikat](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Denial of Service | Tillgänglighet | Övervaka prestandamått för potentiell denial of service-villkor. Implementera anslutningsfilter. |

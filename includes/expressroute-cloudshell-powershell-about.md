@@ -9,11 +9,11 @@ ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f446ec6bce138a072a214a9e9cd7880ad215ad3b
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60364759"
 ---
 Den här artikeln används PowerShell-cmdletar. Om du vill köra cmdlets, kan du använda Azure Cloud Shell. Azure Cloud Shell är ett interaktivt gränssnitt som har vanliga Azure-verktyg förinstallerat och har konfigurerats för att använda med ditt konto. Klicka helt enkelt på **Kopiera** för att kopiera koden, klistra sedan in den i Cloud Shell och tryck på RETUR för att köra den. Det finns flera olika sätt att starta Cloud Shell:
 

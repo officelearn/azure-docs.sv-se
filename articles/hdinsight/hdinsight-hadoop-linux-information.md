@@ -1,7 +1,6 @@
 ---
 title: Tips för att använda Hadoop på Linux-baserade HDInsight - Azure
 description: Få implementering tips för att använda kluster för Linux-baserat HDInsight (Hadoop) på en välbekant miljö för Linux som körs i Azure-molnet.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: c149c6466f7d86f5cb22c840d4353c3939768768
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 2a7af59495966c76a47ea84311ab073eb594f82e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518991"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765725"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -23,7 +22,7 @@ Azure HDInsight-kluster tillhandahåller Apache Hadoop på en välbekant miljö 
 > [!IMPORTANT]  
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras på datorn.
 

@@ -2,17 +2,17 @@
 title: Översikt över Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion), Azure Storage
 description: Azure Files stöder identity-baserad autentisering över SMB (Server Message Block) (förhandsversion) via Azure Active Directory (Azure AD) Domain Services. Dina domänanslutna Windows-datorer (VM) kan sedan komma åt Azure-filresurser med Azure AD-autentiseringsuppgifter.
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
-ms.author: tamram
-ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: MT
+ms.author: rogarana
+ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427645"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766472"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Översikt över Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -22,7 +22,7 @@ Läs hur du aktiverar Azure AD-autentisering över SMB för Azure Files i [aktiv
 ## <a name="glossary"></a>Ordlista 
 Det kan vara bra att förstå vissa viktiga termer som är relaterade till Azure AD-autentisering över SMB för Azure Files:
 
--   **Azure Active Directory (AD Azure)**  
+-   **Azure Active Directory (Azure AD)**  
     Azure Active Directory (Azure AD) är Microsofts molnbaserade katalog- och identitetstjänst management multiklienttjänst. Azure AD kombinerar viktiga katalogtjänster, åtkomsthantering för program och identitetsskydd i en enda lösning. Mer information finns i [vad är Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure AD Domain Services**  

@@ -2,18 +2,19 @@
 title: ta med fil
 description: ta med fil
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/19/2018
-ms.author: cherylmc
+origin.date: 12/19/2018
+ms.date: 01/14/2019
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 03a4005da7794a989166f914e4ba4d03f93ae8b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407789"
 ---
 1. Klicka på **+Skapa en resurs** i portalen.
 2. I sökrutan skriver du **Lokal nätverksgateway** och trycker sedan på **Retur** för att söka. En lista med resultat returneras. Klicka på **Lokal nätverksgateway** och sedan på knappen **Skapa** för att öppna sidan **Skapa lokal nätverksgateway**.

@@ -6,14 +6,14 @@ author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752134"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764272"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Använda en anpassad avbildning för att skapa en pool med virtuella datorer 
 
@@ -35,7 +35,7 @@ Med en anpassad avbildning som konfigurerats för ditt scenario kan ange flera f
 - **Pooler att växa till stora storlekar.** När du använder en hanterad anpassad avbildning för att skapa en pool kan växa poolen utan att behöva göra kopior av avbildningsblob virtuella hårddiskar. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **En hanterad avbildningsresurs**. Om du vill skapa en pool med virtuella datorer med en anpassad avbildning som du behöver ha eller skapa en hanterad avbildning-resurs i samma Azure-prenumeration och region som Batch-kontot. Avbildningen skapas från ögonblicksbilder av den Virtuella datorns OS-disken och eventuellt dess anslutna datadiskar. Mer information och stegen för att förbereda en hanterad avbildning finns i följande avsnitt. 
   - Använd en anpassad avbildning som är unika för varje pool som du skapar.
@@ -48,9 +48,9 @@ Med en anpassad avbildning som konfigurerats för ditt scenario kan ange flera f
 
 I Azure kan du förbereda en hanterad avbildning från ögonblicksbilder av en Azure VM OS och datadiskar, från en generaliserad virtuell Azure-dator med hanterade diskar eller från en generaliserad lokal virtuell Hårddisk som du överför. Om du vill skala Batch-pooler på ett tillförlitligt sätt med en anpassad avbildning vi rekommenderar att du skapar en hanterad avbildning med hjälp av *endast* den första metoden: med hjälp av ögonblicksbilder av den Virtuella datorns diskar. Se följande steg för att förbereda en virtuell dator, ta en ögonblicksbild och skapa en avbildning från ögonblicksbilden. 
 
-### <a name="prepare-a-vm"></a>Förbered en virtuell dator 
+### <a name="prepare-a-vm"></a>Förbered en virtuell dator
 
-Om du skapar en ny virtuell dator för avbildningen, använda en Azure Marketplace-avbildning som stöds av Batch som basavbildning för en hanterad avbildning och sedan anpassa den.  Om du vill hämta en lista över Azure Marketplace-bildreferenser som stöds av Azure Batch finns i den [lista nodagent](/rest/api/batchservice/account/listnodeagentskus) igen. 
+Om du skapar en ny virtuell dator för avbildningen, kan du använda en första part Azure Marketplace-avbildning stöds av Batch som basavbildning för en hanterad avbildning. Avbildningar från första part kan bara användas som en basavbildning. För att få en fullständig lista över Azure Marketplace-bildreferenser som stöds av Azure Batch kan se den [lista nodagent](/rest/api/batchservice/account/listnodeagentskus) igen.
 
 > [!NOTE]
 > Du kan inte använda en tredjeparts-avbildning som har ytterligare en licens och köp villkoren som ditt basavbildningen. Information om dessa Marketplace-avbildningar finns i riktlinjerna för [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -78,6 +78,7 @@ När du har sparat den anpassade avbildningen och du vet att dess resurs-ID elle
 > [!NOTE]
 > Om du skapar poolen med någon av Batch-API: er, se till att den identitet som du använder för AAD-autentisering har behörighet att avbildningsresursen. Se [autentisera Batch service-lösningar med Active Directory](batch-aad-auth.md).
 >
+> Resurs för hanterad avbildning måste finnas för livslängden för poolen. Om den underliggande resursen tas bort kan poolen inte skalas. 
 
 1. Navigera till ditt Batch-konto i Azure Portal. Det här kontot måste finnas i samma prenumeration och region som den resursgrupp som innehåller den anpassade avbildningen. 
 2. I den **inställningar** fönstret till vänster, Välj den **pooler** menyalternativ.
@@ -109,6 +110,16 @@ Tänk också på följande:
 - **Tidsgräns för storleksändring** – om din pool innehåller en fast ökar antalet noder (inte automatisk skalning), egenskapen resizeTimeout för poolen till ett värde, till exempel 20 – 30 minuter. Om din pool inte når sin Målstorlek inom tidsgränsen kan du köra en [att ändra storlek på](/rest/api/batchservice/pool/resize).
 
   Om du planerar en pool med beräkningsnoder i mer än 300, kan du behöva ändra storleken på poolen flera gånger för att nå målstorleken.
+
+## <a name="considerations-for-using-packer"></a>Att tänka på när Packer
+
+Skapa en hanterad avbildningsresurs direkt med Packer kan endast göras med Batch användarkonton prenumeration läge. För Batch för läge tjänstkonton måste du först skapa en virtuell Hårddisk och sedan importera den virtuella Hårddisken till en hanterad avbildning-resurs. Dina steg att skapa en hanterad avbildningsresurs varierar beroende på din poolallokeringsläget (användarprenumeration eller Batch-tjänsten).
+
+Kontrollera att den resurs som används för att skapa en hanterad avbildning finns för livslängd för en pool som refererar till den anpassade avbildningen. I annat fall kan leda till fel vid tilldelning av poolen och/eller ändra storlek på fel. 
+
+Om avbildningen eller underliggande resursen tas bort, du får ett fel liknar: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Om det händer kan du se till att den underliggande resursen inte har tagits bort.
+
+Mer information om hur du använder Packer för att skapa en virtuell dator finns i [skapa en Linux-avbildning med Packer](../virtual-machines/linux/build-image-with-packer.md) eller [skapa en Windows-avbildning med Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

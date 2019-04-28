@@ -2,18 +2,18 @@
 title: Felsök Azure File Sync | Microsoft Docs
 description: Felsök vanliga problem med Azure File Sync.
 services: storage
-author: jeffpatt24
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: jeffpatt
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 328edac78624c192ee139c40fe0ed1853423c639
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 53297a16889190383e0455c484339adc049c1cb1
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051376"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759411"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558484"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hur du auktorisera konton med hjälp av Azure Active Directory B2C i Azure API Management
 
@@ -69,29 +69,20 @@ Azure Active Directory B2C är en identitetshanteringslösning för molnet för 
    ![Program-ID 1][api-management-howto-aad-b2c-app-id]
 
 9. Gå tillbaka till API Management **Lägg till identitetsprovider** fönstret och klistra in ID: T i den **klient-Id** textrutan.
-
-   ![Program-ID 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. Gå tillbaka till appregistreringen B2C, klickar du på den **nycklar** knappen och klicka sedan på **skapa nycklar**. Klicka på **spara** att spara konfigurationen och visa den **appnyckeln**. Kopiera nyckeln till Urklipp.
 
     ![App-nyckel 1][api-management-howto-aad-b2c-app-key]
 
 11. Gå tillbaka till API Management **Lägg till identitetsprovider** fönstret och klistra in nyckeln i den **Klienthemlighet** textrutan.
+    
+12. Ange domännamnet för Azure Active Directory B2C-klient i **registrerande klient**.
 
-    ![App-nyckel 2][api-management-howto-aad-b2c-client-secret]
+13. Den **utfärdare** fält kan du styra inloggnings-URL för Azure AD B2C att använda. Ange värdet till **< your_b2c_tenant_name >. b2clogin.com**.
 
-12. Ange domännamnet för Azure Active Directory B2C-klient i **tillåtna klient**.
+14. Ange den **registreringen princip** och **inloggning från principen** från principer för B2C-klient. Du kan också du kan också ange den **redigera Profilprincip** och **princip för lösenordsåterställning**.
 
-    ![Tillåten klientorganisation][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Ange den **registreringen princip** och **inloggning från principen** från principer för B2C-klient. Du kan också du kan också ange den **redigera Profilprincip** och **princip för lösenordsåterställning**.
-
-    ![Principer][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > Mer information om principer finns i [Azure Active Directory B2C: Utökningsbart principramverk].
-
-14. När du har angett den önskade konfigurationen, klickar du på **spara**.
+15. När du har angett den önskade konfigurationen, klickar du på **spara**.
 
     När ändringarna har sparats kommer utvecklare att kunna skapa nya konton och logga in på utvecklarportalen med hjälp av Azure Active Directory B2C.
 

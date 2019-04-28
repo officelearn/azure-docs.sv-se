@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61433199"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Skapa en Node.js-chattprogram med Socket.IO på en Azure-molntjänst
 
@@ -29,7 +29,7 @@ En skärmbild av det färdiga programmet understiger:
 
 ![Ett webbläsarfönster som visar den tjänst som finns i Azure][completed-app]  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Kontrollera att följande produkter och versioner är installerade för att slutföra exemplet i den här artikeln:
 
 * Installera [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)

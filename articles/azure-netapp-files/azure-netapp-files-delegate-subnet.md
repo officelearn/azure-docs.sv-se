@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434780"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763305"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegera ett undernät till Azure NetApp Files 
 
@@ -30,7 +30,7 @@ Du måste delegera ett undernät till Azure NetApp Files.   När du skapar en vo
 * Endast ett undernät kan delegeras till Azure NetApp Files i varje Azure Virtual Network (VNet).
 * Du kan inte ange en grupp eller en tjänstslutpunkt i delegerade undernät. Det leder till att delegeringen av undernätet misslyckas.
 * Åtkomst till en volym från ett globalt peer-kopplade virtuella nätverk stöds inte för närvarande.
-* Skapa [användardefinierade anpassade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) på undernät för virtuella datorer med adressen prefix (mål) till ett undernät som delegerats till Azure NetApp-filer stöds inte och påverkar VM-anslutning.
+* Skapa [användardefinierade anpassade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) på undernät för virtuella datorer med adressen prefix (mål) till ett undernät som delegerats till Azure NetApp-filer stöds inte. Detta påverkar VM-anslutning.
 
 ## <a name="steps"></a>Steg 
 1.  Gå till bladet **Virtuella nätverk** i Azure-portalen och välj det virtuella nätverket som du vill använda för Azure NetApp Files.    

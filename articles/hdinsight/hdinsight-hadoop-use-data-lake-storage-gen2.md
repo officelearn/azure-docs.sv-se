@@ -1,19 +1,18 @@
 ---
 title: Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 description: Lär dig hur du använder Azure Data Lake Storage Gen2 med Azure HDInsight-kluster.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004966"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766920"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -69,7 +68,7 @@ Tilldela den hantera identitet som den **Dataägaren för Storage Blob** rollen 
         ![Inställningarna för att använda Data Lake Storage Gen2 med Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> Du kan lägga till ett eller flera Data Lake Storage Gen2 konton som sekundär lagring i samma kluster. Bara Upprepa stegen ovan på varje Data Lake Storage Gen2-konto som du vill lägga till med hjälp av samma hanterad identitet.
+> Om du vill lägga till ett sekundärt Gen2 för Data Lake Storage-konto på lagringskontonivån, bara tilldela den hanterade identitet som skapades tidigare till nya Data Lake Storage Gen2 storage-konto som du vill lägga till. Observera att lägga till ett sekundärt Gen2 för Data Lake Storage-konto via bladet ”ytterligare lagringskonton” på HDInsight inte stöds. 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Skapa ett kluster med Data Lake Storage Gen2 via Azure CLI
 

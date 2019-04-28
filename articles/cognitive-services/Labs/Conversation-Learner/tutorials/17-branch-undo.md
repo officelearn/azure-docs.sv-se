@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: cca7b42c83be3ca428509ea48c387a1c35ddb35a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206738"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640194"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Hur du använder branchning och ångra åtgärder
 I den här självstudien ska vi gå igenom Ångra och branchning åtgärder.
@@ -25,7 +25,7 @@ I den här självstudien ska vi gå igenom Ångra och branchning åtgärder.
 ### <a name="undo"></a>Ångra
 Kan utvecklare ”Ångra” senaste användarens indata eller åtgärd val. I bakgrunden ”Ångra” faktiskt skapar en ny dialogruta och spelar upp det upp till föregående steg.  Det innebär att entiteten identifiering av återanrop och API-anrop i dialogrutan anropas igen.
 
-### <a name="branch"></a>Gren
+### <a name="branch"></a>Branch
 Skapar en ny dialogruta träna börjar på samma sätt som en befintlig träna dialogrutan – detta sparar arbetet med manuellt återinföra dialogrutan stängs. I bakgrunden ”gren” skapar en ny dialogruta och spelar upp dialogrutan befintliga träna upp till det valda steget.  Det innebär att entiteten identifiering av återanrop och API-anrop i dialogrutan anropas igen.
 
 
@@ -51,7 +51,7 @@ Här är ett exempel på hur du ser den `Undo` funktionen fungerar i praktiken:
 6. Klicka på knappen `Undo`.
     - Den sista posten tas bort, lämna det senaste Bot-svaret för ”vad du vill på din pizza”?
 
-## <a name="branch"></a>Gren
+## <a name="branch"></a>Branch
 
 Den här demonstrationen vi öppna en befintlig Train-dialogruta och skapa en ny Train-dialogruta från den av förgrening.
 

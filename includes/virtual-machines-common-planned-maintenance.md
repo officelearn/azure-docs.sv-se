@@ -9,11 +9,11 @@ ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551578"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301717"
 ---
 Azure uppdaterar regelbundet plattform för att förbättra tillförlitligheten, prestanda och säkerheten för infrastrukturen för värd för virtuella datorer. Dessa uppdateringar sträcker sig från korrigeringar programvarukomponenter i värdmiljön, uppgradera nätverkskomponenter, till maskinvara ta ur drift. Flesta av dessa uppdateringar har ingen inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka och Azure väljer minst påverkar metoden efter uppdateringar:
 

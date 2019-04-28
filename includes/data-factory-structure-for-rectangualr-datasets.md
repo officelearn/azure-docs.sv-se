@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309205"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Ange strukturdefinition för rektangulära datauppsättningar
 Avsnittet strukturen i datauppsättningar JSON är en **valfritt** för rektangulär tabeller (med rader och kolumner) och innehåller en uppsättning kolumner för tabellen. Du använder avsnittet struktur för antingen givande anger du följande information typkonverteringar eller göra kolumnmappningarna. I följande avsnitt beskrivs de här funktionerna i detalj. 
 
 Varje kolumn innehåller följande egenskaper:
 
-| Egenskap  | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Obligatoriskt |
 | --- | --- | --- |
 | namn |Namnet på kolumnen. |Ja |
 | typ |Datatypen för kolumnen. Se typen konverteringar avsnittet nedan finns mer information om när ska du ange typinformation |Nej |
@@ -49,15 +49,15 @@ Data factory stöder följande CLS kompatibla .NET baserat typvärden för att t
 * Int16
 * Int32 
 * Int64
-* Enkel
-* Double-värde
-* decimaltal
-* Byte]
-* Bool
-* Sträng 
-* GUID
+* Single
+* Double
+* Decimal
+* Byte[]
+* Booleskt
+* String 
+* Guid
 * DateTime
-* DateTimeOffset
+* Datetimeoffset
 * Tidsintervall 
 
 Du kan även ange ”kultur” & ”format” sträng för att underlätta tolkning av din anpassade Datetime-sträng för Datetime & Datetimeoffset. Se exempel för typkonvertering nedan.

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545171"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565726"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 > [!NOTE]
@@ -144,7 +144,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight-länkad tjän
 ### <a name="advanced-properties"></a>Avancerade egenskaper
 Detaljerad konfiguration av HDInsight-kluster på begäran, kan du ange följande egenskaper:
 
-| Egenskap                | Beskrivning                              | Krävs |
+| Egenskap                | Beskrivning                              | Obligatoriskt |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Anger konfigurationsparametrar core (core-site.xml) för att skapa HDInsight-klustret. | Nej       |
 | hBaseConfiguration     | Anger HBase konfigurationsparametrar (hbase-site.xml) för HDInsight-klustret. | Nej       |
@@ -197,7 +197,7 @@ Detaljerad konfiguration av HDInsight-kluster på begäran, kan du ange följand
 ### <a name="node-sizes"></a>Nodstorlekar
 Om du vill ange storleken på huvudnoder, datanoder och ZooKeeper-noder, använder du följande egenskaper: 
 
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Obligatoriskt |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Anger storleken på huvudnoden. Standardvärdet är **Standard_D3**. Mer information finns i [ange nodstorlekar](#specify-node-sizes). | Nej       |
 | dataNodeSize      | Anger storleken på datanod. Standardvärdet är **Standard_D3**. | Nej       |
@@ -262,7 +262,7 @@ Du kan skapa en länkad HDInsight-tjänst för att registrera ett eget HDInsight
 | typ              | Ange typegenskapen som **HDInsight**. | Ja      |
 | clusterUri        | URI för HDInsight-klustret.        | Ja      |
 | användarnamn          | Namnet på användarkontot du använder för att ansluta till ett befintligt HDInsight-kluster. | Ja      |
-| lösenord          | Lösenordet för användarkontot.   | Ja      |
+| password          | Lösenordet för användarkontot.   | Ja      |
 | linkedServiceName | Namnet på den länkade storage-tjänst som refererar till Blob-lagring som används av HDInsight-klustret. <p>För närvarande kan ange du inte ett Data Lake Store-länkad tjänst för den här egenskapen. Om HDInsight-klustret har åtkomst till Data Lake Store, kan du komma åt data i Data Lake Store från Hive och Pig-skript. </p> | Ja      |
 
 ## <a name="azure-batch-linked-service"></a>Tjänsten Azure Batch länkad
@@ -308,7 +308,7 @@ Ett annat alternativ är att tillhandahålla den **batchUri** slutpunkt. Exempel
 | Egenskap           | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | typ              | Ange typegenskapen som **AzureBatch**. | Ja      |
-| Kontonamn       | Namnet på Batch-kontot.         | Ja      |
+| accountName       | Namnet på Batch-kontot.         | Ja      |
 | accessKey         | Åtkomstnyckeln för Batch-kontot.  | Ja      |
 | Poolnamn          | Namnet på poolen med virtuella datorer.    | Ja      |
 | linkedServiceName | Namnet på den länkade storage-tjänst som är associerat med den här batchen länkad tjänst. Den här länkade tjänsten används för tillfälliga filer som krävs för att köra aktiviteten och för att lagra aktivitetsloggar för körning. | Ja      |
@@ -332,9 +332,9 @@ Du kan skapa en Machine Learning länkad tjänst för att registrera en Machine 
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap    | Beskrivning                              | Krävs |
+| Egenskap    | Beskrivning                              | Obligatoriskt |
 | ---------- | ---------------------------------------- | -------- |
-| Type       | Ange typegenskapen som **AzureML**. | Ja      |
+| Typ       | Ange typegenskapen som **AzureML**. | Ja      |
 | mlEndpoint | Batchbedömnings-URL: en.                   | Ja      |
 | ApiKey     | Den publicerade arbetsytemodellens API.     | Ja      |
 
@@ -346,7 +346,7 @@ I följande tabell beskrivs de allmänna egenskaper som används i JSON-definiti
 | Egenskap                  | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | typ                 | Ange typegenskapen som **AzureDataLakeAnalytics**. | Ja                                      |
-| Kontonamn          | Namnet på Data Lake Analytics-kontot.  | Ja                                      |
+| accountName          | Namnet på Data Lake Analytics-kontot.  | Ja                                      |
 | dataLakeAnalyticsUri | Data Lake Analytics-URI.           | Nej                                       |
 | subscriptionId       | Azure-prenumerations-ID.                    | Nej<br /><br />(Om inte anges används prenumerationen för data factory.) |
 | resourceGroupName    | Azure resursgruppens namn.                | Nej<br /><br /> (Om inte anges används resursgruppen för data factory.) |
@@ -366,7 +366,7 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | Programmets klient-ID.     | Ja      |
 | servicePrincipalKey | Programnyckel.           | Ja      |
-| klient              | Klientorganisationens information (domain name eller klient-ID) där programmet finns. För att få den här informationen kan håller du muspekaren i det övre högra hörnet i Azure Portal. | Ja      |
+| tenant              | Klientorganisationens information (domain name eller klient-ID) där programmet finns. För att få den här informationen kan håller du muspekaren i det övre högra hörnet i Azure Portal. | Ja      |
 
 **Exempel: Autentisering av tjänstens huvudnamn**
 ```json
@@ -390,7 +390,7 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 #### <a name="user-credential-authentication"></a>Användarautentisering för autentiseringsuppgifter
 För autentisering av användare autentiseringsuppgifter för Data Lake Analytics, anger du följande egenskaper:
 
-| Egenskap           | Beskrivning                              | Krävs |
+| Egenskap           | Beskrivning                              | Obligatoriskt |
 | :---------------- | :--------------------------------------- | :------- |
 | Auktorisering | I Data Factory Editor väljer den **auktorisera** knappen. Ange den autentiseringsuppgift som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja      |
 | sessions-ID     | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja      |

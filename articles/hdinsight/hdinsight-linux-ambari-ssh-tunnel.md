@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
+origin.date: 04/30/2018
+ms.date: 02/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 03c86aa069300f88b61752ebd3223e424f6e9c96
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: MT
+ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382612"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766752"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Apache Ambari-webbgränssnittet, JobHistory, NameNode, Apache Oozie och andra web UIs
 
@@ -34,20 +35,20 @@ Följande Web UIs kräver en SSH-tunnel:
 
 Om du använder skriptåtgärder för att anpassa ditt kluster, kräver alla tjänster eller verktyg som du installerar som Exponerar en webbtjänst en SSH-tunnel. Om du installerar nyans med en skriptåtgärd kan använda du till exempel en SSH-tunnel till Hue-webbgränssnittet.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Om du har direkt åtkomst till HDInsight via ett virtuellt nätverk, behöver du inte använda SSH-tunnlar. Ett exempel för att komma åt HDInsight direkt via ett virtuellt nätverk finns i den [ansluta HDInsight till det lokala nätverket](connect-on-premises-network.md) dokumentet.
 
 ## <a name="what-is-an-ssh-tunnel"></a>Vad är en SSH-tunnel
 
 [Secure Shell (SSH)-tunnel](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) ansluter en port på den lokala datorn till huvudnoden på HDInsight. Trafik som skickas till den lokala porten dirigeras via en SSH-anslutning till klustrets huvudnod. Begäran har åtgärdats som om den har sitt ursprung på huvudnoden. Svaret dirigeras sedan tillbaka via tunneln till din arbetsstation.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En SSH-klient. De flesta operativsystem tillhandahåller en SSH-klient via den `ssh` kommando. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 * En webbläsare som kan konfigureras för att använda en SOCKS5-proxy.
 
-    > [!WARNING]  
+    > [!WARNING]
     > Stöd för proxy SOCKS, inbyggd i Windows Internet-inställningar har inte stöd för SOCKS5 och fungerar inte med stegen i det här dokumentet. Följande webbläsare förlitar sig på Windows-proxyinställningar och för närvarande arbetar inte med stegen i det här dokumentet:
     >
     > * Microsoft Edge
@@ -110,14 +111,14 @@ När kommandot har slutförts, dirigeras trafik som skickas till port 9876 på d
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Använda tunneln från din webbläsare
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Stegen i det här avsnittet använder webbläsaren Mozilla FireFox eftersom den innehåller samma proxyinställningar på alla plattformar. Andra webbläsare, till exempel Google Chrome kan kräva ett tillägg, till exempel FoxyProxy att arbeta med tunneln.
 
 1. Konfigurera webbläsaren att använda **localhost** och den port du använde när du skapar tunnel som en **SOCKS v5** proxy. Här är hur Firefox-inställningar som ska se ut. Om du använder en annan port än 9876, byta till den som du använde:
    
     ![Bild av Firefox-inställningar](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]  
+   > [!NOTE]
    > Att välja **fjärr-DNS** löser Domain Name System (DNS)-begäranden med hjälp av HDInsight-kluster. Den här inställningen löser DNS med hjälp av huvudnod i klustret.
 
 2. Kontrollera att tunneln fungerar genom att gå till en plats som [ https://www.whatismyip.com/ ](https://www.whatismyip.com/). Den returnerade IP-Adressen måste vara en används av Microsoft Azure-datacenter.
@@ -139,7 +140,7 @@ När klustret har upprättats, Använd följande steg för att verifiera att du 
 
     ![Bild med expanderad meny med snabblänkar](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]  
+   > [!NOTE]
    > När du väljer __snabblänkar__, kan du få en wait-indikator. Det här tillståndet kan inträffa om du har en långsam Internetanslutning. Vänta en minut eller två innan data tas emot från servern och försök sedan listan igen.
    >
    > Vissa poster i den **snabblänkar** menyn kan vara klipps bort höger sida av skärmen. I så, fall expanderar du menyn med hjälp av musen och Använd högerpilen för att rulla skärmen till höger för att se resten av menyn.

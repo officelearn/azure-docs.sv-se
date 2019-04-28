@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543295"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760839"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Förstå tid hantering i Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Vi definiera vissa begrepp som bakgrund till bättre frame diskussionen:
 
 - **Bearbetningstid**: Den tidpunkt då händelsen når bearbetning av systemet och observeras. Till exempel tar när en avgift monter sensor ser bilen och datorn en stund att bearbeta data.
 
-- **Vattenstämpel**: En händelse tid markör som visar alla händelser upp till vad peka har varit telemetriingång till strömmande processorn. Vattenstämplar kan systemet indikerar Rensa förloppet på mata in händelser. Av natur strömmar stoppas av inkommande data aldrig, så att vattenstämplar indikerar förloppet till en viss punkt i strömmen.
+- **Vattenstämpel**: En händelse tid markör som visar upp till vilken tidpunkt händelser har ingressed till strömmande processor. Vattenstämplar kan systemet indikerar Rensa förloppet på mata in händelser. Av natur strömmar stoppas av inkommande data aldrig, så att vattenstämplar indikerar förloppet till en viss punkt i strömmen.
 
    Vattenstämpel konceptet är viktigt. Vattenstämplar kan Stream Analytics för att avgöra när systemet kan producera fullständiga, korrekt och repeterbara resultat som inte behöver återkallas. Bearbetningen kan göras på en garanterad sätt som är förutsägbara och repeterbara. Till exempel är räkna orden måste göras för vissa villkor för felhantering, vattenstämplar säker start- och slutpunkter.
 

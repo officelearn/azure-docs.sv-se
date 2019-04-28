@@ -1,18 +1,17 @@
 ---
 title: Felsöka YARN i Azure HDInsight
 description: Få svar på vanliga frågor om hur du arbetar med Apache Hadoop YARN och Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: MT
+ms.openlocfilehash: 4ca3dddb2b5ea4897ff82f1d91e88dc656305453
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408838"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764300"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop YARN med Azure HDInsight
 
@@ -25,8 +24,9 @@ Läs mer om de viktigaste problemen och sina lösningar när du arbetar med Apac
 Använd följande steg i Ambari för att skapa en ny YARN-kö och för att balansera kapacitetstilldelning bland alla köer. 
 
 I det här exemplet, två befintliga köer (**standard** och **thriftsvr**) både ändras från 50% kapacitet till 25% kapacitet som får den nya kön (spark) 50% kapaciteten.
+
 | Kö | Kapacitet | Maximal kapacitet |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | standard | 25 % | 50% |
 | thrftsvr | 25 % | 50% |
 | Spark | 50% | 50% |

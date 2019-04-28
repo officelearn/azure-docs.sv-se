@@ -9,11 +9,11 @@ ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344282"
 ---
 Minnesoptimerade erbjudande för VM-storlekar högt minne att CPU-förhållande som är utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 

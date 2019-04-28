@@ -1,7 +1,6 @@
 ---
 title: Begränsa åtkomst med signaturer för delad åtkomst - Azure HDInsight
 description: Lär dig hur du använder signaturer för delad åtkomst för att begränsa HDInsight åtkomst till data som lagras i Azure storage-blobbar.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d248db787db1e3945fb632c6770d45e4bf9a8f02
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 7fa46e3a5f0ed6504e4bc927caa0378d75fcc4a7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361004"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763393"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd Azure Storage signaturer för delad åtkomst för att begränsa åtkomsten till data i HDInsight
 

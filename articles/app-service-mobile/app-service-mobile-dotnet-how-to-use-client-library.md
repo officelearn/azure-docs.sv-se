@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119315"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Så här använder du den hanterade klienten för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -64,7 +64,7 @@ Den [JsonPropertyAttribute] [ 6] används för att definiera den *PropertyName* 
 
 Läs hur du skapar tabeller i Mobile Apps-serverdel, i den [.NET Server SDK innehåller] [ 7] eller [Node.js Server SDK innehåller][8]. Om du har skapat din mobilappsserverdel i Azure portal med snabbstarten kan du också använda den **enkla tabeller** i den [Azure Portal].
 
-### <a name="how-to-install-the-managed-client-sdk-package"></a>Så här: Installera hanterad klient-SDK-paketet
+### <a name="how-to-install-the-managed-client-sdk-package"></a>Anvisningar: Installera hanterad klient-SDK-paketet
 Använd någon av följande metoder för att installera hanterad klient-SDK-paketet för Mobile Apps från [NuGet][9]:
 
 * **Visual Studio** högerklickar du på projektet, klicka på **hantera NuGet-paket**, Sök efter den `Microsoft.Azure.Mobile.Client` paketet och klicka sedan på **installera**.

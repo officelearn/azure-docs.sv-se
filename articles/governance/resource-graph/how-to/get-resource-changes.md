@@ -8,20 +8,20 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f4618e945db443e8d7cf9fdcc49e20e5a09ebd39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014610"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760805"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
 Resurser får ändra via loppet av daglig användning, omkonfiguration och även omdistributionen.
 Ändra kan komma från en person eller av en automatiserad process. De flesta ändringen är avsiktligt, men ibland är det inte. Med de senaste 14 dagarna ändringshistoria kan Azure Resource Graph du:
 
-- Hitta när ändringar har upptäckts på en Azure Resource Manager-egenskap.
-- Se vad egenskaper som ändrats som en del av ändringshändelsen.
+- se när ändringar har identifierats på en Azure Resource Manager-egenskap
+- se vilka egenskaper som ändrats som en del av ändringshändelsen.
 
 Identifiering av ändring av och information är värdefull för följande exempelscenarier:
 
@@ -39,7 +39,7 @@ Den här artikeln visar hur du samlar in uppgifterna via Resource Graph SDK. Den
 
 ## <a name="find-when-changes-were-detected"></a>Hitta när ändringar har upptäckts
 
-Det första steget i att se vad som ändrats på en resurs är att hitta ändringen händelser relaterade till resursen i en tidsperiod. Det här steget gör du genom de [resourceChanges](/rest/api/azureresourcegraph/resourceChanges) REST-slutpunkt.
+Det första steget i att se vad som ändrats på en resurs är att hitta ändringen händelser relaterade till resursen i en tidsperiod. Det här steget gör du genom de **resourceChanges** REST-slutpunkt.
 
 Den **resourceChanges** slutpunkten kräver två parametrar i begärandetexten:
 
@@ -95,7 +95,7 @@ Varje identifierad Ändringshändelse för den **resourceId** har en **changeId*
 
 ## <a name="see-what-properties-changed"></a>Se vad som ändrats egenskaper
 
-Med den **changeId** från den **resourceChanges** slutpunkten, den [resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails) REST-slutpunkt används sedan för att hämta information om ändringshändelsen.
+Med den **changeId** från den **resourceChanges** slutpunkten, den **resourceChangeDetails** REST-slutpunkt används sedan för att hämta information om ändringshändelsen.
 
 Den **resourceChangeDetails** slutpunkten kräver två parametrar i begärandetexten:
 
@@ -108,7 +108,6 @@ Exempel-begärandetexten:
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
-    }
 }
 ```
 

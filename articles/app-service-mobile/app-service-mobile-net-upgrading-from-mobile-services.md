@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122446"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uppgradera din befintliga .NET Azure-Mobiltjänst till App Service
 App Service Mobile är ett nytt sätt att bygga mobilappar med Microsoft Azure. Mer information finns i [vad är Mobile Apps?].
@@ -73,7 +73,7 @@ Du kommer förmodligen vill använda samma databas och Notification Hub som du g
 Skapa en kopia av ASP.NET-projekt för ditt program och publicera den till den nya platsen. Använd en kopia av ditt klientprogram som uppdateras med den nya URL: en, verifiera att allt fungerar som förväntat.
 
 ## <a name="updating-the-server-project"></a>Uppdaterar serverprojektet
-Mobile Apps erbjuder en ny [SDK för Mobile App-servern] som ger stor del samma funktioner som Mobile Services runtime. Först bör du ta bort alla referenser till Mobile Services-paket. I NuGet-Pakethanteraren, söker du efter `WindowsAzure.MobileServices.Backend`. De flesta appar visas flera paket här, inklusive `WindowsAzure.MobileServices.Backend.Tables` och `WindowsAzure.MobileServices.Backend.Entity`. I detta fall är börjar med det lägsta paketet i beroendeträd, t ex `Entity`, och ta bort den. När du uppmanas, ta inte bort alla beroende paket. Upprepa processen tills du har tagit bort `WindowsAzure.MobileServices.Backend` själva.
+Mobile Apps erbjuder en ny [Mobile App Server SDK] som ger stor del samma funktioner som Mobile Services runtime. Först bör du ta bort alla referenser till Mobile Services-paket. I NuGet-Pakethanteraren, söker du efter `WindowsAzure.MobileServices.Backend`. De flesta appar visas flera paket här, inklusive `WindowsAzure.MobileServices.Backend.Tables` och `WindowsAzure.MobileServices.Backend.Entity`. I detta fall är börjar med det lägsta paketet i beroendeträd, t ex `Entity`, och ta bort den. När du uppmanas, ta inte bort alla beroende paket. Upprepa processen tills du har tagit bort `WindowsAzure.MobileServices.Backend` själva.
 
 Nu har du ett projekt som inte längre refererar till Mobile Services SDK: er.
 
@@ -122,7 +122,7 @@ app.UseAppServiceAuthentication(config);
 
 Det finns ytterligare ändringar för autentisering som beskrivs i avsnittet fullständiga autentiseringen nedan.
 
-### <a name="working-with-data"></a>Arbeta med Data
+### <a name="working-with-data"></a>Arbeta med data
 I mobiltjänster hanteras mobila appnamnet som standard schemanamn i Entity Framework-installationsprogrammet.
 
 Så att du har samma schema som refereras som tidigare, Använd följande för att ange schemat i DbContext för ditt program:
@@ -165,7 +165,7 @@ På iOS-, bör du ändra schemat för dina dataentiteter till följande grundlä
 | id |Sträng, markeras krävs |primärnyckeln i fjärrlager |
 | createdAt |Date |(valfritt) mappas till createdAt Systemegenskapen |
 | updatedAt |Date |(valfritt) mappas till updatedAt Systemegenskapen |
-| version |Sträng |(valfritt) används för att identifiera konflikter, mappas till version |
+| version |String |(valfritt) används för att identifiera konflikter, mappas till version |
 
 #### <a name="querying-system-properties"></a>Fråga Systemegenskaper
 I Azure mobiltjänster, Systemegenskaper skickas inte som standard, men endast om det behövs med hjälp av frågesträngen `__systemProperties`. Däremot i Azure Mobile Apps system egenskaper är **alltid valt** eftersom de ingår i objektmodellen för server SDK.
@@ -281,7 +281,7 @@ När du har den nya klientversionen som är redo, prova mot projektet uppgradera
 
 [Azure Portal]: https://portal.azure.com/
 [Vad är Mobile Apps?]: app-service-mobile-value-prop.md
-[SDK för Mobile App-servern]: https://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Webbjobb]: https://github.com/Azure/azure-webjobs-sdk/wiki

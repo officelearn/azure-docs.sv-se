@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266196"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766353"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå sekvensen för distribution i Azure skisser
 
@@ -41,6 +41,9 @@ Inom varje **resursgrupp** artefakt följande sekvens ordning används för arte
 - Resource group underordnade **rolltilldelning** artefakter sorterade efter sammansättningsartefaktens namn
 - Resource group underordnade **principtilldelning** artefakter sorterade efter sammansättningsartefaktens namn
 - Resource group underordnade **Azure Resource Manager-mall** artefakter sorterade efter sammansättningsartefaktens namn
+
+> [!NOTE]
+> Användning av [artifacts()](../reference/blueprint-functions.md#artifacts) skapar en implicit beroende på den artefakt som det hänvisas till.
 
 ## <a name="customizing-the-sequencing-order"></a>Anpassa ordningsföljd
 

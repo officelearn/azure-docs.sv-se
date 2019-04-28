@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437354"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763570"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps stöds kategorier
 
@@ -105,7 +105,7 @@ När du gör en [kategorisökning](https://docs.microsoft.com/rest/api/maps/sear
 | REPARERA\_ANLÄGGNING | reparera anläggning bodyshops, däck (däck) tjänster, reparera butiker, bil glas ersättning butiker, allmän bil reparera behandlingen försäljning installation av biltillbehör, motorcykel reparation, lastbil repair-tjänst |
 | RESEARCH\_ANLÄGGNING | Research anläggning |
 | HEMADRESS\_LOGI | tillbakadragning community, radhus komplexa, provning/lägenhetskomplex, condominium komplexa, hemadress egendom, hemadress logi |
-| RESTAURANG | Tyska creole Cajun, nederländska, fest rum, bistro, israeliska, slovakiska, Jamaicansk, vegetariska, skaldjur, vietnamesiska, Maltesiska, av, Kymriska, kinesiska, japanska, Algeriet, Californian, fusion, Shandong, sallad fältet Savoie en, spanska, Etiopisk, taiwanesiska, munkar, Iransk, kanadensisk, American, norska, franska, Hunan, polynesiskt, afghan, vägarna, Orientalisk, Schweiz, erotic, crêperie, Surinamese, egyptiskt, ungerska, Nepalesiska, grill, frekvent pot, hamburgers, Medelhavsområdet, Latinamerika, tapas, British, Mexiko, Guangdong, asiatiska (annat), buffet, sushi, Mongolisk, international, musslor, thailändska, Venezuela, Rumanian, kyckling, från början, lågkalorikost, steak house, yoghurt/kraft-fältet, italienska, koreanska, Cypriotisk skrift, Bosniska, Boliviansk, Dominikanska, Belgien, Tunisien, Skotsk, Engelska, Pakistan, tjeckiska, hawaiiska, Maghrib, Tibetanska, arabisk, mitten, östra, Chilenska, Shanghai, polska, Filippinska, Sudanesiskt, armeniska, Burmesiska, Brasilien, Scandinavian, bulgariska, stärker själen food, Colombia, judiska, pizza Sicilian, organisk, grekiska, Baskiska, Undantag, cafeterior, finska, Centralafrikanska, Korsikanska, Arabrepubliken, Karibien, Dongbei, ryska, grill, ta bort, fast food, Australien, irländska, pub food, fondue, Libanon, indonesiska, danska, Provençal, teppanyaki, indiska, Mauritisk, western all Peruansk, Kambodjansk, godis, svenska, macrobiotic, glass parlor Slaviska, turkiska, argentinska, Österrike, främmande, portugisiska, luxemburgska, Marockansk, Sydsandwichöarna, Kubanska, restaurang |
+| RESTAURANG | Tyska creole Cajun, nederländska, fest rum, bistro, israeliska, slovakiska, Jamaicansk, vegetariska, skaldjur, vietnamesiska, Maltesiska, av, Kymriska, kinesiska, japanska, Algeriet, Californian, fusion, Shandong, sallad fältet Savoie en, spanska, Etiopisk, taiwanesiska, munkar, Iransk, kanadensisk, American, norska, franska, Hunan, polynesiskt, afghan, vägarna, Asien, Schweiz, erotic, crêperie, Surinamese, egyptiskt, ungerska, Nepalesiska, grill, frekvent pot, hamburgers, Medelhavsområdet, Latinamerika, tapas, British, Mexiko, Guangdong, asiatiska (annat), buffet, sushi, Mongolisk, international, musslor, thailändska, Venezuela, Rumanian, kyckling, från början, lågkalorikost, steak house, yoghurt/kraft-fältet, italienska, koreanska, Cypriotisk skrift, Bosniska, Boliviansk, Dominikanska, Belgien, Tunisien, Skotsk, Engelska, Pakistan, tjeckiska, hawaiiska, Maghrib, Tibetanska, arabisk, mitten, östra, Chilenska, Shanghai, polska, Filippinska, Sudanesiskt, armeniska, Burmesiska, Brasilien, Scandinavian, bulgariska, stärker själen food, Colombia, judiska, pizza Sicilian, organisk, grekiska, Baskiska, Undantag, cafeterior, finska, Centralafrikanska, Korsikanska, Arabrepubliken, Karibien, Dongbei, ryska, grill, ta bort, fast food, Australien, irländska, pub food, fondue, Libanon, indonesiska, danska, Provençal, teppanyaki, indiska, Mauritisk, western all Peruansk, Kambodjansk, godis, svenska, macrobiotic, glass parlor Slaviska, turkiska, argentinska, Österrike, främmande, portugisiska, luxemburgska, Marockansk, Sydsandwichöarna, Kubanska, restaurang |
 | RESTAURANG\_OMRÅDE | restaurang området |
 | REST\_AREA | REST området stoppa plats |
 | VACKRA\_PANORAMIC\_VY | natur/Panoramavy, Fjärrvisning punkt |

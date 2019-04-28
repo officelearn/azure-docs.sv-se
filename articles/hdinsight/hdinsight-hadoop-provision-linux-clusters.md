@@ -2,7 +2,6 @@
 title: Installationsprogrammet för Apache Hadoop, Apache Spark-, Apache Kafka-, Apache HBase- eller R-Server – Azure HDInsight-kluster
 description: Konfigurera Hadoop, Kafka, Spark, HBase, R Server eller Storm-kluster för HDInsight från en webbläsare, Azure klassiskt CLI, Azure PowerShell, REST eller SDK.
 keywords: konfiguration av hadoop, kafka-kluster installation, konfiguration av spark, vad är hadoop-kluster
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: MT
+ms.openlocfilehash: 3ccff4409dde92a23ccdbb1c31af687449bf9d48
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817941"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766358"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -159,7 +158,7 @@ Du debiteras för användning av noden för så länge klustret finns. Debiterin
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Antalet noder för varje typ av kluster
 Varje typ av kluster har en egen antal noder, terminologi för noder och standardstorleken för virtuella datorer. I följande tabell är antalet noder för varje nodtyp inom parentes.
 
-| Type | Noder | Diagram |
+| Typ | Noder | Diagram |
 | --- | --- | --- |
 | Hadoop |Huvudnod (2), datanod (1 +) |![HDInsight Hadoop-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Huvud-server (2), regionsserver (1 +), master-/ ZooKeeper-noder (3) |![HDInsight HBase-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

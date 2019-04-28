@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 41d9f21688df6f32918500365bc88f3f168604d2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1bcec37e7642ae0cb5bd68de1426c8cc62085d38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475532"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-tillägget med Azure Resource Manager-mallar
 
@@ -178,35 +178,35 @@ En lista över de argument som är tillgängliga för standard-konfigurationsskr
 
 ## <a name="details"></a>Information
 
-| Egenskapsnamn | Type | Beskrivning |
+| Egenskapsnamn | Typ | Beskrivning |
 | --- | --- | --- |
-| settings.wmfVersion |sträng |Anger vilken version av Windows Management Framework (WMF) och som ska installeras på den virtuella datorn. Denna egenskap anges till **senaste** installerar den senaste versionen av WMF. För närvarande endast möjliga värden för den här egenskapen är **4.0**, **5.0**, **5.1**, och **senaste**. Dessa möjliga värden är föremål för uppdateringar. Standardvärdet är **senaste**. |
-| settings.configuration.url |sträng |Anger den URL: en plats där du kan hämta DSC-konfiguration .zip-filen. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationUrlSasToken** egenskapen till värdet för din SAS-token. Den här egenskapen krävs om **settings.configuration.script** eller **settings.configuration.function** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ange plats Configuration Manager (LCM) metadata och argument måste anges. |
-| settings.configuration.script |sträng |Anger namnet på det skript som innehåller definitionen av DSC-konfiguration. Det här skriptet måste vara i rotmappen på .zip-filen som laddas ned från den URL som anges av den **settings.configuration.url** egenskapen. Den här egenskapen krävs om **settings.configuration.url** eller **settings.configuration.script** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ställa in MGM metadata och argument måste anges. |
-| settings.configuration.function |sträng |Anger namnet på din DSC-konfiguration. Den konfiguration som heter måste ingå i skriptet som **settings.configuration.script** definierar. Den här egenskapen krävs om **settings.configuration.url** eller **settings.configuration.function** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ställa in MGM metadata och argument måste anges. |
+| settings.wmfVersion |string |Anger vilken version av Windows Management Framework (WMF) och som ska installeras på den virtuella datorn. Denna egenskap anges till **senaste** installerar den senaste versionen av WMF. För närvarande endast möjliga värden för den här egenskapen är **4.0**, **5.0**, **5.1**, och **senaste**. Dessa möjliga värden är föremål för uppdateringar. Standardvärdet är **senaste**. |
+| settings.configuration.url |string |Anger den URL: en plats där du kan hämta DSC-konfiguration .zip-filen. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationUrlSasToken** egenskapen till värdet för din SAS-token. Den här egenskapen krävs om **settings.configuration.script** eller **settings.configuration.function** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ange plats Configuration Manager (LCM) metadata och argument måste anges. |
+| settings.configuration.script |string |Anger namnet på det skript som innehåller definitionen av DSC-konfiguration. Det här skriptet måste vara i rotmappen på .zip-filen som laddas ned från den URL som anges av den **settings.configuration.url** egenskapen. Den här egenskapen krävs om **settings.configuration.url** eller **settings.configuration.script** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ställa in MGM metadata och argument måste anges. |
+| settings.configuration.function |string |Anger namnet på din DSC-konfiguration. Den konfiguration som heter måste ingå i skriptet som **settings.configuration.script** definierar. Den här egenskapen krävs om **settings.configuration.url** eller **settings.configuration.function** har definierats. Om inget värde anges för dessa egenskaper tillägget anropar standard konfigurationsskript för att ställa in MGM metadata och argument måste anges. |
 | settings.configurationArguments |Samling |Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen är inte krypterad. |
-| settings.configurationData.url |sträng |Anger den URL som du vill ladda ned konfigurationsdatafilen (.psd1) från att använda som indata för DSC-konfiguration. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationDataUrlSasToken** egenskapen till värdet för din SAS-token. |
-| settings.privacy.dataCollection |sträng |Aktiverar eller inaktiverar telemetriinsamling. Endast möjliga värden för den här egenskapen är **aktivera**, **inaktivera**, **''**, eller **$null**. Lämna den här egenskapen tom eller null kan telemetri. Standardvärdet är **''**. Mer information finns i [Azure DSC-tillägg-datainsamling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.configurationData.url |string |Anger den URL som du vill ladda ned konfigurationsdatafilen (.psd1) från att använda som indata för DSC-konfiguration. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationDataUrlSasToken** egenskapen till värdet för din SAS-token. |
+| settings.privacy.dataCollection |string |Aktiverar eller inaktiverar telemetriinsamling. Endast möjliga värden för den här egenskapen är **aktivera**, **inaktivera**, **''**, eller **$null**. Lämna den här egenskapen tom eller null kan telemetri. Standardvärdet är **''**. Mer information finns i [Azure DSC-tillägg-datainsamling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
 | settings.advancedOptions.downloadMappings |Samling |Definierar alternativa platser som ska hämta WMF från. Mer information finns i [Azure DSC-tillägget 2.8 och mappa nedladdningar av beroenden för tillägg till din egen plats](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Samling |Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen är krypterad. |
-| protectedSettings.configurationUrlSasToken |sträng |Anger SAS-token för att få åtkomst till URL: en som **settings.configuration.url** definierar. Den här egenskapen är krypterad. |
-| protectedSettings.configurationDataUrlSasToken |sträng |Anger SAS-token för att få åtkomst till URL: en som **settings.configurationData.url** definierar. Den här egenskapen är krypterad. |
+| protectedSettings.configurationUrlSasToken |string |Anger SAS-token för att få åtkomst till URL: en som **settings.configuration.url** definierar. Den här egenskapen är krypterad. |
+| protectedSettings.configurationDataUrlSasToken |string |Anger SAS-token för att få åtkomst till URL: en som **settings.configurationData.url** definierar. Den här egenskapen är krypterad. |
 
 ## <a name="default-configuration-script"></a>Standard konfigurationsskript
 
 Mer information om följande värden finns i [grundläggande inställningar för lokal konfigurationshanterare](/powershell/dsc/metaconfig#basic-settings).
 Du kan använda konfigurationsskript för DSC-tillägget standard för att konfigurera endast de LCM-egenskaper som visas i följande tabell.
 
-| Egenskapsnamn | Type | Beskrivning |
+| Egenskapsnamn | Typ | Beskrivning |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Obligatorisk egenskap. Anger den nyckel som används för en nod för att registrera med Azure Automation-tjänsten som lösenord för ett objekt för PowerShell-autentiseringsuppgift. Det här värdet kan identifieras automatiskt med hjälp av den **listnycklar** metoden mot Automation-kontot.  Se den [exempel](#example-using-referenced-azure-automation-registration-values). |
-| settings.configurationArguments.RegistrationUrl |sträng |Obligatorisk egenskap. Anger URL till slutpunkten för automatisering där noden försöker registrera. Det här värdet kan identifieras automatiskt med hjälp av den **referens** metoden mot Automation-kontot. |
-| settings.configurationArguments.NodeConfigurationName |sträng |Obligatorisk egenskap. Anger nodkonfigurationen i Automation-kontot ska tilldelas noden. |
-| settings.configurationArguments.ConfigurationMode |sträng |Anger läget för LCM. Giltiga alternativ är **ApplyOnly**, **ApplyandMonitor**, och **ApplyandAutoCorrect**.  Standardvärdet är **ApplyandMonitor**. |
+| settings.configurationArguments.RegistrationUrl |string |Obligatorisk egenskap. Anger URL till slutpunkten för automatisering där noden försöker registrera. Det här värdet kan identifieras automatiskt med hjälp av den **referens** metoden mot Automation-kontot. |
+| settings.configurationArguments.NodeConfigurationName |string |Obligatorisk egenskap. Anger nodkonfigurationen i Automation-kontot ska tilldelas noden. |
+| settings.configurationArguments.ConfigurationMode |string |Anger läget för LCM. Giltiga alternativ är **ApplyOnly**, **ApplyandMonitor**, och **ApplyandAutoCorrect**.  Standardvärdet är **ApplyandMonitor**. |
 | settings.configurationArguments.RefreshFrequencyMins | UInt32 | Anger hur ofta LCM försöker kontrollera med Automation-konto för uppdateringar.  Standardvärdet är **30**.  Minsta tillåtna värde är **15**. |
 | settings.configurationArguments.ConfigurationModeFrequencyMins | UInt32 | Anger hur ofta MGM verifierar den aktuella konfigurationen. Standardvärdet är **15**. Minsta tillåtna värde är **15**. |
 | settings.configurationArguments.RebootNodeIfNeeded | boolesk | Anger om en nod kan startas automatiskt, om en DSC-åtgärd begär den. Standardvärdet är **FALSKT**. |
-| settings.configurationArguments.ActionAfterReboot | sträng | Anger vad som händer när en omstart när du använder en konfiguration. Giltiga alternativ är **ContinueConfiguration** och **StopConfiguration**. Standardvärdet är **ContinueConfiguration**. |
+| settings.configurationArguments.ActionAfterReboot | string | Anger vad som händer när en omstart när du använder en konfiguration. Giltiga alternativ är **ContinueConfiguration** och **StopConfiguration**. Standardvärdet är **ContinueConfiguration**. |
 | settings.configurationArguments.AllowModuleOverwrite | boolesk | Anger om LCM skriver över befintliga moduler på noden. Standardvärdet är **FALSKT**. |
 
 ## <a name="settings-vs-protectedsettings"></a>inställningar för kontra protectedSettings

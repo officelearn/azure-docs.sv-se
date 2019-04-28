@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279983"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766999"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska skisser genom parametrar
 
@@ -169,7 +169,7 @@ Skapa **Statiska parametrar** på en artefakt är liknande, men tar en rak värd
 
 ### <a name="dynamic-parameters"></a>Dynamiska parametrar
 
-Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här parametern inte är definierad i skissen, men i stället definieras under varje tilldelning av skissen. I exemplet resource group användning av en **dynamisk parameter** passar för resursgruppens namn. Det ger ett annat namn för varje tilldelning av skissen.
+Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här parametern inte är definierad i skissen, men i stället definieras under varje tilldelning av skissen. I exemplet resource group användning av en **dynamisk parameter** passar för resursgruppens namn. Det ger ett annat namn för varje tilldelning av skissen. En lista över skissen funktioner finns i den [skiss funktioner](../reference/blueprint-functions.md) referens.
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Ange dynamiska parametrar i portalen
 
@@ -185,9 +185,7 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ange dynamiska parametrar från REST API
 
-Ange **dynamiska parametrar** under tilldelningen utförs genom att ange värdet direkt.
-Istället för att använda en funktion som `parameters()`, det tillhandahållna värdet är en lämplig sträng.
-Artefakter för en resursgrupp definieras med ett ”mallnamn”, **namn**, och **plats** egenskaper. Alla andra parametrar för inkluderade artefakten definieras under **parametrar** med en **\<namn\>** och **värdet** nyckelpar. Om skissen har konfigurerats för en dynamisk parameter som inte är tillgängliga under tilldelning, misslyckas tilldelningen.
+Ange **dynamiska parametrar** under tilldelningen utförs genom att ange värdet direkt. Istället för att använda en funktion som [parameters()](../reference/blueprint-functions.md#parameters), det tillhandahållna värdet är en lämplig sträng. Artefakter för en resursgrupp definieras med ett ”mallnamn”, **namn**, och **plats** egenskaper. Alla andra parametrar för inkluderade artefakten definieras under **parametrar** med en **\<namn\>** och **värdet** nyckelpar. Om skissen har konfigurerats för en dynamisk parameter som inte är tillgängliga under tilldelning, misslyckas tilldelningen.
 
 - REST API-URI
 
@@ -240,6 +238,7 @@ Artefakter för en resursgrupp definieras med ett ”mallnamn”, **namn**, och 
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Se en lista över [skiss funktioner](../reference/blueprint-functions.md).
 - Lär dig mer om [livscykeln för en skiss](lifecycle.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).

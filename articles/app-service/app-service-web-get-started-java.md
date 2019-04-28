@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007363"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760030"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Skapa din första Java-webbapp i Azure
 
-Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](https://www.eclipse.org/).
+Med Azure App Service får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av Eclipse IDE för Java EE-utvecklare.
 
 > [!IMPORTANT]
 > Azure App Service i Linux är också ett alternativ för att värden Java-webbappar internt i Linux med hanterade Tomcat och Java SE WildFly erbjudanden. Om du är intresserad av att komma igång med App Service i Linux, se [snabbstarten: Skapa en Java-app i App Service i Linux](containers/quickstart-java.md).

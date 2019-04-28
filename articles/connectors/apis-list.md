@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895891"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759440"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
 
@@ -117,7 +117,7 @@ Här är kopplingar för att skapa lösningar för business-to-business (B2B) me
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API-ikon][as2-icon]<br/>**AS2</br> avkodning**][as2-decode-doc] | [![API-ikon][as2-icon]<br/>**AS2</br> kodning**][as2-encode-doc] | [![API-ikon][edifact-icon]<br/>**EDIFACT</br> avkodning**][edifact-decode-doc] | [![API-ikon][edifact-icon]<br/>**EDIFACT</br> kodning**][edifact-encode-doc] | 
+| [![API-ikon][as2-icon]<br/>**AS2</br> avkodning**][as2-doc] | [![API-ikon][as2-icon]<br/>**AS2</br> kodning**][as2-doc] | [![API-ikon][edifact-icon]<br/>**EDIFACT</br> avkodning**][edifact-decode-doc] | [![API-ikon][edifact-icon]<br/>**EDIFACT</br> kodning**][edifact-encode-doc] | 
 | [![API-ikon][flat-file-decode-icon]<br/>**Flat fil</br> avkodning**][flat-file-decode-doc] | [![API-ikon][flat-file-encode-icon]<br/>**Flat fil</br> kodning**][flat-file-encode-doc] | [![API-ikon][integration-account-icon]<br/>**integrering<br/>konto**][integration-account-doc] | [![API-ikon][liquid-icon]<br/>**flytande**</br>**omvandlar**][json-liquid-transform-doc] | 
 | [![API-ikon][x12-icon]<br/>**X12</br> avkodning**][x12-decode-doc] | [![API-ikon][x12-icon]<br/>**X12</br> kodning**][x12-encode-doc] | [![API-ikon][xml-transform-icon]<br/>**XML**</br>**omvandlar**][xml-transform-doc] | [![API-ikon][xml-validate-icon]<br/>**XML <br/>verifiering**][xml-validate-doc] |  
 ||||| 
@@ -257,8 +257,6 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Läs mer om AS2 för Enterprise-integration."
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Läs mer om AS2-avkodning för Enterprise-integration"
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Läs mer om AS2-kodning för Enterprise-integration"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Läs mer om EDIFACT-avkodning för Enterprise-integration"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Läs mer om EDIFACT-kodning för Enterprise-integration"
 [flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Läs mer om platta filer för Enterprise-integration."

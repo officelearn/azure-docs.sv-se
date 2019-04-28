@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: 3cc0e521e43f6855397a19fe34fce99da3e20494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408320"
 ---
 Med den [Avvikelseidentifiering Finder API](https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder), du kan ladda upp time series-data i JSON-format till API-slutpunkt och läs sedan resultatet från API-svaret. Du kan ladda upp time series-data, innehåller varje datapunkt:  
 * Tidsstämpel - tidsstämpel för datapunkten. Kontrollera att den använder en UTC DateTime-sträng, till exempel ”2017-08-01T00:00:00Z”

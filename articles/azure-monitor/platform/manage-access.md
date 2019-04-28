@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782810"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbetsytor i Azure Monitor
 Azure Monitor-butiker logga data över en Log Analytics-arbetsyta som är i grunden en behållare som innehåller data och konfigurationsinformation. För att hantera åtkomst för att logga data måste utföra du olika administrativa uppgifter relaterade till arbetsytor. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.

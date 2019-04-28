@@ -2,18 +2,18 @@
 title: Skalbarhets- och prestandamål i Azure filer | Microsoft Docs
 description: Läs mer om mål för skalbarhet och prestanda för Azure Files, inklusive kapaciteten, förfrågningar och gränser för inkommande och utgående bandbredd.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 7/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 630ad1e0558fc089d79eee50175e497b771a0a8a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bd60d6453b71387578b880ad580fb1741e6e512b
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494977"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763840"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure filer
 

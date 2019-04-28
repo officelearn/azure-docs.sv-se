@@ -3,8 +3,8 @@ title: Konvertera en Windows-dator från ohanterade diskar till managed disks �
 description: Så här konverterar du en virtuell Windows-dator från ohanterade diskar till hanterade diskar med hjälp av PowerShell i Resource Manager-distributionsmodellen
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: cynthn
-ms.openlocfilehash: d848fdd23f459d7e95e85fe38f2272f4d67c32be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: rogarana
+ms.openlocfilehash: 21505da414b29f2ae9eeea7f9fcad9db2e57c4fe
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120796"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766128"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en Windows-dator från ohanterade diskar till managed disks
 
 Om du har befintliga Windows virtuella datorer (VM) som använder ohanterade diskar kan du konvertera de virtuella datorerna för att använda hanterade diskar via den [Azure Managed Disks](managed-disks-overview.md) service. Den här processen konverterar både operativsystemdisken och kopplade datadiskar.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

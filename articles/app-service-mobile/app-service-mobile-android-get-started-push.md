@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
-ms.openlocfilehash: 557f6f6a6d4925ec167760455dfc67449582c05c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 352e64664e6796fb4e0a7941de91ef4045076aed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811678"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104621"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Lägg till push-meddelanden till din Android-app
 
@@ -27,11 +27,11 @@ ms.locfileid: "42811678"
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudien lägger du till push-meddelanden till den [Android Snabbstart] projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
+I den här självstudien lägger du till push-meddelanden till den [Snabbstart för Android] projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
 
 Om du inte använder serverprojekt hämtade Snabbstart måste tilläggspaket för push-meddelande. Mer information finns i [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver följande:
 
@@ -40,7 +40,7 @@ Du behöver följande:
   * [Android Studio](https://developer.android.com/sdk/index.html) om den här appen har en Node.js-serverdel.
   * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) eller senare om den här appen har en Microsoft .NET-serverdel.
 * Android 2.3 eller senare, Google Repository revision 27 eller senare och Google Play Services 9.0.2 eller senare för Firebase Cloud Messaging.
-* Slutför den [Android Snabbstart].
+* Slutför den [Snabbstart för Android].
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Skapa ett projekt som har stöd för Firebase Cloud Messaging
 
@@ -68,7 +68,7 @@ I det här avsnittet ska uppdatera du din Android-app i klienten för att hanter
 
 Nästa steg är att installera Google Play-tjänster. Firebase Cloud Messaging har vissa lägsta nivå krav med API för utveckling och testning, som den **minSdkVersion** -egenskapen i manifestet måste följa.
 
-Om du testar med en äldre enhet läser [Lägg till Firebase i din Android-projekt] att avgöra hur låg du kan ange det här värdet och ställa in korrekt.
+Om du testar med en äldre enhet läser [Lägg till Firebase till din Android-projekt] att avgöra hur låg du kan ange det här värdet och ställa in korrekt.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Lägg till Firebase Cloud Messaging i projektet
 
@@ -92,5 +92,5 @@ Nu när du har slutfört den här självstudien, Överväg fortsätter in på n�
   Lär dig hur du lägger till offlinestöd i appen med hjälp av en Mobile Apps-serverdel. Med offlinesynkronisering kan användare kan interagera med en mobil app&mdash;visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverksanslutning.
 
 <!-- URLs -->
-[Android Snabbstart]: app-service-mobile-android-get-started.md
-[Lägg till Firebase i din Android-projekt]:https://firebase.google.com/docs/android/setup
+[Snabbstart för Android]: app-service-mobile-android-get-started.md
+[Lägg till Firebase till din Android-projekt]:https://firebase.google.com/docs/android/setup

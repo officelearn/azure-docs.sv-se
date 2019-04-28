@@ -15,11 +15,11 @@ ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: 594b4090fcdfa18432563269743b88cb9d2d723b
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58214137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300612"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Lägg till programmets registreringsinformation i din app
 

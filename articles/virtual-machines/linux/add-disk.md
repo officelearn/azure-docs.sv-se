@@ -3,8 +3,8 @@ title: Lägga till en datadisk till Linux VM med Azure CLI | Microsoft Docs
 description: Lär dig att lägga till en disk för beständiga data i din Linux-VM med Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 06/13/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 81805188c72bce6a7ea89496c8036743b29e9075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1915051380a514cf8143d43bddc0d0d475f43c07
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188242"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765847"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på.

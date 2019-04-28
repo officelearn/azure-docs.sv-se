@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 04/01/2019
+ms.author: v-yeche
 ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58495169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326163"
 ---
 Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-tillgänglighetsgrupp som lyssnar på. Om du vill skapa tillgänglighetsgruppens lyssnare, gör du följande:
 
@@ -23,7 +24,7 @@ Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-t
 
    ![Klusternätverksnamn](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-1. <a name="addcap"></a>Lägg till klientåtkomstpunkten.  
+2. <a name="addcap"></a>Lägg till klientåtkomstpunkten.  
     Klientåtkomstpunkten är det nätverksnamn som program som använder för att ansluta till databaser i en tillgänglighetsgrupp. Skapa klientåtkomstpunkten i hanteraren för redundanskluster.
 
     a. Expandera klusternamnet och klicka sedan på **roller**.
@@ -37,9 +38,9 @@ Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-t
 
     d. För att slutföra skapandet lyssnaren, klickar du på **nästa** två gånger, och klicka sedan på **Slutför**. Tar inte med lyssnaren eller resursen i det här läget.
 
-1. Koppla klusterrollen tillgänglighet grupp. I **Klusterhanteraren** under **roller**, högerklicka på rollen och välj **stoppa rollen**.
+3. Koppla klusterrollen tillgänglighet grupp. I **Klusterhanteraren** under **roller**, högerklicka på rollen och välj **stoppa rollen**.
 
-1. <a name="congroup"></a>Konfigurera IP-resurs för tillgänglighetsgruppen.
+4. <a name="congroup"></a>Konfigurera IP-resurs för tillgänglighetsgruppen.
 
     a. Klicka på den **resurser** fliken och expandera sedan den klientåtkomstpunkt som du skapade.  
     Klientåtkomstpunkten är offline.
@@ -56,7 +57,7 @@ Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-t
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-1. <a name = "dependencyGroup"></a>Kontrollera SQL Server-tillgänglighetsgruppresursen beroende på klientåtkomstpunkten.
+5. <a name = "dependencyGroup"></a>Kontrollera SQL Server-tillgänglighetsgruppresursen beroende på klientåtkomstpunkten.
 
     a. I Klusterhanteraren klickar du på **roller**, och klicka sedan på tillgänglighetsgruppen.
 
@@ -68,7 +69,7 @@ Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-t
 
     d. Klicka på **OK**.
 
-1. <a name="listname"></a>Kontrollera klienten åtkomst punkt resursen beroende på IP-adress.
+6. <a name="listname"></a>Kontrollera klienten åtkomst punkt resursen beroende på IP-adress.
 
     a. I Klusterhanteraren klickar du på **roller**, och klicka sedan på tillgänglighetsgruppen. 
 
@@ -83,21 +84,20 @@ Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-t
     >[!TIP]
     >Du kan validera att beroenden är korrekt konfigurerade. I Klusterhanteraren går du till roller, högerklicka på tillgänglighetsgruppen, klickar du på **fler åtgärder**, och klicka sedan på **visa beroenderapport**. När beroenden är korrekt konfigurerade tillgänglighetsgruppen är beroende av nätverksnamn och nätverksnamn är beroende av IP-adress. 
 
-
-1. <a name="setparam"></a>Ange Klusterparametrar i PowerShell.
+7. <a name="setparam"></a>Ange Klusterparametrar i PowerShell.
 
    a. Kopiera följande PowerShell-skript till en av dina SQL Server-instanser. Uppdatera variablerna för din miljö.
 
    - `$ListenerILBIP` är den IP-adress som du skapade på Azure-belastningsutjämnaren för tillgänglighetsgruppens lyssnare.
-    
+
    - `$ListenerProbePort` är den port som du har konfigurerat på Azure-belastningsutjämnaren för tillgänglighetsgruppens lyssnare.
 
-   ```powershell
+   ```PowerShell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<IPResourceName>" # the IP Address resource name
    $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ListenerProbePort = <nnnnn>
-  
+
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
@@ -108,32 +108,32 @@ Tillgänglighetsgruppens lyssnare är en IP-adress och ett namn som SQL Server-t
    > [!NOTE]
    > Om din SQL Server-instanser är i olika områden kan behöva du köra PowerShell-skriptet två gånger. Första gången använder den `$ListenerILBIP` och `$ListenerProbePort` från den första regionen. Den andra gången använder den `$ListenerILBIP` och `$ListenerProbePort` från den andra regionen. Klustrets nätverksnamn och IP-resurs klusternamnet är också olika för varje region.
 
-1. Ta tillgänglighet grupp klusterroll online. I **Klusterhanteraren** under **roller**, högerklicka på rollen och välj **starta roll**.
+8. Ta tillgänglighet grupp klusterroll online. I **Klusterhanteraren** under **roller**, högerklicka på rollen och välj **starta roll**.
 
 Upprepa stegen ovan för att ange klusterparametrar för WSFC-klustrets IP-adress om det behövs.
 
 1. Hämta IP-adressnamn i WSFC-kluster-IP-adress. I **Klusterhanteraren** under **Klusterkärnresurser**, leta upp **servernamn**.
 
-1. Högerklicka på **IP-adress**, och välj **egenskaper**.
+2. Högerklicka på **IP-adress**, och välj **egenskaper**.
 
-1. Kopiera den **namn** för IP-adressen. Det kan vara `Cluster IP Address`. 
+3. Kopiera den **namn** för IP-adressen. Det kan vara `Cluster IP Address`. 
 
-1. <a name="setwsfcparam"></a>Ange Klusterparametrar i PowerShell.
-  
+4. <a name="setwsfcparam"></a>Ange Klusterparametrar i PowerShell.
+
    a. Kopiera följande PowerShell-skript till en av dina SQL Server-instanser. Uppdatera variablerna för din miljö.
 
    - `$ClusterCoreIP` är IP-adressen som du skapade på Azure-belastningsutjämnaren för klusterresursen för WSFC-kärnor. Den skiljer sig från IP-adressen för tillgänglighetsgruppens lyssnare.
 
    - `$ClusterProbePort` är den port som du har konfigurerat på Azure-belastningsutjämnaren för WSFC-hälsoavsökningen. Den skiljer sig från avsökningen för tillgänglighetsgruppens lyssnare.
 
-   ```powershell
+   ```PowerShell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
    $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability group listener probe port.
-  
+
    Import-Module FailoverClusters
-  
+
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
@@ -141,3 +141,5 @@ Upprepa stegen ovan för att ange klusterparametrar för WSFC-klustrets IP-adres
 
 >[!WARNING]
 >Den hälsotillstånd avsökningsporten för tillgänglighetsgruppens lyssnare måste skilja sig från avsökningsporten för klustret core IP-adress hälsotillstånd. I det här lyssningsport är 59999 och klustret core IP-adressen är 58888. Båda portarna kräver en Tillåt-regel för Brandvägg för inkommande trafik.
+
+<!-- Update_Description: update meta propreties, wording update -->

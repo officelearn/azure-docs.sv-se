@@ -3,8 +3,8 @@ title: Konvertera Azure managed disks-lagring från Standard till Premium- eller
 description: Så här konverterar du Azure hanterade diskar från Standard till Premium- eller Premium till Standard med hjälp av Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: ramankumarlive
-manager: kavithag
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
-ms.author: ramankum
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f97140ffeed9115a0308215ea082baee611501fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009883"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766087"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagringstypen för en hanterad disk
 
 Det finns fyra alternativ för Azure hanterade diskar: Azure Ultra disklagring-, Premium SSD-, Standard SSD- och Standard HDD. Du kan växla mellan dessa lagringstyper baserat på dina behov med lite avbrott. Den här funktionen stöds inte för ohanterade diskar. Men du kan enkelt [konvertera en ohanterad disk till en hanterad disk](convert-unmanaged-to-managed-disks.md) för att kunna växla mellan disktyper.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Eftersom konverteringen kräver en omstart av den virtuella datorn (VM), bör du schemalägga migreringen av din disklagring under en schemalagd underhållstid.
 * Om disken inte är hanterad, först [konvertera den till en hanterad disk](convert-unmanaged-to-managed-disks.md) så att du kan växla mellan lagringsalternativ.

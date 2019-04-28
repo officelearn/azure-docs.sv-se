@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f466a1c3fd0b2d527fc4ab407d096f6bb9b7d8b9
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001090"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766917"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -47,7 +47,7 @@ IP-brandväggsregler bevilja åtkomst till databaser baserat på den ursprunglig
 > [!IMPORTANT]
 > Hantera databaser och databasservrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 Autentisering är processen för att bevisa att användaren är som de påstår sig vara. Azure SQL Database stöder två typer av autentisering:
 
@@ -66,19 +66,17 @@ Autentisering är processen för att bevisa att användaren är som de påstår 
 > [!IMPORTANT]
 > Hantera databaser och servrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md). Kontrollera åtkomst med brandväggsregler har *inte* avser **en hanterad instans**. Finns i följande artikel om [ansluter till en hanterad instans](sql-database-managed-instance-connect-app.md) för mer information om nätverkskonfiguration som krävs.
 
-Auktorisering hänvisar till de behörigheter som tilldelas till en användare i en Azure SQL Database och avgör vad användaren har tillåtelse att göra. Behörigheter kontrolleras genom att lägga till användarkonton till [databasroller](/sql/relational-databases/security/authentication-access/database-level-roles) som definierar databasbehörigheter och bevilja användaren vissa [objektnivå behörigheter](/sql/relational-databases/security/permissions-database-engine). Mer information finns i [inloggningar och användare](sql-database-manage-logins.md)
+## <a name="authorization"></a>Auktorisering
 
-Ett bra tips är att lägga till användare till rollen med den minsta behörigheten som krävs för att utföra arbetsuppgifter. Serveradministratörskontot är medlem i rollen db_owner som har omfattande behörigheter och försiktighet ska beviljas till användare. Använd när du använder program med Azure SQL Database [programroller](/sql/relational-databases/security/authentication-access/application-roles) med begränsad behörighet. Detta säkerställer att programmet ansluter till databasen har de minsta behörigheten som krävs av programmet.
+Auktorisering hänvisar till de behörigheter som tilldelas till en användare i en Azure SQL Database och avgör vad användaren har tillåtelse att göra. Behörigheter kontrolleras genom att lägga till användarkonton till [databasroller](/sql/relational-databases/security/authentication-access/database-level-roles) och tilldela databasbehörigheter till dessa roller eller genom att tilldela användaren vissa [objektnivå behörigheter](/sql/relational-databases/security/permissions-database-engine). Mer information finns i [inloggningar och användare](sql-database-manage-logins.md)
+
+Ett bra tips är att skapa anpassade roller vid behov. Lägga till användare till rollen med den minsta behörigheten som krävs för att utföra arbetsuppgifter. Tilldela inte behörigheter direkt till användare. Serveradministratörskontot är medlem i den inbyggda db_owner som har omfattande behörigheter och bör endast beviljas till några användare med administrativa uppgifter. För Azure SQL Database-program kan använda den [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) ange körningssammanhang för modulen kallas eller använda [programroller](/sql/relational-databases/security/authentication-access/application-roles) med begränsad behörighet. Den här metoden garanterar att program som ansluter till databasen har de minsta behörigheten som krävs av programmet. Följa dessa bästa metoder också kan åstadkomma uppdelning av uppgifter.
 
 ### <a name="row-level-security"></a>Säkerhet på radnivå
 
-Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (till exempel gruppen grupmedlemskap eller körningskontext kontext). Mer information finns i [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security).
+Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (till exempel gruppen grupmedlemskap eller körningskontext kontext). Säkerhet på radnivå kan också användas för att implementera anpassad etikett-baserade säkerhetsbegrepp. Mer information finns i [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
-
-  Den här autentiseringsmetoden använder ett användarnamn och lösenord. 
-
-En översikt över behörigheter i Azure SQL Database finns i [inloggningar och användare](sql-database-manage-logins.md#permissions)
 
 ## <a name="threat-protection"></a>Hotskydd
 

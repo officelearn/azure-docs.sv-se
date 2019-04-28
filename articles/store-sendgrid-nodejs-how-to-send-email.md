@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931725"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Hur du skickar e-post med SendGrid från Node.js
 
@@ -59,7 +59,7 @@ var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 SendGrid-modulen exporterar den **SendGrid** och **e-post** funktioner.
 **SendGrid** ansvarar för att skicka e-post via webb-API, medan **e-post** kapslar in ett e-postmeddelande.
 
-## <a name="how-to-create-an-email"></a>Så här: skapa ett e-postmeddelande
+## <a name="how-to-create-an-email"></a>Anvisningar: Skapa ett e-postmeddelande
 
 Skapa ett e-postmeddelande med SendGrid-modulen innebär att du först skapar ett e-postmeddelande med hjälp av e-post-funktion och sedan skicka den med hjälp av SendGrid-funktionen. Följande är ett exempel för att skapa ett nytt meddelande med hjälp av e-post-funktion:
 
@@ -82,7 +82,7 @@ Ange både text och HTML-egenskaper innehåller korrekt användning av textinneh
 
 Mer information om alla egenskaper som stöds av funktionen för e-post finns i [sendgrid nodejs][sendgrid-nodejs].
 
-## <a name="how-to-send-an-email"></a>Så här: skicka ett e-postmeddelande
+## <a name="how-to-send-an-email"></a>Anvisningar: Skicka ett e-postmeddelande
 
 Du kan skicka den med hjälp av webb-API från SendGrid när du har skapat ett e-postmeddelande med hjälp av e-post-funktion. 
 
@@ -108,7 +108,7 @@ sendgrid.send(email, function(err, json){
 > ```
 >
 
-## <a name="how-to-add-an-attachment"></a>Så här: Lägg till en bifogad fil
+## <a name="how-to-add-an-attachment"></a>Anvisningar: Lägg till en bifogad fil
 Bifogade filer som kan läggas till ett meddelande genom att ange filnamn och sökväg i den **filer** egenskapen. I följande exempel visar att skicka en bifogad fil:
 
 ```javascript
@@ -135,7 +135,7 @@ sendgrid.send({
 > 
 > 
 
-## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Så här: använda filter för att aktivera sidfötter och spårning
+## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Anvisningar: Filter för att aktivera sidfötter och spårning
 
 SendGrid ger ytterligare e-funktioner genom att använda filter. Det här är inställningar som kan läggas till i ett e-postmeddelande för att aktivera vissa funktioner, till exempel aktivera klickspårning, Google analytics, prenumeration, spårnings- och så vidare. En fullständig lista över filter finns i [filterinställningar][Filter Settings].
 
@@ -186,7 +186,7 @@ email.setFilters({
 sendgrid.send(email);
 ```
 
-## <a name="how-to-update-email-properties"></a>Så här: uppdatera postegenskaper för e-
+## <a name="how-to-update-email-properties"></a>Anvisningar: Uppdatera postegenskaper för e
 
 Vissa postegenskaper för e-kan skrivas över med hjälp av **setProperty** eller läggs till med **addProperty**. Du kan till exempel lägga till ytterligare mottagare med hjälp av
 
@@ -203,7 +203,7 @@ email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
 Mer information finns i [sendgrid nodejs][sendgrid-nodejs].
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Så här: använda ytterligare SendGrid-tjänster
+## <a name="how-to-use-additional-sendgrid-services"></a>Anvisningar: Använda ytterligare SendGrid-tjänster
 
 SendGrid erbjuder webbaserad API: er som du kan använda för att utnyttja ytterligare funktioner för SendGrid från ditt Azure-program. Fullständig information finns i [SendGrid API-dokumentation][SendGrid API documentation].
 

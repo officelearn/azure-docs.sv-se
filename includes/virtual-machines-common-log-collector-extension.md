@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387969"
 ---
 Diagnostisera problem med en Microsoft Azure-molntjänst kräver att samla in tjänstens loggfiler på virtuella datorer när problemen inträffar. Du kan använda den AzureLogCollector tillägg på begäran för att utföra enstaka loggsamlingar från en eller flera moln virtuella datorer (från både web-roller och worker-roller) och överföra de insamlade filerna till ett Azure storage-konto – allt utan att logga in via en fjärranslutning till någon för de virtuella datorerna.
 
@@ -36,7 +36,7 @@ I båda lägena samling kan ytterligare data insamlingsmappar anges med hjälp a
 * **SearchPattern**: Mönstret för namnen på filer ska samlas in. Standardvärdet är ”\*”
 * **Rekursiva**: om filerna ska samlas in är placerad rekursivt under den angivna platsen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 

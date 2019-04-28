@@ -11,11 +11,11 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846964"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60694325"
 ---
 # <a name="my-first-powershell-runbook"></a>Min första PowerShell-runbook
 
@@ -27,7 +27,7 @@ ms.locfileid: "57846964"
 
 Den här självstudien beskriver steg för steg hur du skapar en [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) i Azure Automation. Du börjar med en enkel runbook som du testar och publicerar medan du lär dig hur du spårar statusen för runbook-jobbet. Sedan ändrar du runbook-jobbet så att det hanterar Azure-resurser. I det här exemplet ska det starta en virtuell dator i Azure. Slutligen kan göra du runbooken mer robust genom att lägga till runbook-parametrar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 

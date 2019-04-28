@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112658"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Aktivera offline synkroniseras med iOS-appar
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -159,7 +159,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
 ![MS_TableOperations tabellattribut][defining-core-data-tableoperations-entity]
 
-| Attribut | Type |
+| Attribut | Typ |
 | --- | --- |
 | id | Heltal 64 |
 | itemId | String |
@@ -172,7 +172,7 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
  ![MS_TableOperationErrors tabellattribut][defining-core-data-tableoperationerrors-entity]
 
-| Attribut | Type |
+| Attribut | Typ |
 | --- | --- |
 | id |String |
 | operationId |Heltal 64 |
@@ -183,22 +183,22 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
  ![][defining-core-data-tableconfig-entity]
 
-| Attribut | Type |
+| Attribut | Typ |
 | --- | --- |
 | id |String |
 | key |String |
 | KeyType |Heltal 64 |
 | tabell |String |
-| värde |String |
+| value |String |
 
 ### <a name="data-table"></a>Datatabell
 
 **TodoItem**
 
-| Attribut | Type | Obs! |
+| Attribut | Typ | Obs! |
 | --- | --- | --- |
 | id | Sträng, markeras krävs |primärnyckeln i fjärrlager |
-| Slutför | Boolesk | Fältet för att göra-objekt |
+| Slutför | Boolean | Fältet för att göra-objekt |
 | text |String |Fältet för att göra-objekt |
 | createdAt | Date | (valfritt) Mappar till **createdAt** Systemegenskapen |
 | updatedAt | Date | (valfritt) Mappar till **updatedAt** Systemegenskapen |

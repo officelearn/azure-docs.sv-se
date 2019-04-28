@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122463"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Så här används iOS-klientbiblioteket för Azure Mobile Apps
 
@@ -51,7 +51,7 @@ Om du vill få åtkomst till en Azure Mobile Apps-serverdel i projektet måste s
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let client = MSClient(applicationURLString: "AppUrl")
@@ -67,7 +67,7 @@ För att få åtkomst till eller uppdatera data skapar du en referens till serve
 MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let table = client.tableWithName("TodoItem")
@@ -91,7 +91,7 @@ Om du vill skapa en databasfråga fråga den `MSTable` objekt. Följande fråga 
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 table.readWithCompletion { (result, error) in
@@ -128,7 +128,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 // Create a predicate that finds items where complete is false
@@ -156,7 +156,7 @@ MSQuery *query = [table query];
 MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let query = table.query()
@@ -194,7 +194,7 @@ Om du vill sortera resultaten, låt oss titta på ett exempel. Om du vill sorter
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 query.orderByAscending("text")
@@ -220,7 +220,7 @@ För att begränsa fält som ska returneras i en fråga, ange namnen på fälten
 query.selectFields = @[@"text", @"complete"];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 query.selectFields = ["text", "complete"]
@@ -237,7 +237,7 @@ query.parameters = @{
 };
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
@@ -269,7 +269,7 @@ Om du ökar storleken på klienten, bör du även öka sidstorleken på servern.
                            }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let pullSettings = MSPullSettings(pageSize: 3)
@@ -301,7 +301,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
@@ -332,7 +332,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
@@ -361,7 +361,7 @@ Du kan också ange rad-ID och det uppdaterade fältet:
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
@@ -391,7 +391,7 @@ Ta bort ett objekt genom att anropa `delete` med objektet:
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
@@ -417,7 +417,7 @@ Du kan också ta bort genom att tillhandahålla ett rad-ID:
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
@@ -454,7 +454,7 @@ För att anropa en anpassad API kan anropa `MSClient.invokeAPI`. Begäran och sv
             }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 client.invokeAPI("sendEmail",
@@ -486,7 +486,7 @@ Registrera mallar genom att skicka mallar med din **client.push registerDeviceTo
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
@@ -504,7 +504,7 @@ Mallarna är av typen NSDictionary och kan innehålla flera mallar i följande f
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
@@ -524,7 +524,7 @@ Filen [ `<WindowsAzureMobileServices/MSError.h>` ] [ 6] definierar konstanterna 
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let serverItem = error.userInfo[MSErrorServerItemKey]
@@ -538,7 +538,7 @@ Dessutom kan definierar filen konstanter för respektive felkod:
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 if (error.code == MSErrorPreconditionFailed) {
@@ -603,7 +603,7 @@ Du kan använda Active Directory Authentication Library (ADAL) för att registre
 }
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 // add the following imports to your bridging header:
@@ -686,7 +686,7 @@ Du kan använda med Facebook SDK för iOS för att registrera användare i ditt 
     }
     ```
 
-    **SWIFT**:
+    **Swift**:
 
     ```swift
     // Add the following imports to your bridging header:
@@ -737,7 +737,7 @@ Du kan använda infrastruktur för iOS för att registrera användare i ditt pro
     }
     ```
 
-    **SWIFT**:
+    **Swift**:
 
     ```swift
     import Fabric
@@ -774,7 +774,7 @@ Du kan använda infrastruktur för iOS för att registrera användare i ditt pro
     }
     ```
 
-    **SWIFT**:
+    **Swift**:
 
     ```swift
     import TwitterKit
@@ -812,7 +812,7 @@ Du kan använda med Google-inloggning SDK för iOS för att registrera användar
     }];
     ```
 
-    **SWIFT**:
+    **Swift**:
 
     ```swift
     let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
@@ -829,7 +829,7 @@ Du kan använda med Google-inloggning SDK för iOS för att registrera användar
     [GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
     ```
 
-     **SWIFT**:
+     **Swift**:
 
     ```swift
     GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
@@ -850,7 +850,7 @@ Du kan använda med Google-inloggning SDK för iOS för att registrera användar
     }
     ```
 
-   **SWIFT**:
+   **Swift**:
 
     ```swift
     // ...

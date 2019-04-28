@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fdca47877d4cb2192eef0a26448cd21e8afe4b77
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740257"
 ---
-# <a name="publish-azure-application-offer"></a>Publicera erbjudande för Azure-program
+# <a name="publish-azure-application-offer"></a>Publicera ett erbjudande för Azure-program
 
 När du har skapat ett erbjudande genom att tillhandahålla informationen om den **nytt erbjudande** kan du publicera erbjudandet. Välj **publicera** att starta publiceringsprocessen.
 

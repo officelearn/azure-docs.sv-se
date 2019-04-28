@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b10be061e015686c68684723fd2d73c1431c7266
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a440494b183d18c1d888b5d39836eb4317190d02
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699414"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764322"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -47,13 +47,37 @@ Tjänstens huvudnamn appID och lösenord eller certifikat kan användas i anslut
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-När du använder ett huvudnamn för tjänsten för resursen hanteringsåtgärder med den [Az.AnalysisServices](/powershell/module/az.analysisservices) modul, Använd `Connect-AzAccount` cmdlet. När du använder ett huvudnamn för tjänsten för åtgärder med den [SQLServer](https://www.powershellgallery.com/packages/SqlServer) modul, Använd `Add-AzAnalysisServicesAccount` cmdlet. 
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Med Az.AnalysisServices-modulen
+
+När du använder ett huvudnamn för tjänsten för resursen hanteringsåtgärder med den [Az.AnalysisServices](/powershell/module/az.analysisservices) modul, Använd `Connect-AzAccount` cmdlet. 
+
+I följande exempel används appID och ett lösenord för att utföra kontrollplanåtgärder tills synkroniseringen är skrivskyddade repliker och skala upp/ut:
+
+```powershell
+Param (
+        [Parameter(Mandatory=$true)] [String] $AppId,
+        [Parameter(Mandatory=$true)] [String] $PlainPWord,
+        [Parameter(Mandatory=$true)] [String] $TenantId
+       )
+$PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
+$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
+
+# Connect using Az module
+Connect-AzAccount -Credential $Credential -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx"
+
+# Syncronize a database for query scale out
+Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/testsvr" -Database "testdb"
+
+# Scale up the server to an S1, set 2 read-only replicas, and remove the primary from the query pool. The new replicas will hydrate from the synchronized data.
+Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
+```
+
+#### <a name="using-sqlserver-module"></a>Med hjälp av SQLServer-modulen
 
 I följande exempel används appID och ett lösenord för att utföra en uppdatering för modellen databasåtgärd:
 
 ```powershell
 Param (
-
         [Parameter(Mandatory=$true)] [String] $AppId,
         [Parameter(Mandatory=$true)] [String] $PlainPWord,
         [Parameter(Mandatory=$true)] [String] $TenantId

@@ -1,34 +1,52 @@
 ---
-title: Skala Azure App Service-webbappar med hjälp av Ansible
-description: Lär dig att använda Ansible för att skapa en webbapp med Java 8 och Tomcat-körmiljö för container i App Service i Linux
-ms.service: azure
+title: Självstudie – skala appar i Azure App Service med Ansible | Microsoft Docs
+description: Lär dig att skala upp en app i Azure App Service
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, scale, Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 2bafb73afa35c7670ac45f7027545277c70075ef
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 213c4e086db8b40fdec26ce9fb3e0be5ad055cbc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792284"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764309"
 ---
-# <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Skala Azure App Service-webbappar med hjälp av Ansible
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (eller bara Web Apps) är värd för webbprogram, REST-API:er och mobila serverdelar. Du kan utveckla i det språk du föredrar&mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python.
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Självstudier: Skala appar i Azure App Service med Ansible
 
-Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du använder Ansible för att skala din app i Azure App Service.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
-- **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service-webbappar** – Om du inte redan har en webbapp i Azure App Service kan du [skapa Azure-webbappar med hjälp av Ansible](ansible-create-configure-azure-web-apps.md).
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
 
-## <a name="scale-up-an-app-in-app-service"></a>Skala upp en app i App Service
-Du kan skala upp genom att ändra prisnivån för den App Service-plan som appen hör till. I det här avsnittet visas en Ansible-exempelspelbok som definierar följande åtgärd:
-- Hämta fakta om en befintlig App Service-plan
-- Uppdatera App Service-planen till S2 med tre arbetare
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Hämta fakta om en befintlig App Service-plan
+> * Skala upp App Service-planen s2 med tre Worker
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- **Azure App Service-app** – om du inte har en Azure App Service-app, [konfigurera en app i Azure App Service med Ansible](ansible-create-configure-azure-web-apps.md).
+
+## <a name="scale-up-an-app"></a>Skala upp en app
+
+Det finns två arbetsflöden för att skala: *skala upp* och *skala ut*.
+
+**Skala upp:** Om du vill skala upp innebär det att skaffa fler resurser. Dessa resurser inkluderar CPU, minne, diskutrymme, virtuella datorer och mycket mer. Du skala upp en app genom att ändra prisnivån för App Service-plan som appen tillhör. 
+**Skala ut:** Om du vill skala ut innebär det att öka antalet VM-instanser som kör din app. Beroende på din App Service-plan som prisnivå kan skala du ut till upp till 20 instanser. [Automatisk skalning](/azure/azure-monitor/platform/autoscale-get-started) gör att du kan skala instansantalet automatiskt baserat på fördefinierade regler och scheman.
+
+Spelboken koden i det här avsnittet definierar följande åtgärd:
+
+* Hämta fakta om en befintlig App Service-plan
+* Uppdatera App Service-planen till S2 med tre arbetare
+
+Spara följande spelbok som `webapp_scaleup.yml`:
 
 ```yml
 - hosts: localhost
@@ -66,26 +84,26 @@ Du kan skala upp genom att ändra prisnivån för den App Service-plan som appen
       var: facts.appserviceplans[0].sku
 ```
 
-Spara den spelboken som *webapp_scaleup.yml*.
+Kör en spelbok med hjälp av den `ansible-playbook` kommando:
 
-Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-När du har kört spelboken visar utdata som liknar följande exempel att App Service-planen har uppdaterats till S2 med tre arbetare:
-```Output
-PLAY [localhost] **************************************************************
+När strategiboken, kan du se utdata som liknar följande resultat:
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -96,13 +114,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -113,10 +131,11 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 > [!div class="nextstepaction"] 
-> [Ansible i Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible i Azure](/azure/ansible/)

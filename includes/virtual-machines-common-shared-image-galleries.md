@@ -9,11 +9,11 @@ ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58052085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620403"
 ---
 Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina anpassade hanterade VM-avbildningar. Med hjälp av en delad bildgalleriet kan du dela dina avbildningar till olika användare, tjänstens huvudnamn eller AD-grupper i din organisation. Delade bilder kan replikeras till flera regioner, för snabbare skalning av dina distributioner.
 

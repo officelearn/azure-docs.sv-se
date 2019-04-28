@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564237"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du skriver kod för CDN-hantering, måste du göra vissa förberedelser för att aktivera koden för att interagera med Azure Resource Manager. Om du vill göra dessa förberedelser, måste du:
 
 * Skapa en resursgrupp som innehåller den CDN-profil som skapats i den här självstudien
@@ -32,7 +32,7 @@ Innan du skriver kod för CDN-hantering, måste du göra vissa förberedelser f�
     ![Namngivning av resursgruppen.](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Skapa Azure AD-programmet och tillämpa behörigheter
-Det finns två metoder för app-autentisering med Azure Active Directory: enskilda användare eller ett huvudnamn för tjänsten. Ett huvudnamn för tjänsten liknar ett tjänstkonto i Windows.  I stället för att bevilja behörigheter för att interagera med CDN-profiler för en viss användare, behörigheter i stället till tjänstens huvudnamn.  Tjänstens huvudnamn används vanligtvis för automatiserad, icke-interaktiv processer.  Även om den här självstudien skriver en interaktiv konsol-app, kan vi att fokusera på metoden som tjänstens huvudnamn.
+Det finns två metoder för app-autentisering med Azure Active Directory: Enskilda användare eller ett huvudnamn för tjänsten. Ett huvudnamn för tjänsten liknar ett tjänstkonto i Windows.  I stället för att bevilja behörigheter för att interagera med CDN-profiler för en viss användare, behörigheter i stället till tjänstens huvudnamn.  Tjänstens huvudnamn används vanligtvis för automatiserad, icke-interaktiv processer.  Även om den här självstudien skriver en interaktiv konsol-app, kan vi att fokusera på metoden som tjänstens huvudnamn.
 
 Skapa ett huvudnamn för tjänsten består av flera steg, inklusive att skapa ett Azure Active Directory-program.  Om du vill skapa det vi kommer att [i den här kursen](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527939"
 ---
 Bing stöder markering som markerar sökord av träffar (eller andra villkor som Bing hittar relevanta) i visningssträngar av några av svaren. Till exempel en webbsida `name`, `displayUrl`, och `snippet` fält kan definiera frågetermen.
 
@@ -25,28 +25,28 @@ Om `textDecorations` är **SANT**, Bing kan innehålla följande markörer i vis
 
 |Unicode|HTML|Beskrivning
 |-|-|-
-|U + E000|\<b >|Markerar starten av frågetermen (markering av träffar)
-|U + E001|\</b >|Markerar slutet av frågetermen
-|U + E002|\<Jag >|Markerar starten av kursiv innehåll 
-|U + E003|\</i >|Markerar slutet av kursiv innehåll
-|U + E004|\<br / >|Markerar en radbrytning
-|U + E005||Markerar starten av ett telefonnummer
-|U + E006||Markerar slutet av ett telefonnummer
-|U + E007||Markerar starten av en adress
-|U + E008||Markerar slutet av en adress
-|U + E009|\&nbsp;|Markerar ett hårt blanksteg
-|U + E00C|\<strong >|Markerar starten av fet innehåll
-|U + E00D|\</ strong >|Markerar slutet av fet innehåll
-|U + E00E||Markerar starten av innehåll vars bakgrund ska vara lättare än dess omgivande bakgrund
-|U + E00F||Markerar slutet av innehåll vars bakgrund ska vara lättare än dess omgivande bakgrund
-|U + E010||Markerar starten av innehåll vars bakgrund ska vara mörkare än dess omgivande bakgrund
-|U + E011||Markerar slutet av innehåll vars bakgrund ska vara mörkare än dess omgivande bakgrund
-|U + E012|\<del >|Markerar starten av innehåll som ska strykas över
-|U + E013|\</ del >|Markerar slutet av innehåll som ska strykas över
-|U + E016|\<Sub >|Markerar starten av nedsänkt innehåll
-|U + E017|\</ sub >|Markerar slutet av nedsänkt innehåll
-|U + E018|\<sup >|Markerar starten av upphöjd innehåll
-|U + E019|\</ sup >|Markerar slutet av upphöjd innehåll
+|U+E000|\<b>|Markerar starten av frågetermen (markering av träffar)
+|U+E001|\</b>|Markerar slutet av frågetermen
+|U+E002|\<i>|Markerar starten av kursiv innehåll 
+|U+E003|\</i>|Markerar slutet av kursiv innehåll
+|U+E004|\<br/>|Markerar en radbrytning
+|U+E005||Markerar starten av ett telefonnummer
+|U+E006||Markerar slutet av ett telefonnummer
+|U+E007||Markerar starten av en adress
+|U+E008||Markerar slutet av en adress
+|U+E009|\&nbsp;|Markerar ett hårt blanksteg
+|U+E00C|\<strong>|Markerar starten av fet innehåll
+|U+E00D|\</strong>|Markerar slutet av fet innehåll
+|U+E00E||Markerar starten av innehåll vars bakgrund ska vara lättare än dess omgivande bakgrund
+|U+E00F||Markerar slutet av innehåll vars bakgrund ska vara lättare än dess omgivande bakgrund
+|U+E010||Markerar starten av innehåll vars bakgrund ska vara mörkare än dess omgivande bakgrund
+|U+E011||Markerar slutet av innehåll vars bakgrund ska vara mörkare än dess omgivande bakgrund
+|U+E012|\<del>|Markerar starten av innehåll som ska strykas över
+|U+E013|\</del>|Markerar slutet av innehåll som ska strykas över
+|U+E016|\<sub>|Markerar starten av nedsänkt innehåll
+|U+E017|\</sub>|Markerar slutet av nedsänkt innehåll
+|U+E018|\<sup>|Markerar starten av upphöjd innehåll
+|U+E019|\</sup>|Markerar slutet av upphöjd innehåll
 
 I följande exempel visas en `Computation` svar som innehåller nedsänkt markörer för en log(2) frågeterm. Den `expression` fältet innehåller markörer endast om `textDecoration` är **SANT**.
 

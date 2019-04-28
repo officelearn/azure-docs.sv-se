@@ -6,15 +6,16 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/12/2018
-ms.author: glenga
+origin.date: 09/12/2018
+ms.date: 10/19/2018
+ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 2808264b4641bda49a53677ebe216a3b53b7d0d9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 27dc1b1315a8e33b8ac13b34d4a86ad0343388b4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731251"
 ---
 Koden för alla funktioner i en specifik funktionsapp finns i en rotmapp för projekt som innehåller en konfigurationsfil för värden och en eller flera undermappar. Varje undermapp innehåller koden för en separat funktion, som i följande bild:
 
@@ -35,11 +36,12 @@ I version 2.x av funktionskörningen alla funktioner i funktionsappen måste del
 
 Den [host.json](../articles/azure-functions/functions-host-json.md) filen som innehåller vissa runtime-specifika konfigurationer finns i rotmappen för funktionsappen. En `bin` mappen innehåller paket och andra library-filer som krävs av funktionsappen. Se kraven för ett funktionsapprojekt språkspecifika:
 
-* [C#-klassbiblioteket (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
-* [C#-skript (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
-* [F #-skript](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
-* [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
-* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+- [C#-klassbiblioteket (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+- [C#-skript (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+- [F#skriptet](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+- [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+- [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
 
 
+<!-- ms.date: 10/19/2018 -->
 

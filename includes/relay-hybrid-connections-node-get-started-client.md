@@ -1,15 +1,10 @@
 ---
-author: clemensv
-ms.service: service-bus-relay
-ms.topic: include
-ms.date: 11/09/2018
-ms.author: clemensv
 ms.openlocfilehash: 9d4f7faa18ee7fae158afb42b8c42287e61dd103
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553908"
 ---
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
@@ -20,7 +15,6 @@ Skapa en ny JavaScript-fil som kallas `sender.js`.
 Kör `npm install hyco-ws` från Kommandotolken för en nod i projektmappen.
 
 ### <a name="write-some-code-to-send-messages"></a>Skriva kod för att skicka meddelanden
-
 1. Lägg till följande `constants` överst i `sender.js`-filen.
    
     ```js

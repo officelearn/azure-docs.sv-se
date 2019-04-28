@@ -7,7 +7,7 @@ author: rgardler
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
-keywords: Behållare, Micro-tjänster, DC/OS, Azure
+keywords: Containrar, Micro-tjänster, DC/OS, Azure
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
-ms.openlocfilehash: a8ea47f158c0d666340815d2e039995c7483257f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2601d5200f0b8ebcfb856bffb871f01b3acb215
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23761970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557581"
 ---
 > [!NOTE]
 > Det här är för att arbeta med DC/OS-baserade ACS-kluster. Du behöver inte göra det här för Swarm-baserade ACS-kluster.

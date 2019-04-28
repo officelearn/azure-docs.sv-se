@@ -1,15 +1,16 @@
 ---
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: genli
+origin.date: 11/09/2018
+ms.date: 01/21/2019
+ms.author: v-yeche
 ms.openlocfilehash: d40f8fb263c5838d523108a1df7be99aba587354
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516421"
 ---
 ## <a name="scenario"></a>Scenario
 För att bättre illustrerar hur du kan konfigurera en statisk IP-adress för en virtuell dator, använder det här dokumentet scenariot nedan.
@@ -17,4 +18,3 @@ För att bättre illustrerar hur du kan konfigurera en statisk IP-adress för en
 ![VNet-scenario](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
 
 I det här scenariot skapar du en virtuell dator med namnet **DNS01** i den **klientdel** undernät, och Ställ in det för att använda en statisk IP-adress på **192.168.1.101**.
-

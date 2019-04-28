@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
 ms.openlocfilehash: 3a46462f761e7608ae7554604577a1e9d7f88b15
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558107"
 ---
 ## <a name="go-to-your-api-management-instance"></a>Gå till API Management-instansen
 
 ![Navigera till API Management-instansen](./media/api-management-navigate-to-instance/00-FindResource-01.png)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 
 2. Välj **Alla tjänster**.  
 

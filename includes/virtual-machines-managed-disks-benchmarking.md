@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679831"
 ---
 *Värmer upp cachen*  
 Disken med cachelagring av ReadOnly-värden kan ge högre IOPS än gränsen på disk. Om du vill ha den här högsta läsprestanda från värd-cachen, måste först du värmt upp cachen för den här disken. Detta säkerställer att läsa IOs att benchmarking verktyget kommer att öka på CacheReads volym faktiskt når cachen och inte disken direkt. Cacheträffar resulterar i ytterligare IOPS från enkel cachen aktiverad disk.

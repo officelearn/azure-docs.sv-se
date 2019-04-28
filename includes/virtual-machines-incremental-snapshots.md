@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543810"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Säkerhetskopiera Azure ohanterade Virtuella datordiskar med inkrementella ögonblicksbilder
 ## <a name="overview"></a>Översikt
@@ -58,7 +58,7 @@ Om följande villkor är uppfyllda
 * Blobben har skapats på Jan-1-2016 eller senare.
 * Blobben som inte skrivas över med [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) eller [kopiering av Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) mellan två ögonblicksbilder.
 
-**Obs**: den här funktionen är tillgänglig för Premium och Standard Azure-Sidblobar.
+**Obs!** Den här funktionen är tillgänglig för Premium och Standard Azure-Sidblobar.
 
 När du har en anpassad strategi för säkerhetskopiering med ögonblicksbilder, kopierar ögonblicksbilder från ett lagringskonto till ett annat kan vara långsam och konsumerar mycket lagringsutrymme. Du kan skriva skillnaden mellan på varandra följande ögonblicksbilder av en säkerhetskopiering sidblob istället för att kopiera hela ögonblicksbilden till ett konto för lagring av säkerhetskopior. På så sätt kan betydligt tiden för att kopiera och utrymme för lagring av säkerhetskopior.
 

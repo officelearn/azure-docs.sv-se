@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805196"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557156"
 ---
 >[!NOTE]
 >Öppna ett supportärende och be om en ökning av kvoter för resurser som inte har åtgärdats. Skapa inte ytterligare Azure Media Services-konton i ett försök att få högre gränser.

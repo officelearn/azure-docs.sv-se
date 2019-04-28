@@ -13,7 +13,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187689"
+ms.locfileid: "60418666"
 ---
 Om du får problem när du utför åtgärder i delade bildgallerier, eller för bilddefinitioner och bildversioner, kan du köra det misslyckade kommandot igen i felsökningsläge. Felsökningsläge aktiveras genom att skicka den **-felsöka** växla med CLI och **-felsöka** växla med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
 

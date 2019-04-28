@@ -9,11 +9,11 @@ ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: d89a9c4c4498e249dbfbd453ef9772d18ffd213f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59550155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541632"
 ---
 Det här avsnittet innehåller information om äldre generationer storlekar på virtuella datorer. Dessa storlekar stöds fortfarande, men får inte ytterligare kapacitet. Det finns nyare eller alternativa storlekar som är allmänt tillgängliga. Se [storlekar för Windows-datorer i Azure](../articles/virtual-machines/windows/sizes.md) eller [storlekar för Linux-datorer i Azure](../articles/virtual-machines/linux/sizes.md) för att välja den virtuella datorn de storlekar som kommer bäst passar dina behov.  
 

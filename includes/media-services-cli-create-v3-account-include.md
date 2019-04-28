@@ -9,11 +9,11 @@ ms.date: 02/21/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 79af6512e9ce3d3f897be216ee3626c5d4fbcf1d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56741366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733902"
 ---
 ## <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
 
@@ -33,7 +33,7 @@ När du skapar ett Media Services-konto, måste du ange namnet på en Azure Stor
 
 Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekundära** lagringskonton associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** (GPv2) och **General-purpose v1** (GPv1). Endast blob-konton tillåts inte som **primära**. Mer information om lagringskonton finns i [Alternativ för Azure Storage-konton](../articles/storage/common/storage-account-options.md). 
 
-I det här exemplet skapar vi en generell användning v2, Standard LRS-konto. Om du vill experimentera med storage-konton kan använda `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du, `--sku Standard_RAGRS`, vilket ger geografiska replikering för affärskontinuitet. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+I det här exemplet skapar vi ett General Purpose v2, Standard LRS-konto. Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du överväga `--sku Standard_RAGRS`, som ger geografisk replikering för affärskontinuitet. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
 Följande kommando skapar ett lagringskonto som ska associeras med Media Services-kontot. I skriptet nedan kan du ersätta `storageaccountforams` med ditt värde. Kontonamnet måste ha en längd som är mindre än 24.
 

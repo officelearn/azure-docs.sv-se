@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
 ms.openlocfilehash: 12d1576c3bfbf96c0445fcd2a6f0bc37d6a68f11
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302201"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753467"
 ---
 1. Slutför [snabbstarten för Azure Machine Learning med Python](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) för att skapa en arbetsyta.  Hoppa över avsnittet **Använda anteckningsboken** om du vill.
 1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).

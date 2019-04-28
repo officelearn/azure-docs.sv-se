@@ -1,7 +1,6 @@
 ---
 title: Phoenix Query Server REST SDK – Azure HDInsight
 description: Installera och använda REST-SDK för Phoenix Query Server i Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: b7c94fd2372f1d995c50439b2bd5eaefb237e175
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 1f468cac29579d8748f61a47b548a67d36ff8279
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123067"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
@@ -74,8 +73,8 @@ Här följer några egenskaper intressanta:
 
 | Egenskap  | Beskrivning |
 | -- | -- |
-| Committed | En boolesk anger om `autoCommit` har aktiverats för Phoenix transaktioner. |
-| Skrivskyddad | Ett booleskt värde som anger om anslutningen är skrivskyddad. |
+| AutoCommit | En boolesk anger om `autoCommit` har aktiverats för Phoenix transaktioner. |
+| ReadOnly | Ett booleskt värde som anger om anslutningen är skrivskyddad. |
 | TransactionIsolation | Ett heltal som anger nivån av transaktionsisoleringen per JDBC-specifikationen - visas i följande tabell.|
 | Katalog | Namnet på katalogen ska användas för att hämta egenskaper för anslutning. |
 | Schema | Namnet på scheman som ska användas vid hämtningen av anslutningsegenskaper. |

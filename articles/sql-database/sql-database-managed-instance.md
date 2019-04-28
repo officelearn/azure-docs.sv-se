@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098550"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Använda avancerad datasäkerhet med virtuella nätverk och nästan 100% kompatibilitet SQL-databas
 
@@ -71,7 +71,7 @@ I följande tabell visas de viktigaste funktionerna i hanterade instanser:
 | Inbyggda rapporteringstjänsten (SSRS) | Nej, Använd Power BI eller SSRS IaaS |
 |||
 
-## <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
+## <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
 Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) för hanterade instanser får du flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du ändra beräkning, minne och lagring utifrån dina arbetsbelastningsbehov. VCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -161,7 +161,7 @@ Introduceras en ny syntax för att skapa Azure AD server-huvudkonton (inloggning
 
 Distributionsalternativ för hanterad instans kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster med [Azure Active Directory-integrering](sql-database-aad-authentication.md). Den här funktionen förenklar hanteringen av behörighet och ger ökad säkerhet. Azure Active Directory stöder [multifaktorautentisering](sql-database-ssms-mfa-authentication-configure.md) (MFA) för att öka säkerheten för data och program med stöd för en process med enkel inloggning.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 Hanterad instans autentisering refererar till hur användarna bekräfta sin identitet vid anslutning till databasen. SQL Database stöder två typer av autentisering:  
 
@@ -226,7 +226,7 @@ Distributionsalternativ för hanterad instans kan systemadministratören att äg
 
 I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL, att du kan använda för att identifiera att programmet fungerar med hanterad instans och hämta viktiga egenskaper.
 
-|Egenskap|Value|Kommentar|
+|Egenskap |Värde|Kommentar|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Det här värdet är samma som i SQL-databas.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är samma som i SQL-databas.|
@@ -240,5 +240,5 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 - Mer information om konfiguration av virtuellt nätverk finns i [hanterad instanskonfiguration av virtuellt nätverk](sql-database-managed-instance-connectivity-architecture.md).
 - En Snabbstart som skapar en hanterad instans och återställer en databas från en säkerhetskopia, se [skapa en hanterad instans](sql-database-managed-instance-get-started.md).
 - En självstudiekurs med hjälp av Azure Database Migration Service (DMS) för migrering finns i [hanterad instans-migrering med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Information om avancerad övervakning av databasprestanda för hanterad instans med inbyggd felsökningsintelligens finns i artikeln om att [övervaka Azure SQL Database med hjälp av Azure SQL-analys](../azure-monitor/insights/azure-sql.md)
+- Information om avancerad övervakning av prestanda för hanterad instansdatabas med inbyggd felsökningsintelligens finns i artikeln om att [övervaka Azure SQL Database med hjälp av Azure SQL-analys](../azure-monitor/insights/azure-sql.md)
 - Information om priser finns i [SQL Database managed instance priser](https://azure.microsoft.com/pricing/details/sql-database/managed/).

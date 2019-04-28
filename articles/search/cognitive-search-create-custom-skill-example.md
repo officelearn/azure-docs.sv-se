@@ -11,17 +11,17 @@ ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61344169"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exempel: Skapa en anpassad kompetens med hjälp av översätta Text-API
 
 I det här exemplet lär du dig hur du skapar ett web API anpassade färdigheter som accepterar text på valfritt språk och översätts till engelska. I exemplet används en [Azure Function](https://azure.microsoft.com/services/functions/) du omsluter den [översätta Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) så att den implementerar gränssnittet anpassade färdigheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + Läs mer om [anpassade färdighet gränssnittet](cognitive-search-custom-skill-interface.md) artikel om du inte är bekant med indata/utdata-gränssnitt som en anpassad färdighet bör implementera.
 

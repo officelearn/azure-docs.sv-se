@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: b2b707585df4a7ec26f689b4213be74bdaab680d
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 388c4d5f28e87f5cfe26336771d30fa44c6f9ef0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123016"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Kom igång med Azure Blob storage och Visual Studio-anslutna tjänster (ASP.NET Core)
 
@@ -27,7 +27,7 @@ Den här artikeln beskrivs hur du kommer igång med Azure Blob-lagring i Visual 
 
 Azure Blob storage är en tjänst för att lagra stora mängder Ostrukturerade data som kan nås från var som helst i världen via HTTP eller HTTPS. En enda blob kan vara valfri storlek. Blobar kan vara saker som bilder, ljud- och bildfiler, rådata och dokumentfiler. Den här artikeln beskrivs hur du kommer igång med blob-lagring när du har skapat ett Azure storage-konto med hjälp av Visual Studio **Connected Services** i ett ASP.NET Core-projekt.
 
-Precis som filer live i mappar, lagringsblobar för Direktmigrering i behållare. När du har skapat en blob, skapar du en eller flera behållare i blobben. Till exempel i en blob som kallas ”klippboken”, kan du skapa behållare som kallas ”avbildningar” för att lagra bilder och en annan kallas ”ljud” för att lagra ljudfiler. Du kan ladda upp enskilda filer till dem när du har skapat behållarna. Se [Snabbstart: ladda upp, ladda ned och lista blobar med hjälp av .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) för mer information om hur du programmässigt hantera BLOB-objekt.
+Precis som filer live i mappar, lagringsblobar för Direktmigrering i behållare. När du har skapat en blob, skapar du en eller flera behållare i blobben. Till exempel i en blob som kallas ”klippboken”, kan du skapa behållare som kallas ”avbildningar” för att lagra bilder och en annan kallas ”ljud” för att lagra ljudfiler. Du kan ladda upp enskilda filer till dem när du har skapat behållarna. Gå till [Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) för mer information om hur du programmässigt hantera BLOB-objekt.
 
 Några av de API: erna för Azure Storage är asynkrona och koden i den här artikeln förutsätter att asynkrona metoder som används. Se [asynkron programmering](https://docs.microsoft.com/dotnet/csharp/async) för mer information.
 
@@ -140,7 +140,7 @@ do
 } while (token != null);
 ```
 
-Se [Snabbstart: ladda upp, ladda ned och lista blobar med hjälp av .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) för andra sätt att visa innehållet i en blob-behållare.
+Gå till [Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) för andra sätt att visa innehållet i en blob-behållare.
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
@@ -157,7 +157,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Se [Snabbstart: ladda upp, ladda ned och lista blobar med hjälp av .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) andra sätt att spara blobbar som filer.
+Gå till [Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) andra sätt att spara blobbar som filer.
 
 ## <a name="delete-a-blob"></a>Ta bort en blob
 

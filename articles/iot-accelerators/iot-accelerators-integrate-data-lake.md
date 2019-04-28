@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449498"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrera lösningen för fjärrövervakning med Azure Data Lake Store
 
@@ -21,7 +21,7 @@ Du kan ha avancerade analyser krav utöver vad som är tillgängligt i lösninge
 
 I den här anvisningen använder du Azure Stream Analytics-jobb att strömdata från IoT hub i lösningen för fjärrövervakning till en Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här anvisningen, behöver du följande:
 
@@ -59,7 +59,7 @@ Skapa ett Azure Stream Analytics-jobb för att strömma data från IoT hub till 
 
 1. Klicka på **skapa en resurs**, Välj Sakernas Internet från Marketplace och på **Stream Analytics-jobbet**.
 
-    ![Nytt Stream Analytics-jobb](./media/iot-accelerators-integrate-data-lake/new-stream-analytics-job.png)
+    ![New Stream Analytics Job](./media/iot-accelerators-integrate-data-lake/new-stream-analytics-job.png)
 
 1. Ange ett Jobbnamn och välj lämplig prenumeration och resursgrupp.
 
@@ -148,13 +148,13 @@ Azure Stream Analytics använder ett SQL-liknande frågespråk för att ange en 
 
 1. På fliken Översikt **starta**.
 
-    ![Starta Stream Analytics-jobbet](./media/iot-accelerators-integrate-data-lake/stream-analytics-start.png)
+    ![Start Stream Analytics Job](./media/iot-accelerators-integrate-data-lake/stream-analytics-start.png)
 
 1. På fliken Start jobbet **anpassad**.
 
 1. Ange anpassad tid att gå tillbaka ett par timmar för att hämta data från när enheten har startats för direktuppspelning.
 
-1. Klicka på **Start**.
+1. Klicka på **Starta**.
 
     ![Välj anpassat datum](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 

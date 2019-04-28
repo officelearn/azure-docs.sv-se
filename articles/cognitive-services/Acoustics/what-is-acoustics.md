@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432457"
 ---
 # <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
 Projektet Akustik är en wave Akustik motor för 3D-interaktiva upplevelser. Wave effekter som diffraction, portaling och eko effekterna i komplexa bakgrunder modellerar utan manuell zon markup. Den innehåller också game engine och ljud mellanprogram integration. Projektet Akustik filosofin liknar statiska belysning: Skapa detaljerade fysik offline för att tillhandahålla en fysisk baslinje, och använda en enkel körning med lättfattliga design kontroller för konstnärlig ändamålet.

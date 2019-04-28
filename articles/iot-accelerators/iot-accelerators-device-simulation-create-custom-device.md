@@ -10,17 +10,17 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450583"
 ---
-# <a name="tutorial-create-a-custom-simulated-device"></a>Självstudie: Skapa en anpassad simulerad enhet
+# <a name="tutorial-create-a-custom-simulated-device"></a>Självstudier: Skapa en anpassad simulerad enhet
 
 I den här självstudien använder du enhetssimulering för att skapa en anpassad simulerad enhet för användning i simuleringar. För att komma igång med enhetssimulering kan du använda en av de inkluderade exemplen på simulerade enheter. Du kan även skapa anpassade simulerade enheter enligt beskrivningen i den här artikeln. Fler alternativ för anpassning finns i [Skapa en avancerad enhetsmodell](iot-accelerators-device-simulation-advanced-device.md).
 
-I den här kursen får du göra följande:
+I den här kursen för du göra följande:
 
 >[!div class="checklist"]
 > * Visa en lista över dina modeller för simulerad enhet

@@ -14,11 +14,11 @@ ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 2b1206e3087b0573736174d4eed502653d76f7a5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61408970"
 ---
 # <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Snabbstart: Använda R för att fråga en Azure SQL-databas (förhandsversion)
 
@@ -47,7 +47,7 @@ Kontrollera att du har följande så att du kan genomföra den här snabbstarten
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -83,7 +83,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforma din första Azure SQL Database](sql-database-design-first-database.md)
+- [Utforma din första Azure SQL-databas](sql-database-design-first-database.md)
 - [Azure SQL Database Machine Learning Services (med R)](sql-database-machine-learning-services-overview.md)
 - [Skapa och kör enkelt R-skript i Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-quickstart-r-create-script.md)
 - [Skriva avancerade R-funktioner i Azure SQL Database med Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-functions.md)

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cecdb9f9af9c5194eb56cfefd63b31348f111980
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400738"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Kopiera data från Magento med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Magento länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Magento** | Ja |
+| type | Type-egenskapen måste anges till: **Magento** | Ja |
 | värd | URL till Magento-instans. (det vill säga 192.168.222.110/magento3)  | Ja |
 | accessToken | Åtkomst-token från Magento. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
@@ -80,7 +80,7 @@ Kopiera data från Magento genom att ange typegenskapen på datauppsättningen t
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **MagentoObject** | Ja |
+| type | Type-egenskapen för datauppsättningen måste anges till: **MagentoObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -109,7 +109,7 @@ Om du vill kopiera data från Magento, ange typ av datakälla i kopieringsaktivi
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MagentoSource** | Ja |
+| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MagentoSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Customers"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

@@ -4,17 +4,19 @@ description: Läs hur Azure Cosmos DB Table API:t och Azure Storage-tabeller fun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/15/2017
-author: wmengmsft
-ms.author: wmeng
+origin.date: 11/15/2017
+ms.date: 04/15/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.reviewer: sngun
 ms.openlocfilehash: 1570417cb1c3aa9ec32d12d9209d4c712b50511d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130338"
 ---
+<!--Verify sucessfully-->
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Utveckla med Azure Cosmos DB Table API:t och Azure Table Storage
 
 Azure Cosmos DB Table API:t och Azure Table Storage delar samma tabelldatamodell och exponerar samma åtgärder för att skapa, ta bort, uppdatera och fråga via sina SDK:er. 
@@ -33,7 +35,6 @@ Just nu har [Azure Cosmos DB Table API:t](table-introduction.md) fyra SDK:er til
 
 * [Node.js SDK](table-sdk-nodejs.md): Den här Azure Storage SDK:n kan ansluta till Azure Cosmos DB-konton med Table API:t.
 
-
 Mer information om hur du arbetar med Tabell-API finns i artikeln [Vanliga frågor och svar: Utveckla med Tabell-API](faq.md#table).
 
 ## <a name="developing-with-azure-table-storage"></a>Utveckla med Azure Table Storage
@@ -49,10 +50,5 @@ Azure Table storage har de här SDK:erna tillgängliga för utveckling:
 - [Azure Storage Table-klientbiblioteket för Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Det här projektet tillhandahåller ett Ruby-paket som gör det enkelt att komma åt Azure Table-lagringstjänster.
 - [Azure Storage Table PHP-klientbibliotek](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). Det här projektet tillhandahåller ett PHP-klientbibliotek som gör det enkelt att komma åt Azure Table-lagringstjänster.
 
-
-   
-
-
-
-
-
+<!--Update_Description: new articles on table support -->
+<!--ms.date: 03/18/2019-->

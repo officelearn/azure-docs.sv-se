@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602638"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447921"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Vanliga frågor om lösningsacceleratorn för fjärrövervakning
 
@@ -32,7 +32,7 @@ Förutom att tillhandahålla två differentierad distributioner, har den nya lö
 
 ### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Vad är skillnaden mellan basic och standard distributionsalternativen? Hur avgör jag mellan två distributionsalternativ?
 
-Varje distributionsalternativ svarar på olika behov. Den grundläggande distributionen har utformats för att komma igång och utveckla PoC och små piloter. Det ger en effektiv arkitektur minsta nödvändiga resurser och en lägre kostnad. Standarddistributionen har utformats för att skapa och anpassa en produktionsklar lösning och ger en distribution med nödvändigt för att upptäcka som. För tillförlitlighet och skala program mikrotjänster skapas med Docker-behållare och distribueras via en initierare (Kubernetes som standard). Orchestrator är ansvarig för distribution, skalning och hantering av programmet. Du bör välja ett alternativ baserat på dina befintliga behov. Du kan använda en, den andra eller en kombination av båda beroende på din projektfasen.
+Varje distributionsalternativ svarar på olika behov. Den grundläggande distributionen har utformats för att komma igång och utveckla PoC och små piloter. Det ger en effektiv arkitektur minsta nödvändiga resurser och en lägre kostnad. Standarddistributionen har utformats för att skapa och anpassa en produktionsklar lösning och ger en distribution med nödvändigt för att upptäcka som. För tillförlitlighet och skala program mikrotjänster skapas med Docker-behållare och distribueras via en initierare (Kubernetes som standard). Initieraren ansvarar för distribution, skalning och hantering av appen. Du bör välja ett alternativ baserat på dina befintliga behov. Du kan använda en, den andra eller en kombination av båda beroende på din projektfasen.
 
 ### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Hur konfigurerar jag en dynamisk karta på instrumentpanelen?
 

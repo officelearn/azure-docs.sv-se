@@ -1,7 +1,6 @@
 ---
 title: Använda Azure Kubernetes-tjänst med Kafka på HDInsight
 description: Lär dig hur du använder Kafka på HDInsight från behållaravbildningar som finns i Azure Kubernetes Service (AKS).
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: b9b4af353e5bbd36f1f8d7468c38542a0fabda85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35ef708cdcedc2d7bafedb8bf3686e4b468177df
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115369"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Använda Azure Kubernetes-tjänst med Apache Kafka på HDInsight
 
@@ -25,7 +24,7 @@ Lär dig hur du använder Azure Kubernetes Service (AKS) med [Apache Kafka](http
 > [!NOTE]  
 > Fokus i det här dokumentet är på de steg som krävs för att aktivera Azure Kubernetes Service för att kommunicera med Kafka på HDInsight. I exempel själva är bara en grundläggande Kafka klient till visar att konfigurationen fungerar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * En Azure-prenumeration

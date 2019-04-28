@@ -2,19 +2,27 @@
 title: MapReduce och SSH-anslutning med Apache Hadoop i HDInsight - Azure
 description: Lär dig hur du använder SSH för att köra MapReduce-jobb med hjälp av Apache Hadoop på HDInsight.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: cgronlunb
+editor: cgronlun
+tags: azure-portal
+ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
 ms.custom: hdinsightactive
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/10/2018
-ms.author: hrasheed
-ms.openlocfilehash: bce79aed49b94071b4e83524de2d599fca182256
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 04/10/2018
+ms.date: 01/14/2019
+ms.author: v-yiso
+ms.openlocfilehash: 3448a5e89f6930a5bdcb7d0d77b92576e58fc90b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129390"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Använda MapReduce med Apache Hadoop i HDInsight med SSH
 
@@ -39,13 +47,13 @@ Lär dig hur du skickar MapReduce-jobb från en Secure Shell (SSH)-anslutning ti
 Ansluta till klustret med SSH. Till exempel följande kommando ansluter till ett kluster med namnet **myhdinsight** som den **sshuser** konto:
 
 ```bash
-ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 ```
 
 **Om du använder en nyckel för SSH-autentisering**, du kan behöva ange platsen för den privata nyckeln på ditt klientsystem, till exempel:
 
 ```bash
-ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.cn
 ```
 
 **Om du använder ett lösenord för SSH-autentisering**, måste du ange lösenordet när du uppmanas till detta.
@@ -80,7 +88,7 @@ Mer information om hur du använder SSH med HDInsight finns i [använda SSH med 
 
     Det här kommandot visar två filer, `_SUCCESS` och `part-r-00000`. Den `part-r-00000` filen innehåller utdata för jobbet.
 
-    > [!NOTE]  
+    > [!NOTE]
     > Vissa MapReduce-jobb kan delas upp resultaten i flera **del-r-###** filer. I så fall använda den ### suffix för att ange ordningen på filerna.
 
 4. Om du vill visa utdata, använder du följande kommando:

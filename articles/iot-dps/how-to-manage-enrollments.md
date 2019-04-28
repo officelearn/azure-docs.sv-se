@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122787"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Hantera enhetsregistreringar med Azure Portal
 
@@ -29,8 +29,8 @@ Det finns två sätt som du kan registrera dina enheter med etableringstjänsten
     Du kan skapa en grupp för registrering i portalen för en grupp av enheter med hjälp av följande steg:
 
   1. Logga in på Azure-portalen och klicka på **alla resurser** på den vänstra menyn.  
-  1. Klicka på Device Provisioning-tjänsten som du vill registrera din enhet på listan över resurser.  
-  1. I etableringstjänsten:  
+  2. Klicka på Device Provisioning-tjänsten som du vill registrera din enhet på listan över resurser.  
+  3. I etableringstjänsten:  
      a. Klicka på **hantera registreringar**och välj sedan den **Registreringsgrupper** fliken.  
      b. Klicka på knappen **Lägg till** högst upp.  
      c. Ange information för registreringslistan när panelen ”Lägg till grupp för registrering” visas.  **Gruppnamn** krävs. Även välja ”CA: N eller mellanliggande” för **certifikattyp**, och ladda upp roten **primära** för gruppen med enheter.  

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115371"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
 
@@ -50,10 +50,13 @@ Livemått stöds för närvarande för ASP.NET, ASP.NET Core, Azure Functions, J
 
 4. [Skydda kontrollkanalen](#secure-the-control-channel) om du kan använda känsliga data, till exempel Kundnamn i dina filter.
 
+### <a name="nodejs"></a>Node.js
+
+Du måste uppdatera till version 1,30 eller senare av SDK för att använda Live Metrics med Node.js. Som standard inaktiveras Live Metrics i Node.js SDK. För att aktivera Live Metrics Lägg till `setSendLiveMetrics(true)` till din [konfigurationsmetoder](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) som du initiera SDK.
+
 ### <a name="no-data-check-your-server-firewall"></a>Ser du inga data? Kontrollera serverbrandväggen
 
 Kontrollera den [utgående portar för Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) är öppen i brandväggen för dina servrar. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Hur skiljer sig Live Metrics Stream från Metrics Explorer och Analytics?
 
@@ -63,9 +66,8 @@ Kontrollera den [utgående portar för Live Metrics Stream](../../azure-monitor/
 |Inga kvarhållning|Data kvarstår medan den i diagrammet och sedan tas bort|[Data bibehålls i 90 dagar](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |På begäran|Data som strömmas medan du öppna Live Metrics|Informationen skickas när SDK är installerat och aktiverat|
 |Kostnadsfri|Det kostar inget Live Stream-data|Lyder [priser](../../azure-monitor/app/pricing.md)
-|Sampling|Alla valda mått och räknare överförs. Fel och stackspår samplas. TelemetryProcessors tillämpas inte.|Händelser kan vara [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
+|Samling|Alla valda mått och räknare överförs. Fel och stackspår samplas. TelemetryProcessors tillämpas inte.|Händelser kan vara [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
 |Kontrollkanal|Filterkontroll signaler skickas till SDK: N. Vi rekommenderar att du skyddar den här kanalen.|Kommunikationen är enkelriktade på portalen|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Välja och filtrera dina mått
 

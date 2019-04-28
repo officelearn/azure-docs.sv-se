@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f27e82e780917e00625ef6a14ab8317d1f5b8ae8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61323102"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrera från BizTalk Services till Azure Logic Apps
 
@@ -88,7 +88,7 @@ När inkommande konverteras till XML (eller om XML var meddelandeformat togs emo
 
 I BizTalk Services konverterar transformeringen scenen en XML-baserade meddelandeformat till en annan. Det här arbetet genom att tillämpa en karta, med hjälp av TRFM-baserade mappningen. Processen påminner om i Logic Apps. Transformering åtgärden kör en karta från ditt Integrationskonto. Den största skillnaden är att kartor i Logic Apps i XSLT-format. XSLT omfattar möjligheten att återanvända befintliga XSLT som du redan har, inklusive maps som skapats för BizTalk Server och som innehåller functoids. 
 
-### <a name="routing-rules"></a>Routningsregler
+### <a name="routing-rules"></a>Hanteringsregler
 
 BizTalk Services blir ett beslut om routning på vilken slutpunkt eller anslutningen att skicka inkommande meddelanden eller data. Möjligheten att välja från förkonfigurerade slutpunkter är möjlig med hjälp av routingalternativ som filter:
 
@@ -106,7 +106,7 @@ I BizTalk Services-bearbetning, lägger Enrich scenen till egenskaper meddelande
 
 BizTalk Services kan du [kör anpassad kod](https://msdn.microsoft.com/library/azure/dn232389.aspx) som laddas upp i din egen sammansättningar. Den här funktionen har implementerats av den [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) gränssnitt. Varje steg i bryggan innehåller två egenskaper (på Ange Inspector och på Avsluta Inspector) som tillhandahåller .NET-typ du har skapat som implementerar det här gränssnittet. Anpassad kod kan du utföra mer komplexa bearbetning av data och låter dig återanvända befintliga koden i sammansättningar som utför vanliga affärslogik. 
 
-Logic Apps tillhandahåller två huvudsakliga sätt att köra anpassad kod: Azure Functions och API Apps. Azure Functions kan skapas och anropa från logikappar. Se [Lägg till och kör anpassad kod för logic apps via Azure Functions](../logic-apps/logic-apps-azure-functions.md). Använd API-appar, en del av Azure App Service för att skapa dina egna utlösare och åtgärder. Läs mer om [skapar en anpassad API ska användas med Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
+Logic Apps tillhandahåller två huvudsakliga sätt att köra anpassad kod: Azure Functions och API-appar. Azure Functions kan skapas och anropa från logikappar. Se [Lägg till och kör anpassad kod för logic apps via Azure Functions](../logic-apps/logic-apps-azure-functions.md). Använd API-appar, en del av Azure App Service för att skapa dina egna utlösare och åtgärder. Läs mer om [skapar en anpassad API ska användas med Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
 
 Om du har anpassad kod i sammansättningar som anropas från BizTalk Services, kan du antingen flytta den här koden till Azure Functions eller skapa anpassade API: er med API Apps, beroende på vad du implementerar. Om du har kod som omsluter en annan tjänst som Logic Apps inte har en anslutning och sedan skapa en API-App och använder åtgärderna som innehåller till exempel din API-app i din logikapp. Om du har hjälpfunktioner eller bibliotek, är Azure Functions sannolikt det bästa valet.
 

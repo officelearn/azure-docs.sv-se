@@ -11,18 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 2646941e2384acf6d303615f564b65d616931180
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c00f703c5cfa606eaeb6ea0dea5fe5d754d3de5d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794260"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108092"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
 
 > [!NOTE]
 > Azure Monitor-dataplattform baseras på två grundläggande datatyper: Mått och loggar. Den här artikeln beskriver mått. Referera till [loggar i Azure Monitor](data-platform-logs.md) för en detaljerad beskrivning av loggar och till [Azure Monitor data platforn](data-platform.md) en jämförelse av två.
-
 
 Mått i Azure Monitor är lätt och kan stödja scenarier i nästan realtid vilket gör dem särskilt användbart för varningar och snabb identifiering av problem. Den här artikeln beskriver hur mått är strukturerade, vad du kan göra med dem och identifierar olika datakällor som lagrar data i mått.
 
@@ -42,7 +41,6 @@ I följande tabell visas de olika sätt som du kan använda måttdata i Azure Mo
 | Hämta | Komma åt mätvärden värden från en kommandorad med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Komma åt måttvärden från anpassade program med hjälp av [REST API](rest-api-walkthrough.md).<br>Komma åt mätvärden värden från en kommandorad med hjälp av [CLI](/cli/azure/monitor/metrics). |
 | Arkiv | [Arkivera](..//learn/tutorial-archive-data.md) prestanda eller hälsotillstånd historiken för dina resurser för efterlevnad, granskning eller rapportering offline. |
 
-
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Vad är data i Azure Monitor Metrics strukturerade?
 Data som samlas in av Azure Monitor Metrics lagras i en time series-databas som är optimerad för att analysera data med tidsstämpel. Varje uppsättning måttvärden är en tidsserie med följande egenskaper:
 
@@ -52,8 +50,6 @@ Data som samlas in av Azure Monitor Metrics lagras i en time series-databas som 
 * Ett Måttnamn
 * Själva värdet
 * Vissa mått kan ha flera dimensioner som beskrivs i [flerdimensionella mått](#multi-dimensional-metrics). Anpassade mått kan ha upp till 10 dimensioner.
-
-Mått i Azure lagras i 93 dagar. Du kan [skicka plattform mått för Azure Monitor-resurser till en Log Analytics-arbetsyta](diagnostic-logs-stream-log-store.md) för långsiktiga trender.
 
 ## <a name="multi-dimensional-metrics"></a>Flerdimensionella mått
 En av utmaningarna till måttdata är att det ofta har begränsad information för att ge ett sammanhang för insamlade värdena. Azure Monitor löser detta problem med flerdimensionella mått. Storleken på ett mått är namn / värde-par som innehåller ytterligare data för att beskriva mätvärdet. Till exempel ett mått _tillgängligt diskutrymme_ kan ha en dimension som kallas _enhet_ med värden _C:_, _D:_, vilket gör att visa antingen finns tillräckligt med diskutrymme på alla enheter eller för varje enhet individuellt.
@@ -101,6 +97,13 @@ Det finns tre grundläggande källor till mätvärden som samlats in från Azure
 
 **Anpassade mått** är mått som du definierar förutom standardmått som är automatiskt tillgängliga. Du kan [definiera anpassade mått i ditt program](../app/api-custom-events-metrics.md) som övervakas av Application Insights eller skapa anpassade mått för ett Azure-tjänsten med hjälp av den [anpassade mått-API](metrics-store-custom-rest-api.md).
 
+## <a name="retention-of-metrics"></a>Kvarhållning av mått
+För de flesta resurser i Azure lagras mått i 93 dagar. Det finns vissa undantag:
+  * **Klassiska gäst-OS-mått**. Klassiska OS gästmått bevaras i 14 dagar. För längre kvarhållning, bör du använda nya gäst-OS-mått som samlas in med [Windows diagnostik tillägget SÄKERHETSSPECIFIKA](../platform/diagnostics-extension-overview.md) och för Linux-datorer med [InfluxData Telegraf agenten](https://www.influxdata.com/time-series-platform/telegraf/).
+  * **Mätvärden för Application Insights loggbaserade**. Bakom scenen, [loggbaserade mått](../app/pre-aggregated-metrics-log-metrics.md) översätta till loggfrågor. Deras kvarhållning matchar kvarhållningen av händelser i underliggande loggar. För Application Insights-resurser lagras loggar i 90 dagar. 
+
+> [!NOTE]
+> Du kan [skicka plattform mått för Azure Monitor-resurser till en Log Analytics-arbetsyta](diagnostic-logs-stream-log-store.md) för långsiktiga trender.
 
 ## <a name="next-steps"></a>Nästa steg
 

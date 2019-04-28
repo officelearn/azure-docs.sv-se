@@ -9,11 +9,11 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483425"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Avgöra när du ska använda Azure Blobs, Azure Files eller Azure-diskar
 Microsoft Azure tillhandahåller flera funktioner i Azure Storage för att lagra och komma åt dina data i molnet. Den här artikeln täcker Azure Files, BLOB-objekt och diskar och har utformats för att hjälpa dig att välja mellan de här funktionerna.
@@ -56,7 +56,7 @@ I följande tabell jämförs Azure Files med Azure-diskar.
 |Scope|Exklusivt för en enskild virtuell dator|Delad åtkomst över flera virtuella datorer|  
 |Ögonblicksbilder och kopiera|Ja|Ja|  
 |Konfiguration|Ansluten vid start av den virtuella datorn|Ansluta till efter den virtuella datorn har startats|  
-|Authentication|Inbyggd|Konfigurera med net use|  
+|Autentisering|Inbyggd|Konfigurera med net use|  
 |Åtkomst med hjälp av REST|Filer i den virtuella Hårddisken kan inte nås|Filer som lagras på en resurs kan nås|  
 |Maxstorlek|4 TiB-disk|5 TiB-filresurser och 1 TiB-fil i resursen|  
 |Maximalt antal IOps|500 IOps|1 000 IOps|  

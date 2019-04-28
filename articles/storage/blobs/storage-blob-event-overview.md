@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61427629"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
 
@@ -43,24 +43,24 @@ BLOB storage-händelser innehåller all information du behöver för att svara p
 
 > |Egenskap |Typ|Beskrivning|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |ämne|sträng|Fullständig Azure Resource Manager-id för det lagringskonto som genererar händelsen.|
-> |ämne|sträng|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
-> |eventTime|sträng|Datum/tid som händelsen har genererats i ISO 8601-format|
-> |Händelsetyp|sträng|"Microsoft.Storage.BlobCreated" or "Microsoft.Storage.BlobDeleted"|
-> |Id|sträng|Unik identifierare om den här händelsen|
-> |dataVersion|sträng|Dataobjektets schemaversion.|
-> |metadataVersion|sträng|Schemaversion för översta egenskaper.|
+> |ämne|string|Fullständig Azure Resource Manager-id för det lagringskonto som genererar händelsen.|
+> |ämne|string|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
+> |eventTime|string|Datum/tid som händelsen har genererats i ISO 8601-format|
+> |Händelsetyp|string|"Microsoft.Storage.BlobCreated" or "Microsoft.Storage.BlobDeleted"|
+> |Id|string|Unik identifierare om den här händelsen|
+> |dataVersion|string|Dataobjektets schemaversion.|
+> |metadataVersion|string|Schemaversion för översta egenskaper.|
 > |data|objekt|Insamling av data för blob storage-händelse|
-> |data.contentType|sträng|Innehållstypen för bloben som ska returneras i Content-Type-rubriken från blob|
+> |data.contentType|string|Innehållstypen för bloben som ska returneras i Content-Type-rubriken från blob|
 > |data.contentLength|nummer|Storleken på blobben som heltal som motsvarar ett antal byte som ska returneras i Content-Length-huvudet från blob.  Skickas med BlobCreated händelse, men inte med BlobDeleted.|
-> |data.url|sträng|URL: en för det objekt som omfattas av händelsen|
-> |data.eTag|sträng|Etag för objektet när den här händelsen utlöses.  Inte tillgängligt för händelsen BlobDeleted.|
-> |data.api|sträng|Namnet på api-åtgärden som utlöste händelsen. Det här värdet är ”PutBlob”, ”PutBlockList” eller ”CopyBlob” för BlobCreated händelser. Det här värdet är ”DeleteBlob” för BlobDeleted händelser. Dessa värden är samma api-namn som finns i diagnostikloggar för Azure Storage. Se [loggade åtgärder och statusmeddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
-> |data.sequencer|sträng|En täckande strängvärde som representerar den logiska ordningsföljden händelser för ett visst blobnamn.  Användare kan använda vanlig strängjämförelse för att förstå den relativa sekvensen av två händelser på samma blobnamn.|
-> |data.requestId|sträng|Tjänstgenererade begäran-id för storage API-åtgärden. Kan användas för att korrelera till Azure Storage diagnostik loggar med ”rubrik-begäran-id”-fältet i loggarna och returneras initierar API-anrop i rubriken ”x-ms-request-id”. Se [logga Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
-> |data.clientRequestId|sträng|Klient-angivna begäran-id för storage API-åtgärden. Kan användas för att korrelera till Azure Storage med hjälp av ”client-request-id”-fältet i loggarna för diagnostikloggar och kan anges i klientbegäranden med rubriken ”x-ms-client-request-id”. Se [logga Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+> |data.url|string|URL: en för det objekt som omfattas av händelsen|
+> |data.eTag|string|Etag för objektet när den här händelsen utlöses.  Inte tillgängligt för händelsen BlobDeleted.|
+> |data.api|string|Namnet på api-åtgärden som utlöste händelsen. Det här värdet är ”PutBlob”, ”PutBlockList” eller ”CopyBlob” för BlobCreated händelser. Det här värdet är ”DeleteBlob” för BlobDeleted händelser. Dessa värden är samma api-namn som finns i diagnostikloggar för Azure Storage. Se [loggade åtgärder och statusmeddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
+> |data.sequencer|string|En täckande strängvärde som representerar den logiska ordningsföljden händelser för ett visst blobnamn.  Användare kan använda vanlig strängjämförelse för att förstå den relativa sekvensen av två händelser på samma blobnamn.|
+> |data.requestId|string|Tjänstgenererade begäran-id för storage API-åtgärden. Kan användas för att korrelera till Azure Storage diagnostik loggar med ”rubrik-begäran-id”-fältet i loggarna och returneras initierar API-anrop i rubriken ”x-ms-request-id”. Se [logga Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
+> |data.clientRequestId|string|Klient-angivna begäran-id för storage API-åtgärden. Kan användas för att korrelera till Azure Storage med hjälp av ”client-request-id”-fältet i loggarna för diagnostikloggar och kan anges i klientbegäranden med rubriken ”x-ms-client-request-id”. Se [logga Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 > |data.storageDiagnostics|objekt|Diagnostikdata som ibland inkluderas med Azure Storage-tjänsten. När det finns, ska ignoreras av händelsekonsumenter.|
-|data.blobType|sträng|Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”.| 
+|data.blobType|string|Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”.| 
 
 Här är ett exempel på en händelse som BlobCreated:
 ```json

@@ -11,11 +11,11 @@ ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
 ms.openlocfilehash: fcefbcc07886cbae3db869596255fbe841e018ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58172809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61021090"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Självstudie: Skapa prognoser för framtida utgifter
 
@@ -26,7 +26,7 @@ Cloudyn hjälper dig att förutse framtida kostnader med hjälp av förbruknings
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha ett Azure-konto.
 - Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.

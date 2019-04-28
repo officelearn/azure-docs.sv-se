@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130219"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing GeoJSON-data
 
-Azure Maps [geofence-området hämta](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) och [POST geofence-området](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) API: er låter dig hämta närhet av en koordinat i förhållande till en angiven geofence-området eller uppsättning avgränsningstecken. Den här artikeln beskriver hur du förbereder geofence-området-data som kan användas i Azure Maps få och publicera API: et.
+Azure Maps [geofence-området hämta](/rest/api/maps/spatial/getgeofence) och [POST geofence-området](/rest/api/maps/spatial/postgeofence) API: er låter dig hämta närhet av en koordinat i förhållande till en angiven geofence-området eller uppsättning avgränsningstecken. Den här artikeln beskriver hur du förbereder geofence-området-data som kan användas i Azure Maps få och publicera API: et.
 
 Data för geofence-området eller uppsättning geofence-områdena representeras av `Feature` objekt och `FeatureCollection` objekt i `GeoJSON` format, som definieras i [rfc7946](https://tools.ietf.org/html/rfc7946). Förutom den:
 

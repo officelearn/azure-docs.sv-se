@@ -2,19 +2,27 @@
 title: Phoenix prestanda i Azure HDInsight
 description: Bästa praxis för att optimera prestanda för Phoenix.
 services: hdinsight
+documentationcenter: ''
+tags: azure-portal
 author: ashishthaps
-ms.reviewer: jasonh
+manager: jhubbard
+editor: cgronlun
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: da227151dd056dd5e852ae8790b6f20ac3c0c790
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 01/22/2018
+ms.date: 01/14/2019
+ms.author: v-yiso
+ms.openlocfilehash: 4fc4d1843ddb8d007ca062d928ebbddf90909583
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114315"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Metodtips för prestanda för Apache Phoenix
 
@@ -32,34 +40,34 @@ Den primära nyckeln som definierats i en tabell i Phoenix avgör hur data lagra
 
 Till exempel har en tabell för kontakter i förnamn, senaste namn, telefonnummer och adress, allt i samma kolumnserie. Du kan definiera en primärnyckel som baseras på ett ökande sekvensnummer:
 
-|rowkey|       Adress|   telefon| Förnamn| Efternamn|
+|rowkey|       adress|   phone| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Men om du frågar ofta efter efternamn kan den här primära nyckeln inte utföra, eftersom varje fråga kräver en fullständig tabellsökning att läsa värdet för varje efternamn. I stället kan du definiera en primärnyckel på lastName, firstName och personnummer kolumner. Det här sista kolumnen är att undvika två invånare med samma adress med samma namn, till exempel en far och son.
 
-|rowkey|       Adress|   telefon| Förnamn| Efternamn| socialSecurityNum |
+|rowkey|       adress|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Med den här nya primärnyckel raden skulle nycklar som genereras av Phoenix bli:
 
-|rowkey|       Adress|   telefon| Förnamn| Efternamn| socialSecurityNum |
+|rowkey|       adress|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole John 111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
+|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 I den första raden ovan visas data för rowkey som visas:
 
-|rowkey|       key|   värde| 
+|rowkey|       key|   value| 
 |------|--------------------|---|
-|  Dole John 111|Adress |1111 San Gabriel Dr.|  
-|  Dole John 111|telefon |1-425-000-0002|  
-|  Dole John 111|Förnamn |John|  
-|  Dole John 111|Efternamn |Dole|  
-|  Dole John 111|socialSecurityNum |111| 
+|  Dole-John-111|adress |1111 San Gabriel Dr.|  
+|  Dole-John-111|phone |1-425-000-0002|  
+|  Dole-John-111|firstName |John|  
+|  Dole-John-111|lastName |Dole|  
+|  Dole-John-111|socialSecurityNum |111| 
 
 Den här rowkey nu lagrar en kopia av data. Beakta storlek och antalet kolumner som du lägger till i den primära nyckeln, eftersom det här värdet som ingår i varje cell i den underliggande HBase-tabellen.
 
@@ -114,9 +122,9 @@ Skyddad index är index som innehåller data från rad förutom de värden som i
 
 Till exempel i det här exemplet kontaktar du tabellen som du kan skapa ett sekundärt index på bara kolumnen socialSecurityNum. Den här sekundära index skulle snabba upp frågorna som filtrera efter socialSecurityNum värden, men hämtning av andra fältvärden kräver en annan läsa mot huvudtabell.
 
-|rowkey|       Adress|   telefon| Förnamn| Efternamn| socialSecurityNum |
+|rowkey|       adress|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole John 111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
+|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Om du vill förmodligen att leta upp det förnamn och Efternamn baserat på socialSecurityNum, kan du skapa en skyddad index som innehåller förnamn och efternamn som faktiska data i indextabellen:

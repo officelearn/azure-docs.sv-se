@@ -3,20 +3,21 @@ title: Anslut till Office 365 Outlook – Azure Logic Apps | Microsoft Docs
 description: 'Hantera e-post, kontakter och kalendrar med Office 365 REST API: er och Azure Logic Apps'
 author: ecfan
 manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
+ms.author: v-yiso
+origin.date: 10/18/2016
+ms.date: 09/03/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 0355f121a09e1ba89f98a8af5037eb1371db2242
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105062"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Kom igång med Office 365 Outlook-anslutning
 Anslutningsappen för Office 365 Outlook gör det möjligt för interaktion med Outlook i Office 365. Använd den här anslutningen för att skapa, redigera, och uppdatera kontakter och kalenderobjekt, och även hämta, skicka och svara på e-post.

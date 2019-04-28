@@ -1,8 +1,8 @@
 ---
 title: H264, Enkel bithastighet, 16 x 9, SD, Audio 5.1 | Microsoft Docs
 description: Avsnittet ger en översikt över den **H264, enkel bithastighet, 16 x 9 SD, Audio 5.1** uppgiften förinställd.
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: 730854f572e1e2ab21140f53d59b7593ad26cb05
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463607"
 ---
-# <a name="h264-single-bitrate-16x9-sd-audio-51"></a>H264, Enkel bithastighet, 16 x 9, SD, Audio 5.1
+# <a name="h264-single-bitrate-16x9-sd-audio-51"></a>H264, enkel bithastighet, 16x9, SD, Audio 5.1
 `Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Det här avsnittet beskrivs de `H264 Single Bitrate 16x9 SD Audio 5.1` förinställda i XML- och JSON-format.  

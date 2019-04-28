@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478563"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export-tjänstens metadata och egenskapers filformat
 Du kan ange egenskaper för en eller flera blobbar och metadata som en del av ett importjobb eller en export-jobbet. Om du vill ange egenskaper för BLOB-objekt som skapas som en del av ett importjobb eller metadata, kan du ange en metadata eller egenskaper-fil på hårddisken som innehåller data som ska importeras. För ett exportjobb skrivs metadata och egenskapers till en fil för metadata eller egenskaper som ingår på hårddisken till dig.  
@@ -30,7 +30,7 @@ Formatet för en metadatafil är följande:
 </Metadata>  
 ```
   
-|XML Element|Type|Beskrivning|  
+|XML Element|Typ|Beskrivning|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Rotelement|Rotelementet filens metadata.|  
 |`metadata-name`|String|Valfri. XML-elementet anger namnet på metadata för bloben och dess värde anger värdet för inställningen metadata.|  
@@ -52,7 +52,7 @@ Formatet för en egenskapsfil är följande:
 </Properties>  
 ```
   
-|XML Element|Type|Beskrivning|  
+|XML Element|Typ|Beskrivning|  
 |-----------------|----------|-----------------|  
 |`Properties`|Rotelement|Rotelementet filens egenskaper.|  
 |`Last-Modified`|String|Valfri. Tid för senaste ändring för bloben. För export-jobb.|  

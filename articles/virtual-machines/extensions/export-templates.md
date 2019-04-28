@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: roiyz
 ms.openlocfilehash: f56cfeeede393dbdb9632ea4120d3a81e89f3f7c
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484050"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportera resursgrupper som innehåller VM-tillägg
 
@@ -40,8 +40,8 @@ Följande tillägg kan exporteras med funktionen för automation-skript.
 | Acronis säkerhetskopiering Linux | Docker-tillägg | Puppet-agenten |
 | BG Info | DSC-tillägg | Plats 24 x 7 Apm Insight |
 | BMC CTM agenten Linux | Dynatrace Linux | Linux platsservern 24 x 7 |
-| BMC CTM agenten Windows | Dynatrace Windows | Windows platsservern 24 x 7 |
-| Chef-klienten | HPE Security program Defender | Trend Micro DSA |
+| BMC CTM agenten Windows | Dynatrace Windows | Site 24x7 Windows Server |
+| Chef-klienten | HPE Security Application Defender | Trend Micro DSA |
 | Anpassat skript | IaaS program mot skadlig kod | Trend Micro DSA Linux |
 | Anpassat skripttillägg | IaaS-diagnostik | Åtkomst till virtuell dator för Linux |
 | Anpassat skript för Linux | Klienten för Linux-Chef | Åtkomst till virtuell dator för Linux |

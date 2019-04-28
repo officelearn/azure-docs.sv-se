@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61443030"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
 
@@ -57,7 +57,7 @@ Sedan distribuerar Time Series Insights som ytterligare en resurs i lösningen f
 
 1. Skapa din Time Series Insights-miljö använda värdena i tabellen nedan:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | Miljönamn | Följande skärmbild använder namnet **contorosrmtsi**. Välj ditt eget unika namn när du har slutfört det här steget. |
     | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
@@ -86,7 +86,7 @@ Skapa en ny händelsekälla att ansluta till din IoT-hubb. Se till att du använ
 
 1. Om du vill konfigurera din IoT-hubb som en ny händelsekälla, använda värdena i tabellen nedan:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn på händelsekälla | Följande skärmbild använder namnet **contosorm-iot-hub**. Använd ditt eget unika namn när du har slutfört det här steget. |
     | Källa | **IoT Hub** |

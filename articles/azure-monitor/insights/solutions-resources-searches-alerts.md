@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8590c9ef89e68a823beefd7e74a894edd219359
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
+ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104841"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
 
@@ -76,7 +76,7 @@ Inkludera [sparade sökningar](../../azure-monitor/log-query/log-query-overview.
 
 I följande tabell beskrivs varje egenskap för en sparad sökning.
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |:--- |:--- |
 | category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning kommer ofta att dela en enskild kategori så att de grupperas tillsammans i konsolen. |
 | displayname (visningsnamn) | Namn som ska visas på den sparade sökningen i portalen. |
@@ -120,11 +120,13 @@ En sparad sökning kan ha ett eller flera scheman med ett schema som representer
         }
     }
 Egenskaper för schema resurser beskrivs i följande tabell.
+
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
 | aktiverad       | Ja | Anger om aviseringen är aktiverad när den skapas. |
 | interval      | Ja | Hur ofta frågan körs på bara några minuter. |
 | queryTimeSpan | Ja | Lång tid i minuter under som du vill beräkna resultat. |
+
 Schema-resurs bör beror på den sparade sökningen så att den har skapats innan schemat.
 > [!NOTE]
 > Namn på schema måste vara unika i en viss arbetsyta; två scheman kan inte ha samma ID, även om de är associerade med olika sparade sökningar. Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics-API måste också vara med små bokstäver.
@@ -174,10 +176,10 @@ Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| Type | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
+| Typ | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
 | Namn | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
 | Beskrivning | Nej | Valfri beskrivning av aviseringen. |
-| Severity | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
+| Allvarsgrad | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Tröskelvärde
@@ -231,8 +233,8 @@ Varje schema har en **avisering** åtgärd. Detta definierar information om avis
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| Mottagare | Ja | Kommaavgränsad lista över e-postadresser för att skicka meddelande när en avisering skapas som i följande exempel.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Subjekt | Ja | Ämnesrad i e-postmeddelandet. |
+| Mottagare | Ja | Kommaavgränsad lista över e-postadresser för att skicka meddelande när en avisering skapas som i följande exempel.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
+| Subject | Ja | Ämnesrad i e-postmeddelandet. |
 | Bifogad fil | Nej | Bifogade filer stöds inte för närvarande. Om det här elementet ingår, bör den vara **ingen**. |
 
 ##### <a name="remediation"></a>Åtgärd
@@ -266,6 +268,7 @@ Om aviseringen anropar en webhook, så måste en åtgärd-resurs med en typ av *
       }
     }
 Egenskaper för Webhook-åtgärd resurser beskrivs i följande tabeller.
+
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
 | typ | Ja | Typ av åtgärd. Det här är **Webhook** för webhook-åtgärder. |

@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: d3d1769766053b513a98df153cb635ae148f26b1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: fc35077e00bc6322a815a52ca6ab3571a4e06d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60937806"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup på filnivå
 
@@ -36,7 +36,7 @@ Den här bilden visar dialogrutan säkerhetskopiering menyalternativets i SAP HA
 
 Det här alternativet låter enkelt och direkt framåt, finns men det några överväganden. Som tidigare nämnts, har en begränsning på antalet datadiskar som kan bifogas i en Azure-dator. Det kanske inte kapacitet för att lagra säkerhetskopiorna för SAP HANA i filsystem för den virtuella datorn, beroende på storleken på dataflödeskrav databasen och disk som kan handla om programvara striping över flera datadiskar. Olika alternativ för att flytta dessa säkerhetskopiorna och hantera begränsningarna som filen storlek och prestanda vid hantering av flera terabyte med data, finns senare i den här artikeln.
 
-Ett annat alternativ, vilket ger större frihet om total kapacitet är Azure blob storage. En enda blob är också begränsad till 1 TB, är den totala kapaciteten för en enda blob-behållare för närvarande 500 TB. Dessutom kan det ger kunderna möjlighet att välja s.k. &quot;lågfrekvent&quot; blob-lagring som har en kostnadsfördel. Se [Azure Blob Storage: frekvent och lågfrekvent lagringsnivå](../../../storage/blobs/storage-blob-storage-tiers.md) mer information om lågfrekvent åtkomstnivå av blob storage.
+Ett annat alternativ, vilket ger större frihet om total kapacitet är Azure blob storage. En enda blob är också begränsad till 1 TB, är den totala kapaciteten för en enda blob-behållare för närvarande 500 TB. Dessutom kan det ger kunderna möjlighet att välja s.k. &quot;lågfrekvent&quot; blob-lagring som har en kostnadsfördel. Se [Azure Blob Storage: Frekvent och lågfrekvent lagringsnivå](../../../storage/blobs/storage-blob-storage-tiers.md) mer information om lågfrekvent åtkomstnivå av blob storage.
 
 För ytterligare säkerhet, använder du ett lagringskonto med geo-replikerade säkerhetskopiorna för SAP HANA. Se [Azure Storage-replikering](../../../storage/common/storage-redundancy.md) mer information om replikering av lagringskontot.
 
@@ -70,7 +70,7 @@ Upprepa samma säkerhetskopieringen av programvara ansluten RAID med striping l�
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Kopiera säkerhetskopieringsfilerna för SAP HANA till Azure blob storage
 
-Ett annat alternativ att snabbt lagra säkerhetskopiorna för SAP HANA är Azure blob storage. En enda blob-behållare har en gräns på 500 TB, räcker för vissa mindre SAP HANA-system, användning M32ts, M32ls, M64ls och virtuella GS5-datorer typer av Azure, för att hålla tillräckligt med SAP HANA-säkerhetskopieringar. Kunderna kan välja mellan &quot;frekvent&quot; och &quot;kalla&quot; blob-lagring (se [Azure Blob Storage: frekvent och lågfrekvent lagringsnivå](../../../storage/blobs/storage-blob-storage-tiers.md)).
+Ett annat alternativ att snabbt lagra säkerhetskopiorna för SAP HANA är Azure blob storage. En enda blob-behållare har en gräns på 500 TB, räcker för vissa mindre SAP HANA-system, användning M32ts, M32ls, M64ls och virtuella GS5-datorer typer av Azure, för att hålla tillräckligt med SAP HANA-säkerhetskopieringar. Kunderna kan välja mellan &quot;frekvent&quot; och &quot;kalla&quot; blob-lagring (se [Azure Blob Storage: Frekvent och lågfrekvent lagringsnivå](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Med verktyget blobxfer är det enkelt att kopiera de säkerhetskopiera filerna för SAP HANA direkt till Azure blob storage.
 

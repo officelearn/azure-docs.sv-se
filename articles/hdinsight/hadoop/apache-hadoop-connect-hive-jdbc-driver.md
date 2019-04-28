@@ -1,7 +1,6 @@
 ---
 title: Fråga Apache Hive genom JDBC driver - Azure HDInsight
 description: Använda JDBC-drivrutinen från ett Java-program för att skicka Apache Hive-frågor till Hadoop på HDInsight. Anslut och programmässigt från SQuirrel SQL-klienten.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: dc088d3a6baa4198a1d5cb566b968c631ae5f2c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aaf54907ca0cf218b126fc9fc74080c02ef6cf6c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122123"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
@@ -24,7 +23,7 @@ Lär dig hur du använder JDBC-drivrutinen från ett Java-program för att skick
 
 Läs mer på gränssnittet Hive JDBC [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett HDInsight Hadoop-kluster. Om du vill skapa en [Kom igång med Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 * Den [Java Developer Kit (JDK) version 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) eller högre.
@@ -39,7 +38,7 @@ JDBC-anslutningar till ett HDInsight-kluster på Azure görs via port 443 och tr
 
 Ersätt `CLUSTERNAME` med namnet på HDInsight-klustret.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 När anslutningen upprättas, måste du använda HDInsight-kluster administratörsnamn och lösenord för att autentisera till kluster-gateway. När du ansluter från JDBC-klienter, till exempel SQuirreL SQL, måste du ange administratörsnamn och lösenord i klientinställningarna.
 

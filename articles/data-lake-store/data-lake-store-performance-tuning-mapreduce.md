@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: b661499786057a3083f79684dfd12c85266b7b5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b9e5d034db4711384d2ac8a1083da5c93ea11900
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437250"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestandajusteringsvägledning för MapReduce på HDInsight och Azure Data Lake Storage Gen1
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett konto med Azure Data Lake Storage Gen1**. Anvisningar för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
@@ -44,11 +44,11 @@ När du kör MapReduce-jobb, är här de viktigaste parametrar som du kan konfig
 
 ## <a name="guidance"></a>Riktlinjer
 
-**Steg 1: Fastställa antalet jobb som körs** -använder som standard MapReduce hela klustret för jobbet.  Du kan använda mindre i klustret med hjälp av mindre Mappningskomponenter än det finns tillgängliga behållare.  Riktlinjerna i det här dokumentet förutsätter att ditt program är det enda program som körs i klustret.      
+**Steg 1: Bestämma antalet jobb som körs** -använder som standard MapReduce hela klustret för jobbet.  Du kan använda mindre i klustret med hjälp av mindre Mappningskomponenter än det finns tillgängliga behållare.  Riktlinjerna i det här dokumentet förutsätter att ditt program är det enda program som körs i klustret.      
 
 **Steg 2: Ange mapreduce.map.memory/mapreduce.reduce.memory** – storleken på minnet för kartan och minska uppgifter är beroende av specifika jobbet.  Du kan minska minnesstorleken om du vill öka parallellkörningen.  Antal aktiviteter som körs samtidigt beror på antalet behållare.  Genom att minska mängden minne per mapper eller reducer kan fler behållare skapas, som aktiverar fler Mappningskomponenter och reducerare som körs samtidigt.  Minska mängden minne för mycket kan det orsaka vissa processer för att få slut på minne.  Om du får en heap-fel när du kör jobbet, bör du öka minne per mapper eller reducer.  Du bör överväga att lägga till fler behållare kommer att lägga till extra administration för varje ytterligare behållare som potentiellt kan försämra prestanda.  Ett annat alternativ är att få mer minne med hjälp av ett kluster som har större mängder minne eller öka antalet noder i klustret.  Mer minne kan fler behållare som ska användas, vilket innebär att större samtidighet.  
 
-**Steg 3: Bestäm totala YARN minne** – om du vill justera mapreduce.job.maps/mapreduce.job.reduces, bör du överväga att mängden totala YARN minne som är tillgängliga för användning.  Den här informationen är tillgänglig i Ambari.  Gå till YARN och visa fliken konfigurationer.  YARN-minne visas i det här fönstret.  Du bör multiplicera YARN-minne med antalet noder i klustret för att hämta den totala mängden YARN-minnet.
+**Steg 3: Fastställa totala YARN minne** – om du vill justera mapreduce.job.maps/mapreduce.job.reduces, bör du överväga att mängden totala YARN minne som är tillgängliga för användning.  Den här informationen är tillgänglig i Ambari.  Gå till YARN och visa fliken konfigurationer.  YARN-minne visas i det här fönstret.  Du bör multiplicera YARN-minne med antalet noder i klustret för att hämta den totala mängden YARN-minnet.
 
     Total YARN memory = nodes * YARN memory per node
 Om du använder ett tomt kluster kan minne vara den totala mängden minnet YARN för klustret.  Om andra program använder minne, kan du välja att bara använda en del av minnet för ditt kluster genom att minska antalet Mappningskomponenter och reducerare för hur många behållare som du vill använda.  
@@ -65,12 +65,12 @@ Schemaläggning av CPU- och CPU-isolering är inaktiverade som standard så att 
 
 Anta att du har ett kluster som består av 8 D14 noder och du vill köra ett i/o-intensiva jobb.  Här är beräkningar som du bör göra:
 
-**Steg 1: Fastställa antalet jobb som körs** – i vårt exempel antar vi att vår jobbet är bara en körning.  
+**Steg 1: Bestämma antalet jobb som körs** – i vårt exempel antar vi att vår jobbet är bara en körning.  
 
 **Steg 2: Ange mapreduce.map.memory/mapreduce.reduce.memory** – i vårt exempel du kör ett i/o-intensiva jobb och bestämma att 3 GB minne för kartan uppgifter är tillräckliga.
 
     mapreduce.map.memory = 3GB
-**Steg 3: Bestäm totala YARN-minne**
+**Steg 3: Fastställa totala YARN-minne**
 
     total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Steg 4: Beräkna antal YARN-behållare**

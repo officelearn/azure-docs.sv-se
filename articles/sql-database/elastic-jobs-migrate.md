@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475804"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrera till nya elastiska databasjobb
 
@@ -26,7 +26,7 @@ En uppgraderad version av [elastiska Databasjobb](elastic-jobs-overview.md) är 
 Om du har en befintlig kund finns version av [elastiska Databasjobb](sql-database-elastic-jobs-overview.md), migrerings-cmdlets och skript tillhandahålls för att enkelt migrera till den senaste versionen.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Uppgradering av Elastic Database-jobb har en ny uppsättning PowerShell-cmdletar för användning under migreringen. Dessa nya cmdletarna överför alla dina befintliga jobbautentiseringsuppgifter mål (inklusive databaser, servrar, anpassade samlingar), jobb-utlösare, scheman för datalagerjobb, jobbet innehållet och jobb över till en ny elastisk jobbagent.
 

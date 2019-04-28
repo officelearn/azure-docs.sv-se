@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 97fb21dc390bd365357f6395c72aa282423c83c9
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49640012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61344621"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Virtuell dator Test Drive-fliken
 
@@ -50,7 +50,7 @@ I följande tabell beskrivs syftet med och innehållet i de här fälten.
 | *Prenumerationsinformation för Test Drive-distribution* |  |
 | **Azure-prenumerations-Id** | Kan hämtas genom att logga in på [Microsoft Azure-portalen](https://ms.portal.azure.com) och klicka på **prenumerationer** på den vänstra menyraden. (Exempel: ”a83645ac-1234-5ab6-6789-1h234g764ghty”)    Den här identifieraren ska vara en GUID för formuläret `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
 | **Azure AD-klient-Id**    | Azure Active Directory-klient-ID.  Kan hämtas genom att logga in på [Microsoft Azure-portalen](https://ms.portal.azure.com) och klicka på **Azure Active Directory** på den vänstra menyraden, sedan klicka på **egenskaper** i den mellersta menyraden Kopiera sedan den **katalog-ID** i formuläret.  Den här identifieraren bör också vara ett GUID.  Om inget anges, måste du skapa en klient-ID för din organisation. |
-| **Azure AD App-Id**       | Identifierare för din registrerade Virtuella Azure-lösning  |
+| **Azure AD App Id**       | Identifierare för din registrerade Virtuella Azure-lösning  |
 | **Azure AD App-nyckel**      | Autentiseringsnyckeln för din registrerade lösning |
 |  |  |
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
 ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127887"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Aktivera synkronisering offline för din Xamarin.Forms-mobilapp
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -40,8 +40,8 @@ Offlinesynkronisering koden ingår i projektet genom att använda C# preprocesso
         #define OFFLINE_SYNC_ENABLED
 3. (Valfritt) Installera ett av följande SQLite runtime-paket för Windows-enheter måste:
 
-   * **Windows 8.1 Runtime:** installera [SQLite för Windows 8.1][3].
-   * **Windows Phone 8.1:** installera [SQLite för Windows Phone 8.1][4].
+   * **Windows 8.1 Runtime:** Installera [SQLite för Windows 8.1][3].
+   * **Windows Phone 8.1:** Installera [SQLite för Windows Phone 8.1][4].
    * **Universal Windows Platform** installera [SQLite för Universal Windows Universal][5].
 
      Även om snabbstarten inte innehåller en universell Windows-projektet, stöds universell Windows-plattformen med Xamarin Forms.

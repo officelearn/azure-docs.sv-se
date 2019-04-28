@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: mayg
 ms.openlocfilehash: 8f76d4e54133e4e899e707e666703a67310e8702
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61280493"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Växla över virtuella datorer och fysiska servrar 
 
 Den här artikeln beskrivs hur du redundansväxling för virtuella datorer och fysiska servrar som skyddas av Site Recovery.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 1. Innan du utför en redundansväxling gör en [redundanstest](site-recovery-test-failover-to-azure.md) så att allt fungerar som förväntat.
 1. [Förbered nätverket](site-recovery-network-design.md) på målplatsen innan du gör en redundansväxling.  
 

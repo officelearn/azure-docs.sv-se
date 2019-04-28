@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128591"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använda Windows PowerShell för StorSimple för att administrera din enhet
 
@@ -159,7 +159,7 @@ I följande tabell visas en sammanfattning av alla vanliga administrationsuppgif
 
 I Windows PowerShell för StorSimple är cmdlet hjälp tillgänglig. En aktuell version av den här hjälpen finns även tillgänglig, som du kan använda för att uppdatera hjälp på datorn.
 
-Få hjälp i det här gränssnittet är ungefär som i Windows PowerShell och de flesta av hjälp-relaterade cmdlets fungerar. Du hittar hjälp för Windows PowerShell online i TechNet-biblioteket: [Köra skript med Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
+Få hjälp i det här gränssnittet är ungefär som i Windows PowerShell och de flesta av hjälp-relaterade cmdlets fungerar. Du hittar hjälp för Windows PowerShell online: [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
 
 Här följer en kort beskrivning av typerna av hjälp för det här Windows PowerShell-gränssnittet, inklusive hur du uppdaterar hjälp.
 

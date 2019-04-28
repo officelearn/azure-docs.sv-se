@@ -10,11 +10,11 @@ ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
 ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479549"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript
  
@@ -103,7 +103,7 @@ bigint | Siffra (JavaScript kan bara representera heltal upp till exakt 2^53)
 DateTime | Datum (JavaScript stöder endast millisekunder)
 double | Tal
 nvarchar(MAX) | String
-Spela in | Objekt
+Spela in | Object
 Matris | Matris
 NULL | Null
 
@@ -116,7 +116,7 @@ JavaScript | Stream Analytics
 Tal | Bigint (om talet är avrundat och mellan long.MinValue och long.MaxValue, i annat fall stöds det inte)
 Date | DateTime
 String | nvarchar(MAX)
-Objekt | Spela in
+Object | Spela in
 Matris | Matris
 Null, odefinierad | NULL
 Annan typ (till exempel en funktion eller fel) | Stöds inte (resulterar i körningsfel)

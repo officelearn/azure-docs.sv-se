@@ -10,11 +10,11 @@ manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
 ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61316837"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analysverktyg för textbearbetning i Azure Search
 
@@ -40,7 +40,7 @@ Den används automatiskt på alla sökbara fält. Du kan åsidosätta standardin
 
 I följande lista beskrivs vilka analysverktyg är tillgängliga i Azure Search.
 
-| Kategori | Beskrivning |
+| Category | Beskrivning |
 |----------|-------------|
 | [Analysverktyget från Lucene](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Standard. Ingen specifikation eller konfiguration krävs. Den här allmänna analyzer utför även för de flesta språk och scenarier.|
 | Fördefinierade analysverktyg | Erbjuds en färdig produkt som är avsedd att användas som – är. <br/>Det finns två typer: specialiserade och språk. Vad gör dem ”fördefinierade” är att du referera till dem efter namn, utan konfiguration eller anpassning. <br/><br/>[Specialiserad (språkoberoende) analysverktyg](index-add-custom-analyzers.md#AnalyzerTable) används när Textinmatningar kräver särskild bearbetning eller minimal bearbetning. Icke-fördefinierade språkanalysverktyg inkluderar **Asciifolding**, **nyckelordet**, **mönstret**, **enkel**, **stoppa**, **Blanksteg**.<br/><br/>[Språkanalysverktyg](index-add-language-analyzers.md) används när du behöver omfattande språkliga stöd för enskilda språk. Azure Search har stöd för 35 Lucene-språkanalys och 50 analysverktyg för språkbearbetning av Microsoft. |

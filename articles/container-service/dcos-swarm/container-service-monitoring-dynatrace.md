@@ -10,11 +10,11 @@ ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119868"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(INAKTUELL) Övervaka ett Azure Container Service DC/OS-kluster med Dynatrace SaaS/hanterad
 
@@ -29,7 +29,7 @@ Följande bild visar Dynatrace UI:
 
 ![Dynatrace UI](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 [Distribuera](container-service-deployment.md) och [ansluta](./../container-service-connect.md) till ett kluster som konfigurerats av Azure Container Service. Utforska [Marathon-gränssnittet](container-service-mesos-marathon-ui.md). Gå till [ https://www.dynatrace.com/trial/ ](https://www.dynatrace.com/trial/) du ställer in en Dynatrace SaaS-konto.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Konfigurera Dynatrace distribution med Marathon

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341931"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Referensguide för Vydesigner visualisering delar i Azure Monitor
 Genom att använda Vydesigner i Azure Monitor kan skapa du en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
@@ -209,7 +209,7 @@ Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera 
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn, med början vid den aktuella vyn. |
 | Färg |Bakgrundsfärg för rubriken. |
 | **Header** | |
-| Bild |Bildfilen som visas i rubriken. |
+| Image |Bildfilen som visas i rubriken. |
 | Label (Etikett) |Den text som visas i rubriken. |
 | **Header** |**> Länk** |
 | Label (Etikett) |Länktext. |

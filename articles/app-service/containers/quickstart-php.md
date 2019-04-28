@@ -16,11 +16,11 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c0dde4c59c2fe9cde23a9f88c69f3e2673942812
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117695"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Skapa en PHP-app i App Service på Linux
 
@@ -169,7 +169,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: PHP-app med MySQL](tutorial-php-mysql-app.md)
+> [Självstudie: PHP-app med MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera PHP-app](configure-language-php.md)

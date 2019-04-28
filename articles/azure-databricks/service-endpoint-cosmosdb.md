@@ -8,11 +8,11 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126706"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Självstudier: Implementera Azure Databricks med en Cosmos DB-slutpunkt
 
@@ -55,7 +55,7 @@ Innan du börjar måste du göra följande:
 
 2. Fyll i **instansinformation** på den **grunderna** fliken med följande inställningar:
 
-   |Inställning|Value|
+   |Inställning|Värde|
    |-------|-----|
    |Prenumeration|*din prenumeration*|
    |Resursgrupp|*din resursgrupp*|
@@ -172,4 +172,4 @@ Ta bort resursgruppen, Azure Databricks-arbetsytan och alla relaterade resurser 
 I den här självstudien har du distribuerat en Azure Databricks-arbetsyta till ett virtuellt nätverk och används Cosmos DB Spark-anslutningsappen för att fråga Cosmos DB-data från Databricks. Om du vill veta mer om att arbeta med Azure Databricks i ett virtuellt nätverk kan du fortsätta till självstudien för att använda SQL Server med Azure Databricks.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Fråga en SQL Server Linux Docker-behållare i ett virtuellt nätverk från en Azure Databricks-anteckningsbok](vnet-injection-sql-server.md)
+> [Självstudie: Fråga en SQL Server Linux Docker-behållare i ett virtuellt nätverk från en Azure Databricks-anteckningsbok](vnet-injection-sql-server.md)

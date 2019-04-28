@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
 ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956338"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127420"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Ta bort en labb eller virtuell dator i ett labb i Azure DevTest Labs
 Den här artikeln visar hur du tar bort en labb eller virtuell dator i ett labb.
@@ -37,7 +37,7 @@ Om du vill ta bort ett labb, gör du följande åtgärder:
     ![Välj ditt labb](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. På den **labb** klickar du på **ta bort** i verktygsfältet. 
 
-    ![Ta bort knapp](media/devtest-lab-delete-lab-vm/delete-button.png)
+    ![Knappen Ta bort](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. På den **bekräftelse** anger du den **namn** om ditt labb och markera **ta bort**. 
 
     ![Bekräfta](media/devtest-lab-delete-lab-vm/confirm-delete.png)

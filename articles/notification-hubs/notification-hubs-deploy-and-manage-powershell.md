@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457846"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuera och hantera notification hubs med PowerShell
 
@@ -34,7 +34,7 @@ Om du måste också skapa en ny service bus-namnområde för notification Hub, s
 
 Hantera Meddelandehubbar stöds inte direkt av de cmdletar som ingår med Azure PowerShell. Det bästa sättet från PowerShell är att referera till Microsoft.Azure.NotificationHubs.dll-sammansättningen. Sammansättningen distribueras med den [Microsoft Azure Notification Hubs NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Azure är en prenumeration-baserad plattform. Läs mer om hur du skaffar en prenumeration, [köpalternativ], [Medlemserbjudanden], eller [kostnadsfri utvärderingsversion].
 - En dator med Azure PowerShell. Anvisningar finns i [installera och konfigurera Azure PowerShell].

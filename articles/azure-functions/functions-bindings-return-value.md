@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 01/14/2019
-ms.author: cshoe
+origin.date: 01/14/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739915"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437726"
 ---
 # <a name="using-the-azure-function-return-value"></a>Med hjälp av Azure funktionsreturvärde
 
@@ -23,8 +24,8 @@ Den här artikeln förklarar hur returnera värden work inuti en funktion.
 
 Du kan binda en funktion på språk som har ett returvärde [utdatabindning](./functions-triggers-bindings.md#binding-direction) till det returnera värdet:
 
-* I C# klassbiblioteket, gäller attributet utdata-bindning för returvärdet för metoden.
-* I andra språk, ställer du in den `name` -egenskapen i *function.json* till `$return`.
+- I C# klassbiblioteket, gäller attributet utdata-bindning för returvärdet för metoden.
+- I andra språk, ställer du in den `name` -egenskapen i *function.json* till `$return`.
 
 Om det finns flera utdatabindningar kan du använda det returnera värdet för endast en av dem.
 
@@ -32,11 +33,11 @@ I C# och C#-skript, olika sätt att skicka data till en utdatabindning är `out`
 
 Se språkspecifika exempel som visar användning av det returnera värdet:
 
-* [C#](#c-example)
-* [C#-skript (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
+- [C#](#c-example)
+- [C#-skript (.csx)](#c-script-example)
+- [F#](#f-example)
+- [JavaScript](#javascript-example)
+- [Python](#python-example)
 
 ## <a name="c-example"></a>C#-exempel
 
@@ -169,3 +170,4 @@ def main(input: azure.functions.InputStream) -> str:
 
 > [!div class="nextstepaction"]
 > [Fel i Azure Functions-bindning](./functions-bindings-errors.md)
+

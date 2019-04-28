@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 4bd143b37e4403d039108b4349b27604b6503e0e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123033"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Felsökning: Det gick inte att ta bort ett virtuellt nätverk i Azure
 
@@ -78,7 +78,7 @@ Den rekommendera borttagning ordningen är följande:
 2. Gateways
 3. IP-adresser
 4. Virtuella nätverk
-5. App Service-miljö (ASE)
+5. App Service Environment (ASE)
 
 ### <a name="check-whether-a-virtual-machine-is-still-running-in-the-virtual-network"></a>Kontrollera om en virtuell dator körs fortfarande i det virtuella nätverket
 

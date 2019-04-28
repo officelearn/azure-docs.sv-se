@@ -1,7 +1,6 @@
 ---
 title: Konfigurera inställningar för Spark - Azure HDInsight
 description: Så här konfigurerar du Spark för ett Azure HDInsight-kluster.
-services: hdinsight
 author: maxluk
 ms.author: maxluk
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 91f706b882c4f245dbd111b0f9cac269db6fd65f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 77f4ec9cce5d02ea4cbcc4968d02773a13edfe5b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098396"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurera Apache Spark-inställningar
 
@@ -69,7 +68,7 @@ Om du vill se konfigurationsvärden för Apache Spark, **Config historik**och v�
 Om du vill se och ändra enskilda konfigurationsvärden för Spark, markerar du en länk med ordet ”spark” i rubriken för länken.  Konfigurationer för Spark inkludera båda anpassade och avancerad konfiguration värdena i dessa kategorier:
 
 * Anpassade Spark2-standardinställningar
-* Anpassade Spark2-mått-egenskaper
+* Custom Spark2-metrics-properties
 * Avancerade Spark2-standardinställningar
 * Avancerade Spark2-env
 * Avancerade spark2-hive-plats-åsidosättande
@@ -112,7 +111,7 @@ I följande lista visar viktiga Spark-executor minne parametrar.
 
 * `spark.executor.memory` definierar den totala mängden tillgängligt minne för en executor.
 * `spark.storage.memoryFraction` (standard ~ 60%) definierar hur mycket minne som är tillgängliga för att lagra beständiga rdd-datauppsättningar.
-* `spark.shuffle.memoryFraction` (standard ca 20%) definierar hur mycket minne som är reserverade för shuffle.
+* `spark.shuffle.memoryFraction` (standard ~ 20%) definierar hur mycket minne som är reserverade för shuffle.
 * `spark.storage.unrollFraction` och `spark.storage.safetyFraction` (sammanlagt ~ 30% av det totala minnet) – dessa värden används internt av Spark och bör inte ändras.
 
 YARN styr högsta summan av minne som används av behållare på varje nod i Spark. Följande diagram visar per nod relationerna mellan konfigurationsobjekt för YARN och Spark-objekt.

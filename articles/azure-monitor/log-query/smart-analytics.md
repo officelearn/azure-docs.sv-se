@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2019
 ms.author: bwren
 ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61425852"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Log Analytics smart analytics-exempel
 Den här artikeln innehåller exempel som använder smart analytics funktioner i Log Analytics för analys av användaraktivitet. Du kan använda de här exemplen för att analysera dina egna program som övervakas av Application Insights, eller så kan du använda koncepten i de här frågorna för liknande analys på andra data. 

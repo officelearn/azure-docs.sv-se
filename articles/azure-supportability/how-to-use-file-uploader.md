@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 949d6b00b4e04921ea745dd4efa1b8a58c49f534
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995674"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure ny supportförfrågan filöverföring verktyget riktlinjer
 När du [skapa en supportbegäran](https://portal.azure.com/#create/Microsoft.Support), verktyget Filöverföring kan hjälpa dig att enkelt ladda upp diagnostiska filer eller andra filer som du tycker är relevant till incidenten.  

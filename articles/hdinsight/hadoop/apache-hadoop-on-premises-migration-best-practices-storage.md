@@ -1,7 +1,6 @@
 ---
 title: Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för lagring
 description: Läs om bästa metoder för att migrera lokala Hadoop-kluster till Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000070"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095293"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för lagring
 
@@ -172,11 +171,11 @@ HDInsight som standard har fullständig åtkomst till data i Azure Storage-konto
 
 5. För att begränsa åtkomsten till en behållare med signatur för delad åtkomst, lägger du till en anpassad post core-plats-konfiguration för klustret under Ambari HDFS Peeringkonfigurationer avancerade anpassad core-site Lägg till egenskap.
 
-6. Använd följande värden för den **nyckel** och **värdet** fält:
+6. Använd följande värden för den **nyckel** och **värdet** fält:
 
     **nyckeln**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Värdet**: SAS-NYCKELN som returneras av Python-program från steg 4 ovan.
 
-7. Klicka på den **Lägg till** knappen för att spara den här nyckeln och värdet och klicka sedan på den **spara** för att spara konfigurationsändringarna. När du uppmanas, lägga till en beskrivning av ändringen (”att lägga till SAS-lagringsåtkomst” till exempel) och klicka sedan på **spara**.
+7. Klicka på den **Lägg till** knappen för att spara den här nyckeln och värdet och klicka sedan på den **spara** för att spara konfigurationsändringarna. När du uppmanas, lägga till en beskrivning av ändringen (”att lägga till SAS-lagringsåtkomst” till exempel) och klicka sedan på **spara**.
 
 8. I Ambari-webbgränssnittet, Välj HDFS från listan till vänster och välj sedan **starta om alla påverkade** från de åtgärder som tjänsten listrutan till höger. När du uppmanas, väljer **bekräfta starta om alla**.
 

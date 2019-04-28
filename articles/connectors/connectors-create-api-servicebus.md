@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105588"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Exchange-meddelanden i molnet med Azure Service Bus och Azure Logic Apps
 
@@ -31,7 +31,7 @@ Med Azure Logic Apps och Azure Service Bus-anslutningen kan skapa du automatiser
 
 Du kan använda utlösare som får svar från Service Bus och göra utdata ska vara tillgängliga för andra åtgärder i dina logic apps. Du kan också ha andra åtgärder som använder utdata från Service Bus-åtgärder. Om du är nybörjare på Service Bus och Logic Apps kan du granska [vad är Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md) och [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
@@ -74,7 +74,7 @@ Bekräfta att logikappen har behörighet för att komma åt Service Bus-namnomr�
 
 1. Att lägga till en *utlösaren* till en tom logikapp i sökrutan anger du ”Azure Service Bus” som filter. Välj utlösaren som du vill under listan över utlösare. 
 
-   Till exempel för att utlösa logikappen när ett nytt objekt skickas till en Service Bus-kö, Välj den här utlösaren: **när ett meddelande tas emot i en kö (Komplettera automatiskt)**
+   Till exempel för att utlösa logikappen när ett nytt objekt skickas till en Service Bus-kö, Välj den här utlösaren: **När ett meddelande tas emot i en kö (Komplettera automatiskt)**
 
    ![Välj Service Bus-utlösare](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -95,7 +95,7 @@ Bekräfta att logikappen har behörighet för att komma åt Service Bus-namnomr�
    1. I sökrutan anger du ”Azure Service Bus” som filter. 
    Välj vilken åtgärd du önska under åtgärder. 
  
-      Till exempel väljer den här åtgärden: **skicka meddelande**
+      Till exempel Välj den här åtgärden: **Skicka meddelande**
 
       ![Välj Service Bus-åtgärd](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
@@ -118,7 +118,7 @@ Bekräfta att logikappen har behörighet för att komma åt Service Bus-namnomr�
 
 1. Ange informationen som krävs för din utlösare eller åtgärd. I det här exemplet gör de relevanta för din utlösare eller åtgärd: 
 
-   * **För exemplet utlösaren**: ange avsökningsintervall och frekvens för att kontrollera kön.
+   * **För exemplet utlösaren**: Ange avsökningsintervall och frekvens för att kontrollera kön.
 
      ![Konfigurera avsökningsintervall](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 

@@ -16,85 +16,83 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca43b62e66e3a736aa52fdd10fe36e635daba245
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d474d9bfd6016885eaa21afcea5d44d39c624084
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104637"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Samanage för automatisk användaretablering
 
-Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Samanage och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Samanage.
+Den här kursen visar hur du utför i Samanage och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och grupper till Samanage.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> Den här självstudien beskrivs en koppling som bygger på Azure AD-tjänst för användaretablering. Information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns [automatisera användaretablering och avetablering för software-as-a-service (SaaS)-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande:
+Det scenario som beskrivs i den här självstudien förutsätter att du har:
 
-* En Azure AD-klient
-* En [Samanage klient](https://www.samanage.com/pricing/) med professionella paketet
-* Ett användarkonto i Samanage med administratörsbehörighet
+* En Azure AD-klientorganisation.
+* En [Samanage klient](https://www.samanage.com/pricing/) med professionella paketet.
+* Ett användarkonto i Samanage med administratörsbehörighet.
 
 > [!NOTE]
-> Azure AD etablering integration förlitar sig på den [Samanage Rest API](https://www.samanage.com/api/), som är tillgängliga för Samanage utvecklare för konton med professionella paketet.
+> Azure AD etablering integration förlitar sig på den [Samanage Rest API](https://www.samanage.com/api/). Detta API är tillgängliga för Samanage utvecklare för konton med professionella paketet.
 
-## <a name="adding-samanage-from-the-gallery"></a>Lägga till Samanage från galleriet
+## <a name="add-samanage-from-the-azure-marketplace"></a>Lägg till Samanage från Azure Marketplace
 
-Du måste lägga till Samanage från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Samanage för automatisk användarförsörjning med Azure AD.
+Innan du konfigurerar Samanage för automatisk användarförsörjning med Azure AD kan du lägga till Samanage från Azure Marketplace till din lista över hanterade SaaS-program.
 
-**Utför följande steg för att lägga till Samanage från Azure AD-programgalleriet:**
+Följ dessa steg för att lägga till Samanage från Marketplace.
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den [Azure-portalen](https://portal.azure.com), i navigeringsfönstret till vänster, Välj **Azure Active Directory**.
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+    ![Azure Active Directory-ikonen](common/select-azuread.png)
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+2. Gå till **företagsprogram**, och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Lägg till ett nytt program genom att välja **Nytt program** längst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Samanage**, väljer **Samanage** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan anger **Samanage** och välj **Samanage** från panelen resultatet. Om du vill lägga till programmet, Välj **Lägg till**.
 
     ![Samanage i resultatlistan](common/search-new-app.png)
 
-## <a name="assigning-users-to-samanage"></a>Tilldela användare till Samanage
+## <a name="assign-users-to-samanage"></a>Tilldela användare till Samanage
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som är ”kopplade” till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras de användare eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Samanage. När du valt, kan du tilldela dessa användare och/eller grupper till Samanage genom att följa instruktionerna här:
-
-*   [Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Innan du konfigurerar och aktiverar automatisk användaretablering, kan du bestämma vilka användare eller grupper i Azure AD behöver åtkomst till Samanage. Om du vill tilldela dessa användare eller grupper Samanage, följer du anvisningarna i [tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Viktiga tips för att tilldela användare till Samanage
 
-*    Samanage roller fylls automatiskt och dynamiskt i Azure-portalens användargränssnitt idag. Se till att en initial synkronisering är slutfört mot Samanage att hämta de senaste rollerna i Samanage klienten innan du tilldelar Samanage roller till användare.
+*    Idag, fylls Samanage roller i Azure-portalens användargränssnitt automatiskt och dynamiskt. Innan du tilldelar Samanage roller till användare, se till att en inledande synkronisering slutförs mot Samanage att hämta de senaste rollerna i din Samanage-klient.
 
-*    Vi rekommenderar att en enda Azure AD-användare har tilldelats Samanage att testa din första automatisk användarförsörjning konfiguration. Ytterligare användare och/eller grupper kan tilldelas senare när testerna har lyckats.
+*    Vi rekommenderar att du tilldelar en enda Azure AD-användare till Samanage att testa din första automatisk användarförsörjning konfiguration. Du kan tilldela ytterligare användare och grupper senare när testerna har lyckats.
 
-*   När du tilldelar en användare till Samanage, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+*    När du tilldelar en användare till Samanage, Välj en giltig programspecifika roll om det finns i dialogrutan tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
 
-## <a name="configuring-automatic-user-provisioning-to-samanage"></a>Konfigurera automatisk användaretablering för Samanage
+## <a name="configure-automatic-user-provisioning-to-samanage"></a>Konfigurera automatisk användaretablering till Samanage
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD provisioning-tjänst för att skapa, uppdatera och inaktivera användare och/eller grupper i Samanage baserat på användare och/eller grupp tilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera den Azure AD-etableringstjänsten. Du kan använda den för att skapa, uppdatera och inaktivera användare eller grupper i Samanage baserat på tilldelningar för användare eller grupp i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Samanage, följa anvisningarna enligt den [Samanage enkel inloggning för självstudien](samanage-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om de här två funktionerna komplettera varandra.
+> Du kan också aktivera SAML-baserad enkel inloggning för Samanage. Följ instruktionerna i den [Samanage enkel inloggning för självstudien](samanage-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om de här två funktionerna kompletterar varandra.
 
-### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Konfigurera automatisk användaretablering för Samanage i Azure AD:
+### <a name="configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Konfigurera automatisk användaretablering för Samanage i Azure AD
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj **företagsprogram**väljer **alla program**och välj sedan **Samanage**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram** > **alla program** > **Samanage**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I programlistan väljer du **Samanage**.
 
-    ![Samanage-länken i programlistan](common/all-applications.png)
+    ![Länken Samanage i listan med program](common/all-applications.png)
 
 3. Välj den **etablering** fliken.
 
@@ -102,66 +100,70 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 4. Ange den **Etableringsläge** till **automatisk**.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
+    ![Samanage etablering läge](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **Admin Username** och **adminlösenord** för Samanage-kontot. Exempel på dessa värden är:
+5. Under den **administratörsautentiseringsuppgifter** anger administratörsanvändarnamn och administratörslösenord för Samanage-kontot. Exempel på dessa värden är:
 
-   * I den **Admin Username** fältet, fylla i användarnamnet för administratörskontot på Samanage-klienten. Exempel: admin@contoso.com.
+   * I den **Admin Username** kryssar du i användarnamnet för administratörskontot på Samanage-klienten. Ett exempel är admin@contoso.com.
 
-   * I den **adminlösenord** fältet, Fyll i lösenord för administratörskontot som motsvarar administratörens användarnamn.
+   * I den **adminlösenord** kryssar du i lösenordet för administratörskontot som motsvarar administratörens användarnamn.
 
-6. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Samanage. Om anslutningen misslyckas, kontrollera Samanage-kontot har administratörsbehörighet och försök igen.
+6. När du har fyllt i rutorna som visas i steg 5 väljer **Testanslutningen** för att se till att Azure AD kan ansluta till Samanage. Om anslutningen misslyckas se till att Samanage-kontot har administratörsbehörighet och försök igen.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/TestConnection.png)
+    ![Samanage Testa anslutning](./media/samanage-provisioning-tutorial/TestConnection.png)
 
-7. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan **skicka ett e-postmeddelande när ett fel inträffar**.
+7. I den **e-postmeddelande** anger du e-postadressen för personen eller grupp för att ta emot meddelanden etablering fel. Välj den **skicka ett e-postmeddelande när ett fel inträffar** markerar du kryssrutan.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/EmailNotification.png)
+    ![E-postmeddelande Samanage](./media/samanage-provisioning-tutorial/EmailNotification.png)
 
-8. Klicka på **Spara**.
+8. Välj **Spara**.
 
 9. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Samanage**.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/UserMappings.png)
+    ![Samanage Användarsynkronisering](./media/samanage-provisioning-tutorial/UserMappings.png)
 
-10. Granska användarattribut som synkroniseras från Azure AD till Samanage i den **attributmappningar** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Samanage för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+10. Granska användarattribut som synkroniseras från Azure AD till Samanage i den **attributmappningar** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Samanage för uppdateringsåtgärder. Om du vill spara ändringarna, Välj **spara**.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
+    ![Samanage matchande användarattribut](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
 
 11. Aktivera gruppmappningar under den **mappningar** väljer **synkronisera Azure Active Directory-grupper till Samanage**.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/GroupMappings.png)
+    ![Samanage Gruppsynkronisering](./media/samanage-provisioning-tutorial/GroupMappings.png)
 
-12. Ange **aktiverad** till **Ja** att synkronisera grupper. Granska Gruppattribut som synkroniseras från Azure AD till Samanage i den **attributmappningar** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Samanage för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+12. Ange **aktiverad** till **Ja** att synkronisera grupper. Granska Gruppattribut som synkroniseras från Azure AD till Samanage i den **attributmappningar** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Samanage för uppdateringsåtgärder. Om du vill spara ändringarna, Välj **spara**.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
+    ![Samanage matchande grupp-attribut](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
-13. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Om du vill konfigurera Omfångsfilter, följer du anvisningarna i den [målgrupp filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Om du vill aktivera den Azure AD-etableringstjänsten för Samanage, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
+14. Så här aktiverar du den Azure AD-etableringstjänsten för Samanage, i den **inställningar** ändrar **Etableringsstatus** till **på**.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
+    ![Samanage Etableringsstatus](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Ange användare och/eller grupper som du vill kan etableras på Samanage genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet. När du väljer den **synkronisera alla användare och grupper** alternativet bör du överväga att begränsningarna enligt beskrivningen i den **Connector begränsningar** nedan.
+15. Definiera de användare eller grupper som önskas kan etableras på Samanage. I den **inställningar** väljer du de värden som du vill ha i **omfång**. När du väljer den **synkronisera alla användare och grupper** alternativet bör du överväga att begränsningarna enligt beskrivningen i avsnittet ”Connector begränsningar”.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/ScopeSync.png)
+    ![Samanage omfång](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
-16. När du är redo att etablera, klickar du på **spara**.
+16. När du är redo att etablera väljer **spara**.
 
-    ![Samanage etablering](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
+    ![Samanage spara](./media/samanage-provisioning-tutorial/SaveProvisioning.png)
 
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Samanage.
+Den här åtgärden startar den första synkroniseringen av alla användare eller grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än senare synkroniseringar. De inträffar ungefär var 40 minut så länge den Azure AD-etableringtjänsten körs. 
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följa länkarna till aktivitetsrapporten för etablering. Rapporten beskriver de åtgärder som utförs av den Azure AD-etableringtjänsten på Samanage.
+
+Information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Begränsningar för anslutningen
 
-* Om den **synkronisera alla användare och grupper** är markerat och ett standardvärde har konfigurerats för Samanage **roller** attributet, se till att det önskade värdet under den **standardvärde om null (är valfritt)** fältet uttrycks i formatet **{”displayName”: ”roll”}** där roll är önskat standardvärde.
+Om du väljer den **synkronisera alla användare och grupper** och konfigurera ett värde för Samanage **roller** attributet värde under den **standardvärde om null (är valfri)** box måste anges i följande format:
+
+- {”displayName”: ”roll”}, där rollen är standardvärdet som du vill.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användarkontoetablering för företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

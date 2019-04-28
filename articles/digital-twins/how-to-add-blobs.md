@@ -10,11 +10,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926508"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Lägg till BLOB-objekt till objekt i Azure Digital Twins
 
@@ -53,14 +53,14 @@ JSON-blob-metadata överensstämmer med följande modell:
 
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
-| **parentId** | Sträng | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
-| **Namn** |Sträng | Ett mänskliga eget namn för blobben |
-| **typ** | Sträng | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
+| **parentId** | String | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
+| **Namn** |String | Ett mänskliga eget namn för blobben |
+| **typ** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob typ-ID - kan inte använda *typ* och *typeId* |
-| **Undertyp** | Sträng | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
+| **Undertyp** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID: T för blob - kan inte använda *undertyp* och *subtypeId* |
-| **Beskrivning** | Sträng | Anpassade beskrivning av blob |
-| **delning** | Sträng | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
+| **Beskrivning** | String | Anpassade beskrivning av blob |
+| **delning** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
 
 BLOB-metadata alltid anges som det första segmentet med **Content-Type** `application/json` eller som en `.json` fil. Fildata har angetts i det andra segmentet och kan vara vilken MIME-typ som stöds.
 
@@ -110,18 +110,18 @@ Individuellt returnerade blobar överensstämmer med följande JSON-schemat:
 
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
-| **ID** | Sträng | Den unika identifieraren för bloben |
-| **Namn** |Sträng | Ett mänskliga eget namn för blobben |
-| **parentId** | Sträng | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
-| **typ** | Sträng | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
+| **ID** | String | Den unika identifieraren för bloben |
+| **Namn** |String | Ett mänskliga eget namn för blobben |
+| **parentId** | String | Den överordnade entiteten associera bloben med (blanksteg, enheter eller användare) |
+| **typ** | String | Vilken typ av blob - kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob typ-ID - kan inte använda *typ* och *typeId* |
-| **Undertyp** | Sträng | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
+| **Undertyp** | String | Blob-undertyp - kan inte använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID: T för blob - kan inte använda *undertyp* och *subtypeId* |
-| **delning** | Sträng | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
-| **Beskrivning** | Sträng | Anpassade beskrivning av blob |
+| **delning** | String | Om blobben som kan delas - enum [`None`, `Tree`, `Global`] |
+| **Beskrivning** | String | Anpassade beskrivning av blob |
 | **contentInfos** | Matris | Anger Ostrukturerade metadatainformation inklusive version |
-| **FullName** | Sträng | Det fullständiga namnet på bloben |
-| **spacePaths** | Sträng | Sökvägen utrymme |
+| **FullName** | String | Det fullständiga namnet på bloben |
+| **spacePaths** | String | Sökvägen utrymme |
 
 BLOB-metadata alltid anges som det första segmentet med **Content-Type** `application/json` eller som en `.json` fil. Fildata har angetts i det andra segmentet och kan vara vilken MIME-typ som stöds.
 

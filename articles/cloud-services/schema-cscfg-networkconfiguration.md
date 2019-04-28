@@ -1,8 +1,9 @@
 ---
 title: NetworkConfiguration-Schema för Azure Cloud Services | Microsoft Docs
 ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+origin.date: 12/07/2016
+ms.date: 11/06/2017
+ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -10,17 +11,17 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
 caps.latest.revision: 28
-author: jpconnock
-ms.author: jeconnoc
+author: thraka
+ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: ed071d1da30a598eef830b4485c246ffae09c950
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fb833904502c0c42b46201fd46a368de0376277c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130284"
 ---
-# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure Cloud Services, Config NetworkConfiguration-Schema
+# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure Cloud Services Config NetworkConfiguration Schema
 
 Den `NetworkConfiguration` element i tjänstkonfigurationsfilen anger värden för virtuellt nätverk och DNS. De här inställningarna är valfria för molntjänster.
 
@@ -30,7 +31,7 @@ Du kan använda följande resurs om du vill veta mer om virtuella nätverk och a
 - [Molnet (klassisk) Tjänstdefinitionsschemat](schema-csdef-file.md)
 - [Skapa ett virtuellt nätverk (klassisk)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
 
-## <a name="networkconfiguration-element"></a>NetworkConfiguration-elementet
+## <a name="networkconfiguration-element"></a>NetworkConfiguration Element
 I följande exempel visas den `NetworkConfiguration` elementet och dess underordnade element.
 
 ```xml

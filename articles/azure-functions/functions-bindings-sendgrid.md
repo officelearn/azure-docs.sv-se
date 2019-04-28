@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437960"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindningar
 
@@ -255,12 +255,12 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**type**|| Krävs – måste vara inställd på `sendGrid`.|
-|**direction**|| Krävs – måste vara inställd på `out`.|
-|**name**|| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
+|**typ**|| Krävs – måste vara inställd på `sendGrid`.|
+|**riktning**|| Krävs – måste vara inställd på `out`.|
+|**Namn**|| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
 |**apiKey**|**ApiKey**| Namnet på en appinställning som innehåller din API-nyckel. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsSendGridApiKey”.|
-|**to**|**Till**| mottagarens e-postadress. |
-|**from**|**Från**| avsändarens e-postadress. |
+|**Att**|**Till**| mottagarens e-postadress. |
+|**Från**|**Från**| avsändarens e-postadress. |
 |**subject**|**Ämne**| den e-postmeddelandets ämne. |
 |**text**|**Text**| e-postinnehåll. |
 
@@ -288,7 +288,7 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|from|Saknas|Avsändarens e-postadress över alla funktioner.| 
+|från|Saknas|Avsändarens e-postadress över alla funktioner.| 
 
 
 ## <a name="next-steps"></a>Nästa steg

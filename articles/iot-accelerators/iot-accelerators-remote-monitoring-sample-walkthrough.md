@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: af09ea39f373d518d5600e3fa46adc378fd9236d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61442549"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Översikt över acceleratorn för fjärrövervakningslösning
 
@@ -102,7 +102,7 @@ Den [storage nätverkskort mikrotjänst](https://github.com/Azure/remote-monitor
 
 Värden är ordnade i samlingar. Du kan arbeta med enskilda värden eller hämta hela samlingar. Komplexa datastrukturer serialiseras av klienter och hanteras som nyttolasten för enkel text.
 
-Tjänsten tillhandahåller en RESTful-slutpunkt för CRUD-åtgärder på nyckel / värde-par. Värden
+Tjänsten tillhandahåller en RESTful-slutpunkt för CRUD-åtgärder på nyckel / värde-par. värden
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 

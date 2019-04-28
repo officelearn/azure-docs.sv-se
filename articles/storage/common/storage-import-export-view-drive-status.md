@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478053"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visa status för Azure Import/Export-jobb
 
@@ -34,7 +34,7 @@ Du ser något av följande jobbstatus beroende på om enheten är i processen.
 | Fraktas | När du levererar ditt paket ska du uppdatera spårningsinformation i Azure-portalen.  Detta aktiverar jobbet i **leverans** tillstånd. Jobbet finns kvar i den **leverans** tillstånd i upp till två veckor. 
 | Mottaget | När alla enheter har tagits emot i datacentret, jobbets status är inställd på **mottagna**. |
 | Överförs | När minst en enhet har startat bearbetning visas jobbets status är inställd på **överföra**. Mer information går du till [Enhetsstatus](#view-drive-status). |
-| Packas | När alla enheter har bearbetat jobbet placeras i **paketering** tillstånd förrän enheterna levereras till dig. |
+| Paketering | När alla enheter har bearbetat jobbet placeras i **paketering** tillstånd förrän enheterna levereras till dig. |
 | Slutfört | När alla enheter har skickats till dig om jobbet har slutförts utan fel, sedan jobbet anges till **slutförd**. Jobbet tas automatiskt bort efter 90 dagar i den **slutförd** tillstånd. |
 | Stängd | När alla enheter har skickats till dig, om det finns några fel under bearbetningen av jobbet, jobbet har tilldelats **stängd**. Jobbet tas automatiskt bort efter 90 dagar i den **stängd** tillstånd. |
 

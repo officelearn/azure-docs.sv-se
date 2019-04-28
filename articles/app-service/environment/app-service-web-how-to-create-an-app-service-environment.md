@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128898"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Så här skapar du en App Service Environment version 1 
 
@@ -34,7 +34,7 @@ App Service Environment (ASE) är ett Premium-tjänsten i Azure App Service som 
 ### <a name="before-you-create-your-ase"></a>Innan du skapar din ASE
 Det är viktigt att känna till de saker som du inte kan ändra. Dessa aspekter som du inte kan ändra om din ASE när den har skapats är:
 
-* Plats
+* Location
 * Prenumeration
 * Resursgrupp
 * Virtuella nätverket som används

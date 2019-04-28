@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485389"
 ---
 En tillgänglighetsuppsättning som hjälper dig att hålla dina virtuella datorer som är tillgängliga under avbrott, till exempel under underhåll. Placera två eller flera liknande konfiguration virtuella datorer i en tillgänglighetsuppsättning skapar stabilitet som krävs för att behålla tillgängligheten för program eller tjänster som den virtuella datorn körs. Mer information om hur det fungerar finns i [hantera tillgängligheten för virtuella datorer][Manage the availability of virtual machines].
 

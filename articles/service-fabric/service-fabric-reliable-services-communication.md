@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 15b45cadc69830827952d87ffc2315b06b07b02c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124999"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Hur du använder API: er för Reliable Services-kommunikation
 Azure Service Fabric som en plattform är helt oberoende om kommunikation mellan tjänster. Alla protokoll och stackar accepteras, från UDP till HTTP. Det är upp till tjänsten utvecklaren kan välja hur tjänster ska kommunicera. Reliable Services application framework tillhandahåller inbyggd kommunikation stackar samt API: er som du kan använda för att skapa dina anpassade kommunikationskomponenter.

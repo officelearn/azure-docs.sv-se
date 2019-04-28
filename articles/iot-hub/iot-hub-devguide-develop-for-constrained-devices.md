@@ -1,18 +1,26 @@
 ---
 title: Azure IoT Hub utveckla för begränsad enheter med hjälp av IoT Hub C SDK | Microsoft Docs
 description: Utvecklarguide – vägledning för hur du utvecklar med Azure IoT SDK för begränsad enheter.
-author: yzhong94
-ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: yizhon
+documentationcenter: c
+author: yzhong94
+manager: timlt
+editor: ''
+ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+origin.date: 05/24/2018
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320963"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Utveckla för begränsad enheter med hjälp av Azure IoT C SDK
 
@@ -44,7 +52,6 @@ cmake -Duse_amqp=OFF -Duse_http=OFF <Path_to_cmake>
 ### <a name="remove-sdk-logging-capability"></a>Ta bort SDK loggningsfunktioner
 
 C SDK innehåller omfattande loggning i hela för att hjälpa till med felsökning. Du kan ta bort loggningsfunktioner för produktionsenheter som använder följande cmake-kommandot:
-
 ```
 cmake -Dno_logging=OFF <Path_to_cmake>
 ```
@@ -80,7 +87,15 @@ C SDK stöder två programmeringsmodeller. En uppsättning har API: er med en _l
 En annan uppsättning API: erna utan den _lla_ index kallas bekvämlighet-lagret, där en arbetstråd kunde automatiskt. Till exempel bekvämlighet lager API: er för enhetsklienten kan hittas i den här [IoT Device Client huvudfil](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h). För begränsad enheter där varje extra tråd kan ta en betydande del av systemresurser, Överväg att använda _lla_ API: er.
 
 ## <a name="next-steps"></a>Nästa steg
-
 Läs mer om Azure IoT C SDK-arkitektur:
--   [Källkoden för Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/)
--   [Azure IoT-enhetens SDK för C-introduktion](iot-hub-device-sdk-c-intro.md)
+- [Källkoden för Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/)
+- [Azure IoT-enhetens SDK för C-introduktion](iot-hub-device-sdk-c-intro.md)
+
+------
+[lnk-cmake]: https://cmake.org/
+[lnk-devbox-setup]:  https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md
+[lnk-choosing-protocol]: iot-hub-devguide-protocols.md
+[lnk-hub-file-upload]: iot-hub-devguide-file-upload.md
+[lnk-strip]: https://en.wikipedia.org/wiki/Strip_(Unix)
+[lnk-serializer]: https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer
+[lnk-parson]: https://github.com/kgabis/parson

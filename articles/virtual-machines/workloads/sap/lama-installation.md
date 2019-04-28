@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
 ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463029"
 ---
-# <a name="sap-lama-connector-for-azure"></a>SAP LaMa connector för Azure
+# <a name="sap-lama-connector-for-azure"></a>SAP LaMa-anslutning för Azure
 
 [1877727]:https://launchpad.support.sap.com/#/notes/1877727
 [2343511]:https://launchpad.support.sap.com/#/notes/2343511

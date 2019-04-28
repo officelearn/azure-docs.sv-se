@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60910994"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Fliken för IoT Edge modul SKU: er
 
@@ -41,7 +41,7 @@ Den **SKU: er** fliken uppdateras och visar de fält som du redigerar om du vill
 
 |  **Fält**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-| **SKU-ID**       | Identifierare för denna SKU. Det här namnet med högst 50 tecken, som består av gemena alfanumeriska tecken eller bindestreck (-), men får inte sluta med ett bindestreck. **Obs:** du kan inte ändra det här namnet när erbjudandet är publicerat. Namnet är offentligt synlig i URL: er i produkten. |
+| **SKU ID**       | Identifierare för denna SKU. Det här namnet med högst 50 tecken, som består av gemena alfanumeriska tecken eller bindestreck (-), men får inte sluta med ett bindestreck. **Obs!** Du kan inte ändra det här namnet när erbjudandet är publicerat. Namnet är offentligt synlig i URL: er i produkten. |
 
 ## <a name="sku-details"></a>SKU-information
 
@@ -106,10 +106,10 @@ I följande tabell beskrivs syftet, innehåll, och formatering av fälten för:
 |  **Fält**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
 |  ***Avbildningsdetaljerna som lagringsplats***   |  |
-| **prenumerations-ID**        | Azure-prenumerations-ID för din ACR.|
+| **Prenumerations-ID**        | Azure-prenumerations-ID för din ACR.|
 | **Resursgruppens namn**      | Resursgruppens namn på din ACR.|
 | **Registernamn**  | Namnet för din ACR-registret. Bara kopiera registernamnet inte namnet på inloggningsservern (till exempel utan den `azurecr.io`.) |
-| **Databasnamn**  | Namnet på lagringsplatsen för din ACR som innehåller din IoT Edge-modul. **Obs:** när du har angett namnet kan inte ändras senare. Använd ett unikt namn för att säkerställa att inga andra erbjudanden i ditt konto har samma namn. |
+| **Databasnamn**  | Namnet på lagringsplatsen för din ACR som innehåller din IoT Edge-modul. **Obs!** När du har angett namnet kan den inte ändras senare. Använd ett unikt namn för att säkerställa att inga andra erbjudanden i ditt konto har samma namn. |
 | **Användarnamn** | Användarnamnet som är associerade med din ACR (administratörsanvändarnamn). |
 | **Lösenord** | Lösenordet som associeras med din ACR. |
 |  ***Avbildningsversion***   |  |

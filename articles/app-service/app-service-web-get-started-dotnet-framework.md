@@ -16,11 +16,11 @@ ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 8dc062a1c9490a03aa5369dc103db750d7531140
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635280"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117805"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -101,7 +101,7 @@ I dialogrutan **Konfigurera värdplan** använder du inställningarna i tabellen
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |App Service-plan| myAppServicePlan | Namnet på App Service-planen. |
-| Plats | Västra Europa | Datacenter som är värd för webbappen. |
+| Location | Västra Europa | Datacenter som är värd för webbappen. |
 | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
 Välj **OK**.

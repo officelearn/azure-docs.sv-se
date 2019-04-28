@@ -1,7 +1,6 @@
 ---
 title: Skapa Apache Hadoop-kluster med hjälp av Azure klassiska CLI - Azure HDInsight
 description: Lär dig hur du skapar HDInsight-kluster med hjälp av plattformsoberoende Azure klassiskt CLI.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 21985b009694dc5a21c65d4c9dc9536cf6c01a0e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128727"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Skapa HDInsight-kluster med den klassiska Azure-CLI
 
@@ -24,7 +23,7 @@ Stegen i den här genomgången för dokumentet som skapar ett HDInsight 3.5-klus
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

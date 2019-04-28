@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448159"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualisera fjärrövervakning data med Power BI
 
 Den här självstudien vägleder dig genom hur du ansluter din fjärrövervakning lösningsdata från CosmosDB till Power BI. Med den här anslutningen har upprättats, kan du sedan skapa dina egna anpassade instrumentpaneler och lägga till dem tillbaka till instrumentpanelen för fjärrövervakning av lösningen. Den här workstream möjliggör mer specialiserade diagram som ska skapas, förutom som direkt ur lådan. Du kan sedan använda den här självstudien för att integrera med andra dataströmmar eller skapa anpassade instrumentpaneler som ska konsumeras utanför din lösning för övervakning. Skapa instrumentpaneler i Power BI innebär att du kan också göra varje panel interagera med varandra som du väljer specifika delar. Exempelvis kan du kan ha ett filter som visar endast information om din simulerade lastbilar och varje del av instrumentpanelen skulle interagera så att du endast simulerade lastbil information. Du kan också utöka dessa steg för att använda din visualiseringsverktyg och anslutas till Cosmos-databasen eller anpassad databas om du har konfigurerat en om du vill använda ett verktyg än Power BI. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha en lösning för fjärrövervakning som för närvarande körs
 - Du måste ha åtkomst till [Azure-portalen](https://portal.azure.com) och din prenumeration som IoT Hub och lösningen körs

@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477152"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Använda Azure Storage för SQL Server-säkerhetskopiering och återställning
 ## <a name="overview"></a>Översikt
@@ -37,7 +37,7 @@ Det finns flera utmaningar som du stöter på när du säkerhetskopierar SQL Ser
 * **Hanterade maskinvara**: Det finns inga kostnader för maskinvara med Azure-tjänster. Azure-tjänster som hanterar maskinvaran och ange geo-replikering för redundans och skydd mot maskinvarufel.
 * **Obegränsad lagring**: Genom att aktivera en direkt säkerhetskopiering till Azure BLOB, har du åtkomst till nästan obegränsad lagring. Du kan också har säkerhetskopiera till en virtuell dator i Azure-disk gränser som baseras på storleken på datorn. Det finns en gräns för antalet diskar som du kan koppla till en Azure virtuell dator för säkerhetskopiering. Den här gränsen är 16 diskar för en extra stor instans och färre för mindre instanser.
 * **Säkerhetskopiera tillgänglighet**: Säkerhetskopior som lagras i Azure BLOB-objekt är tillgängliga från var som helst och när som helst och enkelt kan kommas åt för återställningar till en lokal SQL Server eller en annan SQL Server i en Azure-dator, utan att behöva koppla/frånkoppla databasen eller hämta och koppla den virtuella Hårddisken.
-* **Kostnaden**: Betala bara för den tjänst som används. Vara kostnadseffektivt som ett alternativ för arkivet på annan plats och säkerhetskopiering. Finns i den [Azures priskalkylator](https://go.microsoft.com/fwlink/?LinkId=277060 "Priskalkylatorn"), och [priser för Azure artikeln](https://go.microsoft.com/fwlink/?LinkId=277059 "priser artikeln") för mer information.
+* **Kostnader**: Betala bara för den tjänst som används. Vara kostnadseffektivt som ett alternativ för arkivet på annan plats och säkerhetskopiering. Finns i den [Azures priskalkylator](https://go.microsoft.com/fwlink/?LinkId=277060 "Priskalkylatorn"), och [priser för Azure artikeln](https://go.microsoft.com/fwlink/?LinkId=277059 "priser artikeln") för mer information.
 * **Ögonblicksbilder av lagring**: När databasfilerna i en Azure-blob och du använder SQL Server 2016, kan du använda [av säkerhetskopiering](https://msdn.microsoft.com/library/mt169363.aspx) att utföra stort sett ögonblickliga säkerhetskopior och otroligt snabba återställningar.
 
 Mer information finns i [SQL Server-säkerhetskopiering och återställning med Azure Blob Storage-tjänsten](https://go.microsoft.com/fwlink/?LinkId=271617).
@@ -70,8 +70,8 @@ Följande SQL Server-komponenter som används när du säkerhetskopierar till Az
 1. Skapa ett Azure-konto om du inte redan har ett. Om du utvärderar Azure kan du överväga att den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 2. Gå sedan igenom något av följande självstudier som beskriver hur du skapar ett lagringskonto och utför en återställning.
    
-   * **SQLServer 2014**: [Självstudie: SQL Server 2014-säkerhetskopiering och återställning till Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-   * **SQLServer 2016**: [Självstudie: Med hjälp av Microsoft Azure Blob storage-tjänsten med SQL Server 2016-databaser](https://msdn.microsoft.com/library/dn466438.aspx)
+   * **SQL Server 2014**: [Självstudier: SQL Server 2014-säkerhetskopiering och återställning till Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2016**: [Självstudie: Med hjälp av Microsoft Azure Blob storage-tjänsten med SQL Server 2016-databaser](https://msdn.microsoft.com/library/dn466438.aspx)
 3. Granska ytterligare dokumentation från och med [SQL Server-säkerhetskopiering och återställning med Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj919148.aspx).
 
 Om du har några problem, läser du igenom avsnittet [SQL Server-säkerhetskopiering till URL: en metodtips och felsökning](https://msdn.microsoft.com/library/jj919149.aspx).

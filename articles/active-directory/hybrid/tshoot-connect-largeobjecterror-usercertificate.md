@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095497"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synkronisering: Hantera LargeObject-fel som orsakats av userCertificate-attributet
 
@@ -92,7 +92,7 @@ Det bör finnas en befintlig sync-regel som är aktiverad och konfigurerad för 
 
     | Attribut | Värde |
     | --- | --- |
-    | Riktning |**Utgående** |
+    | Direction |**Utgående** |
     | MV-objekttyp |**Person** |
     | Koppling |*namnet på din Azure AD-koppling* |
     | Objekttyp för anslutningen |**Användaren** |

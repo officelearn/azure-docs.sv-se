@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478631"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export-tjänstens manifestfilformat
 Manifestfilen enhet beskriver mappningen mellan i Azure Blob storage-blobbar och filer på enheten som består av ett import eller export-jobb. Manifestfilen för en import-åtgärd har skapats som en del av processen för att förbereda enheten och lagras på enheten innan enheten skickas till Azure-datacentret. När du exporterar, manifestet skapas och lagras på enheten av tjänsten Azure Import/Export.  
@@ -90,7 +90,7 @@ block-list ::=
 
 Dataelement och attribut för manifest-XML-format för enheten har angetts i tabellen nedan.  
   
-|XML Element|Type|Beskrivning|  
+|XML Element|Typ|Beskrivning|  
 |-----------------|----------|-----------------|  
 |`DriveManifest`|Rotelement|Rotelementet i manifestfilen. Alla andra element i filen är under det här elementet.|  
 |`Version`|Attribut, sträng|Versionen av manifestfilen.|  

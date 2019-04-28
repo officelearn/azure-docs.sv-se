@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: dineshm
 ms.subservice: common
 ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483459"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Lista över Azure Storage-resurser i C++
 Lista åtgärder är nyckeln till många utvecklingsscenarier med Azure Storage. Den här artikeln beskriver hur du mest effektivt räkna upp objekt i Azure Storage med på listan API: er som angavs i Microsoft Azure Storage-klientbiblioteket för C++.

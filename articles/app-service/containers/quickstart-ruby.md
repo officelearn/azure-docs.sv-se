@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 29126171a2d808153c7578d911e0725641ec39ff
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117643"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Skapa en Ruby on Rails-app med App Service i Linux
 
@@ -139,7 +139,7 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Ruby on Rails med Postgres](tutorial-ruby-postgres-app.md)
+> [Självstudie: Ruby on Rails med Postgres](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera Ruby-app](configure-language-ruby.md)

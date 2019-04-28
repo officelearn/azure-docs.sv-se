@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124653"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Vad är API:et för videosökning i Bing?
 
@@ -48,7 +48,7 @@ När du är redo att anropa API:et skapar du ett [Cognitive Services-API-konto](
 
 Använd [snabbstarten](csharp.md) för att snabbt komma igång med din första API-begäran.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * Referenssidan för [API för videosökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) innehåller listan över slutpunkter, rubriker och frågeparametrar som används för att begära sökresultat.
 

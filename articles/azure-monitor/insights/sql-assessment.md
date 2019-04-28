@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120655"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Azure Monitor
 
@@ -38,7 +38,7 @@ När du har lagt till lösningen och en utvärdering är klar, sammanfattande in
 
 ![Bild av SQL-hälsokontroll instrumentpanelen](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Hälsokontrollen för SQL-lösning kräver en version som stöds av .NET Framework 4 vara installerat på varje dator som har den Microsoft Monitoring Agent (MMA) installerat.  MMA-agenten används av System Center 2016 – Operations Manager och Operations Manager 2012 R2 och Azure Monitor.  
 * Lösningen har stöd för SQL Server version 2012, 2014 och 2016.

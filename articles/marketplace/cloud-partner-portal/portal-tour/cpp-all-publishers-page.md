@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: e2c780992143ab753dad1ca89b22593d20fdedc4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267110"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128693"
 ---
-# <a name="all-publishers-page"></a>Alla utgivare sidan
+# <a name="all-publishers-page"></a>Sidan med alla utgivare
 
 Den [ **alla utgivare** ](https://cloudpartner.azure.com/#publishers) sidan visar en lista över alla registrerade Microsoft cloud utgivare, inklusive utgivare unikt namn och visningsnamn. Du kan sortera efter kolumn eller ange en sträng för att filtrera resultaten.  Den här sidan visar även en **lägga till utgivaren** knappen, men den här knappen är endast aktiverad för administratörer av användarportalen.  När du väljer en utgivare i listan visas profilen för utgivaren.  Mer information finns i [hantera Utgivarprofil](./../../cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md).
 
@@ -30,7 +30,7 @@ Den [ **alla utgivare** ](https://cloudpartner.azure.com/#publishers) sidan visa
 
 Följande bild visar utgivaren lista filtrerad efter strängen contoso ”.  
 
-![Alla utgivare sidan](./media/all-publishers-page1.png)
+![Sidan med alla utgivare](./media/all-publishers-page1.png)
 
 När du klickar på den första posten visas profilsidan för Contoso.  Du kan bara redigera dina egna utgivarprofil.
 

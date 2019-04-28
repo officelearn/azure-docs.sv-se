@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
 ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120678"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du använder Azure Functions för att skapa ett sche
 
 Om det här är din första erfarenhet av att arbeta med C# funktioner, bör du läsa den [Azure Functions C# utvecklarreferens](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + Utför stegen i artikeln [skapa din första funktion med Visual Studio](functions-create-your-first-function-visual-studio.md) att skapa en lokal funktionsapp som riktar sig till version 2.x-körningen. Du måste också har publicerat ditt projekt till en funktionsapp i Azure.
 

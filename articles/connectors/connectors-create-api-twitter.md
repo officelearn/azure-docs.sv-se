@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104994"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Övervaka och hantera Twitter med hjälp av Azure Logic Apps
 
@@ -27,7 +27,7 @@ Med Azure Logic Apps och Twitter-anslutningen kan du kan skapa automatiserade up
 
 Du kan använda utlösare som få svar från ditt Twitter-konto och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Twitter-konto. Du kan också ha andra åtgärder som använder utdata från Twitter-åtgärder. När en ny tweet med en specifik hashtagg visas, kan du till exempel skicka meddelanden med Slack-anslutningsprogrammet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
@@ -70,15 +70,15 @@ Du kan använda utlösare som få svar från ditt Twitter-konto och se utdata so
 
 ## <a name="examples"></a>Exempel
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter-utlösare: när en ny tweet publiceras
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter-utlösare: När en ny tweet publiceras
 
 Den här utlösaren startar en logikapparbetsflöde när utlösaren upptäcker en ny tweet, till exempel hashtag, #Seattle. Till exempel när dessa tweets hittas, du kan lägga till en fil med innehållet i dessa tweets lagring, till exempel ett Dropbox-konto med hjälp av Dropbox-anslutningen. 
 
 Du kan ta ett villkor som berättigade tweets måste komma från användare med minst ett angivet antal följare.
 
-**Enterprise exempel**: du kan använda den här utlösaren för att övervaka tweets om ditt företag och laddar upp den tweets innehåll till en SQL-databas.
+**Enterprise exempel**: Du kan använda den här utlösaren för att övervaka tweets om ditt företag och överföra den tweets innehåll till en SQL-databas.
 
-### <a name="twitter-action-post-a-tweet"></a>Twitter-åtgärd: publicera en tweet
+### <a name="twitter-action-post-a-tweet"></a>Twitter-åtgärd: Publicera en tweet
 
 Den här åtgärden skickar en tweet, men du kan konfigurera åtgärden så att tweeten innehåller innehållet från tweets som hittades av den tidigare beskrivna utlösaren. 
 

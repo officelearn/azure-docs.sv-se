@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
 ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565132"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125703"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -26,7 +26,7 @@ Du distribuerar en lokal konfigurationsserver när du använder [Azure Site Reco
 
 Konfigurationsservern måste ställas in som en högtillgänglig VMware VM med vissa minimikraven på maskinvara och storlekskraven. Distribution av praktiskt och enkelt kan tillhandahåller Site Recovery en nedladdningsbar OVA (Open Virtualization program)-mall för att konfigurera konfigurationsservern som uppfyller alla föreskrivet krav som anges nedan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Maskinvarukraven för en konfigurationsserver sammanfattas i tabellen nedan.
 

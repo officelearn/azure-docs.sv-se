@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118119"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en formel för automatisk skalning för att skala beräkningsnoder i en Batch-pool
 
@@ -126,7 +126,7 @@ Dessa typer stöds i en formel:
 * double
 * doubleVec
 * doubleVecList
-* sträng
+* string
 * tidsstämpel--tidsstämpel är en sammansatt struktur som innehåller följande medlemmar:
 
   * år

@@ -17,18 +17,18 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108076"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Så här skapar du en Virtual Machine Scale Sets med Visual Studio
 Den här artikeln visar hur du distribuerar ett Azure Virtual Machine Scale Sets med hjälp av en Visual Studio-Resursgruppsdistribution.
 
 [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) är en Azure Compute-resurs för att distribuera och hantera en uppsättning liknande virtuella datorer med automatisk skalning och belastningsutjämning. Du kan etablera och distribuera Virtual Machine Scale Sets med hjälp av [Azure Resource Manager-mallar](https://github.com/Azure/azure-quickstart-templates). Azure Resource Manager-mallar kan distribueras med hjälp av Azure CLI, PowerShell, REST och även direkt från Visual Studio. Visual Studio innehåller en uppsättning exempel på mallar, som kan distribueras som en del av ett projekt för distribution av Azure resursgrupper.
 
-Azure-resursgrupp-distributioner är ett sätt att gruppera och publicera en uppsättning relaterade Azure-resurser i en enda Distributionsåtgärden. Du kan läsa mer om dem här: [skapa och distribuera Azure-resursgrupper via Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Azure-resursgrupp-distributioner är ett sätt att gruppera och publicera en uppsättning relaterade Azure-resurser i en enda Distributionsåtgärden. Du kan läsa mer om dem här: [Skapa och distribuera Azure-resursgrupper via Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="pre-requisites"></a>Förutsättningar
 För att komma igång med att distribuera Virtual Machine Scale Sets i Visual Studio, behöver du följande:

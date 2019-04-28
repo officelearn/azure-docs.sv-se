@@ -10,11 +10,11 @@ ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922994"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Referensdokumentation för Azure Digital Twins Swagger
 
@@ -104,7 +104,7 @@ Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | Name  | Ersätt med | Exempel |
+    | Namn  | Ersätt med | Exempel |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | Din URL för Management REST API-dokumentationen som finns i portalen  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 

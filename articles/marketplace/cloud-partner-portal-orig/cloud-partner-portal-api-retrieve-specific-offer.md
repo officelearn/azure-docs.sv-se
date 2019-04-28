@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9484cf0f549db94be8f1ac2363addca952a3cff3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61096071"
 ---
 <a name="retrieve-a-specific-offer"></a>Hämta ett specifikt erbjudande
 =========================
@@ -47,20 +47,20 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i d
 
 | **Namn**    | **Beskrivning**                                                                          | **Datatyp** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Exempel: Contoso                                                        | Sträng        |
-| offerId     | GUID som unikt identifierar erbjudandet.                                                 | Sträng        |
+| publisherId | publisherId. Exempel: Contoso                                                        | String        |
+| offerId     | GUID som unikt identifierar erbjudandet.                                                 | String        |
 | version     | Version av erbjudandet som hämtas. Som standard hämtas den senaste versionen av erbjudandet. | Integer       |
-| Fack-ID      | Facket som erbjudandet är att hämta kan vara något av:      <br/>  - `Draft` (standard) hämtar erbjudande-versionen för närvarande i utkastet.  <br/>  -  `Preview` hämtar erbjudande-version för närvarande i förhandsversion.     <br/>  -  `Production` hämtar erbjudande-version för närvarande i produktion.          |      Enum |
+| slotId      | Facket som erbjudandet är att hämta kan vara något av:      <br/>  - `Draft` (standard) hämtar erbjudande-versionen för närvarande i utkastet.  <br/>  -  `Preview` hämtar erbjudande-version för närvarande i förhandsversion.     <br/>  -  `Production` hämtar erbjudande-version för närvarande i produktion.          |      Enum |
 | API-versionen | Senaste versionen av API                                                                    | Date          |
 |  |  |  |
 
 
-<a name="header"></a>Sidhuvud
+<a name="header"></a>Huvud
 ------
 
 |  **Namn**          |   **Värde**            |
 |  ---------------   |  --------------        |
-|  Innehållstyp      | `application/json`     |
+|  Content-Type      | `application/json`     |
 |  Auktorisering     | `Bearer YOUR_TOKEN`    |
 |  |  |
 

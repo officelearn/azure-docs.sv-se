@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922019"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämför lagringsalternativ för användning med Azure HDInsight-kluster
 
@@ -29,9 +29,9 @@ I följande tabell sammanfattas de Azure Storage-tjänster som stöds med olika 
 | Lagringstjänst | Kontotyp | Namespace-typ | Tjänster som stöds | Stöds prestandanivåer | Stöds åtkomstnivåerna | HDInsight-version | Klustertyp |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Generell användning V2 | Hierarkiska (filsystem) | Blob | Standard | Frekvent, lågfrekvent, Arkiv | 3.6 + | Alla |
-|Azure Storage| Generell användning V2 | Objekt | Blob | Standard | Frekvent, lågfrekvent, Arkiv | 3.6 + | Alla |
-|Azure Storage| General-Purpose V1 | Objekt | Blob | Standard | Gäller inte | Alla | Alla |
-|Azure Storage| Blob Storage | Objekt | Blob | Standard | Frekvent, lågfrekvent, Arkiv | Alla | Alla |
+|Azure Storage| Generell användning V2 | Object | Blob | Standard | Frekvent, lågfrekvent, Arkiv | 3.6 + | Alla |
+|Azure Storage| General-Purpose V1 | Object | Blob | Standard | Gäller inte | Alla | Alla |
+|Azure Storage| Blob Storage | Object | Blob | Standard | Frekvent, lågfrekvent, Arkiv | Alla | Alla |
 |Azure Data Lake Storage Gen1| Gäller inte | Hierarkiska (filsystem) | Gäller inte | Saknas | Gäller inte | Endast 3.6 | Alla utom HBase |
 
 Läs mer på Azure Storage åtkomstnivåerna [Azure Blob storage: Premium (förhandsversion), lagringsnivåerna frekvent, lågfrekvent lagring och Arkivlagring](../storage/blobs/storage-blob-storage-tiers.md)
@@ -213,7 +213,7 @@ Data Lake Storage Gen1 använder Azure Active Directory för autentisering och a
 
 | **Funktion** | **Beskrivning** |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1 integreras med Azure Active Directory (Azure AD) för identitets- och åtkomsthantering för alla data som lagras i Data Lake Storage Gen1. Tack vare integreringen, Data Lake Storage Gen1 dra nytta av alla Azure AD-funktioner. Dessa funktioner inkluderar multifaktorautentisering, villkorlig åtkomst, rollbaserad åtkomstkontroll, övervakning av programanvändning, säkerhetsövervakning och avisering och så vidare. Data Lake Storage Gen1 stöder OAuth 2.0-protokollet för autentisering i REST-gränssnittet. Se [autentisering i Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| Autentisering |Data Lake Storage Gen1 integreras med Azure Active Directory (Azure AD) för identitets- och åtkomsthantering för alla data som lagras i Data Lake Storage Gen1. Tack vare integreringen, Data Lake Storage Gen1 dra nytta av alla Azure AD-funktioner. Dessa funktioner inkluderar multifaktorautentisering, villkorlig åtkomst, rollbaserad åtkomstkontroll, övervakning av programanvändning, säkerhetsövervakning och avisering och så vidare. Data Lake Storage Gen1 stöder OAuth 2.0-protokollet för autentisering i REST-gränssnittet. Se [autentisering i Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | Åtkomstkontroll |Data Lake Storage Gen1 ger åtkomstkontroll genom att stödja behörigheter av POSIX-typ som exponeras av WebHDFS-protokollet. Du kan aktivera ACL:er i rotmappen, i undermappar och i enskilda filer. Läs mer om hur åtkomstkontrollposter fungerar i kontexten för Data Lake Storage Gen1 [åtkomstkontroll i Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
 | Kryptering |Data Lake Storage Gen1 innehåller också kryptering för data som lagras i kontot. Du kan ange krypteringsinställningarna när du skapar ett Data Lake Storage Gen1-konto. Du kan välja att ha krypterade data eller välja Ingen kryptering. Mer information finns i [kryptering i Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). Anvisningar om hur du skapar en krypteringsrelaterad konfiguration finns i [Kom igång med Azure Data Lake Storage Gen1 med Azure portal](../data-lake-store/data-lake-store-get-started-portal.md). |
 

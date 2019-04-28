@@ -12,11 +12,11 @@ ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2b3ec3352d6e1939b195bbba87b8a824404346ae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61044608"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Uppgifter för att förbereda data för förbättrad Machine Learning
 Bearbeta data i förväg och rensa data är viktiga uppgifter som normalt måste utföras innan datauppsättning kan användas effektivt för machine learning. Rådata är ofta bort störande och otillförlitliga och kan sakna värden. Med hjälp av sådana data för modellering kan ge vilseledande resultat. Dessa uppgifter är en del av Team Data Science Process (TDSP) och följ vanligtvis en inledande undersökning av en datauppsättning som används för att identifiera och planera förbearbetning som krävs. Mer detaljerad information om TDSP-processen, se de steg som beskrivs i den [Team Data Science Process](overview.md).
@@ -89,7 +89,7 @@ Det finns olika metoder för att minska storleken på data för enklare datahant
 
 * **Registrera Sampling**: Exempel på dataposterna och bara välja representativa delmängden från data.
 * **Attributet Sampling**: Välj endast en delmängd av de viktigaste attribut från data.  
-* **Aggregering**: Dela upp data i grupper och lagra nummer för varje grupp. Dagliga intäkter numren på en restaurangkedja under de senaste 20 åren kan till exempel avgifter för månatlig intäkter att minska storleken på data.  
+* **Sammanställning**: Dela upp data i grupper och lagra nummer för varje grupp. Dagliga intäkter numren på en restaurangkedja under de senaste 20 åren kan till exempel avgifter för månatlig intäkter att minska storleken på data.  
 
 ## <a name="how-to-clean-text-data"></a>Hur du rensar textdata?
 **Textfält i tabelldata** får innehålla tecken som påverkar kolumner justering och/eller post gränser. För t.ex. inbäddade flikar i en fil med tabbavgränsade orsak kolumnen misspassning och inbäddade bryter tecken för ny rad poster rader. Olämplig text kodning hantering vid skrivning/läsning text leder till förlust av information, oavsiktligt introduktionen av oläsliga tecken, t.ex. null-värden, och kan också påverkar text parsning. Noggrann parsning och redigera kan krävas för att rensa textfält för rätt justering och/eller extrahera strukturerad data från för Ostrukturerade och halvstrukturerade textdata.

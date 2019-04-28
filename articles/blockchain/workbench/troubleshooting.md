@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: b55c84773d99c325689fbc5182e75c7cb108d00a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60896341"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench felsökning
 
@@ -46,7 +46,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 Skriptet godkänner följande parametrar:
 
-| Parameter  | Beskrivning | Krävs |
+| Parameter  | Beskrivning | Obligatoriskt |
 |---------|---------|----|
 | prenumerations-ID | Prenumerations-ID att skapa eller leta upp alla resurser. | Ja |
 | ResourceGroupName | Namnet på Azure-resursgrupp där Blockchain Workbench har distribuerats. | Ja |

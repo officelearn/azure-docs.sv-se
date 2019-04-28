@@ -3,17 +3,18 @@ title: Lägga till en panel i av lösningen för fjärrövervakning gränssnitt 
 description: Den här artikeln visar hur du lägger till en ny panel på instrumentpanelen för fjärrövervakning solution accelerator webbläsaren.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/05/2018
+origin.date: 10/05/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447071"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägga till en anpassad panel på instrumentpanelen för fjärrövervakning solution accelerator webbläsaren
 
@@ -24,7 +25,7 @@ Den här artikeln visar hur du lägger till en ny panel på en instrumentpanelss
 
 Exempel-panelen i den här artikeln visar på den befintliga instrumentpanelen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande programvara installerad på din lokala utvecklingsdator måste slutföra stegen i den här guiden:
 
@@ -45,7 +46,6 @@ Att komma igång, den **src/genomgången/komponenter/sidor/instrumentpanel/panel
 
 **examplePanel.js**
 
-[!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 Kopiera den **src/genomgången/komponenter/sidor/instrumentpanel/paneler/examplePanel** mappen till den **src/komponenter/sidor/instrumentpanel/paneler** mapp.
 

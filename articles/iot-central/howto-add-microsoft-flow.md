@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
 ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60887736"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
@@ -28,7 +28,7 @@ Använd Microsoft Flow för att automatisera arbetsflöden i många program och 
 
 Kolla in [mallarna Microsoft Flow](https://aka.ms/iotcentralflowtemplates) som ansluta IoT Central till andra tjänster, till exempel mobila meddelanden och Microsoft Teams.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Ett program för betala per användning
 - Ett Microsoft personlig eller arbets eller skolkonto för att logga in på Flow ([Läs mer om Microsoft Flow prenumerationsavtal](https://aka.ms/microsoftflowplans))

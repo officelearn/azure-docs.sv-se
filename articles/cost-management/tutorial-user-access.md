@@ -11,11 +11,11 @@ ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
 ms.openlocfilehash: e9bd7fb147f9789120776bc603768b4ace59e693
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61003893"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Självstudie: Tilldela åtkomst till Cloudyn-data
 
@@ -35,7 +35,7 @@ När du registrerade ditt Azure-avtal eller -konto skapades ett konto med admini
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha ett Azure-konto.
 - Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.

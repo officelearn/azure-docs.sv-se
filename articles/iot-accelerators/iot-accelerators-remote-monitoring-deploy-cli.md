@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447020"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
 
@@ -52,7 +52,7 @@ När du distribuerar solution accelerator, finns det flera alternativ som konfig
 | Alternativ | Värden | Beskrivning |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | En _grundläggande_ distribution är avsedd för testning och demonstrationer, alla mikrotjänster distribueras till en virtuell dator. En _standard_ distribution är avsedd för produktion, mikrotjänster distribueras till flera virtuella datorer. En _lokala_ distribution konfigurerar en Docker-behållare för att köra mikrotjänster på den lokala datorn och använder Azure molntjänster, till exempel lagring och Cosmos DB. |
-| Körning | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
+| Körmiljö | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
 
 Läs hur du använder alternativet för lokal distribution i [körs av lösningen för fjärrövervakning lokalt](iot-accelerators-remote-monitoring-deploy-local.md).
 

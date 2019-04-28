@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216854"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuera en internetuppkopplad belastningsutjämnare-lösning med IPv6 med en mall
 
@@ -57,7 +57,7 @@ Den här artikeln refererar till en mall som har publicerats i den [Azure-Snabbs
 
 3. Allt bladet klickar du på ”malldistribution”.
 
-    ![lb-ipv6-portal – steg 3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Klicka på ”Skapa”.
 

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61260472"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - exempel
 > [!NOTE]
@@ -30,7 +30,7 @@ Den [GitHub Azure-DataFactory databasen](https://github.com/azure/azure-datafact
 
 | Exempel | Beskrivning |
 |:--- |:--- |
-| [Genomgång av ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Det här exemplet innehåller en slutpunkt till slutpunkt-genomgång för att bearbeta loggfiler med hjälp av Azure Data Factory för att förvandla data från loggfiler i till insikter. <br/><br/>I den här genomgången Data Factory-pipeline samlar in exempelloggar, processer och berikar data från loggar med referensdata och omvandlar data för att utvärdera effekten av en marknadsföringskampanj som startades senast. |
+| [ADF Walkthrough](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Det här exemplet innehåller en slutpunkt till slutpunkt-genomgång för att bearbeta loggfiler med hjälp av Azure Data Factory för att förvandla data från loggfiler i till insikter. <br/><br/>I den här genomgången Data Factory-pipeline samlar in exempelloggar, processer och berikar data från loggar med referensdata och omvandlar data för att utvärdera effekten av en marknadsföringskampanj som startades senast. |
 | [JSON-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Det här exemplet visar JSON-exempel för vanliga scenarier. |
 | [Data om HTTP-Installationshämtaren exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Det här exemplet presenterar hämtning av data från en HTTP-slutpunkt i Azure Blob Storage med hjälp av anpassad .NET-aktivitet. |
 | [Mellan AppDomain punkt Net aktivitet exemplet](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Det här exemplet kan du skapa en anpassad .NET-aktivitet som inte är begränsad till sammansättningen-versioner som används av ADF-startprogrammet (till exempel WindowsAzure.Storage verze 4.3.0, Newtonsoft.Json v6.0.x osv.). |
@@ -77,12 +77,12 @@ Du kan använda den **exempel pipelines** panelen på startsidan på din datafab
     ![Bladet Datafabrik](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Exemplen i Visual Studio
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha följande installerat på datorn:
 
 * Visual Studio 2013 eller Visual Studio 2015
 * Hämta Azure SDK för Visual Studio 2013 eller Visual Studio 2015. Gå till [Azures hämtningssida](https://azure.microsoft.com/downloads/) och klicka på **VS 2013** eller **VS 2015** i **.NET**-avsnittet.
-* Hämta den senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Om du använder Visual Studio 2013 kan uppdatera du även plugin-programmet genom att göra följande: På menyn klickar du på **verktyg** -> **tillägg och uppdateringar** -> **Online** -> **Visual Studio-galleriet**  ->  **Microsoft Azure Data Factory-verktyg för Visual Studio** -> **uppdatering**.
+* Ladda ned det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Om du använder Visual Studio 2013 kan uppdatera du även plugin-programmet genom att göra följande: I menyn klickar du på **Verktyg** -> **Tillägg och uppdateringar** -> **Online** -> **Visual Studio-galleriet** -> **Microsoft Azure Data Factory-verktyg för Visual Studio** -> **Uppdatera**.
 
 ### <a name="use-data-factory-templates"></a>Använd Data Factory-mallar
 1. Klicka på **filen** på menyn, peka på **New**, och klicka på **projekt**.

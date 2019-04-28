@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.openlocfilehash: 07da7f8905d7b8952db852d3da1dab12884de509
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041806"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60932926"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Prestandatips för Azure Cosmos DB och Async Java
 
@@ -151,7 +151,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
 12. **Använda interna SSL-implementering för netty** Netty kan använda OpenSSL direkt för SSL-implementering stack för att få bättre prestanda. Om den här konfigurationen netty tillbaka till Javas standard SSL-implementering.
 
-    i Ubuntu:
+    on Ubuntu:
     ```bash
     sudo apt-get install openssl
     sudo apt-get install libapr1

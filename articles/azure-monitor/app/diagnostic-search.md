@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900266"
 ---
 # <a name="using-search-in-application-insights"></a>Använda sökning i Application Insights
 Search är en funktion i [Application Insights](../../azure-monitor/app/app-insights-overview.md) att du använder för att hitta och utforska enskilda telemetri-objekt, till exempel sidvisningar, undantag, eller webb-begäranden. Och du kan visa loggspårningar och händelser som du har kodat.
@@ -26,7 +26,7 @@ Search är en funktion i [Application Insights](../../azure-monitor/app/app-insi
 
 ## <a name="where-do-you-see-search"></a>Där ser du Search?
 
-### <a name="in-the-azure-portal"></a>I Azure portal
+### <a name="in-the-azure-portal"></a>I Azure-portalen
 
 Du kan öppna diagnostiksökning uttryckligen från bladet översikt över Application Insights i ditt program:
 
@@ -112,9 +112,9 @@ Du kanske vill ange ett adressintervall som sökningar över ett kortare interva
 
 En sökning efter fullständiga ord, inte delsträngar. Använd citattecken om du vill ange specialtecken.
 
-| sträng | är *inte* genom | men dessa gör att hitta |
+| string | är *inte* genom | men dessa gör att hitta |
 | --- | --- | --- |
-| HomeController.About |hem<br/>domänkontrollant<br/>ut | homecontroller<br/>om<br/>”homecontroller.about”|
+| HomeController.About |hem<br/>domänkontrollant<br/>ut | homecontroller<br/>om<br/>"homecontroller.about"|
 |USA|UNI<br/>valda|USA<br/>tillstånd<br/>USA och<br/>”USA”
 
 Här följer sökuttryck som du kan använda:

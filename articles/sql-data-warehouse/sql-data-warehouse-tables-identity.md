@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 5cb406a52cb8fa9b5e40d9b0775f4a616950f507
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935678"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Med IDENTITETEN för att skapa surrogate nycklar i Azure SQL Data Warehouse
 Rekommendationer och exempel för identitetsegenskapen för att skapa surrogate nycklar på tabeller i Azure SQL Data Warehouse.

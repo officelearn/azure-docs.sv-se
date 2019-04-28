@@ -5,27 +5,29 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61004016"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
 Den här artikeln hjälper dig att bättre förstå vilka data som ingår i Azure Cost Management. Och det förklarar hur ofta data bearbetas som samlas in, visas och stängda. Du faktureras för användningen av Azure varje månad. Dock avgör din typ av Azure-prenumeration då Faktureringsmånad slutar. Hur ofta kostnadshantering tar emot användning data varierar baserat på olika faktorer. Sådana faktorer är hur lång tid det tar för att bearbeta data och hur ofta användningen av faktureringssystemet generera i Azure-tjänster.
 
+Kostnadshantering omfattar all användning och inköp, inklusive reservationer och erbjudanden från tredje part för Enterprise Agreement (EA)-konton. Avtal för Microsoft-kund (MCA)-konton och prenumerationer med användningsbaserad betalning innefattar endast användning från Azure och Marketplace-tjänster. Support och andra kostnader ingår inte. Kostnader beräknas tills en faktura genereras och inte ta med i kredit.
+
 ## <a name="supported-microsoft-offers"></a>Microsoft-erbjudanden som stöds
 
 Följande information visar för närvarande stöds [Microsoft Azure erbjuder](https://azure.microsoft.com/support/legal/offer-details/) i Azure Cost Management.  Ett Azure-erbjudande är typ av Azure-prenumerationen som du har.
 
-| Kategori  | **Erbjudandets namn** | **Kvot-ID.** | **Erbjudandets nummer** |
+| Category  | **Erbjudandets namn** | **Kvot-ID.** | **Erbjudandets nummer** |
 | --- | --- | --- | --- |
 | **Azure Germany** | [Azure Tyskland betala per användning](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
@@ -49,7 +51,7 @@ Följande information visar för närvarande stöds [Microsoft Azure erbjuder](h
 
 I följande tabell visar erbjudanden som inte stöds.
 
-| Kategori  | **Erbjudandets namn** | **Kvot-ID.** | **Erbjudandets nummer** |
+| Category  | **Erbjudandets namn** | **Kvot-ID.** | **Erbjudandets nummer** |
 | --- | --- | --- | --- |
 | **Leverantörer av Molnlösningar (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Leverantörer av Molnlösningar (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
@@ -86,6 +88,7 @@ Följande tabeller visar data som har inkluderat eller inte finns i Cost Managem
 |   | Krediter - mer information finns i [villkoren för förklaras](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> azure tjänstanvändning baseras på reservation och förhandlas priser.
+
 <sup>2</sup> marketplace erbjuder användning är inte tillgänglig för användningsbaserad betalning, MSDN, och Visual Studio erbjuder just nu.
 
 **Metadata**
@@ -113,7 +116,7 @@ Prenumerationer med användningsbaserad betalning – om den aktuella fakturerin
 
 ### <a name="rerated-data"></a>Rerated data
 
-Om du använder den [Cost Management API: er](https://aka.ms/costmgmt/docs), PowerBI eller Azure-portalen för att hämta data, förväntar du dig den aktuella faktureringsperioden avgifter för att hämta klassificerade igen, och därmed ändra tills fakturan stängs.
+Om du använder den [Cost Management API: er](https://aka.ms/costmgmt/docs), Power BI eller Azure-portalen för att hämta data, förväntar du dig den aktuella faktureringsperioden avgifter för att hämta klassificerade igen, och därmed ändra tills fakturan stängs.
 
 ## <a name="usage-data-update-frequency-varies"></a>Uppdateringsfrekvensen för användning data varierar
 

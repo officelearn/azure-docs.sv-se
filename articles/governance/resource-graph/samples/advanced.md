@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732377"
 ---
 # <a name="advanced-resource-graph-queries"></a>Avancerade frågor för Resource Graph
 
@@ -22,7 +22,7 @@ Det första steget mot att förstå frågor med Azure Resource Graph är en grun
 Vi går igenom följande avancerade frågor:
 
 > [!div class="checklist"]
-> - [Hämta VMSS-kapacitet och storlek](#vmss-capacity)
+> - [Hämta VM scale set kapacitet och storlek](#vmss-capacity)
 > - [Lista alla taggnamn](#list-all-tags)
 > - [Virtuella datorer matchade av regex](#vm-regex)
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="language-support"></a>Språkstöd
+## <a name="language-support"></a>Stöd för språk
 
 Azure CLI (via ett tillägg) och Azure PowerShell (via en modul) har stöd för Azure Resource Graph. Kontrollera att din miljö är redo innan du kör någon av nedanstående frågor. Se [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) och [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) för anvisningar om hur du installerar och validerar din valda gränssnittsmiljö.
 
@@ -38,7 +38,7 @@ Azure CLI (via ett tillägg) och Azure PowerShell (via en modul) har stöd för 
 
 Den här frågan söker efter resurser för VM-skalningsuppsättningsresurser och hämtar olika typer av information om t.ex. den virtuella datorns storlek och skalningsuppsättningens kapacitet. Den här frågan använder `toint()`-funktionen för att konvertera kapaciteten till ett tal, så att den kan sorteras. Slutligen ändras kolumnernas namn till anpassade namngivna egenskaper.
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -57,7 +57,7 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 
 Den här frågan börjar med taggen och skapar ett JSON-objekt med alla unika taggnamn och deras motsvarande typer.
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -86,7 +86,7 @@ Den **matchar regex \@**  ger oss möjlighet att definiera regex så att de matc
 
 När matchningen efter namn är klar projicerar frågan namnet och sorterar efter namn, i stigande ordning.
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023746"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Använda Virtual Kubelet med Azure Kubernetes Service (AKS)
 
@@ -85,12 +85,12 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 De här argumenten är tillgängliga för den `aks install-connector` kommando.
 
-| Argument: | Beskrivning | Krävs |
+| Argument: | Beskrivning | Obligatoriskt |
 |---|---|:---:|
 | `--connector-name` | Namnet på ACI-Anslutningsappens.| Ja |
 | `--name` `-n` | Namnet på det hanterade klustret. | Ja |
 | `--resource-group` `-g` | Namnet på resursgruppen. | Ja |
-| `--os-type` | Container instances typ av operativsystem. Tillåtna värden: Båda, Linux, Windows. Standard: Linux. | Nej |
+| `--os-type` | Container instances typ av operativsystem. Tillåtna värden: Both, Linux, Windows. Standard: Linux. | Nej |
 | `--aci-resource-group` | Den resursgrupp där du kan skapa grupper för ACI-behållare. | Nej |
 | `--location` `-l` | Platsen som används för att skapa ACI-behållargrupper. | Nej |
 | `--service-principal` | Tjänstens huvudnamn som används för autentisering i Azure API: er. | Nej |

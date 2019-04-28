@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 67ec9765e4334330da04739dd5daa3be0d7c7342
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911115"
 ---
-# <a name="all-offers-page"></a>Alla erbjuder sidan
+# <a name="all-offers-page"></a>Sidan med alla erbjudanden
 
 Den [ **alla erbjudanden** ](https://cloudpartner.azure.com/#alloffers) sida gör det möjligt för partner att visa en lista över skapade erbjudanden, inklusive deras namn, typ, utgivare och aktuell status.  Du kan ange en sträng för att filtrera resultaten.   Meddelandefält längst ned på sidan visar antal aggregering och sidan och gör det möjligt att navigera mellan listsidorna. När du väljer ett erbjudande i den här listan visas erbjudandet i redigeraren associerade erbjudandet. 
 
@@ -30,7 +30,7 @@ Den [ **alla erbjudanden** ](https://cloudpartner.azure.com/#alloffers) sida gö
 
 Följande bild visar den **alla erbjudanden** sidan filtreras på strängen `Contoso`.
 
-![Alla erbjuder sidan](./media/all-offers-page1.png)
+![Sidan med alla erbjudanden](./media/all-offers-page1.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

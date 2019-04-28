@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: alinast
 ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924813"
 ---
 # <a name="egress-and-endpoints"></a>Utgående och slutpunkter
 
@@ -49,14 +49,14 @@ Händelser som skickas av IoT-objekt (till exempel enheter och sensorer) ska bea
 
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
-| id | sträng | Unik identifierare för händelsen. |
-| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| id | string | Unik identifierare för händelsen. |
+| ämne | string | Publisher-definierade sökvägen till ämne för händelsen. |
 | data | objekt | Händelsedata är specifika för resursprovidern. |
-| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
+| Händelsetyp | string | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| ämne | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
 
 Mer information om Event Grid-Händelseschema:
 

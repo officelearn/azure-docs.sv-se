@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61424146"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Användbara operatörer i Azure Monitor log-frågor
 
@@ -26,7 +26,7 @@ Tabellen nedan innehåller några vanliga funktioner ska användas för olika sc
 
 ## <a name="useful-operators"></a>Användbara operatorer
 
-Kategori                                |Relevanta Analytics-funktion
+Category                                |Relevanta Analytics-funktion
 ----------------------------------------|----------------------------------------
 Val av och kolumnen alias            |`project`, `project-away`, `extend`
 Temporära tabeller och konstanter          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 

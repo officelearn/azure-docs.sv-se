@@ -2,17 +2,18 @@
 title: Autentisera med Azure Container Registry från Azure Container Instances
 description: Lär dig hur du ger tillgång till avbildningar i ditt privata behållarregister med hjälp av en Azure Active Directory-tjänstobjekt från Azure Container Instances.
 services: container-registry
-author: dlepow
+author: rockboyfor
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: danlep
+origin.date: 04/23/2018
+ms.date: 03/25/2019
+ms.author: v-yeche
 ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61333586"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autentisera med Azure Container Registry från Azure Container Instances
 
@@ -34,12 +35,12 @@ Tjänstens huvudnamn bör också vara används när registret [administratörsan
 
 Om du vill starta en behållare i Azure Container Instances via ett huvudnamn för tjänsten, anger du dess ID för `--registry-username`, och dess lösenord för `--registry-password`.
 
-```azurecli-interactive
+```azurecli
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.io/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.io \
+    --image mycontainerregistry.azurecr.cn/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.cn \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61074879"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Användaren profilmallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
@@ -104,17 +104,17 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 > [!NOTE]
 >  Den [profil](#Profile), [program](#Applications), och [prenumerationer](#Subscriptions) mallar delar samma datamodell och ta emot samma malldata.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|`firstName`|sträng|Den aktuella användarens förnamn.|  
-|`lastName`|sträng|Efternamn för den aktuella användaren.|  
-|`companyName`|sträng|Företagsnamnet för den aktuella användaren.|  
-|`addresserEmail`|sträng|E-postadress för den aktuella användaren.|  
-|`developersUsageStatisticsLink`|sträng|Relativ URL för att visa analytics för den aktuella användaren.|  
+|`firstName`|string|Den aktuella användarens förnamn.|  
+|`lastName`|string|Efternamn för den aktuella användaren.|  
+|`companyName`|string|Företagsnamnet för den aktuella användaren.|  
+|`addresserEmail`|string|E-postadress för den aktuella användaren.|  
+|`developersUsageStatisticsLink`|string|Relativ URL för att visa analytics för den aktuella användaren.|  
 |`subscriptions`|Insamling av [prenumeration](api-management-template-data-model-reference.md#Subscription) entiteter.|Prenumerationer för den aktuella användaren.|  
 |`applications`|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program för den aktuella användaren.|  
-|`changePasswordUrl`|sträng|Relativ URL att ändra den aktuella användarens lösenord.|  
-|`changeNameOrEmailUrl`|sträng|Relativ URL ändra namn och e-post för den aktuella användaren.|  
+|`changePasswordUrl`|string|Relativ URL att ändra den aktuella användarens lösenord.|  
+|`changeNameOrEmailUrl`|string|Relativ URL ändra namn och e-post för den aktuella användaren.|  
 |`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösenord.|  
 |`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av inbyggda [grupper](api-management-key-concepts.md#groups).|  
   
@@ -325,17 +325,17 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 > [!NOTE]
 >  Den [profil](#Profile), [program](#Applications), och [prenumerationer](#Subscriptions) mallar delar samma datamodell och ta emot samma malldata.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|`firstName`|sträng|Den aktuella användarens förnamn.|  
-|`lastName`|sträng|Efternamn för den aktuella användaren.|  
-|`companyName`|sträng|Företagsnamnet för den aktuella användaren.|  
-|`addresserEmail`|sträng|E-postadress för den aktuella användaren.|  
-|`developersUsageStatisticsLink`|sträng|Relativ URL för att visa analytics för den aktuella användaren.|  
+|`firstName`|string|Den aktuella användarens förnamn.|  
+|`lastName`|string|Efternamn för den aktuella användaren.|  
+|`companyName`|string|Företagsnamnet för den aktuella användaren.|  
+|`addresserEmail`|string|E-postadress för den aktuella användaren.|  
+|`developersUsageStatisticsLink`|string|Relativ URL för att visa analytics för den aktuella användaren.|  
 |`subscriptions`|Insamling av [prenumeration](api-management-template-data-model-reference.md#Subscription) entiteter.|Prenumerationer för den aktuella användaren.|  
 |`applications`|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program för den aktuella användaren.|  
-|`changePasswordUrl`|sträng|Relativ URL att ändra den aktuella användarens lösenord.|  
-|`changeNameOrEmailUrl`|sträng|Relativ URL ändra namn och e-post för den aktuella användaren.|  
+|`changePasswordUrl`|string|Relativ URL att ändra den aktuella användarens lösenord.|  
+|`changeNameOrEmailUrl`|string|Relativ URL ändra namn och e-post för den aktuella användaren.|  
 |`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösenord.|  
 |`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av inbyggda [grupper](api-management-key-concepts.md#groups).|  
   
@@ -488,17 +488,17 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 > [!NOTE]
 >  Den [profil](#Profile), [program](#Applications), och [prenumerationer](#Subscriptions) mallar delar samma datamodell och ta emot samma malldata.  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|`firstName`|sträng|Den aktuella användarens förnamn.|  
-|`lastName`|sträng|Efternamn för den aktuella användaren.|  
-|`companyName`|sträng|Företagsnamnet för den aktuella användaren.|  
-|`addresserEmail`|sträng|E-postadress för den aktuella användaren.|  
-|`developersUsageStatisticsLink`|sträng|Relativ URL för att visa analytics för den aktuella användaren.|  
+|`firstName`|string|Den aktuella användarens förnamn.|  
+|`lastName`|string|Efternamn för den aktuella användaren.|  
+|`companyName`|string|Företagsnamnet för den aktuella användaren.|  
+|`addresserEmail`|string|E-postadress för den aktuella användaren.|  
+|`developersUsageStatisticsLink`|string|Relativ URL för att visa analytics för den aktuella användaren.|  
 |`subscriptions`|Insamling av [prenumeration](api-management-template-data-model-reference.md#Subscription) entiteter.|Prenumerationer för den aktuella användaren.|  
 |`applications`|Insamling av [program](api-management-template-data-model-reference.md#Application) entiteter.|Program för den aktuella användaren.|  
-|`changePasswordUrl`|sträng|Relativ URL att ändra den aktuella användarens lösenord.|  
-|`changeNameOrEmailUrl`|sträng|Relativ URL ändra namn och e-post för den aktuella användaren.|  
+|`changePasswordUrl`|string|Relativ URL att ändra den aktuella användarens lösenord.|  
+|`changeNameOrEmailUrl`|string|Relativ URL ändra namn och e-post för den aktuella användaren.|  
 |`canChangePassword`|boolesk|Om den aktuella användaren kan ändra sina lösenord.|  
 |`isSystemUser`|boolesk|Om den aktuella användaren är medlem i någon av inbyggda [grupper](api-management-key-concepts.md#groups).|  
   

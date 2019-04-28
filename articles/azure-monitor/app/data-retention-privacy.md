@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003591"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899256"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -28,7 +28,7 @@ Första kort svaret:
 * Standardmoduler moduler som kör ”out of box” är inte troligt att skicka känslig data till tjänsten. Telemetri är bekymrad över belastning, prestanda och användning mått, undantagsrapporter och andra diagnostikdata. Huvudanvändaren data visas i diagnostiska rapporter är webbadresserna. men din app i båda fallen bör inte Placera känsliga data i oformaterad text i en URL.
 * Du kan skriva kod som skickar ytterligare anpassad telemetri som hjälper dig med diagnostik- och användningsdata för övervakning. (Den här utökningsbarhet är en bra funktion i Application Insights.) Det skulle vara möjligt, av misstag skriva den här koden så att den inkluderar privata och andra känsliga data. Om ditt program fungerar med sådana data, installerar du en omfattande granskning processer för all kod som du skriver.
 * När du utvecklar och testar din app kan är det enkelt att granska vad som skickas av SDK. Data visas på windows-felsökning utdata av IDE och webbläsare. 
-* Data lagras i [Microsoft Azure](https://azure.com) servrar i USA eller Europa. (Men appen kan köras överallt.) Azure har [stark säkerhet bearbetar och uppfyller ett brett utbud av efterlevnadsstandarder](https://azure.microsoft.com/support/trust-center/). Endast du och din avsedda grupp har åtkomst till dina data. Microsoft-Personal kan ha begränsad åtkomst till den bara under vissa begränsade omständigheter med dina kunskaper. Den är krypterad under överföringen, även om inte på servrarna.
+* Data lagras i [Microsoft Azure](https://azure.com) servrar i USA eller Europa. (Men appen kan köras överallt.) Azure har [stark säkerhet bearbetar och uppfyller ett brett utbud av efterlevnadsstandarder](https://azure.microsoft.com/support/trust-center/). Endast du och din avsedda grupp har åtkomst till dina data. Microsoft-Personal kan ha begränsad åtkomst till den bara under vissa begränsade omständigheter med dina kunskaper. Den är krypterad under överföringen och i vila.
 
 Resten av den här artikeln utvecklar mer i detalj på dessa frågor. Det har utformats för att vara fristående, så att du kan visa den till kollegor som inte ingår i din arbetsgrupp.
 
@@ -127,12 +127,9 @@ Ja, vi använder https för att skicka data till portalen från nästan alla SDK
 
 Ja, en viss telemetri kanaler behålls data lokalt om en slutpunkt inte kan nås. Granska nedan för att se vilka ramverk och telemetri kanaler som påverkas.
 
-
 Telemetri kanaler som använder lokal lagring skapa tillfälliga filer i kataloger TEMP eller APPDATA som är begränsade till det specifika konto som kör ditt program. Detta kan inträffa när en slutpunkt har tillfälligt otillgänglig eller du når gränsen. När det här problemet har lösts återupptas telemetri kanalen skickar alla nya och beständiga data.
 
-
-Den här beständiga data är **inte krypterade** och vi rekommenderar starkt att omstrukturera din princip för datainsamling för att inaktivera insamling av personliga data. (Se [exportera och ta bort privata data](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) för mer information.)
-
+Den här bevarade data krypteras inte lokalt. Om det är ett problem kan du granska informationen och begränsa insamling av personliga data. (Se [exportera och ta bort privata data](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) för mer information.)
 
 Om en kund behöver du konfigurerar den här katalogen med specifika säkerhetskrav kan den konfigureras per framework. Kontrollera att processen som kör ditt program har skrivbehörighet till den här katalogen, men också kontrollera att den här katalogen skyddas för att undvika telemetriavlästa av oönskade användare.
 

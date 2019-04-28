@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
 ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924502"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Hur du använder Azure Digital Twins management API: er
 
@@ -47,7 +47,7 @@ I följande lista visas komponenterna i den digitala Twins-API: er.
 
 * [/ användare](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Users): Dessa API: er kan du koppla användare till din blanksteg, att hitta dessa individer vid behov. 
 
-* [/ system](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/System): Dessa API: er kan du hantera systemomfattande inställningar, till exempel standardtyper av blanksteg och sensorer. 
+* [/system](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/System): Dessa API: er kan du hantera systemomfattande inställningar, till exempel standardtyper av blanksteg och sensorer. 
 
 * [/roleAssignments](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/RoleAssignments): Dessa API: er kan du associera roller till entiteter, till exempel användar-ID, en användardefinierad funktion ID osv. Varje rolltilldelning innehåller ID för entitet som ska associera entitetstypen, ID för rollen ska associera, klient-ID och en sökväg som definierar den övre gränsen för den resurs som entiteten kan komma åt med kopplingen. Läs [i den här artikeln](security-role-based-access-control.md) för mer information.
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/01/2017
 ms.custom: seodec2018
 ms.openlocfilehash: 973623d6c4cb57518af2012bccf67c969146d23c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61076216"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Hur komplexa datatyper i Azure Search
 Externa datauppsättningar som används för att fylla ett Azure Search-index ibland omfattar hierarkisk eller kapslad underordnade strukturer som inte bryter snyggt i en tabular raduppsättning. Exempel på sådana strukturer kan inkludera flera platser och telefonnummer för en enda kund, flera färger och storlekar för en enda SKU flera författare till en enda bok, och så vidare. Modellering villkor, du kan se dessa strukturer kallas *komplexa datatyper*, *sammansatt datatyper*, *sammansatta datatyper*, eller *sammanställd datatyper*, för att nämna några.

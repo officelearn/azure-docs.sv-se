@@ -2,17 +2,18 @@
 title: SSH till noder i Azure Kubernetes Service (AKS)
 description: Lär dig hur du skapar en SSH-anslutning med Azure Kubernetes Service (AKS) klusternoder för felsökning och underhållsåtgärder.
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2019
-ms.author: iainfou
+origin.date: 03/05/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61031666"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med SSH till Azure Kubernetes Service (AKS) klusternoderna för underhåll och felsökning
 
@@ -34,14 +35,14 @@ Om du vill lägga till din SSH-nyckel till ett AKS-nod, utför du följande steg
 
 1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Ange din egen core resursgruppens namn och AKS-klusternamnet:
 
-    ```azurecli-interactive
+    ```azurecli
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. Lista de virtuella datorerna i AKS kluster resource gruppen med den [az vm list] [ az-vm-list] kommando. Dessa virtuella datorer är AKS-noder:
 
-    ```azurecli-interactive
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+    ```azurecli
+    az vm list --resource-group MC_myResourceGroup_myAKSCluster_chinaeast -o table
     ```
 
     Följande Exempelutdata visar AKS-noder:
@@ -49,14 +50,14 @@ Om du vill lägga till din SSH-nyckel till ett AKS-nod, utför du följande steg
     ```
     Name                      ResourceGroup                                  Location
     ------------------------  ---------------------------------------------  ----------
-    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
+    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_chinaeast  chinaeast
     ```
 
 1. Lägg till SSH-nycklar till noden genom att använda den [az vm user update] [ az-vm-user-update] kommando. Ange resursgruppens namn och sedan en av noderna i AKS som hämtades i föregående steg. Användarnamn för AKS-noder är som standard *azureuser*. Ange platsen för din egen SSH offentlig nyckel plats, till exempel *~/.ssh/id_rsa.pub*, eller klistra in innehållet i din offentliga SSH-nyckel:
 
-    ```azurecli-interactive
+    ```azurecli
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+      --resource-group MC_myResourceGroup_myAKSCluster_chinaeast \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
@@ -68,8 +69,8 @@ AKS-nodernas exponeras inte offentligt på Internet. SSH för AKS-noder kan du a
 
 Visa privat IP-adressen för ett AKS-kluster noden med den [az vm list-ip-adresser] [ az-vm-list-ip-addresses] kommando. Ange din egen AKS-kluster resursgruppens namn fick i ett tidigare [az-aks-visa] [ az-aks-show] steg:
 
-```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
+```azurecli
+az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_chinaeast -o table
 ```
 
 Följande Exempelutdata visar privata IP-adresserna för AKS-noder:
@@ -100,7 +101,7 @@ För att skapa en SSH-anslutning till ett AKS-nod, kör du en helper-pod AKS-klu
 
     ```
     $ kubectl get pods
-    
+
     NAME                       READY     STATUS    RESTARTS   AGE
     aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
     ```
@@ -123,22 +124,22 @@ För att skapa en SSH-anslutning till ett AKS-nod, kör du en helper-pod AKS-klu
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-    
+
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-    
+
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     [...]
-    
+
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 
@@ -154,12 +155,12 @@ Om du behöver ytterligare felsökning data, kan du [visa kubelet-loggar] [ view
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-vm-list]: /cli/azure/vm#az-vm-list
-[az-vm-user-update]: /cli/azure/vm/user#az-vm-user-update
-[az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
+[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-vm-list]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list
+[az-vm-user-update]: https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest#az-vm-user-update
+[az-vm-list-ip-addresses]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: /cli/azure/install-azure-cli
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

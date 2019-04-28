@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
 ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61425970"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor log-frågor
 Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågor använder en version av samma Kusto-frågespråket. Den [Kusto-fråga språkdokumentation](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Azure Monitor log-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Azure Monitor-implementering för språket.

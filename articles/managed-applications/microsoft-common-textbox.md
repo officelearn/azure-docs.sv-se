@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: fa3e5fff8080acb9e824ffe27f6c149054804830
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: b06e8b49efe8b6de720fa9bb819d4720e4f80fb6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61044564"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI-element
-En kontroll som används för att redigera oformaterad text.
+En kontroll som kan användas för att redigera oformaterad text.
 
 ## <a name="ui-sample"></a>UI-exempel
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
@@ -44,10 +44,10 @@ En kontroll som används för att redigera oformaterad text.
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- Om `constraints.required` är inställd på **SANT**, textrutan måste ha ett värde som ska valideras. Standardvärdet är **FALSKT**.
-- `constraints.regex` är en JavaScript-mönstret för reguljära uttryck. Om anges måste textrutans värde matcha mönstret som ska valideras. Standardvärdet är **null**.
-- `constraints.validationMessage` är en sträng som ska visas när textrutans värde inte verifieringen. Om den inte anges används den textruta inbyggda verifieringsmeddelanden. Standardvärdet är **null**.
-- Det är möjligt att ange ett värde för `constraints.regex` när `constraints.required` är inställd på **FALSKT**. I det här scenariot krävs för textrutan kan valideras inte ett värde. Om en anges måste den matcha mönstret för reguljära uttryck.
+- Om `constraints.required` är inställd på **SANT**, textrutan måste ha ett värde kan valideras. Standardvärdet är **FALSKT**.
+- `constraints.regex` är en JavaScript-mönster för reguljärt uttryck. Om anges måste i textrutan värdet matcha mönstret kan valideras. Standardvärdet är **null**.
+- `constraints.validationMessage` är en sträng visas när textrutans värde misslyckas verifieringen. Om den inte anges används den textrutan inbyggda verifieringsmeddelanden. Standardvärdet är **null**.
+- Det är möjligt att ange ett värde för `constraints.regex` när `constraints.required` är inställd på **FALSKT**. I det här scenariot krävs för textrutan kan valideras inte ett värde. Om ett sådant anges måste det matcha mönster för reguljärt uttryck.
 
 ## <a name="sample-output"></a>Exempel på utdata
 
@@ -56,5 +56,5 @@ En kontroll som används för att redigera oformaterad text.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element, se [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).

@@ -14,17 +14,17 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/12/2019
 ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409089"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snabbstart: Använda SQL-frågeredigeraren på Azure-portalen för att ansluta och fråga efter data
 
 SQL-frågeredigeraren är ett webbläsarverktyg på Azure-portalen som ger ett enkelt sätt att köra SQL-frågor på Azure SQL Database eller Azure SQL Data Warehouse. I den här snabbstarten kommer du att använda frågeredigeraren för att ansluta till en SQL-databas och sedan köra Transact-SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 

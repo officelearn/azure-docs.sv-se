@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000417"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093207"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Riktlinjer för Azure Marketplace-lista
 
@@ -95,7 +95,7 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 | 7 | Sekretesspolicy och användningsvillkor tillgängliga  |  Principer eller villkor som krävs inte  | | 
 | 8 | Tjänsttyper | Kontrollera att tjänsttyp matchar rubrik | |
 | 9 | Kompetenser |<br>• Måste vara minst en av följande:<br>• Programutveckling <br>• Programintegrering <br>• Application Lifecycle Management <br>• Molnplattform <br>• Dataanalys <br>• Data Center <br>• Dataplattform <br>• DevOps |
-| 10 | Produkter | Måste vara Azure | |
+| 10 | Products | Måste vara Azure | |
 | 11 | Land/region | Se till att land och region matchningar valt valuta | |
 | 12 | Läs mer  | <br>• Länkarna längst ned (under Beskrivning inte marketplace länkarna till vänster) leder till mer information om lösningen och är offentligt tillgängliga och visas korrekt. <br>• Länkar måste ha ett ”namn” och visas inte som namnet på alla nedladdningar | |
 

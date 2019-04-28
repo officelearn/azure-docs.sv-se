@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
-ms.openlocfilehash: c45061db77c21b82744f69f00265870d5e1a8d00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883849"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766190"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
 Moderna Internet-baserade program har vanligtvis flera användare visa och uppdatera data samtidigt. Detta kräver programutvecklare att tänka igenom hur du ger en förutsägbar upplevelse till slutanvändarna, särskilt för scenarier där flera användare kan uppdatera samma data. Det finns tre huvudsakliga samtidighet datastrategierna som utvecklare normalt tänka på:  
 
 1. Optimistisk samtidighet – ett program som utför en uppdatering som en del av dess update kontrollerar om data har ändrats sedan programmet senast läsa dessa data. Till exempel om två användare som visar en wiki-sida gör en uppdatering i samma sida sedan wiki-plattformen måste se till att den andra uppdateringen inte skriver över den första uppdateringen – och att både användare förstår om uppdateringen lyckades eller inte. Den här strategin används oftast i webbprogram.
-2. Pessimistisk samtidighet – ett program vill utföra en uppdatering tar ett lås på ett objekt som förhindrar att andra användare uppdaterar data förrän låset har släppts. I exempelvis ett överordnat/underordnat datareplikeringsscenario där endast den överordnade servern utför uppdateringar är den överordnade servern vanligtvis försedd med ett exklusivt lås under en längre tid så att ingen annan ska kunna uppdatera informationen.
+2. Pessimistisk samtidighet – ett program vill utföra en uppdatering tar ett lås på ett objekt som förhindrar att andra användare uppdaterar data förrän låset har släppts. Till exempel i ett scenario för replikering av huvudreplikering och underordnad data där endast master utför uppdateringar innehåller huvudservern vanligtvis ett exklusivt lås under en längre tid på informationen för att se till att ingen annan kan uppdatera den.
 3. Den senaste skrivaren wins – en metod som gör att alla uppdateringsåtgärder att fortsätta utan att verifiera om något annat program har uppdaterats data sedan programmet först läsa data. Den här strategin (eller brist på en formell strategi) används vanligtvis där data är partitionerad så att det finns inga sannolikheten att flera användare kommer åt samma data. Det kan också vara användbar där tillfällig dataströmmar bearbetas.  
 
 Den här artikeln innehåller en översikt över hur Azure Storage-plattformen förenklar utveckling genom att tillhandahålla förstklassigt stöd för alla tre av följande metoder för samtidighet.  

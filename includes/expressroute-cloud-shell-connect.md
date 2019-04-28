@@ -9,11 +9,11 @@ ms.date: 02/01/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1aca39a7ff162aa3c42fdb3ca5999c71091ec02e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60364762"
 ---
  Om du använder Azure Cloud Shell kan logga du in på Azure-kontot automatiskt när du klickar på ”prova”. Öppna PowerShell-konsolen med förhöjd behörighet och kör cmdlet: en att ansluta för att logga in lokalt.
 

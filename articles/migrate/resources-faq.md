@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
 ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61292988"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -132,11 +132,11 @@ Data som samlas in av agenterna beroende är också krypterade i rörelse (säke
 
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Hur insamlaren kommunicera med vCenter-servern och tjänsten Azure Migrate?
 
-Insamlaren ansluter till vCenter-servern (port 443) med de autentiseringsuppgifter som anges av användaren i installationen. Det frågor till vCenter-servern med hjälp av VMware PowerCLI att samla in metadata om datorer som hanteras av vCenter-servern. Den samlar in båda konfigurationsdata om virtuella datorer (kärnor, minne, diskar, nätverkskort osv) samt prestandahistoriken för varje virtuell dator för den senaste månaden från vCenter-servern. Insamlade metadata skickas sedan till tjänsten Azure Migrate (över internet via https) för utvärdering. [Läs mer](concepts-collector.md)
+Insamlingsprogrammet ansluter till vCenter Server (port 443) med hjälp av de autentiseringsuppgifter som anges av användaren i programmet. Det kör frågor till vCenter Server via VMware PowerCLI för att samla in metadata om de virtuella datorer som hanteras av vCenter Server. Det samlar in både konfigurationsdata om virtuella datorer (kärnor, minne, diskar, nätverkskort osv.) och prestandahistorik för varje virtuell dator för den senaste månaden från vCenter Server. Insamlade metadata skickas sedan till Azure Migrate-tjänsten (över Internet via https) för utvärdering. [Läs mer](concepts-collector.md)
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Kan jag ansluta samma insamlingsprogrammet till flera vCenter-servrar?
 
-Ja, en enda insamlingsprogrammet kan användas för att identifiera flera vCenter-servrar, men inte samtidigt. Du behöver köra identifieringen efter varandra.
+Ja, ett enda insamlingsprogram kan användas för att identifiera flera vCenter-servrar, men inte samtidigt. Du behöver köra identifieringen en i taget.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>OVA-mallen som används av Site Recovery är integrerad med ova-filen som används av Azure Migrate?
 
@@ -144,7 +144,7 @@ Det finns för närvarande ingen integrering. Den. OVA-mallen i Site Recovery an
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Jag har ändrat storlek på min dator. Kan jag köra utvärderingen?
 
-Om du ändrar inställningarna på en virtuell dator som du vill utvärdera, Upptäck utlösaren igen med insamlingsprogrammet. I installationen använder det **starta insamlingen igen** möjlighet att göra detta. När insamlingen är klar väljer du alternativet **Beräkna om** för utvärderingen på portalen för att hämta uppdaterade utvärderingsresultat.
+Om du ändrar inställningarna på en virtuell dator som du vill utvärdera kör du en identifiering med hjälp av insamlingsprogrammet. Det gör du genom att använda alternativet **Starta insamlingen igen** i programmet. När insamlingen är klar väljer du alternativet **Beräkna om** för utvärderingen på portalen för att hämta uppdaterade utvärderingsresultat.
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Hur kan jag för att identifiera en miljö med flera organisationer i Azure Migrate?
 

@@ -5,15 +5,16 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/05/2019
-ms.author: glenga
+origin.date: 03/05/2019
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403870"
 ---
 Med Azure Functions-projektmallen i Visual Studio skapas ett projekt som kan publiceras till en funktionsapp i Azure. Du kan använda en funktionsapp som gruppen ska fungera som en logisk enhet för hantering, distribution och dela resurser.
 
@@ -38,3 +39,4 @@ Med Azure Functions-projektmallen i Visual Studio skapas ett projekt som kan pub
     > Se till att ange den **åtkomstbehörigheter** till `Anonymous`. Om du väljer vilken `Function`, så måste du presentera den [funktionsnyckel](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) i förfrågningar om åtkomst till din funktion-slutpunkt.
     
 4. Välj **OK** att skapa function-projekt och HTTP-utlöst funktion.
+

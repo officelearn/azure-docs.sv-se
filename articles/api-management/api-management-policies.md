@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005527"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762855"
 ---
 # <a name="api-management-policies"></a>API Management-principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](api-management-howto-policies.md).  
@@ -53,7 +53,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   [Autentiseringsprinciper](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autentisera med Basic](api-management-authentication-policies.md#Basic) -autentisera med en serverdelstjänst som använder grundläggande autentisering.  
     -   [Autentisera med klientcertifikatet](api-management-authentication-policies.md#ClientCertificate) -autentisera med en serverdelstjänst som använder klientcertifikat.  
-    -   [Autentisera med hanterad identitet](api-management-authentication-policies.md#ManagedIdentity) -autentisera med en serverdelstjänst som använder klientcertifikat.  
+    -   [Autentisera med hanterad identitet](api-management-authentication-policies.md#ManagedIdentity) -autentisera med ett serverdel med en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Cachelagringsprinciper](api-management-caching-policies.md#CachingPolicies)  
     -   [Hämta från cache](api-management-caching-policies.md#GetFromCache) -utföra cache Leta upp och returnera ett giltigt cachelagrade svar när det är tillgängligt.  
     -   [Store till cache](api-management-caching-policies.md#StoreToCache) -cachelagrar svaret enligt angivna cache-control-konfigurationen.  

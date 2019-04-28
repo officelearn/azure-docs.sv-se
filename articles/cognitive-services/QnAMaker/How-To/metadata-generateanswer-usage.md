@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683624"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765658"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Hämta ett knowledge svar med GenerateAnswer API och metadata
 
@@ -69,22 +69,23 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 |Egenskapen för HTTP-begäran|Namn|Typ|Syfte|
 |--|--|--|--|
-|URL-parameter för väg|Kunskapsbas-ID|sträng|GUID för kunskapsbasen.|
-|URL-parameter för väg|QnAMaker slutpunktsvärd|sträng|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
-|Huvud|Content-Type|sträng|Medietyp i texten som skickas till API: et. Standardvärdet är: ''|
-|Huvud|Auktorisering|sträng|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|URL-parameter för väg|Kunskapsbas-ID|string|GUID för kunskapsbasen.|
+|URL-parameter för väg|QnAMaker slutpunktsvärd|string|Värdnamnet för den slutpunkt som distribuerats i din Azure-prenumeration. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
+|Huvud|Content-Type|string|Medietyp i texten som skickas till API: et. Standardvärdet är: ''|
+|Huvud|Auktorisering|string|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Publicera brödtext|JSON-objekt|JSON|Fråga med inställningar|
 
 
 JSON-texten har flera inställningar:
 
-|Brödtext JSON-egenskap|Krävs|Typ|Syfte|
+|Brödtext JSON-egenskap|Obligatoriskt|Typ|Syfte|
 |--|--|--|--|
-|`question`|obligatorisk|sträng|En användare-fråga som ska skickas till din kunskapsbas.|
+|`question`|obligatorisk|string|En användare-fråga som ska skickas till din kunskapsbas.|
 |`top`|valfri|heltal|Antal översta resultat ska ingå i utdata. Standardvärdet är 1.|
-|`userId`|valfri|sträng|Ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.|
+|`userId`|valfri|string|Ett unikt ID för att identifiera användaren. Detta ID kommer att läggas till i chattloggarna.|
+|`scoreThreshold`|valfri|heltal|Endast svar med förtroendepoäng ovanför denna tröskel returneras. Standardvärdet är 0.|
 |`isTest`|valfri|boolesk|Om värdet är true, returnerar resultat från `testkb` Search-index i stället för publicerade index.|
-|`strictFilters`|valfri|sträng|Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata. Använd `none` som visar svaret ska ha inga filter för filmetadata. |
+|`strictFilters`|valfri|string|Om anges talar du om QnA Maker att returnera endast de svar som har angivna metadata. Använd `none` som visar svaret ska ha inga filter för filmetadata. |
 
 Det ser ut som ett exempel på JSON-texten:
 
@@ -93,6 +94,7 @@ Det ser ut som ett exempel på JSON-texten:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",

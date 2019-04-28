@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401734"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759976"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Utveckla en C# IoT Edge-modul för flytt av filer på Data Box Edge
 
@@ -36,11 +36,11 @@ Din Data Box Edge-enhet kan distribuera och köra IoT Edge-moduler. Edge-moduler
 2. Filen händelse generatorn skapar en fil händelse för varje fil som skrivs till den lokala resursen. Filhändelser skapas också när en fil ändras. Filhändelser skickas sedan till IoT Edge Hub (i IoT Edge-körningen).
 3. Anpassad IoT Edge-modul bearbetar händelsen filen om du vill skapa en fil-händelseobjekt som också innehåller en relativ sökväg för filen. Modulen genererar en absolut sökväg med hjälp av den relativa filsökvägen och kopierar filen från den lokala resursen till molnet-resursen. Modulen tar sedan bort filen från den lokala resursen.
 
-![Hur Azure IoT Edge-modul fungerar på Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![Hur Azure IoT Edge-modul fungerar på Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 När filen är i molnet resursen kan den automatiskt hämtar laddas upp till Azure Storage-kontot.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du kontrollera att du har:
 

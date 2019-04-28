@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e60b202a32745062d2078d9721dfeba7aba69bda
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358173"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763901"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Bästa praxis att använda Azure Maps Search-tjänst
 
@@ -132,9 +132,9 @@ Den `language` parametern kan du ange i vilka språk search resultat ska returne
 
 ### <a name="predictive-mode-auto-suggest"></a>Förutsägande läge (automatiska förslag)
 
-Du hittar fler matchningar för frågor med partiella `typeHead` parameter ska vara inställd på att ”true”. Frågan tolkas som en partiell indata och sökningen att infoga förutsägande läge. Annars förutsätter tjänsten all relevant information som har skickats i.
+Du hittar fler matchningar för frågor med partiella `typeahead` parameter ska vara inställd på att ”true”. Frågan tolkas som en partiell indata och sökningen att infoga förutsägande läge. Annars förutsätter tjänsten all relevant information som har skickats i.
 
-I exemplet frågan nedan att du kan se att sökningen tjänsten adress krävs för ”Microsoft” med den `typehead` parameteruppsättning till **SANT**. Om du ser att svaret kan se du att söktjänsten tolkas frågan som partiell fråga och svar innehåller förslag på automatisk fråga.
+I exemplet frågan nedan att du kan se att sökningen tjänsten adress krävs för ”Microsoft” med den `typeahead` parameteruppsättning till **SANT**. Om du ser att svaret kan se du att söktjänsten tolkas frågan som partiell fråga och svar innehåller förslag på automatisk fråga.
 
 **Exempelfråga:**
 

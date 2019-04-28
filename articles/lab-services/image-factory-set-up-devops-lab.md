@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320835"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Köra en avbildningsfabrik från Azure DevOps
 Den här artikeln beskriver alla produkter som behövs för att köra fabriken avbildning från Azure DevOps (tidigare Visual Studio Team Services).
@@ -78,7 +78,7 @@ Du har nu källfilerna som lagras i en Git-lagringsplats i Azure DevOps. Nu kan 
 Kapsla in nyckelvärden som driver fabriken avbildning till en uppsättning Skapa variabler för att förenkla kommandoradsparametrar. Välj den **variabler** fliken och du ser en lista över flera standard-variabler. Här är listan över variabler för att ange i Azure devops:
 
 
-| Variabelnamn | Value | Anteckningar |
+| Variabelnamn | Värde | Anteckningar |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | Det här är den fullständiga sökvägen i lagringsplatsen till den **Configuration** mapp. Om du har importerat hela lagringsplatsen ovan är värdet till vänster korrekt. Uppdatera annars punkt till plats för konfiguration. |
 | DevTestLabName | MyImageFactory | Namnet på labb i Azure DevTest Labs användes eftersom fabriken för att skapa avbildningar. Om du inte har något, skapa en. Se till att laboratoriet är i samma prenumeration som tjänsteslutpunkt har åtkomst till. |

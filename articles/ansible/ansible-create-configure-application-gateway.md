@@ -1,46 +1,44 @@
 ---
-title: Hantera webbtrafik med Azure Application Gateway med hjälp av Ansible
+title: Självstudie – hantera webbtrafik med Azure Application Gateway med Ansible | Microsoft Docs
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Application Gateway för att hantera webbtrafik
-ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, web traffic
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 09/20/2018
-ms.openlocfilehash: 83f21573af7ec523acc376c4b3364cdcfb47f96f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 3fd16381aba87b711e799835c9f069e9c53a02ce
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792148"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765940"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Hantera webbtrafik med Azure Application Gateway med hjälp av Ansible
+# <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>Självstudier: Hantera webbtrafik med Azure Application Gateway med Ansible
 
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible hjälper till att automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du använder Ansible för att skapa en programgateway. Du får även lära dig att använda gatewayen för att hantera trafik till två webbservrar som körs i Azure-containerinstanser.
+[Azure Application Gateway](/azure/application-gateway/overview) är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar. Traditionell belastningsutjämnare dirigera baserat på källans IP-adress och port kan trafik till en IP-måladress och port. Application Gateway får du en mer detaljerad nivå av kontroll där trafiken kan dirigeras baserat på URL: en. Till exempel kan du definiera att om `images` är URL: er sökväg, trafik dirigeras till en specifik uppsättning servrar (kallas en pool) som konfigurerats för avbildningar.
 
-I den här självstudiekursen lär du dig att:
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
-> * Konfigurera nätverket
+>
+> * Konfigurera ett nätverk
 > * Skapa två Azure-containerinstanser med HTTPD-avbildningar
 > * Skapa en programgateway som körs med Azure-containerinstanserna i serverdelspoolen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.7 krävs för att köra följande exempelspelböcker i den här självstudien. 
+* [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+* [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.  
+Spelboken koden i det här avsnittet skapar en Azure-resursgrupp. En resursgrupp är en logisk behållare där Azure resurser konfigureras.  
 
-I följande exempel skapas en resursgrupp med namnet **myResourceGroup** på platsen **eastus**.
+Spara följande spelbok som `rg.yml`:
 
 ```yml
 - hosts: localhost
@@ -54,7 +52,12 @@ I följande exempel skapas en resursgrupp med namnet **myResourceGroup** på pla
         location: "{{ location }}"
 ```
 
-Spara den här spelboken som *rg.yml*. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Se följande information innan du kör spelboken:
+
+- Resursgruppens namn är `myResourceGroup`. Det här värdet används i hela självstudien.
+- Resursgruppen har skapats i den `eastus` plats.
+
+Kör en spelbok med hjälp av den `ansible-playbook` kommando:
 
 ```bash
 ansible-playbook rg.yml
@@ -62,9 +65,9 @@ ansible-playbook rg.yml
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-Skapa först ett virtuellt nätverk så att programgatewayen kan kommunicera med andra resurser.
+Spelboken koden i det här avsnittet skapar ett virtuellt nätverk för att aktivera application gateway kan kommunicera med andra resurser.
 
-I följande exempel skapar vi ett virtuellt nätverk med namnet **myVNet**, ett undernät med namnet **myAGSubnet** och en offentlig IP-adress med namnet **myAGPublicIPAddress** med en domän med namnet **mydomain**.
+Spara följande spelbok som `vnet_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -102,7 +105,12 @@ I följande exempel skapar vi ett virtuellt nätverk med namnet **myVNet**, ett 
         domain_name_label: "{{ publicip_domain }}"
 ```
 
-Spara den här spelboken som *vnet_create.yml*. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Se följande information innan du kör spelboken:
+
+* Den `vars` avsnittet innehåller de värden som används för att skapa nätverksresurser. 
+* Du måste ändra dessa värden för din miljö.
+
+Kör en spelbok med hjälp av den `ansible-playbook` kommando:
 
 ```bash
 ansible-playbook vnet_create.yml
@@ -110,7 +118,9 @@ ansible-playbook vnet_create.yml
 
 ## <a name="create-servers"></a>Skapa servrar
 
-Följande exempel visar hur du skapar två Azure-containerinstanser med HTTPD-avbildningar som ska användas som webbservrar för programgatewayen.  
+Spelboken koden i det här avsnittet skapar två Azure container instances med HTTPD avbildningar som ska användas som webbservrar för application gateway.  
+
+Spara följande spelbok som `aci_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -153,7 +163,7 @@ Följande exempel visar hur du skapar två Azure-containerinstanser med HTTPD-av
               - 80
 ```
 
-Spara den här spelboken som *aci_create.yml*. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Kör en spelbok med hjälp av den `ansible-playbook` kommando:
 
 ```bash
 ansible-playbook aci_create.yml
@@ -161,14 +171,9 @@ ansible-playbook aci_create.yml
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Följande exempel skapar en programgateway med namnet **myAppGateway** med konfigurationer för serverdel, klientdel och HTTP.  
+Spelboken koden i det här avsnittet skapar en Programgateway med namnet `myAppGateway`.  
 
-* **appGatewayIP** definieras i blocket **gateway_ip_configurations**. Det krävs en undernätsreferens för gatewayens IP-konfiguration.
-* **appGatewayBackendPool** definieras i blocket **backend_address_pools**. En programgateway måste ha minst en serverdelsadresspool.
-* **appGatewayBackendHttpSettings** definieras i blocket **backend_http_settings_collection**. Det anger att port 80 och ett HTTP-protokoll används för kommunikation.
-* **appGatewayHttpListener** definieras i blocket **backend_http_settings_collection**. Det är den standardlyssnare som är associerad med appGatewayBackendPool.
-* **appGatewayFrontendIP** definieras i blocket **frontend_ip_configurations**. Det tilldelar myAGPublicIPAddress till appGatewayHttpListener.
-* **rule1** definieras i blocket **request_routing_rules**. Det är den standardhanteringsregel som är associerad med appGatewayHttpListener.
+Spara följande spelbok som `appgw_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -252,7 +257,16 @@ Följande exempel skapar en programgateway med namnet **myAppGateway** med konfi
             name: rule1
 ```
 
-Spara den här spelboken som *appgw_create.yml*. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Se följande information innan du kör spelboken:
+
+* `appGatewayIP` har definierats i den `gateway_ip_configurations` block. Det krävs en undernätsreferens för gatewayens IP-konfiguration.
+* `appGatewayBackendPool` har definierats i den `backend_address_pools` block. En programgateway måste ha minst en serverdelsadresspool.
+* `appGatewayBackendHttpSettings` har definierats i den `backend_http_settings_collection` block. Det anger att port 80 och en HTTP-protokollet används för kommunikation.
+* `appGatewayHttpListener` har definierats i den `backend_http_settings_collection` block. Det är den standardlyssnare som är associerad med appGatewayBackendPool.
+* `appGatewayFrontendIP` har definierats i den `frontend_ip_configurations` block. Det tilldelar myAGPublicIPAddress till appGatewayHttpListener.
+* `rule1` har definierats i den `request_routing_rules` block. Det är den standardhanteringsregel som är associerad med appGatewayHttpListener.
+
+Kör en spelbok med hjälp av den `ansible-playbook` kommando:
 
 ```bash
 ansible-playbook appgw_create.yml
@@ -262,13 +276,23 @@ Det kan ta flera minuter att skapa programgatewayen.
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-I exempelspelboken för nätverksresurser skapade du domänen **mydomain** i **eastus**. Gå till `http://mydomain.eastus.cloudapp.azure.com` i webbläsaren. Om du ser följande sida fungerar programgatewayen som förväntat.
+1. I den [skapa en resursgrupp](#create-a-resource-group) avsnittet ska du ange en plats. Observera värdet.
 
-![Ett lyckat test av en fungerande programgateway](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
+1. I den [skapa nätverksresurser](#create-network-resources) avsnittet ska du ange domänen. Observera värdet.
+
+1. För test-URL: en genom att ersätta följande mönster med plats och domän: `http://<domain>.<location>.cloudapp.azure.com`.
+
+1. Gå till test-URL.
+
+1. Om du ser följande sida fungerar programgatewayen som förväntat.
+
+    ![Ett lyckat test av en fungerande programgateway](media/ansible-application-gateway-configure/application-gateway.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte behöver de här resurserna kan du ta bort dem genom att köra följande kod. Exemplet tar bort en resursgrupp med namnet **myResourceGroup**.
+När den inte längre behövs kan du ta bort de resurser som skapades i den här artikeln. 
+
+Spara följande kod som `cleanup.yml`:
 
 ```yml
 - hosts: localhost
@@ -281,13 +305,13 @@ Om du inte behöver de här resurserna kan du ta bort dem genom att köra följa
         state: absent
 ```
 
-Spara den här spelboken som *rg_delete*.yml. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Kör en spelbok med hjälp av den `ansible-playbook` kommando:
 
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Ansible i Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible i Azure](/azure/ansible/)

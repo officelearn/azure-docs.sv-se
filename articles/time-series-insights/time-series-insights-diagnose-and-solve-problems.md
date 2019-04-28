@@ -11,55 +11,54 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 36ea2b8d3649fbda5a5cd6cc5f2cd05cdc095902
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
+ms.openlocfilehash: ad739041ebd20f9940e305efb19807df4c73cb8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555820"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759721"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insights-miljö
 
 Den här artikeln beskriver några problem som kan uppstå i din Azure Time Series Insights-miljö. Artikeln erbjuder möjliga orsaker och lösningar för matchning.
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
-Vi går igenom vanliga Time Series Insights kundutmaningar och åtgärder för i den här videon:</br>
+### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Vi går igenom vanliga Time Series Insights kundutmaningar och åtgärder för i den här videon:</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-1-no-data-is-shown"></a>Problem 1: Inga data visas
+## <a name="problem-one-no-data-is-shown"></a>Problem med en: inga data visas
 
 Inga data i den [Azure Time Series Insights explorer](https://insights.timeseries.azure.com) kan ha flera vanliga orsaker:
 
-### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Orsak A: Händelsen källdata finns inte i JSON-format
+### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Orsak s: händelse källdata finns inte i JSON-format
 
 Azure Time Series Insights har endast stöd för JSON-data. JSON-exempel finns [stöds JSON-former](./how-to-shape-query-json.md).
 
-### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Orsak B: Nyckeln för källa händelse saknar en behörighet som krävs
+### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Orsak B: händelse källa nyckel saknas för en behörighet som krävs
 
 * För en IoT-hubb i Azure IoT Hub måste du ange den nyckel som har **tjänsten ansluta** behörigheter. Något av de **iothubowner** eller **service** principer kommer att fungera eftersom de båda har **tjänsten ansluta** behörigheter.
 
    ![IoT Hub-tjänsten ansluta behörigheter](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
-
 * För en händelsehubb i Azure Event Hubs, måste du ange den nyckel som har **lyssna** behörigheter. Något av de **läsa** eller **hantera** principer kommer att fungera eftersom de båda har **lyssna** behörigheter.
 
    ![Event hub listen behörigheter](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
 
-### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Orsak C: Konsumentgruppen tillhandahålls inte är exklusivt för Time Series Insights
+### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Orsak C: konsumentgruppen tillhandahålls inte är exklusivt för Time Series Insights
 
 När du registrerar en IoT-hubb eller en event hub, är det viktigt att ställa in konsumentgrupp som du vill använda för att läsa data. Den här konsumentgruppen *kan inte delas*. Om konsumentgruppen delas den underliggande IoT hub eller event hub automatiskt och slumpmässigt kopplar från en av läsarna. Ange en unik konsumentgrupp för Time Series Insights att läsa från.
 
-## <a name="problem-2-some-data-is-shown-but-data-is-missing"></a>Problem 2: Vissa data visas, men data saknas
+## <a name="problem-two-some-data-is-shown-but-data-is-missing"></a>Problem med två: vissa data visas, men data saknas
 
 När data visas endast delvis och data verkar vara släpar, bör du överväga alternativen.
 
-### <a name="cause-a-your-environment-is-being-throttled"></a>Orsak A: Din miljö har begränsats
+### <a name="cause-a-your-environment-is-being-throttled"></a>Orsak s: miljön har begränsats
 
-Begränsning är ett vanligt problem när miljöer etableras när du har skapat en händelsekälla som innehåller data. Azure IoT Hub och Azure händelser Hubs kan du lagra data i upp till sju dagar. Time Series Insights alltid börja med den äldsta händelsen i källan (först in, först ut-metoden, eller *FIFO*). 
+Begränsning är ett vanligt problem när miljöer etableras när du har skapat en händelsekälla som innehåller data. Azure IoT Hub och Azure händelser Hubs kan du lagra data i upp till sju dagar. Time Series Insights alltid börja med den äldsta händelsen i källan (först in, först ut-metoden, eller *FIFO*).
 
-Om du har 5 miljoner händelser i en händelsekälla när du ansluter till en S1, läser integrerade Time Series Insights-miljö, Time Series Insights cirka 1 miljon händelser per dag. Det verkar som om Time Series Insights har fem dagars svarstid. Vad som händer är dock att miljön har begränsats. 
+Om du har 5 miljoner händelser i en händelsekälla när du ansluter till en S1, läser integrerade Time Series Insights-miljö, Time Series Insights cirka 1 miljon händelser per dag. Det verkar som om Time Series Insights har fem dagars svarstid. Vad som händer är dock att miljön har begränsats.
 
 Om du har gamla händelser i din händelsekälla kan ITU du begränsning i ett av två sätt:
 
@@ -84,7 +83,7 @@ En översikt över hur förenkling logic fungerar, se [stöds JSON-former](./how
 
 Öka SKU-kapaciteten för din miljö för att åtgärda fördröjningen. Mer information finns i [skala din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md).
 
-### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Orsak B: Inledande inmatning av historiska data saktar ingress
+### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Orsak B: inledande inmatning av historiska data saktar ingress
 
 Om du ansluter en befintlig händelsekälla, är det troligt att din IoT hub eller event hub redan innehåller data. Miljön startar hämta data från början av den händelsekälla kvarhållningsperiod för meddelandet. Detta är standard-bearbetning och kan inte åsidosättas. Du kan engagera begränsning. Begränsning kan ta en stund att läsa den matar in historiska data.
 
@@ -96,23 +95,25 @@ Om du ansluter en befintlig händelsekälla, är det troligt att din IoT hub ell
 
 2. När fördröjningen fått allt, minska SKU-kapacitet till normal ingångshändelser.
 
-## <a name="problem-3-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problem 3: Min händelsekälla tidsstämpel egenskapen name inställningen fungerar inte
+## <a name="problem-three-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problem med tre: min händelsekälla tidsstämpel egenskapen name inställningen fungerar inte
 
 Se till att den egenskapsnamn för tidsstämpeln och värdet överensstämmer med följande regler:
+
 * Egenskapsnamnet för tidsstämpeln är skiftlägeskänsligt.
 * Tidsstämpel-egenskapsvärde som kommer från din händelsekälla som en JSON-sträng som ska ha formatet _åååå-MM-ddTHH. FFFFFFFK_. Ett exempel är **2008-04-12T12:53Z**.
 
 Det enklaste sättet att säkerställa att din egenskapsnamn för tidsstämpeln är skapas och fungerar är att använda i Time Series Insights-Utforskaren. Välj en tidsperiod när du har angett egenskapsnamn för tidsstämpeln i Time Series Insights explorer med hjälp av tabellen. Högerklicka på markeringen och välj sedan den **utforska händelser** alternativet. 
 
-Första kolumnrubriken ska vara egenskapsnamn för tidsstämpeln. Bredvid ordet **tidsstämpel**, bör du se **($ts)**. 
+Första kolumnrubriken ska vara egenskapsnamn för tidsstämpeln. Bredvid ordet **tidsstämpel**, bör du se **($ts)**.
 
 Du bör inte se följande värden:
-- *(abc)* : Anger att Time Series Insights läser datavärdena som strängar.
+
+- *(abc)*: Anger att Time Series Insights läser datavärdena som strängar.
 - *Ikon för kalender*: Anger att Time Series Insights läser datavärdet är *datetime*.
 - *#*: Anger att Time Series Insights läser datavärdena som ett heltal.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du behöver hjälp att starta en konversation i den [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
+- Om du behöver hjälp att starta en konversation i den [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+
 - Vilka supportalternativ använda [Azure-supporten](https://azure.microsoft.com/support/options/).

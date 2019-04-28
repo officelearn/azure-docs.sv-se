@@ -1,31 +1,33 @@
 ---
-title: Distribuera Ansible-lösningsmallen för Azure till CentOS
-description: Lär dig hur du distribuerar Ansible-lösningsmallen på en virtuell CentOS-dator som körs i Azure med verktyg som konfigurerats att fungera med Azure.
-ms.service: azure
+title: Snabbstart – distribuera Ansible-lösningsmall för Azure för att CentOS | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du distribuerar Ansible-lösningsmallen på en CentOS-dator som körs på Azure, tillsammans med verktygen som konfigurerats för att fungera med Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 01/28/2019
-ms.openlocfilehash: 78fe5211f135b4a4c7d0fd21c66340025ad2d05d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 2d2ab769c2d4c5a594cb57f2fa9dfed599578506
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104224"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764579"
 ---
-# <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Distribuera Ansible-lösningsmallen för Azure till CentOS
+# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Snabbstart: Distribuera Ansible-lösningsmallen för Azure till CentOS
+
 Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-instans på en virtuell CentOS-dator med Ansible och en uppsättning verktyg som konfigurerats att fungera med Azure. Här är några av verktygen:
 
 - **Ansible-moduler för Azure** – [Ansible-moduler för Azure](./ansible-matrix.md) är en uppsättning moduler som hjälper dig att skapa och hantera infrastrukturen i Azure. Den senaste versionen av dessa moduler distribueras som standard. Under distributionen av lösningsmallen kan du ange ett versionsnummer som är lämpligt för din miljö.
 - **Azure Command-Line Interface (CLI) 2.0** – [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) är en plattformsoberoende kommandoradsmiljö för hantering av Azure-resurser. 
 - **Hanterade identiteter för Azure-resurser** – Funktionen [Hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview) hjälper dig att skydda autentiseringsuppgifterna för molnprogram.
 
-## <a name="prerequisites"></a>Förutsättningar
-- **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="deploy-the-ansible-solution-template-from-the-azure-marketplace"></a>Distribuera Ansible-lösningsmallen från Azure Marketplace
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+## <a name="deploy-the-ansible-solution-template"></a>Distribuera lösningsmall Ansible
 
 1. Bläddra till [Ansible-lösningsmallen på Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
@@ -46,7 +48,7 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
    - **Resursgrupp** – Välj en befintlig resursgrupp i listrutan eller välj **Skapa ny** och ange ett namn för en ny resursgrupp. I den här demonstrationen används en ny resursgrupp med namnet `ansiblerg`.
    - **Plats** – Välj den plats i listrutan som passar ditt scenario.
 
-     ![Grundläggande Ansible-inställningar på en flik på Azure-portalen](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
+     ![Grundläggande Ansible-inställningar på en flik på Azure-portalen](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. Välj **OK**.
 
@@ -60,19 +62,19 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
    - **Domännamnsetikett** – Ange det offentliga domännamnet för den virtuella datorn. Namnet måste vara unikt och uppfylla namngivningskraven. Mer information om hur du anger ett namn för den virtuella datorn finns i [Namngivningskonventioner för Azure-resurser](/azure/architecture/best-practices/naming-conventions).
    - **Ansible-version** – Ange ett versionsnummer eller värdet `latest` för att distribuera den senaste versionen. Välj informationsikonen bredvid **Ansible-version** för att visa mer information om tillgängliga versioner.
 
-     ![Ytterligare inställningar för Ansible på en flik på Azure-portalen](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
+     ![Ytterligare inställningar för Ansible på en flik på Azure-portalen](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. Välj **OK**.
 
 1. Ange autentiseringstypen på fliken **Integrationsinställningar för Ansible**. Mer information om hur du skyddar Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-    ![Integrationsinställningar för Ansible på en flik på Azure-portalen](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-3.png)
+    ![Integrationsinställningar för Ansible på en flik på Azure-portalen](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-3.png)
 
 1. Välj **OK**.
 
 1. Sidan **Sammanfattning** öppnas och visar verifieringsprocessen med en lista över de angivna kriterierna för Ansible-distributionen. Du kan använda en länk längst ned på fliken för att **ladda ned mallen och parametrarna** för användning med språk och plattformar som stöds i Azure. 
 
-     ![Fliken Sammanfattning för Ansible på en flik på Azure-portalen](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
+     ![Fliken Sammanfattning för Ansible på en flik på Azure-portalen](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
 1. Välj **OK**.
 
@@ -80,10 +82,11 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
 
 1. Välj ikonen **Meddelanden** överst på portalsidan för att spåra Ansible-distributionen. När distributionen är klar väljer du **Gå till resursgrupp**. 
 
-     ![Fliken Sammanfattning för Ansible på en flik på Azure-portalen](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+     ![Fliken Sammanfattning för Ansible på en flik på Azure-portalen](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-complete.png)
 
 1. Hämta IP-adressen för din Ansible-värd på sidan för resursgrupper och logga in för att hantera dina Azure-resurser med hjälp av Ansible.
 
 ## <a name="next-steps"></a>Nästa steg
+
 > [!div class="nextstepaction"] 
-> [Använda Ansible för att skapa en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/ansible-create-vm)
+> [Snabbstart: Konfigurera en Linux-dator i Azure med Ansible](/azure/virtual-machines/linux/ansible-create-vm)

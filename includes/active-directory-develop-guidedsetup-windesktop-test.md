@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297752"
 ---
 ## <a name="test-your-code"></a>Testa koden
 
@@ -41,7 +41,7 @@ Första gången du loggar in på ditt program också uppmanas du att ange samtyc
 
 När du har loggat in visas den information om användarprofiler som returneras av anropet till Microsoft Graph API. Resultaten visas i den **API samtalsresultat** box. Grundläggande information om den token som köptes via anropet till `AcquireTokenInteractive` eller `AcquireTokenSilent` ska synas i den **tokeninformation** box. Resultaten innehåller följande egenskaper:
 
-|Egenskap  |Format  |Beskrivning |
+|Egenskap   |Format  |Beskrivning |
 |---------|---------|---------|
 
 |**Användarnamn**  | <span> user@domain.com </span> | Det användarnamn som används för att identifiera användaren. | | **Token upphör att gälla** | DateTime | Den tid då token upphör att gälla. MSAL förlänger utgångsdatumet genom att förnya token efter behov. |

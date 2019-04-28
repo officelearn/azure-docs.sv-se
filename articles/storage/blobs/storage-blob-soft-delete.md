@@ -5,15 +5,15 @@ services: storage
 author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 04/23/2019
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: MT
+ms.openlocfilehash: d9055b0c0decbeca0bb43969af4e854c396c3bb6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506133"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764232"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Mjuk borttagning för Azure Storage-blobbar
 Azure Storage erbjuder nu mjuk borttagning för blob-objekt så att du kan enkelt återställa dina data när den är felaktigt ändras eller tas bort av ett program eller en annan användare för storage-konto.
@@ -278,6 +278,9 @@ blockBlob.StartCopy(copySource);
 Om det finns en risk att dina data råkar ändrats eller tagits bort av ett program eller en annan användare för storage-konto, rekommenderar vi att aktivera mjuk borttagning. Mjuk borttagning är en del av en strategi för att skydda data och kan hjälpa dig att förhindra oavsiktlig dataförlust.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+**Finns det ingen särskild hänsyn för att använda mjuk borttagning?**  
+Aktivera mjuk borttagning för ofta överskrivna data kan resultera i ökade lagringskostnader för kapacitet och ökad latens när blobbar. Du kan komma runt detta genom att lagra ofta skrevs över data i ett separat lagringskonto med mjuk borttagning har inaktiverats. 
+
 **Vilka typer av lagring kan jag använda mjuk borttagning?**  
 Mjuk borttagning är för närvarande endast tillgänglig för bloblagring (objekt).
 

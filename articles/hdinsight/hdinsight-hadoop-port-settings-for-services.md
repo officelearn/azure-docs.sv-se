@@ -1,7 +1,6 @@
 ---
 title: Portar som används av Hadoop-tjänster på HDInsight - Azure
 description: En lista över portar som används av Hadoop-tjänster som körs på HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715468"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761248"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portar som används av Apache Hadoop-tjänster på HDInsight
 
@@ -78,7 +77,7 @@ Alla tjänster som exponeras offentligt på internet måste autentiseras:
 | Tjänst | Noder | Port | URL-sökväg | Protokoll | 
 | --- | --- | --- | --- | --- |
 | Ambari-webbgränssnittet | Huvudnoder | 8080 | / | HTTP |
-| Ambari REST API | Huvudnoder | 8080 | / api/v1 | HTTP |
+| Ambari REST API | Huvudnoder | 8080 | /api/v1 | HTTP |
 
 Exempel:
 
@@ -114,13 +113,13 @@ Exempel:
 | Tjänst | Noder | Port | Protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Huvudnoder |10001 |Thrift |Tjänsten för att ansluta till Hive (Thrift/JDBC) |
-| Hive-Metaarkiv |Huvudnoder |9083 |Thrift |Tjänsten för att ansluta till Hive-metadata (Thrift/JDBC) |
+| Hive-metaarkiv |Huvudnoder |9083 |Thrift |Tjänsten för att ansluta till Hive-metadata (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>WebHCat portar
 
 | Tjänst | Noder | Port | Protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
-| WebHCat-server |Huvudnoder |30111 |HTTP |Webb-API ovanpå HCatalog och andra Hadoop-tjänster |
+| WebHCat server |Huvudnoder |30111 |HTTP |Webb-API ovanpå HCatalog och andra Hadoop-tjänster |
 
 ### <a name="mapreduce-ports"></a>MapReduce-portar
 
@@ -134,8 +133,8 @@ Exempel:
 
 | Tjänst | Noder | Port | Protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Oozie-server |Huvudnoder |11000 |HTTP |URL för Oozie-tjänsten |
-| Oozie-server |Huvudnoder |11001 |HTTP |Port för Oozie-administratör |
+| Oozie server |Huvudnoder |11000 |HTTP |URL för Oozie-tjänsten |
+| Oozie server |Huvudnoder |11001 |HTTP |Port för Oozie-administratör |
 
 ### <a name="ambari-metrics"></a>Ambari-mått
 

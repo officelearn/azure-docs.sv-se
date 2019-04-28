@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583ccb6076dae2f33e265b95387bcd35aa9fa4d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 79b45bd423ed6715cdb7cc7c0e079c150eefede5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547290"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763690"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Köra aktiviteter samtidigt för att maximera användningen av Batch-beräkningsnoder 
 
@@ -41,7 +41,7 @@ Istället för att använda Standard\_D1 noder som har 1 processorkärna, kan du
 ## <a name="enable-parallel-task-execution"></a>Aktivera körning av parallella uppgifter
 Du kan konfigurera beräkningsnoder för att köra åtgärder parallellt på pool-nivå. Med Batch .NET-biblioteket, ställa in den [CloudPool.MaxTasksPerComputeNode] [ maxtasks_net] egenskapen när du skapar en pool. Om du använder Batch REST-API, ange den [maxTasksPerNode] [ rest_addpool] element i begärandetexten när poolen skapas.
 
-Azure Batch kan du ange maximal aktiviteter per nod upp till fyra gånger (4 x) antalet kärnor för noden. Till exempel om poolen har konfigurerats med noder i storleken för ”stora” (fyra kärnor), `maxTasksPerNode` kan anges till 16. Mer information om antalet kärnor för varje nodstorlekar finns [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Mer information om tjänstbegränsningar finns [kvoter och begränsningar för Azure Batch-tjänsten](batch-quota-limit.md).
+Azure Batch kan du ange aktiviteter per nod upp till (4 x) antalet kärnor noder. Till exempel om poolen har konfigurerats med noder i storleken för ”stora” (fyra kärnor), `maxTasksPerNode` kan anges till 16. Oavsett hur många kärnor noden har, kan inte du ha fler än 256 aktiviteter per nod. Mer information om antalet kärnor för varje nodstorlekar finns [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Mer information om tjänstbegränsningar finns [kvoter och begränsningar för Azure Batch-tjänsten](batch-quota-limit.md).
 
 > [!TIP]
 > Se till att ta hänsyn till den `maxTasksPerNode` värdet när du skapar en [autoskalningsformel] [ enable_autoscaling] för poolen. Exempelvis kan en formel som utvärderar `$RunningTasks` avsevärt kan påverkas av en ökning av aktiviteter per nod. Se [skala beräkningsnoder automatiskt i en Azure Batch-pool](batch-automatic-scaling.md) för mer information.

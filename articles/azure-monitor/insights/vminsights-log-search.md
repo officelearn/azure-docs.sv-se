@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122599"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer samlar in prestanda och anslutningsmått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till arbetsytan Log Analytics i Azure Monitor.  Informationen är tillgänglig för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
@@ -50,19 +50,19 @@ Följande fält och konventioner gäller både VMConnection och VMBoundPort:
 
 För att hantera kostnaden och komplexiteten, utgör anslutningen poster inte enskilda fysiska nätverksanslutningar. Flera fysiska nätverksanslutningar är grupperade i en logisk anslutning, som sedan visas i respektive tabell.  Betydelse, registrerar i *VMConnection* tabell representerar en logisk gruppering och inte de enskilda fysiska anslutningar som är som observeras. Fysiska nätverksanslutningen som delar samma värde för följande attribut under ett givet intervall för en minut, slås ihop till en enskild logisk post i *VMConnection*. 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 |Direction |Riktning för anslutningen värdet är *inkommande* eller *utgående* |
-|Machine |Datorn FQDN |
+|Dator |Datorn FQDN |
 |Process |Identiteten för processen eller grupper av processer, initierar/godkänna anslutningen |
 |SourceIp |IP-adressen för källan |
 |DestinationIp |IP-adressen för målet |
 |DestinationPort |Portnumret för mål |
-|Protocol |Protokoll som används för anslutningen.  Värden är *tcp*. |
+|Protokoll |Protokoll som används för anslutningen.  Värden är *tcp*. |
 
 Information om antalet grupperade fysiska anslutningar finns i följande egenskaper för posten för att redovisa effekten av gruppering:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 |LinksEstablished |Antal fysiska nätverksanslutningar som har upprättats under tidsperioden för rapportering |
 |LinksTerminated |Antal fysiska nätverksanslutningar som har avslutats under tidsperioden för rapportering |
@@ -73,11 +73,11 @@ Information om antalet grupperade fysiska anslutningar finns i följande egenska
 
 Förutom antalet anslutningsmått, information om mängden data som skickas och tas emot på en viss logisk anslutning eller nätverksport ingår även i följande egenskaper för posten:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 |BytesSent |Sammanlagt antal byte som har skickats under tidsperioden för rapportering |
 |BytesReceived |Sammanlagt antal byte som tagits emot under tidsperioden för rapportering |
-|Responses |Antal svar som observerats under tidsperioden för rapportering. 
+|Svar |Antal svar som observerats under tidsperioden för rapportering. 
 |ResponseTimeMax |Den största svarstid (millisekunder) observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
 |ResponseTimeMin |Den minsta svarstid (millisekunder) observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
 |ResponseTimeSum |Summan av alla svarstider (millisekunder) som observerats under tidsperioden för rapportering. Egenskapen är tomt om inget värde.|
@@ -99,7 +99,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="geolocation"></a>Geoplats
 *VMConnection* innehåller även geoplats information för den fjärranslutna datorn för varje post för anslutning av följande egenskaper för posten: 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 |RemoteCountry |Namnet på det land som är värd för RemoteIp.  Till exempel *USA* |
 |RemoteLatitude |Geoplats latitud. Till exempel *47.68* |
@@ -108,13 +108,13 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 #### <a name="malicious-ip"></a>Skadlig IP
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 |MaliciousIp |RemoteIp-adress |
 |IndicatorThreadType |Threat indikatorn har identifierats är något av följande värden *Botnät*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *skadlig kod*, *nätfiske*, *Proxy*, *oönskade program*, *Visningslista*.   |
-|Description |Beskrivning av observerade hotet. |
+|Beskrivning |Beskrivning av observerade hotet. |
 |TLPLevel |Trafikljus Protocol (TLP) är en av de definierade värdena *White*, *grönt*, *gul*, *Red*. |
-|Confidence |Värden är *0 – 100*. |
+|Konfidensbedömning |Värden är *0 – 100*. |
 |Severity |Värden är *0 – 5*, där *5* är den mest allvarliga och *0* inte är allvarligt alls. Standardvärdet är *3*.  |
 |FirstReportedDateTime |Första gången providern rapporterade indikatorn. |
 |LastReportedDateTime |Senast indikatorn har setts av Interflow. |
@@ -134,12 +134,12 @@ Portar på en dator som aktivt acceptera inkommande trafik eller potentiellt kan
 
 Varje post i VMBoundPort identifieras med följande fält: 
 
-| Egenskap | Beskrivning |
+| Egenskap  | Beskrivning |
 |:--|:--|
 |Process | Identiteten för processen (eller grupper av processer) som porten som är associerad med.|
-|Ip | Port IP-adress (kan vara IP-adress med jokertecken *0.0.0.0*) |
+|IP | Port IP-adress (kan vara IP-adress med jokertecken *0.0.0.0*) |
 |Port |Portnumret |
-|Protocol | Protokollet.  Exempelvis *tcp* eller *udp* (endast *tcp* stöds för närvarande).|
+|Protokoll | Protokollet.  Exempelvis *tcp* eller *udp* (endast *tcp* stöds för närvarande).|
  
 Identiteten en port härleds från ovanstående fem fält och lagras i egenskapen PortId. Den här egenskapen kan användas för att snabbt hitta poster för en viss port över tid. 
 
@@ -162,7 +162,7 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
+| Typ | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Den unika identifieraren för en dator i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en dator i arbetsytan |
@@ -187,7 +187,7 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
+| Typ | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Den unika identifieraren för en process i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en process på datorn där den körs|
@@ -202,9 +202,9 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 | ProductVersion_s | Produktversion |
 | FileVersion_s | Filversionen |
 | CommandLine_s | Från kommandoraden |
-| ExecutablePath _s | Sökvägen till den körbara filen |
+| ExecutablePath _Vä | Sökvägen till den körbara filen |
 | WorkingDirectory_s | Arbetskatalogen |
-| UserName | Det konto som processen körs |
+| Användarnamn | Det konto som processen körs |
 | UserDomain | Den domän där processen körs |
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar

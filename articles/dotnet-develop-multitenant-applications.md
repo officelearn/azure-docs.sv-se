@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: 342c7903e58a5c3bc41278152630187fa0c63b7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119155"
 ---
 # <a name="multitenant-applications-in-azure"></a>Program med flera klienter i Azure
 Ett program för flera är en delad resurs där olika användare eller ”innehavare” visa programmet som om den har sina egna. Ett typiskt scenario som lämpar sig för ett program för flera är en där alla användare av programmet kanske vill anpassa användarupplevelsen men annars har samma grundläggande affärskraven. Exempel på stora program för flera innehavare är Office 365 och Outlook.com visualstudio.com.
@@ -28,16 +28,16 @@ Ur en programprovider, fördelarna med flera innehavare främst är relaterade t
 
 Följande innehåller en lista över de viktigaste mål och krav från en leverantörs perspektiv.
 
-* **Etablering**: du måste kunna etablera nya klienter för programmet.  För program med flera klienter med ett stort antal klienter är det vanligtvis krävs för att automatisera processen genom att aktivera självbetjäning etablering.
-* **Underhållsfunktioner**: du måste kunna uppgradera programmet och utföra andra underhållsaktiviteter när flera klienter använder den.
-* **Övervaka**: du måste kunna övervaka program vid alla tidpunkter för att identifiera eventuella problem och för att felsöka dem. Detta omfattar övervakning hur varje klient använder programmet.
+* **Etablering**: Du måste kunna etablera nya klienter för programmet.  För program med flera klienter med ett stort antal klienter är det vanligtvis krävs för att automatisera processen genom att aktivera självbetjäning etablering.
+* **Underhållsfunktioner**: Du måste kunna uppgradera programmet och utföra andra underhållsaktiviteter när flera klienter använder den.
+* **Övervakning av**: Du måste kunna övervaka programmet vid alla tidpunkter för att identifiera eventuella problem och för att felsöka dem. Detta omfattar övervakning hur varje klient använder programmet.
 
 En välimplementerad program med flera klienter ger följande fördelar för användarna.
 
-* **Isolering**: aktiviteter för enskilda klienter påverkar inte användningen av andra klienter. Klienter inte åtkomst till varandras data. Det kommer till klienten som om de har exklusiv användning av programmet.
-* **Tillgänglighet**: enskilda klienterna vill att programmet ska vara ständigt tillgänglig, kanske med garantier som definierats i ett serviceavtal. Igen, bör aktiviteter med andra klienter inte påverka tillgängligheten för programmet.
-* **Skalbarhet**: programmet kan skalas för att uppfylla behovet med enskilda klienter. Förekomst och åtgärder för andra hyresgäster bör inte påverka prestanda för programmet.
-* **Kostnaderna**: kostnaderna är lägre än att köra ett program med dedikerad, en enda klient eftersom flera innehavare som möjliggör delning av resurser.
+* **Isolering**: Aktiviteter för enskilda klienter påverkar inte användningen av andra klienter. Klienter inte åtkomst till varandras data. Det kommer till klienten som om de har exklusiv användning av programmet.
+* **Tillgänglighet**: Enskilda klienterna vill att programmet ska vara ständigt tillgänglig, kanske med garantier som definierats i ett serviceavtal. Igen, bör aktiviteter med andra klienter inte påverka tillgängligheten för programmet.
+* **Skalbarhet**: Programmet kan skalas till att uppfylla behovet av att enskilda klienter. Förekomst och åtgärder för andra hyresgäster bör inte påverka prestanda för programmet.
+* **Kostnaderna**: Kostnaderna är lägre än att köra ett program med dedikerad, en enda klient eftersom flera innehavare som möjliggör delning av resurser.
 * **Anpassningsbarhet**. Möjlighet att anpassa programmet för en enskild klientorganisation på olika sätt, till exempel att lägga till eller ta bort funktioner, ändra färger och logotyper eller även att lägga till sin egen kod eller skript.
 
 Kort sagt så det finns många saker som du måste tänka på att tillhandahålla en mycket skalbar tjänst, men det finns också ett antal mål och krav som är gemensamma för många program för flera innehavare. Vissa kanske inte är relevanta i specifika scenarier och vikten av enskilda mål och krav varierar i varje scenario. Som leverantör av program för flera klientorganisationer har du också mål och krav som t.ex uppfyller klienternas mål och krav, lönsamhet, fakturering, flera servicenivåer, etablering, underhållsfunktioner övervakning och automatisering.

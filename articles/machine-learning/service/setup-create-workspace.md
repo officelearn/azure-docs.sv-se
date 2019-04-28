@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 04/19/2019
-ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ca43a6cff6a32a30d93e42f6a6624439b2fe83a7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007006"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766797"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Skapa en arbetsyta för Azure Machine Learning-tjänsten
 
@@ -73,7 +73,7 @@ Anvisningarna i den här artikeln kommer att installera de paket som du behöver
 
 ### <a name="create-an-isolated-python-environment"></a>Skapa en isolerad Python-miljö
 
-1. Öppna ett kommandoradsfönster, skapa en ny conda-miljö med namnet *myenv* och installera Python 3.6.5. Azure Machine Learning-SDK:n fungerar med Python 3.5.2 eller senare, men de automatiserade maskininlärningskomponenterna är inte fullständigt funktionella på Python 3.7.  Det tar flera minuter att skapa miljön medan komponenter och paket laddas ned.
+1. Öppna Anaconda fråga och sedan skapa en ny conda-miljö med namnet *myenv* och installera Python 3.6.5. Azure Machine Learning-SDK:n fungerar med Python 3.5.2 eller senare, men de automatiserade maskininlärningskomponenterna är inte fullständigt funktionella på Python 3.7.  Det tar flera minuter att skapa miljön medan komponenter och paket laddas ned. 
 
     ```shell
     conda create -n myenv python=3.6.5

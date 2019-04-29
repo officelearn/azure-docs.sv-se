@@ -1,15 +1,16 @@
 ---
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: include
-ms.date: 11/25/2018
-ms.author: victorh
+origin.date: 11/25/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563389"
 ---
 ### <a name="record-names"></a>Registrera namn
 
@@ -21,7 +22,7 @@ En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I till e
 
 Varje DNS-post har ett namn och en typ. Posterna är indelade i olika typer beroende på den data de innehåller. Den vanligaste typen är en ”A”-post som mappar ett namn till en IPv4-adress. En annan vanlig typ är en ”MX”-post som mappar ett namn till en e-postserver.
 
-Azure DNS stöder alla vanliga DNS-posttyper: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV och TXT. Observera att [SPF-poster representeras med hjälp av TXT-poster](../articles/dns/dns-zones-records.md#spf-records).
+Azure DNS stöder alla vanliga DNS-posttyper: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT. Observera att [SPF-poster representeras med hjälp av TXT-poster](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Postuppsättningar
 

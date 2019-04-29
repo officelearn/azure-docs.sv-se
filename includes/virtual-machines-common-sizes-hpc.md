@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 16e2a9cfbd9f08428fddade290117b27bc3401f7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: MT
+ms.openlocfilehash: a8f0e61a953a2e2471e49d571063f6202b7ab76d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540494"
 ---
 Azure virtuella datorer i H-serien är senast inom databehandling virtuella datorer som syftar till att hantera arbetsbelastningar som batchbearbetning, analyser, molekulär modellering och fluiddynamik med höga prestanda. Dessa 8 och 16 vCPU virtuella datorer är baserade på Intel Haswell E5-2667 V3-processor teknik DDR4-minne och SSD-baserad temporär lagring. 
 
@@ -23,11 +23,11 @@ Förutom den imponerande processorkraften erbjuder H-serien olika alternativ fö
 
 ## <a name="h-series"></a>H-serien
 
-ACU: 290–300
+ACU: 290-300
 
-Premium-lagring: Stöds inte
+Premium-lagring:  Stöds inte
 
-Premium Storage cachelagring: Stöds inte
+Premium Storage Caching:  Stöds inte
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- |

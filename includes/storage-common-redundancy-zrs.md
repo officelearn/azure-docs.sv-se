@@ -9,11 +9,11 @@ ms.date: 11/04/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 037996385f34c5037e0386686e3bdf8dc1b7a37a
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731411"
 ---
 Zonredundant lagring (ZRS) replikerar dina data synkront i tre lagringskluster i en enda region. Varje lagringskluster är fysiskt avgränsade från de andra och finns i sin egen tillgänglighetszon (AZ). Varje tillgänglighetszon&mdash;och ZRS-klustret i den&mdash;är autonoma och inkluderar olika verktyg och funktioner.
 

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609083"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761400"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -296,7 +296,7 @@ Starta om agentnoder i klustret vanligtvis löser problemet.
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev blanksteg proxy kan störa andra poddar som körs i en dev-utrymme
 
 ### <a name="reason"></a>Orsak
-När du aktiverar Dev blanksteg för ett namnområde i AKS-kluster kan ytterligare en behållare kallas _mindaro proxy_ är installerat i var och en av poddarna som körs i det här namnområdet. Den här behållaren spärras anrop till tjänster i en pod, som är väsentlig Dev blanksteg team utvecklingsmöjligheter; Det kan dock påverka vissa tjänster som körs i de poddarna. Det är känt att störa poddar som kör Azure Cache för Redis, orsaka anslutningsfel och misslyckade begäranden i master/slave kommunikation.
+När du aktiverar Dev blanksteg för ett namnområde i AKS-kluster kan ytterligare en behållare kallas _mindaro proxy_ är installerat i var och en av poddarna som körs i det här namnområdet. Den här behållaren spärras anrop till tjänster i en pod, som är väsentlig Dev blanksteg team utvecklingsmöjligheter; Det kan dock påverka vissa tjänster som körs i de poddarna. Det är känt att störa poddar som kör Azure Cache för Redis, orsaka anslutningsfel och fel i primär/sekundär kommunikation.
 
 ### <a name="try"></a>Prova:
 Du kan flytta berörda poddarna i ett namnområde i det kluster som har _inte_ har Dev blanksteg aktiverat. Resten av ditt program kan fortsätta att köras i en Dev blanksteg-aktiverat namnområde. Dev blanksteg kan inte installeras på _mindaro proxy_ behållare i Dev blanksteg aktiverade namnområden.

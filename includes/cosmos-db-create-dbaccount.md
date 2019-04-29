@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.custom: include file
 ms.openlocfilehash: 5d57d7e18befba175a5a8a825494ce512644b5a2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553080"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Välj **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**.
@@ -28,7 +28,7 @@ ms.locfileid: "59805187"
     |Resursgrupp|Namn på resursgrupp|Välj en resursgrupp eller välj **Skapa nytt**, ange ett unikt namn för den nya resursgruppen. |
     | Kontonamn|Ange ett unikt namn|Ange ett namn som identifierar ditt Azure Cosmos-konto. Eftersom*documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt ID.<br><br>ID:t får endast innehålla gemener, siffror och bindestreck (-). Det måste vara mellan 3-31 tecken.|
     | API|Core (SQL)|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er: Core (SQL) och MongoDB för dokumentdata, Gremlin för diagramdata, Azure Table och Cassandra. För närvarande måste du skapa ett separat konto för varje API. <br><br>Välj **Core (SQL)** att skapa en dokumentdatabas och en fråga med hjälp av SQL-syntax. <br><br>[Läs mer om SQL-API:et](../articles/cosmos-db/documentdb-introduction.md).|
-    | Plats|Välj den region som är närmast dina användare|Välj en geografisk plats som värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare att ge dem snabbast åtkomst till data.|
+    | Location|Välj den region som är närmast dina användare|Välj en geografisk plats som värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare att ge dem snabbast åtkomst till data.|
    
    ![Den nya kontosidan för Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
 

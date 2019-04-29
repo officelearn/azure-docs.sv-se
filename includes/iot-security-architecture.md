@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626611"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Säkerhetsarkitektur för Internet of Things (IoT)
 
@@ -171,13 +171,13 @@ Det här exemplet försöker åtgärda ett antal olika hot i olika faser data/in
 
 **(S)-förfalskning**: En angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på programvara eller maskinvara och därefter åtkomst till systemet med en annan fysisk eller virtuell enhet under identiteten för enheten nyckelmaterial har tagits från. En bra bild är fjärrkontroller som kan använda valfri TV samt som är populära prankster verktyg.
 
-**Denial of Service (D)**: En enhet kan återges inte klarar fungerar eller kommunicera genom att störa radio frekvenser eller övergripande kablar. En kamera för övervakning som hade dess power eller nätverksanslutningen avsiktligt blockerade rapportera inte till exempel data, alls.
+**Denial of Service (D)**: En enhet kan sluta fungera eller kommunicera om radiofrekvenser manipuleras eller sladdar kapas. Till exempel kan en övervakningskamera vars strömförsörjning eller nätverksanslutning avsiktligen saboteras inte rapportera några data alls.
 
-**Manipulering (T)**: En angripare kan helt eller delvis ersätta den programvara som körs på enheten, potentiellt så att ersatta programvaran du använder äkta identiteten för enheten om nyckelmaterial eller kryptografiska funktioner innehåller viktiga material var tillgängliga för den olaglig program. En angripare kan till exempel använda extraherade nyckelmaterial för att fånga upp och ignorera data från enheten på kommunikationsvägen och Ersätt den med falska data som autentiseras med det stulna nyckelmaterialet.
+**Manipulering (T)**: Angripare kan delvis eller helt byta ut programvara som körs på enheten, varvid den nya programvara potentiellt kan utnyttja enhetens riktiga identitet om viktigt material eller de kryptografiska funktioner som innehåller viktigt material görs tillgängliga för det främmande programmet. En angripare kan till exempel använda extraherade nyckelmaterial för att fånga upp och ignorera data från enheten på kommunikationsvägen och Ersätt den med falska data som autentiseras med det stulna nyckelmaterialet.
 
 **Avslöjande av information (I)**: Om enheten kör behandlas för programvara, kan programvaran behandlas potentiellt läcka data till obehöriga personer. En angripare kan till exempel använda extraherade nyckelmaterial för att mata in själva i kommunikationsvägen mellan enheten och en domänkontrollant eller fält-gateway eller molngatewayen till siphon av information.
 
-**Rättighetsökning (E)**: En enhet som har en specifik funktion kan tvingas att göra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
+**Rättighetsökning (E)**: En enhet som utför en specifik funktion kan tvingas utföra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
 
 | **Komponent** | **Hot** | **Problemlösning** | **Risk** | **Implementering** |
 | --- | --- | --- | --- | --- |
@@ -192,9 +192,9 @@ Här följer några exempel på hot i den här kategorin:
 
 **Förfalskning**: En angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på programvara eller maskinvara och därefter åtkomst till systemet med en annan fysisk eller virtuell enhet under identiteten för enheten nyckelmaterial har tagits från.
 
-**Denial of Service**: En enhet kan återges inte klarar fungerar eller kommunicera genom att störa radio frekvenser eller övergripande kablar. En kamera för övervakning som hade dess power eller nätverksanslutningen avsiktligt blockerade rapportera inte till exempel data, alls.
+**Denial of Service**: En enhet kan sluta fungera eller kommunicera om radiofrekvenser manipuleras eller sladdar kapas. Till exempel kan en övervakningskamera vars strömförsörjning eller nätverksanslutning avsiktligen saboteras inte rapportera några data alls.
 
-**Manipulering**: En angripare kan helt eller delvis ersätta den programvara som körs på enheten, potentiellt så att ersatta programvaran du använder äkta identiteten för enheten om nyckelmaterial eller kryptografiska funktioner innehåller viktiga material var tillgängliga för den olaglig program.
+**Manipulering**: Angripare kan delvis eller helt byta ut programvara som körs på enheten, varvid den nya programvara potentiellt kan utnyttja enhetens riktiga identitet om viktigt material eller de kryptografiska funktioner som innehåller viktigt material görs tillgängliga för det främmande programmet.
 
 **Manipulering**: En kamera för övervakning som visar en synliga spektrumet bild av en tom Hall kan syfta ett foto av sådana Hall. En rök eller fire-sensor kunde rapporterar någon håller en ljusare under den. I båda fallen enheten kanske tekniskt fullständigt betrodd för systemet, men den rapporterar behandlas för information.
 
@@ -210,7 +210,7 @@ Här följer några exempel på hot i den här kategorin:
 
 **Manipulering**: Enheten kan konfigureras för att fungera i ett tillstånd som är okända för kontrollsystem (utanför kända kalibreringsparametrar) och därmed tillhandahåller data som kan tolkas
 
-**Rättighetsökning**: En enhet som har en specifik funktion kan tvingas att göra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
+**Rättighetsökning**: En enhet som utför en specifik funktion kan tvingas utföra något annat. En kran är programmerad att öppna halvvägs kan till exempel att öppna hela vägen.
 
 **Denial of Service**: Enheten kan omvandlas till ett tillstånd där kommunikation inte är möjlig.
 

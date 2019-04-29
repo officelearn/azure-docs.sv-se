@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 26910fe2b0b45a6e31f9c907ac31d83a74a95775
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60528000"
 ---
 > [!NOTE]
 > För att slutföra det här avsnittet, måste du ha en fungerande installation av Node.js och Azure SDK för Node.js för din plattform.

@@ -9,11 +9,11 @@ ms.date: 12/17/2018
 ms.author: alinast
 ms.custom: include file
 ms.openlocfilehash: e8027e16cc1f58fbadbb35ae241ab29010005586
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534637"
 ---
 1. I [Azure-portalen](https://portal.azure.com)öppnar du **Azure Active Directory** från den vänstra panelen och öppnar sedan fönstret **Egenskaper**. Kopiera **katalog-ID:t** till en temporär fil. Du använder det här värdet för att konfigurera exempelprogrammet i nästa avsnitt.
 

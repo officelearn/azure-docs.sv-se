@@ -9,11 +9,11 @@ ms.date: 12/28/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: e81b8fb06240d566e46ca0b45a0910e014dee329
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534146"
 ---
 Rollbaserad åtkomstkontroll är en händelsedriven arv Säkerhetsstrategin för att hantera åtkomst, behörigheter och roller. Underordnade roller ärver behörigheter från överordnad roller. Behörigheter kan också tilldelas utan att ärvas från en överordnad-roll. De kan också tilldelade att anpassa en roll efter behov.
 

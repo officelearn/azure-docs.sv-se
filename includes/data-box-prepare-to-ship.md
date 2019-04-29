@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: a8070d25e2606d8ad72ac231a0a208072c612c5c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60463194"
 ---
 Det sista steget är att förbereda enheten för att skickas. I det här steget frånkopplas alla enhetsresurser. Det går inte att komma åt resurserna när du har startat den här processen.
 

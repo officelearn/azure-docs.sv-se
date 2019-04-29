@@ -1,15 +1,16 @@
 ---
 author: diberry
-ms.author: diberry
+ms.author: v-junlch
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/02/2019
+origin.date: 04/02/2019
+ms.date: 04/23/2019
 ms.openlocfilehash: d1c880ddc90ae3ce18dfde7e1983b45ac239de85
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599425"
 ---
 Den `Logging` inställningar hantera ASP.NET Core loggningsstöd för din behållare. Du kan använda samma konfigurationsinställningar och värden för din behållare som du använder för ett ASP.NET Core-program. 
 
@@ -56,4 +57,5 @@ Den `Disk` loggningsprovider stöder följande konfigurationsinställningar:
 | `MaxFileSize` | Integer | Den maximala storleken i megabyte (MB) på en loggfil. När storleken på den aktuella loggfilen uppfyller eller överskrider detta värde, har en ny loggfil startats med loggningsprovider. Om -1 anges begränsas storleken på loggfilen bara av den maximala filstorleken för utdata mount. Standardvärdet är 1. |
 
 Läs mer om hur du konfigurerar ASP.NET Core loggningsstöd [inställningar filkonfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
+
 

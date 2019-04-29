@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: 79ae38db73d55021572d04f693e5cb809e9bd056
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709879"
 ---
 De data som returneras med det förväntade värdet och standardmässiga övre och nedre marginaler. I praktiken kan du definiera en [sensitivity]-parameter (känslighet) och sedan använda (ExpectedValue + sensitivity * UpperMargin) som övre gräns och (ExpectedValue – sensitivity * LowerMargin) som nedre gräns för att justera avvikelsepunkterna på egen hand. Värdet för [sensitivity] måste vara större än 1. Nedan visas några diagram för justering.
 

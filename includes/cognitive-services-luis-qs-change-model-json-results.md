@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: 15047b9782ea86b91ba78e0d745c67892fdc8b76
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710376"
 ---
 Matrisen `response` för att lägga till exempelyttranden indikerar om varje yttrande har lyckats eller misslyckats med egenskapen `hasError`. Följande JSON-svar visar att båda yttrandena lades till. 
 

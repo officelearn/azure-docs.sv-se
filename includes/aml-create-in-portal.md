@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
 ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54489615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753928"
 ---
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för den Azure-prenumeration du använder. 
 
@@ -39,7 +39,7 @@ ms.locfileid: "54489615"
    Namn på arbetsyta |Ange ett unikt namn som identifierar din arbetsyta. I det här exemplet använder vi **docs ws**. Namn måste vara unikt inom resursgruppen. Använd ett namn som är lätt att komma ihåg och skilja från arbetsytor som skapats av andra.  
    Prenumeration |Ange den prenumeration som du vill använda.
    Resursgrupp | Använd en befintlig resursgrupp i prenumerationen eller ange ett namn för att skapa en ny resursgrupp. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **docs aml**. 
-   Plats | Välj platsen närmast användarna och dataresurserna. Den här platsen är där att arbetsytan har skapats.
+   Location | Välj platsen närmast användarna och dataresurserna. Den här platsen är där att arbetsytan har skapats.
 
    ![Skapa arbetsyta](./media/aml-create-in-portal/workspace-create.png)
 

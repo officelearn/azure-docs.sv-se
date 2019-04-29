@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: d1a6ff8dbd17d2792709a1ce065bcf793154e585
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37780680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542936"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Plattformsunderstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Den här artikeln beskriver hur du migrerar infrastruktur som en tjänst (IaaS)-resurser från klassiskt till Resource Manager-distributionsmodeller och information om hur du ansluter resurser från de två distributionsmodeller som finnas i din prenumeration med hjälp av virtuellt nätverk plats-till-plats-gatewayer. Du kan läsa mer om [Azure Resource Manager-funktioner och fördelar](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -28,7 +28,7 @@ Dessa klassiska IaaS-resurser som stöds under migreringen
 
 * Virtuella datorer
 * Tillgänglighetsuppsättningar
-* Cloud Services med virtuella datorer
+* Cloud Services med Virtual Machines
 * Lagringskonton
 * Virtuella nätverk
 * VPN-gatewayer

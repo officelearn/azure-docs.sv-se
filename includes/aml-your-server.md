@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
 ms.openlocfilehash: 8d8b314965253dc00b39d0b068b1d6fb3e4aa471
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395669"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753462"
 ---
 1. Följ instruktionerna på [skapa en arbetsyta för Azure Machine Learning-tjänsten](../articles/machine-learning/service/setup-create-workspace.md#portal) för att skapa en Miniconda miljö, skapa en arbetsyta och skriva en konfigurationsfil för arbetsytan (**aml_config/config.json**) .
 

@@ -9,11 +9,11 @@ ms.date: 03/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: de9bc91e438ff694c96966486908c54562e93902
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459865"
 ---
 Du kan kontrollera länkarna i det här avsnittet för mer information om tjänsterna som erbjuds av partner. Har din provider för grenen Kontakta oss om partnern gren enheten inte visas i avsnittet nedan. De kan kontakta oss genom att skicka ett e-postmeddelande till azurevirtualwan@microsoft.com.
 

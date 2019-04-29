@@ -9,11 +9,11 @@ ms.date: 11/24/2018
 ms.author: dech
 ms.custom: include file
 ms.openlocfilehash: 3915df46495e754843009a761e9a07aa2daddae2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53286207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686799"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) i ett nytt webbläsarfönster.
 2. Klicka på **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**.

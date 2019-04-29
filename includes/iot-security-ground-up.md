@@ -9,11 +9,11 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626493"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Säkerhet för Internet of Things (IoT) från grunden
 
@@ -103,14 +103,14 @@ Lösningsacceleratorer skapa i säkerhetsåtgärder avsiktligt, aktivera säker 
 
 Varje lösningsaccelerator skapar instanser av Azure-tjänster, till exempel:
 
-* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): din gateway som ansluter molnet till enheter. Du kan skala till miljoner anslutningar per hubb och bearbeta enorma mängder data med stöd för autentisering per enhet vilket hjälper dig att skydda din lösning.
+* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): Din gateway som ansluter molnet till enheter. Du kan skala till miljoner anslutningar per hubb och bearbeta enorma mängder data med stöd för autentisering per enhet vilket hjälper dig att skydda din lösning.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): en skalbar och fullständigt indexerade databastjänst för halvstrukturerade data som hanterar metadata för enheterna som du etablerar, till exempel attribut, konfiguration och säkerhetsegenskaper för. Azure Cosmos DB erbjuder hög prestanda och hög genomströmning bearbetning, schemaoberoende indexering av data och ett omfattande SQL-gränssnitt.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): En skalbar och fullständigt indexerade databastjänst för halvstrukturerade data som hanterar metadata för de enheter som du etablerar, till exempel attribut, konfiguration och säkerhetsegenskaper för. Azure Cosmos DB erbjuder hög prestanda och hög genomströmning bearbetning, schemaoberoende indexering av data och ett omfattande SQL-gränssnitt.
 
-* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): strömningsbearbetning i molnet som hjälper dig att snabbt utveckla och distribuera en analyslösning med låg kostnad för att hämta information i realtid från enheter, sensorer, infrastruktur och program . Data från den här fullständigt hanterade tjänsten kan skalas till alla volymer samtidigt som du får hög genomströmning, Låg fördröjning och återhämtning.
+* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Strömningsbearbetning i molnet som hjälper dig att snabbt utveckla och distribuera en analyslösning med låg kostnad för att hämta information i realtid från enheter, sensorer, infrastruktur och program. Data från den här fullständigt hanterade tjänsten kan skalas till alla volymer samtidigt som du får hög genomströmning, Låg fördröjning och återhämtning.
 
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): en plattform för att skapa avancerade webb- och mobilappar som ansluter till data överallt; i molnet eller lokalt. Skapa spännande mobilappar för iOS, Android och Windows. Integrera med programvara som en tjänst (SaaS) och företagsprogram med out-of the box anslutningen till massor av molnbaserade tjänster och företagsprogram. Koda på önskat språk och IDE – .NET, Node.js, PHP, Python eller Java – att skapa webbappar och API: er snabbare än någonsin.
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): En plattform för att skapa avancerade webb- och mobilappar som ansluter till data överallt; i molnet eller lokalt. Skapa spännande mobilappar för iOS, Android och Windows. Integrera med programvara som en tjänst (SaaS) och företagsprogram med out-of the box anslutningen till massor av molnbaserade tjänster och företagsprogram. Koda på önskat språk och IDE – .NET, Node.js, PHP, Python eller Java – att skapa webbappar och API: er snabbare än någonsin.
 
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Logic Apps-funktionen i Azure App Service hjälper dig att integrera din IoT-lösning till dina befintliga line-of-business-system och automatisera arbetsflödesprocesser. Logic Apps kan utvecklare utforma arbetsflöden som startar från en utlösare och sedan köra en serie steg, regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärsprocesser. Logic Apps ger ut nyckelfärdig anslutning till ett enormt ekosystem med SaaS, molnbaserade och lokala program.
 
-* [**Azure Blob storage**](https://azure.microsoft.com/services/storage/): pålitlig, ekonomisk molnlagring för de data som enheterna skickar till molnet.
+* [**Azure Blob storage**](https://azure.microsoft.com/services/storage/): Pålitlig, ekonomisk molnlagring för de data som enheterna skickar till molnet.

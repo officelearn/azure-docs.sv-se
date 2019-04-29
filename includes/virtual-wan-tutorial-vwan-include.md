@@ -9,11 +9,11 @@ ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58616510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457902"
 ---
 1. Gå till sidan virtuellt WAN-nätverk. Ett sätt att navigera till sidan är att gå till **alla tjänster**, och Sök efter virtuellt WAN-nätverk.
 1. Klicka på **+ Lägg till** för att öppna sidan **Skapa WAN**.

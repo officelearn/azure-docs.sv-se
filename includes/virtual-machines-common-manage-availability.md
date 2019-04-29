@@ -9,11 +9,11 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613806"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till virtuell dator i Azure som påverkas: oplanerat maskinvaruunderhåll, oväntat driftavbrott och planerat underhåll.
@@ -47,7 +47,8 @@ Varje virtuell dator i tillgänglighetsuppsättningen tilldelas en **uppdatering
 
 Feldomäner definierar den grupp av virtuella datorer som delar samma strömkälla och nätverksswitch. Som standard är de virtuella datorer som konfigureras i din tillgänglighetsuppsättning indelade i tre feldomäner för Resource Manager-distributioner (två feldomäner för klassisk distribution). Att placera de virtuella datorerna i en tillgänglighetsuppsättning skyddar inte ditt program mot operativsystemfel eller programspecifika fel, men det begränsar påverkan av potentiella fel på fysisk maskinvara, problem med nätverket och strömavbrott.
 
-<!--Image reference--> ![Skiss på update uppdateringsdomäner och feldomäner domänkonfiguration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+<!--Image reference-->
+   ![Skiss på update uppdateringsdomäner och feldomäner domänkonfiguration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning
 Om du för närvarande använder virtuella datorer med ohanterade diskar rekommenderar vi starkt att du [konverterar virtuella datorer i tillgänglighetsuppsättningar för att använda hanterade diskar](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
@@ -75,7 +76,8 @@ Om de virtuella datorerna är nästan identiska och tjänar samma syfte för dit
 
 Du kan till exempel placera alla virtuella datorer i klientdelen av ditt program som kör IIS, Apache eller Nginx i en enskild tillgänglighetsuppsättning. Se till att endast virtuella klientdatorer placeras i samma tillgänglighetsuppsättning. Se också till att endast virtuella datanivådatorer placeras i en egen tillgänglighetsuppsättning, till exempel replikerade virtuella datorer som kör SQL Server eller MySQL.
 
-<!--Image reference--> ![Programnivåer](./media/virtual-machines-common-manage-availability/application-tiers.png)
+<!--Image reference-->
+   ![Programnivåer](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-sets"></a>Kombinera en lastbalanserare med tillgänglighetsuppsättningar
 Kombinera [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) med en tillgänglighetsuppsättning för att få bästa programåterhämtning. Azure Load Balancer distribuerar trafiken mellan flera virtuella datorer. Azure Load Balancer ingår i standardnivån för Virtual Machines. Azure Load Balancer ingår inte i alla nivåer för Virtual Machines. Mer information om belastningsutjämning för virtuella datorer finns i [Belastningsutjämna virtuella datorer](../articles/virtual-machines/virtual-machines-linux-load-balance.md).

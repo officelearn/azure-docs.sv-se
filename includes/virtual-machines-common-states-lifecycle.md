@@ -9,11 +9,11 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420012"
 ---
 Azure-datorer (VM) som går igenom olika tillstånd kan grupperas i *etablering* och *power* tillstånd. Syftet med den här artikeln är att beskriva tillståndet och markera specifikt när kunder faktureras till exempel användning. 
 

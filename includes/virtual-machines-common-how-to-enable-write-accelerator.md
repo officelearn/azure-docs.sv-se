@@ -9,11 +9,11 @@ ms.date: 02/22/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58495044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478164"
 ---
 # <a name="enable-write-accelerator"></a>Aktiverar du Write Accelerator
 
@@ -60,7 +60,7 @@ IOPS-gränserna är per virtuell dator och *inte* per disk. Alla diskar för Wri
 
 Följande avsnitt beskriver hur Write Accelerator kan aktiveras i Azure Premium Storage virtuella hårddiskar.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krav gäller för användningen av Write Accelerator vid denna tidpunkt:
 

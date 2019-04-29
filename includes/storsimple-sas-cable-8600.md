@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482776"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Att koppla SAS-kablar
 1. Identifiera den primära servern och EBOD-höljen. Två höljena kan identifieras genom att titta på sina respektive tillbaka plan. Se följande bild för vägledning. 
@@ -18,7 +18,7 @@ ms.locfileid: "55888503"
    
     **Säkerhetskopiering av primära och EBOD-höljen**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    |:--- |:--- |
    | 1 |Primär hölje |
    | 2 |EBOD hölje |
@@ -28,7 +28,7 @@ ms.locfileid: "55888503"
    
     **Platsen för serienummer dekal**
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    |:--- |:--- |
    | 1 |Ensa för höljet |
 3. Använda de angivna SAS-kablarna för att ansluta EBOD-höljet till primära höljet på följande sätt:
@@ -41,7 +41,7 @@ ms.locfileid: "55888503"
       
       **SAS-kablar**
       
-      | Etikett | Beskrivning |
+      | Label (Etikett) | Beskrivning |
       |:--- |:--- |
       | A |Primär hölje |
       | B |EBOD hölje |

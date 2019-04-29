@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
 ms.openlocfilehash: d90034e3de77f67ec3a74123c9655fda95b113fe
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302232"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753455"
 ---
 1. Slutför [snabbstarten för Azure Machine Learning-portalen](../articles/machine-learning/service/quickstart-get-started.md) för att skapa en arbetsyta och starta Azure Notebooks. Hoppa över avsnittet **Använda anteckningsboken** om du vill.
 1. Om du redan har slutfört [snabbstarten](../articles/machine-learning/service/quickstart-get-started.md) loggar du in i [Azure Notebooks](https://notebooks.azure.com/) igen och öppnar projektet **Komma igång**.  

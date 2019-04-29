@@ -4,17 +4,17 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 2344b0673073613a880142089becddfaca88b3d5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 4ff9aeaa7e1b6e7f3762db4e983b299a517df3da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754341"
 ---
 Aktiveringsnyckeln som du använder:
 
-- Är en nyckel för autentisering av Azure Active Directory (AAD).
+- Är en Azure Active Directory (Azure AD)-baserade autentiseringsnyckeln.
 - Upphör att gälla efter tre dagar.
 - Används inte när enheten aktiveras.
 
-När en enhet har aktiverats, använder token för att kommunicera med Microsoft Azure.
+När du har aktiverat en enhet använder token för att kommunicera med Azure.

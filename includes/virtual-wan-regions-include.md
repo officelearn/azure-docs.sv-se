@@ -9,11 +9,11 @@ ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: fe7a7a548050d8d5d81ccecf17b4240ebcea10b3
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459859"
 ---
 I följande tabell visas tillgängliga regioner som stöds för funktioner som är GA.
 

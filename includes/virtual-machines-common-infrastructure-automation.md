@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
 ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543191"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Använd verktyg för automatisering av infrastruktur med virtuella datorer i Azure
 Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sätt i stor skala, önskas vanligtvis någon form av automatisering. Det finns många verktyg och lösningar som gör det möjligt att automatisera distributionen av hela Azure-infrastrukturen och livscykeln för hantering. Den här artikeln presenteras några av de verktyg för automatisering av infrastruktur som du kan använda i Azure. Dessa verktyg anpassa ofta till någon av följande metoder:

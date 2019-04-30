@@ -14,7 +14,7 @@ ms.date: 01/22/2018
 ms.author: shlo
 ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61262044"
@@ -62,7 +62,7 @@ En länkad tjänst i Data Factory har definierats i JSON-format på följande s�
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap  | Beskrivning | Obligatoriskt |
+Egenskap  | Beskrivning | Krävs |
 -------- | ----------- | -------- |
 namn | Namnet på den länkade tjänsten. Se [Azure Data Factory – namnregler](naming-rules.md). |  Ja |
 typ | Typ av den länkade tjänsten. Exempel: AzureStorage (datalager) eller AzureBatch (beräkning). Se beskrivningen av typeProperties. | Ja |
@@ -119,7 +119,7 @@ En datauppsättning i Data Factory har definierats i JSON-format på följande s
 ```
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap  | Beskrivning | Obligatoriskt |
+Egenskap  | Beskrivning | Krävs |
 -------- | ----------- | -------- |
 namn | Namnet på datauppsättningen. Se [Azure Data Factory – namnregler](naming-rules.md). |  Ja |
 typ | Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstyperna](#dataset-type). | Ja |
@@ -185,7 +185,7 @@ Den **struktur** avsnittet är valfritt. Den definierar schemat för datauppsät
 
 Varje kolumn i strukturen innehåller följande egenskaper:
 
-Egenskap  | Beskrivning | Obligatoriskt
+Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
 namn | Namnet på kolumnen. | Ja
 typ | Datatypen för kolumnen. Data Factory stöder följande datatyper av mellanliggande som tillåtna värden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleskt, sträng, Guid, Datetime, Datetimeoffset och Timespan** | Nej

@@ -79,7 +79,7 @@ Här följer några rekommendationer för att använda aktiviteten Ta bort:
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | dataset | Tillhandahåller datamängdsreferens för att avgöra vilka filer eller mappen ska tas bort | Ja |
 | rekursiv | Anger om filerna är borttagna rekursivt från undermapparna eller endast från den angivna mappen.  | Nej. Standardvärdet är `false`. |

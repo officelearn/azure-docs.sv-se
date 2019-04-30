@@ -58,7 +58,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för SAP HANA-länkad tjänst.
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 server | Namnet på den server som SAP HANA-instans finns. Om servern använder en anpassad port, ange `server:port`. | string | Ja
 authenticationType | Typ av autentisering. | sträng. ”Grundläggande” eller ”Windows” | Ja 
@@ -80,7 +80,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 När källan i kopieringsaktiviteten är av typen **RelationalSource** (som inkluderar SAP HANA), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB | Anger SQL-frågan som läser data från SAP HANA-instans. | SQL-fråga. | Ja |
 

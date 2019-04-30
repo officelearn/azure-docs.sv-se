@@ -46,7 +46,7 @@ Du skapar en **Azure Data Lake Analytics** compute service till en Azure data fa
 
 Följande tabell innehåller beskrivningar av de allmänna egenskaper som används i JSON-definitionen. Du kan ytterligare välja mellan tjänstens huvudnamn och användarautentisering för autentiseringsuppgifter.
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **typ** |Type-egenskapen ska anges till: **AzureDataLakeAnalytics**. |Ja |
 | **accountName** |Azure Data Lake Analytics-kontonamn. |Ja |
@@ -62,7 +62,7 @@ Registrera en entitet för program i Azure Active Directory (Azure AD) för att 
 
 Använd autentisering av tjänstens huvudnamn genom att ange följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Ange programmets klient-ID. | Ja |
 | **servicePrincipalKey** | Ange programmets nyckel. | Ja |
@@ -90,7 +90,7 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 ### <a name="user-credential-authentication"></a>Användarautentisering för autentiseringsuppgifter
 Du kan också använda användarautentisering för autentiseringsuppgifter för Data Lake Analytics genom att ange följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **Auktorisering** | Klicka på den **auktorisera** i Data Factory-redigeraren och ange dina autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja |
 | **sessionId** | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja |

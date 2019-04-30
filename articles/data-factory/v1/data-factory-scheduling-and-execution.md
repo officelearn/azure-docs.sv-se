@@ -184,7 +184,7 @@ Du har sett användningen av frekvens och intervall egenskaper i avsnittet tillg
 ### <a name="dataset-availability"></a>Tillgänglighet för datauppsättningar 
 I följande tabell beskrivs egenskaperna som du kan använda i den **tillgänglighet** avsnittet:
 
-| Egenskap  | Beskrivning | Obligatoriskt | Standard |
+| Egenskap  | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
 | frequency |Anger tidsenheten för datauppsättningen sektorn produktion.<br/><br/><b>Stöds frekvens</b>: Minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
 | interval |Anger en multiplikator för frekvensen<br/><br/>”X frekvensintervall” avgör hur ofta sektorn skapas.<br/><br/>Om du behöver datauppsättningen att delas timme kan du ställa in <b>frekvens</b> till <b>timme</b>, och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs!</b> Om du anger frekvens som minut, rekommenderar vi att du ställer in intervall på mindre än 15 |Ja |Ej tillämpligt |
@@ -232,7 +232,7 @@ En datauppsättning kan ha en verifieringsprincip har definierats som anger hur 
 
 Den **princip** avsnittet i definitionen av datauppsättningen definierar kriterierna eller villkor som datauppsättning segment måste vara uppfyllda. I följande tabell beskrivs egenskaperna som du kan använda i den **princip** avsnittet:
 
-| Principnamn | Beskrivning | Tillämpas på | Obligatoriskt | Standard |
+| Principnamn | Beskrivning | Tillämpas på | Krävs | Standard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Kontrollerar att data i en **Azure blob** uppfyller minsta storlek (i megabyte). |Azure-blobb |Nej |Ej tillämpligt |
 | minimumRows | Kontrollerar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det minsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Nej |Ej tillämpligt |

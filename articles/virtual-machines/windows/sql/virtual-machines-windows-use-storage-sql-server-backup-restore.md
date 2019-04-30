@@ -70,7 +70,7 @@ Följande SQL Server-komponenter som används när du säkerhetskopierar till Az
 1. Skapa ett Azure-konto om du inte redan har ett. Om du utvärderar Azure kan du överväga att den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 2. Gå sedan igenom något av följande självstudier som beskriver hur du skapar ett lagringskonto och utför en återställning.
    
-   * **SQL Server 2014**: [Självstudier: SQL Server 2014-säkerhetskopiering och återställning till Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2014**: [Självstudie: SQL Server 2014-säkerhetskopiering och återställning till Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
    * **SQL Server 2016**: [Självstudie: Med hjälp av Microsoft Azure Blob storage-tjänsten med SQL Server 2016-databaser](https://msdn.microsoft.com/library/dn466438.aspx)
 3. Granska ytterligare dokumentation från och med [SQL Server-säkerhetskopiering och återställning med Microsoft Azure Blob Storage-tjänsten](https://msdn.microsoft.com/library/jj919148.aspx).
 

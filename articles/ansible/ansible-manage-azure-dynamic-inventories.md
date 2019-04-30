@@ -1,30 +1,40 @@
 ---
-title: Använda Ansible för att hantera dina dynamiska Azure-lager
+title: Självstudie – konfigurera dynamiska lager för dina Azure-resurser med Ansible | Microsoft Docs
 description: Lär dig hur du använder Ansible för att hantera dina dynamiska Azure-lager
-ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/09/2018
-ms.topic: tutorial
-ms.openlocfilehash: 0ef754b792654281f2a12b8eee613434896d5476
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/22/2019
+ms.openlocfilehash: bdd78747505664c0824fffbd41a692818000193f
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396622"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764427"
 ---
-# <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Använda Ansible för att hantera dina dynamiska Azure-lager
-Ansible kan användas för att hämta lagerinformation från olika källor (däribland molnkällor såsom Azure) till ett *dynamiskt lager*. I den här artikeln använder du [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) för att konfigurera ett dynamiskt Ansible Azure-lager där du skapar två virtuella datorer, taggar en av de virtuella datorerna samt installerar Nginx på den taggade virtuella datorn.
+# <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Självstudier: Konfigurera dynamiska lager för dina Azure-resurser med Ansible
+
+Ansible kan användas för att hämta lagerinformation från olika källor (däribland molnkällor såsom Azure) till ett *dynamiskt lager*. 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Konfigurera två virtuella datorer för testning. 
+> * Tagga en av de virtuella datorerna
+> * Installera Nginx på de taggade virtuella datorerna
+> * Konfigurera ett dynamisk lager som innehåller de konfigurera Azure-resurserna
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-- **Azure-autentiseringsuppgifter** - [Skapa Azure-autentiseringsuppgifter och konfigurera Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
-
-## <a name="create-the-test-virtual-machines"></a>Skapa de virtuella testdatorerna
+## <a name="create-the-test-vms"></a>Skapa virtuella datorer för testning
 
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -57,7 +67,8 @@ Ansible kan användas för att hämta lagerinformation från olika källor (där
                      --image UbuntuLTS --generate-ssh-keys
         ```
 
-## <a name="tag-a-virtual-machine"></a>Tagga en virtuell dator
+## <a name="tag-a-vm"></a>Tagga en virtuell dator
+
 Du kan [använda taggar för att organisera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) efter användardefinierade kategorier. 
 
 Ange följande [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag)-kommando för att tagga den virtuella datorn `ansible-inventory-test-vm1` med nyckeln `nginx`:
@@ -65,9 +76,13 @@ Ange följande [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
-
 ## <a name="generate-a-dynamic-inventory"></a>Generera ett dynamiskt lager
-När du dina virtuella datorer har definierats (och taggats) är det dags att generera det dynamiska lagret. Ansible innehåller ett Python-skript som heter [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) som genererar ett dynamiskt lager för dina Azure-resurser genom att göra API-begäranden till Azure Resource Manager. I följande steg vägleds du genom användningen av `azure_rm.py`-skript för att ansluta till dina två virtuella Azure-testdatorer:
+
+När du dina virtuella datorer har definierats (och taggats) är det dags att generera det dynamiska lagret.
+
+### <a name="using-ansible-version--28"></a>Med Ansible version < 2.8
+
+Ansible innehåller Python-skriptet [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) som genererar ett dynamisk lager för dina Azure-resurser. I följande steg vägleds du genom användningen av `azure_rm.py`-skript för att ansluta till dina två virtuella Azure-testdatorer:
 
 1. Använd GNU-kommandot `wget` för att hämta skriptet `azure_rm.py`:
 
@@ -102,20 +117,64 @@ När du dina virtuella datorer har definierats (och taggats) är det dags att ge
     }
     ```
 
-## <a name="enable-the-virtual-machine-tag"></a>Aktivera taggen för virtuell dator
-När du har angett den önskade taggen behöver du ”aktivera” taggen. Ett sätt att aktivera en tagg är att exportera taggen till en miljövariabel som heter `AZURE_TAGS` via kommandot **exportera**:
+### <a name="ansible-version--28"></a>Ansible-version > = 2.8
+
+Från och med Ansible 2.8, Ansible ger en [plugin-programmet med Azure dynamisk inventering](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). Följande steg vägleder dig genom användningen av plugin-programmet:
+
+1. Inventering plugin-programmet kräver en konfigurationsfil. Konfigurationsfilen måste sluta med `azure_rm` och har filnamnstillägget antingen `yml` eller `yaml`. Den här självstudiekursen exempelvis spara följande spelboken som `myazure_rm.yml`:
+
+    ```yml
+    plugin: azure_rm
+    include_vm_resource_groups:
+    - ansible-inventory-test-rg
+    auth_source: auto
+    ```
+
+1. Kör följande kommando för att pinga virtuella datorer i resursgruppen:
+
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
+
+1. När du kör föregående kommando, kan du få följande fel:
+
+    ```Output
+    Failed to connect to the host via ssh: Host key verification failed.
+    ```
+    
+    Om du får ett felmeddelande ”-värdnyckeln verifiering”, lägger du till följande rad i Ansible-konfigurationsfilen. Ansible-konfigurationsfilen finns på `/etc/ansible/ansible.cfg`.
+
+    ```bash
+    host_key_checking = False
+    ```
+
+1. När du kör spelboken kan se du resultat som liknar följande utdata:
+  
+    ```Output
+    ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ```
+
+## <a name="enable-the-vm-tag"></a>Aktivera VM-tagg
+När du har ställt in en tagg, måste du ”aktivera” taggen i fråga. Ett sätt att aktivera en tagg är genom att exportera taggen till en miljövariabel `AZURE_TAGS` via den `export` kommando:
 
 ```azurecli-interactive
 export AZURE_TAGS=nginx
 ```
 
-När taggen har exporterats kan du prova kommandot `ansible` igen:
+- Om du använder Ansible < 2.8, kör du följande kommando:
 
-```azurecli-interactive
-ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
-```
+    ```bash
+    ansible -i azure_rm.py ansible-inventory-test-rg -m ping
+    ```
 
-Nu visas enbart en virtuell dator (den vars tagg matchar det värde som exporteras till miljövariabeln **AZURE_TAGS**):
+- Om du använder Ansible > = 2.8, kör du följande kommando:
+  
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
+
+Nu visas enbart en virtuell dator (det som vars taggen matchar värdet som exporteras till den `AZURE_TAGS` miljövariabeln):
 
 ```Output
 ansible-inventory-test-vm1 | SUCCESS => {
@@ -126,57 +185,69 @@ ansible-inventory-test-vm1 | SUCCESS => {
 ```
 
 ## <a name="set-up-nginx-on-the-tagged-vm"></a>Konfigurera Nginx på den taggade virtuella datorn
+
 Syftet med taggar är att göra det möjligt att snabbt och enkelt arbeta med undergrupper för dina virtuella datorer. Anta till exempel att du vill installera Nginx endast på virtuella datorer som du har tilldelat taggen `nginx`. Följande steg illustrerar hur enkelt det är att utföra:
 
-1. Skapa en fil (som ska innehålla din spelbok) med namnet `nginx.yml` på följande sätt:
+1. Skapa en fil med namnet `nginx.yml`:
 
    ```azurecli-interactive
-   vi nginx.yml
+   code nginx.yml
    ```
 
-1. Infoga följande kod i den nyligen skapade filen `nginx.yml`:
+1. Klistra in följande exempelkod i redigeringsprogrammet:
 
     ```yml
     ---
     - name: Install and start Nginx on an Azure virtual machine
-    hosts: azure
-    become: yes
-    tasks:
-    - name: install nginx
-      apt: pkg=nginx state=installed
-      notify:
-      - start nginx
+      hosts: all
+      become: yes
+      tasks:
+      - name: install nginx
+        apt: pkg=nginx state=installed
+        notify:
+        - start nginx
 
-    handlers:
-    - name: start nginx
-      service: name=nginx state=started
+      handlers:
+        - name: start nginx
+          service: name=nginx state=started
     ```
 
-1. Kör spelboken `nginx.yml`:
+1. Spara filen och avsluta redigeraren.
 
-    ```azurecli-interactive
+1. Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+
+   - Ansible < 2.8:
+
+    ```bash
     ansible-playbook -i azure_rm.py nginx.yml
     ```
 
-1. När du kör spelboken ser du resultat som liknar följande utdata:
+   - Ansible > = 2.8:
+
+    ```bash
+     ansible-playbook  -i ./myazure_rm.yml  nginx.yml
+    ```
+
+1. När strategiboken, kan du se utdata som liknar följande resultat:
 
     ```Output
-    PLAY [Install and start Nginx on an Azure virtual machine] **********
+    PLAY [Install and start Nginx on an Azure virtual machine] 
 
-    TASK [Gathering Facts] **********
+    TASK [Gathering Facts] 
     ok: [ansible-inventory-test-vm1]
 
-    TASK [install nginx] **********
+    TASK [install nginx] 
     changed: [ansible-inventory-test-vm1]
 
-    RUNNING HANDLER [start nginx] **********
+    RUNNING HANDLER [start nginx] 
     ok: [ansible-inventory-test-vm1]
 
-    PLAY RECAP **********
+    PLAY RECAP 
     ansible-inventory-test-vm1 : ok=3    changed=1    unreachable=0    failed=0
     ```
 
 ## <a name="test-nginx-installation"></a>Testa Nginx-installation
+
 Det här avsnittet illustrerar en metod för att testa att Nginx är installerat på den virtuella datorn.
 
 1. Använd kommandot [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) för att hämta IP-adressen för den virtuella datorn `ansible-inventory-test-vm1`. Det returnerade värdet (den virtuella datorns IP-adress) används sedan som parameter för SSH-kommandot för anslutning till den virtuella datorn.
@@ -199,13 +270,13 @@ Det här avsnittet illustrerar en metod för att testa att Nginx är installerat
     tom@ansible-inventory-test-vm1:~$ nginx -v
 
     nginx version: nginx/1.10.3 (Ubuntu)
-    
+
     tom@ansible-inventory-test-vm1:~$
     ```
 
-1. Tryck på tangentbordskombinationen **&lt;Ctrl+D** för att koppla från SSH-sessionen.
+1. Klicka på den `<Ctrl>D` tangentbord kombination att koppla från SSH-sessionen.
 
-1. När föregående steg för den virtuella datorn `ansible-inventory-test-vm2` utförs visas ett informationsmeddelande som anger var du kan hämta Nginx (vilket tyder på att du inte har det installerat i det här läget):
+1. Gör det föregående steg för den `ansible-inventory-test-vm2` virtuella datorer ger ett informationsmeddelande som anger var du hittar Nginx (vilket förutsätter att du inte har installerats i det här läget):
 
     ```Output
     tom@ansible-inventory-test-vm2:~$ nginx -v
@@ -218,5 +289,6 @@ Det här avsnittet illustrerar en metod för att testa att Nginx är installerat
     ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 > [!div class="nextstepaction"] 
-> [Skapa en grundläggande virtuell dator i Azure med Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Snabbstart: Konfigurera Linux-datorer i Azure med Ansible](/azure/virtual-machines/linux/ansible-create-vm)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5fb92c95463a5c1766b543dfc7b08a49250beda7
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 0dda467c3906c217c18e1340f7dc2a464dcbccae
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56078652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127803"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 
@@ -36,5 +36,5 @@ Microsoft distribuerar NVIDIA GRID drivrutinen installationsprogram för NV och 
 
 | Operativsystem | Drivrutin |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>Windows 10 (upp till version 1803) | [RUTNÄTET 7.1 (412.16)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
-| Windows Server 2012 R2 | [RUTNÄTET 7.1 (412.16)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |
+| Windows Server 2016<br/><br/>Windows 10 (upp till version 1803) | [RUTNÄTET 8.0 (425.31)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
+| Windows Server 2012 R2 | [RUTNÄTET 8.0 (425.31)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |

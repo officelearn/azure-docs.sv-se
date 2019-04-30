@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108312"
 ---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>Tagga en virtuell dator via mallar
-Först ska vi titta på Taggning via mallar. [Den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) placerar taggar på följande resurser: beräkning (virtuell dator), lagring (Storage-konto) och nätverk (offentlig IP-adress, virtuellt nätverk och gränssnitt). Den här mallen är för en virtuell Windows-dator, men kan anpassas för virtuella Linux-datorer.
+Först ska vi titta på Taggning via mallar. [Den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) placerar taggar på följande resurser: Beräkning (virtuell dator), lagring (Storage-konto) och nätverk (offentlig IP-adress, virtuellt nätverk och gränssnitt). Den här mallen är för en virtuell Windows-dator, men kan anpassas för virtuella Linux-datorer.
 
 Klicka på den **distribuera till Azure** knappen från den [Mallänk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Detta kommer gå till den [Azure-portalen](https://portal.azure.com/) där du kan distribuera den här mallen.
 
 ![Enkel distribution med taggar](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Den här mallen innehåller följande taggar: *avdelning*, *programmet*, och *Skapad av*. Du kan lägga till och redigera dessa taggar direkt i mallen om du vill ha olika taggnamn.
+Den här mallen innehåller följande taggar: *Avdelning*, *programmet*, och *skapats av*. Du kan lägga till och redigera dessa taggar direkt i mallen om du vill ha olika taggnamn.
 
 ![Azure-taggar i en mall](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 

@@ -48,7 +48,7 @@ ms.locfileid: "60776430"
 |targetDedicated|Int32|Antalet beräkningsnoder som har begärts för poolen.|
 |enableAutoScale|Booleskt|Anger om poolstorleken automatiskt justerar över tid.|
 |isAutoPool|Booleskt|Anger om poolen har skapats via ett jobb AutoPool mekanism.|
-|startTime|Datetime|Den tid som ändrar storlek på poolen igång.|
-|endTime|Datetime|Den tid ändrar storlek på poolen har slutförts.|
+|startTime|DateTime|Den tid som ändrar storlek på poolen igång.|
+|endTime|DateTime|Den tid ändrar storlek på poolen har slutförts.|
 |resultCode|String|Resultatet av den ändrade storleken.|
 |resultMessage|String|Storleksändringsfel returneras innehåller information om resultatet.<br /><br /> Om den ändrade storleken har slutförts det tillstånd som åtgärden har slutförts.|

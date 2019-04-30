@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: 16ce537a54fc77fc0f72b859d6d193501d86c1fc
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472326"
 ---
 ## <a name="create-a-ruby-application"></a>Skapa en Ruby-program
 Anvisningar finns i [skapa en Ruby-App i Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).

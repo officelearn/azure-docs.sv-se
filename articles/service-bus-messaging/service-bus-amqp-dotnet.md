@@ -76,9 +76,9 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP-typer för bröd
 | double |double |AMQP-värde |
 | decimal |decimal128 |AMQP-värde |
 | char |char |AMQP-värde |
-| Datetime |tidsstämpel |AMQP-värde |
+| DateTime |tidsstämpel |AMQP-värde |
 | Guid |uuid |AMQP-värde |
-| byte[] |binary |AMQP-värde |
+| byte |binary |AMQP-värde |
 | string |string |AMQP-värde |
 | System.Collections.IList |lista |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. |
 | System.Array |matris |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. |

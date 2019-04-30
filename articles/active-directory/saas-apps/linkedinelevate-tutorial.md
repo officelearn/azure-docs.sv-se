@@ -4,107 +4,165 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2018
+ms.topic: tutorial
+ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ca8e537f261b59fb4e069d47d24e21abbdeca46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92af3a18be8471013e93afad47146bdbabd4be18
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60260032"
+ms.locfileid: "62128795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Självstudier: Azure Active Directory-integrering med LinkedIn höjer
 
 I den här självstudien får lära du att integrera LinkedIn höjer med Azure Active Directory (AD Azure).
-
 Integrera LinkedIn höjer med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till LinkedIn höjer
-- Du kan aktivera användarna att automatiskt få loggat in på LinkedIn höjer (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
+* Du kan styra i Azure AD som har åtkomst till LinkedIn höjer.
+* Du kan aktivera användarna att vara automatiskt inloggad till LinkedIn höjer (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med LinkedIn höjer, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En LinkedIn höjer enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* LinkedIn höjer enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
-Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till LinkedIn höjer från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för LinkedIn höjer **SP och IDP** -initierad SSO
+
+* Har stöd för LinkedIn höjer **Just In Time** etableringen av användare
+
+* Har stöd för LinkedIn höjer [ **automatisk** etableringen av användare](linkedinelevate-provisioning-tutorial.md)
 
 ## <a name="adding-linkedin-elevate-from-the-gallery"></a>Att lägga till LinkedIn höjer från galleriet
+
 Om du vill konfigurera integreringen av LinkedIn utöka till Azure AD, som du behöver lägga till LinkedIn höjer från galleriet i din lista över hanterade SaaS-appar.
 
 **Om du vill lägga till LinkedIn höjer från galleriet, utför du följande steg:**
 
-1. I den  **[Azure-hanteringsportalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Klicka på **Lägg till** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Appar][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-1. I sökrutan skriver **LinkedIn höjer**. I resultatrutan, klickar du på **LinkedIn höjer** att lägga till programmet.
+4. I sökrutan skriver **LinkedIn höjer**väljer **LinkedIn höjer** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_000.png)
+    ![LinkedIn höjer i resultatlistan](common/search-new-app.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med LinkedIn höjer baserat på en testanvändare som kallas ”Britta Simon”.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användaren i LinkedIn upphöja till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i LinkedIn höjer upprättas.
-
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i LinkedIn höjer.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med LinkedIn höjer baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i LinkedIn höjer upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med LinkedIn höjer, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare LinkedIn höjer](#creating-a-linkedin-elevate-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera LinkedIn höjer enkel inloggning](#configure-linkedin-elevate-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa LinkedIn höjer testanvändare](#create-linkedin-elevate-test-user)**  – du har en motsvarighet för Britta Simon i LinkedIn höjer som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportalen och konfigurera enkel inloggning i ditt LinkedIn höjer program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med LinkedIn höjer:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med LinkedIn höjer:
 
-1. I hanteringsportalen för Azure på den **LinkedIn höjer** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **LinkedIn höjer** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan som **läge** Välj **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial-linkedin_01.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+
+    ![LinkedIn höjer domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+
+    a. I den **identifierare** text, ange den **entitets-ID** värde, ska du kopiera entitets-ID-värdet från Linkedin-Portal som beskrivs senare i den här självstudien.
+
+    b. I den **svars-URL** text, ange den **Assertion konsument Access (ACS) Url** värde, du kommer att kopiera Assertion konsument Access (ACS) Url-värdet från portalen Linkedin beskrivs senare i den här självstudien.
+
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+
+    ![LinkedIn höjer domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>`
+
+6. LinkedIn utöka programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, var som **nameidentifier** mappas med **user.userprincipalname**. LinkedIn höjer program som förväntar nameidentifier mappas med **user.mail**, så du behöver redigera attribut mappar genom att klicka på redigeringsikonen och ändra attribut mappar.
+
+    ![image](common/edit-attribute.png)
+
+7. Förutom ovanstående LinkedIn höjer program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet användaranspråk på den **användarattribut** dialogrutan utför följande steg för att lägga till SAML-token attributet som visas i den tabellen nedan:
+
+    | Namn | Källattribut|
+    | -------| -------------|
+    | avdelning | user.department |
+
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
+
+    c. Lämna **Namnrymd** tom.
+
+    d. Välj Källa som **Attribut**.
+
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
+
+    f. Klicka på **Ok**
+
+    g. Klicka på **Spara**.
+
+8. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+9. På den **konfigurera LinkedIn höjer** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-linkedin-elevate-single-sign-on"></a>Konfigurera LinkedIn höjer enkel inloggning
 
 1. I ett annat webbläsarfönster inloggning till LinkedIn höjer-klienten som administratör.
 
@@ -112,53 +170,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
-1. Klicka på **eller klicka här om du vill läsa in och kopiera enskilda fält i formuläret** och kopiera **entitets-Id** och **Assertion konsument Access (ACS)-Url**
+1. Klicka på **eller klicka här om du vill läsa in och kopiera enskilda fält i formuläret** och utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
 
-1. På Azure Portal under **LinkedIn höjer domän och URL: er**, utför följande steg om du vill konfigurera enkel inloggning i **IdP-initierad** läge
+    a. Kopiera **entitets-Id** och klistra in den i den **identifierare** textrutan den **SAML grundkonfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_01.png)
+    b. Kopiera **Assertion konsument Access (ACS) Url** och klistra in den i den **svars-URL** textrutan den **grundläggande SAML-konfiguration** i Azure-portalen.
 
-    a. I den **identifierare** textrutan anger du den **entitets-ID** kopieras från LinkedIn-portalen 
-
-    b. I den **svars-URL** textrutan anger du den **Assertion konsument Access (ACS) Url** kopieras från LinkedIn-portalen
-
-1. Om du vill konfigurera enkel inloggning i **SP-initierat**, klickar du på Visa avancerade URL alternativet med inställningen i konfigurationsavsnittet och konfigurera tecknet på URL: en med följande mönster:
-
-    `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>` 
-
-    ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_02.png) 
-
-1. LinkedIn utöka programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel på detta. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men LinkedIn höjer förväntar sig detta mappas med användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration.
-
-    ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/updateusermail.png)
-
-1. I **användarattribut** klickar du på **visa och redigera alla andra användarattribut** och ange attribut. Du måste lägga till en annan anspråk med namnet **avdelning** och värdet måste mappas till **user.department**.
-
-    | Attributnamn | Attributvärde |
-    | --- | --- |
-    | avdelning| user.department |
-
-      ![Skapa en Azure AD-användare för testning](./media/linkedinelevate-tutorial/userattribute.png)
-
-      a. Klicka på Lägg till attribut så öppnas sidan med attributet Lägg till attributet avdelning som du ser nedan –
-
-      ![Skapa en Azure AD-användare för testning](./media/linkedinelevate-tutorial/adduserattribute.png)
-
-      b. Klicka på **Ok** att spara attributet.
-
-      c. Ändra namnet på attributet **e-postadress** till **e-post**.
-
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
-
-    ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_certificate.png) 
-
-1. Klicka på **Spara**.
-
-    ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_general_400.png)
-
-1. Gå till avsnittet **LinkedIn-administratörsinställningar**. Ladda upp XML-filen som du precis har laddat ned från Azure portal genom att klicka på alternativet ladda upp XML-fil.
+1. Gå till avsnittet **LinkedIn-administratörsinställningar**. Ladda upp XML-filen som du har hämtat från Azure portal genom att klicka på alternativet ladda upp XML-fil.
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
@@ -166,96 +186,72 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure Management portal kallas Britta Simon.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-![Skapa en Azure AD-användare][100]
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. I den **Azure-hanteringsportalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinelevate-tutorial/create_aaduser_01.png) 
+2. Välj **Ny användare** överst på skärmen.
 
-1. Gå till **användare och grupper** och klicka på **alla användare** att visa en lista över användare.
+    ![Knappen Ny användare](common/new-user.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinelevate-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/linkedinelevate-tutorial/create_aaduser_03.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
-1. På den **användaren** dialogrutan utför följande steg:
-
-    ![Skapa en Azure AD-användare för testning](./media/linkedinelevate-tutorial/create_aaduser_04.png) 
-
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="creating-a-linkedin-elevate-test-user"></a>Skapa en LinkedIn höjer testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till LinkedIn höjer.
+
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **LinkedIn höjer**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **LinkedIn höjer**.
+
+    ![Länken LinkedIn höjer i listan med program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-linkedin-elevate-test-user"></a>Skapa LinkedIn höjer testanvändare
 
 LinkedIn utöka programmet stöder bara i tid användaretablering och -autentiserade användare kommer att skapas i programmet automatiskt. På administratören sidan Inställningar på LinkedIn höjer portal andra växeln **automatiskt tilldela licenser** till aktiva Just-in-time-etablering och detta kommer också tilldela en licens till användaren. LinkedIn höjer stöder även automatisk användaretablering, kan du hitta mer information om [här](linkedinelevate-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
    ![Skapa en Azure AD-användare för testning](./media/linkedinelevate-tutorial/LinkedinUserprovswitch.png)
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst LinkedIn höjer.
-
-![Tilldela användare][200] 
-
-**Om du vill tilldela Britta Simon att upphöja LinkedIn, utför du följande steg:**
-
-1. Öppna vyn program i Azure-hanteringsportalen och sedan gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201]
-
-1. I listan med program väljer **LinkedIn höjer**.
-
-    ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_0001.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen LinkedIn höjer i åtkomstpanelen, bör du få sidan Azure inloggning och på efter lyckad inloggning, bör du få ditt LinkedIn höjer program.
+När du klickar på panelen LinkedIn höjer i åtkomstpanelen, bör det vara loggas in automatiskt att upphöja LinkedIn som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Självstudie: Konfigurera LinkedIn höjer för automatisk användaretablering med Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera användarförsörjning](linkedinelevate-provisioning-tutorial.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/linkedinElevate-tutorial/tutorial_general_01.png
-[2]: ./media/linkedinElevate-tutorial/tutorial_general_02.png
-[3]: ./media/linkedinElevate-tutorial/tutorial_general_03.png
-[4]: ./media/linkedinElevate-tutorial/tutorial_general_04.png
-
-[100]: ./media/linkedinElevate-tutorial/tutorial_general_100.png
-
-[200]: ./media/linkedinElevate-tutorial/tutorial_general_200.png
-[201]: ./media/linkedinElevate-tutorial/tutorial_general_201.png
-[202]: ./media/linkedinElevate-tutorial/tutorial_general_202.png
-[203]: ./media/linkedinElevate-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

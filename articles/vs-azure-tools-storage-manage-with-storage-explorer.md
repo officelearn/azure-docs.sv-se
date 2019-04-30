@@ -2,24 +2,18 @@
 title: Kom igång med Storage Explorer | Microsoft Docs
 description: Hantera Azure storage-resurser med Storage Explorer
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459500"
+ms.locfileid: "62128287"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -115,7 +109,9 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 
 Med Lagringsutforskaren kan arbeta du med lokal lagring med hjälp av en emulator. Den här metoden kan du simulera arbeta med Azure Storage utan att nödvändigtvis ha distribuerat på Azure ett lagringskonto.
 
-Från och med version 1.1.0, stöds lokala lagringsemulatorn på alla plattformar. Lagringsutforskaren kan ansluta till alla emulerade tjänster lyssna på dess standardslutpunkterna för lokal lagring.
+Från och med version 1.1.0, stöder Lagringsutforskaren användningen av en lokala lagringsemulatorn på alla plattformar. Lagringsutforskaren kan ansluta till alla emulerade tjänster lyssna på dess standardslutpunkterna för lokal lagring.
+
+Den [Azure storage-emulatorn](storage/common/storage-use-emulator.md) körs för närvarande endast på Windows. För de överväger en storage-emulatorn för Linux, ett alternativ är gemenskapen bibehålls, öppen källkod storage-emulatorn [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Stöd för storage-tjänster och funktioner kan variera mycket beroende på ditt val av emulatorn. Kontrollera att din emulatorn stöder de tjänster och funktioner som du vill arbeta med.

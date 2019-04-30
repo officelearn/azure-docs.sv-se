@@ -37,7 +37,7 @@ Här är den övergripande strukturen för en arbetsflödesdefinition:
 }
 ```
 
-| Element | Obligatoriskt | Beskrivning |
+| Element | Krävs | Beskrivning |
 |---------|----------|-------------|
 | definition | Ja | Från elementet för din arbetsflödesdefinition |
 | $schema | Endast när externt refererar till en arbetsflödesdefinition | Plats för schemat JSON-fil som beskriver den Definitionsspråk för arbetsflödet-versionen som du hittar här: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
@@ -69,7 +69,7 @@ Här är den allmänna strukturen för en parameterdefinition:
 },
 ```
 
-| Element | Obligatoriskt | Typ | Beskrivning |
+| Element | Krävs | Typ | Beskrivning |
 |---------|----------|------|-------------|
 | typ | Ja | int, float, string, securestring, bool, matris, JSON-objekt, secureobject <p><p>**Obs!** Alla lösenord, nycklar och hemligheter kan du använda den `securestring` och `secureobject` skriver eftersom den `GET` åtgärden inte returnerar de här typerna. Mer information om hur du skyddar parametrar finns i [skydda din logikapp](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Typen för parametern |
 | Standardvärde | Ja | Samma som `type` | Standard-parametervärdet när inget värde anges när du skapar en instans av arbetsflödet |
@@ -99,7 +99,7 @@ Här är den allmänna strukturen för en utdata-definition:
 }
 ```
 
-| Element | Obligatoriskt | Typ | Beskrivning |
+| Element | Krävs | Typ | Beskrivning |
 |---------|----------|------|-------------|
 | <*key-name*> | Ja | String | Nyckelnamn för utdata returvärde |
 | typ | Ja | int, float, string, securestring, bool, matris, JSON-objekt | Typen för det returnera värdet för utdata |

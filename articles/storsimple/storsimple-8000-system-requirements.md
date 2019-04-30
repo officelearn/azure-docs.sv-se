@@ -61,7 +61,7 @@ Följande programvarukrav finns för de valfria StorSimple-komponenterna (StorSi
 
 StorSimple-enheten är en låst enhet. Portar som måste öppnas i brandväggen för att tillåta för iSCSI-, moln- och hanteringstrafik. I följande tabell visas de portar som måste öppnas i brandväggen. I den här tabellen *i* eller *inkommande* refererar till den riktning som inkommande klientbegäranden åtkomst till din enhet. *Ut* eller *utgående* refererar till den riktning som din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| Nej. port<sup>1,2</sup> | In eller ut | Port omfång | Obligatoriskt | Anteckningar |
+| Nej. port<sup>1,2</sup> | In eller ut | Port omfång | Krävs | Anteckningar |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Utdata |WAN |Nej |<ul><li>Utgående port används för åtkomst till Internet för att hämta uppdateringar.</li><li>Utgående webbproxy kan konfigureras av användaren.</li><li>Om du vill tillåta systemuppdateringar, måste den här porten också vara öppen för kontrollenheternas fasta IP-adresser.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Utdata |WAN |Ja |<ul><li>Utgående port används för att komma åt data i molnet.</li><li>Utgående webbproxy kan konfigureras av användaren.</li><li>Om du vill tillåta systemuppdateringar, måste den här porten också vara öppen för kontrollenheternas fasta IP-adresser.</li><li>Den här porten används också på båda styrenheterna för skräpinsamling.</li></ul> |

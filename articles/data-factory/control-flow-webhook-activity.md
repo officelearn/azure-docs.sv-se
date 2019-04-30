@@ -54,7 +54,7 @@ Du kan använda en hook webbaktivitet för att styra körningen av pipelines med
 
 
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på web hook-aktivitet | String | Ja |
 typ | Måste vara inställt på **WebHook**. | String | Ja |

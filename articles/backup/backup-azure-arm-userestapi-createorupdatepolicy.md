@@ -50,7 +50,7 @@ Den `{policyName}` och `{vaultName}` finns i URI: N. Mer information finns i beg
 
 Om du vill skapa en princip för säkerhetskopiering av Azure virtuella datorer är till exempel följande komponenter i begärandetexten.
 
-|Namn  |Obligatoriskt  |Typ  |Beskrivning  |
+|Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource egenskaper        |
 |tags     |         | Object        |  Resurstaggar       |

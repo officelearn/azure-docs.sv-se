@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e293eb555269a1f8beeeccd74000358abe1ef5c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442024"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759758"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudier: Rapportering om automatisk användarens kontoetablering
 
@@ -43,7 +43,7 @@ Den här artikeln använder följande termer som anges nedan:
 
 * **Käll-System** -lagringsplatsen för användare som den Azure AD-etableringtjänsten synkroniserar från. Azure Active Directory är källsystemet för flesta förintegrerade etablering kopplingar, men det finns vissa undantag (exempel: Workday inkommande synkronisering).
 
-* **Rikta System** -lagringsplatsen för användare som den Azure AD-etableringtjänsten synkroniserar till. Detta är vanligtvis ett SaaS-program (exempel: Salesforce, ServiceNow, Google Apps, Dropbox for Business), men i vissa fall kan vara ett lokalt system, till exempel Active Directory (exempel: Workday inkommande synkronisering till Active Directory).
+* **Rikta System** -lagringsplatsen för användare som den Azure AD-etableringtjänsten synkroniserar till. Detta är vanligtvis ett SaaS-program (exempel: Salesforce, ServiceNow, G Suite, Dropbox for Business), men i vissa fall kan vara ett lokalt system, till exempel Active Directory (exempel: Workday inkommande synkronisering till Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Hämta etablering rapporter från Azure-hanteringsportalen

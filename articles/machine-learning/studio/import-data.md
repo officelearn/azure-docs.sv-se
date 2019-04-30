@@ -68,7 +68,7 @@ Följande datatyper som identifieras av Studio:
 * Integer
 * Double
 * Boolean
-* Datetime
+* DateTime
 * TimeSpan
 
 Studio använder en intern datatyp som kallas ***datatabell*** att överföra data mellan moduler. Du kan uttryckligen omvandla dina data till data tabellen format med den [konvertera till datauppsättningen] [ convert-to-dataset] modulen.

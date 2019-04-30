@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e67737e26edfee94a5a4d740d6c575817c66ff0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306874"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766186"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -426,7 +426,7 @@ Azure Functions-butiker blob kvitton i en behållare med namnet *webjobs-azure-v
 * Blobnamnet
 * ETag (en blob versions-ID, till exempel: ”0x8D1DC6E70A277EF”)
 
-Framtvinga ombearbetning av en blob genom att ta bort blob-kvitto på den blobben från den *webjobs-azure-värdar* behållaren manuellt.
+Framtvinga ombearbetning av en blob genom att ta bort blob-kvitto på den blobben från den *webjobs-azure-värdar* behållaren manuellt. När denna ombearbetning inte inträffa direkt, är det garanterad ska ske vid en senare tidpunkt.
 
 ## <a name="trigger---poison-blobs"></a>Utlösare – skadliga blobar
 
@@ -450,9 +450,13 @@ JavaScript och Java läsa in hela blob i minnet, och C# funktioner gör det om d
 
 ## <a name="trigger---polling"></a>Utlösa - avsökning
 
-Om blob-behållaren som övervakas innehåller fler än 10 000 BLOB (över alla behållare), loggfiler Functions runtime genomsökningar att se upp för nya eller ändrade blobar. Den här processen kan orsaka försening. En funktion kan hämta aktiveras inte förrän flera minuter eller längre när bloben har skapats. Dessutom [lagringsloggar skapas på en ”bästa prestanda”](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Det är inte säkert att alla händelser ska samlas in. Under vissa förhållanden kan du missats loggar.
+Om blob-behållaren som övervakas innehåller fler än 10 000 BLOB (över alla behållare), loggfiler Functions runtime genomsökningar att se upp för nya eller ändrade blobar. Den här processen kan orsaka försening. En funktion kan hämta aktiveras inte förrän flera minuter eller längre när bloben har skapats.
 
-Om du behöver snabbare och mer tillförlitlig blob bearbetning kan du skapa en [kömeddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar bloben. Använd sedan en [köutlösare](functions-bindings-storage-queue.md) i stället för en blob-utlösare för att bearbeta blob. Ett annat alternativ är att använda Event Grid; finns i självstudierna [automatisera storleksändring av överförda bilder med Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+> [!WARNING]
+> Dessutom [lagringsloggar skapas på en ”bästa prestanda”](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Det är inte säkert att alla händelser ska samlas in. Under vissa förhållanden kan du missats loggar.
+> 
+> Om du behöver snabbare och mer tillförlitlig blob bearbetning kan du skapa en [kömeddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar bloben. Använd sedan en [köutlösare](functions-bindings-storage-queue.md) i stället för en blob-utlösare för att bearbeta blob. Ett annat alternativ är att använda Event Grid; finns i självstudierna [automatisera storleksändring av överförda bilder med Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="input"></a>Indata
 

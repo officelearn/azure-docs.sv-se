@@ -60,7 +60,7 @@ Kör Pipeline-aktiviteten kan Data Factory-pipeline anropa en annan pipeline.
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på execute pipeline-aktivitet. | String | Ja
 typ | Måste anges till: **ExecutePipeline**. | String | Ja

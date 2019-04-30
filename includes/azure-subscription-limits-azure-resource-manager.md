@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: d490cab4d437c30fdb211ea27397777afc27e72e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805207"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765864"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -29,13 +29,15 @@ ms.locfileid: "59805207"
 | Unika taggberäkningar per prenumeration<sup>2</sup> | 10 000 | 10 000 |
 | [Molntjänster](../articles/cloud-services/cloud-services-choose-me.md) per prenumeration |EJ TILLÄMPLIGT<sup>3</sup> |EJ TILLÄMPLIGT<sup>3</sup> |
 | [Tillhörighetsgrupper](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per prenumeration |EJ TILLÄMPLIGT<sup>3</sup> |EJ TILLÄMPLIGT<sup>3</sup> |
-| [Prenumerationsnivå distributioner](../articles/azure-resource-manager/deploy-to-subscription.md) per plats | 800 | 800 |
+| [Prenumerationsnivå distributioner](../articles/azure-resource-manager/deploy-to-subscription.md) per plats | 800<sup>4</sup> | 800 |
 
 <sup>1</sup>standardgränserna varierar genom erbjudande kategorityp, t.ex kostnadsfri utvärderingsversion och betala per användning, och serie, t.ex Dv2, F och G.
 
 <sup>2</sup>kan du använda ett obegränsat antal taggar per prenumeration. Antalet taggar per resurs eller resursgrupp är begränsat till 15. Resource Manager returnerar en [lista med unika taggnamn och taggvärden](/rest/api/resources/tags) i prenumerationen endast när antalet taggar är 10 000 eller mindre. Du kan fortfarande hitta en resurs genom att tagga när fler än 10 000.  
 
 <sup>3</sup>dessa funktioner krävs inte längre med Azure-resursgrupper och Resource Manager.
+
+<sup>4</sup>om du når gränsen på 800 distributioner kan du ta bort distributioner från historiken över som inte längre behövs. Ta bort prenumeration på distributioner genom att använda [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) eller [az-distributionen ta bort](/cli/azure/deployment?view=azure-cli-latest#az-deployment-delete).
 
 > [!NOTE]
 > Virtuella datorkärnor har en regional total gräns. De har också en gräns för regionala per storlek-serien, t.ex Dv2 och F. Dessa begränsningar tillämpas separat. Anta till exempel att en prenumeration i regionen USA, östra har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30. Den här prenumerationen kan distribuera 30 virtuella datorer i A1 eller 30 D1 virtuella datorer eller en kombination av båda för att inte överstiger sammanlagt 30 kärnor. Ett exempel på en kombination är 10 virtuella datorer i A1 och 20 D1 virtuella datorer.  

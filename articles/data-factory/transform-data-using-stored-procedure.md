@@ -65,7 +65,7 @@ Här är JSON-format för att definiera en lagrade Proceduraktiviteten:
 
 I följande tabell beskrivs de här JSON-egenskaper:
 
-| Egenskap                   | Beskrivning                              | Obligatoriskt |
+| Egenskap                   | Beskrivning                              | Krävs |
 | ------------------------- | ---------------------------------------- | -------- |
 | namn                      | Namn på aktiviteten                     | Ja      |
 | description               | Text som beskriver vad aktiviteten används till | Nej       |

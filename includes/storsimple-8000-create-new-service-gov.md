@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61488942"
 ---
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 1. Använd dina Microsoft-kontouppgifter för att logga in på den [Microsoft Azure Government Portal](https://portal.azure.us/).

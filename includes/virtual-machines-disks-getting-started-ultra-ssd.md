@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3b596e5bad8202d88ea06c7eee114bec1063a35f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58051963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075701"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Aktivera Azure ultra SSD: er
 
@@ -29,7 +29,7 @@ CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 
 Svaret ska vara detsamma som i formuläret här nedan, där X är den zon som ska användas för att distribuera i östra USA 2. X kan vara 1, 2 eller 3.
 
-|ResourceType  |Namn  |Plats  |Zoner  |Begränsning  |Funktion  |Värde  |
+|ResourceType  |Namn  |Location  |Zoner  |Begränsning  |Funktion  |Värde  |
 |---------|---------|---------|---------|---------|---------|---------|
 |Diskar     |UltraSSD_LRS         |usaöstra2         |X         |         |         |         |
 

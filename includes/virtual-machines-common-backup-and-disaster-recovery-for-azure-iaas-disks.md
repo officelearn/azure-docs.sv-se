@@ -2,18 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: storage
-author: luywang
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 06/05/2018
-ms.author: luywang
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: MT
+ms.openlocfilehash: c1b7785e5078fdd3fdc2fc3d407b8890f76cd558
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443444"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766239"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Återställning för säkerhetskopiering och haveriberedskap för Azure IaaS-diskar
 
@@ -53,7 +53,7 @@ Kunder kan använda för att skydda arbetsbelastningar för program från stille
 
 På grund av de här separata feldomäner påverkar lokaliserade maskinvarufel vanligtvis inte flera virtuella datorer i uppsättningen på samma gång. Att ha separata feldomäner ger hög tillgänglighet för ditt program. Den betraktas som en bra idé att Använd tillgänglighetsuppsättningar när hög tillgänglighet krävs. Nästa avsnitt beskriver disaster recovery-aspekt.
 
-### <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och haveriberedskap
+### <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och katastrofåterställning
 
 Katastrofåterställning är möjligheten att återställa från sällsynta, större, incidenter. De här incidenterna omfattar längre, storskaliga fel, till exempel avbrott i tjänsten som påverkar en hel region. Haveriberedskap involverar säkerhetskopiering och arkivering och kan behövas manuella ingripanden, till exempel att återställa en databas från en säkerhetskopia.
 

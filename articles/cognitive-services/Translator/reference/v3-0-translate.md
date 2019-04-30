@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336804"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760583"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -42,11 +42,11 @@ Parametrarna som skickades mot frågesträngen är:
   </tr>
   <tr>
     <td>från</td>
-    <td><em>Valfri parameter</em>.<br/>Anger språket i indatatexten. Hitta vilka språk är tillgängliga att översätta från genom att leta upp [språk som stöds](./v3-0-languages.md) med hjälp av den <code>translation</code> omfång. Om den <code>from</code> parametern inte anges, automatisk språkidentifiering används för att fastställa en källspråket.</td>
+    <td><em>Valfri parameter</em>.<br/>Anger språket i indatatexten. Hitta vilka språk är tillgängliga att översätta från genom att leta upp <a href="./v3-0-languages.md">språk som stöds</a> med hjälp av den <code>translation</code> omfång. Om den <code>from</code> parametern inte anges, automatisk språkidentifiering används för att fastställa en källspråket.</td>
   </tr>
   <tr>
     <td>till</td>
-    <td><em>Obligatoriska parametern</em>.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den <code>translation</code> omfång. Till exempel använda <code>to=de</code> att översätta tyska.<br/>Det är möjligt att översätta på flera språk samtidigt genom att upprepa parametern i frågesträngen. Till exempel använda <code>to=de&to=it</code> att översätta tyska och italienska.</td>
+    <td><em>Obligatoriska parametern</em>.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de <a href="./v3-0-languages.md">språk som stöds</a> ingår i den <code>translation</code> omfång. Till exempel använda <code>to=de</code> att översätta tyska.<br/>Det är möjligt att översätta på flera språk samtidigt genom att upprepa parametern i frågesträngen. Till exempel använda <code>to=de&to=it</code> att översätta tyska och italienska.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ Parametrarna som skickades mot frågesträngen är:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Valfri parameter</em>.<br/>En sträng som anger kategorin (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med [anpassad Translator](../customization.md). Lägg till kategori-ID från projektet anpassade Translator för den här parametern för att använda ditt anpassade distribuerade system. Standardvärdet är: <code>general</code>.</td>
+    <td><em>Valfri parameter</em>.<br/>En sträng som anger kategorin (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med <a href="../customization.md">anpassad Translator</a>. Lägg till kategori-ID från projektet anpassade Translator för den här parametern för att använda ditt anpassade distribuerade system. Standardvärdet är: <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
-    <td><em>Valfri parameter</em>.<br/>Anger hur profanities ska hanteras på översättningar. Möjliga värden är: <code>NoAction</code> (standard), <code>Marked</code> eller <code>Deleted</code>. Information om olika sätt att behandla svordomar finns i [svordomar hantering](#handle-profanity).</td>
+    <td><em>Valfri parameter</em>.<br/>Anger hur profanities ska hanteras på översättningar. Möjliga värden är: <code>NoAction</code> (standard), <code>Marked</code> eller <code>Deleted</code>. Information om olika sätt att behandla svordomar finns i <a href="#handle-profanity">svordomar hantering</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>Valfri parameter</em>.<br/>Anger hur profanities bör markeras i översättningar. Möjliga värden är: <code>Asterisk</code> (standard) eller <code>Tag</code>. Information om olika sätt att behandla svordomar finns i [svordomar hantering](#handle-profanity).</td>
+    <td><em>Valfri parameter</em>.<br/>Anger hur profanities bör markeras i översättningar. Möjliga värden är: <code>Asterisk</code> (standard) eller <code>Tag</code>. Information om olika sätt att behandla svordomar finns i <a href="#handle-profanity">svordomar hantering</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>

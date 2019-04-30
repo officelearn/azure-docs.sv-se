@@ -183,7 +183,7 @@ När du kopierar data från Cassandra, används följande mappningar från Cassa
 | INET |String |
 | INT |Int32 |
 | TEXT |String |
-| TIDSSTÄMPEL |Datetime |
+| TIDSSTÄMPEL |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |

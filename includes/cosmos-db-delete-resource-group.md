@@ -1,27 +1,27 @@
 ---
-author: SnehaGunda
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: sngun
-ms.openlocfilehash: 30efb963f34ff567c70d845a4a8891ead285b178
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+origin.date: 03/23/2019
+ms.date: 04/15/2019
+ms.author: v-yeche
+ms.openlocfilehash: e7fc8f57c0fe290809354ce19fe92337178a84b6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60890385"
 ---
-Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten med följande steg, så att inga kostnader uppstår:
+När du är klar med din webbapp och Azure Cosmos DB-konto, kan du ta bort Azure-resurserna du skapade så att du inte debiteras mer. Ta bort resurser:
 
-1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
+1. I Azure-portalen väljer du **Resursgrupper** längst till vänster. Om den vänstra menyn döljs väljer ![knappen Expandera](./media/cosmos-db-delete-resource-group/expand.png) så att det expanderas.
 
-    Om den vänstra menyn döljs klickar du på ![Knappen Expandera](./media/cosmos-db-delete-resource-group/expand.png) för att expandera den.
+2. Välj den resursgrupp som du skapade för den här snabbstarten.  
 
-   ![Mått i Azure Portal](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
+    ![Mått i Azure Portal](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
-2. Markera resursgruppen i det nya fönstret och klicka sedan på **Ta bort resursgrupp**.
+2. I det nya fönstret, väljer **ta bort resursgrupp**.
 
-   ![Mått i Azure Portal](./media/cosmos-db-delete-resource-group/delete-resources.png)   
+    ![Mått i Azure Portal](./media/cosmos-db-delete-resource-group/delete-resources.png)   
 
-3. I det nya fönstret, skriv namnet på resursgruppen som ska tas bort och klicka sedan på **Ta bort**.
-
+3. Skriv namnet på resursgruppen som ska ta bort och välj sedan i fönstret nästa **ta bort**.

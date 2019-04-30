@@ -37,7 +37,7 @@ När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den an
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på den `Wait` aktivitet. | String | Ja
 typ | Måste vara inställt på **vänta**. | String | Ja

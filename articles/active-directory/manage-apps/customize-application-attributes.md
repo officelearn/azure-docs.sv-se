@@ -15,15 +15,15 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291695"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759774"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attributmappningar för Användaretablering för SaaS-program i Azure Active Directory
-Microsoft Azure AD har stöd för användaretablering för SaaS-program från tredje part, till exempel Salesforce, Google Apps och andra. Om du aktiverar användaretablering för ett SaaS-program från tredje part, styr dess attributvärden via attributmappningar Azure-portalen.
+Microsoft Azure AD har stöd för användaretablering för SaaS-program från tredje part, till exempel Salesforce, G Suite och andra. Om du aktiverar användaretablering för ett SaaS-program från tredje part, styr dess attributvärden via attributmappningar Azure-portalen.
 
 Det finns en förkonfigurerad uppsättning attribut och attributmappningar mellan Azure AD-användarobjekt och objekt för varje SaaS-app. Vissa appar hantera andra typer av objekt tillsammans med användare, till exempel grupper.
 
@@ -84,7 +84,7 @@ Tillsammans med den här egenskapen stöder attributmappningar även följande a
 
 ## <a name="editing-group-attribute-mappings"></a>Redigera grupp attributmappningar
 
-Ett valt antal program, till exempel ServiceNow, Box och Google Apps, stöd för möjligheten att etablera gruppobjekt och användarobjekt. Gruppera objekt kan innehålla egenskaper, till exempel visningsnamn och e-alias, tillsammans med medlemmar i gruppen.
+Ett valt antal program, till exempel ServiceNow, Box och G Suite, stöd för möjligheten att etablera gruppobjekt och användarobjekt. Gruppera objekt kan innehålla egenskaper, till exempel visningsnamn och e-alias, tillsammans med medlemmar i gruppen.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 

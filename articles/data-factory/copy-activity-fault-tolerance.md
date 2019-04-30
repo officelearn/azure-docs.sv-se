@@ -71,12 +71,12 @@ I följande exempel innehåller en JSON-definition för att konfigurera hoppar �
 }
 ```
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Anger om du vill hoppa över inkompatibla rader vid kopiering eller inte. | True<br/>FALSKT (standard) | Nej
 redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga inkompatibla rader. | &nbsp; | Nej
 linkedServiceName | Den länkade tjänsten av [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) att lagra loggen som innehåller raderna hoppades över. | Namnet på en `AzureStorage` eller `AzureDataLakeStore` skriver länkad tjänst som refererar till den instans som du vill använda för att lagra loggfilen. | Nej
-sökväg | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange sökvägen som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej
+path | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange sökvägen som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej
 
 ## <a name="monitor-skipped-rows"></a>Övervaka hoppades över rader
 När körningen av kopieringsaktiviteten är klar ser du hur många hoppades över rader i utdata för kopieringsaktiviteten:

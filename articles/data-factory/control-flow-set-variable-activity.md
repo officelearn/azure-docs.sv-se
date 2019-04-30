@@ -24,7 +24,7 @@ Använd aktiviteten ange variabel för att ange värdet för en befintlig variab
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Obligatoriskt
+Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
 namn | Namnet på aktiviteten i pipelinen | Ja
 description | Text som beskriver vad aktiviteten används | nej

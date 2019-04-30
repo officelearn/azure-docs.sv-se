@@ -69,7 +69,7 @@ Egenskaperna beskrivs senare i den här artikeln. Items-egenskapen är en samlin
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på den för varje aktiviteten. | String | Ja
 typ | Måste vara inställt på **ForEach** | String | Ja

@@ -194,7 +194,7 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | Real |Single |
 | SmallInt |Int16 |
 | Tid |TimeSpan |
-| Tidsstämpel |Datetime |
+| Tidsstämpel |DateTime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

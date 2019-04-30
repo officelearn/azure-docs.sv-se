@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3d4c58cd9e7ee0674f42d776c8df6e96faba1ab1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9f0d694badaa6f4484a13364c6a56aee2ad1dcfb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123954"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributioner och drivrutiner som stöds
 
@@ -34,7 +34,7 @@ Microsoft distribuerar NVIDIA GRID drivrutinen installationsprogram för NV och 
 
 | Distribution | Drivrutin |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>CentOS-baserade 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7.1, drivrutinen gren R410|
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>CentOS-baserade 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 8.0, drivrutinen gren R418|
 
 > [!WARNING] 
 > Installation av tredjepartsprogramvara på Red Hat-produkter kan påverka supportvillkoren för Red Hat. Läs [Knowledgebase-artikeln om Red Hat](https://access.redhat.com/articles/1067).

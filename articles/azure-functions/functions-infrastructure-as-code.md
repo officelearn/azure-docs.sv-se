@@ -39,8 +39,8 @@ En Azure Functions-distribution består vanligtvis av dessa resurser:
 
 | Resurs                                                                           | Krav | Referens för syntax och egenskaper                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| En funktionsapp                                                                     | Obligatoriskt    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| En [Azure Storage](../storage/index.yml) konto                                   | Obligatoriskt    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| En funktionsapp                                                                     | Krävs    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
+| En [Azure Storage](../storage/index.yml) konto                                   | Krävs    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
 | En [Application Insights](../azure-monitor/app/app-insights-overview.md) komponent | Valfri    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
 | En [värdplan](./functions-scale.md)                                             | Valfritt<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 

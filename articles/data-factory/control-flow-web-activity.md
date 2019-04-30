@@ -61,7 +61,7 @@ Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på webbaktiviteten | String | Ja
 typ | Måste vara inställt på **WebActivity**. | String | Ja

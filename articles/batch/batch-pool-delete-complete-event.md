@@ -37,8 +37,8 @@ ms.locfileid: "60775771"
 |Element|Typ|Anteckningar|
 |-------------|----------|-----------|
 |id|String|Id för poolen.|
-|startTime|Datetime|Den tid som poolen ta bort igång.|
-|endTime|Datetime|Den tid ta bort poolen har slutförts.|
+|startTime|DateTime|Den tid som poolen ta bort igång.|
+|endTime|DateTime|Den tid ta bort poolen har slutförts.|
 
 ## <a name="remarks"></a>Kommentarer
 Läs mer om tillstånd och felkoder för poolen storleksändringen [ta bort en pool från ett konto](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

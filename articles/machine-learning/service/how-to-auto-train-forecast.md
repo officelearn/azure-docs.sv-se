@@ -79,7 +79,7 @@ För prognostisering uppgifter använder automatiska maskininlärning förbearbe
 
 Den `AutoMLConfig` objektet definierar de inställningar och data som behövs för en automatiserad machine learning-uppgift. Liknar ett regressionsproblem, definiera standard utbildning parametrar som typ av aktivitet, antalet iterationer, utbildning data, och antalet mellan verifieringar. Det finns fler parametrar som måste anges som påverkar experimentet för prognostisering uppgifter. I följande tabell beskrivs varje parameter och dess användning.
 
-| Param | Beskrivning | Obligatoriskt |
+| Param | Beskrivning | Krävs |
 |-------|-------|-------|
 |`time_column_name`|Används för att ange datetime-kolumn i indata som används för att skapa tidsserier och härledning av frekvensen.|✓|
 |`grain_column_names`|Namnen definiera enskilda Seriegrupper i indata. Om grain inte har definierats, antas datauppsättningen är en tidsserie.||

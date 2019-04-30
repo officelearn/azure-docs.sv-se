@@ -93,7 +93,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 När källan i kopieringsaktiviteten är av typen **RelationalSource** (som innehåller MySQL), följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej (om **tableName** av **datauppsättning** har angetts) |
 

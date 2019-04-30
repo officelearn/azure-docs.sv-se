@@ -83,7 +83,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **CassandraTable** har följande egenskaper
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | keyspace |Namnet på keyspace eller schema i Cassandra-databasen. |Ja (om **fråga** för **CassandraSource** har inte definierats). |
 | tableName |Namnet på tabellen i Cassandra-databas. |Ja (om **fråga** för **CassandraSource** har inte definierats). |
@@ -95,7 +95,7 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 
 När källan är av typen **CassandraSource**, följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-92 fråga eller CQL-fråga. Se [CQL referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga, ange **keyspace name.table namn** som representerar den tabell som du vill fråga. |Nej (om tabellnamn och keyspace för datauppsättningen har definierats). |
 | consistencyLevel |Konsekvensnivån som anger hur många kopior måste svara på en läsbegäran innan det returneras data till klientprogrammet. Cassandra kontrollerar det angivna antalet repliker för data för att tillgodose läsförfrågan. |EN, TVÅ, TRE, KVORUM, ALL, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Se [konfigurera datakonsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) mer information. |Nej. Standardvärdet är en. |
@@ -272,7 +272,7 @@ Se [RelationalSource typegenskaperna](#copy-activity-properties) lista över ege
 | INET |String |
 | INT |Int32 |
 | TEXT |String |
-| TIDSSTÄMPEL |Datetime |
+| TIDSSTÄMPEL |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |

@@ -68,7 +68,7 @@ Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azur
 
 ## <a name="syntax-details"></a>Information om syntax
 
-| Egenskap           | Beskrivning                              | Obligatoriskt |
+| Egenskap           | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | namn              | Namn på aktiviteten                     | Ja      |
 | description       | Text som beskriver vad aktiviteten används till | Nej       |

@@ -58,7 +58,7 @@ Azure IoT Edge kan utgående kommunikation från en lokal Edge-enhet till Azure-
 
 Använd följande tabell för portkonfiguration för de servrar som är värd för Azure IoT Edge-körningen:
 
-| Porten Nej. | In eller ut | Port omfång | Obligatoriskt | Riktlinjer |
+| Porten Nej. | In eller ut | Port omfång | Krävs | Riktlinjer |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Utdata       | WAN        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller Azure IoT Device Provisioning-tjänsten (DPS).|
 

@@ -82,7 +82,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **MongoDbCollection** har följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | Samlingsnamn |Namnet på samlingen i MongoDB-databas. |Ja |
 
@@ -93,7 +93,7 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 När källan är av typen **MongoDbSource** följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-92 frågesträngen. Till exempel: Välj * från MyTable. |Nej (om **collectionName** av **datauppsättning** har angetts) |
 
@@ -297,7 +297,7 @@ När data flyttas till MongoDB används följande mappningar från MongoDB-typer
 | --- | --- |
 | Binär |Byte[] |
 | Boolean |Boolean |
-| Date |Datetime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |

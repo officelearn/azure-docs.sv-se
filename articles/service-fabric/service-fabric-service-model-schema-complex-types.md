@@ -6751,7 +6751,7 @@ Anger vilken slutpunktsresurs som för att binda behållarens exponerade port.
 |Attribut|Värde|
 |---|---|
 |innehåll|0-element, attribut som 2|
-|definierats|globally|
+|definierats|globalt|
 |namn|ServicePackageResourceGovernancePolicyType|
 
 ### <a name="xml-source"></a>XML-källa
@@ -6799,7 +6799,7 @@ ServicePackage representerar en version enhet för distribution och aktivering. 
 |Attribut|Värde|
 |---|---|
 |innehåll|11-element, attribut som 4|
-|definierats|globally|
+|definierats|globalt|
 |namn|ServicePackageType|
 
 ### <a name="xml-source"></a>XML-källa
@@ -7049,7 +7049,7 @@ Det här innehållet ServicePackage kontrollsummevärde.
 |Attribut|Värde|
 |---|---|
 |innehåll|4-element, attribut som 0|
-|definierats|globally|
+|definierats|globalt|
 |namn|ServiceTemplatesType|
 
 ### <a name="xml-source"></a>XML-källa
@@ -7101,7 +7101,7 @@ Bastypen som definierar en Microsoft Azure Service Fabric-tjänst.
 |Attribut|Värde|
 |---|---|
 |innehåll|5-element, attribut som 2|
-|definierats|globally|
+|definierats|globalt|
 |namn|ServiceType|
 
 ### <a name="xml-source"></a>XML-källa
@@ -7309,7 +7309,7 @@ Definierar egenskaper för principer för Persistence och borttagning.
 |Attribut|Värde|
 |---|---|
 |innehåll|1-element, attribut som 0|
-|definierats|globally|
+|definierats|globalt|
 |namn|ServiceTypeExtensionPolicyPropertiesType|
 
 ### <a name="xml-source"></a>XML-källa
@@ -7345,7 +7345,7 @@ Definierar egenskaper för principer för Persistence och borttagning.
 |Attribut|Värde|
 |---|---|
 |innehåll|0-element, attribut som 3|
-|definierats|globally|
+|definierats|globalt|
 |namn|ServiceTypeHealthPolicyType|
 
 ### <a name="xml-source"></a>XML-källa
@@ -7408,7 +7408,7 @@ Bastypen som beskriver en tillståndskänslig eller en tillståndslös ServiceTy
 |Attribut|Värde|
 |---|---|
 |innehåll|4-element, attribut som 1|
-|definierats|globally|
+|definierats|globalt|
 |namn|ServiceTypeType|
 
 ### <a name="xml-source"></a>XML-källa
@@ -7530,7 +7530,7 @@ Deklarerar placeringsprinciper för en tjänst.  Användbart när klustret strä
 
 |Attribut|Värde|
 |---|---|
-|ref|Tillägg|
+|Ref|Tillägg|
 |minOccurs|0|
 
 ## <a name="servicetypestype-complextype"></a>ServiceTypesType complexType
@@ -7538,7 +7538,7 @@ Deklarerar placeringsprinciper för en tjänst.  Användbart när klustret strä
 |Attribut|Värde|
 |---|---|
 |innehåll|2-element, attribut som 0|
-|definierats|globally|
+|definierats|globalt|
 |namn|ServiceTypesType|
 
 ### <a name="xml-source"></a>XML-källa

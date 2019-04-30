@@ -74,7 +74,7 @@ Använd den här egenskapen med **tillgången filter**. Det rekommenderas inte a
 |**startTimestamp**|Gäller för Video på begäran (VoD) eller direktsänd strömning.<br/>Det här är ett långt värde som representerar en absolut startpunkt på dataströmmen. Värdet hämtar avrundat till närmaste nästa GOP början. Enheten är tidsskalan, så en startTimestamp av 150000000 skulle vara för 15 sekunder.<br/>Använd startTimestamp och endTimestampp att trimma fragment som ska ingå i listan (manifest).<br/>Till exempel startTimestamp = 40000000 och endTimestamp = 100000000 med hjälp av standard-tidsskalan genererar en spellista som innehåller fragment finns mellan 4 sekunder och 10 sekunder för VoD-presentationen. Om ett fragment är gränsen, inkluderas hela fragment i manifestet.|
 |**tidsskalan**|Gäller för alla tidsstämplar och varaktigheter i en Presentation tidsintervallet som angetts som antalet steg i en sekund.<br/>Standardvärdet är 10000000 - tio miljoner steg i en sekund, där varje säkerhetskopieringssteg är 100 nanosekunder lång.<br/>Till exempel använder du värdet 300000000 när du använder standard tidsskalan om du vill ange en startTimestamp på 30 sekunder.|
 
-### <a name="tracks"></a>spår
+### <a name="tracks"></a>Spår
 
 Du anger en lista med filtervillkor spåra egenskapen (FilterTrackPropertyConditions) baserat som spårar för din dataström (Live Streaming eller Video på begäran) ska tas med i dynamiskt skapade manifest. Filter som kombineras med en logisk **AND** och **eller** igen.
 

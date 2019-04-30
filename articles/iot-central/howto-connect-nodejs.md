@@ -97,7 +97,7 @@ Lägg till följande kommando på den **kommandon** sidan:
 
 | Visningsnamn    | Fältnamn     | Standardvärde för tidsgräns | Datatyp |
 | --------------- | -------------- | --------------- | --------- |
-| nedräkning       | Nedräkning      | 30              | nummer    |
+| Nedräkning       | Nedräkning      | 30              | nummer    |
 
 Lägg till följande indatafältet nedräkning-kommando:
 

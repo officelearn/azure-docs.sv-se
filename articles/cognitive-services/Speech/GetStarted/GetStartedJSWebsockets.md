@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 17901ad40a48e9ee8d1a8b872b04ad52b75b3a52
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515200"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Kom igång med API för taligenkänning taligenkänning i JavaScript
 
@@ -24,7 +24,7 @@ ms.locfileid: "56672414"
 
 Du kan utveckla program som omvandla talat ljud till text med hjälp av de tal-API: T. JavaScript-klientbiblioteket använder den [Speech Service WebSocket-protokoll](../API-Reference-REST/websocketprotocol.md), vilket gör att du prata och ta emot transkriberas text samtidigt. Den här artikeln hjälper dig att komma igång med API för taligenkänning taligenkänning i JavaScript.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Prenumerera på det tal-API: T och få en kostnadsfri utvärderingsprenumeration-nyckel
 

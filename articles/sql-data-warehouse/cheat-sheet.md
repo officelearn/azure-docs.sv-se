@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732309"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Lathund för Azure SQL Data Warehouse
 Med den här lathunden får du praktiska tips och bästa metoder för att skapa dina Azure SQL Data Warehouse-lösningar. Innan du börjar bör du lära dig mer om varje steg genom att läsa om [mönster och antimönster i arbetsbelastningar i Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns), där det står vad SQL Data Warehouse är och vad det inte är.
@@ -50,7 +50,7 @@ Läs mer om [datamigrering], [datainläsning] och [ELT-processen (Extract, Load,
 
 Använd följande strategier, beroende på tabellens egenskaper:
 
-| Type | Passar bra för...| Se upp om...|
+| Typ | Passar bra för...| Se upp om...|
 |:--- |:--- |:--- |
 | Replikerad | • Små dimensionstabeller i ett star-schema med mindre än 2 GB lagring efter komprimering (~5x komprimering) |•  Det finns många skrivtransaktioner i tabellen (som infoga, upsert, ta bort, uppdatera)<br></br>• Du ändrar DWU-etablering (Data Warehouse Units) ofta<br></br>• Du endast använder 2–3 kolumner men tabellen har många kolumner<br></br>•  Du indexerar en replikerad tabell |
 | Resursallokering (standard) | • Tillfällig/mellanlagringstabell<br></br> • Ingen uppenbar kopplingsnyckel eller kolumn för bra kandidater |• Prestanda går långsamt på grund av dataförflyttning |
@@ -70,7 +70,7 @@ Läs mer om [replikerade tabeller] och [distribuerade tabeller].
 
 Indexering är bra när du vill läsa tabeller snabbt. Det finns en unik uppsättning tekniker som du kan använda utifrån dina behov:
 
-| Type | Passar bra för... | Se upp om...|
+| Typ | Passar bra för... | Se upp om...|
 |:--- |:--- |:--- |
 | Heap | • Mellanlagrings-/temporär tabell<br></br>• Små tabeller med små sökningar |• Sökningar som genomsöker hela tabellen |
 | Grupperat index | • Tabeller med upp till 100 miljoner rader<br></br>• Stora tabeller (över 100 miljoner rader) där endast 1–2 kolumner används mycket |•  Används på en replikerad tabell<br></br>•    Du har avancerade frågor som omfattar flera kopplingsåtgärder och Gruppera efter-åtgärder<br></br>•  Du gör uppdateringar för de indexerade kolumnerna: det kräver minne |

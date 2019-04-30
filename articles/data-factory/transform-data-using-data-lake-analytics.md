@@ -34,7 +34,7 @@ Du skapar en **Azure Data Lake Analytics** compute service till en Azure data fa
 
 Följande tabell innehåller beskrivningar av de allmänna egenskaper som används i JSON-definitionen. 
 
-| Egenskap                  | Beskrivning                              | Obligatoriskt                                 |
+| Egenskap                  | Beskrivning                              | Krävs                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **typ**                 | Type-egenskapen ska anges till: **AzureDataLakeAnalytics**. | Ja                                      |
 | **accountName**          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
@@ -53,7 +53,7 @@ Ge tjänstens huvudnamn behörighet till Azure Data Lake Anatlyics med den [guid
 
 Använd autentisering av tjänstens huvudnamn genom att ange följande egenskaper:
 
-| Egenskap                 | Beskrivning                              | Obligatoriskt |
+| Egenskap                 | Beskrivning                              | Krävs |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Ange programmets klient-ID.     | Ja      |
 | **servicePrincipalKey** | Ange programmets nyckel.           | Ja      |
@@ -117,7 +117,7 @@ Följande JSON-kodfragmentet definierar en pipeline med en Data Lake Analytics U
 
 I följande tabell beskrivs namn och beskrivningar för egenskaper som är specifika för den här aktiviteten. 
 
-| Egenskap             | Beskrivning                              | Obligatoriskt |
+| Egenskap             | Beskrivning                              | Krävs |
 | :------------------ | :--------------------------------------- | :------- |
 | namn                | Namnet på aktiviteten i pipelinen     | Ja      |
 | description         | Text som beskriver hur aktiviteten ska hantera.  | Nej       |

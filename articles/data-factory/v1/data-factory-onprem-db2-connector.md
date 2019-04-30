@@ -79,7 +79,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="db2-linked-service-properties"></a>DB2 länkade tjänstegenskaper
 I följande tabell visas de JSON-egenskaper som är specifika för en DB2-länkad tjänst.
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
 | **server** |Namnet på DB2-servern. |Ja |
@@ -95,7 +95,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera d
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. Den **typeProperties** avsnittet för en datauppsättning av typen **RelationalTable**, vilket inkluderar DB2-datauppsättningen har följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i DB2-databasinstansen som den länkade tjänsten refererar till. Den här egenskapen är skiftlägeskänsligt. |Nej (om den **fråga** egenskapen för en Kopieringsaktivitet av typen **RelationalSource** har angetts) |
 
@@ -104,7 +104,7 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera k
 
 För Kopieringsaktiviteten, när källan är av typen **RelationalSource** (som innehåller DB2), följande egenskaper är tillgängliga i den **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | **Fråga** |Använd anpassad fråga för att läsa data. |SQL-sträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om den **tableName** egenskapen för en datauppsättning som har angetts) |
 
@@ -317,9 +317,9 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | decimaltal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |Datetime |
+| Date |DateTime |
 | Tid |TimeSpan |
-| Tidsstämpel |Datetime |
+| Tidsstämpel |DateTime |
 | Xml |Byte[] |
 | char |String |
 | VarChar |String |
@@ -343,9 +343,9 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | decimaltal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |Datetime |
+| Date |DateTime |
 | Tid |TimeSpan |
-| Tidsstämpel |Datetime |
+| Tidsstämpel |DateTime |
 | Xml |Byte[] |
 | char |String |
 

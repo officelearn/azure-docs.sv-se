@@ -146,9 +146,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **ODataResource** (som innehåller OData datauppsättning) har följande egenskaper
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| sökväg |Sökvägen till OData-resurs |Nej |
+| path |Sökvägen till OData-resurs |Nej |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principen är tillgängliga för alla typer av aktiviteter.
@@ -157,7 +157,7 @@ Egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens variera
 
 När källan är av typen **RelationalSource** (som innehåller OData) följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Exempel | Obligatoriskt |
+| Egenskap  | Beskrivning | Exempel | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |”? $select = namn, beskrivning och $top = 5” |Nej |
 

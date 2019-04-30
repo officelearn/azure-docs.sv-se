@@ -58,14 +58,14 @@ Använd den `check-header` princip för att genomdriva att en begäran har ett a
 
 ### <a name="elements"></a>Element
 
-| Namn         | Beskrivning                                                                                                                                   | Obligatoriskt |
+| Namn         | Beskrivning                                                                                                                                   | Krävs |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Kontrollera rubrik | Rotelement.                                                                                                                                 | Ja      |
 | value        | Tillåtna värde för HTTP-huvud. När flera värde anges är, betraktas kontrollen lyckas om något av värdena finns en matchning. | Nej       |
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                       | Beskrivning                                                                                                                                                            | Obligatoriskt | Standard |
+| Namn                       | Beskrivning                                                                                                                                                            | Krävs | Standard |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | failed-check-error-message | Felmeddelande att returnera i HTTP-svarstext om huvudet finns inte eller har ett ogiltigt värde. Det här meddelandet måste ha några specialtecken som korrekt undantaget. | Ja      | Gäller inte     |
 | Det gick inte-kontroll-httpcode      | HTTP-statuskod ska returneras om huvudet finns inte eller har ett ogiltigt värde.                                                                                        | Ja      | Gäller inte     |
@@ -115,7 +115,7 @@ Den `rate-limit` princip förhindrar API-användningstoppar på basis av per pre
 
 ### <a name="elements"></a>Element
 
-| Namn      | Beskrivning                                                                                                                                                                                                                                                                                              | Obligatoriskt |
+| Namn      | Beskrivning                                                                                                                                                                                                                                                                                              | Krävs |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Ställ in gräns | Rotelement.                                                                                                                                                                                                                                                                                            | Ja      |
 | api       | Lägg till en eller flera av dessa element att införa en anropsgränsen på API: er inom produkten. Produkt- och API: et anropsfrekvens begränsningar tillämpas oberoende av varandra. API: et kan vara refereras via `name` eller `id`. Om båda attributen har angetts, `id` ska användas och `name` kommer att ignoreras.                    | Nej       |
@@ -123,7 +123,7 @@ Den `rate-limit` princip förhindrar API-användningstoppar på basis av per pre
 
 ### <a name="attributes"></a>Attribut
 
-| Namn           | Beskrivning                                                                                           | Obligatoriskt | Standard |
+| Namn           | Beskrivning                                                                                           | Krävs | Standard |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | namn           | Namnet på API: et som du vill tillämpa gräns för överföringshastigheten i.                                                | Ja      | Gäller inte     |
 | anrop          | Det maximala totalt antalet anrop tillåts under en tidsperiod som anges i den `renewal-period`. | Ja      | Gäller inte     |
@@ -177,13 +177,13 @@ I exemplet nedan ställs in gräns för överföringshastigheten i med anropares
 
 ### <a name="elements"></a>Element
 
-| Namn      | Beskrivning   | Obligatoriskt |
+| Namn      | Beskrivning   | Krävs |
 | --------- | ------------- | -------- |
 | Ställ in gräns | Rotelement. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                | Beskrivning                                                                                           | Obligatoriskt | Standard |
+| Namn                | Beskrivning                                                                                           | Krävs | Standard |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | anrop               | Det maximala totalt antalet anrop tillåts under en tidsperiod som anges i den `renewal-period`. | Ja      | Gäller inte     |
 | avdelningar nyckel         | Nyckeln som ska användas för frekvensbegränsningsprincipen.                                                             | Ja      | Gäller inte     |
@@ -224,7 +224,7 @@ I följande exempel tillåter principen endast begäranden som kommer från IP-a
 
 ### <a name="elements"></a>Element
 
-| Namn                                      | Beskrivning                                         | Obligatoriskt                                                       |
+| Namn                                      | Beskrivning                                         | Krävs                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | ip-filter                                 | Rotelement.                                       | Ja                                                            |
 | adress                                   | Anger en IP-adress som ska filtreras.   | Minst en `address` eller `address-range` elementet krävs. |
@@ -232,7 +232,7 @@ I följande exempel tillåter principen endast begäranden som kommer från IP-a
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                                      | Beskrivning                                                                                 | Obligatoriskt                                           | Standard |
+| Namn                                      | Beskrivning                                                                                 | Krävs                                           | Standard |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | address-range from="address" to="address" | Ett intervall med IP-adresser för att tillåta eller neka åtkomst för.                                        | Krävs när den `address-range` elementet används. | Gäller inte     |
 | ip-filter action="allow &#124; forbid"    | Anger om anrop ska tillåtas eller inte för den angivna IP-adresser och intervall. | Ja                                                | Gäller inte     |
@@ -279,7 +279,7 @@ Den `quota` principen tvingar fram en förnyas eller livslängd anrop volym och/
 
 ### <a name="elements"></a>Element
 
-| Namn      | Beskrivning                                                                                                                                                                                                                                                                                  | Obligatoriskt |
+| Namn      | Beskrivning                                                                                                                                                                                                                                                                                  | Krävs |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | kvot     | Rotelement.                                                                                                                                                                                                                                                                                | Ja      |
 | api       | Lägg till en eller flera av dessa element att införa anrop kvot på API: er i produkten. Produkt- och API-anrop kvoter tillämpas oberoende av varandra. API: et kan vara refereras via `name` eller `id`. Om båda attributen har angetts, `id` ska användas och `name` kommer att ignoreras.                    | Nej       |
@@ -287,7 +287,7 @@ Den `quota` principen tvingar fram en förnyas eller livslängd anrop volym och/
 
 ### <a name="attributes"></a>Attribut
 
-| Namn           | Beskrivning                                                                                               | Obligatoriskt                                                         | Standard |
+| Namn           | Beskrivning                                                                                               | Krävs                                                         | Standard |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | namn           | Namnet på API: et eller åtgärden som kvoten gäller.                                             | Ja                                                              | Gäller inte     |
 | bandbredd      | Det högsta totala antalet kilobyte tillåts under en tidsperiod som anges i den `renewal-period`. | Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges. | Gäller inte     |
@@ -343,13 +343,13 @@ I exemplet nedan ställs in kvoten med anropares IP-adress.
 
 ### <a name="elements"></a>Element
 
-| Namn  | Beskrivning   | Obligatoriskt |
+| Namn  | Beskrivning   | Krävs |
 | ----- | ------------- | -------- |
 | kvot | Rotelement. | Ja      |
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                | Beskrivning                                                                                               | Obligatoriskt                                                         | Standard |
+| Namn                | Beskrivning                                                                                               | Krävs                                                         | Standard |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | bandbredd           | Det högsta totala antalet kilobyte tillåts under en tidsperiod som anges i den `renewal-period`. | Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges. | Gäller inte     |
 | anrop               | Det maximala totalt antalet anrop tillåts under en tidsperiod som anges i den `renewal-period`.     | Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges. | Gäller inte     |
@@ -514,7 +514,7 @@ Det här exemplet visar hur du använder den [verifiera JWT](api-management-acce
 
 ### <a name="elements"></a>Element
 
-| Element             | Beskrivning                                                                                                                                                                                                                                                                                                                                           | Obligatoriskt |
+| Element             | Beskrivning                                                                                                                                                                                                                                                                                                                                           | Krävs |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Rotelement.                                                                                                                                                                                                                                                                                                                                         | Ja      |
 | målgrupper           | Innehåller en lista över godkända målgrupp anspråk som kan finnas i token. Om det finns flera målgruppsvärden så testas varje värde förrän antingen alla tömts (i så fall verifieringen misslyckas) eller tills ett lyckas. Du måste ange minst en målgrupp.                                                                     | Nej       |
@@ -527,7 +527,7 @@ Det här exemplet visar hur du använder den [verifiera JWT](api-management-acce
 
 ### <a name="attributes"></a>Attribut
 
-| Namn                            | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatoriskt                                                                         | Standard                                                                           |
+| Namn                            | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                            | Krävs                                                                         | Standard                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | TimeSpan. Använd för att ange högsta förväntade tidsskillnaden mellan tokenutfärdaren systemklockor och API Management-instans.                                                                                                                                                                                                                                                                                                               | Nej                                                                               | 0 sekunder                                                                         |
 | failed-validation-error-message | Felmeddelande att returnera i HTTP-svarstext om JWT inte klarar valideringen. Det här meddelandet måste ha några specialtecken som korrekt undantaget.                                                                                                                                                                                                                                                                                                 | Nej                                                                               | Standardfelmeddelande beror på verifieringsproblem, till exempel ”JWT finns inte”. |

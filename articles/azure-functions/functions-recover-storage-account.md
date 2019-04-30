@@ -55,7 +55,7 @@ I föregående steg om du inte har en anslutningssträng för lagringskonto har 
 
 ### <a name="required-application-settings"></a>Nödvändiga programinställningar
 
-* Obligatoriskt
+* Krävs
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Krävs för förbrukning Plan funktioner
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)

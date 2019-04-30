@@ -62,7 +62,7 @@ Här är exempel JSON-definition för en Databricks Python aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definition:
 
-|Egenskap |Beskrivning|Obligatoriskt|
+|Egenskap |Beskrivning|Krävs|
 |---|---|---|
 |namn|Namnet på aktiviteten i pipelinen.|Ja|
 |description|Text som beskriver hur aktiviteten ska hantera.|Nej|

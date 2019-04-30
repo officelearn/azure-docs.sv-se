@@ -59,7 +59,7 @@ Du kan använda en verifiering i en pipeline för att säkerställa att pipeline
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på 'Verifiera'-aktivitet | String | Ja |
 typ | Måste vara inställt på **verifiering**. | String | Ja |

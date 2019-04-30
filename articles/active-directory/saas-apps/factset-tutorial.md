@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad0c1ac2ce39fd919cb82ce2bdb0841edf9c777
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278945"
+ms.locfileid: "62098498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Självstudier: Azure Active Directory-integrering med FactSet
 
@@ -105,12 +105,12 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fa
 
     ![FactSet-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://login.factset.com/services/auth-test?idpid=<GUID>`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://login.factset.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för FactSet](mailto:support@factset.com) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta representanten för ditt FactSet konto för att få dessa värden. Om du inte vet vem din representant FactSet är kan du få hjälp på den [FactSet siffror supportsidan](https://www.factset.com/support-numbers). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fa
 
 ### <a name="configure-factset-single-sign-on"></a>Konfigurera enkel inloggning för FactSet
 
-För att konfigurera enkel inloggning på **FactSet**-sidan behöver du skicka nedladdad **federationsmetadata-XML** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för FactSet](mailto:support@factset.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **FactSet** sida, som du behöver skicka de hämtade **Federation Metadata XML** och lämpliga kopierade URL: er från Azure-portalen till FactSet Support personer som du är i kontakt med. De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -183,7 +183,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-factset-test-user"></a>Skapa FactSet-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i FactSet. Ta hjälp av  [supportteamet för FactSet](mailto:support@factset.com) för att lägga till användare på FactSet-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i FactSet. Arbeta med din FactSet support kontorepresentanter för att lägga till användare i FactSet-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

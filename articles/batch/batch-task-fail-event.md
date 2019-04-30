@@ -88,8 +88,8 @@ ms.locfileid: "60549996"
 
 |Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
-|startTime|Datetime|Tidpunkten då aktiviteten startades som körs. ”Kör” motsvarar den **kör** tillstånd, så om aktiviteten anger resursfiler eller programpaket, återspeglar starttiden tidpunkten då aktiviteten startades ladda ned eller distribution av dessa.  Om uppgiften har startats om eller göras, är de senaste tidpunkten då aktiviteten startades som körs.|
-|endTime|Datetime|Den tid då uppgiften är slutförd.|
+|startTime|DateTime|Tidpunkten då aktiviteten startades som körs. ”Kör” motsvarar den **kör** tillstånd, så om aktiviteten anger resursfiler eller programpaket, återspeglar starttiden tidpunkten då aktiviteten startades ladda ned eller distribution av dessa.  Om uppgiften har startats om eller göras, är de senaste tidpunkten då aktiviteten startades som körs.|
+|endTime|DateTime|Den tid då uppgiften är slutförd.|
 |Slutkod|Int32|Slutkoden för uppgiften.|
 |RetryCount|Int32|Hur många gånger uppgiften avslutas av Batch-tjänsten. Uppgiften görs om avslutas med en slutkod, upp till den angivna MaxTaskRetryCount.|
 |requeueCount|Int32|Antal gånger som aktiviteten har åter placerats i kö av Batch-tjänsten som ett resultat av en användarbegäran.<br /><br /> När användaren tar bort noder från en pool (genom att ändra storlek på eller minska storleken på poolen) eller när jobbet är inaktiverad och användaren kan ange att uppgifter som körs på noderna ska placeras i kö för körning. Det här antalet spårar hur många gånger uppgiften har åter placerats i kö av dessa skäl.|

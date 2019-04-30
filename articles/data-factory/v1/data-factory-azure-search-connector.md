@@ -68,7 +68,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap  | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| type | Type-egenskapen måste anges till **AzureSearchIndex**.| Ja |
+| typ | Type-egenskapen måste anges till **AzureSearchIndex**.| Ja |
 | indexName | Namnet på Azure Search-index. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
 
 
@@ -77,7 +77,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 För Kopieringsaktiviteten, när mottagaren är av typen **AzureSearchIndexSink**, följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Anger om du vill slå samman eller Ersätt när det finns redan ett dokument i indexet. Se den [WriteBehavior egenskapen](#writebehavior-property).| Sammanfoga (standard)<br/>Ladda upp| Nej |
 | WriteBatchSize | Överför data till Azure Search-indexet när buffertstorleken når writeBatchSize. Se den [WriteBatchSize egenskapen](#writebatchsize-property) mer information. | 1 och 1 000. Standardvärdet är 1 000. | Nej |

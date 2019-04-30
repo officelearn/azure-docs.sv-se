@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291213"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759788"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -143,7 +143,7 @@ När etableringstjänsten startas, kommer den första synkroniseringen skulle k�
 6. Om attributmappningarna innehåller ”referensattribut”, har tjänsten ytterligare uppdateringar på måldatorn att skapa och länka de refererade objekt. En användare kan till exempel ha en ”Manager”-attributet i målsystemet, som är länkad till en annan användare som har skapats i målsystemet.
 7. Spara en vattenstämpel i slutet av den första synkroniseringen, vilket ger en startpunkt för senare inkrementella synkroniseringar.
 
-Vissa program, till exempel Box, ServiceNow och Google Apps stöd inte bara etablera användare, utan också etablering grupper och deras medlemmar. I sådana fall om gruppetablering har aktiverats i den [mappningar](customize-application-attributes.md), etableringstjänsten synkroniserar användare och grupper och sedan synkroniserar gruppmedlemskap. 
+Vissa program, till exempel ServiceNow, G Suite och Box stöd inte bara etablera användare, utan också etablering grupper och deras medlemmar. I sådana fall om gruppetablering har aktiverats i den [mappningar](customize-application-attributes.md), etableringstjänsten synkroniserar användare och grupper och sedan synkroniserar gruppmedlemskap. 
 
 ### <a name="incremental-syncs"></a>Inkrementella synkroniseringar
 
@@ -196,7 +196,7 @@ För **inledande synkroniseringar**, jobbtiden beror på många faktorer, bland 
 
 För **inkrementella synkroniseringar**, jobbtiden beror på antalet ändringar som har identifierats i den synkroniseringscykel. Om det finns färre än 5 000 användare eller ändringar i gruppmedlemskap, kan jobbet slutförs inom en enda inkrementell synkroniseringscykel. 
 
-I följande tabell sammanfattas synkroniseringstider för vanliga scenarier för etablering. I dessa scenarier källsystemet är Azure AD och målsystemet är ett SaaS-program. Synkroniseringstiderna härleds från en statistiska analyser av Synkroniseringsjobb för SaaS-program, ServiceNow, arbetsplats, Salesforce och Google Apps.
+I följande tabell sammanfattas synkroniseringstider för vanliga scenarier för etablering. I dessa scenarier källsystemet är Azure AD och målsystemet är ett SaaS-program. Synkroniseringstiderna härleds från en statistiska analyser av Synkroniseringsjobb för SaaS-program, ServiceNow, arbetsplats, Salesforce och G Suite.
 
 
 | Omfattningskonfigurationen | Användare, grupper och medlemmar i omfånget | Den inledande synkroniseringstiden | Inkrementell synkronisering |

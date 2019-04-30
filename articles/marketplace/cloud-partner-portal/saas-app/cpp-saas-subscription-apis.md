@@ -438,8 +438,8 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 | id                 | String        | ID för åtgärden.                                                                      |
 | status             | Enum          | Åtgärdsstatus något av följande: `In Progress`, `Succeeded`, eller `Failed`.          |
 | resourceLocation   | String        | Länka till den prenumeration som skapades eller ändrades. Detta hjälper klienten att hämta uppdaterade tillståndet post-åtgärd. Det här värdet har inte angetts för `Unsubscribe` åtgärder. |
-| skapad            | Datetime      | Åtgärden Skapandetid i UTC.                                                           |
-| lastModified       | Datetime      | Senaste uppdateringen på åtgärden i UTC.                                                      |
+| skapad            | DateTime      | Åtgärden Skapandetid i UTC.                                                           |
+| lastModified       | DateTime      | Senaste uppdateringen på åtgärden i UTC.                                                      |
 |  |  |  |
 
 *Svarskoder*
@@ -510,8 +510,8 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 | planId                 | String        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
 | saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`:  Azure-prenumeration har inaktiverats.  |
-| skapad                | Datetime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
-| lastModified           | Datetime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
+| skapad                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
+| lastModified           | DateTime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
 |  |  |  |
 
 *Svarskoder*
@@ -582,8 +582,8 @@ Get-åtgärd på prenumerationer slutpunkt kan användaren att hämta alla prenu
 | planId                 | String        | Plan-ID som du prenumererar.          |
 | saasSubscriptionName   | String        | Namnet på SaaS-prenumeration.                |
 | saasSubscriptionStatus | Enum          | Åtgärdsstatus.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapa resursen, men den inte är aktiverad av Programvaruutvecklaren.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`:  Azure-prenumeration har inaktiverats.  |
-| skapad                | Datetime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
-| lastModified           | Datetime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
+| skapad                | DateTime      | Prenumerationen skapas tidsstämpelvärde i UTC. |
+| lastModified           | DateTime      | Prenumeration ändrade tidsstämpelvärde i UTC. |
 |  |  |  |
 
 *Svarskoder*

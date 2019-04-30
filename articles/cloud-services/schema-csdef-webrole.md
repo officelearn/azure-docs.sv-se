@@ -472,7 +472,7 @@ I följande tabell beskrivs attributen för den `SourceDirectory` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|sökväg|string|Krävs. Relativ eller absolut sökväg till en lokal katalog vars innehåll ska kopieras till Azure-dator. Utökningen av miljövariabler i sökvägen till stöds.|  
+|path|string|Krävs. Relativ eller absolut sökväg till en lokal katalog vars innehåll ska kopieras till Azure-dator. Utökningen av miljövariabler i sökvägen till stöds.|  
   
 ## <a name="see-also"></a>Se även
 [Molnet (klassisk) Tjänstdefinitionsschemat](schema-csdef-file.md)

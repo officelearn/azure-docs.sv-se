@@ -39,7 +39,7 @@ Varje definierad arbetsflöde anger du följande:
 
 En blockchain-program innehåller configuration metadata, arbetsflöden och användaren roller som kan fungera eller delta i programmet.
 
-| Fält | Beskrivning | Obligatoriskt |
+| Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | ApplicationName | Unikt programnamn. Motsvarande smarta kontrakt måste använda samma **ApplicationName** för tillämpliga avtal.  | Ja |
 | DisplayName | Eget namn för programmet. | Ja |
@@ -53,7 +53,7 @@ Ett exempel finns i [exempel på en konfigurationsfil](#configuration-file-examp
 
 Ett programs affärslogik kan modelleras som en tillståndsdator där vidta åtgärder gör att flödet av affärslogik flytta från ett tillstånd till en annan. Ett arbetsflöde är en samling av sådana tillstånd och åtgärder. Varje arbetsflöde består av en eller flera smarta kontrakt som representerar affärslogiken i kodfiler. Ett körbart kontrakt är en instans av ett arbetsflöde.
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Beskrivning | Krävs | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | För unika Arbetsflödesnamn. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga avtal. | Ja | 50 |
 | DisplayName | Eget namn för arbetsflödet. | Ja | 255 |
@@ -174,7 +174,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 Definierar indataparametrar för en instans av ett arbetsflöde.
 
-| Fält | Beskrivning | Obligatoriskt |
+| Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | Parametrar | Insamling av [identifierare](#identifiers) initiera ett smarta kontrakt. | Ja |
 
@@ -207,7 +207,7 @@ Definierar indataparametrar för en instans av ett arbetsflöde.
 
 Definierar funktioner som kan köras i arbetsflödet.
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Beskrivning | Krävs | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Det unika namnet på funktionen. Motsvarande smarta kontrakt måste använda samma **namn** för funktionen tillämpliga. | Ja | 50 |
 | DisplayName | Eget namn för funktionen. | Ja | 255 |
@@ -255,7 +255,7 @@ Definierar funktioner som kan köras i arbetsflödet.
 
 En samling av unika tillstånd i ett arbetsflöde. Varje tillstånd fångar ett steg i den affärslogik Kontrollflöde. 
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Beskrivning | Krävs | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Unikt namn för tillståndet. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpligt tillstånd. | Ja | 50 |
 | DisplayName | Eget namn för tillståndet. | Ja | 255 |
@@ -324,7 +324,7 @@ En samling av unika tillstånd i ett arbetsflöde. Varje tillstånd fångar ett 
 
 Tillgängliga åtgärder till nästa steg. En eller flera roller kan utföra en åtgärd på varje tillstånd, där en åtgärd kan överföra ett tillstånd till ett annat tillstånd i arbetsflödet. 
 
-| Fält | Beskrivning | Obligatoriskt |
+| Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | AllowedRoles | Lista över roller som program tillåts för att initiera övergången. Alla användare av den angivna rollen kanske att utföra åtgärden. | Nej |
 | AllowedInstanceRoles | Lista med användarroller deltar eller anges i det smarta kontrakt som tillåts att initiera övergången. Instansroller definieras i **egenskaper** i arbetsflöden. AllowedInstanceRoles representerar en användare som deltar i en instans av ett smarta kontrakt. AllowedInstanceRoles ger dig möjlighet att begränsa att utföra en åtgärd till en användarroll i en kontrakt-instans.  Till exempel kanske du bara vill tillåta användaren som skapade kontraktet (InstanceOwner) för att kunna avsluta i stället för alla användare i rolltyp (ägare) om du har angett rollen i AllowedRoles. | Nej |
@@ -369,7 +369,7 @@ Tillgängliga åtgärder till nästa steg. En eller flera roller kan utföra en 
 
 Programroller definierar en uppsättning roller som kan tilldelas till användare som vill fungera eller delta i programmet. Programroller kan användas för att begränsa åtgärder och delta i blockchain-program och motsvarande arbetsflöden. 
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Beskrivning | Krävs | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Det unika namnet för programrollen. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga rollen. Bastypen namn är reserverade. Du kan kalla en programroll med samma namn som [typ](#type)| Ja | 50 |
 | Beskrivning | Beskrivning av programrollen. | Nej | 255 |
@@ -392,7 +392,7 @@ Programroller definierar en uppsättning roller som kan tilldelas till användar
 
 Identifierare som representerar en mängd information som används för att beskriva egenskaperna för arbetsflödet, konstruktor och funktionsparametrar. 
 
-| Fält | Beskrivning | Obligatoriskt | Maxlängd |
+| Fält | Beskrivning | Krävs | Maxlängd |
 |-------|-------------|:--------:|-----------:|
 | Namn | Det unika namnet på egenskapen eller parametern. Motsvarande smarta kontrakt måste använda samma **namn** för egenskap eller parametern. | Ja | 50 |
 | DisplayName | Eget visningsnamn för egenskap eller parametern. | Ja | 255 |

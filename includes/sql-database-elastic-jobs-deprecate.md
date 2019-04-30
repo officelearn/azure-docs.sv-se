@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/14/2018
 ms.author: sstein
 ms.custom: include file
-ms.openlocfilehash: 0d85353e2ebd63247e810460880c362153ccf211
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c0e4ff43c3112848cbf9a095c4e258d7fffe4780
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "35591807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435407"
 ---
 > [!IMPORTANT]
 > Den här artikeln är värd för kund-versionen av *elastiska databasjobb*. Elastic Database-jobb som ska inaktuell och ersätts med nya Azure-värdbaserade **elastiska databasjobb**. Nya jobb använder [senast **elastiska databasjobb**](../articles/sql-database/elastic-jobs-overview.md). Om du använder äldre kunden värd jobb, se [migrera till nya elastiska databasjobb](../articles/sql-database/elastic-jobs-migrate.md) för riktningar och migreringsskript snabbt uppgradera till den senaste versionen.

@@ -15,186 +15,185 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 55d8ec8f0f767aef27266aa8ea9ddcc40b7da6ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7507e5d23898fd069797c14d0fa18419b8345d78
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60339040"
+ms.locfileid: "62736301"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Självstudier: Azure Active Directory-integrering med TigerText Secure Messenger
 
 Lär dig hur du integrerar TigerText skydda Messenger med Azure Active Directory (AD Azure) i den här självstudien.
+
 Integrera TigerText skydda Messenger med Azure AD ger dig följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till TigerText skydda Messenger.
-* Du kan aktivera användarna att vara automatiskt inloggad TigerText skydda Messenger (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan aktivera användarna att logga in automatiskt TigerText skydda Messenger (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats: Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om programvara som en tjänst (SaaS) app-integrering med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med TigerText Secure Messenger, behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* TigerText skydda Messenger enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+* En TigerText skydda Messenger-prenumeration med enkel inloggning aktiverat.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar du och testa Azure AD enkel inloggning i en testmiljö och integrera TigerText skydda Messenger med Azure AD.
 
-* Har stöd för TigerText skydda Messenger **SP** -initierad SSO
+TigerText skydda Messenger stöder SP-initierad enkel inloggning (SSO).
 
-## <a name="adding-tigertext-secure-messenger-from-the-gallery"></a>Att lägga till TigerText skydda Messenger från galleriet
+## <a name="add-tigertext-secure-messenger-from-the-azure-marketplace"></a>Lägg till TigerText säker Messenger från Azure Marketplace
 
-För att konfigurera integrering av TigerText skydda Messenger i Azure AD, som du behöver lägga till TigerText skydda Messenger från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integrering av TigerText skydda Messenger i Azure AD, måste du lägga till TigerText skydda Messenger från Azure Marketplace till din lista över hanterade SaaS-appar:
 
-**Utför följande steg för att lägga till TigerText skydda Messenger från galleriet:**
+1. Logga in på [Azure Portal](https://portal.azure.com?azure-portal=true).
+1. Välj **Azure Active Directory** i den vänstra rutan.
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+    ![Azure Active Directory-alternativet](common/select-azuread.png)
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+1. Gå till **Företagsprogram** och välj sedan **Alla program**.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+    ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. Om du vill lägga till ett nytt program, Välj **+ nytt program** överst i fönstret.
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Alternativet nytt program](common/add-new-app.png)
 
-    ![Knappen Nytt program](common/add-new-app.png)
+1. I sökrutan anger **TigerText skydda Messenger**. I sökresultaten väljer **TigerText skydda Messenger**, och välj sedan **Lägg till** att lägga till programmet.
 
-4. I sökrutan skriver **TigerText skydda Messenger**väljer **TigerText skydda Messenger** resultatet panelen klickar **Lägg till** för att lägga till programmet.
-
-     ![TigerText skydda Messenger i resultatlistan](common/search-new-app.png)
+    ![TigerText skydda Messenger i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med TigerText Secure Messenger baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i TigerText skydda Messenger upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med TigerText Secure Messenger baserat på en användare med namnet **Britta Simon**. För enkel inloggning ska fungera, måste du upprätta en länk mellan en Azure AD-användare och relaterade användaren i TigerText skydda Messenger.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med TigerText Secure Messenger, måste du utföra följande byggblock:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera TigerText skydda Messenger enkel inloggning](#configure-tigertext-secure-messenger-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa TigerText skydda Messenger testanvändare](#create-tigertext-secure-messenger-test-user)**  – du har en motsvarighet för Britta Simon i TigerText skydda Messenger som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  vill tillåta att användarna använda den här funktionen.
+1. **[Konfigurera TigerText skydda Messenger enkel inloggning](#configure-tigertext-secure-messenger-single-sign-on)**  att konfigurera inställningar för enkel inloggning på programsidan.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med Britta Simon.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Skapa en testanvändare TigerText skydda Messenger](#create-a-tigertext-secure-messenger-test-user)**  så att det finns en användare med namnet Britta Simon i TigerText skydda Messenger som är kopplad till Azure AD-användare med namnet Britta Simon.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med TigerText Secure Messenger:
+Om du vill konfigurera Azure AD enkel inloggning med TigerText Secure Messenger, gör du följande:
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **TigerText skydda Messenger** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera alternativ för enkel inloggning](common/select-sso.png)
 
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+1. På den **väljer du en metod för enkel inloggning** fönstret Välj **SAML/WS-Fed** läge för att aktivera enkel inloggning.
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+1. På den **ange in enkel inloggning med SAML** väljer **redigera** (på pennikonen) att öppna den **SAML grundkonfiguration** fönstret.
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+1. I den **SAML grundkonfiguration** fönstret gör följande:
 
     ![TigerText skydda Messenger domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    a. I rutan **Inloggnings-URL** anger du en URL: `https://home.tigertext.com`
+    1. I den **inloggnings-URL** anger en URL:
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://saml-lb.tigertext.me/v1/organization/<instance Id>`
+       `https://home.tigertext.com`
+
+    1. I den **identifierare (entitets-ID)** skriver du en URL med hjälp av följande mönster:
+
+       `https://saml-lb.tigertext.me/v1/organization/<instance ID>`
 
     > [!NOTE]
-    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [TigerText skydda Messenger-klienten supportteamet](mailto:prosupport@tigertext.com) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Den **identifierare (entitets-ID)** värde inte existerar. Uppdatera det här värdet med det faktiska ID: t. För att få värdet kan kontakta den [TigerText skydda Messenger supportteamet](mailto:prosupport@tigertext.com). Du kan också referera till de mönster som visas i den **SAML grundkonfiguration** fönstret i Azure-portalen.
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+1. På den **ange in enkel inloggning med SAML** fönstret i den **SAML-signeringscertifikat** väljer **hämta** att ladda ned den **Federation Metadata-XML**  från de angivna alternativen och spara den på din dator.
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+    ![Hämtningsalternativet Federation Metadata-XML](common/metadataxml.png)
 
-6. På den **konfigurera TigerText skydda Messenger** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+1. I den **konfigurera TigerText skydda Messenger** avsnittet, kopiera den URL eller URL: er som du behöver:
+
+   * **Inloggnings-URL**
+   * **Azure AD Identifier**
+   * **URL för utloggning**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+### <a name="configure-tigertext-secure-messenger-single-sign-on"></a>Konfigurera TigerText skydda Messenger enkel inloggning
 
-    b. Azure AD-identifierare
+Du behöver skicka hämtade Federation Metadata XML-filen för att konfigurera enkel inloggning på TigerText skydda Messenger-sida, och den aktuella kopieras URL: er från Azure portal för att den [TigerText skydda Messenger supportteamet](mailto:prosupport@tigertext.com). TigerText skydda Messenger-teamet gör att SAML SSO-anslutningen är korrekt på båda sidorna.
 
-    c. Utloggnings-URL
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-### <a name="configure-tigertext-secure-messenger-single-sign-on"></a>Konfigurera TigerText säker Messenger enkel inloggning
+I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure-portalen.
 
-Att konfigurera enkel inloggning på **TigerText skydda Messenger** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [TigerText Skydda Messenger supportteamet](mailto:prosupport@tigertext.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+1. I Azure-portalen går du till den vänstra panelen och väljer **Azure Active Directory**   > **Användare** > **Alla användare**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+    ![Användarna och ”alla användare” alternativ](common/users.png)
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+1. Överst på skärmen väljer **+ ny användare**.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+    ![Alternativet för nya användare](common/new-user.png)
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+1. I den **användaren** fönstret gör följande:
 
-2. Välj **Ny användare** överst på skärmen.
+    ![Fönstret användare](common/user-properties.png)
 
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    1. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    1. I den **användarnamn** anger **BrittaSimon\@\<företagsdomänen >.\< tillägget >**. Till exempel **BrittaSimon\@contoso.com**.
 
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
+    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
-    d. Klicka på **Skapa**.
+    1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till TigerText skydda Messenger.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst TigerText skydda Messenger.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **TigerText skydda Messenger**.
+1. I Azure-portalen väljer du **företagsprogram** > **alla program** > **TigerText skydda Messenger**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Fönstret för Enterprise-program](common/enterprise-applications.png)
 
-2. I listan med program väljer **TigerText skydda Messenger**.
+1. I listan med program väljer **TigerText skydda Messenger**.
 
-    ![Länken TigerText skydda Messenger i listan med program](common/all-applications.png)
+    ![TigerText skydda Messenger i listan med program](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+1. I den vänstra rutan under **hantera**väljer **användare och grupper**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+    ![Alternativet ”användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+1. Välj **+ Lägg till användare**, och välj sedan **användare och grupper** i den **Lägg till tilldelning** fönstret.
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+1. I den **användare och grupper** väljer **Britta Simon** i den **användare** och välj sedan **Välj** längst ned i fönstret.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett rollvärde i SAML-försäkran sedan i den **Välj roll** fönstret Välj rätt roll för användaren i listan. Längst ned i fönstret Välj **Välj**.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I den **Lägg till tilldelning** väljer **tilldela**.
 
-### <a name="create-tigertext-secure-messenger-test-user"></a>Skapa TigerText skydda Messenger testanvändare
+### <a name="create-a-tigertext-secure-messenger-test-user"></a>Skapa en testanvändare TigerText skydda Messenger
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i TigerText skydda Messenger. Arbeta med [TigerText skydda Messenger supportteamet](mailto:prosupport@tigertext.com) att lägga till användare i TigerText skydda Messenger-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i TigerText skydda Messenger. Arbeta med den [TigerText skydda Messenger supportteamet](mailto:prosupport@tigertext.com) att lägga till Britta Simon som en användare i TigerText skydda Messenger. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av Mina appar-portalen.
 
-När du klickar på panelen TigerText skydda Messenger i åtkomstpanelen, bör det vara loggas in automatiskt den TigerText skydda Messenger som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer **TigerText skydda Messenger** i portalen Mina appar du bör vara loggas in automatiskt TigerText skydda Messenger-prenumeration som du ställer in enkel inloggning. Läs mer om portalen Mina appar [öppna och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

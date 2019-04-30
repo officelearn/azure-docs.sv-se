@@ -83,7 +83,7 @@ Om du vill kopiera data från SAP-moln för kunden, ange typegenskapen på datau
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **SapCloudForCustomerResource** |Ja |
-| sökväg | Ange sökvägen till SAP C4C OData-entiteten. |Ja |
+| path | Ange sökvägen till SAP C4C OData-entiteten. |Ja |
 
 **Exempel:**
 

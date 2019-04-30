@@ -44,7 +44,7 @@ Mer information om hur du skapar begäran finns i [komponenterna i en REST API-b
 
 Följande vanliga definitioner används för att skapa en brödtext i begäran:
 
-|Namn  |Obligatoriskt  |Typ  |Beskrivning  |
+|Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  Valfritt eTag       |
 |location     |  true       |String         |   Resursplats      |

@@ -77,7 +77,7 @@ Den `on-error` princip kan användas i alla omfånget. API-utgivare kan konfigur
 
  När ett fel inträffar och kontroll som leder till den `on-error` principer för felet lagras i [kontext. LastError](api-management-policy-expressions.md#ContextVariables) egenskapen, som kan användas av principer i den `on-error` avsnittet. LastError har följande egenskaper.  
   
-| Namn     | Typ   | Beskrivning                                                                                               | Obligatoriskt |
+| Namn     | Typ   | Beskrivning                                                                                               | Krävs |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
 | Källa   | string | Elementet där felet uppstod-namn. Kan vara antingen princip eller en inbyggd pipeline Stegnamn.     | Ja      |
 | Orsak   | string | Dator-vänlig felkoden som skulle kunna användas i felhantering.                                       | Nej       |

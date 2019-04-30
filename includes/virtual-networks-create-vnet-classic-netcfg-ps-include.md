@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59532634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869990"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Så här skapar du ett virtuellt nätverk med en konfigurationsfil för nätverk från PowerShell
 Azure använder en xml-fil för att definiera alla virtuella nätverk som är tillgängliga för en prenumeration. Du kan hämta den här filen, redigera det för att ändra eller ta bort befintliga virtuella nätverk och skapa nya virtuella nätverk. I de här självstudierna lär du dig hur du laddar ned filen, kallas konfiguration (eller netcfg) nätverksfil, och redigera den för att skapa ett nytt virtuellt nätverk. Läs mer om nätverkskonfigurationsfilen i den [konfigurationsschema för Azure-nätverk](https://msdn.microsoft.com/library/azure/jj157100.aspx).

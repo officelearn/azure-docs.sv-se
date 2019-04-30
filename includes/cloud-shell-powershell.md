@@ -1,16 +1,12 @@
 ---
-author: cynthn
-ms.service: azure
-ms.topic: include
-ms.date: 11/09/2018
-ms.author: cynthn
 ms.openlocfilehash: 517d63ec673bae7fb17d88b0339a86a9948b0b7a
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188994"
+ms.locfileid: "61420463"
 ---
+
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Klicka helt enkelt på **Kopiera** för att kopiera koden, klistra sedan in den i Cloud Shell och tryck på RETUR för att köra den. Det finns flera olika sätt att starta Cloud Shell:

@@ -37,7 +37,7 @@ Du kan använda aktiviteten Filter i en pipeline för att tillämpa ett filterut
 
 ## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 
-Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt
+Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på den `Filter` aktivitet. | String | Ja
 typ | Måste vara inställt på **filter**. | String | Ja

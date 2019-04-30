@@ -9,17 +9,17 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478794"
 ---
 ## <a name="deleting-personal-information"></a>Ta bort personlig information
 
 [!INCLUDE [gdpr-intro-sentence.md](gdpr-intro-sentence.md)]
 
-Personlig information som är relevant för import/export-tjänst (via portalen och API) vid import och export operations. Data som används under de här processerna är:
+Personlig information som är relevant för import/export-tjänsten (via portalen och API) under importen och exportåtgärder. Data som används under de här processerna är:
 
 - Kontaktnamn
 - Telefonnummer
@@ -28,21 +28,21 @@ Personlig information som är relevant för import/export-tjänst (via portalen 
 - Ort
 - Postnummer
 - Status
-- Region/land
+- Land/region
 - Enhets-ID
-- Operatör kontonummer
-- Leverans spårning tal
+- Transportföretagets kontonummer
+- Spårningsnummer för leveransen
 
-När ett import-/ exportjobb skapas anger användare kontaktinformation och en leveransadress. Personlig information lagras i upp till två olika platser: i jobbet och du kan också portalinställningar. Personlig information lagras i portalinställningar endast om du markerar kryssrutan, **spara operatör och gå sedan tillbaka adressen som standard** under den *returnera leverans info* avsnitt i exporten.
+När en import/export-jobbet skapas, kommer användare att ange kontaktinformation och en leveransadress. Personlig information lagras i upp till två olika platser: i jobbet och eventuellt i inställningarna för användarportalen. Personlig information lagras endast i portalinställningar om du markerar kryssrutan, **spara transportföretags- och returnera adress som standard** under den *returnera leveransinformation* avsnittet för exporten.
 
-Personlig kontaktinformation kan tas bort på följande sätt:
+Informationen kan tas bort på följande sätt:
 
-- Data som sparas med jobbet tas bort med jobbet. Användare kan ta bort jobb manuellt och slutförda jobb tas automatiskt bort efter 90 dagar. Du kan manuellt ta bort jobb via REST API- eller Azure-portalen. Ta bort jobbet i Azure portal, gå till import-/ exportjobb och klicka *ta bort* från kommandofältet. Mer information om hur du tar bort ett import-/ exportjobb via REST-API finns i [ta bort ett import-/ exportjobb](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
+- Data som sparats med jobbet tas bort med jobbet. Användare kan ta bort jobb manuellt och slutförda jobb tas automatiskt bort efter 90 dagar. Du kan manuellt ta bort jobb via REST API eller Azure-portalen. Om du vill ta bort jobbet i Azure-portalen, går du till import/export-jobbet och klicka på *ta bort* i kommandofältet. Information om hur du tar bort en import-/ exportjobb via REST-API i [ta bort import/export-jobbet](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
-- Informationen sparas i portalinställningar kan tas bort genom att ta bort portalinställningar. Du kan ta bort portalinställningar genom att följa dessa steg:
+- Kontaktinformation som sparats i portalinställningar kan tas bort genom att ta bort inställningarna för användarportalen. Du kan ta bort portalinställningar genom att följa dessa steg:
   - Logga in på [Azure Portal](https://portal.azure.com).
-  - Klicka på den *inställningar* ikonen ![ikonen för inställningar av Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
-  - Klicka på *exportera alla inställningar* (spara de aktuella inställningarna till en `.json` fil).
-  - Klicka på *ta bort alla inställningar och privata instrumentpaneler* att ta bort alla inställningar som bland annat sparat kontaktinformation.
+  - Klicka på den *inställningar* ikonen ![Azure Inställningsikonen](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
+  - Klicka på *exportera alla inställningar* (att spara dina aktuella inställningar till en `.json` fil).
+  - Klicka på *ta bort alla inställningar och privata instrumentpaneler* att ta bort alla inställningar som bland annat sparade kontaktinformation.
 
 Mer information finns i Microsoft Privacy-policy på [Säkerhetscenter](https://www.microsoft.com/trustcenter)

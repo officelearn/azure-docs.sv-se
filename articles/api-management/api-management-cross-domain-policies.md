@@ -54,7 +54,7 @@ Använd den `cross-domain` princip att göra API tillgängligt från Adobe Flash
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatoriskt|
+|Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
 |mellan domäner|Rotelement. Underordnade element måste motsvara den [Adobe domänerna filen principspecifikationen](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Ja|
 
@@ -123,7 +123,7 @@ Det här exemplet visar hur du stöd för före flygning begäranden, till exemp
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatoriskt|Standard|
+|Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
 |cors|Rotelement.|Ja|Gäller inte|
 |tillåtna ursprung|Innehåller `origin` element som beskriver de tillåtna ursprung för begäranden mellan domäner. `allowed-origins` kan innehålla antingen ett enskilt `origin` element som anger `*` så att alla ursprung, eller en eller flera `origin` element som innehåller en URI.|Ja|Gäller inte|
@@ -136,7 +136,7 @@ Det här exemplet visar hur du stöd för före flygning begäranden, till exemp
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatoriskt|Standard|
+|Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
 |Tillåt autentiseringsuppgifter|Den `Access-Control-Allow-Credentials` rubrik preflight-svar anges till värdet för det här attributet och påverka klientens möjlighet att skicka autentiseringsuppgifter i domänerna begäranden.|Nej|false|
 |preflight-result-max-age|Den `Access-Control-Max-Age` rubrik preflight-svar anges till värdet för det här attributet och påverka användaragenten möjlighet att cache före flygning svar.|Nej|0|
@@ -168,13 +168,13 @@ Om du lägger till parametern återanrop `?cb=XXX` returneras ett JSONP-resultat
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Obligatoriskt|
+|Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
 |jsonp|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Obligatoriskt|Standard|
+|Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|Domänerna JavaScript funktionsanropet föregås av det fullständigt kvalificerade domännamnet där funktionen finns.|Ja|Gäller inte|
 

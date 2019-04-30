@@ -65,7 +65,7 @@ Följande egenskaper har stöd för REST-länkade tjänsten:
 
 Ange den **authenticationType** egenskap **grundläggande**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | userName | Användarnamnet du använder för att få åtkomst till REST-slutpunkten. | Ja |
 | password | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -135,7 +135,7 @@ Ange den **authenticationType** egenskap **AadServicePrincipal**. Förutom de al
 
 Ange den **authenticationType** egenskap **ManagedServiceIdentity**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | aadResourceId | Ange AAD-resurs som du begär om tillstånd, t.ex. `https://management.core.windows.net`.| Ja |
 

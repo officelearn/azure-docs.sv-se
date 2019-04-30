@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bda20d9ce06f756913e6dfb3e980399ac7e0a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32aa7a531de2e236e3941bbe8afd84d845f80f99
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348268"
+ms.locfileid: "62104756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Självstudier: Azure Active Directory-integrering med RStudio ansluta
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 Om du vill konfigurera Azure AD-integrering med RStudio ansluta, behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* RStudio ansluta enkel inloggning aktiverat prenumeration
+* RStudio ansluta. Det finns en [45 dagars kostnadsfri utvärderingsversion.](https://www.rstudio.com/products/connect/)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -104,22 +104,22 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med RStudio
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierade läge, utför följande steg och ersätta `<example.com>` med RStudio ansluta servern Adress och port:
 
     ![RStudio ansluta domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://connect.<example>.com/__login__/saml`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<example.com>/__login__/saml`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://connect.<example>.com/__login__/saml/acs`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<example.com>/__login__/saml/acs`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![RStudio ansluta domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://connect.<example>.com/`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<example.com>/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [RStudio ansluter klienten supportteamet](mailto:support@rstudio.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. De fastställs från RStudio ansluta serveradressen (`https://example.com` i exemplen ovan). Kontakta den [RStudio ansluta supportteamet](mailto:support@rstudio.com) om du har problem. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. RStudio ansluta programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. RStudio ansluta program som förväntar **nameidentifier** mappas med **user.mail**, så måste du redigera attribut mappar genom att klicka på **redigera** ikon och ändra den attributmappning.
 
@@ -131,7 +131,36 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med RStudio
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>Konfigurera RStudio ansluta enkel inloggning
 
-Att konfigurera enkel inloggning på **RStudio ansluta** sida, som du behöver skicka den **Appfederationsmetadata** till [RStudio ansluta supportteamet](mailto:support@rstudio.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Konfigurera enkel inloggning på för **RStudio ansluta**, måste du använda den **Appfederationsmetadata** och **serveradress** använde ovan. Detta görs i konfigurationsfilen RStudio ansluta på `/etc/rstudio-connect.rstudio-connect.gcfg`.
+
+Det här är en exempel-konfigurationsfil:
+
+```
+[Server]
+SenderEmail =
+
+; Important! The user-facing URL of your RStudio Connect server.
+Address = 
+
+[Http]
+Listen = :3939
+
+[Authentication]
+Provider = saml
+
+[SAML]
+Logging = true
+
+; Important! The URL where your IdP hosts the SAML metadata or the path to a local copy of it placed in the RStudio Connect server.
+IdPMetaData = 
+
+IdPAttributeProfile = azure
+SSOInitiated = IdPAndSP
+```
+
+Store din **serveradress** i den `Server.Address` värde, och **Appfederationsmetadata** i den `SAML.IdPMetaData` värde.
+
+Om du har problem med konfiguration kan du läsa den [RStudio ansluta administratörshandboken](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) eller e-post den [RStudio supportteamet](mailto:support@rstudio.com) om du behöver hjälp.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 

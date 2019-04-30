@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a0b6c83f800c0a479ba7a16c91b497d1a11da9e
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318626"
+ms.locfileid: "62732493"
 ---
 # <a name="manage-process-servers"></a>Hantera processervrar
 
@@ -68,6 +68,19 @@ Via det här alternativet kan flyttas hela arbetsbelastningar som skyddas under 
 2. Övervaka förloppet för jobbet under **Recovery Services-valv** > **övervakning** > **Site Recovery-jobb**.
 3. Det tar 15 minuter innan ändringarna visas efter slutförande av den här åtgärden eller [uppdatera konfigurationsservern](vmware-azure-manage-configuration-server.md#refresh-configuration-server) för börjar gälla omedelbart.
 
+## <a name="process-server-selection-guidance"></a>Bearbeta vägledning för val av Server
+
+Azure Site Recovery identifierar automatiskt om Processervern närmar sig sin användningsbegränsningar. Det finns riktlinjer när du ställer in en skalbar processervern.
+
+|Hälsostatus  |Förklaring  | Resurstillgänglighet  | Rekommendation|
+|---------|---------|---------|---------|
+| Felfritt (grönt)    |   Processervern är ansluten och är felfri      |CPU och minnesanvändning är lägre än 80%. Tillgängligt ledigt utrymme är högre än 30%| Den här processervern kan användas för att skydda ytterligare servrar. Kontrollera att den nya arbetsbelastningen ligger inom den [definierats process-serverns gränser](vmware-azure-set-up-process-server-scale.md#sizing-requirements).
+|Varning (Orange)    |   Processervern är ansluten, men vissa resurser är på väg att nå gränsvärden  |   CPU och minnesanvändning är mellan 80% - 95%. Tillgängligt ledigt utrymme är mellan 25% – 30%       | Användning av processervern ligger nära tröskelvärdena. Att lägga till nya servrar i samma processerver utför korsa tröskelvärdena och kan påverka befintliga skyddade objekt. Det är bäst att [konfigurera en skalbar processerver](vmware-azure-set-up-process-server-scale.md#before-you-start) för nya replikeringar.
+|Varning (Orange)   |   Processervern är ansluten, men data som inte har överförts till Azure i senaste 30 min  |   Resursutnyttjande ligger inom tröskelvärden       | Felsöka [data uppladdningsfel](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) innan du lägger till nya arbetsbelastningar **eller** [konfigurera en skalbar processerver](vmware-azure-set-up-process-server-scale.md#before-you-start) för nya replikeringar.
+|Kritiskt (rött)    |     Processervern kan ha kopplats från  |  Resursutnyttjande ligger inom tröskelvärden      | Felsöka [bearbeta server anslutningsproblem](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) eller [konfigurera en skalbar processerver](vmware-azure-set-up-process-server-scale.md#before-you-start) för nya replikeringar.
+|Kritiskt (rött)    |     Resursutnyttjande har passerat tröskelvärdet gränser |  CPU och minnesanvändning är högre än 95%. Tillgängligt ledigt utrymme är mindre än 25%.   | Att lägga till nya arbetsbelastningar i samma processerver är inaktiverad som resursen tröskelvärdet gränser redan är uppfyllda. Därför [konfigurera en skalbar processerver](vmware-azure-set-up-process-server-scale.md#before-you-start) för nya replikeringar.
+Kritiskt (rött)    |     Data som inte överförs från Azure till Azure i senaste 45 minuter. |  Resursutnyttjande ligger inom tröskelvärden      | Felsöka [data uppladdningsfel](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) innan du lägger till nya arbetsbelastningar till samma processerver eller [konfigurera en skalbar processerver](vmware-azure-set-up-process-server-scale.md#before-you-start)
+
 ## <a name="reregister-a-process-server"></a>Registrera en processerver
 
 Om du vill registrera en processerver som körs lokalt eller i Azure, med konfigurationsservern, gör du följande:
@@ -109,7 +122,6 @@ Om processervern använder en proxyserver för att ansluta till Site Recovery i 
    exit
    ```
 
-
 ## <a name="remove-a-process-server"></a>Ta bort en processerver
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
@@ -126,4 +138,3 @@ Om ett antivirusprogram är aktiv på en fristående processerver eller huvudmå
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - Processen installationskatalog, exempel: C:\Program Files (x86) \Microsoft Azure Site Recovery
-

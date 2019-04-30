@@ -83,7 +83,7 @@ HDInsight-piggningsåtgärd i en Datafabrik [pipeline](data-factory-create-pipel
 
 ## <a name="syntax-details"></a>Information om syntax
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Namn på aktiviteten |Ja |
 | description |Text som beskriver vad aktiviteten används till |Nej |

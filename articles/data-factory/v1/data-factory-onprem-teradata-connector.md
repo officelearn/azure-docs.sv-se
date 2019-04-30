@@ -83,7 +83,7 @@ Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens v
 
 När källan är av typen **RelationalSource** (som innehåller Teradata), följande egenskaper är tillgängliga i **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Ja |
 
@@ -300,10 +300,10 @@ När du flyttar data till Teradata, används följande mappningar från Teradata
 | Integer |Int32 |
 | Tal |Double |
 | SmallInt |Int16 |
-| Date |Datetime |
+| Date |DateTime |
 | Tid |TimeSpan |
 | Tid med tidszon |String |
-| Tidsstämpel |Datetime |
+| Tidsstämpel |DateTime |
 | Tidsstämpel med tidszon |Datetimeoffset |
 | Intervall för dag |TimeSpan |
 | Dag för intervall och timme |TimeSpan |

@@ -9,11 +9,11 @@ ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448409"
 ---
 ## <a name="access-the-virtual-machine"></a>Få åtkomst till den virtuella datorn
 
@@ -23,7 +23,7 @@ Följande steg visar hur du konfigurerar Azure-dator så att **SSH** åtkomst. A
 
 1. Visa innehållet i resursgruppen som innehåller solution accelerator resurser:
 
-    ```azurecli-interactive
+    ```azurecli
     az resource list -g contoso-simulation -o table
     ```
 
@@ -31,7 +31,7 @@ Följande steg visar hur du konfigurerar Azure-dator så att **SSH** åtkomst. A
 
 1. Uppdatera nätverkssäkerhetsgruppen för att tillåta SSH-åtkomst. Följande kommando förutsätter att namnet på den nya nätverkssäkerhetsgruppen är **contoso-simulering-nsg** --Ersätt detta värde med namnet på din grupp:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
@@ -39,13 +39,13 @@ Följande steg visar hur du konfigurerar Azure-dator så att **SSH** åtkomst. A
 
 1. Uppdatera lösenordet för den **azureuser** konto på den virtuella datorn till ett lösenord som du vet. Välj ditt eget lösenord när du kör följande kommando:
 
-    ```azurecli-interactive
+    ```azurecli
     az vm user update --name vm-vikxv --username azureuser --password YOURSECRETPASSWORD  -g contoso-simulation
     ```
 
 1. Hitta den offentliga IP-adressen för den virtuella datorn. Följande kommando förutsätter att namnet på den virtuella datorn är **vm-vikxv** --Ersätt detta värde med namnet på den virtuella datorn som du antecknade tidigare:
 
-    ```azurecli-interactive
+    ```azurecli
     az vm list-ip-addresses --name vm-vikxv -g contoso-simulation -o table
     ```
 

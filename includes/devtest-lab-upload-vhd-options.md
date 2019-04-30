@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: f4a9a131bcabc28a1eb77ffc31d93dc1d391cce4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61296184"
 ---
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 Den här kursen måste du ha en VHD-fil som överförs till lagringskontot som associerats med labb där du skapar den anpassade avbildningen. Välj någon av följande länkar för att ladda upp en VHD-fil:
 
 - [Överför med hjälp av kommandoradsverktyget azcopy](../articles/lab-services/devtest-lab-upload-vhd-using-azcopy.md)

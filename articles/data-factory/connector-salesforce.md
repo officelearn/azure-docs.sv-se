@@ -318,8 +318,8 @@ När du kopierar data från Salesforce, används följande mappningar från Sale
 | Automatisk numrering |String |
 | Kryssrutan |Boolean |
 | Valuta |Decimal |
-| Date |Datetime |
-| Datum/tid |Datetime |
+| Date |DateTime |
+| Datum/tid |DateTime |
 | E-post |String |
 | Id |String |
 | Uppslagsrelation |String |

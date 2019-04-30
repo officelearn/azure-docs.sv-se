@@ -70,7 +70,7 @@ I följande exempel innehåller en JSON-definition för att konfigurera hoppar �
 }
 ```
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | Aktivera hoppas över inkompatibla rader vid kopiering eller inte. | True<br/>FALSKT (standard) | Nej |
 | **redirectIncompatibleRowSettings** | En grupp egenskaper som kan anges när du vill logga inkompatibla rader. | &nbsp; | Nej |

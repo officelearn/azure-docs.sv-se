@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 2f3a8237fff052779afee718837e2b72fc33d9a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/23/2019
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532179"
+ms.locfileid: "62097767"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Begränsningar för kända problem/migrering med online migreringar till Azure DB för PostgreSQL
 
@@ -25,6 +25,10 @@ I följande avsnitt beskrivs kända problem och begränsningar som är associera
 ## <a name="online-migration-configuration"></a>Onlinemigrering konfiguration
 - Källan PostgreSQL-servern måste köra version 9.5.11, 9.6.7 eller 10.3 eller senare. Mer information finns i artikeln [Versioner av PostgreSQL Database som stöds](../postgresql/concepts-supported-versions.md).
 - Endast samma version migreringar stöds. Till exempel stöds migrera PostgreSQL 9.5.11 till Azure Database för PostgreSQL 9.6.7 inte.
+
+    > [!NOTE]
+    > För PostgreSQL version 10 stöder för närvarande DMS endast migrering av version 10.3 till Azure Database för PostgreSQL. Vi planerar att stödja nyare versioner av PostgreSQL snart.
+
 - Att aktivera logiska replikering i den **source PostgreSQL postgresql.conf** fil, ange följande parametrar:
     - **wal_level** = logical
     - **max_replication_slots** = [max antal databaser för migrering]; om du vill migrera 4 databaser, ange värdet till 4

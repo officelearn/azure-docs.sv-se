@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure NetApp filer och skapa en volym | Microsoft Docs
+title: Konfigurera Azure NetApp filer och skapa en NFS-volym | Microsoft Docs
 description: Beskriver hur du snabbt ställa in Azure NetApp filer och skapa en volym.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 634f23cf3161fff09f21c79fd8300cb269dcc5b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b9e85da29b3130d5183f577a7d83d164e217310
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454491"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759858"
 ---
-# <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Konfigurera Azure NetApp Files och skapa en volym 
+# <a name="set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Konfigurera Azure NetApp filer och skapa en NFS-volym 
 
 Den här artikeln visar hur du snabbt ställa in Azure NetApp filer och skapa en volym. 
 
@@ -88,7 +88,7 @@ Du behöver delta i programmet för allmänt tillgängliga förhandsversioner oc
 
 5. Klicka på **OK**.
 
-## <a name="create-a-volume-for-azure-netapp-files"></a>Skapa en volym för Azure NetApp Files
+## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Skapa en NFS-volymen för Azure NetApp-filer
 
 1. Från bladet för Azure Files för NetApp-hantering för NetApp-kontot klickar du på **volymer**.
 
@@ -100,7 +100,6 @@ Du behöver delta i programmet för allmänt tillgängliga förhandsversioner oc
 
 3. Ange information för volymen i avsnittet Skapa en volym-fönstret: 
    1. Ange **myvol1** som volymens namn. 
-   2. Ange **myfilepath1** som sökvägen till filen som ska användas för att skapa exportsökvägen för volymen.
    3. Välj din kapacitet pool (**mypool1**).
    4. Använd standardvärdet för kvoten. 
    5. I det virtuella nätverket, klickar du på **Skapa nytt** att skapa ett nytt Azure virtuellt nätverk (Vnet).  Fyll sedan i följande information:
@@ -116,7 +115,13 @@ Du behöver delta i programmet för allmänt tillgängliga förhandsversioner oc
 
       ![Skapa virtuella nätverk](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Klicka på **Granska + skapa**.
+4. Klicka på **protokollet**och välj sedan **NFS** som protokolltypen för volymen.   
+
+    Ange **myfilepath1** som sökvägen till filen som ska användas för att skapa exportsökvägen för volymen. 
+
+    ![Ange NFS-protokollet för Snabbstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+
+5. Klicka på **Granska + skapa**.
 
     ![Granska och skapa fönster](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 

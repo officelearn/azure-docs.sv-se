@@ -170,7 +170,7 @@ Egenskaper som är tillgängliga i den **typeProperties** avsnittet aktivitetens
 
 I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande egenskaper är tillgängliga i den **typeProperties** avsnittet:
 
-| Egenskap  | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Använd anpassad fråga för att läsa data. |En SQL-sträng. Till exempel ”Välj \* från **MyTable**”. <br/><br/>Om inte anges den här SQL-instruktionen körs ”: Välj \* från **MyTable**” |Nej<br />(om **tableName** av **datauppsättning** har angetts) |
 

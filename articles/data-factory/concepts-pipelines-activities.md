@@ -94,7 +94,7 @@ Så här definieras en pipeline i JSON-format:
 }
 ```
 
-Tagga | Beskrivning | Typ | Obligatoriskt
+Tagga | Beskrivning | Typ | Krävs
 --- | ----------- | ---- | --------
 namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\”</li></ul> | String | Ja
 description | Ange texten som beskriver vad pipeline används till. | String | Nej
@@ -127,7 +127,7 @@ I körningsaktiviteter ingår [dataförflyttning](#data-movement-activities) och
 
 I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
-Tagga | Beskrivning | Obligatoriskt
+Tagga | Beskrivning | Krävs
 --- | ----------- | ---------
 namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li></ul>
 description | Text som beskriver vad aktiviteten används till | Ja
@@ -168,7 +168,7 @@ Principer påverkar körningsbeteendet hos en aktivitet och ger konfigurationsal
 }
 ```
 
-JSON-namn | Beskrivning | Tillåtna värden | Obligatoriskt
+JSON-namn | Beskrivning | Tillåtna värden | Krävs
 --------- | ----------- | -------------- | --------
 timeout | Anger tidsgränsen för aktivitetens körning. | Tidsintervall | Nej. Standardtidsgränsen är 7 dagar.
 retry | Max. antal omförsök | Integer | Nej. Standardvärdet är 0
@@ -192,7 +192,7 @@ Kontrollaktiviteter har följande toppnivåstruktur:
 }
 ```
 
-Tagga | Beskrivning | Obligatoriskt
+Tagga | Beskrivning | Krävs
 --- | ----------- | --------
 namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li><ul>
 description | Text som beskriver vad aktiviteten används till | Ja

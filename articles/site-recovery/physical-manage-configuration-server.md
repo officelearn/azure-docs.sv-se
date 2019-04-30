@@ -110,19 +110,19 @@ Kör installationsfilen på följande sätt:
 
 |Parameternamn| Typ | Beskrivning| Värden|
 |-|-|-|-|
-| /ServerMode|Obligatoriskt|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
-|/InstallLocation|Obligatoriskt|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
-|/MySQLCredsFilePath|Obligatoriskt|Filsökvägen till platsen där autentiseringsuppgifterna för MySQL-servern lagras|Filen ska vara i det format som anges nedan|
-|/VaultCredsFilePath|Obligatoriskt|Sökvägen för valvautentiseringsfilen|Giltig sökväg|
-|/EnvType|Obligatoriskt|Typ av miljö som du vill skydda |VMware<br>NonVMware|
-|/PSIP|Obligatoriskt|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
-|/CSIP|Obligatoriskt|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
-|/PassphraseFilePath|Obligatoriskt|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
+| /ServerMode|Krävs|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
+|/InstallLocation|Krävs|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
+|/MySQLCredsFilePath|Krävs|Filsökvägen till platsen där autentiseringsuppgifterna för MySQL-servern lagras|Filen ska vara i det format som anges nedan|
+|/VaultCredsFilePath|Krävs|Sökvägen för valvautentiseringsfilen|Giltig sökväg|
+|/EnvType|Krävs|Typ av miljö som du vill skydda |VMware<br>NonVMware|
+|/PSIP|Krävs|Nätverkskortets IP-adress används för överföring av replikeringsdata| Vilken giltig IP-adress som helst|
+|/CSIP|Krävs|Nätverkskortets IP-adress som konfigurationsservern lyssnar på| Vilken giltig IP-adress som helst|
+|/PassphraseFilePath|Krävs|Den fullständiga sökvägen till platsen för lösenfrasfilen|Giltig sökväg|
 |/BypassProxy|Valfri|Anger att konfigurationsservern ansluter till Azure utan en proxyserver|För att få det här värdet från Venu|
 |/ProxySettingsFilePath|Valfri|Proxy-inställningar (standardproxy kräver autentisering, eller en anpassad proxy)|Filen ska vara i det format som anges nedan|
 |DataTransferSecurePort|Valfri|Portnumret på PSIP ska användas för replikeringsdata| Giltigt portnummer (standardvärdet är 9433)|
 |/SkipSpaceCheck|Valfri|Hoppa över utrymmeskontroll för cachedisk| |
-|/AcceptThirdpartyEULA|Obligatoriskt|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
+|/AcceptThirdpartyEULA|Krävs|När du flaggar innebär det att du godkänner licensavtalet från tredje part| |
 |/ShowThirdpartyEULA|Valfri|Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar| |
 
 

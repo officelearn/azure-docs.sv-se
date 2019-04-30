@@ -131,7 +131,7 @@ Följande typer av metadata kan anges i fältlistan GetMetadata-aktivitet att h�
 
 GetMetadata-aktiviteten kan för närvarande hämta följande typer av metadatainformation.
 
-Egenskap  | Beskrivning | Obligatoriskt
+Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
 fieldList | Visar typerna av metadatainformation som krävs. Mer information finns i [Metadata alternativ](#metadata-options) avsnittet om metadata som stöds. | Ja 
 dataset | Referens-datauppsättning vars GetMetaData-aktivitet är kan hämtas av GetMetadata-aktiviteten. Se [funktioner som stöds](#supported-capabilities) avsnittet på kopplingar som stöds och referera till avsnitt om anslutningsprogram på datauppsättningen syntax information. | Ja

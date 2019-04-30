@@ -47,9 +47,9 @@ Du kan hitta ett XML-exempel [XML-exempel](#xml).
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Namn**<br/><br/> Obligatoriskt |**Xs:String** |Filnamnet för media tillgången. |
-| **Storlek**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**Xs:Long** |Storleken på resursfilen i byte. |
-| **Varaktighet**<br/><br/> Obligatoriskt |**xs:duration** |Innehåll play tillbaka varaktighet. |
+| **Namn**<br/><br/> Krävs |**Xs:String** |Filnamnet för media tillgången. |
+| **Storlek**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**Xs:Long** |Storleken på resursfilen i byte. |
+| **Varaktighet**<br/><br/> Krävs |**xs:duration** |Innehåll play tillbaka varaktighet. |
 
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
@@ -76,7 +76,7 @@ Du kan hitta ett XML-exempel [XML-exempel](#xml).
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Namn**<br/><br/> Obligatoriskt |**Xs:String** |Indatakällan filnamn. |
+| **Namn**<br/><br/> Krävs |**Xs:String** |Indatakällan filnamn. |
 
 ## <a name="VideoTracks"></a> VideoTracks element
 Varje fysisk AssetFile i den kan innehålla noll eller flera videor spårar överlagrad i ett format för att rätt behållare. Den **VideoTracks** element representerar en samling med alla video spår.  
@@ -96,18 +96,18 @@ Du kan hitta ett XML-exempel [XML-exempel](#xml).
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Nollbaserade indexet för den här videon spåra. **Obs!**  Detta **Id** är inte nödvändigtvis TrackID som används i en MP4-fil. |
-| **FourCC**<br/><br/> Obligatoriskt |**Xs:String** |Video-codec FourCC kod. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Nollbaserade indexet för den här videon spåra. **Obs!**  Detta **Id** är inte nödvändigtvis TrackID som används i en MP4-fil. |
+| **FourCC**<br/><br/> Krävs |**Xs:String** |Video-codec FourCC kod. |
 | **Profil** |**Xs:String** |H264 profil (gäller endast för H264 codec). |
 | **Nivå** |**Xs:String** |H264 nivån (gäller endast för H264 codec). |
-| **Bredd**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Kodad video bredd i bildpunkter. |
-| **Höjd**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Kodad video höjd i bildpunkter. |
-| **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:double** |Videoenhet proportionerna täljaren. |
-| **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:double** |Videoenhet proportionerna nämnare. |
-| **ramhastighet**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:decimal** |Mätt video bildfrekvens i .3f format. |
-| **TargetFramerate**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:decimal** |Förinställda target video bildfrekvens i .3f format. |
-| **Bithastighet**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Genomsnittlig video bithastighet i kilobit per sekund, som beräknas från AssetFile. Räknar elementär stream nyttolasten och omfattar inte paketering overhead. |
-| **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Rikta genomsnittlig bithastigheter för den här videon spåra enligt en förfrågan via encoding förinställt i kilobit per sekund. |
+| **Bredd**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Kodad video bredd i bildpunkter. |
+| **Höjd**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Kodad video höjd i bildpunkter. |
+| **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:double** |Videoenhet proportionerna täljaren. |
+| **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:double** |Videoenhet proportionerna nämnare. |
+| **ramhastighet**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:decimal** |Mätt video bildfrekvens i .3f format. |
+| **TargetFramerate**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:decimal** |Förinställda target video bildfrekvens i .3f format. |
+| **Bithastighet**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Genomsnittlig video bithastighet i kilobit per sekund, som beräknas från AssetFile. Räknar elementär stream nyttolasten och omfattar inte paketering overhead. |
+| **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Rikta genomsnittlig bithastigheter för den här videon spåra enligt en förfrågan via encoding förinställt i kilobit per sekund. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Max GOP genomsnittlig bithastigheter för den här videon spåra i kilobit per sekund. |
 
 ## <a name="AudioTracks"></a> AudioTracks element
@@ -128,13 +128,13 @@ Du kan hitta ett XML-exempel [XML-exempel](#xml).
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Nollbaserade indexet för den här ljudspår. **Obs!**  Detta är inte nödvändigtvis TrackID som används i en MP4-fil. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Nollbaserade indexet för den här ljudspår. **Obs!**  Detta är inte nödvändigtvis TrackID som används i en MP4-fil. |
 | **Codec** |**Xs:String** |Ljudspår codec-sträng. |
 | **EncoderVersion** |**Xs:String** |Versionssträng valfritt kodare som krävs för EAC3. |
-| **kanaler**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Antal ljud kanaler. |
-| **SamplingRate**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Ljud samplingsfrekvensen i exempel per sekund eller Hz. |
-| **Bithastighet**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Genomsnittlig ljud bithastighet i bitar per sekund, som beräknas från AssetFile. Räknar elementär stream nyttolasten och omfattar inte paketering overhead. |
-| **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Obligatoriskt |**xs:int** |Bitar per-exemplet för formatet wFormatTag typ. |
+| **kanaler**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Antal ljud kanaler. |
+| **SamplingRate**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Ljud samplingsfrekvensen i exempel per sekund eller Hz. |
+| **Bithastighet**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Genomsnittlig ljud bithastighet i bitar per sekund, som beräknas från AssetFile. Räknar elementär stream nyttolasten och omfattar inte paketering overhead. |
+| **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Krävs |**xs:int** |Bitar per-exemplet för formatet wFormatTag typ. |
 
 ### <a name="child-elements"></a>Underordnade element
 | Namn | Beskrivning |
@@ -150,15 +150,15 @@ Du kan hitta ett XML-exempel [XML-exempel](#xml).
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**Xs:String** |**Dolby** professionella loudness Avläsning av programvara development kit version. |
-| **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obligatoriskt |**xs:int** |DialogNormalization som genereras genom DPLM, krävs när LoudnessMetering har angetts |
-| **IntegratedLoudness**<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> Obligatoriskt |**Xs:float** |Integrerad loudness |
-| **IntegratedLoudnessUnit**<br/><br/> Obligatoriskt |**Xs:String** |Integrerad loudness enhet. |
-| **IntegratedLoudnessGatingMethod**<br/><br/> Obligatoriskt |**Xs:String** |Hantera identifierare |
+| **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Krävs |**xs:int** |DialogNormalization som genereras genom DPLM, krävs när LoudnessMetering har angetts |
+| **IntegratedLoudness**<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> Krävs |**Xs:float** |Integrerad loudness |
+| **IntegratedLoudnessUnit**<br/><br/> Krävs |**Xs:String** |Integrerad loudness enhet. |
+| **IntegratedLoudnessGatingMethod**<br/><br/> Krävs |**Xs:String** |Hantera identifierare |
 | **IntegratedLoudnessSpeechPercentage**<br/><br/> minInclusive ="0" maxInclusive="100" |**Xs:float** |Talat innehåll via programmet, som en procentandel. |
-| **SamplePeak**<br/><br/> Obligatoriskt |**Xs:float** |Högsta absolut exempelvärde avmarkerad sedan återställning eller sedan den startades senast per kanal.  Enheterna är antingen. |
-| **SamplePeakUnit**<br/><br/> fixed="dBFS"<br/><br/> Obligatoriskt |**xs:anySimpleType** |Exemplet resursbehov. |
-| **TruePeak**<br/><br/> Obligatoriskt |**Xs:float** |Maximala SANT högsta värde, enligt ITU-R BS.1770-2, sedan återställning eller sedan den startades senast avmarkeras per kanal. Enheterna är dBTP. |
-| **TruePeakUnit**<br/><br/> fixed="dBTP"<br/><br/> Obligatoriskt |**xs:anySimpleType** |SANT resursbehov. |
+| **SamplePeak**<br/><br/> Krävs |**Xs:float** |Högsta absolut exempelvärde avmarkerad sedan återställning eller sedan den startades senast per kanal.  Enheterna är antingen. |
+| **SamplePeakUnit**<br/><br/> fixed="dBFS"<br/><br/> Krävs |**xs:anySimpleType** |Exemplet resursbehov. |
+| **TruePeak**<br/><br/> Krävs |**Xs:float** |Maximala SANT högsta värde, enligt ITU-R BS.1770-2, sedan återställning eller sedan den startades senast avmarkeras per kanal. Enheterna är dBTP. |
+| **TruePeakUnit**<br/><br/> fixed="dBTP"<br/><br/> Krävs |**xs:anySimpleType** |SANT resursbehov. |
 
 ## <a name="schema-code"></a>Schema-kod
     <?xml version="1.0" encoding="utf-8"?>  

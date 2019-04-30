@@ -85,7 +85,7 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 De här argumenten är tillgängliga för den `aks install-connector` kommando.
 
-| Argument: | Beskrivning | Obligatoriskt |
+| Argument: | Beskrivning | Krävs |
 |---|---|:---:|
 | `--connector-name` | Namnet på ACI-Anslutningsappens.| Ja |
 | `--name` `-n` | Namnet på det hanterade klustret. | Ja |

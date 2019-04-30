@@ -38,7 +38,7 @@ Definierar en förinställningen för kodningen.
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Version**<br/><br/> Obligatoriskt |**xs: decimal** |Den förinställda versionen. Följande begränsningar gäller: xs:fractionDigits värde = ”1” och xs:minInclusive value = ”1” till exempel **version = ”1.0”**. |
+| **Version**<br/><br/> Krävs |**xs: decimal** |Den förinställda versionen. Följande begränsningar gäller: xs:fractionDigits värde = ”1” och xs:minInclusive value = ”1” till exempel **version = ”1.0”**. |
 
 ## <a name="Encoding"></a> Kodning
 Innehåller en sekvens av följande element:  

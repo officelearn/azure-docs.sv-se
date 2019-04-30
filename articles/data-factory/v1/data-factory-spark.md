@@ -327,7 +327,7 @@ Här är exempel JSON-definition för en pipeline med en Spark-aktivitet:
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen.
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | namn | Namnet på aktiviteten i pipelinen. | Ja |
 | description | Text som beskriver hur aktiviteten ska hantera. | Nej |
@@ -347,7 +347,7 @@ Spark-aktiviteten har inte stöd för ett infogat skript som Pig och Hive aktivi
 
 Skapa följande mappstrukturen i blob-lagringen som refereras av den länkade HDInsight-tjänsten. Ladda sedan upp beroende filer till lämpliga undermappar i rotmappen som representeras av **entryFilePath**. Till exempel ladda upp Python-filer till undermappen pyFiles och jar-filer till undermappen JAR-filer i rotmappen. Vid körning förväntas i Data Factory-tjänsten följande mappstrukturen i blob storage: 
 
-| Sökväg | Beskrivning | Obligatoriskt | Typ |
+| Sökväg | Beskrivning | Krävs | Typ |
 | ---- | ----------- | -------- | ---- |
 | . | Rotsökvägen för Spark-jobb i länkade storage-tjänsten. | Ja | Mapp |
 | &lt;användardefinierad &gt; | Den sökväg som pekar på Spark-jobbet startfil. | Ja | Fil |

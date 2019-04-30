@@ -46,7 +46,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 Skriptet godkänner följande parametrar:
 
-| Parameter  | Beskrivning | Obligatoriskt |
+| Parameter  | Beskrivning | Krävs |
 |---------|---------|----|
 | prenumerations-ID | Prenumerations-ID att skapa eller leta upp alla resurser. | Ja |
 | ResourceGroupName | Namnet på Azure-resursgrupp där Blockchain Workbench har distribuerats. | Ja |

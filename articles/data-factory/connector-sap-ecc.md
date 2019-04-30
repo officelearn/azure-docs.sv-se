@@ -89,7 +89,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Kopiera data från SAP ECC genom att ange typegenskapen på datauppsättningen till **SapEccResource**. Följande egenskaper stöds:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | path | Sökväg för SAP ECC OData-entiteten. | Ja |
 

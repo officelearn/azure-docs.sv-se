@@ -74,8 +74,8 @@ Du kan använda följande parametrar med cmdleten Export-HcsSupportPackage.
 
 | Parameter | Krävs/valfritt | Beskrivning |
 | --- | --- | --- |
-| `-Path` |Obligatoriskt |Använd för att ange platsen för den delade nätverksmappen där supportpaketet är placerad. |
-| `-EncryptionPassphrase` |Obligatoriskt |Använd för att ange en lösenfras för att kryptera supportpaketet. |
+| `-Path` |Krävs |Använd för att ange platsen för den delade nätverksmappen där supportpaketet är placerad. |
+| `-EncryptionPassphrase` |Krävs |Använd för att ange en lösenfras för att kryptera supportpaketet. |
 | `-Credential` |Valfri |Använd det här alternativet om du vill definiera autentiseringsuppgifter för den delade nätverksmappen. |
 | `-Force` |Valfri |Använd för att hoppa över bekräftelse-steget kryptering lösenfras. |
 | `-PackageTag` |Valfri |Använd för att ange en katalog under *sökväg* i supportpaketet är placerad. Standardvärdet är [enhetsnamn]-[aktuellt datum och time:yyyy-MM-dd-HH-mm-ss]. |

@@ -66,10 +66,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Obligatoriskt | Directory-klient som du vill logga in användaren i. Detta kan vara i GUID eller eget namnformat. Den här parametern kan inte anges till `common` eller `consumers`, men kan anges till `organizations`. |
-| `grant_type` | Obligatoriskt | Måste anges till `password`. |
-| `username` | Obligatoriskt | Användarens e-postadress. |
-| `password` | Obligatoriskt | Användarens lösenord. |
+| `tenant` | Krävs | Directory-klient som du vill logga in användaren i. Detta kan vara i GUID eller eget namnformat. Den här parametern kan inte anges till `common` eller `consumers`, men kan anges till `organizations`. |
+| `grant_type` | Krävs | Måste anges till `password`. |
+| `username` | Krävs | Användarens e-postadress. |
+| `password` | Krävs | Användarens lösenord. |
 | `scope` | Rekommenderas | En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md), eller behörigheter som appen kräver. I en interaktiv flow, måste administratören eller användaren godkänner du dessa scope förbereds i förväg. |
 
 ### <a name="successful-authentication-response"></a>Lyckad autentiseringssvar

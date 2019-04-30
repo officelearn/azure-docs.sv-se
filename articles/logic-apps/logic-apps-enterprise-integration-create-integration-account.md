@@ -52,7 +52,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
 
    ![Ange information för ditt integrationskonto](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Egenskap  | Obligatoriskt | Exempelvärde | Beskrivning | 
+   | Egenskap  | Krävs | Exempelvärde | Beskrivning | 
    |----------|----------|---------------|-------------|
    | Name | Ja | test-integration-account | Namnet på ditt integrationskonto. I det här exemplet använder du det angivna namnet. | 
    | Prenumeration | Ja | <*Azure-prenumerationsnamn*> | Namnet på Azure-prenumeration du använder | 

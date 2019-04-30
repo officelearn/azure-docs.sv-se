@@ -67,7 +67,7 @@ Du kan anpassa din enhets meddelandeformat och för att anpassa lösningens beho
 
  Nyttolasten innehållet i en **meddelande** kan vara valfri data upp till 256 KB stora. Det finns några krav som förväntat för egenskaperna för den [ `Message.Properties` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) typen. Tabellen visar de obligatoriska och valfria egenskaper som stöds av systemet.
 
-| Egenskapsnamn | Värde | Obligatoriskt | Beskrivning |
+| Egenskapsnamn | Värde | Krävs | Beskrivning |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | Ja | Ett konstantvärde som identifierar ett meddelande i systemet. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | En unik identifierare för sensorn som skickar den **meddelande**. Det här värdet måste matcha ett objekts **HardwareId** -egenskapen för systemet att behandla den. Till exempel `00FF0643BE88-CO2`. |

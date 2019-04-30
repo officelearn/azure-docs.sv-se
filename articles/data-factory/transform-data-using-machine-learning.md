@@ -124,7 +124,7 @@ Följande JSON-kodfragmentet definierar en Azure Machine Learning Batch Executio
 }
 ```
 
-| Egenskap           | Beskrivning                              | Obligatoriskt |
+| Egenskap           | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | namn              | Namnet på aktiviteten i pipelinen     | Ja      |
 | description       | Text som beskriver hur aktiviteten ska hantera.  | Nej       |

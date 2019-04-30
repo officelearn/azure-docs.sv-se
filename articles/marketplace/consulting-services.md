@@ -156,7 +156,7 @@ Exempel:
 
 När du granskar erbjuder beskrivningar och erbjuder sammanfattningar gäller teamet följande villkor:
 
-|Erbjudandetyp  |Obligatoriskt |Rekommenderas  |
+|Erbjudandetyp  |Krävs |Rekommenderas  |
 |---------|---------|---------|
 |**Utvärdering**    |   Innehåller en detaljerad agenda för flera veckor eller flera dagar utvärderingar och förklara vad leverans kunden kan förvänta sig      |    Optimera ditt erbjudande sammanfattning med dina viktigaste sökmotoroptimering nyckelord     |
 |**Genomgång**    |   Förklara vad leverans kunden kan vänta. Kom ihåg genomgång måste erbjudas personligen. Om du tillhandahåller virtuella Välj ett annat erbjudande-typ    |  Optimera ditt erbjudande sammanfattning med dina viktigaste sökmotoroptimering nyckelord       |

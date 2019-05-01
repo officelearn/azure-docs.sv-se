@@ -49,13 +49,13 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Obligatoriskt|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |autentisering-grundläggande|Rotelement.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Obligatoriskt|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |användarnamn|Anger användarnamnet för grundläggande autentiseringsuppgift.|Ja|Gäller inte|  
 |password|Anger lösenordet för grundläggande autentiseringsuppgift.|Ja|Gäller inte|  
@@ -89,13 +89,13 @@ I det här exemplet identifieras klientcertifikat efter resursnamn.
 
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Obligatoriskt|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |certifikat för serverautentisering|Rotelement.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Obligatoriskt|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|Tumavtryck för klientcertifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Gäller inte|  
 |certifikat-id|Resursnamnet certifikat.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Gäller inte|  
@@ -124,13 +124,13 @@ I det här exemplet identifieras klientcertifikat efter resursnamn.
   
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Obligatoriskt|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |Rotelement.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Obligatoriskt|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |resurs|sträng. App-ID URI för webb-mål-API (säker resurs) i Azure Active Directory.|Ja|Gäller inte|  
 |output-token-variable-name|sträng. Namnet på sammanhangsvariabeln som ska ta emot token-värde som en objekttyp `string`.|Nej|Gäller inte|  

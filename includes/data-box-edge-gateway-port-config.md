@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60754679"
 ---
-| Porten Nej.| In eller ut | Port omfång| Obligatoriskt|   Anteckningar |   |
+| Porten Nej.| In eller ut | Port omfång| Krävs|   Anteckningar |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|Utdata|WAN |Nej|Utgående port används för åtkomst till internet för att hämta uppdateringar. <br>Utgående webbproxy kan konfigureras av användaren. |
 | TCP 443 (HTTPS)|Utdata|WAN|Ja|Utgående port används för att komma åt data i molnet.<br>Utgående webbproxy kan konfigureras av användaren.|

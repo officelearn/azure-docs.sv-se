@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812807"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867706"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
@@ -441,7 +441,7 @@ Om du använder enkel enhet, se till att ge exempel som använder det första oc
 
 ### <a name="names-of-places"></a>Namnen på platser
 
-Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder. Använda fördefinierade entiteten **[geographyV2](luis-reference-prebuilt-geographyv2.md)** att extrahera platsinformation.
+Platsnamn anges och kända, till exempel städer, regioner, stater, regioner och länder/regioner. Använda fördefinierade entiteten **[geographyV2](luis-reference-prebuilt-geographyv2.md)** att extrahera platsinformation.
 
 ### <a name="new-and-emerging-names"></a>Nya och framväxande namn
 

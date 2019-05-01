@@ -1,25 +1,19 @@
 ---
-title: Förberedelse av paketet i AppSource | Microsoft Docs
+title: Förberedelse av paketet i AppSource | Azure Marketplace
 description: Explanaion i hur du förbereder och skapa AppSource-paket.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625491"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935635"
 ---
 # <a name="appsource-package-preparation"></a>Förberedelse av AppSource-paket
 
@@ -117,7 +111,7 @@ Här är exempelkod för Input.XML är. Se definitioner i den tabellen nedan.
 |SolutionAnchorName |Namnet på lösningen zip-filen i package deployer som används för namn och beskrivning av lösning tillgångar.|
 | Startdatum| Det här är det datum då lösningspaketet blir tillgängliga. Formatet är åååå-MM-DD|
 |endDate|Detta är det datum att lösningspaketet stoppar som det är tillgängligt. Formatet är åååå-MM-DD |
-|SupportedCountries |Det här är en kommaavgränsad lista över länder som bör se det här paketet. Kontakta online services för en lista över alla aktuella landskoder. Då detta skrivs var listan: AE, AL, AM, AO, AR AT, AUSTRALIEN, AZ, BA, BB, BD, VARA, BG, BH, BM, BN, BO, BR AV CA: N, CH, CI, CL, CM, CO, CR, KA, CW, CY, CZ, DE, DK, GÖR, DZ, EG, EE, T.EX., ES, FI, FR, GB, GE, HÖ, GR, GT, HK , HN, HR, HU, ID, INTERNET EXPLORER, IL, IN-, IQ, ÄR DET, JM, JO, JP, KE, KG, KN, KOREA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, MIG, MK, MN, MÅNAD, MT, MU, MX, MIN, NG, NI, NL, NEJ, NZ, OM, PA, PE, PH , PK, PL, PULL-BEGÄRAN, PS, PT, PY, QA, RO, RS, RU, RW-SKIVOR, SA, SE, SG, SI, SK, SN, SA, TH, TM, TN, TR, TT, TW, UA, USA, UY, UZ, STÖTT, VI, VN, ZA, ZW |
+|SupportedCountries |Det här är en kommaavgränsad lista över länder/regioner som bör se det här paketet. Kontakta online services för en lista över alla aktuella landskoder. Då detta skrivs var listan: AE, AL, AM, AO, AR AT, AUSTRALIEN, AZ, BA, BB, BD, VARA, BG, BH, BM, BN, BO, BR AV CA: N, CH, CI, CL, CM, CO, CR, KA, CW, CY, CZ, DE, DK, GÖR, DZ, EG, EE, T.EX., ES, FI, FR, GB, GE, HÖ, GR, GT, HK , HN, HR, HU, ID, INTERNET EXPLORER, IL, IN-, IQ, ÄR DET, JM, JO, JP, KE, KG, KN, KOREA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, MIG, MK, MN, MÅNAD, MT, MU, MX, MIN, NG, NI, NL, NEJ, NZ, OM, PA, PE, PH , PK, PL, PULL-BEGÄRAN, PS, PT, PY, QA, RO, RS, RU, RW-SKIVOR, SA, SE, SG, SI, SK, SN, SA, TH, TM, TN, TR, TT, TW, UA, USA, UY, UZ, STÖTT, VI, VN, ZA, ZW |
 |LearnMoreLink | URL till informationslagersidan för mer för det här paketet. |
 |Nationella inställningar|En instans av den här noden för varje UX-språk som du vill stödja i prioriterade lösningen UX. Den här noden innehåller underordnade som beskriver de nationella inställningar, logotyp och villkoren för varje språk|
 |Nationella inställningar: PackageLocale.Code|LCID för de för den här noden. Exempel: Amerikansk engelska är 1033|

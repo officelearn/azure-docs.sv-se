@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381667"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918430"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera en strategi för skydd av data för din hybrididentitetslösning
 I det här steget definierar du strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i dataskydd:
@@ -89,7 +89,7 @@ En viktig del av innehållshantering är att förstå vem har åtkomst till vilk
 ## <a name="define-access-control-options"></a>Definiera alternativ för åtkomstkontroll
 Du kan aktivera ditt företag att använda en central identitetsdatabas samtidigt som användarna genom att använda autentisering, auktorisering och få tillgång till kontroll funktioner tillgängliga i Azure AD och partner att använda enkel inloggning (SSO), enligt följande bild:
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![centraliserad hantering](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Centraliserad hantering och helt integrering med andra kataloger
 
@@ -115,7 +115,7 @@ Med stöd för Azure AD, kan mobila program använder samma enkelt mobiltjänste
 
 När användaren autentiseras med hjälp av Azure AD, är det viktigt att utvärdera åtkomstnivån som användaren har. Åtkomstnivån som användaren har över en resurs kan variera. Azure AD kan lägga till ett extra säkerhetslager genom att kontrollera åtkomst till vissa resurser, Tänk på att själva resursen kan också ha sin egen åtkomstkontrollistan separat, till exempel åtkomstkontroll för filer som finns på en filserver. Nedan sammanfattas nivåerna av åtkomstkontroll som du kan ha i ett scenario med hybridanvändning:
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![Åtkomstkontroll](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 Varje interaktion i diagrammet visade i bild X representerar en access control-scenario som kan omfattas av Azure AD. Nedan finner du en beskrivning av varje scenario:
 

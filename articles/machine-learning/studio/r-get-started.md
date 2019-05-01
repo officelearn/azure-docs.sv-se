@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875523"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726537"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Komma igång med R-programspråket i Azure Machine Learning Studio
 
@@ -1320,7 +1320,7 @@ Det finns många böcker på R som hjälper dig att komma igång. Här är någr
 * Den **bilder av R-programmering: En genomgång av statistiska programdesign** Norman Matloff är en utmärkt introduktion till programmering i R.  
 * **R-Cookbook** av Paul Teetor ger en problemet och lösningen metod för med R.  
 * **R i praktiken** som Robert Kabacoff är en annan användbar inledande boken. Tillhörande [snabb R webbplats](https://www.statmethods.net/) är en bra resurs.
-* **R Inferno** Patrick Burns är en överraskande lättsam bok som behandlar ett antal svårt och dyrt avsnitt som kan uppstå vid programmering i R. Boken är tillgänglig kostnadsfritt på [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
+* **R Inferno** Patrick Burns är en överraskande lättsam bok som behandlar ett antal svårt och dyrt avsnitt som kan uppstå vid programmering i R. Boken är tillgänglig kostnadsfritt på [The R Inferno](https://www.burns-stat.com/documents/books/the-r-inferno/).
 * Om du vill att en djupdykning i avancerade ämnen i R ta en titt på boken **avancerade R** av Hadley Wickham. Online-versionen av den här boken är tillgänglig kostnadsfritt på [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/).
 
 En katalog med R time series-paket finns i [CRAN uppgiften visa: Time Series Analysis](https://cran.r-project.org/web/views/TimeSeries.html). Information om specifika tid serien objekt-paket, bör du i dokumentationen för det paketet.

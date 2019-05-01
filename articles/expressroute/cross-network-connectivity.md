@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368884"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865994"
 ---
 # <a name="cross-network-connectivity"></a>Anslutning mellan nätverk
 
@@ -119,7 +119,7 @@ I följande tabell visas i routningstabellen för för privat peering i ExpressR
 
 Se [virtuellt nätverk vanliga frågor och svar][VNet-FAQ]för eventuella ytterligare frågor på VNet och VNet-peering. Se [ExpressRoute vanliga frågor och svar] [ ER-FAQ] för ytterligare frågor på ExpressRoute och virtuella nätverksanslutningar.
 
-Global räckvidd distribueras på basis av per land. Om du vill se om Global räckvidd är tillgängligt i länder som du vill se [ExpressRoute Global räckvidd][Global Reach].
+Global räckvidd distribueras på basis av land/region av land/region. Om du vill se om Global räckvidd är tillgängligt i länder/regioner som du vill se [ExpressRoute Global räckvidd][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "programmet scenario"

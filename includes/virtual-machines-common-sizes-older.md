@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: d89a9c4c4498e249dbfbd453ef9772d18ffd213f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7196a2ea794c1d17a2c55c05accb447d83929972
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541632"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744631"
 ---
 Det här avsnittet innehåller information om äldre generationer storlekar på virtuella datorer. Dessa storlekar stöds fortfarande, men får inte ytterligare kapacitet. Det finns nyare eller alternativa storlekar som är allmänt tillgängliga. Se [storlekar för Windows-datorer i Azure](../articles/virtual-machines/windows/sizes.md) eller [storlekar för Linux-datorer i Azure](../articles/virtual-machines/linux/sizes.md) för att välja den virtuella datorn de storlekar som kommer bäst passar dina behov.  
 
@@ -27,7 +27,7 @@ Mer information om att ändra storlek på en Linux-VM finns i [ändra storlek p�
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 Storlekarna på den grundläggande nivån är främst avsedda för utvecklingsarbetsbelastningar och andra program som inte kräver belastningsutjämning, automatisk skalning eller minnesintensiva virtuella datorer.
 
@@ -49,7 +49,7 @@ ACU: 50-100
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (HDD): GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ ACU: 225
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva instanser*. Maskinvaran som kör dessa storlekar är utformad och optimerad för beräkningsintensiva och nätverksintensiva program, inklusive HPC-klustertillämpningar (databehandling med höga prestanda), modellering och simuleringar. A8–A11-serien använder Intel Xeon E5-2670 @ 2,6 GHZ och H-serien använder Intel Xeon E5-2667 v3 @ 3,2 GHz.  
 
@@ -97,7 +97,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 | Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -118,7 +118,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 | Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -139,7 +139,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -160,7 +160,7 @@ ACU: 160-250 <sup>1,2</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

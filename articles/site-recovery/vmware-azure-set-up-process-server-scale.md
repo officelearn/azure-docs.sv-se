@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101905"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925477"
 ---
 # <a name="scale-with-additional-process-servers"></a>Skala med ytterligare processervrar
 
@@ -24,7 +24,7 @@ Som standard när du replikerar virtuella VMware-datorer eller fysiska servrar t
 
 Kontrollera att du har utfört [kapacitetsplanering](site-recovery-plan-capacity-vmware.md) för VMware-replikering. Detta hjälper dig att identifiera hur och när du ska distribuera ytterligare processervrar.
 
-Från 9.24 version läggs vägledning vid valet av processervern för nya replikeringar. Processervern markeras felfri-, varnings- och kritiska baserat på angivna kriterier. För att förstå olika scenarier som kan påverka tillståndet för processervern, besök [bearbeta server-vägledning för val av](vmware-azure-manage-process-server.md#process-server-selection-guidance).
+Från 9.24 version läggs vägledning vid valet av processervern för nya replikeringar. Processervern markeras felfri, varning och kritiskt baserat på angivna kriterier. För att förstå olika scenarier som kan påverka tillståndet för processervern, granska de [bearbeta serveraviseringar](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > Användning av klonade Process Server komponent stöds inte. Följ stegen nedan för varje PS-utskalning.

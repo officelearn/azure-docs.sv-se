@@ -1,25 +1,18 @@
 ---
-title: Azure och Dynamics 365-konsult tjänsterbjudande - definiera erbjudandeinställningar | Microsoft Docs
-description: Guide för att definiera erbjuder inställningar i en Azure- eller Dynamics 365-konsult tjänsteerbjudanden i partnerportalen i molnet.
+title: Definiera erbjudandet inställningar för en konsult tjänsterbjudande | Azure Marketplace
+description: Definiera erbjudandet inställningar i en Azure- eller Dynamics 365-konsult tjänsteerbjudanden i Cloud Partner Portal för Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749672"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942773"
 ---
 # <a name="offer-settings-tab"></a>Fliken Erbjudandeinställningar
 
@@ -27,7 +20,8 @@ På den **nytt erbjudande** skärmen det första steget är att skapa erbjudande
 
 ![Skapa en ny konsult tjänsterbjudande – erbjuder fliken Inställningar](media/consultingoffer-settings-tab.png)
 
-### <a name="offer-id"></a>ID för erbjudande
+
+### <a name="offer-id"></a>Erbjudande -ID *
 
 Den här identifieraren är ett unikt namn som du skapar när du skickar in erbjudandet. Den måste bestå enbart av gemena alfanumeriska tecken, bindestreck eller understreck. Den **erbjudande-ID** syns i URL: en och påverkar sökresultat. Ett exempel är *yourcompanyname_exampleservice*.
 
@@ -36,11 +30,13 @@ Som visas i exemplet är den **erbjudande-ID** läggs till Publicerings-ID för 
 >[!Note]
 >När ett erbjudande är aktiv, kan inte dess identifierare uppdateras.
 
-### <a name="publisher-id"></a>Utgivar-ID
+
+### <a name="publisher-id"></a>Publisher -ID *
 
 Den här identifieraren är relaterat till ditt konto. När du har loggat in med ditt organisationskonto din **Publicerings-ID** visas i den nedrullningsbara menyn.
 
-### <a name="name"></a>Namn
+
+### <a name="name"></a>Namn*
 
 Den här strängen visas som erbjudandenamn på AppSource eller på Azure Marketplace. Den **namn** rutan är begränsad till 50 tecken. Granskaren kan behöva redigera din rubrik för att lägga till varaktighet och erbjudandetyp till namnet på ditt erbjudande.
 

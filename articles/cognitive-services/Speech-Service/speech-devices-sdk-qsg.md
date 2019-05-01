@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dec40f7ec21a4a059c6e4a7c75f6378f9757a479
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457608"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916851"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Kom igång med SDK för tal-enheter
 
@@ -28,7 +28,7 @@ Källkoden för exempelprogrammet som ingår i SDK: N för tal-enheter. Det är 
 
 Innan du börjar utveckla med tal Devices SDK måste du samla in information och programvara som du behöver:
 
-* Hämta en [development kit från ROOBO](http://ddk.roobo.com/). Startpaket är tillgängliga med linjära eller cirkulär mikrofon matris konfigurationer. Välj rätt konfigurationen för dina behov.
+* Hämta en [development kit från ROOBO](https://ddk.roobo.com/). Startpaket är tillgängliga med linjära eller cirkulär mikrofon matris konfigurationer. Välj rätt konfigurationen för dina behov.
 
     |Development kit konfiguration|Talare plats|
     |-----------------------------|------------|
@@ -199,4 +199,4 @@ Om det uppstår fel certifikat när du använder Speech Services kan du kontroll
 
 ### <a name="audio"></a>Ljud
 
-ROOBO ger ett verktyg som samlar in alla ljud flash-minnet. Det kan hjälpa dig felsökning av problem med ljud. En version av verktyget har angetts för varje development kit-konfiguration. På den [ROOBO plats](http://ddk.roobo.com/), Välj din enhet och välj sedan den **ROOBO verktyg** länken längst ned på sidan.
+ROOBO ger ett verktyg som samlar in alla ljud flash-minnet. Det kan hjälpa dig felsökning av problem med ljud. En version av verktyget har angetts för varje development kit-konfiguration. På den [ROOBO plats](https://ddk.roobo.com/), Välj din enhet och välj sedan den **ROOBO verktyg** länken längst ned på sidan.

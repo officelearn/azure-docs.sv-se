@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b4e255f35761924f46714f1844d8fbe1b2e70956
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eaa6ff1384116064d88061b6eaf7f448e2222cd3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542120"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744618"
 ---
 VM-storlekar för generell användning ger balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt genomflödet för storlekar i den här grupperingen. 
 
@@ -33,7 +33,7 @@ VM-storlekar för generell användning ger balanserat förhållande mellan proce
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 Virtuella datorer med burst B-serien är idealiska för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, små databaser och utveckling och testmiljöer. Dessa arbetsbelastningar har normalt anpassningsbara prestandakrav. B-serien ger dessa kunder möjligheten att köpa en VM-storlek med ett pris medvetna baslinje-prestanda som gör att den Virtuella datorinstansen att bygga upp krediter när Virtuellt datorn använder mindre än dess grundläggande prestanda. När den virtuella datorn har ackumulerats kredit, utöka den virtuella datorn över den Virtuella datorns baslinje med upp till 100% av CPU när ditt program kräver mer processorkraft.
 
@@ -58,7 +58,7 @@ ACU: 160-190
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 Dsv3-seriens storlekar bygger på 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor eller senaste 2,3 GHz Intel XEON® E5-2673 v4-processorn (Broadwell)-processor som kan 3,5 GHz med Intel Turbo Boost Technology 2.0 och använda premium storage. Storlekarna i Dsv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
 
@@ -80,7 +80,7 @@ ACU: 160-190
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 Storlekarna Dv3-serien är baserade på 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)-processor som kan uppnå upp till 3,5 GHz med Intel Turbo Boost Technology 2.0. Storlekarna i Dv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
 
@@ -104,7 +104,7 @@ ACU: 210-250
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -120,7 +120,7 @@ ACU: 210-250
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 | Storlek           | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar | Dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
@@ -136,7 +136,7 @@ ACU: 100
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 
 | Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
@@ -153,7 +153,7 @@ Premium Storage Caching:  Stöds inte
 
 Premium-lagring: Stöds
 
-Premium Storage Caching: Stöds
+Premium Storage cachelagring: Stöds
 
 
 

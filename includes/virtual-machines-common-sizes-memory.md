@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344282"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744607"
 ---
 Minnesoptimerade erbjudande för VM-storlekar högt minne att CPU-förhållande som är utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -33,7 +33,7 @@ ACU: 160-190 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 Instanserna i ESv3-serien baseras på 2,3 GHz Intel XEON® E5-2673 v4-processorn (Broadwell) och kan komma upp i 3,5 GHz med Intel Turbo Boost Technology 2.0 och använder premiumlagring. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
 
@@ -63,7 +63,7 @@ ACU: 160 - 190 <sup>1</sup>
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 Instanserna i Ev3-serien baseras på 2,3 GHz Intel XEON ® E5-2673 v4-processorn (Broadwell) och kan komma upp i 3,5GHz med Intel Turbo Boost Technology 2.0. Instanserna i Ev3-serien är idealiska för minnesintensiva företagsprogram.
 
@@ -94,7 +94,7 @@ ACU: 160-180 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 Write Accelerator:  [Stöds](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -132,7 +132,7 @@ ACU: 180 - 240 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
@@ -156,7 +156,7 @@ ACU: 180 - 240
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 | Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -175,7 +175,7 @@ ACU: 210 - 250 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -198,7 +198,7 @@ ACU: 210 - 250
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 | Storlek              | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

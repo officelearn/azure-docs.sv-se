@@ -1,10 +1,10 @@
 ---
-title: Azure säkerhetshantering och övervakning-översikt | Microsoft Docs
+title: Hantering och övervakning säkerhetsfunktioner – Microsoft Azure | Microsoft Docs
 description: Den här artikeln innehåller en översikt över säkerhetsfunktioner och tjänster som Azure tillhandahåller för att underlätta hantering och övervakning av Azure-molntjänster och virtuella datorer.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: barbkess
 editor: TomSh
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9f741f578ea44e27814ddfcde2fadc44a0e90536
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597903"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872076"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure säkerhetshantering och övervakning-översikt
+Den här artikeln innehåller en översikt över säkerhetsfunktioner och tjänster som Azure tillhandahåller för att underlätta hantering och övervakning av Azure-molntjänster och virtuella datorer.
 
-Azure tillhandahåller säkerhetsmekanismer för enklare hantering och övervakning av Azure-molntjänster och virtuella datorer (VM). Den här artikeln innehåller en översikt över dessa grundläggande säkerhetsfunktionerna och tjänster. Länkar till artiklar som ger information om var och en så att du kan läsa mer.
+## <a name="shared-responsibility"></a>Delat ansvar
 
 Säkerheten för Microsoft cloud services är ett partnerskap och ett delat ansvar mellan dig och Microsoft. Microsoft ansvarar för Azure-plattformen och den fysiska säkerheten för sina datacenter (med hjälp av säkerhetsskydd som låst märket inmatning dörrar, avgränsningstecken och skydd). Azure ger stark säkerhetsnivåer molnet i lagret för programvara som uppfyller behoven för säkerhet, sekretess och efterlevnad för sina kunder.
 
@@ -64,7 +65,7 @@ Läs mer:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-Factor Authentication är en autentiseringsmetod som kräver att fler än en verifieringsmetod. Den lägger till ett viktigt andra säkerhetslager till användarinloggningar och transaktioner. 
+Azure Multi-Factor Authentication är en autentiseringsmetod som kräver att fler än en verifieringsmetod. Den lägger till ett viktigt andra säkerhetslager till användarinloggningar och transaktioner.
 
 Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål för en enkel inloggningsprocess. Det ger stark autentisering via en rad alternativ för verifiering (telefonsamtal, SMS eller meddelande eller verifieringen mobilappkoden) och tredje parts OATH-token.
 
@@ -80,7 +81,7 @@ Du kan använda Azure ExpressRoute för att utöka ditt lokala nätverk till Mic
 
 * Ett any-to-any (IP VPN)-nätverk.
 * Ett mellan punkter med Ethernet-nätverk.
-* En virtuell korsanslutning via en anslutningsleverantör i en samplaceringsmiljö. 
+* En virtuell korsanslutning via en anslutningsleverantör i en samplaceringsmiljö.
 
 ExpressRoute-anslutningar går inte via offentliga internet. De kan erbjuda mer tillförlitlighet, snabbare hastigheter, kortare svarstider och högre säkerhet än vanliga anslutningar via internet.
 
@@ -99,7 +100,7 @@ Läs mer:
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Ibland behöver användare att utföra Privilegierade åtgärder i Azure-resurser eller andra SaaS-program. Detta innebär ofta organisationer ge dem permanent privilegierad åtkomst i Azure Active Directory (AD Azure). 
+Ibland behöver användare att utföra Privilegierade åtgärder i Azure-resurser eller andra SaaS-program. Detta innebär ofta organisationer ge dem permanent privilegierad åtkomst i Azure Active Directory (AD Azure).
 
 Detta är en växande säkerhetsrisk för molnbaserade resurser eftersom organisationer inte kan tillräckligt övervaka vad användarna gör med sina privilegierad åtkomst. Om ett användarkonto med privilegierad åtkomst äventyras, kan dessutom att ett intrång påverkar organisationens övergripande molnsäkerhet. Azure AD Privileged Identity Management hjälper dig för att lösa den här risken genom att sänka exponeringstiden för privilegier och öka insyn i användning.  
 
@@ -150,4 +151,3 @@ Intelligent Security Graph ger skydd i realtid mot hot i Microsoftprodukter och 
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

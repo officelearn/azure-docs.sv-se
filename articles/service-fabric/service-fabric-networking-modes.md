@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718163"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926135"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverkslägen för behållare för Service Fabric
 
@@ -30,7 +30,7 @@ Om du har ett container service med en statisk slutpunkt i din tjänstmanifestet
 När en behållartjänst startar om eller flyttas till en annan nod i klustret, ändras IP-adressen. Därför rekommenderar vi inte använder dynamiskt tilldelade IP-adressen för att upptäcka behållartjänster. Endast den namngivning i Service Fabric- eller DNS-tjänsten ska användas för identifiering av tjänst. 
 
 >[!WARNING]
->Azure kan totalt 65,356 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet container service-instanser (som använder öppet läge) får inte överskrida 65,356 IP-adresser inom ett virtuellt nätverk. Högdensitet scenarier rekommenderar vi nat nätverk läge. Dessutom kan andra beroenden, till exempel belastningsutjämnaren har andra [begränsningar](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) att tänka på. För närvarande upp till 50 IP-adresser per nod har testats och verifierats stabil. 
+>Azure kan totalt 65,356 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet container service-instanser (som använder öppet läge) får inte överskrida 65,356 IP-adresser inom ett virtuellt nätverk. Högdensitet scenarier rekommenderar vi nat nätverk läge. Dessutom kan andra beroenden, till exempel belastningsutjämnaren har andra [begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits) att tänka på. För närvarande upp till 50 IP-adresser per nod har testats och verifierats stabil. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Konfigurera öppna nätverk läge

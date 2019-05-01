@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853328"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919719"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurera en anpassad Linux-behållare för Azure App Service
 
@@ -109,7 +109,6 @@ SSH möjliggör säker kommunikation mellan en container och en klient. För en 
 - [Använd beständig lagring i Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Begränsningar i förhandsversionen](#preview-limitations)
 - [Alternativ för docker Compose](#docker-compose-options)
-- [Konfigurationsalternativ för Kubernetes](#kubernetes-configuration-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Använd beständig lagring i Docker Compose
 
@@ -132,19 +131,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
-```
-
-### <a name="use-custom-storage-in-docker-compose"></a>Använd anpassad lagring i Docker Compose
-
-Azure Storage (Azure Files eller Azure Blob) kan monteras med flera behållare appar med hjälp av anpassade-id. Om du vill visa namnet custom-id, kör [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
-
-I din *docker-compose.yml* filen, mappa den `volumes` alternativet att `custom-id`. Exempel:
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>Begränsningar för förhandsversion
@@ -179,22 +165,6 @@ I listan nedan visas som stöds respektive Docker Compose konfigurationsalternat
 
 > [!NOTE]
 > Andra alternativ som inte uttryckligen påpekas ignoreras i offentlig förhandsversion.
-
-### <a name="kubernetes-configuration-options"></a>Konfigurationsalternativ för Kubernetes
-
-Följande konfigurationsalternativ har stöd för Kubernetes:
-
-- args
-- command
-- containrar
-- image
-- namn
-- ports
-- spec
-
-> [!NOTE]
-> Andra alternativ som inte uttryckligen påpekas stöds inte i offentlig förhandsversion.
->
 
 ## <a name="next-steps"></a>Nästa steg
 

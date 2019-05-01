@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216159"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867041"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analysera användningsstatistik med Azure CDN avancerade HTTP-rapporter
 ## <a name="overview"></a>Översikt
@@ -42,9 +42,9 @@ Det här dokumentet beskriver avancerade http-rapportering i Microsoft Azure CDN
 ## <a name="geography-reports-map-based"></a>Geografi rapporter (Kartbaserade)
 Det finns fem rapporter som utnyttjar en karta som visar de regioner där ditt innehåll har begärts. Dessa rapporter är världskarta, kartan i USA, Kanada kartan, Europa kartan och Asien/Stillahavsområdet kartan.
 
-Varje kartbaserade rapport rangordnar geografiska enheter (d.v.s. länder/regioner, tillstånd och provinser) enligt procentandelen träffar som har sitt ursprung från den regionen. Dessutom ges en karta för att visualisera de platser där ditt innehåll har begärts. Det kan göra det genom att färgkodning varje region enligt mängden begäran erfarna i den regionen. Lättare skuggade regioner anger lägre efterfrågan på ditt innehåll, medan mörkare regioner indikerar högre nivåer av efterfrågan på ditt innehåll.
+Varje kartbaserade rapport rangordnar geografiska enheter (d.v.s. länder/regioner, en karta tillhandahålls för att visualisera de platser där ditt innehåll har begärts. Det kan göra det genom att färgkodning varje region enligt mängden begäran erfarna i den regionen. Lättare skuggade regioner anger lägre efterfrågan på ditt innehåll, medan mörkare regioner indikerar högre nivåer av efterfrågan på ditt innehåll.
 
-Detaljerad information om trafik och bandbreddsanvändning för varje region tillhandahålls direkt nedanför kartan. Detta kan du visa det totala antalet träffar, procent av träffar, den totala mängden data överförs (i GB) och procent data överförs för varje region. Visa en beskrivning för var och en av de här måtten. Slutligen, när du hovrar över en region (t.ex, land, delstat eller provins) namnet och procentandelen träffar som inträffat i regionen kommer att visas som en knappbeskrivning.
+Detaljerad information om trafik och bandbreddsanvändning för varje region tillhandahålls direkt nedanför kartan. Detta kan du visa det totala antalet träffar, procent av träffar, den totala mängden data överförs (i GB) och procent data överförs för varje region. Visa en beskrivning för var och en av de här måtten. Slutligen, när du hovrar över en region (t.ex, land/region, stat eller provins), och namnet och procentandelen träffar som inträffat i regionen visas som en knappbeskrivning.
 
 En kort beskrivning finns nedan för varje typ av kartbaserade geografi rapporten.
 
@@ -57,15 +57,15 @@ En kort beskrivning finns nedan för varje typ av kartbaserade geografi rapporte
 | Sydöstra Stillahavsområdet karta |Den här rapporten kan du visa behovet av dina CDN-innehåll i Asien. Varje land/region har en annan färg på den här kartan för att visa procentandelen träffar som kommer från den regionen. |
 
 ## <a name="geography-reports-bar-charts"></a>Geografi rapporter (cirkeldiagram)
-Det finns två ytterligare rapporter som ger statistisk information enligt geografisk plats, som är upp städer och Top länder. De här rapporterna rangordnas städer och länder/regioner, beroende på antal träffar som kommer från dessa regioner. Vid generera den här typen av rapporten, visar ett liggande diagram de översta 10 populäraste städerna sett eller länder som har begärt innehåll över en viss plattform. Den här stapeldiagrammet kan du snabbt utvärdera de regioner som genererar det högsta antalet begäranden för ditt innehåll.
+Det finns två ytterligare rapporter som ger statistisk information enligt geografisk plats, som är upp städer och Top länder. De här rapporterna rangordnas städer och länder/regioner, beroende på antal träffar som kommer från dessa länder/regioner. Vid generera den här typen av rapporten, visar ett liggande diagram de översta 10 populäraste städerna sett eller länder/regioner som har begärt innehåll över en viss plattform. Den här stapeldiagrammet kan du snabbt utvärdera de regioner som genererar det högsta antalet begäranden för ditt innehåll.
 
 Till vänster i diagrammet (y-axeln) anger hur många träffar inträffade för den angivna regionen. Direkt under diagrammet (x-axeln) hittar du en etikett för var och en av de översta 10 regionerna.
 
 ### <a name="using-the-bar-charts"></a>Med hjälp av liggande diagram
 * Om du hovrar över en stapel visas namnet och det totala antalet träffar som inträffat i regionen som en knappbeskrivning.
-* Knappbeskrivning för Top städer rapporten identifierar en stad efter dess namn, region och landsförkortning.
-* Om den stad eller region (t.ex, stat/provins) som en begäran kommer från inte kunde fastställas, att det indikera att de är okänd. Om landet är okänd och två frågetecken (d.v.s.??), visas.
-* En rapport kan innehålla mått för ”Europa” eller ”Asien/Stillahavsområdet Region”. Dessa objekt är inte avsedda att ge statistisk information om alla IP-adresser i dessa regioner. I stället avser de endast begäranden som kommer från IP-adresser som är spridda över Europa eller Asien/Stillahavsområdet i stället för till en viss ort eller land.
+* Knappbeskrivning för Top städer rapporten identifierar en stad efter dess namn, region och land/region förkortning.
+* Om den stad eller region (t.ex, stat/provins) som en begäran kommer från inte kunde fastställas, att det indikera att de är okänd. Om land/region är okänd, två frågetecken (d.v.s.??), visas.
+* En rapport kan innehålla mått för ”Europa” eller ”Asien/Stillahavsområdet Region”. Dessa objekt är inte avsedda att ge statistisk information om alla IP-adresser i dessa regioner. I stället avser de endast begäranden som kommer från IP-adresser som är spridda över Europa eller Asien/Stillahavsområdet i stället för till en viss ort eller land/region.
 
 De data som användes för att generera stapeldiagrammet kan visas under den. Där finns det totala antalet träffar, procent av träffar, mängden data som överförs (i GB) och procent data överförs för top 250-regioner. Visa en beskrivning för var och en av de här måtten.
 
@@ -74,7 +74,7 @@ En kort beskrivning tillhandahålls för båda typer av rapporter som nedan.
 | Rapportnamn | Beskrivning |
 | --- | --- |
 | Översta städer |Den här rapporten rangordnar städer beroende på antal träffar som kommer från den regionen. |
-| Främsta länder/regioner |Den här rapporten rangordnar länder beroende på antal träffar som kommer från den regionen. |
+| Främsta länder/regioner |Den här rapporten rangordnar länder/regioner enligt antal träffar som kommer från den land/regionen. |
 
 ## <a name="daily-summary"></a>Daglig sammanfattning
 Daglig sammanfattning i rapporten kan du visa det totala antalet träffar och data som överförs via en viss plattform per dag. Den här informationen kan användas för att snabbt avläsa CDN aktivitet mönster. Exempelvis kan den här rapporten kan hjälpa dig att identifiera vilka dagar erfarna högre eller lägre än förväntad trafik.

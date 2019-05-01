@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: f4e14435c2ccab98619bec57fef0e121e2df4403
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 677d0458acb9fa29f91a7fb849da56cb3cd67678
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431622"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707075"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights Preview-användningsfall
 
@@ -93,7 +93,9 @@ Time Series Insights klyftan mellan IoT-data och avancerad analys på två enkel
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om den [förhandsversionen av Time Series Insights explorer](./time-series-insights-update-explorer.md).
+
 - Om du vill planera din miljö, läsa [Time Series Insights Preview planera](./time-series-insights-update-plan.md).
+
 - Läs den [Time Series Insights klienten](https://github.com/Microsoft/tsiclient) dokumentation.
 
 <!-- Images -->

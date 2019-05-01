@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7afa815f81e2a61db8ac83623baafb97cb986b2c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888789"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925370"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>Hitta begäransenhet (RU) kostnad i Azure Cosmos DB
 
@@ -186,7 +186,7 @@ double requestCharge = (double)stats["RequestCharge"];
 
 ### <a name="use-the-mongodb-java-driver"></a>Använd Mondodb Java-drivrutinen
 
-När du använder den [officiella Mondodb Java-drivrutinen](http://mongodb.github.io/mongo-java-driver/) (se [den här snabbstarten](create-mongodb-java.md) rörande användningen), kommandon kan köras genom att anropa den `runCommand` metod på en `MongoDatabase` objekt.
+När du använder den [officiella Mondodb Java-drivrutinen](https://mongodb.github.io/mongo-java-driver/) (se [den här snabbstarten](create-mongodb-java.md) rörande användningen), kommandon kan köras genom att anropa den `runCommand` metod på en `MongoDatabase` objekt.
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));

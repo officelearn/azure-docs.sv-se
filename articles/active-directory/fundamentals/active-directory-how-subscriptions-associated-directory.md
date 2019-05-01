@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248716"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918400"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppla eller lägga till en Azure-prenumeration till din Azure Active Directory-klient
 
@@ -31,7 +31,7 @@ Alla användare har en enda *home* katalogen för autentisering. Användarna kan
 > [!Important]
 > När du associerar en prenumeration på en annan katalog, användare som har tilldelats med hjälp av roller [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) förlorar sin åtkomst. Klassiska prenumerationens administratörer (tjänstadministratören och Medadministratörer) kommer också att förlora åtkomst.
 > 
-> Flytta ditt kluster i Azure Kubernetes Service (AKS) till en annan prenumeration eller flytta ägande av kluster-prenumeration till en ny klient gör dessutom att klustret förlorar funktionalitet på grund av förlorad rolltilldelningar och tjänstens huvudnamn rättigheter. Läs mer om AKS [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
+> Flytta ditt kluster i Azure Kubernetes Service (AKS) till en annan prenumeration eller flytta ägande av kluster-prenumeration till en ny klient gör dessutom att klustret förlorar funktionalitet på grund av förlorad rolltilldelningar och tjänstens huvudnamn rättigheter. Läs mer om AKS [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

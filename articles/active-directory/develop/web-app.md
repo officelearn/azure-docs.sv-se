@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/08/2019
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296833"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918534"
 ---
 # <a name="web-apps"></a>Webbappar
 
@@ -46,7 +45,7 @@ Se kodexempel för webbläsarens web Programscenarier. Och kontrollera tillbaka 
 
 ## <a name="app-registration"></a>Appregistrering
 
-Om du vill registrera ett webbprogram, se [registrera en app med Azure AD v1.0 slutpunkten](quickstart-v1-add-azure-ad-app.md).
+Om du vill registrera ett webbprogram, se [registrera en app](quickstart-register-app.md).
 
 * Enskild klient - om du skapar ett program för din organisation kan den registreras i företagets katalog med hjälp av Azure portal.
 * Flera innehavare - om du skapar ett program som kan användas av användare utanför organisationen, det måste vara registrerad i företagets katalog, men även måste registreras i varje organisations katalog som kommer att använda programmet. Du kan inkludera en registreringsprocess för dina kunder som gör det möjligt för dem att godkänna ditt program för att göra programmet tillgängligt i sin katalog. När de registrerar sig för ditt program, kommer de att visas en dialogruta som visar de behörigheter som programmet kräver och sedan alternativet för att godkänna. Beroende på behörigheterna som krävs kanske en administratör i den andra organisationen måste ge ditt medgivande. När användaren eller administratören godkänner, registreras programmet i sin katalog.
@@ -59,5 +58,3 @@ Användarens session upphör att gälla när livslängd för token som utfärdas
 
 * Läs mer om andra [programtyper och scenarier](app-types.md)
 * Lär dig mer om Azure AD [grunder](authentication-scenarios.md)
-
-<!-- Update_Description: wording update -->

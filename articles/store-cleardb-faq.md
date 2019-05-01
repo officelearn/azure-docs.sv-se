@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1838dbb627a6dec46f817101fc1d0cca0961ef77
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929458"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574201"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Vanliga frågor och svar om ClearDB MySql-databaser med Azure App Service
 HÄR får du svar på vanliga frågor om hur du använder och köpa ClearDB MySQL databaser för Azure Web Apps.
@@ -49,7 +49,7 @@ Standard-databasalternativet är Titan, vilket är $3.50. Vi Visa inte kostnaden
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Jag använder MySQL på mitt eget Azure-dator. Kan jag ansluta min Azure-webbapp till min databas?
 Ja. Du kan ansluta ditt webbprogram till din databas så länge som den virtuella Azure-datorn har gett fjärråtkomst till din webbapp. Mer information finns i [installera MySQL på en virtuell dator](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>Där är länder ClearDB MySQL för Premium-kluster stöds?
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>Där är länder/regioner ClearDB MySQL för Premium-kluster stöds?
 ClearDB MySQL för Premium-kluster är tillgängliga i alla Azure-regioner över hela världen med undantag för Indien, Australien, Brasilien, södra och Kina.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>Kan jag skapa ett nytt kluster innan du skapar en databas med ClearDB lösning för premium?

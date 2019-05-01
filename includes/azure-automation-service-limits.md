@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012509"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733801"
 ---
 #### <a name="process-automation"></a>Processautomatisering
 
@@ -31,6 +31,7 @@ ms.locfileid: "60012509"
 | Maximalt antal nätverk sockets tillåts per sandbox<sup>1</sup> |1,000 |Gäller för Azure sandboxar.|
 | Maximala körtid som tillåts per runbook<sup>1</sup> |3 timmar |Gäller för Azure sandboxar.|
 | Maximalt antal Automation-konton i en prenumeration |Obegränsad ||
+| Maxantalet Hybrid Worker-grupper per Automation-konto|4,000||
 |Maximalt antal samtidiga jobb som kan köras på en enda Hybrid Runbook Worker|50 ||
 | Parameterstorleken för maximala runbook-jobb   | 512 kilobit||
 | Maximal runbook-parametrar   | 50|Om du når gränsen på 50-parametern kan du skicka en JSON- eller XML-sträng till en parameter och parsa den till runbook.|

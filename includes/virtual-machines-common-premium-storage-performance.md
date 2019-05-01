@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737309"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64736978"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: design för hög prestanda
 
@@ -299,7 +299,7 @@ Exempelvis kan du kan använda dessa riktlinjer för SQL Server på Premium Stor
 1. Konfigurera ”None” cache på premium-lagringsdiskar som är värd för loggfilerna.  
    a.  Loggfilerna har främst skrivintensiv åtgärder. De därför inte dra nytta av ReadOnly-cachen.
 
-### <a name="optimize-performance-on-linux-vms"></a>Optimera prestanda på virtuella Linux-datorer
+## <a name="optimize-performance-on-linux-vms"></a>Optimera prestanda på virtuella Linux-datorer
 
 För alla premium SSD eller ultra diskar med cache inställd **ReadOnly** eller **ingen**, måste du inaktivera ”hinder” när du monterar filsystemet. Du behöver inte hinder i det här scenariot eftersom skrivningar till premium storage-diskar finns under cacheinställningarna. När skrivbegäran slutförs har data skrivits till det beständiga arkivet. Använd någon av följande metoder om du vill inaktivera ”hinder”. Välja för ditt filsystem:
   
@@ -328,7 +328,7 @@ Vissa av versionerna som kräver den senaste Linux Integration Services (LIS), v
 | Oracle | 7.0-7.1 | &nbsp; | UEK4 eller RHCK med[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 | Oracle | 6.4-6.7 | &nbsp; | UEK4 eller RHCK med[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
-## <a name="lis-drivers-for-openlogic-centos"></a>LIS drivrutiner för OpenLogic CentOS
+### <a name="lis-drivers-for-openlogic-centos"></a>LIS drivrutiner för OpenLogic CentOS
 
 Om du kör OpenLogic CentOS virtuella datorer, kör du följande kommando för att installera de senaste drivrutinerna:
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122667"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939522"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Flera datamodeller funktionerna i Azure SQL Database
 
@@ -90,7 +90,7 @@ Dokumentet modeller kan användas i stället för relationella modeller i vissa 
 
 ## <a name="spatial-features"></a>Spatial funktioner
 
-Spatialdata representerar information om fysisk plats och formen på geometriska objekt. De här objekten kan vara platser eller mer komplexa objekt, till exempel land, vägar eller sjöar.
+Spatialdata representerar information om fysisk plats och formen på geometriska objekt. De här objekten kan vara platser eller mer komplexa objekt som länder/regioner, vägar eller sjöar.
 
 Azure SQL Database stöder två rumsliga datatyper - datatypen geometri och geografidata.
 - Typen geometri representerar data i ett Euclidean (fast) koordinatsystem.

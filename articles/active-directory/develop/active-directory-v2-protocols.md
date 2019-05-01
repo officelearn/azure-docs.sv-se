@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300182"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917331"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft identity-plattformen protokoll
 
@@ -51,7 +51,7 @@ Varje app som vill acceptera både personliga- och arbets-eller skolkonto måste
 * En **omdirigerings-URI** eller **Paketidentifierare** som kan användas för att dirigera svar tillbaka till din app
 * Några andra scenariespecifika-värden.
 
-Om du vill ha mer information lär du dig hur du [registrerar en app](quickstart-v2-register-an-app.md).
+Om du vill ha mer information lär du dig hur du [registrerar en app](quickstart-register-app.md).
 
 ## <a name="endpoints"></a>Slutpunkter
 

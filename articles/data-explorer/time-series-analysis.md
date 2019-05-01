@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827450"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873154"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analys av tidsserier i Datautforskaren i Azure
 
@@ -260,3 +260,8 @@ demo_many_series1
 På mindre än två minuter ADX analyseras nära 20 000 tidsserier och upptäcks två onormalt tidsserier där det lästa antalet plötsligt tas bort.
 
 Dessa avancerade funktioner som kombineras med ADX snabba prestanda utgör en unik och kraftfull lösning för analys av tidsserier.
+
+## <a name="next-steps"></a>Nästa steg
+
+* Lär dig mer om [Time series avvikelseidentifiering och prognostisering](/azure/data-explorer/anomaly-detection) i Datautforskaren i Azure.
+* Lär dig mer om [Machine learning-funktioner](/azure/data-explorer/machine-learning-clustering) i Datautforskaren i Azure.

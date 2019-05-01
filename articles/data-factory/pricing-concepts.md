@@ -3,19 +3,18 @@ title: Förstå Azure Data Factory priser med exemplen | Microsoft Docs
 description: Den här artikeln förklarar och visar Azure Data Factory prissättningsmodellen med detaljerade exempel
 documentationcenter: ''
 author: shlo
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787483"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935720"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory priser med exemplen
 
@@ -122,6 +121,45 @@ För att åstadkomma scenariot måste du skapa en pipeline med följande objekt:
   - Dataförflyttningsaktiviteter = $0.166 (linjärt i 10 minuter körningstid. $0.25/timme på Azure Integration Runtime)
   - Pipeline-aktiviteten = $0.00003 (linjärt för 1 minut körningstid. $ 0,002/timme på Azure Integration Runtime)
   - Externa Pipelineaktivitet = $0.000041 (linjärt i 10 minuter körningstid. $0.00025/timme på Azure Integration Runtime)
+
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Om du använder mappning data flödet för en normal arbetsdag
+
+Du är ansvarig för att utforma, bygga och testa mappning Data flödar varje dag som en Data-tekniker. Du kan logga in på den ADF UI på morgonen och aktivera felsökningsläget för Data flödar. Standard-TTL för Debug sessioner är 60 minuter. Du arbeta under dagen i 10 timmar, så din felsökningssessionen upphör aldrig att gälla. Därför blir din kostnad för dagen:
+
+**10 (timmar) x 8 (kärnor) x $0.112 = $8.96**
+
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformera data i blob store med att mappa dataflöden
+
+I det här scenariot som du vill omvandla data i Blob Store visuellt i ADF mappning Data flödar på ett timschema.
+
+För att åstadkomma scenariot måste du skapa en pipeline med följande objekt:
+
+1. Aktiviteten dataflöde med omvandling logiken.
+
+2. Indatauppsättning för data i Azure Storage.
+
+3. Utdatauppsättning för data i Azure Storage.
+
+4. En schemautlösare för att köra pipelinen varje timme.
+
+| **Åtgärder** | **Typer och enheter** |
+| --- | --- |
+| Skapa länkad tjänst | 2 Läs/Skriv-entitet  |
+| Skapa datauppsättningar | 4 Läs/Skriv-entiteter (2 för att skapa en datauppsättning, 2 för den länkade tjänsten refererar till) |
+| Skapa pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
+| Get Pipeline | 1 Läs/Skriv-entitet |
+| Kör Pipeline | 2 aktivitetskörningar (1 för utlösare som körs, 1 för aktivitetskörningar) |
+| Körningstid för data Flow antaganden: = 10 min + 10: e minut TTL | 10 \* 8 kärnor för allmän beräkning med TTL-värde på 10 |
+| Övervaka Pipeline antagandet: Endast 1 kör uppstod | 2 övervakning kör poster igen (1 för pipelinekörning, 1 för aktivitetskörning) |
+
+**Totalt antal scenariot priser: $0.3011**
+
+- Data Factory Operations = **$0,0001**
+  - Läs/Skriv = 10\*00001 = $0,0001 [1 R/W = $ 0,50 USD/50000 = 0,00001]
+  - Övervaka = 2\*000005 = $0,00001 [1 övervakning = $0.25/50000 = 0.000005]
+- Pipeline-dirigering &amp; körning = **$0.301**
+  - Aktivitetskörningar = 001\*2 = 0,002 [1 kör = $1/1 000 = 0,001]
+  - Data flödar aktiviteter = $0.299 linjärt för 20 minuter (10 minuter körningstid + 10 minuter TTL). $0.112/ timme på Azure Integration Runtime med 8 kärnor general compute
 
 ## <a name="next-steps"></a>Nästa steg
 

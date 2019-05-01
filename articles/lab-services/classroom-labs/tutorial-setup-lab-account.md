@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2019
+ms.date: 04/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 962b69a97b8116b82878a0a82960c9159091a9a7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 704ad915616e4f860204783462269ec68a6e4e28
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652628"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730640"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudier: Konfigurera ett labbkonto med Azure Lab Services
 I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien, får du lära dig hur du skapar ett labbkonto som en labbadministratör. 
@@ -48,9 +48,10 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
     2. Välj den **Azure-prenumeration** där du vill skapa labbkontot.
     3. Som **Resursgrupp** väljer du **Skapa ny** och anger ett namn på resursgruppen.
     4. Som **Plats** väljer du den plats/region där du vill att labbkontot ska skapas. 
-    5. För **Peerkopplade virtuella nätverket**, välja ett peer virtuellt nätverk (VNet) i testlabbets nätverk. Labs som skapats i det här kontot är anslutna till det valda virtuella nätverket och har åtkomst till resurser i det valda virtuella nätverket. 
-    6. I fältet **Tillåt labbets skapare att välja plats för labbet** anger du om du vill att labbskaparna ska kunna välja en plats för labbet. Det här alternativet är inaktiverat som standard. När det är inaktiverat kan inte labbskaparna ange någon plats för labbet som de skapar. Labbarna skapas på den geografiska plats som är närmast labbkontot. När det är aktiverat kan en labbskapare välja en plats vid den tid då labbet skapas. 
-    7. Välj **Skapa**. 
+    5. Välj en befintlig **delade bildgalleriet** eller skapa ett. Du kan spara mallen VM i delade galleriet för att det ska återanvändas av andra. Detaljerad information om delade bildgallerier finns [använder en delad bildgalleriet i Azure Lab Services](how-to-use-shared-image-gallery.md). 
+    6. För **Peerkopplade virtuella nätverket**, välja ett peer virtuellt nätverk (VNet) i testlabbets nätverk. Labs som skapats i det här kontot är anslutna till det valda virtuella nätverket och har åtkomst till resurser i det valda virtuella nätverket. 
+    7. I fältet **Tillåt labbets skapare att välja plats för labbet** anger du om du vill att labbskaparna ska kunna välja en plats för labbet. Det här alternativet är inaktiverat som standard. När det är inaktiverat kan inte labbskaparna ange någon plats för labbet som de skapar. Labbarna skapas på den geografiska plats som är närmast labbkontot. När det är aktiverat kan en labbskapare välja en plats vid den tid då labbet skapas. 
+    8. Välj **Skapa**. 
 
         ![Fönstret Skapa ett labbkonto](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Välj **klockikonen** i verktygsfältet (**meddelanden**), bekräfta att distributionen är klar och välj sedan **Gå till resurs**. 

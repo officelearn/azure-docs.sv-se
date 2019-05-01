@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766822"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939677"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -39,13 +39,13 @@ När en automatisk synkronisering utförs bara när du skala ut en server för f
 
 När du utför en efterföljande skalbara, till exempel är öka antalet repliker i frågepool från två till fem nya repliker hydrerat med data från den andra uppsättningen av filer i blob storage. Det finns ingen synkronisering. Om du utför hydrerat två gånger – en synkronisering efter skala ut, de nya replikerna i frågepoolen blir en redundant hydrering. När du utför en efterföljande skalbara, är det viktigt att tänka på:
 
-* Synkronisera *före åtgärden skalbar* att undvika redundant hydrering har lagts till repliker.
+* Synkronisera *före åtgärden skalbar* att undvika redundant hydrering har lagts till repliker. Samtidig synkronisering och skalbar åtgärder som körs på samma gång är inte tillåtna.
 
 * Vid automatisering av båda bearbetning *och* skalbar åtgärder, är det viktigt att först bearbeta data på den primära servern och sedan utför en synkronisering och sedan utföra åtgärden för skala ut. Den här sekvensen säkerställer minimal inverkan på QPU-och minnesresurser.
 
 * Synkronisering tillåts även om det finns inga repliker i frågepoolen. Om du skala ut från noll till en eller flera repliker med nya data från en bearbetning åtgärd på den primära servern, synkronisera först med inga repliker i frågepoolen och sedan skala ut. Synkronisera innan du skalar ut undviker redundanta hydrering nytillagda repliker.
 
-* När du tar bort en modelldatabas från den primära servern, den inte automatiskt tas bort från repliker i frågepoolen. Du måste utföra en synkroniseringsåtgärd med hjälp av den [synkronisering AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell-kommando som tar bort filen/s för den här databasen från repliken delade blob-lagringsplats och tar sedan bort modellen databasen på repliker i frågepoolen.
+* När du tar bort en modelldatabas från den primära servern, den inte automatiskt tas bort från repliker i frågepoolen. Du måste utföra en synkroniseringsåtgärd med hjälp av den [synkronisering AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell-kommando som tar bort filen/s för den här databasen från repliken delade blob-lagringsplats och tar sedan bort modellen databasen på repliker i frågepoolen. För att avgöra om en modelldatabas finns på repliker i frågepoolen men inte på den primära servern, se till att den **separera bearbetningsservern från att skicka frågor pool** ställs in på **Ja**. Använder SSMS för att ansluta till den primära servern med hjälp av den `:rw` kvalificerare om databasen finns. Anslut till repliker i frågepoolen genom att ansluta utan den `:rw` kvalificerare om samma databas finns också. Om databasen finns på repliker i frågepoolen men inte på den primära servern, kör du en synkroniseringsåtgärden.   
 
 * När du ändrar en databas på den primära servern, finns det ytterligare ett steg krävs för att se till att databasen är korrekt synkroniserad till alla repliker. När du byter namn på, utför du en synkronisering med hjälp av den [synkronisering AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) kommando för att ange den `-Database` parametern med det gamla databasnamnet. Synkroniseringen tar bort databasen och filer med det gamla namnet från alla repliker. Utför sedan en annan synkronisering ange den `-Database` parametern med det nya databasnamnet. Den andra synkroniseringen kopierar den nya databasen till den andra uppsättningen av filer och hydrates alla repliker. Dessa synkroniseringar kan inte utföras med hjälp av kommandot Synkronisera modellen i portalen.
 
@@ -58,6 +58,8 @@ Du kan välja att dela din bearbetningsservern från frågepoolen för maximal p
 Övervaka din server i Azure portal för att avgöra om skalbarhet för din server är nödvändiga, med hjälp av mått. Om din QPU maximerar regelbundet, innebär det att antalet frågor mot dina modeller överskriden QPU-gränsen för din plan. Fråga pool jobbet kö längd mått ökar även när antalet frågor i frågekön tråd pool överskrider tillgängliga QPU. 
 
 En annan bra mått för att titta på är genomsnittliga QPU av ServerResourceType. Det här måttet jämför genomsnittlig QPU för den primära servern med frågepoolen. 
+
+![Fråga skala ut mått](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### <a name="to-configure-qpu-by-serverresourcetype"></a>Konfigurera QPU av ServerResourceType
 1. I ett linjediagram för mått, klickar du på **Lägg till mått**. 
@@ -146,6 +148,8 @@ SSMS SSDT och anslutningssträngar i PowerShell, Azure-funktionsappar och AMO, a
 **Problem:** Användare får fel **servern hittades inte ”\<namnet på servern >' instansen i anslutningsläge” skrivskyddad ”.**
 
 **Lösning:** När du väljer den **separera bearbetningsservern från frågepoolen** alternativet klientanslutningar med hjälp av standard-anslutningssträngen (utan `:rw`) omdirigeras till frågerepliker för poolen. Om repliker i frågepoolen inte är ännu online eftersom synkronisering inte har ännu har slutförts, kan omdirigerad klientanslutningar misslyckas. Om du vill förhindra att misslyckade anslutningar, måste det finnas minst två servrar i frågepoolen när du utför en synkronisering. Varje server synkroniseras individuellt medan andra är online. Om du väljer att inte installera bearbetningsservern i frågepoolen under bearbetning, kan du välja att ta bort den från poolen för bearbetning och sedan lägga tillbaka det i poolen när bearbetningen är klar, men innan du synkroniserar. Använda minne och QPU mått för att övervaka synkroniseringsstatus för.
+
+
 
 ## <a name="related-information"></a>Relaterad information
 

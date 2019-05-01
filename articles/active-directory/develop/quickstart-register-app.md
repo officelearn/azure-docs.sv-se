@@ -1,5 +1,5 @@
 ---
-title: Registrera en app med Microsoft Identity Platform (förhandsversion) | Azure
+title: Registrera en app med Microsoft identity-plattformen – Microsoft identity-plattformen
 description: Lär dig hur du lägger till och registrerar ett program med Microsoft Identity Platform.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e78a837588ef177182f0c13db49e480845f772
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299607"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918754"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Snabbstart: Registrera ett program på Microsoft Identity Platform (förhandsversion)
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabbstart: Registrera ett program med Microsoft identity-plattformen
 
 Företagsutvecklare och SaaS-leverantörer (software-as-a-service) kan utveckla kommersiella molntjänster och affärsprogram som kan integreras med Microsoft Identity Platform och då ger säker inloggning och behörighet till tjänsterna.
 
-Den här snabbstarten visar hur du lägger till och registrerar ett program med **Appregistreringar (förhandsversion)** på Azure-portalen så att din app kan integreras med Microsoft Identity Platform. Mer information om nya funktioner och förbättringar i den nya upplevelsen för appregistreringar finns [det här blogginlägget](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
+Den här snabbstarten visar hur du lägger till och registrera ett program med hjälp av den **appregistreringar** upplevelse i Azure portal så att din app kan integreras med Microsoft identity-plattformen. Mer information om nya funktioner och förbättringar i den nya upplevelsen för appregistreringar finns [det här blogginlägget](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## <a name="prerequisite"></a>Krav
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: magattus
-ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ae316749d3e88bc8bfd99d0f4856d5386916a27f
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627589"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869627"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN-täckning av appar i Metro 
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Den här artikeln visar en lista över aktuella Metros som innehåller point of 
 | Europa | Wien, Österrike<br />Bryssel, Belgien<br />Prag, Tjeckien<br />Köpenhamn, Danmark<br /> Helsingfors, Finland<br />Marseille, France<br />Paris, Frankrike<br />Berlin, Tyskland<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Budapest, Ungern<br />Dublin, Irland<br />Milano, Italien<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Barcelona, Spanien<br />Madrid, Spain<br />Stockholm, Sverige<br />Zürich, Schweiz<br />London, Storbritannien<br />Manchester, UK | Wien, Österrike<br />Köpenhamn, Danmark<br />Helsingfors, Finland<br />Marseille, France<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spain<br />Stockholm, Sverige<br />London, Storbritannien | Österrike<br />Bulgarien<br />Danmark<br />Finland<br />Frankrike<br />Tyskland<br />Grekland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Ryssland<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
 | Afrika | Kapstaden, Sydafrika<br />Johannesburg, Sydafrika | Johannesburg, Sydafrika | Sydafrika |
 | Mellanöstern | Dubai, Förenade Arabemiraten | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar<br />Förenade Arabemiraten |
-| Indien | Chennai, Indien<br />Mumbai, India<br />New Delhi i Indien | Bengaluru (Bangalore), India<br />Chennai, Indien<br />Mumbai, India<br />New Delhi i Indien<br /> | Indien |
+| Indien | Chennai, Indien<br />Mumbai, India<br />New Delhi i Indien | Bengaluru (Bangalore) (Bangalore), Indien<br />Chennai, Indien<br />Mumbai, India<br />New Delhi i Indien<br /> | Indien |
 | Asien | Hongkong SAR<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Filippinerna<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hongkong SAR<br />Indonesien<br />Israel<br />Japan<br />Macao SAR<br />Malaysia<br />Filippinerna<br />Singapore<br />Sydkorea<br />Taiwan (Taiwan)<br />Thailand<br />Turkiet<br />Vietnam |
 | Australien och Nya Zeeland | Brisbane, Australien<br />Melbourne, Australien<br />Perth, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Melbourne, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Australien<br />Nya Zeeland |
 

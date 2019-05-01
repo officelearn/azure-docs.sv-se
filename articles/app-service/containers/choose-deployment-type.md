@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c8a700bcd2780ef7b0c7ad1fbb513d4b4febffcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849990"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919952"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Anpassad avbildning, flera behållare eller inbyggda plattformsavbildning?
 
 [App Service i Linux](app-service-linux-intro.md) erbjuder tre olika sökvägar för att få ditt program som publicerats på webben:
 
 - **Distribution av anpassade avbildningar**: ”Behållarlagringsplats” din app i en dockeravbildning som innehåller alla dina filer och beroenden i ett paket är klara att köra.
-- **Distribution av flera behållare**: ”Behållarlagringsplats” din app över flera behållare med Docker Compose eller en Kubernetes-konfigurationsfil.
+- **Distribution av flera behållare**: ”Behållarlagringsplats” din app över flera behållare med hjälp av en konfigurationsfil för Docker Compose.
 - **Distribution med en inbyggd plattformsavbildning**: Våra inbyggda plattformsavbildningar innehåller vanliga web app körningar och beroenden, till exempel Node och PHP. Använd någon av de [metoder för distribution av Azure App Service](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) att distribuera appen till din webbapp lagring och sedan använda en inbyggd plattformsavbildning för att köra den.
 
 ## <a name="which-method-is-right-for-your-app"></a>Vilken metod som passar bäst för din app? 
@@ -43,3 +43,20 @@ De främsta faktorerna att överväga är:
 - **Läs/Skriv krav**: Alla webbprogram tilldelas en lagringsvolym för webbinnehåll. Den här volymen som backas upp av Azure Storage, monteras `/home` i appens filsystem. Till skillnad från filer i behållaren filsystemet filerna i innehåll volymen är tillgängliga i alla instanser för skalning av en app och ändringar beständig i alla app startas om. Dock disk svarstiden för innehåll volymen är större och mer variabeln än svarstiden för lokal behållare filsystem och åtkomst kan påverkas av uppgraderingar och oplanerade driftsavbrott problem med nätverksanslutningen. Appar som kräver tunga skrivskyddad åtkomst till innehållet i filerna kan ha nytta av distribution av anpassade avbildningar, som placerar filer i filsystemet avbildningen i stället för på innehåll volymen.
 - **Skapa Resursanvändning**: När en app har distribuerats från källa kör distributionsskripten med Kudu samma App Service-Plan beräknings- och resurser som appen körs. Stora appdistributioner kan förbruka mer resurser eller tid än önskad. I synnerhet genererar många arbetsflöden för distribution tung diskaktivitet på app innehåll volym, vilket inte är optimerad för sådana aktiviteter. En anpassad avbildning får du alla filer och beroenden för din app till Azure i ett enda paket med inget behov av ytterligare filöverföringar eller distributionsåtgärder.
 - **Behovet av snabba iterationer**: Dockerizing en app kräver ytterligare byggsteg. För att ändringarna ska börja gälla måste du skicka dina nya avbildningen till en lagringsplats med varje uppdatering. De här uppdateringarna hämtas sedan till Azure-miljön. Om någon av de inbyggda behållarna uppfyller behoven för dina appar, kan distribuera från källan erbjuda en snabbare arbetsflöde för utveckling.
+
+## <a name="next-steps"></a>Nästa steg
+
+Anpassad behållare:
+* [Köra anpassade behållare](quickstart-docker-go.md)
+
+Multi-container:
+* [Skapa app för flera behållare](quickstart-multi-container.md)
+
+I följande artiklar hjälper dig igång med App Service i Linux med en inbyggd plattformsavbildning:
+
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-php.md)
+* [Node.js](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419211"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714163"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikat och PredicateValidations
 
@@ -39,7 +39,7 @@ Den **predikat** elementet innehåller följande element:
 
 Den **predikat** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
 | Metod | Ja | Metodtyp för validering. Möjliga värden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, eller **IsDateRange**. Den **IsLengthRange** värde kontrollerar om längden på ett strängvärde för anspråk är inom intervallet för lägsta och högsta parametrar har angetts. Den **MatchesRegex** värde kontrollerar om ett sträng-anspråksvärde matchar ett reguljärt uttryck. Den **IncludesCharacters** värde kontrollerar om ett strängvärde för anspråk innehåller en teckenuppsättning. Den **IsDateRange** värde kontrollerar om ett datumvärde anspråk mellan olika lägsta och högsta parametrar har angetts. |
@@ -138,7 +138,7 @@ Den **PredicateValidations** elementet innehåller följande element:
 
 Den **PredicateValidation** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för predikatet verifieringen. Den **ClaimType** element kan använda den här identifieraren i principen. |
 
@@ -156,7 +156,7 @@ Den **PredicateGroups** elementet innehåller följande element:
 
 Den **PredicateGroup** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för gruppen predikat.  |
 
@@ -169,7 +169,7 @@ Den **PredicateGroup** elementet innehåller följande element:
 
 Den **PredicateReferences** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Nej | Anger att värdet matchar minst många predikat definitioner för indata ska godkännas. |
 
@@ -181,7 +181,7 @@ Den **PredicateReferences** elementet innehåller följande element:
 
 Den **PredicateReference** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för predikatet verifieringen.  |
 

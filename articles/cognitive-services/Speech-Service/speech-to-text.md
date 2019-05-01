@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461263"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916819"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal till text?
 
-Tal till text från Azure Speech Services, även kallat tal till text, aktiverar i realtid transkription av ljudströmmar till text som dina program, verktyg eller enheter kan använda, visa och vidta åtgärder för som kommandoindata. Den här tjänsten drivs av samma taligenkänningsteknik som Microsoft använder för Cortana och Office-produkter, och fungerar sömlöst med översättning och text till tal.  En fullständig lista över tillgängliga språk för tal till text, se [språk som stöds](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Tal till text från Azure Speech Services, även kallat tal till text, aktiverar i realtid transkription av ljudströmmar till text som dina program, verktyg eller enheter kan använda, visa och vidta åtgärder för som kommandoindata. Den här tjänsten drivs av samma taligenkänningsteknik som Microsoft använder för Cortana och Office-produkter, och fungerar sömlöst med översättning och text till tal.  En fullständig lista över tillgängliga språk för tal till text, se [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 Som standard använder tjänsten tal till text Universal språkmodellen. Den här modellen har lärt sig med hjälp av data som ägs av Microsoft och har distribuerats i molnet. Det är optimala för konversationsanpassad och diktering scenarier. Om du använder tal till text för taligenkänning och taltranskription i en miljö kan du skapa och skapa anpassade akustiska, språk och uttal av modeller till adress omgivande ljuden eller branschspecifika ordförråd. 
 

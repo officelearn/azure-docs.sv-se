@@ -8,19 +8,16 @@ ms.topic: tutorial
 ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308575"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947152"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Självstudie: Skapa en application gateway som förbättrar åtkomsten till webbprogrammet
 
 Om du är IT-administratör som arbetar med att förbättra webbappmåtkomst kan du kan optimera din programgateway om du vill skala baserat på kundernas efterfrågan och sträcka dig över flera tillgänglighetszoner. Den här självstudien hjälper dig att konfigurera Azure Application Gateway-funktioner som gör det: automatisk skalning, zonredundans och reserverade virtuella IP-adresser (statisk IP-adress). Du använder Azure PowerShell-cmdletar och Azure Resource Manager-distributionsmodellen för att lösa problemet.
-
-> [!IMPORTANT] 
-> SKU:n för zonredundant programgateway för automatisk skalning är för närvarande tillgänglig som en offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 I den här guiden får du lära dig att:
 
@@ -35,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

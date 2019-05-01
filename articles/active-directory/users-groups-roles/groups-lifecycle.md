@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471984"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920157"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera en princip för Office 365-grupper
 
@@ -86,7 +86,7 @@ Gruppen kan återställas inom 30 dagar från dess borttagningen genom att välj
 Om gruppen som du återställa innehåller dokument, SharePoint-webbplatser och andra beständiga objekt, kan det ta upp till 24 timmar att fullständigt återställa gruppen och dess innehåll.
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Hur du hämtar förfallodatum för Office 365-grupp
-Förutom åtkomstpanelen där användare kan visa gruppinformation inklusive upphör att gälla och datum för senaste förnyade, kan utgångsdatumet för en Office 365-grupp hämtas från Microsoft Graph REST API Beta. expirationDateTime som en gruppegenskap har aktiverats i betaversionen av Microsoft Graph. De kan hämtas med en GET-begäran. Mer information finns i [det här exemplet](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+Förutom åtkomstpanelen där användare kan visa gruppinformation inklusive upphör att gälla och datum för senaste förnyade, kan utgångsdatumet för en Office 365-grupp hämtas från Microsoft Graph REST API Beta. expirationDateTime som en gruppegenskap har aktiverats i betaversionen av Microsoft Graph. De kan hämtas med en GET-begäran. Mer information finns i [det här exemplet](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > ”Begränsa åtkomsten till grupper i åtkomstpanelen” måste vara inställt på ”Nej” i Azure Active Directory-grupper allmänna inställningar för att kunna hantera gruppmedlemskap på åtkomstpanelen.
@@ -101,10 +101,10 @@ Bevarandeprincipen konfigureras via Security and Compliance Center. Om du har st
 ## <a name="powershell-examples"></a>PowerShell-exempel
 Här följer exempel på hur du kan använda PowerShell-cmdletar för att konfigurera inställningar för giltighetstid för Office 365-grupper i din klient:
 
-1. Installera PowerShell v2.0-förhandsversionsmodulen (2.0.0.137) och logga in i PowerShell-Kommandotolken:
+1. Installera PowerShell v2.0-modulen och logga in i PowerShell-Kommandotolken:
    ```powershell
-   Install-Module -Name AzureADPreview
-   connect-azuread 
+   Install-Module -Name AzureAD
+   Connect-AzureAD
    ```
 2. Konfigurera inställningar för giltighetstid New-AzureADMSGroupLifecyclePolicy:  Den här cmdlet: en anger livslängden för alla Office 365-grupper i klienten och 365 dagar. Förnyelse av meddelanden för Office 365 grupper utan ägare kommer att skickas till 'emailaddress@contoso.com'
   

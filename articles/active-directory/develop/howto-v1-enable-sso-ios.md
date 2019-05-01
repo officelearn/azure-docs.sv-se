@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299625"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917217"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Anvisningar: Aktivera enkel inloggning mellan appar på iOS med hjälp av ADAL
 
@@ -44,7 +44,7 @@ Den här anvisningen gäller för:
 
 Den här anvisningen förutsätter att du vet hur du:
 
-* Etablera din app med den äldre portalen för Azure AD. Mer information finns i [registrera en app med Azure AD v1.0-slutpunkten](quickstart-v1-add-azure-ad-app.md)
+* Etablera din app med den äldre portalen för Azure AD. Mer information finns i [registrera en app](quickstart-register-app.md)
 * Integrera programmet med den [Azure AD-iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Begrepp för enkel inloggning

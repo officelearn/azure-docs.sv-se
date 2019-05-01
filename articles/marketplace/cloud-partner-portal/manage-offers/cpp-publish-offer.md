@@ -1,25 +1,18 @@
 ---
-title: Publicera Marketplace - erbjudanden i Azure Marketplace | Microsoft Docs
+title: Publicera Marketplace-erbjudanden | Azure Marketplace
 description: Publicera erbjudanden i Azure och AppSource marknadsplatser med partnerportalen i molnet
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/12/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 7f2ad9a30b28d64b1a3c5a7776ac1689bbb29b82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: b0121be4aecffe46c9440e62372e17ac7993163c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729705"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943529"
 ---
 # <a name="publish-azure-marketplace-and-appsource-offers"></a>Publicera erbjudanden i Azure Marketplace och AppSource
 

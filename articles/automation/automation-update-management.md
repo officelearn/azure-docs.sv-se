@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306567"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919689"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -54,7 +54,9 @@ Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är k
 
 Du kan distribuera och installera programuppdateringar på datorer som kräver uppdateringarna genom att skapa en schemalagd distribution. Uppdateringar som klassificeras som *valfritt* ingår inte i distributionsomfattningen för Windows-datorer. Endast nödvändiga uppdateringar som ingår i distributionsomfattningen.
 
-En schemalagd distribution definierar vilka måldatorer som får tillämpliga uppdateringar, antingen genom att uttryckligen ange datorer eller genom att välja en [datorgrupp](../azure-monitor/platform/computer-groups.md) som baseras på loggsökningar för en specifik uppsättning datorer. Du kan även ange ett schema för att godkänna och ange en viss tidsperiod under vilken du kan installera uppdateringar. Den här tidsperioden kallas underhållsfönstret. Tio minuter i underhållsperioden är reserverad för omstarter om en omstart krävs och du har valt alternativet lämplig omstart. Om uppdatering tar längre tid än förväntat och det finns mindre än tio minuterna i underhållsperioden, utförs inte en omstart.
+En schemalagd distribution definierar vilka måldatorer som får tillämpliga uppdateringar, antingen genom att uttryckligen ange datorer eller genom att välja en [datorgrupp](../azure-monitor/platform/computer-groups.md) som baseras på loggsökningar för en specifik uppsättning datorer, eller en [Azure fråga](#azure-machines) som dynamiskt väljer Azure virtuella datorer baserat på angivna kriterier. Dessa grupper skiljer sig från [Omfattningskonfigurationen](../azure-monitor/insights/solution-targeting.md), som endast används för att avgöra vilka datorer få de hanteringspaket som aktiverar du lösningen. 
+
+Du kan även ange ett schema för att godkänna och ange en viss tidsperiod under vilken du kan installera uppdateringar. Den här tidsperioden kallas underhållsfönstret. Tio minuter i underhållsperioden är reserverad för omstarter om en omstart krävs och du har valt alternativet lämplig omstart. Om uppdatering tar längre tid än förväntat och det finns mindre än tio minuterna i underhållsperioden, utförs inte en omstart.
 
 Uppdateringar installeras av runbooks i Azure Automation. Du kan inte visa dessa runbooks och runbooks kräver inte någon konfigurering. När en uppdateringsdistribution skapas, skapar ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för datorerna som ingår i uppdateringsdistributionen. Master-runbook startar en underordnad runbook på varje agent så att installera nödvändiga uppdateringar.
 
@@ -76,6 +78,9 @@ I följande tabell visas en lista över operativsystem som stöds:
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |Ubuntu 14.04 LTS, 16.04 LTS och 18.04 (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
+
+> [!NOTE]
+> Azure VM-skalningsuppsättningar kan hanteras med hantering av uppdateringar. Uppdateringshantering fungerar på instanser sig själva och inte basavbildningen. Du behöver att schemalägga uppdateringar på en inkrementell sätt, inte att uppdatera alla VM-instanser på samma gång.
 
 ### <a name="unsupported-client-types"></a>Klientappar typer
 

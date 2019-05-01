@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a887c79a51c7a239e7057171e51e67a53af2f84b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580249"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939588"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -32,7 +32,7 @@ Datasynkronisering är användbart i fall där data ska hållas uppdaterad över
 
 - **Hybrid datasynkronisering:** Du kan behålla data synkroniseras mellan dina lokala databaser och Azure SQL-databaser för att möjliggöra hybridprogram med Data Sync. Den här funktionen kan överklaga till kunder som överväger att flytta till molnet och vill placera några av sina program i Azure.
 - **Distribuerade program:** I många fall är det bra att separera olika arbetsbelastningar på olika databaser. Till exempel om du har en stor produktionsdatabas, men du måste också köra en arbetsbelastning för rapportering eller analyser på dessa data, är det bra att ha en andra databas för den här ytterligare arbetsbelastning. Denna metod minimerar prestandaförsämring på dina produktionsarbetsbelastningar. Du kan använda Data Sync för att hålla dessa två databaser synkroniseras.
-- **Globalt distribuerade program:** Många företag sträcker sig över flera regioner och även flera länder. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
+- **Globalt distribuerade program:** Många företag sträcker sig över flera regioner och även flera länder/regioner. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
 
 Datasynkronisering är inte det en bättre lösningen för följande scenarier:
 

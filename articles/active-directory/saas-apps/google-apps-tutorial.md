@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277483"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Självstudier: Azure Active Directory-katalogintegrering med G Suite
 
@@ -239,11 +239,11 @@ Utför följande steg för att konfigurera enkel inloggning till Azure AD med G 
 
     a. Välj **Installera enkel inloggning med tredjeparts identitetsprovider**.
 
-    b. I fältet **URL för inloggningssida** i G Suite, klistrar du in det värde för **Inloggnings-URL** som du har kopierat från Azure Portal.
+    b. I den **inloggning sid-URL** fältet i G Suite, klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
 
-    c. I fältet **URL för utloggningssida** i G Suite, klistrar du in det värde för **Utloggnings-URL** som du har kopierat från Azure Portal.
+    c. I den **utloggning sid-URL** fältet i G Suite, klistra in värdet för **URL för utloggning** som du har kopierat från Azure-portalen.
 
-    d. I fältet **URL för att ändra lösenord** i G Suite, klistrar du in det värde för **URL för att ändra lösenord** som du har kopierat från Azure Portal.
+    d. I den **ändra lösenord URL: en** fältet i G Suite, klistra in värdet för **ändra lösenord URL: en** som du har kopierat från Azure-portalen.
 
     e. I G Suite för **verifieringscertifikatet**, laddar du upp det certifikat som du har hämtat från Azure Portal.
 

@@ -1,20 +1,20 @@
 ---
-title: 'Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en nodwebbapp – Azure Key Vault | Microsoft Docs'
+title: 'Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp – Azure Key Vault | Microsoft Docs'
 description: I den här snabbstarten konfigurerar du och hämtar en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 services: key-vault
-author: prashanthyv
+author: mbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 346d97e6e3dad6ebacaae6c789137df4f33e2e72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0d2b3f16086bc3dc653124ecfa9e7116f71bc585
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316395"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925435"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 
@@ -36,7 +36,7 @@ Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * I Windows:
   * [Visual Studio 2017 version 15.7.3 eller senare](https://www.microsoft.com/net/download/windows) med följande arbetsbelastningar:

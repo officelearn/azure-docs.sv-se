@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 95705e7b7a372867e33c86826f44e380407dfee1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce7e8788ec807c8ceccb49a7d435041b34e75348
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336821"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917083"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services-SDK för visuellt innehåll och för Python
 
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>Hämta text från bilden
 
-Du kan hämta handskriven eller tryckt text från en bild. Detta kräver två anrop till SDK: [ `batch_read_file` ](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) och [ `get_read_operation_result` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-). Anropet till `batch_read_file` är asynkron. I resultatet av den `get_read_operation_result` anrop, måste du kontrollera om det första anropet slutfördes med [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] innan du extrahera textdata. Resultatet är texten samt omgivande koordinater för textens avgränsningsfält.
+Du kan hämta handskriven eller tryckt text från en bild. Detta kräver två anrop till SDK: [ `batch_read_file` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) och [ `get_read_operation_result` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-). Anropet till `batch_read_file` är asynkron. I resultatet av den `get_read_operation_result` anrop, måste du kontrollera om det första anropet slutfördes med [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] innan du extrahera textdata. Resultatet är texten samt omgivande koordinater för textens avgränsningsfält.
 
 ```Python
 # import models

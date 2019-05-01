@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 1d6343705e8d27fb2d22827cf792de332861456e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: da56c9664ce533709676ded677add4a2391dce03
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736606"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865869"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Vad är geo-filtrering på en domän för Azure-åtkomsten?
 
-Som standard svarar Azure Front Door Service på användarnas begäranden oavsett var användaren som skickar begäran finns. Men i vissa fall kan du begränsa åtkomsten till dina webbprogram efter land. Webbtjänsten application firewall (WAF) på ytterdörren kan du definiera en princip med hjälp av anpassade åtkomstregler för specifik sökväg på din slutpunkt för att tillåta eller blockera åtkomst från angivna länder. 
+Som standard svarar Azure Front Door Service på användarnas begäranden oavsett var användaren som skickar begäran finns. Men i vissa fall kan du begränsa åtkomsten till dina webbprogram efter land/region. Webbtjänsten application firewall (WAF) på ytterdörren kan du definiera en princip med hjälp av anpassade åtkomstregler för specifik sökväg på din slutpunkt för att tillåta eller blockera åtkomst från angivna länder/regioner. 
 
 En WAF-principen innehåller vanligtvis en uppsättning anpassade regler. En regel består av matchningsvillkor, en åtgärd och en prioritet. I matchningsvillkor definierar du en matchningsvariabel, en operator och ett matchningsvärde.  För en geofiltreringsregel är matchningsvariabeln REMOTE_ADDR, operatorn är GeoMatch och värdet är landskoden på två bokstäver av intresse. Du kan kombinera ett GeoMatch-villkor och ett matchningsvillkor för REQUEST_URI-sträng för att skapa en sökvägsbaserad geofiltreringsregel.
 
@@ -62,7 +62,7 @@ Du kan konfigurera en princip för geo-filtrering för ytterdörren genom att an
 | BY | Vitryssland|
 | BZ | Belize|
 | CA | Kanada|
-| CD | Demokratiska republiken Kongo |
+| CD | Demokratiska republiken Kongo|
 | CF | Centralafrikanska republiken|
 | CH | Schweiz|
 | CI | Cote d'Ivoire|

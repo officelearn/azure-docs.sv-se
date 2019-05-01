@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851161"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919953"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
 
@@ -136,7 +136,7 @@ Lägg till den fullständiga avbildningsnamn, inklusive privat register-URL (til
 
 **Kan jag lägga upp mer än en port på min anpassade behållaravbildning?**
 
-Vi stöder för närvarande inte exponera mer än en port.
+Vi stöder inte exponera mer än en port.
 
 **Kan jag använda min egen lagring?**
 
@@ -154,11 +154,11 @@ Vi har port automatiskt. Du kan också ange en app som heter *WEBSITES_PORT* och
 
 Plattformen hanterar Nej, HTTPS-avslutning på de delade klientdelar.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Flera behållare med Docker Compose och Kubernetes
+## <a name="multi-container-with-docker-compose"></a>Flera behållare med Docker Compose
 
 **Hur konfigurerar jag Azure Container Registry (ACR) ska användas med flera behållare?**
 
-För att kunna använda ACR med flera behållare **alla behållaravbildningar** måste finnas på samma server för ACR-registret. När de är på samma server i registret, måste du skapa inställningar för program och sedan uppdatera konfigurationsfilen för att inkludera namnet på ACR-avbildning för Docker Compose- eller Kubernetes.
+För att kunna använda ACR med flera behållare **alla behållaravbildningar** måste finnas på samma server för ACR-registret. När de är på samma server i registret, måste du skapa inställningar för program och sedan uppdatera konfigurationsfilen för Docker Compose för att inkludera namnet på ACR-bild.
 
 Skapa följande programinställningar för:
 

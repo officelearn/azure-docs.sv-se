@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 31da745727d567e1b3b85b3508df368d78ad84a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557280"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935408"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming för iOS 
 
@@ -42,8 +42,8 @@ Digital rights management (DRM) / Standard AES (Advanced Encryption) kryptering 
 Offline-läge för skyddat innehåll är också en funktion som begärs ofta utöver att skydda innehåll för online-direktuppspelning via olika protokoll för direktuppspelning. Stöd för offline-läge krävs för följande scenarier:
 
 * Spela upp när internet-anslutning inte är tillgängliga, till exempel vid resa.
-* Vissa innehållsleverantörer kan neka DRM-licensleverans utöver ett land kantlinje. Om användarna vill titta på innehållet under resor utanför landet krävs offline nedladdning.
-* I vissa länder är internet tillgänglighet och/eller bandbredd fortfarande begränsad. Användare kan välja att hämta först om du vill kunna titta på innehållet i en lösning som är tillräckligt högt för en tillfredsställande tittarupplevelse. I det här fallet är problemet vanligtvis nätverkets tillgänglighet men begränsad nätverksbandbredd. Over-the-top (OTT) / plattform för onlinevideo (OVP)-providers begära stöd för offline-läge.
+* Vissa innehållsleverantörer kan neka DRM-licensleverans utöver ett land/region kantlinje. Om användarna vill titta på innehållet under resor utanför landet/regionen krävs offline download.
+* I vissa länder/regioner är internet tillgänglighet och/eller bandbredd fortfarande begränsad. Användare kan välja att hämta först om du vill kunna titta på innehållet i en lösning som är tillräckligt högt för en tillfredsställande tittarupplevelse. I det här fallet är problemet vanligtvis nätverkets tillgänglighet men begränsad nätverksbandbredd. Over-the-top (OTT) / plattform för onlinevideo (OVP)-providers begära stöd för offline-läge.
 
 Den här artikeln innehåller stöd för FairPlay Streaming (FPS) offline-läge som riktar sig mot enheter som kör iOS 10 eller senare. Den här funktionen stöds inte för andra Apple-plattformar, till exempel watchOS, tvOS eller Safari på macOS.
 

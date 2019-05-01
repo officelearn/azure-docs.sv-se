@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 146c74fe751e75fb85563378be6f812802928fe2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60919446"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918937"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -203,7 +203,7 @@ SLA-tröskelvärdena varierar beroende på tjänsten. Exempelvis Webbnivå för 
 
 Det finns kraven för serviceavtalet ska gälla för vissa tjänster. Virtuella datorer måste till exempel har två eller fler distribuerade instanser i samma Tillgänglighetsuppsättning.
 
-Mer information finns i den [serviceavtal](https://azure.microsoft.com/en-us/support/legal/sla/) dokumentation och [sammanfattning av serviceavtal för Azure-tjänster](https://azure.microsoft.com/en-us/support/legal/sla/summary/) dokumentation.
+Mer information finns i den [serviceavtal](https://azure.microsoft.com/support/legal/sla/) dokumentation och [sammanfattning av serviceavtal för Azure-tjänster](https://azure.microsoft.com/support/legal/sla/summary/) dokumentation.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

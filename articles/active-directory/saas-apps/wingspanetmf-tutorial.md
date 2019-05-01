@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c3a7a8644e0e391f8817a7ae3a4cb9b8af5dab7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280765"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Självstudier: Azure Active Directory-integrering med Wingspan eTMF
 
@@ -112,7 +112,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Wingspa
     c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Wingspan eTMF klienten supportteamet](http://www.wingspan.com/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Wingspan eTMF klienten supportteamet](https://www.wingspan.com/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -130,7 +130,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Wingspa
 
 ### <a name="configure-wingspan-etmf-single-sign-on"></a>Konfigurera Wingspan eTMF enkel inloggning
 
-Att konfigurera enkel inloggning på **Wingspan eTMF** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Wingspan eTMF support-teamet ](http://www.wingspan.com/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Att konfigurera enkel inloggning på **Wingspan eTMF** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Wingspan eTMF support-teamet ](https://www.wingspan.com/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -184,7 +184,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-wingspan-etmf-test-user"></a>Skapa Wingspan eTMF testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Wingspan eTMF. Arbeta med [Wingspan eTMF supportteamet](http://www.wingspan.com/contact-us/) att lägga till användare i Wingspan eTMF-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Wingspan eTMF. Arbeta med [Wingspan eTMF supportteamet](https://www.wingspan.com/contact-us/) att lägga till användare i Wingspan eTMF-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

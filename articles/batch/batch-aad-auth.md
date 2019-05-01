@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 4ecee0e4f01da329e44c0f65b2c204520f2da87f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722430"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922446"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera lösningar för Batch-tjänsten med Active Directory
 
@@ -68,7 +68,7 @@ Det första steget i att autentisera med hjälp av Azure AD är att registrera d
 
 När du registrerar ditt program kan ange du information om ditt program till Azure AD. Sedan Azure AD tillhandahåller ett program-ID (även kallat en *klient-ID*) att du använder för att associera ditt program med Azure AD vid körning. Läs mer om program-ID i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Om du vill registrera ett Batch-program, följer du stegen i den [lägga till ett program](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) i avsnittet [integrera program med Azure Active Directory][aad_integrate]. Om du registrerar ditt program som ett internt program, kan du ange en giltig URI för den **omdirigerings-URI**. Det behöver inte vara en verklig slutpunkt.
+Om du vill registrera ett Batch-program, följer du stegen i den [lägga till ett program](../active-directory/develop/quickstart-register-app.md) i avsnittet [integrera program med Azure Active Directory][aad_integrate]. Om du registrerar ditt program som ett internt program, kan du ange en giltig URI för den **omdirigerings-URI**. Det behöver inte vara en verklig slutpunkt.
 
 När du har registrerat ditt program visas det program-ID:
 

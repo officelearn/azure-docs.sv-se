@@ -4,7 +4,7 @@ description: Lär dig hur du lägger till en anpassad avbildning i en befintlig 
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,23 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 11/30/2018
-ms.author: v-junlch
-ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.author: manayar
+ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108385"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869101"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Lägga till en anpassad avbildning till en Azure skalningsuppsättningsmall
 
-Den här artikeln visar hur du ändrar den [minsta lönsamma skaluppsättningsmall](./virtual-machine-scale-sets-mvss-start.md) att distribuera från anpassad avbildning.
+Den här artikeln visar hur du ändrar den [grundläggande skaluppsättningsmall](virtual-machine-scale-sets-mvss-start.md) att distribuera från anpassad avbildning.
 
 ## <a name="change-the-template-definition"></a>Ändra malldefinitionen
-
-Den minsta lönsamma skalningsuppsättningsmall kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), och mallen för distribution av skalan från en anpassad avbildning kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Låt oss nu undersöka diff som används för att skapa den här mallen (`git diff minimum-viable-scale-set custom-image`) del för del:
+I en [föregående artikel](virtual-machine-scale-sets-mvss-start.md) vi har skapat en grundläggande skalningsuppsättningsmall. Vi kommer nu använda mallen som tidigare och ändra det om du vill skapa en mall som distribuerar en skalningsuppsättning från en anpassad avbildning.  
 
 ### <a name="creating-a-managed-disk-image"></a>Skapa en hanterad disk-avbildning
 
@@ -59,7 +57,7 @@ Lägg sedan till en resurs av typen `Microsoft.Compute/images`, vilket är den h
    "resources": [
      {
 +      "type": "Microsoft.Compute/images",
-+      "apiVersion": "2016-04-30-preview",
++      "apiVersion": "2019-03-01",
 +      "name": "myCustomImage",
 +      "location": "[resourceGroup().location]",
 +      "properties": {
@@ -84,7 +82,7 @@ Ange resurs i skalningsuppsättningen, lägga till en `dependsOn` satsen som ref
 
 ```diff
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01-preview",
        "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 +        "Microsoft.Network/virtualNetworks/myVnet",
@@ -119,5 +117,3 @@ I det här exemplet använder den `resourceId` funktionen för att hämta resurs
 ## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-
-<!-- Update_Description: update metedata properties -->

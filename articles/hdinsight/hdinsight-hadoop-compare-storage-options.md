@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922019"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720480"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämför lagringsalternativ för användning med Azure HDInsight-kluster
 
@@ -31,8 +31,12 @@ I följande tabell sammanfattas de Azure Storage-tjänster som stöds med olika 
 |Azure Data Lake Storage Gen2| Generell användning V2 | Hierarkiska (filsystem) | Blob | Standard | Frekvent, lågfrekvent, Arkiv | 3.6 + | Alla |
 |Azure Storage| Generell användning V2 | Object | Blob | Standard | Frekvent, lågfrekvent, Arkiv | 3.6 + | Alla |
 |Azure Storage| General-Purpose V1 | Object | Blob | Standard | Gäller inte | Alla | Alla |
-|Azure Storage| Blob Storage | Object | Blob | Standard | Frekvent, lågfrekvent, Arkiv | Alla | Alla |
+|Azure Storage| Blob Storage** | Object | Blockblob | Standard | Frekvent, lågfrekvent, Arkiv | Alla | Alla |
 |Azure Data Lake Storage Gen1| Gäller inte | Hierarkiska (filsystem) | Gäller inte | Saknas | Gäller inte | Endast 3.6 | Alla utom HBase |
+
+** Endast sekundär storage-konton kan vara av typen BlobStorage för HDInsight-kluster.
+
+Mer information om Azure Storage-kontotyper finns [översikt över Azure storage-konto](../storage/common/storage-account-overview.md)
 
 Läs mer på Azure Storage åtkomstnivåerna [Azure Blob storage: Premium (förhandsversion), lagringsnivåerna frekvent, lågfrekvent lagring och Arkivlagring](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ Du kan skapa ett kluster med olika kombinationer av tjänster för primär och e
 
 | HDInsight-version | Primär lagring | Sekundär lagring | Stöds |
 |---|---|---|---|
-| 3.6 & 4.0 | Standard Blob | Standard Blob | Ja |
-| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen2 | Nej |
-| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen1 | Ja |
+| 3.6 & 4.0 | Generell användning V1, generell användning V2 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Ja |
+| 3.6 & 4.0 | Generell användning V1, generell användning V2 | Data Lake Storage Gen2 | Nej |
+| 3.6 & 4.0 | Generell användning V1, generell användning V2 | Data Lake Storage Gen1 | Ja |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Ja |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | Standard Blob | Ja |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Ja |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Nej |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Ja |
-| 3.6 | Data Lake Storage Gen1 | Standard Blob | Ja |
+| 3.6 | Data Lake Storage Gen1 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Ja |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Nej |
 | 4.0 | Data Lake Storage Gen1 | Alla | Nej |
 

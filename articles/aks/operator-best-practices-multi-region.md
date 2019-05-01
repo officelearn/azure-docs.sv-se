@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5cac42505cd015cb018664b765e88f40667b1759
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464596"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920466"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metodtips för företag affärskontinuitet och haveriberedskap i Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Den här bästa praxis som artikeln handlar om överväganden som hjälper dig a
 
 Ett AKS-kluster distribueras till en enda region. Distribuera programmet till flera AKS-kluster för att skydda dig mot fel region, över olika regioner. När du planerar vilka regioner för att distribuera ditt AKS-kluster gäller följande:
 
-* [AKS regiontillgänglighet](https://docs.microsoft.com/azure/aks/container-service-quotas#region-availability)
+* [AKS regiontillgänglighet](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability)
   * Väljer du regioner nära användarna. AKS utökar kontinuerligt till nya regioner.
 * [Azure länkade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * För din region, väljer du två regioner som är länkat till varandra. Dessa regioner samordna plattformsuppdateringar och prioritera recovery åtgärder där det behövs.
@@ -62,7 +62,7 @@ Stegvisa instruktioner för hur du konfigurerar dessa slutpunkter och routning, 
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Layer 7 programmet routning med Azure ytterdörren
 
-Med Azure Traffic Manager använder DNS (nivå 3) för att forma trafik. [Azure ytterdörren (för närvarande i förhandsversion)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) innehåller ett alternativ för routning av HTTP/HTTPS (layer 7). Ytterligare funktioner för ytterdörren inkluderar SSL-avslutning, anpassad domän, Brandvägg för webbaserade program, URL-Omskrivningsregler och Sessionstillhörighet.
+Med Azure Traffic Manager använder DNS (nivå 3) för att forma trafik. [Azure ytterdörren](https://docs.microsoft.com/azure/frontdoor/front-door-overview) innehåller ett alternativ för routning av HTTP/HTTPS (layer 7). Ytterligare funktioner för ytterdörren inkluderar SSL-avslutning, anpassad domän, Brandvägg för webbaserade program, URL-Omskrivningsregler och Sessionstillhörighet.
 
 Granska din programtrafik behov att förstå vilken lösning som är den lämpligaste.
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 01/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819907"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914897"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -359,6 +359,7 @@ response = requests.post(published_pipeline1.endpoint,
     json={"ExperimentName": "My_Pipeline",
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
 ## <a name="view-results"></a>Visa resultat
 
 Se en lista över alla dina pipelines och deras körningsinformation:
@@ -368,6 +369,25 @@ Se en lista över alla dina pipelines och deras körningsinformation:
  ![lista över machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Välj en specifik pipeline för att visa Körningsresultat.
+
+## <a name="caching--reuse"></a>Cachelagring & återanvändning  
+
+Du kan göra några saker runt cachelagring för att optimera och anpassa beteendet hos dina pipelines och återanvända. Du kan till exempel välja att:
++ **Inaktivera standard återanvändning av steget Kör utdata** genom att ange `allow_reuse=False` under [steg definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Utöka hashing utöver skriptet**att också inkludera en absolut sökväg eller relativa sökvägar till källkatalog till andra filer och kataloger med hjälp av den `hash_paths=['<file or directory']` 
++ **Tvinga utdata återskapas för alla steg i en körning** med `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+
+Steg att återanvända är aktiverat som standard, och den huvudsakliga skriptfilen hashas. Om skriptet för ett visst steg förblir densamma (`script_name`, in- och parametrarna), utdata från föregående steg kör återanvänds, jobbet skickas inte till beräkningarna och resultatet från den tidigare körningen är omedelbart tillgängliga för nästa steg i stället .  
+
+```python
+step = PythonScriptStep(name="Hello World", 
+                        script_name="hello_world.py",  
+                        compute_target=aml_compute,  
+                        source_directory= source_directory, 
+                        allow_reuse=False, 
+                        hash_paths=['hello_world.ipynb']) 
+```
+ 
 
 ## <a name="next-steps"></a>Nästa steg
 - Använd [dessa Jupyter-anteckningsböcker på GitHub](https://aka.ms/aml-pipeline-readme) att utforska machine learning-ytterligare pipelines.

@@ -1,25 +1,18 @@
 ---
-title: Azure och Dynamics 365-konsult tjänsterbjudande - ange storefront information | Microsoft Docs
-description: Guide för att definiera storefront information i en Azure- eller Dynamics 365-konsult tjänsteerbjudanden i partnerportalen i molnet.
+title: Ange storefront information om consulting erbjudande | Azure Marketplace
+description: Definiera storefront information i en Azure- eller Dynamics 365-konsult tjänsteerbjudanden i partnerportalen i molnet.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865377"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942715"
 ---
 # <a name="storefront-details-tab"></a>Fliken Butiksinformation
 
@@ -32,14 +25,16 @@ Den här artikeln beskriver hur du kan ange information för din butik. Den **St
 
 ![Skapa en ny konsult tjänsterbjudande - fliken Storefront information](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>Erbjudandeinformation
 
 Den **Erbjudandeinformationen** avsnittet innehåller följande rutor:
 
--   **Sammanfattning av erbjudandet**
--   **Beskrivning av erbjudande**
+-   **Sammanfattning av erbjudandet\***
+-   **Beskrivning av erbjudande\***
 
-### <a name="offer-summary"></a>Sammanfattning av erbjudandet
+
+### <a name="offer-summary"></a>Sammanfattning av erbjudandet\*
 
 Sammanfattning av erbjudandet är en kort beskrivning av ditt erbjudande som visas under erbjudandenamn. Använd oformaterad text för att ange sammanfattningen av erbjudandet, utan några radbrytningar. I följande exempel är bra erbjudandet sammanfattningar tillsammans med motsvarande erbjudandet namn.
 
@@ -68,7 +63,8 @@ Sammanfattning av erbjudandet är en kort beskrivning av ditt erbjudande som vis
 -   **Namn på erbjudande**: Dynamics och projekt: 3-dagars utvärdering
 -   **Erbjuder sammanfattning**: Samla in kraven och utvärdering för en ERP-lösning som utformats för professionella tjänster företag och projekt-drivna företag.
 
-### <a name="offer-description"></a>Beskrivning av erbjudande
+
+### <a name="offer-description"></a>Beskrivning av erbjudande\*
 
 Ange beskrivningen av konsult tjänsteerbjudanden i den **erbjuder beskrivning** box. En bra erbjudandet beskrivning innehåller mer information om hur samarbetet ser ut och slutet leverans till kunden. Det tydligt hjälper kunden förstå vad de får. Inkludera hur ditt erbjudande relaterar till Microsoft-produkt som du erbjuder konsulttjänster.
 
@@ -144,6 +140,7 @@ Ange ditt nya Partner Center-ID, om du har en.
 Ange en hemlig nyckel om du vill förhandsgranska erbjudandet på AppSource innan det lanseras.
 Den här identifieraren är inte ett lösenord.
 
+
 ## <a name="listing-details"></a>Lista information
 
 **Consulting tjänsttyp**
@@ -166,7 +163,7 @@ För följande typer av erbjudanden ingår:
 Välj land och region där den här konsult tjänsterbjudande är tillgänglig. Ett erbjudande kan inte publiceras i flera länder eller regioner. Ett nytt erbjudande måste skapas för varje land eller region.
 
 >[!Note]
->AppSource-konsulttjänster är för närvarande live i USA, USA och Kanada. Kan du skicka in ett erbjudande för ett land som ännu inte live och den granskas och förberedd för livesändning. Ett minsta antal erbjudanden som är redo att behövs för att öppna ett nytt land så uppmuntras erbjudanden för länder/regioner som inte är live.
+>AppSource-konsulttjänster är för närvarande live i USA, USA och Kanada. Kan du skicka in ett erbjudande för land/region som inte ännu är live och den granskas och förberedd för livesändning. Ett minsta antal erbjudanden som är redo att behövs för att öppna ett nytt land/region, så att erbjudanden för länder/regioner som inte är live uppmuntras.
 
 **Branscher**
 
@@ -207,6 +204,7 @@ Ladda upp marknadsföring publikationer beskriver dina konsult tjänsteerbjudand
 **Skärmbilder (begränsat till fem)**
 
 Överföra upp till fem avbildningar som innehåller mer information om ditt erbjudande, dess slutprodukter eller ditt företag. Kodfragmentet för broschyrens marknadsföring, en relevanta bild från en presentation eller en bild som visar företagets intresset eller expertis följer några exempel.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

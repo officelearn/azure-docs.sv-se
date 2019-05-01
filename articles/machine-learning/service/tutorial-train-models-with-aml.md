@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/28/2019
+ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 76567db7362298b5cd35b544bf7952ebc54a2b66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361599"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723195"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 >[!NOTE]
 > Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.8.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server.  För att köra anteckningsboken behöver du:
 
@@ -315,18 +315,16 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Observera hur skriptet hämtar data och sparar modeller:
 
-+ Träningsskriptet läser ett argument för att hitta katalogen som innehåller data. När du senare skickar in jobbet så pekar du på datalagret för det här argumentet: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`.
++ Träningsskriptet läser ett argument för att hitta katalogen som innehåller data. När du skickar jobbet senare pekar du på datalagret för det här argumentet: ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ Träningsskriptet sparar din modell i en katalog med namnet **outputs**: <br/>
-`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
-Allt som skrivs i den här katalogen överförs automatiskt till din arbetsyta. Du kommer åt din modell från den här katalogen senare i självstudien.
-Träningsskriptet måste referera till filen `utils.py` för att datauppsättningen ska läsas in korrekt. Kopiera det här skriptet till skriptmappen så att det kan nås tillsammans med träningsskriptet på den fjärranslutna resursen.
++ Skriptet utbildning sparar din modell till en katalog med namnet **matar ut**. Allt som skrivs i den här katalogen överförs automatiskt till din arbetsyta. Du kommer åt din modell från den här katalogen senare i självstudien. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
++ Utbildning skriptet kräver att filen `utils.py` att läsa in datauppsättningen korrekt. I följande kod kopior `utils.py` till `script_folder` så att filen kan användas tillsammans med inlärningsskript på fjärransluten resurs.
 
-```python
-import shutil
-shutil.copy('utils.py', script_folder)
-```
+  ```python
+  import shutil
+  shutil.copy('utils.py', script_folder)
+  ```
 
 
 ### <a name="create-an-estimator"></a>Skapa ett beräkningsobjekt

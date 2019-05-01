@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245542"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918507"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurera behörigheterna för AD DS-koppling 
 
@@ -25,7 +25,7 @@ PowerShell-modulen med namnet [ADSyncConfig.psm1](reference-connect-adsyncconfig
 ## <a name="overview"></a>Översikt 
 Följande PowerShell-cmdletar kan användas för att konfigurera Active Directory-behörigheter för AD DS-anslutningskontot för varje funktion som du väljer för att aktivera i Azure AD Connect. För att förhindra problem bör du förbereda Active Directory-behörigheter i förväg när du vill installera Azure AD Connect med ett konto för anpassad domän för att ansluta till din skog. Den här modulen ADSyncConfig kan också användas för att konfigurera behörigheter när Azure AD Connect har distribuerats.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![Översikt över ad ds-konto](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 För Azure AD Connect Express-installationen skapas en automatiskt genererad konto (MSOL_nnnnnnnnnn) i Active Directory med alla de nödvändiga behörigheterna, så inte behöver använda den här modulen ADSyncConfig om inte du har blockerat behörigheter arv på organisationsenheter eller specifika Active Directory-objekt som du vill synkronisera till Azure AD. 
  

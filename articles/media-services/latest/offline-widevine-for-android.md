@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111961"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937226"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine för direktuppspelning för Android
 
 Utöver att skydda innehåll för online-direktuppspelning av media innehåll prenumeration och uthyrning tjänster erbjudandet nedladdningsbart innehåll som fungerar när du inte är ansluten till internet. Du kan behöva hämta innehållet på din telefon eller surfplatta för uppspelning i Flygplansläge när som frånkopplad från nätverket. Fler scenarier där du laddar ned innehåll:
 
-- Vissa innehållsleverantörer kan neka DRM-licensleverans utöver ett land kantlinje. Om en användare vill titta på innehållet under resor utomlands krävs offline download.
-- I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd begränsat. Användare kan välja att ladda ned innehåll för att kunna se det fungera tillräckligt hög matchning för tillfredsställande tittarupplevelse.
+- Vissa innehållsleverantörer kan neka DRM-licensleverans utöver ett land/region kantlinje. Om en användare vill titta på innehållet under resor utomlands krävs offline download.
+- I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd begränsad. Användare kan välja att ladda ned innehåll för att kunna se det fungera tillräckligt hög matchning för tillfredsställande tittarupplevelse.
 
 Den här artikeln beskrivs hur du implementerar offlineläge uppspelning för DASH-innehåll som skyddas av Widevine på Android-enheter. Offline DRM kan du tillhandahålla prenumeration, hyra och inköp modeller för innehåll, och kunderna för dina tjänster kan enkelt ta innehåll med dem. när bortkopplad från internet.
 

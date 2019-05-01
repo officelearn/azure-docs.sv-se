@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481215"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926065"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs vilka typer av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med hjälp av utdata, kan du göra ytterligare affärsanalys och datalager för dina data.
@@ -182,7 +182,7 @@ Powerbi använder först in, skickas bevarandeprincipen. Data samlar in i en tab
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Konvertera en datatyp från Stream Analytics till Power BI
 Azure Stream Analytics uppdaterar datamodellen dynamiskt vid körning om utdata-schemat ändras. Alla spåras kolumnen namnändringar, kolumnen ändras, och tillägg och borttagning av kolumner.
 
-Den här tabellen beskriver datatypkonverteringar från [Stream Analytics-datatyper](https://msdn.microsoft.com/library/azure/dn835065.aspx) till Power BI [Entity Data Model (EDM) typer](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/entity-data-model), om en Power BI-datauppsättning och en tabell som inte finns.
+Den här tabellen beskriver datatypkonverteringar från [Stream Analytics-datatyper](https://msdn.microsoft.com/library/azure/dn835065.aspx) till Power BI [Entity Data Model (EDM) typer](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), om en Power BI-datauppsättning och en tabell som inte finns.
 
 Från Stream Analytics | Power BI
 -----|-----

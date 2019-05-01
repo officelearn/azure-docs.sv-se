@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369462"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867143"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 
-Du kan använda Azure Stream Analytics med Azure Event Hubs för att kontrollera inkommande data och extrahera avvikelser, som du sedan kan visualisera i Power BI. Anta att du har tusentals enheter som kontinuerligt skickar data i realtid till en händelsehubb. I så fall kan det röra sig om miljontals händelser per sekund. Hur kontrollerar du om det finns avvikelser, eller fel, i sådana mängder data? Hur gör du om enheterna till exempel skickar kreditkortstransaktioner och du behöver kunna upptäcka om det förekommer flera transaktioner i flera länder inom ett intervall på fem sekunder? Detta kan inträffa om någon stjäl kreditkort och sedan använder dem för att köpa saker samtidigt från olika delar av världen. 
+Du kan använda Azure Stream Analytics med Azure Event Hubs för att kontrollera inkommande data och extrahera avvikelser, som du sedan kan visualisera i Power BI. Anta att du har tusentals enheter som kontinuerligt skickar data i realtid till en händelsehubb. I så fall kan det röra sig om miljontals händelser per sekund. Hur kontrollerar du om det finns avvikelser, eller fel, i sådana mängder data? Till exempel vilka om enheterna skickar kreditkortstransaktioner och du behöver samla in överallt där du har flera transaktioner i flera länder/regioner inom en 5-sekundersintervall tidsintervall? Detta kan inträffa om någon stjäl kreditkort och sedan använder dem för att köpa saker samtidigt från olika delar av världen. 
 
 I den här självstudien får du simulera det här exemplet. Du kör ett program som skapar och skickar kreditkortstransaktioner till en händelsehubb. Sedan läser du dataströmmen i realtid med Azure Stream Analytics, som separerar giltiga transaktioner från ogiltiga transaktioner. Sedan använder du Power BI för att visuellt identifiera vilka transaktioner som är märkta som ogiltiga.
 

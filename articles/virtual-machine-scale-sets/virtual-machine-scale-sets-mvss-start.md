@@ -1,10 +1,10 @@
 ---
 title: Lär dig mer om skalningsuppsättningsmallar för virtuell dator | Microsoft Docs
-description: Lär dig att skapa en minsta lönsamma skalningsuppsättningsmall för VM-skalningsuppsättningar
+description: Lär dig att skapa en grundläggande skalningsuppsättningsmall för VM-skalningsuppsättningar
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805579"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868901"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Lär dig mer om skalningsuppsättningsmallar för virtuell dator
-[Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) är ett bra sätt att distribuera grupper av relaterade resurser. Den här självstudien visar hur du skapar en minsta lönsamma skalningsuppsättningsmall och hur du ändrar den här mallen för att passa olika scenarier. Alla exempel kommer från detta [GitHub-lagringsplatsen](https://github.com/gatneil/mvss). 
+[Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) är ett bra sätt att distribuera grupper av relaterade resurser. Den här självstudien visar hur du skapar en grundläggande skalningsuppsättningsmall och hur du ändrar den här mallen för att passa olika scenarier. Alla exempel kommer från detta [GitHub-lagringsplatsen](https://github.com/gatneil/mvss).
 
 Den här mallen är avsedd att vara enkel. Mer komplett exempel på skala skalningsuppsättningsmallarna, finns i den [Azure Quickstart-mallar GitHub-lagringsplatsen](https://github.com/Azure/azure-quickstart-templates) och söker efter mappar som innehåller strängen `vmss`.
 
 Om du redan är bekant med att skapa mallar kan du gå vidare till avsnittet ”nästa steg” för att se hur du ändrar den här mallen.
-
-## <a name="review-the-template"></a>Granska mallen
-
-Använd GitHub för att granska den minsta lönsamma skalningsuppsättningsmall, [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
-
-I den här självstudien ska vi Granska Versionens (`git diff master minimum-viable-scale-set`) att skapa den minsta lönsamma skalan ange mall bit för bit.
 
 ## <a name="define-schema-and-contentversion"></a>Definiera $schema och mallegenskapen
 Definiera först `$schema` och `contentVersion` i mallen. Den `$schema` elementet definierar versionen av Mallspråket och används för Visual Studio syntaxmarkering och liknande funktioner för verifiering. Den `contentVersion` elementet används inte av Azure. I stället det hjälper dig att hålla reda på versionen av principmallen.
@@ -43,6 +37,7 @@ Definiera först `$schema` och `contentVersion` i mallen. Den `$schema` elemente
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>Definiera parametrar
 Definiera två parametrar, `adminUsername` och `adminPassword`. Parametrarna är värden som du anger vid tidpunkten för distributionen. Den `adminUsername` parametern är helt enkelt en `string` typ, men eftersom `adminPassword` är en hemlig, ge den skriver `securestring`. Senare, är dessa parametrar skickades till konfigurationen för skalningsuppsättningen.
 
@@ -70,13 +65,13 @@ Nästa är resursavsnittet i mallen. Här kan definiera du vad du faktiskt vill 
    "resources": [
 ```
 
-Alla resurser kräver `type`, `name`, `apiVersion`, och `location` egenskaper. Det här exemplet första resursen har typen [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)och namnet `myVnet`, och apiVersion `2016-03-30`. (Du hittar den senaste API-versionen för en resurstyp i [mallreferensen för Azure Resource Manager](/azure/templates/).)
+Alla resurser kräver `type`, `name`, `apiVersion`, och `location` egenskaper. Det här exemplet första resursen har typen [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)och namnet `myVnet`, och apiVersion `2018-11-01`. (Du hittar den senaste API-versionen för en resurstyp i [mallreferensen för Azure Resource Manager](/azure/templates/).)
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>Ange plats
@@ -117,7 +112,7 @@ I det här fallet finns bara ett element i listan med det virtuella nätverket f
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ Skalningsuppsättningen måste veta vilka storleken på virtuell dator för att 
 ```
 
 ### <a name="choose-type-of-updates"></a>Välj typ av uppdateringar
-Skalningsuppsättning också behöver veta hur du hanterar uppdateringar på skalningsuppsättningen. Det finns två alternativ `Manual` och `Automatic`. Mer information om skillnaderna mellan två finns i dokumentationen på [så här uppgraderar du en skalningsuppsättning](./virtual-machine-scale-sets-upgrade-scale-set.md).
+Skalningsuppsättning också behöver veta hur du hanterar uppdateringar på skalningsuppsättningen. Det finns tre alternativ `Manual`, `Rolling` och `Automatic`. Mer information om skillnaderna mellan två finns i dokumentationen på [så här uppgraderar du en skalningsuppsättning](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

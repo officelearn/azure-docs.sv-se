@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.openlocfilehash: 63f1cfbf697f9cb1211e2c4671f64b19f933bc94
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: d566b57ae12520b9eee26334a67d2e10c05f8040
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129362"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709078"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Skapa filmrekommendationer med hjälp av Apache Mahout med Linux-baserade Apache Hadoop i HDInsight (SSH)
 
@@ -21,16 +21,13 @@ ms.locfileid: "62129362"
 
 Lär dig hur du använder den [Apache Mahout](https://mahout.apache.org) machine learning-biblioteket med Azure HDInsight för att generera filmrekommendationer.
 
-Mahout är ett [maskininlärning] [ ml] -biblioteket för Apache Hadoop. Mahout innehåller algoritmer för databehandling, t.ex filtrering, klassificering och klustring. I den här artikeln använder du en rekommendationsmotor för att generera filmrekommendationer som baseras på dina vänner har sett filmer.
+Mahout är ett [maskininlärning](https://en.wikipedia.org/wiki/Machine_learning) -biblioteket för Apache Hadoop. Mahout innehåller algoritmer för databehandling, t.ex filtrering, klassificering och klustring. I den här artikeln använder du en rekommendationsmotor för att generera filmrekommendationer som baseras på dina vänner har sett filmer.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Ett Linux-baserade HDInsight-kluster. Information om hur du skapar en finns i [komma igång med Linux-baserat Hadoop i HDInsight][getstarted].
+* Ett Apache Hadoop-kluster på HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-> [!IMPORTANT]  
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-* En SSH-klient. Mer information finns i dokumentet [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="apache-mahout-versioning"></a>Apache Mahout versionshantering
 
@@ -50,7 +47,7 @@ Följande arbetsflöde är ett förenklat exempel som använder filmdata:
 
 ### <a name="understanding-the-data"></a>Förstå data
 
-Jag behöver [GroupLens Research] [ movielens] tillhandahåller data för klassificering för filmer i ett format som är kompatibel med Mahout. Informationen är tillgänglig på ditt kluster standardlagring på `/HdiSamples/HdiSamples/MahoutMovieData`.
+Jag behöver [GroupLens Research](https://grouplens.org/datasets/movielens/) tillhandahåller data för klassificering för filmer i ett format som är kompatibel med Mahout. Informationen är tillgänglig på ditt kluster standardlagring på `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 Det finns två filer, `moviedb.txt` och `user-ratings.txt`. Den `user-ratings.txt` filen ska användas vid analys. Den `moviedb.txt` används för att ange användarvänliga textinformation när du visar resultaten.
 
@@ -200,15 +197,3 @@ Nu när du har lärt dig hur du använder Mahout kan upptäcka andra sätt att a
 * [Apache Hive med HDInsight](hdinsight-use-hive.md)
 * [Apache Pig med HDInsight](hdinsight-use-pig.md)
 * [MapReduce med HDInsight](hdinsight-use-mapreduce.md)
-
-[build]: https://mahout.apache.org/developers/buildingmahout.html
-[movielens]: https://grouplens.org/datasets/movielens/
-[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]:apache-hadoop-linux-tutorial-get-started.md
-[upload]: hdinsight-upload-data.md
-[ml]: https://en.wikipedia.org/wiki/Machine_learning
-[forest]: https://en.wikipedia.org/wiki/Random_forest
-[enableremote]: ./media/hdinsight-mahout/enableremote.png
-[connect]: ./media/hdinsight-mahout/connect.png
-[hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
-[tools]: https://github.com/Blackmist/hdinsight-tools

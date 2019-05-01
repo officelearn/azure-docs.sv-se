@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e79e610638b5ff271607da2e8855003707ea5932
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821293"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914927"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -69,7 +69,7 @@ Obs! Data Prep Python SDK: N kommer inte längre installera `numpy` och `pandas`
 + **Nya funktioner**
   + Azure Machine Learning SDK har nu stöd för Python 3.7.
   + Azure Machine Learning DNN Estimators ger nu inbyggt stöd för flera versioner. Till exempel `TensorFlow`  kostnadsuppskattning accepterar nu ett `framework_version` parameter och användarna kan ange version ”1.10' eller '1.12'. En lista över de versioner som stöds av din aktuella SDK-version, anropa `get_supported_versions()` på den önskade framework-klassen (t.ex. `TensorFlow.get_supported_versions()`).
-  En lista över versioner som stöds av den senaste versionen av SDK finns i den [DNN kostnadsuppskattning dokumentation](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
+  En lista över versioner som stöds av den senaste versionen av SDK finns i den [DNN kostnadsuppskattning dokumentation](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning Data Förbered SDK v1.1.1
 
@@ -143,13 +143,13 @@ Obs! Data Prep Python SDK: N kommer inte längre installera `numpy` och `pandas`
 
 + **Nya funktioner**
 
-  + Azure Machine Learning har nu förstklassigt stöd för populära DNN-ramverk Chainer. Med hjälp av [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) klassen användare enkelt kan träna och distribuera Chainer modeller.
+  + Azure Machine Learning har nu förstklassigt stöd för populära DNN-ramverk Chainer. Med hjälp av [ `Chainer` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) klassen användare enkelt kan träna och distribuera Chainer modeller.
     + Lär dig hur du [kör distribuerad utbildning med ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
     + Lär dig hur du [kör finjustering av hyperparametrar med Chainer med HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning Pipelines lagt till möjligheten utlösare som en Pipeline som körs baserat på ändringar av datalager. Pipelinen [schema notebook](https://aka.ms/pl-schedule) har uppdaterats för att demonstrera den här funktionen.
 
 + **Felkorrigeringar och förbättringar**
-  + Vi har lagt till stöd för Azure Machine Learning Pipelines för att ange egenskapen source_directory_data_store till en önskad datalager (till exempel en bloblagring) på [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som skickas till den [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder stegen Azure-lagring som säkerhetskopierar databasen som kan köras i begränsning problem när ett stort antal steg körs samtidigt.
+  + Vi har lagt till stöd för Azure Machine Learning Pipelines för att ange egenskapen source_directory_data_store till en önskad datalager (till exempel en bloblagring) på [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som skickas till den [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder stegen Azure-lagring som säkerhetskopierar databasen som kan köras i begränsning problem när ett stort antal steg körs samtidigt.
 
 ### <a name="azure-portal"></a>Azure Portal
 

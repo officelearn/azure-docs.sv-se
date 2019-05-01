@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: d0802cfcf05874044b6e116ba194c16a79f9d309
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: da1328ba826ce940115bc45ffc8d6f417eeda798
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541610"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744630"
 ---
 Det här avsnittet innehåller information om tidigare versioner av storlekar för virtuella datorer. Dessa storlekar kan fortfarande användas, men det finns nyare generationer. 
 
@@ -27,7 +27,7 @@ ACU: 210 - 250
 
 Premium-lagring:  Stöds inte
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
 
 | Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -45,7 +45,7 @@ ACU: 210 - 250
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ ACU: 180-240
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds inte
+Premium Storage cachelagring:  Stöds inte
  
 | Storlek          | Virtuell processor | Minne (GiB) | Temporär lagring (GiB) | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring (IOPS / Mbit/s) | Maximalt icke cachelagrat diskgenomflöde (IOPS / Mbit/s) | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 

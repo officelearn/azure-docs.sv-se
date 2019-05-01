@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236605"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939913"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
@@ -241,7 +241,7 @@ Till exempel enligt den [prisavtal](https://azure.microsoft.com/pricing/details/
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Hur ofta bearbetar trafikanalys data?
 
-Referera till den [aggregering dataavsnittet](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) i Traffic Analytics schemat och Data aggregering dokumentet
+Referera till den [aggregering dataavsnittet](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) i Traffic Analytics schemat och Data aggregering dokumentet
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Hur trafikanalys till besluta att en IP-adress är skadliga? 
 
@@ -253,13 +253,13 @@ Trafikanalys har inte inbyggt stöd för aviseringar. Eftersom trafikanalys data
 - Du kan använda kortlänks-URL för Log Analytics i trafikanalys. 
 - Använd den [schemat dokumenteras här](traffic-analytics-schema.md) att skriva dina frågor 
 - Klicka på ”ny aviseringsregel” att skapa aviseringen
-- Referera till [log aviseringar dokumentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) att skapa aviseringen
+- Referera till [log aviseringar dokumentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) att skapa aviseringen
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Hur kan navigera genom att använda tangentbordet i kartvyn geo?
 
 Sidan geo kartan innehåller två huvudavsnitt:
     
-- **Banner**: Banderoll överst på geo-mappning innehåller knappar för att välja distribution trafikfilter (till exempel distribution, trafik från länder och skadliga). När du väljer en knapp, tillämpas respektive filtret på kartan. Om du väljer knappen Active visar kartan active datacenter i distributionen.
+- **Banner**: Banderoll överst på geo-mappning innehåller knappar för att välja distribution trafikfilter (till exempel distribution, trafik från länder/regioner och skadliga). När du väljer en knapp, tillämpas respektive filtret på kartan. Om du väljer knappen Active visar kartan active datacenter i distributionen.
 - **Kartan**: Avsnittet kartan visar under banderollen, fördelning av trafik mellan Azure-datacenter och länder/regioner.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangentbordsnavigering i popup-meddelandet

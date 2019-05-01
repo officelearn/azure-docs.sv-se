@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853311"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920435"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurera en Linux-PHP-app för Azure App Service
 
@@ -141,7 +141,7 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 
 ## <a name="customize-phpini-settings"></a>Anpassa inställningar för php.ini
 
-Om du behöver göra ändringar i din PHP-installation kan du ändra någon av de [php.ini-direktiv](http://www.php.net/manual/ini.list.php) genom att följa dessa steg.
+Om du behöver göra ändringar i din PHP-installation kan du ändra någon av de [php.ini-direktiv](https://www.php.net/manual/ini.list.php) genom att följa dessa steg.
 
 > [!NOTE]
 > Det bästa sättet att se den PHP-versionen och aktuellt *php.ini* konfiguration är att anropa [phpinfo()](https://php.net/manual/function.phpinfo.php) i din app.
@@ -149,7 +149,7 @@ Om du behöver göra ändringar i din PHP-installation kan du ändra någon av d
 
 ### <a name="customize-non-phpinisystem-directives"></a>Anpassa icke PHP_INI_SYSTEM direktiv
 
-Anpassa PHP_INI_USER och PHP_INI_PERDIR PHP_INI_ALL direktiv (se [php.ini-direktiv](http://www.php.net/manual/ini.list.php)), Lägg till en *.htaccess* filen till rotkatalogen för din app.
+Anpassa PHP_INI_USER och PHP_INI_PERDIR PHP_INI_ALL direktiv (se [php.ini-direktiv](https://www.php.net/manual/ini.list.php)), Lägg till en *.htaccess* filen till rotkatalogen för din app.
 
 I den *.htaccess* Lägg till direktiv med hjälp av den `php_value <directive-name> <value>` syntax. Exempel:
 
@@ -165,11 +165,11 @@ php_value upload_max_filesize 10M
 
 Distribuera om din app med ändringar och starta om den. Om du distribuerar den med Kudu (till exempel [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), den startas automatiskt efter distributionen.
 
-Som ett alternativ till *.htaccess*, du kan använda [ini_set()](http://www.php.net/manual/function.ini-set.php) i din app för att anpassa dessa icke PHP_INI_SYSTEM-direktiv.
+Som ett alternativ till *.htaccess*, du kan använda [ini_set()](https://www.php.net/manual/function.ini-set.php) i din app för att anpassa dessa icke PHP_INI_SYSTEM-direktiv.
 
 ### <a name="customize-phpinisystem-directives"></a>Anpassa PHP_INI_SYSTEM direktiv
 
-Anpassa PHP_INI_SYSTEM direktiv (se [php.ini-direktiv](http://www.php.net/manual/ini.list.php)), du kan inte använda den *.htaccess* metod. App Service tillhandahåller en mekanism för separat med hjälp av den `PHP_INI_SCAN_DIR` appinställningen.
+Anpassa PHP_INI_SYSTEM direktiv (se [php.ini-direktiv](https://www.php.net/manual/ini.list.php)), du kan inte använda den *.htaccess* metod. App Service tillhandahåller en mekanism för separat med hjälp av den `PHP_INI_SCAN_DIR` appinställningen.
 
 Först kör du följande kommando i den [Cloud Shell](https://shell.azure.com) lägga till en app som heter `PHP_INI_SCAN_DIR`:
 
@@ -237,7 +237,7 @@ När en fungerande PHP-app fungerar annorlunda i App Service eller innehåller f
     - Beroende på din *composer.json*, olika paket kan installeras för Produktionsläge (`require` jämfört med `require-dev`).
     - Vissa webbramverk kan distribuera statiska filer på olika sätt i Produktionsläge.
     - Vissa webbramverk kan använda anpassade startskript vid körning i Produktionsläge.
-- Kör din app i App Service i felsökningsläge. Till exempel i [Laravel](http://meanjs.org/), du kan konfigurera din app för att mata ut felsökningsmeddelanden i produktion av [inställningen den `APP_DEBUG` appinställningen `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Kör din app i App Service i felsökningsläge. Till exempel i [Laravel](https://meanjs.org/), du kan konfigurera din app för att mata ut felsökningsmeddelanden i produktion av [inställningen den `APP_DEBUG` appinställningen `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="robots933456"></a>robots933456
 

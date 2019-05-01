@@ -1,5 +1,5 @@
 ---
-title: Översikt över liveuppspelning med Azure Media Services | Microsoft Docs
+title: Översikt över direktsänd strömning med Azure Media Services v3 | Microsoft Docs
 description: Den här artikeln ger en översikt över liveuppspelning med Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0157cdc8062d7c53aaeb3ff01762e9562aa9c394
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322495"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866347"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -26,7 +26,7 @@ Azure Media Services kan du leverera händelser till dina kunder på Azure-molne
 
 - En kamera som används för att hämta live-händelse.<br/>Tips för installationen kan ta en titt [enkel och portabel video gear Händelseinställningar]( https://link.medium.com/KNTtiN6IeT).
 
-    Om du inte har åtkomst till en kamera verktyg som [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kan användas för Generera en direktsändningen från en videofil.
+    Om du inte har åtkomst till en kamera verktyg som [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) kan användas för Generera en direktsändningen från en videofil.
 - En live-videokodare som konverterar signaler från en kamera (eller en annan enhet, till exempel en bärbar dator) till ett bidrag feed som skickas till Media Services. Bidrag feed kan innehålla signaler som rör reklam, till exempel SCTE 35 markörer.<br/>En lista över rekommenderade livekodare för direktuppspelning finns i [liveuppspelning kodare](recommended-on-premises-live-encoders.md). Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
 - Komponenterna i Media Services, som gör det möjligt att mata in, förhandsgranska, paket, registrera, kryptera och sända live-händelse till dina kunder eller till ett nätverk för Innehållsleverans för vidare distribution.
 
@@ -37,7 +37,7 @@ Den här artikeln ger en översikt och riktlinjerna för direktsänd strömning 
 
 ## <a name="dynamic-packaging"></a>Dynamisk paketering
 
-Med medietjänster kan du dra nytta av dynamisk Packaging](dynamic-packaging-overview.md), där du kan förhandsgranska och sända direktsändningar i [format som MPEG DASH, HLS och Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) från bidraget feed som du skickar till tjänsten. Användarna kan spela upp den direktsända dataströmmen med valfri kompatibel spelare HLS, DASH eller Smooth Streaming. Du kan använda [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) i dina webb- och mobilprogram att leverera din dataström i någon av de här protokollen.
+Med medietjänster kan du dra nytta av [dynamisk paketering](dynamic-packaging-overview.md), där du kan förhandsgranska och sända direktsändningar i [format som MPEG DASH, HLS och Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) från bidraget feed som skickas till tjänsten. Användarna kan spela upp den direktsända dataströmmen med valfri kompatibel spelare HLS, DASH eller Smooth Streaming. Du kan använda [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) i dina webb- och mobilprogram att leverera din dataström i någon av de här protokollen.
 
 ## <a name="dynamic-encryption"></a>Dynamisk kryptering
 
@@ -73,7 +73,7 @@ För att förstå live direktuppspelning arbetsflödet i Media Services v3, du m
 
 ### <a name="general-steps"></a>Allmänna steg
 
-1. I ditt Media Services-konto, se till att den **Strömningsslutpunkt** körs. 
+1. I ditt Media Services-konto, se till att den **Strömningsslutpunkt** (ursprungliga) körs. 
 2. Skapa en [direktsändning](live-events-outputs-concept.md). <br/>När du skapar händelsen, kan du ange att autostart den. Du kan också starta händelsen när du är redo att börja direktuppspelning.<br/> När autostart är satt till SANT, Live-händelsen kommer att startas rätt när du har skapat. Faktureringen startar när Live-händelsen börjar köras. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering. Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
 3. Hämta URL: er för inmatning och konfigurera din lokala kodare för att använda Webbadressen för att skicka bidraget feed.<br/>Se [rekommenderas livekodare](recommended-on-premises-live-encoders.md).
 4. Få förhandsgransknings-URL och använda den för att kontrollera att indata från kodaren faktiskt tas emot.
@@ -81,7 +81,7 @@ För att förstå live direktuppspelning arbetsflödet i Media Services v3, du m
 6. Skapa en **Live utdata** och använda Tillgångsnamn som du skapade.<br/>Den **Live utdata** arkiverar dataströmmen till den **tillgången**.
 7. Skapa en **Strömningspositionerare** med inbyggt **Streaming princip** typer.<br/>Om du vill kryptera ditt innehåll, granska [Content protection översikt](content-protection-overview.md).
 8. Lista över sökvägar på den **Strömningspositionerare** att få tillbaka de URL: er för att använda (dessa är deterministisk).
-9. Hämta värdnamnet för den **Strömningsslutpunkt** du vill strömma från.
+9. Hämta värdnamnet för den **Strömningsslutpunkt** (ursprungliga) som du vill strömma från.
 10. Kombinera URL: en från steg 8 med värdnamnet i steg 9 för att hämta den fullständiga URL: en.
 11. Om du vill stoppa att göra din **direktsänd händelse** kan visas, måste du stoppa strömning händelse och ta bort den **Strömningspositionerare**.
 
@@ -92,6 +92,10 @@ För att förstå live direktuppspelning arbetsflödet i Media Services v3, du m
 - [Live händelsetyper funktionsjämförelse](live-event-types-comparison.md)
 - [Tillstånd och fakturering](live-event-states-billing.md)
 - [Svarstid](live-event-latency.md)
+
+## <a name="provide-feedback"></a>Ge feedback
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 
 ## <a name="next-steps"></a>Nästa steg
 

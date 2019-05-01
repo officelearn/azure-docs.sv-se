@@ -1,25 +1,18 @@
 ---
-title: Skapa ett erbjudande för Azure-behållare | Microsoft Docs
+title: Skapa ett erbjudande för Azure-behållare | Azure Marketplace
 description: Så här publicerar du ett nytt erbjudande för behållaren för Marketplace...
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 1a0a2bd9132ba5d018bc5d45699c052d10c30162
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473046"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942682"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Skapa ett nytt erbjudande för behållare med partnerportalen i molnet
 

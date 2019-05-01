@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1686b52c9dacf5c78335f76bd19b41c4c7d15cee
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: df94290c5e62b898b6490c78ef0ae1ee79437240
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555412"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716960"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Datamodellering i förhandsversionen av Azure Time Series Insights
 
@@ -132,7 +132,9 @@ Välj instansen och välj **ta bort**. Om inga händelser är associerade med f�
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om Time Series modeller [datamodellering](./time-series-insights-update-tsm.md).
+
 - Mer information om förhandsversionen av [visualisera data i förhandsversionen av Azure Time Series Insights explorer](./time-series-insights-update-explorer.md).
+
 - Mer information om JSON-former som stöds, läsa [stöds JSON-former](./time-series-insights-send-events.md#json).
 
 <!-- Images -->

@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services-koncepten – Azure | Microsoft Docs
-description: Det här avsnittet ger en kort översikt över Azure Media Services-begrepp och innehåller länkar för information.
+title: Azure Media Services-termer och begrepp - Azure | Microsoft Docs
+description: Det här avsnittet ger en kort översikt över Azure Media Services-termer och begrepp och innehåller länkar för mer information.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103870"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867068"
 ---
 # <a name="media-services-concepts"></a>Media Services-koncepten
 
-Det här avsnittet ger en kort översikt över Azure Media Services-begrepp och innehåller länkar till artiklar med detaljerad förklaring av Media Services v3 begrepp och funktioner. De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utveckling påbörjas.
+Det här avsnittet ger en kort översikt över Azure Media Services-termer och begrepp. Artikeln innehåller också länkar till artiklar med detaljerad förklaring av Media Services v3 begrepp och funktioner. 
+
+De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utveckling påbörjas.
 
 > [!NOTE]
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](developers-guide.md).
 
+## <a name="terminology"></a>Terminologi
+
+Det här avsnittet visas hur vissa vanliga branschvillkor mappas till Media Services v3-API.
+
+### <a name="live-event"></a>Direktsändning
+
+En **direktsänd händelse** representerar en pipeline för inmatning, transkodning (valfritt) och paketering direktsända strömmar av video, ljud och i realtid metadata.
+
+För kunder som migrerar från Media Services v2 API: er, den **direktsänd händelse** ersätter den **kanal** entitet i v2. Mer information finns i [migrering från v2 till v3](migrate-from-v2-to-v3.md).
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>Slutpunkten för direktuppspelning (paketering och ursprung)
+
+En **Strömningsslutpunkt** representerar en dynamisk (just-in-time) paketering och det ursprungliga tjänst som kan leverera ditt innehåll live och på begäran direkt till ett klientspelarprogram med någon av de vanliga media protokollen med direktuppspelning (HLS eller DASH). Dessutom kan den **slutpunkt för direktuppspelning** erbjuder kryptering på dynamiska (just-in-time) till branschledande DRM: er.
+
+I branschen för direktuppspelning, den här tjänsten är ofta kallas en **Packager** eller **ursprung**.  Andra vanliga termer i branschen för den här funktionen är JITP (Just-i-tid-Paketeraren) eller JITE (Just-i-time-kryptering). 
+ 
 ## <a name="cloud-upload-and-storage"></a>Uppladdning till och lagring i molnet
 
 Om du vill börja hantera, kryptera, kodning, analysera och strömma medieinnehåll i Azure, måste du skapa ett Media Services-konto och ladda upp dina digitala filer till **tillgångar**.
@@ -52,7 +70,7 @@ För att analysera din video och ljud filer kan du även behöva skapa **omvandl
 
 ## <a name="packaging-delivery-protection"></a>Paketering, leverans, skydd
 
-När ditt innehåll är kodat, kan du dra nytta av **dynamisk paketering**. **Slutpunkt för direktuppspelning** är tjänsten dynamisk paketering i Media Services som används för att leverera medieinnehåll till klienten spelare. Om du vill göra videor i utdatatillgången tillgängliga för klienter för uppspelning, måste du skapa en **Strömningspositionerare** och sedan skapa strömmande URL: er. 
+När ditt innehåll är kodat, kan du dra nytta av **dynamisk paketering**. I Media Services, en **Strömningsslutpunkt**  /ursprung är tjänsten dynamisk paketering som används för att leverera medieinnehåll till klienten spelare. Om du vill göra videor i utdatatillgången tillgängliga för klienter för uppspelning, måste du skapa en **Strömningspositionerare** och sedan skapa strömmande URL: er. 
 
 När du skapar den **Strömningspositionerare**, förutom Tillgångsnamn, måste du ange **Streaming princip**. **Principer för direktuppspelning** kan du definiera strömningsprotokoll och kryptering alternativ (om sådan finns) för din **positionerare för direktuppspelning**.
 

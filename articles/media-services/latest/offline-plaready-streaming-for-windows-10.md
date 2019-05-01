@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3ff97dc86ea6932ba51a4a30e53edf1082d5305
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326432"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937473"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline Streaming för Windows 10
 
@@ -32,9 +32,9 @@ Azure Media Services stöder offline download/uppspelning med DRM-skydd. Den hä
 
 Det här avsnittet ger bakgrundsinformation om offline-läge utmatning särskilt varför:
 
-* I vissa länder är Internet tillgänglighet och/eller bandbredd fortfarande begränsad. Användare kan välja att hämta först om du vill kunna titta på innehållet i tillräckligt hög matchning för tillfredsställande tittarupplevelse. I det här fallet oftast brukar problemet är inte nätverkets tillgänglighet, i stället det nätverksbandbredden är begränsad. OTT/OVP providers ber för stöd för offline-läge.
+* I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd fortfarande begränsad. Användare kan välja att hämta först om du vill kunna titta på innehållet i tillräckligt hög matchning för tillfredsställande tittarupplevelse. I det här fallet oftast brukar problemet är inte nätverkets tillgänglighet, i stället det nätverksbandbredden är begränsad. OTT/OVP providers ber för stöd för offline-läge.
 * Som visades på Netflix 2016 Q3 aktieägare konferensen, nedladdning av innehåll är en ”om begärda funktion” och ”vi är öppen för den” säger av Reed Hastings, Netflix VD.
-* Vissa innehållsleverantörer kan neka DRM-licensleverans utöver ett land kantlinje. Om en användare behöver reser utomlands och fortfarande vill titta på innehållet, krävs offline nedladdning.
+* Vissa innehållsleverantörer kan neka DRM-licensleverans utöver ett land/region kantlinje. Om en användare behöver reser utomlands och fortfarande vill titta på innehållet, krävs offline nedladdning.
  
 Den stora utmaningen vi möter implementera offline-läge är följande:
 

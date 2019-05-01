@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311649"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716763"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -66,7 +66,7 @@ Följande JSON visar exempelvis en princip som begränsar där resurser har dist
 }
 ```
 
-Alla exempel för Azure Policy finns på [princip exempel](../samples/index.md).
+Alla exempel för Azure Policy finns på [Azure Policy-exempel](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -99,6 +99,7 @@ En parameter har följande egenskaper som används i principdefinitionen:
   - `description`: Förklaring av vad parametern används för. Kan användas för att ge exempel på de godkända värdena.
   - `displayName`: Det egna namnet som visas i portalen för parametern.
   - `strongType`: (Valfritt) Används när du tilldelar principdefinitionen via portalen. Innehåller en kontext medveten lista. Mer information finns i [strongType](#strongtype).
+  - `assignPermissions`: (Valfritt) Ange som _SANT_ ha Azure-portalen skapar rolltilldelningar under principtilldelningen. Den här egenskapen är användbar om du vill tilldela behörigheter utanför tilldelningsomfånget. Det finns en rolltilldelning per rolldefinition i principen (eller per rolldefinition i alla principer i initiativet). Parametervärdet måste vara en giltig resurs eller ett omfång.
 - `defaultValue`: (Valfritt) Anger värdet för parametern i en tilldelning om inget värde anges. Krävs när du uppdaterar en befintlig principdefinition som är tilldelad.
 - `allowedValues`: (Valfritt) Innehåller en matris med värden som parametern accepterar under tilldelning.
 
@@ -148,6 +149,7 @@ I den `metadata` egenskapen, som du kan använda **strongType** att tillhandahå
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -375,7 +377,7 @@ Med den ändrade principregeln `if()` kontrollerar längden på **namn** innan d
 
 ### <a name="effect"></a>Verkan
 
-Principen har stöd för följande typer av effekt:
+Azure Policy har stöd för följande typer av effekt:
 
 - **Neka**: Generera en händelse i aktivitetsloggen och misslyckas begäran
 - **Granska**: genererar en varning-händelse i aktivitetsloggen men inte misslyckas begäran
@@ -410,7 +412,7 @@ Den **DeployIfNotExists** effekt kräver den **roleDefinitionId** -egenskapen i 
 }
 ```
 
-Mer information om varje effekt ordningen för utvärdering, egenskaper och exempel finns i [Förstå princip effekterna](effects.md).
+Mer information om varje effekt ordningen för utvärdering, egenskaper och exempel finns i [förstå Azure Policy effekterna](effects.md).
 
 ### <a name="policy-functions"></a>Princip fungerar
 
@@ -593,9 +595,9 @@ I följande exempel illustrerar hur du skapar ett initiativ för att hantera tv�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se exempel på [Azure Policy-exempel](../samples/index.md)
-- Granska [förstå effekterna av princip](effects.md)
-- Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md)
-- Lär dig hur du [hämta data för kompatibilitetsinställningar](../how-to/getting-compliance-data.md)
-- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md)
-- Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)
+- Se exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska [Förstå policy-effekter](effects.md).
+- Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md).
+- Lär dig hur du [hämta kompatibilitetsdata](../how-to/getting-compliance-data.md).
+- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md).
+- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).

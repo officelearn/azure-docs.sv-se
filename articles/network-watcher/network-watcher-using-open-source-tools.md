@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680563"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64936010"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualisera nätverkstrafikmönster till och från dina virtuella datorer med hjälp av verktyg för öppen källkod
 
@@ -76,9 +76,9 @@ CapAnalysis erbjuder olika alternativ för att visualisera dina paketinsamling, 
 
 1. Geomap
 
-    Det här fönstret innehåller en karta vy över din nätverkstrafik med färger skala till vilken trafikvolym från varje land/region. Du kan välja markerade länder att visa ytterligare flow statistik, som del av data som skickas och tas emot från IP-adresser i det landet.
+    Det här fönstret innehåller en karta vy över din nätverkstrafik med färger skala till vilken trafikvolym från varje land/region. Du kan välja markerade länder/regioner att visa ytterligare flow statistik, som del av data som skickas och tas emot från IP-adresser i landet/regionen.
 
-    ![geomap][8]
+    ![Geomap][8]
 
 1. Filter
 

@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3628670d2393d7b6921c60317719ccf8e72a451
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581045"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866351"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
 
-Lokala företag Search API: et skickar en sökfråga till Bing för att få resultat som innehåller restauranger, hotell eller andra lokala företag. För platser ange frågan namnet på det lokala företaget eller en kategori (exempelvis restauranger i närheten). Entitetsresultat omfattar personer, platser eller saker. Plats i det här sammanhanget är affärsentiteter, tillstånd, länder osv.  
+Lokala företag Search API: et skickar en sökfråga till Bing för att få resultat som innehåller restauranger, hotell eller andra lokala företag. För platser ange frågan namnet på det lokala företaget eller en kategori (exempelvis restauranger i närheten). Entitetsresultat omfattar personer, platser eller saker. Plats i det här sammanhanget är affärsentiteter, tillstånd, länder/regioner, osv.  
 
 Det här avsnittet innehåller teknisk information om svar-objekt och frågeparametrar och rubriker som påverkar sökresultaten. Exempel som visar hur du begär finns [lokala företag Sök C# snabbstarten](quickstarts/local-quickstart.md) eller [lokala företag Search-Java-quickstart](quickstarts/local-search-java-quickstart.md). 
   
@@ -70,7 +70,7 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar.  
   
   
-|Namn|Värde|Typ|Obligatoriskt|  
+|Namn|Värde|Typ|Krävs|  
 |----------|-----------|----------|--------------|
 |<a name="count" />Antal|Antalet resultat som ska returneras från och med indexet anges av den `offset` parametern.|String|Nej|   
 |<a name="localCategories" />localCategories|Lista med alternativ som definierar sökning efter kategori för företag.  Se [lokala företag kategorier Sök](local-categories.md)|String|Nej|  

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 7e37d8e732408e70dbcdc86d3e21556f553506cd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26306489b11e24ab50f0ae893f11137d279c6127
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768492"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719824"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows visar blå skärm fel när du startar en virtuell Azure-dator
 Den här artikeln beskriver blå skärm fel som kan uppstå när du startar en Windows virtuell dator (VM) i Microsoft Azure. Den innehåller steg som hjälper dig att samla in data för ett supportärende. 
@@ -56,7 +56,7 @@ För att lösa problemet behöver du först med att samla in dumpfilen för kras
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka in ett supportärende
 
 1. På den Virtuella återställningsdatorn, gå till windows-mappen i den anslutna OS-disken. Om den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F, måste du gå till F:\Windows.
-2. Leta upp th memory.dmp-fil, och sedan [skicka in ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen. 
+2. Hitta memory.dmp-filen och sedan [skicka in ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen. 
 
 Om du inte hittar dumpfilen, flytta nästa steg för att aktivera dump logg- och Seriekonsol.
 

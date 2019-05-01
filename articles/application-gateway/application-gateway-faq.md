@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 3c8a2fe9f4486fe4d33754b58f4e7ebec1b3252d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682960"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947073"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -119,7 +119,7 @@ Använd Traffic Manager för att distribuera trafik över flera programgatewayer
 
 ### <a name="does-application-gateway-support-autoscaling"></a>Application Gateway har stöd för automatisk skalning?
 
-Ja, v2-SKU: N för Application Gateway stöder automatisk skalning. Mer information finns i [automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+Ja, v2-SKU: N för Application Gateway stöder automatisk skalning. Mer information finns i [automatisk skalning och zonredundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Tillåter manuell skala eller ned orsak driftavbrott?
 
@@ -267,7 +267,7 @@ Application Gateway stöder upp till 10 autentiseringscertifikat. Standardvärde
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Application Gateway internt integrera med Azure Key Vault?
 
-Nej.
+Ja, stöder Application Gateway v2-SKU Key Vault. Mer information finns i [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Hur konfigurerar HTTPS-lyssnare för .com och .net platser? 
 

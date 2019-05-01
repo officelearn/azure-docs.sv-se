@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: bf62b4f8f8dbfc7df73102bb06e4f16c0fdb806c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097328"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873017"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
 
@@ -79,7 +79,7 @@ Apache Storm tillhandahåller flera komponenter för att arbeta med Apache Kafka
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Mappar från tuppeldatastrukturen som används inuti Storm-topologin till fält som lagras i Kafka.
 
 Dessa komponenter är tillgängliga i `org.apache.storm : storm-kafka`-paketet. Använd den paketversion som matchar Storm-versionen. För HDInsight 3.6 är Storm-versionen 1.1.0.
-Du måste också ha `org.apache.kafka : kafka_2.10`-paketet som innehåller ytterligare Kafka-komponenter. Använd den paketversion som matchar Kafka-versionen. För HDInsight 3.6 är Kafka-versionen 0.10.0.0.
+Du måste också ha `org.apache.kafka : kafka_2.10`-paketet som innehåller ytterligare Kafka-komponenter. Använd den paketversion som matchar Kafka-versionen. För HDInsight 3.6 är Kafka-version 1.1.1.
 
 Följande XML är beroendedeklarationen i `pom.xml` för ett [Apache Maven](https://maven.apache.org/)-projekt:
 
@@ -94,7 +94,7 @@ Följande XML är beroendedeklarationen i `pom.xml` för ett [Apache Maven](http
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>

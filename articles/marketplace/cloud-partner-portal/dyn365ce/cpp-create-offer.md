@@ -1,25 +1,18 @@
 ---
-title: Skapa en Dynamics 365 för kundengagemang programmet offer – Azure Marketplace | Microsoft Docs
+title: Skapa en Dynamics 365 för kundengagemang programmet erbjudande | Azure Marketplace
 description: Hur du skapar en ny Dynamics 365 för kundengagemang programmet erbjudandet på AppSource-marknadsplatsen.
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0138ea8dcbd780ca8aa87178dad41bdca1a72267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ebfef673102878e50f744081ec9b46fd4cd1796b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472774"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942697"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Skapa en Dynamics 365 för kundengagemang programmet erbjudande
 

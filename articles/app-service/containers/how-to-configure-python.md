@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: f8894132dae179be2d5d9d9b6887851be78d7746
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bbbe9629404733a76064d270480a0e162e2612b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60854904"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919878"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux-Python-app för Azure App Service
 
@@ -182,8 +182,6 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 - [Få åtkomst till loggström](#access-diagnostic-logs).
 
 ## <a name="next-steps"></a>Nästa steg
-
-Den inbyggda Python-avbildningen i App Service på Linux är nu i förhandsversion, och du kan anpassa kommandot används för att påbörja din app. Du kan även skapa Python-appar för produktion med en anpassad container istället.
 
 > [!div class="nextstepaction"]
 > [Självstudie: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)

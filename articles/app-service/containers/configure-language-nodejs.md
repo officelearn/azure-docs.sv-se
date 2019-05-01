@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850256"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919787"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Konfigurera en Linux-Node.js-app för Azure App Service
 
@@ -55,7 +55,7 @@ Den här inställningen anger Node.js-version du använder både vid körning oc
 
 ## <a name="configure-nodejs-server"></a>Konfigurera Node.js-server
 
-Node.js-behållare som medföljer [PM2](http://pm2.keymetrics.io/), en Processhanteraren för produktion. Du kan konfigurera din app för att starta PM2, eller med NPM eller med ett anpassat kommando.
+Node.js-behållare som medföljer [PM2](https://pm2.keymetrics.io/), en Processhanteraren för produktion. Du kan konfigurera din app för att starta PM2, eller med NPM eller med ett anpassat kommando.
 
 - [Kör kommando](#run-custom-command)
 - [Kör npm start](#run-npm-start)
@@ -99,12 +99,12 @@ Behållaren startas automatiskt din app med PM2 när något av de vanliga Node.j
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- Något av följande [PM2 filer](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* och *ecosystem.config.js*
+- Något av följande [PM2 filer](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* och *ecosystem.config.js*
 
 Du kan också konfigurera en anpassad start-fil med följande filtillägg:
 
 - En *.js* fil
-- En [PM2 filen](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) med tillägget *.json*, *. config.js*, *.yaml*, eller *.yml*
+- En [PM2 filen](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) med tillägget *.json*, *. config.js*, *.yaml*, eller *.yml*
 
 Om du vill lägga till en anpassad start-fil, kör du följande kommando den [Cloud Shell](https://shell.azure.com):
 
@@ -226,7 +226,7 @@ fi
 
 I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
 
-Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/), du kan använda [förtroende proxyservrar](http://expressjs.com/guide/behind-proxies.html). Exempel:
+Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/), du kan använda [förtroende proxyservrar](https://expressjs.com/guide/behind-proxies.html). Exempel:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -253,7 +253,7 @@ När en fungerande Node.js-app fungerar annorlunda i App Service eller innehåll
     - Beroende på din *package.json*, olika paket kan installeras för Produktionsläge (`dependencies` jämfört med `devDependencies`).
     - Vissa webbramverk kan distribuera statiska filer på olika sätt i Produktionsläge.
     - Vissa webbramverk kan använda anpassade startskript vid körning i Produktionsläge.
-- Kör din app i App Service i utvecklingsläge. Till exempel i [MEAN.js](http://meanjs.org/), du kan ställa in din app till utvecklingsläge under körning av [inställningen den `NODE_ENV` appinställningen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Kör din app i App Service i utvecklingsläge. Till exempel i [MEAN.js](https://meanjs.org/), du kan ställa in din app till utvecklingsläge under körning av [inställningen den `NODE_ENV` appinställningen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 

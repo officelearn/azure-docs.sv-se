@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: fc05c5c5917667d4bd9c869c9370ac952893ab26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456215"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924797"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
@@ -38,7 +38,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 ### <a name="new"></a>Ny
 
 * Du kan nu ändra ägare och ägande grupp vid hantering av åtkomst för en ADLS Gen2 behållare, fil eller mapp.
-* På Windows är uppdatering av Storage Explorer från inom produkten nu en inkrementell installation. Detta resulterar i en snabbare uppdatering-upplevelse. Om du föredrar en ren installation så du kan ladda ned den [installer](https://azure.microsoft.com/en-us/features/storage-explorer/) själv och sedan installera manuellt. #1089
+* På Windows är uppdatering av Storage Explorer från inom produkten nu en inkrementell installation. Detta resulterar i en snabbare uppdatering-upplevelse. Om du föredrar en ren installation så du kan ladda ned den [installer](https://azure.microsoft.com/features/storage-explorer/) själv och sedan installera manuellt. #1089
 
 ### <a name="preview-features"></a>Förhandsversionsfunktioner
 
@@ -59,7 +59,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du använder RBAC kräver Lagringsutforskaren vissa management layer-behörigheter för att komma åt dina lagringsresurser. Se den [felsökningsguide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) för mer information.
+* När du använder RBAC kräver Lagringsutforskaren vissa management layer-behörigheter för att komma åt dina lagringsresurser. Se den [felsökningsguide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) för mer information.
 * Försök att få åtkomst till ADLS Gen2 Blobar när datorn är bakom en proxyserver misslyckas.
 * Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
 * Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.

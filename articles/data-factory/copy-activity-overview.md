@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387798"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869571"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -54,7 +54,7 @@ Kopieringsaktivitet går igenom följande steg för att kopiera data från en k�
 
 Du kan använda Kopieringsaktivitet som **kopiera filer som – är** mellan två filbaserat datalager, där fallet data kopieras effektivt utan att någon serialisering/deserialisering.
 
-Kopieringsaktivitet har också stöd för att läsa från och skriva till filer i angivna format: **Text, JSON, Avro, ORC och Parquet**, och komprimera och decompresing filer med följande: **GZip, Deflate, BZip2 och ZipDeflate**. Se [stöds format och komprimering](supported-file-formats-and-compression-codecs.md) med information.
+Kopieringsaktivitet har också stöd för att läsa från och skriva till filer i angivna format: **Text, JSON, Avro, ORC och Parquet**, och komprimera och expandera filer med följande: **GZip, Deflate, BZip2 och ZipDeflate**. Se [stöds format och komprimering](supported-file-formats-and-compression-codecs.md) med information.
 
 Du kan exempelvis göra följande kopieringsaktiviteter:
 
@@ -74,7 +74,7 @@ Om du vill använda Kopieringsaktivitet i Azure Data Factory, måste du:
 
 1. **Skapa länkade tjänster för källans datalager och datalager för mottagare.** Se artikeln connector ”länkade tjänstegenskaper” avsnittet om hur du konfigurerar och egenskaper som stöds. Du hittar listan stöds connector i [datalager och format som stöds](#supported-data-stores-and-formats) avsnittet.
 2. **Skapa datauppsättningar för källa och mottagare.** Referera till källan och mottagare connector artiklarnas ”egenskaper för datamängd” avsnittet om hur du konfigurerar och egenskaper som stöds.
-3. **Skapa en pipeline med en Kopieringsaktivitet.** Nästa avsnitt innehåller ett exempel.  
+3. **Skapa en pipeline med en Kopieringsaktivitet.** Nästa avsnitt innehåller ett exempel.
 
 ### <a name="syntax"></a>Syntax
 
@@ -139,7 +139,7 @@ Följande mall med en Kopieringsaktivitet innehåller en fullständig förteckni
 | Translator | Ange explicita kolumnmappningarna från källa till mottagare. Gäller när kopia standardbeteendet inte uppfyller dina behov.<br/><br/>Få mer detaljerad information från [Schema och data typmappningen](copy-activity-schema-and-type-mapping.md). | Nej |
 | dataIntegrationUnits | Ange powerfulness av [Azure Integration Runtime](concepts-integration-runtime.md) möjligheter för kopiering av data. Kallades tidigare för molnet dmu-enheter (Data Movement här). <br/><br/>Få mer detaljerad information från [integrering enheter](copy-activity-performance.md#data-integration-units). | Nej |
 | parallelCopies | Ange parallellitet som du vill Kopieringsaktivitet ska användas vid läsning av data från käll- och skriva data till mottagare.<br/><br/>Få mer detaljerad information från [parallell kopiera](copy-activity-performance.md#parallel-copy). | Nej |
-| enableStaging<br/>stagingSettings | Välja att mellanlagra tillfälliga data i ditt blob storage i stället för direkt kopieringsdata från källa till mottagare.<br/><br/>Lär dig användbara scenarier och konfigurationsinformation från [mellanlagrad kopiering](copy-activity-performance.md#staged-copy). | Nej |
+| enableStaging<br/>stagingSettings | Välja att mellanlagra tillfälliga data i ett blob storage i stället för direkt kopieringsdata från källa till mottagare.<br/><br/>Lär dig användbara scenarier och konfigurationsinformation från [mellanlagrad kopiering](copy-activity-performance.md#staged-copy). | Nej |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Välj hur du kan hantera inkompatibla rader vid kopiering av data från källa till mottagare.<br/><br/>Få mer detaljerad information från [feltolerans](copy-activity-fault-tolerance.md). | Nej |
 
 ## <a name="monitoring"></a>Övervakning
@@ -148,7 +148,7 @@ Du kan övervaka kopieringsaktivitetskörningen på Azure Data Factory ”förfa
 
 ### <a name="monitor-visually"></a>Övervaka visuellt
 
-För att visuellt övervaka körningen av kopieringsaktiviteten, gå till din data factory -> **författare och Övervakare** -> **övervakningsfliken**, visas en lista över pipeline körs med en ”visa Aktivitetskörningar”-länk i  **Åtgärder** kolumn. 
+För att visuellt övervaka körningen av kopieringsaktiviteten, gå till din data factory -> **författare och Övervakare** -> **övervakningsfliken**, visas en lista över pipeline körs med en ”visa Aktivitetskörningar”-länk i  **Åtgärder** kolumn.
 
 ![Övervaka pipelinekörningar](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
@@ -156,7 +156,7 @@ Klicka om du vill se en lista över aktiviteter i denna pipeline-körning. I den
 
 ![Övervaka aktivitetskörningar](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Klicka på den ”**information**” länka **åtgärder** visa körningsinformation om Kopieringsaktivitet och prestandaegenskaper. Den visar information inklusive volym/rader/filer av data som kopieras från källan till mottagare, dataflöde, steg den går igenom med motsvarande tid och används av konfigurationer för ditt scenario kopia. 
+Klicka på den ”**information**” länka **åtgärder** visa körningsinformation om Kopieringsaktivitet och prestandaegenskaper. Den visar information inklusive volym/rader/filer av data som kopieras från källan till mottagare, dataflöde, steg den går igenom med motsvarande tid och används av konfigurationer för ditt scenario kopia.
 
 >[!TIP]
 >För vissa scenarier, du kan även se ”**prestandajustering tips**” ovanpå kopian övervakning som talar om flaskhalsen identifieras och hjälper dig på vad du kan ändra för att öka dataflödet kopia, se exempel med information [här](#performance-and-tuning).
@@ -241,12 +241,12 @@ I vissa fall när du kör en Kopieringsaktivitet i ADF, direkt ser du ”**prest
 
 **Exempel: kopiera i Azure SQL DB med tips för prestandajustering**
 
-I det här exemplet är vid kopiering kör ADF-meddelande som mottagaren Azure SQL DB når hög DTU-användningen som saktar ned skrivåtgärder, vilket förslaget att öka Azure SQL DB-nivån med högre DTU. 
+I det här exemplet är vid kopiering kör ADF-meddelande som mottagaren Azure SQL DB når hög DTU-användningen som saktar ned skrivåtgärder, vilket förslaget att öka Azure SQL DB-nivån med högre DTU.
 
 ![Kopiera övervakning med tips för prestandajustering](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>Inkrementell kopia 
-Data Factory stöder scenarier för att kopiera deltadata stegvis från ett källdatalager till ett måldatalager. Se [självstudie: kopiera data stegvis](tutorial-incremental-copy-overview.md). 
+## <a name="incremental-copy"></a>Inkrementell kopia
+Data Factory stöder scenarier för att kopiera deltadata stegvis från ett källdatalager till ett måldatalager. Se [självstudie: kopiera data stegvis](tutorial-incremental-copy-overview.md).
 
 ## <a name="read-and-write-partitioned-data"></a>Läsa och skriva partitionerade data
 I version 1 stöd för Azure Data Factory läsa eller skriva partitionerade data med hjälp av SliceStart/SliceEnd/WindowStart/WindowEnd systemvariabler. I den aktuella versionen kan du göra detta med hjälp av en pipeline-parameter och utlösarens schemalagd tid/starttid som ett värde för parametern. Mer information finns i [hur att läsa eller skriva partitionerade data](how-to-read-write-partitioned-data.md).

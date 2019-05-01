@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: bc946587cf54142278472652449db40096ca27b8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117222"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712324"
 ---
 # <a name="expressroute-qos-requirements"></a>QoS-krav för ExpressRoute
 Skype för företag har olika arbetsbelastningar som kräver särskild QoS-behandling. Om du tänker använda rösttjänster via ExpressRoute bör du följa kraven som beskrivs nedan.
@@ -25,9 +25,9 @@ Skype för företag har olika arbetsbelastningar som kräver särskild QoS-behan
 > 
 > 
 
-Följande tabell innehåller en lista över DSCP-markeringar som används av Skype för företag. Se [Hantera QoS för Skype för företag](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) för mer information.
+Följande tabell innehåller en lista över DSCP-markeringar som används av Microsoft Teams och Skype för företag. Se [Hantera QoS för Skype för företag](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) för mer information.
 
-| **Trafikklass** | **Behandling (DSCP-markering)** | **Arbetsbelastningar i Skype för företag** |
+| **Trafikklass** | **Behandling (DSCP-markering)** | **Microsoft Teams och Skype för företag-arbetsbelastningar** |
 | --- | --- | --- |
 | **Röst** |EF (46) |Skype-/Lync-röst |
 | **Interaktiv** |AF41 (34) |Video, VBSS |

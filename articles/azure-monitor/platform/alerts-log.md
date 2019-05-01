@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d893fb1023188498260813642678397a39bb2442
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006945"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872374"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor
 
@@ -312,7 +312,7 @@ Exempel-json ovan kan sparas som (exempelvis) sampleScheduledQueryRule.json i de
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor - schemalagda Frågeregler API] (https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
+Azure Monitor - [schemalagd fråge-API för regler](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
 
 
 > [!NOTE]
@@ -328,11 +328,13 @@ Bilden nedan användning via Azure Resource Manager-kommando i Azure CLI för ex
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
+```
 
-## Next steps
+Lyckade åtgärder 201 återgår till tillståndet skapandet av ny regel för varning eller 200 returneras om en befintlig varningsregel ändrades.
 
-* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
-* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
-* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-* Learn more about [log queries](../log-query/log-query-overview.md).
+## <a name="next-steps"></a>Nästa steg
+
+* Lär dig mer om [Loggaviseringar i Azure-aviseringar](../../azure-monitor/platform/alerts-unified-log.md)
+* Förstå [Webhook-åtgärder för loggaviseringar](../../azure-monitor/platform/alerts-log-webhook.md)
+* Läs mer om [Application Insights](../../azure-monitor/app/analytics.md)
+* Läs mer om [logga frågor](../log-query/log-query-overview.md).

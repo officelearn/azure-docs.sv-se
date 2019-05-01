@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454899"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918783"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planering för att utöka datasäkerhet via en stark identitetslösning
 Det första steget i att skydda data är att identifiera vem som kan komma åt dessa data. Du måste dessutom ha en identitetslösning som kan integreras med ditt system genom att tillhandahålla funktioner för autentisering och auktorisering. Autentisering och auktorisering förväxlas ofta med varandra och deras roller tror många. I verkligheten kan skiljer de sig, enligt bilden nedan:
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![livscykeln för mobila enheter](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Livscykelstadier för hantering av mobila enheter**
 
@@ -44,7 +44,7 @@ I mobility ålder, de flesta företag har ett gemensamt mål: användare få mö
 Det finns dock vissa säkerhetsaspekter som bör utforskas och verifierats, oavsett bransch.
 
 ## <a name="data-protection-paths"></a>Datasökvägar för skydd
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![Datasökvägar för skydd](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Datasökvägar för skydd**
 

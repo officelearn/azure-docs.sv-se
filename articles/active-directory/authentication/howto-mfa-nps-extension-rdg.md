@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44cd18be888b18e8b045114b420ddd48ec909e3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361035"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873429"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera fjärrskrivbordsgateway infrastruktur med Network Policy Server (NPS)-tillägget och Azure AD
 
@@ -37,7 +37,7 @@ Nätverksprinciper och Access Services (NPS) gör att organisationer kan du gör
 
 Organisationer använder vanligtvis NPS (RADIUS) att förenkla och centralisera hanteringen av VPN-principer. Men använda många organisationer även NPS för att förenkla och centralisera hanteringen av auktoriseringsprinciper för RD Desktop Connection (RD cap).
 
-Organisationer kan även integrera NPS med Azure MFA för att förbättra säkerheten och ge en hög nivå av efterlevnad. Detta säkerställer att användare upprättar tvåstegsverifiering att logga in på den Remote Desktop Gateway. De måste ange sina användarnamn och lösenordet tillsammans med information som användaren har i deras kontroll för användare som ska få åtkomstbehörighet. Den här informationen måste vara betrodd och inte enkelt dupliceras, till exempel ett mobiltelefonnummer, både fasta telefoner tal, program på en mobil enhet och så vidare. Mer information om autentiseringsmetoder som stöds finns i avsnittet [ta reda på vilka autentiseringsmetoder som användarna kan använda](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
+Organisationer kan även integrera NPS med Azure MFA för att förbättra säkerheten och ge en hög nivå av efterlevnad. Detta säkerställer att användare upprättar tvåstegsverifiering att logga in på den Remote Desktop Gateway. De måste ange sina användarnamn och lösenordet tillsammans med information som användaren har i deras kontroll för användare som ska få åtkomstbehörighet. Den här informationen måste vara betrodd och inte enkelt dupliceras, till exempel ett mobiltelefonnummer, både fasta telefoner tal, program på en mobil enhet och så vidare. RDG stöder för närvarande telefonsamtal och push-meddelanden från Microsoft authenticator-appen metoder för 2FA. Mer information om autentiseringsmetoder som stöds finns i avsnittet [ta reda på vilka autentiseringsmetoder som användarna kan använda](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
 Före tillgängligheten för NPS-tillägget för Azure behövde-kunder som vill implementera tvåstegsverifiering för integrerad NPS och Azure MFA-miljöer konfigurerar och underhåller en separat MFA-Server i en lokal miljö enligt beskrivningen i [ Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS](howto-mfaserver-nps-rdg.md).
 

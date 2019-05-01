@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979759"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728590"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric-nät
 
@@ -77,7 +77,9 @@ Exempel:
 
 Om du vill ta bort resursgruppen, använda den `az group delete <nameOfResourceGroup>` kommando.
 
-## <a name="supported-container-os-images"></a>Stöds behållaravbildningar OS
+## <a name="deployments"></a>Distributioner
+
+### <a name="what-container-images-are-supported"></a>Vilka behållaravbildningar stöds?
 
 Om du utvecklar på en dator med Windows Fall Creators Update (version 1709), kan du bara använda Windows-version 1709 docker-avbildningar.
 
@@ -90,6 +92,10 @@ Följande behållare OS-avbildningar kan användas för att distribuera tjänste
     - Windows Server version 1803
 - Linux
     - Inga kända begränsningar
+
+### <a name="what-types-of-applications-can-i-deploy"></a>Vilka typer av program kan jag distribuera? 
+
+Du kan distribuera allt som körs i behållare som passar för begränsningarna som placeras på en resurs för en (se ovan för mer information om kvoter). Om vi upptäcker att du använder nät för att köra otillåten arbetsbelastningar eller missbruk av systemet (d.v.s. utvinningsmodellen), sedan Vi förbehåller oss rätten att avbryta dina distributioner och på blockeringslistan prenumerationen från att köras på tjänsten. Kontakta oss om du har några frågor om hur du kör en viss arbetsbelastning. 
 
 ## <a name="developer-experience-issues"></a>Problem med Developer-upplevelse
 

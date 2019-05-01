@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537708"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922250"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH- och Azure Logic Apps
 
@@ -32,7 +32,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
 ## <a name="limits"></a>Limits
 
-* SFTP-SSH åtgärder kan läsa eller skriva filer som är *1 GB eller mindre* genom att hantera data som *50 MB delar*, inte 1 GB delar.
+* SFTP-SSH åtgärder kan läsa eller skriva filer som är *1 GB eller mindre* genom att hantera data som *15 MB delar*, inte 1 GB delar.
 
 * För filer *större än 1 GB*, åtgärder kan använda [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md). SFTP-SSH utlösare stöd inte för närvarande för storlekar.
 
@@ -44,7 +44,7 @@ Mer skillnader, granska [jämför SFTP-SSH jämfört med SFTP](#comparison) sena
 
 Här följer andra viktiga skillnader mellan den SFTP-SSH-anslutningen och SFTP-anslutningsappen där den SFTP-SSH-anslutningen har dessa funktioner:
 
-* Använder den <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> biblioteket, vilket är ett bibliotek med öppen källkod Secure Shell (SSH) som har stöd för .NET.
+* Använder den [SSH.NET biblioteket](https://github.com/sshnet/SSH.NET), vilket är ett bibliotek med öppen källkod Secure Shell (SSH) som har stöd för .NET.
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ Här följer andra viktiga skillnader mellan den SFTP-SSH-anslutningen och SFTP-
   > * **Krypteringsalgoritmer**: DES-EDE3-CBC, DES-EDE3-CFB DES-CBC, AES-128-CBC, CBC-AES-192 och AES-256-CBC
   > * **Fingeravtryck**: MD5
 
-* Åtgärder kan läsa eller skriva filer *upp till 1 GB* jämfört med SFTP-anslutningsappen, men hanterar data i 50 MB delar, inte 1 GB delar. För filer som är större än 1 GB, åtgärder kan också använda [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md). SFTP-SSH utlösare stöd inte för närvarande för storlekar.
+* Åtgärder kan läsa eller skriva filer *upp till 1 GB* jämfört med SFTP-anslutningsappen, men hanterar data i 15 MB delar, inte 1 GB delar. För filer som är större än 1 GB, åtgärder kan också använda [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md). SFTP-SSH utlösare stöd inte för närvarande för storlekar.
 
 * Innehåller den **skapa mapp** som skapar en mapp på den angivna sökvägen på SFTP-server.
 
@@ -136,7 +136,7 @@ SFTP-SSH utlösare fungerar genom att avsöka SFTP-filsystemet och söker efter 
 
 Om en ny fil upptäcks under en utlösare kan utlösaren söker du efter att den nya filen är komplett och inte delvis skriftliga. En fil kan till exempel ha ändringar pågår när utlösaren kontrollerar filservern. För att undvika att returnera en delvis skriftliga fil, noterar utlösaren tidsstämpel för den fil som har de senaste ändringarna, men inte direkt returnerar filen. Utlösaren returnerar filen bara när en avsökning görs servern igen. Det här beteendet kan ibland orsaka en fördröjning som upp till två gånger utlösarens avsökningsintervall. 
 
-När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+När du begär innehåll, hämta utlösare inte filer större än 15 MB. Följ det här mönstret för att hämta filer större än 15 MB: 
 
 * Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
 
@@ -152,7 +152,7 @@ Den här utlösaren startar en logikappens arbetsflöde när en fil läggs till 
 
 **Enterprise exempel**: Du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya filer som representerar kundorder. Du kan sedan använda en SFTP-åtgärd som **hämta filinnehåll** så att du hämta orderns innehåll för vidare bearbetning och lagra den ordningen i en order-databas.
 
-När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+När du begär innehåll, hämta utlösare inte filer större än 15 MB. Följ det här mönstret för att hämta filer större än 15 MB: 
 
 * Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
 
@@ -164,7 +164,7 @@ När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du v
 
 Den här åtgärden hämtar innehållet från en fil på en SFTP-server. Till exempel kan du lägga till utlösaren från föregående exempel och ett villkor som måste uppfylla dess innehåll. Om villkoret är sant, köra den åtgärd som hämtar innehållet. 
 
-När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+När du begär innehåll, hämta utlösare inte filer större än 15 MB. Följ det här mönstret för att hämta filer större än 15 MB: 
 
 * Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
 

@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894401"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64923009"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Stödmatris för säkerhetskopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -24,14 +24,14 @@ Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhets
 Azure Backup använder MARS-agenten för att säkerhetskopiera data från lokala datorer och virtuella Azure-datorer till säkerhetskopieringsvalvet i Azure Recovery Services. MARS-agenten kan:
 - Köra på den lokala Windows-datorer så att de kan säkerhetskopiera direkt till ett säkerhetskopieringsvalv i Azure Recovery Services.
 - Kör på virtuella Windows-datorer så att de kan säkerhetskopiera direkt till ett valv.
-- Kör på Microsoft Azure Backup Server (MABS) eller en server för System Center Data Protection Manager (DPM). I det här scenariot säkerhetskopiera datorer och arbetsbelastningar MABS eller DPM-server. MARS-agenten säkerhetskopierar sedan på den här servern till ett valv i Azure. 
+- Kör på Microsoft Azure Backup Server (MABS) eller en server för System Center Data Protection Manager (DPM). I det här scenariot säkerhetskopiera datorer och arbetsbelastningar MABS eller DPM-server. MARS-agenten säkerhetskopierar sedan på den här servern till ett valv i Azure.
 
 Alternativ för säkerhetskopiering beror på där agenten är installerad. Mer information finns i [Azure Backup-arkitektur med MARS-agenten](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Information om MABS och DPM backup-arkitekturen finns i [säkerhetskopiera till DPM- eller MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Se även [krav](backup-support-matrix-mabs-dpm.md) för arkitektur för säkerhetskopiering.
 
 **Installation** | **Detaljer**
 --- | ---
 Hämta den senaste MARS-agenten | Du kan hämta den senaste versionen av agenten från valvet eller [ladda ned den direkt](https://aka.ms/azurebackup_agent).
-Installera direkt på en dator | Du kan installera MARS-agenten direkt på en lokal Windows server eller på en Windows-dator som kör någon av de [operativsystem som stöds](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Installera direkt på en dator | Du kan installera MARS-agenten direkt på en lokal Windows server eller på en Windows-dator som kör någon av de [operativsystem som stöds](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Installera på en sekundär server | När du ställer in DPM- eller MABS att säkerhetskopiera till Azure, hämta och installera MARS-agenten på servern. Du kan installera agenten på [operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) i matrisen säkerhetskopieringsserver support.
 
 > [!NOTE]
@@ -45,8 +45,8 @@ När du använder MARS-agenten för säkerhetskopiering av data kan agenten tar 
 
 **Cache** | **Detaljer**
 --- | ---
-Storlek |  Ledigt utrymme i cachemappen bör vara minst 5 – 10 procent av den totala storleken på dina säkerhetskopierade data. 
-Plats | Cachemappen måste lagras lokalt på datorn som säkerhetskopieras och det måste vara online. Cachemappen får inte vara på en nätverksresurs, på flyttbara medier eller på en offline-volym. 
+Storlek |  Ledigt utrymme i cachemappen bör vara minst 5 – 10 procent av den totala storleken på dina säkerhetskopierade data.
+Location | Cachemappen måste lagras lokalt på datorn som säkerhetskopieras och det måste vara online. Cachemappen får inte vara på en nätverksresurs, på flyttbara medier eller på en offline-volym.
 Mapp | Cachemappen ska krypteras på en deduplicerad volym eller i en mapp som är komprimerade, som är gles eller som har en referenspunkt.
 Platsförändringar av | Du kan ändra placeringen i cachen genom att stoppa backup-motorn (`net stop bengine`) och kopierar cachelagringsmappen till en ny enhet. (Se till att den nya enheten har tillräckligt med utrymme.) Uppdatera sedan två registerposter under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** och **Config/CloudBackupProvider/ScratchLocation**) till den nya platsen och starta om motorn.
 
@@ -103,9 +103,9 @@ Windows 7   | 1,700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Filtyper som stöds för säkerhetskopiering
 
-**Typ** | **Support** 
---- | --- 
-Krypterade   | Stöds. 
+**Typ** | **Support**
+--- | ---
+Krypterade   | Stöds.
 Komprimerade | Stöds.
 Utspridda | Stöds.
 Komprimerade och sparse-filer | Stöds.
@@ -114,7 +114,7 @@ Referenspunkt   | Stöds ej. Hoppades över.
 Krypterade och utspridda |  Stöds ej. Hoppades över.
 Komprimerad dataström   | Stöds ej. Hoppades över.
 Utspridd ström   | Stöds ej. Hoppades över.
-OneDrive (synkroniserade filer är glesa strömmar)  | Stöds ej. 
+OneDrive (synkroniserade filer är glesa strömmar)  | Stöds ej.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>De enheter som stöds eller volymer för säkerhetskopiering
 

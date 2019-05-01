@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464499"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726625"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metodtips för autentisering och auktorisering i Azure Kubernetes Service (AKS)
 
@@ -108,7 +108,8 @@ I följande exempel skapar en utvecklare en pod som använder en hanterad identi
 1. En utvecklare distribuerar en pod med en hanterad identitet som begär en åtkomsttoken via NMI-servern.
 1. Token tillbaka till din pod och används för åtkomst till en Azure SQL Server-instans.
 
-Hanterade pod identiteter är ett öppenkällkodsprojekt i AKS och stöds inte av teknisk support för Azure. Den tillhandahålls för att samla in feedback och buggar från vår community. Projektet rekommenderas inte för användning i produktion.
+> [!NOTE]
+> Hanterade pod identiteter är ett projekt med öppen källkod och stöds inte av teknisk support för Azure.
 
 Om du vill använda pod identiteter, se [Azure Active Directory-identiteter för Kubernetes-program][aad-pod-identity].
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 04/07/2019
-ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: 187aa4b02e389c485b24ad7de256422d1880182b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759885"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872589"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Självstudier: Mata in data i Azure Data Explorer utan en enda kodrad
 
@@ -380,7 +380,7 @@ Nu behöver du skapa dataanslutningarna för diagnostikloggarna och aktivitetslo
     |---|---|---|
     | **Tabell** | *DiagnosticLogsRawRecords* | Den tabell som du skapade i databasen *TestDatabase*. |
     | **Dataformat** | *JSON* | Det format som används i tabellen. |
-    | **Kolumnmappning** | *DiagnosticLogsRecordsMapping* | Den mappning som du skapade i databasen *TestDatabase*, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i tabellen *DiagnosticLogsRecords*.|
+    | **Kolumnmappning** | *DiagnosticLogsRecordsMapping* | Mappningen som du skapade i den *TestDatabase* databasen, som mappar inkommande JSON-data till namn och datatyper i den *DiagnosticLogsRawRecords* tabell.|
     | | |
 
 1. Välj **Skapa**.  

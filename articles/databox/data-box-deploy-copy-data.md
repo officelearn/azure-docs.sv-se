@@ -1,5 +1,5 @@
 ---
-title: Kopiera data till Microsoft Azure Data Box via SMB | Microsoft Docs
+title: Självstudie för att kopiera data via SMB på Azure Data Box | Microsoft Docs
 description: Lär dig hur du kopierar data till Azure Data Box via SMB
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04f7710d95f5ce7a2b6195383c2737ff3b1fbf04
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466217"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925554"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Självstudier: Kopiera data till Azure Data Box via SMB
 
@@ -41,8 +41,8 @@ Innan du börjar ska du kontrollera att:
 
 Utifrån det lagringskontot som väljs skapar Data Box upp till:
 - Tre resurser för varje associerat lagringskonto för GPv1 och GPv2.
-- En resurs för premium storage. 
-- En resurs för blob storage-konto. 
+- En resurs för premium storage.
+- En resurs för blob storage-konto.
 
 Under blockblob- och sidblobresurser är entiteter på första nivån containrar och entiteter på andra nivån är blobar. Under resurser för Azure Files är entiteter på första nivån resurser och entiteter på andra nivån är filer.
 
@@ -91,7 +91,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
     **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
     
-Om du använder en Linux-klient använder du följande kommando för att montera SMB-resursen. Parametern ”vers” nedan är den version av SMB din Linux-värd stödjer. Inför lämplig version i kommandot nedan. Versioner av SMB som Data Box har stöd för finns i avsnittet om [filsystem som stöds för Linux-klienter](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+Om du använder en Linux-klient använder du följande kommando för att montera SMB-resursen. Parametern ”vers” nedan är den version av SMB din Linux-värd stödjer. Inför lämplig version i kommandot nedan. Versioner av SMB som Data Box har stöd för finns i avsnittet om [filsystem som stöds för Linux-klienter](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
     
@@ -132,7 +132,7 @@ När du har anslutit till SMB-resursen kan du påbörja en datakopiering. Du kan
 |/z    | Kopierar filer i omstartsläge, används om miljön är instabil. Det här alternativet minskar dataflödet på grund av ytterligare loggning.      |
 | /zb     | Använder omstartsläge. Om åtkomst nekas använder det här alternativet omstartsläge. Det här alternativet minskar dataflödet på grund av kontrollpunkter.         |
 |/efsraw     | Kopierar alla krypterade filer i EFS RAW-läge. Används bara med krypterade filer.         |
-|log+:<LogFile>| Lägger till utdata till den befintliga loggfilen.|    
+|LOG +:\<LogFile >| Lägger till utdata till den befintliga loggfilen.|    
  
 Följande exempel visar utdata från robocopy-kommandot för filkopiering till Data Box.
     

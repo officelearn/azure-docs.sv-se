@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: ae92a5c894b186a1c8b471c1b446a88299742aec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466383"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725653"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes Service (AKS)
 
@@ -53,10 +53,27 @@ Läs mer om hur du använder kured [tillämpa säkerhets- och kernel-uppdatering
 
 Varje AKS-distributionen omfattar två resursgrupper:
 
-- Första resursgrupp skapas av dig och innehåller endast tjänstresurs Kubernetes. AKS-resursprovidern skapar automatiskt den andra mallen under distributionen, till exempel *MC_myResourceGroup_myAKSCluster_eastus*.
+- Första resursgrupp skapas av dig och innehåller endast tjänstresurs Kubernetes. AKS-resursprovidern skapar automatiskt den andra mallen under distributionen, till exempel *MC_myResourceGroup_myAKSCluster_eastus*. Information om hur du kan ange namnet på den här andra resursgruppen finns i nästa avsnitt.
 - Den här andra resursgrupp, till exempel *MC_myResourceGroup_myAKSCluster_eastus*, innehåller alla de infrastrukturresurser som är kopplat till klustret. Dessa resurser inkluderar den Kubernetes noden virtuella datorer, virtuella nätverk och lagring. Den här separat resursgrupp skapas för att förenkla rensning av resurser.
 
 Om du skapar resurser som ska användas med AKS-klustret, till exempel lagringskonton eller reserverade offentliga IP-adresser kan du placera dem i resursgruppen skapas automatiskt.
+
+## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Kan jag ge mitt eget namn för resursgruppen för AKS infrastruktur?
+
+Ja. Som standard resursprovidern AKS automatiskt skapas en sekundär resursgrupp under distributionen, till exempel *MC_myResourceGroup_myAKSCluster_eastus*. För att uppfylla företagets policy kan du ange ditt eget namn för den här hanterade kluster (*MC_*) resursgrupp.
+
+Om du vill ange egna resursgruppens namn, installera den [förhandsversionen av aks] [ aks-preview-cli] versionen av Azure CLI-tillägget *0.3.2* eller senare. När du skapar ett AKS-kluster med den [az aks skapa] [ az-aks-create] kommandot, använda den *--noden resursgrupp* parametern och ange ett namn för resursgruppen. Om du [använder en Azure Resource Manager-mall] [ aks-rm-template] för att distribuera ett AKS-kluster, kan du definiera resource group namn med den *nodeResourceGroup* egenskapen.
+
+* Den här resursgruppen skapas automatiskt av Azure-resursprovidern i din egen prenumeration.
+* Du kan bara ange en anpassad resursgruppens namn när klustret har skapats.
+
+Följande scenarier stöds inte:
+
+* Du kan inte ange en befintlig resursgrupp för *MC_* grupp.
+* Du kan inte ange en annan prenumeration för den *MC_* resursgrupp.
+* Du kan inte ändra den *MC_* resursgruppens namn när klustret har skapats.
+* Du kan inte ange namn för de hantera resurserna inom den *MC_* resursgrupp.
+* Du kan inte ändra eller ta bort taggar hanterade resurser inom den *MC_* resursgrupp (se ytterligare information i nästa avsnitt).
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Kan jag ändra taggar och andra egenskaper för AKS-resurser i resursgruppen MC_ *?
 
@@ -100,6 +117,9 @@ I ett servicenivåavtal (SLA) samtycker providern till att ersätta kunden för 
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
 
@@ -108,4 +128,3 @@ I ett servicenivåavtal (SLA) samtycker providern till att ersätta kunden för 
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
-

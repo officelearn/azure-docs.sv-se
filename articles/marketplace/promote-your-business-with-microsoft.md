@@ -1,27 +1,22 @@
 ---
-title: Marknadsföra ditt företag med Microsoft | Azure
+title: Marknadsföra ditt företag med Microsoft | Azure Marketplace
 description: Flytta upp din verksamhet med hjälp av Azure Marketplace och AppSource för appen och tjänsten utgivare
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735892"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937655"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Marknadsföra ditt företag med Microsoft  
+# <a name="promote-your-business-with-microsoft"></a>Marknadsföra ditt företag med Microsoft 
+
 Microsoft har målet för partner (du) och för att förenkla den sälja din app eller erbjuda i butiker på marketplace. Genom att lista på marketplace, du har åtkomst till program och resurser på marketplace. 
 
 Om du redan inte har loggat till Microsoft Partner Network (MPN), sedan göra det innan du fortsätter.  

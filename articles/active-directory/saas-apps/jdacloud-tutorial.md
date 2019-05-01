@@ -4,57 +4,48 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 06af825f-79ec-4de9-8851-c79d65d1e586
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/31/2018
+ms.topic: tutorial
+ms.date: 03/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f2dfaf281130115ff04ff84b413e224f54cfcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 36ac284bdf14272e7dbfd16c303d5357f216ecba
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60268386"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917548"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Självstudier: Azure Active Directory-integrering med JDA molnet
 
 I den här självstudien får du lära dig hur du integrerar JDA molnet med Azure Active Directory (AD Azure).
-
 Integrera JDA molnet med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till JDA moln.
-- Du kan aktivera användarna att automatiskt få loggat in på JDA Cloud (enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till JDA moln.
+* Du kan aktivera användarna att vara automatiskt inloggad till JDA moln (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med JDA molnet, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En JDA enkel inloggning aktiverat molnprenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* JDA molnet enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Att lägga till JDA molnet från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* Stöds av molnet JDA **SP och IDP** -initierad SSO
 
 ## <a name="adding-jda-cloud-from-the-gallery"></a>Att lägga till JDA molnet från galleriet
 
@@ -62,169 +53,154 @@ Om du vill konfigurera integreringen av JDA moln till Azure AD, som du behöver 
 
 **Utför följande steg för att lägga till JDA molnet från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
 4. I sökrutan skriver **JDA molnet**väljer **JDA molnet** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![JDA molnet i resultatlistan](./media/jdacloud-tutorial/tutorial_jdacloud_addfromgallery.png)
+    ![JDA molnet i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med JDA molnet baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i JDA molnet är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i JDA molnet upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med JDA molnet baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i JDA molnet upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med JDA moln, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare JDA molnet](#create-a-jda-cloud-test-user)**  – du har en motsvarighet för Britta Simon i JDA moln som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för JDA-molnet](#configure-jda-cloud-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa JDA molnet testanvändare](#create-jda-cloud-test-user)**  – du har en motsvarighet för Britta Simon i JDA moln som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt JDA molnprogram.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med JDA molnet:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med JDA molnet:
 
-1. I Azure-portalen på den **JDA molnet** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **JDA molnet** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Enkel inloggning för dialogrutan](./media/jdacloud-tutorial/tutorial_jdacloud_samlbase.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På den **JDA molnet domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![JDA molnet domän och URL: er med enkel inloggning för information](./media/jdacloud-tutorial/tutorial_jdacloud_url1.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<SUBDOMAIN>.jdadelivers.com`
+4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+
+    ![JDA molnet domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.jdadelivers.com`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.jdadelivers.com/sp/ACS.saml2`
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![JDA molnet domän och URL: er med enkel inloggning för information](./media/jdacloud-tutorial/tutorial_jdacloud_url2.png)
+    ![JDA molnet domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://ssonp-dl2.jdadelivers.com/sp/startSSO.ping?PartnerIdpId=<SAML Entity ID>`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://ssonp-dl2.jdadelivers.com/sp/startSSO.ping?PartnerIdpId=<Azure AD Identifier>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du får den **SAML entitets-ID** värdet från den **Snabbreferens avsnittet** i den **JDA Molnkonfigurationen** avsnittet. Kontakta [JDA Cloud klienten supportteamet](https://support.jda.com/) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du får den **Azure AD-identifierare** värdet från den **konfigurera JDA** avsnittet. Kontakta [JDA Cloud klienten supportteamet](https://support.jda.com/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](./media/jdacloud-tutorial/tutorial_jdacloud_certificate.png) 
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Klicka på **spara** knappen.
+7. På den **konfigurera JDA** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/jdacloud-tutorial/tutorial_general_400.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-7. På den **JDA Molnkonfigurationen** klickar du på **konfigurera JDA molnet** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet**.
+    a. Inloggnings-URL
 
-    ![Konfigurera enkel inloggning](./media/jdacloud-tutorial/tutorial_jdacloud_configure.png)
+    b. Azure AD-identifierare
 
-8. Att konfigurera enkel inloggning på **JDA molnet** sida, som du behöver skicka de hämtade **XML-Metadata för** till [JDA molnet supportteamet](https://support.jda.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    c. Utloggnings-URL
+
+### <a name="configure-jda-cloud-single-sign-on"></a>Configure JDA Cloud Single Sign-On
+
+Att konfigurera enkel inloggning på **JDA molnet** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [JDA Cloud-supportteamet](https://support.jda.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/jdacloud-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/jdacloud-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/jdacloud-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/jdacloud-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
-
-### <a name="create-a-jda-cloud-test-user"></a>Skapa en testanvändare JDA molnet
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i JDA molnet. Arbeta med [JDA molnet supportteamet](https://support.jda.com/) att lägga till användare i JDA molnplattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till JDA moln.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **JDA molnet**.
 
-**Om du vill tilldela Britta Simon JDA molnet, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **JDA molnet**.
 
-    ![Länken JDA molnet i listan med program](./media/jdacloud-tutorial/tutorial_jdacloud_app.png)  
+    ![Länken JDA molnet i listan med program](common/all-applications.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-jda-cloud-test-user"></a>Skapa JDA molnet testanvändare
+
+I det här avsnittet skapar du en användare som kallas Britta Simon i JDA molnet. Arbeta med [JDA molnet supportteamet](https://support.jda.com/) att lägga till användare i JDA molnplattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen JDA molnet i åtkomstpanelen du bör få automatiskt loggat in på ditt JDA molnprogram.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen JDA molnet i åtkomstpanelen, bör det vara loggas in automatiskt till JDA molnet som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/jdacloud-tutorial/tutorial_general_01.png
-[2]: ./media/jdacloud-tutorial/tutorial_general_02.png
-[3]: ./media/jdacloud-tutorial/tutorial_general_03.png
-[4]: ./media/jdacloud-tutorial/tutorial_general_04.png
-
-[100]: ./media/jdacloud-tutorial/tutorial_general_100.png
-
-[200]: ./media/jdacloud-tutorial/tutorial_general_200.png
-[201]: ./media/jdacloud-tutorial/tutorial_general_201.png
-[202]: ./media/jdacloud-tutorial/tutorial_general_202.png
-[203]: ./media/jdacloud-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

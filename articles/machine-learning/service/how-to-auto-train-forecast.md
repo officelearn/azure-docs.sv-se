@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d79154a8792b9017b98f9d21a2ab0360b7304d1c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820040"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697861"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk – träna en prognosmodell med tidsserie
 
@@ -67,7 +67,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > När träna en modell för prognostisering framtida värden, kan du kontrollera att alla funktioner som används i utbildning kan användas när du kör förutsägelser för dina avsedda vyer. Till exempel när du skapar en Skapa prognoser för efterfrågan, kunde inklusive en funktion för aktuella aktiekursen massivt öka utbildning precision. Om du planerar att skapa prognoser för med en lång horizon, kan du inte kunna korrekt förutse framtida lagerartiklar värden som motsvarar framtida tidpunkter för time series- och modellens Precision kan påverkas.
 
-## <a name="configure-experiment"></a>Konfigurera experiment
+## <a name="configure-and-run-experiment"></a>Konfigurera och köra experiment
 
 För prognostisering uppgifter använder automatiska maskininlärning förbearbetning och uppskattning steg som är specifika för time series-data. I följande förbearbetning körs:
 
@@ -126,6 +126,20 @@ best_run, fitted_model = local_run.get_output()
 > [!NOTE]
 > Korsvalidering (KA) anvisningar finns time series-data kan bryta mot grundläggande statistisk antaganden av canonical K-vikning korsvalidering strategi så automatiserade machine learning implementerar en löpande ursprung verifiering proceduren för att skapa korsvalidering vikningar för time series-data. Om du vill använda den här proceduren, ange den `n_cross_validations` parametern i den `AutoMLConfig` objekt. Du kan kringgå verifiering och Använd din egen verifiering uppsättningar med den `X_valid` och `y_valid` parametrar.
 
+### <a name="view-feature-engineering-summary"></a>Visa funktionen engineering sammanfattning
+
+Du kan visa information från funktionen tekniska processen för time series-aktivitetstyper i automatiserade machine learning. Följande kod visar varje raw funktion tillsammans med följande attribut:
+
+* Rå funktionsnamnet
+* Antal bakåtkompilerade funktioner som skapats utanför den här raw funktionen
+* Typen som har identifierats
+* Om funktionen har tagits bort
+* Lista över funktionen transformationer för raw-funktionen
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## <a name="forecasting-with-best-model"></a>Prognostisering med bästa modellen
 
 Använd den bästa modell iterationen framtida värden för test-datauppsättning.
@@ -133,6 +147,16 @@ Använd den bästa modell iterationen framtida värden för test-datauppsättnin
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+Du kan också använda den `forecast()` i stället för `predict()`, så att specifikationer av när förutsägelser ska starta. I följande exempel ersätter du först alla värden i `y_pred` med `NaN`. Prognoser ursprunget blir i slutet av träningsdata i det här fallet eftersom det skulle vara när du använder normalt `predict()`. Men om du har ersatt den andra halvan av `y_pred` med `NaN`, funktionen skulle innebära de numeriska värdena i den första halvan oförändrade men prognoser den `NaN` värden i den andra halvan. Funktionen returnerar både förväntade värden och justerade funktioner.
+
+Du kan också använda den `forecast_destination` parametern i den `forecast()` funktionen framtida värden fram till ett visst datum.
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 Beräkna RMSE (rot medelvärdet cirkels fel) mellan den `y_test` faktiska värden och förväntade värden i `y_pred`.

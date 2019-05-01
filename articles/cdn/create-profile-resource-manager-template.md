@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323962"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922398"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Snabbstart: Skapa en Azure CDN-profilen och slutpunkten med hjälp av Resource Manager-mall
 
@@ -51,7 +51,7 @@ az group create --name cdn --location eastus
 
 I det här steget skapar du en mallfil som distribuerar resurserna.
 
-Det här exemplet går igenom ett scenario med allmänna webbplats Acceleration, finns men det många andra inställningar som kan konfigureras. Dessa inställningar är tillgängliga i mallreferensen för Azure Resource Manager. Se referenser för [CDN-profil](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) och [CDN-Slutpunktsprofilen](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+Det här exemplet går igenom ett scenario med allmänna webbplats Acceleration, finns men det många andra inställningar som kan konfigureras. Dessa inställningar är tillgängliga i mallreferensen för Azure Resource Manager. Se referenser för [CDN-profil](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) och [CDN-Slutpunktsprofilen](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
 Observera att Microsoft CDN inte stöder ändra listan.
 
@@ -224,8 +224,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>Referenser
 
-* CDN-profil - [mallreferensen för Azure Resource Manager](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* CDN-slutpunkt - [mallreferensen för Azure Resource Manager-dokumentation](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* CDN-profil - [mallreferensen för Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* CDN-slutpunkt - [mallreferensen för Azure Resource Manager-dokumentation](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>Nästa steg
 

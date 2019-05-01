@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0236050ffcf7ad1d18ff3a8a763d0469d91eeeb5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505435"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919896"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Snabbstart: Aktivera tjänsten i IoT Hub
 
@@ -39,6 +39,7 @@ Den här artikeln innehåller en förklaring på hur du aktiverar Azure Security
   - Två typer av information lagras som standard i Log Analytics-arbetsytan av ASC för IoT; **säkerhetsaviseringar** och **rekommendationer**. 
   - Du kan välja att lägga till lagring av en typ för ytterligare information, **råhändelser**. Observera att lagra **råhändelser** innebär ytterligare lagringskostnader i Log Analytics. 
 - IoT Hub (standard-nivån eller senare)
+- Uppfyller alla [prerequities-tjänst](service-prerequisites.md) 
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>Aktivera ASC för IoT i din IoT-hubb 
 
@@ -50,8 +51,7 @@ Om du vill aktivera säkerheten på din IoT-hubb, gör du följande:
 4. Ange information om din Log Analytics-arbetsytan. 
    - Välja att lagra **råhändelser** utöver typerna av information för lagring genom att låta den **raw händelse** växla **på**. 
    - Välja att aktivera **twin samling** genom att låta den **twin samling** växla **på**. 
-5. Klicka på **OK**. 
-6. Klicka på **Spara**. 
+5. Klicka på **Spara**. 
 
 Grattis! Du har slutfört att aktivera ASC för IoT i din IoT-hubb. 
 

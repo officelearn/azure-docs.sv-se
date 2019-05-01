@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en app för åtkomst till webb-API:er (förhandsversion) | Azure
+title: 'Konfigurera ett program att ha åtkomst till webb-API: er – Microsoft identity-plattformen'
 description: Lär dig hur du konfigurerar en app som har registrerats på Microsoft Identity Platform att inkludera omdirigerings-URI, autentiseringsuppgifter eller behörigheter för åtkomst till webb-API:er.
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e88cedfd098f450e8faeea894f7fdfc796cf17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e5adafc251735fd25b819921514bf6d1d3c3955
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443606"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918871"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Snabbstart: Konfigurera ett klientprogram för åtkomst till webb-API:er (förhandsversion)
+# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabbstart: Konfigurera ett klientprogram för att komma åt webb-API:er
 
 För att ett webbklientprogram eller ett konfidentiellt webbprogram ska kunna delta i ett flöde för auktoriseringsbeviljande (och hämta en åtkomsttoken) måste det kunna etablera säkra autentiseringsuppgifter. Standardmetoden för autentisering som stöds av Azure-portalen är klient-ID + hemlig nyckel.
 
@@ -61,7 +61,7 @@ Innan du kan konfigurera appen gör du följande:
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Följ stegen för att konfigurera appen för åtkomst till webb-API:er: 
     * [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
-    * [Lägga till autentiseringsuppgifter i webbappen](#add-credentials-to-your-web-application)
+    * [Lägg till autentiseringsuppgifter i ditt webbprogram](#add-credentials-to-your-web-application)
     * [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
 
 ## <a name="add-redirect-uris-to-your-application"></a>Lägga till omdirigerings-URI:er för appen

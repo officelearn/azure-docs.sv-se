@@ -1,25 +1,18 @@
 ---
-title: Visa status för Marketplace - erbjudanden, Azure Marketplace | Microsoft Docs
+title: Visa status för marketplace-erbjudanden | Azure Marketplace
 description: Visa status för erbjudanden på Azure och AppSource marknadsplatser med partnerportalen i molnet
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pbutlerm
-ms.openlocfilehash: bdec2d699e8448c8e2303dfbabcb4d176a9ca389
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: b8113552edf9dd2f886b5752b2ebc69afc0fda08
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729785"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942420"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Visa publiceringsstatus för Azure Marketplace och AppSource erbjudanden
 

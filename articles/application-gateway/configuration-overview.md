@@ -2,17 +2,17 @@
 title: Azure Application Gateway configuration-översikt
 description: Den här artikeln beskriver hur du konfigurerar komponenterna i Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998914"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946814"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway-konfiguration
 
@@ -71,7 +71,7 @@ Använd NSG: er på Application Gateway-undernät i det här scenariot. Placera 
 
 V1-SKU stöds användardefinierade vägar (Udr) för i Application Gateway-undernät, så länge de inte ändrar slutpunkt till slutpunkt begäran/svar-kommunikation. Du kan till exempel skapa en UDR i Application Gateway-undernät för att peka mot en brandväggsinstallation för paketinspektion. Men du måste kontrollera att paketet kan nå sin destination efter granskning. I annat fall kan leda till felaktig hälsoavsökning eller beteende för routning av nätverkstrafik. Detta inkluderar inlärda eller standardvägar för 0.0.0.0/0 som sprids via Azure ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
 
-Udr: er stöds inte på Application Gateway-undernät för v2-SKU. Mer information finns i [automatisk skalning och zonredundans för Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+Udr: er stöds inte på Application Gateway-undernät för v2-SKU. Mer information finns i [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
 > Udr: er i Application Gateway-undernät orsakar hälsostatus i den [backend-hälsotillstånd visa](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) ska visas som ”okänt”. Det gör även generation av Application Gateway-loggar och mått misslyckas. Vi rekommenderar att du inte använder udr: er på Application Gateway-undernät så att du kan visa backend-hälsotillstånd, loggar och mått.
@@ -84,7 +84,7 @@ En offentlig IP-adress krävs inte för en intern slutpunkt som inte exponeras t
 
 Endast 1 offentlig IP-adress eller 1 privat IP-adress stöds. Du kan välja frontend IP-Adressen när du skapar programgatewayen.
 
-- Du kan skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP på samma plats som application gateway för en offentlig IP-adress. Om du skapar en ny offentlig IP-adress i IP-adresstyp som du väljer (statisk eller dynamisk) kan inte ändras senare. Mer information finns i [Statiska eller dynamiska offentliga IP-adressen](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Du kan skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP på samma plats som application gateway för en offentlig IP-adress. Om du skapar en ny offentlig IP-adress i IP-adresstyp som du väljer (statisk eller dynamisk) kan inte ändras senare. Mer information finns i [Statiska eller dynamiska offentliga IP-adressen](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - Du kan ange en privat IP-adress från det undernät där programgatewayen skapas för en privat IP-adress. Om du inte anger något, väljs en skadlig IP-adress automatiskt från undernätet. Mer information finns i [skapa en Programgateway med en intern belastningsutjämnare](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 

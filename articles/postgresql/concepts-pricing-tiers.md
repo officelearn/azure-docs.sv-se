@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559865"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712364"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database för PostgreSQL prisnivåer
 
@@ -41,31 +41,25 @@ När du har skapat en server, antalet virtuella kärnor, skapande av maskinvara 
 
 Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU som den underliggande maskinvaran. För närvarande kan du välja mellan två beräkningsgenereringar Gen 4 och 5 för Gen. Gen 4 logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer. Gen 5 logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2.3 GHz-processorer. Gen 4 och 5 Gen finns i följande regioner (”X” anger tillgängliga). 
 
-> [!IMPORTANT]
-> Från och 12 December 2018 kommer nya kunder inte att kunna etablera compute generation 4 servrar i södra Brasilien, centrala Kanada, Östra Kanada, östra Asien, östra USA 2, centrala Indien, västra Indien, västra Japan, norra centrala USA, västra USA. Tidigare skapade compute generation 4 servrar kommer att migreras till beräknings-generation 5 med början den 1 februari 2019 i dessa regioner.
->
-> [!IMPORTANT]
-> Från och den 19 februari 2019 kommer nya kunder inte att kunna etablera compute generation 4 servrar i centrala USA, östra USA, östra Japan, Norra Europa, USA, södra centrala, Asien, sydöstra, Europa, västra. Tidigare skapade compute generation 4 servrar kommer att migreras till beräknings-generation 5 med början den 1 April 2019 i dessa regioner.
-
 | **Azure-region** | **Generation 4** | **5: e generationen** |
 |:---|:----------:|:--------------------:|
 | Centrala USA |  | X |
 | Östra USA |  | X |
 | USA, östra 2 |  | X |
 | Norra centrala USA |  | X |
-| Södra centrala USA | X | X |
+| Södra centrala USA |  | X |
 | Västra USA |  | X |
 | Västra USA 2 |  | X |
 | Södra Brasilien |  | X |
 | Centrala Kanada |  | X |
 | Östra Kanada |  | X |
-| Norra Europa | X | X |
+| Norra Europa |  | X |
 | Västra Europa |  | X |
 | Frankrike, centrala |  | X |
 | Storbritannien, södra |  | X |
 | Storbritannien, västra |  | X |
 | Östasien |  | X |
-| Sydostasien | X | X |
+| Sydostasien |  | X |
 | Östra Australien |  | X |
 | Australien, centrala |  | X |
 | Australien, centrala 2 |  | X |
@@ -73,7 +67,7 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 | Indien, centrala |  | X |
 | Södra Indien |  | X |
 | Indien, västra |  | X |
-| Östra Japan | X | X |
+| Östra Japan |  | X |
 | Västra Japan |  | X |
 | Sydkorea, centrala |  | X |
 | Sydkorea, södra |  | X |

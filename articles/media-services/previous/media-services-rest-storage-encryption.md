@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a26388de85ff6293985fe23adac8ca4d04d0de61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 30ac6a94142c9b9d987fb3fd32b3483cc6dc130c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60952276"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867597"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Kryptera ditt innehåll med lagringskryptering 
+
+> [!NOTE]
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).   > Inga nya funktioner eller funktioner läggs till Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+>   
 
 Vi rekommenderar starkt att kryptera innehållet lokalt med hjälp av AES-256-bitarskryptering och överföra den till Azure Storage var den lagras krypterat i vila.
 

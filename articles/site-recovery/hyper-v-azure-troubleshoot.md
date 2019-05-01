@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8bb790571e1499bd45fb8bee27f4f1896046cbc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749108"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719810"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure replikering och redundans
 
@@ -129,7 +129,7 @@ En appkompatibel ögonblicksbild är en point-in-time-ögonblicksbild av program
 
 2. Kontrollera att Hyper-V-integreringstjänsterna är installerade på den virtuella datorn och att säkerhetskopiering (VSS) Integration-tjänsten är aktiverad för att generera VSS-ögonblicksbilder för den virtuella datorn.
     - Se till att Integration Services VSS-tjänsten/Daemon körs på gästen och finns i en **OK** tillstånd.
-    - Du kan kontrollera detta från en upphöjd PowerShell-session på Hyper-V-värden med kommandot **et-VMIntegrationService - VMName<VMName>-namnet VSS** du kan också få den här informationen genom att logga in den Virtuella gästdatorn. [Läs mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Du kan kontrollera detta från en upphöjd PowerShell-session på Hyper-V-värden med kommandot **et-VMIntegrationService - VMName\<VMName >-namnet VSS** du kan också få den här informationen genom att logga in den Virtuella gästdatorn. [Läs mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Se till att säkerhetskopiering/VSS-integreringstjänsterna på den virtuella datorn körs och är i felfritt tillstånd. Annars kan du starta om tjänsterna och Hyper-V Volume Shadow Copy-tjänsten för begärande på Hyper-V-värdservern.
 
 ### <a name="common-errors"></a>Vanliga fel

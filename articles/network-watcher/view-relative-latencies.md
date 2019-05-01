@@ -3,8 +3,8 @@ title: Visa relativa fördröjning till Azure-regioner från specifika platser |
 description: Lär dig mer om att visa relativa fördröjning mellan Internetleverantörer till Azure-regioner från specifika platser.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792426"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939882"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Visa relativ svarstid till Azure-regioner från specifika platser
 
@@ -60,7 +60,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> Den region som du anger i det föregående kommandot behöver inte vara samma som den region som du angav när du hämtade nätverksbevakaren. Föregående kommando kräver bara att ange en befintlig nätverksbevakaren. Nätverksbevakaren kan finnas i alla regioner. Om du anger värden för `-Country` och `-State`, de måste vara giltig. Värdena är skiftlägeskänsliga. Data är tillgängliga för ett begränsat antal länder, stater och städer. Kör kommandon [visa tillgängliga länder, stater, städer och providers](#view-available) att visa en lista över tillgängliga länder/regioner, orter och delstater för att använda med det föregående kommandot. 
+> Den region som du anger i det föregående kommandot behöver inte vara samma som den region som du angav när du hämtade nätverksbevakaren. Föregående kommando kräver bara att ange en befintlig nätverksbevakaren. Nätverksbevakaren kan finnas i alla regioner. Om du anger värden för `-Country` och `-State`, de måste vara giltig. Värdena är skiftlägeskänsliga. Data är tillgängliga för ett begränsat antal länder/regioner, tillstånd och städer. Kör kommandon [visa tillgängliga länder/regioner, stater, städer och providers](#view-available) att visa en lista över tillgängliga länder/regioner, orter och delstater för att använda med det föregående kommandot. 
 
 > [!WARNING]
 > Du måste ange ett datum inom de senaste 30 dagarna för `-StartTime` och `-EndTime`. Tidigare datum resulterar i att inga data returnerades.
@@ -125,15 +125,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > Till skillnad från måste när du anger en enda plats, om du inte ange en plats eller ange flera platser, till exempel ”västra 2”, ”West US”, du ange en Internet-leverantör när du kör kommandot. 
 
-## <a name="view-available"></a>Visa tillgängliga länder, stater, städer och providers
+## <a name="view-available"></a>Visa tillgängliga länder/regioner, stater, städer och leverantörer
 
-Data är tillgängliga för specifika Internetleverantörer, länder, stater och städer. Om du vill visa en lista över alla tillgängliga Internetleverantörer länder, stater och städer, som du kan visa data för, kan du ange följande kommando:
+Data är tillgängliga för specifika Internetleverantörer, länder/regioner, tillstånd och städer. Om du vill visa en lista över alla tillgängliga Internet-leverantörer, länder/regioner, tillstånd och städer, som du kan visa data för, kan du ange följande kommando:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Data är endast tillgängliga för länder, stater och städer som returneras av det föregående kommandot. Föregående kommando måste du ange en befintlig nätverksbevakaren. I exemplet som anges i *NetworkWatcher_eastus* network watcher i en resursgrupp med namnet *NetworkWatcherRG*, men du kan ange eventuella befintliga nätverksbevakaren. Om du inte har en befintlig nätverksbevakaren kan skapa en när du har slutfört uppgifterna i [skapa en network watcher](#create-a-network-watcher). 
+Data är endast tillgängliga för länder/regioner, tillstånd och städer som returneras av det föregående kommandot. Föregående kommando måste du ange en befintlig nätverksbevakaren. I exemplet som anges i *NetworkWatcher_eastus* network watcher i en resursgrupp med namnet *NetworkWatcherRG*, men du kan ange eventuella befintliga nätverksbevakaren. Om du inte har en befintlig nätverksbevakaren kan skapa en när du har slutfört uppgifterna i [skapa en network watcher](#create-a-network-watcher). 
 
 När det föregående kommandot har körts kan du filtrera utdata som returneras genom att ange giltiga värden för **land**, **tillstånd**, och **Stad**om det behövs.  Exempel: Om du vill visa listan över Internetleverantörer som är tillgängliga i Seattle, Washington i USA, anger du följande kommando:
 

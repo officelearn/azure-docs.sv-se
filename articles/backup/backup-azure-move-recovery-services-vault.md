@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699837"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876837"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services-valv i Azure-prenumerationer och resursgrupper
 
@@ -21,7 +21,7 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services-valv som konfi
 
 ## <a name="supported-region"></a>Region som stöds
 
-För att flytta resursen för Recovery Services-valv stöds i Östra Australien, östra södra, Kanada, centrala, Kanada, östra, Sydostasien, Östasien, centrala USA, norra centrala USA, östra USA, östra usa2, södra centrala USA, västra centrala USA, västra centrala USA östra 2, västra USA Centrala Indien, södra Indien, Japan, östra, Japan, västra, Korea, centrala Korea, södra, Nordeuropa, Västeuropa, Sydafrika, norra, Sydafrika, västra, Storbritannien, södra, Storbritannien, västra, Förenade Arabemiraten, centrala och Förenade Arabemiraten, norra.
+För att flytta resursen för Recovery Services-valv stöds i Östra Australien, östra södra, Kanada, centrala, Kanada, östra, Sydostasien, Östasien, centrala USA, norra centrala USA, östra USA, östra usa2, södra centrala USA, västra centrala USA, västra centrala USA östra 2, västra USA Centrala Indien, södra Indien, Japan, östra, Japan, västra, Korea, centrala Korea, södra, Nordeuropa, Västeuropa, Sydafrika, norra, Sydafrika, västra, Storbritannien, södra och Storbritannien, västra.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Förutsättningar för att flytta Recovery Services-valv
 

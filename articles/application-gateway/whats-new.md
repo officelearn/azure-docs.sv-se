@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 4/1/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: f686c8ac53db2d128cf5bb20f252c547348e5ac7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdf2a1a730be657b41c7a4b2daf2f178661394b4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360906"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947113"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Vad är nytt i Azure Application Gateway?
 
@@ -27,16 +27,14 @@ Azure Application Gateway uppdateras kontinuerligt. Om du vill hålla dig uppdat
 
 |Funktion  |Beskrivning  |Tilläggsdatum  |
 |---------|---------|---------|
+|Automatisk skalning och redundans, statiska VIP stöd GA |Allmän tillgänglighet för v2-SKU som stöder automatisk skalning, redundans, förbättra prestanda, statiska virtuella IP-adresser, Key Vault omarbetning för rubriken. Se [dokumentationen till Programgatewayen autoskalning](application-gateway-autoscaling-zone-redundant.md). |April 2019 |
+|Key Vault-integrering |Application Gateway stöder nu integrering med Key Vault (i allmänt tillgänglig förhandsversion) för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Se [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md). |April 2019 |
 |Rubriken CRUD/omskrivningar     |Du kan nu arbeta om HTTP-huvuden. Se [självstudien: Skapa en Programgateway och skriv om HTTP-huvuden](tutorial-http-header-rewrite-powershell.md) för mer information.|December 2018|
 |WAF-konfigurationen och undantag lista     |Vi har lagt till fler alternativ för att hjälpa dig att konfigurera din WAF och minska falska positiva identifieringar. Se [storleksgränser för Web application firewall begäran och undantagslistor](application-gateway-waf-configuration.md) för mer information.|December 2018|
-|Automatisk skalning och redundans, statiska förhandsversionen av stödet för VIP     |Det finns många förbättringar, till exempel automatisk skalning och förbättrad prestanda med v2-SKU. Se [vad är Azure Application Gateway?](overview.md#autoscaling-public-preview) för mer information.|September 2018|
+|Automatisk skalning och redundans, statiska VIP-stöd      |Det finns många förbättringar, till exempel automatisk skalning och förbättrad prestanda med v2-SKU. Se [vad är Azure Application Gateway?](overview.md) för mer information.|September 2018|
 |Anslutningstömning     |Anslutningstömning kan du ta bort medlemmar från backend-poolen ett smidigt sätt. Mer information finns i [Anslutningstömning](overview.md#connection-draining).|September 2018|
 |Anpassade felsidor     |Du kan skapa en felsida i formatet för resten av dina webbplatser med anpassade felsidor. För att möjliggöra detta, se [skapa Programgateway anpassade felsidor](custom-error.md).|September 2018|
 |Förbättringar av mått     |Du kan få en bättre överblick över tillståndet för din Programgateway med förbättrad mått. För att aktivera mått på Application Gateway, se [backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).|Juni 2018|
-
-## <a name="known-issues"></a>Kända problem
-
-- [Kända problem i v2-SKU](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46537ac1ca0ee8b1a163656d14f325a93f3a8717
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410373"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917252"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Anvisningar: Aktivera enkel inloggning mellan appar på Android använder ADAL
 
@@ -39,7 +39,7 @@ I den här anvisningen lär du dig att konfigurera SDK i ditt program att erbjud
 
 Den här anvisningen förutsätter att du vet hur du:
 
-- Etablera din app med den äldre portalen för Azure Active Directory (AD Azure). Mer information finns i [registrera en app med Azure AD v1.0-slutpunkten](quickstart-v1-add-azure-ad-app.md)
+- Etablera din app med den äldre portalen för Azure Active Directory (AD Azure). Mer information finns i [registrera en app](quickstart-register-app.md)
 - Integrera programmet med den [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Begrepp för enkel inloggning

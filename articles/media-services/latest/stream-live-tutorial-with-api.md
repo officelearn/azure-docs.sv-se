@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 74be798106ef5d028f3ad497a6e726439e86ad51
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125346"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714732"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Självstudier: Strömma live med Media Services v3 med hjälp av .NET
 

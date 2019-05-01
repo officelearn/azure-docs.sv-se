@@ -1,51 +1,47 @@
 ---
-title: Azure SaaS-erbjudande stöd för programkonfiguration | Microsoft Docs
+title: Azure SaaS-erbjudande stöd för programkonfiguration | Azure Marketplace
 description: Konfigurera tekniker och supportkontakter för erbjudande för SaaS-program på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 591ae606546aa1b1dd4b06ac18b5b8dd3ac465d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2018
+ms.author: pabutler
+ms.openlocfilehash: 87374379d843e869fc577ac57bd4a61cf363a5b4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594858"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942452"
 ---
 # <a name="saas-application-contacts-tab"></a>Fliken för SaaS-program kontakter
 
 Den här artikeln beskriver hur du använder fliken kontakter som identifierar kontakter för kunder som använder ditt erbjudande.
 
+
 ## <a name="identify-contacts"></a>Identifiera kontakter
 
 Använd nästa skärmdumpen som en vägledning för att ange nödvändig information. Alla fält med markerade med en asterisk (*) måste slutföras.
 
-![Formulär för tekniker och kontakter](./media/saas-offer-contacts.png)
+![Fliken Kontakter](./media/saas-offer-contacts.png)
 
 1. Ange information för följande fält under Engineering Contact:
 
-   - Namn – Ange namnet på den tekniska kontakten för din app. Den här kontakten kommer få teknisk information från Microsoft.
-   - E-: Ange den e-postadressen för den tekniska kontakten.
-   - Telefon - ange telefonnumret till den tekniska kontakten. ISO phone nummer beteckningar stöds. Mer information finns i [E.123](https://en.wikipedia.org/wiki/E.123)
+   - **Namnet\***  -namnet på den tekniska kontakten för din app. Den här kontakten kommer få teknisk information från Microsoft.
+   - **E-post\***  -e-postadress för den tekniska kontakten.
+   - **Phone\***  -telefonnummer för den tekniska kontakten. ISO phone nummer beteckningar stöds. Mer information finns i [E.123](https://en.wikipedia.org/wiki/E.123)
   
 2. Ange information för följande fält under Support kontakta:
 
-   - Namn – Ange namnet på supportkontakten för din app. Den här kontakten får support-relaterade kommunikation från Microsoft.
-   - E-: Ange den e-postadressen för Supportkontakt för din app.
-   - Telefon - ange support kontakta telefonnummer. ISO phone nummer beteckningar stöds. Mer information finns i [E.123](https://en.wikipedia.org/wiki/E.123)
-   - URL till – ange Webbadressen till din supportsida.
+   - **Namnet\***  -namnet på supportkontakten för din app. Den här kontakten får support-relaterade kommunikation från Microsoft.
+   - **E-post\***  -e-postadress Supportkontakt för din app.
+   - **Phone\***  -telefonnummer för supportkontakten. ISO phone nummer beteckningar stöds. Mer information finns i [E.123](https://en.wikipedia.org/wiki/E.123)
+   - **URL till\***  -URL: en till din supportsida.
 
 3. Välj **spara** när du är klar formulären.
+
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Publicera SaaS-erbjudande](./cpp-publish-offer.md)
+

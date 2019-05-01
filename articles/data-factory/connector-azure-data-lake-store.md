@@ -10,27 +10,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 433824c4e375cf1ce7d7a6fe16730044628ccab1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2f315911d79c46810faf720c017cc1f72d5592d7
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001634"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876812"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-datalake-connector.md)
 > * [Aktuell version](connector-azure-data-lake-store.md)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data till och från Azure Data Lake Storage Gen1 (kallades tidigare Azure Data Lake Store). Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md).
+Den här artikeln beskriver hur du kopierar data till och från Azure Data Lake Storage Gen1 (ADLS Gen1). Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från alla dataarkiv till Azure Data Lake Store eller kopiera data från Azure Data Lake Store till alla mottagarens datalager. Se den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Den här anslutningen för Azure Data Lake Storage Gen1 stöds för följande aktiviteter:
 
-Mer specifikt stöder den här Azure Data Lake Store-anslutningen:
+- [Kopiera aktivitet](copy-activity-overview.md) med [källa/mottagare matris som stöds](copy-activity-overview.md)
+- [Mappning av dataflöde](concepts-data-flow-overview.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [GetMetadata-aktiviteten](control-flow-get-metadata-activity.md)
+
+Mer specifikt stöder den här anslutningen:
 
 - Kopiera filer med någon av följande metoder för autentisering: **tjänstens huvudnamn** eller **hanterade identiteter för Azure-resurser**.
 - Kopiera filer som-är, eller parsning eller generera filer med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
@@ -70,7 +75,7 @@ Registrera en entitet för program i Azure Active Directory för att använda au
 >[!IMPORTANT]
 > Kontrollera att du ge tjänstens huvudnamn rätt behörighet i Data Lake Store:
 >- **Som källa**: I **datautforskaren** > **åtkomst**, ge minst **Läs + kör** behörighet att visa och kopiera filer i mappar och undermappar. Eller, du kan bevilja **Läs** tillstånd att kopiera en fil. Du kan välja att lägga till i **den här mappen och alla underordnade** för rekursiv, och Lägg till som **behörigheten och en standardbehörighetsinlägg**. Det finns inga krav på kontot på åtkomstkontroll (IAM).
->- **Som mottagare**: I **datautforskaren** > **åtkomst**, ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan välja att lägga till i **den här mappen och alla underordnade** för rekursiv, och Lägg till som **behörigheten och en standardbehörighetsinlägg**. Om du använder med Azure integration runtime för att kopiera (både källa och mottagare finns i molnet), i IAM, beviljar minst **läsare** roll för att kunna identifiera regionen för Data Lake Store med Data Factory. Om du vill undvika den här IAM-rollen uttryckligen [skapa en Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) med platsen för Data Lake Store. Koppla dem i Data Lake Store-länkade tjänsten som i följande exempel.
+>- **Som mottagare**: I **datautforskaren** > **åtkomst**, ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan välja att lägga till i **den här mappen och alla underordnade** för rekursiv, och Lägg till som **behörigheten och en standardbehörighetsinlägg**. Om du använder med Azure integration runtime för att kopiera (både källa och mottagare finns i molnet), i IAM, beviljar minst **läsare** roll för att kunna identifiera regionen för Data Lake Store med Data Factory. Om du vill undvika den här IAM-rollen uttryckligen [skapa en Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) med platsen för Data Lake Store. Till exempel om ditt Data Lake Store finns i Europa, västra, skapa en Azure integration runtime med platsen angetts till ”Europa, västra”. Koppla dem i Data Lake Store-länkade tjänsten som i följande exempel.
 
 >[!NOTE]
 >Listan mappar börja från roten, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **på rotnivå med ”kör” behörighet**. Detta gäller när du använder den:
@@ -156,7 +161,54 @@ I Azure Data Factory behöver du inte ange några egenskaper förutom den allmä
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-För att kopiera data till och från Azure Data Lake Store, ange den `type` egenskapen på datauppsättningen till **AzureDataLakeStoreFile**. Följande egenskaper stöds:
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
+
+- För **Parquet och avgränsat textformat**, referera till [Parquet och avgränsad text formatera datauppsättning](#parquet-and-delimited-text-format-dataset) avsnittet.
+- För andra format som **ORC/Avro/JSON/binära formatet**, referera till [andra format datauppsättning](#other-format-dataset) avsnittet.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet och avgränsad text format datauppsättning
+
+Kopiera data till och från ADLS Gen1 i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikeln på format-baserade datauppsättning och inställningar som stöds. Följande egenskaper har stöd för ADLS Gen1 under `location` inställningar i formatet-baserade datauppsättning:
+
+| Egenskap    | Beskrivning                                                  | Krävs |
+| ---------- | ------------------------------------------------------------ | -------- |
+| typ       | Egenskapen type under `location` i datauppsättningen måste anges till **AzureDataLakeStoreLocation**. | Ja      |
+| folderPath | Sökvägen till mappen. Om du vill använda jokertecken för att filtrera mappar hoppa över den här inställningen och ange i källinställningar för aktiviteten. | Nej       |
+| fileName   | Filnamnet under den angivna folderPath. Om du vill använda jokertecken för att filtrera filerna hoppa över den här inställningen och ange i källinställningar för aktiviteten. | Nej       |
+
+> [!NOTE]
+>
+> **AzureDataLakeStoreFile** typ datauppsättning med Parquet-/ textformat som nämns i nästa avsnitt stöds fortfarande som – är för kopiera/Lookup/GetMetadata-aktiviteten för bakåtkompatibilitet, men den inte fungerar med mappning av dataflöde. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
+
+**Exempel:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<ADLS Gen1 linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AzureDataLakeStoreLocation",
+                "folderPath": "root/folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Andra format-datauppsättning
+
+Kopiera data till och från ADLS Gen1 i **ORC/Avro/JSON/binära formatet**, stöds följande egenskaper:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -208,23 +260,87 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store som källa
 
-För att kopiera data från Data Lake Store, ange typ av datakälla i Kopieringsaktiviteten till **AzureDataLakeStoreSource**. Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
+- För kopia från **Parquet och avgränsat textformat**, referera till [Parquet och avgränsad text format källa](#parquet-and-delimited-text-format-source) avsnittet.
+- För kopia från andra format som **ORC/Avro/JSON/binära formatet**, referera till [annan format källa](#other-format-source) avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
-|:--- |:--- |:--- |
-| typ | Den `type` egenskapen för Kopieringsaktiviteten källan måste anges till: **AzureDataLakeStoreSource**. |Ja |
-| rekursiv | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. Observera att om `recursive` har angetts till true och mottagaren är en filbaserad store en tom mapp eller undermapp inte kopieras eller skapad mottagaren. Tillåtna värden är: **SANT** (standard) och **FALSKT**. | Nej |
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet och avgränsad text format källa
+
+Att kopiera data från ADLS Gen1 i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade aktiviteten kopieringskälla och inställningar som stöds. Följande egenskaper har stöd för ADLS Gen1 under `storeSettings` inställningar i formatet-baserade kopieringskälla:
+
+| Egenskap                  | Beskrivning                                                  | Krävs                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| typ                     | Egenskapen type under `storeSettings` måste anges till **AzureDataLakeStoreReadSetting**. | Ja                                           |
+| rekursiv                | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. Observera att när rekursiv har angetts till true och mottagaren är en filbaserad store, en tom mapp eller undermapp inte kopieras eller skapat i mottagaren. Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej                                            |
+| wildcardFolderPath       | Sökvägen till mappen med jokertecken för att filtrera källa mappar. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska mappnamn har jokertecken eller den här escape-tecken i. <br>Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). | Nej                                            |
+| wildcardFileName         | Filnamn med jokertecken under den angivna folderPath/wildcardFolderPath filter källfilerna för. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska mappnamn har jokertecken eller den här escape-tecken i.  Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). | Ja om `fileName` har inte angetts i datauppsättningen |
+| modifiedDatetimeStart    | Filter för filer baserat på attributet: Senast ändrades. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde. | Nej                                            |
+| modifiedDatetimeEnd      | Samma som ovan.                                               | Nej                                            |
+| maxConcurrentConnections | Antal anslutningar för att ansluta till storage store samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej                                            |
+
+> [!NOTE]
+> För Parquet/avgränsat textformat **AzureDataLakeStoreSource** typen kopiera aktivitetskälla som nämns i nästa avsnitt stöds fortfarande som-avser för bakåtkompatibilitet. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
 
 **Exempel:**
 
 ```json
 "activities":[
     {
-        "name": "CopyFromADLS",
+        "name": "CopyFromADLSGen1",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<ADLS input dataset name>",
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AzureDataLakeStoreReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Andra format-källa
+
+Att kopiera data från ADLS Gen1 i **ORC/Avro/JSON/binära formatet**, följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Den `type` egenskapen för Kopieringsaktiviteten källan måste anges till: **AzureDataLakeStoreSource**. |Ja |
+| rekursiv | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. Observera att om `recursive` har angetts till true och mottagaren är en filbaserad store en tom mapp eller undermapp inte kopieras eller skapad mottagaren. Tillåtna värden är: **SANT** (standard) och **FALSKT**. | Nej |
+| maxConcurrentConnections | Antal anslutningar för att ansluta till datalagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej |
+
+**Exempel:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromADLSGen1",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<ADLS Gen1 input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -249,19 +365,28 @@ För att kopiera data från Data Lake Store, ange typ av datakälla i Kopierings
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store som mottagare
 
-Om du vill kopiera data till Data Lake Store, ange Mottagartyp i Kopieringsaktiviteten till **AzureDataLakeStoreSink**. Följande egenskaper stöds i den **mottagare** avsnittet:
+- För att kopiera till **Parquet och avgränsat textformat**, referera till [Parquet och avgränsad text format mottagare](#parquet-and-delimited-text-format-sink) avsnittet.
+- För att kopiera till andra format som **ORC/Avro/JSON/binära formatet**, referera till [andra format mottagare](#other-format-sink) avsnittet.
 
-| Egenskap  | Beskrivning | Krävs |
-|:--- |:--- |:--- |
-| typ | Den `type` egenskapen för mottagare för Kopieringsaktivitet måste anges till: **AzureDataLakeStoreSink**. |Ja |
-| copyBehavior | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: bevarar filen hierarkin i målmappen. Den relativa sökvägen på källfilen för målmappen är identisk med den relativa sökvägen till målfilen till målmappen.<br/><b>-FlattenHierarchy</b>: alla filer från källmappen finns i den första nivån i målmappen. Målfiler har automatiskt genererade unika namn. <br/><b>-MergeFiles</b>: slår samman alla filer från källmappen till en fil. Om namnet på filen/blobben har angetts, är sammanfogade filnamnet det angivna namnet. I annat fall genereras filnamnet automatiskt. | Nej |
+#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet och avgränsad text format mottagare
+
+Att kopiera data till ADLS Gen1 i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade kopiera aktivitet mottagare och inställningar som stöds. Följande egenskaper har stöd för ADLS Gen1 under `storeSettings` inställningar i formatet-baserad kopia mottagare:
+
+| Egenskap                  | Beskrivning                                                  | Krävs |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| typ                     | Egenskapen type under `storeSettings` måste anges till **AzureDataLakeStoreWriteSetting**. | Ja      |
+| copyBehavior             | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: Bevarar filen hierarkin i målmappen. Den relativa sökvägen för källfilen för källmappen är identisk med den relativa sökvägen för målfilen till målmappen.<br/><b>-FlattenHierarchy</b>: Alla filer från källmappen finns i den första nivån i målmappen. Målfiler har automatiskt genererade unika namn. <br/><b>-MergeFiles</b>: Slår samman alla filer från källmappen till en fil. Om filnamnet har angetts är namnet på sammanfogade filen det angivna namnet. Annars är det en automatiskt skapade filnamnet. | Nej       |
+| maxConcurrentConnections | Antal anslutningar för att ansluta till datalagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej       |
+
+> [!NOTE]
+> För Parquet/avgränsat textformat **AzureDataLakeStoreSink** typen kopiera aktivitet mottagare som nämns i nästa avsnitt stöds fortfarande som-avser för bakåtkompatibilitet. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
 
 **Exempel:**
 
 ```json
 "activities":[
     {
-        "name": "CopyToADLS",
+        "name": "CopyToADLSGen1",
         "type": "Copy",
         "inputs": [
             {
@@ -271,7 +396,52 @@ Om du vill kopiera data till Data Lake Store, ange Mottagartyp i Kopieringsaktiv
         ],
         "outputs": [
             {
-                "referenceName": "<ADLS output dataset name>",
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "AzureDataLakeStoreWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-sink"></a>Andra format-mottagare
+
+Att kopiera data till ADLS Gen1 i **ORC/Avro/JSON/binära formatet**, följande egenskaper stöds i den **mottagare** avsnittet:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Den `type` egenskapen för mottagare för Kopieringsaktivitet måste anges till: **AzureDataLakeStoreSink**. |Ja |
+| copyBehavior | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: bevarar filen hierarkin i målmappen. Den relativa sökvägen på källfilen för målmappen är identisk med den relativa sökvägen till målfilen till målmappen.<br/><b>-FlattenHierarchy</b>: alla filer från källmappen finns i den första nivån i målmappen. Målfiler har automatiskt genererade unika namn. <br/><b>-MergeFiles</b>: slår samman alla filer från källmappen till en fil. Om filnamnet har angetts är namnet på sammanfogade filen det angivna namnet. I annat fall genereras filnamnet automatiskt. | Nej |
+| maxConcurrentConnections | Antal anslutningar för att ansluta till datalagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej |
+
+**Exempel:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToADLSGen1",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<ADLS Gen1 output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -312,5 +482,10 @@ Det här avsnittet beskrivs kopieringsåtgärden för olika kombinationer av res
 | false |flattenHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
 | false |mergeFiles | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 innehållet slås samman i en fil med automatiskt genererade namnet. Automatiskt genererade namn på File1<br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
 
+## <a name="mapping-data-flow-properties"></a>Egenskaper för mappning av dataflöde
+
+Få mer detaljerad information från [source omvandling](data-flow-source.md) och [mottagare omvandling](data-flow-sink.md) i mappning dataflöde.
+
 ## <a name="next-steps"></a>Nästa steg
+
 En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

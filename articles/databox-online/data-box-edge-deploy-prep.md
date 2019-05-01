@@ -1,20 +1,20 @@
 ---
-title: Självstudie om att förbereda Azure-portalen för att distribuera Data Box Edge | Microsoft Docs
+title: Självstudie för att förbereda Azure portal, datacentermiljö för att distribuera Azure Data Box Edge | Microsoft Docs
 description: Den första självstudien om hur du distribuerar Azure Data Box Edge handlar om hur du förbereder Azure-portalen.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 04/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 19c4fc96653f966ea5642149d944886e4b7f4483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401682"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924778"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Självstudier: Förbered att distribuera Azure Data Box Edge  
 
@@ -46,7 +46,7 @@ Gå igenom följande självstudier i angiven ordning för att distribuera Data B
 
 Nu kan du börja konfigurera Azure-portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande är konfigurationskraven för din Data Box Edge-resurs, din Data Box Edge-enheten och datacenternätverket.
 
@@ -55,6 +55,8 @@ Följande är konfigurationskraven för din Data Box Edge-resurs, din Data Box E
 Innan du börjar ska du kontrollera att:
 
 - Din Microsoft Azure-prenumeration är aktiverad för en Data Box Edge-resurs. Prenumerationer med användningsbaserad betalning stöds inte.
+- Du har ägare eller deltagare som har åtkomst till din prenumeration.
+- Du har administratören eller användaren åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
 
 ### <a name="for-the-data-box-edge-device"></a>För Data Box Edge-enheten
@@ -87,11 +89,15 @@ Skapa en Data Box Edge-resurs genom att utföra följande steg på Azure-portale
 
 1. Använd dina Microsoft Azure-autentiseringsuppgifter för att logga in på 
     
-    - Azure-portalen på den här URL: [ https://portal.azure.com ](http://portal.azure.com).
-    - Eller Azure Government-portalen på denna URL: [https://portal.azure.us](https://portal.azure.us)
+    - Azure-portalen på den här URL: [ https://portal.azure.com ](https://portal.azure.com).
+    - Eller, Azure Government-portalen på den här URL: [ https://portal.azure.us ](https://portal.azure.us). Mer information går du till [Anslut till Azure Government, med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. I den vänstra rutan väljer **+ skapa en resurs**. Sök efter **Data Box Edge / Data Box Gateway**. Välj **Data Box Edge / Data Box Gateway**. Välj **Skapa**.
-3. Välj den prenumeration som du vill använda för Data Box Edge-enhet. Välj den region där du vill distribuera Data Box Edge-resursen. Den här versionen finns östra USA, Sydostasien och Västeuropa. Välj den plats som är närmast den geografiska region där du vill distribuera enheten. Klicka på alternativet **Data Box Edge** och välj **Skapa**.
+3. Välj den prenumeration som du vill använda för Data Box Edge-enhet. Välj den region där du vill distribuera Data Box Edge-resursen. Den här versionen finns östra USA, Sydostasien och Västeuropa. 
+
+    Välj den plats som är närmast den geografiska region där du vill distribuera enheten. Regionen lagras endast metadata för hantering av enheter. Faktiska data kan lagras i alla lagringskonton. 
+    
+    Klicka på alternativet **Data Box Edge** och välj **Skapa**.
 
     ![Söka efter Data Box Edge-tjänst](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 

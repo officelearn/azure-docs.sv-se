@@ -1,5 +1,5 @@
 ---
-title: Säkerhet i Azure-funktioner som används med Azure virtual machines | Microsoft Docs
+title: Säkerhetsfunktioner som används med Azure virtual machines – Azure-säkerhet | Microsoft Docs
 description: Den här artikeln innehåller en översikt över viktigaste Azure säkerhetsfunktioner som kan användas med Azure Virtual Machines.
 services: security
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c0a4a8ae270c8d8f6f3c2e86db9deed4e14f668e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444256"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872018"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Säkerhetsöversikt för Azure virtuella datorer
+Den här artikeln innehåller en översikt över viktigaste Azure säkerhetsfunktioner som kan användas med virtuella datorer.
 
 Du kan använda Azure Virtual Machines för att distribuera en lång rad databehandlingslösningar på ett smidigt sätt. Tjänsten stöder Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP och Azure BizTalk Services. Så kan du distribuera alla arbetsbelastningar och valfritt språk på nästan vilket operativsystem.
 
@@ -33,9 +34,7 @@ Med Azure, kan du skapa säkrare lösningar som uppfyller kraven som:
 * Kryptera känsliga data.
 * Skydda nätverkstrafiken.
 * Identifiera och Upptäck hot.
-* Uppfyll efterlevnadskrav.
-
-Målet med den här artikeln är att tillhandahålla en översikt över viktigaste Azure säkerhetsfunktioner som kan användas med virtuella datorer. Länkar till artiklar ge information om varje funktion så att du kan läsa mer.  
+* Uppfyll efterlevnadskrav.  
 
 ## <a name="antimalware"></a>Programvara mot skadlig kod
 
@@ -77,14 +76,14 @@ Mer information om program mot skadlig kod för att skydda dina virtuella datore
 * [Hanterings- och API: er](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-Läs mer: 
+Läs mer:
 
 * [Kom igång med WDATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
 * [Översikt över WDATP funktioner](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## <a name="hardware-security-module"></a>Modul för maskinvarusäkerhet
 
-Förbättra nyckelsäkerhet kan förbättra skydd för kryptering och autentisering. Du kan förenkla hanteringen av och säkerheten för viktiga hemligheter och nycklar genom att lagra dem i Azure Key Vault. 
+Förbättra nyckelsäkerhet kan förbättra skydd för kryptering och autentisering. Du kan förenkla hanteringen av och säkerheten för viktiga hemligheter och nycklar genom att lagra dem i Azure Key Vault.
 
 Med Key Vault kan du lagra dina nycklar i HSM:er (Hardware Security Modules) som är certifierade enligt standarden FIPS 140-2 nivå 2. Din SQL Server krypteringsnycklar för säkerhetskopiering eller [transparent datakryptering](https://msdn.microsoft.com/library/bb934049.aspx) kan alla lagras i Key Vault med andra nycklar eller hemligheter från dina program. Behörigheter och åtkomst till de skyddade objekten hanteras via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
@@ -133,7 +132,7 @@ Läs mer:
 
 ## <a name="virtual-networking"></a>Virtuellt nätverk
 
-Virtuella datorer behöver nätverksanslutning. För att stödja detta krav, kräver Azure virtuella datorer som ska anslutas till en Azure-nätverk. 
+Virtuella datorer behöver nätverksanslutning. För att stödja detta krav, kräver Azure virtuella datorer som ska anslutas till en Azure-nätverk.
 
 Azure-nätverk är en logisk konstruktion som bygger på den fysiska Azure nätverksresurserna. Varje logisk Azure-nätverk är isolerat från alla andra Azure-nätverk. Denna isolering hjälper att se till att nätverkstrafik i dina distributioner inte är tillgänglig för andra Microsoft Azure-kunder.
 
@@ -169,14 +168,13 @@ Läs mer:
 
 ## <a name="confidential-computing"></a>Konfidentiellt databehandling
 
-Medan konfidentiell databehandling inte tillhör tekniskt säkerhet för virtuella datorer, för avsnittet om säkerhet för virtuella datorer som tillhör ämnet på högre nivå av ”beräkning” säkerhet. Konfidentiellt databehandling tillhör inom kategorin ”beräkning” säkerhet. 
+Medan konfidentiell databehandling inte tillhör tekniskt säkerhet för virtuella datorer, för avsnittet om säkerhet för virtuella datorer som tillhör ämnet på högre nivå av ”beräkning” säkerhet. Konfidentiellt databehandling tillhör inom kategorin ”beräkning” säkerhet.
 
 Konfidentiellt databehandling säkerställer att när data är ”i klartext”, vilket krävs för effektiv bearbetning, data skyddas i en betrodd körningsmiljö https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE – även känt som en enklaven), i bilden nedan visas ett exempel där .  
 
-T-stänger se till att det finns inget sätt att visa data eller åtgärder i utifrån, även med en felsökare. De säkerställer även att endast auktoriserade kod har behörighet att komma åt data. Om koden ändras eller manipulerats, åtgärderna som nekas och miljön inaktiveras. TEE framtvingar dessa skydd under körning av kod i den. 
+T-stänger se till att det finns inget sätt att visa data eller åtgärder i utifrån, även med en felsökare. De säkerställer även att endast auktoriserade kod har behörighet att komma åt data. Om koden ändras eller manipulerats, åtgärderna som nekas och miljön inaktiveras. TEE framtvingar dessa skydd under körning av kod i den.
 
 Läs mer:
 
 * [Introduktion till Azure konfidentiell databehandling](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Azure konfidentiell databehandling](https://azure.microsoft.com/blog/azure-confidential-computing/)  
-

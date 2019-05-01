@@ -1,6 +1,6 @@
 ---
-title: Tillgänglighet för Azure-infrastrukturen
-description: Artikeln beskriver nivåer av redundans för att ge högsta tillgänglighet av kunders data.
+title: Azure-infrastrukturen tillgänglighet – Azure-säkerhet
+description: Den här artikeln innehåller information om vad Microsoft gör att skydda Azure-infrastrukturen och ge högsta tillgänglighet för kunders data.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d13c79152afe00cb326f69b523e9fd7f0c3550b0
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587204"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872612"
 ---
 # <a name="azure-infrastructure-availability"></a>Tillgänglighet för Azure-infrastrukturen
-Azure tillhandahåller robust tillgängliga, baserat på omfattande redundans uppnås med virtualiseringsteknik. Azure tillhandahåller flera nivåer av redundans för att ge högsta tillgänglighet av kunders data.
+Den här artikeln innehåller information om vad Microsoft gör att skydda Azure-infrastrukturen och ge högsta tillgänglighet för kunders data. Azure tillhandahåller robust tillgängliga, baserat på omfattande redundans uppnås med virtualiseringsteknik.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Tillfälliga avbrott och naturkatastrofer
 Microsoft-Molninfrastruktur and Operations-teamet designar, bygger, fungerar och förbättrar säkerheten för molninfrastrukturen. Det här laget säkerställer att Azure-infrastrukturen levererar hög tillgänglighet och tillförlitlighet, hög effektivitet och smart skalbarhet. Teamet ger ett säkrare, privata och betrodda moln.

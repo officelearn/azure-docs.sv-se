@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324562"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869414"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Skydda Azure CDN-resurser med tokenautentisering
 
@@ -33,7 +33,7 @@ Tokenautentisering är en mekanism som gör det möjligt att förhindra att Azur
 
 Tokenautentisering verifierar att begäranden genereras av en betrodd plats genom att kräva att begäranden som innehåller en token-värde som innehåller kodad information om den som begär. Innehållet visas till en beställare endast om kodad information uppfyller kraven. i annat fall nekas begäranden. Du kan ställa in kraven med hjälp av en eller flera av följande parametrar:
 
-- Land/region: Tillåt eller neka förfrågningar som kommer från de länder/regioner som anges av deras [landskod](/previous-versions/azure/mt761717(v=azure.100)).
+- Land/region: Tillåt eller neka förfrågningar som kommer från länder/regioner som anges av deras [landskod](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Tillåt endast begäranden som matchar den angivna resursen eller sökvägen.
 - Värd: Tillåt eller neka förfrågningar som använder de angivna värdarna i rubriken.
 - Referent: Tillåt eller neka begäran från den angivna referent.
@@ -86,7 +86,7 @@ I följande flödesschema beskriver hur Azure CDN verifierar en klientbegäran o
 
       ![Konfigurationsnyckel för CDN-token auth](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Verktyget encrypt används för att ställa in parametrar för kryptering och generera en token. Du kan använda verktyget encrypt, för att tillåta eller neka förfrågningar baserat på förfallotid, land, referent, protokoll och IP-adress för klient (i valfri kombination). Även om det finns ingen gräns för antalet och kombination av parametrar som kan kombineras för att skapa en token, är den totala längden på en token begränsat till 512 tecken. 
+   4. Verktyget encrypt används för att ställa in parametrar för kryptering och generera en token. Du kan använda verktyget encrypt, för att tillåta eller neka förfrågningar baserat på förfallotid, land/region, referent, protokoll och IP-adress för klient (i valfri kombination). Även om det finns ingen gräns för antalet och kombination av parametrar som kan kombineras för att skapa en token, är den totala längden på en token begränsat till 512 tecken. 
 
       ![CDN kryptera verktyget](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ I följande flödesschema beskriver hur Azure CDN verifierar en klientbegäran o
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Tillåter endast begäranden som kommer från en eller flera angivna länder. Begäranden som kommer från andra länder nekas. Använd två bokstäver [3166 ISO-landskod](/previous-versions/azure/mt761717(v=azure.100)) för varje land/region och avgränsar du dem med kommatecken, inte till ett blanksteg. Om du vill tillåta åtkomst från endast USA och Frankrike, till exempel anger `US,FR`.</td>
+      >    <td>Tillåter endast begäranden som kommer från en eller flera angivna länder/regioner. Begäranden som kommer från alla andra länder/regioner nekas. Använd två bokstäver [3166 ISO-landskod](/previous-versions/azure/mt761717(v=azure.100)) för varje land/region och avgränsar du dem med kommatecken, inte till ett blanksteg. Om du vill tillåta åtkomst från endast USA och Frankrike, till exempel anger `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Nekar förfrågningar som kommer från en eller flera angivna länder. Begäranden som kommer från andra länder är tillåtna. Implementeringen är samma som den <b>ec_country_allow</b> parametern. Om en landskod finns i både den <b>ec_country_allow</b> och <b>ec_country_deny</b> parametrar, den <b>ec_country_allow</b> parametern företräde.</td>
+      >    <td>Nekar förfrågningar som kommer från en eller flera angivna länder/regioner. Begäranden som kommer från alla andra länder/regioner är tillåtna. Implementeringen är samma som den <b>ec_country_allow</b> parametern. Om en landskod finns i både den <b>ec_country_allow</b> och <b>ec_country_deny</b> parametrar, den <b>ec_country_allow</b> parametern företräde.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>

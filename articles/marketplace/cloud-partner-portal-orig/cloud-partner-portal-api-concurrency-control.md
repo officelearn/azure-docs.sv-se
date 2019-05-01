@@ -1,28 +1,20 @@
 ---
-title: Samtidighetskontroll | Microsoft Docs
+title: Samtidighetskontroll | Azure Marketplace
 description: 'Samtidighet kontroll strategier för Cloud Partner Portal som publicera API: er.'
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ecf0bb6ac7fc77e804c9fc8d62aba52810de5640
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 8cdcfd84a2f3bd4f920b97392255237db173cbf9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625014"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935601"
 ---
-<a name="concurrency-control"></a>Samtidighetskontroller
-===================
+# <a name="concurrency-control"></a>Samtidighetskontroller
 
 För varje anrop till Cloud Partner Portal publicera API: er måste uttryckligen ange vilken samtidighetsstrategi för att använda. Det gick inte att ange den **If-Match** rubrik resulterar i ett felsvar HTTP 400. Vi erbjuder två olika metoder för samtidighetskontroll.
 

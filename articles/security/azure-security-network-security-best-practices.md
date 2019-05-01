@@ -1,9 +1,8 @@
 ---
-title: Azure-nätverk säkerhetsmetoder | Microsoft Docs
+title: Metodtips för nätverkssäkerhet – Microsoft Azure
 description: Den här artikeln innehåller en uppsättning Metodtips för säkerhet med inbyggda funktioner i Azure.
 services: security
-documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
@@ -12,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 04/28/2019
 ms.author: TomSh
-ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610964"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872565"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure-nätverk säkerhetsmetoder
-Du kan ansluta [virtuella Azure-datorer (VM)](https://azure.microsoft.com/services/virtual-machines/) och till andra nätverksenheter genom att placera dem på [virtuella Azure-nätverk](https://azure.microsoft.com/documentation/services/virtual-network/). Det vill säga kan du ansluta virtuella nätverkskort till ett virtuellt nätverk till att tillåta TCP/IP-baserad kommunikation mellan nätverk-aktiverade enheter. Virtuella datorer är anslutna till en Azure-nätverk kan ansluta till enheter på samma virtuella nätverk, olika virtuella nätverk, internet eller dina egna lokala nätverk.
-
 Den här artikeln beskriver en uppsättning Azure-nätverk säkerhetsmetoder. Dessa metodtips härleds från vår erfarenhet av Azure-nätverk och erfarenheter från kunder som dig själv.
 
 Den här artikeln förklarar för varje skull:
@@ -35,8 +32,6 @@ Den här artikeln förklarar för varje skull:
 * Hur du kan lära dig att aktivera ett metodtips
 
 Den här artikeln Metodtips för Azure nätverkssäkerhet baseras på en konsensus-åsikter och funktioner för Azure-plattformen och funktioner, eftersom de finns när den här artikeln skrevs. Andras åsikter och tekniker som ändras med tiden och den här artikeln kommer att uppdateras regelbundet att återspegla dessa ändringar.
-
-I följande avsnitt beskrivs Metodtips för nätverkssäkerhet.
 
 ## <a name="logically-segment-subnets"></a>Logiskt segment undernät
 Azure-nätverk liknar ett lokalt nätverk i ditt lokala nätverk. Tanken bakom Azure-nätverk är att du skapar ett enda privata IP-adress –-baserade nätverk där du kan placera alla virtuella datorer i Azure. De privata IP-adressutrymmena tillgängliga finns i klass A (10.0.0.0/8), klass B (172.16.0.0/12) och klass C (192.168.0.0/16) intervall.

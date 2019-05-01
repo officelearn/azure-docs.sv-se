@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d69ddbd38798d0667ce69fb7696597a972b5098
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455647"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918512"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid Identitetslivscykel
 Identitet är en av grundpelarna i enterprise mobility och programmet åtkomststrategi. Om du loggar din mobila enhet eller SaaS-app, är din identitet på för att få åtkomst till allt. På den högsta nivån omfattar en lösning för Identitetshantering förena och synkronisering mellan din identitet lagringsplatser, bland annat automatisera och centralisera att etablera resurser. ID-lösning bör vara en centraliserad identitet i både lokalt och i molnet och även använda någon form av identitetsfederation att underhålla centraliserad autentisering och på ett säkert sätt dela och samarbeta med externa användare och företag. Resurser mellan operativsystem och program till personer i eller tillhör en organisation. Organisationsstruktur kan ändras för att hantera etablering principer och procedurer.
@@ -32,7 +32,7 @@ Det är också viktigt att du har en identitetslösning som är avsedda för att
 ## <a name="determine-hybrid-identity-management-tasks"></a>Determine Hybrid Identity Management Tasks
 Distribuera administrativa uppgifter i din organisation bättre precision och effektivitet för administration och förbättrar balansen för arbetsbelastningen för en organisation. Följande är pivoteringsmöjligheter som definierar en robust identitetshanteringssystem.
 
- ![](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![hanteringsanmärkningar för identitet](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 För att definiera hybrid identity-hanteringsuppgifter, måste du förstå några grundläggande egenskaper för den organisation som kommer börja använda hybrid-identitet. Det är viktigt att förstå de aktuella lagringsplatser som används för identitet källor. Genom att känna till dessa kärnelement, du har grundläggande krav och baserat på att du måste ställa mer detaljerade frågor som leder dig till ett bättre beslut för din lösning för Identitetshantering.  
 
@@ -61,7 +61,7 @@ När du definierar dessa krav, se till att minst följande frågor besvaras
 ## <a name="synchronization-management"></a>Hantering av datasynkronisering
 Ett av målen med en identity manager för att kunna ta med alla identitetsleverantörer och hålla dem synkroniserade. Du behåller synkronisera data utifrån en auktoritativ master identitetsprovider. I hybrididentitetsscenario med synkroniserade management-modellen kan hantera alla användar- och identiteter i en lokal server och synkronisera de konton och eventuellt lösenord till molnet. Användaren anger de samma lösenord lokalt som i molnet och vid inloggning, lösenordet verifieras av ID-lösning. Den här modellen använder en katalogsynkroniseringsverktyget.
 
-![](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) Synkronisering av din hybrididentitetslösning till rätt design Kontrollera att följande frågor besvaras: • vilka är de sync-lösningarna som är tillgängliga för hybrididentitetslösning?
+![katalogsynkronisering](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) till rätt design synkronisering av din hybrididentitetslösning Kontrollera att följande frågor besvaras: • vilka är de sync-lösningarna som är tillgängliga för hybrididentitetslösning?
 • Vilka är funktionerna för enkel inloggning?
 • Alternativ för identitetsfederation mellan B2B och B2C?
 

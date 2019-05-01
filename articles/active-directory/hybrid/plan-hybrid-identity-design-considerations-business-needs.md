@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/27/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7711c3476ac9118406a86430e5ade238bec2c028
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381377"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918630"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Fastställa identitetskrav för för din hybrididentitetslösning
 Det första steget i utforma en hybrididentitetslösning är att avgöra kraven för organisationen som kommer att utnyttja den här lösningen.  Hybrididentitet startas som en stödjande roll (stöds alla andra molnlösningar genom att tillhandahålla autentisering) och på att tillhandahålla nya och intressanta funktioner att låsa upp nya arbetsbelastningar för användare.  Dessa arbetsbelastningar eller tjänster som du vill använda för dina användare styr kraven för hybrid identity utformningen.  Dessa tjänster och arbetsbelastningar behöver använda hybrididentitet både lokalt och i molnet.  
 
 Du behöver gå igenom dessa viktiga aspekter av företag att förstå vad det är ett krav nu och vad företaget planerar för framtiden. Om du inte har synligheten för långsiktig strategi för hybrid identity design, är risken att lösningen inte är skalbar när verksamheten behöver växa och ändra.   T han diagrammet nedan visar ett exempel på en hybrid identity-arkitektur och de arbetsbelastningar som är att låsas upp för användare. Det här är bara ett exempel på alla nya möjligheter som kan låsas upp och levereras med en solid hybrid identity-strategi. 
 
-Vissa komponenter som ingår i hybrid identity-arkitektur ![](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Vissa komponenter som är en del av arkitekturen för hybrid identity ![hybrid identity-arkitektur](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Fastställa affärsbehov
 Alla företag har olika krav, även om dessa företag finns i samma bransch, den professionella kraven kan variera. Du kan fortfarande utnyttja bästa praxis från branschen, men slutänden är det företagets affärsbehov som leder dig att fastställa krav för hybrid identity design. 

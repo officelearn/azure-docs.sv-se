@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354526"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918840"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
 
@@ -135,7 +135,11 @@ Azure AD-anslutning:
 
 ### <a name="management-platform"></a>Plattform för hantering
 
-Enhetshantering för Azure AD-anslutna enheter baserat på en MDM-plattformen, till exempel Intune) och MDM CSP: er. Windows 10 har inbyggda MDM-agenten som fungerar med alla kompatibla MDM-lösningar.
+Enhetshantering för Azure AD-anslutna enheter är baserad på en MDM-plattformen, till exempel Intune och MDM CSP: er. Windows 10 har inbyggda MDM-agenten som fungerar med alla kompatibla MDM-lösningar.
+
+> [!NOTE]
+> Grupprinciper stöds inte i Azure AD-anslutna enheter som de inte är anslutna till den lokala Active Directory. Hantering av Azure AD-anslutna enheter är bara möjligt via MDM
+
 
 Det finns två metoder för hantering av Azure AD-anslutna enheter:
 
@@ -143,7 +147,6 @@ Det finns två metoder för hantering av Azure AD-anslutna enheter:
 
 - **Samhantering** – en enhet som hanteras av en MDM-providern och SCCM. Med den här metoden installeras SCCM-agent på en MDM-hanterad enhet att administrera vissa aspekter.
 
-Eftersom Azure AD-anslutna enheter är inte ansluten till en lokal Active Directory, grupprinciper stöds inte.
 
 
 Om du använder grupprinciper, utvärdera dina MDM-principen paritet med hjälp av den [MDM migrering Analysis verktyget (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 

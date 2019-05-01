@@ -4,16 +4,16 @@ description: Hur du exporterar data från Azure IoT Central programmet till Azur
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 12/07/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 700e8e9fe0dac182d71df8ca66800fa03cf25a2e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295801"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730227"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du använder funktionen löpande export i Azure 
 > Igen när du aktiverar löpande dataexport, får du endast data från det ögonblick då och uppåt. För närvarande går inte att hämta data under en tid när löpande dataexport var inaktiverat. Om du vill behålla fler historiska data, aktivera löpande dataexport tidigt.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste vara administratör i din IoT Central-App
 

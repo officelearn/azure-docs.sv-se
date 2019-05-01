@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258368"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918958"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Säkerhetskopiera och återställa Azure Files med PowerShell
 
@@ -317,7 +317,7 @@ När den relevanta återställningspunkten är vald återställa du filresursen 
 
 ### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Återställa en Azure-filresurs till en alternativ plats
 
-Använd den [återställning AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) att återställa till den valda återställningspunkten. Ange dessa parametrar för att identifiera den alternativa platsen: 
+Använd den [återställning AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) att återställa till den valda återställningspunkten. Ange dessa parametrar för att identifiera den alternativa platsen: 
 
 - **TargetStorageAccountName**: Det lagringskonto dit det säkerhetskopierade innehållet har återställts. Mål-lagringskontot måste finnas på samma plats som valvet.
 - **TargetFileShareName**: Filresurserna i mållagring kontot till det säkerhetskopierade innehållet har återställts.
@@ -340,7 +340,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### <a name="restore-an-azure-file-to-an-alternate-location"></a>Återställa en Azure-fil till en alternativ plats
 
-Använd den [återställning AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) att återställa till den valda återställningspunkten. Ange dessa parametrar för att identifiera den alternativa platsen och för att unikt identifiera fil du vill återställa.
+Använd den [återställning AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) att återställa till den valda återställningspunkten. Ange dessa parametrar för att identifiera den alternativa platsen och för att unikt identifiera fil du vill återställa.
 
 * **TargetStorageAccountName**: Det lagringskonto dit det säkerhetskopierade innehållet har återställts. Mål-lagringskontot måste finnas på samma plats som valvet.
 * **TargetFileShareName**: Filresurserna i mållagring kontot till det säkerhetskopierade innehållet har återställts.

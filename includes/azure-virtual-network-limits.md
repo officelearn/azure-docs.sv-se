@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805202"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733797"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -40,7 +40,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 > [!NOTE]
 > Vi har nyligen ökat alla standardgränser till deras högsta gränser. Om det finns ingen övre gräns-kolumn, har resursen inte justerbara gränser. Om du hade gränserna ökat med stöd för tidigare och inte ser uppdaterade gränser i tabellerna nedan [öppna en kundsupportärende utan kostnad](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Resurs | Standardgräns | 
+| Resurs | Standard gränsen/maxgräns | 
 | --- | --- |
 | Virtuella nätverk |1,000 |
 | Undernät per virtuellt nätverk |3 000 |

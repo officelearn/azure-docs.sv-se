@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ae0e87fddabee9f42cbb5506dce4cd7a5f4f082
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350378"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918842"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Flytta Azure AD Connect-databasen från SQL Server Express till SQL Server 
 
@@ -25,7 +25,7 @@ Det här dokumentet beskriver hur du flyttar Azure AD Connect-databasen från de
 ## <a name="about-this-scenario"></a>Om det här scenariot
 Följande är lite kortfattad information om det här scenariot.  I det här scenariot är Azure AD Connect-version (1.1.819.0) installerad på en enda domänkontrollant för Windows Server 2016.  Den använder den inbyggda SQL Server 2012 Express Edition för databasen.  Databasen kommer att flyttas till en server med SQL Server 2017.
 
-![](media/how-to-connect-install-move-db/move1.png)
+![Scenariots arkitektur](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>Flytta databasen Azure AD Connect
 Använd följande steg för att flytta Azure AD Connect-databasen till en fjärransluten SQL Server.
@@ -37,7 +37,7 @@ Använd följande steg för att flytta Azure AD Connect-databasen till en fjärr
 5. Öppna SQL Server Management Studio på den fjärranslutna SQL-servern.
 6. På databaser, högerklicka och välj Bifoga.
 7. På skärmen **Bifoga databaser** klickar du på **Lägg till** och navigerar till filen ADSync.mdf.  Klicka på **OK**.
-   ![](media/how-to-connect-install-move-db/move2.png)
+   ![koppla databasen](media/how-to-connect-install-move-db/move2.png)
 
 8. När databasen är bifogad, gå tillbaka till Azure AD Connect-servern och installera Azure AD Connect.
 9. När MSI-installationen är klar startar Azure AD Connect-guiden med installationsläget Express. Stäng fönstret genom att klicka på ikonen Avsluta.

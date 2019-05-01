@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Kopiera data till din Microsoft Azure Data Box-enhet via datakopieringstjänsten | Microsoft Docs'
+title: Självstudie för att kopiera data till Azure Data Box-enhet via Kopiera datatjänst | Microsoft Docs
 description: I den här självstudien lär du dig att kopiera data till din Azure Data Box-enhet via datakopieringstjänsten
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60727915"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925307"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Självstudier: Använda datakopieringstjänsten för att kopiera data till Azure Data Box (förhandsversion)
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074197"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919808"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
 
@@ -287,11 +287,11 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="partial-configuration"></a>Partiell konfiguration
 
-Azure Automation State konfigurationen har stöd för användning av [partiella konfigurationer](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+Azure Automation State konfigurationen har stöd för användning av [partiella konfigurationer](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
 I det här scenariot DSC konfigureras för att hantera konfigurationer med flera oberoende av varandra och varje konfiguration är retreieved från Azure Automation.
 Men kan bara en konfiguration tilldelas till en nod och automation-konto.
 Det innebär att om du använder två konfigurationer för en nod behöver du två automation-konton.
-Mer information om hur team kan arbeta tillsammans att samarbeta hantera servrar med konfiguration som kod finns i [förstå DSC-rollen i en CI/CD-Pipeline](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
+Mer information om hur team kan arbeta tillsammans att samarbeta hantera servrar med konfiguration som kod finns i [förstå DSC-rollen i en CI/CD-Pipeline](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Importera nodkonfigurationer
 

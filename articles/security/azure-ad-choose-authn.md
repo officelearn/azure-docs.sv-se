@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 1f950841946b65d618c7335ea3d8d42993a89481
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805269"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702295"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -49,7 +49,7 @@ Azure AD stöder följande autentiseringsmetoder för hybrididentitetslösningar
 ### <a name="cloud-authentication"></a>Autentisering i molnet
 När du väljer den här autentiseringsmetoden hanterar Azure AD användarnas inloggningsprocess. Tillsammans med sömlös enkel inloggning (SSO), logga användare in på molnappar utan att behöva ange sina autentiseringsuppgifter igen. Med autentisering i molnet, kan du välja mellan två alternativ: 
 
-**Azure AD-lösenordshashsynkronisering**. Det enklaste sättet att aktivera autentisering för lokala katalogobjekt i Azure AD. Användare kan använda samma användarnamn och lösenord som de använder lokalt utan att behöva distribuera ytterligare infrastruktur. Vissa premiumfunktioner i Azure AD, som Identity Protection kräver synkronisering av lösenordshash för oavsett vilken autentiseringsmetod som du väljer.
+**Azure AD-lösenordshashsynkronisering**. Det enklaste sättet att aktivera autentisering för lokala katalogobjekt i Azure AD. Användare kan använda samma användarnamn och lösenord som de använder lokalt utan att behöva distribuera ytterligare infrastruktur. Vissa premiumfunktioner i Azure AD som Identity Protection och [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), kräver synkronisering av lösenordshash, oavsett vilken autentiseringsmetod som du väljer.
 
 > [!NOTE] 
 > Lösenord lagras i klartext aldrig eller krypterats med en algoritm för omvändbar i Azure AD. Läs mer om den faktiska processen för synkronisering av lösenordshash, [implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -92,7 +92,7 @@ Information om beslut frågor:
 
 * **Användarupplevelsen**. För att förbättra användarnas inloggning ska distribuera sömlös SSO med synkronisering av lösenordshash. Sömlös SSO eliminerar onödiga anvisningarna när användare är inloggad.
 
-* **Avancerade scenarier**. Om organisationer väljer att, är det möjligt att använda insikter från identiteter med Azure AD Identity Protection rapporter med Azure AD Premium P2. Ett exempel är rapporten läckta autentiseringsuppgifter. Windows Hello för företag har [specifika krav när du använder synkronisering av lösenordshash](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). 
+* **Avancerade scenarier**. Om organisationer väljer att, är det möjligt att använda insikter från identiteter med Azure AD Identity Protection rapporter med Azure AD Premium P2. Ett exempel är rapporten läckta autentiseringsuppgifter. Windows Hello för företag har [specifika krav när du använder synkronisering av lösenordshash](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) kräver synkronisering av lösenordshash för etablera användare med sina företagsuppgifter i den hanterade domänen.
 
     Organisationer som kräver Multi-Factor authentication med synkronisering av lösenordshash måste använda multifaktorautentisering i Azure AD. Dessa organisationer kan inte använda från tredje part eller den lokala Multi-Factor authentication-metoderna.
 
@@ -173,7 +173,7 @@ Följande diagram visas de övergripande arkitektur komponenter som krävs för 
 
 |Beräkningen|Synkronisering av lösenordshash + sömlös SSO|Direktautentisering + sömlös SSO|Federation med AD FS|
 |:-----|:-----|:-----|:-----|
-|Var sker autentisering?|I molnet|I molnet när du har ett säkert lösenord verifiering exchange med lokala autentiseringsagent|Lokalt|
+|Var sker autentisering?|I molnet|I molnet när du har ett säkert lösenord verifiering exchange med lokala autentiseringsagent|Lokal|
 |Vad är en lokal server-krav utöver etablering systemet: Azure AD Connect?|Ingen|En server för varje ytterligare autentisering-agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverk|
 |Vilka är kraven för den lokala Internet och nätverk utöver etablering systemet?|Ingen|[Utgående Internetåtkomst](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) från servrarna som kör autentiseringsagenter|[Inkommande Internetåtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande åtkomst till AD FS-servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
 |Finns det ett krav för SSL-certifikat?|Nej|Nej|Ja|

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/17/2019
 ms.author: rimman
-ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678453"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925337"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Hantera konsekvensnivåer i Azure Cosmos DB
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Övervaka PBS-mått (probabilistiskt begränsad föråldring)
 
-Hur eventuell är eventuell konsekvens? För det genomsnittliga fallet kan vi erbjuda föråldring gränser med avseende på tidigare versioner och tid. Den [ **Probabilistically bunden föråldring (PBS)** ](http://pbs.cs.berkeley.edu/) mått försöker kvantifiera sannolikheten för föråldring och visar det som ett mått. Om du vill visa PBS-mått, går du till ditt Azure Cosmos-konto i Azure-portalen. Öppna fönsterrutan **Mått** och välj fliken **Konsekvens**. Titta på grafen med namnet **Probability of strongly consistent reads based on your workload (see PBS)** (Sannolikheten för starkt konsekventa läsningar baserat på din arbetsbelastning (se PBS)).
+Hur eventuell är eventuell konsekvens? För det genomsnittliga fallet kan vi erbjuda föråldring gränser med avseende på tidigare versioner och tid. Den [ **Probabilistically bunden föråldring (PBS)** ](https://pbs.cs.berkeley.edu/) mått försöker kvantifiera sannolikheten för föråldring och visar det som ett mått. Om du vill visa PBS-mått, går du till ditt Azure Cosmos-konto i Azure-portalen. Öppna fönsterrutan **Mått** och välj fliken **Konsekvens**. Titta på grafen med namnet **Probability of strongly consistent reads based on your workload (see PBS)** (Sannolikheten för starkt konsekventa läsningar baserat på din arbetsbelastning (se PBS)).
 
 ![PBS-graf i Azure-portalen](./media/how-to-manage-consistency/pbs-metric.png)
 

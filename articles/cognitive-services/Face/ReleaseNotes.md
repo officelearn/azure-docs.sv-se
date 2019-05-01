@@ -8,18 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/28/2019
 ms.author: yluiu
-ms.openlocfilehash: 8502d643986392ba846d509819c6d8f63f931c07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63f705061db7c89a80578e741d02ab8f8b1041c2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815203"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917104"
 ---
 # <a name="face-api-release-notes"></a>Ansikts-API: et viktig information
 
 Den här artikeln gäller Ansikts-API-tjänst version 1.0.
+
+### <a name="release-changes-in-april-2019"></a>Versionen ändringar i April 2019
+
+* Förbättrad övergripande korrektheten i den `age` och `headPose` attribut. Den `headPose` attribut har också uppdaterats med den `pitch` värde som är aktiverad. Använd dessa attribut genom att ange dem i den `returnFaceAttributes` -parametern för [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parametern. 
+
+* Förbättrad hastighet [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup Person - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) och [ LargePersonGroup Person - Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
 
 ### <a name="release-changes-in-march-2019"></a>Versionen ändringar i mars 2019
 

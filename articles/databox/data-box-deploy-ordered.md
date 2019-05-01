@@ -1,19 +1,19 @@
 ---
-title: Beställa Microsoft Azure Data Box | Microsoft Docs
+title: Självstudie för ordning Azure Data Box | Microsoft Docs
 description: Lär dig om förutsättningarna för distribution och hur du beställer en Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05d522550b96813c6b8326d83f09d7028466c835
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834276"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926217"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudier: Beställa Azure Data Box
 
@@ -27,7 +27,7 @@ I den här självstudien beskriver vi hur du kan beställa en Azure Data Box. I 
 > * Spåra beställningen
 > * Avbryta beställningen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Slutför följande konfigurationskrav för Data Box-tjänsten och enheten innan du distribuerar enheten.
 
@@ -69,7 +69,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |Källand     |   Välj landet där dina data finns.         |
     |Azure-målregion     |     Välj den Azure-region dit du vill överföra data.        |
 
-5. Välj **Data Box**. Den maximala kapaciteten som kan användas för en enskild beställning är 786 TB. Du kan skapa flera beställningar för större datamängder.
+5. Välj **Data Box**. Den maximala kapaciteten som kan användas för en enskild beställning är 80 TB. Du kan skapa flera beställningar för större datamängder.
 
       [![Välja Data Box-alternativ 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 

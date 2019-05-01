@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358165"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917661"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD-lösenordsskydd lokalt – vanliga frågor och svar
 
@@ -42,7 +42,7 @@ Stöds ej. När distribuerats och aktiverats, Azure AD-lösenordsskydd skilja in
 
 Ett lösenord (kallas ibland en lösenordsåterställning) är när en administratör ersätter lösenordet till ett konto med ett nytt lösenord, till exempel med hjälp av verktyget för Active Directory-användare och datorer. Den här åtgärden kräver en hög behörighetsnivå (vanligtvis domänadministratören) och den person som utför åtgärden vanligtvis har inte kunskap om det gamla lösenordet. Helpdesk-scenarier ofta göra detta, exempelvis när hjälpa en användare som har glömt sitt lösenord. Du kan även se lösenord in händelser när ett helt nytt konto skapas för första gången med ett lösenord.
 
-Princip för verifiering av lösenord fungerar på samma sätt oavsett om en ändring av lösenord eller en uppsättning görs. Azure AD-lösenord Protection DC-agenttjänsten loggar olika händelser för att informera dig om en lösenordsändring eller set-åtgärd utfördes.  Se [Azure AD lösenordsskydd övervakning och loggning](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+Princip för verifiering av lösenord fungerar på samma sätt oavsett om en ändring av lösenord eller en uppsättning görs. Azure AD-lösenord Protection DC-agenttjänsten loggar olika händelser för att informera dig om en lösenordsändring eller set-åtgärd utfördes.  Se [Azure AD lösenordsskydd övervakning och loggning](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **F: Finns det stöd för att installera Azure AD-lösenord Protection sida vid sida med andra filter-lösenordsbaserade produkter?**
 

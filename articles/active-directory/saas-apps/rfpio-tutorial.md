@@ -4,138 +4,142 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 87187076-7b50-4247-814f-f217b052703f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: tutorial
+ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b8109c8d3834f932ba492eddb8d6332acc1707
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 176e0c80b4b1c70c3f49a35ae04d6233bc080f43
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61081002"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Självstudier: Azure Active Directory-integrering med RFPIO
 
 I den här självstudien får du lära dig hur du integrerar RFPIO med Azure Active Directory (AD Azure).
-
 Integrera RFPIO med Azure AD ger dig följande fördelar:
 
-- Du kan styra vem i Azure AD som har åtkomst till RFPIO.
-- Du kan aktivera användarna att automatiskt få loggat in på RFPIO (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till RFPIO.
+* Du kan aktivera användarna att vara automatiskt inloggad till RFPIO (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med RFPIO, behöver du följande objekt:
 
-- En Azure AD-prenumeration.
-- En RFPIO enkel inloggning på aktiverad prenumeration.
-
-> [!NOTE]
-> Vi rekommenderar inte att du använder en produktionsmiljö för att testa stegen i den här självstudien.
-
-Följ dessa rekommendationer för att testa stegen i den här självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en [utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* RFPIO enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Lägger till RFPIO från galleriet.
-1. Konfigurera och testa Azure AD enkel inloggning.
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="add-rfpio-from-the-gallery"></a>Lägg till RFPIO från galleriet
+* Har stöd för RFPIO **SP och IDP** -initierad SSO
+
+## <a name="adding-rfpio-from-the-gallery"></a>Att lägga till RFPIO från galleriet
+
 För att konfigurera integrering av RFPIO i Azure AD, som du behöver lägga till RFPIO från galleriet i din lista över hanterade SaaS-appar.
 
-### <a name="to-add-rfpio-from-the-gallery"></a>Lägga till RFPIO från galleriet
+**Utför följande steg för att lägga till RFPIO från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, i det vänstra navigeringsfönstret, väljer den **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Välj **företagsprogram**, och välj sedan **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
-1. Om du vill lägga till ett nytt program, Välj den **nytt program** knappen överst i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Appar][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **RFPIO**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/rfpio-tutorial/tutorial_rfpio_search.png)
+4. I sökrutan skriver **RFPIO**väljer **RFPIO** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **RFPIO**, och välj sedan den **Lägg till** för att lägga till programmet.
+    ![RFPIO i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/rfpio-tutorial/tutorial_rfpio_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med RFPIO baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du känna till relationen mellan motsvarande användare i RFPIO och en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i RFPIO upprättas.
-
-I RFPIO, tilldela värdet för **användarnamn** i Azure AD som värde för **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med RFPIO baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i RFPIO upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med RFPIO, måste du utföra följande byggblock:
 
-1. **Konfigurera Azure AD enkel inloggning**--vill tillåta att användarna använda den här funktionen.
-1. **Skapa en Azure AD-testanvändare**– testa Azure AD enkel inloggning med Britta Simon.
-1. **Skapa en testanvändare RFPIO** – har en motsvarighet för Britta Simon i RFPIO som är länkad till en Azure AD-representation av användaren.
-1. **Tilldela Azure AD-testanvändare**– aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **Testa enkel inloggning** --att kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera RFPIO Single Sign-On](#configure-rfpio-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare RFPIO](#create-rfpio-test-user)**  – du har en motsvarighet för Britta Simon i RFPIO som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt RFPIO program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med RFPIO:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med RFPIO:
 
-1. I Azure-portalen på den **RFPIO** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **RFPIO** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/tutorial_rfpio_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **RFPIO domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/tutorial_rfpio_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **identifierare** textrutan anger du URL: `https://www.rfpio.com`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/tutorial_rfpio_url1.png)
+4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierade läge, utföra följande steg:
 
-    b. Kontrollera **visa avancerade URL-inställningar**.
+    ![RFPIO domän och URL: er med enkel inloggning för information](common/idp-identifier.png)
 
-    c. I den **Vidarebefordransstatus** textrutan anger du ett strängvärde. Kontakta [RFPIO supportteam](https://www.rfpio.com/contact/) att hämta det här värdet. 
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.rfpio.com`
 
-1. Kontrollera **visa avancerade URL-inställningar**. Om du vill konfigurera programmet i **SP** initierade läge: 
+    b. Klicka på **Ange ytterligare URL:er**.
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/tutorial_rfpio_url2.png)
+    c. I den **Vidarebefordransstatus** textrutan anger du ett strängvärde. Kontakta [RFPIO supportteam](https://www.rfpio.com/contact/) att hämta det här värdet.
 
-    I den **inloggnings-URL** textrutan anger du URL: `https://www.app.rfpio.com`
+    ![RFPIO domän och URL: er med enkel inloggning för information](common/idp-preintegrated-relay.png)
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/tutorial_rfpio_certificate.png) 
+    ![image](common/both-preintegrated-signon.png)
 
-1. Klicka på knappen **Spara**.
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://www.app.rfpio.com`
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare och inloggnings-URL: en. Kontakta [RFPIO klienten supportteamet](https://www.rfpio.com/contact/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. I ett annat webbläsarfönster, logga in på den **RFPIO** webbplats som administratör.
+6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+7. På den **konfigurera RFPIO** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-rfpio-single-sign-on"></a>Konfigurera RFPIO enkel inloggning
+
+1. I ett annat webbläsarfönster, loggar du in den **RFPIO** webbplats som administratör.
 
 1. Klicka på listrutan längst ned till vänster.
 
@@ -160,7 +164,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     a. Kopiera innehållet i den **XML-Metadata för hämtade** och klistra in den i den **identitet configuration** fält.
 
     > [!NOTE]
-    >Om du vill kopiera innehållet i nedladdade **XML-Metadata för** Använd **anteckningar ++** eller till rätt **XML-redigerare**. 
+    >Om du vill kopiera innehållet i nedladdade **XML-Metadata för Federation** Använd **anteckningar ++** eller till rätt **XML-redigerare**.
 
     b. Klicka på **Validera**.
 
@@ -168,47 +172,57 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Klicka på **Skicka**.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/rfpio-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/rfpio-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/rfpio-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/rfpio-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-rfpio-test-user"></a>Skapa en RFPIO testanvändare
 
-Om du vill aktivera Azure AD-användare att logga in på RFPIO, måste de etableras i RFPIO.  
-När det gäller RFPIO är etablering en manuell aktivitet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-**Utför följande steg för att etablera ett användarkonto:**
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till RFPIO.
+
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **RFPIO**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **RFPIO**.
+
+    ![Länken RFPIO i listan med program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-rfpio-test-user"></a>Skapa RFPIO testanvändare
 
 1. Logga in på webbplatsen RFPIO företag som administratör.
 
@@ -237,63 +251,21 @@ När det gäller RFPIO är etablering en manuell aktivitet.
     b. Välj **rollen** enligt dina krav.
 
     c. Klicka på **Lägg till MEDLEMMAR**.
-        
+
     > [!NOTE]
     > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till RFPIO.
-
-![Tilldela användare][200] 
-
-**Om du vill tilldela Britta Simon RFPIO, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **RFPIO**.
-
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/tutorial_rfpio_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen RFPIO i åtkomstpanelen du bör få automatiskt loggat in på ditt RFPIO program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen RFPIO i åtkomstpanelen, bör det vara loggas in automatiskt till RFPIO som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/rfpio-tutorial/tutorial_general_01.png
-[2]: ./media/rfpio-tutorial/tutorial_general_02.png
-[3]: ./media/rfpio-tutorial/tutorial_general_03.png
-[4]: ./media/rfpio-tutorial/tutorial_general_04.png
-
-[100]: ./media/rfpio-tutorial/tutorial_general_100.png
-
-[200]: ./media/rfpio-tutorial/tutorial_general_200.png
-[201]: ./media/rfpio-tutorial/tutorial_general_201.png
-[202]: ./media/rfpio-tutorial/tutorial_general_202.png
-[203]: ./media/rfpio-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

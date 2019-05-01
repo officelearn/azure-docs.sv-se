@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249938"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918721"
 ---
 # <a name="web-api"></a>Webb-API
 
@@ -69,7 +69,7 @@ Se kodexempel för webbprogram till webb-API-scenarier. Och kom tillbaka ofta �
 
 ## <a name="app-registration"></a>Appregistrering
 
-Om du vill registrera ett program med Azure AD v1.0 slutpunkten, se [registrera en app med Azure AD v1.0 slutpunkten](quickstart-v1-add-azure-ad-app.md).
+Om du vill registrera ett program med Azure AD v1.0 slutpunkten, se [registrera en app](quickstart-register-app.md).
 
 * Enskild klient – för både programidentiteten och delegerade användaren identitet fall kan webbappen och webb-API måste registreras i samma katalog i Azure AD. Webb-API kan konfigureras för att exponera en uppsättning behörigheter som används för att begränsa webbprogrammets åtkomst till dess resurser. Om en delegerad användaridentitetstypen används webbprogrammet måste välja önskade behörigheter från den **behörigheter för andra program** nedrullningsbara menyn i Azure-portalen. Det här steget krävs inte om identitet programtyp som används.
 * Flera innehavare-först webbprogrammet har konfigurerats för att ange de behörigheter som krävs ska fungera. Den här listan över behörigheter som krävs visas i en dialogruta när en användare eller administratör i målmappen ger du ditt medgivande till programmet, vilket gör dem tillgängliga för deras organisation. Vissa program kräver endast användarnivå behörigheter, som alla användare i organisationen kan godkänna. Andra program som kräver på administratörsnivå som en användare i organisationen inte kan godkänna. Endast en directory-administratören kan samtycka till program som kräver den här behörighetsnivån. När användaren eller administratören godkänner, registreras webbappen och webb-API både i sin katalog.

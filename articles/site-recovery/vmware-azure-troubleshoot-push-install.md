@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564688"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925564"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
@@ -231,13 +231,13 @@ Det här är ett körningsfel och beror på grund av otillräckligt med minne f�
 
 ### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>Fel i VSS-2147023824 [0x80070430] - slutkoden 517
 
-Det här felet uppstår när Azure Site Recovery VSS Provider-tjänsten är [markerats för borttagning](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Försök att installera VSS manuellt på källdatorn under installationen genom att köra följande kommandorad
+Det här felet uppstår när Azure Site Recovery VSS Provider-tjänsten är [markerats för borttagning](https://msdn.microsoft.com/library/ms838153.aspx). Försök att installera VSS manuellt på källdatorn under installationen genom att köra följande kommandorad
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>Fel i VSS-2147023841 [0x8007041F] - slutkoden 512
 
-Det här felet uppstår när Azure Site Recovery VSS Provider-tjänstdatabasen är [låst](https://msdn.microsoft.com/en-us/library/ms833798.aspx). Försök att installera VSS manuellt på källdatorn under installationen genom att köra följande kommandorad
+Det här felet uppstår när Azure Site Recovery VSS Provider-tjänstdatabasen är [låst](https://msdn.microsoft.com/library/ms833798.aspx). Försök att installera VSS manuellt på källdatorn under installationen genom att köra följande kommandorad
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 

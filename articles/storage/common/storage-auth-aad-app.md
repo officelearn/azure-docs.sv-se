@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c4959d6abd1b33c81f731ad0479bd59d271c7797
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 979019da60c1129c6c6ef0bec42d9f9096735c1b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484030"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926045"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autentisera med Azure Active Directory från ett program för åtkomst till blobbar och köer
 
@@ -37,7 +37,7 @@ Det första steget i att använda Azure AD för att bevilja åtkomst till lagrin
 
 När du registrerar ditt program kan ange du information om ditt program till Azure AD. Sedan Azure AD tillhandahåller ett klient-ID (även kallat en *program-ID*) att du använder för att associera ditt program med Azure AD vid körning. Läs mer om klient-ID i [program och tjänstobjekt i Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Registrera ditt Azure Storage-program genom att följa stegen i den [lägga till ett program](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) i avsnittet [integrera program med Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Om du registrerar ditt program som ett internt program, kan du ange en giltig URI för den **omdirigerings-URI**. Värdet behöver inte vara en verklig slutpunkt.
+Registrera ditt Azure Storage-program genom att följa stegen i den [lägga till ett program](../../active-directory/develop/quickstart-register-app.md) i avsnittet [integrera program med Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Om du registrerar ditt program som ett internt program, kan du ange en giltig URI för den **omdirigerings-URI**. Värdet behöver inte vara en verklig slutpunkt.
 
 ![Skärmbild som visar hur du registrerar ditt storage-program med Azure AD](./media/storage-auth-aad-app/app-registration.png)
 

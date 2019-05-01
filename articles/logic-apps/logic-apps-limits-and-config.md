@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303680"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916816"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -179,45 +179,18 @@ Här följer begränsningarna för anpassade anslutningsappar som du kan skapa f
 
 Här finns gränser för antalet artefakter för varje integrationskontot. Mer information finns i [Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Kostnadsfri nivå*
+> [!NOTE] 
+> Använd den kostnadsfria nivån enbart för undersökande scenarier, inte produktionsscenarier. Den här nivån begränsar dataflödet och användning och har inget servicenivåavtal (SLA).
 
-Använd den kostnadsfria nivån enbart för undersökande scenarier, inte produktionsscenarier. Den här nivån begränsar dataflödet och användning och har inget servicenivåavtal (SLA).
-
-| Artefakt | Gräns | Anteckningar |
-|----------|-------|-------|
-| Sammansättningar | 10 | |
-| Batchkonfigurationer | 5 |
-| Certifikat | 25 | |
-| Handel EDI-avtal | 10 | |
-| EDI-affärspartner | 25 | |
-| Kartor | 25 | |
-| Scheman | 25 |
-||||
-
-*Basic-nivån*
-
-| Artefakt | Gräns | Anteckningar |
-|----------|-------|-------|
-| Sammansättningar | 25 | |
-| Batchkonfigurationer | 1 | |
-| Certifikat | 2 | |
-| Handel EDI-avtal | 1 | |
-| EDI-affärspartner | 2 | |
-| Kartor | 500 | |
-| Scheman | 500 |
-||||
-
-*Standardnivå*
-
-| Artefakt | Gräns | Anteckningar |
-|----------|-------|-------|
-| Sammansättningar | 50 | |
-| Batchkonfigurationer | 50 |
-| Certifikat | 500 | |
-| Handel EDI-avtal | 500 | |
-| EDI-affärspartner | 500 | |
-| Kartor | 1,000 | |
-| Scheman | 1,000 |
+| Artefakt | Kostnadsfri | Basic | Standard |
+|----------|------|-------|----------|
+| Handel EDI-avtal | 10 | 1 | 500 |
+| EDI-affärspartner | 25 | 2 | 500 |
+| Kartor | 25 | 500 | 1,000 |
+| Scheman | 25 | 500 | 1,000 |
+| Sammansättningar | 10 | 25 | 50 |
+| Certifikat | 25 | 2 | 500 |
+| Batchkonfigurationer | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -304,7 +277,7 @@ Logic Apps stöder inte att ansluta direkt till Azure storage-konton genom brand
 | Södra Indien | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Sydostasien | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Västra centrala USA | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| Västra Europa | 13.95.155.53, 52.174.49.6, 52.174.49.6, 52.174.54.218 |
+| Västra Europa | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
 | Indien, västra | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | Västra USA | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | Västra USA 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |

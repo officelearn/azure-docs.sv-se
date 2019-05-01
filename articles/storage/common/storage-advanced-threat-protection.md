@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484218"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926509"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection för Azure Storage
 
@@ -23,7 +23,7 @@ Säkerhetsvarningar utlöses när avvikelser i aktivitet inträffar.  Dessa säk
 
 > [!NOTE]
 > * Avancerat skydd för Azure Storage är endast tillgänglig för Blob-lagringen.
-> * Prisinformationen, inklusive en kostnadsfria 30-dagars utvärderingsversion finns i den [sidan med priser för Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
+> * Prisinformationen, inklusive en kostnadsfria 30-dagars utvärderingsversion finns i den [sidan med priser för Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
 > * ATP för Azure storage-funktionen är för närvarande inte tillgänglig i Azure government och nationellt molnregioner.
 
 Avancerat skydd för Azure Storage matar in diagnostiska loggar för Läs-, Skriv- och delete-begäranden till Blob storage för identifiering av hot. Du kan visa relaterade storage-aktivitet som använder loggning av Storage Analytics för att undersöka aviseringar från Avancerat skydd. Läs mer om hur du [konfigurera Storage Analytics loggning](storage-monitor-storage-account.md#configure-logging).

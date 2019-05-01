@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: c403d809aa1fc6cdbb0555eef414f79b02ab5a8a
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764117"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920170"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrera Azure Active Directory med Azure Kubernetes Service med hjälp av Azure CLI
 
@@ -80,7 +80,6 @@ Azure AD måste ha behörighet att utföra följande åtgärder:
 
 * Läsa katalogdata
 * Logga in och läsa användarprofil
-* Läsa katalogdata
 
 Tilldelar dessa behörigheter med hjälp av den [az ad appbehörighet Lägg till] [ az-ad-app-permission-add] kommando:
 

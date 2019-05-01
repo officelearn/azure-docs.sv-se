@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 04/26/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45252cc4d45e96c2bde4a4600630ea578a8d3009
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299036"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946727"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -34,8 +34,8 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 
 > [!NOTE]
 > **Förutsättningar**
-> * Android Studio 3+
-> * Android 21 + krävs 
+> * Android Studio 
+> * Android 16 + krävs 
 
 
 > [!div renderon="docs"]
@@ -56,19 +56,20 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
-> 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-> 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-> 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan.
+> 1. Gå till Microsoft identity-plattformen för utvecklare [appregistreringar](https://aka.ms/MobileAppReg) sidan.
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
->      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `Android-Quickstart`.
+>      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `AndroidQuickstart`.
+>      - Du kan hoppa över andra konfigurationer på den här sidan. 
 >      - Tryck på den `Register` knappen.
-> 1. Gå till `Authentication`  >  `Redirect URIs`  >  `Suggested Redirect URIs for public clients`, och välj den omdirigerings-URI i formatet **msal {AppId} :/ / auth**. Spara ändringen.
-
+> 1. Klicka på den nya appen > Gå till `Authentication`  >  `Add Platform`  >  `Android`.    
+>      - Ange paketets namn från Android studio-projekt. 
+>      - Generera en signatur-Hash. Referera till portalen för instruktioner.
+> 1. Välj `Configure` och spara den ***MSAL Configuration*** JSON till senare. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
-> För att kodexemplet för den här snabbstarten ska fungera behöver du lägga till en svars-URL som **msal{AppId}://auth** (där {AppId} är program-ID för din app).
+> Du måste lägga till en omdirigerings-URI som är kompatibel med Auth Service broker för kodexempel för den här snabbstarten ska fungera. 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
@@ -77,24 +78,34 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet
 
-* [Ladda ned Android Studio-projektet](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Ladda ned kodexempel](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Steg 3: Konfigurera projektet
 
 > [!div renderon="docs"]
-> Om du har valt alternativ 1 ovan kan du hoppa över de här stegen. Öppna projektet i Android Studio och kör appen. 
+> Om du har valt alternativ 1 ovan kan du hoppa över de här stegen. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extrahera och öppna projektet i Android Studio.
-> 1. Inuti **app** > **res** > **raw**öppnar **auth_config.json**.
-> 1. Redigera **auth_config.json** och Ersätt den `client_id` och `tenant_id`:
+> 1. Inuti **app** > **src** > **huvudsakliga** > **res**  >   **rå**öppnar **auth_config.json**.
+> 1. Redigera **auth_config.json** och Ersätt den med JSON från Azure-portalen. Om du i stället vill göra ändringarna manuellt:
 >    ```javascript
->    "client_id" : "Enter_the_Application_Id_Here",
->    "type": "Enter_the_Audience_Info_Here",
->    "tenant_id" : "Enter_the_Tenant_Info_Here"
->    ```
-> 1. Inuti **app** > **manifest**öppnar **AndroidManifest.xml**.
-> 1. Lägg till att följande aktivitet i noden **manifest\application**. Den här koden kan Microsoft återanrop i din app:   
+>    {
+>       "client_id" : "Enter_the_Application_Id_Here",
+>       "authorization_user_agent" : "DEFAULT",
+>       "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+>       "authorities" : [
+>          {
+>             "type": "AAD",
+>             "audience": {
+>                "type": "Enter_the_Audience_Info_Here",
+>                "tenant_id": "Enter_the_Tenant_Info_Here"
+>             }
+>          }
+>       ]
+>    }
+> 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
+> 1. Paste the following activity to the **manifest\application** node: 
 >    ```xml
 >    <!--Intent filter to catch Microsoft's callback after Sign In-->
 >    <activity
@@ -103,19 +114,18 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 >            <action android:name="android.intent.action.VIEW" />
 >            <category android:name="android.intent.category.DEFAULT" />
 >            <category android:name="android.intent.category.BROWSABLE" />
-> 
->            <!--Add in your scheme/host from registered redirect URI-->
->            <!--By default, the scheme should be similar to 'msal[appId]' -->
->            <data android:scheme="msalEnter_The_Application_Id_Here"
->                android:host="auth" />
+>            <data android:scheme="msauth"
+>                android:host="Enter_the_Package_Name"
+>                android:path="/Enter_the_Signature_Hash" />
 >        </intent-filter>
 >    </activity>
 >    ```
+> > 1. Kör appen! 
 
 > [!div renderon="docs"]
 > 1. Extrahera och öppna projektet i Android Studio.
 > 1. Inuti **app** > **res** > **raw**öppnar **auth_config.json**.
-> 1. Redigera **auth_config.json** och Ersätt den `client_id` och `redirect_uri`:
+> 1. Redigera **auth_config.json** och Ersätt den med JSON från Azure-portalen. Om du istället vill göra dessa ändringar manuellt:
 >    ```javascript
 >    "client_id" : "ENTER_YOUR_APPLICATION_ID",
 >    "redirect_uri": "ENTER_YOUR_REDIRECT_URI", 
@@ -130,27 +140,26 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 >            <action android:name="android.intent.action.VIEW" />
 >            <category android:name="android.intent.category.DEFAULT" />
 >            <category android:name="android.intent.category.BROWSABLE" />
-> 
->            <!--Add in your scheme/host from registered redirect URI-->
->            <!--By default, the scheme should be similar to 'msal[appId]' -->
->            <data android:scheme="msal<ENTER_YOUR_APPLICATION_ID>"
->                android:host="auth" />
+>            <data android:scheme="msauth"
+>                android:host="Enter_the_Package_Name"
+>                android:path="/Enter_the_Decoded_Signature_Hash" />
 >        </intent-filter>
 >    </activity>
 >    ```
-> 1. Ersätt `<ENTER_THE_APPLICATION_ID_HERE>` med *program-ID* för ditt program. Om du behöver hitta *program-ID* går du till sidan *Översikt*.
+> 1. Ersätt `Enter_the_Package_Name` och `Enter_the_Signature_Hash` med de värden som du registrerade i Azure-portalen. 
+> 1. Kör appen! 
 
 ## <a name="more-information"></a>Mer information
 
 Läs följande avsnitt för att få mer information om den här snabbstarten.
 
-### <a name="msal"></a>MSAL
+### <a name="getting-msal"></a>Hämta MSAL
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är i biblioteket som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft identity-plattformen. Du kan använda Gradle för att installera det genom att lägga till följande i **Gradle-skript** > **build.gradle (modul: app)** under **Beroenden**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är i biblioteket som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft identity-plattformen. Du kan använda Gradle 3.0 + för att installera det genom att lägga till följande i **Gradle-skripten** > **build.gradle (modul: app)** under **beroenden**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
-implementation 'com.microsoft.identity.client:msal:0.2.+'
+implementation 'com.microsoft.identity.client:msal:0.3.+'
 ```
 
 ### <a name="msal-initialization"></a>MSAL-initiering
@@ -171,20 +180,22 @@ Initiera sedan MSAL med hjälp av följande kod:
 
 > |Där: ||
 > |---------|---------|
-> |`R.raw.auth_config` | Den här filen innehåller konfigurationer för ditt program, inklusive App/klient-ID, logga in målgrupp och flera andra anpassningsalternativ. |
+> |`R.raw.auth_config` | Den här filen innehåller konfigurationer för ditt program, inklusive App/klient-ID, logga in målgrupp, omdirigerings-URI och flera andra anpassningsalternativ. |
 
 ### <a name="requesting-tokens"></a>Begära token
 
 MSAL har två metoder som används för att hämta token: `acquireToken` och `acquireTokenSilentAsync`
 
-#### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
+#### <a name="acquiretoken-getting-a-token-interactively"></a>acquireToken: Få en token interaktivt
 
-Vissa situationer kräver att tvinga användare att interagera med Microsoft identity-plattformen slutpunkt, vilket resulterar i en kontext växla till webbläsaren system och antingen verifiera autentiseringsuppgifterna för den användare eller för medgivande. Några exempel är:
+Vissa situationer kräver att användare interagerar med Microsoft identity-plattformen. I dessa fall kan kan slutanvändaren krävas för att välja sitt konto, ange sina autentiseringsuppgifter eller godkänna de behörigheter som har begärt att din app. Exempel: 
 
 * Första gången användaren loggar in på programmet
-* När användarna kan behöva ange sina autentiseringsuppgifter igen eftersom lösenordet har upphört att gälla
-* När programmet begär åtkomst till en resurs som användaren behöver ge sitt medgivande för
-* När tvåfaktorsautentisering krävs
+* Om en användare återställer sitt lösenord, uppmanas användaren att ange sina autentiseringsuppgifter 
+* Medgivande har återkallats 
+* Om din app kräver uttryckligen medgivande. 
+* När ditt program begär åtkomst till en resurs för första gången
+* När MFA- eller andra principer för villkorlig åtkomst krävs
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
@@ -195,24 +206,29 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 > | `SCOPES` | Innehåller de omfång som begärs (det vill säga `{ "user.read" }` för Microsoft Graph eller `{ "<Application ID URL>/scope" }` för anpassade webb-API:er (dvs. `api://<Application ID>/access_as_user`)) |
 > | `getAuthInteractiveCallback` | Motringning som körs när kontroll ges tillbaka till programmet efter autentisering |
 
-#### <a name="getting-a-user-token-silently"></a>Hämta en token obevakat
+#### <a name="acquiretokensilent-getting-a-user-token-silently"></a>acquireTokenSilent: Hämta en token obevakat
 
-Du vill inte kräva att användarna verifierar sina autentiseringsuppgifter varje gång de behöver komma åt en resurs. I de flesta fall vill du ha hämtning och förnyelse av token utan någon användarinteraktion. Du kan använda metoden `AcquireTokenSilentAsync` för att hämta token för att komma åt skyddade resurser efter den inledande metoden `acquireToken`:
+Appar bör inte kräver att användarna ska logga in varje gång de begär en token. Om användaren har redan loggat in, kan den här metoden appar att begära token tyst.
 
 ```java
-List<IAccount> accounts = sampleApp.getAccounts();
-if (sample.size() == 1) {
-    sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
-} else {
-    // No or multiple accounts
-}
+    sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
+        @Override
+        public void onAccountsLoaded(final List<IAccount> accounts) {
+
+            if (!accounts.isEmpty()) {
+                sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
+            } else {
+                /* No accounts */
+            }
+        }
+    });
 ```
 
 > |Där:||
 > |---------|---------|
 > | `SCOPES` | Innehåller de omfång som begärs (det vill säga `{ "user.read" }` för Microsoft Graph eller `{ "<Application ID URL>/scope" }` för anpassade webb-API:er (dvs. `api://<Application ID>/access_as_user`)) |
-> | `accounts.get(0)` | Innehåller det konto som du försöker hämta token för tyst |
-> | `getAuthInteractiveCallback` | Motringning som körs när kontroll ges tillbaka till programmet efter autentisering |
+> | `getAccounts(...)` | Innehåller det konto som du försöker hämta token för tyst |
+> | `getAuthSilentCallback()` | Motringning som körs när kontroll ges tillbaka till programmet efter autentisering |
 
 ## <a name="next-steps"></a>Nästa steg
 

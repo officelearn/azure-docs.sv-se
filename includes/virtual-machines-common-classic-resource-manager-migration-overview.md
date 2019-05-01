@@ -5,15 +5,15 @@ services: virtual-machines
 author: jpconnock
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
+ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542936"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929461"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Plattformsunderstödd migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Den här artikeln beskriver hur du migrerar infrastruktur som en tjänst (IaaS)-resurser från klassiskt till Resource Manager-distributionsmodeller och information om hur du ansluter resurser från de två distributionsmodeller som finnas i din prenumeration med hjälp av virtuellt nätverk plats-till-plats-gatewayer. Du kan läsa mer om [Azure Resource Manager-funktioner och fördelar](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -74,7 +74,20 @@ Om ditt lagringskonto inte har några associerade diskar eller virtuella datorer
 
 > [!NOTE]
 > Resource Manager-distributionsmodellen har inte begreppet klassiska avbildningar och diskar. När lagringskontot är migrerade, klassiska avbildningar och diskar visas inte i Resource Manager-stacken men säkerhetskopiering virtuella hårddiskar finns kvar i lagringskontot.
->
+
+Följande skärmbilder visar hur du uppgraderar ett klassiskt lagringskonto till ett Azure Resource Manager-lagringskonto med hjälp av Azure portal:
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Navigera till ditt lagringskonto.
+3. I den **inställningar** klickar du på **migrera till ARM**.
+4. Klicka på **verifiera** att avgöra sannolikheten för migrering.
+5. Om valideringen lyckats klickar du på **Förbered** att skapa ett migrerade storage-konto.
+6. Typ **Ja** att bekräfta migreringen och klicka på **genomför** att slutföra migreringen.
+
+    ![Verifiera Storage-konto](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    
+    ![Förbereda Storage-konto](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    
+    ![Slutför Lagringskontomigreringen](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>Migrering av ej anslutna resurser
 Storage-konton utan tillhörande diskar eller data för virtuella datorer kan migreras oberoende av varandra.

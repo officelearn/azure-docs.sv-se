@@ -7,29 +7,28 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: mimart
-author: msmimart
+author: v-miegge
 manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2a0eaf75debf694421ac9e5f2f7eb13891a20cf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412428"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917357"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsökning av Azure Active Directory B2B-samarbete
 
 Här finns några lösningar för vanliga problem med Azure Active Directory (Azure AD) B2B-samarbete.
 
-
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Jag har lagt till en extern användare men ser inte dem i den globala adressboken eller i Personväljaren
 
 Objektet kan ta några minuter att replikera i fall där externa användare inte fylls i listan.
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>En B2B-gästanvändare inte visas i SharePoint Online/OneDrive Personväljaren 
- 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>En B2B-gästanvändare inte visas i SharePoint Online/OneDrive Personväljaren
+
 Möjligheten att söka efter befintliga gästanvändare i Personväljaren SharePoint Online (SPO) har värdet OFF som standard så att de matchar äldre beteende.
 
 Du kan aktivera den här funktionen med hjälp av inställningen ”ShowPeoplePickerSuggestionsForGuestUsers” på samlingsnivå klient- och plats. Du kan ange funktionen med hjälp av Set-SPOTenant och Set-SPOSite cmdletar som ger möjlighet att söka efter alla befintliga gästanvändare i katalogen. Ändringar i klientorganisationsområdet påverkar inte redan etablerade SPO-webbplatser.
@@ -79,10 +78,20 @@ För att uppfylla sekretesslagar våra API: er inte inkluderar anpassade meddela
 
 Om det här scenariot är viktiga för dig kan du utelämna e-postinbjudan vårt API och skicka den via den e-postmekanism. Kontakta din organisations är jurist att kontrollera att alla e-postmeddelanden som du skickar detta sätt uppfyller gällande sekretesslagstiftning.
 
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Du får felmeddelandet ”AADSTS65005” när du försöker logga in på en Azure-resurs
+
+En användare med ett gästkonto kan inte logga in och får följande felmeddelande visas:
+
+    AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+
+Användaren har en Azure-konto och är en av viral klientorganisation som har avbrutit eller ohanterade. Dessutom finns inte global eller det företag administratörer i klienten.
+
+För att lösa problemet måste du ta över övergivna klienten. Referera till [ta över en ohanterad katalog som administratör i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Du måste också komma åt mot internet-DNS för domänsuffix i fråga för att tillhandahålla direkt bevis på att du har kontroll över namnområdet. När klienten har returnerats till ett hanterat tillstånd diskutera med kunden om lämnar användarna och verifierat domännamn är det bästa alternativet för organisationen.
+
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>En gästanvändare med en just-in-time- eller ”viral”-klienten är inte kan återställa sina lösenord
 
 Om klienten identitet är en just-in-time (JIT) eller av viral klientorganisation kan (dvs. det är en separat, ohanterad Azure-klient), bara gästanvändaren återställa sina lösenord. Ibland en organisation kommer [tar över hanteringen av viral klienter](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) som skapas när anställda använda sina e-postadresser för att registrera dig för tjänster. När organisationen tar över en av viral klientorganisation kan kan bara en administratör i organisationen återställa användarens lösenord eller aktivera SSPR. Om det behövs, som organisationen som bjuder in kan du ta bort användarkontot från din katalog och skicka om inbjudan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Få support för B2B-samarbete](get-support.md)
+[Få support för B2B-samarbete](get-support.md)

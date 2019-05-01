@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8a9d4699ba625f575cdcba2a85af900a7c04843e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478409"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924465"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines
 
@@ -59,7 +59,7 @@ Du kan ha en lösning för katastrofåterställning för SQL Server-databaser i 
 | Teknologi | Exempelarkitekturer |
 | --- | --- |
 | **Tillgänglighetsgrupper** |Tillgänglighetsreplikerna som körs på flera datacenter i virtuella datorer i Azure för haveriberedskap. Den här interregionala lösningen skyddar mot fullständig eventuellt strömavbrott. <br/> ![Tillgänglighetsgrupper](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Alla repliker som ska vara i samma molntjänst och samma virtuella nätverk inom en region. Eftersom varje region har ett separat virtuellt nätverk ska kräva dessa lösningar VNet till VNet-anslutning. Mer information finns i [konfigurera en VNet-till-VNet-anslutning med Azure-portalen](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Detaljerade anvisningar finns i [och konfigurera en SQL Server-tillgänglighetsgrupp på Azure virtuella datorer i olika regioner](virtual-machines-windows-portal-sql-availability-group-dr.md).|
-| **Databasspegling** |Huvudnamn och spegling och servrar som körs i olika Datacenter för haveriberedskap. Du måste distribuera med servercertifikat eftersom active directory-domänen inte kan omfatta flera datacenter.<br/>![Databasspegling](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
+| **Databasspegling** |Huvudnamn och spegling och servrar som körs i olika Datacenter för haveriberedskap. Du måste distribuera med hjälp av servercertifikat. <br/>![Databasspegling](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Säkerhetskopiering och återställning med Azure Blob Storage-tjänsten** |Produktionsdatabaserna som säkerhetskopieras direkt till blob storage i ett annat datacenter för haveriberedskap.<br/>![Säkerhetskopiering och återställning](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Mer information finns i [säkerhetskopiering och återställning av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
 | **Replikera och Redundansväxla SQL Server till Azure med Azure Site Recovery** |Produktion SQL Server för en Azure-datacenter som replikeras direkt till Azure Storage för olika Azure-datacenter för haveriberedskap.<br/>![Replikera med Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>Mer information finns i [skydda SQL Server med SQL Server-haveriberedskap och Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 

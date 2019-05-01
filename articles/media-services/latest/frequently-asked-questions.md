@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d99e3661fd51b481a20404cfeb55157ac803c220
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322710"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706162"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Media Services v3
 
@@ -41,6 +41,10 @@ Använd [omvandlar](https://docs.microsoft.com/rest/api/media/transforms) att ko
 ### <a name="how-does-pagination-work"></a>Hur fungerar sidbrytning?
 
 När du använder sidbrytning, bör du alltid använda nästa länk att räkna upp samlingen och inte är beroende av en viss storlek. Mer information och exempel, i [filtrering, sortering, växling](entities-overview.md).
+
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Vilka funktioner är inte tillgängliga i Azure Media Services v3 ännu?
+
+Mer information finns i [funktionen avstånd till v2 API: er](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="live-streaming"></a>Liveuppspelning 
 

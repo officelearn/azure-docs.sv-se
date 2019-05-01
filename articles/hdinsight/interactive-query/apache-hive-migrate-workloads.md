@@ -2,17 +2,17 @@
 title: Migrera Azure HDInsight 3.6 Hive-arbetsbelastningar till HDInsight 4.0
 description: Lär dig hur du migrerar Apache Hive-arbetsbelastningar på HDInsight 3.6 till HDInsight 4.0.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
+author: msft-tacox
+ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/15/2019
-ms.openlocfilehash: 144e0ada0ce3a15a5dcd13b31f46f50162750a74
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126570"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707009"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3.6 Hive-arbetsbelastningar till HDInsight 4.0
 
@@ -98,6 +98,8 @@ I HDInsight 4.0 har HiveCLI ersatts med Beeline. HiveCLI är en thrift-klient f�
 GUI-klienten för att interagera med Hive-servern är i HDInsight 3.6, Ambari Hive-vy. HDInsight 4.0 ersätter Hive-vy med Hortonworks Data Analytics Studio (DAS). DAS medföljer inte HDInsight-kluster out of box och är inte ett paket som stöds. Dock kan DAS installeras i klustret på följande sätt:
 
 Starta en skriptåtgärd mot ditt kluster med ”huvudnoder” som nodtyp av för körning. Klistra in följande URI: N i textrutan markeras ”Bash-skript-URI”: https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+Data Analytics Studio kan startas med URL: https://<clustername>.azurehdinsight.net/das/
 
 
 

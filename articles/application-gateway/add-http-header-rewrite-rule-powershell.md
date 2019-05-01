@@ -1,60 +1,57 @@
 ---
 title: Skriv om HTTP-huvuden i Azure Application Gateway
-description: Den här artikeln innehåller information om hur skriva om HTTP-huvuden i Azure Application Gateway med Azure PowerShell
+description: Den här artikeln innehåller information om hur du skriva om HTTP-huvuden i Azure Application Gateway med hjälp av Azure PowerShell
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 405bc9aed4605e9728e112595f33c879bf55ec7f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 47fe6a5247622e3ad3b3720955068580e0329913
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005629"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947195"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Skriv om HTTP-begäran och svarshuvuden med Azure Application Gateway – Azure PowerShell
 
-Den här artikeln visar hur du använder Azure PowerShell för att konfigurera en [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) skriva om HTTP-huvuden i begäranden och svar.
-
-> [!IMPORTANT]
-> SKU:n för zonredundant programgateway för automatisk skalning är för närvarande tillgänglig som en offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här artikeln beskriver hur du använder Azure PowerShell för att konfigurera en [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) instans att skriva om HTTP-huvuden i begäranden och svar.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="before-you-begin"></a>Innan du börjar
 
-- Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Az Modulversion 1.0.0 eller senare. Kör `Import-Module Az` och sedan`Get-Module Az` att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
-- Du måste ha en Application Gateway-v2 SKU eftersom möjlighet till omskrivning av rubriken inte stöds för v1-SKU. Om du inte har v2-SKU, skapar du en [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) innan du börjar.
+- Du behöver köra Azure PowerShell lokalt för att slutföra stegen i den här artikeln. Du måste också ha Az Modulversion 1.0.0 eller senare. Kör `Import-Module Az` och sedan `Get-Module Az` att kontrollera vilken version som du har installerat. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
+- Du måste ha en Application Gateway v2 SKU-instans. Skriva om rubriker stöds inte i v1-SKU. Om du inte har v2-SKU, skapar du en [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) instans innan du börjar.
 
-## <a name="what-is-required-to-rewrite-a-header"></a>Vad som krävs för att skriva om en rubrik
+## <a name="create-required-objects"></a>Skapa nödvändiga objekt
 
-För att konfigurera HTTP-huvud omskrivning, måste du:
+För att konfigurera HTTP-huvud omskrivning, måste du slutföra de här stegen.
 
-1. Skapa nya objekt som krävs för att skriva om http-huvuden:
+1. Skapa de objekt som krävs för Skriv om HTTP-huvud:
 
-   - **RequestHeaderConfiguration**: det här objektet används för att ange fält i begärans-huvud som du avser att skriva om och det nya värdet som de ursprungliga sidhuvuden behöva skrivas till.
+   - **RequestHeaderConfiguration**: Används för att ange fält i begärans-huvud som du avser att skriva om och det nya värdet för sidhuvudena.
 
-   - **ResponseHeaderConfiguration**: det här objektet används för att ange huvudfält för svar som du avser att skriva om och det nya värdet som de ursprungliga sidhuvuden behöva skrivas till.
+   - **ResponseHeaderConfiguration**: Används för att ange huvudfält för svar som du avser att skriva om och det nya värdet för sidhuvudena.
 
-   - **ActionSet**: det här objektet innehåller konfigurationerna för de begärande- och svarshuvuden som anges ovan.
+   - **ActionSet**: Innehåller konfigurationer av begäranden och svar-huvuden som angavs tidigare.
 
-   - **Villkor**: Det är en valfri konfiguration. Om ett omskrivning villkor läggs utvärderar det innehållet i HTTP (S)-begäranden och svar. Beslutet att köra åtgärden Skriv om som är associerade med villkoret omskrivning baseras om HTTP (S)-begäran eller svar som matchade med Skriv om villkoret. 
+   - **Villkor**: En valfri konfiguration. Skriv om villkor utvärdera innehållet i HTTP (S)-begäranden och svar. Skriv om-åtgärd som ska utföras om den HTTP (S)-begäran eller ett svar matchar villkoret omarbetning.
 
-     Om flera villkor som är associerade med en åtgärd och sedan åtgärden körs endast när alla villkor är uppfyllda, d.v.s., ett logiskt AND-åtgärd utförs.
+     Om du associerar mer än ett villkor med åtgärden utförs åtgärden endast när alla villkor är uppfyllda. Åtgärden är med andra ord en logiskt AND-åtgärd.
 
-   - **RewriteRule**: innehåller flera Skriv om åtgärd - omskrivning villkor kombinationer.
+   - **RewriteRule**: Innehåller flera omskrivning åtgärd / omarbetning kombinationer av villkor.
 
-   - **RuleSequence**: Det här är en valfri konfiguration. Det hjälper dig fastställa i vilken ordning som de olika omskrivningsregler utförs. Det här är användbart när det finns flera omskrivningsregler i en omarbetning. Omskrivningsregel med mindre regeln Sekvensvärde hämtar köras först. Om du anger samma regelsekvens till två omskrivningsregler kommer ordningen för körningen att icke-deterministisk.
+   - **RuleSequence**: Körning av en valfri konfiguration som hjälper till att avgöra i vilken ordning omarbetning regler. Den här konfigurationen är användbar när du har flera omskrivningsregler i en omarbetning. En omskrivningsregel som har ett lägre värde för regeln sekvens körs första. Om du tilldelar två omskrivningsregler samma regel sekvens värde är ordningen för körningen icke-deterministisk.
 
-     Om du inte anger RuleSequence uttryckligen, ställs ett standardvärde på 100.
+     Om du inte uttryckligen anger RuleSequence, ange ett standardvärde på 100.
 
-   - **RewriteRuleSet**: det här objektet innehåller flera omskrivningsregler som ska kopplas till en regel för vidarebefordran av begäran.
+   - **RewriteRuleSet**: Innehåller flera omskrivningsregler som ska kopplas till en regel för vidarebefordran av begäran.
 
-2. Du kommer att behöva koppla rewriteRuleSet med en regel för vidarebefordran. Det beror på att Skriv om konfigurationen är kopplad till käll-lyssnaren via en routningsregel för. När du använder en grundläggande routningsregel rubrik Skriv om konfigurationen är associerad med en käll-lyssnare och är en global huvud-omskrivning. När en sökvägsbaserad regel används har rubrik Skriv om konfigurationen definierats för Webbadress för sökvägskarta. Därför gäller detta bara till området angiven sökväg för en plats.
+2. Koppla RewriteRuleSet till en regel för vidarebefordran. Skriv om konfigurationen är kopplat till käll-lyssnaren via en routningsregel för. När du använder en grundläggande routningsregel rubrik Skriv om konfigurationen är associerad med en käll-lyssnare och är en global huvud-omskrivning. När du använder en sökvägsbaserad regel har rubrik Skriv om konfigurationen definierats för Webbadress för sökvägskarta. I så fall gäller endast för området angiven sökväg för en plats.
 
-Du kan skapa flera http-huvud omskrivning uppsättningar och varje uppsättning omskrivning kan tillämpas på flera lyssnare. Du kan dock använda endast en omarbetning inställd på en viss lyssnare.
+Du kan skapa flera HTTP-huvud omskrivning uppsättningar och tillämpa varje omarbetning som angetts till flera lyssnare. Men du kan använda endast en omarbetning inställd på en viss lyssnare.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -63,9 +60,9 @@ Connect-AzAccount
 Select-AzSubscription -Subscription "<sub name>"
 ```
 
-## <a name="specify-your-http-header-rewrite-rule-configuration"></a>**Ange http-huvud omarbetning Regelkonfiguration**
+## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Ange HTTP-huvudet omarbetning Regelkonfiguration
 
-I det här exemplet ska vi ändra omdirigerings-URL genom att skriva om location-huvudet i http-svaret när location-huvudet innehåller en referens till ”azurewebsites.net”. Då ska vi lägga till ett villkor att utvärdera om location-huvudet i svaret innehåller azurewebsites.net med hjälp av mönstret `(https?):\/\/.*azurewebsites\.net(.*)$`. Vi använder `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` som huvudets värde. Det här ersätter *azurewebsites.net* med *contoso.com* i location-huvudet.
+I det här exemplet ändrar vi en omdirigerings-URL genom att skriva om location-huvudet i HTTP-svaret när location-huvudet innehåller en referens till azurewebsites.net. Detta gör vi lägger till ett villkor att utvärdera om location-huvudet i svaret innehåller azurewebsites.net. Vi använder mönstret `(https?):\/\/.*azurewebsites\.net(.*)$`. Och vi använder `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` som huvudets värde. Det här värdet kommer att ersätta *azurewebsites.net* med *contoso.com* i location-huvudet.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"
@@ -75,19 +72,19 @@ $rewriteRule = New-AzApplicationGatewayRewriteRule -Name LocationHeader -ActionS
 $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name LocationHeaderRewrite -RewriteRule $rewriteRule
 ```
 
-## <a name="retrieve-configuration-of-your-existing-application-gateway"></a>Hämta konfigurationen av din befintliga application-gateway
+## <a name="retrieve-the-configuration-of-your-application-gateway"></a>Hämta konfiguration för programgatewayen
 
 ```azurepowershell
 $appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
 ```
 
-## <a name="retrieve-configuration-of-your-existing-request-routing-rule"></a>Hämta konfigurationen av din befintliga routningsregel för begäran
+## <a name="retrieve-the-configuration-of-your-request-routing-rule"></a>Hämta konfigurationen för din regel för vidarebefordran av begäran
 
 ```azurepowershell
 $reqRoutingRule = Get-AzApplicationGatewayRequestRoutingRule -Name rule1 -ApplicationGateway $appgw
 ```
 
-## <a name="update-the-application-gateway-with-the-configuration-for-rewriting-http-headers"></a>Uppdatera application gateway med konfigurationen för att skriva om http-huvuden
+## <a name="update-the-application-gateway-with-the-configuration-for-rewriting-http-headers"></a>Uppdatera application gateway med konfigurationen för att skriva om HTTP-huvuden
 
 ```azurepowershell
 Add-AzApplicationGatewayRewriteRuleSet -ApplicationGateway $appgw -Name LocationHeaderRewrite -RewriteRule $rewriteRuleSet.RewriteRules
@@ -107,4 +104,4 @@ set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om den konfiguration som krävs för att utföra några vanliga användningsfall i [gemensam rubrik omarbetning scenarier](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Läs mer om hur du ställer in några vanliga användningsområden i [gemensam rubrik omarbetning scenarier](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).

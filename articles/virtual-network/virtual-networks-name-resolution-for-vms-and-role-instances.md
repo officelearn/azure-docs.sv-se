@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640471"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925239"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i Azure-nätverk
 
@@ -96,7 +96,7 @@ Det finns ett antal olika DNS-cachen paket som är tillgängliga (till exempel d
   * Starta tjänsten dnsmasq med `systemctl start dnsmasq.service`. 
   * Redigera **/etc/sysconfig/network/config**, och ändra *NETCONFIG_DNS_FORWARDER = ””* till *dnsmasq*.
   * Uppdatera resolv.conf med `netconfig update`, för att ställa in cachen som den lokala DNS-matchning.
-* **OpenLogic (uses NetworkManager)**:
+* **CentOS (använder NetworkManager)**:
   * Installera paketet dnsmasq med `sudo yum install dnsmasq`.
   * Aktivera tjänsten dnsmasq med `systemctl enable dnsmasq.service`.
   * Starta tjänsten dnsmasq med `systemctl start dnsmasq.service`.
@@ -129,7 +129,7 @@ Filen resolv.conf genereras vanligtvis automatiskt och bör inte redigeras. Vilk
 * **SUSE** (använder netconf):
   1. Lägg till *timeout:1 försök: 5* till den **NETCONFIG_DNS_RESOLVER_OPTIONS = ””** parameter i **/etc/sysconfig/network/config**.
   2. Kör `netconfig update` att uppdatera.
-* **OpenLogic** (använder NetworkManager):
+* **CentOS** (använder NetworkManager):
   1. Lägg till *echo ”alternativ timeout:1 försök: 5”* till **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Uppdatera med `service network restart`.
 

@@ -1,25 +1,18 @@
 ---
-title: Teknisk information till en Power BI-appen – Azure Marketplace | Microsoft Docs
+title: Teknisk information till en Power BI-appen | Azure Marketplace
 description: Konfigurera teknisk information fält till en Power BI-appen för Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.author: pbutlerm
-ms.openlocfilehash: ca77da897eed51c8d832cad7052c2144d6ada562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 15f4e2a76724a70c15411dea767cc9bc433e4d4a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60725778"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943223"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Power BI-appar teknisk informationsfliken
 
@@ -34,7 +27,7 @@ På den **teknisk information** fliken, fyller du i fälten som beskrivs i följ
 
 |        Fält          |  Beskrivning                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
-| **Installationsprogrammet URL**     | Powerbi genererar denna URL när du publicerar appen och skicka det till produktion.  Mer information finns i [publicera appar med instrumentpaneler och rapporter i Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
+| **Installationsprogrammet URL\***     | Powerbi genererar denna URL när du publicerar appen och skicka det till produktion.  Mer information finns i [publicera appar med instrumentpaneler och rapporter i Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
 |  **Anvisningar för verifiering**  |  Om du vill kan du lägga till instruktioner (upp till 3 000 tecken) för att hjälpa Microsoft verifiering gruppen konfigurerar, ansluter och testa din app. Inkludera vanliga inställningar, konton, parametrar eller annan information som kan användas för att testa alternativet Anslut Data. Den här informationen är synliga enbart för verifiering team och den används endast för verifiering.  |
 | **Den här appen har skapats som ett innehållspaket för Power BI?** | Det här fältet används för närvarande endast internt. Lämna standardinställningen för **nr**. Om du ändrar inställningen för att **Ja**, du kan stoppa publiceringsprocessen.  |  
 |  |  |

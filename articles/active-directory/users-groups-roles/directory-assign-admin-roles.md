@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472404"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920505"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -58,6 +58,18 @@ Följande administratörsroller är tillgängliga:
   * Säkerhetsgrupper och Office 365-gruppen ägare, vilka kan hantera gruppmedlemskap. Dessa grupper kan bevilja åtkomst till känslig eller privat information eller kritiska konfiguration i Azure AD och andra platser.
   * Administratörer i andra tjänster utanför Azure AD som Exchange Online, Office-säkerhet och efterlevnad Center och personal system.
   * Icke-administratörer som chefer, juridiska ombud och Personal anställda som kan ha åtkomst till känslig eller privat information.
+
+* **[Flow-administratör för B2C-användare](#b2c-user-flow-administrator)**: Användare med den här rollen kan skapa och hantera B2C Användarflöden (även kallat ”inbyggd” principer) i Azure Portal. Genom att skapa eller redigera användarflöden kan dessa användare ändra html/CSS/javascript-innehållet i användarens upplevelse, ändra MFA-kraven per användarflöde, ändra anspråken i token och justera sessionsinställningar för alla principer i klienten. Å andra sidan, den här rollen inkluderar möjligheten att granska användardata, eller göra ändringar i attribut som ingår i klient-schemat. Ändringar i Identitetsramverk (även kallat anpassat) principer är också utanför omfånget för den här rollen.
+
+* **[B2C Användaradministratör Flow attributet](#b2c-user-flow-attribute-administrator)**: Användare med rollen Lägg till eller ta bort anpassade attribut som är tillgängliga för alla användarflöden som i klienten. Därför måste kan användare med den här rollen ändra eller lägga till nya element i schemat för slutanvändaren och påverka beteendet för alla användarflöden som och indirekt innebär ändringar vilka data som kan vara och svar för slutanvändare och skickas slutligen som anspråk till program. Den här rollen kan inte redigera användarflöden.
+
+* **[Administratör för B2C IEF Keyset](#b2c-ief-keyset-administrator)**:    Användare kan skapa och hantera principnycklar och hemligheter för tokenkryptering, token signaturer och anspråk kryptering/dekryptering. Genom att lägga till nya nycklar befintliga nyckelbehållare, kan den här begränsad administratör förnya hemligheter efter behov utan att påverka befintliga program. Den här användaren kan se det fullständiga innehållet på dessa hemligheter och deras utgångsdatum även när de har skapats.
+    
+  <b>Viktigt:</b> det här är en känsliga roll. Administratörsrollen keyset bör granskas noggrant och tilldelas med försiktighet under Förproduktion och produktion.
+
+* **[Administratör för B2C IEF princip](#b2c-ief-policy-administrator)**: Användare i den här rollen har möjlighet att skapa, läsa, uppdatera och ta bort alla anpassade principer i Azure AD B2C och därför har fullständig kontroll över den Identitetsramverk i relevanta Azure AD B2C-klienten. Genom att redigera principer för kan den här användaren upprätta direkt federation med externa indentitetsprovidrar, ändra katalogschemat, ändra alla användarinriktade innehåll (HTML, CSS, JavaScript), ändra kraven för att slutföra en autentisering, skapa nya användare, skicka användardata till externa system, inklusive fullständig migrering och redigera information om alla användare, inklusive tidskritiska fält som lösenord och telefonnummer. Omvänt kan kan inte den här rollen ändra krypteringsnycklarna eller redigera hemligheter som används för federation i klienten.
+
+  <b>Viktigt!</b> B2 IEF princip administratör är en mycket känslig roll som ska tilldelas en mycket begränsad för klienter i produktion. Aktiviteter med hjälp av dessa användare bör granskas noggrant, särskilt för klienter i produktion.
 
 * **[Faktureringsadministratör](#billing-administrator)**: Gör inköp, hanterar prenumerationer, hanterar supportbegäranden och övervakar tjänstens hälsotillstånd.
 
@@ -110,6 +122,9 @@ Följande administratörsroller är tillgängliga:
   > [!NOTE]
   > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Exchange Service-administratör”. Det är ”Exchange-administratör” i den [Azure-portalen](https://portal.azure.com). Det är ”Exchange Online administratör i fältet” i den [administrationscentret för Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
+* **[Externa identitet tjänstproviderns administratör](#external-identity-provider-administrator)**: Den här administratören hanterar federation mellan Azure Active Directory-klienter och externa indentitetsprovidrar. Med den här rollen kan användarna lägga till nya Identitetsproviders och konfigurera alla tillgängliga inställningar (t.ex. autentisering sökväg, tjänst-id tilldelade nyckelbehållare). Den här användaren kan aktivera klienten ska lita på autentiseringar från externa indentitetsprovidrar. Resulterande påverkan på slutanvändarupplevelse beror på vilken typ av klient:
+  * Azure Active Directory-klienter för anställda och partners: Tillägg av en federation (t.ex. med Gmail) påverkar omedelbart alla gäst inbjudningar som ännu inte har lösts in. Se [att lägga till Google som en identitetsleverantör för B2B-gästanvändare](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+  * Azure Active Directory B2C-klienter: Tillägg av en federation (t.ex. Facebook eller med en annan Azure Active Directory) påverkar direkt inte slutanvändaren flöden förrän identitetsprovidern har lagts till som ett alternativ i ett användarflöde (även kallat inbyggd princip). Se [konfigurera ett Microsoft-konto som identitetsprovider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) ett exempel. Om du vill ändra användarflöden, krävs rollen begränsad av ”B2C Flow Användaradministratör”.
 
 * **[Global administratör / företaget administratör](#company-administrator)**: Användare med den här rollen har åtkomst till alla administrativa funktioner i Azure Active Directory, samt tjänster som använder Azure Active Directory-identiteter som Microsoft 365 security center Microsoft 365 efterlevnadscenter Exchange Online, SharePoint Online och Skype för företag Online. Den person som registrerar sig för Azure Active Directory-klient blir global administratör. Endast globala administratörer kan tilldela andra administratörsroller. Det kan finnas mer än en global administratör i företaget. Globala administratörer kan återställa lösenordet för alla användare och alla andra administratörer.
 
@@ -314,6 +329,34 @@ Kan visa, ange och återställa information om autentisering för alla icke-admi
 | microsoft.office365.webPortal/allEntities/basic/read | Läs grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
+
+### <a name="b2c-user-flow-administrator"></a>Flow-administratör för B2C-användare
+Skapa och hantera alla aspekter av användarflöden.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Läsa och konfigurera användarflöden i Azure Active Directory B2C. |
+
+### <a name="b2c-user-flow-attribute-administrator"></a>B2C Användaradministratör Flow attribut
+Skapa och hantera tillgängliga för alla användarflöden som attributschemat.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | Läsa och konfigurera användarattribut i Azure Active Directory B2C. |
+
+### <a name="b2c-ief-keyset-administrator"></a>Administratör för B2C IEF Keyset
+Hantera hemligheter för federation och kryptering i den Identitetsramverk.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | Läsa och konfigurera viktiga uppsättningar i Azure Active Directory B2C. |
+
+### <a name="b2c-ief-policy-administrator"></a>Administratör för B2C IEF princip
+Skapa och hantera framework förtroendeprinciper i den Identitetsramverk.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/policies/allTasks | Läsa och konfigurera anpassade principer i Azure Active Directory B2C. |
 
 ### <a name="billing-administrator"></a>Faktureringsadministratör
 Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalningsinformation.
@@ -675,6 +718,13 @@ Kan hantera alla aspekter av Exchange-produkten.
 | microsoft.office365.exchange/allEntities/allTasks | Hantera alla aspekter av Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
+
+### <a name="external-identity-provider-administrator"></a>Externa identitet tjänstproviderns administratör
+Konfigurera identitetsleverantörer för användning i direkt federation.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.b2c/identityProviders/allTasks | Läsa och konfigurera Identitetsproviders i Azure Active Directory B2C. |
 
 ### <a name="guest-inviter"></a>Gästinbjudare
 Kan bjuda in gästanvändare oberoende av inställningen medlemmar kan bjuda in gäster.

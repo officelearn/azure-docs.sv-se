@@ -8,12 +8,12 @@ ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3cfd6bd453cd06be4676a806997697a71afb0b59
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002685"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727407"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Begrepp för utvecklare för Azure Data Catalog
 Microsoft **Azure Data Catalog** är en fullständigt hanterad molntjänst som tillhandahåller funktioner för datakällsidentifiering och gemensamt skapade metadata från datakällan. Utvecklare kan använda tjänsten via dess REST-API: er. Förstå koncepten som är implementerade i tjänsten är viktigt för utvecklare att integrera har med **Azure Data Catalog**.
@@ -174,9 +174,9 @@ Vanliga typer kan användas som typerna för egenskaper, men det finns inga obje
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protokoll</td><td>string</td><td>Krävs. Beskriver ett protokoll som används för att kommunicera med datakällan. Till exempel: ”tds” för SQl Server, ”oracle” för Oracle, osv. Referera till <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">datakällans referens-specifikationen - DSL struktur</a> lista över protokoll som stöds.</td></tr>
-<tr><td></td><td>adress</td><td>Ordlista<string, object></td><td>Krävs. Adressen är en uppsättning data som är specifika för det protokoll som används för att identifiera datakällan som refereras. Dessa data omfattar ett visst protokoll, vilket innebär att det är meningslöst utan att känna till protokollet.</td></tr>
+<tr><td></td><td>adress</td><td>Ordlista&lt;sträng, objekt&gt;</td><td>Krävs. Adressen är en uppsättning data som är specifika för det protokoll som används för att identifiera datakällan som refereras. Dessa data omfattar ett visst protokoll, vilket innebär att det är meningslöst utan att känna till protokollet.</td></tr>
 <tr><td></td><td>autentisering</td><td>string</td><td>Valfri. Schema för autentiseringsmetoder som används för att kommunicera med datakällan. Till exempel: windows, oauth, osv.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Ordlista<string, object></td><td>Valfri. Mer information om hur du ansluter till en datakälla.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Ordlista&lt;sträng, objekt&gt;</td><td>Valfri. Mer information om hur du ansluter till en datakälla.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>Serverdelen utför inte någon validering av angivna egenskaper mot AAD vid publicering.</td></tr>
 <tr><td></td><td>UPN</td><td>string</td><td>Unikt e-postadressen för användaren. Du måste ange om objectId inte har angetts eller i samband med ”lastRegisteredBy”-egenskapen, annars valfritt.</td></tr>
@@ -229,7 +229,7 @@ Uppsättningen protokoll som stöds kan utökas programmässigt (finns i Data Ca
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>namn</td><td>string</td><td>Ange namnet på identiteten.</td></tr>
-<tr><td></td><td>properties</td><td>string[]</td><td>Listan över identitetsegenskaper som ingår i den här identiteten anges. Det får inte innehålla dubbletter. Varje egenskap som refereras av identitetsuppsättningen måste definieras i listan över ”identityProperties” av protokollet.</td></tr>
+<tr><td></td><td>properties</td><td>String]</td><td>Listan över identitetsegenskaper som ingår i den här identiteten anges. Det får inte innehålla dubbletter. Varje egenskap som refereras av identitetsuppsättningen måste definieras i listan över ”identityProperties” av protokollet.</td></tr>
 
 </table>
 
@@ -302,7 +302,7 @@ Särskilda säkerhetsobjekt &lt;alla&gt; har objectId ”00000000-0000-0000-0000
         ]
     }
 
-  **Tilldela ägare och begränsa synligheten för ett befintligt objekt för roten**: **PUT** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **Tilldela ägare och begränsa synligheten för ett befintligt objekt för roten**: **PLACERA** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
     {
         "roles": [

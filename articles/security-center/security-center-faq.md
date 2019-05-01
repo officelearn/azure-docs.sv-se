@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60909628"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917637"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -77,7 +77,7 @@ Kvalificera dig om Windows eller Linux IaaS-datorer:
 
 - Tillägget Microsoft Monitoring Agent är inte installerat på den virtuella datorn.
 - Den virtuella datorn är i körningstillstånd.
-- Windows- eller Linux [Azure VM-agenten](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) är installerad.
+- Windows- eller Linux [Azure VM-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) är installerad.
 - Den virtuella datorn används inte som en enhet, till exempel Brandvägg för webbaserade program eller nästa generations brandvägg.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan jag ta bort Standardarbetsytor som skapats av Security Center?

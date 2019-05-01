@@ -1,25 +1,18 @@
 ---
-title: Storefront information för en Power BI-appen erbjuder – Azure Marketplace | Microsoft Docs
+title: Storefront information för en Power BI-appen erbjuder | Azure Marketplace
 description: Konfigurera Storefront information fält till en Power BI-appen för Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726237"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942632"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Fliken för Power BI-appen Storefront information
 
@@ -32,13 +25,13 @@ I den **Erbjudandeinformationen** ange allmän information om erbjudandet AppSou
 
 ![Erbjudandet informationsavsnittet på fliken Storefront information](./media/offer-details-section.png)
 
-Använd följande tabell för att slutföra fälten i det här avsnittet:
+Följande tabell innehåller mer information om de här fälten. Required fields are indicted by an asterisk (*).  
 
 |   Fält               |   Beskrivning                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Sammanfattning av erbjudandet**     | En kort syftet med appen, med upp till 100 tecken.                             |
-| **Beskrivning av erbjudande** | En beskrivning av programmet, med upp till 3 000 tecken. Det här fältet stöder enkel HTML-formatering. |
-|                       |                                                                                         |
+| **Sammanfattning av erbjudandet\***     | En kort syftet med appen, med upp till 100 tecken.                             |
+| **Beskrivning av erbjudande\*** | En beskrivning av programmet, med upp till 3 000 tecken. Det här fältet stöder enkel HTML-formatering. |
+|   |    |
 
 
 ## <a name="listing-details-section"></a>Visa en lista över informationsavsnittet
@@ -47,13 +40,13 @@ Den **lista information** avsnittet samlar in information om kontexten för din 
 
 ![Visa en lista över informationsavsnittet på fliken Storefront information](./media/listing-details-section.png)
 
-Använd följande tabell för att slutföra fälten i det här avsnittet:
+Använd följande tabell för att slutföra fälten i det här avsnittet.  Required fields are indicted by an asterisk (*).
  
 |   Fält                                  |   Beskrivning                                                        |
 | --------------                           | ---------------------                                                |
 | **Branscher**                           | Välj bransch var din app passar bäst. Om din app är kopplad till flera olika branscher, lämna fältet tomt.      |
-| **Kategorier**                           | Välj upp till tre kategorier som är relaterade till din app.     |
-| **Hjälplänk för din app**               | Ange en URL till en sida som erbjuder Onlinehjälp för din app.           |
+| **Kategorier\***                           | Välj upp till tre kategorier som är relaterade till din app.     |
+| **Hjälplänk för din app\***               | Ange en URL till en sida som erbjuder Onlinehjälp för din app.           |
 | **Produkter som din app fungerar med (Max 3)** | Välj den **New** plustecknet för att skapa ett textfält. I fältet, anger du namnet på en produkt som din app fungerar med. Lista över upp till tre produkter.       |
 | **Sökord (Max 3)**              | Ange upp till tre nyckelord som användare använder sannolikt att söka i programmet i AppSource. Till exempel om programmet har anropats ”min e-post-app” nyckelorden kanske **e-postmeddelanden**, **e**, och **e-postprogrammet**. |
 |  |  |
@@ -65,13 +58,13 @@ I den **marknadsföring artefakter** avsnittet, ladda upp anpassning och marknad
 
 ![Marknadsföring artefakter delen av fliken Storefront information](./media/marketing-artifacts-section.png)
 
-Använd följande tabell för att slutföra fälten i det här avsnittet:
+Använd följande tabell för att slutföra fälten i det här avsnittet. Required fields are indicted by an asterisk (*).
  
 |    Fält                             |    Beskrivning                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logotyper*                              |                                                                   |
-| **Erbjudandet logotyp (png-format, 48 x 48)**   | Ladda upp en logotyp som ska visas i översikten över appen eller i sökresultaten för appen. AppSource stöder endast PNG-format, med en upplösning på 48 x 48 bildpunkter.  |
-| **Erbjudandet logotyp (png-format, 216 x 216)** | Ladda upp en logotyp som ska visas på detaljsidan för din app.  AppSource stöder endast PNG-format, med en upplösning på 216 x 216 bildpunkter.  |
+| **Erbjudandet logotyp (png-format, 48 x 48)\***   | Ladda upp en logotyp som ska visas i översikten över appen eller i sökresultaten för appen. AppSource stöder endast PNG-format, med en upplösning på 48 x 48 bildpunkter.  |
+| **Erbjudandet logotyp (png-format, 216 x 216)\*** | Ladda upp en logotyp som ska visas på detaljsidan för din app.  AppSource stöder endast PNG-format, med en upplösning på 216 x 216 bildpunkter.  |
 | *Videoklipp*                             |                                                                   |
 | **Namn**                             | Ange appens namn eller rubrik.                                          |
 | **URL**                              | Ange Webbadressen till ett videoklipp på YouTube eller Vimeo.                              |
@@ -79,7 +72,7 @@ Använd följande tabell för att slutföra fälten i det här avsnittet:
 | *Dokument*                          | Lägga till upp till tre dokument ska visas på AppSource, under den **mer** rubrik.  |
 | **Namn**                             | Ange namn eller titeln på ett stöddokument.                              |
 | **Fil**                             | Överföra en PDF-fil.                             |
-| *Skärmbilder*                        | Lägga till upp till fem skärmbilder.                        |
+| *Skärmbilder\**                      | Lägga till upp till fem skärmbilder.                        |
 | **Namn**                             | Ange ett namn eller titeln på en skärmbild.                                       |
 | **Avbildning**                            | Ladda upp en PNG-skärmbild. Upplösningen måste vara minst 1 280 x 720 bildpunkter.  | 
 |   |   |
@@ -100,8 +93,8 @@ Använd följande tabell för att slutföra fälten i det här avsnittet:
 
 |   Fält                |   Beskrivning                           |
 |------------------------|--------------------------------------   |
-| **Sekretesswebbadress för principen** | URL: en för din bokförda sekretesspolicy       |
-| **Användningsvillkor**       | Policy för användning som är formaterade som oformaterad text eller enkel HTML-kod     |
+| **Sekretesswebbadress för principen\*** | URL: en för din bokförda sekretesspolicy       |
+| **Användningsvillkor\***       | Policy för användning som är formaterade som oformaterad text eller enkel HTML-kod     |
 |  |  |
 
 

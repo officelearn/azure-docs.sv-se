@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2130dcc27f81eb1e33fa56a7a4f963d81ac0de5b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799548"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926121"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till Azure Desired State Configuration-tilläggshanterare
 
@@ -82,7 +82,7 @@ Den här informationen kan ses i den [Azure-portalen](../../automation/automatio
 ```
 
 Om nodkonfiguration namn, kontrollera att du använder namnet på den *nodkonfiguration* och inte konfigurationen.
-En konfiguration har definierats i ett skript som ska användas för [att kompilera nodkonfiguration (MOF-fil)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+En konfiguration har definierats i ett skript som ska användas för [att kompilera nodkonfiguration (MOF-fil)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 Namnet kommer alltid att konfigurationen följt av en punkt `.` och antingen `localhost` eller namnet på en specifik dator.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-tillägget i Resource Manager-mallar

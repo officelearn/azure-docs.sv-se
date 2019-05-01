@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 77f07394eb895c08ef3e366bd486b4270714c2fc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 4186af31e17acea09e6b3c1a0121d2fcbe63f800
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766260"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917614"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -249,7 +249,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 * <a id="port-445-blocked"></a>
 **Min Internet-leverantör eller IT-block-Port 445 som misslyckas Azure Files montera. Vad ska jag göra?**
 
-    Du kan lära dig om [olika sätt att lösa blockeras-port 445 här](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files kan endast anslutningar som använder SMB 3.0 (med stöd för kryptering) från utanför den region eller datacenter. SMB 3.0-protokollet har infört många säkerhetsfunktioner inklusive kanalkrypteringen som är mycket säkert att använda via internet. Men dess möjligt att port 445 har blockerats på grund av historiska orsaker för sårbarheter upptäcktes i lägre SMB-versioner. Perfekt om porten ska blockeras för endast för SMB 1.0-trafik och bör inaktiveras SMB 1.0 på alla klienter.
+    Du kan lära dig om [olika sätt att lösa blockeras-port 445 här](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files kan endast anslutningar som använder SMB 3.0 (med stöd för kryptering) från utanför den region eller datacenter. SMB 3.0-protokollet har infört många säkerhetsfunktioner inklusive kanalkrypteringen som är mycket säkert att använda via internet. Men dess möjligt att port 445 har blockerats på grund av historiska orsaker för sårbarheter upptäcktes i lägre SMB-versioner. Perfekt om porten ska blockeras för endast för SMB 1.0-trafik och bör inaktiveras SMB 1.0 på alla klienter.
 
 * <a id="expressroute-not-required"></a>
 **Måste jag använda Azure ExpressRoute för att ansluta till Azure Files eller om du vill använda Azure File Sync lokalt?**  

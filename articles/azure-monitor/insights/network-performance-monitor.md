@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: 29826f7f842f8dfbd7cd2a754c919f06542a161c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401993"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916766"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -263,8 +263,8 @@ Om du är en NPM-användare som skapar en avisering via Azure-portalen:
 3. Om du väljer att använda åtgärdsgrupper, måste du välja en tidigare skapad åtgärdsgrupp. Du kan lära dig hur du skapar en åtgärdsgrupp [här.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Du kan använda Hantera aviseringar länk för att hantera dina aviseringar när aviseringen har skapats. 
 
-Varje gång du skapar en avisering skapar NPM en frågebaserade loggvarningsregel i Azure Monitor. Den här frågan utlöses var 5: e minut som standard. Med Azure monitor debiteras inte för de första 250 logga aviseringsregler skapade och Varningsregler ovan begränsa 250 loggvarningsregler debiteras enligt [aviseringar prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Meddelanden debiteras separat enligt [meddelanden prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Varje gång du skapar en avisering skapar NPM en frågebaserade loggvarningsregel i Azure Monitor. Den här frågan utlöses var 5: e minut som standard. Med Azure monitor debiteras inte för de första 250 logga aviseringsregler skapade och Varningsregler ovan begränsa 250 loggvarningsregler debiteras enligt [aviseringar prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/pricing/details/monitor/).
+Meddelanden debiteras separat enligt [meddelanden prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## <a name="pricing"></a>Prissättning

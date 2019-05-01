@@ -1,25 +1,18 @@
 ---
-title: Skapa eller ändra ett erbjudande | Microsoft Docs
+title: Skapa eller ändra ett erbjudande | Azure Marketplace
 description: API för att skapa en ny eller uppdatera och befintliga erbjudandet.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c7aed97c442c414e86c9531f9b0a8431e22b8b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60624997"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935523"
 ---
 <a name="create-or-modify-an-offer"></a>Skapa eller ändra ett erbjudande
 =========================

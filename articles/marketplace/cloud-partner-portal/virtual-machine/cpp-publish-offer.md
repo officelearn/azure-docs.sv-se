@@ -1,25 +1,18 @@
 ---
-title: Publicera ett erbjudande för virtuell dator i Azure Marketplace | Microsoft Docs
+title: Publicera ett erbjudande för virtuell dator i Azure Marketplace
 description: Visar de steg som krävs för att publicera en befintlig virtuell dator erbjuder på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 08/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 3cf6a3d9bcb9470fd3a6bd4fef964c1966adfa1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6796c2871cf8a5928beed2ab557cefdfe8ecaae9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844261"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938597"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publicera ett erbjudande för virtuell dator
 

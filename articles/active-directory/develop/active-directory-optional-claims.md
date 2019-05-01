@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300152"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713355"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app
 
@@ -57,7 +57,7 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 | `auth_time`                | Tid när användaren senast autentiserade. Se OpenID Connect-specifikationen.| JWT        |           |  |
 | `tenant_region_scope`      | Region för resurs-klient | JWT        |           | |
 | `home_oid`                 | För gästanvändare, objekt-ID för användaren i användarens startklientorganisation.| JWT        |           | |
-| `sid`                      | Sessions-ID används för tillfälliga användaren logga ut. | JWT        |           |         |
+| `sid`                      | Sessions-ID används för tillfälliga användaren logga ut. | JWT        |  Personliga och Azure AD-konton.   |         |
 | `platf`                    | Enhetsplattform    | JWT        |           | Begränsat till hanterade enheter som kan verifiera typ av enhet.|
 | `verified_primary_email`   | Ursprung användarens PrimaryAuthoritativeEmail      | JWT        |           |         |
 | `verified_secondary_email` | Ursprung användarens SecondaryAuthoritativeEmail   | JWT        |           |        |
@@ -91,7 +91,6 @@ De här anspråken är alltid är inkluderad i v1.0 Azure AD-token, men inte ing
 | `family_name` | Efternamn                       | Innehåller den senaste namn, efternamn eller namn för användaren som definierats i användarobjektet. <br>"family_name":"Miller" | Stöds i MSA och AAD   |
 | `given_name`  | Förnamn                      | Innehåller först eller ”förnamn” för användaren som angetts på användarobjektet.<br>"given_name": ”Frank”                   | Stöds i MSA och AAD  |
 | `upn`         | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktigt ID för användaren och bör inte användas till att viktiga data. | Se [ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för att konfigurera anspråket. |
-| `sid`         | Sessions-ID                      | Sessionsidentifierare GUID som används för att spåra autentisering session med MSA. | MSA.  Ska inte ingå i Azure AD-konton. | 
 
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk

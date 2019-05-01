@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/22/2019
-ms.openlocfilehash: 3f5bda36368ee1fe1f37527422c6072c3ffda177
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 721179e12ed7f21312fe848a6bef1a8e19bc8083
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763323"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866051"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible-modulen och version matris
 
@@ -53,11 +53,10 @@ Dessa moduler är tillgängliga från den officiella versionen Ansible och från
 | azure_rm_virtualmachinescalesetinstance_facts | -            | -                         | -            | -            | Ja          | Ja          |
 | **Nätverk**                              |              |                             |              |              |              |              |
 | azure_rm_appgateway                         | -            | -                           | -            | Ja          | Ja          | Ja          |
-| azure_rm_appgwroute                         | -            | -                           | -            | -            | Ja          | Ja          |
-| azure_rm_appgwroute                         | -            | -                           | -            | -            | Ja          | Ja          |
-| azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | Ja          | Ja          |
-| azure_rm_appgwroutetable                    | -            | -                           | -            | -            | Ja          | Ja          |
-| azure_rm_appgwroutetable_facts              | -            | -                           | -            | -            | Ja          | Ja          |
+| azure_rm_appgwroute                         | -            | -                           | -            | -            | -          | Ja          |
+| azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | -          | Ja          |
+| azure_rm_appgwroutetable                    | -            | -                           | -            | -            | -          | Ja          |
+| azure_rm_appgwroutetable_facts              | -            | -                           | -            | -            | -          | Ja          |
 | azure_rm_applicationsecuritygroup           | -            | -                           | -            | -            | Ja          | Ja          |
 | azure_rm_applicationsecuritygroup_facts     | -            | -                           | -            | -            | Ja          | Ja          |
 | azure_rm_cdnendpoint                        | -            | -                         | -          | -            | Ja          | Ja          |

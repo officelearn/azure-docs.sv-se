@@ -4,270 +4,235 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/24/2017
+ms.topic: tutorial
+ms.date: 03/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 378aab82fac5298c3785f752478e3bfc3c6e325b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 491f1704cf08bd31a1b089d178afb3c281d636e6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60275458"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723481"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Självstudier: Azure Active Directory-integrering med HR2day av Merces
 
 I den här självstudien får du lära dig hur du integrerar HR2day av Merces med Azure Active Directory (AD Azure).
-
 Integrera HR2day av Merces med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till HR2day av Merces.
-- Du kan aktivera användarna att få loggas in automatiskt HR2day av Merces med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till HR2day av Merces.
+* Du kan aktivera användarna att vara automatiskt inloggad till HR2day av Merces (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Mer information om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med HR2day av Merces, behöver du följande objekt:
 
-- En Azure AD-prenumeration.
-- En HR2day av Merces enkel inloggning aktiverat prenumeration.
-
-> [!NOTE]
-> Vi rekommenderar inte att du använder en produktionsmiljö för att testa stegen i den här självstudien.
-
-Följ dessa rekommendationer för att testa stegen i den här självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Hämta en [en månads kostnadsfri utvärderingsversion av Azure AD](https://azure.microsoft.com/pricing/free-trial/) om du inte redan har den.  
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* HR2day av Merces enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs här består av två viktigaste byggstenarna:
 
-1. Lägger till HR2day av Merces från galleriet.
-1. Konfigurera och testa Azure AD enkel inloggning.
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="add-hr2day-by-merces-from-the-gallery"></a>Lägg till HR2day av Merces från galleriet
-Lägg till HR2day av Merces från galleriet i din lista över hanterade SaaS-appar för att konfigurera integrering av HR2day av Merces i Azure AD.
+* Har stöd för HR2day av Merces **SP** -initierad SSO
 
-**Om du vill lägga till HR2day av Merces från galleriet, gör du följande:**
+## <a name="adding-hr2day-by-merces-from-the-gallery"></a>Att lägga till HR2day av Merces från galleriet
 
-1. I den [Azure-portalen](https://portal.azure.com), i det vänstra navigeringsfönstret, väljer den **Azure Active Directory** ikon. 
+För att konfigurera integrering av HR2day av Merces i Azure AD, som du behöver lägga till HR2day av Merces från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Utför följande steg för att lägga till HR2day av Merces från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Appar][2]
-    
-1. Om du vill lägga till ett nytt program, Välj den **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Appar][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **HR2day av Merces**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/hr2day-tutorial/tutorial_hr2daybymerces_search.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I resultatpanelen väljer **HR2day av Merces**, och välj sedan den **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/hr2day-tutorial/tutorial_hr2daybymerces_addfromgallery.png)
+4. I sökrutan skriver **HR2day av Merces**väljer **HR2day av Merces** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med HR2day av Merces baserat på en testanvändare som kallas ”Britta Simon”.
+     ![HR2day av Merces i resultatlistan](common/search-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vilken användaren motsvarighet i HR2day av Merces är att en användare i Azure AD. Med andra ord måste du upprätta en länk mellan en Azure AD-användare och relaterade användaren i HR2day av Merces.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I HR2day av Merces, tilldela den **användarnamn** i Azure AD för att **användarnamn** att upprätta en relation.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med HR2day av Merces baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i HR2day av Merces upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med HR2day av Merces, måste du utföra följande byggblock:
 
-1. Konfigurera Azure AD enkel inloggning: Ge användarna använda den här funktionen.
-1. Skapa en testanvändare i Azure AD: Testa Azure AD enkel inloggning med Britta Simon.
-1. Skapa en HR2day av Merces testanvändare: Skapa en motsvarighet för Britta Simon i HR2day av Merces som är länkad till en Azure AD-representation av användaren.
-1. Tilldela testanvändare Azure AD: Aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. Testa enkel inloggning: Kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera HR2day av Merces enkel inloggning](#configure-hr2day-by-merces-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa HR2day av Merces testanvändare](#create-hr2day-by-merces-test-user)**  – du har en motsvarighet för Britta Simon i HR2day av Merces som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din HR2day av Merces program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Om du vill konfigurera Azure AD enkel inloggning med HR2day av Merces, gör du följande:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med HR2day av Merces:
 
-1. I Azure-portalen på den **HR2day av Merces** application integration markerar **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **HR2day av Merces** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. Att aktivera enkel inloggning, i den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning**.
- 
-    ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_hr2daybymerces_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. I den **HR2day av Merces domän och URL: er** avsnittet, gör följande:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_hr2daybymerces_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **inloggnings-URL** skriver du en URL med hjälp av följande mönster: `https://<tenantname>.force.com/<instancename>`.
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **identifierare** skriver du en URL med hjälp av följande mönster: `https://hr2day.force.com/<companyname>`.
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl) att hämta dessa värden. 
- 
+    ![HR2day av Merces domän och URL: er enkel inloggning för information](common/sp-identifier.png)
 
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<tenantname>.force.com/<instancename>`
 
-1. På den **SAML-signeringscertifikat** väljer **Certificate(Base64)**, och sedan spara certifikatfilen på datorn.
-
-    ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_hr2daybymerces_certificate.png) 
-
-1. Det här avsnittet beskrivs hur du aktiverar användare att autentisera till HR2day av Merces med ett konto i Azure AD. De kan göra detta med hjälp av federation som baseras på SAML-protokoll.
-
-    Din HR2day av Merces program förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar SAML-token. Följande skärmbild visar ett exempel på detta. 
-
-    ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_hr2day_00.png)
-    
-   > [!NOTE]
-   >  Innan du kan konfigurera SAML-kontroll, måste du kontakta den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl) och begära värdet för attributet för unik identifierare för din klient. Du behöver det här värdet för att slutföra stegen i nästa avsnitt. 
-
-1. I den **enkel inloggning** i dialogrutan den **användarattribut** avsnittet, konfigurera attributet som SAML-token som visas i följande bild. Sedan vidta följande steg.
-    
-      | Attributnamn    |   Attributvärde |  
-    | ------------------- | -------------------- |    
-    | ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
-    
-      a. Öppna den **lägga till attributet** dialogrutan **Lägg till attribut**.
-
-    ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_attribute_04.png)
-
-    ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_attribute_05.png)
-
-    b. I den **namn** skriver **ATTR_LOGINCLAIM**.
-
-    c. Från den **värdet** väljer **Join()**.
-
-    d. Från den **sträng1** väljer **user.mail**.
-
-    e. För **sträng2**, ange den unika identifieraren som tillhandahålls av HR2day-teamet.
-
-    f. I den **avgränsare** skriver **\@**.
-    
-    g. Välj **OK**.
-
-1. Välj knappen **Spara**.
-
-    ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_general_400.png)
-
-1. I den **HR2day av Merces konfigurationen** väljer **konfigurera HR2day av Merces** att öppna den **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning**, **SAML entitets-ID**, och **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens** avsnittet.
-
-    ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
-
-1. Om du vill konfigurera enkel inloggning för ditt program, kontakta den [HR2day av Merces klienten supportteamet](mailTo:servicedesk@merces.nl). Koppla de hämtade **Certificate(Base64)** filen till din e-post. Tillhandahåller även den **URL: en för utloggning**, **SAML entitets-ID**, och **SAML enkel inloggning för tjänst-URL** så att de kan konfigureras för SSO-integrering.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://hr2day.force.com/<companyname>`
 
     > [!NOTE]
-    >Nämner till Merces-teamet att den här integreringen behöver entitets-ID anges med mönstret **https://hr2day.force.com/INSTANCENAME**.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    > [!TIP]
-    >Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du lägger till den här appen från den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken. Komma åt den inbäddade dokumentationen genom den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen embedded-dokumentation i den [embedded-dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-   > 
+5. Din HR2day av Merces program förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+
+    ![image](common/edit-attribute.png)
+
+    > [!NOTE]
+    > Innan du kan konfigurera SAML-kontroll, måste du kontakta den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl) och begära värdet för attributet för unik identifierare för din klient. Du behöver det här värdet för att slutföra stegen i nästa avsnitt.
+
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
+
+    | Namn |  Källattribut |
+    | ---------- | ----------- |
+    | ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
+    | | |
+
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
+
+    c. Lämna **Namnrymd** tom.
+
+    d. Välj Källa som **Attribut**.
+
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
+
+    f. Klicka på **Ok**
+
+    g. Klicka på **Spara**.
+
+7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+
+8. På den **konfigurera HR2day genom Merces** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-hr2day-by-merces-single-sign-on"></a>Konfigurera HR2day av Merces Single Sign-On
+
+Att konfigurera enkel inloggning på **HR2day av Merces** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [HR2day av Merces support team](mailto:servicedesk@merces.nl). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+
+> [!NOTE]
+> Nämner till Merces-teamet att den här integreringen behöver entitets-ID anges med mönstret **https://hr2day.force.com/INSTANCENAME**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Om du vill skapa en testanvändare i Azure AD, gör du följande:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret, väljer den **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/hr2day-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och välj sedan **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/hr2day-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/hr2day-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. I den **användaren** dialogrutan rutan, gör följande:
- 
-    ![Skapa en Azure AD-användare för testning](./media/hr2day-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** skriver **BrittaSimon**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    b. I den **användarnamn** skriver den **e-postadress** av BrittaSimon.
+    d. Klicka på **Skapa**.
 
-    c. Välj **visa lösenord**, och sedan skriva ned lösenordet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-    d. Välj **Skapa**.
- 
-### <a name="create-an-hr2day-by-merces-test-user"></a>Skapa en HR2day av Merces testanvändare
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till HR2day av Merces.
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i HR2day av Merces. Om du vill lägga till användarna i HR2day-konto, arbeta med den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl). 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **HR2day av Merces**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **HR2day av Merces**.
+
+    ![HR2day av Merces länk i listan med program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-hr2day-by-merces-test-user"></a>Skapa HR2day av Merces testanvändare
+
+I det här avsnittet skapar du en användare som kallas Britta Simon i HR2day av Merces. Arbeta med [HR2day av Merces supportteam](mailto:servicedesk@merces.nl) att lägga till användare i HR2day av Merces-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 > [!NOTE]
 > Om du vill skapa en användare manuellt kan du kontakta den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl).
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst HR2day av Merces.
-
-![Tilldela användare][200] 
-
-**Om du vill tilldela Britta Simon HR2day av Merces, gör du följande:**
-
-1. Öppna vyn program i Azure-portalen, gå till vyn directory och gå sedan till **företagsprogram**. Välj sedan **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **HR2day av Merces**.
-
-    ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_hr2daybymerces_app.png) 
-
-1. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Välj knappen **Lägg till**. I den **Lägg till tilldelning** dialogrutan **användare och grupper**.
-
-    ![Tilldela användare][203]
-
-1. I den **användare och grupper** i dialogrutan den **användare** väljer **Britta Simon**.
-
-1. Klicka på den **Välj** knappen.
-
-1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.  
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du väljer HR2day av Merces panel i åtkomstpanelen, får du loggas in automatiskt till din HR2day av Merces program.
+När du klickar på HR2day av Merces panel i åtkomstpanelen, bör det vara loggas in automatiskt till HR2day av Merces som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/hr2day-tutorial/tutorial_general_01.png
-[2]: ./media/hr2day-tutorial/tutorial_general_02.png
-[3]: ./media/hr2day-tutorial/tutorial_general_03.png
-[4]: ./media/hr2day-tutorial/tutorial_general_04.png
-
-[100]: ./media/hr2day-tutorial/tutorial_general_100.png
-
-[200]: ./media/hr2day-tutorial/tutorial_general_200.png
-[201]: ./media/hr2day-tutorial/tutorial_general_201.png
-[202]: ./media/hr2day-tutorial/tutorial_general_202.png
-[203]: ./media/hr2day-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

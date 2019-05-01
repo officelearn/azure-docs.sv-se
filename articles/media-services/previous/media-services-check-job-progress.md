@@ -14,24 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 73c9fa82cefc192b237e3880c1e745b2412a323a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e787617ab6e04a5ff2e7f5d4921a5bf7a4a1eb5d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61235278"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867105"
 ---
 # <a name="monitor-job-progress-using-net"></a>Övervaka Jobbförlopp med hjälp av .NET 
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-check-job-progress.md)
-> * [NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 När du kör jobb kräver ofta ett sätt att spåra jobbförloppet. Du kan kontrollera förloppet genom att definiera en händelsehanterare för StateChanged (som beskrivs i det här avsnittet) eller använda Azure Queue storage för att övervaka jobbmeddelanden för Media Services (enligt beskrivningen i [detta](media-services-dotnet-check-job-progress-with-queues.md) avsnittet).
 
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definiera StateChanged händelsehanterare för att övervaka jobbförlopp
+
 I följande kodexempel definierar händelsehanteraren StateChanged. Händelsehanteraren spårar förloppet och innehåller uppdaterad status, beroende på tillståndet. Koden definierar också metoden LogJobStop. Den här hjälpmetoden loggar felinformation.
 
 ```csharp

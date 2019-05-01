@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance tidszon | Microsoft-Docs ”
-description: Lär dig mer om tidszonen ärendets natur Azure SQL Database Managed Instance
+title: Azure SQL Database Managed Instance tidszoner | Microsoft-Docs ”
+description: Lär dig om Azure SQL Database Managed Instance det tidszon
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -10,46 +10,46 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487413"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866954"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Tidszonen i Azure SQL Database Managed Instance (förhandsversion)
+# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Tidszoner i Azure SQL Database Managed Instance (förhandsversion)
 
-Med hjälp av Coordinated Universal Time (UTC) är en rekommendation för datanivån för molnlösningar, Azure SQL Database Managed Instance kan du välja mellan för tidszonen att uppfylla behoven i de befintliga program som lagrar datum- och tidsvärden och Samtalsdatum och tidsfunktioner med en implicit kontexten för en viss tidszon.
+Coordinated Universal Time (UTC) är den rekommenderade tidszonen för datanivån för molnlösningar. Azure SQL Database Managed Instance erbjuder även välja mellan olika tidszoner att uppfylla behoven i befintliga program som lagrar datum- och tidsvärden och anropa datum- och tidsfunktioner med en implicit kontexten för en viss tidszon.
 
-T-SQL-funktioner som [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) och CLR-kod Observera tidszonen som angetts på instansen. SQL Agent-jobb kan du även följa schemat enligt tidszonen för instansen.
+T-SQL-funktioner som [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) och CLR-kod Observera tidszonen som angetts på instansen. SQL Server Agent-jobb kan du även följa scheman enligt tidszonen för instansen.
 
   >[!NOTE]
   > Managed Instance är alternativet endast distribution av Azure SQL-databas som har stöd för tidszon. Andra distributionsalternativ följer alltid UTC.
-Använd [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) i enkel och grupperade SQL-databaser om du behöver att tolka information datum och tid i icke-UTC-tidszonen.
+Använd [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) i enkel och grupperade SQL-databaser om du behöver att tolka information datum och tid i en icke-UTC-tidszonen.
 
 ## <a name="supported-time-zones"></a>Tidszoner som stöds
 
-En uppsättning stöds tidszoner har ärvts från det underliggande operativsystemet för den hanterade instansen och ska uppdateras regelbundet för att hämta den nya tidszonsdefinitioner och förändringar i befintliga.
+En uppsättning stöds tidszoner ärvs från det underliggande operativsystemet för den hanterade instansen. Den uppdateras regelbundet för att hämta den nya tidszonsdefinitioner och förändringar i befintliga. 
 
 En lista med namnen på tidszonerna som stöds är tillgängliga via den [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) systemvy.
 
-## <a name="setting-time-zone"></a>Ange tidszon
+## <a name="set-a-time-zone"></a>Ange en tidszon
 
-En tidszonen för hanterad instans kan anges när instans skapas endast. The default time zone is Coordinated Universal Time (UTC).
+En tidszonen för en hanterad instans kan anges när instans skapas endast. Standardtidszon är UTC.
 
   >[!NOTE]
   > Tidszonen för en befintlig hanterad instans kan inte ändras.
 
-### <a name="setting-the-time-zone-through-azure-portal"></a>Tidszonen via Azure-portalen
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Ange tidszonen via Azure portal
 
-När du skriver in parametrar för den nya instansen Välj en tidszon i listan över tidszoner som stöds:
+Välj en tidszon i listan över tidszoner som stöds när du anger parametrar för en ny instans. 
   
-![Ange tidszonen när instans skapas](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Konfigurera en tidszon under instans skapas](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
-Ange timezoneId-egenskapen i din [Resource Manager-mall](https://aka.ms/sql-mi-create-arm-posh) att ställa in den aktuella tidszonen när instans skapas.
+Ange egenskapen timezoneId i din [Resource Manager-mall](https://aka.ms/sql-mi-create-arm-posh) att ställa in den aktuella tidszonen när instans skapas.
 
 ```json
 "properties": {
@@ -66,36 +66,35 @@ Ange timezoneId-egenskapen i din [Resource Manager-mall](https://aka.ms/sql-mi-c
 
 ```
 
-Lista över värden som stöds för egenskapen timezoneId finns i slutet av den här artikeln.
+En lista med värden som stöds för egenskapen timezoneId är i slutet av den här artikeln.
 
-Om inte anges, ställs tidszon till UTC.
+Om inte anges är tidszonen inställd på UTC.
 
-## <a name="checking-the-time-zone-of-instance"></a>Kontrollera tidszonen för instans
+## <a name="check-the-time-zone-of-an-instance"></a>Kontrollera tidszonen för en instans
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) returnerar funktionen ett namn på tidszonen för instansen.
+Den [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) returnerar funktionen ett namn på tidszonen för instansen.
 
 ## <a name="cross-feature-considerations"></a>Överväganden för Cross-funktionen
 
 ### <a name="restore-and-import"></a>Återställning och importera
 
-Du kan återställa säkerhetskopian eller importera data till managed instance från en instans eller en server med olika tidszonsinställningar. Se dock till att göra det med försiktighet och för att analysera programmets beteende och resultatet av frågor och rapporter, precis som när du överför data mellan två SQL Server-instanser med olika tidszonsinställningar.
+Du kan återställa en säkerhetskopia eller importera data till en hanterad instans från en instans eller en server med olika tidszonsinställningar. Se till att göra det med försiktighet. Analysera programmets beteende och resultatet av frågor och rapporter, precis som när du överför data mellan två SQL Server-instanser med olika tidszonsinställningar.
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-När du utför point-in-time-återställning, tolkas det hög tid att återställa till som UTC-tid för att undvika eventuella tvetydighet på grund av sommartid och dess eventuella ändringar.
+När du utför en point-in-time-återställning, tolkas det hög tid att återställa till som UTC-tid. Den här inställningen förhindrar all tvetydighet på grund av sommartid och dess eventuella ändringar.
 
 ### <a name="auto-failover-groups"></a>Automatiska redundansgrupper
 
-Med hjälp av samma tidszon mellan primära och sekundära instans i redundanskluster gruppen tillämpas inte, men rekommenderas starkt.
-  >[!IMPORTANT]
-  > Även om det finns giltigt scenarier för att använda en annan tidszon med geo-secondary instans används för att läsa skala, Observera att om en manuell eller automatisk redundans som sker till sekundär instans det behåller sin ursprungliga tidszon.
+Med hjälp av samma tidszon mellan en primär och sekundär instans i en redundansgrupp är inte aktiv, men vi rekommenderar den.
+
+  >[!WARNING]
+  > Vi rekommenderar starkt att du använder samma tidszon för den primära och sekundära instansen i en redundansgrupp. På grund av vissa sällsynta fall kan är inte hålla samma tidszon mellan primära och sekundära instanser aktiv. Det är viktigt att förstå att när det gäller manuell eller automatisk redundans, den sekundära instansen behåller sin ursprungliga tidszon.
 
 ## <a name="limitations"></a>Begränsningar
 
 - Tidszonen för den befintliga hanterade instansen kan inte ändras.
-- Externa processer som startas från SQL Agent-jobb tar inte tjänstkvoterna tidszonen för instansen.
-- Hanterad instans är inbyggda [New AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) PowerShell-cmdlet inte stöd för skicka tidszonen parametern ännu. Använd PowerShell-omslutningen med [Resource Manager-mall](https://aka.ms/sql-mi-create-arm-posh) i stället.
-- CLI-kommando [az sql mi skapa](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) stöder inte tidszonsparametern ännu.
+- Externa processer som startas från SQL Server Agent-jobb Se inte tidszonen för instansen.
 
 ## <a name="list-of-supported-time-zones"></a>Lista med tidszoner som stöds
 
@@ -240,7 +239,7 @@ Med hjälp av samma tidszon mellan primära och sekundära instans i redundanskl
 | Samoa, normaltid | (UTC+13:00) Samoa |
 | Linjeöarna, normaltid | (UTC+14:00) Kiritimati (Julön) |
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se också 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [VID TIDSZON (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

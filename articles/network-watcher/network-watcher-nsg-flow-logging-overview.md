@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6e15149dec9fdbb7413745d36b3f6a158113b586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684559"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925419"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödesloggar för nätverkssäkerhetsgrupper
 
@@ -91,7 +91,7 @@ Texten nedan är ett exempel på en flow-log. Som du ser finns det flera poster 
 
 **Aktivera NSG Flow loggning på alla Nätverkssäkerhetsgrupper som är kopplade till en resurs**: Flow loggning i Azure konfigureras på NSG-resurs. Ett flöde kan endast kopplas till en NSG-regel. I scenarier där flera NSG: er används, rekommenderar vi att NSG-flödesloggar är aktiverad på alla Nätverkssäkerhetsgrupper tillämpas resursens undernät eller ett gränssnitt för att se till att all trafik registreras. Se [hur trafik utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) mer information om Nätverkssäkerhetsgrupper. 
 
-**Flow loggning kostnader**: NSG-flödesloggar debiteras mängden loggar som producerats. Hög trafik kan resultera i stora flow loggvolymen och relaterade kostnader. NSG-Flödesloggar log priserna inkluderar inte de underliggande kostnaderna för lagring. Använder funktionen kvarhållning princip med NSG Flow loggning kan resultera i ett stort antal lagringsåtgärder och relaterade kostnader. Om du inte behöver principfunktionen kvarhållning, rekommenderar vi att du ställer in det här värdet till 0. Se [Watcher prissättningen](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) och [priser för Azure Storage](https://azure.microsoft.com/en-us/pricing/details/storage/) för ytterligare information.
+**Flow loggning kostnader**: NSG-flödesloggar debiteras mängden loggar som producerats. Hög trafik kan resultera i stora flow loggvolymen och relaterade kostnader. NSG-Flödesloggar log priserna inkluderar inte de underliggande kostnaderna för lagring. Använder funktionen kvarhållning princip med NSG Flow loggning kan resultera i ett stort antal lagringsåtgärder och relaterade kostnader. Om du inte behöver principfunktionen kvarhållning, rekommenderar vi att du ställer in det här värdet till 0. Se [Watcher prissättningen](https://azure.microsoft.com/pricing/details/network-watcher/) och [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/) för ytterligare information.
 
 **Flöden som loggas från internet IP-adresser till virtuella datorer utan offentliga IP-adresser för inkommande**: Virtuella datorer som inte har en offentlig IP-adress via en offentlig IP-adress som är associerade med nätverkskort som en offentlig IP på instansnivå eller som ingår i en basic load balancer backend-poolen, Använd [standard SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) och har en IP-adress som tilldelats av Azure för att underlätta utgående anslutning. Därför visas flow-aktivitetsloggposter för flöden från internet IP-adresser, om flödet är avsett att en port i intervallet för de portar som tilldelats SNAT. Medan Azure inte tillåter dessa flöden till den virtuella datorn, loggas försöket och visas i Network Watcher NSG flödeslogg avsiktligt. Vi rekommenderar att oönskad inkommande Internettrafik uttryckligen blockeras med NSG.
 

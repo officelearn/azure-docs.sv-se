@@ -3,18 +3,18 @@ title: Filformat som stöds i Azure Data Factory | Microsoft Docs
 description: Det här avsnittet beskriver filformat och komprimering koder som stöds av filbaserade anslutningar i Azure Data Factory.
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394443"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925144"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
@@ -29,9 +29,12 @@ Om du vill **kopiera filer som – är** hoppa över avsnittet format i både in
 * [Avro-format](#avro-format)
 
 > [!TIP]
-> Lär dig hur kopieringsaktiviteten mappar dina källdata till mottagare från [schemamappning i kopieringsaktiviteten](copy-activity-schema-and-type-mapping.md), inklusive hur metadata bestäms utifrån din filformatinställningar och tips om när du ska ange den [datauppsättning `structure` ](concepts-datasets-linked-services.md#dataset-structure) avsnittet.
+> Lär dig hur kopieringsaktiviteten mappar dina källdata till mottagare från [schemamappning i kopieringsaktiviteten](copy-activity-schema-and-type-mapping.md), inklusive hur metadata bestäms utifrån din filformatinställningar och tips om när du ska ange den [datauppsättning `structure` ](concepts-datasets-linked-services.md#dataset-structure-or-schema) avsnittet.
 
 ## <a name="text-format"></a>Textformat
+
+>[!NOTE]
+>Data Factory introduceras nya avgränsad text format datset, se [avgränsat textformat](format-delimited-text.md) artikeln med information. Följande konfigurationer för filbaserade data store datauppsättningen stöds fortfarande som-avser bakåt compabitility. Du rekommenderas för att använda den nya modellen framöver.
 
 Om du vill läsa från en textfil eller skriva till en textfil, anger den `type` -egenskapen i den `format` avsnittet på datauppsättningen till **TextFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
 
@@ -97,7 +100,7 @@ Om du vill parsa JSON-filerna eller skriva data i JSON-format anger den `type` -
 | nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |Nej |
 
 >[!NOTE]
->Om-korstillämpa data i matrisen i flera rader (fall 1 -> exempel 2 i [JsonFormat-exempel](#jsonformat-example)), du kan endast välja att expandera enskild matris med hjälp av egenskapen `jsonNodeReference`. 
+>Om-korstillämpa data i matrisen i flera rader (fall 1 -> exempel 2 i [JsonFormat-exempel](#jsonformat-example)), du kan endast välja att expandera enskild matris med hjälp av egenskapen `jsonNodeReference`.
 
 ### <a name="json-file-patterns"></a>JSON-filmönster
 
@@ -196,7 +199,7 @@ Kopieringsaktiviteten kan parsa JSON-filmönster följande mönster:
 
 **Exempel 1: hämta data från objektet och matrisen**
 
-I det här exemplet mappas ett JSON-rotobjekt till en enskild post i tabellformat. Om du har en JSON-fil med följande innehåll:  
+I det här exemplet mappas ett JSON-rotobjekt till en enskild post i tabellformat. Om du har en JSON-fil med följande innehåll:
 
 ```json
 {
@@ -408,6 +411,9 @@ Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 
 ## <a name="parquet-format"></a>Parquet-format
 
+>[!NOTE]
+>Data Factory introduceras nya Parquet-format datset, se [Parquet-format](format-delimited-text.md) artikeln med information. Följande konfigurationer för filbaserade data store datauppsättningen stöds fortfarande som-avser bakåt compabitility. Du rekommenderas för att använda den nya modellen framöver.
+
 Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egenskapen `format` `type` till **ParquetFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 
 ```json
@@ -426,13 +432,13 @@ Observera följande punkter:
 > [!IMPORTANT]
 > För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar Parquet-filer **som – är**, måste du installera den **64-bitars JRE 8 (Java Runtime Environment) eller OpenJDK** på IR-datorn. Se följande stycke med mer information.
 
-För kopiering som körs på lokal IR med Parquet-fil serialisering/deserialisering ADF söker efter Java runtime genom att först kontrollera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om inte hittas för det andra kontrollerar systemvariabeln *`JAVA_HOME`* för OpenJDK. 
+För kopiering som körs på lokal IR med Parquet-fil serialisering/deserialisering ADF söker efter Java runtime genom att först kontrollera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om inte hittas för det andra kontrollerar systemvariabeln *`JAVA_HOME`* för OpenJDK.
 
 - **Att använda JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den från [här](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Att använda OpenJDK**: den stöds sedan IR version 3.13. Paketet jvm.dll med alla andra krävs sammansättningar av OpenJDK i lokal IR-datorn och system för set-miljövariabeln JAVA_HOME därefter.
 
 >[!TIP]
->Om du kopierar data till/från Parquet-format med hjälp av lokal Integration Runtime och tryck på fel som säger ”ett fel uppstod när java-anrop meddelande: **java.lang.OutOfMemoryError:Java heap utrymme**”, kan du lägga till en miljövariabel `_JAVA_OPTIONS` på den dator som är värd för lokal IR för att justera storleken på heap min/max för JVM att driva denna kopia, sedan kör pipelinen igen. 
+>Om du kopierar data till/från Parquet-format med hjälp av lokal Integration Runtime och tryck på fel som säger ”ett fel uppstod när java-anrop meddelande: **java.lang.OutOfMemoryError:Java heap utrymme**”, kan du lägga till en miljövariabel `_JAVA_OPTIONS` på den dator som är värd för lokal IR för att justera storleken på heap min/max för JVM att driva denna kopia, sedan kör pipelinen igen.
 
 ![Ange JVM heap-storlek för lokal IR](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -483,7 +489,7 @@ Observera följande punkter:
 > [!IMPORTANT]
 > För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar ORC-filer **som – är**, måste du installera den **64-bitars JRE 8 (Java Runtime Environment) eller OpenJDK**  på IR-datorn. Se följande stycke med mer information.
 
-För kopiering som körs på lokal IR med ORC-filen serialisering/deserialisering ADF söker efter Java runtime genom att först kontrollera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om inte hittas för det andra kontrollerar systemvariabeln *`JAVA_HOME`* för OpenJDK. 
+För kopiering som körs på lokal IR med ORC-filen serialisering/deserialisering ADF söker efter Java runtime genom att först kontrollera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om inte hittas för det andra kontrollerar systemvariabeln *`JAVA_HOME`* för OpenJDK.
 
 - **Att använda JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den från [här](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Att använda OpenJDK**: den stöds sedan IR version 3.13. Paketet jvm.dll med alla andra krävs sammansättningar av OpenJDK i lokal IR-datorn och system för set-miljövariabeln JAVA_HOME därefter.
@@ -538,7 +544,7 @@ Azure Data Factory stöder compress/dekomprimera data vid kopiering. När du ang
 * Läs .zip-filen från FTP-servern, expandera den för att hämta filer inuti och landa filerna i Azure Data Lake Store. Du definierar en indatauppsättning FTP med den `compression` `type` egenskapen som ZipDeflate.
 * Läsa en GZIP-komprimerade data från en Azure-blob, expandera den, komprimera den med hjälp av BZIP2 och skriva Resultatdata till en Azure-blob. Du definierar den inkommande Azure Blob-datauppsättningen med `compression` `type` GZIP och datauppsättningen för utdata med `compression` `type` inställd på BZIP2.
 
-Om du vill ange komprimering för en datauppsättning, använder den **komprimering** egenskap i JSON-datauppsättningen som i följande exempel:   
+Om du vill ange komprimering för en datauppsättning, använder den **komprimering** egenskap i JSON-datauppsättningen som i följande exempel:
 
 ```json
 {
@@ -579,11 +585,12 @@ Den **komprimering** avsnittet har två egenskaper:
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>Filtyper som inte stöds och komprimeringsformat
 
-Du kan använda funktionerna för utökningsbarhet i Azure Data Factory för att omvandla filer som inte stöds. Två alternativ inkluderar Azure Functions och anpassade aktiviteter med hjälp av Azure Batch.
+Du kan använda funktionerna för utökningsbarhet i Azure Data Factory för att omvandla filer som inte stöds.
+Två alternativ inkluderar Azure Functions och anpassade aktiviteter med hjälp av Azure Batch.
 
 Du kan se ett exempel som använder en Azure-funktion till [extrahera innehållet i tar-filen](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Mer information finns i [Azure Functions aktivitet](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
 
-Du kan också skapa den här funktionen med hjälp av en anpassad dotnet-aktivitet. Ytterligare information finns [här](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
+Du kan också skapa den här funktionen med hjälp av en anpassad dotnet-aktivitet. Ytterligare information finns [här](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Nästa steg
 

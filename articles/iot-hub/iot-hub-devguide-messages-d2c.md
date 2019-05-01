@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364512"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917430"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka enhet-till-moln-meddelanden till olika slutpunkter
 
@@ -119,7 +119,7 @@ I de flesta fall är den genomsnittliga ökningen av svarstiden mindre än 500 m
 
 IoT Hub innehåller flera Routning och slutpunkten relaterade mått för att ge dig en översikt över hälsotillståndet för din hubb och meddelanden som skickas. Du kan kombinera information från flera mått för att identifiera rotorsaken till problem. Till exempel använda mått **routning: telemetrimeddelanden bort** eller **d2c.telemetry.egress.dropped** att identifiera hur många meddelanden som har tagits bort när de inte matchade frågor på någon av vägarna och återställningsplats vägen har inaktiverats. [IoT Hub mått](iot-hub-metrics.md) visar en lista över alla mått som är aktiverade som standard för din IoT-hubb.
 
-Du kan använda REST-API [hämta Slutpunktshälsa](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) att hämta [hälsostatus](iot-hub-devguide-endpoints.md#custom-endpoints) slutpunkter. Vi rekommenderar att du använder den [IoT Hub mått](iot-hub-metrics.md) rör Routning meddelande svarstid för att identifiera och felsöka fel när slutpunktshälsa är döda eller är skadad. Till exempel för typ av slutpunkt Event Hubs, du kan övervaka **d2c.endpoints.latency.eventHubs**. Status för en defekt slutpunkt uppdateras till felfritt läge när IoT Hub har etablerat en konsekvent hälsotillstånd.
+Du kan använda REST-API [hämta Slutpunktshälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) att hämta [hälsostatus](iot-hub-devguide-endpoints.md#custom-endpoints) slutpunkter. Vi rekommenderar att du använder den [IoT Hub mått](iot-hub-metrics.md) rör Routning meddelande svarstid för att identifiera och felsöka fel när slutpunktshälsa är döda eller är skadad. Till exempel för typ av slutpunkt Event Hubs, du kan övervaka **d2c.endpoints.latency.eventHubs**. Status för en defekt slutpunkt uppdateras till felfritt läge när IoT Hub har etablerat en konsekvent hälsotillstånd.
 
 Med hjälp av den **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](../iot-hub/iot-hub-monitor-resource-health.md), kan du spårar fel som uppstår under utvärderingen av ett routning hälsa för frågan och slutpunkten som uppfattas av IoT Hub, till exempel När en slutpunkt är inaktiv. Dessa diagnostikloggar kan skickas till Azure Monitor-loggar, Event Hubs eller Azure Storage för anpassad bearbetning.
 

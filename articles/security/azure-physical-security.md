@@ -1,6 +1,6 @@
 ---
-title: Azure anläggningar, plats och fysisk säkerhet | Microsoft Docs
-description: Artikeln beskriver den Azure-datacenter, inklusive fysisk infrastruktur, säkerhet och efterlevnadserbjudanden.
+title: Fysisk säkerhet med Azure-Datacenter – Microsoft Azure | Microsoft Docs
+description: Artikeln beskriver vad Microsoft gör för att skydda Azure-datacentren, inklusive fysisk infrastruktur, säkerhet och efterlevnad erbjudanden.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d1b95695de809668987ebb6ef6720a3751205171
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586800"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939836"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure anläggningar, plats och fysisk säkerhet
+Den här artikeln beskriver vad Microsoft gör för att skydda Azure-infrastrukturen.
+
+## <a name="datacenter-infrastructure"></a>Infrastruktur med Datacenter
 Azure består av en [infrastruktur med globalt distribuerade datacenter](https://azure.microsoft.com/global-infrastructure/), stöd för tusentals onlinetjänster och utsträckning anläggningar för fler än 100 med hög säkerhet världen över.
 
 Infrastrukturen som är utformad för att föra program närmare användare världen över, bevarar dataplacering och omfattande efterlevnad och elasticitet lagringsalternativ för kunder. Azure har 52 regioner över hela världen och är tillgängligt i 140 länder/regioner.
@@ -67,9 +70,9 @@ Microsoft använder den bästa praxis procedurer och en Radera lösning som är 
 När ett system slutet livscykel Följ Microsoft operational personal rigorösa datahantering och maskinvara avyttring procedurer för att garantera att maskinvara som innehåller dina data inte är tillgängliga till inte är betrodd part. Vi använder en metod för säker radering för enheter som har stöd för den. Vi använder en destruktion process som förstör enheten och återger det omöjligt för återställning av information för hårddiskar som inte kan rensas. Den här processen destruktion kan vara att splittras, hjälp, pulverisera dem eller förbränning. Vi fastställer insamling av avyttring beroende på resurstyp. Vi behåller poster i destruktion. Alla Azure-tjänster använder godkända media lagring och avyttring management services.
 
 ## <a name="compliance"></a>Efterlevnad
-Vi skapa och hantera Azure-infrastrukturen för att uppfylla en rad olika internationella och branschspecifika efterlevnadsstandarder, till exempel ISO 27001, HIPAA, FedRAMP, SOC 1 och SOC 2. Vi uppfyller även landsspecifika standarder inklusive IRAP i Australien, G-Cloud i Storbritannien och MTCS i Singapore. Noggranna granskningar från tredje part, till exempel de som görs av British Standards Institute, kontrollerar du infört de stränga säkerhetskontrollerna dessa standarder säkerhetsbehov.
+Vi skapa och hantera Azure-infrastrukturen för att uppfylla en rad olika internationella och branschspecifika efterlevnadsstandarder, till exempel ISO 27001, HIPAA, FedRAMP, SOC 1 och SOC 2. Vi uppfyller även land eller region specifika standarder, inklusive IRAP i Australien, G-Cloud i Storbritannien och MTCS i Singapore. Noggranna granskningar från tredje part, till exempel de som görs av British Standards Institute, kontrollerar du infört de stränga säkerhetskontrollerna dessa standarder säkerhetsbehov.
 
-En fullständig lista över efterlevnadsstandarder som Azure följer finns i den [efterlevnadserbjudanden](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
+En fullständig lista över efterlevnadsstandarder som Azure följer finns i den [efterlevnadserbjudanden](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om vad Microsoft gör för att skydda Azure-infrastrukturen finns:

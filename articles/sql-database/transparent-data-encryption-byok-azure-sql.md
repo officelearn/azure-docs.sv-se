@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 6ad4cf251ad09adb7e1f11ebd42d7eab0d6a9183
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3a29c6b4d0308b41e29f38fc29d79634727d593
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330983"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926011"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Stöd för Bring Your Own Key
 
@@ -61,6 +61,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 - Bestäm vilka prenumerationer kommer att användas för resurserna som krävs – flytta servern över prenumerationer senare måste en ny installation av TDE med BYOKs. Läs mer om [flyttar resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - När du konfigurerar TDE med Azure Key Vault, är det viktigt att ha i åtanke placeras i nyckelvalvet av upprepade radbyte/packa upp åtgärder. Exempelvis kan utlösa en redundansväxling av den här servern eftersom många viktiga åtgärder mot valvet eftersom det är databaser på servern eftersom alla databaser som är associerade med en SQL Database-server använder samma TDE-skyddet. Baserat på vår erfarenhet och dokumenteras [nyckeln vault-tjänstbegränsningar](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), rekommenderar vi kopplar högst 500 Standard / generell användning eller 200 Premium / affärskritiska databaser med en Azure Key Vault för en enskild prenumeration så konsekvent hög tillgänglighet vid åtkomst till TDE-skydd i valvet.
 - Rekommenderat: Behåll en kopia av TDE-skydd lokalt.  Detta kräver en HSM-enheten för att skapa ett TDE-skydd lokalt och en nyckel escrow-systemet för att lagra en lokal kopia av TDE-skydd.  Lär dig [hur du överför en nyckel från en lokal HSM till Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+- Problem med befintliga konfigurationer finns i [felsöka TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/troubleshoot-tde)
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Riktlinjer för att konfigurera Azure Key Vault
 
@@ -72,7 +73,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 - Ge SQL Database-serveråtkomst till nyckelvalvet med sin identitet med Azure Active Directory (AD Azure).  När du använder Användargränssnittet i Portal, Azure AD-identitet skapas automatiskt och åtkomstbehörigheter för nyckelvalv har beviljats till servern.  Använda PowerShell för att konfigurera transparent Datakryptering med BYOK, Azure AD-identitet måste skapas och slutförande bör verifieras. Se [konfigurera transparent Datakryptering med BYOK](transparent-data-encryption-byok-azure-sql-configure.md) och [konfigurera transparent Datakryptering med BYOK för hanterad instans](https://aka.ms/sqlmibyoktdepowershell) stegvisa anvisningar när du använder PowerShell.
 
   > [!NOTE]
-  > Om Azure AD Identity **av misstag har tagits bort eller återkallas serverns behörigheter** med hjälp av den nyckelvalvets åtkomstprincip, servern förlorat åtkomst till nyckelvalvet och transparent Datakryptering krypteras databaser är tillgängliga inom 24 timmar.
+  > Om Azure AD Identity **av misstag har tagits bort eller återkallas serverns behörigheter** med hjälp av den nyckelvalvets åtkomstprincip eller av misstag genom att flytta servern till en annan prenumeration har servern förlorat åtkomst till nyckelvalvet, och transparent Datakryptering krypteras databaser är tillgängliga inom 24 timmar.  
 
 - När du använder brandväggar och virtuella nätverk med Azure Key Vault, måste du konfigurera följande: 
   - Tillåt att betrodda Microsoft-tjänster kringgår den här brandväggen – väljer Ja

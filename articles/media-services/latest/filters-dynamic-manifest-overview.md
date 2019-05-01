@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 44894694bab7d34ed9e6a71fe5e47c9e41144bca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323168"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716278"
 ---
 # <a name="dynamic-manifests"></a>Dynamiska manifest
 
@@ -131,7 +131,7 @@ Du kan ange en lista över tillgång eller konto filter som skulle gälla för d
 - Värdena för **forceEndTimestamp**, **presentationWindowDuration**, och **liveBackoffDuration** ska inte anges för en VoD-filtret. De används endast för live-filtret scenarier. 
 - Dynamiska manifest körs i GOP gränser (nyckel ramar) därför trimmar har GOP precision. 
 - Du kan använda samma filternamnet för konto- och Tillgångsnivå filter. Tillgången filter har högre prioritet och åsidosätter kontofilter.
-- Om du uppdaterar ett filter, kan det ta upp till 2 minuter för slutpunkt för direktuppspelning att uppdatera reglerna. Om innehållet behandlades använda filter och cachelagras i proxyservrar och CDN cacheminnen, kan uppdaterar de här filtren resultera i player-fel. Det rekommenderas att rensa cacheminnet när du har uppdaterat filtret. Överväg att använda ett annat filter om det här alternativet inte är möjligt.
+- Om du uppdaterar ett filter, kan det ta upp till 2 minuter för Strömningsslutpunkt att uppdatera reglerna. Om innehållet behandlades använda filter och cachelagras i proxyservrar och CDN cacheminnen, kan uppdaterar de här filtren resultera i player-fel. Det rekommenderas att rensa cacheminnet när du har uppdaterat filtret. Överväg att använda ett annat filter om det här alternativet inte är möjligt.
 - Kunder måste hämta manifestet och parsa exakta startTimestamp och skala manuellt.
     
     - Att fastställa egenskaperna för spår i en tillgång [få och granska manifestfilen](#get-and-examine-manifest-files).

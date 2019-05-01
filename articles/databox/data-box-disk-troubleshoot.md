@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
-ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564942"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939629"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Felsöka problem i Azure Data Box-Disk
 
@@ -54,12 +54,12 @@ För att navigera till sökvägen för kopieringsloggen går du till det lagring
 Använd aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs. Via aktivitetsloggarna kan du fastställa:
 
 - Vilka åtgärder som utfördes på resurserna i din prenumeration.
-- Den som initierade åtgärden. 
+- Den som initierade åtgärden.
 - När åtgärden utfördes.
 - Status för åtgärden.
 - Värdena för andra egenskaper som kan hjälpa dig undersöka åtgärden.
 
-Aktivitetsloggen innehåller alla skrivåtgärder (till exempel PUT, POST, DELETE) som utförts på dina resurser, men inte läsåtgärderna (till exempel GET). 
+Aktivitetsloggen innehåller alla skrivåtgärder (till exempel PUT, POST, DELETE) som utförts på dina resurser, men inte läsåtgärderna (till exempel GET).
 
 Aktivitetsloggar bibehålls i 90 dagar. Du kan fråga efter alla datumintervall förutsatt att startdatumet inte är mer än 90 dagar bakåt i tiden. Du kan även filtrera med någon av de inbyggda frågorna i Insights. Till exempel kan du klicka på ett fel och sedan välja och klicka på specifika fel för att förstå rotorsaken.
 
@@ -79,7 +79,7 @@ Aktivitetsloggar bibehålls i 90 dagar. Du kan fråga efter alla datumintervall 
 
 |Felmeddelande/varningar  |Rekommendationer |
 |---------|---------|
-|[Info] Hämta bitlocker-lösenordet för volymen: m <br>[Fel] Undantag inträffade vid hämtning av bitlocker-nyckel för volymen m:<br> Sekvensen innehåller inga element.|Det här felet utlöses om Data Box-måldisken är offline. <br> Använd verktyget `diskmgmt.msc` till onlinediskar.|
+|[Information] Hämta BitLocker-lösenordet för volymen: m <br>[Fel] Undantag inträffade vid hämtning av BitLocker-nyckel för volymen m:<br> Sekvensen innehåller inga element.|Det här felet utlöses om Data Box-måldisken är offline. <br> Använd verktyget `diskmgmt.msc` till onlinediskar.|
 |[Fel] Ett undantag uppstod: WMI-åtgärden misslyckades:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message = Formatet för det angivna återställningslösenordet är ogiltigt. <br>BitLocker-återställningslösenord är 48 siffror. <br>Kontrollera att återställningslösenordet har rätt format och försök sedan igen.|Använda verktyget Data Box Disk Unlock för att först låsa upp diskarna och prova kommandot igen. Mer information finns i <li> [Låsa upp Data Box-disk för Windows-klienter](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Låsa upp Data Box-disk för Linux-klienter](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
 |[Fel] Ett undantag uppstod: Det finns en DriveManifest.xml-fil på målenheten. <br> Detta anger att målenheten kanske har förberetts med en annan journalfil. <br>För att lägga till mer data till samma enhet använder du föregående journalfil. För att ta bort befintliga data och återanvända målenheten för ett nytt importjobb tar du bort DriveManifest.xml på enheten. Kör det här kommandot igen med en ny journalfil.| Det här felet tas emot när du försöker använda samma uppsättning enheter för flera importsessioner. <br> Använda endast en uppsättning enheter för endast en delnings- och kopieringssession.|
 |[Fel] Ett undantag uppstod: CopySessionId importdata-sept-test-1 refererar till en tidigare session för kopiering och inte kan återanvändas för en ny session för kopiering.|Det här felet rapporteras när du försöker använda samma jobbnamn för ett nytt jobb som använts för ett tidigare slutfört jobb.<br> Tilldela det nya jobbet ett unikt namn.|
@@ -96,7 +96,7 @@ Det här avsnittet beskriver några av de viktigaste problemen inför under dist
 
 Detta kan bero på en felaktig filsystem. 
 
-Ommontering en enhet som Läs-och fungerar inte med Data Box-diskar. Det här scenariot stöds inte med enheter dekrypteras av dislocker. Du kanske har har monteras enheten med följande kommando: 
+Ommontering en enhet som Läs-och fungerar inte med Data Box-diskar. Det här scenariot stöds inte med enheter dekrypteras av dislocker. Du kanske har har monteras enheten med följande kommando:
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -104,15 +104,37 @@ Ommontering en enhet som Läs-och fungerar inte med Data Box-diskar. Det här sc
 
 **Lösning**
 
-Om du ser felet ovan kan prova du någon av följande lösningar:
+Gör följande på din Linux-dator:
 
-- Installera [ `ntfsfix` ](https://linux.die.net/man/8/ntfsfix) (tillgänglig i `ntfsprogs` paketet) och köra den mot den relevanta partitionen.
+1. Installera den `ntfsprogs` paketet för verktyget ntfsfix.
+2. Demontera monteringspunkterna från verktyget upplåsning av enheten. Antal monteringspunkter varierar för enheter.
 
-- Om du har åtkomst till ett Windows-system
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - Läs in enheten i Windows-system.
-    - Öppna en kommandotolk med administrativ behörighet. Kör `chkdsk` på volymen.
-    - På ett säkert sätt ta bort volymen och försök igen.
+3. Kör `ntfsfix` på motsvarande sökväg. Det markerade talet får vara samma som steg 2.
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. Kör följande kommando för att ta bort viloläge metadata som kan orsaka problem för montering.
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. Gör en ren demonteringen.
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. Gör en ren upplåsning och montera.
+7. Testa monteringspunkten genom att skriva en fil.
+8. Demontera och återmontera för att verifiera fil-persistence.
+9. Fortsätt med Datakopieringen.
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Ärende: Fel med data som inte spara efter kopiering
  

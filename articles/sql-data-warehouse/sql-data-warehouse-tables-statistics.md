@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
-ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474954"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937277"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabellstatistik i Azure SQL Data Warehouse
 
@@ -71,7 +71,7 @@ Table_name är namnet på den tabell som innehåller statistik som ska visas. De
 
 ## <a name="updating-statistics"></a>Uppdatera statistik
 
-Ett bra tips är att uppdatera statistik på datumkolumner varje dag när nya datum har lagts till. Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra Datadistributionen och se statistik för gammal. Statistik på en land-kolumn i tabellen för en kund kan däremot aldrig måste uppdateras eftersom distributionen av värden inte ändras Allmänt. Anta att distributionen är konstant mellan kunder och kommer att lägga till nya rader i tabellen variationen inte att ändra Datadistribution. Men om ditt informationslager bara innehåller ett land och du importera data från ett nytt land, måste vilket resulterar i data från flera länder som lagras du uppdatera statistik i kolumnen land.
+Ett bra tips är att uppdatera statistik på datumkolumner varje dag när nya datum har lagts till. Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra Datadistributionen och se statistik för gammal. Däremot behöva statistik på en kolumn för land/region i en kundtabell aldrig uppdateras, eftersom distributionen av värden inte ändras Allmänt. Anta att distributionen är konstant mellan kunder och kommer att lägga till nya rader i tabellen variationen inte att ändra Datadistribution. Men om ditt informationslager bara innehåller ett land/region och du importera data från ett nytt land/region, vilket resulterar i data från flera länder/regioner som lagras, måste du uppdatera statistik i kolumnen land/region.
 
 Här följer några rekommendationer som uppdaterar statistik:
 

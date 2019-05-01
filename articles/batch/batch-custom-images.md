@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764272"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706324"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Använda en anpassad avbildning för att skapa en pool med virtuella datorer 
 
 När du skapar ett Azure Batch-pool med konfigurationen av den virtuella datorn, anger du en VM-avbildning som innehåller operativsystemet för varje beräkningsnod i poolen. Du kan skapa en pool med virtuella datorer med en Azure Marketplace-avbildning som stöds, eller med en anpassad avbildning (en VM-avbildning du har skapat och konfigurerat själv). Den anpassade avbildningen måste vara en *hanterad avbildning* resource i samma Azure-prenumeration och region som Batch-kontot.
 
-## <a name="why-use-a-custom-image"></a>Varför ska jag använda en anpassad avbildning?
+## <a name="benefits-of-custom-images"></a>Fördelarna med anpassade avbildningar
 
 När du anger en anpassad avbildning måste har du kontroll över operativsystemets konfiguration och vilken typ av operativsystem och datadiskar som ska användas. Den anpassade avbildningen kan innehålla program och referensdata som blir tillgängliga på alla noder för Batch-pool när de har etablerats.
 
@@ -32,12 +32,11 @@ Med en anpassad avbildning som konfigurerats för ditt scenario kan ange flera f
 - **Spara Omstartstid på virtuella datorer.** Programinstallation kräver normalt att starta om den virtuella datorn, vilket är tidskrävande. Du kan spara Omstartstid genom före installation av program. 
 - **Kopiera mycket stora mängder data en gång.** Kontrollera statiska data som en del av den anpassade avbildningen genom att kopiera den till en hanterad avbildning datadiskar. Detta endast måste göras en gång och gör data tillgängliga för varje nod i poolen.
 - **Val av disktyper.** Du kan välja mellan att använda premium storage för OS-disk och datadisken.
-- **Pooler att växa till stora storlekar.** När du använder en hanterad anpassad avbildning för att skapa en pool kan växa poolen utan att behöva göra kopior av avbildningsblob virtuella hårddiskar. 
-
+- **Pooler att växa till stora storlekar.** När du använder en hanterad anpassad avbildning för att skapa en pool kan växa poolen utan att behöva göra kopior av avbildningsblob virtuella hårddiskar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **En hanterad avbildningsresurs**. Om du vill skapa en pool med virtuella datorer med en anpassad avbildning som du behöver ha eller skapa en hanterad avbildning-resurs i samma Azure-prenumeration och region som Batch-kontot. Avbildningen skapas från ögonblicksbilder av den Virtuella datorns OS-disken och eventuellt dess anslutna datadiskar. Mer information och stegen för att förbereda en hanterad avbildning finns i följande avsnitt. 
+- **En hanterad avbildningsresurs**. Om du vill skapa en pool med virtuella datorer med en anpassad avbildning som du behöver ha eller skapa en hanterad avbildning-resurs i samma Azure-prenumeration och region som Batch-kontot. Avbildningen skapas från ögonblicksbilder av den Virtuella datorns OS-disken och eventuellt dess anslutna datadiskar. Mer information och stegen för att förbereda en hanterad avbildning finns i följande avsnitt.
   - Använd en anpassad avbildning som är unika för varje pool som du skapar.
   - Om du vill skapa en pool med den avbildningen med hjälp av Batch-API: er, ange den **resurs-ID** av avbildningen, som är i formatet `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Om du vill använda portalen använder den **namn** för avbildningen.  
   - Hanterad avbildningsresursen ska finnas för livslängden för poolen så att skala upp och kan tas bort när poolen har tagits bort.
@@ -46,7 +45,7 @@ Med en anpassad avbildning som konfigurerats för ditt scenario kan ange flera f
 
 ## <a name="prepare-a-custom-image"></a>Förbereda en anpassad avbildning
 
-I Azure kan du förbereda en hanterad avbildning från ögonblicksbilder av en Azure VM OS och datadiskar, från en generaliserad virtuell Azure-dator med hanterade diskar eller från en generaliserad lokal virtuell Hårddisk som du överför. Om du vill skala Batch-pooler på ett tillförlitligt sätt med en anpassad avbildning vi rekommenderar att du skapar en hanterad avbildning med hjälp av *endast* den första metoden: med hjälp av ögonblicksbilder av den Virtuella datorns diskar. Se följande steg för att förbereda en virtuell dator, ta en ögonblicksbild och skapa en avbildning från ögonblicksbilden. 
+I Azure kan du förbereda en hanterad avbildning från ögonblicksbilder av en Azure VM OS och datadiskar, från en generaliserad virtuell Azure-dator med hanterade diskar eller från en generaliserad lokal virtuell Hårddisk som du överför. Om du vill skala Batch-pooler på ett tillförlitligt sätt med en anpassad avbildning vi rekommenderar att du skapar en hanterad avbildning med hjälp av *endast* den första metoden: med hjälp av ögonblicksbilder av den Virtuella datorns diskar. Se följande steg för att förbereda en virtuell dator, ta en ögonblicksbild och skapa en avbildning från ögonblicksbilden.
 
 ### <a name="prepare-a-vm"></a>Förbered en virtuell dator
 
@@ -60,6 +59,7 @@ Om du skapar en ny virtuell dator för avbildningen, kan du använda en första 
 
 * Se till att den virtuella datorn skapas med en hanterad disk. Det här är standardinställningen för lagring när du skapar en virtuell dator.
 * Installera inte Azure-tillägg, till exempel tillägget för anpassat skript på den virtuella datorn. Om avbildningen innehåller ett förinstallerat tillägg kan stöta Azure på problem när du distribuerar Batch-pool.
+* När med anslutna datadiskar, måste du montera och formatera diskarna från en virtuell dator för att använda dem för.
 * Kontrollera att den grundläggande OS-avbildningen som du anger använder den temporära standardenheten. Batch-nodagenten för närvarande förväntar sig den temporära standardenheten.
 * När Virtuellt datorn körs, kan du ansluta till den via RDP (för Windows) eller SSH (för Linux). Installera programvara som krävs eller kopiera önskade data.  
 

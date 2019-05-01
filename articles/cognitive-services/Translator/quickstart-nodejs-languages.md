@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 013902927e0b59e5c1723868f7a3b3d553412000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df637ee16d2116696af42fa1b162e1c77a880c19
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60879630"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922190"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Snabbstart: Använda Translator Text API för att hämta en lista över språk som stöds med Node.js
 
@@ -89,7 +89,7 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta en landsförkortning på i den här [Språklista](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Hitta en landsförkortning på i den här [Språklista](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Det här exemplet har trunkerats för att visa ett avsnitt av resultatet:
 

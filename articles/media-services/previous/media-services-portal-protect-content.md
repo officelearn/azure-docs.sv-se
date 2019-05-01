@@ -14,14 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61128187"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866970"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurera innehållsskydd principer med hjälp av Azure portal
+
+> [!NOTE]
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).   > Inga nya funktioner eller funktioner läggs till Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+>
+
  Med Azure Media Services kan skydda du dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Du kan använda Media Services för att leverera ditt innehåll krypteras dynamiskt med den Standard AES (Advanced Encryption) med hjälp av 128-bitars krypteringsnycklar. Du kan också använda den med gemensam kryptering (CENC) med PlayReady och/eller Widevine digital rights management (DRM) och Apple FairPlay. 
 
 Media Services tillhandahåller en tjänst för att leverera DRM-licenser och klartextnyckel nycklar till auktoriserade klienter. Du kan använda Azure-portalen för att skapa en auktoriseringsprincip för nyckel/licens för alla typer av krypteringar.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 738dd451ca44801c799d793e6501c547655bd0e0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524157"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919842"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks, kan Azure API Management hantera API: er som är inte tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att upprätta anslutningen. API Management kan distribueras i två huvudlägen i ett virtuellt nätverk:
@@ -48,7 +48,7 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 + När en API Management-tjänsten har distribuerats i ett virtuellt nätverk, en [lista över portar](./api-management-using-with-vnet.md#required-ports) används och måste du öppna. 
 
 ## <a name="enable-vpn"> </a>Skapa en API Management i ett internt virtuellt nätverk
-API Management-tjänsten i ett internt virtuellt nätverk finns bakom en [intern belastningsutjämnare (klassisk)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Detta är det enda tillgängliga alternativet och kan inte ändras.
+API Management-tjänsten i ett internt virtuellt nätverk finns bakom en [intern belastningsutjämnare (klassisk)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Detta är det enda tillgängliga alternativet och kan inte ändras.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Aktivera en virtuell nätverksanslutning med Azure portal
 

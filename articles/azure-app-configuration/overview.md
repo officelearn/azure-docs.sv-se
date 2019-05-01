@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a76eab5d51dd73fb6b38ebebaa8421e789274f84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f2019dd5a810a9e9099fd9f9e171fd5af21d1dc5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201323"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715061"
 ---
 # <a name="what-is-azure-app-configuration"></a>Vad är Azure konfiguration?
 
@@ -68,5 +68,8 @@ Det enklaste sättet att lägga till ett appkonfigurationsarkiv för ditt progra
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Skapa en ASP.NET Core-webbapp](./quickstart-aspnet-core-app.md)  
+* [Snabbstart för ASP.NET Core](./quickstart-aspnet-core-app.md)
+* [Snabbstart för .NET core](./quickstart-dotnet-core-app.md)
+* [Snabbstart för .NET framework](./quickstart-dotnet-app.md)
+* [Java Spring-Snabbstart](./quickstart-java-spring-app.md)
+* [Azure Function quickstart](./quickstart-azure-function-csharp.md)

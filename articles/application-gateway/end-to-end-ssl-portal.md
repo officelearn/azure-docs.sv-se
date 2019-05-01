@@ -2,25 +2,25 @@
 title: Snabbstart – konfigurera slutpunkt till slutpunkt SSL-kryptering med Azure Application Gateway – Azure-portalen | Microsoft Docs
 description: Lär dig hur du använder Azure-portalen för att skapa en Azure-Programgateway med slutpunkt till slutpunkt SSL-kryptering.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e47a3e1231701f3339057e25ee4388aff0c9fbd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831965"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946804"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Konfigurera SSL för slutpunkt till slutpunkt med hjälp av Application Gateway med portalen
 
 Den här artikeln visar hur du använder Azure-portalen för att konfigurera slutpunkt till slutpunkt SSL-kryptering med en Programgateway v1-SKU.  
 
 > [!NOTE]
-> Application Gateway v2-SKU kräver betrodda rotcertifikat för att aktivera slutpunkt till slutpunkt-konfigurationen. Portal-stöd för att lägga till betrodda rotcertifikat är inte tillgänglig ännu. Därför vid V2-SKU finns i [Konfigurera SSL för slutpunkt till slutpunkt med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> Application Gateway v2-SKU kräver betrodda rotcertifikat för att aktivera slutpunkt till slutpunkt-konfigurationen. Portal-stöd för att lägga till betrodda rotcertifikat är inte tillgänglig ännu. Därför vid v2 SKU finns i [Konfigurera SSL för slutpunkt till slutpunkt med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -32,7 +32,7 @@ Mer information finns i [SSL-avslutning och slutpunkt till slutpunkt SSL](https:
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Skapa en ny Programgateway med SSL för slutpunkt till slutpunkt
 
-Om du vill skapa en ny Programgateway med slutpunkt till slutpunkt SSL-kryptering, behöver du först aktivera SSL-avslutning när du skapar en ny Programgateway. Detta aktiverar SSL-kryptering för kommunikation mellan klient och application gateway. Måste listan över godkända certifikat för backend-servrarna i HTTP-inställningarna för att aktivera SSL-kryptering för kommunikation mellan application gateway och backend-servrarna, därför utföra slutpunkt till slutpunkt SSL-kryptering.
+Om du vill skapa en ny Programgateway med slutpunkt till slutpunkt SSL-kryptering, måste du först aktivera SSL-avslutning när du skapar en ny Programgateway. Detta aktiverar SSL-kryptering för kommunikation mellan klient och application gateway. Sedan kan behöver du vitlista certifikat för backend-servrarna i HTTP-inställningarna att aktivera SSL-kryptering för kommunikation mellan application gateway och backend-servrarna, utföra slutpunkt till slutpunkt SSL-kryptering.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Aktivera SSL-avslutning när du skapar en ny Programgateway
 
@@ -61,9 +61,9 @@ I den här artikeln för att förstå hur du [aktivera SSL-avslutning när du sk
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Aktivera SSL för slutpunkt till slutpunkt för befintlig Programgateway
 
-Om du vill konfigurera en befintlig Programgateway med slutpunkt till slutpunkt SSL-kryptering, behöver du första aktivera SSL-avslutning i lyssnaren. Detta aktiverar SSL-kryptering för kommunikation mellan klient och application gateway. Måste listan över godkända certifikat för backend-servrarna i HTTP-inställningarna för att aktivera SSL-kryptering för kommunikation mellan application gateway och backend-servrarna, därför utföra slutpunkt till slutpunkt SSL-kryptering.
+Om du vill konfigurera en befintlig Programgateway med slutpunkt till slutpunkt SSL-kryptering, måste du första aktivera SSL-avslutning i lyssnaren. Detta aktiverar SSL-kryptering för kommunikation mellan klient och application gateway. Sedan kan behöver du vitlista certifikat för backend-servrarna i HTTP-inställningarna att aktivera SSL-kryptering för kommunikation mellan application gateway och backend-servrarna, utföra slutpunkt till slutpunkt SSL-kryptering.
 
-Du måste använda en lyssnare med HTTPS-protokollet och certifikat för att aktivera SSL-avslutning. Du kan inte ändra protokollet för en befintlig lyssnare. Därför kan du antingen välja att använda en befintlig lyssnare med HTTPS-protokollet och certifikat, eller skapa en ny lyssnare. Om du väljer tidigare kan du ignorera de nämns nedan steg för att **aktivera SSL-avslutning i befintlig Programgateway** och gå direkt till **listan över godkända certifikat för backend-servrarna** avsnittet. Om du väljer det senare måste utföra dessa steg. 
+Du måste använda en lyssnare med HTTPS-protokollet och certifikat för att aktivera SSL-avslutning. Du kan inte ändra protokollet för en befintlig lyssnare. Därför kan du antingen välja att använda en befintlig lyssnare med HTTPS-protokollet och certifikat, eller skapa en ny lyssnare. Om du väljer tidigare kan du ignorera de nämns nedan steg för att **aktivera SSL-avslutning i befintlig Programgateway** och gå direkt till **listan över godkända certifikat för backend-servrarna** avsnittet. Följ stegen nedan om du väljer det senare.
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Aktivera SSL-avslutning i befintlig Programgateway
 

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa4b68d48ec3f4fbb61c7144a133d9c42938c723
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411200"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917290"
 ---
 # <a name="application-types-in-v10"></a>Programtyper i v1.0
 
@@ -63,7 +63,7 @@ Alla program som outsources autentisering till Azure AD måste registreras i en 
   * **Nyckeln** -nyckeln som ska skickas tillsammans med ett program-ID när du autentiserar till Azure AD att anropa ett webb-API.
 * Azure AD behöver att säkerställa att programmet har behörigheterna som krävs för att komma åt dina katalogdata, andra program i din organisation, och så vidare.
 
-Mer information lär du dig hur du [registrera en app med Azure AD v1.0 slutpunkten](quickstart-v1-add-azure-ad-app.md).
+Mer information lär du dig hur du [registrera en app](quickstart-register-app.md).
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>Appar för enstaka klientorganisationer och flera innehavare
 

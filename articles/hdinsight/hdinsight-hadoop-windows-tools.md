@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/17/2017
-ms.openlocfilehash: 4d9d1ef6b7906ecebc399948a1ca0dcd590d5910
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765831"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926034"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeta i Apache Hadoop-ekosystemet i HDInsight från en Windows-dator
 
@@ -29,11 +29,11 @@ Exempel på uppgifter som du kan göra med PowerShell:
 * [Kör Apache Hive-frågor med hjälp av PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Hantera kluster med PowerShell](hdinsight-administer-use-powershell.md).
 
-Följ stegen för att [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) att hämta den senaste versionen. Om du har skript som behöver ändras för att använda de nya cmdletarna för Azure Resource Manager kan du läsa [migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
+Följ stegen för att [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) att hämta den senaste versionen.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Verktyg som du kan köra i en webbläsare
 Följande verktyg har ett webbgränssnitt som körs i en webbläsare:
-* **[Azure Cloud Shell (förhandsversion)](https://docs.microsoft.com/azure/cloud-shell/quickstart)**  är en interaktiv, kommandorads-gränssnitt som körs i webbläsaren och inifrån Azure-portalen.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  är en interaktiv, kommandorads-gränssnitt som körs i webbläsaren och inifrån Azure-portalen.
 * **[Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)**  är en övervaknings- och verktyg som är tillgängliga i Azure portal som kan användas för att hantera olika typer av jobb, som:
     * [Använd Apache Ambari med REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Hive-vyn i Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -57,9 +57,6 @@ Exempel på uppgifter som du kan göra med .NET SDK i Visual Studio:
 * [Kör Apache Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Använd C# användardefinierade funktioner med Apache Hive och Apache Pig strömning på Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> [!TIP]
-> Om du kör .NET-lösningar med Windows-baserade HDInsight-kluster, är det dags att planera en migrering till Linux-baserade kluster. Mer information finns i [migrera .NET-lösningen för Windows-baserade HDInsight till Linux-baserade HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
-
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA och Eclipse IDE för Spark-kluster
 Båda [Intellij IDEA](https://www.jetbrains.com/idea/download) och [Eclipse IDE](https://www.eclipse.org/downloads/) kan användas för att:
 * Utveckla och skicka in ett Scala Spark-program på ett HDInsight Spark-kluster.
@@ -77,14 +74,17 @@ Apache Spark-kluster i HDInsight innefattar Apache Zeppelin-anteckningsböcker o
 * [Lär dig att använda kernlar i Apache Spark-kluster med Jupyter-anteckningsböcker för att testa Spark-program](spark/apache-spark-zeppelin-notebook.md)
 * [Lär dig hur du använder Apache Zeppelin-anteckningsböcker i Apache Spark-kluster för att köra Spark-jobb](spark/apache-spark-jupyter-notebook-kernels.md) 
 
-
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Kör Linux-baserade verktyg och tekniker i Windows
 
 Om det uppstår en situation där du måste använda ett verktyg eller en teknik som endast är tillgängligt i Linux, Överväg följande alternativ:
 
-* **Bash (beta) i Windows 10** ger ett undersystem för Linux på Windows. Bash kan du direkt köra Linux-verktyg utan att behöva underhålla en dedikerad Linux-installation. [Installera och köra betaversionen av Bash på Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
+* **Bash i Ubuntu för Windows 10** ger ett undersystem för Linux på Windows. Bash kan du direkt köra Linux-verktyg utan att behöva underhålla en dedikerad Linux-installation. Se [Windows-undersystem for Linux Installation Guide för Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installationssteg.  Andra [Unix gränssnitt](https://www.gnu.org/software/bash/) fungerar också.
 * **Docker för Windows** ger åtkomst till många Linux-baserade verktyg och kan köras direkt från Windows. Du kan till exempel använda Docker för att köra klienten Beeline för Hive direkt från Windows. Du kan också använda Docker för att köra en lokal Jupyter notebook och fjärransluta till Spark i HDInsight. [Kom igång med Docker för Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)**  kan du bläddra grafiskt filsystemet klustret via en SSH-anslutning.
+
+## <a name="cross-platform-tools"></a>Plattformsoberoende verktyg
+
+Kommandoradsgränssnittet för Azure (CLI) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.  Mer information finns i [Azure kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Nästa steg
 Om du inte har arbetat i Linux-baserade kluster finns i följande artiklar:

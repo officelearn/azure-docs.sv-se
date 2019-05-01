@@ -4,218 +4,188 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b936a3f4-74c1-4437-b0f7-6d1b1de38bb1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/10/2018
+ms.topic: tutorial
+ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 377da86003543fb53240de4d5fc672f71e1ed5f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c8c8bdfb7c9ae921eda2828af2c20136feaa9de6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60273792"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Självstudier: Azure Active Directory-integrering med Imagineer WebVision
 
 I den här självstudien får du lära dig hur du integrerar Imagineer WebVision med Azure Active Directory (AD Azure).
-
 Integrera Imagineer WebVision med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Imagineer WebVision.
-- Du kan aktivera användarna att automatiskt få loggat in på Imagineer WebVision (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till Imagineer WebVision.
+* Du kan aktivera användarna att vara automatiskt inloggad till Imagineer WebVision (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Imagineer WebVision, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Imagineer WebVision enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Imagineer WebVision enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Imagineer WebVision från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för Imagineer WebVision **SP** -initierad SSO
 
 ## <a name="adding-imagineer-webvision-from-the-gallery"></a>Att lägga till Imagineer WebVision från galleriet
+
 För att konfigurera integrering av Imagineer WebVision i Azure AD, som du behöver lägga till Imagineer WebVision från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Imagineer WebVision från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
 4. I sökrutan skriver **Imagineer WebVision**väljer **Imagineer WebVision** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Imagineer WebVision i resultatlistan](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_addfromgallery.png)
+    ![Imagineer WebVision i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Imagineer WebVision utifrån en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Imagineer WebVision är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Imagineer WebVision upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Imagineer WebVision baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Imagineer WebVision upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Imagineer WebVision, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare Imagineer WebVision](#create-an-imagineer-webvision-test-user)**  – du har en motsvarighet för Britta Simon i Imagineer WebVision som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för Imagineer-WebVision](#configure-imagineer-webvision-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa testanvändare Imagineer WebVision](#create-imagineer-webvision-test-user)**  – du har en motsvarighet för Britta Simon i Imagineer WebVision som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Imagineer WebVision-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Imagineer WebVision:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Imagineer WebVision:
 
-1. I Azure-portalen på den **Imagineer WebVision** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Imagineer WebVision** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **Imagineer WebVision domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Imagineer WebVision domän och URL: er med enkel inloggning för information](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Imagineer WebVision klienten supportteamet](mailto:support@itgny.com) att hämta dessa värden.
+    ![Imagineer WebVision domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
-    ![Länk för nedladdning av certifikatet](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_certificate.png) 
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
-5. Klicka på **spara** knappen.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Imagineer WebVision klienten supportteamet](mailto:support@itgny.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/imagineerwebvision-tutorial/tutorial_general_400.png)
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-6. Att konfigurera enkel inloggning på **Imagineer WebVision** sida, som du behöver skicka den kopierade **Appfederationsmetadata** till [Imagineer WebVision supportteamet](mailto:support@itgny.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+
+### <a name="configure-imagineer-webvision-single-sign-on"></a>Konfigurera Imagineer WebVision enkel inloggning
+
+Att konfigurera enkel inloggning på **Imagineer WebVision** sida, som du behöver skicka den **Appfederationsmetadata** till [Imagineer WebVision supportteamet](mailto:support@itgny.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/imagineerwebvision-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/imagineerwebvision-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/imagineerwebvision-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/imagineerwebvision-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-an-imagineer-webvision-test-user"></a>Skapa en testanvändare Imagineer WebVision
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i Imagineer WebVision. Arbeta med [Imagineer WebVision supportteamet](mailto:support@itgny.com) att lägga till användare i Imagineer WebVision-plattformen. Användarna måste skapas och aktiveras innan du använder enkel inloggning
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Imagineer WebVision.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Imagineer WebVision**.
 
-**Om du vill tilldela Britta Simon Imagineer WebVision, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **Imagineer WebVision**.
 
-    ![Länken Imagineer WebVision i listan med program](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_app.png)  
+    ![Länken Imagineer WebVision i listan med program](common/all-applications.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-imagineer-webvision-test-user"></a>Skapa Imagineer WebVision testanvändare
+
+I det här avsnittet skapar du en användare som kallas Britta Simon i Imagineer WebVision. Arbeta med [Imagineer WebVision supportteamet](mailto:support@itgny.com) att lägga till användare i Imagineer WebVision-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Imagineer WebVision i åtkomstpanelen du bör få automatiskt loggat in på ditt Imagineer WebVision-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Imagineer WebVision i åtkomstpanelen, bör det vara loggas in automatiskt till den Imagineer WebVision som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/imagineerwebvision-tutorial/tutorial_general_01.png
-[2]: ./media/imagineerwebvision-tutorial/tutorial_general_02.png
-[3]: ./media/imagineerwebvision-tutorial/tutorial_general_03.png
-[4]: ./media/imagineerwebvision-tutorial/tutorial_general_04.png
-
-[100]: ./media/imagineerwebvision-tutorial/tutorial_general_100.png
-
-[200]: ./media/imagineerwebvision-tutorial/tutorial_general_200.png
-[201]: ./media/imagineerwebvision-tutorial/tutorial_general_201.png
-[202]: ./media/imagineerwebvision-tutorial/tutorial_general_202.png
-[203]: ./media/imagineerwebvision-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

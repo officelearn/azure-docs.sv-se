@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507969"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727594"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en Basic-lastbalanserare med hjälp av Azure-portalen
 
@@ -235,21 +235,27 @@ Installera IIS (Internet Information Services) på de virtuella datorerna för a
    
    Den virtuella datorns skrivbord öppnas i ett nytt fönster. 
    
-**Så här installerar du IIS på den virtuella datorn:**
+**Att installera IIS**
 
-1. Om **Serverhanteraren** inte redan är öppen på serverns skrivbord bläddrar du till **Administrationsverktyg för Windows** > **Serverhanteraren**.
-   
-1. I **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
-   
-   ![Lägga till rollen som serverhanterare](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. I **guiden Lägg till roller och funktioner**:
-   1. Klicka på **Rollbaserad eller funktionsbaserad installation** på sidan **Välj installationstyp**.
-   1. På sidan **Välj målserver** väljer du **MyVM1**.
-   1. Klicka på **Webbserver (IIS)** på sidan **Välj serverroll**. 
-   1. När du ombeds att installera verktyg som krävs väljer du **Lägg till funktioner**. 
-   1. Acceptera standardvärdena och välj **Installera**. 
-   1. När funktionerna har installerats väljer du **Stäng**. 
+1. Välj **alla tjänster** i den vänstra menyn och väljer **alla resurser**, och välj sedan i resurslistan **myVM1** som finns i den  *myResourceGroupSLB* resursgrupp.
+2. Välj **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
+5. Logga in på den virtuella datorn med de autentiseringsuppgifter som du angav när du skapade den virtuella datorn. När du gör det startar en fjärrskrivbordssession med den virtuella datorn *myVM1*.
+6. Navigera till **Windows Administrationsverktyg**>**Windows PowerShell** på serverdatorn.
+7. I PowerShell-fönstret kör du följande kommandon för att installera IIS.servern, ta bort standardfilen iisstart.htm och lägga till en ny iisstart.htm-fil som visar namnet på den virtuella datorn:
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Stäng RDP-sessionen med *myVM1*.
+7. Upprepa steg 1 till 6 för att installera IIS och den uppdaterade filen iisstart.htm på *myVM2*.
    
 1. Upprepa stegen för den virtuella datorn **MyVM2** men ställ in målservern på **MyVM2**.
 
@@ -257,9 +263,9 @@ Installera IIS (Internet Information Services) på de virtuella datorerna för a
 
 Öppna en webbläsare och klistra in lastbalanserarens offentliga IP-adress i webbläsarens adressfält. IIS-webbserverns standardsida bör visas i webbläsaren.
 
-![IIS-webbserver](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![IIS-webbserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Om du vill se hur lastbalanseraren distribuerar trafik över alla tre virtuella datorer som kör din app, kan du framtvinga uppdatering av webbläsaren.
+Om du vill se hur lastbalanseraren distribuerar trafik över båda virtuella datorer som kör din app, kan du framtvinga uppdatering av webbläsaren.
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du vill ta bort lastbalanseraren och alla relaterade resurser när du inte längre behöver dem öppnar du resursgruppen **MyResourceGroupLB** och väljer **Ta bort resursgrupp**.

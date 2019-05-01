@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61313690"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917042"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionsreplikering med enda, pooler och databaser i Azure SQL Database-instans
 
@@ -79,7 +79,7 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
   > - Försök att konfigurera replikering med en äldre version kan resultera i fel antal MSSQL_REPL20084 (processen inte kunde ansluta till prenumeranten.) och MSSQ_REPL40532 (det går inte att öppna servern \<namn > begärdes vid inloggningen. Inloggningen misslyckades.)
   > - Om du vill använda alla funktioner i Azure SQL Database, måste du använda de senaste versionerna av [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
-  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Supportabilty matris för instans-databaser och lokala system
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Support matrix för instans-databaser och lokala system
   Replikering support matrix exempelvis databaser är samma som för SQL Server lokalt. 
   
   | **Utgivare**   | **Distributören** | **Prenumerant** |
@@ -140,7 +140,7 @@ I den här konfigurationen är en Azure SQL Database (enkel, pooler och database
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. [Konfigurera Transaktionsreplikering för en hanterad instans](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
+1. [Konfigurera Transaktionsreplikering för en hanterad instans](replication-with-sql-database-managed-instance.md). 
 1. [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Skapa en utgivarinitierad prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) genom att använda Azure SQL Database-servernamnet som prenumeranten (till exempel `N'azuresqldbdns.database.windows.net` och Azure SQL Database-namn som måldatabasen (till exempel **Adventureworks**. )
 

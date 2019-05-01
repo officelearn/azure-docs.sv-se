@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 95e501eca0f7765cc5201f7b315703c3ca43df8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60529556"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723636"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera konton med hjälp av Azure Active Directory i Azure API Management
 
@@ -79,12 +79,12 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
 
 När ändringarna har sparats användare i den angivna Azure AD instans kan logga in på utvecklarportalen genom att följa stegen i [logga in på utvecklarportalen med hjälp av en Azure AD-konto](#log_in_to_dev_portal).
 
-
 ## <a name="add-an-external-azure-ad-group"></a>Lägg till en extern Azure AD-grupp
 
 När du har aktiverat åtkomst för användare i en Azure AD-instans kan du lägga till Azure AD-grupper i API Management. Du kan sedan enkelt hantera associationen mellan utvecklare i gruppen med de önskade produkterna.
 
-Konfigurera en extern Azure AD-grupp, måste du först konfigurera Azure AD-instansen på den **identiteter** fliken genom att följa anvisningarna i föregående avsnitt. 
+ > [!IMPORTANT]
+ > Att lägga till en extern Azure AD-grupp, måste du först konfigurera Azure AD-instansen på den **identiteter** fliken genom att följa anvisningarna i föregående avsnitt. Dessutom kan programmet måste beviljas åtkomst till Azure AD Graph API med `Directory.Read.All` behörighet. 
 
 Du lägger till externa Azure AD-grupper från den **grupper** fliken API Management-instans.
 

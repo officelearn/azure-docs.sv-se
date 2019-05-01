@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412358"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723298"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Konfigurera rollanspråk som utfärdats i SAML-token för företagsprogram
 
@@ -152,7 +152,7 @@ Om ditt program förväntar sig anpassade roller som ska skickas som en SAML-sva
 
 8. Uppdatera den **attribut** tabell för att definiera en anpassad mappning av rollen anspråket.
 
-9. I den **användarattribut och anspråk** delen av den **enkel inloggning** dialogrutan konfigurerar attributet SAML-token som visas i bilden och utför följande steg.
+9. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
     | Attributnamn | Attributvärde |
     | -------------- | ----------------|
@@ -161,11 +161,11 @@ Om ditt program förväntar sig anpassade roller som ska skickas som en SAML-sva
     >[!NOTE]
     >Om anspråksvärdet rollen är null, sedan Azure AD kommer inte att skicka det här värdet i token och det är standard enligt design.
 
-    a. Klicka på **redigera** knappen för att öppna **användarattribut** dialogrutan.
+    a. Klicka på **redigera** ikonen för att öppna **användarattribut och anspråk** dialogrutan.
 
       ![Knappen ”Lägg till attribut”](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Välj **Lägg till attribut** att öppna den **hantera användaranspråk** fönstret.
+    b. I den **hantera användaranspråk** dialogrutan Lägg till attributet SAML-token genom att klicka på **Lägg till nytt anspråk**.
 
       ![Knappen ”Lägg till attribut”](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

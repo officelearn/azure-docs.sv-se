@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129221"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710408"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-Diagnostiktillägget för att övervaka mått och loggar
 
@@ -500,7 +500,9 @@ ReadsPerSecond | Läsåtgärder per sekund
 WritesPerSecond | Skrivåtgärder per sekund
 TransfersPerSecond | Läsa eller skriva-åtgärder per sekund
 
-Sammanställda värden över alla filsystem som kan hämtas genom att ange `"condition": "IsAggregate=True"`. Värden för en specifik monterade filsystem, till exempel ”/ mnt”, kan hämtas genom att ange `"condition": 'Name="/mnt"'`.
+Sammanställda värden över alla filsystem som kan hämtas genom att ange `"condition": "IsAggregate=True"`. Värden för en specifik monterade filsystem, till exempel ”/ mnt”, kan hämtas genom att ange `"condition": 'Name="/mnt"'`. 
+
+**Obs!** Om du använder Azure Portal i stället för JSON formuläret rätt villkor fält är namn ='/ mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Builtin mått för Disk-klass
 

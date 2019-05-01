@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: 7d052ee2d3d3bdf6cca99dd6a91b88176983113f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 8bbb638190928e0478053843264fde585ae17222
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559745"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720585"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-tillägg i Azure Database för PostgreSQL
 PostgreSQL ger möjlighet att utöka funktionerna i din databas med tillägg. Tillägg kan paketera flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Tillägg kan fungera som gör de inbyggda funktionerna för efter att läsas in i databasen. Läs mer på PostgreSQL-tillägg, [paketering relaterade objekt i ett tillägg](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -49,6 +49,7 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Innehåller funktioner och operatorer för att fastställa likheten mellan alfanumerisk text baserat på trigram matchning. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Innehåller funktioner som manipulerar hela tabeller, inklusive korstabell. |
 > | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genererar universell unik identifierare (UUID). |
+> | [orafce](https://github.com/orafce/orafce) | Tillhandahåller en deluppsättning av funktioner och paket som emuleras från kommersiella databaser. |
 
 ### <a name="full-text-search-extensions"></a>Fulltextsökning tillägg
 
@@ -94,7 +95,7 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 > [!div class="mx-tableFixed"]
 > | **Tillägget** | **Beskrivning** |
 > |---|---|
-> | [PostGIS](http://www.postgis.net/), postgis\_topologi, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial- och geografiska objekt för PostgreSQL. |
+> | [PostGIS](https://www.postgis.net/), postgis\_topologi, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial- och geografiska objekt för PostgreSQL. |
 > | adress\_standardizer, adress\_standardizer\_data\_oss | Används för att parsa en adress till innehåll. Används för att stödja geokodning adress normalisering steg. |
 > | [pgrouting](https://pgrouting.org/) | Utökar PostGIS / PostgreSQL geospatiala databasen att tillhandahålla geospatiala routning funktioner. |
 

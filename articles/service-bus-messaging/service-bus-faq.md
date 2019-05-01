@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311037"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707149"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
@@ -41,6 +41,48 @@ En konventionell kö eller ämne hanteras av en enda asynkron meddelandekö och 
 Sorteringen är inte garanterad när med partitionerade enheter. I händelse av att en partition är inte tillgänglig, kan du fortfarande skicka och ta emot meddelanden från andra partitioner.
 
  Partitionerade enheter stöds inte längre i den [Premium-SKU](service-bus-premium-messaging.md). 
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar behöver jag att öppna i brandväggen? 
+Du kan använda följande protokoll med Azure Service Bus för att skicka och ta emot meddelanden:
+
+- Avancerade Message Queuing Protocol (AMQP)
+- Service Bus-meddelandefunktionen Protocol (SBMP)
+- HTTP
+
+Se tabellen nedan för de utgående portar som du behöver öppna om du vill använda dessa protokoll ska kunna kommunicera med Azure Event Hubs. 
+
+| Protokoll | Portar | Information | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 och 5672 | Se [AMQP-protokollguide](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 till 9354 | Se [anslutningsläget](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP, HTTPS | 80, 443 | 
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Vilka IP-adresser behöver jag godkänna?
+Följ dessa steg för att hitta rätt IP-adresser till vitlista för dina anslutningar:
+
+1. Kör följande kommando från en kommandotolk: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Anteckna den IP-adressen som returneras i `Non-authoritative answer`. Den här IP-adressen är statisk. Den enda tidpunkt den skulle ändras är om du återställer namnområde till ett annat kluster.
+
+Om du använder redundansen för ditt namnområde kan behöva du göra några ytterligare steg: 
+
+1. Först måste köra du nslookup på namnområdet.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Skriv ned namnet i den **icke-auktoritativt svar** avsnittet, vilket är i något av följande format: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Köra nslookup för vart och ett med suffix s1, s2 och s3 att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighetszoner 
+
 
 ## <a name="best-practices"></a>Bästa praxis
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Vilka är några Metodtips för Azure Service Bus?

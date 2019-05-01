@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15deadad3b53b64c619933db76d28f012c85d6d1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889870"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730265"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Vad är enhetshantering i Azure IoT öppen plattform kommunikation (OPC)?
+# <a name="what-is-opc-twin"></a>Vad är OPC-Twin?
 
 OPC-Twin består av mikrotjänster som använder Azure IoT Edge och IoT Hub för att ansluta molnet och factory nätverket. OPC-Twin innehåller identifiering, registrering och fjärrstyrning av industriella enheter via REST API: er. OPC-Twin kräver inte en OPC Unified arkitektur (OPC UA) SDK, programmering språkoberoende och kan tas med i ett arbetsflöde för utan server. Den här artikeln beskriver flera OPC-Twin-användningsfall.
 

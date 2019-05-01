@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: efdc3f657712794325f8af6f1b0178915e7a8e6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7f0a071012685ee192d4f866396a5953d0a4508c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463505"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937255"
 ---
 # <a name="azure-media-services-overview"></a>Översikt över Azure Media Services 
 
@@ -50,7 +50,10 @@ Bygg Media Services-lösningar genom att använda:
 
 * [Media Services REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * En av de tillgängliga klient-SDK:erna:
-    * [Azure Media Services SDK för .NET](https://github.com/Azure/azure-sdk-for-media-services),
+    * Azure Media Services SDK för .NET
+    
+        * [NuGet-paket](https://www.nuget.org/packages/windowsazure.mediaservices/)
+        * [Källkoden för Github](https://github.com/Azure/azure-sdk-for-media-services)
     * [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java),
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Azure Media Services för Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (detta är en icke-Microsoft-version av en Node.js SDK. Den underhålls av ett community och har för närvarande inte en 100-procentig täckning av AMS API:er).

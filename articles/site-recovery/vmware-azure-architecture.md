@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837444"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704875"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware till Azure disaster recovery-arkitekturen
 
@@ -53,6 +53,7 @@ Följande tabell och bild ger en översikt över de komponenter som används fö
     - Konfigurationsservern samordnar replikeringen med Azure via port HTTPS 443 utgående.
     - Virtuella datorer skickar replikeringsdata till processervern (som körs på configuration server-datorn) på port HTTPS 9443 inkommande. Den här porten kan ändras.
     - Processervern tar emot replikeringsdata, optimerar och krypterar dem och skickar dem till Azure storage över port 443 utgående.
+5. Replikeringsdata loggar första mark i ett cachelagringskonto i Azure. Dessa loggar bearbetas och data lagras i en Azure Managed Disk (kallas som asr-dirigering disk). Återställningspunkter skapas på disken.
 
 
 

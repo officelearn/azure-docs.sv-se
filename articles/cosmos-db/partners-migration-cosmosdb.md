@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 45fd716ad8542f86e4c58bb559a3745c2e61776f
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60931694"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867703"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och application development partner
 
@@ -19,14 +19,14 @@ Från NoSQL migrering till programutveckling, kan du välja från en mängd olik
 
 ## <a name="migration-tools"></a>Migreringsverktyg
 
-|**Partner**  |**Funktioner och upplevelse**  |**Länder som stöds**  |**Kontakta**  |
+|**Partner**  |**Funktioner och upplevelse**  |**Länder/regioner**  |**Kontakta**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Datamigrering](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) från MongoDB till Azure Cosmos DB. <br/> Imanis Data kan globala företag snabbt och enkelt migrera sina lokala eller molnbaserade MongoDB-databaser till Azure Cosmos DB. Imanis Data tillhandahåller en agentfri, inkrementella alltid molnet förhållningssätt till Databasmigrering för MongoDB-datalager som förenklar migreringen och minskar avsevärt driftstopp.|  USA  |   [Webbplats](http://www.imanisdata.com/)      |
 |![Striims][2]    |  [Flytta data i realtid till Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) från en mängd olika datakällor. <br/> Striims förenklar i realtid insamling och flödet av data från en mängd olika lokala datakällor, inklusive enterprise dokumentet och relationsdatabaser, sensorer och loggfilerna till Azure Cosmos DB. |   USA   |  [Webbplats](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Systemintegrationspartner
 
-|**Partner**  |**Funktioner och upplevelse**  |**Länder som stöds**  |**Kontakta**  |
+|**Partner**  |**Funktioner och upplevelse**  |**Länder/regioner**  |**Kontakta**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL-migrering; Ny apputveckling | USA | [Webbplats](https://www.10thmagnitude.com/)|
 |![Altoros utveckling LLC][3]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling |   USA, Norge, Finland, Vitryssland, Argentina |  [Webbplats](https://www.altoros.com/)     |

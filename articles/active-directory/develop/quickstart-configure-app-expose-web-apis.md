@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en app att exponera webb-API:er (förhandsversion) | Azure
+title: 'Konfigurera ett program att exponera web API: er – Microsoft identity-plattformen'
 description: Lär dig hur du konfigurerar en app att exponera en ny behörighet/ett nytt omfång och roller för att göra appen tillgänglig för klientprogram.
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a0b31aebfe431aca43dc763c2f168f123889b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443678"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918879"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Snabbstart: Konfigurera en app att exponera webb-API:er (förhandsversion)
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Snabbstart: Konfigurera ett program att exponera webb API: er
 
 Du kan utveckla ett webb-API och göra det tillgängligt för klientprogram genom att exponera [behörigheter/omfång](developer-glossary.md#scopes) och [roller](developer-glossary.md#roles). Ett korrekt konfigurerat webb-API tillhandahålls precis som de andra webb-API:erna från Microsoft, inklusive Graph API och Office 365-API:erna.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367905"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924674"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -43,7 +43,7 @@ Nej. Du kan köpa en VPN-anslutning av alla från din tjänstprovider. Anslutnin
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Om jag betala för en ExpressRoute-krets för en viss bandbredd finns möjlighet att utöka upp till högre hastigheter vid behov?
 
-Ja. ExpressRoute-kretsar har konfigurerats så att du kan tillhandahålla upp till två gånger den Bandbreddsgräns du skaffat utan ytterligare kostnad. Kontrollera med din tjänstleverantör för att se om de stöder denna funktion.
+Ja. ExpressRoute-kretsar har konfigurerats så att du kan tillhandahålla upp till två gånger den Bandbreddsgräns du skaffat utan ytterligare kostnad. Kontrollera med din tjänstleverantör för att se om de stöder denna funktion. Detta gäller inte för en längre period och är inte säkert. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Kan jag använda samma privat nätverksanslutning med virtuellt nätverk och andra Azure-tjänster samtidigt?
 
@@ -119,11 +119,11 @@ Du kommer inte att förlora anslutningen om en av flera anslutningar misslyckas.
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Hur jag för att implementera redundans på privat peering?
 
-Flera ExpressRoute-kretsar från olika peeringplatser kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om att en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) till den lokala anslutningen till prioriterar föredrar du en specifik krets. Vi rekommenderar starkt att kunder konfigurera minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
+Flera ExpressRoute-kretsar från olika peeringplatser kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om att en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) till den lokala anslutningen till prioriterar föredrar du en specifik krets. Vi rekommenderar starkt att kunder konfigurera minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Hur jag implementera redundans på Microsoft-peering?
 
-Vi rekommenderar starkt när kunder använder Microsoft-peering för att komma åt offentliga Azure-tjänster som Azure Storage eller Azure SQL samt kunder som använder Microsoft-peering för Office 365 att implementera flera-kretsar i olika peering platser för att undvika felkritiska faiure. Kunder kan antingen annonsera prefixet samma på både kretsar och använda [AS PATH-prepending](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) eller annonsera olika prefix för att fastställa sökvägen från en lokal plats.
+Vi rekommenderar starkt när kunder använder Microsoft-peering för att komma åt offentliga Azure-tjänster som Azure Storage eller Azure SQL samt kunder som använder Microsoft-peering för Office 365 att implementera flera-kretsar i olika peering platser för att undvika felkritiska faiure. Kunder kan antingen annonsera prefixet samma på både kretsar och använda [AS PATH-prepending](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) eller annonsera olika prefix för att fastställa sökvägen från en lokal plats.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hur jag för att säkerställa hög tillgänglighet i ett virtuellt nätverk som är anslutet till ExpressRoute?
 

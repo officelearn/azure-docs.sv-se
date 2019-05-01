@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/23/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125567"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925520"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -93,8 +93,8 @@ Du installerar på varje virtuell dator som du vill replikera, med hjälp av ett
 
 Site Recovery replikerar lokala virtuella VMware-datorer och fysiska servrar till managed disks i Azure.
 - Processervern för Site Recovery skriver replikeringsloggar till ett cachelagringskonto i målregionen.
-- De här loggarna används för att skapa återställningspunkter på hanterade diskar.
-- Vid redundans används den återställningspunkt som du väljer att skapa hanterade måldisken.
+- De här loggarna används för att skapa återställningspunkter på Azure hanterade diskar som har prefixet för asrseeddisk.
+- Vid redundans används den återställningspunkt som du väljer att skapa en ny hanterad disk för målet. Den här hanterade disken är ansluten till den virtuella datorn i Azure.
 - Virtuella datorer som tidigare har replikerats till ett lagringskonto (före mars 2019) påverkas inte.
 
 
@@ -111,7 +111,7 @@ Replikering av nya virtuella datorer till ett lagringskonto är endast tillgäng
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Kan jag ändra typ av hanterad disk när datorn är skyddad?
 
-Ja, du kan enkelt [ändra typen av hanterad disk](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Se till att du återkallar SAS-Webbadress för disken genom att gå till den hanterade diskresursen på Azure-portalen innan du ändrar typen. Avbryt alla pågående export från översiktsbladet. När SAS-Webbadressen har återkallats, ändra typ av disk inom några minuter. Men om du ändrar typ av hanterad disk, vänta tills nya återställningspunkter som ska genereras av Azure Site Recovery. Använd de nya återställningspunkterna för redundanstest eller redundans framöver.
+Ja, du kan enkelt [ändra typen av hanterad disk](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) för pågående replikeringar. Se till att inga SAS-URL: en genereras på den hantera disken innan du ändrar typen. Gå till den hanterade diskresursen på Azure portal och kontrollera om du har en SAS URL: en banderoll på bladet Översikt. Om den finns klickar du på den för att avbryta pågående exporten. När du har gjort, ändra typ av disk inom några minuter. Men om du ändrar typ av hanterad disk, vänta tills nya återställningspunkter som ska genereras av Azure Site Recovery. Använd de nya återställningspunkterna för redundanstest eller redundans framöver.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Kan jag byta replikeringen från hanterade diskar till ohanterade diskar?
 
@@ -133,6 +133,10 @@ Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Fee
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Kan jag göra en offlinereplikering första?
 Det stöds inte. Begär den här funktionen i den [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+
+### <a name="what-is-asrseeddisk"></a>Vad är asrseeddisk?
+För varje källdisken replikeras data till en hanterad Disk i Azure. Den här disken har prefixet för asrseeddisk. Registret lagrar kopian av källdisken och alla ögonblicksbilder för återställning-punkt.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>Kan jag undanta diskar från replikering?
 Ja, kan du utesluta diskar.
@@ -249,7 +253,7 @@ I Recovery Services-valvet klickar du på **Konfigurationsservrar** i **Site Rec
 
 ### <a name="unable-to-select-process-server-during-enable-replication"></a>Det går inte att välja processerver under Aktivera replikering
 
-Från 9.24 version förbättringar har gjorts att tillhandahålla [i produkten vägledning](vmware-azure-manage-process-server.md#process-server-selection-guidance) på när du skapar en skalbar processerver. Det här är att undvika process server begränsning och undvika användningen av defekta processervern.
+Från 9.24 version förbättringar har gjorts att tillhandahålla [bearbeta serveraviseringar](vmware-physical-azure-monitor-process-server.md#process-server-alerts) på när du skapar en skalbar processerver. Det här är att undvika process server begränsning och undvika användningen av defekta processervern.
 
 ### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Vad gör jag för att få korrekt hälsostatus för processervern?
 

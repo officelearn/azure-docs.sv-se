@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d146027ea3a21ab8df3750014c02893bc2f50dd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097737"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711570"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa installationsprogrammet för Azure-SSIS integration runtime
 
@@ -40,7 +40,7 @@ Du kan installera både kostnadsfria eller olicensierad komponenter och betalda 
 
 -   Administrativ resurs stöds inte för närvarande på Azure-SSIS IR.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -82,7 +82,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
       ![Skapa en blobcontainer](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Välj den nya behållaren och ladda upp din egen installationsskriptet och dess associerade filer. Se till att du laddar upp `main.cmd` på den översta nivån i din behållare, inte i valfri mapp. Kontrollera också att din behållare innehåller endast de anpassa nödvändiga filerna, så hämta dem till din Azure-SSIS IR inte tar lång tid.
+   1. Välj den nya behållaren och ladda upp din egen installationsskriptet och dess associerade filer. Se till att du laddar upp `main.cmd` på den översta nivån i din behållare, inte i valfri mapp. Kontrollera också att din behållare innehåller endast de anpassa nödvändiga filerna, så hämta dem till din Azure-SSIS IR inte tar lång tid. Den längsta tid för anpassad installation är för närvarande inställd på 45 minuter innan tidsgränsen uppnås, vilket omfattar tiden för att ladda ned alla filer från din behållare och installera dem på Azure-SSIS IR. Om en längre period, skapar du ett supportärende.
 
       ![Ladda upp filer till blob-behållaren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611300"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926288"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -162,7 +162,7 @@ XFS volymer stöds för data hårddiskkryptering endast med EncryptFormalAll. De
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan jag säkerhetskopiera och återställa en krypterad virtuell dator? 
 
-Azure Backup är en mekanism för att säkerhetskopiera och återställa krypterade Virtuella datorer i samma prenumeration och region.  Mer information finns på [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Återställa en krypterad virtuell dator till en annan region stöds inte för närvarande.  
+Azure Backup är en mekanism för att säkerhetskopiera och återställa krypterade Virtuella datorer i samma prenumeration och region.  Mer information finns på [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  Återställa en krypterad virtuell dator till en annan region stöds inte för närvarande.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Var kan jag få ställa frågor eller lämna feedback?
 

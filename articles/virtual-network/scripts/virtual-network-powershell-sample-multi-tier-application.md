@@ -3,8 +3,8 @@ title: Azure PowerShell-skriptexempel – Skapa ett nätverk för flernivåprogr
 description: Azure PowerShell-skriptexempel – Skapa ett virtuellt nätverk för flernivåprogram.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
-ms.openlocfilehash: efd496f2f69f243b958f4e780b9f3455d2ffece3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 2fad78db4fdc92f3dc9c0f320c36d12dea554a61
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648702"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725384"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Skapa ett nätverk för flernivåprogram – skriptexempel
 
@@ -34,7 +34,8 @@ Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershe
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Ett undernäts-ID tilldelas när du har skapat ett virtuellt nätverk, mer specifikt med hjälp av cmdleten New-AzVirtualNetwork med alternativet -Subnet (Undernät). Om du konfigurerar undernätet med hjälp av cmdleten New-AzVirtualNetworkSubnetConfig före anropet till New-AzVirtualNetwork ser du inte undernäts-ID förrän du har anropat New-AzVirtualNetwork.
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
+Ett undernäts-ID som tilldelas när du har skapat ett virtuellt nätverk. mer specifikt med hjälp av cmdleten New-AzVirtualNetwork med alternativet - undernät. Om du konfigurerar undernätet med hjälp av cmdleten New-AzVirtualNetworkSubnetConfig före anropet till New-AzVirtualNetwork ser du inte undernäts-ID förrän du har anropat New-AzVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 

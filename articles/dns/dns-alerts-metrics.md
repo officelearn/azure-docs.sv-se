@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683043"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699153"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-mått och aviseringar
 Azure DNS är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Den här artikeln beskriver mått och aviseringar för Azure DNS-tjänsten.
@@ -36,7 +36,7 @@ Du kan också se den [definitionen av de här måtten](../azure-monitor/platform
 >[!NOTE]
 > De här måtten är för tillfället bara tillgängliga för offentliga DNS-zoner som finns i Azure DNS. Om du har privata zoner finns i Azure DNS kan tillhandahåller de här måtten inte data för dessa zoner. Dessutom stöds för mått och aviseringar funktionen bara i offentlig Azure-molnet. Stöd för nationella moln följer vid ett senare tillfälle. 
 
-Detaljerad nivå för dimensionen för de här måtten är DNS-zon.
+Den mest detaljerade element som du kan se mått för är en DNS-zon. Du se för närvarande inte mått för enskilda resursposter inom en zon.
 
 ### <a name="query-volume"></a>Fråga volym
 

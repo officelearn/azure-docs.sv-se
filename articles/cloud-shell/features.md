@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614336"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866515"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner och verktyg för Azure Cloud Shell
 
@@ -50,6 +50,18 @@ Du kan fortsätta att använda vanliga [Azure PowerShell-cmdlets](https://docs.m
 Ändringar som görs till Azure-resurser, antingen direkt i Azure-portalen eller via Azure PowerShell-cmdletar, återspeglas i Azure-enheten.  Du kan köra `dir -Force` att uppdatera dina resurser.
 
 ![](media/features-powershell/azure-drive.png)
+
+### <a name="manage-exchange-online"></a>Hantera Exchange Online
+
+PowerShell i Cloud Shell innehåller en privat version av modulen Exchange Online.  Kör `Connect-EXOPSSession` att hämta din Exchange-cmdlets.
+
+![](media/features-powershell/exchangeonline.png)
+
+ Kör `Get-Command -Module tmp_*`
+> [!NOTE]
+> Modulnamnet ska inledas med `tmp_`, om du har installerat moduler med samma prefix, deras cmdlets också exponeras. 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Djupgående integrering med verktyg för öppen källkod
 

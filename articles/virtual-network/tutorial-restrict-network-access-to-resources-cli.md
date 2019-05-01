@@ -3,8 +3,8 @@ title: Begränsa nätverksåtkomst till PaaS-resurser – Azure CLI | Microsoft 
 description: I den här artikeln lär du dig att begränsa nätverksåtkomst till Azure-resurser, till exempel Azure Storage och Azure SQL Database med virtuella nätverksslutpunkter med Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4d93cfe78159fdf4ef3c34e8f80732603b701538
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
+ms.openlocfilehash: e52829723b41f9274251ebe7432aa659251c0da4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521690"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695126"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Begränsa nätverksåtkomst till PaaS-resurser med virtuella nätverksslutpunkter med Azure CLI
 

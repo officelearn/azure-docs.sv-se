@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: adacce5c8307f3be972920bd3aef6d8ea912eb30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e09ce83296fccfbcb4a04913d55961e0da4de79
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991990"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720794"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Använd NewTek TriCaster-kodare för att skicka en direktsänd dataström med enkel bithastighet  
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "57991990"
 >
 >
 
-Den här artikeln visar hur du konfigurerar den [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) livekodare för att skicka en enda bithastighet till AMS kanaler som är aktiverade för live encoding. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Den här artikeln visar hur du konfigurerar den [NewTek TriCaster](https://newtek.com/products/tricaster-40.html) livekodare för att skicka en enda bithastighet till AMS kanaler som är aktiverade för live encoding. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac- eller Linux kan du använda Azure-portalen för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -39,7 +39,7 @@ Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azur
 >
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
 * Se till att det finns en slutpunkt för direktuppspelning som körs. Mer information finns i [hanterar Strömningsslutpunkter i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md)

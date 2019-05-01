@@ -14,33 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4098d55a0b7505b2178c95d612c078a427adc9a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464223"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869471"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Överföra filer till ett Media Services-konto med hjälp av .NET 
-> [!div class="op_single_selector"]
-> * [NET](media-services-dotnet-upload-files.md)
-> * [REST](media-services-rest-upload-files.md)
-> * [Portal](media-services-portal-upload-files.md)
-> 
-> 
+
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 I Media Services överför du (eller för in) dina digitala filer till en tillgång. Den **tillgången** entiteten kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och dold textning filer (och metadata om dessa filer.)  När filerna har överförts lagras innehållet på ett säkert sätt i molnet för ytterligare bearbetning och strömning.
 
 Filerna i tillgången kallas **Tillgångsfiler**. Den **AssetFile** instans och den faktiska mediefilen finns två olika objekt. AssetFile-instans innehåller metadata om filen media medan mediefilen innehåller faktiskt medieinnehåll.
 
-> [!NOTE]
-> Följande gäller:
-> 
-> * Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL: er för strömning innehållet (till exempel http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Därför stöds procent-kodning inte. Värdet för den **namn** egenskapen får inte innehålla något av följande [procent-encoding-reserverade tecken](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # % ”. Dessutom det får bara finnas ett '.' för filnamnstillägget.
-> * Längden på namnet får inte vara större än 260 tecken.
-> * Det finns en gräns för maximal filstorlek för bearbetning i Media Services. Information om filstorleksbegränsningen finns i [den här](media-services-quotas-and-limitations.md) artikeln.
-> * Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
-> 
+## <a name="considerations"></a>Överväganden
+
+Följande gäller:
+ 
+ * Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL: er för strömning innehållet (till exempel http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Därför stöds procent-kodning inte. Värdet för den **namn** egenskapen får inte innehålla något av följande [procent-encoding-reserverade tecken](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # % ”. Dessutom det får bara finnas ett '.' för filnamnstillägget.
+* Längden på namnet får inte vara större än 260 tecken.
+* Det finns en gräns för maximal filstorlek för bearbetning i Media Services. Information om filstorleksbegränsningen finns i [den här](media-services-quotas-and-limitations.md) artikeln.
+* Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 När du skapar resurser kan ange du följande alternativ för kryptering:
 
@@ -61,6 +58,7 @@ Om du anger för din tillgång krypteras med en **StorageEncrypted** alternativ,
 Den här artikeln visar hur du använder Media Services .NET SDK samt Media Services .NET SDK-tillägg för att överföra filer till en tillgång med Media Services.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Ladda upp en enstaka fil med Media Services .NET SDK
+
 Följande kod använder .NET för att ladda upp en fil. AccessPolicy och positionerare skapas och förstörs av funktionen ladda upp. 
 
 ```csharp

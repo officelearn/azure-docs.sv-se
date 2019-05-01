@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: cd06326b22b227490798b2b89c0439940cb4575f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f1f02f8b5488609a0c69a6d335c96d3cc9266c71
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551519"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744627"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -29,7 +29,7 @@ ACU: 195 - 210
 
 Premium-lagring:  Stöds
 
-Premium Storage Caching:  Stöds
+Premium Storage cachelagring:  Stöds
 
 | Storlek             | virtuella processorer | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|

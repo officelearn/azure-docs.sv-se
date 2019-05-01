@@ -1,23 +1,23 @@
 ---
-title: Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10 (förhandsversion) | Microsoft Docs
-description: Använda AzCopy v10 (förhandsversion) kommandoradsverktyget för att flytta eller kopiera data till och från blob-, data lake- och filinnehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Migrera enkelt dina data till Azure Storage.
+title: Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10 | Microsoft Docs
+description: Du kan använda kommandoradsverktyget azcopy för att flytta eller kopiera data till och från blob-, data lake- och filinnehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Migrera enkelt dina data till Azure Storage.
 services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1de40b6bf3bb4dc6854a11eca92902203d492c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278436"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723178"
 ---
-# <a name="transfer-data-with-azcopy-v10-preview"></a>Överföra data med AzCopy v10 (förhandsversion)
+# <a name="transfer-data-with-azcopy-v10"></a>Överföra data med AzCopy v10
 
-AzCopy v10 (förhandsversion) är kommandoradsverktyg för att kopiera data till eller från Microsoft Azure Blob- och storage. AzCopy v10 erbjuder en omarbetad kommandoradsgränssnittet och ny arkitektur för tillförlitlig data överförs. Med AzCopy kan kopiera du data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.
+AzCopy är kommandoradsverktyg för att kopiera data till eller från Microsoft Azure Blob- och storage. AzCopy erbjuder en omarbetad kommandoradsgränssnittet och ny arkitektur för tillförlitlig data överförs. Med AzCopy kan kopiera du data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.
 
 ## <a name="whats-new-in-azcopy-v10"></a>Vad är nytt i AzCopy v10
 
@@ -33,28 +33,24 @@ AzCopy v10 (förhandsversion) är kommandoradsverktyg för att kopiera data till
 
 ## <a name="download-and-install-azcopy"></a>Ladda ned och installera AzCopy
 
-### <a name="latest-preview-version-v10"></a>Senaste förhandsversionen (v10)
+### <a name="latest-production-version-v10"></a>Senaste produktionsversionen (v10)
 
-Ladda ned den senaste förhandsversionen av AzCopy:
+Hämta den senaste versionen av AzCopy:
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-### <a name="latest-production-version-v81"></a>Senaste produktionsversionen (v8.1)
-
-Ladda ned den [senaste produktionsversionen av AzCopy för Windows](https://aka.ms/downloadazcopy).
-
-### <a name="azcopy-supporting-table-storage-service-v73"></a>AzCopy stöd för Table storage-tjänsten (v7.3)
+### <a name="latest-azcopy-supporting-table-storage-service-v73"></a>Senaste AzCopy stöd för Table storage-tjänsten (v7.3)
 
 Ladda ned den [AzCopy v7.3 stöd för kopiering av data till/från Microsoft Azure Table storage-tjänsten](https://aka.ms/downloadazcopynet).
 
 ## <a name="post-installation-steps"></a>Anvisningarna efter installation
 
-AzCopy v10 kräver inte en installation. Öppna din önskade kommandoradsprogram och bläddra till mappen där `azcopy.exe` finns. Om det behövs kan du lägga till mappen AzCopy systemsökvägen för enkel användning.
+AzCopy kräver inte en installation. Öppna din önskade kommandoradsprogram och bläddra till mappen där `azcopy.exe` finns. Om det behövs kan du lägga till mappen AzCopy systemsökvägen för enkel användning.
 
 ## <a name="authentication-options"></a>Autentiseringsalternativ
 
-AzCopy v10 stöder följande alternativ när du autentiserar med Azure Storage:
+AzCopy stöder följande alternativ när du autentiserar med Azure Storage:
 - **Azure Active Directory** (stöds för **Blob-och Data Lake Storage Gen2**). Använd ```.\azcopy login``` att logga in med Azure Active Directory.  Användaren bör ha [”Storage Blob Data-deltagare” rolltilldelningen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) att skriva till Blob storage med Azure Active Directory-autentisering. Autentisering via hanterade identiteter för Azure-resurser, använda `azcopy login --identity`.
 - **Delad signaturtoken för åtkomst [stöds för Blob-och Filtjänster]**. Lägg till token för delad åtkomst (signatur) till blob-sökväg på kommandoraden för att använda den. Du kan generera SAS-token med Azure-portalen [Lagringsutforskaren](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), eller andra verktyg du väljer. Mer information finns i [exempel](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
@@ -198,7 +194,7 @@ Du kan också synkronisera en blob-behållare till ett lokalt filsystem:
 .\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-Det här kommandot synkroniserar stegvis källan till målet baserat på senaste ändrade tidsstämplar. Om du lägger till eller ta bort en fil i källan, gör AzCopy v10 samma i målet. Före borttagningen uppmanar AzCopy dig att bekräfta.
+Det här kommandot synkroniserar stegvis källan till målet baserat på senaste ändrade tidsstämplar. Om du lägger till eller ta bort en fil i källan, gör AzCopy samma i målet. Före borttagningen uppmanar AzCopy dig att bekräfta.
 
 ## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Kopiera data från Amazon Web Services (AWS) S3
 
@@ -283,7 +279,7 @@ cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
 ## <a name="troubleshooting"></a>Felsökning
 
-AzCopy v10 skapar loggfiler och plan filer för alla jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. Loggarna innehåller statusen för fel (UPLOADFAILED COPYFAILED och DOWNLOADFAILED), den fullständiga sökvägen och orsaken till felet. Jobbloggar och plan filer finns i % USERPROFILE\\.azcopy mapp på Windows eller $HOME\\.azcopy mapp på Mac och Linux.
+AzCopy skapar loggfiler och plan filer för alla jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. Loggarna innehåller statusen för fel (UPLOADFAILED COPYFAILED och DOWNLOADFAILED), den fullständiga sökvägen och orsaken till felet. Jobbloggar och plan filer finns i % USERPROFILE\\.azcopy mapp på Windows eller $HOME\\.azcopy mapp på Mac och Linux.
 
 > [!IMPORTANT]
 > När du skickar en begäran om att Microsoft Support (eller felsöka problem som rör tredje part), dela den redigerade versionen av kommandot som du vill köra. Detta säkerställer att Signaturen inte är delas av misstag med vem som helst. Du hittar den redigerade versionen i början av loggfilen.

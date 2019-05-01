@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 1f6c14c15d4930902ced642bd02d1d1833e0b361
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c43dacaf7bb5ab17fe740dd429e4a40dbc11bb6e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032545"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726928"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Hantera åtkomstkontrollistor för slutpunkt med PowerShell i den klassiska distributionsmodellen
 Du kan skapa och hantera nätverket åtkomstkontrollistor (ACL) för slutpunkter med hjälp av Azure PowerShell eller i hanteringsportalen. Det här avsnittet innehåller procedurer för ACL vanliga uppgifter som du kan utföra med hjälp av PowerShell. Lista över Azure PowerShell cmdlet: ar i [Azure Management-Cmdlets](https://go.microsoft.com/fwlink/?LinkId=317721). Mer information om ACL: er finns i [vad är ett nätverk åtkomstkontrollistan (ACL)?](virtual-networks-acl.md). Om du vill hantera din ACL: er med hjälp av hanteringsportalen, se [så konfigurera slutpunkter till en virtuell dator](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

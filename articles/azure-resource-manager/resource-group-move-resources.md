@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239134"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698495"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -222,6 +222,22 @@ När du flyttar en Webbapp _mellan prenumerationer_, gäller följande begränsn
 - Alla App Service-resurser i resursgruppen måste flyttas tillsammans.
 - App Service-resurser kan bara flyttas från resursgruppen där de skapades. Om en App Service-resursen är inte längre i dess ursprungliga resursgruppen, den måste flyttas tillbaka till den ursprungliga resursgruppen först och sedan de kan flyttas mellan prenumerationer.
 
+Om du inte kommer ihåg ursprungliga resursgruppen, kan du hitta den diagnostiken. Din webbapp, Välj **diagnostisera och lösa problem**. Välj **konfiguration och hantering av**.
+
+![Välj diagnostik](./media/resource-group-move-resources/select-diagnostics.png)
+
+Välj **migreringsalternativ**.
+
+![Välj migreringsalternativ](./media/resource-group-move-resources/select-migration.png)
+
+Välj alternativet för rekommenderade steg för att flytta webbappen.
+
+![Välj rekommenderade åtgärder](./media/resource-group-move-resources/recommended-steps.png)
+
+Du ser de rekommenderade åtgärderna som ska vidtas innan du flyttar resurser. Informationen omfattar ursprungliga resursgruppen för webbappen.
+
+![Rekommendationer](./media/resource-group-move-resources/recommendations.png)
+
 ### <a name="app-service-certificate-limitations"></a>Begränsningar för App Service Certificate
 
 Du kan flytta din App Service-certifikat till en ny resursgrupp eller prenumeration. Om din App Service-certifikat är bundet till en webbapp, måste du vidta vissa åtgärder innan du flyttar resurser till en ny prenumeration. Ta bort SSL-bindning och privata certifikat från webbapp innan du flyttar resurser. App Service Certificate behöver inte tas bort, bara privata certifikat i webbapp.
@@ -251,7 +267,7 @@ När du flyttar resurser till en ny prenumeration, gäller följande begränsnin
 * Målprenumerationen får inte ha andra klassiska resurser.
 * Flytten kan bara begäras via en separat REST-API för klassiska flyttar. Standardkommandon för Resource Manager-flytta fungerar inte när du flyttar klassiska resurser till en ny prenumeration.
 
-Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtgärder som är specifika för klassiska resurser. Om du vill använda REST, utför du följande steg:
+Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtgärder som är specifika för klassiska resurser. Om du vill använda REST, gör du följande:
 
 1. Kontrollera om käll-prenumeration kan delta i en flytt mellan prenumerationer. Använd följande åtgärd:
 

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6e7b3b316a8a6dcde95bdf872dbda4cd1372f072
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322540"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721803"
 ---
 # <a name="scaling-media-processing"></a>Skala mediebearbetning
 
@@ -33,9 +33,9 @@ Tabellen nedan hjälper dig att fatta ett beslut när du väljer mellan olika ko
 
 |RU-typ|Scenario|Exempel resulterar för den [7 min 1080 p video](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Enkel bithastighet kodning. <br/>Filer på SD eller under lösningar, tid inte känsliga, låg kostnad.|Kodning som ska enkel bithastighet SD upplösning MP4-fil med hjälp av ”H264 enkel bithastighet, SD 16 x 9” tar 10 minuter.|
-| **S2**|Enkel bithastighet och flera bithastigheter kodning.<br/>Normal användning för både SD och HD encoding.|Kodning med ”H264, enkel bithastighet, 720p” förinställda tar cirka åtta minuter.<br/><br/>Kodning med ”H264, flera bithastigheter, 720p” förinställning tar cirka 16,8 minuter.|
-| **S3**|Enkel bithastighet och flera bithastigheter kodning.<br/>Fullständig HD och 4K högupplöst video. Tid känsliga och snabbare arbetet kodning.|Kodning med ”H264, enkel bithastighet, 1080p” förinställda tar cirka 4 minuter.<br/><br/>Kodning med ”H264 Multibithastighet 1080p” förinställning tar cirka 8 minuter.|
+| **S1**|Enkel bithastighet kodning. <br/>Filer på SD eller under lösningar, tid inte känsliga, låg kostnad.|Koda till enkel bithastighet SD upplösning MP4-fil med hjälp av ”H264 enkel bithastighet, SD 16 x 9” tar cirka 7 minuter.|
+| **S2**|Enkel bithastighet och flera bithastigheter kodning.<br/>Normal användning för både SD och HD encoding.|Kodning med ”H264, enkel bithastighet, 720p” förinställda tar cirka 6 minuter.<br/><br/>Kodning med ”H264, flera bithastigheter, 720p” förinställda tar cirka 12 minuter.|
+| **S3**|Enkel bithastighet och flera bithastigheter kodning.<br/>Fullständig HD och 4K högupplöst video. Tid känsliga och snabbare arbetet kodning.|Kodning med ”H264, enkel bithastighet, 1080p” förinställda tar cirka 3 minuter.<br/><br/>Kodning med ”H264 Multibithastighet 1080p” förinställda tar cirka åtta minuter.|
 
 ## <a name="considerations"></a>Överväganden
 
@@ -62,7 +62,7 @@ Kör `mru`-kommandot.
 Följande [az ams-konto mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) kommandot anger Mediereserverade enheter på ”amsaccount”-konto med hjälp av den **antal** och **typ** parametrar.
 
 ```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
 
 ## <a name="billing"></a>Fakturering

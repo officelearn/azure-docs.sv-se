@@ -3,8 +3,8 @@ title: Ansluta virtuella nätverk med peerkoppling – PowerShell | Microsoft Do
 description: I den här artikeln får du lära dig hur du ansluter virtuella nätverk med peerkoppling, med hjälp av Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 49a6c91587905a8f7086b46b275a5078197939eb
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0ee39e83ef49db1d6231b5c20eee4dbf984f9f13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649959"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698966"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Ansluta virtuella nätverk med peerkoppling med hjälp av PowerShell
 
@@ -43,7 +43,7 @@ Om du väljer att installera och använda PowerShell lokalt, i den här artikeln
 
 ## <a name="create-virtual-networks"></a>Skapa virtuella nätverk
 
-Du måste skapa en resursgrupp för det virtuella nätverket och alla andra resurser som skapats i den här artikeln innan du skapar ett virtuellt nätverk. Skapa en resursgrupp med [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Du måste skapa en resursgrupp för det virtuella nätverket och alla andra resurser som skapats i den här artikeln innan du skapar ett virtuellt nätverk. Skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -160,7 +160,7 @@ Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med senare
 
 ## <a name="communicate-between-vms"></a>Kommunicera mellan virtuella datorer
 
-Du kan ansluta till en virtuell dators offentliga IP-adressen från internet. Använd [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) att returnera den offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den virtuella datorn *myVm1*:
+Du kan ansluta till en virtuell dators offentliga IP-adressen från internet. Använd [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) för att returnera den offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den virtuella datorn *myVm1*:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress `

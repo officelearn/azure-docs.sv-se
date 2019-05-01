@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 5c01c2721a29bf142ee0ba53c9bc29ec66a7278f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401092"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727921"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Profilera live Azure Service Fabric-program med Application Insights
 
@@ -32,7 +32,7 @@ Application Insights Profiler ingår Azure Diagnostics. Du kan installera Azure 
 
 Om du vill konfigurera din miljö måste du vidta följande åtgärder:
 
-1. Så att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare, så är tillräckliga för att bekräfta att det distribuerade Operativsystemet är `Windows Server 2012 R2` eller senare.
+1. Profiler har stöd för .NET Framework och .net Core. Om du använder .NET Framework, kontrollera att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare. Det räcker att bekräfta att det distribuerade Operativsystemet är `Windows Server 2012 R2` eller senare. Profiler har stöd för .NET Core 2.1 och nyare program.
 
 1. Sök efter den [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) tillägget i mallfilen distribution.
 
@@ -55,11 +55,10 @@ Om du vill konfigurera din miljö måste du vidta följande åtgärder:
   Om inställningarna är korrekta, Application Insights Profiler installeras och aktiveras när Azure Diagnostics-tillägget installeras. 
 
 1. Lägg till Application Insights till ditt Service Fabric-program.  
-  För Profiler att samla in profiler för dina begäranden spåra programmets åtgärder med Application Insights. För tillståndslösa API: er som du kan referera till anvisningar om hur [spåra begäranden Profileringen](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Mer information om att spåra anpassade åtgärder i andra typer av appar i [spåra anpassade åtgärder med Application Insights SDK för .NET](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
+  För Profiler att samla in profiler för dina begäranden spåra programmets åtgärder med Application Insights. För tillståndslösa API: er som du kan referera till anvisningar om hur [spåra begäranden Profileringen](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Läs mer om att spåra anpassade åtgärder i andra typer av appar, [spåra anpassade åtgärder med Application Insights SDK för .NET](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
 
 1. Distribuera programmet igen.
 
-> [TIPS] För virtuella datorer är ett alternativ till ovanstående JSON-baserade är att navigera i Azure portal för att **virtuella datorer** > **diagnostikinställningar** > **Egenskaperna** > **Set skicka diagnostiska data till Application Insights aktiverad** och välj sedan en Application Insights-konto eller en specifik ikey.
 
 ## <a name="next-steps"></a>Nästa steg
 

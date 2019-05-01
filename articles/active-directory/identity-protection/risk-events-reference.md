@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d009022d4ec03990d3ed0321ebcb13c72c674ed8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294216"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709607"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referera till Azure Active Directory Identity Protection riskhändelser
 
@@ -80,10 +80,16 @@ Den här riskhändelsetyp anger inloggningar från IP-adresser som smittats av s
 
 ## <a name="unfamiliar-sign-in-properties"></a>Obekanta inloggningsegenskaper
 
-**Identifieringstyp av:** Realtid  
-**Gammalt namn:** Inloggningar från okända platser
+**Identifieringstyp av:** I realtid **Gammalt namn:** Inloggningar från okända platser
 
 Den här riskhändelsetyp tar hänsyn till tidigare inloggningshistorik (IP, latitud / longitud och ASN) att leta efter avvikande inloggningar. Systemet lagrar information om tidigare platser som används av en användare och så att platserna ”välbekanta”. Riskhändelsen utlöses när inloggningen sker från en plats som inte redan finns i listan med välbekanta platser. Nya användare att i ”inlärningsläget” för en viss tidsperiod i bekant inloggning egenskaperna riskhändelser kommer att inaktiveras när våra algoritmer Läs användarens beteenden. Utbildningsresurser läge varaktighet är dynamisk och beror på hur lång tid det tar att samla in tillräckligt med information om användarens inloggningsmönster algoritmen. Minsta varaktighet är fem dagar. En användare kan gå tillbaka till inlärningsläge efter en lång tids inaktivitet. Systemet ignorerar också inloggningar från välbekanta enheter och platser som ligger geografiskt nära en bekant plats. 
 
 Vi kan också köra den här identifieringen för grundläggande autentisering (eller äldre protokoll). Eftersom dessa protokoll inte har modern egenskaper, till exempel klient-ID, finns det begränsad telemetri för att minska falska positiva identifieringar. Vi rekommenderar våra kunder att flytta till modern autentisering.
 
+
+## <a name="azure-ad-threat-intelligence"></a>Azure AD hotinformation
+
+**Identifieringstyp av:** Offline <br>
+**Gammalt namn:** Den här identifieringen kommer att visas i de äldre Azure AD Identity Protection rapporter (användare som har flaggats för risk, riskhändelser) som ”användare med läckta autentiseringsuppgifter”
+
+Den här riskhändelsetyp anger användaraktivitet som annorlunda för den angivna användaren eller följer kända angreppsmönster baserat på Microsofts interna och externa hot intelligenskällor.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f851fd2857650dd00e365abf71ec5f0199db6d57
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738189"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711580"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -78,6 +78,9 @@ else
 ### <a name="time-dependant-scripts"></a>Tid beroende skript
 
 Noggrann överväganden ska göras vid redigering av runbooks. Som tidigare nämnts runbooks måste vara författade på ett sätt som de är stabila och kan hantera tillfälliga fel som kan orsaka runbook att starta om eller misslyckas. Om en runbook misslyckas, görs ett nytt. Om en runbook körs vanligtvis inom en tidsbegränsning, kör logik för att kontrollera körningstiden bör implementeras i runbook för att se till att åtgärder som att starta, stänga av eller skala ut enbart vid specifika tidpunkter.
+
+> [!NOTE]
+> Den lokala tiden på Azure sandboxprocessen anges till UTC-tid. Beräkningar för datum och tid i dina runbooks måste du ha i åtanke.
 
 ### <a name="tracking-progress"></a>Spåra förloppet
 

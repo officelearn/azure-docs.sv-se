@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623994"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575299"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportera och importera Azure Notification Hubs många registreringar samtidigt
 Det finns scenarier där det krävs för att skapa eller ändra många registreringar i en notification hub. Några av de här scenarierna är taggen uppdateringar efter batch beräkningar eller migrerar en befintlig push-implementering för att använda Meddelandehubbar.
@@ -34,7 +34,7 @@ Det här avsnittet förutsätter att du har följande entiteter:
 
 - En etablerad notification hub.
 - En Azure Storage blob-behållare.
-- Referenser till den [Azure Storage NuGet-paketet](https://www.nuget.org/packages/windowsazure.storage/) och [Notification Hubs-NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
+- Referenser till den [Azure Storage NuGet-paketet](https://www.nuget.org/packages/windowsazure.storage/) och [Notification Hubs-NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Skapa filen med indata och lagra den i en blob
 En indatafil innehåller en lista över registreringar serialiseras i XML, en per rad. Med Azure SDK visar i följande kodexempel hur du serialisera registreringarna och överföra dem till blob-behållare.

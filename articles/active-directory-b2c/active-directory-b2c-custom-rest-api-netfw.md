@@ -3,19 +3,19 @@ title: Integrera REST API anspråk Utbytena i din Azure Active Directory B2C-anv
 description: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105972"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717285"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren
 
@@ -53,7 +53,7 @@ I den här genomgången kan du utveckla en .NET Framework webb-API som verifiera
 * Skicka tillbaka ett lojalitet tal.
 * Lägg till lojalitet numret till en JSON Web Token (JWT).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikeln.
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Steg 1: Skapa ett ASP.NET webb-API

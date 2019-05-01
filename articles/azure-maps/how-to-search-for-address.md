@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904158"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572382"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Hitta en adress med hjälp av Azure Maps search-tjänst
 
@@ -68,7 +68,7 @@ De flesta sökfrågor som standard `maxFuzzyLevel=1` att få prestanda och minsk
 
     Tvetydig frågesträngen för ”platt” returneras 10 [punkt intresse resultatet](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) resultaten med kategorier med ”platt” och ”restaurang”. Varje resultatet returnerar en gatuadress latitud / longitudvärden, visa port och startpunkter för platsen.
   
-    Den här frågan är inte kopplat till vilken plats som helst särskilt varieras resultaten. Du kan använda den **countrySet** parametern för att ange endast de länder som programmet behöver täckning som standard är att söka i hela världen, potentiellt returnera onödiga resultat.
+    Den här frågan är inte kopplat till vilken plats som helst särskilt varieras resultaten. Du kan använda den **countrySet** parametern för att ange endast de länder/regioner som programmet behöver täckning som standard är att söka i hela världen, potentiellt returnera onödiga resultat.
 
 5. Lägg till följande nyckel / värde-par för den **Params** och klicka **skicka**:
 

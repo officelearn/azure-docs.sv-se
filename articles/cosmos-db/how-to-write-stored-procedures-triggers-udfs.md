@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eaf2d4a5a34a42867debcff4163f692431c8e0ab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61052398"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573863"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Skriva lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
@@ -48,7 +48,7 @@ När den har skrivits måste den lagrade proceduren registreras med en samling. 
 
 ### <a id="create-an-item"></a>Skapa ett objekt med hjälp av en lagrad procedur
 
-När du skapar ett objekt med hjälp av en lagrad procedur infogas objektet i Azure Cosmos DB-containern och ett ID för det nya objektet returneras. Genereringen av ett objekt är en asynkron åtgärd och är beroende av JavaScript-motringningsfunktionerna. Motringningsfunktionerna har två parametrar – en för felobjektet om åtgärden misslyckas och en annan för ett returvärde; i detta fall objektet som skapats. I motringningen kan du antingen hantera undantaget eller utlösa ett fel. Om ingen motringning har definierats och det uppstår ett fel, genererar Azure Cosmos DB-körningen ett fel. 
+När du skapar ett objekt med hjälp av den lagrade proceduren objektet infogas i Azure Cosmos DB-behållare och ett id för den nyligen skapade objekten returneras. Genereringen av ett objekt är en asynkron åtgärd och är beroende av JavaScript-motringningsfunktionerna. Motringningsfunktionerna har två parametrar – en för felobjektet om åtgärden misslyckas och en annan för ett returvärde; i detta fall objektet som skapats. I motringningen kan du antingen hantera undantaget eller utlösa ett fel. Om ingen motringning har definierats och det uppstår ett fel, genererar Azure Cosmos DB-körningen ett fel. 
 
 Den lagrade proceduren innehåller också en parameter som ställer in beskrivningen. Det är ett booleskt värde. Om parametern har värdet true och beskrivningen saknas, genererar den lagrade proceduren ett undantag. I annat fall fortsätter resten av den lagrade proceduren att köras.
 

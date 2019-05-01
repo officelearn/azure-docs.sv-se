@@ -1,5 +1,5 @@
 ---
-title: Välj ett sida-kontrakt i Azure Active Directory B2C | Microsoft Docs
+title: Välj en sida-kontrakt - Azure Active Directory B2C | Microsoft Docs
 description: Läs mer om hur du väljer ett sida-kontrakt i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -7,24 +7,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4cd29df19179f07fd9b61a2f484b1d49cc05c4cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361055"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570579"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Välj en sida kontrakt i Azure Active Directory B2C med anpassade principer
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Du kan aktivera JavaScript-kod på klientsidan i din Azure Active Directory (Azure AD) B2C-principer, oavsett om du använder användarflöden eller anpassade principer. Den här artikeln beskrivs hur du väljer ett sida-kontrakt i Azure AD B2C genom att konfigurera det i en [anpassad princip](active-directory-b2c-overview-custom.md). Ett sida-kontrakt är ett nätverk med element som tillhandahåller Azure AD B2C och det innehåll som du anger. Om du tänker använda [Javascript](javascript-samples.md), måste du definiera en sida kontrakt-version för alla dina innehållsdefinitioner i en egen princip.
+Du kan aktivera JavaScript-kod på klientsidan i din Azure Active Directory (Azure AD) B2C-principer, oavsett om du använder användarflöden eller anpassade principer. Om du vill aktivera JavaScript för dina program, måste du lägga till ett element till din [anpassad princip](active-directory-b2c-overview-custom.md), Välj ett sida-kontrakt och använda [b2clogin.com](b2clogin.md) i dina önskemål. Ett sida-kontrakt är ett nätverk med element som tillhandahåller Azure AD B2C och det innehåll som du anger. Den här artikeln beskrivs hur du väljer ett sida-kontrakt i Azure AD B2C genom att konfigurera i en anpassad princip.
 
 > [!NOTE]
-> Om du vill aktivera JavaScript för användarflöden [om hur du använder JavaScript och sidan kontrakt-versioner i ett användarflöde](user-flow-javascript-overview.md).
+> Om du vill aktivera JavaScript för användarflöden [JavaScript och sidan kontrakt-versioner i Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="replace-datauri-values"></a>Ersätt DataUri värden
 

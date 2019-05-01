@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291252"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707170"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd klientrestriktioner för att hantera åtkomst till SaaS-molnprogram
 
@@ -42,7 +42,7 @@ Den övergripande lösningen består av följande komponenter:
 
 3. **Klientprogrammet**: För att stödja klientrestriktioner, måste klientprogrammet begära token direkt från Azure AD så att infrastrukturen som kan komma åt trafik. Webbläsarbaserade Office 365-program stöder för närvarande klientrestriktioner, som gör Office-klienter som använder modern autentisering (till exempel OAuth 2.0).
 
-4. **Modern autentisering**: Molntjänster måste använda modern autentisering för att använda klientrestriktioner och blockera åtkomst till alla klienter som inte är tillåtet. Du måste konfigurera Office 365-molntjänster för att använda moderna autentiseringsprotokoll som standard. Den senaste informationen om Office 365-stöd för modern autentisering kan du läsa [uppdateras Office 365 modern autentisering](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+4. **Modern autentisering**: Molntjänster måste använda modern autentisering för att använda klientrestriktioner och blockera åtkomst till alla klienter som inte är tillåtet. Du måste konfigurera Office 365-molntjänster för att använda moderna autentiseringsprotokoll som standard. Den senaste informationen om Office 365-stöd för modern autentisering kan du läsa [uppdateras Office 365 modern autentisering](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 Följande diagram illustrerar övergripande trafikflödet. Klientrestriktioner kräver SSL-kontroll bara på trafik till Azure AD, inte till Office 365-molntjänster. Skillnaden är viktig, eftersom trafikvolym för autentisering till Azure AD är vanligtvis mycket lägre än trafikvolym till SaaS-program som Exchange Online och SharePoint Online.
 
@@ -128,7 +128,7 @@ Office 365-program måste uppfylla två kriterier för att ge fullt stöd klient
 1. Klienten som används har stöd för modern autentisering.
 2. Modern autentisering är aktiverad som standardautentiseringsprotokoll för Molntjänsten.
 
-Referera till [uppdateras Office 365 modern autentisering](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) den senaste informationen på vilka Office klienter stöder för närvarande modern autentisering. Sidan innehåller också länkar till anvisningar för att aktivera modern autentisering på specifika Exchange Online och Skype för Business Online klienter. SharePoint Online aktiverar redan Modern autentisering som standard.
+Referera till [uppdateras Office 365 modern autentisering](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) den senaste informationen på vilka Office klienter stöder för närvarande modern autentisering. Sidan innehåller också länkar till anvisningar för att aktivera modern autentisering på specifika Exchange Online och Skype för Business Online klienter. SharePoint Online aktiverar redan Modern autentisering som standard.
 
 Office 365-webbläsarbaserade program (SharePoint Office-portalen, Yammer, platser, Outlook på webben med mera) klientrestriktioner stöder för närvarande. Tjock klienter (Outlook, Skype för företag, Word, Excel, PowerPoint och mer) kan tillämpa klientrestriktioner endast när du använder modern autentisering.  
 
@@ -185,5 +185,5 @@ Specifik information finns i dokumentationen för proxy-server.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [uppdateras Office 365 modern autentisering](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
+- Läs mer om [uppdateras Office 365 modern autentisering](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Granska den [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

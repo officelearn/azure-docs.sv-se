@@ -1,6 +1,6 @@
 ---
-title: Strömmande slutpunkter i Azure Media Services | Microsoft Docs
-description: Den här artikeln innehåller en förklaring av vad slutpunkter för direktuppspelning är och hur de används av Azure Media Services.
+title: Strömmande slutpunkter (ursprungliga) i Azure Media Services | Microsoft Docs
+description: I Azure Media Services representerar en slutpunkt för direktuppspelning (ursprungliga) en dynamisk paketering och en direktuppspelningstjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett CDN Content Delivery Network () för vidare distribution.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125431"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867614"
 ---
-# <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning
+# <a name="streaming-endpoints-origin"></a>Slutpunkter för direktuppspelning (ursprungliga)
 
-I Microsoft Azure Media Services (AMS), den [Strömningsslutpunkter](https://docs.microsoft.com/rest/api/media/streamingendpoints) entitet representerar en direktuppspelningstjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett CDN Content Delivery Network () för ytterligare distribution. Den utgående dataströmmen från en **Strömningsslutpunkt** tjänsten kan vara en direktsänd dataström eller en video på begäran-tillgång i Media Services-kontot. När du skapar ett Media Services-konto, en **standard** slutpunkt för direktuppspelning skapas åt dig i ett stoppat tillstånd. Du kan inte ta bort den **standard** slutpunkt för direktuppspelning. Du kan skapa ytterligare slutpunkter för direktuppspelning under kontot. 
+I Microsoft Azure Media Services, en [Strömningsslutpunkt](https://docs.microsoft.com/rest/api/media/streamingendpoints) representerar en dynamisk (just-in-time) paketering och det ursprungliga tjänst som kan leverera ditt innehåll live och på begäran direkt till ett klientspelarprogram med någon av de vanliga media strömningsprotokoll (HLS eller DASH). Dessutom kan den **slutpunkt för direktuppspelning** erbjuder kryptering på dynamiska (just-in-time) till branschledande DRM: er.
+
+När du skapar ett Media Services-konto, en **standard** slutpunkt för direktuppspelning skapas åt dig i ett stoppat tillstånd. Du kan inte ta bort den **standard** slutpunkt för direktuppspelning. Kan skapa ytterligare slutpunkter för direktuppspelning under kontot (se [kvoter och begränsningar](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > Om du vill starta direktuppspelning av videor, måste du starta den **Strömningsslutpunkt** som du vill att strömma videon. 
@@ -35,33 +37,37 @@ För alla ytterligare slutpunkter: `{EndpointName}-{AccountName}-{DatacenterAbbr
 
 ## <a name="types"></a>Typer  
 
-Det finns två typer av **slutpunkter för direktuppspelning**: **Standard** och **Premium**. Typen har definierats av antalet skalningsenheter (`scaleUnits`) du allokera för slutpunkten för direktuppspelning. 
+Det finns två typer av **slutpunkter för direktuppspelning**: **Standard** (förhandsversion) och **Premium**. Typen har definierats av antalet skalningsenheter (`scaleUnits`) du allokera för slutpunkten för direktuppspelning. 
 
 I tabellen beskrivs typerna:  
 
 |Typ|Skalningsenheter|Beskrivning|
 |--------|--------|--------|  
-|**Standardslutpunkt för direktuppspelning** (rekommenderas)|0|Standard-slutpunkt för direktuppspelning är en **Standard** Skriv, men kan ändras till typen Premium.<br/> Standardtypen är det rekommenderade alternativet för i stort sett alla strömmande scenarier och Publiker. Typen **Standard** skalar utgående bandbredd automatiskt. Dataflödet från den här typen av slutpunkt för direktuppspelning är upp till 600 Mbit/s. Video fragment som cachelagras i CDN, Använd inte bandbredden som slutpunkt för direktuppspelning.<br/>För kunder med mycket stora krav erbjuder Media Services **Premium**-slutpunkter för direktuppspelning, som kan användas för att skala ut kapacitet för de största Internet-publikerna. Om du förväntar dig stora målgrupper och samtidiga läsare du kontakta oss på amsstreaming\@microsoft.com anvisningar om du behöver flytta till den **Premium** typen. |
-|**Premium-slutpunkt för direktuppspelning**|> 0|**Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Du flyttar till en **Premium** typ genom att justera `scaleUnits`. `scaleUnits` ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. När du använder typen **Premium** ger varje aktiverad enhet ytterligare bandbreddskapacitet till programmet. |
- 
-## <a name="comparing-streaming-types"></a>Jämföra strömmande typer
+|**Standard**|0|Standard-slutpunkt för direktuppspelning är en **Standard** skriver, kan ändras till typen Premium genom att justera `scaleUnits`.|
+|**Premium**|> 0|**Premium** -slutpunkter för direktuppspelning som är lämpliga för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Du flyttar till en **Premium** typ genom att justera `scaleUnits` (enheter för strömning). `scaleUnits` ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. När du använder typen **Premium** ger varje aktiverad enhet ytterligare bandbreddskapacitet till programmet. |
 
-### <a name="features"></a>Funktioner
+> [!NOTE]
+> För kunder som planerar för att leverera innehåll till stora målgrupper för internet, rekommenderar vi att du aktiverar CDN på slutpunkt för direktuppspelning.
+
+SLA-information, se [priser och SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="comparing-streaming-types"></a>Jämföra strömmande typer
 
 Funktion|Standard|Premium
 ---|---|---
-Kostnadsfria första 15 dagarna| Ja |Nej
-Dataflöde |Upp till 600 Mbit/s när Azure CDN inte används. Skalning med CDN.|200 Mbit/s per enhet (SU) för strömning. Skalning med CDN.
+Kostnadsfri första 15 dagarna <sup>1</sup>| Ja |Nej
+Dataflöde |Upp till 600 Mbit/s och kan tillhandahålla en mycket högre effektiva dataflöde när ett CDN används.|200 Mbit/s per enhet (SU) för strömning. Kan tillhandahålla en mycket högre effektiva dataflöde när ett CDN används.
 CDN|Azure CDN från tredje part CDN eller inga CDN.|Azure CDN från tredje part CDN eller inga CDN.
 Fakturering beräknas| Dagligen|Dagligen
 Dynamisk kryptering|Ja|Ja
 Dynamisk paketering|Ja|Ja
-Skala|Automatiskt skalar upp det riktade dataflödet.|Ytterligare enheter för strömning
-IP-filtrering/G20/anpassat värd <sup>1</sup>|Ja|Ja
+Skala|Automatiskt skalar upp det riktade dataflödet.|Ytterligare SUs
+IP-filtrering/G20/anpassat värd <sup>2</sup>|Ja|Ja
 Progressiv nedladdning|Ja|Ja
-Rekommenderade användningen |Rekommenderas för merparten av scenarier för direktuppspelning.|Professionella användning.<br/>Om du tror att kan du ha behov utöver Standard. Kontakta oss (amsstreaming@microsoft.com) om du tror att en samtidiga målgrupp storlek är större än 50 000 användare.
+Rekommenderade användningen |Rekommenderas för merparten av scenarier för direktuppspelning.|Professionella användning.
 
-<sup>1</sup> endast används direkt på den slutpunkt för direktuppspelning när CDN inte är aktiverat på slutpunkten.
+<sup>1</sup> den kostnadsfria utvärderingsversionen gäller endast för nya media services-konton och standardvärdet slutpunkten för direktuppspelning.<br/>
+<sup>2</sup> endast används direkt på den slutpunkt för direktuppspelning när CDN inte är aktiverat på slutpunkten.<br/>
 
 ## <a name="properties"></a>Egenskaper 
 

@@ -4,228 +4,205 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 7f09e25a-a716-41e1-8ca3-fd00e3d1b8cc
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/09/2017
+ms.topic: tutorial
+ms.date: 03/26/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a4f7fef8a1f73bb7c3e19ae32756d13273ddf2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b45c88ddf3e4a5781e48641d26a9487e5861880c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255499"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Självstudier: Azure Active Directory-integrering med RightAnswers
 
 I den här självstudien får du lära dig hur du integrerar RightAnswers med Azure Active Directory (AD Azure).
-
 Integrera RightAnswers med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till RightAnswers
-- Du kan aktivera användarna att automatiskt få loggat in på RightAnswers (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+* Du kan styra i Azure AD som har åtkomst till RightAnswers.
+* Du kan aktivera användarna att vara automatiskt inloggad till RightAnswers (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med RightAnswers, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En RightAnswers enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* RightAnswers enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till RightAnswers från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för RightAnswers **SP** -initierad SSO
 
 ## <a name="adding-rightanswers-from-the-gallery"></a>Att lägga till RightAnswers från galleriet
+
 För att konfigurera integrering av RightAnswers i Azure AD, som du behöver lägga till RightAnswers från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till RightAnswers från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Appar][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **RightAnswers**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/rightanswers-tutorial/tutorial_rightanswers_search.png)
+4. I sökrutan skriver **RightAnswers**väljer **RightAnswers** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **RightAnswers**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![RightAnswers i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/rightanswers-tutorial/tutorial_rightanswers_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med RightAnswers baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i RightAnswers är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i RightAnswers upprättas.
-
-I RightAnswers, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med RightAnswers baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i RightAnswers upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med RightAnswers, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare RightAnswers](#creating-a-rightanswers-test-user)**  – du har en motsvarighet för Britta Simon i RightAnswers som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera RightAnswers Single Sign-On](#configure-rightanswers-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare RightAnswers](#create-rightanswers-test-user)**  – du har en motsvarighet för Britta Simon i RightAnswers som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt RightAnswers program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med RightAnswers:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med RightAnswers:
 
-1. I Azure-portalen på den **RightAnswers** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **RightAnswers** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/rightanswers-tutorial/tutorial_rightanswers_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **RightAnswers domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/rightanswers-tutorial/tutorial_rightanswers_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.rightanswers.com/portal/ss/`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.rightanswers.com:<identifier>/portal`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [RightAnswers klienten supportteamet](https://www.rightanswers.com/contact-us/) att hämta dessa värden. 
- 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    ![RightAnswers domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
-    ![Konfigurera enkel inloggning](./media/rightanswers-tutorial/tutorial_rightanswers_certificate.png) 
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.rightanswers.com/portal/ss/`
 
-1. Klicka på knappen **Spara**.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.rightanswers.com:<identifier>/portal`
 
-    ![Konfigurera enkel inloggning](./media/rightanswers-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [RightAnswers klienten supportteamet](https://www.rightanswers.com/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Att konfigurera enkel inloggning på **RightAnswers** sida, som du behöver skicka de hämtade **XML-Metadata för** till [RightAnswers supportteam](https://www.rightanswers.com/contact-us/).
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    >[!NOTE]
-    >Supportteamet RightAnswers har att göra den faktiska SSO-konfigurationen.
-    >Du får ett meddelande när enkel inloggning har aktiverats för din prenumeration.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+6. På den **konfigurera RightAnswers** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-rightanswers-single-sign-on"></a>Konfigurera RightAnswers Single Sign-On
+
+Att konfigurera enkel inloggning på **RightAnswers** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [RightAnswers supportteam ](https://www.rightanswers.com/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+
+> [!NOTE]
+> Supportteamet RightAnswers har att göra den faktiska SSO-konfigurationen. Du får ett meddelande när enkel inloggning har aktiverats för din prenumeration.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/rightanswers-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/rightanswers-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/rightanswers-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/rightanswers-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-rightanswers-test-user"></a>Skapa en RightAnswers testanvändare
+
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till RightAnswers.
+
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **RightAnswers**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **RightAnswers**.
+
+    ![Länken RightAnswers i listan med program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-rightanswers-test-user"></a>Skapa RightAnswers testanvändare
 
 Om du vill aktivera Azure AD-användare att logga in på RightAnswers, måste de etableras i RightAnswers. När RightAnswers, etablering är en automatisk uppgift så det finns inga uppgift åt dig.
 
 Användare skapas automatiskt om det behövs under det första enkla inloggning för försöket.
 
->[!NOTE]
->Du kan använda alla andra RightAnswers användare konto verktyg för att skapa eller API: er som tillhandahålls av RightAnswers att etablera AAD-användarkonton.
+> [!NOTE]
+> Du kan använda alla andra RightAnswers användare konto verktyg för att skapa eller API: er som tillhandahålls av RightAnswers att etablera AAD-användarkonton.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till RightAnswers.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-![Tilldela användare][200] 
+När du klickar på panelen RightAnswers i åtkomstpanelen, bör det vara loggas in automatiskt till RightAnswers som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-**Om du vill tilldela Britta Simon RightAnswers, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **RightAnswers**.
-
-    ![Konfigurera enkel inloggning](./media/rightanswers-tutorial/tutorial_rightanswers_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-Öppna panelen om du vill testa dina inställningar för enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/rightanswers-tutorial/tutorial_general_01.png
-[2]: ./media/rightanswers-tutorial/tutorial_general_02.png
-[3]: ./media/rightanswers-tutorial/tutorial_general_03.png
-[4]: ./media/rightanswers-tutorial/tutorial_general_04.png
-
-[100]: ./media/rightanswers-tutorial/tutorial_general_100.png
-
-[200]: ./media/rightanswers-tutorial/tutorial_general_200.png
-[201]: ./media/rightanswers-tutorial/tutorial_general_201.png
-[202]: ./media/rightanswers-tutorial/tutorial_general_202.png
-[203]: ./media/rightanswers-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

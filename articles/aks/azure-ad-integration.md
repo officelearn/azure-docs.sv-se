@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: db92526bd02ba55be5df7ce6999e3099e72b8fa5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116787"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574298"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) kan konfigureras för att använda Azure Active Directory (AD) för autentisering av användare. I den här konfigurationen kan du logga in på ett AKS-kluster med hjälp av din Azure Active Directory-autentiseringstoken. Dessutom är klusteradministratörer kan konfigurera Kubernetes rollbaserad åtkomstkontroll (RBAC) baserat på en användares identitet eller directory gruppmedlemskap.
 
-Den här artikeln visar hur du distribuerar förutsättningarna för AKS och Azure AD och sedan hur du distribuerar ett Azure AD-aktiverade-kluster och skapa en grundläggande RBAC-roll i AKS-klustret.
+Den här artikeln visar hur du distribuerar förutsättningarna för AKS och Azure AD och sedan hur du distribuerar ett Azure AD-aktiverade-kluster och skapa en grundläggande RBAC-roll i AKS-kluster med Azure portal. Du kan också [slutföra de här stegen med Azure CLI][azure-ad-cli].
 
 Följande begränsningar gäller:
 
@@ -46,7 +46,7 @@ Första Azure AD-programmet används för att hämta en Azure AD medlemskap i an
 
 2. Välj **Manifest** och redigera den `groupMembershipClaims` värde att `"All"`.
 
-   Spara uppdateringarna när du är klar.
+   **Spara** uppdateringar när du är klar.
 
    ![Uppdatera medlemskap för alla](media/aad-integration/edit-manifest.png)
 
@@ -64,11 +64,11 @@ Första Azure AD-programmet används för att hämta en Azure AD medlemskap i an
 
    ![Ange program graph-behörigheter](media/aad-integration/read-directory.png)
 
-6. Under **DELEGERADE BEHÖRIGHETER**, markera kryssrutan bredvid **logga in och läsa användarprofil** och **läsa katalogdata**. Spara uppdateringarna när klar.
+6. Under **DELEGERADE BEHÖRIGHETER**, markera kryssrutan bredvid **logga in och läsa användarprofil** och **läsa katalogdata**. Välj **Välj** spara uppdateringarna.
 
    ![Ange program graph-behörigheter](media/aad-integration/delegated-permissions.png)
 
-   Välj **Done** (Klar).
+   Välj **klar**.
 
 7. Välj *Microsoft Graph* från listan över API: er, Välj **bevilja behörigheter**. Det här steget misslyckas om det aktuella kontot inte är en administratör.
 
@@ -96,11 +96,13 @@ Andra Azure AD-programmet används när du loggar in med Kubernetes CLI (kubectl
 
    ![Konfigurera behörigheter för programmet](media/aad-integration/select-api.png)
 
-3. Markera kryssrutan bredvid den och klicka på **Välj**.
+    Välj serverprogrammet och sedan **Välj**.
+
+3. Gå tillbaka till den *Lägg till API-åtkomst* fönstret Välj **Välj behörigheter**. Ange en bock under den *delegerade behörigheter* för åtkomst till ditt program, välj sedan **Välj**.
 
    ![Välj program för AKS AAD serverslutpunkt](media/aad-integration/select-server-app.png)
 
-   Välj **klar**
+   Gå tillbaka till den *Lägg till API-åtkomst* väljer **klar**.
 
 4. Välj din API-server i listan och välj sedan **bevilja behörigheter**:
 
@@ -259,3 +261,4 @@ Bästa metoder för identitets- och kontroll, se [bästa praxis för autentiseri
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md

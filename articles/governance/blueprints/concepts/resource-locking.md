@@ -3,17 +3,17 @@ title: Förstå resource låsning
 description: Läs mer om låsning alternativen för att skydda resurser när du tilldelar en skiss.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 232d823f364f9f98d1da1bade50ba369b898a57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60683022"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719745"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resource låsning i Azure skisser
 
@@ -53,6 +53,13 @@ När tilldelningen tas bort, tas lås som skapats av skisser bort. Resursen är 
 En RBAC [neka tilldelningar](../../../role-based-access-control/deny-assignments.md) neka åtgärd tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt den **skrivskyddad** eller **ta inte bort** alternativet. Neka-åtgärden läggs till av hanterade identiteten för skisstilldelningen och kan bara tas bort från artefakt resurser av samma hanterad identitet. Den här säkerhetsåtgärd tillämpar mekanismen för låsning och förhindrar att ta bort skissen låset utanför skisser.
 
 ![Skissen neka tilldelning på resursgrupp](../media/resource-locking/blueprint-deny-assignment.png)
+
+Den [neka rolltilldelningens egenskaper](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) i varje läge är följande:
+
+|Läge |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|Skrivskyddad |**\*** |**\*/ Läs** |SystemDefined (alla) |skiss tilldelning och användardefinierade i **excludedPrincipals** |Resursgrupp – _SANT_; Resurs - _FALSKT_ |
+|Ta inte bort |**\*/ delete** | |SystemDefined (alla) |skiss tilldelning och användardefinierade i **excludedPrincipals** |Resursgrupp – _SANT_; Resurs - _FALSKT_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager cachelagrar rollen tilldelningsinformation för upp till 30 minuter. Därför kan neka tilldelningar neka åtgärdens på skiss resurser inte kanske omedelbart i fulla effekten. Under denna tidsperiod kan det vara möjligt att ta bort en resurs som ska skyddas av skiss Lås.

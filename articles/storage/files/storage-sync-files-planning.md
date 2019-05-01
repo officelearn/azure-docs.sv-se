@@ -9,11 +9,11 @@ ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766859"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696522"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.

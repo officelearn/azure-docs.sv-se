@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c1b3282417cd95f1aaff472890ec655e4c5a983f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 089334d32ca54035abfbf59446366ecbe3378c15
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852979"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919740"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Köra en anpassad Windows-container i Azure (förhandsversion)
 
@@ -178,7 +178,7 @@ Om du vill uppmana App Service att hämta den nya avbildningen från Docker Hub 
 
 Du kan använda en annan anpassad Docker-avbildning för att köra appen. Men du måste välja rätt [överordnad avbildning](https://docs.docker.com/develop/develop-images/baseimages/) för det ramverk du vill använda: 
 
-- Om du vill distribuera appar med .NET Framework, använder du en överordnad avbildning baserat på Windows Server Core 2019 [Long-Term Servicing kanal (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) versionen. 
+- Om du vill distribuera appar med .NET Framework, använder du en överordnad avbildning baserat på Windows Server Core 2019 [Long-Term Servicing kanal (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) versionen. 
 - Om du vill distribuera .NET Core-appar använder du en överordnad avbildning baserat på Windows Server Nano 1809 [Halvårskanal Servicing kanal SAC ()](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) versionen. 
 
 Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men du kan minska starttiden genom att använda någon av följande överordnade avbildningar som redan har cachelagrats i Azure App Service:

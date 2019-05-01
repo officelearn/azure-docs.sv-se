@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 75a7424f6c3bb6ef13de9e44b46489ab1ef0fbcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792988"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690560"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrofåterställning till Azure för Hyper-V-datorer med PowerShell och Azure Resource Manager
 
@@ -107,7 +107,7 @@ Ange valvkontexten på följande sätt:
 ## <a name="step-5-install-the-provider-and-agent"></a>Steg 5: Installera providern och agenten
 
 1. Hämta installationsprogrammet för den senaste versionen av providern från [Microsoft](https://aka.ms/downloaddra).
-2. Kör installationsprogrammet på theHyper-V-värd.
+2. Kör installationsprogrammet på Hyper-V-värden.
 3. Fortsätta att registreringssteget i slutet av installationen.
 4. När du uppmanas, ange den hämta nyckeln och slutför registreringen av Hyper-V-värden.
 5. Kontrollera att Hyper-V-värd har registrerats till webbplatsen på följande sätt:

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466654"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926513"
 ---
 # <a name="azure-media-player-overview"></a>Översikt över Azure Media Player
 
@@ -24,7 +24,7 @@ Azure Media Player är en web videospelare som utformats för att spela upp medi
 
 Microsoft Azure Media Services kan innehåll tillhandahålls med HLS, DASH, Smooth Streaming strömningsformat att spela upp innehåll. Azure Media Player tar hänsyn till dessa olika format och spelar automatiskt den bästa länk beroende på plattform webbläsarkapacitet. Media Services kan även användas för dynamisk kryptering av tillgångar med PlayReady-kryptering eller AES-128 bitars kuvert-kryptering. Azure Media Player möjliggör med PlayReady och AES-128 bitars krypterat innehåll när korrekt konfigurerad. 
 
-[Starta din kostnadsfria utvärderingsversion](https://azure.microsoft.com/en-us/pricing/free-trial/)
+[Starta din kostnadsfria utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Med hjälp av sidan för Azure Media Player-demon
 

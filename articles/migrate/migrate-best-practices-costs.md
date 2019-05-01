@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 48ce99bd830d2c35e5cb9703d2ef754a602d534b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790666"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926157"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Metodtips för tar och storlek arbetsbelastningar migreras till Azure
 
@@ -331,7 +331,7 @@ Efter migreringen, efter en grundlig genomgång av dessa typer av uppgifter kan 
 
 **Lära sig mer:**
 - [Lär dig mer om](https://azure.microsoft.com/services/functions/) Azure Functions
-- [Läs mer om](https://azure.microsoft.com/en-us/services/batch/) Azure Batch
+- [Läs mer om](https://azure.microsoft.com/services/batch/) Azure Batch
   
 ## <a name="next-steps"></a>Nästa steg 
 

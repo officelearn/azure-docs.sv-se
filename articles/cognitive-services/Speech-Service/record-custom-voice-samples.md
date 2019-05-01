@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 12/06/2018
+ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60481988"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866550"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Post voice-exempel för att skapa en anpassad röst
 
@@ -110,7 +109,7 @@ Som tur är kan går det att undvika de här problemen helt och hållet. Det fin
 |-|-|
 |[CMU Arctic Kristi](http://festvox.org/cmu_arctic/)|Om 1100 meningar som valts ut av upphovsrätt som ska användas i tal syntes projekt. En utmärkt utgångspunkt.|
 |Fungerar inte längre<br>upphovsrätten|Vanligtvis publicerade fungerar innan 1923. För engelska, [projekt Gutenberg](https://www.gutenberg.org/) erbjuder tiotusentals sådana verk. Du kanske vill fokusera på nyare fungerar som språket är närmare moderna engelska.|
-|Government&nbsp;fungerar|Fungerar som skapats av USA: S regering är inte upphovsrättsskyddade i USA, även om den offentliga sektorn kan göra anspråk på copyright i andra länder.|
+|Government&nbsp;fungerar|Fungerar som skapats av USA: S regering är inte upphovsrättsskyddade i USA, även om den offentliga sektorn kan göra anspråk på copyright i andra länder/regioner.|
 |Allmän egendom|Fungerar för vilka copyright har uttryckligen anges eller som har varit dedikerad till den offentliga domänen. Det kanske inte går att avstå från copyright helt i vissa jurisdiktioner.|
 |Permissively licensierad fungerar|Fungerar som distribueras under en licens som Creative Commons eller GNU kostnadsfri dokumentation licens (GFDL). Wikipedia använder GFDL. Vissa licenser, men kan införa begränsningar för prestanda för licensierade innehåll som kan påverka skapandet av en anpassad voice-modell, så Läs noggrant.|
 

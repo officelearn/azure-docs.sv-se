@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60568508"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573822"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudier: Skapa din första datafabrik med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
@@ -209,16 +209,16 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
     ```
     Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
-   | Egenskap  | Beskrivning |
-   |:--- |:--- |
-   | typ |Egenskapen type sätts till **AzureBlob** eftersom data finns i bloblagringen. |
-   | linkedServiceName |Refererar till den AzureStorageLinkedService du skapade tidigare. |
-   | folderPath | Anger vilken blobcontainer och mapp som innehåller indatablobar. | 
-   | fileName |Den här egenskapen är valfri. Om du utelämnar den här egenskapen väljs alla filer från folderPath. I den här självstudien bearbetas bara filen input.log. |
-   | typ |Loggfilerna är i textformat, så använd **TextFormat**. |
-   | columnDelimiter |Kolumnerna i loggfilerna avgränsas med kommatecken (`,`). |
-   | frekvens/intervall |frequency sätts till **Month** (månad) och interval till **1**, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
-   | extern | Den här egenskapen sätts till **true** om indata inte genereras i denna pipeline. I den här självstudien genereras inte input.log-filen i denna pipeline, så vi sätter egenskapen till **true**. |
+   | Egenskap  | Kapslat under | Beskrivning |
+   |:--- |:--- |:--- |
+   | typ | properties |Egenskapen type sätts till **AzureBlob** eftersom data finns i bloblagringen. |
+   | linkedServiceName | Format |Refererar till den AzureStorageLinkedService du skapade tidigare. |
+   | folderPath | typeProperties | Anger vilken blobcontainer och mapp som innehåller indatablobar. | 
+   | fileName | typeProperties |Den här egenskapen är valfri. Om du utelämnar den här egenskapen väljs alla filer från folderPath. I den här självstudien bearbetas bara filen input.log. |
+   | typ | Format |Loggfilerna är i textformat, så använd **TextFormat**. |
+   | columnDelimiter | Format |Kolumnerna i loggfilerna avgränsas med kommatecken (`,`). |
+   | frekvens/intervall | availability |frequency sätts till **Month** (månad) och interval till **1**, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
+   | extern | properties | Den här egenskapen sätts till **true** om indata inte genereras i denna pipeline. I den här självstudien genereras inte input.log-filen i denna pipeline, så vi sätter egenskapen till **true**. |
 
     Mer information om de här JSON-egenskaperna finns i [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).
 

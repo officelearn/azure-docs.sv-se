@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341650"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573378"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database i ordlista
 
@@ -39,6 +39,7 @@ Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
 ||Databas för generell användning|En databas skapas inom eller flyttas till tjänstenivå för generell användning för den vCore-baserade inköpsmodellen|
 ||Storskalig databas|En databas skapas inom eller flyttas till hyperskala tjänstenivå för den vCore-baserade inköpsmodellen|
 ||Kritisk Business-databas|En databas skapas inom eller flyttas till företag kritiska tjänstenivå för den vCore-baserade inköpsmodellen|
+||Etablerade databaslagring|En databas som konfigurerats i den etablerade Beräkningsnivån|
 |[Inköp och resurser](sql-database-purchase-models.md)|DTU-baserade inköpsmodellen|[DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md)|
 ||Köpmodell baserad på virtuell kärna|[vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md)|
 ||virtuell kärna|En kärna som fått gästoperativsystemet av hypervisor-programmet.|

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917098"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726854"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Utför du direktsänd strömning med Media Services för att skapa dataströmmar med flera bithastigheter med Azure portal  
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 
 1. Anslut en videokamera till en dator. <br/>Tips för installationen kan ta en titt [enkel och portabel video gear Händelseinställningar]( https://link.medium.com/KNTtiN6IeT).
 
-    Om du inte har åtkomst till en kamera verktyg som [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kan användas för Generera en direktsändningen från en videofil.
+    Om du inte har åtkomst till en kamera verktyg som [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) kan användas för Generera en direktsändningen från en videofil.
 1. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
 
     Det här steget kan också utföras när du har skapat din kanal.

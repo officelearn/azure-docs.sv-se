@@ -1,5 +1,5 @@
 ---
-title: 'Bästa praxis när du använder API: T för Avvikelseidentifiering detektor'
+title: Metodtips när du använder API:et för avvikelseidentifiering
 description: 'Läs mer om bästa praxis när du söker efter avvikelser med API: T för Avvikelseidentifiering detektor.'
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484050"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692203"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Metodtips för API: T för Avvikelseidentifiering detektor
 
@@ -25,6 +25,29 @@ Avvikelseidentifiering detektor API är en tillståndslös avvikelseidentifierin
 * Antalet datapunkter i API-begäran. 
 
 Använd den här artikeln om du vill veta mer om bästa praxis för att använda API: et får bästa resultat för dina data. 
+
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>När du ska använda batch (hela) eller senaste (senaste) pekar avvikelseidentifiering
+
+Avvikelseidentifiering detektor API batch identifiering slutpunkt kan du identifiera avvikelser genom hela times series-data. I det här identifieringsläget, skapas en enda statistisk modell och tillämpas på varje punkt i datauppsättningen. Om din tidsserier har den nedan egenskaper, vi rekommenderar att du använder batch-identifiering förhandsgranska data i ett API-anrop.
+
+* En säsongens tidsserie, med tillfällig avvikelser.
+* En fast trend tidsserie, med tillfälliga toppar/dalar. 
+
+Vi rekommenderar inte med hjälp av batch-avvikelseidentifiering för realtidsdata övervakning eller används i time series-data som inte har ovan egenskaper. 
+
+* Identifiering av batch skapar och gäller endast en modell, identifiering för varje punkt sker i samband med hela serien. Om time series datatrender uppåt och nedåt utan säsongsberoende, några saker för ändrar (dalar och toppar i data) kan missas i modellen. På samma sätt kan räknas några saker av ändring som är mindre viktig än de som senare i datauppsättningen inte betydelse i modellen.
+
+* Batch-identifiering är långsammare än identifiering av avvikelser status för den senaste tidpunkten när du gör realtidsdata övervakning, på grund av antalet punkter som analyseras.
+
+För övervakning av data i realtid rekommenderar vi att identifiera avvikelser statusen för din senaste datapunkt endast. Genom att kontinuerligt tillämpa den senaste återställningspunkt identifiering, kan strömmande data övervakning göras mer effektivt och korrekt.
+
+Exemplet nedan beskriver påverkan dessa identifiering lägen kan ha på prestanda. Den första bilden visar resultatet av kontinuerligt identifiering av avvikelser status senaste punkt längs 28 tidigare visad datapunkter. Avvikelser är röda punkter.
+
+![En bild som visar avvikelseidentifiering med hjälp av den senaste tidpunkten](../media/last.png)
+
+Nedan är samma data med hjälp av batch-avvikelseidentifiering. Modellen som byggts för åtgärden har ignorerats flera avvikelser som markerats av rektanglar.
+
+![En bild som visar avvikelseidentifiering med batch-metoden](../media/entire.png)
 
 ## <a name="data-preparation"></a>Förberedelse av data
 

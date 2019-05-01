@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490052"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694121"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -52,7 +52,7 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Uppdatera Azure VM-agenten och tillägg versioner
 
-Azure Disk Encryption-åtgärder misslyckas på avbildningar av virtuella datorer med hjälp av stöds inte versioner av Azure VM-agenten. Mer information finns i [minsta version som stöds för agenter på virtuella datorer i Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+Azure Disk Encryption-åtgärder misslyckas på avbildningar av virtuella datorer med hjälp av stöds inte versioner av Azure VM-agenten. Linux-avbildningar med agentversioner tidigare än 2.2.38 ska uppdateras innan du aktiverar krypteringen. Mer information finns i [så här uppdaterar du Azure Linux Agent på en virtuell dator](../virtual-machines/extensions/update-linux-agent.md) och [minsta version som stöds för agenter på virtuella datorer i Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 Det krävs också att rätt version av tillägget Microsoft.Azure.Security.AzureDiskEncryption eller Microsoft.Azure.Security.AzureDiskEncryptionForLinux gäst-agenten. Tillägget versioner underhålls och uppdateras automatiskt av plattformen när Azure VM agent krav är uppfyllda och en version som stöds av virtuella datorns agent används.
 

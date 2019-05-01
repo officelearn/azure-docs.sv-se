@@ -5,15 +5,15 @@ manager: kfile
 description: Lär dig att ansluta till Azure Analysis Services med Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 5d021aa7a6d55bb071340ebcd8e7090a4b0c2e2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ea2a6612a568d4080a8df2c569f79aaaa283e9c4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60788252"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702845"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Självstudie: Ansluta med Power BI Desktop
 
@@ -71,4 +71,4 @@ Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera ser
 Om du inte behöver rapporten längre behöver du inte spara den. Du kan också ta bort filen om du har sparat den.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du lärt dig att använda Power BI Desktop för att ansluta till en datamodell på en server och skapa en enkel rapport. Om du inte vet hur man skapar en datamodell kan du se [självstudien för Adventure Works-tabellobjektsmodell](aas-adventure-works-tutorial.md).
+I den här självstudien har du lärt dig att använda Power BI Desktop för att ansluta till en datamodell på en server och skapa en enkel rapport. Om du inte är bekant med att skapa en datamodell, finns i den [Adventure Works Internet Sales tabelldata modellering självstudien](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) i SQL Server Analysis Services-dokumenten.

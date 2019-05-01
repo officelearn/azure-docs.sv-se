@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: raynew
 ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62733975"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685938"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.

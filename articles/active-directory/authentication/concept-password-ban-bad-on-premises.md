@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 644054960e12979c231bbf50a5979bc12d343f89
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415862"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694773"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Använda Azure AD-lösenordsskydd för Windows Server Active Directory
 
-Azure AD-lösenordsskydd är en funktion som förbättrar lösenordsprinciper i en organisation. Lösenordsskydd i den lokala distributionen använder båda globala och anpassade förbjudna lösenord listorna som lagras i Azure AD. Detta sker i samma kontroller på plats som Azure AD för molnbaserad ändringar.
+Azure AD-lösenordsskydd är en funktion som förbättrar lösenordsprinciper i en organisation. Lokal distribution av lösenordsskydd använder båda globala och anpassade förbjudna lösenord listorna som lagras i Azure AD. Detta sker i samma kontroller på plats som Azure AD för molnbaserad ändringar.
 
 ## <a name="design-principles"></a>Designprinciper
 

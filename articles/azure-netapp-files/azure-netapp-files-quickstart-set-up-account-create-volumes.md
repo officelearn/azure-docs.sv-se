@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure NetApp filer och skapa en NFS-volym | Microsoft Docs
-description: Beskriver hur du snabbt ställa in Azure NetApp filer och skapa en volym.
+title: Snabbstart – Ställ in upp Azure NetApp filer och skapa en NFS-volymen | Microsoft Docs
+description: Snabbstart – beskriver hur du snabbt ställa in Azure NetApp filer och skapa en volym.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 5b9e85da29b3130d5183f577a7d83d164e217310
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f0f3dea1c30790bb109d7cb7af07abd8fbb1ace4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759858"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702884"
 ---
-# <a name="set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Konfigurera Azure NetApp filer och skapa en NFS-volym 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabbstart: Konfigurera Azure NetApp filer och skapa en NFS-volym 
 
 Den här artikeln visar hur du snabbt ställa in Azure NetApp filer och skapa en volym. 
+
+I den här snabbstarten ställer du in följande objekt:
+
+- Registrering för Azure NetApp filer och NetApp-Resursprovidern
+- NetApp-konto
+- Poolen kapacitet
+- En NFS-volymen för Azure NetApp-filer
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 
@@ -33,7 +42,7 @@ Du behöver delta i programmet för allmänt tillgängliga förhandsversioner oc
 
 1. Klicka på ikonen Azure Cloud Shell i det övre högra hörnet i Azure Portal.
 
-      ![Azure Cloud Shell-ikonen](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
+    ![Azure Cloud Shell-ikonen](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell-window.png)
 
 2. Ange den prenumeration som har varit godkänd för Azure NetApp-filer:
     
@@ -130,7 +139,31 @@ Du behöver delta i programmet för allmänt tillgängliga förhandsversioner oc
 
     ![Volym som har skapats](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du är klar, och om du vill kan du ta bort resursgruppen. Åtgärd för att ta bort en resursgrupp kan inte ångras.  
+
+> [!IMPORTANT]
+> Alla resurser i resursgrupper tas bort permanent och kan inte ångras. 
+
+1. I sökrutan i Azure portal anger **Azure NetApp Files** och välj sedan **Azure NetApp Files** från listan som visas.
+
+2. Klicka på resursgruppen (myRG1) som du vill ta bort i listan över prenumerationer. 
+
+    ![Gå till resursgrupper](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+
+
+3. I sidan med resursgrupper klickar du på **ta bort resursgrupp**.
+
+    ![Ta bort resursgrupp](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+
+    Ett fönster öppnas och visar en varning om vilka resurser som tas bort med resursgruppen.
+
+4. Ange namnet på resursgruppen (myRG1) att bekräfta att du vill ta bort resursgruppen och alla resurser i den och klicka sedan på **ta bort**.
+
+    ![Ta bort resursgrupp](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+
 ## <a name="next-steps"></a>Nästa steg  
 
-* [Förstå lagringshierarkin för Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Hantera volymer med hjälp av Azure NetApp filer](azure-netapp-files-manage-volumes.md) 
+> [!div class="nextstepaction"]
+> [Hantera volymer med hjälp av Azure NetApp filer](azure-netapp-files-manage-volumes.md)  

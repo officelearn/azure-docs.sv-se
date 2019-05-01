@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: b07a932ef048aa894af990baa57b87529d9da3aa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098394"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717403"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa en icke-interaktiv autentisering .NET HDInsight-program
 Du kan köra ditt Microsoft .NET Azure HDInsight-program under programmets egen identitet (icke-interaktivt) eller under identiteten för den inloggade användaren av programmet (interaktivt). Den här artikeln visar hur du skapar en icke-interaktiv autentisering .NET-program för att ansluta till Azure och hantera HDInsight. Ett exempel på ett interaktivt program, se [Anslut till Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 

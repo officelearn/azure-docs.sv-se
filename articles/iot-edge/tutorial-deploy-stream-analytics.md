@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Distribuera ett Azure Stream Analytics-jobb till en enhet – Azure IoT Edge | Microsoft Docs'
-description: I den här självstudien distribuerar du Azure Stream Analytics som en modul till en Iot Edge-enhet
+description: I den här självstudien distribuerar du Azure Stream Analytics som en modul till en IoT Edge-enhet
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,14 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: cea0d091620d53892f3334306a341b196765879d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096291"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575883"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudier: Distribuera Azure Stream Analytics som en IoT Edge-modul
 
 Många IoT-lösningar använder analystjänster för att få information om data när de tas emot i molnet från IoT-enheter. Med Azure IoT Edge kan du använda logik från [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) och flytta den till själva enheten. Du kan minska hur mycket data som överförs och minska tiden det tar att reagera på insikter genom att bearbeta telemetriströmmar på gränsen.
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 En Azure IoT Edge-enhet:
 
-* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Du kan använda en Azure virtuell dator som en IoT Edge-enhet genom att följa stegen i snabbstarten för [Linux](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
 
 Molnresurser:
 
@@ -233,11 +233,9 @@ Du bör kunna se datortemperaturen öka gradvis till den når 70 grader i 30 sek
 
 Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
-Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
+I annat fall kan du ta bort de lokala konfigurationerna och Azure-resurser som du använt i den här artikeln för att undvika avgifter. 
  
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Nästa steg

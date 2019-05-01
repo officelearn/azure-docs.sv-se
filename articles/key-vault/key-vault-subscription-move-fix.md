@@ -2,23 +2,19 @@
 title: Ändra den nyckelvalvsklient-ID efter en prenumerationsflytt - Azure Key Vault | Microsoft Docs
 description: Lär dig hur du växlar klient-ID för ett nyckelvalv när en prenumeration flyttas till en annan klient
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: a83bff5a494ce338f43b6e967df5fe67cacfab01
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f32146697be234a8a288ff991b1f7adf6e76dc7e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112197"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724492"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Ändra nyckelvalvsklient-ID efter en prenumerationsflytt
 

@@ -3,19 +3,19 @@ title: Ställ in logga in med LinkedIn-konto med hjälp av anpassade principer �
 description: Ställ in logga in med ett LinkedIn-konto i Azure Active Directory B2C med anpassade principer.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/23/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bf1126a7015e668f3770835535b81c93d01cbda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 204e6ef27e4e8db89bdeb22a25ad847ec5c6bcfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387085"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706783"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett LinkedIn-konto med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Om du vill använda LinkedIn som en identitetsprovider i Azure AD B2C måste du 
 Du behöver lagra klienthemlighet som tidigare registrerades i din Azure AD B2C-klient.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer **Identitetsramverk**.
 5. Välj **Principnycklar** och välj sedan **Lägg till**.
@@ -95,8 +95,8 @@ Du kan definiera en LinkedIn-konto som en anspråksprovider genom att lägga til
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
           </OutputClaims>
@@ -204,7 +204,7 @@ Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Å
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C-program
 
-Kommunikation med Azure AD B2c sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
+Kommunikation med Azure AD B2C sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din klient.
@@ -224,67 +224,6 @@ Uppdatera filen för förlitande part (RP) som initierar användarresa som du sk
 4. Uppdatera värdet för den **ReferenceId** attributet i **DefaultUserJourney** att matcha ID för den nya användarresa som du skapade (SignUpSignLinkedIn).
 5. Spara dina ändringar, överföra filen och välj sedan den nya principen i listan.
 6. Se till att Azure AD B2C-program som du skapat är markerad i den **Välj program** fältet och sedan testa den genom att klicka på **kör nu**.
-
-
-## <a name="register-the-claims-provider"></a>Registrera anspråksprovidern
-
-Nu identitetsprovidern har ställts in, men det finns inte i någon av skärmarna registrering eller inloggning. Du skapar en dubblett av en befintlig mall för användarresa så att den blir tillgänglig, och ändra den så att den har också LinkedIn-identitetsprovider.
-
-1. Öppna den *TrustFrameworkBase.xml* filen från startpaket.
-2. Hitta och kopiera hela innehållet i den **UserJourney** element som innehåller `Id="SignUpOrSignIn"`.
-3. Öppna den *TrustFrameworkExtensions.xml* och hitta den **UserJourneys** element. Om elementet inte finns kan du lägga till en.
-4. Klistra in hela innehållet i den **UserJourney** element som du kopierade som underordnad till den **UserJourneys** element.
-5. Byt namn på ID för användarresa. Till exempel `SignUpSignInLinkedIn`.
-
-### <a name="display-the-button"></a>Visa knappen
-
-Den **ClaimsProviderSelection** element är detsamma som en knapp med identity-providern på en skärm för registrering eller inloggning. Om du lägger till en **ClaimsProviderSelection** element för ett LinkedIn-konto, en ny knapp visas när en användare finns på sidan.
-
-1. Hitta den **OrchestrationStep** element som innehåller `Order="1"` i användarresan som du skapade.
-2. Under **ClaimsProviderSelects**, lägger du till följande element. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `LinkedInExchange`:
-
-    ```XML
-    <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>Länka knappen till en åtgärd
-
-Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Åtgärden, i det här fallet är för Azure AD B2C att kommunicera med ett LinkedIn-konto för att ta emot en token.
-
-1. Hitta den **OrchestrationStep** som innehåller `Order="2"` i användarresan.
-2. Lägg till följande **ClaimsExchange** element att se till att du använder samma värde för det ID som du använde för **TargetClaimsExchangeId**:
-
-    ```XML
-    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
-    ```
-    
-    Uppdatera värdet för **TechnicalProfileReferenceId** -ID: t för den tekniska profilen du skapade tidigare. Till exempel `LinkedIn-OAUTH`.
-
-3. Spara den *TrustFrameworkExtensions.xml* fil och ladda upp den igen för att bekräfta.
-
-## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C-program
-
-Kommunikation med Azure AD B2c sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj den **katalog- och prenumerationsfilter** på den översta menyn och välj den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **Program** och därefter **Lägg till**.
-5. Ange ett namn för programmet, till exempel *testapp1*.
-6. För **Webbapp / webb-API**väljer `Yes`, och ange sedan `https://jwt.ms` för den **svars-URL**.
-7. Klicka på **Skapa**.
-
-## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa filen förlitande part
-
-Uppdatera filen för förlitande part (RP) som initierar användarresa som du skapade.
-
-1. Skapa en kopia av *SignUpOrSignIn.xml* i din arbetskatalog och Byt namn på den. Exempel: Byt namn på den till *SignUpSignInLinkedIn.xml*.
-2. Öppna den nya filen och uppdatera värdet för den **PolicyId** attributet för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInLinkedIn`.
-3. Uppdatera värdet för **PublicPolicyUri** med URI: N för principen. Exempel:`http://contoso.com/B2C_1A_signup_signin_linkedin`
-4. Uppdatera värdet för den **ReferenceId** attributet i **DefaultUserJourney** att matcha ID för den nya användarresa som du skapade (SignUpSignLinkedIn).
-5. Spara dina ändringar, överföra filen och välj sedan den nya principen i listan.
-6. Se till att Azure AD B2C-program som du skapat är markerad i den **Välj program** fältet och sedan testa den genom att klicka på **kör nu**.
-
 
 ## <a name="migration-from-v10-to-v20"></a>Migrering från v1.0 till v2.0
 
@@ -385,14 +324,56 @@ Den **BuildingBlocks** elementet ska läggas till i den övre delen av filen. Se
 
 ### <a name="obtain-an-email-address"></a>Hämta en e-postadress
 
-Som en del av LinkedIn-migrering från v1.0 till v2.0 krävs ett extra anrop till en annan API för att hämta e-postadressen. Om du vill få e-postadress under registreringen, gör du följande:
+Som en del av LinkedIn-migrering från v1.0 till v2.0 krävs en ytterligare anrop till en annan API för att hämta e-postadressen. Om du vill få e-postadress under registreringen, gör du följande:
 
-1. Har Azure AD B2C federera med LinkedIn så att användarna loggar in. När det händer så skickas den åtkomst-token från LinkedIn till Azure AD B2C.
+1. Slutför stegen ovan så att Azure AD B2C att federera med LinkedIn så att användarna loggar in. Som en del av federationen får Azure AD B2C du åtkomst-token för LinkedIn.
 2. Spara LinkedIn-åtkomsttoken i ett anspråk. [Se anvisningarna här](idp-pass-through-custom.md).
-3. Anropa en Azure-funktion och skicka funktionen åtkomsttoken som samlats in i föregående steg. [Se anvisningarna här](active-directory-b2c-rest-api-step-custom.md)
-    1. Azure-funktionen ska ta åtkomsttoken och göra ett anrop till LinkedIn-API (`https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))`).
-    2. Azure-funktionen tar svaret och analyserar den e-postadressen.
-    3. E-postadressen returneras till principen.
-4. E-postadressen lagras i anspråket e-post och användarresa fortsätter på.
+3. Lägg till följande anspråksleverantören som gör en förfrågan till Linkedin's `/emailAddress` API. För att tillåta den här begäran måste LinkedIn-åtkomsttoken.
 
-Det är valfritt att hämta e-postadressen från LinkedIn under registreringen. Om du väljer att inte få e-postmeddelandet, krävs för användaren att manuellt ange den e-postadressen och verifiera den.
+    ```XML
+    <ClaimsProvider> 
+      <DisplayName>REST APIs</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="API-LinkedInEmail">
+          <DisplayName>Get LinkedIn email</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+              <Item Key="ServiceUrl">https://api.linkedin.com/v2/emailAddress?q=members&amp;projection=(elements*(handle~))</Item>
+              <Item Key="AuthenticationType">Bearer</Item>
+              <Item Key="UseClaimAsBearerToken">identityProviderAccessToken</Item>
+              <Item Key="SendClaimsIn">Url</Item>
+              <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
+          </Metadata>
+          <InputClaims>
+              <InputClaim ClaimTypeReferenceId="identityProviderAccessToken" />
+          </InputClaims>
+          <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="elements[0].handle~.emailAddress" />
+          </OutputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+4. Lägg till följande orkestreringssteget i användarresan så att anspråksleverantören API utlöses när en användare loggar in med LinkedIn. Se till att uppdatera den `Order` nummer på rätt sätt. Lägg till det här steget omedelbart efter orkestreringssteget som utlöser den tekniska LinkedIn-profilen.
+
+    ```XML
+    <!-- Extra step for LinkedIn to get the email -->
+    <OrchestrationStep Order="4" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+          <Value>identityProvider</Value>
+          <Value>linkedin.com</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="GetEmail" TechnicalProfileReferenceId="API-LinkedInEmail" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    ```
+
+Det är valfritt att hämta e-postadressen från LinkedIn under registreringen. Om du väljer att inte få e-postmeddelandet från LinkedIn men kräver en när du registrerar dig, krävs för användaren att manuellt ange den e-postadressen och verifiera den.
+
+Ett fullständigt exempel av en princip som använder identitetsprovider LinkedIn finns den [startpaket för anpassad princip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).

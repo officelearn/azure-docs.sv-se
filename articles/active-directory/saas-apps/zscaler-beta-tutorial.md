@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 56b846ae-a1e7-45ae-a79d-992a87f075ba
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b09e14bfee700750192c5a007cbb3140fd49d137
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7770cd5b12a14e69c00d93b1b518e5007afd9c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885495"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Självstudier: Azure Active Directory-integrering med Zscaler Beta
 
@@ -34,11 +35,11 @@ Integreringen av Zscaler Beta med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att konfigurera Azure AD-integrering med Zscaler Beta behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
 * Zscaler Beta-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -111,11 +112,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Zscal
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för Zscaler Beta](https://www.zscaler.com/company/contact) för att få värdet.
 
-5. Zscaler Beta-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+5. Zscaler Beta-program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
 
     ![image](common/edit-attribute.png)
 
-6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
+6. Dessutom ovan Zscaler Beta-program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
     
     | Namn | Källattribut | 
     | ---------------| --------------- |
@@ -158,9 +159,17 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Zscal
 
 ### <a name="configure-zscaler-beta-single-sign-on"></a>Konfigurera enkel inloggning för Zscaler Beta
 
-1. I ett annat webbläsarfönster loggar du in på din Zscaler Beta-företagsplats som administratör.
+1. Om du vill automatisera konfigurationen inom Zscaler Beta, måste du installera **Mina appar skyddat inloggning webbläsartillägget** genom att klicka på **installera tillägget**.
 
-2. Gå till **Administration > Autentisering > Autentiseringsinställningar** och utför följande steg:
+    ![Mina appar-tillägg](common/install-myappssecure-extension.png)
+
+2. När du lägger till tillägg till webbläsaren, klickar på **installationsprogrammet Zscaler Beta** omdirigerar dig till Zscaler Beta-programmet. Ange administratörsautentiseringsuppgifter för att logga in på Zscaler Beta därifrån. Webbläsartillägget automatiskt att konfigurera program för dig. och automatisera steg 3 – 6.
+
+    ![Installationskonfiguration](common/setup-sso.png)
+
+3. Om du vill konfigurera Zscaler Beta manuellt, öppna ett nytt webbläsarfönster och logga till Zscaler Beta företagets webbplatsen som administratör och utför följande steg:
+
+4. Gå till **Administration > Autentisering > Autentiseringsinställningar** och utför följande steg:
    
     ![Administration](./media/zscaler-beta-tutorial/ic800206.png "Administration")
 
@@ -168,7 +177,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Zscal
 
     b. Klicka på **Konfigurera SAML**.
 
-3. I fönstret **Redigera SAML** utför du följande steg och klickar på Spara.  
+5. I fönstret **Redigera SAML** utför du följande steg och klickar på Spara.  
             
     ![Hantera användare och autentisering](./media/zscaler-beta-tutorial/ic800208.png "Hantera användare och autentisering")
     
@@ -188,7 +197,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Zscal
 
     h. Klicka på **Spara**.
 
-4. I dialogrutan **Konfigurera användarautentisering** utför du följande steg:
+6. I dialogrutan **Konfigurera användarautentisering** utför du följande steg:
 
     ![Administration](./media/zscaler-beta-tutorial/ic800207.png)
 
@@ -245,8 +254,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

@@ -4,241 +4,218 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 525ad47d-5488-40e2-aeaf-ae6183745682
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/21/2018
+ms.topic: tutorial
+ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 941a02ef9ab3d623d34c8dc6996040f6d9e44859
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 836ef454e5bdb14fcc3f519f9c6d9f6dfb4b5703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096851"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686301"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Självstudier: Azure Active Directory-integrering med skärmbild-O – till
 
 I den här självstudien får du lära dig hur du integrerar skärmbild-O-till med Azure Active Directory (AD Azure).
-
 Integrera skärmbild-O-till med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till skärmbild-O-till.
-- Du kan aktivera användarna att automatiskt få loggat in på skärmbild-O-till (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till skärmbild-O-till.
+* Du kan aktivera användarna att vara automatiskt inloggad till skärmbild-O-till (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med skärmbild-O-till, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En skärmbild-O-till enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Skärmbild-O-till enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till skärmbild-O-till från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Skärmbild-O-till stöder **SP** -initierad SSO
+* Skärmbild-O-till stöder **Just In Time** etableringen av användare
 
 ## <a name="adding-screencast-o-matic-from-the-gallery"></a>Att lägga till skärmbild-O-till från galleriet
+
 För att konfigurera integrering av skärmbild – O-till i Azure AD, som du behöver lägga till skärmbild-O-till från galleriet i din lista över hanterade SaaS-appar.
 
 **Om du vill lägga till skärmbild-O-till från galleriet, utför du följande steg:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
 4. I sökrutan skriver **skärmbild-O-till**väljer **skärmbild-O-till** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skärmbild-O-till i listan med resultat](./media/screencast-tutorial/tutorial_screencast_addfromgallery.png)
+    ![Skärmbild-O-till i listan med resultat](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med skärmbild-O-till baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i skärmbild-O-till är att en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i skärmbild-O-till upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med skärmbild-O-till baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i skärmbild-O-till upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med skärmbild-O-till, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en skärmbild-O-till testanvändare](#create-a-screencast-o-matic-test-user)**  – du har en motsvarighet för Britta Simon i skärmbild-O-till som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera skärmbild-O-till enkel inloggning](#configure-screencast-o-matic-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa skärmbild-O-till testanvändare](#create-screencast-o-matic-test-user)**  – du har en motsvarighet för Britta Simon i skärmbild-O-till som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i skärmbild-O-till programmet.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med skärmbild-O-till:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med skärmbild-O-till:
 
-1. I Azure-portalen på den **skärmbild-O-till** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **skärmbild-O-till** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/screencast-tutorial/tutorial_screencast_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **skärmbild-O-till-domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Skärmbild-O-till-domän och URL: er med enkel inloggning för information](./media/screencast-tutorial/tutorial_screencast_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://screencast-o-matic.com/<InstanceName>`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [skärmbild-O-till klienten supportteamet](mailto:support@screencast-o-matic.com) att hämta värdet. 
- 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Länk för hämtning av certifikat](./media/screencast-tutorial/tutorial_screencast_certificate.png) 
+    ![Skärmbild-O-till-domän och URL: er med enkel inloggning för information](common/sp-signonurl.png)
 
-5. Klicka på **spara** knappen.
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://screencast-o-matic.com/<InstanceName>`
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/screencast-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [skärmbild-O-till klienten supportteamet](mailto:support@screencast-o-matic.com) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. I ett annat webbläsarfönster, logga in på skärmbild-O-till som administratör.
+4. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Metadata XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-7. Klicka på **prenumeration**.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+6. På den **konfigurera skärmbild-O-till** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-screencast-o-matic-single-sign-on"></a>Konfigurera skärmbild-O-till enkel inloggning
+
+1. I ett annat webbläsarfönster, loggar du in skärmbild-O-till som administratör.
+
+2. Klicka på **prenumeration**.
 
     ![Prenumerationen](./media/screencast-tutorial/tutorial_screencast_sub.png)
 
-8. Under **åtkomstsidan** avsnittet, klickar du på **installationsprogrammet**.
+3. Under **åtkomstsidan** avsnittet, klickar du på **installationsprogrammet**.
 
     ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_setup.png)
 
-9. På den **åtkomst installationssidan**, utför följande steg:
+4. På den **åtkomst installationssidan**, utför följande steg:
 
    * Under **URL: en för** Skriv din instansnamn i den angivna textrutan.
 
-     ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_access.png)
+    ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_access.png)
 
    * Välj **kräver domänanvändare** under **begränsning för SAML-användare (valfritt)** avsnittet.
 
    * Under **överför IDP XML-fil**, klickar du på **Välj fil** att ladda upp de metadata som du har hämtat från Azure-portalen.
 
-   * Klicka på **OK**. 
+   * Klicka på **OK**.
 
-     ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_save.png)
+    ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_save.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/screencast-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/screencast-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/screencast-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/screencast-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-screencast-o-matic-test-user"></a>Skapa en skärmbild-O-till testanvändare
-
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i skärmbild-O-till. Skärmbild-O-till stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt skärmbild-O-till om det inte finns ännu.
-
->[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [skärmbild-O-till klienten supportteamet](mailto:support@screencast-o-matic.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till skärmbild-O-till.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **skärmbild-O-till**.
 
-**Om du vill tilldela skärmbild-O-till Britta Simon, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **skärmbild-O-till**.
 
-    ![Skärmbild-O-till länken i listan med program](./media/screencast-tutorial/tutorial_screencast_app.png)  
+    ![Skärmbild-O-till länken i listan med program](common/all-applications.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-screencast-o-matic-test-user"></a>Skapa skärmbild-O-till testanvändare
+
+I det här avsnittet skapas en användare som kallas Britta Simon i skärmbild-O-till. Skärmbild-O-till stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i skärmbild-O-till, skapas en ny efter autentisering. Om du vill skapa en användare manuellt kan du kontakta [skärmbild-O-till klienten supportteamet](mailto:support@screencast-o-matic.com).
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen skärmbild-O-till åtkomstpanelen du bör få automatiskt loggat in på skärmbild-O-till programmet.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen skärmbild-O-till åtkomstpanelen bör det vara loggas in automatiskt till den skärmbild-O-till som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/screencast-tutorial/tutorial_general_01.png
-[2]: ./media/screencast-tutorial/tutorial_general_02.png
-[3]: ./media/screencast-tutorial/tutorial_general_03.png
-[4]: ./media/screencast-tutorial/tutorial_general_04.png
-
-[100]: ./media/screencast-tutorial/tutorial_general_100.png
-
-[200]: ./media/screencast-tutorial/tutorial_general_200.png
-[201]: ./media/screencast-tutorial/tutorial_general_201.png
-[202]: ./media/screencast-tutorial/tutorial_general_202.png
-[203]: ./media/screencast-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -9,11 +9,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766444"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706948"
 ---
 # <a name="what-is-azure-files"></a>Vad är Azure Files?
 Azure Files erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via [Server Message Block-protokollet (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) som är branschstandard. Azure-filresurser kan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS. Azure-filresurser kan dessutom cachelagras på Windows-servrar med Azure File Sync för snabb åtkomst nära den plats där data används.

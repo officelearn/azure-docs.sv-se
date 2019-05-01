@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906163"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875610"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information protection-principen i Azure Security Center (förhandsversion)
  
@@ -41,12 +41,11 @@ Information Protection levereras med en inbyggd uppsättning etiketter och typer
 ## <a name="customize-the-information-protection-policy"></a>Anpassa informationsskyddsprincipen
 Om du vill anpassa information protection-principen för din Azure-klient, måste du ha [administratörsbehörighet på klientens rot-hanteringsgruppen](security-center-management-groups.md). 
  
-1. I huvudmenyn i Security Center väljer **säkerhetsprincip**.
-2. Välj **hierarkisk vy (förhandsgranskning)**, och sedan under **klient rot grupp**, klickar du på **redigera inställningar för**.
- 
+1. I Security Center-huvudmenyn under **RESOURCE SECURITY hygien** gå till **Data och lagring** och klicka på den **SQL informationsskydd** knappen.
+
    ![Konfigurera Information protection-principen](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. Under **principkomponenter**, klickar du på **informationsskydd**. I den **Information protection-inställningar** kan du visa din aktuella uppsättningen etiketter. Det här är de viktigaste klassificering-attribut som används för att kategorisera Känslighetsnivån av dina data. Härifrån kan du konfigurera den **Information protection-etiketter** och **informationstyper** för klienten. 
+2. I den **SQL informationsskydd** kan du visa din aktuella uppsättningen etiketter. Det här är de viktigaste klassificering-attribut som används för att kategorisera Känslighetsnivån av dina data. Härifrån kan du konfigurera den **Information protection-etiketter** och **informationstyper** för klienten. 
  
 ### <a name="customizing-labels"></a>Anpassa etiketter
  

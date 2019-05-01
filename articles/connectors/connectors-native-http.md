@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447611"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713809"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Anropa HTTP eller HTTPS-slutpunkter med Azure Logic Apps
 
-Med Azure Logic Apps och Hypertext Transfer Protocol (HTTP)-anslutningstjänsten kan automatisera du arbetsflöden som kommunicerar med HTTP eller HTTPS-slutpunkten genom att skapa logikappar. Du kan till exempel övervaka tjänstslutpunkten för din webbplats. När en händelse inträffar vid den slutpunkten, till exempel din webbplats slutar fungera, händelsen utlöses logikappens arbetsflöde och kör de angivna åtgärderna. 
+Med Azure Logic Apps och Hypertext Transfer Protocol (HTTP)-anslutningstjänsten kan automatisera du arbetsflöden som kommunicerar med HTTP eller HTTPS-slutpunkten genom att skapa logikappar. Du kan till exempel övervaka tjänstslutpunkten för din webbplats. När en händelse inträffar vid den slutpunkten, till exempel din webbplats slutar fungera, händelsen utlöses logikappens arbetsflöde och kör de angivna åtgärderna.
 
 Du kan använda HTTP-utlösaren som det första steget i din arbetsflödet för att kontrollera eller *avsökning* en slutpunkt med jämna mellanrum. För varje kontroll utlösaren skickar ett anrop eller *begäran* till slutpunkten. Slutpunktens svaret avgör om din logikapp arbetsflödet körs. Utlösaren skickar med innehåll från svaret till åtgärder i din logikapp. 
 
-Du kan använda HTTP-åtgärden som andra steg i arbetsflödet för att anropa slutpunkten när du vill. Slutpunktens svaret avgör hur din återstående arbetsflödesåtgärder köras.
+Du kan använda HTTP-åtgärden som andra steg i arbetsflödet för att anropa slutpunkten när du vill. Slutpunktens svaret avgör hur din återstående arbetsflödesåtgärder köras. 
+
+Baserade kapaciteten för mål-slutpunkten, den här anslutningen har stöd för Transport Layer Security (TLS) version 1.0, 1.1 och 1.2. Logic Apps förhandlar med slutpunkten jämfört med den högsta versionen som stöds möjligt. Så, till exempel om slutpunkten stöder 1.2, anslutningsappen använder 1.2 först. Annars kan används anslutningen den nästa högsta versionen som stöds.
 
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
 * URL-Adressen för slutpunkten som mål som du vill anropa 
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361106"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699833"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth1 tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -67,7 +67,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Program-ID för identitetsprovidern. |
 | ProviderName | Nej | Namnet på identitetsprovidern. |
@@ -81,7 +81,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 Den **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | client_secret | Ja | Klienthemlighet för identitetsprogram för providern.   | 
 

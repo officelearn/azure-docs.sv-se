@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032443"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697843"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 I roten av projektet, det finns en delad [host.json](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har en mapp med en egen fil med kod (.js) och bindningen konfigurationsfil (function.json). Namnet på `function.json`'s överordnad katalog är alltid namnet på din funktion.
 
-Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](./functions-bindings-register.md#local-development-azure-functions-core-tools). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
+Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 
 ## <a name="exporting-a-function"></a>Exportera en funktion
 

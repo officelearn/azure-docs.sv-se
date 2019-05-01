@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fbb855db1ff5a2cf79826294365733614259e4b0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799360"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575742"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
@@ -132,7 +132,7 @@ Azure Maps-API är nu tillgänglig i alla länder/regioner förutom följande re
 * Pakistan
 * Sydkorea
 
-Kontrollera att platsen för din aktuella IP-adress som inte är i något av ovanstående stöds inte länder.
+Kontrollera att platsen för din aktuella IP-adress som inte är i något av de som inte stödda länder/regionerna ovan.
 
 ## <a name="next-steps"></a>Nästa steg
 

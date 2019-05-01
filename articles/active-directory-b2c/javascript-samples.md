@@ -1,5 +1,5 @@
 ---
-title: JavaScript-exempel för användning i Azure Active Directory B2C | Microsoft Docs
+title: JavaScript-exempel – Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du använder JavaScript i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -7,25 +7,28 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 972c8ec1b67161a3998a1b165072f584db2f7fbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397098"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570519"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel för användning i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Du kan lägga till egna klientens JavaScript-kod till din Azure Active Directory (Azure AD) B2C-program. Den här artikeln beskrivs hur du kan ändra din [användarflödet](user-flow-javascript-overview.md) eller [anpassad princip](active-directory-b2c-overview-custom.md) att aktivera körning av skript.
+Du kan lägga till egna klientens JavaScript-kod till din Azure Active Directory (Azure AD) B2C-program. Om du vill aktivera JavaScript för dina program, måste du lägga till ett element till din [anpassad princip](active-directory-b2c-overview-custom.md)väljer en [sidan kontrakt](page-contract.md), och använda [b2clogin.com](b2clogin.md) i dina önskemål. Den här artikeln beskrivs hur du kan ändra den anpassade principen för att aktivera körning av skript.
+
+> [!NOTE]
+> Om du vill aktivera JavaScript för användarflöden [JavaScript och sidan kontrakt-versioner i Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Välj en [sidan kontrakt](page-contract.md) för användargränssnittets delar av ditt program. Om du tänker använda JavaScript som du behöver definiera en sida kontrakt-version för alla dina innehållsdefinitioner i ditt användarflöde eller en anpassad princip.
+Markera ett sida-kontrakt för användargränssnittets delar av ditt program. Om du tänker använda JavaScript måste du definiera en sida kontrakt-version för alla dina innehållsdefinitioner i en egen princip.
 
 ## <a name="add-the-scriptexecution-element"></a>Lägg till elementet ScriptExecution
 
@@ -140,7 +143,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-I koden, Ersätt `termsOfUseUrl` med länken till din villkor för användning. Skapa ett nytt användarattribut som kallas för din katalog **termsOfUse** och inkludera **termsOfUse** som ett användarattribut för ditt användarflöde.
+I koden, Ersätt `termsOfUseUrl` med länken till din villkor för användning. Skapa ett nytt användarattribut som kallas för din katalog **termsOfUse** och inkludera **termsOfUse** som ett användarattribut.
 
 ## <a name="next-steps"></a>Nästa steg
 

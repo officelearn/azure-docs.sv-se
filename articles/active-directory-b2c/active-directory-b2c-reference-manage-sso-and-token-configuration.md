@@ -3,20 +3,19 @@ title: Hantera enkel inloggning och token anpassning med anpassade principer i A
 description: Lär dig hur du hanterar enkel inloggning och token anpassning med anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 04/01/2019
-ms.author: v-junlch
+ms.date: 10/09/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2033d37a4a847380003fb95243138082df804bbf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317181"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703385"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Hantera enkel inloggning och token anpassning med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +23,11 @@ Den här artikeln innehåller information om hur du kan hantera din token, sessi
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Livslängd och anspråk konfiguration
 
-Om du vill ändra inställningarna på din tokenlivslängder du lägger till en [ClaimsProviders](claimsproviders.md) elementet i filen förlitande part för den princip du vill påverka.  Den **ClaimsProviders** element är underordnad den [TrustFrameworkPolicy](trustframeworkpolicy.md) element. Inuti måste du placera den information som påverkar din livslängd för token. XML-koden ser ut som i följande exempel:
+Om du vill ändra inställningarna på din tokenlivslängder du lägger till en [ClaimsProviders](claimsproviders.md) elementet i filen förlitande part för den princip du vill påverka.  Den **ClaimsProviders** element är underordnad den [TrustFrameworkPolicy](trustframeworkpolicy.md) element. 
+
+Infoga elementet ClaimsProviders mellan BasePolicy-element och RelyingParty-elementet i filen förlitande part.
+
+Inuti måste du placera den information som påverkar din livslängd för token. XML-koden ser ut som i följande exempel:
 
 ```XML
 <ClaimsProviders>
@@ -101,4 +104,3 @@ Följande värden konfigureras i det förra exemplet:
 - **Enkel inloggning (SSO)** -enkel inloggning har konfigurerats med den **SingleSignOn**. Lämpliga värden är `Tenant`, `Application`, `Policy`, och `Suppressed`. 
 - **Webbappssession (minuter)** – app webbsessionen livslängd anges med den **SessionExpiryInSeconds** element. Standardvärdet är 86400 sekunder (1 440 minuter).
 - **Web app sessionstimeout** – app webbsessionen timeouten anges med den **SessionExpiryType** element. Lämpliga värden är `Absolute` och `Rolling`.
-

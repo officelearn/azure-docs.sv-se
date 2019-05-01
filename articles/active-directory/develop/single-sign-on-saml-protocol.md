@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250514"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705003"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Enkel inloggning SAML-protokoll
 
@@ -49,9 +49,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| ID | Obligatoriskt | Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att åtkomstgruppen liknande ”id” till strängrepresentation av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt-ID. |
-| Version | Obligatoriskt | Den här parametern anges till **2.0**. |
-| IssueInstant | Obligatoriskt | Det här är ett DateTime-sträng med ett UTC-värde och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD måste ha ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
+| ID | Krävs | Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att åtkomstgruppen liknande ”id” till strängrepresentation av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt-ID. |
+| Version | Krävs | Den här parametern anges till **2.0**. |
+| IssueInstant | Krävs | Det här är ett DateTime-sträng med ett UTC-värde och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD måste ha ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
 | AssertionConsumerServiceUrl | Valfri | Om den här parametern måste matcha den `RedirectUri` av Molntjänsten i Azure AD. |
 | ForceAuthn | Valfri | Det här är ett booleskt värde. Om värdet är SANT innebär det att användaren tvingas att autentisera igen, även om de har en giltig session med Azure AD. |
 | IsPassive | Valfri | Det här är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användarinteraktion, med hjälp av sessions-cookie om en sådan finns. Om det stämmer, försöker Azure AD autentiserar användaren med sessions-cookie. |
@@ -90,7 +90,7 @@ Om `NameIDPolicy` anges så du kan inkludera dess valfritt `Format` attribut. De
 Azure AD ignorerar den `AllowCreate` attribut.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-Den `RequestedAuthnContext` elementet anger önskad autentiseringsmetoder. Det är valfritt i `AuthnRequest` element som skickas till Azure AD. Azure AD stöder bara en `AuthnContextClassRef` värde: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+Den `RequestedAuthnContext` elementet anger önskad autentiseringsmetoder. Det är valfritt i `AuthnRequest` element som skickas till Azure AD. Azure AD stöder `AuthnContextClassRef` värden som `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Ange omfång
 Den `Scoping` element som innehåller en lista över identitetsleverantörer, är valfritt i `AuthnRequest` element som skickas till Azure AD.

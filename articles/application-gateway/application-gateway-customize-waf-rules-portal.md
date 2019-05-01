@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733724"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720394"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Anpassa brandväggsregler för webbaserade program via Azure portal
 
@@ -33,11 +33,14 @@ Azure Application Gateway brandväggen för webbaserade program (WAF) ger skydd 
 
 ## <a name="search-for-rules-to-disable"></a>Sök efter regler för att inaktivera
 
-Den **brandväggsinställningar för webbprogram** bladet ger dig möjlighet att filtrera regler via en textsökning. Resultatet visar endast regelgrupper och regler som innehåller den text du söker efter.
+Den **brandväggsinställningar för webbprogram** sidan ger dig möjlighet att filtrera regler via en textsökning. Resultatet visar endast regelgrupper och regler som innehåller den text du söker efter.
 
 ![Sök efter regler][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Inaktivera regelgrupper och -regler
+
+> [!IMPORTANT]
+> Var försiktig när du inaktiverar regelgrupper eller regler. Detta kan medföra att du till ökade säkerhetsrisker.
 
 När du inaktiverar regler kan inaktivera du en för hela regelgruppen eller särskilda regler under en eller flera regelgrupper. 
 
@@ -51,7 +54,9 @@ När du inaktiverar regler kan inaktivera du en för hela regelgruppen eller sä
 
 ## <a name="mandatory-rules"></a>Obligatoriska regler
 
-I följande lista innehåller villkor som gör att WAF för att blockera begäran i Förhindringsläge (i identifieringsläge loggas som undantag). Dessa kan inte vara konfigurerad eller inaktiverad:
+I följande lista innehåller villkor som gör att WAF för att blockera begäran i Förhindringsläge. I identifieringsläge, är användaren inloggad som undantag.
+
+Dessa kan inte vara konfigurerad eller inaktiverad:
 
 * Det gick inte att parsa begärandetexten resulterar i begäran blockeras, såvida inte brödtext inspektion stängs av (XML, JSON, formulärdata)
 * Datalängden för begäran brödtext (utan att några filer) är större än den konfigurerade gränsen

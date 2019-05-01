@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/25/2019
+ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833921"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706095"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrera certifikat för TDE skyddad databas till Azure SQL Database Managed Instance
 
@@ -31,9 +31,9 @@ När du migrerar en databas som skyddas av [Transparent datakryptering](https://
 Ett annat alternativ som använder en helt hanterad tjänst för smidig migrering av både TDE-skyddad databas och motsvarande certifikat finns på sidan om [hur du migrerar din lokala databas till hanterad instans med hjälp av Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Transparent datakryptering för Azure SQL Database Managed Instance fungerar i tjänsthanterade läge. Migrerade certifikat används endast för återställning av den TDE-skyddade databasen. Kort efter att återställningen är klar ersätts det migrerade certifikatet med ett annat, systemhanterat certifikat.
+> Migrerade certifikat används endast för återställning av den TDE-skyddade databasen. Snart när återställningen är klar migrerade certifikatet ersätts med ett annat skydd service-hanterade certifikat eller asymmetriska nyckeln från nyckelvalvet, beroende på vilken typ av transparent datakryptering som du anger på instansen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

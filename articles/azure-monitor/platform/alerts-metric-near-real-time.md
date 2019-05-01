@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0dd8d7c1e004472d230337b72d55ac7ced905b41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 965d1ace2afdad21a069193b508fc2b10fdf4700
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490936"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697234"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>De resurser som stöds för måttaviseringar i Azure Monitor
 
@@ -68,6 +68,10 @@ Här är en fullständig lista över Azure monitor mått källor som stöds av d
 
 
 ## <a name="payload-schema"></a>Nyttolast-schema
+
+> [!NOTE]
+> Du kan också använda den [gemensamma avisering schemat](https://aka.ms/commonAlertSchemaDocs), som innehåller fördelen att en enda extensible och enhetlig avisering nyttolast över alla aviseringen tjänster i Azure Monitor för webhook-integreringar. [Läs mer om vanliga avisering schemadefinitioner.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla nära nyare måttaviseringar när en korrekt konfigurerad [åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) används:
 

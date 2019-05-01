@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437692"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575615"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -31,15 +31,14 @@ Du kan vara värd för funktionsappar i ett par olika sätt:
 
 ## <a name="matrix-of-networking-features"></a>Matris av nätverksfunktioner
 
-|                |[Förbrukningsplan](functions-scale.md#consumption-plan)|⚠ [Premium-abonnemang](functions-scale.md#premium-plan-public-preview)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
+|                |[Förbrukningsplan](functions-scale.md#consumption-plan)|[Premiumprenumerationen (förhandsversion)](functions-scale.md#premium-plan-public-preview)|[App Service-plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inkommande IP-adressbegränsningar](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Utgående IP-begränsningar](#private-site-access)|❌NO| ❌NO|❌NO|✅Yes|
 |[Integrering med virtuellt nätverk](#virtual-network-integration)|❌NO|❌NO|✅Yes|✅Yes|
-|[Förhandsversionen av virtual network-integration (Azure ExpressRoute och Tjänsteslutpunkter)](#preview-version-of-virtual-network-integration)|❌NO|⚠Ja|⚠Ja|✅Yes|
+|[Förhandsgranska virtual network-integration (Azure ExpressRoute och slutpunkter för utgående)](#preview-version-of-virtual-network-integration)|❌NO|✅Yes|✅Yes|✅Yes|
 |[Hybridanslutningar](#hybrid-connections)|❌NO|❌NO|✅Yes|✅Yes|
-|[privat Platsåtkomst](#private-site-access)|❌NO| ❌NO|❌NO|✅Yes|
-
-⚠ Den här förhandsversionsfunktionen är inte för användning i produktion.
+|[privat Platsåtkomst](#private-site-access)|❌NO| ✅Yes|✅Yes|✅Yes|
 
 ## <a name="inbound-ip-restrictions"></a>Inkommande IP-adressbegränsningar
 
@@ -49,6 +48,10 @@ Du kan använda IP-restriktioner för att definiera en prioritet sorterad lista 
 > För att använda redigeraren för Azure-portalen, kunna portalen direkt åtkomst till funktionsappen som körs. Den enhet som du använder för att få åtkomst till portalen måste också ha dess IP-godkänd. Begränsningar för nätverk på plats, kan du fortfarande använda alla funktioner på den **plattformsfunktioner** fliken.
 
 Mer information finns i [Azure App Service statiska åtkomstbegränsningar](../app-service/app-service-ip-restrictions.md).
+
+## <a name="outbound-ip-restrictions"></a>Utgående IP-adressbegränsningar
+
+Utgående IP-adressbegränsningar är endast tillgängliga för funktioner som distribueras till en App Service Environment. Du kan konfigurera utgående begränsningar för det virtuella nätverket där din App Service Environment har distribuerats.
 
 ## <a name="virtual-network-integration"></a>Virtual Network-integration
 
@@ -88,7 +91,10 @@ Mer information finns i den [dokumentation om App Service för Hybridanslutninga
 
 ## <a name="private-site-access"></a>Åtkomst till privat plats
 
-Åtkomst till privata webbplatsen avser gör appen tillgänglig endast från ett privat nätverk som från inom en Azure-nätverk. Åtkomst till privata webbplatsen är tillgänglig endast med en App Service Environment som konfigurerats med en intern belastningsutjämnare (ILB). Mer information finns i [skapa och använda en intern belastningsutjämnare med en App Service Environment](../app-service/environment/create-ilb-ase.md).
+Åtkomst till privata webbplatsen avser gör appen tillgänglig endast från ett privat nätverk som från inom en Azure-nätverk. 
+* Privat Platsåtkomst finns i Premium- och App Service plan när **tjänstslutpunkter** har konfigurerats. Mer information finns i [tjänstslutpunkter i virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * Kom ihåg att med tjänstslutpunkter kan din funktion har fortfarande fullständig utgående åtkomst till internet, även med VNET-integrering som konfigurerats.
+* Åtkomst till privata webbplatsen är tillgänglig endast med en App Service Environment som konfigurerats med en intern belastningsutjämnare (ILB). Mer information finns i [skapa och använda en intern belastningsutjämnare med en App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 Det finns många sätt att komma åt resurser i andra värdalternativ för virtuella nätverk. Men en App Service Environment är det enda sättet att tillåta utlösare för en funktion ska ske via ett virtuellt nätverk.
 

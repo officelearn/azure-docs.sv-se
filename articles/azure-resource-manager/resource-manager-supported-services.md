@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389715"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702708"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure resursproviders och resurstyper
 
@@ -31,6 +31,8 @@ När du distribuerar resurser kan behöva du ofta hämta information om resurspr
 * Visa giltig API-versioner för en resurstyp
 
 Du kan utföra dessa steg via Azure-portalen, Azure PowerShell eller Azure CLI.
+
+En lista som mappar resursprovidrar till Azure-tjänster finns i [resursprovidrar för Azure-tjänster](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -291,5 +293,5 @@ West US
 
 * Läs om hur du skapar Resource Manager-mallar i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md). 
 * Mallscheman för resource provider finns [mallreferensen](/azure/templates/).
-* Läs om hur du distribuerar resurser i [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
+* En lista som mappar resursprovidrar till Azure-tjänster finns i [resursprovidrar för Azure-tjänster](azure-services-resource-providers.md).
 * Åtgärder för en resursprovider finns [Azure REST API](/rest/api/).

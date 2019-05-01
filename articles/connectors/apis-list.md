@@ -9,18 +9,18 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759440"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722985"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
 
 Anslutnings appar ger snabb åtkomst från Azure Logic Apps till händelser, data och åtgärder i andra appar, tjänster, system, protokoll och plattformar. Genom att använda anslutningsappar i logic apps kan utöka du funktionerna för molnet och lokala appar du utför uppgifter med de data som du skapar och redan har.
 
-Medan Logic Apps-erbjudanden [~ 200 + anslutningsappar](https://docs.microsoft.com/connectors), den här artikeln beskriver populära och vanliga kopplingar som har används av tusentals appar och miljontals körningar för bearbetning av data och information. Att hitta en fullständig lista över kopplingar och referensinformation för varje anslutning, som utlösare och åtgärder gränser, granskar anslutningsappen refererar du till sidor under [översikt över Anslutningsappar](https://docs.microsoft.com/connectors). Dessutom lär dig mer om [utlösare och åtgärder](#triggers-actions).
+Medan Logic Apps-erbjudanden [~ 200 + anslutningsappar](https://docs.microsoft.com/connectors), den här artikeln beskriver populära och vanliga kopplingar som har används av tusentals appar och miljontals körningar för bearbetning av data och information. Du hittar en fullständig lista över kopplingar och referensinformation för varje anslutning, som utlösare, åtgärder och gränser, granska referenssidor för anslutningen under [översikt över Anslutningsappar](https://docs.microsoft.com/connectors). Dessutom lär dig mer om [utlösare och åtgärder](#triggers-actions).
 
 > [!NOTE]
 > Om du vill integrera med en tjänst eller ett API som inte har anslutningen, du kan antingen direkt anropa tjänsten via ett protokoll som HTTP eller skapa en [anslutningsapp](#custom).
@@ -29,27 +29,32 @@ Anslutningsapparna finns antingen som inbyggda utlösare och åtgärder eller ha
 
 * [**Built-INS**](#built-ins): Dessa inbyggda åtgärder och utlösare är ”interna” Azure Logic Apps och hjälper dig att skapa logikappar som körs på anpassade scheman, kommunicera med andra slutpunkter, ta emot och svara på förfrågningar och anropa Azure functions, Azure API Apps (Webbappar), egna API: er hanterade och publicerade med Azure API Management och kapslade logic apps som kan ta emot begäranden. Du kan också använda inbyggda åtgärder som hjälper dig att ordna och styra logikappens arbetsflöde och också arbeta med data.
 
-* **Hanterade anslutningsappar**: Distribueras och hanteras av Microsoft, innehåller dessa anslutningsappar utlösare och åtgärder för att komma åt andra tjänster och system, till exempel Office 365, Azure Blob Storage, SQL Server, Salesforce och mycket mer. Vissa anslutningar kräver att du först skapa anslutningar som hanteras av Azure Logic Apps. Hanterade anslutningsappar är ordnade i dessa grupper:
+* **Hanterade anslutningsappar**: Distribueras och hanteras av Microsoft, innehåller dessa anslutningsappar utlösare och åtgärder för att komma åt cloud services, lokala system eller båda, inklusive Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint och mycket mer. Vissa anslutningsappar mer specifikt stöd för scenarier för business-to-business (B2B)-kommunikation och kräver en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som är länkad till din logikapp. Innan du använder vissa kopplingar kan kanske du först skapa anslutningar som hanteras av Azure Logic Apps. 
+
+  Till exempel om du använder Microsoft BizTalk Server, dina logic apps kan ansluta till och kommunicera med din BizTalk Server med hjälp av den [BizTalk Server lokala anslutningen](#on-premises-connectors). 
+  Du kan utöka eller utföra BizTalk-liknande åtgärder i dina logic apps med hjälp av den [integrationskonton](#integration-account-connectors).
+
+  Kopplingar klassificeras som Standard eller Enterprise. 
+  [Företagsanslutningarna](#enterprise-connectors) ger åtkomst till företagssystem som SAP, IBM MQ och IBM 3270 mot en extra kostnad. För att avgöra om en anslutning är Standard eller Enterprise, finns i de tekniska detaljerna i varje anslutningsapp-referenssida under [översikt över Anslutningsappar](https://docs.microsoft.com/connectors). 
+  
+  Du kan även identifiera kopplingar med hjälp av dessa kategorier, även om vissa anslutningsappar kan passera flera kategorier. 
+  Till exempel är SAP en Enterprise-anslutning och en lokal anslutning:
 
   |   |   |
   |---|---|
-  | [**Hanterade API-kopplingar**](#managed-api-connectors) | Skapa logikappar som använder tjänster som Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online och många fler. | 
-  | [**Lokala anslutningar**](#on-premises-connectors) | När du installerar och konfigurerar den [lokal datagateway][gateway-doc], dessa kopplingar hjälper dina logic apps åtkomst till lokala system, till exempel SQL Server, SharePoint Server, Oracle DB, filresurser och andra. | 
-  | [**Integrationskonton**](#integration-account-connectors) | Tillgängliga när du skapar och betala för ett integrationskonto, transformera dessa kopplingar och validera XML, koda och avkoda flata filer och bearbeta business-to-business (B2B) meddelanden med AS2 och EDIFACT X12 protokoll. | 
-  | [**Anslutningsprogram för företagsprogram**](#enterprise-connectors) | Ger åtkomst till företagssystem som SAP och IBM MQ mot en extra kostnad. |
-  ||| 
-
-  Till exempel om du använder Microsoft BizTalk Server, dina logic apps kan ansluta till och kommunicera med din BizTalk Server med hjälp av den [BizTalk Server-anslutningen](#on-premises-connectors). 
-  Du kan utöka eller utföra BizTalk-liknande åtgärder i dina logic apps med hjälp av den [integrationskonton](#integration-account-connectors). 
+  | [**Hanterade API-kopplingar**](#managed-api-connectors) | Skapa logikappar som använder tjänster som Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online och många fler. |
+  | [**Lokala anslutningar**](#on-premises-connectors) | När du installerar och konfigurerar den [lokal datagateway][gateway-doc], dessa kopplingar hjälper dina logic apps åtkomst till lokala system, till exempel SQL Server, SharePoint Server, Oracle DB, filresurser och andra. |
+  | [**Integrationskonton**](#integration-account-connectors) | Tillgängliga när du skapar och betala för ett integrationskonto, transformera dessa kopplingar och validera XML, koda och avkoda flata filer och bearbeta business-to-business (B2B) meddelanden med AS2 och EDIFACT X12 protokoll. |
+  |||
 
 > [!NOTE]
-> Fullständig lista över kopplingar och referensinformation för varje anslutning, till exempel åtgärder och utlösare, som definieras av en Swagger-beskrivning, plus eventuella gränser du hittar en fullständig lista under den [översikt över Anslutningsappar](/connectors/). Information om priser finns i [Logic Apps prisinformation](https://azure.microsoft.com/pricing/details/logic-apps/) och [Logic Apps prismodellen](../logic-apps/logic-apps-pricing.md). 
+> För en fullständig lista över kopplingar och referensinformation för varje anslutning, till exempel åtgärder och utlösare, som definieras av en OpenAPI (tidigare Swagger) beskrivning, plus eventuella gränser du hittar en fullständig lista under den [översikt över Anslutningsappar ](/connectors/). Information om priser finns i [Logic Apps prisinformation](https://azure.microsoft.com/pricing/details/logic-apps/) och [Logic Apps prismodellen](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
 ## <a name="built-ins"></a>Built-INS
 
-Logic Apps tillhandahåller inbyggd utlösare och åtgärder så att du kan skapa schemabaserade arbetsflöden hjälper logikappar kommunicera med andra appar och tjänster, kontroll arbetsflöde genom dina logic apps och hantera eller manipulera data. 
+Logic Apps tillhandahåller inbyggd utlösare och åtgärder så att du kan skapa schemabaserade arbetsflöden hjälper logikappar kommunicera med andra appar och tjänster, kontroll arbetsflöde genom dina logic apps och hantera eller manipulera data.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -128,10 +133,10 @@ Här är kopplingar för att skapa lösningar för business-to-business (B2B) me
 
 Dina logic apps kan komma åt företagssystem som SAP och IBM MQ:
 
-|   |   | 
-|---|---| 
-| [![API-ikon][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API-ikon][sap-icon]<br/>**SAP**][sap-connector-doc] |
-||| 
+|   |   |   | 
+|---|---|---| 
+| [![API-ikon][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API-ikon][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API-ikon][sap-icon]<br/>**SAP**][sap-connector-doc] |
+|||| 
 
 <a name="triggers-actions"></a>
 
@@ -156,9 +161,9 @@ Här följer de allmänna typerna av utlösare som Azure Logic Apps tillhandahå
 
 Ange sina egna egenskaper du kan konfigurera varje anslutningsappens utlösare och åtgärder. Många anslutningsappar kräver också att du först skapa en *anslutning* till Måltjänsten eller datorn och lägger till autentiseringsuppgifter eller andra konfigurationsuppgifter innan du kan använda en utlösare eller åtgärder i din logikapp. Till exempel måste du godkänna en anslutning till en Twitter-konto för att komma åt data eller ställa för din räkning. 
 
-För anslutningar som använder OAuth, skapa en anslutning innebär att logga in på tjänsten, till exempel Office 365, Salesforce eller GitHub, där din åtkomsttoken krypteras och lagras på ett säkert sätt i ett Arkiv för hemligheter på Azure. Andra anslutningar, till exempel FTP och SQL, kräver en anslutning med konfigurationsinformation, till exempel serveradress, användarnamn och lösenord. Information om den här anslutningen också krypteras och lagras på ett säkert sätt. 
+För anslutningar som använder OAuth, skapa en anslutning innebär att logga in på tjänsten, till exempel Office 365, Salesforce eller GitHub, där din åtkomsttoken krypteras och lagras på ett säkert sätt i ett Arkiv för hemligheter på Azure. Andra anslutningar, till exempel FTP och SQL, kräver en anslutning med konfigurationsinformation, till exempel serveradress, användarnamn och lösenord. Konfigurationsdetaljerna anslutning även krypteras och lagras på ett säkert sätt. 
 
-Anslutningar kan komma åt Måltjänsten eller system för så länge som den tjänsten eller datorn tillåter. För tjänster som använder Azure Active Directory (AD) OAuth-anslutningar, till exempel Office 365 och Dynamics, uppdaterar Azure Logic Apps-åtkomsttoken på obestämd tid. Andra tjänster kan ange begränsningar för hur länge Azure Logic Apps kan använda en token utan uppdatering. I allmänhet ogiltigförklaras vissa åtgärder alla åtkomsttoken, till exempel ändra ditt lösenord.
+Anslutningar kan komma åt Måltjänsten eller system för så länge som den tjänsten eller datorn tillåter. För tjänster som använder Azure Active Directory (AD) OAuth-anslutningar, till exempel Office 365 och Dynamics, uppdaterar Azure Logic Apps-åtkomsttoken på obestämd tid. Andra tjänster kan ha begränsningar för hur länge Azure Logic Apps kan använda en token utan uppdatering. I allmänhet ogiltigförklaras vissa åtgärder alla åtkomsttoken, till exempel ändra ditt lösenord.
 
 <a name="custom"></a>
 
@@ -222,6 +227,7 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Ansluta till Google Drive så att du kan arbeta med dina data"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Anslut till Google Sheets så att du kan ändra dina blad"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Ansluter till Google Tasks så att du kan hantera uppgifter"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Ansluta till 3270 appar på IBM-stordatorer"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Anslut till IBM DB2 i molnet eller lokalt. Uppdatera en rad, hämta en tabell och mycket mer"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Anslut till Informix i molnet eller lokalt. Läsa en rad, lista tabeller och annat"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Anslut till IBM MQ lokalt eller i Azure för att skicka och ta emot meddelanden"
@@ -328,6 +334,7 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 [google-sheets-icon]: ./media/apis-list/google-sheet.png
 [google-tasks-icon]: ./media/apis-list/google-tasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
+[ibm-3270-icon]: ./media/apis-list/ibm-3270.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
 [ibm-informix-icon]: ./media/apis-list/ibm-informix.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png

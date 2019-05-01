@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: a4c643ecff5c33ec19c607da6ef8db41cfeb90c6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762817"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689376"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysera video-och ljudfiler
 
@@ -35,7 +35,7 @@ Media Services stöder för närvarande följande inbyggda analyzer förinställ
 |---|---|---|
 |[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår som innehåller tal i en enda språk. Du kan ange språk för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner”. Språk som stöds är engelska (en-US ”och” en-GB ”), spanska (” es-ES ”och” es-MX ”), franska (” fr-FR ”), italienska (” it-IT ”), japanska ('ja-JP”), portugisiska ('pt-BR ”), kinesiska ('zh-CN”), tyska (”de-DE”), arabiska ('ar-t.ex ”.), ryska ('ru-RU”), Hindi (”Hej-IN” ), och koreanska ('ko-KR ”).<br/><br/> Om språket inte angetts eller är inställt på null-värden, automatisk språkidentifiering väljer du det första språk som har identifierats och bearbeta med det valda språket för hela filen. Funktionen för identifiering av automatisk språk stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Det stöder för närvarande inte dynamiskt växla mellan olika språk om det första språket som har identifierats. Funktionen för automatisk identifiering fungerar bäst med ljudinspelningar med märks tydligt tal. Om det inte går att hitta språket automatisk språkidentifiering, tillbaka utskrift till engelska.|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysera ljud och video|Extraherar insikter (omfattande metadata) från både ljud och video och matar ut en fil i JSON-format. Du kan ange om du bara vill lyfta ut kunskaper ljud vid bearbetning av en videofil. Mer information finns i [analysera video](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)||Beskriver inställningarna som ska användas när du analyserar en video för att identifiera alla ansikten som finns.|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Identifiera alla ansikten som finns i videon|Beskriver inställningarna som ska användas när du analyserar en video för att identifiera alla ansikten som finns.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 

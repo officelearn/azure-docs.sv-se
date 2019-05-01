@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 64d4c48697d38cfa5942e09cb672af37c27eede2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358811"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688680"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
 
@@ -122,7 +122,9 @@ Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande i
 - Sessionskontroller
 - Resultat
 
-## <a name="powershell-reporting"></a>PowerShell-rapportering
+## <a name="powershell-reporting-on-users-registered-for-mfa"></a>PowerShell rapportering om användare som har registrerats för MFA
+
+Först måste se till att du har den [MSOnline V1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) installerad.
 
 Identifiera användare som har registrerats för MFA med hjälp av PowerShell som följer.
 

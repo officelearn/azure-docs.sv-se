@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60721716"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700939"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -132,7 +132,7 @@ När du skapar en Batch-pool kan du ange en konfiguration för virtuella Azure-d
 
 - **Konfiguration av virtuell dator**, som anger att poolen består av virtuella Azure-datorer. Dessa virtuella datorer kan skapas från Linux- eller Windows-avbildningar. 
 
-    När du skapar en pool med noder i en konfiguration av en virtuell dator måste du inte bara ange storleken på noderna och källan för avbildningarna som användes för att skapa dem, utan även **referensen till avbildningen av den virtuella datorn** och Batch-**nodagentens SKU** som ska installeras på noderna. Mer information om hur du anger dessa poolegenskaper finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md). Om du vill kan du koppla en eller flera tomma datadiskar till en pool med virtuella datorer som skapats av Microsoft Azure Marketplace-avbildningar. Alternativt kan du inkludera datadiskar i de anpassade avbildningar som används för att skapa de virtuella datorerna.
+    När du skapar en pool med noder i en konfiguration av en virtuell dator måste du inte bara ange storleken på noderna och källan för avbildningarna som användes för att skapa dem, utan även **referensen till avbildningen av den virtuella datorn** och Batch-**nodagentens SKU** som ska installeras på noderna. Mer information om hur du anger dessa poolegenskaper finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md). Om du vill kan du koppla en eller flera tomma datadiskar till en pool med virtuella datorer som skapats av Microsoft Azure Marketplace-avbildningar. Alternativt kan du inkludera datadiskar i de anpassade avbildningar som används för att skapa de virtuella datorerna. När inklusive datadiskar, måste du montera och formatera diskarna från en virtuell dator för att använda dem för.
 
 - **Cloud Service-konfiguration**, som anger att poolen består av Azure Cloud Services-noder. Cloud Services tillhandahåller *endast* Windows-beräkningsnoder.
 

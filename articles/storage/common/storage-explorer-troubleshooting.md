@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483392"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710861"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -96,10 +96,10 @@ Om du inte hittar något självsignerat certifikat med föregående steg kan du 
 
 Tom inloggning dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra en omdirigering, som inte stöds av Electron. Du kan försöka att använda enheten kod Flow för att logga in för att lösa problemet. Det gör du på följande sätt:
 
-1. ”Gå till förhandsversion” -> ”använda kod Enhetsinloggning”.
+1. Menyn: Förhandsgranskning -> ”använda kod Enhetsinloggning”.
 2. Öppna dialogrutan Anslut (antingen via ikonen plugin på den vänstra vertikalstreck eller ”Lägg till konto” på panelen konto).
 3. Välj vilken miljö som du vill logga in på.
-4. Klicka på ”signera” i knappen.
+4. Klicka på knappen ”Logga In”.
 5. Följ anvisningarna på nästa panel.
 
 Om du har problem med att logga in på kontot som du vill använda eftersom din standardwebbläsare redan är inloggad på ett annat konto, kan du antingen:

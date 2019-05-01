@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: 6a027e6c0afd526139484240f288205fa946d557
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e2230bc8adf13825692f93b1e2bc33a4b79076e2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111807"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574367"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-tjänstnivåer
 
@@ -63,5 +63,5 @@ Lagring för säkerhetskopior av databasen har allokerats för att stödja punkt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att få information om specifika storlekar och lagring som kan användas för enkel databas på nivåerna för generell användning och kritiska företagstjänst, se [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier)
-- För att få information om specifika storlekar och lagring som kan användas för elastiska pooler på nivåerna för generell användning och kritiska företagstjänst, se [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- För att få information om specifika storlekar och lagring som kan användas för enkel databas på nivåerna för generell användning och kritiska företagstjänst, se [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md)
+- För att få information om specifika storlekar och lagring som kan användas för elastiska pooler på nivåerna för generell användning och kritiska företagstjänst, se [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).

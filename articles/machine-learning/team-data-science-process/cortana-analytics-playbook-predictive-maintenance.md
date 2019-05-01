@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234046"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573765"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 

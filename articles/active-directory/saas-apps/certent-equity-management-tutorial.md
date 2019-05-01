@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47adab265978b4b760450ab1176cf28c55bc0548
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 1d58ef2716e2a432e1123d6b215b33fb2b688a32
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563690"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certent-equity-management"></a>Självstudier: Azure Active Directory-integrering med Certent kapital Management
 
@@ -35,7 +35,7 @@ Integrera Certent kapital Management med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Certent kapital Management, behöver du följande objekt:
 
@@ -113,7 +113,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Certent
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta Certent integrering analytiker tilldelad av kunden lyckades Manager att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Certent kapital hanteringsprogram förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+5. Certent kapital hanteringsprogram förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på **redigera** ikonen för att öppna **användarattribut** dialogrutan.
 
     ![image](common/edit-attribute.png)
 

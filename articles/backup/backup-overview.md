@@ -1,20 +1,19 @@
 ---
 title: Vad är Azure Backup?
-description: Ger en översikt över tjänsten Azure Backup och hur du distribuerar den som en del av din strategi för affärskontinuitet och haveriberedskap (BCDR).
-services: backup
+description: Översikt över tjänsten Azure Backup och hur den bidrar till din affärskontinuitet och haveriberedskap (BCDR) strategi.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254688"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714281"
 ---
 # <a name="what-is-azure-backup"></a>Vad är Azure Backup?
 
@@ -31,11 +30,7 @@ Azure Backup ger följande viktiga fördelar:
 - **Få obegränsad dataöverföring**: Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför eller att ta betalt för de data som överförs.
     - Utgående data syftar på data som överförs från ett Recovery Services-valv under en återställningsåtgärd.
     - Om du utför en initial säkerhetskopiering offline med Azure Import/Export-tjänsten för att importera stora mängder data, finns det dock en kostnad som är kopplad till inkommande data.  [Läs mer](backup-azure-backup-import-export.md).
-- **Skydda data**:
-    - Lokalt, information som överförs krypteras på den lokala datorn med hjälp av AES256. De data som överförs skyddas av HTTPS mellan lagring och säkerhetskopiering. ISCSI-protokollet skyddar de data som överförs mellan säkerhetskopiering och användare-dator. Säkra tunnlar används för att skydda iSCSI-kanalen.
-    - Data i Azure är krypterade i vila med lösenfras som du anger när du konfigurerar säkerhetskopiering för lokalt till Azure backup. Lösenfras eller nyckel det aldrig överförs eller lagras i Azure. Om det är nödvändigt att återställa data kan du göra det om du har krypteringslösenfrasen eller nyckeln.
-    - För virtuella Azure-datorer krypteras data vid återställning av med Storage Service Encryption (SSE). Backup krypterar automatiskt data innan de lagras. Azure-lagring dekrypterar data innan de hämtas.
-    - Säkerhetskopiering har även stöd för Azure virtuella datorer som krypterats med Azure Disk Encryption (ADE). [Läs mer](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
+- **Skydda data**: Azure Backup innehåller lösningar för att skydda data under överföring och i vila.
 - **Programkonsekvent säkerhetskopiering**: Programkonsekvent säkerhetskopiering innebär att en återställningspunkt har alla data som krävs för att återställa säkerhetskopian. Azure Backup innehåller programkonsekventa säkerhetskopior vilket garanterar att inga ytterligare korrigeringar behövs för att återställa data. Återställning av konsekventa programdata minskar tiden för återställning, så att du snabbt kan återgå till körläge.
 - **Behålla kort- och långsiktiga data**: Du kan använda Recovery Services-valv för kortsiktig och långsiktig datakvarhållning. Azure begränsar inte hur lång tid data behålls i ett Recovery Services-valv. Du kan förvara den så länge du vill. Azure Backup har en gräns på 9999 återställningspunkter per skyddad instans. [Läs mer](backup-introduction-to-azure-backup.md#backup-and-retention)om hur den här begränsningen påverkar dina säkerhetskopieringsbehov.
 - **Automatisk lagringshantering** – hybridmiljöer kräver ofta heterogen lagring – vissa lokalt och vissa i molnet. Med Azure Backup är det kostnadsfritt att använda lokala lagringsenheter. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Du betalar alltså bara för den lagring som du använder. [Läs mer](https://azure.microsoft.com/pricing/details/backup) om prissättning.
@@ -107,13 +102,19 @@ Läs mer om [hur säkerhetskopiering fungerar](backup-architecture.md#architectu
 
 **Säkerhetskopiering** | **Lösning** | **Begränsning**
 --- | --- | ---
-**Jag vill säkerhetskopiera en hel virtuell Azure-dator** | Aktivera säkerhetskopiering för den virtuella datorn. Säkerhetskopieringstillägget konfigureras automatiskt på den virtuella Azure-datorn, både för Windows och Linux. | Hela den virtuella datorn säkerhetskopieras <br/><br/> Säkerhetskopior är programkonsekventa för virtuella Windows-datorer. Säkerhetskopior är filkonsekventa för Linux-datorer. Du måste konfigurera med anpassade skript om dessa ska vara programmedvetna.
+**Jag vill säkerhetskopiera en hel virtuell Azure-dator** | Aktivera säkerhetskopiering för den virtuella datorn. Säkerhetskopieringstillägget konfigureras automatiskt på den virtuella Azure-datorn, både för Windows och Linux. | Hela den virtuella datorn säkerhetskopieras <br/><br/> Säkerhetskopior är programkonsekventa för virtuella Windows-datorer. Säkerhetskopior är filkonsekventa för Linux-datorer. Om du behöver app-medvetna för virtuella Linux-datorer kan behöva du konfigurera detta med anpassade skript.
 **Jag vill säkerhetskopiera specifika filer/mappar på Azure VM** | Distribuera MARS-agenten på den virtuella datorn.
 **Jag vill säkerhetskopiera direkt till lokala Windows-datorer** | Installera MARS-agenten på datorn. | Du kan säkerhetskopiera filer, mappar och systemtillstånd till Azure. Säkerhetskopior är inte programmedvetna.
-**Jag vill säkerhetskopiera direkt till lokala Linux-datorer** | Du behöver distribuera DPM eller MABS för att kunna säkerhetskopiera till Azure. | Säkerhetskopiering av Linux-värden stöds inte, kan du endast säkerhetskopiering Linux gästdatorn finns på Hyper-V eller VMWare.
+**Jag vill säkerhetskopiera direkt till lokala Linux-datorer** | Du behöver distribuera DPM eller MABS för att kunna säkerhetskopiera till Azure. | Säkerhetskopiering av Linux-värden stöds inte, du kan bara säkerhetskopiera gästdatorn för Linux finns på Hyper-V eller VMWare.
 **Jag vill säkerhetskopiera program som körs lokalt** | Datorer måste skyddas av DPM eller MABS för att kunna genomföra programmedvetna säkerhetskopieringar.
 **Jag vill ha detaljerade och flexibla säkerhetskopierings- och återställningsinställningar för virtuella Azure-datorer** | Skydda virtuella Azure-datorer med MABS/DPM som körs i Azure för extra flexibilitet vid schemaläggning av säkerhetskopiering, och fullständig flexibilitet för att skydda och återställa filer, mappar, volymer, program och systemtillstånd.
 
+## <a name="how-does-azure-backup-work-with-encryption"></a>Hur fungerar Azure Backup med kryptering?
+
+**Kryptering** | **Säkerhetskopiera lokala** | **Säkerhetskopiera virtuella Azure-datorer** | **Säkerhetskopiera SQL på Azure Virtual Machines**
+--- | --- | --- | ---
+Vilande kryptering<br/> (Kryptering av data där det är beständiga/lagras) | Kunden angivna lösenfras som används för att kryptera data | Azure [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) används för att kryptera data lagrade i valvet.<br/><br/> Backup krypterar automatiskt data innan de lagras. Azure-lagring dekrypterar data innan de hämtas. Användning av Kundhanterade nycklar för SSE stöds inte för närvarande.<br/><br/> Du kan säkerhetskopiera virtuella datorer som använder [Azure-diskkryptering (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) att kryptera OS och datadiskar. Azure Backup stöder virtuella datorer som har krypterats med BEK-endast och med båda BEK och [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/). Granska den [begränsningar](backup-azure-vms-encryption.md#encryption-support). | Azure Backup stöder säkerhetskopiering av SQL Server-databaser eller server med [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) aktiverat. Backup har stöd för transparent Datakryptering med nycklar som hanteras av Azure, eller med Kundhanterade nycklar (BYOK).<br/><br/> Säkerhetskopiering utföra inte några SQL-kryptering som en del av säkerhetskopieringen.
+Kryptering under överföring<br/> (Kryptering av data som flyttas från en plats till en annan) | Data krypteras med hjälp av AES256 och skickas till valv i Azure via HTTPS | I Azure, data mellan Azure storage och valvet skyddas av HTTPS. Dessa data finns kvar i Azure-stamnätverket.<br/><br/> För filåterställning skyddar iSCSI de data som överförs mellan valvet och den virtuella Azure-datorn. Säkra tunnlar skyddar iSCSI-kanalen. | I Azure, data mellan Azure storage och valvet skyddas av HTTPS.<br/><br/> Filåterställning är inte relevant för SQL.
 
 ## <a name="next-steps"></a>Nästa steg
 

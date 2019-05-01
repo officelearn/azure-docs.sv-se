@@ -3,8 +3,8 @@ title: Skapa ett Azure vnet-peering - olika distributionsmodeller – samma pren
 description: Lär dig hur du skapar en virtuell nätverkspeering mellan virtuella nätverk som skapats via olika Azure distributionsmodeller som finns i samma Azure-prenumeration.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 4aa6fe901a49f4618b4844f9f5d2a94903d49cbd
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud;anavin
+ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652373"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694716"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Skapa en virtuell nätverkspeering - olika distributionsmodeller, samma prenumeration
 

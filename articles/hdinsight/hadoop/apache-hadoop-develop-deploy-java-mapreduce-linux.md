@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.openlocfilehash: e4f567fe727a2ec308cef6f48e33728f7f31c217
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122004"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707290"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Utveckla Java MapReduce-program för Apache Hadoop på HDInsight
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 55d59871ee72f755fcd881e4f89e56e6d6d1d84e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64c5bff0e48f55406476e71c82763bd8f3c03afd
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637581"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937233"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine för direktuppspelning för Android  
 
@@ -32,8 +32,8 @@ ms.locfileid: "60637581"
 
 Utöver att skydda innehåll för online-direktuppspelning av media innehåll prenumeration och uthyrning tjänster erbjudandet nedladdningsbart innehåll som fungerar när du inte är ansluten till internet. Du kan behöva hämta innehållet på din telefon eller surfplatta för uppspelning i Flygplansläge när som frånkopplad från nätverket. Fler scenarier där du laddar ned innehåll:
 
-- Vissa innehållsleverantörer kan neka DRM-licensleverans utöver ett land kantlinje. Om en användare vill titta på innehållet under resor utomlands krävs offline download.
-- I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd begränsat. Användare kan välja att ladda ned innehåll för att kunna se det fungera tillräckligt hög matchning för tillfredsställande tittarupplevelse.
+- Vissa innehållsleverantörer kan neka DRM-licensleverans utöver ett land/region kantlinje. Om en användare vill titta på innehållet under resor utomlands krävs offline download.
+- I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd begränsad. Användare kan välja att ladda ned innehåll för att kunna se det fungera tillräckligt hög matchning för tillfredsställande tittarupplevelse.
 
 Den här artikeln beskrivs hur du implementerar offlineläge uppspelning för DASH-innehåll som skyddas av Widevine på Android-enheter. Offline DRM kan du tillhandahålla prenumeration, hyra och inköp modeller för innehåll, och kunderna för dina tjänster kan enkelt ta innehåll med dem. när bortkopplad från internet.
 

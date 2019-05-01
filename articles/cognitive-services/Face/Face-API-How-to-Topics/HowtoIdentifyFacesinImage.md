@@ -8,26 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 013467cb64220b525d429c901c48028bf65b3852
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7da146cafaf9af5c91bbbb2a3a23d8a90d49d8cd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864935"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699329"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>Exempel: Så här identifierar du ansikten i bilder
+# <a name="example-identify-faces-in-images"></a>Exempel: Identifiera ansikten i bilder
 
 Den här guiden visar hur du identifiera okända ansikten med PersonGroups, som skapas från kända personer i förväg. Exemplen är skrivna i C#- med Ansikts-API-klientbiblioteket.
-
-## <a name="concepts"></a>Begrepp
-
-Om du inte är bekant med följande begrepp i den här guiden kan du söka efter definitioner i vår [ordlista](../Glossary.md) när som helst:
-
-- Ansiktsigenkänning – Känna igen
-- Ansiktsigenkänning – identifiera
-- PersonGroup
 
 ## <a name="preparation"></a>Förberedelse
 
@@ -38,7 +30,7 @@ I det här exemplet visar vi följande:
 
 Om du vill demonstrera det här exemplet måste du förbereda ett antal bilder:
 
-- Några foton med personens ansikte. [Klicka här för att ladda ned exempelfoton](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) för Anna, Bill och Clare.
+- Några foton med personens ansikte. [Ladda ned exemplet foton](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) för Anna, faktura och Clare.
 - Som eventuellt får innehåller Anna, Bill eller Clares ansikten används för att testa identifieringen. Du kan också välja några bildexempel från länken ovan.
 
 ## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anropet
@@ -187,6 +179,7 @@ I den här guiden har du lärt dig hur du skapar en PersonGroup och identifiera 
 
 ## <a name="related-topics"></a>Relaterade ämnen
 
+- [Ansikte erkännande begrepp](../concepts/face-recognition.md)
 - [Känna igen ansikten i en bild](HowtoDetectFacesinImage.md)
 - [Lägga till ansikten](how-to-add-faces.md)
 - [Känna igen storskaliga funktioner](how-to-use-large-scale.md)

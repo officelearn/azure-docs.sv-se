@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217581"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867900"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Översikt över liveuppspelning med Media Services
 
 > [!NOTE]
-> Startar den 12 maj 2018 livekanaler kommer inte längre stöd för RTP/MPEG-2-transportström infogningsprotokollet. Migrera från RTP/MPEG-2 till RTMP eller fragmenterad MP4 (Smooth Streaming) inmatningsprotokollen.
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Översikt
 
@@ -44,7 +44,12 @@ När du ska leverera liveuppspelningshändelser med Azure Media Services ingår 
 
 **Microsoft Azure Media Services** (AMS) ger möjligheten att infoga, koda, förhandsgranska, lagra och leverera liveuppspelningsinnehåll.
 
-Målet är att tillhandahålla en video av hög kvalitet till olika enheter under olika nätverksförhållanden när du levererar ditt innehåll till kunder. Om du vill uppnå genom att använda livekodare för att koda strömmen till en video dataström med flera bithastigheter (anpassningsbar bithastighet).  Använd Media Services [dynamisk paketering](media-services-dynamic-packaging-overview.md) för att ta hand om strömning på olika enheter och dynamiskt ompaketera din ström till olika protokoll. Media Services har stöd för leverans av de följande strömningstekniker med anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Med medietjänster kan du dra nytta av [dynamisk paketering](media-services-dynamic-packaging-overview.md), vilket gör att du sända dina direktsända strömmar i MPEG-DASH, HLS eller och Smooth Streaming-format från bidraget feed som skickas till tjänsten. Användarna kan spela upp den direktsända dataströmmen med valfri kompatibel spelare HLS, DASH eller Smooth Streaming. Du kan använda Azure Media Player i din webbplats eller mobila program för att leverera din dataström i någon av de här protokollen.
+
+> [!NOTE]
+> Startar den 12 maj 2018 livekanaler kommer inte längre stöd för RTP/MPEG-2-transportström infogningsprotokollet. Migrera från RTP/MPEG-2 till RTMP eller fragmenterad MP4 (Smooth Streaming) inmatningsprotokollen.
+
+## <a name="streaming-endpoints-channels-programs"></a>Strömmande slutpunkter, kanaler, program
 
 I Azure Media Services hanterar **kanaler**, **program** och **strömningsslutpunkter** alla funktioner för liveuppspelning, inklusive infogande, formatering, DVR, säkerhet, skalbarhet och redundans.
 

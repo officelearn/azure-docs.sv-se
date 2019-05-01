@@ -2,9 +2,7 @@
 title: Geografisk tillgänglighet och valuta Support | Azure
 description: Geografisk tillgänglighet i Azure Marketplace och AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019

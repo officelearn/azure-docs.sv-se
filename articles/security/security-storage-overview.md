@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120900"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872046"
 ---
 # <a name="azure-storage-security-overview"></a>Säkerhetsöversikt för Azure Storage
 
-Azure Storage är molnlagringslösningen för moderna program som kräver hållbarhet, tillgänglighet och skalbarhet för att uppfylla kundernas behov. Azure Storage tillhandahåller en omfattande uppsättning funktioner för säkerhet. Du kan:
+Den här artikeln innehåller en översikt över säkerheten i Azure-funktioner som du kan använda med Azure Storage. Azure Storage är molnlagringslösningen för moderna program som kräver hållbarhet, tillgänglighet och skalbarhet för att uppfylla kundernas behov. Azure Storage tillhandahåller en omfattande uppsättning funktioner för säkerhet. Du kan:
 
 * Skydda storage-konto med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure Active Directory.
 * Skydda data i rörelse mellan ett program och Azure med hjälp av client side encryption, HTTPS och SMB 3.0.
@@ -33,9 +33,6 @@ Azure Storage är molnlagringslösningen för moderna program som kräver hållb
 * Använda analytics för att spåra den autentiseringsmetod som någon använder när de har åtkomst till lagring.
 
 Mer detaljerad information om säkerhet i Azure Storage, finns det [säkerhetsguiden för Azure Storage](../storage/common/storage-security-guide.md). Den här guiden innehåller en djupdykning i säkerhetsfunktionerna i Azure Storage. Dessa funktioner innefattar lagringskontonycklar, datakryptering vid överföring och på rest- och storage analytics.
-
-
-Den här artikeln innehåller en översikt över säkerheten i Azure-funktioner som du kan använda med Azure Storage. Länkar till artiklar ge information om varje funktion så att du kan läsa mer.
 
 ## <a name="role-based-access-control"></a>Rollbaserad Access Control
 

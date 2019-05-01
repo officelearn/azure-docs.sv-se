@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: 935c6ff03485c2b8e4d3e2f3df51c740ec1e8371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7ac4b54740b03a8b3fa09486a8e09f3262f67555
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770285"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866883"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsområden för Azure Cosmos DB
 Den här artikeln innehåller en översikt över flera vanliga användningsområden för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungerar som en startpunkt när du utvecklar ditt program med Cosmos DB.   
@@ -108,7 +108,7 @@ Eller, om du vill läsa mer om kunder som använder Cosmos DB, följande kundber
 * [Citrix](https://customers.microsoft.com/story/citrix). Citrix utvecklar single-sign-on lösning med hjälp av Azure Service Fabric och Azure Cosmos DB
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXAS revolutionerande IoT-lösning för vehicle ägare kan du spara tid, pengar, gas – och eventuellt finns.
 * [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc. är en American pizza restaurangkedja.
-* [Johnson styr](https://www.johnsoncontrols.com). Johnson kontroller är en global diversifierad teknik och flera industriella ledare serva en mängd olika kunder i fler än 150 länder.
+* [Johnson styr](https://www.johnsoncontrols.com). Johnson kontroller är en global diversifierad teknik och flera industriella ledare som betjänar ett stort antal kunder i fler än 150 länder/regioner.
 * [Microsoft Windows Universal Store, Azure IoT Hub, Xbox Live och andra tjänster](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Hur Microsoft skapar mycket skalbara tjänster med Azure Cosmos DB.
 * [Microsoft Data- och analysteamet](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsofts team för Data och analyser uppnår insamling av stordata global skala med Azure Cosmos DB
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha använder Azure Cosmos DB för att ansluta kunder och företag i Indien.

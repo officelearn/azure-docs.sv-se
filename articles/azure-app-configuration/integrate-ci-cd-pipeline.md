@@ -12,22 +12,22 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7db796b33bab941f038afab1b80127aded50b54a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: a8b77cea34344062c981d8f452094cffabe1e568
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000033"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572503"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrera med en CI/CD-pipeline
 
-Du kan förbättra elasticiteten i ditt program mot remote risken att du inte att kunna nå konfiguration av Azure. Du gör detta genom att paketera aktuella konfigurationsdata i en fil som har distribuerats med programmet och läsa in lokalt under start. Den här metoden garanterar att ditt program har inställningen standardvärden minst. De här värdena skrivs över av alla nyare ändringar i en appbutik konfiguration när den är tillgänglig.
+Programmet kanske inte körs om den är beroende av konfiguration av Azure och det går inte att nå den. Du kan förbättra återhämtning av ditt program behöver bry dig om sådan händelse, men inte troligt att inträffa. Du gör detta genom att paketera aktuella konfigurationsdata i en fil som har distribuerats med programmet och läsa in lokalt under start. Den här metoden garanterar att ditt program har inställningen standardvärden minst. De här värdena skrivs över av alla nyare ändringar i en appbutik konfiguration när den är tillgänglig.
 
 Med hjälp av den [exportera](./howto-import-export-data.md#export-data) funktionen för konfiguration av Azure, kan du automatisera processen för att hämta aktuella konfigurationsdata som en enda fil. Bädda in den här filen i ett bygge eller distribution steg i din kontinuerlig integrering och en pipeline för kontinuerlig distribution (CI/CD).
 
 I följande exempel visas hur du inkluderar konfiguration av data som en version som steg för webbappen som introducerades i snabbstarter. Innan du fortsätter Slutför [skapa en ASP.NET Core-app med Appkonfiguration](./quickstart-aspnet-core-app.md) första.
 
-Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
+Du kan använda valfri Kodredigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -48,7 +48,7 @@ Om du vill göra en cloud-version med Azure DevOps till exempel kontrollera att 
 
     Lägg till den *ConnectionString* som är associerade med din app konfiguration av lagring som en miljövariabel.
 
-2. Öppna Program.cs och uppdatera den `CreateWebHostBuilder` metod för att använda den exporterade JSON-filen genom att anropa den `config.AddJsonFile()` metoden.
+2. Öppna *Program.cs*, och uppdatera den `CreateWebHostBuilder` metod för att använda den exporterade JSON-filen genom att anropa den `config.AddJsonFile()` metoden.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 25f9d4e02bcb354acf1c771157622f07c5f4bcc1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684215"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712801"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållarinstanser till en Azure-nätverk
 
@@ -265,7 +265,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 Den första förhandsversionen av den här funktionen kräver flera ytterligare kommandon för att ta bort resurserna du skapade tidigare. Om du använde de exempel på kommandona i föregående avsnitt i den här artikeln för att skapa ditt virtuella nätverk och undernät, kan du använda följande skript för att ta bort dessa nätverksresurser.
 
-Innan du kör skriptet, ange den `RES_GROUP` variabeln med namnet på resursgruppen som innehåller det virtuella nätverk och undernät som ska tas bort. Skriptet formateras för Bash-gränssnittet. Om du föredrar en annan shell, till exempel PowerShell eller Kommandotolken behöver du justeras variabeltilldelning och behöriga personer.
+Innan du kör skriptet, ange den `RES_GROUP` variabeln med namnet på resursgruppen som innehåller det virtuella nätverk och undernät som ska tas bort. Uppdatera namnen på det virtuella nätverket och undernätet om du inte använde den `aci-vnet` och `aci-subnet` namn har föreslagits tidigare. Skriptet formateras för Bash-gränssnittet. Om du föredrar en annan shell, till exempel PowerShell eller Kommandotolken behöver du justeras variabeltilldelning och behöriga personer.
 
 > [!WARNING]
 > Det här skriptet tar bort resurser! Det tar bort det virtuella nätverket och alla undernät som den innehåller. Se till att du inte längre behöver *alla* resurser i det virtuella nätverket, inklusive alla undernät som den innehåller, innan du kör det här skriptet. En gång bort **dessa resurser är ett oåterkalleligt**.
@@ -281,6 +281,8 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
 # Get the service association link (SAL) ID
+# Replace aci-vnet and aci-subnet with your VNet and subnet names in the following commands
+
 SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
 # Delete the default SAL ID for the subnet

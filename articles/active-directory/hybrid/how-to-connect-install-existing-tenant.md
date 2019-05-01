@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60349576"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571373"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: När du har en befintlig klient
 De flesta av avsnitten om hur du använder Azure AD Connect förutsätter att du börjar med en ny Azure AD-klient och att det finns inga användare eller det andra objekt. Men om du har börjat med Azure AD-klient fyllt det med användare och andra objekt, och nu vill använda Connect, och det här avsnittet är för dig.
@@ -58,6 +58,15 @@ Det finns inga praktiska skillnaden mellan mjuk- och en hård matchning för en 
 
 ### <a name="other-objects-than-users"></a>Andra objekt än användare
 För e-postaktiverade grupper och kontakter, du kan ungefärlig matchning utifrån proxyAddresses. Hård-match kan inte användas eftersom du bara uppdatera sourceAnchor/immutableID (med PowerShell) för användare endast. För grupper som inte är e-postaktiverade: det finns för närvarande inget stöd för mjuk- eller hårda matchning.
+
+### <a name="admin-role-considerations"></a>Överväganden för Admin-roll
+För att förhindra att obetrodda lokala användare matchar med en cloud-användare som har alla administratörsroll matchar Azure AD Connect inte den lokala användarobjekt med objekt som har en administratörsroll. Detta är som standard. Lösa problemet kan du göra följande:
+
+1.  Ta bort katalogrollerna från molnbaserad användarobjektet
+2.  Utlös en synkronisering
+3.  Du kan också lägga till katalogrollerna användarobjektet i molnet när den matchande har uppstått.
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Skapa en ny Active Directory för den lokala data i Azure AD
 Vissa kunder börjar med en molnbaserad lösning med Azure AD och de inte har en lokal AD. De vill använda lokala resurser och vill skapa en lokal AD-baserad på Azure AD-data. Azure AD Connect kan hjälpa dig att det här scenariot. Den skapar inte användare både lokalt och den har inte någon möjlighet att ange lösenord för lokala platser till samma som i Azure AD.

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7010ec16592fea2f530329916e00056ca03a70
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096138"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729529"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut som synkroniseras till Azure Active Directory
 Det här avsnittet listas de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -158,7 +158,6 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Härleds från groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
@@ -241,7 +240,6 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Härleds från groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
@@ -294,7 +292,6 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
-| securityEnabled | | |X |Härleds från groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
@@ -317,7 +314,6 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X |mekanisk egenskap. Används av Azure AD. Innehåller alla sekundära e-postadresser för användaren. |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. |
-| securityEnabled | | |X |Hämtad från groupType. |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licensuppgifter. |
 | userPrincipalName |X | | |Den här UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
@@ -336,7 +332,6 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
-| securityEnabled | | |X |Härleds från groupType |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licensuppgifter. |
 | userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
@@ -364,7 +359,6 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | Postnummer |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
-| securityEnabled | | |X |Härleds från groupType |
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1e80b2083a2fce90259ac0634d9e7f796f459fcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880975"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706828"
 ---
 # <a name="about-azure-vm-backup"></a>Om Säkerhetskopiering av virtuella Azure-datorer
 
@@ -31,10 +31,14 @@ Här är hur Azure Backup är klar en säkerhetskopiering för virtuella Azure-d
     - Som standard tar Backup Fullständig VSS-säkerhetskopiering.
     - Om Backup inte kan dra en programkonsekvent ögonblicksbild, sedan tar det en filkonsekvent ögonblicksbild av det underliggande lagringsutrymmet (eftersom ingen programskrivning du medan Virtuellt datorn stoppas).
 1. Säkerhetskopieringen tar en filkonsekvent säkerhetskopiering för virtuella Linux-datorer. Du måste manuellt anpassa före/efter-skript för appkonsekventa ögonblicksbilder.
-1. När säkerhetskopieringen har tagit ögonblicksbilden överförs data till valvet. 
+1. När säkerhetskopieringen har tagit ögonblicksbilden överförs data till valvet.
     - Säkerhetskopieringen optimeras genom att säkerhetskopiera varje VM-disk parallellt.
     - För varje disk som säkerhetskopieras, Azure Backup läser block på disken och identifierar och överför endast de datablock som har ändrats (delta) sedan föregående säkerhetskopia.
     - Ögonblicksbilddata kan inte kopieras direkt till valvet. Det kan ta några timmar vid Högbelastningstider. Total tid för säkerhetskopiering för en virtuell dator ska vara mindre än 24 timmar för principer för daglig säkerhetskopiering.
+ 1. Ändringar som gjorts i en virtuell Windows-dator när Azure Backup har aktiverats på den finns:
+    -   Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 är installerad på den virtuella datorn
+    -   Starttyp för tjänsten för Volume Shadow Copy (VSS) ändras till automatisk från manuell
+    -   IaaSVmProvider Windows-tjänsten har lagts till
 
 1. När dataöverföringen har slutförts tas ögonblicksbilden bort och en återställningspunkt skapas.
 
@@ -57,7 +61,7 @@ BEKs säkerhetskopieras också. Så om BEKs går förlorade kan kan behöriga an
 
 ## <a name="snapshot-creation"></a>Skapa en ögonblicksbild
 
-Azure Backup har tagit ögonblicksbilder enligt schemat för säkerhetskopiering. 
+Azure Backup har tagit ögonblicksbilder enligt schemat för säkerhetskopiering.
 
 - **Windows-datorer:** För Windows-datorer samordnar Backup-tjänsten med VSS för att ta en programkonsekvent ögonblicksbild av VM-diskarna.
 
@@ -82,7 +86,7 @@ I följande tabell beskrivs de olika typerna av ögonblicksbild konsekvens:
 **Filsystemkonsekvent** | Programkonsekventa säkerhetskopior för filsystem som tillhandahåller konsekvens genom att ta en ögonblicksbild av alla filer på samma gång.<br/><br/> | När du återställer en virtuell dator med en konsekvent ögonblicksbild filsystemet, den virtuella datorn startas. Det finns inga skadade data eller dataförlust. Appar måste implementera sina egna ”åtgärds-”-mekanism för att se till att återställda data är konsekventa. | Windows: Vissa VSS-skrivarna misslyckades <br/><br/> Linux: Som standard (om före/efter skript inte konfigurerats eller misslyckade)
 **Kraschkonsekvent** | Kraschkonsekventa ögonblicksbilder inträffar vanligtvis om en Azure-dator stängs av vid tidpunkten för säkerhetskopieringen. Endast de data som redan finns på disken vid tidpunkten för säkerhetskopieringen inhämtas och säkerhetskopieras.<br/><br/> En kraschkonsekvent återställningspunkt garantera inte datakonsekvens för operativsystemet eller appen. | Även om det finns inga garantier, startas vanligtvis den virtuella datorn och startar sedan en diskkontroll för att åtgärda skadade data. Alla data i minnet eller skrivåtgärder som inte har överfört till disk innan kraschen går förlorade. Appar implementerar sina egna dataverifieringen. En databas-app kan till exempel använda dess transaktionsloggen för verifiering. Om transaktionsloggen har poster som inte finns i databasen, samlar databasprogrammet transaktioner tillbaka förrän data är konsekventa. | Virtuella datorn är i avstängning
 
-## <a name="backup-and-restore-considerations"></a>Överväganden för säkerhetskopiering och återställning 
+## <a name="backup-and-restore-considerations"></a>Överväganden för säkerhetskopiering och återställning
 
 **Beräkningen** | **Detaljer**
 --- | ---
@@ -99,8 +103,8 @@ I följande tabell beskrivs de olika typerna av ögonblicksbild konsekvens:
 Dessa vanliga scenarier kan påverka den totala tiden för säkerhetskopieringen:
 
 - **Lägger till en ny disk till en skyddad virtuell Azure-dator:** Om en virtuell dator används för tillfället inkrementell säkerhetskopia och en ny disk har lagts till, ökar säkerhetskopierades. Total tid för säkerhetskopiering kan vara mer än 24 timmar på grund av den inledande replikeringen av den nya disken, tillsammans med deltareplikering av befintliga diskar.
-- **Fragmenterade diskar:** Säkerhetskopiering är snabbare när diskändringar är sammanhängande. Om ändringarna är utspridd och fragmenterad över en disk, blir säkerhetskopiering långsammare. 
-- **Disk omsättning:** Om skyddade diskar som är under inkrementell säkerhetskopiering har en daglig omsättning av fler än 200 GB, säkerhetskopiering kan ta lång tid (fler än åtta timmar) för att slutföra. 
+- **Fragmenterade diskar:** Säkerhetskopiering är snabbare när diskändringar är sammanhängande. Om ändringarna är utspridd och fragmenterad över en disk, blir säkerhetskopiering långsammare.
+- **Disk omsättning:** Om skyddade diskar som är under inkrementell säkerhetskopiering har en daglig omsättning av fler än 200 GB, säkerhetskopiering kan ta lång tid (fler än åtta timmar) för att slutföra.
 - **Backup-versioner:** Den senaste versionen av säkerhetskopiering (kallas version omedelbar återställning) använder en mer optimerade process än kontrollsumma jämförelse för att identifiera ändringar. Men om du använder omedelbar återställning och har tagit bort en ögonblicksbild, säkerhetskopieringen växlar till kontrollsumma jämförelse. I det här fallet kommer säkerhetskopieringen överstiger 24 timmar (eller misslyckas).
 
 ## <a name="best-practices"></a>Bästa praxis

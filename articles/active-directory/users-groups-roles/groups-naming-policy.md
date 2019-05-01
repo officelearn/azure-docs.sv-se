@@ -10,33 +10,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 04/22/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bce8a9e4018f24022fcc45733d64ce47d07ba771
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 846eb3a43955fe05531f619869878b3978ad5b9d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471356"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690244"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Framtvinga en namnprincip för Office 365-grupper i Azure Active Directory
 
 Konfigurera en grupp namngivningspolicy för dina klienter i Azure Active Directory (Azure AD) för att tillämpa konsekventa namngivningskonventioner för Office 365-grupper som skapats eller redigerats av dina användare. Exempelvis kunde du använda namnprincip för att kommunicera funktionen för en grupp, medlemskap, geografiskt område eller vem som skapade gruppen. Du kan också använda namnprincip för att kategorisera grupper i adressboken. Du kan använda för att blockera specifika ord används i namn och alias.
 
 > [!IMPORTANT]
-> Med hjälp av Office 365 grupper namngivning av princip kräver Azure Active Directory Premium P1-licenser eller Azure AD Basic EDU licenser för enskilda användare som är medlem i en eller flera grupper för Office 365.
+> Med Azure AD namnprincip för Office 365-grupper kräver att du äger men inte nödvändigtvis tilldela en Azure Active Directory Premium P1-licensen eller Azure AD Basic EDU för varje unika användare som är medlem i en eller flera grupper för Office 365.
 
-Namngivning principen tillämpas på skapar eller redigerar grupper som skapats i arbetsbelastningar (till exempel Outlook, Microsoft Teams, SharePoint, Exchange eller Planner). Den tillämpas på både namn och gruppalias. Om du ställer in din namnprincip i Azure AD och du har en befintlig grupp för Exchange namngivningspolicy, tillämpas Azure AD som namnger principen.
+Namngivning principen tillämpas på skapar eller redigerar grupper som skapats i arbetsbelastningar (till exempel Outlook, Microsoft Teams, SharePoint, Exchange eller Planner). Den tillämpas på både namn och gruppalias. Om du ställer in din namnprincip i Azure AD och du har en befintlig grupp för Exchange namngivningspolicy, tillämpas den Azure AD som namnger principen i din organisation.
 
 ## <a name="naming-policy-features"></a>Namngivning av policy-funktioner
-Du kan tillämpa namnprincip för Office 365-grupper på två olika sätt:
 
--   **Prefix-suffix namnprincip** du kan definiera prefix eller suffix som sedan läggs automatiskt till att tillämpa en namngivningskonvention på dina grupper (till exempel i gruppnamnet ”GRP\_JAPAN\_min grupp\_ Ingenjörskonst ”, GRP\_JAPAN\_ är prefixet och \_tekniker är suffixet). 
+Du kan tillämpa namnprincip för grupper på två olika sätt:
 
--   **Anpassade spärrad ord** du kan ladda upp en uppsättning blockerade ord som är specifika för din organisation ska blockeras i grupper som skapats av användare (till exempel ”CEO, lönelistor, HR”).
+- **Prefix-suffix namnprincip** du kan definiera prefix eller suffix som sedan läggs automatiskt till att tillämpa en namngivningskonvention på dina grupper (till exempel i gruppnamnet ”GRP\_JAPAN\_min grupp\_ Ingenjörskonst ”, GRP\_JAPAN\_ är prefixet och \_tekniker är suffixet). 
+
+- **Anpassade spärrad ord** du kan ladda upp en uppsättning blockerade ord som är specifika för din organisation ska blockeras i grupper som skapats av användare (till exempel ”CEO, lönelistor, HR”).
 
 ### <a name="prefix-suffix-naming-policy"></a>Namnprincip för prefix-suffix
 
@@ -75,48 +76,74 @@ Utvalda administratörer kan undantas från dessa principer över alla arbetsbel
 - Användaradministratör
 - Katalogskrivare
 
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Konfigurera gruppen namngivningspolicy för en klient med hjälp av Azure portal (förhandsversion)
+
+1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com) användare med ett administratörskonto.
+1. Välj **grupper**och välj sedan **Namngivningspolicy** att öppna sidan namngivning av principen.
+
+    ![Öppna sidan namngivning av principen i administrationscentret](./media/groups-naming-policy/policy-preview.png)
+
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visa eller redigera namnprincip för Prefix-suffix
+
+1. På den **Namngivningspolicy** väljer **gruppen namnprincip**.
+1. Du kan visa eller redigera det aktuella prefixet eller suffixet naming principer individuellt genom att välja attribut eller strängar som du vill framtvinga som en del av namnprincip.
+1. Om du vill ta bort ett prefix eller suffix i listan, Välj prefix eller suffix och välj sedan **ta bort**. Flera objekt kan tas bort samtidigt.
+1. Spara dina ändringar för den nya principen ska träda i kraft genom att välja **spara**.
+
+### <a name="view-or-edit-the-custom-blocked-words"></a>Visa eller redigera anpassade spärrad ord
+
+1. På den **Namngivningspolicy** väljer **blockeras ord**.
+
+    ![Redigera och ladda upp blockerade ord lista för namngivning av princip](./media/groups-naming-policy/blockedwords-preview.png)
+
+1. Visa eller redigera den aktuella listan över anpassade spärrad ord genom att välja **hämta**.
+1. Ladda upp den nya listan över anpassade spärrad ord genom att välja filikonen.
+1. Spara dina ändringar för den nya principen ska träda i kraft genom att välja **spara**.
+
 ## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Installera PowerShell-cmdlets för att konfigurera en namnprincip
 
-Se till att avinstallera äldre versioner av Azure Active Directory PowerShell för Graph-modulen för Module for Windows PowerShell och installera [Azure Active Directory PowerShell för Graph – offentlig förhandsversion 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) innan du kör PowerShell-kommandon. 
+Se till att avinstallera äldre versioner av Azure Active Directory PowerShell för Graph-modulen för Module for Windows PowerShell och installera [Azure Active Directory PowerShell för Graph – offentlig förhandsversion 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) innan du kör PowerShell-kommandon.
 
 1. Öppna Windows PowerShell-appen som administratör.
 2. Avinstallera en eventuell tidigare version av AzureADPreview.
   
-   ```
+   ```powershell
    Uninstall-Module AzureADPreview
    ```
+
 3. Installera den senaste versionen av AzureADPreview.
   
-   ```
+   ```powershell
    Install-Module AzureADPreview
    ```
-   Om du får ett meddelande om åtkomst till en icke-betrodd lagringsplats anger du **Y** (Ja). Det kan ta några minuter för den nya modulen att installeras.
+
+   Om du får en uppmaning om att få åtkomst till en ej betrodd lagringsplats anger **Y**. Det kan ta några minuter för den nya modulen att installeras.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Konfigurera gruppen namngivningspolicy för en klient med hjälp av Azure AD PowerShell
 
 1. Öppna ett Windows PowerShell-fönster på datorn. Du kan öppna den utan utökad behörighet.
 
-2. Kör följande kommandon för att förbereda körningen av cmdletarna.
+1. Kör följande kommandon för att förbereda körningen av cmdletarna.
   
-   ```
+   ```powershell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
    På sidan **Logga in på ditt konto** som öppnas anger du ditt administratörskonto och lösenord för att ansluta till tjänsten, och väljer **Logga in**.
 
-3. Följ stegen i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](groups-settings-cmdlets.md) för att skapa gruppinställningar för den här klientorganisationen.
+1. Följ stegen i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](groups-settings-cmdlets.md) för att skapa gruppinställningar för den här klientorganisationen.
 
 ### <a name="view-the-current-settings"></a>Visa de aktuella inställningarna
 
 1. Hämta den aktuella namnprincip om du vill visa de aktuella inställningarna.
   
-   ```
+   ```powershell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
-2. Visa de aktuella gruppinställningarna.
+1. Visa de aktuella gruppinställningarna.
   
-   ```
+   ```powershell
    $Setting.Values
    ```
   
@@ -124,38 +151,38 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
 
 1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell. För att funktionen ska fungera korrekt måste [GroupName] inkluderas i inställningen.
   
-   ```
+   ```powershell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
-2. Ange de anpassade blockerade ord du vill begränsa. I följande exempel visas hur du kan lägga till dina egna anpassade ord.
+1. Ange de anpassade blockerade ord du vill begränsa. I följande exempel visas hur du kan lägga till dina egna anpassade ord.
   
-   ```
+   ```powershell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
-3. Spara inställningarna för att den nya principen ska gälla, som i följande exempel.
+1. Spara inställningarna för den nya principen ska träda i kraft, som i följande exempel.
   
-   ```
+   ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
 Klart! Du har konfigurera principer för namngivning och har lagt till din blockerade ord.
 
-## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Exportera eller importera listan över anpassade spärrad ord
+## <a name="export-or-import-the-list-of-custom-blocked-words-using-azure-ad-powershell"></a>Exportera eller importera listan över anpassade blockerade ord med Azure AD PowerShell
 
 Mer information finns i artikeln [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](groups-settings-cmdlets.md).
 
 Här är ett exempel på ett PowerShell.skript för att exportera flera blockerade ord:
 
-```
+```powershell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 Här är ett exempel PowerShell-skript för att importera flera blockerade ord:
 
-```
+```powershell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -171,31 +198,37 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>Ta bort namnprincip
 
+### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Ta bort principen namngivning med hjälp av Azure portal (förhandsversion)
+
+1. På den **Namngivningspolicy** väljer **ta bort princip**.
+1. När du bekräftar borttagningen namngivning principen tas bort, inklusive alla prefix-suffix namngivning av principen och eventuella anpassade blockerade orden.
+
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Ta bort principen namngivning med Azure AD Powershell
+
 1. Ta bort gruppnamnsprefix och -suffix i Azure AD PowerShell.
   
-   ```
+   ```powershell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
-2. Ta bort de anpassade spärrade orden. 
+1. Ta bort de anpassade spärrade orden.
   
-   ```
+   ```powershell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
-3. Spara inställningarna.
+1. Spara inställningarna.
   
-   ```
+   ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Namngivningspolicy resultat på alla Office 365-appar
 
-När du har angett en gruppnamnsprincip i Azure AD, när en användare skapar en grupp i en Office 365-app, visas: 
+När du har angett en gruppnamnsprincip i Azure AD, när en användare skapar en grupp i en Office 365-app, visas:
 
-* En förhandsgranskning av namnet enligt dina namnprincip (med prefix och suffix) så snart som användaren skriver i gruppnamnet
-* Om användaren anger blockerade ord, visas de ett felmeddelande visas så att de kan ta bort blockerade orden.
+- En förhandsgranskning av namnet enligt dina namnprincip (med prefix och suffix) så snart som användaren skriver i gruppnamnet
+- Om användaren anger blockerade ord, visas de ett felmeddelande visas så att de kan ta bort blockerade orden.
 
 Arbetsbelastning | Efterlevnad
 ----------- | -------------------------------
@@ -221,11 +254,12 @@ Administrationscenter för Exchange | Administrationscenter för Exchange är ko
 Microsoft 365 Administrationscenter | Microsoft 365 Administrationscenter är kompatibla med namngivningspolicy. När en användare skapar redigeringar gruppnamn, namngivning principen tillämpas automatiskt och får användarna lämpliga fel när de kommer in anpassade spärrad orden. Administrationscenter för Microsoft 365 ännu visar inte en förhandsgranskning av namnprincip och returnera inte anpassade blockerat ord fel när användaren anger gruppnamnet.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Dessa artiklar innehåller ytterligare information om Azure AD-grupper.
 
-* [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Princip för Office 365-grupper](groups-lifecycle.md)
-* [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Hantera medlemmar i en grupp](../fundamentals/active-directory-groups-members-azure-portal.md)
-* [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Hantera dynamiska regler för användare i en grupp](groups-dynamic-membership.md)
+- [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Princip för Office 365-grupper](groups-lifecycle.md)
+- [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Hantera medlemmar i en grupp](../fundamentals/active-directory-groups-members-azure-portal.md)
+- [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Hantera dynamiska regler för användare i en grupp](groups-dynamic-membership.md)

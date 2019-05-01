@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880374"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574118"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
@@ -52,14 +52,16 @@ På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klick
 |Lagringsplats     | Namnet på databasen eller projekt. De första 200 lagringsplatserna returneras. För att söka efter en lagringsplats, skriver du namnet i fältet och klickar på **Sök på GitHub**.|
 |Branch     | Den gren som ska hämta källfiler från. Gren mål är inte tillgängligt för TFVC-källkontrollstypen.          |
 |Mappsökväg     | Den mapp som innehåller runbooks för att synkronisera. Exempel: /Runbooks </br>*Endast runbooks i mappen som specificerats synkroniseras. Rekursion stöds inte.*        |
-|Automatisk synkronisering     | Aktiverar eller inaktivera automatisk synkronisering när ett genomförande görs i källkontroll         |
+|Automatisk synkronisering<sup>1</sup>     | Aktiverar eller inaktivera automatisk synkronisering när ett genomförande görs i källkontroll         |
 |Publicera Runbook     | Om inställd **på**, när runbooks har synkroniserats från källkontroll som de kommer att publiceras automatiskt.         |
 |Beskrivning     | Ett textfält för att ge mer information        |
+
+<sup>1</sup> om du vill aktivera automatisk synkronisering när du konfigurerar integrering av källkontroll med Azure-lagringsplatser, måste du vara en projektadministratör.
 
 ![Sammanfattning för kontroll av källa](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Kontrollera att du har loggat in med rätt konto när du konfigurerar källkontroll. Om det finns en osäkra, öppna en ny flik i webbläsaren och logga ut från visualstudio.com eller github.com och försök ansluta källkontroll igen.
+> Din inloggning för centrallagret för källkontroll kan skilja sig från din inloggning för Azure-portalen. Kontrollera att du har loggat in med rätt konto för centrallagret för källkontroll när du konfigurerar källkontroll. Om det finns en osäkra, öppna en ny flik i webbläsaren och logga ut från visualstudio.com eller github.com och försök ansluta källkontroll igen.
 
 ## <a name="configure-source-control---powershell"></a>Konfigurera källkontroll – PowerShell
 

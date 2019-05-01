@@ -3,8 +3,8 @@ title: Konfigurera IP-adresser för en Azure nätverksgränssnitt | Microsoft Do
 description: Lär dig mer om att lägga till, ändra och ta bort privata och offentliga IP-adresser för ett nätverksgränssnitt.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
-ms.author: jdial
-ms.openlocfilehash: 89b311edbae6b5f6679908b5d07b22b402b5c55e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: a6635b811dfa9c46facfffee1c57b2871cb4c738
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888074"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719699"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett gränssnitt för Azure-nätverk
 
@@ -54,7 +54,7 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
    |Inställning|Krävs?|Information|
    |---|---|---|
    |Namn|Ja|Måste vara unikt för nätverksgränssnittet|
-   |Type|Ja|Eftersom du lägger till en IP-konfiguration till en befintlig nätverksgränssnitt och varje nätverksgränssnitt måste ha en [primära](#primary) IP-konfiguration, det enda alternativet är **sekundära**.|
+   |Typ|Ja|Eftersom du lägger till en IP-konfiguration till en befintlig nätverksgränssnitt och varje nätverksgränssnitt måste ha en [primära](#primary) IP-konfiguration, det enda alternativet är **sekundära**.|
    |Tilldelningsmetoden för privat IP-adress|Ja|[**Dynamic**](#dynamic): Azure tilldelar nästa tillgängliga adress för adressintervall för undernätet nätverksgränssnittet har distribuerats i. [**Static**](#static): Du tilldelar en oanvända adress för adressintervall för undernätet nätverksgränssnittet har distribuerats i.|
    |Offentlig IP-adress|Nej|**Inaktiverad:** Ingen offentlig IP-adressresurs är för närvarande associerad till IP-konfigurationen. **Aktiverad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Läs hur du skapar en offentlig IP-adress, den [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) artikeln.|
 6. Lägg till manuellt sekundära privata IP-adresser för VM-operativsystemet när du har slutfört instruktionerna i den [tilldela flera IP-adresser till VM-operativsystem](virtual-network-multiple-ip-addresses-portal.md#os-config) artikeln. Se [privata](#private) IP-adresser för att tänka på innan du manuellt lägger till IP-adresser till ett VM-operativsystem. Lägg inte till offentliga IP-adresser till VM-operativsystem.

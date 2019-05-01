@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7885473d029556e10663675a9886c7ea3b9c709c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555429"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722169"
 ---
 # <a name="data-querying"></a>Fråga data
 
@@ -75,11 +75,11 @@ Följande Time Series fråga API: er är tillgängliga:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om:
+- Läs mer om [storage och ingående](./time-series-insights-update-storage-ingress.md) i förhandsversionen av Azure Time Series Insights.
 
-- [Lagring och inkommande för Azure Time Series Insights (förhandsversion)](./time-series-insights-update-storage-ingress.md)
-- [Datamodellering](./time-series-insights-update-tsm.md)
-- [Bästa praxis när du väljer en tid-ID](./time-series-insights-update-how-to-id.md)
+- Läsa Time Series Insights Preview [datamodellering](./time-series-insights-update-tsm.md) artikeln.
+
+- Identifiera [bästa praxis när du väljer en tid-ID](./time-series-insights-update-how-to-id.md).
 
 <!-- Images -->
 [1]: media/v2-update-tsq/tsq.png

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b81dccf3c71fbaff7b0cbb9ba00f13b458156e73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074610"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920006"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Konfigurera datorer för hantering av Azure Automation State Configuration
 
@@ -62,8 +62,8 @@ Under **registrering**, ange den [PowerShell DSC lokal konfigurationshanterare v
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-Azure-datorer kan distribueras och har integrerats i Azure Automation-Tillståndskonfiguration via Azure Resource Manager-mallar. Se [Server hanteras av Desired State Configuration-tjänsten](https://azure.microsoft.com/en-us/resources/templates/101-automation-configuration/) för en exempelmall som registrerar virtuella en befintlig virtuell dator till Azure Automation State Configuration.
-Om du hanterar en Virtual Machine Scale Sets, se exempel mallen [ange konfigurationen för virtuell dator skala hanteras av Azure Automation](https://azure.microsoft.com/en-us/resources/templates/201-vmss-automation-dsc/).
+Azure-datorer kan distribueras och har integrerats i Azure Automation-Tillståndskonfiguration via Azure Resource Manager-mallar. Se [Server hanteras av Desired State Configuration-tjänsten](https://azure.microsoft.com/resources/templates/101-automation-configuration/) för en exempelmall som registrerar virtuella en befintlig virtuell dator till Azure Automation State Configuration.
+Om du hanterar en Virtual Machine Scale Sets, se exempel mallen [ange konfigurationen för virtuell dator skala hanteras av Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -72,7 +72,7 @@ Den [registrera AzureRmAutomationDscNode](/powershell/module/azurerm.automation/
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Registrera virtuella datorer mellan Azure-prenumerationer
 
 Det bästa sättet att registrera virtuella datorer från andra Azure-prenumerationer är att använda DSC-tillägg i en Distributionsmall av Azure Resource Manager.
-Exempel finns i [Desired State Configuration-tillägget med Azure Resource Manager-mallar](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template).
+Exempel finns i [Desired State Configuration-tillägget med Azure Resource Manager-mallar](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 Nyckel för tjänstregistrering och URL: en för registrering ska användas som parametrar i mallen finns i följande [ **säker registrering** ](#secure-registration) avsnittet.
 
 ## <a name="azure-virtual-machines-classic"></a>Azure-datorer (klassisk)

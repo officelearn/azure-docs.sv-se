@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484027"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572577"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure-hanterade program på Marketplace
 
@@ -29,7 +29,7 @@ För att kunna slutföra detta måste du redan ha en ZIP-fil för din definition
 
 Det finns även olika företagskrav. De är:
 
-* Ditt företag (eller dess filial) måste finnas i ett land där marknadsplatsen är tillgänglig för försäljningar.
+* Ditt företag eller dess dotterbolag måste befinna sig i ett land/en region där försäljning stöds av marketplace.
 * Din produkt måste vara licensierad på ett sätt som fungerar med de faktureringsmodeller som används på marknadsplatsen.
 * Du måste tillhandahålla teknisk support för kunderna på ett kommersiellt rimligt sätt. Supporten kan vara gratis, betald eller bestå av community-support.
 * Du måste licensiera din programvara och eventuell tillhörande programvara från tredje part.
@@ -43,7 +43,7 @@ För att kunna bli utgivare på Azure Marketplace måste du:
 
 1. Skapa ett Microsoft-ID – skapa ett Microsoft-konto med en e-postadress som tillhör företagets domän men inte en enskild användare. E-postadressen används för både Microsoft Developer Center och Cloud Partner Portal. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
 1. Skicka [nomineringsformuläret för Azure Marketplace](https://aka.ms/ampnomination) – För **Lösning som du vill publicera?** väljer du **Hanterat program**. När formuläret har skickats in granskar Marketplace Onboarding-teamet ditt program och verifierar begäran. Godkännandeprocessen kan ta upp till tre dagar. När din nominering har godkänts får du en kampanjkod som du använder för att undvika registreringsavgiften för Developer Center. Om du **inte** fyller i nomineringsformuläret för Marketplace får du betala en registreringsavgift på 99 USD.
-1. Registrera dig i [Developer Center](https://dev.windows.com/registration?accountprogram=azure) – Microsoft kontrollerar att din organisation är en giltig juridisk enhet med ett giltigt skatte-ID landet där enheten är registrerad. Godkännandeprocessen kan ta 5 till 10 dagar. Använd kampanjkoden som du fick med e-post under nomineringsprocessen för att undvika registreringsavgift. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
+1. Registrera i [Developer Center](https://dev.windows.com/registration?accountprogram=azure) -Microsoft verifierar att din organisation är en giltig juridisk person med ett giltigt SKATTE-ID för landet/regionen där det är registrerat. Godkännandeprocessen kan ta 5 till 10 dagar. Använd kampanjkoden som du fick med e-post under nomineringsprocessen för att undvika registreringsavgift. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
 1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) – I utgivarprofilen kopplar du ditt Developer Center-konto till Marketplace-utgivarprofilen. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Skapa ett nytt erbjudande för Azure-program
@@ -94,8 +94,8 @@ En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som e
    * **Sammanfattning**: Ange en kort sammanfattning för SKU:n. Texten visas nedanför rubriken.
    * **Beskrivning**: Ange en detaljerad beskrivning av SKU:n.
    * **SKU-typ**: Tillåtna värden är *Hanterat program* och *Lösningsmallar*. I det här fallet väljer du *Hanterat program*.
-   * **Tillgänglighet i land/region**: Välj de länder och regioner där det hanterade programmet är tillgängligt.
-   * **Prissättning**: Ange ett pris för hanteringen av programmet. Välj tillgängliga länder innan du anger priset.
+   * **Tillgänglighet i land/region**: Välj de länder/regioner där det hanterade programmet är tillgängligt.
+   * **Prissättning**: Ange ett pris för hanteringen av programmet. Välj de tillgängliga länder/regionerna innan du anger priset.
 
 1. Lägg till ett nytt paket. Fyll i avsnittet **Paketinformation** i följande formulär:
 

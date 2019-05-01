@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
-ms.openlocfilehash: d2aa018566695b5b94cd8a7e64931a8b776b151d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766291"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687066"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga standard Azure Service Bus-namnområde till premium-nivån
 Azure Service Bus erbjuds tidigare namnområden endast på standard-nivån. Namnområden är inställningar för flera innehavare som är optimerade för utvecklarmiljöer och lågt dataflöde. Premium-nivån erbjuder dedikerade resurser per namnområde för förutsägbar latens och ökat genomflöde till ett fast pris. Premium-nivån är optimerat för stora dataflöden och produktionsmiljöer som kräver ytterligare företagsfunktioner.
@@ -62,7 +62,7 @@ Följ dessa steg för att migrera standard Service Bus-namnområdet till premium
    ```
 
     >[!IMPORTANT]
-    > Uppgifter efter migrering namn (post_migration_dns_name) används för att få åtkomst till den gamla standardnamnområde efter migreringen. Används för att tömma köer och prenumerationer och sedan ta bort namnområdet.
+    > Uppgifter efter migrering/aliasnamnet (post_migration_dns_name) används för att få åtkomst till den gamla standardnamnområde efter migreringen. Används för att tömma köer och prenumerationer och sedan ta bort namnområdet.
 
 1. Koppla standard och premium-namnområden och starta synkroniseringen med hjälp av följande kommando:
 

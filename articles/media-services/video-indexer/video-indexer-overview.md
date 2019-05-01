@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559884"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574123"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -37,7 +37,7 @@ Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure 
 
 ## <a name="audio-insights"></a>Ljud insikter
 
-- **Automatisk språkidentifiering**: Identifierar automatiskt dominerande talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och portugisiska (Brasilien). Om språket inte kan identifieras används engelska.
+- **Automatisk språkidentifiering**: Identifierar automatiskt dominerande talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och brasiliansk portugisiska kommer vid engelska när språket inte kan identifieras.
 - **Ljudutskrift**: Konverterar tal till text i 12 språk och tillåter tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, arabiska, ryska, portugisiska (Brasilien), Hindi och koreanska.
 - **Textning**: Skapar textning i tre format: VTT, TTML, SRT.
 - **Två channel bearbetning**: Automatiskt identifierar, avgränsa avskrift och slår ihop till en enda tidslinje.
@@ -47,7 +47,7 @@ Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure 
 - **Talare statistik**: Innehåller statistik för talare tal förhållanden.
 - **Textbaserade innehållsmoderering**: Identifierar explicit text i ljudavskrifter.
 - **Ljud effekterna**: Identifierar ljud effekter som hand applåder, tal och åsidosatt inaktivitet.
-- **Känsloigenkänning**: Identifierar känslor baserat på tal- och ljud tips. Känslan kan vara: glädje, sorg, ilska eller rädsla.
+- **Känsloigenkänning**: Identifierar känslor baserat på tal (vad som sägs) och röst toner (hur det som sägs).  Känslan kan vara: glädje, sorg, ilska eller rädsla.
 - **Översättning**: Skapar översättningar av ljudavskrifter till 54 olika språk.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Ljud- och insights (med flera kanaler)

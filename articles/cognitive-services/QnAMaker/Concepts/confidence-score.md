@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0612770c823e30578e7f4675878fc4ce2aee2bd9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282584"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702984"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Förtroendepoäng för en kunskapsbas med QnA Maker
 När en användarfråga matchas mot en kunskapsbas, returnerar QnA Maker relevanta svar, tillsammans med ett förtroenderesultat. Det här resultatet indikerar var säker på att svaret är rätt matchning för den angivna användarfrågan. 
@@ -46,13 +46,13 @@ Följande tabell visar vanliga förtroende som är associerade för ett visst po
 |0|Ingen matchning, så att svaret inte returneras.|”Hur mycket tjänsten kostar”|
 
 ## <a name="choose-a-score-threshold"></a>Välj ett poäng tröskelvärde
-Tabellen ovan visar resultat som förväntas på de flesta KB-artiklar. Men eftersom varje KB skiljer sig, och har olika typer av ord, avsikter och mål-rekommenderar vi du testa och välj tröskelvärdet som bäst passar dig. Standardwebbplatsen och den rekommenderade tröskeln som ska fungera för de flesta KB-artiklar, är **50**.
+Tabellen ovan visar resultat som förväntas på de flesta KB-artiklar. Men eftersom varje KB skiljer sig, och har olika typer av ord, avsikter och mål-rekommenderar vi du testa och välj tröskelvärdet som bäst passar dig. Tröskelvärdet är som standard till 0, så att alla möjliga svar returneras. Den rekommenderade tröskeln som ska fungera för de flesta KB-artiklar, är **50**.
 
 När du väljer tröskeln för ditt, Kom ihåg balans mellan precision och täckning och justera tröskeln för ditt baserat på dina krav.
 
 - Om **Precision** (eller precision) är viktigare för ditt scenario och öka din tröskelvärdet. På så sätt kan varje gång du kommer tillbaka ett svar är en mycket mer CONFIDENT användningsfall och mycket mer troligt svar användare söker efter. I det här fallet kan du få lämnar fler frågor obehandlade. *Till exempel:* om du gör tröskelvärdet **70**, du kan gå miste om vissa tvetydig exempel gilla ”vad är spara och träna”?.
 
-- Om **täckning** (eller återkallande) är fler viktigt – och du vill att besvara så många frågor som möjligt, även om det finns bara en partiell relation till användarens fråga - sedan SÄNKA tröskelvärdet. Det innebär att det kan vara mer fall där svaret svarar inte användarens faktiska frågan, men ger andra relaterade något svar. *Till exempel:* om du gör tröskelvärdet **30**, får inte mycket relaterade svar som svarar på med exemplet ovan, för frågor som ”var kan jag ändra min Kunskapsbas”?
+- Om **täckning** (eller återkallande) är fler viktigt – och du vill att besvara så många frågor som möjligt, även om det finns bara en partiell relation till användarens fråga - sedan SÄNKA tröskelvärdet. Det innebär att det kan vara mer fall där svaret svarar inte användarens faktiska frågan, men ger andra relaterade något svar. *Till exempel:* om du gör tröskelvärdet **30**, du kan ge svar för frågor som ”var kan jag ändra min Kunskapsbas”?
 
 > [!NOTE]
 > Nyare versioner av QnA Maker är förbättringar av bedömnings logik och kan påverka din tröskelvärdet. När du uppdaterar tjänsten, se till att testa och justera tröskelvärdet om det behövs. Du kan kontrollera QnA Service-version [här](https://www.qnamaker.ai/UserSettings), och se hur du kan få de senaste uppdateringarna [här](../How-To/troubleshooting-runtime.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361955"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570636"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -76,7 +76,7 @@ När NPS-tillägget för Azure är integrerad med NPS, resulterar ett flöde fö
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Det här avsnittet beskrivs de krav som måste slutföras innan du kan integrera MFA med fjärrskrivbordsgateway. Innan du börjar måste du ha följande krav på plats:
+Det här avsnittet beskrivs de krav som måste slutföras innan du kan integrera MFA med VPN-anslutningen. Innan du börjar måste du ha följande krav på plats:
 
 * VPN-infrastruktur
 * Rollen Nätverksprincip och åtkomsttjänster
@@ -338,7 +338,7 @@ Som en del av konfigurationen av NPS-tillägget, måste du ange autentiseringsup
 
 ### <a name="install-the-nps-extension"></a>Installera NPS-tillägget
 
-NPS-tillägget måste installeras på en server som har nätverksprinciper och Access Services-rollen installerad och som fungerar som RADIUS-server i din design. Gör *inte* Installera NPS-tillägget på Remote Desktop-servern.
+NPS-tillägget måste installeras på en server som har nätverksprinciper och Access Services-rollen installerad och som fungerar som RADIUS-server i din design. Gör *inte* Installera NPS-tillägget på VPN-servern.
 
 1. Hämta NPS-tillägget från [Microsoft Download Center](https://aka.ms/npsmfa).
 

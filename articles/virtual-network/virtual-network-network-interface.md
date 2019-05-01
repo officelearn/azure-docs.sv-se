@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Lär dig vad ett nätverksgränssnitt är och hur du skapar, ändra inställningar för och ta bort ett.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
-ms.author: jdial
-ms.openlocfilehash: 8840944f6757813b10b01c8e512b1ef64c05a85f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: a3cb6e1b20e405cedddae8684a4b91fcb8a5514a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888295"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695353"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -57,7 +58,7 @@ När du skapar en virtuell dator med Azure-portalen, skapar portalen ett nätver
     |Privat IP-adress (IPv6)|Nej| Om du väljer den här kryssrutan måste tilldelas en IPv6-adress till nätverksgränssnittet, förutom IPv4-adress för nätverksgränssnittet. IPv6-avsnittet i den här artikeln för viktig information om användning av IPv6 med nätverksgränssnitt. Du kan inte välja en tilldelningsmetod för IPv6-adress. Om du vill tilldela en IPv6-adress tilldelas den med metoden dynamisk.
     |IPv6-namn (visas bara när den **privat IP-adress (IPv6)** är markerad) |Ja, om den **privat IP-adress (IPv6)** är markerad.| Det här namnet är tilldelad till en sekundär IP-konfiguration för nätverksgränssnittet. Läs mer om IP-konfigurationer i [Visa inställningar för nätverksgränssnittet](#view-network-interface-settings).|
     |Resursgrupp|Ja|Välj en befintlig [resursgrupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) eller skapa ett. Ett nätverksgränssnitt kan finnas i samma eller olika resursgruppen, den virtuella datorn som du ansluter den till, eller det virtuella nätverket som du ansluter den till.|
-    |Plats|Ja|Den virtuella datorn du har kopplat ett nätverksgränssnitt för och det virtuella nätverket som du ansluter den till måste finnas i samma [plats](https://azure.microsoft.com/regions), vilket även kallas en region.|
+    |Location|Ja|Den virtuella datorn du har kopplat ett nätverksgränssnitt för och det virtuella nätverket som du ansluter den till måste finnas i samma [plats](https://azure.microsoft.com/regions), vilket även kallas en region.|
 
 Portalen ger inte alternativet att tilldela en offentlig IP-adress till nätverksgränssnittet när du skapar den, även om portalen skapa en offentlig IP-adress och tilldela den till ett nätverksgränssnitt när du skapar en virtuell dator med hjälp av portalen. Läs hur du lägger till en offentlig IP-adress till nätverksgränssnittet när du har skapat den i [hantera IP-adresser](virtual-network-network-interface-addresses.md). Om du vill skapa ett nätverksgränssnitt med en offentlig IP-adress, måste du använda CLI eller PowerShell för att skapa ett nätverksgränssnitt.
 

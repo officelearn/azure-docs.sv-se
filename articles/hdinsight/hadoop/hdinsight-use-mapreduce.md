@@ -1,7 +1,6 @@
 ---
 title: MapReduce med Apache Hadoop i HDInsight
 description: Lär dig hur du kör MapReduce-jobb på Apache Hadoop i HDInsight-kluster.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521208"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707959"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Använda MapReduce i Apache Hadoop på HDInsight
 
@@ -49,15 +48,13 @@ Hadoop streaming kommunicerar med mapper och reducer via STDIN och STDOUT. Mappe
 
 Mer information finns i [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-Exempel på användning av Hadoop-strömmande med HDInsight finns i följande dokument:
+Exempel på hur du använder Hadoop-strömmande med HDInsight finns i följande dokument:
 
 * [Utveckla C#-MapReduce-jobb](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Utveckla Python MapReduce-jobb](apache-hadoop-streaming-python.md)
-
 ## <a id="data"></a>Exempeldata
 
-HDInsight innehåller olika exempel datauppsättningar, som lagras i den `/example/data` och `/HdiSamples` directory. Dessa kataloger finns i standardlagringen för klustret. I det här dokumentet använder vi den `/example/data/gutenberg/davinci.txt` filen. Den här filen innehåller anteckningsböcker för Leonardo Da Vinci.
+HDInsight innehåller olika exempel datauppsättningar, som lagras i den `/example/data` och `/HdiSamples` directory. Dessa kataloger finns i standardlagringen för klustret. I det här dokumentet använder vi den `/example/data/gutenberg/davinci.txt` filen. Den här filen innehåller anteckningsböcker för Leonardo da Vinci.
 
 ## <a id="job"></a>Exempel MapReduce
 
@@ -141,8 +138,6 @@ Anvisningar att skriva din egen MapReduce-program finns i följande dokument:
 
 * [Utveckla Java MapReduce-program för HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Utveckla Python MapReduce-program för HDInsight](apache-hadoop-streaming-python.md)
-
 ## <a id="run"></a>Kör MapReduce
 
 HDInsight kan köra HiveQL jobb med hjälp av olika metoder. Använd följande tabell för att bestämma vilken metod som passar dig och klicka sedan på länken för en genomgång.
@@ -158,8 +153,6 @@ HDInsight kan köra HiveQL jobb med hjälp av olika metoder. Använd följande t
 Mer information om hur du arbetar med data i HDInsight finns i följande dokument:
 
 * [Utveckla Java MapReduce-program för HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Utveckla Python-strömmande MapReduce-program för HDInsight](apache-hadoop-streaming-python.md)
 
 * [Använda Apache Hive med HDInsight][hdinsight-use-hive]
 

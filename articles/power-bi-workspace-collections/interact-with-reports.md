@@ -1,22 +1,19 @@
 ---
 title: Interagera med rapporter med JavaScript API | Microsoft Docs
 description: Med Power BI JavaScript API kan du enkelt bädda in Power BI-rapporter i dina program.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
-origin.date: 09/26/2018
-ms.date: 03/05/2019
-ms.author: v-junlch
+ms.date: 09/20/2017
 ms.openlocfilehash: 252296af8b2065ae22bed8b421d4d00718b78287
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110471"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705526"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagera med Power BI-rapporter med JavaScript API
 
@@ -27,11 +24,11 @@ Med Power BI JavaScript API kan du enkelt bädda in Power BI-rapporter i dina pr
 
 Du bäddar in en Power BI-rapport i ditt program med hjälp av en iframe som finns som en del av programmet. Iframe fungerar som en gräns mellan programmet och rapporten som du ser i följande bild:
 
-![iframe för Power BI-arbetsyta utan Javascript API](./media/interact-with-reports/iframe-without-javacript.png)
+![iframe för Power BI-arbetsyta utan Javascript API](media/interact-with-reports/iframe-without-javacript.png)
 
 Iframe gör inbäddningsprocessen mycket enklare, men utan JavaScript API kan rapporten och programmet inte samverka med varandra. Den här bristande interaktionen kan kännas som att rapporten egentligen inte är en del av programmet. Rapporten och programmet behöver verkligen kommunicera fram och tillbaka som i följande bild:
 
-![iframe för Power BI-arbetsyta med Javascript API](./media/interact-with-reports/iframe-with-javascript.png)
+![iframe för Power BI-arbetsyta med Javascript API](media/interact-with-reports/iframe-with-javascript.png)
 
 Med Power BI JavaScript API kan du skriva kod som på ett säkert sätt kan passera iframe-gränsen. Detta gör att programmet programmässigt kan utföra en åtgärd i en rapport och lyssna efter händelser från åtgärder som användare gör i rapporten.
 
@@ -39,17 +36,17 @@ Med Power BI JavaScript API kan du skriva kod som på ett säkert sätt kan pass
 
 Med JavaScript API kan du hantera rapporter, navigera till sidor i en rapport, filtrera en rapport och hantera inbäddade händelser. Följande diagram visar strukturen för API:en.
 
-![Power BI JavaScript API-diagram](./media/interact-with-reports/javascript-api-diagram.png)
+![Power BI JavaScript API-diagram](media/interact-with-reports/javascript-api-diagram.png)
 
 ### <a name="manage-reports"></a>Hantera rapporter
 Med Javascript API kan du hantera beteende på rapporten och sidan:
 
-- Bädda in en Power BI-rapport på ett säkert sätt i ditt program, prova med [inbäddade demoprogram](https://azure-samples.github.io/powerbi-angular-client/#/scenario1)
-  - Ange åtkomst-token
-- Konfigurera rapporten
-  - Aktivera och inaktivera filterfönstret och sidnavigeringsfönstret, och prova med [uppdatera inställningsdemoprogram](https://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-  - Ange standard för sidor och filter, prova med [ange standarddemo](https://azure-samples.github.io/powerbi-angular-client/#/scenario5)
-- Gå in och ur fullskärmsläge
+* Bädda in en Power BI-rapport på ett säkert sätt i ditt program, prova med [inbäddade demoprogram](https://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+  * Ange åtkomst-token
+* Konfigurera rapporten
+  * Aktivera och inaktivera filterfönstret och sidnavigeringsfönstret, och prova med [uppdatera inställningsdemoprogram](https://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * Ange standard för sidor och filter, prova med [ange standarddemo](https://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+* Gå in och ur fullskärmsläge
 
 [Läs mer om att bädda in en rapport](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
@@ -79,19 +76,19 @@ const basicFilter: pbi.models.IBasicFilter = {
 #### <a name="advanced-filters"></a>Avancerade filter
 Avancerade filter använder logisk operator OCH eller ELLER, och godkänner ett eller två villkor, vart och ett med sin egen operator och värde. Villkor som stöds är:
 
-- Ingen
-- LessThan
-- LessThanOrEqual
-- GreaterThan
-- GreaterThanOrEqual
-- Contains
-- DoesNotContain
-- StartsWith
-- DoesNotStartWith
-- Is
-- IsNot
-- IsBlank
-- IsNotBlank
+* Ingen
+* LessThan
+* LessThanOrEqual
+* GreaterThan
+* GreaterThanOrEqual
+* Contains
+* DoesNotContain
+* StartsWith
+* DoesNotStartWith
+* Is
+* IsNot
+* IsBlank
+* IsNotBlank
 
 ```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
@@ -120,12 +117,12 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 
 Förutom att skicka information till iframe, kan programmet även ta emot information om följande händelser från iframe:
 
-- Bädda in
-  - inläst
-  - fel
-- Rapporter
-  - pageChanged
-  - dataSelected (kommer snart)
+* Bädda in
+  * inläst
+  * fel
+* Rapporter
+  * pageChanged
+  * dataSelected (kommer snart)
 
 [Läs mer om att hantera händelser](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
@@ -133,8 +130,6 @@ Förutom att skicka information till iframe, kan programmet även ta emot inform
 
 Mer information om Power BI JavaScript API finns under följande länkar:
 
-- [JavaScript API Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
-- [Referens för objektmodell](https://microsoft.github.io/powerbi-models/modules/_models_.html)
-- [Live-demo](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-
-<!-- Update_Description: update metedata properties -->
+* [JavaScript API Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
+* [Referens för objektmodell](https://microsoft.github.io/powerbi-models/modules/_models_.html)
+* [Live-demo](https://microsoft.github.io/PowerBI-JavaScript/demo/)

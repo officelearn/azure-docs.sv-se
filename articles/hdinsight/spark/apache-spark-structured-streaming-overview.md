@@ -1,21 +1,19 @@
 ---
 title: Apache Spark Structured Streaming i Azure HDInsight
 description: Hur du använder Spark Structured Streaming program på HDInsight Spark-kluster.
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-orgin.date: 02/05/2018
-ms.date: 04/01/2019
-ms.author: v-yiso
+ms.date: 02/05/2018
+ms.author: maxluk
 ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098583"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711320"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Översikt över Apache Spark Structured Streaming
 
@@ -25,9 +23,9 @@ Strukturerad direktuppspelning program körs i HDInsight Spark-kluster och Anslu
 
 Strukturerad direktuppspelning skapar en tidskrävande fråga som du kan använda åtgärder för inkommande data, till exempel val, projektion, aggregering, fönsterhantering och koppla strömmande DataFrame med referensen dataramar. Nu ska du matar ut resultaten till file storage (Azure Storage-Blobbar eller Data Lake Storage) eller till alla datalager genom att använda anpassad kod (till exempel SQL-databas eller Power BI). Strukturerad direktuppspelning ger också utdata till konsolen för att felsöka lokalt och i en InMemory-tabell så att du kan se de data som genereras för felsökning i HDInsight. 
 
-![Stream bearbetning med HDInsight och Apache Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Stream bearbetning med HDInsight och Apache Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Spark Structured Streaming ersätter Spark Streaming (DStreams). Framöver kommer får Structured Streaming förbättringar och underhåll, medan DStreams ska vara i underhållsläge endast. Strukturerad direktuppspelning är för närvarande inte som funktionen komplettering som DStreams för källorna och egenskaperna att den stöder direkt, så utvärdera dina krav och välja lämplig Spark stream Bearbetningsalternativ. 
 
 ## <a name="streams-as-tables"></a>Strömmar som tabeller

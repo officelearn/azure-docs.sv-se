@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5c790d39ea471a599e8a6b46004b3e350834c318
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758660"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573954"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux-enhet
 
@@ -119,7 +119,7 @@ Starta Azure IoT Edge-körningen på din IoT Edge-enhet.
 
 ![Diagram – Starta körningen på enheten](./media/quickstart-linux/start-runtime.png)
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub.
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge-säkerhetsdaemon** startas varje gång en IoT Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub.
 
 Under körningskonfigurationen anger du en enhetsanslutningssträng. Använd den sträng som du hämtade från Azure CLI. Den här strängen associerar den fysiska enheten med IoT Edge-enhetsidentiteten i Azure.
 
@@ -146,13 +146,13 @@ Verifiera att körningen har installerats och konfigurerats korrekt på din IoT 
 >[!TIP]
 >Förhöjd behörighet krävs för att köra `iotedge`-kommandon. När du loggar ut från datorn och sedan loggar in igen för första gången efter installationen av IoT Edge-körningen, så uppdateras dina behörigheter automatiskt. Tills dess kan du använda **sudo** framför kommandona.
 
-1. Kontrollera att Edge-säkerhetsdaemon körs som en systemtjänst.
+1. Kontrollera att IoT Edge security-daemon körs som en systemtjänst.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   ![Kontrollera att Edge Daemon körs som en systemtjänst](./media/quickstart-linux/iotedged-running.png)
+   ![Se den IoT Edge-daemon körs som en systemtjänst](./media/quickstart-linux/iotedged-running.png)
 
 2. Hämta tjänstloggar om du behöver felsöka tjänsten.
 
@@ -206,38 +206,22 @@ Du kan även se när meddelandena tas emot av din IoT-hubb med hjälp av [Azure 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. I annat fall kan du ta bort de Azure-resurser som du skapade och ta bort IoT Edge-körningen från enheten.
-
-### <a name="delete-azure-resources"></a>Ta bort Azure-resurser
+Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. I annat fall kan du ta bort Azure-resurser som du skapade för att undvika avgifter.
 
 Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Kontrollera att det inte finns något du vill behålla i innehållet i resursgruppen. Om du inte vill ta bort hela gruppen kan du ta bort enskilda resurser i stället.
 
 Ta bort gruppen **IoTEdgeResources**.
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### <a name="remove-the-iot-edge-runtime"></a>Ta bort IoT Edge-körningen
-
-Om du vill ta bort installationerna från din enhet kan du använda följande kommandon.  
-
-Ta bort IoT Edge-körningen.
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-Ta bort körmiljön för containern.
-
-   ```bash
-   sudo apt-get remove --purge moby-cli
-   sudo apt-get remove --purge moby-engine
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här snabbstarten är en förutsättning för alla andra IoT Edge-självstudier. Du kan fortsätta med någon av de andra självstudierna om du vill lära dig mer om hur Azure IoT Edge kan förvandla dina data till affärsinsikter.
+
+I den här snabbstarten skapade du en IoT Edge-enhet och använde molngränssnittet i Azure IoT Edge för att distribuera kod till enheten. Nu har du en testenhet som genererar rådata för sin miljö.
+
+Nästa steg är att ställa in din lokala utvecklingsmiljö så att du kan börja skapa IoT Edge-moduler som kör din affärslogik. 
 
 > [!div class="nextstepaction"]
-> [Filtrera sensordata med hjälp av en Azure-funktion](tutorial-deploy-function.md)
+> [Börja utveckla IoT Edge-moduler för Linux-enheter](tutorial-develop-for-linux.md)

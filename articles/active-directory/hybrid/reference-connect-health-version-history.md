@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e70850ba9e5984e36643f1b9ecc9db29eec149
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f273104366b3e583bd98ebcc6d50387a3fb1d335
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386915"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572821"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Versionshistorik
 Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln visas de versioner och funktioner som har frisläppts.  
@@ -31,18 +31,23 @@ Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med
 
 Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-installationen. Läs mer om [historik för Azure AD Connect-versionen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) för feedback om funktioner, rösta på [Connect Health User Voice-kanal](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="april-2019"></a>April 2019
+**Agentuppdatering:** 
+* Azure AD Connect Health agent för AD FS (version 3.1.46.0) 
+   1. Åtgärda varning Kontrollera duplicera SPN-processen för AD FS
+
 ## <a name="march-2019"></a>Mars 2019
 **Agentuppdatering:** 
-* Azure AD Connect Health agent för AD DS (version 3.1.41.0) 
-* .NET version samling.
-* Förbättring av samling med prestandaräknare när särskilda kategorier som saknas.
-* Felkorrigering på det gick inte att skapa flera instanser av Monitoring Agent.
+* Azure AD Connect Health agent för AD DS (version 3.1.41.0)  
+   1. .NET version samling
+   2. Förbättring av samling med prestandaräknare när särskilda kategorier som saknas
+   3. Felkorrigering på det gick inte att skapa flera instanser av Monitoring Agent
 
 * Azure AD Connect Health agent för AD FS (version 3.1.41.0) 
-* Integrera och uppgradera AD FS test-skript med hjälp av ADFSToolBox.
-* .NET version samling.
-* Förbättring av samling med prestandaräknare när särskilda kategorier som saknas.
-* Felkorrigering på det gick inte att skapa flera instanser av Monitoring Agent.
+   1. Integrera och uppgradera AD FS test-skript med hjälp av ADFSToolBox
+   2. Implementera .NET version samling
+   3. Förbättring av samling med prestandaräknare när särskilda kategorier som saknas
+   4. Felkorrigering på det gick inte att skapa flera instanser av Monitoring Agent
 
 
 ## <a name="november-2018"></a>November 2018
@@ -51,15 +56,15 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-
 
 **Agentuppdatering:** 
 * Azure AD Connect Health agent för AD DS (version 3.1.24.0) 
-* Transport Layer Security (TLS) protokoll version 1.2 efterlevnad och tvingande
-* Minska aviseringsbruset för Global katalog
-* Felkorrigeringar för Health agent-registrering
+   1. Transport Layer Security (TLS) protokoll version 1.2 efterlevnad och tvingande
+   2. Minska aviseringsbruset för Global katalog
+   3. Felkorrigeringar för Health agent-registrering
 
-* Azure AD Connect Health agent för AD FS (version 3.1.24.0)
-* Transport Layer Security (TLS) protokoll version 1.2 efterlevnad och tvingande
-* Stöd för Test-ADFSRequestToken för lokaliserat operativsystem
-* Lösta diagnostikagenten EventHandler låsningsproblem
-* Felkorrigeringar för Health agent-registrering
+* Azure AD Connect Health agent för AD FS (version 3.1.24.0)  
+   1. Transport Layer Security (TLS) protokoll version 1.2 efterlevnad och tvingande
+   2. Stöd för Test-ADFSRequestToken för lokaliserat operativsystem
+   3. Lösta diagnostikagenten EventHandler låsningsproblem
+   4. Felkorrigeringar för Health agent-registrering
 
 ## <a name="august-2018"></a>Augusti 2018 
 *  Azure AD Connect Health-agenten för synkronisering (version 3.1.7.0) som lanseras med Azure AD Connect version 1.1.880.0    

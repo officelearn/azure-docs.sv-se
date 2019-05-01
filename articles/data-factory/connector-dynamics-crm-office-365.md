@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535328"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869538"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -69,9 +69,6 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 | password | Ange lösenordet för det användarkonto som du angav för användarnamn. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Inte för källa har Ja för kanalmottagare om källan länkade tjänsten inte en integration runtime |
 
->[!IMPORTANT]
->När du kopierar data till Dynamics kan standard Azure Integration Runtime inte användas till att köra kopia. Med andra ord om källan länkade tjänsten har inte en angiven integreringskörning uttryckligen [skapa en Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Dynamics-instans. Hitta var din Dynamics-instans finns genom att referera till den [regionlista för Dynamics 365](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Koppla den i den länkade tjänsten Dynamics som i följande exempel.
-
 >[!NOTE]
 >Dynamics-koppling som används för att använda valfritt ”företagsnamn”-egenskapen för att identifiera din Dynamics CRM/365 Online-instans. Medan det håller fungerar behöver föreslås du för att ange egenskapen ”serviceUri” i stället för att få bättre prestanda, till exempel identifiering.
 
@@ -117,9 +114,6 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 | password | Ange lösenordet för det användarkonto som du angav för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämta därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare |
 
->[!IMPORTANT]
->Kopiera data till Dynamics, uttryckligen [skapa en Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) med plats nära din Dynamics-instans. Koppla den i den länkade tjänsten som i följande exempel.
-
 **Exempel: Dynamics lokalt med IFD med IFD autentisering**
 
 ```json
@@ -160,8 +154,8 @@ För att kopiera data från och till Dynamics, ange typegenskapen på datauppsä
 | entityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”query” i källan för aktiviteten har angetts), Ja för mottagare |
 
 > [!IMPORTANT]
->- När du kopierar data från Dynamics är ”struktur”-avsnittet valfritt men rekommenderat i Dynamics datauppsättningen så att en deterministisk Kopiera resultatet. Den definierar och datatyp för Dynamics-data som du vill kopiera över. Mer information finns i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) och [datatypsmappningen för Dynamics](#data-type-mapping-for-dynamics).
->- När du importerar schemat i redigering Användargränssnittet härleda ADF schemat genom att sampling de översta raderna från Dynamics frågeresultat att initiera struktur tillverkning, i vilket fall kolumner utan värden utelämnas. Du kan granska och lägga till fler kolumner i Dynamics datauppsättning/datastrukturen vid behov, vilket kommer att användas under kopiera körning.
+>- När du kopierar data från Dynamics är avsnittet ”struktur” valfritt men rekommenderat mycket i Dynamics datauppsättningen så att en deterministisk Kopiera resultatet. Den definierar och datatyp för Dynamics-data som du vill kopiera över. Mer information finns i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure-or-schema) och [datatypsmappningen för Dynamics](#data-type-mapping-for-dynamics).
+>- När du importerar schemat i redigering Användargränssnittet härleda ADF schemat genom att sampling de översta raderna från Dynamics frågeresultat att initiera struktur tillverkning, i vilket fall kolumner utan värden utelämnas. Samma beteende gäller för att kopiera körningar om det finns ingen explicit strukturdefinition. Du kan granska och lägga till fler kolumner i Dynamics datauppsättning/datastrukturen vid behov, vilket kommer att användas under kopiera körning.
 >- När du kopierar data till Dynamics är ”struktur”-avsnittet valfritt i Dynamics-datauppsättningen. Vilka kolumner som ska kopieras till bestäms av dataschemat källa. Om källan är en CSV-fil utan rubrik som är i datauppsättningen för indata anger du ”strukturen” med namn och datatyp för kolumnen. De mappar till fält i CSV-fil i taget i ordning.
 
 **Exempel:**
@@ -330,7 +324,7 @@ Konfigurera den motsvarande datatypen för Data Factory i en dataset-struktur ba
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lång | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |

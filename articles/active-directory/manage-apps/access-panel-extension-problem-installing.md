@@ -16,12 +16,12 @@ ms.date: 5/4/2018
 ms.author: celested
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216568ac43c8e1b04c91d9a8f611a0ceb2e430af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 92999f23b468c975d0f95f2628b9a5069d929031
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294199"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707334"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installera programåtkomstpanelens webbläsartillägg
 
@@ -63,7 +63,8 @@ Om du vill installera programåtkomstpanelens webbläsartillägg, gör du följa
 Du kan också hämta tillägget för Chrome och Microsoft Edge direkt från följande platser:
 
 - [Chrome-tillägg](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge-tillägget](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Microsoft Edge-tillägget](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Firefox-tillägg](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Använd den Mina appar skyddat Inloggningstillägg
 * Om du använder en Mina appar-URL än `https://myapps.microsoft.com`, konfigurera standard-URL genom att göra följande:

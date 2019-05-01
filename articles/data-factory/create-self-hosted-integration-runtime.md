@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565558"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728087"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -40,7 +40,7 @@ Det här dokumentet beskriver hur du kan skapa och konfigurera en lokal IR.
 
     ```powershell
 
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
 
@@ -63,7 +63,7 @@ Här är ett övergripande dataflöde för sammanfattning av stegen för att kop
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Överväganden för att använda en lokal IR
 
 - En enda lokal integration runtime kan användas för flera lokala datakällor. En enda lokal integration runtime kan delas med en annan data factory inom samma Azure Active Directory-klientorganisation. Mer information finns i [delning av en lokal integration runtime](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Du kan ha endast en instans av en lokal integration runtime som installeras på en enda dator. Om du har två datafabriker som behöver åtkomst till lokala datakällor, måste du installera den lokala integreringskörningen på två lokala datorer varje från båda datafabriker eller använda den [lokal IR funktionenfördelning](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)att dela en lokal integration runtime med en annan Data Factory.  
+- Du kan ha endast en instans av en lokal integration runtime som installeras på en enda dator. Om du har två datafabriker som behöver åtkomst till lokala datakällor, antingen använda den [lokal IR funktionen för delning](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) att dela den lokala integreringskörningen eller installera den lokala integreringskörningen på två lokala datorer, en för varje data factory.  
 - Lokal integration runtime behöver inte finnas på samma dator som datakällan. Men minskar med den lokala integreringskörningen närmare datakällan tiden för lokal integration runtime kan ansluta till datakällan. Vi rekommenderar att du installerar den lokala integreringskörningen på en dator som skiljer sig från det som är värd för en lokal datakälla. När lokal integration runtime och datakällan finns på olika datorer, lokal integration runtime inte konkurrerar om resurser med datakällan.
 - Du kan ha flera IR-körningar på olika datorer som ansluter till samma lokala datakällan. Till exempel kanske du har två IR-körningar som betjänar två datafabriker, men samma lokala datakälla har registrerats med båda datafabriker.
 - Om du redan har ingen gateway installerad på datorn för att hantera ett scenario med Power BI kan du installera en separat lokal integration runtime för Azure Data Factory på en annan dator.
@@ -72,7 +72,7 @@ Här är ett övergripande dataflöde för sammanfattning av stegen för att kop
 - Även om datalagret är i molnet på en virtuell Azure IaaS-dator måste du använda en lokal integration runtime.
 - Uppgifter kan misslyckas på en lokal integration runtime som är installerad på en Windows-server på vilken FIPS-kompatibel kryptering är aktiverat. Undvik problemet genom att inaktivera FIPS-kompatibel kryptering på servern. Om du vill inaktivera FIPS-kompatibel kryptering, kan du ändra följande registervärde från 1 (aktiverad) på 0 (inaktiverad): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Versionerna av operativsystem som stöds är Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Installationen av den lokala integreringskörningen på en domänkontrollant stöds inte.
 - .NET framework 4.6.1 eller senare krävs. Om du installerar den lokala integreringskörningen på en Windows 7-dator, installera .NET Framework 4.6.1 eller senare. Se [systemkrav för .NET Framework](/dotnet/framework/get-started/system-requirements) mer information.
@@ -347,4 +347,4 @@ Om du inte väljer att öppna port 8060 på den lokala installation av integrati
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande självstudie för stegvisa instruktioner: [Självstudier: Kopiera lokala data till molnet](tutorial-hybrid-copy-powershell.md).
+Se följande självstudie för stegvisa instruktioner: [Självstudie: Kopiera lokala data till molnet](tutorial-hybrid-copy-powershell.md).

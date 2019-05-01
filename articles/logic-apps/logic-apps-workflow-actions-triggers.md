@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844185"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691937"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referens för utlösare och åtgärd typer i Definitionsspråk för arbetsflödet för Azure Logic Apps
 
@@ -338,7 +338,7 @@ Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baser
 
 För att fungera bra med din logikapp måste slutpunkten följer ett mönster för utlösare eller kontrakt och känna igen de här egenskaperna:  
   
-| Svar | Obligatoriskt | Beskrivning | 
+| Svar | Krävs | Beskrivning | 
 |----------|----------|-------------| 
 | Statuskod | Ja | Den ”200 OK”-statuskod: startar en körning. Alla andra statuskod Påbörja inte en körning. | 
 | Rubrik för återförsök | Nej | Antalet sekunder tills logikappen avsöker slutpunkten igen | 
@@ -2301,6 +2301,7 @@ Du kan ändra standardinställningen för utlösare och åtgärder med dessa run
 | `runtimeConfiguration.concurrency.runs` | Integer | Ändra den [ *Standardgräns* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) på antalet arbetsflödesinstanser som kan köras samtidigt eller parallellt. Det här värdet kan hjälpa att begränsa antalet begäranden som tar emot backend-system. <p>Ange den `runs` egenskap `1` fungerar på samma sätt som den `operationOptions` egenskap `SingleInstance`. Du kan ange antingen egenskap, men inte båda. <p>Om du vill ändra Standardgränsen [ändra utlösaren samtidighet](#change-trigger-concurrency) eller [utlösa instanser sekventiellt](#sequential-trigger). | Alla utlösare | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Ändra den [ *Standardgräns* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) på antalet arbetsflödesinstanser som kan vänta med att köra när arbetsflödet körs redan det högsta antalet samtidiga instanser. Du kan ändra samtidighetsgräns i den `concurrency.runs` egenskapen. <p>Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | Alla utlösare | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Ändra den [ *Standardgräns* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) på antalet ”för var och en” loop iterationer som kan köras samtidigt eller parallellt. <p>Ange den `repetitions` egenskap `1` fungerar på samma sätt som den `operationOptions` egenskap `SingleInstance`. Du kan ange antingen egenskap, men inte båda. <p>Om du vill ändra Standardgränsen [ändra ”för var och en” samtidighet](#change-for-each-concurrency) eller [kör ”för var och en” loopar sekventiellt](#sequential-for-each). | Åtgärd: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | För specifika åtgärder som stöder och har aktiverat sidbrytning, det här värdet anger den *minsta* antal resultat ska hämtas. <p>Om du vill aktivera sidnumrering Se [hämta stora mängder data, objekt eller resultat med sidbrytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Åtgärd: Olika |
 ||||| 
 
 <a name="operation-options"></a>
@@ -2651,7 +2652,7 @@ I det här exemplet definition för HTTP-åtgärd, den `authentication` anger `C
 
 För [Azure AD OAuth-autentisering](../active-directory/develop/authentication-scenarios.md), din utlösare eller åtgärd definition kan innehålla en `authentication` JSON-objekt som har egenskaper som anges av tabellen nedan. Du kan använda för att komma åt parametervärdena vid körning i `@parameters('parameterName')` uttryck, som tillhandahålls av den [Definitionsspråk för arbetsflödet](https://aka.ms/logicappsdocs).
 
-| Egenskap  | Krävs | Value | Beskrivning |
+| Egenskap  | Krävs | Värde | Beskrivning |
 |----------|----------|-------|-------------|
 | **typ** | Ja | `ActiveDirectoryOAuth` | Den autentiseringstyp som använder, vilket är ”ActiveDirectoryOAuth” för Azure AD OAuth |
 | **utfärdare** | Nej | <*URL-for-authority-token-issuer*> | URL-Adressen för utfärdaren som tillhandahåller autentiseringstoken |

@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308658"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716110"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-mått i Azure Monitor (förhandsversion)
 
@@ -83,14 +83,14 @@ Följande två typer av fel är klassificerade som användarfel:
 |Utgående meddelanden (förhandsversion)|Antal händelser eller meddelanden som tas emot från Service Bus under en angiven period.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
 | Meddelanden (förhandsversion) | Antal meddelanden i kö/ämne. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Dimensioner: EntityName |
 | ActiveMessages (förhandsversion) | Antal aktiva meddelanden i kö/ämne. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Dimensioner: EntityName |
+| Lettered förlorade meddelanden (förhandsversion) | Antal lettered förlorade meddelanden i kö/ämne. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/>Dimensioner: EntityName |
+| Schemalagda meddelanden (förhandsversion) | Antal schemalagda meddelanden i kö/ämne. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel  <br/> Dimensioner: EntityName |
 
 ## <a name="connection-metrics"></a>Anslutningsmått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |ActiveConnections (förhandsversion)|Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Öppnade anslutningar (förhandsversion)|Antal öppna anslutningar.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName|
-|Anslutningar stängd (förhandsversion)|Antal stängda anslutningar.<br/><br/> Enhet: Antal <br/> Mängdtyp: Totalt <br/> Dimensioner: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Användningsstatistik för resursen
 
@@ -115,7 +115,7 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
 1. På den **mått** fliken den **Service Bus Namespace** väljer **konfigurera aviseringar**. 
 
     ![Mått sidan – Konfigurera alerts-menyn](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Välj **Välj mål**, och gör följande på den **väljer du en resurs** sidan: 
+2. Välj den **Välj mål** alternativet och gör följande på den **väljer du en resurs** sidan: 
     1. Välj **Service Bus-namnområden** för den **filtrera efter resurstyp** fält. 
     2. Välj din prenumeration för den **filtrera efter prenumeration** fält.
     3. Välj den **service bus-namnområde** i listan. 

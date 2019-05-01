@@ -2,23 +2,19 @@
 title: Azure Key Vault-loggning | Microsoft Docs
 description: Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 25ebd72c512eb92c5d9a464a4b4d74f9e41ae389
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 89f9ef37ed7c53817854442b3a32b32b7d11ae27
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484120"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706020"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -41,7 +37,7 @@ Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning. Du s
 
 Mer information om Key Vault finns i [vad är Azure Key Vault?](key-vault-whatis.md). Läs om hur där Key Vault är tillgängligt i [prissättningssidan](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 

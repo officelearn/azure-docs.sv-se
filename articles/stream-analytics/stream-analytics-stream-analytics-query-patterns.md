@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001740"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711446"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråga efter exempel för vanliga mönster för Stream Analytics-användning
 
@@ -493,7 +493,7 @@ Till exempel generera en händelse var femte sekund som rapporterar den nyligen 
 
 **Indata**:
 
-| t | värde |
+| t | value |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -537,7 +537,7 @@ Till exempel i en IoT-scenario för home ugnar en avisering måste aktiveras nä
 
 **Indata**:
 
-| time | deviceId | sensorName | värde |
+| time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
 | "2018-01-01T16:01:00" | "Oven1" | ”power” |15 |
@@ -605,7 +605,7 @@ WHERE
 **Förklaring**: Den första frågan `max_power_during_last_3_mins`, använder den [glidande fönstret](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) att hitta maxvärdet för power sensorn för varje enhet under de senaste 3 minuterna. Den andra frågan är ansluten till den första frågan att hitta power-värdet i fönstret senaste relevanta för det aktuella. Och sedan, om villkoren är uppfyllda, en varning ska genereras för enheten.
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exempel på sökfråga: Bearbeta händelser som är oberoende av enheten klockan förskjuta (underströmmar)
-**Beskrivning**: Händelser kan kommer sent eller oordnade följd av klockavvikelser mellan händelseproducenter, klockan snedställer mellan partitioner eller Nätverksfördröjningen. I följande exempel enhetens klocka för TollID 2 är tio sekunder bakom TollID 1 och enhetens klocka för TollID 3 är fem sekunder bakom TollID 1. 
+**Beskrivning**: Händelser kan kommer sent eller oordnade följd av klockavvikelser mellan händelseproducenter, klockan snedställer mellan partitioner eller Nätverksfördröjningen. I följande exempel enhetens klocka för TollID 2 är fem sekunder bakom TollID 1 och enhetens klocka för TollID 3 är tio sekunder bakom TollID 1. 
 
 
 **Indata**:

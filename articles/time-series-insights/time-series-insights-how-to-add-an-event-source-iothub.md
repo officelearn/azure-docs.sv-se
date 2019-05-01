@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 933d411f67655b49b4aef7bf413dfe5f87e4ff08
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: ee52cde6feeb69f9140df497a9abee300c93fd71
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556738"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692110"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en IoT hub-händelsekälla till Time Series Insights-miljön
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du använder Azure-portalen för att lägga till
 > [!NOTE]
 > Anvisningarna i den här artikeln gäller både Azure Time Series Insights Allmänt och för förhandsversionen av Time Series Insights-miljöer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Skapa en [Azure Time Series Insights-miljö](time-series-insights-update-create-environment.md).
 * Skapa en [IoT-hubben med hjälp av Azure portal](../iot-hub/iot-hub-create-through-portal.md).
@@ -81,7 +81,7 @@ Lägga till en ny konsumentgrupp till din IoT hub:
    | Principnyckel för IoT hub | Nyckeln innehåller redan.
    | IoT hub-konsumentgrupp | Konsumentgruppen som läser händelser från IoT hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
    | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inga data kan läsas. |
-   | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
+   | Egenskapsnamn för tidsstämpel | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
 
 1. I följande tabell beskrivs de nödvändiga egenskaperna för den **ger IoT Hub-inställningar manuellt**:
 
@@ -94,20 +94,22 @@ Lägga till en ny konsumentgrupp till din IoT hub:
    | Principnyckel för IoT hub | Den delade åtkomstnyckeln som används för att tillåta åtkomst till Azure Service Bus-namnområdet. Ange den primära eller sekundära nyckeln här.
    | IoT hub-konsumentgrupp | Konsumentgruppen som läser händelser från IoT hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
    | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inga data kan läsas. |
-   | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
+   | Egenskapsnamn för tidsstämpel | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
 
 1. Lägg till dedikerade Time Series Insights konsument gruppnamnet som du lade till din IoT-hubb.
 
 1. Välj **Skapa**.
 
-   ![Knappen Skapa][5]
+   ![Skapa-knappen][5]
 
 1. När du har skapat händelsekällan börjar Time Series Insights automatiskt strömmande data i din miljö.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Definiera dataåtkomstprinciper](time-series-insights-data-access.md) att skydda data.
+
 * [Skicka händelser](time-series-insights-send-events.md) till händelsekällan.
+
 * Få tillgång till den i den [Time Series Insights explorer](https://insights.timeseries.azure.com).
 
 <!-- Images -->

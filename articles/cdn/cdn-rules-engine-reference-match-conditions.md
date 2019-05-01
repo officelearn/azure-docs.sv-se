@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323832"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869512"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN-regelmotor matchar de villkor 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchningsvillkor för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -28,7 +28,7 @@ Den andra delen av en regel är matchningsvillkor. Ett matchningsvillkor identif
 
 Du kan till exempel använda ett matchningsvillkor till:
 - Filtrera begäranden för innehåll på en viss plats.
-- Filtrera begäranden som genereras från en viss IP-adress eller land.
+- Filtrera begäranden som genereras från en viss IP-adress eller land/region.
 - Filtrera förfrågningar efter rubrikinformation.
 
 ## <a name="always-match-condition"></a>Alltid matchningsvillkor
@@ -54,7 +54,7 @@ Matchningsvillkor plats identifiera förfrågningar baserat på förfrågarens p
 Namn | Syfte
 -----|--------
 [AS-nummer](#as-number) | Identifierar begäranden som kommer från ett visst nätverk.
-[Land/region](#country) | Identifierar begäranden som kommer från de angivna länder/regioner.
+[Land/region](#country) | Identifierar förfrågningar som kommer från de angivna länder/regionerna.
 
 ## <a name="origin-match-conditions"></a>Ursprung matchningsvillkor
 
@@ -235,7 +235,7 @@ Viktig information:
 
 ---
 ### <a name="country"></a>Land/region
-Du kan ange ett land via dess landskod. 
+Du kan ange ett land/region via dess landskod. 
 
 Den **matchningar**/**matchar inte** anger de villkor som matchar landet villkor uppfylls:
 - **Matchningar**: Kräver begäran som innehåller värdena för angivna land. 
@@ -260,9 +260,9 @@ Den här matchningsvillkor kan du utföra en mängd olika anpassningar baserat p
 - Matchning med jokertecken URL-sökväg: Ange den [URL-sökväg med jokertecken matchningsvillkor](#url-path-wildcard) till den katalog som ska skyddas. 
     Lägg till en asterisk i slutet av den relativa sökvägen för att säkerställa att åtkomst till alla dess underordnade begränsas av den här regeln.
 
-- Land matchning: Ange land matchningsvillkor för den önskade uppsättningen länder.
-   - Tillåt: Ange land matchar villkoret **matchar inte** så att endast den angivna länder åtkomsten till innehåll som lagras på den plats som definieras av matchningsvillkor URL-sökväg med jokertecken.
-   - Blockera: Ange land matchar villkoret **matchningar** att blockera de angivna länder/regioner från att komma åt innehåll som lagras på den plats som definieras av matchningsvillkor URL-sökväg med jokertecken.
+- Land matchning: Ange land matchningsvillkor för den önskade uppsättningen länder/regioner.
+   - Tillåt: Ange land matchar villkoret **matchar inte** så att endast den angivna länder/regioner åtkomsten till innehåll som lagras på den plats som definieras av matchningsvillkor URL-sökväg med jokertecken.
+   - Blockera: Ange land matchar villkoret **matchningar** att blockera angivna länder/regioner från att komma åt innehåll som lagras på den plats som definieras av matchningsvillkor URL-sökväg med jokertecken.
 
 - Neka åtkomst (403)-funktionen: Aktivera den [neka åtkomst (403)-funktionen](cdn-rules-engine-reference-features.md#deny-access-403) att replikera den Tillåt eller blockera delen av funktionen Landsfiltrering.
 

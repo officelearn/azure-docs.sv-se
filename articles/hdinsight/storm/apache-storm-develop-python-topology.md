@@ -1,7 +1,6 @@
 ---
-title: Apache Storm med Python - serverkomponenterna i Azure HDInsight
+title: Apache Storm med Python - komponenter i Azure HDInsight
 description: Lär dig hur du skapar ett Apache Storm-topologi som använder Python-komponenter.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: Apache storm python
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 87d13f8b0df4d9a357218b34035993663dfda8b3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a5cbd54dd07143688b676c063133bb1a73bed01a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634600"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694395"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Utveckla Apache Storm-topologier med Python på HDInsight
 
@@ -26,7 +25,7 @@ Lär dig hur du skapar en [Apache Storm](https://storm.apache.org/) topologi som
 
 Koden för det här projektet är tillgänglig på [ https://github.com/Azure-Samples/hdinsight-python-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Python 2.7 eller senare
 
@@ -148,5 +147,4 @@ Stoppa topologin genom att använda __Ctrl + C__.
 
 Se följande dokument för andra sätt att använda Python med HDInsight:
 
-* [Hur du använder Python för strömmande MapReduce-jobb](../hadoop/apache-hadoop-streaming-python.md)
 * [Hur du använder Python användaren användardefinierade funktioner (UDF) i Apache Pig- och Apache Hive](../hadoop/python-udf-hdinsight.md)

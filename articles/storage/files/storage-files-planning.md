@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095675"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574471"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -77,26 +77,16 @@ Om du använder Azure File Sync för att få åtkomst till din Azure-filresurs, 
 Azure Files erbjuder två prestandanivåer: standard och premium.
 
 * **Standard-filresurser** backas upp av rotational hårddiskar (HDD) som ger en pålitlig prestanda för i/o-arbetsbelastningar som är mindre känsliga för variationer i prestandan, till exempel allmänna filresurser och miljöer för utveckling/testning. Standard-filresurser är endast tillgängliga i en användningsbaserad fakturering modell.
-* **Premium-filresurser (förhandsversion)** backas upp av SSD-diskar (SSD) som ger konsekvent hög prestanda och låg latens på ensiffriga millisekunder för de flesta i/o-åtgärder för de i/o-intensiva arbetsbelastningar. Detta gör dem lämpliga för en mängd olika arbetsbelastningar som databaser, webbplatsvärd, utvecklingsmiljöer osv. Premium-filresurser är endast tillgängliga i den etablerade faktureringsmodellen. Premium-filresurser använder en distributionsmodell som är separat från standard-filresurser. Om du vill veta hur du skapar en premium-filresurs finns i vår artikel om ämnet: [Så här skapar du ett Azure premium storage-konto filen](storage-how-to-create-premium-fileshare.md).
+* **Premium-filresurser (förhandsversion)** backas upp av SSD-diskar (SSD) som ger konsekvent hög prestanda och låg latens på ensiffriga millisekunder för de flesta i/o-åtgärder för de i/o-intensiva arbetsbelastningar. Detta gör dem lämpliga för en mängd olika arbetsbelastningar som databaser, webbplatsvärd, utvecklingsmiljöer osv. Premium-filresurser är endast tillgängliga i den etablerade faktureringsmodellen. Premium-filresurser använder en distributionsmodell som är separat från standard-filresurser.
+
+Azure Backup är tillgängligt för premium-filresurser och Azure Kubernetes Service har stöd för premium-filresurser i version 1.13 och senare.
+
+Om du vill veta hur du skapar en premium-filresurs finns i vår artikel om ämnet: [Så här skapar du ett Azure premium storage-konto filen](storage-how-to-create-premium-fileshare.md).
+
+För närvarande kan konvertera du inte direkt mellan en standard filresurs och en premium-filresurs. Om du vill byta till antingen nivån, måste du skapa en ny filresurs i den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resursen som du skapade. Du kan göra detta med hjälp av någon av verktyg för Azure Files stöds kopia, till exempel AzCopy.
 
 > [!IMPORTANT]
-> Premium-filen resurser är fortfarande i förhandsversion, endast tillgängligt med LRS, och är endast tillgängliga i flera regioner med med Azure Backup stöd kan finnas i Välj regioner:
-
-|Tillgängliga regionen  |Azure Backup-support  |
-|---------|---------|
-|USA, östra 2      | Ja|
-|Östra USA       | Ja|
-|Västra USA       | Nej |
-|USA, västra 2      | Nej |
-|Centrala USA    | Nej |
-|Norra Europa  | Nej |
-|Västra Europa   | Ja|
-|Sydostasien       | Ja|
-|Östasien     | Nej |
-|Östra Japan    | Nej |
-|Västra Japan    | Nej |
-|Sydkorea, centrala | Nej |
-|Östra Australien| Nej |
+> Premium-filresurser är fortfarande i förhandsversion, är bara tillgängliga med LRS och är tillgängliga i de flesta regioner som erbjuder storage-konton. Om du vill veta om premium-filresurser är tillgängliga i din region finns i den [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure.
 
 ### <a name="provisioned-shares"></a>Etablerade resurser
 
@@ -115,7 +105,9 @@ Filresurser måste etableras i steg om 1 GiB. Minsta storleken är 100 GiB, näs
 >
 > ingångshändelser = 40 MiB/s + 0.04 * etablerats GiB
 
-Filresursens storlek kan ökas när som helst, men kan minskas endast efter 24 timmar sedan senaste ökningen. Vänta 24 timmar utan storlek ökning, kan du minska resursstorleken så många gånger tills du ökar det igen. IOPS/dataflödet ändringar börjar gälla inom ett par minuter efter ändringen storlek.
+Filresursens storlek kan ökas när som helst, men kan minskas endast efter 24 timmar sedan senaste ökningen. Vänta 24 timmar utan storlek ökning, kan du minska resursstorleken så många gånger som helst, tills du ökar det igen. IOPS/dataflödet ändringar börjar gälla inom ett par minuter efter ändringen storlek.
+
+Det är möjligt att minska storleken på ditt etablerade resursen nedan din används GiB. Om du gör detta kan du förlorar data men du kommer fortfarande att debiteras för storleken som används och tar emot prestanda (baslinje IOPS, dataflöde och burst IOPS) för den etablerade resursen inte storleken som används.
 
 I följande tabell visas några exempel på dessa produkter för de etablerade resursen storlekarna:
 
@@ -141,7 +133,7 @@ Premium-filresurser kan utöka sina IOPS upp till en faktor på tre. Bursting sk
 Krediter samlas i en burst-bucket när trafik för filresursen är lägre än baslinje IOPS. Till exempel har en 100 GiB resurs 100 baslinje IOPS. Om faktiska trafik på resursen var 40 IOPS för ett specifikt intervall 1 sekund, krediteras 60 oanvända IOPS till en burst-bucket. Dessa krediter ska sedan användas senare när åtgärder skulle överskrida baslinjen IOPs.
 
 > [!TIP]
-> Storleken på burst-bucket = Baseline_IOPS * 2 * 3600.
+> Storleken på burst-bucket = baslinje IOPS * 2 * 3600.
 
 Varje gång en resurs överskrider baslinjen IOPS och har krediter i en burst-bucket, bursting. Resurser kan fortsätta att utöka så länge kredit kvar, även om resurser som är mindre än 50 TiB kommer endast att hålla sig i burst-gränsen för upp till en timme. Resurser som är större än 50 TiB tekniskt sett kan överskrida begränsningen en timme, upp till två timmar men detta baseras på antalet burst-krediter ackumuleras. Varje i/o utöver baslinje IOPS förbrukar en kredit och när alla krediter förbrukas resursen skulle gå tillbaka till baslinje IOPS.
 

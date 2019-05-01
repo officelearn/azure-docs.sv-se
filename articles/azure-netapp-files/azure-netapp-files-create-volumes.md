@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 4/23/2019
 ms.author: b-juche
-ms.openlocfilehash: fc748ee993855c77f25f9b115ea472df4281acec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764357"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719434"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Skapa en volym för Azure NetApp Files
 
@@ -44,7 +44,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     * **Volymnamn**      
         Ange namnet på den volym du skapar.   
 
-        Namnet måste vara unikt inom sin resursgrupp. Det måste innehålla minst tre tecken.  Du kan använda alla alfanumeriska tecken.
+        Ett volymnamn måste vara unika i varje pool kapacitet. Det måste innehålla minst tre tecken. Du kan använda alla alfanumeriska tecken.
 
     * **Kapacitet pool**  
         Ange kapacitet poolen där du vill att volymen som ska skapas.
@@ -72,7 +72,9 @@ Ett undernät måste delegeras till Azure NetApp Files.
 4. Klicka på **protokollet**och välj sedan **NFS** som protokolltypen för volymen.   
     * Ange den **filsökväg** som ska användas för att skapa exportsökvägen för den nya volymen. Exportvägen används för att sätta upp och komma åt volymen.
 
-        Filsökvägen får endast innehålla bokstäver, siffror och bindestreck (-). Det måste vara mellan 16 och 40 tecken långt.  
+        Filsökvägen får endast innehålla bokstäver, siffror och bindestreck (-). Det måste vara mellan 16 och 40 tecken långt. 
+
+        Filsökvägen måste vara unika inom varje prenumeration och varje region. 
 
     * Du kan också [konfigurera export-princip för NFS-volymen](azure-netapp-files-configure-export-policy.md)
 
@@ -89,6 +91,33 @@ Ett undernät måste delegeras till Azure NetApp Files.
 Azure NetApp-filer stöder SMBv3-volymer. Du behöver skapa Active Directory-anslutningarna innan du lägger till en SMB-volym. 
 
 ### <a name="create-an-active-directory-connection"></a>Skapa en Active Directory-anslutning
+
+1. Se till att du uppfyller följande requiements: 
+
+    * Administratörskonto som du använder måste kunna skapa konton i sökvägen organisationsenhet (OU) som du anger.
+    * Rätt portar måste vara öppna på den aktuella Windows Active Directory (AD)-servern.  
+        Portarna som krävs är följande: 
+
+        |     Tjänst           |     Port     |     Protokoll     |
+        |-----------------------|--------------|------------------|
+        |    AD-webbtjänster    |    9389      |    TCP           |
+        |    DNS                |    53        |    TCP           |
+        |    DNS                |    53        |    UDP           |
+        |    ICMPv4             |    Gäller inte       |    Echo svarsmeddelanden    |
+        |    Kerberos           |    464       |    TCP           |
+        |    Kerberos           |    464       |    UDP           |
+        |    Kerberos           |    88        |    TCP           |
+        |    Kerberos           |    88        |    UDP           |
+        |    LDAP               |    389       |    TCP           |
+        |    LDAP               |    389       |    UDP           |
+        |    LDAP               |    3268      |    TCP           |
+        |    NetBIOS-namn       |    138       |    UDP           |
+        |    SAM/LSA            |    445       |    TCP           |
+        |    SAM/LSA            |    445       |    UDP           |
+        |    Säkert LDAP        |    636       |    TCP           |
+        |    Säkert LDAP        |    3269      |    TCP           |
+        |    w32time            |    123       |    UDP           |
+
 
 1. NetApp-konto klickar du på **Active Directory-anslutningarna**, klicka sedan på **ansluta**.  
 
@@ -134,12 +163,7 @@ Azure NetApp-filer stöder SMBv3-volymer. Du behöver skapa Active Directory-ans
     * **Volymnamn**      
         Ange namnet på den volym du skapar.   
 
-        Namnet måste vara unikt inom sin resursgrupp. Det måste innehålla minst tre tecken.  Du kan använda alla alfanumeriska tecken.
-
-    * **Filsökväg**  
-        Ange filsökvägen som ska användas för att skapa exportvägen för den nya volymen. Exportvägen används för att sätta upp och komma åt volymen.   
-     
-        Filsökvägen får endast innehålla bokstäver, siffror och bindestreck (-). Det måste vara mellan 16 och 40 tecken långt.  
+        Ett volymnamn måste vara unika i varje pool kapacitet. Det måste innehålla minst tre tecken. Du kan använda alla alfanumeriska tecken.
 
     * **Kapacitet pool**  
         Ange kapacitet poolen där du vill att volymen som ska skapas.

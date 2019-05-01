@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468945"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920520"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Identifiering av startsfär för Azure Active Directory-inloggningssidor
 
@@ -49,7 +49,7 @@ En annan fördel av detta arbete är förbättrad fel meddelanden. Här följer 
     ![lösenordet är fel med bra användarnamn](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Den här funktionen kan påverka på federerade domäner som förlitar sig på gamla domännivå identifiering av startsfär att tvinga federation. Uppdateringarna på när federerad domänstöd kommer att läggas till, finns [startsfär identifiering under inloggning för Microsoft 365-tjänster](https://azure.microsoft.com/en-us/updates/signin-hrd/). Under tiden kan har vissa organisationer tränats sina anställda att logga in med ett användarnamn som inte finns i Azure Active Directory men innehåller rätt domännamn, eftersom domännamnen dirigerar användare för närvarande till organisationens domän slutpunkt. Det nya beteendet inloggning tillåter inte detta. Användaren meddelas att rätta användarnamnet och de tillåts inte att logga in med ett användarnamn som inte finns i Azure Active Directory.
+> Den här funktionen kan påverka på federerade domäner som förlitar sig på gamla domännivå identifiering av startsfär att tvinga federation. Uppdateringarna på när federerad domänstöd kommer att läggas till, finns [startsfär identifiering under inloggning för Microsoft 365-tjänster](https://azure.microsoft.com/updates/signin-hrd/). Under tiden kan har vissa organisationer tränats sina anställda att logga in med ett användarnamn som inte finns i Azure Active Directory men innehåller rätt domännamn, eftersom domännamnen dirigerar användare för närvarande till organisationens domän slutpunkt. Det nya beteendet inloggning tillåter inte detta. Användaren meddelas att rätta användarnamnet och de tillåts inte att logga in med ett användarnamn som inte finns i Azure Active Directory.
 >
 > Om du eller din organisation har metoder som är beroende av den gamla funktionen, är det viktigt för organisationens administratörer uppdatera dokumentationen för inloggning och autentisering av medarbetare och träna anställda använder sina Azure Active Directory-användarnamn för inloggning.
   

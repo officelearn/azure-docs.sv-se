@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291b3d506993cfea89be072684835c0d4efe75f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60243085"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571311"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Nästa steg och hur du hanterar Azure AD Connect
 Använd operativa procedurer i den här artikeln för att anpassa Azure Active Directory (Azure AD) Connect för att uppfylla organisationens behov och krav.  
@@ -47,20 +47,21 @@ Använd Azure-portalen för att kontrollera status för en synkronisering.
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>Att verifiera uppgiften schemalagd synkronisering
 1. Logga in på Azure portal som administratör.
 2. Välj **Active Directory** till vänster.
-3. På den **Active Directory** sidan, dubbelklicka på den katalog som innehåller de användare som du vill konfigurera.
-4. Överst på katalogsidan väljer **katalogintegrering**.
-5. Under **integrering med lokala active directory**, Observera senaste synkronisering.
+3. Till vänster, Välj **Azure AD Connect**
+4. Observera den senaste synkroniseringen längst ned på sidan.
 
-<center>
-
-![Directory-synkroniseringstid](./media/how-to-connect-post-installation/verify.png)</center>
+![Directory-synkroniseringstid](./media/how-to-connect-post-installation/verify2.png)
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Starta en schemalagd synkronisering-aktivitet
-Om du vill köra en aktivitet för synkronisering kan göra du detta genom att köra via Azure AD Connect-guiden igen.  Du måste ange dina autentiseringsuppgifter för Azure AD.  I guiden väljer du den **anpassa synkroniseringsalternativ** och på **nästa** att flytta via guiden. I slutet, kontrollerar du att den **starta synkroniseringsprocessen så snart som den första konfigurationen är klar** är markerad.
+Om du vill köra en aktivitet för synkronisering kan du göra detta genom att:
 
-<center>
-
-![Starta synkroniseringen](./media/how-to-connect-post-installation/startsynch.png)</center>
+1. Dubbelklicka på genvägen Azure AD Connect så startas guiden.
+2. Klicka på **Konfigurera**.
+3. På skärmen uppgifter väljer du den **anpassa synkroniseringsalternativ** och klicka på **nästa**
+4. Ange dina autentiseringsuppgifter för Azure AD
+5. Klicka på **Nästa**. Klicka på **Nästa**.  Klicka på **Nästa**.
+5.  På den **redo att konfigurera** kontrollerar du att den **starta synkroniseringsprocessen när konfigurationen är klar** är markerad.
+6.  Klicka på **Konfigurera**.
 
 Läs mer på Azure AD Connect sync Scheduler [Azure AD Connect Scheduler](how-to-connect-sync-feature-scheduler.md).
 
@@ -69,13 +70,19 @@ Efter den inledande installationen av Azure AD Connect, kan du alltid starta gui
 
 Följande tabell innehåller en sammanfattning av dessa uppgifter och en kort beskrivning av varje aktivitet.
 
-![Lista över ytterligare uppgifter](./media/how-to-connect-post-installation/addtasks.png)
+![Lista över ytterligare uppgifter](./media/how-to-connect-post-installation/addtasks2.png)
 
 | Ytterligare uppgift | Beskrivning |
 | --- | --- |
-| **Visa det valda scenariot** |Visa din aktuella Azure AD Connect-lösning.  Detta inkluderar allmänna inställningar, synkroniserade kataloger och synkroniseringsinställningar. |
+|**Sekretessinställningar**|Visa vilka dessa data delas med Microsoft.|
+|**Visa aktuell konfiguration**|Visa din aktuella Azure AD Connect-lösning.  Detta inkluderar allmänna inställningar, synkroniserade kataloger och synkroniseringsinställningar. |
 | **Anpassa synkroniseringsalternativ** |Ändra den aktuella konfigurationen som att lägga till ytterligare Active Directory-skogar konfigurationen eller aktivera synkroniseringsalternativ som användare, grupp, enhet eller tillbakaskrivningen av lösenord. |
-| **Aktivera Mellanlagringsläge** |Steg-information som synkroniseras inte omedelbart och kan inte exporteras till Azure AD eller lokala Active Directory.  Med den här funktionen kan du förhandsgranska synkroniseringar innan de inträffar. |
+|**Konfigurera Enhetsalternativ**|Enhetsalternativ som är tillgängliga för synkronisering|
+|**Uppdatera katalogschema**|Du kan lägga till nya lokala katalogobjekt för synkronisering|
+|**Konfigurera Mellanlagringsläge** |Steg-information som synkroniseras inte omedelbart och kan inte exporteras till Azure AD eller lokala Active Directory.  Med den här funktionen kan du förhandsgranska synkroniseringar innan de inträffar. |
+|**Ändra användarinloggning**|Ändra autentiseringsmetod som användare använder för att logga in|
+|**Hantera federation**|Hantera AD FS-infrastrukturen, förnya certifikat och lägga till AD FS-servrar|
+|**Felsöka**|Hjälp med felsökning av problem med Azure AD Connect|
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

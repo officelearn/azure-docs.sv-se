@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: eb398ad621167ad9f9b245fb8aa98c6942b87668
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 344f3a8b1bdfb789251479baffeb4df15bbf2842
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557435"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718356"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formhändelser med förhandsversionen av Azure Time Series Insights
 
@@ -129,6 +129,6 @@ Observera följande punkter i föregående exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill placera dessa riktlinjer i praktiken, se [förhandsversion av Azure Time Series Insights-frågesyntax](./time-series-insights-query-data-csharp.md). Du får lära dig mer om frågesyntax för Time Series Insights Preview data åt REST API.
+- Om du vill placera dessa riktlinjer i praktiken, se [förhandsversion av Azure Time Series Insights-frågesyntax](./time-series-insights-query-data-csharp.md). Du får lära dig mer om frågesyntax för Time Series Insights Preview data åt REST API.
 
-Mer information om JSON-former som stöds, se [stöds JSON-former](./time-series-insights-send-events.md#json).
+- Mer information om JSON-former som stöds, se [stöds JSON-former](./time-series-insights-send-events.md#json).

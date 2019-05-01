@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457744"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685397"
 ---
 # <a name="registration-management"></a>Registreringshantering
 
@@ -40,7 +40,7 @@ En registrering associerar Platform Notification Service (PNS) referensen för e
 
 ### <a name="installations"></a>Installationer
 
-En Installation är en förbättrad registrering som innehåller en mängd push relaterade egenskaper. Det är den senaste och bästa metoden för att registrera dina enheter. Men det inte stöds av klient-SDK för .NET ([Notification Hub-SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) ännu.  Det innebär att om du registrerar från själva klientenheten, skulle du behöva använda den [Notification Hubs – REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) metod för att stödja installationer. Om du använder en backend-tjänst du ska kunna använda [Notification Hub-SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+En Installation är en förbättrad registrering som innehåller en mängd push relaterade egenskaper. Det är den senaste och bästa metoden för att registrera dina enheter. Men det inte stöds av klient-SDK för .NET ([Notification Hub-SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) ännu.  Det innebär att om du registrerar från själva klientenheten, skulle du behöva använda den [Notification Hubs – REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) metod för att stödja installationer. Om du använder en backend-tjänst du ska kunna använda [Notification Hub-SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Här följer några viktiga fördelar med att använda installationer:
 
@@ -48,7 +48,7 @@ Här följer några viktiga fördelar med att använda installationer:
 - Modellen installation har stöd för en särskild tagg-format (`$InstallationId:{INSTALLATION_ID}`) som gör att skicka ett meddelande direkt till enheten. Exempel: om appens koden anger ett installations-ID för `joe93developer` för just den här enheten, en utvecklare kan riktas mot den här enheten när du skickar ett meddelande till den `$InstallationId:{joe93developer}` tagg. På så sätt kan du rikta en specifik enhet utan att behöva göra ytterligare kodning.
 - Med hjälp av installationer kan du också göra partiella registreringsuppdateringar. Deluppdatering av en installation begärs med en PATCH-metoden med den [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). Detta är användbart när du vill uppdatera taggar på registreringen. Du behöver hämta hela registreringen och skicka sedan om alla tidigare taggar.
 
-En installation kan innehålla följande egenskaper. En fullständig lista över installationsegenskaper Se [skapa eller skriva över en Installation med REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) eller [installationsegenskaper](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+En installation kan innehålla följande egenskaper. En fullständig lista över installationsegenskaper Se [skapa eller skriva över en Installation med REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) eller [installationsegenskaper](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -95,7 +95,7 @@ Registreringar och installationer måste innehålla en giltig PNS-handtag för v
 
 Om du vill använda [mallar](notification-hubs-templates-cross-platform-push-messages.md), Enhetsinstallationen innehåller även alla mallar som är associerade med enheten i en JSON-format (se exemplet ovan). Mallnamn hjälpa target olika mallar för samma enhet.
 
-Varje mallnamn mappas till en mall-text och en valfri uppsättning taggar. Varje plattform kan dessutom ha ytterligare mallens egenskaper. För Windows Store (med WNS) och Windows Phone 8 (med MPNS), kan ytterligare en uppsättning huvuden ingå i mallen. När det gäller APNs, kan du ange en giltighetstid-egenskap till antingen en konstant eller till ett malluttryck. En fullständig lista över egenskaper finns i den installationen [skapa eller skriva över en Installation med REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) avsnittet.
+Varje mallnamn mappas till en mall-text och en valfri uppsättning taggar. Varje plattform kan dessutom ha ytterligare mallens egenskaper. För Windows Store (med WNS) och Windows Phone 8 (med MPNS), kan ytterligare en uppsättning huvuden ingå i mallen. När det gäller APNs, kan du ange en giltighetstid-egenskap till antingen en konstant eller till ett malluttryck. En fullständig lista över egenskaper finns i den installationen [skapa eller skriva över en Installation med REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) avsnittet.
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Sekundär paneler för Windows Store-appar
 
@@ -120,7 +120,7 @@ Det är det enklaste sättet att registrera från enheten, men den har vissa nac
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Exempelkod för att registrera på en notification hub från en enhet med en installation
 
-För tillfället detta stöds endast med hjälp av den [Notification Hubs – REST API](https://msdn.microsoft.com/library/mt621153.aspx).
+För tillfället detta stöds endast med hjälp av den [Notification Hubs – REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation).
 
 Du kan också använda en PATCH metoden med hjälp av den [JSON-Patch standard](https://tools.ietf.org/html/rfc6902) för att uppdatera installationen.
 

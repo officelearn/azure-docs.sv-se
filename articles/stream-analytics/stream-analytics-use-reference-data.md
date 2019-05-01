@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2400f80c67527027aee3a98baaa869c5c66d46ee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761496"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573636"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 
@@ -49,7 +49,7 @@ Om din referensdata inte förväntas ändras, sedan stöd för statisk referens 
 
 Om din referensdata är en uppsättning med långsamt föränderliga data, stöd för för att uppdatera referens för data är aktiverat genom att ange en sökvägsmönster i den inkommande konfiguration med hjälp av den {date} och {time} ersättningen token. Stream Analytics hämtar uppdaterade referensdata datadefinitionerna baserat på det här mönstret för sökvägen. Till exempel ett mönster av `sample/{date}/{time}/products.csv` med datumformatet **”åååå-MM-DD”** och ett tidsformat för **”HH-mm”** instruerar Stream Analytics för att hämta den uppdaterade blobben `sample/2015-04-16/17-30/products.csv` 17:30:00 på den 16 April , 2015 UTC-tidszonen.
 
-Azure Stream Analytics söker automatiskt efter uppdateras referensdatablobar med en minuts intervall.
+Azure Stream Analytics söker automatiskt efter uppdateras referensdatablobar med en minuts intervall. Om en blob med tidsstämpel 10:30:00 laddas med en liten fördröjning (till exempel 10:30:30), ser du en kort fördröjning i Stream Analytics-jobb som refererar till den här bloben. För att undvika sådana scenarier kan det rekommenderas att ladda upp blob tidigare än den effektiva måltiden (10: 30:00 i det här exemplet) att vänta tillräckligt länge för Stream Analytics-jobb att identifiera och läsa in den i minnet och utföra åtgärder. 
 
 > [!NOTE]
 > För närvarande leta Stream Analytics-jobb efter den blob-uppdateringen bara när datortiden nyheterna till den tidpunkt som kodats i blobnamnet. Till exempel jobbet söker efter `sample/2015-04-16/17-30/products.csv` så snart som möjligt men inte tidigare än 17:30:00 den 16 April 2015 UTC tidszonen. Kommer det att *aldrig* leta efter en blob med en kodad tid tidigare än det senaste som har identifierats.

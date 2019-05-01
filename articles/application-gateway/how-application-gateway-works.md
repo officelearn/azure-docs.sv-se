@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830333"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702418"
 ---
 # <a name="how-an-application-gateway-works"></a>Så här fungerar en application gateway
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur en application gateway tar emot inkommande förf
 
 2. Azure DNS returnerar IP-adressen till klienten, vilket är frontend-IP-adressen för application gateway.
 
-3. Application gateway accepterar inkommande trafik på en eller flera lyssnare. En lyssnare är en logisk enhet som söker efter anslutningsbegäranden. Den är konfigurerad med en fronted IP-adress, protokoll och portnummer för anslutningar från klienter till application gateway.
+3. Application gateway accepterar inkommande trafik på en eller flera lyssnare. En lyssnare är en logisk enhet som söker efter anslutningsbegäranden. Den är konfigurerad med en klientdelens IP-adress, protokoll och portnummer för anslutningar från klienter till application gateway.
 
 4. Om en brandvägg för webbaserade program (WAF) används, kontrollerar application gateway begärandehuvudena och brödtext, om det finns mot WAF-regler. Den här åtgärden anger om begäran är ogiltigt eller ett säkerhetshot. Om förfrågan är giltig, dirigeras till serverdelen. Om begäran inte är giltig, blockeras den som ett säkerhetshot.
 

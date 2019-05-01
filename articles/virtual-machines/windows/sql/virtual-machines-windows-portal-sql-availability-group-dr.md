@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325988"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571725"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurera en Always On-tillgänglighetsgrupp på virtuella Azure-datorer i olika regioner
 
@@ -145,7 +145,7 @@ Repliken i den fjärranslutna datacentralen är en del av tillgänglighetsgruppe
 
 Helst uppdatera anslutningssträngarna för klienten att ställa in `MultiSubnetFailover=Yes`. Se [ansluta med MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Om du inte kan ändra anslutningssträngar, kan du konfigurera name resolution cachelagring. Se [timeout i flera undernät tillgänglighetsgrupp](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+Om du inte kan ändra anslutningssträngar, kan du konfigurera name resolution cachelagring. Se [timeout-fel och du kan inte ansluta till en SQL Server 2012 AlwaysOn tillgänglighetsgruppens lyssnare i en miljö med flera undernät](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
 ## <a name="fail-over-to-remote-region"></a>Växla över till avlägsen region
 

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006139"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686293"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database
 
@@ -80,7 +80,7 @@ Microsoft hanterar den hanterade instansen med hjälp av en hanteringsslutpunkt.
 När anslutningar starta i den hanterade instansen (precis som med säkerhetskopior och granskningsloggar), visas trafik för att starta från den hanteringsslutpunkten offentlig IP-adress. Du kan begränsa åtkomsten till offentliga tjänster från en hanterad instans genom att ställa in brandväggsregler som tillåter bara den hanterade instansen IP-adress. Mer information finns i [verifiera den hanterade instansen inbyggda brandväggen](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Traffice som leder till Azure-tjänster som är i regionen för den hanterade instansen är optimerad och anledning inte NATed till hanterade instans-hantering endpoint offentliga IP-adressen för den. Därför om du vill använda IP-baserade brandväggsregler, oftast för lagring, service måste vara i en annan region från hanterad instans.
+> Trafik som går till Azure-tjänster som är i regionen för den hanterade instansen är optimerad och därför inte NATed till hanterad instans-hantering endpoint offentlig IP-adress. Därför om du vill använda IP-baserade brandväggsregler, oftast för lagring, service måste vara i en annan region från hanterad instans.
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
@@ -97,7 +97,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatorisk inkommande säkerhetsregler
 
-| Name       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI – UNDERNÄT  |Tillåt |
 |mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
@@ -105,7 +105,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatorisk utgående säkerhetsregler
 
-| Name       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
 |hantering  |80, 443, 12000|TCP     |MI – UNDERNÄT        |AzureCloud |Tillåt |
 |mi_subnet   |Alla           |Alla     |MI – UNDERNÄT        |MI – UNDERNÄT  |Tillåt |
@@ -122,7 +122,7 @@ Distribuera en hanterad instans i ett dedikerat undernät i virtuella nätverk. 
 
 ### <a name="user-defined-routes"></a>Användardefinierade vägar
 
-|Name|Adressprefix|Nästa hopp|
+|Namn|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI – UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

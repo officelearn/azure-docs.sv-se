@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896270"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712429"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Etablera en Windows Data Science-dator på Azure
 
@@ -116,7 +116,7 @@ Du kan använda Microsoft Enterprise Library för skalbar R eller Python för an
 
 Machine Learning Server har stöd för olika stordatastatistik, förutsägande modellering och maskininlärning uppgifter. Det har stöd för en fullständig uppsättning analytics: utforskning, analys, visualisering och modellering. Genom att använda och utökar R och Python för öppen källkod, är Machine Learning Server kompatibel med R och Python-skript och funktioner. Det är också kompatibla med CRAN, pip och Conda-paket för att analysera data i enterprise-skala.
 
-Machine Learning Server löser minnesbegränsningarna för R med öppen källkod genom att lägga till parallell och segmenterat bearbetning av data. Det innebär att du kan köra analyser i mycket större data än vad som passar i huvudminnet. Visual Studio Community ska tas med på den virtuella datorn. Den har R tools för Visual Studio och Python Tools för Visual Studio (PTVS)-tillägg som ger en fullständig IDE för att arbeta med R eller Python. Vi ger även andra IDE: er som [RStudio](http://www.rstudio.com) och [PyCharm Community edition](https://www.jetbrains.com/pycharm/) på den virtuella datorn.
+Machine Learning Server löser minnesbegränsningarna för R med öppen källkod genom att lägga till parallell och segmenterat bearbetning av data. Det innebär att du kan köra analyser i mycket större data än vad som passar i huvudminnet. Visual Studio Community ska tas med på den virtuella datorn. Den har R tools för Visual Studio och Python Tools för Visual Studio (PTVS)-tillägg som ger en fullständig IDE för att arbeta med R eller Python. Vi ger även andra IDE: er som [RStudio](https://www.rstudio.com) och [PyCharm Community edition](https://www.jetbrains.com/pycharm/) på den virtuella datorn.
 
 ### <a name="python"></a>Python
 

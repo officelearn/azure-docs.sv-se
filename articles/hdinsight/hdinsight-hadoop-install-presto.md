@@ -1,7 +1,6 @@
 ---
 title: Installera Presto på Azure HDInsight Linux-kluster
 description: Lär dig mer om att installera Presto och Airpal på Linux-baserade HDInsight Hadoop-kluster med skriptåtgärder.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2bd5e1ae02ffbb62b9a5a95846aabeeab2b448b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258351"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704817"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installera och använda Presto på Hadoop-baserade HDInsight-kluster
 
@@ -26,7 +25,7 @@ HDInsight erbjuder även stjärnexplosion Presto programmet för Apache Hadoop-k
 > Stegen i den här artikeln kräver ett HDInsight 3.5 Hadoop-kluster som använder Linux. Linux är det enda operativsystem som används på HDInsight version 3.4 och senare. Mer information finns i [HDInsight versioner](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>Vad är Presto?
-[Presto](https://prestodb.io/overview.html) är en fast-distribuerad SQL-frågemotor för stordata. Presto lämpar sig för interaktiva frågor på petabyte data. Mer information om komponenter av Presto och hur de fungerar tillsammans finns i [Presto begrepp](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
+[Presto](https://prestosql.io) är en fast-distribuerad SQL-frågemotor för stordata. Presto lämpar sig för interaktiva frågor på petabyte data. Mer information om komponenter av Presto och hur de fungerar tillsammans finns i [Presto begrepp](https://prestosql.io/docs/current/overview/concepts.html).
 
 > [!WARNING]  
 > Komponenter som tillhandahålls med HDInsight-kluster stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem relaterade till dessa komponenter.
@@ -86,9 +85,9 @@ Om du vill arbeta med Presto i ett HDInsight-kluster, gör du följande:
    
     `select count (*) from hivesampletable;`
    
-    Som standard [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) och [TPCH](https://prestodb.io/docs/current/connector/tpch.html) anslutningsappar för Presto har redan konfigurerats. Hive-anslutning är konfigurerad för att använda Hive standardinstallationen. Det innebär att alla tabeller från Hive visas automatiskt i Presto.
+    Som standard [Apache Hive](https://prestosql.io/docs/current/connector/hive.html) och [TPCH](https://prestosql.io/docs/current/connector/tpch.html) anslutningsappar för Presto har redan konfigurerats. Hive-anslutning är konfigurerad för att använda Hive standardinstallationen. Det innebär att alla tabeller från Hive visas automatiskt i Presto.
 
-    Mer information finns i [Presto dokumentation](https://prestodb.io/docs/current/index.html).
+    Mer information finns i [Presto dokumentation](https://prestosql.io/docs/current/index.html).
 
 ## <a name="use-airpal-with-presto"></a>Använda Airpal med Presto
 
@@ -151,7 +150,7 @@ Om du vill anpassa installationen, gör du följande:
    
     Mer information finns i [Anslut till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Gör dina ändringar i konfigurationen i filen `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Läs mer på Presto konfiguration, [Presto konfigurationsalternativ för YARN-baserade kluster](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
+2. Gör dina ändringar i konfigurationen i filen `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Läs mer på Presto konfiguration, [Presto konfigurationsalternativ för YARN-baserade kluster](https://prestosql.github.io/presto-yarn/installation-yarn-configuration-options.html).
 
 3. Stoppa och avsluta den aktuella pågående instansen av Presto:
 

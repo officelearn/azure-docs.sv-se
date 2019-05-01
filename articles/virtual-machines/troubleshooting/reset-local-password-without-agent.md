@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307752"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708127"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa lokala Windows-lösenord för Azure VM offline
 Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av den [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) angivna Azure-gästagenten är installerad. Den här metoden är det primära sättet att återställa ett lösenord för en Azure-dator. Om du får problem med Azure-gästagenten svarar inte eller inte kunde installeras när du har överfört en anpassad avbildning, kan du manuellt kan du återställer en Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt kontolösenord genom att koppla den virtuella käll-OS-disken till en annan virtuell dator. Stegen som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 
@@ -106,7 +106,7 @@ Alltid försöka med att återställa ett lösenord med hjälp av den [Azure-por
      ```
      
      ![Skapa gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Kontrollera att dolda mappar visas. Om det behövs skapar den `Machine` eller `Scripts` mappar.
+5. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machines\Scripts\`. Kontrollera att dolda mappar visas. Om det behövs skapar den `Machine` eller `Scripts` mappar.
    
    * Lägg till följande rader i `scripts.ini` fil som du skapade:
      
@@ -156,7 +156,7 @@ Alltid försöka med att återställa ett lösenord med hjälp av den [Azure-por
     
     * From %windir%\System32
       * remove FixAzureVM.cmd
-    * Från %windir%\System32\GroupPolicy\Machine\
+    * Från %windir%\System32\GroupPolicy\Machine\Scripts
       * ta bort scripts.ini
     * From %windir%\System32\GroupPolicy
       * ta bort gpt.ini (om gpt.ini fanns före och du bytt namn till gpt.ini.bak, Byt namn på bak-filen tillbaka till gpt.ini)

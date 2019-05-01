@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013262"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714892"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Skapa och träna en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -171,7 +171,7 @@ VALUES (
 
 **Results**
 
-![Tränad modell med ytterligare utdata](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![Tränad modell med ytterligare utdata](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>Rangordna nya data med hjälp av den tränade modellen
 
@@ -239,7 +239,7 @@ Lade du märke till att de ursprungliga träningsdata tog slut vid en hastighet 
 
    **Results**
 
-   ![Resultatmängd för att förutsäga bromssträcka](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![Resultatmängd för att förutsäga bromssträcka](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > I det här exempelskriptet den `str` funktionen har lagts till under testfasen att kontrollera schemat för data som returneras från R. Du kan ta bort instruktionen igen senare.
@@ -248,10 +248,9 @@ Lade du märke till att de ursprungliga träningsdata tog slut vid en hastighet 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Machine Learning Services finns i artiklarna nedan. En del av de här artiklarna handlar om SQL Server, men det mesta av informationen gäller även för Machine Learning Services (med R) i Azure SQL Database.
+Mer information om Azure SQL Database Machine Learning Services med R (förhandsversion) finns i följande artiklar.
 
-- [Azure SQL Database Machine Learning Services (med R)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Självstudier: Lär dig databasanalys med hjälp av R i SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [Datavetenskapsgenomgång med slutpunkt till slutpunkt för R och SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Självstudier: Använda RevoScaleR R-funktioner med SQL Server-data](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning Services med R (förhandsversion)](sql-database-machine-learning-services-overview.md)
+- [Skapa och kör enkelt R-skript i Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-quickstart-r-create-script.md)
+- [Skriva avancerade R-funktioner i Azure SQL Database med Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-functions.md)
+- [Arbeta med R och SQL-data i Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-data-issues.md)

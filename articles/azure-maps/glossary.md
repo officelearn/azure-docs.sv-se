@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769846"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575351"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -63,7 +63,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="bearing"></a> **Med**: Horisontellt för en punkt i förhållande till en annan återställningspunkt. Detta uttrycks som en vinkel i förhållande till norra från 0-grader till 360 grader mot i medsols. 
 
-<a name="boundary"></a> **Gräns**: Ett linje- eller polygon att separera angränsande politiska enheter, till exempel land, distrikt och egenskaper. En gräns är en rad som eventuellt kan inte följa fysiska funktioner, till exempel vattendrag, bergen eller väggar.
+<a name="boundary"></a> **Gräns**: Ett linje- eller polygon att separera angränsande politiska enheter, till exempel länder/regioner, distrikt och egenskaper. En gräns är en rad som eventuellt kan inte följa fysiska funktioner, till exempel vattendrag, bergen eller väggar.
 
 <a name="bounds"></a> **Gränser**: Se [Bounding box](#bounding-box).
 
@@ -91,13 +91,13 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="coordinate-system"></a> **Koordinatsystem**: En referensram som används för att definiera positioner punkter i utrymmet i två eller tre dimensioner.
 
-<a name="country-code"></a> **Landskod**: En unik identifierare för ett land baserat på ISO-standarden. ISO2 är en kod på två tecken för ett land (till exempel USA), vilket motsvarar en tre tecken för ISO3 code (till exempel USA).
+<a name="country-code"></a> **Landskod**: En unik identifierare för land/region baserat på ISO-standarden. ISO2 är en kod på två tecken för ett land (till exempel USA), vilket motsvarar en tre tecken för ISO3 code (till exempel USA).
 
-<a name="country-subdivision"></a> **Land delfältet**: En första nivån delen i ett land, ofta kallat en region.
+<a name="country-subdivision"></a> **Land delfältet**: En första nivån delen i ett land/region, ofta kallat en region.
 
-<a name="country-secondary-subdivision"></a> **Land sekundära delfältet**: En andra nivån delen i ett land, ofta kallat en region.
+<a name="country-secondary-subdivision"></a> **Land sekundära delfältet**: En andra nivån delen i ett land/region, ofta kallat en region.
 
-<a name="country-tertiary-subdivision"></a> **Land tertiär delfältet**: En tredje nivån delen i ett land, vanligtvis ett namngivet område, till exempel en ward.
+<a name="country-tertiary-subdivision"></a> **Land tertiär delfältet**: En tredje nivån delen i ett land/region, vanligtvis ett namngivet område, till exempel en ward.
 
 <a name="cross-street"></a> **Mellan gata**: En punkt där två eller flera gator överlappar varandra.
 
@@ -283,7 +283,7 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="post-code"></a> **Skicka kod**: Se [postnummer](#postal-code).
 
-<a name="postal-code"></a> **Postnummer**: En serie bokstäver, siffror eller båda i ett visst format som används av posttjänster av ett land för att dela upp geografiska områden i zoner för att underlätta leverans av e-post.
+<a name="postal-code"></a> **Postnummer**: En serie bokstäver, siffror eller båda i ett visst format som används av posttjänster i ett land/region för att dela upp geografiska områden i zoner för att underlätta leverans av e-post.
 
 <a name="prime-meridian"></a> **Nollmeridianen**: En rad med longitud som representerar 0 grader longitud. I allmänhet longitudvärden minska resan i västlig riktning tills 180 grader och öka när du reser i easterly riktningar till-180-grader. 
 
@@ -351,11 +351,11 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="terrain"></a> **Terräng**: En del av mark med en viss egenskap, till exempel sandiga terräng eller terräng.
 
-<a name="thematic-maps"></a> **Prioriterade maps**: Ett flertal kartan är en enkel karta som görs enligt en temat om ett geografiskt område. Ett vanligt scenario för den här typen av kartan är att färg administrativa områden, till exempel länder baserat på vissa mått av data.
+<a name="thematic-maps"></a> **Prioriterade maps**: Ett flertal kartan är en enkel karta som görs enligt en temat om ett geografiskt område. Ett vanligt scenario för den här typen av kartan är att färg administrativa områden, till exempel länder/regioner baserat på vissa mått av data.
 
 <a name="tile-layer"></a> **Bildrutsskikt**: Ett lager som visas genom att sätta samman kartan paneler (rektangulär avsnitt) till ett kontinuerlig lager. Paneler är antingen raster bild paneler eller vector paneler. Raster bildrutsskikt är vanligtvis återges i tid och lagras som bilder på en server. Detta kan ta upp mycket lagringsutrymme. Vektor bildrutsskikt återges i farten klientprogrammet, därför lagringskraven för server-sida är mindre.
 
-<a name="time-zone"></a> **Tidszon**: En del av världen där en enhetlig normaltid för juridiska, kommersiella och sociala. Tidszoner tenderar att följa gränserna för andra länder och deras underordnade enheter.
+<a name="time-zone"></a> **Tidszon**: En del av världen där en enhetlig normaltid för juridiska, kommersiella och sociala. Tidszoner tenderar att följa gränserna för länder/regioner och deras underordnade enheter.
 
 <a name="transaction"></a> **Transaktionen**: Azure Maps använder en transaktionell licensieringsmodell där;
 
@@ -398,5 +398,5 @@ Här följer en lista över vanliga ord som används med Azure Maps.
 
 <a name="zip-code"></a> **Postnummer**: Se [postnummer](#postal-code).
 
-<a name="Zoom level"></a> **Zoomnivå**: Anger nivån av information och hur mycket av kartan är synlig. När du zoomar hela vägen ut en nivå 0, fullständig världskarta blir ofta i vyn men visar begränsad information om till exempel Landsnamn kantlinjer och havet namn. När du zoomar in närmare till nivå 17, visas en del av ett par stad block med detaljerade vägen information i kartan. Mer information finns i den [zoomningsnivåer och rutnät](zoom-levels-and-tile-grid.md) dokumentation.
+<a name="Zoom level"></a> **Zoomnivå**: Anger nivån av information och hur mycket av kartan är synlig. När du zoomar hela vägen ut en nivå 0, fullständig världskarta blir ofta i vyn men visar begränsad information om till exempel namn på land/region och kantlinjer och havet namn. När du zoomar in närmare till nivå 17, visas en del av ett par stad block med detaljerade vägen information i kartan. Mer information finns i den [zoomningsnivåer och rutnät](zoom-levels-and-tile-grid.md) dokumentation.
 

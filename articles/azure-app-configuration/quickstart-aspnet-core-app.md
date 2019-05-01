@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b527199fd7b61609f292b13c73bfc1d6e0a6b896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 90a39693778e01da76baf19765be8801f55813b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203789"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683056"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
@@ -28,6 +28,8 @@ Azure App Configuration är en hanterad konfigurationstjänst i Azure. Du kan an
 ASP.NET Core skapar ett enda nyckel-värde-baserade konfigurationsobjekt med hjälp av inställningarna från en eller flera datakällor som anges av ett program. Dessa datakällor kallas *konfigurationsprovidrar*. Eftersom App Configuration .NET Core-klienten är implementerat som till exempel en provider, tjänsten visas som en annan datakälla.
 
 Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
+
+![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -118,15 +120,12 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
 
-6. Öppna Index.cshtml i vyerna > Home directory och Ersätt innehållet med följande kod:
+6. Öppna *Index.cshtml* i vyerna > Home directory och Ersätt innehållet med följande kod:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -152,7 +151,7 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
     </html>
     ```
 
-7. Öppna _Layout.cshtml i vyerna > delad directory och Ersätt innehållet med följande kod:
+7. Öppna *_Layout.cshtml* i vyerna > delad directory och Ersätt innehållet med följande kod:
 
     ```html
     <!DOCTYPE html>
@@ -190,8 +189,6 @@ Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core
         dotnet run
 
 3. Öppna ett webbläsarfönster och gå till `http://localhost:5000`, vilket är standard-URL för web-app som finns lokalt.
-
-    ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

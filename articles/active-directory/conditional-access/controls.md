@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411699"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571100"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst?
 
@@ -113,7 +113,7 @@ Du kan kräva att en användare i din klient samtycker till att användningsvill
 
 ### <a name="custom-controls-preview"></a>Anpassade kontroller (förhandsversion)
 
-Du kan skapa anpassade kontroller för villkorlig åtkomst som omdirigerar användarna till en kompatibel tjänst för att uppfylla ytterligare krav utanför Azure Active Directory. På så sätt kan du använda vissa externa multifaktorautentisering och verifiering leverantörer att genomdriva regler för villkorlig åtkomst eller för att skapa din egen anpassade tjänst. För att uppfylla den här kontrollen, en användares webbläsare omdirigeras till den externa tjänsten, utför alla nödvändiga autentisering eller validering aktiviteter och sedan omdirigeras tillbaka till Azure Active Directory. Om användaren har har autentiserats eller verifierats, fortsätter användaren i flödet för villkorlig åtkomst. 
+Du kan lägga till anpassade kontroller för villkorlig åtkomst som omdirigerar användarna till en kompatibel tjänst för att uppfylla ytterligare krav utanför Azure Active Directory. På så sätt kan du använda vissa externa multifaktorautentisering och verifiering providers för att framtvinga krav för villkorlig åtkomst. För att uppfylla den här kontrollen, en användares webbläsare omdirigeras till den externa tjänsten, utför alla nödvändiga autentisering eller validering aktiviteter och sedan omdirigeras tillbaka till Azure Active Directory. Om användaren har har autentiserats eller verifierats, fortsätter användaren i flödet för villkorlig åtkomst. 
 
 ## <a name="custom-controls"></a>Anpassade kontroller
 
@@ -137,6 +137,8 @@ Mer information om dessa tjänster kontaktar du providers direkt.
 ### <a name="creating-custom-controls"></a>Skapa anpassade kontroller
 
 Du bör kontakta den provider som du vill använda för att skapa en anpassad kontroll. Varje icke-Microsoft-provider har en egen process och krav för att registrera dig, prenumerera på eller på annat sätt har blivit en del av tjänsten och för att indikera att du vill integrera med villkorlig åtkomst. I det här läget ger providern dig med ett datablock i JSON-format. Dessa data kan providern och villkorlig åtkomst fungerar tillsammans för din klient, skapar den nya kontrollen och definierar hur villkorlig åtkomst kan berätta om dina användare har utförts verifiering med providern.
+
+Anpassade kontroller kan inte användas med Identity Protection automation att kräva multifaktorautentisering eller att utöka roller i Privileged Identity Manager (PIM).
 
 Kopiera JSON-data och klistra in den i textrutan relaterade. Du inte göra några ändringar i JSON, såvida inte du uttryckligen förstår ändringen du gör. Gör några ändringar kan bryta anslutningen mellan providern och Microsoft och potentiellt låsa dig och dina användare från dina konton.
 

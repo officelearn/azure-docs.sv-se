@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60538008"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570617"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -145,7 +145,7 @@ Detaljerad dokumentation om Azure-tjänster finns [dokumentation om Azure servic
 
 Azure är en global molnplattform som är allmänt tillgängligt i många regioner runt om i världen. När du etablerar ett program, en tjänst eller en virtuell dator i Azure kan uppmanas du att välja en region. Den valda regionen representerar ett speciﬁc datacenter där programmet körs. Mer information finns i [Azure-regioner](https://azure.microsoft.com/regions/).
 
-En av beneﬁts med att använda Azure är att du kan distribuera dina program i olika Datacenter runtom i världen. Den region som du väljer kan aﬀect programmets prestanda. Det är optimala för att välja en region som ligger närmast mest kunderna genom att minska svarstiden i nätverksbegäranden. Du kan också välja en region för att uppfylla juridiska krav för att distribuera din app i vissa länder.
+En av beneﬁts med att använda Azure är att du kan distribuera dina program i olika Datacenter runtom i världen. Den region som du väljer kan aﬀect programmets prestanda. Det är optimala för att välja en region som ligger närmast mest kunderna genom att minska svarstiden i nätverksbegäranden. Du kan också välja en region för att uppfylla juridiska krav för att distribuera din app i vissa länder/regioner.
 
 ### <a name="azure-portal"></a>Azure Portal
 

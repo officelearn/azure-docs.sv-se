@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 02e9b64c89eda1471d644e0116bbf8c1c061ccc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548412"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682525"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansikts-data till en annan Ansikts-prenumeration
 
 Den här guiden visar hur du flyttar ansikte data (till exempel en sparad **PersonGroup** för ansikten) till en annan Ansikts-API-prenumeration med hjälp av funktionen för ögonblicksbilder. Detta gör att du slipper att upprepade gånger skapa och träna en **PersonGroup** eller **FaceList** när du flyttar eller utöka din verksamhet. Exempel: du kan ha skapat en **PersonGroup** med en kostnadsfri utvärderingsversion av prenumeration och nu vill migrera den till din betalda prenumeration eller du kan behöva synkronisera ansikte data över regioner för ett stort företag-åtgärden.
 
-Det här samma migreringsstrategi gäller även för **LargePersonGroup** och **LargeFaceList** objekt. Om du inte är bekant med principerna i den här guiden finns i deras definitioner i den [ordlista](../Glossary.md). Den här guiden använder klientbiblioteket för .NET för Ansikts-API med C#.
+Det här samma migreringsstrategi gäller även för **LargePersonGroup** och **LargeFaceList** objekt. Om du inte är bekant med principerna i den här guiden finns i deras definitioner i den [står inför erkännande begrepp](../concepts/face-recognition.md) guide. Den här guiden använder klientbiblioteket för .NET för Ansikts-API med C#.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -29,15 +29,13 @@ Det här samma migreringsstrategi gäller även för **LargePersonGroup** och **
 - Ansikts-API-prenumeration ID-sträng för målprenumerationen (finns i den **översikt** bladet på Azure portal). 
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 
-
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
 Den här guiden använder en enkel konsolapp för att köra datamigrering ansikte. En fullständig implementering finns i den [Ansikts-API-ögonblicksbild exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) på GitHub.
 
-1. I Visual Studio skapar du en ny **konsolapp (.NET Framework)** projektet och ge den namnet **FaceApiSnapshotSample**. 
+1. I Visual Studio skapar du en ny **konsolapp (.NET Framework)** projektet och ge den namnet **FaceApiSnapshotSample**.
 1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Klicka på fliken **Bläddra** och välj **Inkludera förhandsversion**. Leta sedan reda på och installera följande paket:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## <a name="create-face-clients"></a>Skapa ansikts-klienter
 
@@ -226,7 +224,9 @@ När du är klar migrerar ansikte data rekommenderar vi att du manuellt ta bort 
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>Relaterade ämnen
+## <a name="next-steps"></a>Nästa steg
+
+Därefter dokumentationen relevanta API-referens, utforska en exempelapp som använder funktionen ögonblicksbild eller följa en instruktionsguide för att börja använda andra åtgärder i API: et anges här.
 
 - [Referensdokumentation för ögonblicksbild (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Ansikts-API: et ögonblicksbild exemplet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

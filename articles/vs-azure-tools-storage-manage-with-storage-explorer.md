@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 4ee91a91a20cbffebf7453ba573266962aa35806
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128287"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924741"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -55,7 +55,7 @@ Azure Storage Explorer stöds på följande distributioner av Linux:
 
 Azure Storage Explorer fungerar på andra distributioner, men endast som visas ovan stöds officiellt.
 
-Mer hjälp med att installera Storage Explorer på Linux, finns det [felsökningsguiden för](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
+Mer hjälp med att installera Storage Explorer på Linux, finns det [felsökningsguiden för](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 Azure Storage Explorer [viktig](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) innehålla specifika åtgärder för vissa distributioner.
 

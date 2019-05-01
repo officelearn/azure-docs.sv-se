@@ -10,25 +10,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 749b5690f5814bb2f63f9f4451bba85990166acd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 543defc622942f4a0643aca275ad4ad2fa9e1ab2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306279"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926534"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Aktuell version](connector-azure-sql-database.md)
 
-Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från eller till Azure SQL Database. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som anger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskrivs hur du kopierar data till och från Azure SQL Database. Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från eller till Azure SQL Database till alla datalager för mottagare som stöds. Och du kan kopiera data från alla dataarkiv till Azure SQL Database. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Den här anslutningen för Azure SQL Database stöds för följande aktiviteter:
+
+- [Kopiera aktivitet](copy-activity-overview.md) med [stöd matrix för källa/mottagare](copy-activity-overview.md) tabell
+- [Mappning av dataflöde](concepts-data-flow-overview.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [GetMetadata-aktiviteten](control-flow-get-metadata-activity.md)
 
 Mer specifikt stöder den här anslutningen för Azure SQL Database dessa funktioner:
 
@@ -135,12 +140,12 @@ Följ dessa steg om du vill använda autentisering med enhetstoken en service pr
 2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för Azure SQL-servern på Azure portal om du inte redan gjort det. Azure AD-administratör måste vara en Azure AD-användare eller Azure AD-grupp, men den kan inte vara ett huvudnamn för tjänsten. Det här steget gör du så att det i nästa steg ska du använda en Azure AD-identitet för att skapa en oberoende databasanvändare för tjänsten huvudnamn.
 
 3. **[Skapa oberoende databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  för tjänstens huvudnamn. Ansluta till databasen från eller som du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL: 
-    
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Bevilja behörigheter krävs för tjänstens huvudnamn** som du brukar för SQL-användare eller andra. Kör följande kod eller hänvisa till fler alternativ [här](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **Bevilja behörigheter krävs för tjänstens huvudnamn** som du brukar för SQL-användare eller andra. Kör följande kod eller hänvisa till fler alternativ [här](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -185,12 +190,12 @@ Följ dessa steg om du vill använda hanterad identitet-autentisering:
 1. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för Azure SQL-servern på Azure portal om du inte redan gjort det. Azure AD-administratör kan vara en Azure AD-användare eller Azure AD-grupp. Om du ger gruppen med hanterad identitet en administratörsroll kan du hoppa över steg 3 och 4. Administratören har fullständig åtkomst till databasen.
 
 2. **[Skapa oberoende databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  för Data Factory hanterad identitet. Ansluta till databasen från eller som du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL: 
-    
+  
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Bevilja behörigheter krävs för Data Factory hanterade identiteter** som du brukar för SQL-användare och andra. Kör följande kod eller hänvisa till fler alternativ [här](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **Bevilja behörigheter krävs för Data Factory hanterade identiteter** som du brukar för SQL-användare och andra. Kör följande kod eller hänvisa till fler alternativ [här](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -587,6 +592,10 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 Den lagrade proceduren funktionen utnyttjar [Table-Valued parametrar](https://msdn.microsoft.com/library/bb675163.aspx).
+
+## <a name="mapping-data-flow-properties"></a>Egenskaper för mappning av dataflöde
+
+Få mer detaljerad information från [source omvandling](data-flow-source.md) och [mottagare omvandling](data-flow-sink.md) i mappning dataflöde.
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Datatypsmappningen för Azure SQL Database
 

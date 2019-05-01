@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537657"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569649"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Ange kommandoraden i en behållarinstans åsidosätta standardåtgärd för kommandoraden
 
@@ -24,7 +24,15 @@ Som inställningen [miljövariabler](container-instances-environment-variables.m
 
 * Som standard kommandoraden anger en *enkel process som startar utan ett gränssnitt* i behållaren. Från kommandoraden kan till exempel köra en Python-skriptet eller den körbara filen. 
 
-* För att köra flera kommandon, börjar du kommandoraden genom att ange en gränssnittsmiljön i operativsystemet behållare (exempel: `bin/sh`, `/bin/bash`, `cmd`). Följ konventioner för gränssnittet för att kombinera flera kommandon som ska köras i följd.
+* Börja från kommandoraden genom att ange en shell-miljö som stöds i operativsystemet behållare för att köra flera kommandon. Exempel:
+
+  |Operativsystem  |Standardgränssnitt  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  |Windows     |    `cmd`     |
+
+  Följ konventioner för gränssnittet för att kombinera flera kommandon som ska köras i följd.
 
 * Beroende på konfigurationen av behållaren kan du behöva ange en fullständig sökväg till kommandoraden körbara eller argument.
 

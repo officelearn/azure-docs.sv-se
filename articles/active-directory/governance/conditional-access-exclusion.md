@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351598"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571351"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd Azure AD-åtkomstgranskningar att hantera användare som undantas från principer för villkorlig åtkomst
 
@@ -38,7 +38,7 @@ Du kan använda ett annat exempel är [namngivna platser](../conditional-access/
 
 ![Namngivna platser](./media/conditional-access-exclusion/named-locations.png)
 
-Användare kan dock i vissa fall kan ha en bra anledning till att logga in från dessa blockerade länder. Användare kan till exempel resa för arbete eller personligt orsaker. I det här exemplet har principen för villkorlig åtkomst för att blockera dessa länder en dedikerad molnet säkerhetsgrupp för användare som är undantagna från principen. Användare som behöver åtkomst under resa kan lägga till sig själva till en grupp med [grupphantering för Azure AD-självbetjäning](../users-groups-roles/groups-self-service-management.md).
+Användare kan dock i vissa fall kan ha en bra anledning till att logga in från dessa blockerade länder/regioner. Användare kan till exempel resa för arbete eller personligt orsaker. I det här exemplet har principen för villkorlig åtkomst för att blockera dessa länder/regioner ett dedikerat moln säkerhetsgrupp för användare som är undantagna från principen. Användare som behöver åtkomst under resa kan lägga till sig själva till en grupp med [grupphantering för Azure AD-självbetjäning](../users-groups-roles/groups-self-service-management.md).
 
 Ett annat exempel kanske du har en princip för villkorlig åtkomst som [block äldre autentisering för flesta användare](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft rekommenderar att du blockera användningen av äldre protokoll i din klient för att förbättra din säkerhetsposition. Men om du har några användare som är absolut behöver använda äldre autentiseringsmetoder för att komma åt resurser via Office 2010 eller IMAP-SMTP-POP baserade klienter, kan du undanta dessa användare från den princip som blockerar äldre autentiseringsmetoder.
 
@@ -97,9 +97,9 @@ Nu kan du skapa en princip för villkorlig åtkomst som använder den här undan
 
 Vi beskriver två exempel där du kan använda åtkomstgranskningar för att hantera undantag i principer för villkorlig åtkomst.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Exempel 1: Åtkomstgranskning för användare som kommer åt från blockerade länder
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Exempel 1: Åtkomstgranskning för användare som kommer åt från blockerade länder/regioner
 
-Vi antar att du har en villkorlig åtkomstprincip som blockerar åtkomsten från vissa länder. Den innehåller en grupp som är undantagna från principen. Här är en rekommenderad åtkomstgranskning där medlemmar i gruppen granskas.
+Vi antar att du har en villkorlig åtkomstprincip som blockerar åtkomsten från vissa länder/regioner. Den innehåller en grupp som är undantagna från principen. Här är en rekommenderad åtkomstgranskning där medlemmar i gruppen granskas.
 
 > [!NOTE]
 > En Global administratör eller användarrollen för administratör krävs för att skapa åtkomstgranskningar.
@@ -110,9 +110,9 @@ Vi antar att du har en villkorlig åtkomstprincip som blockerar åtkomsten från
 
 3. Alla medlemmar i den här gruppen kommer att inom omfånget för granskningen.
 
-4. Varje användare har själva intyga att de fortfarande behöver åtkomst från dessa blockerade länder, därför de fortfarande behöver vara medlem i gruppen.
+4. Varje användare har själva intyga att de fortfarande behöver ha åtkomst från dessa blockerade länder/regioner, därför de fortfarande behöver vara medlem i gruppen.
 
-5. Om användaren inte svarar på begäran för granskning kan de tas automatiskt bort från gruppen och därför kan inte längre komma åt klienten resande till dessa länder.
+5. Om användaren inte svarar på begäran för granskning kan de tas automatiskt bort från gruppen och därför kan inte längre komma åt klienten resande till dessa länder/regioner.
 
 6. Aktivera e-postaviseringar så att användarna meddelas om start och slutförande av åtkomstgranskningen.
 

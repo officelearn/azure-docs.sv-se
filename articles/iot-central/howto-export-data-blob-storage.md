@@ -4,16 +4,16 @@ description: Exportera data från Azure IoT Central programmet till Azure Blob S
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 12/07/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f6e44b21a2a2e174ffa49073fdeb8cc96910a69e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295087"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682036"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportera data till Azure Blob Storage
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du använder funktionen löpande export i Azure 
 > Igen när du aktiverar löpande dataexport, får du endast data från det ögonblick då och uppåt. För närvarande går inte att hämta data under en tid när löpande dataexport var inaktiverat. Om du vill behålla fler historiska data, aktivera löpande dataexport tidigt.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste vara administratör i din IoT Central-App
 

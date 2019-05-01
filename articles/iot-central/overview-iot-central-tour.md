@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 654528ed6137ee62ea22d552d36fda5ac5331adc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678657"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688653"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
 
@@ -51,7 +51,7 @@ Den översta menyn visas på varje sida:
 - Om du vill söka efter enhet mallar och enheter, ange en **Search** värde.
 - Om du vill ändra språk i Användargränssnittet eller tema, Välj den **inställningar** ikon.
 - Om du vill logga ut från programmet, Välj den **konto** ikon.
-- Om du behöver hjälp och support väljer du listrutan **Hjälp** för att visa en lista med resurser.
+- Om du behöver hjälp och support väljer du listrutan **Hjälp** för att visa en lista med resurser. I en utvärderingsprogram Supportresurser omfattar tillgång till [live-chatt](howto-show-hide-chat.md).
 
 Du kan välja mellan ett ljust eller ett mörkt tema för användargränssnittet:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691970"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574271"
 ---
 # <a name="analytics-in-application-insights"></a>Analys i Application Insights
 Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs.
@@ -38,7 +38,7 @@ Du kan inte direkt åtkomst till data i en Log Analytics-arbetsyta från Applica
 
 ## <a name="query-data-in-analytics"></a>Fråga efter data i Analytics
 En typisk frågan börjar med ett tabellnamn följt av en serie *operatörer* avgränsade med `|`.
-Exempelvis kan vi ta reda på hur många begäranden vår app som togs emot från olika länder under de senaste 3 timmarna:
+Exempelvis kan du nu ska vi ta reda på hur många begäranden vår app som togs emot från olika länder/regioner under de senaste 3 timmarna:
 ```AIQL
 requests
 | where timestamp > ago(3h)

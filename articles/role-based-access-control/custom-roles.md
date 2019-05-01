@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f795571de275453738d23e80885f4d9006ca3a20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 24c8dd49667a359bb0fe7051dd801062f37f3db9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195031"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718433"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Anpassade roller för Azure-resurser
 
@@ -88,7 +88,7 @@ En stegvis självstudiekurs om hur du skapar en anpassad roll finns i [självstu
 
 En anpassad roll har följande egenskaper.
 
-| Egenskap  | Obligatoriskt | Typ | Beskrivning |
+| Egenskap  | Krävs | Typ | Beskrivning |
 | --- | --- | --- | --- |
 | `Name` | Ja | String | Visningsnamnet för den anpassade rollen. En rolldefinition är en prenumerationsnivå resurs, kan en rolldefinition användas i flera prenumerationer som delar samma Azure AD-katalog. Det här visningsnamnet måste vara unikt i omfattningen av Azure AD-katalog. Kan innehålla bokstäver, siffror, blanksteg och specialtecken. Maximalt antal tecken är 128. |
 | `Id` | Ja | String | Unikt ID för den anpassade rollen. Detta ID genereras automatiskt för Azure PowerShell och Azure CLI, när du skapar en ny roll. |

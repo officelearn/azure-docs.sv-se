@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7c45b0581a03e280c7dbd6d998059f1e4bff5345
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d88bf309d2afeb4e6fdd09ff1317bec3fec2fe75
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556058"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695859"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Konfigurera kvarhållning i Time Series Insights
 Den här artikeln beskriver hur du konfigurerar **datalagringstid** och **lagringsgräns överskred beteende** i Azure Time Series Insights.
@@ -46,4 +46,5 @@ Detaljerad information att bättre förstå de här inställningarna finns [Unde
 7. Välj **spara** konfigurera ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns [Understanding kvarhållning i Time Series Insights](time-series-insights-concepts-retention.md).
+
+- Mer information finns [Understanding kvarhållning i Time Series Insights](time-series-insights-concepts-retention.md).

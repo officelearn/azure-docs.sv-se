@@ -1,6 +1,6 @@
 ---
-title: Skapa ett lagringskonto för Azure premium-fil
-description: I den här artikeln får du lära dig hur du skapar ett Azure premium-filen storage-konto och en premium-filresurs.
+title: Skapa ett Azure filestorage storage-konto
+description: I den här artikeln får du lära dig hur du skapar en filestorage (förhandsversion) och en premium-filresurs.
 services: storage
 author: roygara
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0eca706c9082b1fa60e13a0878fbb3061425c9bf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844567"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574421"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Så här skapar du en Azure premium-filresurs
 
-Lagringskontotypen FileStorage (förhandsversion) representerar en ny nivå för Azure Files, så att du kan skapa filresurser med premium prestandaegenskaper. Dessa filresurser är utformat för hög prestanda och skalning av företagsprogram, ger konsekvent låg latens, hög IOPS och dataflöden resurser.
+Lagringskontotypen filestorage (förhandsversion) representerar en ny nivå för Azure Files, så att du kan skapa filresurser med premium prestandaegenskaper. Dessa filresurser är utformat för hög prestanda och skalning av företagsprogram, ger konsekvent låg latens, hög IOPS och dataflöden resurser.
 
 Den här artikeln visar hur du skapar det här nya kontot typ med [Azure-portalen](https://portal.azure.com/), Azure PowerShell och Azure CLI.
 
@@ -31,7 +31,7 @@ Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om 
 
 Logga in på [Azure Portal](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Skapa ett lagringskonto för FileStorage (förhandsversion)
+### <a name="create-a-filestorage-preview-storage-account"></a>Skapa ett lagringskonto för filestorage (förhandsversion)
 
 Nu är du redo att skapa ditt lagringskonto.
 
@@ -115,7 +115,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### <a name="create-a-filestorage-preview-storage-account"></a>Skapa ett lagringskonto för filestorage (förhandsversion)
 
-Du kan skapa ett lagringskonto för FileStorage (förhandsversion) från PowerShell med den [New AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) kommando:
+Du kan skapa ett lagringskonto för filestorage (förhandsversion) från PowerShell med den [New AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) kommando:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -123,7 +123,7 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### <a name="create-a-premium-file-share"></a>Skapa en premium-filresurs
 
-Nu när du har en FileStorage-konto kan skapa du en premium-filresurs. Använd den [New AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet för att skapa en.
+Nu när du har en filestorage-konto kan skapa du en premium-filresurs. Använd den [New AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet för att skapa en.
 
 > [!NOTE]
 > Etablerade resursen storlekar anges av resurs-kvot filresurser debiteras storleken, referera till den [prissättningssidan](https://azure.microsoft.com/pricing/details/storage/files/) för mer information.
@@ -168,9 +168,9 @@ az group create `
     --location westus2
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Skapa ett lagringskonto för FileStorage (förhandsversion)
+### <a name="create-a-filestorage-preview-storage-account"></a>Skapa ett lagringskonto för filestorage (förhandsversion)
 
-Du kan skapa ett lagringskonto för FileStorage (förhandsversion) från Azure CLI med den [az storage-konto skapar](/cli/azure/storage/account) kommando.
+Du kan skapa ett lagringskonto för filestorage (förhandsversion) från Azure CLI med den [az storage-konto skapar](/cli/azure/storage/account) kommando.
 
 ```azurecli-interactive
 az storage account create `
@@ -194,7 +194,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ### <a name="create-a-premium-file-share"></a>Skapa en premium-filresurs
 
-Nu när du har en FileStorage-konto kan skapa du en premium-filresurs. Använd den [az-lagringsresursen skapa](/cli/azure/storage/share) kommando för att skapa en.
+Nu när du har en filestorage-konto kan skapa du en premium-filresurs. Använd den [az-lagringsresursen skapa](/cli/azure/storage/share) kommando för att skapa en.
 
 > [!NOTE]
 > Etablerade resursen storlekar anges av resurs-kvot filresurser debiteras storleken, referera till den [prissättningssidan](https://azure.microsoft.com/pricing/details/storage/files/) för mer information.

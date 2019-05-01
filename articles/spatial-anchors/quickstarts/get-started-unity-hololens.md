@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – skapa en HoloLens Unity-app med Azure Spatial ankare | Microsoft Docs
+title: Snabbstart – skapa en Unity HoloLens-app med Azure Spatial ankare | Microsoft Docs
 description: I den här snabbstarten lär du dig att skapa en HoloLens-app med Unity med hjälp av Spatial Anchors.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240596"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704123"
 ---
-# <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Snabbstart: Skapa en HoloLens Unity-app som använder Azure Spatial ankare
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Snabbstart: Skapa en Unity HoloLens-app som använder Azure Spatial ankare
 
-I den här snabbstarten skapar du en HoloLens Unity-app som använder [Azure Spatial ankare](../overview.md). Spatial fästpunkter är en plattformsoberoende developer-tjänst som hjälper dig att skapa Mixad verklighet upplevelser med objekt som kvarstår befann i enheter över tid. När du är klar har du en HoloLens-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
+I den här snabbstarten skapar du en Unity HoloLens-app som använder [Azure Spatial ankare](../overview.md). Spatial fästpunkter är en plattformsoberoende developer-tjänst som hjälper dig att skapa Mixad verklighet upplevelser med objekt som kvarstår befann i enheter över tid. När du är klar har du en HoloLens-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
 
 Du lär dig följande:
 

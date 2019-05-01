@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d373bc188a4d93c122cdf2cffbc4323aca16b4a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc83d94acd25914ee57473de53afbc018f310887
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346276"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575763"
 ---
 I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en IoT-hubb.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
-2. Välj +**Skapa en resurs** och välj sedan **Sakernas Internet**.
+2. Välj +**skapa en resurs**, sedan *Sök på Marketplace* för den **IoT Hub**.
 
-3. Klicka på **Iot Hub** i listan till höger. Du ser den första skärmen för att skapa en IoT-hubb.
+3. Välj **IoT Hub** och klicka på den **skapa** knappen. Du ser den första skärmen för att skapa en IoT-hubb.
 
    ![Skapa en hubb i Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 

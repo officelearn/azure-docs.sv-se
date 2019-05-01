@@ -9,35 +9,38 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6bfeb820b34d36fc370de7f81694086aeea8515
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: dd7044276a806c23785df4d15f86b8e03f32a767
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193968"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575392"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure Time Series Insights?
 
-Time Series Insights är utformat för att lagra, visualisera och köra frågor mot stora mängder tidsseriedata, till exempel sådana som genereras av IoT-enheter.  Om du vill lagra, hantera, köra frågor mot och visualisera tidsseriedata i molnet är Time Series Insights sannolikt rätt val för dig.  
+Azure Time Series Insights (TSI) har skapats för lagring, visualisera och fråga stora mängder time series-data, till exempel som genererats av IoT-enheter.  Om du vill lagra, hantera, köra frågor mot och visualisera tidsseriedata i molnet är Time Series Insights sannolikt rätt val för dig.  
 
 ![Flödesschema för Time Series Insights](media/overview/time-series-insights-flowchart.png)
 
 Time Series Insights har fyra nyckeluppgifter:
 
-- För det första är det helt integrerat med molngatewayer som Azure IoT Hub och Azure Event Hubs. Det ansluter enkelt till dessa händelsekällor och parsar JSON från meddelanden och strukturer som innehåller data i rena rader och kolumner. Det kopplar metadata till telemetri och indexerar dina data i en kolumnbaserad lagring.
-- För det andra hanterar Time Series Insights lagring av dina data. För att säkerställa att data alltid är lättillgängliga lagrar det data i minnet och på SSD:er i upp till 400 dagar. Du kan interaktivt köra frågor mot flera miljarder händelser per sekund – på begäran.
-- För det tredje ger Time Series Insights färdig visualisering via TSI-utforskaren.  
-- För det fjärde tillhandahåller Time Series Insights en frågetjänst både i TSI-utforskaren och via API:er som är enkla att integrera för inbäddning av dina tidsseriedata i anpassade program.  
+1. Det är helt integrerat med cloud-gatewayer som Azure IoT Hub och Azure Event Hubs. Det ansluter enkelt till dessa händelsekällor och parsar JSON från meddelanden och strukturer som innehåller data i rena rader och kolumner. Det kopplar metadata till telemetri och indexerar dina data i en kolumnbaserad lagring.
+1. TSI hanterar lagringen av dina data. För att säkerställa att data alltid är lättillgängliga lagrar det data i minnet och på SSD:er i upp till 400 dagar. Du kan interaktivt köra frågor mot flera miljarder händelser per sekund – på begäran.
+1. TSI ger out-of the box visualiseringen via TSI-Utforskaren.  
+1. TSI är en tjänst för fråga, både i TSI-Utforskaren och genom att använda API: er som är enkelt att integrera för att bädda in time series-data i anpassade program.  
 
-Om du utvecklar ett program, vare sig det är för internt bruk eller för externa kunder, kan Time Series Insight användas som en serverdel för indexering, lagring och aggregering av tidsseriedata. Du kan skapa en anpassad visualisering och användarupplevelse.  Time Series Insights gör fråge-API:er tillgängliga för det här ändamålet.  
+Om du skapar ett program för intern användning eller externa kunder att använda, kan TSI användas som en backend-server för indexering, lagring och aggregering av time series-data. Du kan skapa en anpassad visualisering och användarupplevelse på översta med hjälp av den [klient-SDK](tutorial-explore-js-client-lib.md). TSI också är utrustad med flera [fråga API: er](how-to-shape-query-json.md) du aktivera de här anpassade scenarier.  
 
-Om du är osäker på om dina data är tidsserier är det här det som du bör känna till.  Tidsseriedata representerar ändringar i en tillgång eller en process över tid.  De är unika på så sätt att de har en tidsstämpel, och det mest optimala är att visa tid som en axel.  Tidsseriedata anländer normalt i tidsordning och behandlas vanligtvis som en infogad post i stället för en uppdatering av databasen.  Eftersom Time Series Insights samlar in och lagrar varje ny händelse som en rad mäts ändringar över tid, vilket gör det lättare att söka bakåt och förutsäga framtida ändringar.  I stora volymer kan det vara svårt att lagra, indexera, fråga, analysera och visualisera tidsseriedata.  
+Tidsseriedata representerar ändringar i en tillgång eller en process över tid. Time series-data därför indexeras av tidsstämplar och tid är den mest användbara axeln längs som sådana data ordnas. Time series-data tas emot i sekventiell ordning normalt och vanligtvis behandlas som en infogning i stället för en uppdatering av databasen som ett resultat.
+
+I stora volymer kan det vara svårt att lagra, indexera, fråga, analysera och visualisera tidsseriedata.
+Men Azure Time Series Insights samlar in och lagrar alla nya händelser som en rad och ändra mäts effektivt över tid, så att du kan se ut bakåtkompatibilitet att få insikter från tidigare och för att förutsäga framtida ändring.
 
 ## <a name="video"></a>Video
 
-I den här videon ger vi en översikt över Time Series Insights, en molnbaserad IoT-analysplattform.
+### <a name="learn-more-about-azure-time-series-insights-the-cloud-based-iot-analytics-platformbr"></a>Läs mer om Azure Time Series Insights, analysplattform för molnbaserad IoT.</br>
 
 > [!VIDEO https://youtube.com/embed/GaARrFfjoss]
 
@@ -62,22 +65,28 @@ I den här videon ger vi en översikt över Time Series Insights, en molnbaserad
 
 - **Kom i gång snabbt:** Azure Time Series Insights kräver inga direkta dataförberedelser. Anslut till miljontals händelser i Azure IoT Hub eller din händelsehubb på några minuter. När anslutningen har upprättats kan du visualisera och interagera med dina sensordata och snabbt validera dina IoT-lösningar. Du kan interagera med dina data utan att skriva kod.
 Du behöver inte heller lära dig något nytt språk. Time Series Insights tillhandahåller en detaljerad frågeyta med fri text för avancerade användare samt ”peka och klicka”-förklaringar.
+
 - **Insikter i nära realtid:** Time Series Insights kan mata in miljontals sensorhändelser per dag med en svarstid på en minut. Med Time Series Insights får du insikter om dina sensordata. Det beror på att du får hjälp med att upptäcka trender och avvikelser, vilket gör det möjligt att utföra rotorsaksanalyser och undvika kostsamma avbrott. Om du aktiverar korskorrelation mellan realtidsdata och historiska data gör Time Series Insights det möjligt att upptäcka dolda trender i datauppsättningarna.
+
 - **Skapa anpassade lösningar:** Bädda in Azure Time Series Insights-data till dina befintliga program eller skapa nya anpassade lösningar med REST-API:er för Time Series Insights. Skapa anpassade vyer som kan du dela och med dig av, så att andra också kan ta del av dina insikter.
+
 - **Skalbarhet:** Time Series Insights är utformat för att fungera med IoT-skalning. Det kan mata in mellan 1 och 100 miljoner händelser per dag, med ett standardomfång för kvarhållning på 31 dagar. Du kan visualisera och analysera livedataströmmar nästan i realtid tillsammans med historiska data. Framöver kommer frekvensen för inmatning och kvarhållning öka för att hantera växande företag.
 
 ## <a name="getting-started"></a>Komma igång
-Det tar mindre än 5 minuter att komma igång. 
 
-1.  Kom igång genom att etablera en Time Series Insights-miljö i Azure Portal. 
-2.  Anslut en händelsekälla, till exempel en Azure IoT-hubb eller en händelsehubb.  
-3.  Ladda upp referensdata (detta inte är en ytterligare tjänst).
-4.  Visa data på några minuter med Time Series Insights-utforskaren.
+Det tar mindre än 5 minuter att komma igång.
+
+1. Kom igång genom att etablera en Time Series Insights-miljö i Azure Portal.
+1. Anslut en händelsekälla, till exempel en Azure IoT-hubb eller en händelsehubb.  
+1. Ladda upp referensdata (detta inte är en ytterligare tjänst).
+1. Visa data på några minuter med Time Series Insights-utforskaren.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights-utforskaren
+
 I det här diagrammet finns ett exempel på tidsserieinsiktsdata som visas via utforskaren: ![Time Series Insights-utforskaren](media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>Nästa steg
- - [Utforska användning av Time Series Insights-utforskaren i en demonstrationsmiljö](./time-series-quickstart.md)
- - [Planera din egen Time Series Insights-miljö](time-series-insights-environment-planning.md)
 
+- Utforska Azure Time Series Insights är allmänt tillgänglig [gratis demonstrationsmiljö](./time-series-quickstart.md).
+
+- Läs mer om [planera Time Series Insights](time-series-insights-environment-planning.md) miljö.

@@ -4,16 +4,16 @@ description: Använd IoT Central-anslutningen i Microsoft Flow att utlösa arbet
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887736"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693598"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
@@ -101,9 +101,12 @@ Det här avsnittet beskrivs hur du uppdaterar inställningar och egenskaper i Io
 
 1. Lägg till en ny åtgärd. Sök efter den **Azure IoT Central - uppdatera en enhet** åtgärd.
 
-1. Välj ditt program i listrutan. Nu behöver du ett ID för den befintliga enheten som du vill uppdatera. Du kan hämta ID för IoT Central-enhet från den **Device Explorer**.
+1. Välj ditt program i listrutan. Nu behöver du ett ID för den befintliga enheten som du vill uppdatera. 
 
-    ![IoT Central device explorer enhets-ID](./media/howto-add-microsoft-flow/iotcdeviceid.png)
+    > [!NOTE] 
+    > **Du måste använda ID som hittades i URL: en** på informationssidan för enheten på den enhet som du vill uppdatera. Enhets-ID hittades i den enhetsutforskare lista över enheter är inte rätt som ska användas i Microsoft Flow.
+
+    ![IoT Central-ID från URL](./media/howto-add-microsoft-flow/iotcdeviceidurl.png)
 
 1. Du kan uppdatera namnet på enheten. Om du vill uppdatera någon av enhetens egenskaper och inställningar, måste du välja mallen enhet på den enhet som du vill uppdatera i den **enheten mallen** listrutan. Åtgärd-panelen expanderar för att visa alla egenskaper och inställningar som du kan uppdatera.
 
@@ -117,19 +120,32 @@ Det här avsnittet beskrivs hur du uppdaterar inställningar och egenskaper i Io
 
 ## <a name="get-device-information-in-a-workflow"></a>Hämta enhetsinformation i ett arbetsflöde
 
-Du kan få enhetsinformation med dess enhet ID den **Azure IoT Central - hämta en enhet** åtgärd. Du kan få information som enhetsnamn, enhetsnamn för mallen, egenskapsvärden och värden ska skickas till senare åtgärder i arbetsflödet. Här är ett exempel på ett arbetsflöde som skickar med kundnamn egenskapens värde från en enhet till Microsoft Teams.
+Du kan få information om enhet med dess ID den **Azure IoT Central - hämta en enhet** åtgärd. 
+> [!NOTE] 
+> **Du måste använda ID som hittades i URL: en** på informationssidan för enheten på den enhet som du vill uppdatera. Enhets-ID hittades i den enhetsutforskare lista över enheter är inte rätt som ska användas i Microsoft Flow.
+
+Du kan få information som enhetsnamn, enhetsnamn för mallen, egenskapsvärden och värden ska skickas till senare åtgärder i arbetsflödet. Här är ett exempel på ett arbetsflöde som skickar med kundnamn egenskapens värde från en enhet till Microsoft Teams.
 
    ![Arbetsflöde för Flow get-enhet](./media/howto-add-microsoft-flow/flowgetdevice.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Köra ett kommando på en enhet i ett arbetsflöde
-Du kan köra ett kommando på en enhet som anges av dess enheter ID med hjälp av den **Azure IoT Central - köra ett kommando** åtgärd. Du kan välja kommandot för att köra och skicka parametrar för kommandot via den här åtgärden. Här är ett exempel på ett arbetsflöde som kör ett kommando för omstart av enheten från en knapp i Microsoft Flow-mobilappen.
+Du kan köra ett kommando på en enhet som anges av dess ID med hjälp av den **Azure IoT Central - köra ett kommando** åtgärd. 
+
+> [!NOTE] 
+> **Du måste använda ID som hittades i URL: en** på informationssidan för enheten på den enhet som du vill uppdatera. Enhets-ID hittades i den enhetsutforskare lista över enheter är inte rätt som ska användas i Microsoft Flow.
+    
+Du kan välja kommandot för att köra och skicka parametrar för kommandot via den här åtgärden. Här är ett exempel på ett arbetsflöde som kör ett kommando för omstart av enheten från en knapp i Microsoft Flow-mobilappen.
 
    ![Arbetsflöde för Flow get-enhet](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Ta bort en enhet i ett arbetsflöde
 
-Du kan ta bort en enhet med dess enhet-ID med den **Azure IoT Central - ta bort en enhet** åtgärd. Här är ett exempel på ett arbetsflöde som tar bort en enhet på en knapptryckning i Microsoft Flow-mobilappen.
+Du kan ta bort en enhet med dess ID med hjälp av den **Azure IoT Central - ta bort en enhet** åtgärd. 
+> [!NOTE] 
+> **Du måste använda ID som hittades i URL: en** på informationssidan för enheten på den enhet som du vill uppdatera. Enhets-ID hittades i den enhetsutforskare lista över enheter är inte rätt som ska användas i Microsoft Flow.
+
+Här är ett exempel på ett arbetsflöde som tar bort en enhet på en knapptryckning i Microsoft Flow-mobilappen.
 
    ![Arbetsflöde för Flow ta bort enhet](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 13db0406681f676f47a3764cf2a59c4dbf251715
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344639"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729201"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -38,6 +38,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.AAD/domainServices/oucontainer/read | Läsa Ou-behållare |
 > | Åtgärd | Microsoft.AAD/domainServices/oucontainer/write | Skriva Organisationsenhetsbehållaren |
 > | Åtgärd | Microsoft.AAD/domainServices/read | Read Domain Services |
+> | Åtgärd | Microsoft.AAD/domainServices/ReplicaSets/delete | Ta bort klustret webbplats |
+> | Åtgärd | Microsoft.AAD/domainServices/ReplicaSets/read | Läs Klusterplatser |
+> | Åtgärd | Microsoft.AAD/domainServices/ReplicaSets/write | Skriva Klusterplatser |
 > | Åtgärd | Microsoft.AAD/domainServices/write | Write Domain Service |
 > | Åtgärd | Microsoft.AAD/locations/operationresults/read |  |
 > | Åtgärd | Microsoft.AAD/Operations/read |  |
@@ -100,9 +103,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/availabledeployments/read | Hämtar listan över tillgängliga regioner som används av DevOps för att stödja kundincidenter når. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/badpassword/read | Hämtar listan över försök med felaktigt lösenord för alla användare i Active Directory Federation Service. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | Hämtar Blob SAS-URI som innehåller status och eventuell resultatet av nyligen köas rapporten jobb för frekvensen av felaktigt användarnamn/lösenord försöker per användar-ID per IP-adress per dag för en viss klient. |
-> | Åtgärd | Microsoft.ADHybridHealthService/reports/blobUris/read | Hämtar alla rapport för riskfyllda IP URI: er för de senaste 7 dagarna. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | Hämtar listan över DevOps samtyckt klienter. Används vanligtvis för kundsupport. |
-> | Åtgärd | Microsoft.ADHybridHealthService/reports/generateBlobUri/action | Rapport för riskfyllda IP-adresser och returnerar en URI som pekar till den. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/isdevops/read | Hämtar ett värde som anger om klienten är DevOps godkänt villkoren eller inte. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Uppdaterar userid(objectid) för den valda dev ops-klienten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | Hämtar valda distributionen för den angivna klienten. |
@@ -125,7 +126,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Lägg till eller uppdaterar övervakningsinställningar för en tjänst. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/premiumcheck/read | Detta API hämtar listan över alla integrerade tjänster för en premium-klient. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/read | Läser tjänstinstanser i klienten. |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/reports/blobUris/read | Hämtar alla rapport för riskfyllda IP URI: er för de senaste 7 dagarna. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/reports/details/read | Hämtar rapporten över upp 50 användare med felaktiga lösenord fel från de senaste 7 dagarna |
+> | Åtgärd | Microsoft.ADHybridHealthService/services/reports/generateBlobUri/action | Rapport för riskfyllda IP-adresser och returnerar en URI som pekar till den. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/action | Skapar en server-instans i tjänsten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/alerts/read | Läser aviseringarna för en server. |
 > | Åtgärd | Microsoft.ADHybridHealthService/services/servicemembers/credentials/read | Under server registration anropas denna api för att hämta autentiseringsuppgifter för onboarding av nya servrar. |
@@ -213,163 +216,169 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ApiManagement/operations/read | Läs alla API-åtgärder tillgängliga för Microsoft.ApiManagement resursen |
 > | Åtgärd | Microsoft.ApiManagement/register/action | Registrera prenumeration för resursprovidern för Microsoft.ApiManagement |
 > | Åtgärd | Microsoft.ApiManagement/reports/read | Hämta rapporter sammanställs efter tidsperioder, geografisk region, utvecklare, produkter, API: er, åtgärder, prenumeration och byRequest. |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/delete | Ta bort befintliga API: |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/diagnostics/delete | Ta bort befintliga diagnostik |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/diagnostics/read | Hämta lista över diagnostik eller hämta information för diagnostik |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/diagnostics/write | Lägg till ny diagnostik eller uppdatera befintlig diagnostisk information |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/attachments/delete | Tar bort befintlig bifogad fil |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/attachments/read | Få problemet bifogade filer eller hämtar API Management problemet information för bifogad fil |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/attachments/write | Lägg till api problemet bifogad fil |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/comments/delete | Tar bort befintlig kommentar |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/comments/read | Hämtar Probleminformation kommentarer eller hämtar API Management problemet kommentar |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/comments/write | Lägg till api-ärendekommentar |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/delete | Tar bort befintlig problemet |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/read | Få problem som är associerade med API: et eller hämtar API Management Probleminformation |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/write | Lägg till api-problem eller uppdatera api-problem |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/delete | Ta bort befintliga API-åtgärden |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policies/delete | Ta bort konfiguration från API-åtgärden principer |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policies/read | Hämta principer för API-åtgärden eller hämta information om principen för API-åtgärd |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policies/write | Ange information om principen för API-åtgärd |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policy/delete | Ta bort konfiguration från åtgärden |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policy/read | Hämta information om konfigurationen av princip för åtgärden |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policy/write | Ange information om principen för åtgärden |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/read | Hämta listan över befintliga API-åtgärder eller hämta information om API-åtgärden |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/tags/delete | Ta bort associationen mellan befintlig tagg med befintliga åtgärden |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/tags/read | Hämta taggar som är associerade med information om åtgärden eller hämta tagg |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/tags/write | Koppla befintlig tagg till befintliga åtgärden |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/write | Skapa nya API-åtgärden eller uppdatera befintliga API-åtgärden |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/operationsByTags/read | Hämta lista över åtgärden/taggen associationer |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/policies/delete | Ta bort konfiguration från API-principer |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/policies/read | Hämta principer för API: et eller hämta konfigurationsinformation för princip för API: et |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/policies/write | Ange information om principen för API: et |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/policy/delete | Ta bort konfiguration från API: et |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/policy/read | Hämta information om konfigurationen av princip för API: et |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/policy/write | Ange information om principen för API: et |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/products/read | Hämta alla produkter som API: et är en del av |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/read | Hämta lista över alla registrerade API: er eller hämta information om API |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/releases/delete | Tar bort alla versioner av API: et eller ta bort API-versionen |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/releases/read | Hämta versioner för en API eller hämta information om API-versionen |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/releases/write | Skapa nya API-versionen eller uppdatera befintliga API-versionen |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/delete | Tar bort den angivna API i API Management-tjänstinstans. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/diagnostics/delete | Tar bort angivna diagnostiken från ett API. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/diagnostics/read | Visar en lista över alla diagnostik i ett API. eller hämtar information om diagnostik för ett API som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/diagnostics/write | Skapar en ny diagnostik för ett API eller uppdaterar en befintlig. eller uppdateringar information om diagnostik för ett API som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/attachments/delete | Tar bort den angivna kommentaren från ett problem. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/attachments/read | Visar alla bifogade filer för problemet som är associerade med den angivna API. eller hämtar information om problemet bifogad fil för ett API som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/attachments/write | Skapar en ny bifogad fil på problem i ett API eller uppdaterar en befintlig. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/comments/delete | Tar bort den angivna kommentaren från ett problem. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/comments/read | Visar alla kommentarer om problemet som är associerade med den angivna API. eller hämtar information om problemet kommentera för ett API som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/comments/write | Skapar en ny kommentar för problemet i ett API eller uppdaterar en befintlig. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/delete | Tar bort angivna problemet från ett API. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/read | Visar en lista över alla problem som är associerade med den angivna API. eller hämtar information om problemet för ett API som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/issues/write | Skapar ett nytt ärende för ett API eller uppdaterar en befintlig. eller uppdaterar en befintlig utfärda för ett API. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/delete | Tar bort den angivna åtgärden i API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policies/delete | Tar bort principkonfigurationen på Api-åtgärden. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policies/read | Hämta listan över principkonfigurationen på nivån API-åtgärden. eller skaffa principkonfigurationen på nivån API-åtgärden. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policies/write | Skapar eller uppdaterar konfiguration för API-åtgärden-nivå. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policy/delete | Ta bort principkonfigurationen på åtgärdsnivå |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policy/read | Hämta principkonfigurationen på åtgärdsnivå |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/policy/write | Skapa konfiguration vid drift nivå |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/read | Visar en samling åtgärder för den angivna API. eller hämtar information om API-åtgärden som specificerats av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/tags/delete | Koppla bort taggen från åtgärd. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/tags/read | Visar en lista över alla taggar som är associerade med åtgärden. eller hämta tagg som är associerade med åtgärden. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/tags/write | Tilldela åtgärden taggen. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operations/write | Skapar en ny åtgärd i API: et eller uppdaterar en befintlig. eller uppdateringar information om åtgärd i API: et anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/operationsByTags/read | Visar en uppsättning åtgärder som är associerade med taggar. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/policies/delete | Tar bort principkonfigurationen på API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/policies/read | Hämta principkonfigurationen på API-nivå. eller skaffa principkonfigurationen på API-nivå. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/policies/write | Skapar eller uppdaterar konfiguration för API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/policy/delete | Ta bort principkonfigurationen på API-nivå |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/policy/read | Hämta principkonfigurationen vid API-nivå |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/policy/write | Skapa principkonfigurationen på API-nivå |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/products/read | Visar en lista över alla produkter som API: et är en del av. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/read | Visar en lista över alla API: er för API Management-tjänstinstans. eller hämtar information om API: et som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/releases/delete | Tar bort alla versioner av API: et eller tar bort den angivna versionen i API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/releases/read | Visar en lista över alla versioner av ett API.<br>En API-version skapas när du gör en API-revidering aktuella.<br>Versioner används också för att återställa till tidigare revisioner.<br>Resultatet kommer att växla och kan begränsas av parametrarna $top och $skip.<br>eller returnerar information om ett API-versionen. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/releases/write | Skapar en ny version för API: et. eller uppdateringar information om versionen av API: et anges av dess identifierare. |
 > | Åtgärd | Microsoft.ApiManagement/service/apis/revisions/delete | Tar bort alla revisioner av ett API |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/revisions/read | Hämta revisioner som hör till ett API |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/schemas/delete | Tar bort befintlig Schema |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/schemas/document/read | Hämta dokument som beskriver schemat |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/schemas/document/write | Uppdatera dokumentet som beskriver schemat |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/schemas/read | Hämtar de scheman som används av API: et eller hämtar alla scheman för ett visst API |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/schemas/write | Anger de scheman som används av API: et |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | Ta bort taggen beskrivning från API: et |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/tagDescriptions/read | Hämta taggar beskrivningar i omfånget för API: et eller hämta tagg beskrivning i omfånget för API: et |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/tagDescriptions/write | Skapa/ändra taggen beskrivning i omfattningen av API |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/tags/delete | Ta bort befintliga API/tagg-kopplingen |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/tags/read | Hämta alla API/taggen associationen för API: et eller hämta information om API/taggen association |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/tags/write | Lägga till en ny API/tagg-koppling |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/write | Skapa nya API: et eller uppdatera befintliga API-information |
-> | Åtgärd | Microsoft.ApiManagement/service/apisByTags/read | Hämta lista över API/taggen associationer |
-> | Åtgärd | Microsoft.ApiManagement/service/apiVersionSets/delete | Ta bort befintliga VersionSet |
-> | Åtgärd | Microsoft.ApiManagement/service/apiVersionSets/read | Hämta lista över version grupp entiteter eller hämtar information om en VersionSet |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/revisions/read | Visar en lista över alla revisioner av ett API. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/schemas/delete | Tar bort schemakonfiguration på API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/schemas/read | Hämta schema-konfigurationen på API-nivå. eller skaffa schema-konfigurationen på API-nivå. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/schemas/write | Skapar eller uppdaterar schemat konfigurationen för API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/tagDescriptions/delete | Ta bort taggen beskrivning för API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/tagDescriptions/read | Visar alla taggar beskrivningar i omfattningen av API: et. Modellera liknar swagger - tagDescription har definierats för API-nivå men tagg kan tilldelas till åtgärder eller tagg beskrivning av Erhåll i omfånget för API: et |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/tagDescriptions/write | Skapa/uppdatera taggen beskrivning i omfattningen av API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/tags/delete | Koppla bort taggen från API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/tags/read | Visar en lista över alla taggar som är associerade med API: et. eller hämta tagg som är associerade med API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/tags/write | Tilldela tagg-API: et. |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/write | Skapar ny eller uppdaterar befintliga angiven API: et för API Management-tjänstinstans. eller uppdaterar den angivna API i API Management-tjänstinstans. |
+> | Åtgärd | Microsoft.ApiManagement/service/apisByTags/read | Visar en uppsättning API: er som är associerade med taggar. |
+> | Åtgärd | Microsoft.ApiManagement/service/apiVersionSets/delete | Tar bort specifika Api-versionen och inställd. |
+> | Åtgärd | Microsoft.ApiManagement/service/apiVersionSets/read | Visar en samling med API-versionen i den angivna tjänstinstansen. eller hämtar information om den Api-Version som Set angivna efter dess identifierare. |
 > | Åtgärd | Microsoft.ApiManagement/service/apiVersionSets/versions/read | Hämta lista över version entiteter |
-> | Åtgärd | Microsoft.ApiManagement/service/apiVersionSets/write | Skapa ny VersionSet eller uppdatera befintlig VersionSet information |
+> | Åtgärd | Microsoft.ApiManagement/service/apiVersionSets/write | Skapar eller uppdaterar en uppsättning Api-versionen. eller uppdateringar information om Api-VersionSet som anges av dess identifierare. |
 > | Åtgärd | Microsoft.ApiManagement/service/applynetworkconfigurationupdates/action | Uppdaterar de Microsoft.ApiManagement-resurser som körs i virtuella nätverk för att hämta uppdaterade nätverksinställningar. |
-> | Åtgärd | Microsoft.ApiManagement/service/authorizationServers/delete | Ta bort befintliga auktoriseringsservern |
-> | Åtgärd | Microsoft.ApiManagement/service/authorizationServers/read | Hämta listan över auktorisering servrar eller hämta information om auktoriseringsservern |
-> | Åtgärd | Microsoft.ApiManagement/service/authorizationServers/write | Skapa en ny auktorisering eller uppdatera information för en befintlig server för auktorisering |
-> | Åtgärd | Microsoft.ApiManagement/service/backends/delete | Ta bort befintlig serverdel |
-> | Åtgärd | Microsoft.ApiManagement/service/backends/read | Hämta lista över serverdelar eller hämta information om serverdelen |
-> | Åtgärd | Microsoft.ApiManagement/service/backends/reconnect/action | Skapa en begäran om återanslutningen |
-> | Åtgärd | Microsoft.ApiManagement/service/backends/write | Lägg till en ny serverdel eller uppdatera befintlig backend-information |
+> | Åtgärd | Microsoft.ApiManagement/service/authorizationServers/delete | Tar bort specifika auktorisering server-instansen. |
+> | Åtgärd | Microsoft.ApiManagement/service/authorizationServers/read | Visar en lista över en mängd auktorisering servrar definierats inom en tjänstinstans. eller hämtar information om auktoriseringsservern som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/authorizationServers/write | Skapar ny auktoriseringsservern eller uppdaterar en befintlig auktoriseringsservern. eller uppdateringar information om auktoriseringsservern som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/backends/delete | Tar bort den angivna serverdelen. |
+> | Åtgärd | Microsoft.ApiManagement/service/backends/read | Visar en uppsättning serverdelar i den angivna tjänstinstansen. eller hämtar information om serverdelen som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/backends/reconnect/action | Meddelar APIM-proxy för att skapa en ny anslutning till serverdelen efter en angiven tidsgräns. Om ingen tidsgräns har angetts används tidsgränsen 2 minuter. |
+> | Åtgärd | Microsoft.ApiManagement/service/backends/write | Skapar eller uppdaterar en serverdel. eller uppdaterar en befintlig serverdel. |
 > | Åtgärd | Microsoft.ApiManagement/service/backup/action | Säkerhetskopiering API Management-tjänsten till den angivna behållaren i en användare tillhandahålls storage-konto |
-> | Åtgärd | Microsoft.ApiManagement/service/certificates/delete | Ta bort befintligt certifikat |
-> | Åtgärd | Microsoft.ApiManagement/service/certificates/read | Hämta listan över certifikat eller hämta information om certifikat |
-> | Åtgärd | Microsoft.ApiManagement/service/certificates/write | Lägg till nytt certifikat |
+> | Åtgärd | Microsoft.ApiManagement/service/caches/delete | Tar bort specifika Cache. |
+> | Åtgärd | Microsoft.ApiManagement/service/caches/read | Visar en samling med alla externa cacheminnen i den angivna tjänstinstansen. eller hämtar information om cachen som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/caches/write | Skapar eller uppdaterar en extern Cache som ska användas i Api Management-instans. eller uppdateringar information om cachen som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/certificates/delete | Tar bort specifika certifikat. |
+> | Åtgärd | Microsoft.ApiManagement/service/certificates/read | Visar en samling med alla certifikat i den angivna tjänstinstansen. eller hämtar information om certifikatet som anges efter dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/certificates/write | Skapar eller uppdaterar det certifikat som används för autentisering med serverdelen. |
 > | Åtgärd | Microsoft.ApiManagement/service/contentTypes/contentItems/delete | Tar bort angivna innehållsobjektet. |
 > | Åtgärd | Microsoft.ApiManagement/service/contentTypes/contentItems/read | Returnerar listan över innehållsposter eller returnerar innehållsobjekt detaljer |
 > | Åtgärd | Microsoft.ApiManagement/service/contentTypes/contentItems/write | Skapar nytt innehåll objekt eller uppdaterar angivna innehållsobjekt |
 > | Åtgärd | Microsoft.ApiManagement/service/contentTypes/read | Returnerar lista över typer av innehåll |
 > | Åtgärd | Microsoft.ApiManagement/service/delete | Ta bort instansen av tjänsten API Management |
-> | Åtgärd | Microsoft.ApiManagement/service/diagnostics/delete | Ta bort befintliga diagnostik |
-> | Åtgärd | Microsoft.ApiManagement/service/diagnostics/read | Hämta lista över diagnostik eller hämta information för diagnostik |
-> | Åtgärd | Microsoft.ApiManagement/service/diagnostics/write | Lägg till ny diagnostik eller uppdatera befintlig diagnostisk information |
+> | Åtgärd | Microsoft.ApiManagement/service/diagnostics/delete | Tar bort angivna diagnostiken. |
+> | Åtgärd | Microsoft.ApiManagement/service/diagnostics/read | Visar en lista över alla diagnostik av API Management-tjänstinstans. eller hämtar information om diagnostiken som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/diagnostics/write | Skapar en ny diagnostik eller uppdaterar en befintlig. eller uppdateringar information om diagnostiken som anges av dess identifierare. |
 > | Åtgärd | Microsoft.ApiManagement/service/getssotoken/action | Hämtar SSO-token som kan användas för att logga in i API Management-tjänsten äldre portal som administratör |
-> | Åtgärd | Microsoft.ApiManagement/service/groups/delete | Ta bort befintlig grupp |
-> | Åtgärd | Microsoft.ApiManagement/service/groups/read | Hämta lista över grupper eller hämtar information om en grupp |
-> | Åtgärd | Microsoft.ApiManagement/service/groups/users/delete | Ta bort befintliga användare från grupp |
-> | Åtgärd | Microsoft.ApiManagement/service/groups/users/read | Lista över gruppanvändare |
+> | Åtgärd | Microsoft.ApiManagement/service/groups/delete | Tar bort viss grupp av API Management-tjänstinstans. |
+> | Åtgärd | Microsoft.ApiManagement/service/groups/read | Visar en uppsättning grupper som definierats i en tjänstinstans. eller hämtar information om den grupp som har angetts efter dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/groups/users/delete | Ta bort befintliga användare från befintlig grupp. |
+> | Åtgärd | Microsoft.ApiManagement/service/groups/users/read | Visar en samling användarentiteter som är associerade med gruppen. |
 > | Åtgärd | Microsoft.ApiManagement/service/groups/users/write | Lägga till befintliga användare till befintlig grupp |
-> | Åtgärd | Microsoft.ApiManagement/service/groups/write | Skapa ny grupp eller uppdatera befintliga gruppinformation |
-> | Åtgärd | Microsoft.ApiManagement/service/identityProviders/delete | Ta bort befintliga identitetsprovider |
-> | Åtgärd | Microsoft.ApiManagement/service/identityProviders/read | Hämta lista över identitetsleverantörer eller hämta information för identitetsprovidern |
-> | Åtgärd | Microsoft.ApiManagement/service/identityProviders/write | Skapa en ny identitetsprovider eller uppdatera information med en befintlig identitetsprovider |
+> | Åtgärd | Microsoft.ApiManagement/service/groups/write | Skapar eller uppdaterar en grupp. eller uppdateringar information om den grupp som har angetts efter dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/identityProviders/delete | Tar bort providerkonfigurationen angiven identitet. |
+> | Åtgärd | Microsoft.ApiManagement/service/identityProviders/read | Visar en uppsättning identitetsleverantör har konfigurerats i den angivna tjänstinstansen. eller hämtar konfigurationsinformationen för identiteten providern som konfigurerats i angivna tjänstinstans. |
+> | Åtgärd | Microsoft.ApiManagement/service/identityProviders/write | Skapar eller uppdaterar IdentityProvider konfigurationen. eller uppdaterar en befintlig IdentityProvider-konfiguration. |
+> | Åtgärd | Microsoft.ApiManagement/service/issues/read | Visar en samling av problemen i den angivna tjänstinstansen. eller hämtar API Management Probleminformation |
 > | Åtgärd | Microsoft.ApiManagement/service/locations/networkstatus/read | Hämtar nätverksstatus för åtkomst av resurser där tjänsten är beroende på plats. |
-> | Åtgärd | Microsoft.ApiManagement/service/loggers/delete | Ta bort befintliga loggare |
-> | Åtgärd | Microsoft.ApiManagement/service/loggers/read | Hämta lista över tangenttryckningar eller hämta information om loggare |
-> | Åtgärd | Microsoft.ApiManagement/service/loggers/write | Lägg till ny loggare eller uppdatera befintlig logger-information |
+> | Åtgärd | Microsoft.ApiManagement/service/loggers/delete | Tar bort den angivna loggaren. |
+> | Åtgärd | Microsoft.ApiManagement/service/loggers/read | Visar en samling av tangenttryckningar i den angivna tjänstinstansen. eller hämtar information om loggaren som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/loggers/write | Skapar eller uppdaterar en loggare. eller uppdaterar en befintlig loggaren. |
 > | Åtgärd | Microsoft.ApiManagement/service/managedeployments/action | Ändra SKU/enheter, Lägg till/ta bort de regionala distributionerna av API Management-tjänsten |
 > | Åtgärd | Microsoft.ApiManagement/service/networkstatus/read | Hämtar nätverksstatus för åtkomst av resurser där tjänsten är beroende av. |
 > | Åtgärd | Microsoft.ApiManagement/service/notifications/action | Skickar meddelande till en angiven användare |
-> | Åtgärd | Microsoft.ApiManagement/service/notifications/read | Hämtar alla meddelanden för API Management-utgivaren eller hämta API Management utgivare meddelandeinformation |
-> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | Tar bort befintlig e-postadress som är associerad med ett meddelande |
-> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientEmails/read | Hämta e-postmottagare som är associerade med API Management Publisher-meddelande |
-> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientEmails/write | Skapa nya e-postmottagare av meddelandet |
-> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientUsers/delete | Tar bort användare som är kopplad till den meddelandemottagare |
-> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientUsers/read | Hämta mottagaren användare som är associerad med meddelandet |
-> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientUsers/write | Lägga till användare till meddelandemottagare |
-> | Åtgärd | Microsoft.ApiManagement/service/notifications/write | Skapa eller uppdatera API Management publisher-meddelande |
-> | Åtgärd | Microsoft.ApiManagement/service/openidConnectProviders/delete | Ta bort befintliga OpenID Connect-Provider |
-> | Åtgärd | Microsoft.ApiManagement/service/openidConnectProviders/read | Hämta lista över OpenID Connect-providern eller hämta information för OpenID Connect-Provider |
-> | Åtgärd | Microsoft.ApiManagement/service/openidConnectProviders/write | Skapa en ny OpenID Connect-Provider eller uppdatera information för en befintlig OpenID Connect-Provider |
+> | Åtgärd | Microsoft.ApiManagement/service/notifications/read | Visar en lista över egenskaper som definierats i en tjänstinstans. eller hämtar information om meddelandet som anges efter dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientEmails/delete | Tar bort e-postmeddelandet från listan över meddelanden. |
+> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientEmails/read | Hämtar listan över de e-postaviseringar om mottagaren prenumerera på ett meddelande. |
+> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientEmails/write | Lägger till den e-postadressen i listan över mottagare för meddelandet. |
+> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientUsers/delete | Tar bort API Management-användaren i listan med meddelanden. |
+> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientUsers/read | Hämtar listan över mottagare Aviseringsanvändare prenumerera på meddelandet. |
+> | Åtgärd | Microsoft.ApiManagement/service/notifications/recipientUsers/write | Lägger till API Management-användaren i listan över mottagare för meddelandet. |
+> | Åtgärd | Microsoft.ApiManagement/service/notifications/write | Skapa eller uppdatera API Management publisher-meddelande. |
+> | Åtgärd | Microsoft.ApiManagement/service/openidConnectProviders/delete | Tar bort specifika OpenID Connect-providern för API Management-tjänstinstans. |
+> | Åtgärd | Microsoft.ApiManagement/service/openidConnectProviders/read | Listor över alla de OpenId Connect-providern. eller hämtar specifika OpenID Connect-providern. |
+> | Åtgärd | Microsoft.ApiManagement/service/openidConnectProviders/write | Skapar eller uppdaterar OpenID Connect-providern. eller uppdateringar för den specifika OpenID Connect-providern. |
 > | Åtgärd | Microsoft.ApiManagement/service/operationresults/read | Hämtar aktuell status för långvarig åtgärd |
-> | Åtgärd | Microsoft.ApiManagement/service/policies/delete | Ta bort konfiguration från klientprinciperna |
-> | Åtgärd | Microsoft.ApiManagement/service/policies/read | Hämta principer för klient- eller Get configuration principinformation för klient |
-> | Åtgärd | Microsoft.ApiManagement/service/policies/write | Ange information om principen för klient |
-> | Åtgärd | Microsoft.ApiManagement/service/policySnippets/read | Hämta alla principkodavsnitt |
-> | Åtgärd | Microsoft.ApiManagement/service/portalsettings/read | Hämta inställningar-registrering för portalen eller Get inloggningsinställningar för portalen eller skaffa delegeringsinställningar för portalen |
-> | Åtgärd | Microsoft.ApiManagement/service/portalsettings/write | Uppdatera registrera dig inställningar eller uppdatering registrera dig inställningar eller uppdatering-logga In inställningar eller uppdatering-logga In inställningar eller uppdatera Delegeringsinställningarna eller uppdatera Delegeringsinställningarna |
-> | Åtgärd | Microsoft.ApiManagement/service/products/apis/delete | Ta bort befintliga API: et från befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/apis/read | Hämta lista över API: er som lagts till i befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/apis/write | Lägga till befintliga API till befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/delete | Ta bort befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/groups/delete | Ta bort associationen mellan befintlig grupp för utvecklare med befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/groups/read | Hämta lista över developer-grupper som är associerade med produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/groups/write | Koppla befintlig grupp för utvecklare med befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/policies/delete | Ta bort konfiguration från produkt-principer |
-> | Åtgärd | Microsoft.ApiManagement/service/products/policies/read | Hämta principer för produkt eller hämta princip-konfigurationsinformationen för produkten |
-> | Åtgärd | Microsoft.ApiManagement/service/products/policies/write | Ange princip konfigurationsinformationen för produkten |
-> | Åtgärd | Microsoft.ApiManagement/service/products/policy/delete | Ta bort konfiguration från befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/policy/read | Hämta konfiguration av befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/policy/write | Ange konfiguration för befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/read | Hämta lista över produkter eller hämta information om produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/subscriptions/read | Hämta lista över prenumerationer för produkten |
-> | Åtgärd | Microsoft.ApiManagement/service/products/tags/delete | Ta bort associationen mellan befintlig tagg med befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/tags/read | Hämta taggar som är associerade med information om produkten eller hämta tagg |
-> | Åtgärd | Microsoft.ApiManagement/service/products/tags/write | Koppla befintlig tagg till befintlig produkt |
-> | Åtgärd | Microsoft.ApiManagement/service/products/write | Skapa ny produkt eller uppdatera befintliga produktinformation |
-> | Åtgärd | Microsoft.ApiManagement/service/productsByTags/read | Hämta lista över produkt/taggen associationer |
-> | Åtgärd | Microsoft.ApiManagement/service/properties/delete | Tar bort befintlig egenskap |
-> | Åtgärd | Microsoft.ApiManagement/service/properties/read | Hämtar lista över alla egenskaper eller hämtar information om den angivna egenskapen |
-> | Åtgärd | Microsoft.ApiManagement/service/properties/write | Skapar en ny egenskap eller uppdaterar värdet för egenskapen |
+> | Åtgärd | Microsoft.ApiManagement/service/policies/delete | Tar bort den globala principkonfigurationen av Api Management-tjänsten. |
+> | Åtgärd | Microsoft.ApiManagement/service/policies/read | Visar en lista över alla globala principdefinitioner i Api Management-tjänsten. eller skaffa Global principdefinitionen av Api Management-tjänsten. |
+> | Åtgärd | Microsoft.ApiManagement/service/policies/write | Skapar eller uppdaterar den globala principkonfigurationen av Api Management-tjänsten. |
+> | Åtgärd | Microsoft.ApiManagement/service/policy/delete | Ta bort principkonfigurationen på klientnivån |
+> | Åtgärd | Microsoft.ApiManagement/service/policy/read | Hämta principkonfigurationen på klientnivån |
+> | Åtgärd | Microsoft.ApiManagement/service/policy/write | Skapa konfiguration på klient nivå |
+> | Åtgärd | Microsoft.ApiManagement/service/policySnippets/read | Visar en lista över alla principkodavsnitt. |
+> | Åtgärd | Microsoft.ApiManagement/service/portalsettings/read | Få inloggning i inställningarna för portalen eller Get logga inställningar för portalen eller hämta delegeringsinställningar för portalen. |
+> | Åtgärd | Microsoft.ApiManagement/service/portalsettings/write | Uppdatera inställningarna för inloggning. eller skapa eller uppdatera logga In. eller uppdatera registrera dig inställningar eller uppdatering registrera dig inställningar eller uppdatera Delegeringsinställningarna. eller skapa eller uppdatera delegering inställningar. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/apis/delete | Tar bort den angivna API från den angivna produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/apis/read | Visar en samling API: er som är associerade med en produkt. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/apis/write | Lägger till ett API till den angivna produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/delete | Ta bort produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/groups/delete | Tar bort kopplingen mellan den angivna gruppen och produkt. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/groups/read | Visar en lista över insamlingen av utvecklare grupper som är associerade med den angivna produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/groups/write | Lägger till kopplingen mellan angivna developer-gruppen med den angivna produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/policies/delete | Tar bort principkonfigurationen i produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/policies/read | Hämta principkonfigurationen på produktnivå. eller skaffa principkonfigurationen på produktnivå. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/policies/write | Skapar eller uppdaterar konfiguration för produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/policy/delete | Ta bort principkonfigurationen på produktnivå |
+> | Åtgärd | Microsoft.ApiManagement/service/products/policy/read | Hämta principkonfigurationen på produktnivå |
+> | Åtgärd | Microsoft.ApiManagement/service/products/policy/write | Skapa konfiguration på produkten nivå |
+> | Åtgärd | Microsoft.ApiManagement/service/products/read | Visar en samling av produkter i den angivna tjänstinstansen. eller hämtar information om den produkt som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/subscriptions/read | Visar en lista över insamlingen av prenumerationer på den angivna produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/tags/delete | Koppla bort taggen från produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/tags/read | Visar en lista över alla taggar som är associerade med produkten. eller hämta tagg som är associerade med produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/tags/write | Tilldela tagg till produkten. |
+> | Åtgärd | Microsoft.ApiManagement/service/products/write | Skapar eller uppdaterar en produkt. eller uppdatera befintliga produktinformation. |
+> | Åtgärd | Microsoft.ApiManagement/service/productsByTags/read | Visar en uppsättning produkter som är associerade med taggar. |
+> | Åtgärd | Microsoft.ApiManagement/service/properties/delete | Tar bort viss egenskap från API Management-tjänstinstans. |
+> | Åtgärd | Microsoft.ApiManagement/service/properties/read | Visar en lista över egenskaper som definierats i en tjänstinstans. eller hämtar information om egenskapen som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/properties/write | Skapar eller uppdaterar en egenskap. eller uppdaterar den specifika egenskapen. |
 > | Åtgärd | Microsoft.ApiManagement/service/quotas/periods/read | Hämta räknarvärde kvot för perioden |
 > | Åtgärd | Microsoft.ApiManagement/service/quotas/periods/write | Ange kvot aktuella räknarvärdet |
 > | Åtgärd | Microsoft.ApiManagement/service/quotas/read | Hämta de värden för kvot |
 > | Åtgärd | Microsoft.ApiManagement/service/quotas/write | Ange kvot aktuella räknarvärdet |
 > | Åtgärd | Microsoft.ApiManagement/service/read | Läsa metadata för en API Management-tjänstinstans |
+> | Åtgärd | Microsoft.ApiManagement/service/regions/read | Visar en lista över alla azure-regioner där tjänsten finns. |
 > | Åtgärd | Microsoft.ApiManagement/service/reports/read | Hämta rapport sammanställs efter tidsperioder eller Get-rapport som sammanställs efter geografiskt område eller Get-rapport som aggregeras av utvecklare.<br>eller hämta rapport sammanställs av produkter.<br>eller hämta rapport aggregeras av API: er eller Get rapporten aggregeras av driftsupport- eller Get-rapport som aggregeras av prenumerationen.<br>eller Get-begäranden som rapporterar data |
 > | Åtgärd | Microsoft.ApiManagement/service/restore/action | Återställa API Management-tjänsten från den angivna behållaren i en användare som tillhandahålls av storage-konto |
-> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/delete | Ta bort prenumerationen. Den här åtgärden kan användas för att ta bort prenumeration |
-> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/read | Hämta en lista över prenumerationer för produkten eller hämta information om produktprenumeration |
-> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | Återskapa primärnyckel för prenumeration |
-> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | Återskapa sekundärnyckel för prenumeration |
-> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/write | Prenumerera på en befintlig användare till en befintlig produkt eller uppdatera information om en befintlig prenumeration. Den här åtgärden kan användas för att förnya prenumerationen |
-> | Åtgärd | Microsoft.ApiManagement/service/tagResources/read | Hämta lista över taggar med associerade resurser |
-> | Åtgärd | Microsoft.ApiManagement/service/tags/delete | Ta bort befintlig tagg |
-> | Åtgärd | Microsoft.ApiManagement/service/tags/read | Hämta lista över taggar eller hämta information om taggen |
-> | Åtgärd | Microsoft.ApiManagement/service/tags/write | Lägg till ny tagg eller uppdatera befintliga tagginformation |
+> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/delete | Tar bort den angivna prenumerationen. |
+> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/read | Visar en lista över alla prenumerationer för API Management-tjänstinstans. Hämtar den angivna prenumeration entiteten eller. |
+> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/regeneratePrimaryKey/action | Återskapar primär nyckel för befintlig prenumeration av API Management-tjänstinstans. |
+> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/regenerateSecondaryKey/action | Återskapar sekundär nyckel för befintlig prenumeration av API Management-tjänstinstans. |
+> | Åtgärd | Microsoft.ApiManagement/service/subscriptions/write | Skapar eller uppdaterar prenumerationen för angiven användare till den angivna produkten. eller uppdateringar information om en prenumeration som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/tagResources/read | Visar en samling resurser som är associerade med taggar. |
+> | Åtgärd | Microsoft.ApiManagement/service/tags/delete | Tar bort specifika taggen för API Management-tjänstinstans. |
+> | Åtgärd | Microsoft.ApiManagement/service/tags/read | Visar en samling taggar som definierats i en tjänstinstans. eller hämtar information om taggen som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/tags/write | Skapar en tagg. eller uppdateringar information om taggen som anges av dess identifierare. |
 > | Åtgärd | Microsoft.ApiManagement/service/templates/delete | Återställ standard API Management e-postmall |
 > | Åtgärd | Microsoft.ApiManagement/service/templates/read | Hämtar alla e-postmallar eller hämtar API Management e-mallinformationen |
 > | Åtgärd | Microsoft.ApiManagement/service/templates/write | Skapa eller uppdatera e-postmall som API Management eller uppdaterar API Management e-postmall |
 > | Åtgärd | Microsoft.ApiManagement/service/tenant/delete | Ta bort konfiguration för klienten |
 > | Åtgärd | Microsoft.ApiManagement/service/tenant/deploy/action | Kör en distributionsuppgift för att tillämpa ändringar från den angivna git-grenen till konfigurationen i databasen. |
 > | Åtgärd | Microsoft.ApiManagement/service/tenant/operationResults/read | Hämta lista över Åtgärdsresultat eller hämta resultatet av en viss åtgärd |
-> | Åtgärd | Microsoft.ApiManagement/service/tenant/read | Hämta konfiguration för den eller Get-klient information åtkomstinformation |
+> | Åtgärd | Microsoft.ApiManagement/service/tenant/read | Få Global principdefinitionen av Api Management-tjänsten. eller Get klientinformation åtkomst information |
 > | Åtgärd | Microsoft.ApiManagement/service/tenant/regeneratePrimaryKey/action | Återskapa primär åtkomstnyckel |
 > | Åtgärd | Microsoft.ApiManagement/service/tenant/regenerateSecondaryKey/action | Återskapa sekundära åtkomstnyckeln |
 > | Åtgärd | Microsoft.ApiManagement/service/tenant/save/action | Skapar commit med ögonblicksbilden av webbplatskonfigurationen till den angivna förgreningen i databasen |
@@ -379,21 +388,16 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ApiManagement/service/updatecertificate/action | Ladda upp SSL-certifikat för en API Management-tjänsten |
 > | Åtgärd | Microsoft.ApiManagement/service/updatehostname/action | Konfigurera, uppdatera eller ta bort anpassade domännamn för en API Management-tjänsten |
 > | Åtgärd | Microsoft.ApiManagement/service/users/action | Registrera en ny användare |
-> | Åtgärd | Microsoft.ApiManagement/service/users/applications/attachments/delete | Tar bort en bilaga |
-> | Åtgärd | Microsoft.ApiManagement/service/users/applications/attachments/read | Hämtar programmet bifogade filer eller hämtar bifogade filer |
-> | Åtgärd | Microsoft.ApiManagement/service/users/applications/attachments/write | Lägg till bifogad fil till program |
-> | Åtgärd | Microsoft.ApiManagement/service/users/applications/delete | Tar bort befintliga program |
-> | Åtgärd | Microsoft.ApiManagement/service/users/applications/read | Hämta lista över alla användarprogram eller hämtar API Management-programinformation |
-> | Åtgärd | Microsoft.ApiManagement/service/users/applications/write | Registrerar ett program till API Management eller uppdateringar programinformation |
 > | Åtgärd | Microsoft.ApiManagement/service/users/confirmations/send/action | Skickar en bekräftelse |
-> | Åtgärd | Microsoft.ApiManagement/service/users/delete | Ta bort användarkonto |
-> | Åtgärd | Microsoft.ApiManagement/service/users/generateSsoUrl/action | Generera en URL för enkel inloggning. URL: en kan användas för åtkomst till administratörsportalen |
-> | Åtgärd | Microsoft.ApiManagement/service/users/groups/read | Hämta lista över användargrupper |
-> | Åtgärd | Microsoft.ApiManagement/service/users/keys/read | Hämta lista över användarnycklar |
-> | Åtgärd | Microsoft.ApiManagement/service/users/read | Hämta en lista över registrerade användare eller hämta information om kontot för en användare |
-> | Åtgärd | Microsoft.ApiManagement/service/users/subscriptions/read | Hämta lista över användarprenumerationer |
-> | Åtgärd | Microsoft.ApiManagement/service/users/token/action | Hämta token åtkomsttoken för en användare |
-> | Åtgärd | Microsoft.ApiManagement/service/users/write | Registrera en ny användare eller uppdatera kontoinformation för en befintlig användare |
+> | Åtgärd | Microsoft.ApiManagement/service/users/delete | Tar bort specifika användare. |
+> | Åtgärd | Microsoft.ApiManagement/service/users/generateSsoUrl/action | Hämtar en omdirigerings-URL som innehåller en Autentiseringstoken för en viss användare loggar in på utvecklarportalen. |
+> | Åtgärd | Microsoft.ApiManagement/service/users/groups/read | Visar en lista över alla användargrupper. |
+> | Åtgärd | Microsoft.ApiManagement/service/users/identities/read | Lista över alla användaridentiteter. |
+> | Åtgärd | Microsoft.ApiManagement/service/users/keys/read | Hämta nycklar som är associerade med användaren |
+> | Åtgärd | Microsoft.ApiManagement/service/users/read | Visar en uppsättning registrerade användare i den angivna tjänstinstansen. eller hämtar information om användare som anges av dess identifierare. |
+> | Åtgärd | Microsoft.ApiManagement/service/users/subscriptions/read | Visar en lista över insamlingen av prenumerationer för den angivna användaren. |
+> | Åtgärd | Microsoft.ApiManagement/service/users/token/action | Hämtar tillståndet för delad åtkomst-Token för användaren. |
+> | Åtgärd | Microsoft.ApiManagement/service/users/write | Skapar eller uppdaterar en användare. eller uppdateringar information om den användare som anges av dess identifierare. |
 > | Åtgärd | Microsoft.ApiManagement/service/write | Skapa en ny instans av tjänsten API Management |
 > | Åtgärd | Microsoft.ApiManagement/unregister/action | Avregistrera prenumerationen för Microsoft.ApiManagement resursprovidern |
 
@@ -718,11 +722,13 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Capacity/appliedreservations/read | Läsa alla reservationer |
+> | Åtgärd | Microsoft.Capacity/calculateexchange/action | Beräknar exchange av och priset för nya inköp och returnerar princip fel. |
 > | Åtgärd | Microsoft.Capacity/calculateprice/action | Beräkna alla reserverade pris |
 > | Åtgärd | Microsoft.Capacity/catalogs/read | Läs katalog med Reservation |
 > | Åtgärd | Microsoft.Capacity/checkoffers/action | Kontrollera alla prenumerationserbjudanden |
 > | Åtgärd | Microsoft.Capacity/checkscopes/action | Kontrollera alla prenumerationer |
 > | Åtgärd | Microsoft.Capacity/commercialreservationorders/read | Hämta Reservationsbeställningar som skapats i alla klienter |
+> | Åtgärd | Microsoft.Capacity/exchange/action | Exchange-alla Reservation |
 > | Åtgärd | Microsoft.Capacity/operations/read | Läsa alla åtgärder |
 > | Åtgärd | Microsoft.Capacity/register/action | Registrerar resursprovidern kapaciteten och gör det möjligt att skapa kapacitet resurser. |
 > | Åtgärd | Microsoft.Capacity/reservationorders/action | Uppdatera alla Reservation |
@@ -1448,15 +1454,24 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.CostManagement/cloudConnectors/delete | Ta bort den angivna cloudConnector. |
+> | Åtgärd | Microsoft.CostManagement/cloudConnectors/read | Lista över cloudConnectors för autentiserade användare. |
+> | Åtgärd | Microsoft.CostManagement/cloudConnectors/write | Skapa eller uppdatera den angivna cloudConnector. |
 > | Åtgärd | Microsoft.CostManagement/dimensions/read | Lista alla dimensioner av ett omfång. |
 > | Åtgärd | Microsoft.CostManagement/exports/action | Kör den angivna exporten. |
 > | Åtgärd | Microsoft.CostManagement/exports/delete | Ta bort den angivna exporten. |
 > | Åtgärd | Microsoft.CostManagement/exports/read | Lista över export av omfång. |
+> | Åtgärd | Microsoft.CostManagement/exports/run/action | Kör export. |
 > | Åtgärd | Microsoft.CostManagement/exports/write | Skapa eller uppdatera den angivna exporten. |
+> | Åtgärd | Microsoft.CostManagement/externalBillingAccounts/externalSubscriptions/read | Lista över externalSubscriptions inom en externalBillingAccount för autentiserade användare. |
+> | Åtgärd | Microsoft.CostManagement/externalBillingAccounts/read | Lista över externalBillingAccounts för autentiserade användare. |
+> | Åtgärd | Microsoft.CostManagement/externalSubscriptions/read | Lista över externalSubscriptions för autentiserade användare. |
+> | Åtgärd | Microsoft.CostManagement/externalSubscriptions/write | Uppdatera associerade hanteringsgrupp av externalSubscription |
 > | Åtgärd | Microsoft.CostManagement/query/action | Fråga användningsdata efter ett omfång. |
 > | Åtgärd | Microsoft.CostManagement/query/read | Fråga användningsdata efter ett omfång. |
 > | Åtgärd | Microsoft.CostManagement/reports/action | Schema för rapporter om användningsdata efter ett omfång. |
 > | Åtgärd | Microsoft.CostManagement/reports/read | Schema för rapporter om användningsdata efter ett omfång. |
+> | Åtgärd | Microsoft.CostManagement/tenants/register/action | Registrera åtgärden för omfånget av Microsoft.CostManagement av en klient. |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
@@ -1587,6 +1602,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Visar en lista över eller hämtar aviseringarna |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Visar en lista över eller hämtar aviseringarna |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/delete | Tar bort bandbredd-scheman |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/operationResults/read | Visar en lista över eller hämtar resultat |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | Visar en lista över eller hämtar bandbredd-scheman |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | Visar en lista över eller hämtar bandbredd-scheman |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | Skapar eller uppdaterar bandbredd-scheman |
@@ -1597,8 +1613,10 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Installera uppdateringar på enhet |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Visar en lista över eller hämtar jobb |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Visar en lista över eller hämtar nätverksinställningarna för enheten |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationResults/read | Visar en lista över eller hämtar resultat |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationsStatus/read | Visar en lista över eller hämtar Åtgärdsstatus |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Tar bort order |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/operationResults/read | Visar en lista över eller hämtar resultat |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Visar en lista över eller hämtar order |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Visar en lista över eller hämtar order |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | Skapar eller uppdaterar order |
@@ -1606,27 +1624,33 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Visar en lista över eller hämtar Data Box Edge-enheter |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Visar en lista över eller hämtar Data Box Edge-enheter |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Tar bort rollerna |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/operationResults/read | Visar en lista över eller hämtar resultat |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Hämtar rollerna eller visar en lista över |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Hämtar rollerna eller visar en lista över |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Skapar eller uppdaterar rollerna |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | Söka efter uppdateringar |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/operationResults/read | Visar en lista över eller hämtar resultat |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | Uppdatera säkerhetsinställningar |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Tar bort filresurser |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/operationResults/read | Visar en lista över eller hämtar resultat |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Visar en lista över eller hämtar filresurser |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Visar en lista över eller hämtar filresurser |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | Uppdatera resursens metadata med data från molnet |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | Skapar eller uppdaterar filresurser |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | Tar bort autentiseringsuppgifter för lagringskonto |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/operationResults/read | Visar en lista över eller hämtar resultat |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Visar en lista över eller hämtar autentiseringsuppgifterna för lagringskontot |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Visar en lista över eller hämtar autentiseringsuppgifterna för lagringskontot |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | Skapar eller uppdaterar autentiseringsuppgifterna för lagringskontot |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | Tar bort utlösare |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/operationResults/read | Visar en lista över eller hämtar resultat |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Visar en lista över eller hämtar utlösare |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Visar en lista över eller hämtar utlösare |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | Skapar eller uppdaterar utlösare |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | Visar en lista över eller hämtar uppdateringen sammanfattning |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Ladda upp certifikat för enhetsregistrering |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | Tar bort användare av den |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/operationResults/read | Visar en lista över eller hämtar resultat |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | Hämtar användarna eller visar en lista över |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | Hämtar användarna eller visar en lista över |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/write | Skapar eller uppdaterar användarna |
@@ -1651,13 +1675,12 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.DataCatalog/catalogs/delete | Tar bort katalogen. |
-> | Åtgärd | Microsoft.DataCatalog/catalogs/read | Visa egenskaper för katalogen eller katalogerna under prenumeration eller resursgrupp. |
-> | Åtgärd | Microsoft.DataCatalog/catalogs/write | Skapar katalog eller uppdaterar taggar och egenskaper för katalogen. |
-> | Åtgärd | Microsoft.DataCatalog/checkNameAvailability/action | Kontrollerar catalog namn är tillgängliga för klienten. |
-> | Åtgärd | Microsoft.DataCatalog/operations/read | Visar en lista över åtgärder som är tillgängliga på Microsoft.DataCatalog resursprovidern. |
-> | Åtgärd | Microsoft.DataCatalog/register/action | Registrerar prenumerationen med Microsoft.DataCatalog-resursprovidern. |
-> | Åtgärd | Microsoft.DataCatalog/unregister/action | Avregistrerar prenumeration från Microsoft.DataCatalog resursprovidern. |
+> | Åtgärd | Microsoft.DataCatalog/datacatalogs/delete | Ta bort DataCatalog resurs för Data Catalog-Resursprovidern. |
+> | Åtgärd | Microsoft.DataCatalog/datacatalogs/read | Läs DataCatalog resurs för Data Catalog-Resursprovidern. |
+> | Åtgärd | Microsoft.DataCatalog/datacatalogs/write | Skriv DataCatalog resurs för Data Catalog-Resursprovidern. |
+> | Åtgärd | Microsoft.DataCatalog/operations/read | Läser alla tillgängliga åtgärder i Data Catalog-Resursprovidern. |
+> | Åtgärd | Microsoft.DataCatalog/register/action | Registrera prenumeration för Resursprovidern för Data Catalog |
+> | Åtgärd | Microsoft.DataCatalog/unregister/action | Avregistrera prenumerationen för Data Catalog-Resursprovidern |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -1873,26 +1896,40 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.DBforMariaDB/locations/azureAsyncOperation/read | Returnera MariaDB Server Åtgärdsresultat |
+> | Åtgärd | Microsoft.DBforMariaDB/locations/operationResults/read | Gå tillbaka ResourceGroup baserat MariaDB Server Åtgärdsresultat |
+> | Åtgärd | Microsoft.DBforMariaDB/locations/operationResults/read | Returnera MariaDB Server Åtgärdsresultat |
 > | Åtgärd | Microsoft.DBforMariaDB/locations/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
+> | Åtgärd | Microsoft.DBforMariaDB/locations/securityAlertPoliciesAzureAsyncOperation/read | Returnera listan över Server threat Identifieringsresultat igen. |
+> | Åtgärd | Microsoft.DBforMariaDB/locations/securityAlertPoliciesOperationResults/read | Returnera listan över Server threat Identifieringsresultat igen. |
+> | Åtgärd | Microsoft.DBforMariaDB/operations/read | Returnera listan över MariaDB-åtgärder. |
 > | Åtgärd | Microsoft.DBforMariaDB/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
+> | Åtgärd | Microsoft.DBforMariaDB/register/action | Registrera Resursprovidern för MariaDB |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/configurations/read | Returnera lista över konfigurationer för en server eller hämtar egenskaperna för den angivna konfigurationen. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/configurations/write | Uppdatera värdet för den angivna konfigurationen |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/databases/delete | Tar bort en befintlig databas för MariaDB. |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/databases/read | Returnera listan över MariaDB databaser eller hämtar egenskaperna för den angivna databasen. |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/databases/write | Skapar en databas för MariaDB med de angivna parametrarna eller uppdaterar egenskaperna för den angivna databasen. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/delete | Tar bort en befintlig server. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/firewallRules/delete | Tar bort en befintlig brandväggsregel. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/firewallRules/read | Returnera listan över brandväggen för en server eller hämtar egenskaperna för den angivna brandväggsregeln. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/firewallRules/write | Skapar en brandväggsregel med de angivna parametrarna eller uppdaterar en befintlig regel. |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/logFiles/read | Returnera listan över MariaDB LogFiles. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar disagnostic inställningen för resursen |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för MariaDB-servrar |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/providers/Microsoft.Insights/metricDefinitions/read | Returnera typer av mått som är tillgängliga för databaser |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/queryTexts/action | Returnera texten till en lista över frågor |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/recoverableServers/read | Returnera den återställningsbara MariaDB Server-informationen |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/securityAlertPolicies/read | Hämta information om den server threat principen konfigurerats på en viss server |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/securityAlertPolicies/write | Ändra den server threat principen för en viss server |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/topQueryStatistics/read | Returnera listan över Frågestatistik för de viktigaste frågorna. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/updateConfigurations/action | Uppdatera konfigurationer för den angivna servern |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/virtualNetworkRules/delete | Tar bort en befintlig regel för virtuella nätverk |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/virtualNetworkRules/read | Returnera listan över virtuella nätverk regler eller hämtar egenskaperna för regeln för angivna virtuella nätverket. |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/virtualNetworkRules/write | Skapar en virtuell nätverksregel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna virtuella nätverk regeln. |
+> | Åtgärd | Microsoft.DBforMariaDB/servers/waitStatistics/read | Vänta statistik för en instans |
 > | Åtgärd | Microsoft.DBforMariaDB/servers/write | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
@@ -1900,14 +1937,25 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.DBforMySQL/locations/azureAsyncOperation/read | Returnera resultat för MySQL Server igen |
+> | Åtgärd | Microsoft.DBforMySQL/locations/operationResults/read | Gå tillbaka ResourceGroup baserat Åtgärdsresultat för MySQL-Server |
+> | Åtgärd | Microsoft.DBforMySQL/locations/operationResults/read | Returnera resultat för MySQL Server igen |
 > | Åtgärd | Microsoft.DBforMySQL/locations/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
+> | Åtgärd | Microsoft.DBforMySQL/locations/securityAlertPoliciesAzureAsyncOperation/read | Returnera listan över Server threat Identifieringsresultat igen. |
+> | Åtgärd | Microsoft.DBforMySQL/locations/securityAlertPoliciesOperationResults/read | Returnera listan över Server threat Identifieringsresultat igen. |
+> | Åtgärd | Microsoft.DBforMySQL/operations/read | Returnera listan över MySQL-åtgärder. |
 > | Åtgärd | Microsoft.DBforMySQL/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
+> | Åtgärd | Microsoft.DBforMySQL/register/action | Registrera Resursprovidern för MySQL |
 > | Åtgärd | Microsoft.DBforMySQL/servers/configurations/read | Returnera lista över konfigurationer för en server eller hämtar egenskaperna för den angivna konfigurationen. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/configurations/write | Uppdatera värdet för den angivna konfigurationen |
+> | Åtgärd | Microsoft.DBforMySQL/servers/databases/delete | Tar bort en befintlig MySQL-databas. |
+> | Åtgärd | Microsoft.DBforMySQL/servers/databases/read | Returnera listan med MySQL-databaser eller hämtar egenskaperna för den angivna databasen. |
+> | Åtgärd | Microsoft.DBforMySQL/servers/databases/write | Skapar en MySQL-databas med de angivna parametrarna eller uppdaterar egenskaperna för den angivna databasen. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/delete | Tar bort en befintlig server. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/firewallRules/delete | Tar bort en befintlig brandväggsregel. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/firewallRules/read | Returnera listan över brandväggen för en server eller hämtar egenskaperna för den angivna brandväggsregeln. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/firewallRules/write | Skapar en brandväggsregel med de angivna parametrarna eller uppdaterar en befintlig regel. |
+> | Åtgärd | Microsoft.DBforMySQL/servers/logFiles/read | Returnera listan över PostgreSQL LogFiles. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar disagnostic inställningen för resursen |
 > | Åtgärd | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för MySQL-servrar |
@@ -1922,6 +1970,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | Tar bort en befintlig regel för virtuella nätverk |
 > | Åtgärd | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | Returnera listan över virtuella nätverk regler eller hämtar egenskaperna för regeln för angivna virtuella nätverket. |
 > | Åtgärd | Microsoft.DBforMySQL/servers/virtualNetworkRules/write | Skapar en virtuell nätverksregel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna virtuella nätverk regeln. |
+> | Åtgärd | Microsoft.DBforMySQL/servers/waitStatistics/read | Vänta statistik för en instans |
 > | Åtgärd | Microsoft.DBforMySQL/servers/write | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
@@ -1929,17 +1978,28 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | Returnera resultat från åtgärd för PostgreSQL-Server |
+> | Åtgärd | Microsoft.DBforPostgreSQL/locations/operationResults/read | Gå tillbaka ResourceGroup baserat Åtgärdsresultat för PostgreSQL-Server |
+> | Åtgärd | Microsoft.DBforPostgreSQL/locations/operationResults/read | Returnera resultat från åtgärd för PostgreSQL-Server |
 > | Åtgärd | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesAzureAsyncOperation/read | Returnera listan över Server threat Identifieringsresultat igen. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesOperationResults/read | Returnera listan över Server threat Identifieringsresultat igen. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/operations/read | Returnera listan över åtgärder för PostgreSQL. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/register/action | Registrera Resursprovidern med PostgreSQL |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/read | Returnera lista över rådgivare |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read | Returnera listan med rekommenderade åtgärder |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action | Se rekommendationer |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/configurations/read | Returnera lista över konfigurationer för en server eller hämtar egenskaperna för den angivna konfigurationen. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/configurations/write | Uppdatera värdet för den angivna konfigurationen |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/databases/delete | Tar bort en befintlig databas för PostgreSQL. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/databases/read | Returnera listan med PostgreSQL-databaser eller hämtar egenskaperna för den angivna databasen. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/databases/write | Skapar en PostgreSQL-databas med de angivna parametrarna eller uppdaterar egenskaperna för den angivna databasen. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/delete | Tar bort en befintlig server. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/firewallRules/delete | Tar bort en befintlig brandväggsregel. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/firewallRules/read | Returnera listan över brandväggen för en server eller hämtar egenskaperna för den angivna brandväggsregeln. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/firewallRules/write | Skapar en brandväggsregel med de angivna parametrarna eller uppdaterar en befintlig regel. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/logFiles/read | Returnera listan över PostgreSQL LogFiles. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar disagnostic inställningen för resursen |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för Postgres-servrar |
@@ -1957,6 +2017,10 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write | Skapar en virtuell nätverksregel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna virtuella nätverk regeln. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/waitStatistics/read | Vänta statistik för en instans |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/write | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
+> | Åtgärd | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar disagnostic inställningen för resursen |
+> | Åtgärd | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Åtgärd | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för Postgres-servrar |
+> | Åtgärd | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | Returnera typer av mått som är tillgängliga för databaser |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
@@ -2055,6 +2119,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DevSpaces/controllers/listConnectionDetails/action | Lista anslutningsinformationen för den Azure Dev blanksteg kontrollantens infrastruktur |
 > | Åtgärd | Microsoft.DevSpaces/controllers/read | Läs Azure Dev blanksteg Controller egenskaper |
 > | Åtgärd | Microsoft.DevSpaces/controllers/write | Skapa eller uppdatera Azure Dev blanksteg Controller egenskaper |
+> | Åtgärd | Microsoft.DevSpaces/locations/operationresults/read | Läsa status för en asynkron åtgärd |
 > | Åtgärd | Microsoft.DevSpaces/register/action | Registrera resursprovidern i Microsoft Dev blanksteg med en prenumeration |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
@@ -2105,6 +2170,12 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DevTestLab/labs/serviceRunners/delete | Ta bort tjänsten deltagare. |
 > | Åtgärd | Microsoft.DevTestLab/labs/serviceRunners/read | Läsa service deltagare. |
 > | Åtgärd | Microsoft.DevTestLab/labs/serviceRunners/write | Lägg till eller ändra service deltagare. |
+> | Åtgärd | Microsoft.DevTestLab/labs/sharedGalleries/delete | Ta bort delade gallerier. |
+> | Åtgärd | Microsoft.DevTestLab/labs/sharedGalleries/read | Läsa delade gallerier. |
+> | Åtgärd | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/delete | Ta bort delade bilder. |
+> | Åtgärd | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/read | Läsa delade avbildningar. |
+> | Åtgärd | Microsoft.DevTestLab/labs/sharedGalleries/sharedImages/write | Lägg till eller ändra delad bilderna. |
+> | Åtgärd | Microsoft.DevTestLab/labs/sharedGalleries/write | Lägg till eller ändra delad gallerier. |
 > | Åtgärd | Microsoft.DevTestLab/labs/users/delete | Tar bort användarprofiler. |
 > | Åtgärd | Microsoft.DevTestLab/labs/users/disks/Attach/action | Ansluta och skapa lånet på disken för att den virtuella datorn. |
 > | Åtgärd | Microsoft.DevTestLab/labs/users/disks/delete | Ta bort diskar. |
@@ -2170,6 +2241,41 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccountNames/read | Söker efter namn är tillgängliga. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete | Ta bort en samling. Gäller endast för API-typer: 'mongodb'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/read | Läsa en samling eller visa en lista över alla samlingar. Gäller endast för API-typer: 'mongodb'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/read | Läsningsdataflöde som är en samling. Gäller endast för API-typer: 'mongodb'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/throughput/write | Uppdatera en samling genomströmning. Gäller endast för API-typer: 'mongodb'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/write | Skapa eller uppdatera en samling. Gäller endast för API-typer: 'mongodb'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/delete | Ta bort en behållare. Gäller endast för API-typer: 'sql'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read | Läsa en behållare eller lista över alla behållare. Gäller endast för API-typer: 'sql'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/read | Läs en dataflöden i behållare. Gäller endast för API-typer: 'sql'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/throughput/write | Uppdatera en dataflöden i behållare. Gäller endast för API-typer: 'sql'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/write | Skapa eller uppdatera en behållare. Gäller endast för API-typer: 'sql'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete | Ta bort en databas. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/delete | Ta bort en graf. Gäller endast för API-typer: 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/read | Läsa ett diagram eller visa en lista över alla diagram. Gäller endast för API-typer: 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/read | Läsa ett graph-dataflöde. Gäller endast för API-typer: 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/throughput/write | Uppdatera en graph-genomströmning. Gäller endast för API-typer: 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write | Skapa eller uppdatera ett diagram. Gäller endast för API-typer: 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/read | Läsa en databas eller lista över alla databaser. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/read | Läsa ett databas-dataflöde. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/throughput/write | Uppdatera en databas-genomströmning. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | Skapa en databas. Gäller endast för API-typer: sql, mongodb, 'gremlin'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/delete | Ta bort ett keyspace. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read | Läsa ett keyspace eller visa en lista över alla keyspaces. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/read | Läsa ett keyspace-dataflöde. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/write | Uppdatera ett keyspace-dataflöde. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | Ta bort en tabell. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/read | Läsa en tabell eller alla tabeller. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/read | Läsa ett tabell-dataflöde. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/write | Uppdatera en tabell-genomströmning. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | Skapa eller uppdatera en tabell. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write | Skapa ett keyspace. Gäller endast för API-typer: 'cassandra'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | Ta bort en tabell. Gäller endast för API-typer: 'tabell'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/read | Läsa en tabell eller alla tabeller. Gäller endast för API-typer: 'tabell'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/read | Läsa ett tabell-dataflöde. Gäller endast för API-typer: 'tabell'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/write | Uppdatera en tabell-genomströmning. Gäller endast för API-typer: 'tabell'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/write | Skapa eller uppdatera en tabell. Gäller endast för API-typer: 'tabell'. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/backup/action | Skicka en begäran om att konfigurera säkerhetskopiering |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/changeResourceGroup/action | Ändra resursgruppen för ett databaskonto |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/databases/collections/metricDefinitions/read | Läser måttdefinitioner för samlingen. |
@@ -2653,6 +2759,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | Läs måttdefinitioner |
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Läs måttdefinitioner |
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/Read | Läs måttdefinitioner |
+> | Åtgärd | Microsoft.Insights/Metricnamespaces/Read | Läsa mått namnområden |
 > | Åtgärd | Microsoft.Insights/Metrics/Action | Måttåtgärd |
 > | Åtgärd | Microsoft.Insights/Metrics/Microsoft.Insights/Read | Läs mått |
 > | Åtgärd | Microsoft.Insights/Metrics/providers/Metrics/Read | Läs mått |
@@ -2689,6 +2796,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft.IoTCentral/appTemplates/action | Hämtar alla tillgängliga mallar på Azure IoT Central |
 > | Åtgärd | Microsoft.IoTCentral/checkNameAvailability/action | Kontrollerar om det finns ett IoT Central programnamn |
 > | Åtgärd | Microsoft.IoTCentral/checkSubdomainAvailability/action | Kontrollerar om det finns ett centralt program för IoT-underdomän |
 > | Åtgärd | Microsoft.IoTCentral/IoTApps/delete | Tar bort en IoT Central-program |
@@ -3602,6 +3710,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/locations/checkDnsNameAvailability/read | Kontrollerar om dns-etikett är tillgängliga på den angivna platsen |
 > | Åtgärd | Microsoft.Network/locations/operationResults/read | Hämtar resultat av en asynkron INLÄGG eller borttagningsåtgärd |
 > | Åtgärd | Microsoft.Network/locations/operations/read | Hämtar åtgärden resurs som representerar statusen för en asynkron åtgärd |
+> | Åtgärd | Microsoft.Network/locations/serviceTags/read | Hämta Tjänsttaggar |
 > | Åtgärd | Microsoft.Network/locations/supportedVirtualMachineSizes/read | Hämtar stöds storlekar på virtuella datorer |
 > | Åtgärd | Microsoft.Network/locations/usages/read | Hämtar resurserna användningsstatistik |
 > | Åtgärd | Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read | Hämtar en lista med tillgängliga virtuella slutpunkten nätverkstjänster |
@@ -3911,7 +4020,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.OperationalInsights/linkTargets/read | Visar en lista över befintliga konton som inte är associerade med en Azure-prenumeration. Använd ett kund-id som returneras av den här åtgärden i kund-id-egenskapen för åtgärden Skapa arbetsyta för att länka Azure-prenumerationen till en arbetsyta. |
 > | Åtgärd | microsoft.operationalinsights/operations/read | Visar en lista över alla tillgängliga OperationalInsights Rest API-åtgärder. |
+> | Åtgärd | microsoft.operationalinsights/register/action | Rergisters prenumerationen. |
 > | Åtgärd | Microsoft.OperationalInsights/register/action | Registrera en prenumeration på en resursprovider. |
+> | Åtgärd | microsoft.operationalinsights/unregister/action | Avregistrerar prenumerationen. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med den nya motorn. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | Hämta sökschema V2. |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/api/query/action | Sök med den nya motorn. |
@@ -3963,6 +4074,16 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | Läs data från ContainerLog-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ContainerNodeInventory/read | Läsa data från tabellen ContainerNodeInventory |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | Läs data från ContainerServiceLog-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksAccounts/read | Läsa data från tabellen DatabricksAccounts |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksClusters/read | Läsa data från tabellen DatabricksClusters |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksDBFS/read | Läsa data från tabellen DatabricksDBFS |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksJobs/read | Läsa data från tabellen DatabricksJobs |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksNotebook/read | Läsa data från tabellen DatabricksNotebook |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksSecrets/read | Läsa data från tabellen DatabricksSecrets |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksSQLPermissions/read | Läsa data från tabellen DatabricksSQLPermissions |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksSSH/read | Läsa data från tabellen DatabricksSSH |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksTables/read | Läsa data från tabellen DatabricksTables |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspace/read | Läsa data från tabellen DatabricksWorkspace |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | Läs data från DeviceAppCrash-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | Läs data från DeviceAppLaunch-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | Läs data från DeviceCalendar-tabellen |
@@ -3993,6 +4114,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/HuntingBookmark/read | Läsa data från tabellen HuntingBookmark |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Läs data från IISAssessmentRecommendation-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | Läs data från InboundConnection-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/InsightsMetrics/read | Läsa data från tabellen InsightsMetrics |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | Läsa data från tabellen IntuneAuditLogs |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/IntuneOperationalLogs/read | Läsa data från tabellen IntuneOperationalLogs |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | Läsa data från tabellen KubeEvents |
@@ -4010,6 +4132,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | Läs data från MADeploymentPlan-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MADevice/read | Läs data från MADevice-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MADeviceNotEnrolled/read | Läsa data från tabellen MADeviceNotEnrolled |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MADeviceNRT/read | Läsa data från tabellen MADeviceNRT |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | Läs data från MADevicePnPHealth-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | Läs data från MADevicePnPHealthAlternativeVersions-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | Läs data från MADevicePnPHealthIssues-tabellen |
@@ -4035,7 +4158,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | Läs data från MAOfficeCurrencyAssessment-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | Läs data från MAOfficeCurrencyAssessmentDailyCounts-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | Läs data från MAOfficeDeploymentStatus-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatusNRT/read | Läsa data från tabellen MAOfficeDeploymentStatusNRT |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroErrorNRT/read | Läsa data från tabellen MAOfficeMacroErrorNRT |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroGlobalHealth/read | Läsa data från tabellen MAOfficeMacroGlobalHealth |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | Läs data från MAOfficeMacroHealth-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | Läs data från MAOfficeMacroHealthIssues-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | Läs data från MAOfficeMacroIssueInstanceReadiness-tabellen |
@@ -4048,6 +4173,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | Läs data från MAWindowsCurrencyAssessment-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | Läs data från MAWindowsCurrencyAssessmentDailyCounts-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | Läs data från MAWindowsDeploymentStatus-tabellen |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | Läsa data från tabellen MAWindowsDeploymentStatusNRT |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | Läs data från MAWindowsSysReqInstanceReadiness-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | Läs data från NetworkMonitoring-tabellen |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | Läs data från OfficeActivity-tabellen |
@@ -4162,6 +4288,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.PolicyInsights/asyncOperationResults/read | Hämtar resultat för asynkron åtgärd. |
+> | Åtgärd | Microsoft.PolicyInsights/operations/read | Hämtar stöds åtgärder på Microsoft.PolicyInsights-namnområde |
 > | Åtgärd | Microsoft.PolicyInsights/policyEvents/queryResults/action | Fråga efter information om principhändelser. |
 > | Åtgärd | Microsoft.PolicyInsights/policyEvents/queryResults/read | Fråga efter information om principhändelser. |
 > | Åtgärd | Microsoft.PolicyInsights/policyStates/queryResults/action | Fråga efter information om principtillstånd. |
@@ -4466,6 +4593,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Resources/deployments/operations/read | Hämtar eller listar distributionsåtgärder. |
 > | Åtgärd | Microsoft.Resources/deployments/read | Hämtar eller listar distributioner. |
 > | Åtgärd | Microsoft.Resources/deployments/validate/action | Verifierar en distribution. |
+> | Åtgärd | Microsoft.Resources/deployments/whatIf/action | Förutsäger malländringar för distribution. |
 > | Åtgärd | Microsoft.Resources/deployments/write | Skapar eller uppdaterar en distribution. |
 > | Åtgärd | Microsoft.Resources/links/delete | Tar bort en resurslänk. |
 > | Åtgärd | Microsoft.Resources/links/read | Hämtar eller listar resurslänkar. |
@@ -5060,6 +5188,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/servers/keys/read | Returnera listan över server nycklar eller hämtar egenskaperna för den angivna servernyckeln. |
 > | Åtgärd | Microsoft.Sql/servers/keys/write | Skapar en nyckel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servernyckeln. |
 > | Åtgärd | Microsoft.Sql/servers/operationResults/read | Hämtar pågående åtgärder |
+> | Åtgärd | Microsoft.Sql/servers/privateEndpointConnections/delete | Tar bort en befintlig privat slutpunkt-anslutning |
+> | Åtgärd | Microsoft.Sql/servers/privateEndpointConnections/read | Returnerar listan över privat slutpunkt anslutningar eller hämtar egenskaperna för den angivna privata slutpunkt-anslutningen. |
 > | Åtgärd | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | Returnera typer av mått som är tillgängliga för servrar |
 > | Åtgärd | Microsoft.Sql/servers/read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Åtgärd | Microsoft.Sql/servers/recommendedElasticPools/databases/read | Hämta mått för rekommenderade elastic database-pooler för en viss server |
@@ -5106,7 +5236,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | Returnerar resultatet av borttagningen av en automatisk ögonblicksbild |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | Returnerar listan över blobar i ett konto med matchande taggfilter |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Returnerar resultatet av blobkommandot |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Returnerar resultatet av läsning av blobtaggar |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Returnerar resultatet av skrivning av blobtaggar |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |

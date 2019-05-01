@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb52cc85ea4e09890cf7c489d817c0b01192c65e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316111"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684607"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrera användare med sociala identiteter
 När du planerar att migrera din identitetsprovider till Azure AD B2C kan du också behöva Migrera användare med sociala identiteter. Den här artikeln beskrivs hur du migrerar befintliga konton i sociala identiteter, till exempel: Facebook, LinkedIn, Microsoft och Google-konton till Azure AD B2C. Den här artikeln gäller även för federerade identiteter, men dessa migreringar är mindre vanliga.

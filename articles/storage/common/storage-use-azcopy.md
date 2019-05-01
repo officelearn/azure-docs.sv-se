@@ -8,29 +8,35 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a91910d474b13fe8cc5306c53109575d2883224e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728992"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572946"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Överföra data med AzCopy i Windows
+
 AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure-Blob, File och Table storage med hjälp av enkla kommandon som är utformad för bästa prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto, eller mellan lagringskonton.  
 
-Det finns två versioner av AzCopy som du kan hämta. AzCopy i Windows erbjuder Windows style kommandoradsalternativ. [AzCopy i Linux](storage-use-azcopy-linux.md) riktar sig till Linux-plattformar och erbjuder POSIX style kommandoradsalternativ. Den här artikeln beskriver AzCopy i Windows.
+> [!IMPORTANT]
+> Den här artikeln beskrivs en äldre version av AzCopy.
+>Om du vill installera den senaste versionen av AzCopy, se [AzCopy v10](storage-use-azcopy-v10.md).
 
-## <a name="download-and-install-azcopy-on-windows"></a>Hämta och installera AzCopy på Windows
+Om du väljer att installera den äldre versionen av AzCopy (AzCopy v8.1) finns flera versioner som du kan hämta. AzCopy i Windows erbjuder Windows style kommandoradsalternativ. [AzCopy i Linux](storage-use-azcopy-linux.md) riktar sig till Linux-plattformar och erbjuder POSIX style kommandoradsalternativ. Den här artikeln beskriver AzCopy i Windows.
 
-### <a name="latest-version-v81"></a>Senaste versionen (v8.1)
-Ladda ned den [senaste versionen av AzCopy på Windows](https://aka.ms/downloadazcopy).
+## <a name="download-and-install-azcopy-v81-on-windows"></a>Hämta och installera AzCopy (v8.1) på Windows
+
+Ladda ned den [AzCopy (v8.1) i Windows](https://aka.ms/downloadazcopy).
 
 #### <a name="azcopy-on-windows-81-release-notes"></a>AzCopy i Windows 8.1 viktig information
+
 - Tabelltjänsten stöds inte längre i den senaste versionen. Om du använder tabell exportfunktionen hämta AzCopy 7.3 versionen.
 - Byggas med .NET Core 2.1 och alla beroenden i .NET Core är nu paketeras i installationen.
 - Tillagt stöd för OAuth-autentisering. Använd ```azcopy login``` att logga in med Azure Active Directory.
 
 ### <a name="azcopy-with-table-support-v73"></a>Azcopy med stöd för tabellen (v7.3)
+
 Ladda ned den [AzCopy 7.3 med stöd för tabellen](https://aka.ms/downloadazcopynet).
 
 ### <a name="post-installation-step"></a>Steg efter installation

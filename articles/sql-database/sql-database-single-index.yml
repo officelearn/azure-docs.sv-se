@@ -14,7 +14,7 @@ metadata:
   ms.author: jovanpop-msft
   ms.reviewer: carlrab
   manager: craigg
-  ms.date: 05/06/2019
+  ms.date: 04/26/2019
 abstract:
   description: 'Azure SQL Database är en relationsdatabas som en tjänst (DBaaS) baserat på den senaste stabila versionen av Microsoft SQL Server Database Engine. SQL Database är en högpresterande, enkel att använda, pålitlig och säker databas som du kan använda för att skapa nya program, webbplatser och mikrotjänster i vilket språk du föredrar, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.'
   aside:

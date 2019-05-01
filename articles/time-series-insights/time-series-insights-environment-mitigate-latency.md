@@ -12,14 +12,15 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 3a42570b51811cfbdd4329f196b98d75c8cd53f7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556755"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685153"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningar om du vill minska svarstiden i Azure Time Series Insights
+
 När mängden inkommande data överskrider konfigurationen för din miljö kan uppstår du fördröjning eller begränsning i Azure Time Series Insights.
 
 Du kan undvika svarstid och begränsning genom att konfigurera din miljö den mängd data som du vill analysera.
@@ -31,7 +32,7 @@ Du är mest sannolika svarstid och begränsning när du:
 - Skicka stora mängder historiska händelser till en händelsekälla, vilket resulterar i en fördröjning (Time Series Insights måste komma ikapp).
 - Ansluta till referensdata med telemetri, vilket resulterar i större händelsestorleken.  En ingressed datapaketet paketstorleken är på 32 KB behandlas som 32 händelser från en begränsning perspektiv, var och en storlek 1 KB. Den maximala tillåtna händelsestorleken är 32 KB; datapaket som är större än 32 KB trunkeras.
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
 ### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>I den här videon beskriver vi beteende för Time Series Insights data ingångshändelser och hur du planerar för den.</br>
 
@@ -45,9 +46,9 @@ Aviseringar kan hjälpa dig att diagnostisera och förebygga problem med nätver
 
    ![Mått](media/environment-mitigate-latency/add-metrics.png)
 
-2. Klicka på **Lägg till metrisk varning**.  
+2. Klicka på **Lägg till måttavisering**.  
 
-    ![Lägg till måttavisering](media/environment-mitigate-latency/add-metric-alert.png)
+    ![Lägga till måttavisering](media/environment-mitigate-latency/add-metric-alert.png)
 
 Därifrån kan konfigurera du aviseringar med hjälp av följande mått:
 
@@ -61,7 +62,6 @@ Därifrån kan konfigurera du aviseringar med hjälp av följande mått:
 |**Tidsförskjutningen för Ingress mottaget meddelande**    |  Skillnad i sekunder från det att meddelandet är i kö i käll- och den tid som bearbetas i ingående.      |
 |**Ingående emot Meddelandeantalet fördröjning**    |  Skillnaden mellan sekvensnumret för den sista köas meddelandet datakällan i partitionen och sekvens antal meddelande som bearbetas i ingående.      |
 
-
 ![Svarstid](media/environment-mitigate-latency/latency.png)
 
 Om du har begränsats, ser du ett värde för den *ingående tog emot meddelande tidsförskjutningen*, informerar dig om hur många sekunder bakom TSI är från den faktiska tiden meddelandet når händelsekällan (exklusive indexering tidpunkten för appx. 30-60 sekunder).  *Fördröjning för inkommande antal meddelanden tas emot* bör även ha ett värde, så att du kan avgöra hur många meddelanden bakom dig som.  Det enklaste sättet att få uppdateringar är att öka kapaciteten för din miljö till en storlek som gör att du kan lösa skillnaden.  
@@ -74,11 +74,14 @@ Kan till exempel, om du har tre S1-enheter som etablerats (eller 2100 händelser
 
 Även om du misstänker att du har begränsats kan du jämföra din **ingående emot meddelanden** med din händelse är källan egressed meddelanden.  Om inkommande till din Event Hub är större än din **ingående emot meddelanden**, Time Series Insights är sannolikt begränsas.
 
-## <a name="improving-performance"></a>Förbättra prestanda 
+## <a name="improving-performance"></a>Förbättra prestanda
+
 Om du vill minska begränsning eller upplever svarstid, är det bästa sättet att rätta till det att öka kapaciteten för din miljö. 
 
 Du kan undvika svarstid och begränsning genom att konfigurera din miljö den mängd data som du vill analysera. Läs mer om hur du lägger till kapacitet i miljön, [skala din miljö](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Nästa steg
+
 - För ytterligare felsökning [diagnostisera och lösa problem i miljön för Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
+
 - För ytterligare hjälp kan du starta en konversation på den [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). Du kan även kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) för vilka supportalternativ.

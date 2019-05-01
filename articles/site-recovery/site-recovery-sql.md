@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471731"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924856"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera haveriberedskap för SQL Server
 
@@ -170,7 +170,7 @@ För program som använder distribuerade transaktioner, rekommenderar vi att du 
 
 I det här scenariot rekommenderar vi att du använder Site Recovery-replikering för att skydda SQL Server-datorn. De exakta stegen beror om SQL Server är en virtuell dator eller en fysisk server, och om du vill replikera till Azure eller en sekundär lokal plats. Lär dig mer om [Site Recovery-scenarier](site-recovery-overview.md).
 
-## <a name="protect-a-sql-server-cluster-standard-editionwindows-server-2008-r2"></a>Skydda SQL Server-kluster (standard edition och Windows Server 2008 R2)
+## <a name="protect-a-sql-server-cluster-standard-editionsql-server-2008-r2"></a>Skydda SQL Server-kluster (standard edition/SQL Server 2008 R2)
 
 För ett kluster som kör SQL Server Standard edition eller SQL Server 2008 R2, rekommenderar vi du använder Site Recovery-replikering för att skydda SQL Server.
 

@@ -13,25 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1da963f8aaf356988df2a7c9bf9923aafa186cca
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: ff7f8bc27d358c667b10c0bd3383e78b20494303
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259339"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64680122"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Använd PowerShell för att skapa en Azure AD-app ska använda med Azure Media Services-API
 
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+
 Lär dig hur du använder ett PowerShell-skript för att skapa ett Azure Active Directory (Azure AD)-program och tjänstens huvudnamn för Azure Media Services-resurser.  
 
-## <a name="prerequisites"></a>Förutsättningar
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Ett Azure-konto. Om du inte har ett konto kan du börja med en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services-konto i Azure-portalen](media-services-portal-create-account.md).
 
 - Azure PowerShell. Mer information finns i [hur du använder Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="create-an-azure-ad-app-by-using-powershell"></a>Skapa en Azure AD-app med hjälp av PowerShell  
 

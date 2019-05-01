@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637054"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572592"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Vanliga frågor och svar om nätverk i Azure Functions
 
@@ -28,11 +28,14 @@ Distribuera en funktion i en App Service Environment är för närvarande det en
 Du kan begränsa Internetåtkomst på ett par olika sätt:
 
 * [IP-restriktioner](../app-service/app-service-ip-restrictions.md): Begränsa inkommande trafik till din funktionsapp av IP-intervall.
+    * Under IP-restriktioner, du kan också konfigurera [tjänstslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md), som begränsar din funktion så att endast acceptera inkommande trafik från ett visst virtuellt nätverk.
 * Borttagning av alla HTTP-utlösare. För vissa program är det tillräckligt för att bara undvika HTTP-utlösare och använda andra händelsekällan för att utlösa din funktion.
 
 Tänk på att redigeraren för Azure-portalen kräver direkt åtkomst till din funktion som körs. Kodändringar via Azure-portalen kräver den enhet som du använder för att bläddra på portalen om du vill att dess IP-godkänd. Men du kan fortfarande använda något under fliken plattform funktioner med nätverksbegränsningar på plats.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Hur begränsar jag mina function-app till ett virtuellt nätverk?
+
+Du kan begränsa **inkommande** trafik för en funktionsapp till ett virtuellt nätverk med hjälp av [tjänstslutpunkter](./functions-networking-options.md#private-site-access). Den här konfigurationen kan fortfarande appen att göra utgående anrop till internet.
 
 Det enda sättet att helt begränsa en funktion så att all trafik som flödar genom ett virtuellt nätverk är att använda en internt belastningsutjämnad App Service Environment. Det här alternativet distribuerar din webbplats på en dedikerad infrastruktur i ett virtuellt nätverk och skickar alla utlösare och trafik via det virtuella nätverket. 
 
@@ -48,8 +51,11 @@ Med virtual network-integration (för närvarande i förhandsversion) kan du kom
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Hur kan jag för att utlösa en funktion från en resurs i ett virtuellt nätverk?
 
-Du kan utlösa en funktion från en resurs i ett virtuellt nätverk endast genom att distribuera funktionsappen till en App Service Environment. Mer information om hur du använder en App Service Environment finns i [skapa och använda en intern belastningsutjämnare med en App Service Environment](../app-service/environment/create-ilb-ase.md).
+Du kan tillåta HTTP-utlösare anropas från ett virtuellt nätverk med [tjänstslutpunkter](./functions-networking-options.md#private-site-access). 
 
+Du kan också utlösa en funktion från en resurs i ett virtuellt nätverk genom att distribuera funktionsappen till en App Service Environment. Mer information om hur du använder en App Service Environment finns i [skapa och använda en intern belastningsutjämnare med en App Service Environment](../app-service/environment/create-ilb-ase.md).
+
+På Premium- och App Service plan stöder HTTP-utlösare från ett virtuellt nätverk, men endast en App Service environment stöd för alla andra funktionen utlösartyperna via ett virtuellt nätverk.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Hur kan jag distribuera Mina function-app i ett virtuellt nätverk?
 

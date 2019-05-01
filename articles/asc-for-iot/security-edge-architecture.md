@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c6ac3d9dbbb16caed51243fea852adea541b9f04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a71a0cd5888cec5c3af0e2853edf5a7f014939b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505418"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919934"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge-säkerhetsmodul
 
@@ -27,7 +27,7 @@ ms.locfileid: "60505418"
 > Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktion worklo§1ads. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) ger kraftfulla funktioner för hantering och utföra affärs-arbetsflöden på gränsen.
+[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) ger kraftfulla funktioner för hantering och utföra affärs-arbetsflöden på gränsen.
 Den viktiga delen som IoT Edge spelar i IoT-miljöer gör det mycket attraktivt för skadliga aktörer.
 
 Azure Security Center (ASC) för IoT-säkerhetsmodul tillhandahåller en omfattande lösning för din IoT-Edge enheter.
@@ -44,7 +44,7 @@ ASC för IoT-säkerhetsmodul för IoT Edge erbjuder följande funktioner:
 
 - Analys av IoT Edge-distribution manifest.
 
-- Aggregerar rådata säkerhetshändelser i meddelanden som skickas via [IoT Edge Hub](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Aggregerar rådata säkerhetshändelser i meddelanden som skickas via [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
 - Ta bort konfigurationen genom användning av modultvilling säkerhet.
 

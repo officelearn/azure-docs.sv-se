@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 45824ba93e86622b1bbd92aae01f18f89bee6adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 24523a7b244b6dee0e240291b7187e38d82a2e08
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795061"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572911"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Översikt över Application Insights för DevOps
 
@@ -182,7 +182,7 @@ Diagnostik är inte riktigt detsamma som felsökning. Innan du börjar gå igeno
 
 ![Diagram över beroendefel och varaktighet för anrop till beroenden](./media/detect-triage-diagnose/11-dependencies.png)
 
-Vissa problem med långsamma beroenden är geolokaliseringsproblem. Fabrikam Bank använder virtuella Azure-datorer, och man upptäckte att man av misstag hade placera webbservern och kontoservern i olika länder. Man uppnådde en dramatisk förbättring genom att migrera en av dem.
+Vissa problem med långsamma beroenden är geolokaliseringsproblem. Fabrikam Bank använder virtuella Azure-datorer och identifierade att de hade kontoservern webbservern och konto-server i olika länder/regioner. Man uppnådde en dramatisk förbättring genom att migrera en av dem.
 
 **Vad har vi gjort?** Om problemet inte verkar ligga i ett beroende och om det inte alltid har funnits där beror det troligtvis på en ändring som har skett nyligen. Det historiska perspektivet från mått- och händelsediagrammen gör det enkelt att korrelera eventuella ändringar med distributioner. Det begränsar sökningen efter problemet. Aktivera Application Insights Profiler för att identifiera vilka rader i programkoden som gör prestandan långsammare. Se [Profiling live Azure web apps with Application Insights](./../../azure-monitor/app/profiler.md) (Profilera aktiva Azure-webbappar med Application Insights). När Profiler har aktiverats kan du se en spårning som liknar följande. I det här exemplet går det lätt att se att metoden *GetStorageTableData* har orsakat problemet.  
 

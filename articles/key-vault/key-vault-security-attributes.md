@@ -2,19 +2,18 @@
 title: Vanliga säkerhetsattribut för Azure Key Vault
 description: En lista med vanliga security attribut för att utvärdera Azure Key Vault
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3ccfc38136ba3e8ec7c6130658032b7565988e5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 652e6ecb9ef9506fd306942eae45b13b52ae1c24
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461418"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691829"
 ---
 # <a name="common-security-attributes-for-azure-key-vault"></a>Vanliga säkerhetsattribut för Azure Key Vault
 
@@ -36,8 +35,8 @@ Säkerheten är integrerad i alla aspekter av en Azure-tjänst. Den här artikel
 
 | Säkerhetsattributet | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för Service-slutpunkt| Ja | Med tjänstslutpunkter i virtuella nätverk (Vnet). |
-| vNET-stöd för inmatning| Nej |  |
+| Stöd för Service-slutpunkt| Ja | Med tjänstslutpunkter i virtuella nätverk (VNet). |
+| VNet-stöd för inmatning| Nej |  |
 | Isolering av nätverk och brandväggsfunktioner support| Ja | Med hjälp av brandväggsregler för virtuellt nätverk. |
 | Tvingad tunneltrafik support| Nej |  |
 

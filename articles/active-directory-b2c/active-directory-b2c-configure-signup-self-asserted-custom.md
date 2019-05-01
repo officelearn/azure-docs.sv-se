@@ -3,19 +3,19 @@ title: Lägga till anspråk och anpassa användarindata anpassade principer – 
 description: Lär dig hur du anpassar indata från användaren och lägga till anspråk att resa för registrering eller inloggning i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e3eb7ce49c5d22b11b0b6f018e025bdfa2a67703
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432013"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685291"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Lägga till anspråk och anpassa användarindata med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "57432013"
 
 I den här artikeln får du lägga till en ny post i anges av användaren (ett anspråk) användarresan registrering i Azure Active Directory (Azure AD) B2C.  Du konfigurerar posten som en listruta och definiera om det krävs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Utför stegen i artikeln [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md). Testa vägen registrerings- eller logga in användaren att registrera ett nytt lokalt konto innan du fortsätter.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596077"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571149"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Agenthälsolösning i Azure Monitor
 Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta i Azure Monitor eller en System Center Operations Manager-hanteringsgrupp som är anslutna till Azure Monitor, som är inte svarar och Skicka användningsdata.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
@@ -63,7 +63,7 @@ Klicka på panelen **Agenthälsa** för att öppna instrumentpanelen för **Agen
 | Distribution enligt Agent-version | En partition av olika agentversioner som installerats i din miljö och antalet av vardera.|
 | Distribution enligt Agent-kategori | En partition av olika typer av agenter som skickar händelser för pulsslag: direkta agenter, OpsMgr-agenter eller OpsMgr Management Server.|
 | Distribution enligt hanteringsgrupp | En partition av olika Operations Manager Management-grupper i din miljö.|
-| Geoplats för agenter | En partition av olika länder där du har agenter och det sammanlagda antalet agenter som har installerats i varje land.|
+| Geoplats för agenter | En partition av olika länder/regioner där du har agenter och det totala antalet antalet agenter som har installerats i varje land/region.|
 | Antalet installerade Gateways | Antalet servrar som har installerad Log Analytics-gateway och en lista över dessa servrar.|
 
 ![Agenthälsa på instrumentpanelen - exempel](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  

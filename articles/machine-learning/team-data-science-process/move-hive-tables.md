@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522511"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681952"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och läsa in data från Azure Blob Storage
 
@@ -47,7 +47,7 @@ Du kan skicka hive-frågor med hjälp av:
 2. [Skicka Hive-frågor med Hive-redigeraren](#hive-editor)
 3. [Skicka Hive-frågor med Azure PowerShell-kommandon](#ps)
 
-Hive-frågor körs SQL-liknande. Om du är bekant med SQL, kanske den [Hive för SQL-användare facit blad](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) användbart.
+Hive-frågor körs SQL-liknande. Om du är bekant med SQL, kanske den [Hive för SQL-användare facit blad](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) användbart.
 
 När du skickar en Hive-fråga, kan du också styra målet utdata från Hive-frågor, oavsett om det är på skärmen eller till en lokal fil på huvudnoden eller till en Azure-blob.
 

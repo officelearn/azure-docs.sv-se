@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 81904c4f205b9c5da2bb099d440e65ad63637bdc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280748"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917026"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -354,11 +354,11 @@ Om du aktiverar den **Tillåt att betrodda Microsoft-tjänster...**  undantag, f
 |Azure DevTest Labs|Microsoft.DevTestLab|Anpassad avbildning skapande och artefakt installation. [Läs mer](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Aktivera publicering av Blob Storage-händelser och låt Event Grid att publicera till storage-köer. Lär dig mer om [blob storage-händelser](/azure/event-grid/event-sources) och [publicering till köer](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Arkivera data med Event Hubs Capture. [Läs mer](/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Etablera det inledande innehållet i standardfilsystemet för ett nytt HDInsight-kluster. [Läs mer](https://azure.microsoft.com/en-us/blog/enhance-hdinsight-security-with-service-endpoints/).|
+|Azure HDInsight|Microsoft.HDInsight|Etablera det inledande innehållet i standardfilsystemet för ett nytt HDInsight-kluster. [Läs mer](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft.Insights|Tillåter skrivning av övervakning av data till en säker lagringskonto [mer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure-nätverk|Microsoft.Networking|Store och analysera loggar med webbtrafik. [Läs mer](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Konfigurera haveriberedskap genom att aktivera replikering för Azure IaaS-datorer. Detta krävs om du använder brandvägg är aktiverad cachelagringskontot eller källagringskontot eller mållagringskontot.  [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Gör att importera och exportera scenarier med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Gör att importera och exportera scenarier från den specifika SQL-databaser instanser med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Dataåtkomst för Storage analytics
 

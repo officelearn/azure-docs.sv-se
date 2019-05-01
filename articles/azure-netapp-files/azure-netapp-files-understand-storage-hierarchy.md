@@ -1,5 +1,5 @@
 ---
-title: Förstå lagringshierarkin för Azure NetApp Files | Microsoft Docs
+title: Vad är Azure NetApp Files storage hierarki | Microsoft Docs
 description: Beskriver lagringshierarkin, inklusive Azure NetApp Files-konton, kapacitetspooler och volymer.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 357bd5eac41b0da50a1d7035e8e8045a9f21144c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fec9e22b15eca3f95be606776066cf573046b5fd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691039"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687484"
 ---
-# <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Förstå lagringshierarkin för Azure NetApp Files
+# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Vad är Azure NetApp Files storage hierarki
 
 Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en pool för etablerad kapacitet.  Du måste ha ett NetApp-konto för att kunna konfigurera en kapacitetspool. När du förstår lagringshierarkin är det lättare att konfigurera och hantera Azure NetApp Files-resurser.
 

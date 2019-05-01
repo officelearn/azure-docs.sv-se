@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa iOS Unity-app med Azure Spatial Anchors | Microsoft Docs
+title: Snabbstart – skapa en Unity iOS-app med Azure Spatial ankare | Microsoft Docs
 description: I den här snabbstarten lär du dig att skapa en iOS-app med Unity med hjälp av Spatial Anchors.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e3320cd6131497d0b2c794646bae7fae578488cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 41189d4945ef22f8a587a51717b7dd6f40ac39ce
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235280"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690552"
 ---
-# <a name="quickstart-create-an-ios-unity-app-with-azure-spatial-anchors"></a>Snabbstart: Skapa en iOS Unity-app med Azure Spatial Anchors
+# <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Snabbstart: Skapa en Unity iOS-app med Azure Spatial ankare
 
-I den här snabbstarten beskrivs hur du skapar en iOS Unity-app med hjälp av [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa Mixed Reality-upplevelser med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARKit iOS-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
+Den här snabbstarten beskrivs hur du skapar en Unity iOS med [Azure Spatial ankare](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARKit iOS-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
 
 Du lär dig följande:
 

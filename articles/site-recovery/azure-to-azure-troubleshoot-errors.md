@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789918"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699086"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -221,7 +221,17 @@ Kontrollera att datadiskarna har initierats och försök sedan igen:
 
 Kontakta supporten om problemet kvarstår.
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>En eller flera diskar är tillgängliga för skydd (felkod 153039)
+- **Möjlig orsak** </br>
+  - Om en eller flera diskar har nyligen lagts till den virtuella datorn efter skyddet. 
+  - Om en eller flera diskar initierades senare efter att skyddet av den virtuella datorn.
 
+### <a name="fix-the-problem"></a>Åtgärda problemet
+Du kan antingen välja att skydda diskarna eller Ignorera varningen göra felfri replikeringsstatusen för den virtuella datorn igen.</br>
+1. Att skydda diskarna. Gå till replikerade objekt > virtuell dator > diskar > Klicka på oskyddad disk > Aktivera replikering.
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. Att ignorera varningen. Gå till replikerat objekt > virtuell dator > Klicka på Stäng aviseringen under översiktsavsnittet.
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Det går inte att se Azure VM väljas i ”Aktivera replikering”
 
  **Orsak 1:  Resursgruppens namn och det virtuella källdatorn finns på olika platser** <br>

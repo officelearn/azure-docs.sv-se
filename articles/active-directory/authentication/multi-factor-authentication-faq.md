@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357485"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570829"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -59,7 +59,7 @@ I Kanada Microsoft använder du följande koder för SMS-kort:
    * 759731 
    * 673801
 
-Microsoft garanterar inte konsekvent SMS eller Voice-baserade Multifaktorautentisering fråga leverans av samma nummer. För våra användare Microsoft Lägg till eller ta bort korta koder när som helst som vi justera väg att förbättra SMS levererbarhet. Microsoft stöder inte korta koder för länder utöver USA och Kanada
+Microsoft garanterar inte konsekvent SMS eller Voice-baserade Multifaktorautentisering fråga leverans av samma nummer. För våra användare Microsoft Lägg till eller ta bort korta koder när som helst som vi justera väg att förbättra SMS levererbarhet. Microsoft stöder inte korta koder för länder/regioner förutom i USA och Kanada.
 
 ## <a name="billing"></a>Fakturering
 
@@ -95,7 +95,7 @@ Multi-Factor Authentication för Office 365-användare erbjuder en delmängd av 
 
 Om din organisation köper MFA som en fristående tjänst med konsumtionsbaserad fakturering kan välja du faktureringsmodellen när du skapar en MFA-provider. Du kan inte ändra faktureringsmodellen när en MFA-provider har skapats. Du kan dock ta bort MFA-providern och sedan skapa en med en annan faktureringsmodell.
 
-När en MFA-provider skapas får vara kopplade till en Azure Active Directory (även kallat ”Azure AD-klient”). Om den aktuella MFA-providern kopplas till en Azure AD-klient kan du på ett säkert sätt ta bort MFA-providern och skapa en som är länkad till samma Azure AD-klienten. Alternativt, om du har köpt tillräckligt många MFA-, Azure AD Premium- eller EMS-licenser (Enterprise Mobility + Security) för att täcka alla användare som är aktiverade för MFA, kan du ta bort MFA-providern helt och hållet.
+När en MFA-provider skapas, kan det länkas till en Azure Active Directory, eller ”Azure AD-klient”. Om den aktuella MFA-providern kopplas till en Azure AD-klient kan du på ett säkert sätt ta bort MFA-providern och skapa en som är länkad till samma Azure AD-klienten. Alternativt, om du har köpt tillräckligt många MFA-, Azure AD Premium- eller EMS-licenser (Enterprise Mobility + Security) för att täcka alla användare som är aktiverade för MFA, kan du ta bort MFA-providern helt och hållet.
 
 Om MFA-provider är *inte* länkad till en Azure AD-klient, eller om du kopplar den nya MFA-providern till en annan Azure AD-klient, användarinställningar och konfigurationsalternativ inte överförs. Dessutom måste befintliga Azure MFA-servrar återaktiveras med hjälp av aktiveringsautentiseringsuppgifter som skapas via den nya MFA-providern. Återaktiveringen av MFA-servrarna för att koppla dem till den nya MFA-providern påverkar inte autentiseringen via telefonsamtal eller SMS, men mobilappsaviseringarna slutar fungera för alla användare tills de återaktiverar mobilappen.
 
@@ -142,7 +142,7 @@ Om din organisation inte har äldre klienter, bör du inte tillåta användarna 
 > [!NOTE]
 > Modern autentisering för Office 2013-klienter
 >
-> Applösenord krävs endast för appar som inte stöder modern autentisering. Office 2013 klienter stöder moderna autentiseringsprotokoll, men måste konfigureras. Modern autentisering är nu tillgängligt för alla kunder som kör update mars 2015 eller senare för Office 2013. Mer information finns i den [Office 2013 offentlig förhandsgranskning av modern autentisering](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Applösenord krävs endast för appar som inte stöder modern autentisering. Office 2013 klienter stöder moderna autentiseringsprotokoll, men måste konfigureras. Modern autentisering är nu tillgängligt för alla kunder som kör update mars 2015 eller senare för Office 2013. Mer information finns i bloggposten [uppdateras Office 365 modern autentisering](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
 **F: Mina användare säger att ibland de inte fått textmeddelandet, eller de svarar på dubbelriktade textmeddelanden men tidsgränsen uppnås för verifiering.**
 

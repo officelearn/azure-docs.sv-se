@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541155"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696408"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Ansluta till SQLServer eller Azure SQL Database från Azure Logic Apps
 
@@ -116,23 +116,26 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>Bearbeta data i grupp
+## <a name="handle-bulk-data"></a>Hantera stora mängder data
 
-När du arbetar med resultatmängder så stor att anslutningen inte returnerar alla resultat på samma gång eller om du vill bättre kontroll över storlek och strukturen för din resultatuppsättningar kan du använda *sidbrytning*, som hjälper dig att hantera de resultat som mindre uppsättningar. 
+Ibland kan behöva du arbeta med resultatmängder så stor att anslutningen inte returnerar alla resultat på samma gång, eller om du vill bättre kontroll över storlek och strukturen för din resultatmängder. Här är några sätt att du kan hantera sådana stora resultatmängder:
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* För att hjälpa dig att hantera resultat som mindre uppsättningar, aktivera *sidbrytning*. Mer information finns i [hämta stora mängder data, poster och objekt med sidbrytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>Skapa en lagrad procedur
+* Skapa en lagrad procedur som organiserar resultat som du vill.
 
-När du får eller hur du infogar flera rader, din logikapp kan gå igenom dessa objekt med hjälp av en [ *until-loop* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) inom dessa [gränser](../logic-apps/logic-apps-limits-and-config.md). Men ibland logikappen har att arbeta med postuppsättningar så stor, till exempel tusentals eller miljontals rader, som du vill minimera kostnaderna för anrop till databasen. 
+  När du får eller hur du infogar flera rader, din logikapp kan gå igenom raderna med hjälp av en [ *until-loop* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) inom dessa [gränser](../logic-apps/logic-apps-limits-and-config.md). 
+  När logikappen har dock att arbeta med postuppsättningar så stor, till exempel tusentals eller miljontals rader, som du vill minimera de kostnader som följer från anrop till databasen.
 
-Skapa i stället en <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank"> *lagrade proceduren* </a> som körs i din SQL-instans och använder den **Välj - ORDER BY** -uttrycket för att ordna resultaten som du vill. Den här lösningen ger dig större kontroll över storlek och strukturen för dina resultat. Logikappen anropar den lagrade proceduren med hjälp av SQL Server-anslutningen **köra den lagrade proceduren** åtgärd. 
+  Du kan sortera resultaten på det sätt som du vill kan du skapa en [ *lagrade proceduren* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) som körs i din SQL-instans och använder den **Välj - ORDER BY** instruktionen. 
+  Den här lösningen ger dig större kontroll över storlek och strukturen för dina resultat. 
+  Logikappen anropar den lagrade proceduren med hjälp av SQL Server-anslutningen **köra den lagrade proceduren** åtgärd.
 
-Lösningsinformation finns i följande artiklar:
+  Lösningsinformation finns i följande artiklar:
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL-sidbrytning för bulk-dataöverföring med Logic Apps</a>
+  * [SQL-sidbrytning för bulk-dataöverföring med Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">Välj - ORDER BY-satser</a>
+  * [Välj - ORDER BY-satser](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>Information om specifika
 

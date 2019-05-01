@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa Android Unity-app med Azure Spatial Anchors | Microsoft Docs
+title: Snabbstart – skapa en Unity Android-app med Azure Spatial ankare | Microsoft Docs
 description: I den här snabbstarten lär du dig att skapa en Android-app med Unity med hjälp av Spatial Anchors.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: bce71db594d2bbd869dcc5a1ff5cb494a7a6f1c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 001042a5499b492db151853172e999cf7a3c5f88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342522"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687813"
 ---
-# <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Snabbstart: Skapa en Android Unity-app med Azure Spatial Anchors
+# <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Snabbstart: Skapa en Unity Android-app med Azure Spatial ankare
 
-I den här snabbstarten beskrivs hur du skapar en Android Unity-app med hjälp av [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa Mixed Reality-upplevelser med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARCore Android-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
+Den här snabbstarten beskrivs hur du skapar en Unity Android-app med hjälp av [Azure Spatial ankare](../overview.md). Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARCore Android-app som skapats med Unity och som kan spara och återkalla en spatial fästpunkt.
 
 Du lär dig följande:
 

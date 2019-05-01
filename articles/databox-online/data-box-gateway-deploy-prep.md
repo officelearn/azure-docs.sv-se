@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620095"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686524"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Självstudier: Förbereda för distribution av Azure Data Box-Gateway
 
@@ -42,7 +42,7 @@ Gå igenom följande självstudier i angiven ordning när du ska distribuera Dat
 
 Nu kan du börja konfigurera Azure-portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Här hittar du konfigurationskraven för Data Box Gateway-resursen, Data Box Gateway-enheten och datacenternätverket.
 
@@ -51,6 +51,8 @@ Här hittar du konfigurationskraven för Data Box Gateway-resursen, Data Box Gat
 Innan du börjar ska du kontrollera att:
 
 - Microsoft Azure-prenumerationen ska ha stöd för Data Box gatewayresursen. Prenumerationer med användningsbaserad betalning stöds inte.
+- Du har ägare eller deltagare som har åtkomst till din prenumeration.
+- Du har administratören eller användaren åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
 
 ### <a name="for-the-data-box-gateway-device"></a>För Data Box Gateway-enheten
@@ -85,7 +87,7 @@ Om du vill skapa en resurs för Data Box-gatewayen, gör du följande i Azure-po
 
 1. Använd dina Microsoft Azure-autentiseringsuppgifter för att logga in på:
 
-    - Azure-portalen på den här URL: [ https://portal.azure.com ](http://portal.azure.com).
+    - Azure-portalen på den här URL: [ https://portal.azure.com ](https://portal.azure.com).
     - Eller, Azure Government-portalen på den här URL: [ https://portal.azure.us ](https://portal.azure.us). Mer information går du till [Anslut till Azure Government, med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. I den vänstra rutan väljer **+ skapa en resurs**. Sök efter **Data Box Edge / Data Box Gateway**. Välj Data Box Edge / Data Box Gateway. Välj **Skapa**.

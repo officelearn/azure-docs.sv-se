@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918778"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570980"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Ändra din betala per användning för Azure-prenumeration till ett annat erbjudande
 
@@ -86,7 +86,7 @@ Du kanske inte ser den **växla till ett annat erbjudande** om:
 ### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>Varför ser jag ”det finns inga erbjudanden tillgängliga i ditt land just nu”?
 
 * Du kanske inte berättigade till några erbjudandet växlar. Kontrollera den [lista över tillgängliga erbjudanden som du kan växla till](#whats-supported) och se till att du har aktiverat rätt fördelarna med Visual Studio eller Bizspark.
-* Vissa erbjudanden kanske inte tillgänglig i alla länder.
+* Vissa erbjudanden som inte är tillgängliga i alla länder/regioner.
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Vad kostar växla Azure-erbjudanden gör till min tjänst och fakturering?
 

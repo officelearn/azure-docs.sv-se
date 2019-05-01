@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577600"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690136"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Stöd för språk och din region för Translator Text API
 
@@ -28,7 +28,7 @@ Translator Text API stöder följande språk för översättning till text. Neur
 **V2 Translator API**
 
 > [!NOTE]
-> V2 upphörde den 30 April 2018 och kommer att upphöra den 30 April 2019.
+> V2 upphörde den 30 April 2018. Migrera dina program till V3 för att kunna dra nytta av nya funktioner som är tillgängliga i V3.
 
 * Statistisk: Inga neural system är tillgänglig för det här språket.
 * Neural tillgängliga: Det finns ett neural system. Använd parametern `category=generalnn` till neural systemet.
@@ -230,14 +230,17 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Indonesiska|   `id`    |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
+|Kiswahili| `sw`    |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
+|Malagasy|  `mg`    |
 | Norska      | `nb`          |
 | Polska      | `pl`          |
 | Portugisiska      | `pt`          |
 | Rumänska      | `ro`          |
 | Ryska      | `ru`          |
+|Samoanska|    `sm`    |
 | Serbiska (latinsk)      | `sr-Latn`          |
 | Slovakiska     | `sk`          |
 | Slovenska      | `sl`          |

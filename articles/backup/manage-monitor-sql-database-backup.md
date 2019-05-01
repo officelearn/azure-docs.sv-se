@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849411"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681849"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -31,7 +31,7 @@ Azure Backup visar alla manuellt utlösta jobb i den **säkerhetskopieringsjobb*
 > Den **säkerhetskopieringsjobb** portalen inte visar schemalagda säkerhetskopieringsjobb. Använd SQL Server Management Studio för att övervaka schemalagda säkerhetskopieringsjobb, enligt beskrivningen i nästa avsnitt.
 >
 
-Mer information om övervakningsscenarier, går du till [övervakning i Azure Portal](backup-azure-monitoring-built-in-monitor.md) och [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
+Mer information om övervakningsscenarier, går du till [övervakning i Azure portal](backup-azure-monitoring-built-in-monitor.md) och [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
 
 ## <a name="view-backup-alerts"></a>Visa säkerhetskopieringsaviseringar
@@ -129,9 +129,9 @@ Avregistrera en SQL Server-instansen när du inaktiverar skyddet men innan du ta
 
 3. I **skyddade servrar**, väljer du servern du avregistrera. Om du vill ta bort valvet måste du avregistrera alla servrar.
 
-4. Högerklicka på den skyddade servern och välj **ta bort**.
+4. Högerklicka på den skyddade servern och välj **avregistrera**.
 
-   ![Välja Ta bort](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Välja Ta bort](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrera SQL Server-VM-tillägget
 

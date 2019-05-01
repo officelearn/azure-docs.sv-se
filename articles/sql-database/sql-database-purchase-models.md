@@ -11,30 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360188"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574087"
 ---
-# <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
+# <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Välj mellan vCore- och DTU-inköpsmodellen
 
 Azure SQL Database kan du enkelt köpa helt hanterad PaaS-databasmotor som passar ditt behov av prestanda och kostnader. Beroende på distributionsmodell för Azure SQL Database, kan du välja den inköpsmodellen som passar dina behov:
-
-- [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) (rekommenderas) som gör det möjligt för dig att välja den exakta mängden lagringskapacitet och compute att du behöver för din arbetsbelastning.
-- [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) där du kan välja paketeras beräknings- och paket belastningsutjämnade för vanliga arbetsbelastningar.
 
 Olika inköpschef modeller är tillgängliga i Azure SQL Database-distributionsmodeller:
 
 - Den [enkel databas](sql-database-single-databases-manage.md) och [elastisk pool](sql-database-elastic-pool.md) distributionsalternativ i [Azure SQL Database](sql-database-technical-overview.md) erbjuder både den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 - Den [hanterad instans](sql-database-managed-instance.md) distributionsalternativ i Azure SQL Database erbjuder endast de [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
-> [!IMPORTANT]
-> Den [hyperskala tjänstnivå (förhandsversion)](sql-database-service-tier-hyperscale.md) finns i offentlig förhandsversion endast för enskilda databaser med hjälp av vCore köpa modellen.
 
-Följande tabell och diagrammet Jämför och kontrastera dessa två inköpschef modeller.
+Följande tabell och diagrammet Jämför och kontrastera vCore- och DTU-köpa modeller.
 
 |**Inköpsmodell**|**Beskrivning**|**Bäst för**|
 |---|---|---|
@@ -46,7 +41,10 @@ Följande tabell och diagrammet Jämför och kontrastera dessa två inköpschef 
 
 ## <a name="compute-costs"></a>Beräkna kostnader
 
-Beräkningskostnaden Visar total beräknings-kapacitet som tillhandahålls för programmet. På affärsnivå kritiska-allokera vi automatiskt minst 3 repliker. För att återspegla den här ytterligare tilldelning av beräkningsresurser är priset i den vCore-baserade inköpsmodellen cirka 2.7 x högre på kritiska-affärsnivå än på tjänstnivån generell användning. Av samma anledning visar högre lagringspris per GB på kritiska-affärsnivå hög i/o och låg fördröjning av SSD-lagring. På samma gång är kostnaden för lagring av säkerhetskopior inte skillnaden mellan dessa två tjänstnivåer eftersom i båda fallen använder vi en klass standardlagring.
+### <a name="provisioned-compute-costs"></a>Etablerade beräkningskostnaderna
+
+I den etablerade beräkning-nivån omfattar beräkningskostnaden totala beräkningskapaciteten som tillhandahålls för programmet.  På affärsnivå kritiska-allokera vi automatiskt minst 3 repliker. För att återspegla den här ytterligare tilldelning av beräkningsresurser är priset i den vCore-baserade inköpsmodellen cirka 2.7 x högre på kritiska-affärsnivå än på tjänstnivån generell användning. Av samma anledning visar högre lagringspris per GB på kritiska-affärsnivå hög i/o och låg fördröjning av SSD-lagring. På samma gång är kostnaden för lagring av säkerhetskopior inte skillnaden mellan dessa två tjänstnivåer eftersom i båda fallen använder vi en klass standardlagring.
+
 
 ## <a name="storage-costs"></a>Lagringskostnader
 
@@ -110,7 +108,7 @@ Om du vill migrera en befintlig lokal- eller SQL Server VM-arbetsbelastning till
 
 Pooler lämpar sig för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av ett medelvärde för låg användning med relativt ovanliga användningstoppar. SQL Database utvärderar automatiskt den historiska resursanvändningen för databaser på en befintlig SQL Database-server och rekommenderar lämplig poolkonfiguration på Azure Portal. Mer information finns i [När ska jag använda en elastisk pool?](sql-database-elastic-pool.md)
 
-## <a name="purchase-model-frequently-asked-questions-faq"></a>Inköpsmodell vanliga frågor (och svar FAQ)
+## <a name="purchase-models-frequently-asked-questions-faq"></a>Köpa modeller: vanliga frågor (och svar FAQ)
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Måste jag ta mitt program offline för att konvertera från en DTU-baserad databas till en vCore-baserad tjänstenivå
 

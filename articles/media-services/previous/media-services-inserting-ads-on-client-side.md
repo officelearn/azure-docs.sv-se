@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8b0f5cdcf5a24513b89a2523be71dd74a1a2859b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 8f5cdc33e48d647dba8caeb09b57e233d64712f6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484839"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687736"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Infoga annonser på klientsidan
 Den här artikeln innehåller information om hur du infogar olika typer av annonser på klientsidan.
@@ -170,7 +170,7 @@ Application/x-shockwave-flash-resursen visas i en Flash player.
 
 **IFrameResource** beskriver en HTML-resurs som kan visas i en IFrame. **HTMLResource** beskriver en del av HTML-kod som kan läggas till en webbsida. **TrackingEvents** ange spårningshändelser och URI: N att begära när händelsen inträffar. I det här exemplet spåras händelserna acceptInvitation och Dölj. Mer information om den **NonLinearAds** elementet och dess underordnade Se IAB.NET/VAST. Observera att den **TrackingEvents** element är belägen inom den **NonLinearAds** elementet snarare än **NonLinear** element.
 
-Tillhörande annonser definieras i en `<CompanionAds>` element. Den `<CompanionAds>` element kan innehålla en eller flera `<Companion>` element. Varje `<Companion>` element beskriver en tillhörande ad och kan innehålla en `<StaticResource>`, `<IFrameResource>`, eller `<HTMLResource>` som anges på samma sätt som i en icke-linjära ad. En stor fil kan innehålla flera tillhörande annonser och player-program kan välja den lämpligaste ad för att visa. Läs mer om VAST [stora 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Tillhörande annonser definieras i en `<CompanionAds>` element. Den `<CompanionAds>` element kan innehålla en eller flera `<Companion>` element. Varje `<Companion>` element beskriver en tillhörande ad och kan innehålla en `<StaticResource>`, `<IFrameResource>`, eller `<HTMLResource>` som anges på samma sätt som i en icke-linjära ad. En stor fil kan innehålla flera tillhörande annonser och player-program kan välja den lämpligaste ad för att visa. Läs mer om VAST [stora 3.0](https://www.iab.net/media/file/VASTv3.0.pdf).
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Med hjälp av en Digital Video flera Ad spellistan (VMAP)-fil
 En VMAP-fil kan du ange när ad radbrytningar inträffar, hur lång tid varje break är, hur många annonser kan visas i en radbrytning och vilka typer av annonser kanske visas under ett avbrott. Följande i en exempelfil VMAP som definierar en enda ad-break:
@@ -243,7 +243,7 @@ Den <**AdSource**>-elementet har spelaren ett infogat ad svar eller en referens 
 * `<AdTagURI>` en URI som refererar till ett ad-svar från ett annat system
 * `<CustomAdData>` -en godtycklig sträng som representerar ett icke-stora svar
 
-I det här exemplet anges ett infogat ad-svar med en `<VASTAdData>` element som innehåller ett omfattande ad-svar. Läs mer om de andra elementen [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+I det här exemplet anges ett infogat ad-svar med en `<VASTAdData>` element som innehåller ett omfattande ad-svar. Läs mer om de andra elementen [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
 Den <**AdBreak**> element kan också innehålla en <**TrackingEvents**> element. Den <**TrackingEvents**> element kan du spåra början eller slutet av en ad-break eller om ett fel uppstod under ad-break. Den <**TrackingEvents**> elementet innehåller ett eller flera <**spårning**>-element, som anger en spårningshändelsen och en spårning av URI: N. Möjliga spårningshändelsedefinitionen är:
 
@@ -363,7 +363,7 @@ En körbar ad skapas i koden som måste köras i en körningsmiljö om du till e
     </MediaFiles>
 ```
 
-En körbar ad kan initieras med hjälp av den `<AdParameters>` element i den `<Linear>` eller `<NonLinear>` element i ett ENORMT svar. Mer information om den `<AdParameters>` element, se [stora 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Läs mer om API VPAID [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+En körbar ad kan initieras med hjälp av den `<AdParameters>` element i den `<Linear>` eller `<NonLinear>` element i ett ENORMT svar. Mer information om den `<AdParameters>` element, se [stora 3.0](https://www.iab.net/media/file/VASTv3.0.pdf). Läs mer om API VPAID [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implementera en Windows- eller Windows Phone 8 Player med stöd för Ad
 Microsoft Media Platform: Player Framework för Windows 8 och Windows Phone 8 innehåller en samling av exempelprogram som visar hur du implementerar en videospelare program med hjälp av ramverket. Du kan ladda ned Player Framework och exempel från [Player Framework för Windows 8 och Windows Phone 8](https://playerframework.codeplex.com).

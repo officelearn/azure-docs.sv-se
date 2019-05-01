@@ -13,46 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1264c7e4ebaf5e948e624fa49dc5fb0b4cdb31f0
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734529"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869061"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Kryptera OS och anslutna datadiskar i en VM-skalningsuppsättning med Azure CLI (förhandsversion)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Kryptera OS och anslutna datadiskar i en VM-skalningsuppsättning med Azure CLI
 
 För att skydda och skydda data i vila med branschstandardiserad krypteringsteknik, stöd VM-skalningsuppsättningar för Azure Disk Encryption (ADE). Kryptering kan aktiveras för Linux och Windows VM-skalningsuppsättningar. Mer information finns i [Azure Disk Encryption för Linux och Windows](../security/azure-security-disk-encryption.md).
-
-> [!NOTE]
->  Azure disk encryption för VM-skalningsuppsättningar är för närvarande i offentlig förhandsversion, som är tillgängliga i alla offentliga Azure-regioner.
 
 Azure-diskkryptering stöds:
 - för att skala uppsättningar skapas med hanterade diskar och stöds inte för inbyggda (eller ohanterade) disk scale sets.
 - för OS- och datavolymer i Windows-skalningsuppsättningar. Inaktivera kryptering stöds för OS- och datavolymer för Windows-skalningsuppsättningar.
-- för datavolymer i Linux-skalningsuppsättningar. OS-diskkryptering stöds inte i den aktuella förhandsversionen för Linux-skalningsuppsättningar.
-
-Scale set VM åtgärderna reimage och uppgraderingen åtgärder stöds inte i den aktuella förhandsversionen. Azure-diskkryptering för förhandsversionen av virtual machine scale sets rekommenderas endast i testmiljöer. I förhandsversionen av att inte aktivera diskkryptering i produktionsmiljöer där du kan behöva uppgradera en OS-avbildning i en krypterad skalningsuppsättning.
+- för datavolymer i Linux-skalningsuppsättningar. OS-diskkryptering stöds inte för Linux-skalningsuppsättningar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
-
-## <a name="register-for-disk-encryption-preview"></a>Registrera dig för förhandsversion för kryptering av disk
-
-Azure-diskkryptering för VM-skalningsuppsättningar förhandsversion måste du registrera din prenumeration med [az funktionen registrera](/cli/azure/feature). Du behöver bara utföra följande steg första gången du använder förhandsgranskningsfunktionen disk kryptering:
-
-```azurecli-interactive
-az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
-```
-
-Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [az funktionen show](/cli/azure/feature). När den `State` rapporter *registrerad*, registrera den *Microsoft.Compute* provider med [az provider register](/cli/azure/provider):
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
 
@@ -135,6 +116,30 @@ Det kan ta en minut eller två att starta krypteringsprocessen.
 
 Eftersom skalningsuppsättningen är uppgraderingsprincip på skalningsuppsättningen som skapades i ett tidigare steg har angetts till *automatisk*, VM-instanser automatiskt starta krypteringsprocessen. Scale sets där uppgraderingsprincipen är att manuellt starta krypteringsprincipen på VM-instanser med [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Aktivera kryptering med hjälp av KEK du omsluter nyckeln
+
+Du kan också använda en krypteringsnyckel för ökad säkerhet när du krypterar virtuella datorns skalningsuppsättning.
+
+```azurecli-interactive
+# Get the resource ID of the Key Vault
+vaultResourceId=$(az keyvault show --resource-group myResourceGroup --name $keyvault_name --query id -o tsv)
+
+# Enable encryption of the data disks in a scale set
+az vmss encryption enable \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --disk-encryption-keyvault $vaultResourceId \
+    --key-encryption-key myKEK \
+    --key-encryption-keyvault $vaultResourceId \
+    --volume-type DATA
+```
+
+> [!NOTE]
+>  Syntaxen för värdet för disk-kryptering-keyvault-parametern är fullständig ID-sträng:</br>
+/ subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> Syntaxen för värdet för parametern krypteringsnyckel-är den fullständiga URI som KEK som i:</br>
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+
 ## <a name="check-encryption-progress"></a>Kontrollera förloppet för kryptering
 
 Du kan kontrollera statusen för diskkryptering genom att använda [az vmss kryptering show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
@@ -180,6 +185,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln används Azure CLI för att kryptera en VM-skalningsuppsättning. Du kan också använda [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) eller mallar för [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) eller [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
-
-En slutpunkt till batch-filen exempel på disken för Linux scale set datakryptering finns [här](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Det här exemplet skapar en resursgrupp, en Linux-skalningsuppsättning, monterar en datadisk på 5 GB och krypterar virtuella datorns skalningsuppsättning.
+- I den här artikeln används Azure CLI för att kryptera en VM-skalningsuppsättning. Du kan också använda [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) eller mallar för [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) eller [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+- Om du vill att Azure Disk Encryption tillämpas när ytterligare ett tillägg har etablerats kan du använda [ordningsföljd för](virtual-machine-scale-sets-extension-sequencing.md). Du kan använda [dessa exempel](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) att komma igång.
+- En slutpunkt till batch-filen exempel på disken för Linux scale set datakryptering finns [här](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Det här exemplet skapar en resursgrupp, en Linux-skalningsuppsättning, monterar en datadisk på 5 GB och krypterar virtuella datorns skalningsuppsättning.

@@ -10,16 +10,16 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9e01ba8ae53dbcca686a9844600a5df416a685ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 33c6f9e06439ebeb17608aa374532ac4f7a020cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317368"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701361"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Vad är Azure Active Directory B2C?
 
-Azure Active Directory (Azure AD) B2C är en identitetshanteringstjänst. Med den här tjänsten kan du anpassa och styra hur användarna på ett säkert sätt samverkar med webb-, skrivbords-, mobil- eller ensidesapplikationer. Med Azure AD B2C kan användarna registrera sig, logga in, återställa lösenord och redigera profiler. Azure AD B2C implementerar en form av OpenID Connect- och OAuth 2.0-protokoll. Det viktigaste i implementeringen av dessa protokoll är de säkerhetstokens och deras anspråk som gör det möjligt att ge säker åtkomst till resurser.
+Azure Active Directory (Azure AD) B2C är en business-to-consumer identity management-tjänsten. Med den här tjänsten kan du anpassa och styra hur användarna på ett säkert sätt samverkar med webb-, skrivbords-, mobil- eller ensidesapplikationer. Med Azure AD B2C kan användarna registrera sig, logga in, återställa lösenord och redigera profiler. Azure AD B2C implementerar en form av OpenID Connect- och OAuth 2.0-protokoll. Det viktigaste i implementeringen av dessa protokoll är de säkerhetstokens och deras anspråk som gör det möjligt att ge säker åtkomst till resurser.
 
 En *användarresa* är en begäran som anger en princip, vilken styr beteendet för hur användaren och programmet interagerar med Azure AD B2C. Det finns två tillgängliga sökvägar som du kan använda för att definiera användarresor i Azure AD B2C. 
 

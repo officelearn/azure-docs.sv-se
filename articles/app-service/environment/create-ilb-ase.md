@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765066"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573565"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -56,7 +56,7 @@ Det finns några saker som du inte kan göra när du använder en ILB ASE:
 
 Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
-1. På Azure-portalen väljer du  **Skapa en resurs** > **Webb** > **App Service-miljön**.
+1. I Azure-portalen väljer du **Skapa en resurs** > **Webb** > **App Service Environment**.
 
 2. Välj din prenumeration.
 
@@ -66,7 +66,7 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
 5. Om du väljer ett befintligt VNet måste du skapa ett undernät för att rymma ASE. Se till att undernätets storlek är tillräckligt stort för att rymma kommande ASE-tillväxt. Vi rekommenderar en storlek på `/24`, som har 256 adresser och kan hantera en ASE med maximal storlek och olika skalningsbehov. 
 
-6. Välj  **Virtuellt nätverk/plats** > **Konfiguration av virtuellt nätverk**. Ställ in **VIP-typ** på **Intern**.
+6. Välj **Virtuellt nätverk/plats** > **Konfiguration av virtuellt nätverk**  Ställ in **VIP-typ** på **Intern**.
 
 7. Ange ett domännamn. Den här domänen är den som används för appar som har skapats i denna ASE. Det finns vissa begränsningar. Det kan inte vara:
 
@@ -96,14 +96,14 @@ På bladet **Virtuellt nätverk** finns alternativet **Konfiguration av virtuell
 
 När du har valt **Intern** tas möjligheten att lägga till fler IP-adresser till din ASE bort. Istället måste du ange domänen för ASE. I en ASE med extern VIP används ASE-namnet i domänen för appar som skapats i denna ASE.
 
-Om du ställer in **VIP-typ** på **Intern** används inte ditt ASE-namn i ASE-domänen. Du anger domänen uttryckligen. Om din domän är *contoso.corp.net*  och du skapar en app i den ASE:n med namnet  *timereporting* är appens URL-adress timereporting.contoso.corp.net.
+Om du ställer in **VIP-typ** på **Intern** används inte ditt ASE-namn i ASE-domänen. Du anger domänen uttryckligen. Om din domän är *contoso.corp.net* och du skapar en app i den ASE:n med namnet *timereporting* är appens URL-adress timereporting.contoso.corp.net.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Skapa en app i en ILB ASE ##
 
 Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanligtvis.
 
-1. På Azure-portalen väljer du  **Skapa en resurs** > **Webb och mobilt** > **Webbapp**.
+1. I Azure Portal väljer du **Skapa en resurs** > **Webb och mobilt** > **Webbapp**.
 
 1. Ange appens namn.
 
@@ -117,7 +117,7 @@ Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanl
 
 1. Välj eller skapa en App Service plan. Om du vill skapa en ny App Service plan väljer du ASE som plats. Välj den arbetarpool där du vill att din App Service plan ska skapas. När du skapar din App Service plan ska du välja din ASE som plats och arbetarpoolen. När du anger namnet på appen ersätts domänen under ditt appnamn med ASE-domänen.
 
-1. Välj **Skapa**. Om du vill att appen ska visas på instrumentpanelen markerar du kryssrutan  **Fäst på instrumentpanelen** .
+1. Välj **Skapa**. Om du vill att appen ska visas på instrumentpanelen ska du markera kryssrutan **Fäst på instrumentpanelen**.
 
     ![Skapa App Service plan][2]
 
@@ -127,7 +127,7 @@ Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanl
 
 En ILB ASE skiljer sig något från en icke-ILB ASE. Du måste hantera din egen DNS som redan anges. Du måste också tillhandahålla ditt eget certifikat för HTTPS-anslutningar.
 
-När du har skapat din ASE visar domännamnet den domän du angav. Ett nytt objekt visas på menyn **Inställning** med namnet **ILB-certifikat**. ASE skapas med ett certifikat som inte anger ILB ASE-domän. Om du använder en ASE med det certifikatet informerar webbläsaren om att det är ogiltigt. Det här certifikatet gör det lättare att testa HTTPS, men du måste ladda upp ditt eget certifikat som är bundet till din ILB ASE-domän. Det här steget är nödvändigt oavsett om certifikatet är självsignerat eller förvärvas från en certifikatutfärdare.
+När du har skapat din ASE visar domännamnet den domän du angav. Ett nytt objekt visas på menyn **Inställning** med namnet **ILB-certifikat**. ASE skapas med ett certifikat som inte anger ILB ASE-domän. Om du använder en ASE med det certifikatet informerar webbläsaren om att det är ogiltigt. Det här certifikatet gör det lättare att testa HTTPS, men du måste ladda upp ditt eget certifikat som är bundet till din ILB ASE-domän. Det här steget är nödvändigt oavsett om certifikatet är självsignerat eller förvärvas från en certifikatutfärdare.
 
 ![ILB ASE-domännamn][3]
 
@@ -154,7 +154,7 @@ Certifikatet som dessa PowerShell-kommandon genererar flaggas av webbläsare eft
 
 Så här laddar du upp egna certifikat och testar åtkomst:
 
-1. När ASE har skapats går du till ASE UI. Välj **ASE** > **Inställningar** > **ILB-certifikat**.
+1. När ASE har skapats går du till ASE UI. Välj **ASE** > **Inställningar** > **ILB-certifikat**.
 
 1. Du anger ILB-certifikat genom att välja filen certificate .pfx och ange lösenordet. Det här steget tar tid att bearbeta. Det visas ett meddelande om att en överföring pågår.
 

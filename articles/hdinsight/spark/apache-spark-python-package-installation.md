@@ -2,18 +2,17 @@
 title: Skriptåtgärd – installera Python-paket med Jupyter på Azure HDInsight
 description: Stegvisa instruktioner om hur du använder skriptåtgärd till att konfigurera Jupyter-anteckningsböcker som är tillgängliga med HDInsight Spark-kluster att använda externa python-paket.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 876037e0e8e795ca98ddd3adf74dd0a304192a35
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/22/2019
+ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097921"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574656"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter notebook i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -75,10 +74,10 @@ Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDIn
 
     ```bash
     #!/usr/bin/env bash
-    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
+    /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. Välj **Skapa**.  Gå till dokumentationen på [hur du använder anpassade skriptåtgärder](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+5. Välj **Skapa**.  Gå till dokumentationen på [hur du använder anpassade skriptåtgärder](../hdinsight-hadoop-customize-cluster-linux.md).
 
 6. Vänta på att skriptet ska slutföras.  Den **skriptåtgärder** fönstret kommer tillstånd **kan skicka nya skriptåtgärder efter den aktuella klusteråtgärden har slutförts** medan skriptet körs.  En förloppsindikator visas från Ambari UI **bakgrundsåtgärder** fönster.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692739"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574395"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Skapa en butikslokaliserare med hjälp av Azure Maps
 
@@ -71,7 +71,7 @@ Trådblocken visar ett ganska enkelt program. Programmet har en sökruta, en lis
 
 ## <a name="create-the-store-location-dataset"></a>Skapa datauppsättning för lagringsplats
 
-Innan vi skapar ett program för butikslokaliserare måste vi skapa en datauppsättning för butikerna vi vill ska visas på kartan. I den här självstudien använder vi en datauppsättning för ett fiktivt kafé som heter Contoso Coffee. Datauppsättningen för den här enkla butikslokaliseraren hanteras i en Excel-arbetsbok. Datauppsättningen innehåller 10 213 Contoso Coffee-platser som är utspridda i nio länder/regioner: USA, Kanada, Storbritannien, Frankrike, Tyskland, Italien, Nederländerna, Danmark och Spanien. Här är en skärmbild av hur data ser ut:
+Innan vi skapar ett program för butikslokaliserare måste vi skapa en datauppsättning för butikerna vi vill ska visas på kartan. I den här självstudien använder vi en datauppsättning för ett fiktivt kafé som heter Contoso Coffee. Datauppsättningen för den här enkla butikslokaliseraren hanteras i en Excel-arbetsbok. Datauppsättningen innehåller 10,213 Contoso kaffe kafé platser sprids nio länder/regioner: USA, Kanada, Storbritannien, Frankrike, Tyskland, Italien, Nederländerna, Danmark och Spanien. Här är en skärmbild av hur data ser ut:
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till Jav
 
 1. Lägg till kod till *index.js*. Följande kod initierar kartan, lägger till en [händelselyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) som väntar tills sidan har lästs in färdigt, ställer in händelser för att övervaka inläsningen av kartan och driver sökknappen och My Location-knappen (Min plats).
 
-   När användaren väljer sökknappen, eller när användaren trycker på RETUR efter att ha angett en plats i sökrutan, initieras en fuzzy-sökning mot användarens fråga. Skicka in en matris för länder med ISO 2-värden till alternativet `countrySet` om du vill begränsa sökresultaten till dessa länder. Om du begränsar länderna som ska sökas igenom ökar noggrannheten för resultaten som returneras. 
+   När användaren väljer sökknappen, eller när användaren trycker på RETUR efter att ha angett en plats i sökrutan, initieras en fuzzy-sökning mot användarens fråga. Skicka in en värdematris land ISO 2 till den `countrySet` alternativet om du vill begränsa sökresultaten till dessa länder/regioner. Begränsa de länder/regionerna för att söka hjälper till att öka noggrannheten för resultaten som returneras. 
   
    När sökningen är klar tar du det första resultatet och ställer in kameran på kartan över det området. När användaren väljer knappen My Location (Min plats) använder du HTML5-Geolocation-API:et som är inbyggt i webbläsaren om du vill hämta användarens plats och centrera kartan över deras plats.  
 

@@ -11,20 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357942"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572676"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid-förmånen och migrering
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Välj bland de vCore-servicenivåerna och migrera från DTU-tjänstnivåer
 
 Den vCore-baserade inköpsmodellen kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris. Du kan också välja maskinvarusystem:
 
 - Gen4 – upp till 24 logiska processorer som baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, vCore = 1 sidor (fysiska kärnor), 7 GB per kärna, anslutna SSD
 - Gen5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.1 GB per kärna, snabb eNVM SSD
+
 
 Gen4 maskinvara erbjuder betydligt mer minne per vCore. Gen5 maskinvara kan du skala upp beräkningsresurserna som är mycket högre.
 
@@ -40,9 +41,9 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan de tre nivåerna:
 ||**Generell användning**|**Affärskritisk**|**Hyperskala (förhandsversion)**|
 |---|---|---|---|
 |Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|De flesta företags arbetsbelastningar med mycket skalbar lagring och läs-och skalningskrav|
-|Compute|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
-|Minne|Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna |Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna|
-|Storage|Använder Fjärrlagring:<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB - 8 TB |Använder lokal SSD-lagring:<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB - 4 TB |Flexibel, automatisk storleksökning av lagring vid behov. Har stöd för upp till 100 TB lagring och mycket mer. Lokal SSD-lagring för lokala buffertminne för poolen och lokal datalagring. Azure Fjärrlagring sista långsiktig datalagring. |
+|Processor|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore<br/>**Beräkning utan Server**<br/>Gen5: 0,5 – 4 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|**Etablerad beräkning**:<br/>Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
+|Minne|**Etablerad beräkning**:<br/>Gen4: 7 GB per kärna<br/>Gen5: 5.1 GB per kärna<br/>**Beräkning utan Server**<br/>Gen5: 3 GB per kärna|**Etablerad beräkning**:<br/>Gen4: 7 GB per kärna<br/>Gen5: 5.1 GB per kärna |**Etablerad beräkning**:<br/>Gen4: 7 GB per kärna<br/>Gen5: 5.1 GB per kärna|
+|Storage|Använder Fjärrlagring:<br/>**Enkel databas etablerad beräkning**:<br/>5 GB – 4 TB<br/>**Beräkning för enkel databas utan Server**:<br/>5 GB - 1 TB<br/>**Hanterad instans**: 32 GB - 8 TB |Använder lokal SSD-lagring:<br/>**Enkel databas etablerad beräkning**:<br/>5 GB – 4 TB<br/>**Hanterad instans**:<br/>32 GB - 4 TB |Flexibel, automatisk storleksökning av lagring vid behov. Har stöd för upp till 100 TB lagring och mycket mer. Lokal SSD-lagring för lokala buffertminne för poolen och lokal datalagring. Azure Fjärrlagring sista långsiktig datalagring. |
 |I/o-genomströmning (ungefärlig)|Databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200 000 högsta IOPS|TBD|
 |Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|?|
 |Säkerhetskopior|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|ögonblicksbild-baserad säkerhetskopiering i Azure Fjärrlagring och återställningar kan du använda de här ögonblicksbilderna för snabb återställning. Säkerhetskopior är omedelbara och påverkar inte i/o-prestanda för databearbetning. Återställningar är mycket snabbt och är inte en storlek på data igen (tar några minuter i stället för timmar eller dagar).|
@@ -56,16 +57,18 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan de tre nivåerna:
 - Läs mer om tjänstnivåer för generell användning och affärskritisk [tjänstnivåer för generell användning och affärskritisk](sql-database-service-tiers-general-purpose-business-critical.md).
 - Mer information om tjänstnivån hyperskala i den vCore-baserade inköpsmodellen finns [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md).  
 
-> [!IMPORTANT]
-> Om du behöver mindre än 1 vCore för beräkningskapacitet kan använda den DTU-baserade inköpsmodellen.
+
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid-förmån
 
-I den vCore-baserade inköpsmodellen, kan du byta dina befintliga licenser för rabatterade priser på SQL-databas med hjälp av den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Den här Azure-förmån kan du använda en lokal SQL Server-licenser för att spara upp till 30% på Azure SQL Database med hjälp av en lokal SQL Server-licenser med Software Assurance.
+I den etablerade datornivån av den vCore-baserade inköpsmodellen kan du byta dina befintliga licenser för rabatterade priser på SQL-databas med hjälp av den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Den här Azure-förmån kan du använda en lokal SQL Server-licenser för att spara upp till 30% på Azure SQL Database med hjälp av en lokal SQL Server-licenser med Software Assurance.
 
 ![prissättning](./media/sql-database-service-tiers/pricing.png)
 
-Med Azure Hybrid-förmånen kan du betalar bara för underliggande Azure-infrastrukturen med din befintliga SQL Server-licens för SQL database engine själva (**BasePrice**) eller betala för både den underliggande infrastrukturen och SQL Server-licens (**LicenseIncluded**). Du kan välja eller ändra licensieringsmodellen med Azure portal eller med någon av följande API: er.
+Med Azure Hybrid-förmånen kan du betalar bara för underliggande Azure-infrastrukturen med din befintliga SQL Server-licens för SQL database engine själva (**BasePrice**) eller betala för både den underliggande infrastrukturen och SQL Server-licens (**LicenseIncluded**).
+
+
+Du kan välja eller ändra licensieringsmodellen med Azure portal eller med någon av följande API: er.
 
 - Att ställa in eller uppdatera licenstypen med hjälp av PowerShell:
 
@@ -130,5 +133,5 @@ Du kan kopiera en databas med lämplig storlek i DTU-baserad beräkning till en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att få information om specifika storlekar och lagring som kan användas för enkel databas, finns i [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- För att få information om specifika storlekar och lagring som kan användas för enkel databas, finns i [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md)
 - För att få information om specifika storlekar och lagring som kan användas för elastiska pooler, se [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

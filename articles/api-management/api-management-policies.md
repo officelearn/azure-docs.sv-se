@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762855"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699005"
 ---
 # <a name="api-management-policies"></a>API Management-principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](api-management-howto-policies.md).  

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799345"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691419"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema och data aggregering i trafikanalys
 
@@ -35,7 +35,7 @@ Trafikanalys är en molnbaserad lösning som ger insyn i användar- och aktivite
 1. Alla flödesloggar på en NSG mellan ”FlowIntervalStartTime_t” och ”FlowIntervalEndTime_t” som avbildas med minuts intervall i lagringskontot som blobar innan den bearbetas av trafikanalys. 
 2. Standardintervallet för bearbetning av trafikanalys är 60 minuter. Det innebär att varje 60 min Traffic Analytics hämtar blobbar från lagring för aggregering.
 3. Flöden som har samma käll-IP, mål-IP, målport, NSG-namnet, NSG-regel, Flow riktning och Transport layer protocol (TCP eller UDP) (Observera: Källporten är exkluderad för aggregering) är clubbed i ett enda flöde av trafikanalys
-4. Den här enda posten är dekorerad (information finns i avsnittet nedan) och matas in i Log Analytics genom trafikanalys.
+4. Den här enda posten är dekorerad (information i avsnittet nedan) och infogade i Log Analytics genom att trafiken Analytics.This processen kan ta upp till 1 timme max.
 5. FlowStartTime_t fältet anger den första förekomsten av sådana ett sammansatt flöde (samma fyra-tuppel) i flow-loggen bearbetades intervall mellan ”FlowIntervalStartTime_t” och ”FlowIntervalEndTime_t”. 
 6. För alla resurser i TA de flöden som anges i Användargränssnittet är totalt antal flöden som setts av NSG: N, men i loggen Anlaytics användaren ser endast den enda, minska posten. Om du vill se alla flöden, använder du fältet blob_id som kan refereras från Storage. Det totala flödet räknas för att posten kommer att matcha de enskilda flöden som visas i blobben.
 
@@ -60,7 +60,7 @@ Nedan visas fälten i schemat och vad de en obestämd
 | SrcIP_s | Källans IP-adress | Tom vid AzurePublic och ExternalPublic flöden |
 | DestIP_s | Mål-IP-adress | Tom vid AzurePublic och ExternalPublic flöden |
 | VMIP_s | IP-Adressen för den virtuella datorn | Används för AzurePublic och ExternalPublic flöden |
-| PublicIP_S | Offentliga IP-adresser | Används för AzurePublic och ExternalPublic flöden |
+| PublicIP_s | Offentliga IP-adresser | Används för AzurePublic och ExternalPublic flöden |
 | DestPort_d | Målport | Porten som är inkommande trafik | 
 | L4Protocol_s  | * T <br> * U  | Transport-protokoll. T = TCP <br> U = UDP | 
 | L7Protocol_s  | Protokollnamn | Härleds från målport |
@@ -121,6 +121,7 @@ Nedan visas fälten i schemat och vad de en obestämd
 1. MaliciousFlow - en av IP-adresser tillhör azure-nätverk medan den andra IP-adressen är en offentlig IP-adress som inte är i Azure och har rapporterats som skadlig i ASC-flöden som trafikanalys förbrukar för bearbetning av intervallet mellan ” FlowIntervalStartTime_t ”och” FlowIntervalEndTime_t ”. 
 1. UnknownPrivate - en av IP-adresser tillhör Azure Virtual Network medan den andra IP-adressen tillhör intervall för privata IP-adresser som definieras i RFC 1918 och gick inte att mappa av trafikanalys till kundägda plats eller Azure Virtual Network.
 1. Okänd – det går inte att mappa något av IP-adresser i flöden med kunden i Azure samt lokalt (plats).
+1. Vissa fältnamn läggs med _s eller _d. Dessa inte tillkännage käll- och målservrar.
 
 ### <a name="next-steps"></a>Nästa steg
 Om du vill få svar på vanliga frågor och svar, se [Traffic analytics vanliga frågor och svar](traffic-analytics-faq.md) information om funktionerna finns i [Traffic analytics-dokumentation](traffic-analytics.md)

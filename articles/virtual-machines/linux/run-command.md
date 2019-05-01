@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772084"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570592"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Köra shell-skript i Linux-VM med Kör kommando
 
@@ -78,9 +78,9 @@ Den här tabellen visas listan över kommandon som är tillgängliga för virtue
 
 ## <a name="limiting-access-to-run-command"></a>Begränsa åtkomsten till kommandot Kör
 
-Lista kör kommandon eller som visar information om ett kommando kräver den `Microsoft.Compute/locations/runCommands/read` behörighet, som inbyggt [läsare](../../role-based-access-control/built-in-roles.md#reader) rollen och ha högre.
+Lista kör kommandon eller som visar information om ett kommando kräver den `Microsoft.Compute/locations/runCommands/read` behörighet på prenumerationsnivån, som inbyggt [läsare](../../role-based-access-control/built-in-roles.md#reader) rollen och ha högre.
 
-När du kör ett kommando måste den `Microsoft.Compute/virtualMachines/runCommand/action` behörighet, som den [deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rollen och ha högre.
+När du kör ett kommando måste den `Microsoft.Compute/virtualMachines/runCommand/action` behörighet på prenumerationsnivån, som den [virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rollen och ha högre.
 
 Du kan använda en av de [inbyggda](../../role-based-access-control/built-in-roles.md) roller eller skapa en [anpassade](../../role-based-access-control/custom-roles.md) roll som ska användas kör kommandot.
 

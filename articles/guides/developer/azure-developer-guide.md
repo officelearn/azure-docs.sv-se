@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921782"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570562"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -199,7 +199,7 @@ Azure är en global molnplattform som är allmänt tillgängligt i många region
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Välj den bästa regionen för dina program och data
 
-En av fördelarna med att använda Azure är att du kan distribuera program till olika Datacenter runtom i världen. Den region som du väljer kan påverka programmets prestanda. Exempelvis är det bättre att välja en region som ligger närmast de flesta av dina kunder att minska svarstiden i nätverksbegäranden. Du kanske också vill välja din region för att uppfylla juridiska krav för att distribuera din app i vissa länder. Det är alltid en bra idé att lagra programdata i samma datacenter eller i ett datacenter som nära som möjligt i datacentret som är värd för ditt program.
+En av fördelarna med att använda Azure är att du kan distribuera program till olika Datacenter runtom i världen. Den region som du väljer kan påverka programmets prestanda. Exempelvis är det bättre att välja en region som ligger närmast de flesta av dina kunder att minska svarstiden i nätverksbegäranden. Du kanske också vill välja din region för att uppfylla juridiska krav för att distribuera din app i vissa länder/regioner. Det är alltid en bra idé att lagra programdata i samma datacenter eller i ett datacenter som nära som möjligt i datacentret som är värd för ditt program.
 
 ### <a name="multi-region-apps"></a>Appar för flera regioner
 

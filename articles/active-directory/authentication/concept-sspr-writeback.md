@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415012"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694842"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösenord?
 
@@ -85,9 +85,6 @@ När en federerad eller lösenord hash synkroniserade användare försöker åte
    * Länken från Active Directory connector-objektet till MV måste ha synkroniseringsregeln `Microsoft.InfromADUserAccountEnabled.xxx` på länken.
    
    När anropet strömmar in från molnet, Synkroniseringsmotorn använder den **Molnakarvärde** attribut för att leta upp anslutarplatsen som Azure Active Directory. Den sedan följer länken till MV-objekt och sedan följer länken till Active Directory-objektet. Eftersom det kan finnas flera Active Directory-objekt (flera skogar) för samma användare, Synkroniseringsmotorn förlitar sig på den `Microsoft.InfromADUserAccountEnabled.xxx` länk för att välja rätt.
-
-   > [!Note]
-   > Till följd av den här logiken för lösenord måste tillbakaskrivning ska fungera Azure AD Connect kunna kommunicera med primära domänkontrollantens (PDC) emulator. Om du vill aktivera det manuellt kan ansluta du Azure AD Connect till PDC-emulatorn. Högerklicka på den **egenskaper** för Active Directory-anslutningsappen för synkronisering Välj **konfigurera katalogpartitioner**. Därifrån kan du leta efter den **domänkontrollanten** avsnittet och markerar du kryssrutan som heter **endast använda prioriterade domänkontrollanter**. Även om den prioriterade domänkontrollanten inte är en PDC-emulator, försöker Azure AD Connect ansluta till PDC för tillbakaskrivning av lösenord.
 
 1. När användaren hittas konto, görs ett försök att återställa lösenordet direkt i rätt Active Directory-skogen.
 1. Om uppsättningsåtgärd som lösenord lyckas användaren är ett meddelande om att deras lösenord har ändrats.

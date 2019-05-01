@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e1f94b7b2ab71afaa40831446e5e5aede00db7b1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365068"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570847"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Skapa och ändra peering för en ExpressRoute-krets
 
@@ -91,7 +91,7 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microso
 
 ### <a name="getmsft"></a>Så här visar du Microsofts peering-information
 
-Du kan visa egenskaperna för Azures offentliga peering genom att välja den peeringen.
+Du kan visa egenskaperna för Microsoft-peering genom att välja den peeringen.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
@@ -159,6 +159,10 @@ Du kan ta bort peering-konfigurationen genom att välja ikonen Ta bort enligt f�
 ## <a name="public"></a>Azures offentliga peering
 
 Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures offentliga peeringskonfiguration för en ExpressRoute-krets.
+
+> [!Note]
+> Azures offentliga peering är inaktuell för nya kretsar. Mer information finns i [ExpressRoute-peering](expressroute-circuit-peerings.md).
+>
 
 ### <a name="to-create-azure-public-peering"></a>Så här skapar du Azures offentliga peering
 

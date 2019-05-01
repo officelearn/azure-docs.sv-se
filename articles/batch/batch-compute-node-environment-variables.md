@@ -1,6 +1,6 @@
 ---
-title: Azure Batch - miljövariabler beräkningsnod | Microsoft Docs
-description: Beräkna nod miljö variabelreferens för Azure Batch-analyser.
+title: Runtime-miljö variabler – Azure Batch | Microsoft Docs
+description: Uppgiften runtime environment variabeln vägledning och referens för Azure Batch-analyser.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782239"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575580"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch compute miljövariabler
+# <a name="azure-batch-runtime-environment-variables"></a>Miljövariabler för Azure Batch-körning
 
 Den [Azure Batch-tjänsten](https://azure.microsoft.com/services/batch/) anger följande miljövariabler för beräkningsnoder. Du kan referera till dessa miljövariabler i aktivitetens kommandorader och i program och skript som körs av kommandoraderna.
 
@@ -28,6 +28,12 @@ Mer information om hur du använder miljövariabler med Batch finns i [miljöins
 ## <a name="environment-variable-visibility"></a>Variabeln synlighet för miljö
 
 Dessa miljövariabler syns bara i samband med den **aktivitetsanvändaren**, användarkonto på noden som en aktivitet körs. Du ser dem *inte* om du [fjärransluter](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) till en beräkningsnod via RDP (Remote Desktop Protocol) eller SSH (Secure Shell) och visar en lista över miljövariablerna. Det beror på att användarkontot som används för fjärranslutning inte är samma som det konto som används av aktiviteten.
+
+För att få det aktuella värdet för en miljövariabel kan starta `cmd.exe` på en Windows beräkningsnod eller `/bin/sh` på en Linux-nod:
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Kommandoradsverktyget expansion av miljövariabler
 

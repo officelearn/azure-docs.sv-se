@@ -9,28 +9,33 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: fbf347ceb3ccae4802c984a2737c2298a4e43e72
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: a742e9f235812cdbdafdcb0a39581e0779fcd040
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760105"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572924"
 ---
-# <a name="azure-time-series-insights-preview-overview"></a>Översikt av Azure Time Series Insights förhandsversion
+# <a name="the-azure-time-series-insights-preview"></a>Förhandsversion av Azure Time Series Insights
 
-Azure Time Series Insights förhandsversion är ett erbjudande för slutpunkt till slutpunkt-plattform som tjänst. Det används för att mata in, bearbeta, lagra och köra frågor på höggradigt sammanhangsbaserade, tidsserieoptimerade IoT-skalningsdata. Time Series Insights är perfekt för operativa analys och undersökning av ad hoc-data. Time Series Insights är en unikt utbyggbar och anpassad tjänst som uppfyller de omfattande behoven för industriella IoT-distributioner.
+Azure Time Series Insights förhandsversion är ett erbjudande för slutpunkt till slutpunkt-plattform som tjänst. Den används för att samla in, bearbeta, lagra, analysera och fråga efter data med mycket contextualized, tid-serien – optimerad IoT-skala. Time Series Insights är perfekt för operativa analys och undersökning av ad hoc-data. Time Series Insights är en unikt utbyggbar och anpassad tjänst som uppfyller de omfattande behoven för industriella IoT-distributioner.
+
+> [!TIP]
+> Funktioner i allmänhet tillgängliga, finns det [översikt över Azure Time Series Insights GA](time-series-insights-overview.md).
 
 ## <a name="video"></a>Video
 
-I den här videon ger vi en översikt över Azure Time Series Insights förhandsversion, en molnbaserad IoT-analysplattform.
+### <a name="learn-more-about-the-azure-time-series-insights-preview-br"></a>Läs mer om Azure Time Series Insights Preview. </br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## <a name="define-iot-data"></a>Definiera IoT-data
 
-IoT-data är alla ”industriella” data som finns i resursintensiva organisationer. IoT-data är ofta mycket ostrukturerade eftersom de skickas från tillgångar som registrerar mått med ganska mycket störningar. De här mätningarna inkluderar temperatur, rörelser och luftfuktighet. Dessa dataströmmar kännetecknas ofta av stora luckor, skadade meddelanden och falska värden. Data från dessa strömmar måste rensas innan någon analys kan ske. IoT-data är ofta bara betydelsefullt i samband med ytterligare datainmatningar som kommer från första partskällor, till exempel CRM eller ERP. Inmatningar kan också komma från datakällor från tredje part, till exempel väder eller plats.
+IoT-data är industriella data som finns i tillgången-intensiva organisationer. IoT-data är ofta mycket ostrukturerade eftersom de skickas från tillgångar som registrerar mått med ganska mycket störningar. De här mätningarna inkluderar temperatur, rörelser och luftfuktighet. Dessa dataströmmar kännetecknas ofta av stora luckor, skadade meddelanden och falska värden. Data från dessa strömmar måste rensas innan någon analys kan ske.
+
+IoT-data är ofta bara betydelsefullt i samband med ytterligare datainmatningar som kommer från första partskällor, till exempel CRM eller ERP. Inmatningar kan också komma från datakällor från tredje part, till exempel väder eller plats.
 
 Därför används bara en bråkdel av dessa data för drifts- och affärsbehov. Sådana data ger konsekvent, omfattande, aktuell och korrekt information för företagsrapportering och -analys. Omvandlingen av insamlad IoT-data till användbara insikter kräver:
 
@@ -46,8 +51,8 @@ Ett typiskt IoT-dataflödet visas i den efterföljande bilden.
 
 Dagens IoT datalandskap är mångskiftande. Kunder från branscher inom tillverkning, fordon, energi, allmännyttiga tjänster, smarta byggnader och konsultverksamhet. Scenarier är ad hoc-datagranskning där form av data är okänd. Scenarier innefattar också operativ analys schematiserade eller uttryckligen modellerade data för att driva operativ effektivitet. Dessa scenarier finns normalt bredvid varandra och stöder olika användningsfall. Plattformsfunktioner som är nyckeln till framgång för industriella IoT-företag och deras digitala revolution är:
 
-- Flera lager lagring, både varma och kalla. 
-- Möjligheten att lagra decennier av Time Series-data. 
+- Flera lager lagring, både varma och kalla.
+- Möjligheten att lagra decennier av Time Series-data.
 - Möjligheten att uttryckligen modellera och optimera frågor för tillgångsbaserad driftsinformation.
 
 Time Series Insights är en heltäckande plattform som en tjänst slutpunkt till slutpunkt för IoT-datagranskning och åtgärdsinformation. Time Series Insights är en fullständigt hanterad molntjänst för analys av tidsseriedata i IoT-skala.

@@ -1,54 +1,58 @@
 ---
 title: Övervaka behållare i Azure Container Instances
-description: Information om hur du övervakar användningen av beräkningsresurser som CPU och minne genom behållare i Azure Container Instances.
+description: Så här övervakar du förbrukningen av beräkningsresurser som CPU och minne genom dina behållare i Azure Container Instances.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 04/24/2018
+ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 950d8b4b5ec1a55e2054039a01d6807915b5c714
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7b46ea0518038eeb908591b8438acc2a9095242c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580177"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570936"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Övervaka behållarresurser i Azure Container Instances
 
-Azure Monitor ger inblick i de beräkningsresurser som används av containerinstanserna. Använd Azure Monitor till att spåra CPU- och minnesanvändningen för containergrupper och deras containrar. Dessa resursanvändningsdata hjälper dig att avgöra de bästa inställningarna för CPU och minne för containergrupper.
+[Azure Monitor] [ azure-monitoring] ger insikt i de beräkningsresurser som används av containers-instanser. Den här resursanvändningsdata hjälper dig att avgöra bästa resursinställningarna för din behållargrupper. Azure Monitor innehåller också mått som spårar nätverksaktivitet i container instances.
 
-Det här dokumentet beskriver insamlingen av CPU- och minnesanvändning för containerinstanser med både Azure Portal och Azure CLI.
+Det här dokumentet beskriver samlar in Azure Monitor-mått för container instances med både Azure-portalen och Azure CLI.
 
 > [!IMPORTANT]
-> För tillfället är bara resursanvändningsstatistik tillgänglig för Linux-containrar.
->
+> Azure Monitor-mått i Azure Container Instances är för närvarande i förhandsversion och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+
+## <a name="preview-limitations"></a>Begränsningar för förhandsversion
+
+Azure Monitor mått är för närvarande endast tillgängliga för Linux-behållare.
 
 ## <a name="available-metrics"></a>Tillgängliga mått
 
-Med Azure Monitor får du användningsmått för både **CPU** och **minne** för Azure Container Instances. Båda måtten tillgängliga för en containergrupp och för enskilda containrar.
+Azure Monitor innehåller följande [mätvärden för Azure Container Instances][supported-metrics]. De här måtten är tillgängliga för en behållargrupp och enskilda behållare.
 
-CPU-mått uttrycks i **millicores**. En millicore är en tusendels processorkärna så 500 millicores (eller 500 m) representerar 50 % användning av en processorkärna.
+* **CPU-användning** – mätt i **millicores**. En millicore är 1/1000th av en CPU-kärna, så 500 millicores (eller 500 m) representerar 50% användning av CPU-kärna. Aggregeras som **genomsnittlig användning** över alla kärnor.
 
-Minnesmått uttrycks i **byte**.
+* **Minnesanvändning** – aggregerade som **genomsnittlig byte**.
+
+* **Network mottagna byte Per sekund** och **nätverk byte skickas Per sekund** – aggregerade som **genomsnittlig byte per sekund**. 
 
 ## <a name="get-metrics---azure-portal"></a>Hämta mått – Azure Portal
 
-När en containergrupp skapas är Azure Monitor-data tillgängliga i Azure Portal. Välj resursgruppen och sedan containergruppen om du vill visa måtten för en containergrupp. Här kan du se förskapade diagram för både CPU- och minnesanvändning.
+När en containergrupp skapas är Azure Monitor-data tillgängliga i Azure Portal. Om du vill visa mått för en behållargrupp, går du till den **översikt** för behållargruppen. Här kan du visa diagram som skapats i förväg för var och en av de tillgängliga måtten.
 
 ![dubbelt diagram][dual-chart]
 
-Om du har en containergrupp som innehåller flera containrar använder du en [dimension][monitor-dimension] för att presentera mått för varje enskild container. Utför följande steg för att skapa ett diagram med enskilda containrar:
+I en behållargrupp som innehåller flera behållare använder en [dimension] [ monitor-dimension] att presentera mått av behållare. Utför följande steg för att skapa ett diagram med enskilda containrar:
 
-1. Välj **Övervakare** i den vänstra navigeringsmenyn.
-2. Välj en containergrupp och ett mått (CPU eller minne).
-3. Välj den gröna dimensionsknappen och välj **Containernamn**.
+1. I den **översikt** väljer du något av måttdiagram, till exempel **CPU**. 
+1. Välj den **gäller dela** och välj **behållarnamn**.
 
 ![dimension][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Hämta mått – Azure CLI
 
-CPU- och minnesanvändning för Container Instances kan också samlas in med hjälp av Azure CLI. Hämta först containergruppens ID med följande kommando. Ersätt `<resource-group>` med resursgruppens namn och `<container-group>` med namnet på containergruppen.
+Mått för container instances kan också samlas in med Azure CLI. Hämta först containergruppens ID med följande kommando. Ersätt `<resource-group>` med resursgruppens namn och `<container-group>` med namnet på containergruppen.
 
 
 ```console
@@ -60,80 +64,81 @@ Använd följande kommando för att hämta **CPU**-användningsstatistik.
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
 
-Timestamp            Name              Average
--------------------  ------------  -----------
-2018-04-22 04:39:00  CPU Usage
-2018-04-22 04:40:00  CPU Usage
-2018-04-22 04:41:00  CPU Usage
-2018-04-22 04:42:00  CPU Usage
-2018-04-22 04:43:00  CPU Usage      0.375
-2018-04-22 04:44:00  CPU Usage      0.875
-2018-04-22 04:45:00  CPU Usage      1
-2018-04-22 04:46:00  CPU Usage      3.625
-2018-04-22 04:47:00  CPU Usage      1.5
-2018-04-22 04:48:00  CPU Usage      2.75
-2018-04-22 04:49:00  CPU Usage      1.625
-2018-04-22 04:50:00  CPU Usage      0.625
-2018-04-22 04:51:00  CPU Usage      0.5
-2018-04-22 04:52:00  CPU Usage      0.5
-2018-04-22 04:53:00  CPU Usage      0.5
+Timestamp            Name       Average
+-------------------  ---------  ---------
+2019-04-23 22:59:00  CPU Usage
+2019-04-23 23:00:00  CPU Usage
+2019-04-23 23:01:00  CPU Usage  0.0
+2019-04-23 23:02:00  CPU Usage  0.0
+2019-04-23 23:03:00  CPU Usage  0.5
+2019-04-23 23:04:00  CPU Usage  0.5
+2019-04-23 23:05:00  CPU Usage  0.5
+2019-04-23 23:06:00  CPU Usage  1.0
+2019-04-23 23:07:00  CPU Usage  0.5
+2019-04-23 23:08:00  CPU Usage  0.5
+2019-04-23 23:09:00  CPU Usage  1.0
+2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Och följande kommando för att hämta användningsstatistik för **minne**.
+Ändra värdet för den `--metric` parameter i kommandot för att hämta andra [stöds mått][supported-metrics]. Till exempel använda följande kommando för att hämta **minne** användningsstatistik. 
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
 
-Timestamp            Name              Average
--------------------  ------------  -----------
-2018-04-22 04:38:00  Memory Usage
-2018-04-22 04:39:00  Memory Usage
-2018-04-22 04:40:00  Memory Usage
-2018-04-22 04:41:00  Memory Usage
-2018-04-22 04:42:00  Memory Usage  6.76915e+06
-2018-04-22 04:43:00  Memory Usage  9.22061e+06
-2018-04-22 04:44:00  Memory Usage  9.83552e+06
-2018-04-22 04:45:00  Memory Usage  8.42906e+06
-2018-04-22 04:46:00  Memory Usage  8.39526e+06
-2018-04-22 04:47:00  Memory Usage  8.88013e+06
-2018-04-22 04:48:00  Memory Usage  8.89293e+06
-2018-04-22 04:49:00  Memory Usage  9.2073e+06
-2018-04-22 04:50:00  Memory Usage  9.36243e+06
-2018-04-22 04:51:00  Memory Usage  9.30509e+06
-2018-04-22 04:52:00  Memory Usage  9.2416e+06
-2018-04-22 04:53:00  Memory Usage  9.1008e+06
+Timestamp            Name          Average
+-------------------  ------------  ----------
+2019-04-23 22:59:00  Memory Usage
+2019-04-23 23:00:00  Memory Usage
+2019-04-23 23:01:00  Memory Usage  0.0
+2019-04-23 23:02:00  Memory Usage  8859648.0
+2019-04-23 23:03:00  Memory Usage  9181184.0
+2019-04-23 23:04:00  Memory Usage  9580544.0
+2019-04-23 23:05:00  Memory Usage  10280960.0
+2019-04-23 23:06:00  Memory Usage  7815168.0
+2019-04-23 23:07:00  Memory Usage  7739392.0
+2019-04-23 23:08:00  Memory Usage  8212480.0
+2019-04-23 23:09:00  Memory Usage  8159232.0
+2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-För en grupp med flera containrar kan `containerName` dimensionen läggas till för att returnera dessa data per container.
+För en grupp med flera behållare i `containerName` dimensionen kan läggas till att returnera mått per behållare.
 
 ```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --dimension containerName --output table
+$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
 
 Timestamp            Name          Containername             Average
 -------------------  ------------  --------------------  -----------
-2018-04-22 17:03:00  Memory Usage  aci-tutorial-app      1.95338e+07
-2018-04-22 17:04:00  Memory Usage  aci-tutorial-app      1.93096e+07
-2018-04-22 17:05:00  Memory Usage  aci-tutorial-app      1.91488e+07
-2018-04-22 17:06:00  Memory Usage  aci-tutorial-app      1.94335e+07
-2018-04-22 17:07:00  Memory Usage  aci-tutorial-app      1.97714e+07
-2018-04-22 17:08:00  Memory Usage  aci-tutorial-app      1.96178e+07
-2018-04-22 17:09:00  Memory Usage  aci-tutorial-app      1.93434e+07
-2018-04-22 17:10:00  Memory Usage  aci-tutorial-app      1.92614e+07
-2018-04-22 17:11:00  Memory Usage  aci-tutorial-app      1.90659e+07
-2018-04-22 16:12:00  Memory Usage  aci-tutorial-sidecar  1.35373e+06
-2018-04-22 16:13:00  Memory Usage  aci-tutorial-sidecar  1.28614e+06
-2018-04-22 16:14:00  Memory Usage  aci-tutorial-sidecar  1.31379e+06
-2018-04-22 16:15:00  Memory Usage  aci-tutorial-sidecar  1.29536e+06
-2018-04-22 16:16:00  Memory Usage  aci-tutorial-sidecar  1.38138e+06
-2018-04-22 16:17:00  Memory Usage  aci-tutorial-sidecar  1.41312e+06
-2018-04-22 16:18:00  Memory Usage  aci-tutorial-sidecar  1.49914e+06
-2018-04-22 16:19:00  Memory Usage  aci-tutorial-sidecar  1.43565e+06
-2018-04-22 16:20:00  Memory Usage  aci-tutorial-sidecar  1.408e+06
+2019-04-23 22:59:00  Memory Usage  aci-tutorial-app
+2019-04-23 23:00:00  Memory Usage  aci-tutorial-app
+2019-04-23 23:01:00  Memory Usage  aci-tutorial-app      0.0
+2019-04-23 23:02:00  Memory Usage  aci-tutorial-app      16834560.0
+2019-04-23 23:03:00  Memory Usage  aci-tutorial-app      17534976.0
+2019-04-23 23:04:00  Memory Usage  aci-tutorial-app      18329600.0
+2019-04-23 23:05:00  Memory Usage  aci-tutorial-app      19742720.0
+2019-04-23 23:06:00  Memory Usage  aci-tutorial-app      14786560.0
+2019-04-23 23:07:00  Memory Usage  aci-tutorial-app      14651392.0
+2019-04-23 23:08:00  Memory Usage  aci-tutorial-app      15470592.0
+2019-04-23 23:09:00  Memory Usage  aci-tutorial-app      15450112.0
+2019-04-23 23:10:00  Memory Usage  aci-tutorial-app      15339520.0
+2019-04-23 22:59:00  Memory Usage  aci-tutorial-sidecar
+2019-04-23 23:00:00  Memory Usage  aci-tutorial-sidecar
+2019-04-23 23:01:00  Memory Usage  aci-tutorial-sidecar  0.0
+2019-04-23 23:02:00  Memory Usage  aci-tutorial-sidecar  884736.0
+2019-04-23 23:03:00  Memory Usage  aci-tutorial-sidecar  827392.0
+2019-04-23 23:04:00  Memory Usage  aci-tutorial-sidecar  831488.0
+2019-04-23 23:05:00  Memory Usage  aci-tutorial-sidecar  819200.0
+2019-04-23 23:06:00  Memory Usage  aci-tutorial-sidecar  843776.0
+2019-04-23 23:07:00  Memory Usage  aci-tutorial-sidecar  827392.0
+2019-04-23 23:08:00  Memory Usage  aci-tutorial-sidecar  954368.0
+2019-04-23 23:09:00  Memory Usage  aci-tutorial-sidecar  868352.0
+2019-04-23 23:10:00  Memory Usage  aci-tutorial-sidecar  847872.0
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om Azure-övervakning i [översikten över Azure övervakning][azure-monitoring].
+
+Lär dig hur du skapar [måttaviseringar] [ metric-alert] att få ett meddelande när ett mått för Azure Container Instances överskrider ett tröskelvärde.
 
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png
@@ -141,6 +146,11 @@ Läs mer om Azure-övervakning i [översikten över Azure övervakning][azure-mo
 [dual-chart]: ./media/container-instances-monitor/metrics.png
 [memory-chart]: ./media/container-instances-monitor/memory-multi.png
 
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+
 <!-- LINKS - Internal -->
-[azure-monitoring]: ../monitoring-and-diagnostics/monitoring-overview.md
+[azure-monitoring]: ../azure-monitor/overview.md
+[metric-alert]: ..//azure-monitor/platform/alerts-metric.md
 [monitor-dimension]: ../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics
+[supported-metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups

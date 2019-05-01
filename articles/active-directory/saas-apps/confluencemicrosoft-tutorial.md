@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44f0c99a66088aeb54ba061308fefb111610d4dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 45c9268495ed42ca67f815615b441986cf03332f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501237"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory-integrering med Confluence SAML SSO från Microsoft
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="description"></a>Beskrivning:
 
-Använd ditt Microsoft Azure Active Directory-konto med Atlassian Confluence-servern för att aktivera enkel inloggning. På så sätt alla organisationens användare kan använda Azure AD-autentiseringsuppgifter för att logga in i programmet växer samman. Det här plugin-programmet använder SAML 2.0 för federation.
+Använd ditt Microsoft Azure Active Directory-konto med Atlassian Confluence-servern för att aktivera enkel inloggning. På så sätt alla organisationens användare kan använda Azure AD-autentiseringsuppgifter för inloggning till programmet växer samman. Det här plugin-programmet använder SAML 2.0 för federation.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -80,7 +80,7 @@ För närvarande stöds följande versioner av Confluence:
 - Confluence: 6.12.0
 
 > [!NOTE]
-> Observera att växer samman också stöder Linux Ubuntu version 16.04
+> Observera att våra växer samman-plugin-programmet även fungerar på Ubuntu 16.04 för Version
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 

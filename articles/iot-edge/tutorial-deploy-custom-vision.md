@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 194ebcc1f1779c927503e09e9c42a96afddb12c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612913"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575818"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 
@@ -25,7 +25,6 @@ Till exempel kan Custom Vision på en IoT Edge-enhet avgöra om det förekommer 
 I den här guiden får du lära dig att: 
 
 > [!div class="checklist"]
->
 > * Skapa en bildklassificerare med Custom Vision.
 > * Utveckla en IoT Edge-modul som kör frågor mot Custom Vision-webbservern på din enhet.
 > * Skicka resultaten från bildklassificeraren till IoT Hub.
@@ -39,25 +38,19 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-En Azure IoT Edge-enhet:
+Innan du påbörjar den här självstudiekursen ska du har gått igenom den tidigare självstudiekursen för att ställa in din utvecklingsmiljö för utveckling av Linux-behållare: [Utveckla IoT Edge-moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört självstudien bör du har följande krav på plats: 
 
-* Du kan använda utvecklingsdatorn eller en virtuell dator som gränsenhet genom att följa stegen i [snabbstarten för Linux](quickstart-linux.md).
-* För närvarande är Custom Vision-modulen endast tillgänglig som en Linux-container för x64-arkitekturer. 
+* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
+* En [Linux-enhet som kör Azure IoT Edge](quickstart-linux.md)
+* Ett behållarregister, till exempel [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) konfigurerats med den [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) konfigurerats för att köra Linux-behållare.
 
-Molnresurser:
-
-* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på standardnivå i Azure. 
-* Ett containerregister. I den här kursen används [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/). 
-* Känn till autentiseringsuppgifterna för ditt containerregisters [administratörskonto](../container-registry/container-registry-authentication.md#admin-account).
-
-Utvecklingsresurser:
+För att utveckla en IoT Edge-modul med Custom Vision service kan du installera följande ytterligare krav på utvecklingsdatorn: 
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)-tillägg för Visual Studio Code
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)-tillägg för Visual Studio Code
-* [Docker CE](https://docs.docker.com/install/)
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Skapa en bildklassificerare med Custom Vision
 
@@ -169,6 +162,22 @@ En lösning är ett logiskt sätt att utveckla och organisera flera moduler för
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-deploy-custom-vision/repository.png)
 
 Visual Studio Code-fönstret läser in arbetsytan för IoT Edge-lösningen.
+
+### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
+
+Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar dem med körningsmiljön för IoT Edge. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten.
+
+1. Öppna .env-filen i VS Code-utforskaren.
+2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret.
+3. Spara filen.
+
+### <a name="select-your-target-architecture"></a>Välj din mål-arkitektur
+
+Visual Studio Code kan för närvarande kan utveckla moduler för Linux AMD64- och Linux ARM32v7 enheter. Du måste välja vilken arkitektur som mål med varje lösning eftersom behållaren har skapats och körs på olika sätt för varje arkitekturtyp av. Standardvärdet är Linux AMD64. 
+
+1. Öppna kommandopaletten och Sök efter **Azure IoT Edge: Ange standard målplattform för lösning**, eller klicka på genvägsikonen i Sidopanel längst ned i fönstret. 
+
+2. Välj mål-arkitektur i kommandopaletten, från listan med alternativ. Den här självstudien använder vi en Ubuntu-dator som IoT Edge-enhet, så kommer behåller du standardvärdet **amd64**. 
 
 ### <a name="add-your-image-classifier"></a>Lägga till bildklassificeraren
 
@@ -392,28 +401,6 @@ IoT Edge-tillägget för Visual Studio Code innehåller en mall i varje IoT Edge
 
 7. Spara filen **deployment.template.json**.
 
-### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
-
-I kraven för den här självstudiekursen ingår ett containerregister som är nödvändigt för att lagra containeravbildningarna för de moduler som du skapade. Du måste ange autentiseringsuppgifter för åtkomst för registret på två platser: i Visual Studio Code, så att du kan skapa och skicka bilderna till registret, och i distributionsmanifestet, så att IoT Edge-enheten kan hämta och distribuera bilderna. 
-
-Om du använder Azure Container Registry behöver du känna till användarnamnet, inloggningsservern och lösenordet för [administratörskontot](../container-registry/container-registry-authentication.md#admin-account). 
-
-1. I Visual Studio Code öppnar du den integrerade terminalen genom att välja **Visa** > **Terminal**. 
-
-2. Ange följande kommando i den integrerade terminalen: 
-
-    ```csh/sh
-    docker login -u <registry username> <registry login server>
-    ```
-
-3. När du uppmanas anger du registerlösenordet och trycker på **Retur**.
-
-4. Öppna filen **.env** i lösningsmappen. Den här filen git-ignoreras och lagrar dina autentiseringsuppgifter för registret så att du inte behöver hårdkoda dem i distributionsmallfilen. 
-
-5. Ange användarnamnet och lösenordet för containerregistret utan citattecken runt värdena. 
-
-6. Spara **.env**-filen.
-
 ## <a name="build-and-deploy-your-iot-edge-solution"></a>Skapa och distribuera IoT Edge-lösningen
 
 Nu när båda modulerna har skapat s och distributionsmanifestmallen har konfigurerats är du redo att skapa containerbilderna och överföra dem till containerregistret. 
@@ -426,13 +413,7 @@ Först skapar och överför du lösningen till ditt containerregister.
 2. Observera att en ny mapp har lagts till i lösningen: **config**. Öppna den här mappen och välj filen **deployment.json** som finns där.
 3. Granska informationen i filen deployment.json. Filen deployment.json skapas (eller uppdateras) automatiskt baserat på den distributionsmallfil som du konfigurerade samt information från lösningen, inklusive .env-filen och module.json-filerna. 
 
-Konfigurera sedan åtkomst till din IoT-hubb från Visual Studio Code. 
-
-1. I kommandopaletten för VS Code väljer du **Azure IoT Hub: Select IoT Hub** (Välj IoT-hubb).
-2. Följ anvisningarna för att logga in på ditt Azure-konto. 
-3. Välj din Azure-prenumeration och sedan din IoT Hub i kommandopaletten. 
-
-Slutligen väljer du enheten och distribuerar lösningen.
+Sedan väljer du enheten och distribuera din lösning.
 
 1. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
 2. Högerklicka på den enhet som du vill ha som mål för distributionen och välj **Skapa distribution för enskild enhet**. 
@@ -465,12 +446,9 @@ Resultatet från Custom Vision-modulen, som skickas som meddelanden från module
 
 Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
-Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
+I annat fall kan du ta bort de lokala konfigurationerna och Azure-resurser som du använt i den här artikeln för att undvika avgifter. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -482,4 +460,4 @@ Om du vill prova en mer detaljerad version av det här scenariot med en livekame
 Fortsätt med någon av följande självstudier om du vill veta mer om hur Azure IoT Edge kan hjälpa dig att omvandla dina data till affärsinsikter.
 
 > [!div class="nextstepaction"]
-> [Hitta medelvärden med ett flytande fönster i Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Lagra data på gränsen med SQL Server-databaser](tutorial-store-data-sql-server.md)

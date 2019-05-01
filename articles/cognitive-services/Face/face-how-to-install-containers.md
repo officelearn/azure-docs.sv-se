@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a3087718a3eece1e19f05757ace64ba00aa0dc58
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680731"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682672"
 ---
 # <a name="install-and-run-face-containers"></a>Installera och köra Ansikts-behållare
 
@@ -34,10 +34,9 @@ Du måste uppfylla följande krav innan du kan använda Ansikts-API-behållare:
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
 |Azure `Cognitive Services` resurs |För att kunna använda behållaren måste du ha:<br><br>En _Cognitive Services_ Azure-resurs och associerade faktureringen nyckel fakturering slutpunkten URI. Båda värdena är tillgängliga på sidorna Översikt och nycklar för resursen och krävs för att starta behållaren. Du måste lägga till den `face/v1.0` routning till slutpunkten URI som du ser i exemplet nedan BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : Resursnyckeln<br><br>**{BILLING_ENDPOINT_URI}** : endpoint URI exempel är: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>Värddatorn
 
@@ -162,5 +161,4 @@ I den här artikeln beskrivs begrepp och arbetsflöde för att hämta, installer
 * Granska [konfigurera behållare](face-resource-container-config.md) för konfigurationsinställningar
 * Granska [ansikte översikt](Overview.md) vill veta mer om att upptäcka och identifiera ansikten  
 * Referera till den [Ansikts-API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) mer information om de metoder som stöds av behållaren.
-* Referera till [vanliga frågor (och svar FAQ)](FAQ.md) att lösa problem som rör Ansikts-funktioner.
 * Använder mer [Cognitive Services-behållare](../cognitive-services-container-support.md)

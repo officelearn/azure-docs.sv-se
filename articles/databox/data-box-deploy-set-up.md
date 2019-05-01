@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure Data Box| Microsoft Docs
+title: Självstudie om du vill ställa in Azure Data Box | Microsoft Docs
 description: Lär dig hur du kabelansluter och ansluter till Azure Data Box
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2da6bf971cc966e27fac46546bfd4e3dcac6d12f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123305"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926165"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudier: Kabelansluta och ansluta till Azure Data Box
 
@@ -40,7 +40,7 @@ Innan du börjar ska du kontrollera att:
     - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
 6. Du måste ha tillgång till en plan yta där du kan placera Data Box. Om du vill placera enheten på en standardrackhylla måste du ha en 7U-plats i datacenterracket. Du kan placera enheten liggande eller stående i racket.
 7. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
-    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Till exempel användes en CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M-kabel för intern testning. Mer information finns i den [listan över stöds kablar och växlar från Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Exempel, en CISCO SFP-H10GB-CU3M 10GBASE CU TWINMAX SFP + 3 M användes kabel för intern testning. Mer information finns i den [listan över stöds kablar och växlar från Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
     - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 16dd381301bdc650022ba5580f96a1733aeb32b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199960"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572883"
 ---
 # <a name="application-security-detection-pack-preview"></a>Application security identifiering pack (förhandsversion)
 
@@ -29,7 +29,7 @@ Den här funktionen kräver några särskilda inställningar än [konfigurera ap
 Det finns tre typer av säkerhetsproblem som identifieras:
 1. Osäkert URL-åtkomst: en URL i programmet nås via HTTP och HTTPS. En URL som accepterar HTTPS-begäranden ska normalt inte godkänner HTTP-begäranden. Detta kan tyda på problem med en bugg eller säkerhet i ditt program.
 2. Osäkert formulär: ett formulär (eller annan ”POST”-begäran) i programmet använder HTTP i stället för HTTPS. Med HTTP kan påverka användarens data som skickas av formuläret.
-3. Misstänkt användaraktivitet: programmet som nås från flera länder av samma användare vid ungefär samma tillfälle. Exempelvis kan samma användare komma åt programmet från Spanien och USA inom en och samma timme. Den här identifieringen indikerar ett potentiellt skadliga åtkomstförsök till ditt program.
+3. Misstänkt användaraktivitet: programmet som nås från flera länder/regioner av samma användare vid ungefär samma tillfälle. Exempelvis kan samma användare komma åt programmet från Spanien och USA inom en och samma timme. Den här identifieringen indikerar ett potentiellt skadliga åtkomstförsök till ditt program.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>Min app definitivt finns det ett säkerhetsproblem?
 Nej, ett meddelande innebär inte att din app definitivt har ett säkerhetsproblem. En identifiering av någon av ovanstående scenarier kan i många fall kan indikera ett säkerhetsproblem. Men identifieringen kan ha en naturlig affärsjustering och kan ignoreras.
@@ -46,5 +46,5 @@ Nej, ett meddelande innebär inte att din app definitivt har ett säkerhetsprobl
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Hur kan jag åtgärda ”misstänkt användaraktivitet”-identifiering?
 1. **Prioritering.** Meddelandet innehåller många olika användare som visas misstänkt beteende. Detta kan du tilldela en prioritet till problemet.
-2. **Omfattningen.** Från vilka länder misstänkta begäranden kommer? Vilken användare var de mest misstänkta? Den här informationen kan hämtas från meddelandet.
-3. **Diagnostisera.** Identifieringen innehåller en lista över misstänkta användare och listan över länder/regioner för varje användare för att diagnosticera problemet.
+2. **Omfattningen.** Från vilka länder/regioner misstänkta begäranden kommer? Vilken användare var de mest misstänkta? Den här informationen kan hämtas från meddelandet.
+3. **Diagnostisera.** Identifieringen innehåller en lista över misstänkta användare och lista över länder/regioner för varje användare för att diagnosticera problemet.

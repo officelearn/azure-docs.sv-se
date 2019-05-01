@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: f0c9b84f31810a4b0cec93738f7ce327bc24d8d0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101616"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685625"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Så här uppdaterar du Azure Monitor för behållare för att aktivera mätvärden
 Azure Monitor för behållare presenterar stöd för att samla in mått från Azure Kubernetes Services (AKS) kluster noder och poddar och sparar dem i arkivet för Azure Monitor-mått. Den här ändringen är avsedd att leverera förbättrad skyndsamhet när du presenterar sammanställd beräkningar (Avg, Count, Max, Min, summan) i prestandadiagram, fästa prestandadiagram i Azure portal-instrumentpaneler, support och stöd för aviseringar för mått.

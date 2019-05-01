@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ab129d7b215f0f10841b13fc2835af59227198
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6b03dfa5a33850dfedf23375536278c4e08bed68
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565249"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Självstudier: Azure Active Directory-integrering med Alibaba Cloud Service (Role-based SSO)
 
@@ -35,7 +35,7 @@ Integrera Alibaba Cloud Service (Role-based SSO) med Azure AD ger dig följande 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Alibaba Cloud Service (Role-based SSO), behöver du följande objekt:
 
@@ -120,7 +120,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Alibaba
     | `https://signin.aliyun.com/saml-role/SSO` |
     | `https://signin.alibabacloud.com/saml-role/SSO` |
 
-5. Alibaba Cloud Service (Role-based SSO) program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+5. Alibaba Cloud Service (Role-based SSO) program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på **redigera** ikonen för att öppna **användarattribut** dialogrutan.
 
     ![image](common/edit-attribute.png)
 
@@ -220,7 +220,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 ### <a name="create-alibaba-cloud-service-role-based-sso-test-user"></a>Skapa testanvändare Alibaba Cloud Service (Role-based SSO)
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Alibaba molntjänst (Role-based SSO). Arbeta med [Alibaba Cloud Service (Role-based SSO) supportteam](https://www.aliyun.com/service/) att lägga till användare i Alibaba Cloud Service (Role-based SSO)-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Alibaba molntjänst (Role-based SSO). Arbeta med [Alibaba Cloud Service (Role-based SSO) supportteam](https://www.aliyun.com/service/) att lägga till användare i Alibaba Cloud Service (Role-based SSO)-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

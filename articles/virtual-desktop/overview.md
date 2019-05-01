@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 379b8ee4a78cd8b487407e92ae32a7525f428bf0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 0d606a489a069c4265088d8e07301693dc2f1c83
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763851"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694274"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Vad är Windows Virtual Desktop förhandsversionen? 
 
@@ -63,8 +63,8 @@ Vi planerar att lägga till stöd för följande operativsystem, så se till att
 
 |Operativsystem|Licens som krävs|
 |---|---|
-|Flera sessionen för Windows 10 Enterprise eller Windows 10 Enterprise|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Flera sessionen för Windows 10 Enterprise eller Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|RDS-klientåtkomstlicens (CAL) med Software Assurance|
 
 Din infrastruktur behöver följande för virtuella Windows-skrivbordet:

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162653"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690277"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
 
@@ -50,6 +50,47 @@ Event Hubs Standard-nivån stöder för närvarande en högsta kvarhållningsper
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Hur övervakar jag min Event Hubs?
 Händelsehubbar genererar uttömmande mått som anger tillståndet för dina resurser till [Azure Monitor](../azure-monitor/overview.md). De också kan du utvärdera den övergripande hälsan för Event Hubs-tjänsten inte bara på namnområdesnivå utan även på enhetsnivå. Läs om vilka övervakning erbjuds för [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar behöver jag att öppna i brandväggen? 
+Du kan använda följande protokoll med Azure Service Bus för att skicka och ta emot meddelanden:
+
+- Avancerade Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
+
+Se tabellen nedan för de utgående portar som du behöver öppna om du vill använda dessa protokoll ska kunna kommunicera med Azure Event Hubs. 
+
+| Protokoll | Portar | Information | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 och 5672 | Se [AMQP-protokollguide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9092 | Se [använda Event Hubs från Kafka-program](event-hubs-for-kafka-ecosystem-overview.md)
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Vilka IP-adresser behöver jag godkänna?
+Följ dessa steg för att hitta rätt IP-adresser till vitlista för dina anslutningar:
+
+1. Kör följande kommando från en kommandotolk: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Anteckna den IP-adressen som returneras i `Non-authoritative answer`. Den här IP-adressen är statisk. Den enda tidpunkt den skulle ändras är om du återställer namnområde till ett annat kluster.
+
+Om du använder redundansen för ditt namnområde kan behöva du göra några ytterligare steg: 
+
+1. Först måste köra du nslookup på namnområdet.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Skriv ned namnet i den **icke-auktoritativt svar** avsnittet, vilket är i något av följande format: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Köra nslookup för vart och ett med suffix s1, s2 och s3 att hämta IP-adresserna för alla tre instanser som körs i tre tillgänglighetszoner 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka-integrering
 

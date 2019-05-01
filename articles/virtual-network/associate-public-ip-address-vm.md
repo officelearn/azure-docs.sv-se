@@ -4,24 +4,24 @@ titlesuffix: Azure Virtual Network
 description: Lär dig mer om att associera en offentlig IP-adress till en virtuell dator.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: ce573ff8fe61f2e1d4c88963e0f21fc9402776e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: 69460a111e6fd879807b4025d6832b3ac515a9b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083223"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691988"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associera en offentlig IP-adress till en virtuell dator
 
-I den här artikeln får du lära dig hur du associerar en offentlig IP-adress till en befintlig virtuell dator (VM). Om du vill ansluta till en virtuell dator från internet måste den virtuella datorn ha en offentlig IP-adress som är associerade med den. Om du vill skapa en ny virtuell dator med en offentlig IP-adress kan du göra det med hjälp av den [Azure-portalen](virtual-network-deploy-static-pip-arm-portal.md), [Azure-kommandoradsgränssnittet (CLI)](virtual-network-deploy-static-pip-arm-cli.md), eller [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Offentliga IP-adresser har en nominell avgift. Mer information finns i [priser](https://azure.microsoft.com/pricing/details/ip-addresses/). Det finns en gräns för antalet offentliga IP-adresser som du kan använda per prenumeration. Mer information finns i [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits-1).
+I den här artikeln får du lära dig hur du associerar en offentlig IP-adress till en befintlig virtuell dator (VM). Om du vill ansluta till en virtuell dator från internet måste den virtuella datorn ha en offentlig IP-adress som är associerade med den. Om du vill skapa en ny virtuell dator med en offentlig IP-adress kan du göra det med hjälp av den [Azure-portalen](virtual-network-deploy-static-pip-arm-portal.md), [Azure-kommandoradsgränssnittet (CLI)](virtual-network-deploy-static-pip-arm-cli.md), eller [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Offentliga IP-adresser har en nominell avgift. Mer information finns i [priser](https://azure.microsoft.com/pricing/details/ip-addresses/). Det finns en gräns för antalet offentliga IP-adresser som du kan använda per prenumeration. Mer information finns i [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address).
 
 Du kan använda den [Azure-portalen](#azure-portal), Azure [kommandoradsgränssnittet](#azure-cli) (CLI), eller [PowerShell](#powershell) att associera en offentlig IP-adress till en virtuell dator.
 

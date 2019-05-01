@@ -1,23 +1,22 @@
 ---
 title: Stöd matrix för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner med Azure Site Recovery | Microsoft Docs
-description: Sammanfattning av de operativsystem som stöds och konfigurationer för Azure Site Recovery-replikering av virtuella Azure-datorer (VM) från en region till en annan för disaster recovery (DR) behov.
-services: site-recovery
+description: Sammanfattar krav och support för haveriberedskap för virtuella Azure-datorer från en region till en annan med Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: c64148fbc0432bd25c5b02fb20b3e44134c1d9d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502118"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926597"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för att replikera virtuella Azure-datorer från en region till en annan
 
-Den här artikeln sammanfattas konfigurationer som stöds och komponenter när du distribuerar haveriberedskap med replikering, redundans och återställning av virtuella Azure-datorer från en Azure-region till en annan, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
+Den här artikeln sammanfattas support och krav när du ställer in för haveriberedskap för virtuella Azure-datorer från en Azure-region till en annan, med den [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 ## <a name="deployment-method-support"></a>Metoden distributionsstöd
@@ -96,10 +95,10 @@ Windows Server 2008 R2 | Med SP1 eller senare
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
 Ubuntu 14.04 LTS Server | [Stöds kernel-versioner](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-Ubuntu 16.04 LTS Server | [Stöds kernel-version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servrar som använder lösenordsbaserad autentisering och logga in och cloud-init-paketet för att konfigurera virtuella datorer, kan ha lösenordsbaserad inloggning inaktiverad på redundans (beroende på cloudinit-konfiguration). Lösenordsbaserad inloggning kan återaktiveras på den virtuella datorn genom att återställa lösenordet från stödet > Felsökning > menyn Inställningar (på den redundansväxlade virtuella datorn i Azure-portalen.
+Ubuntu 16.04 LTS Server | [Stöds kernel-version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servrar som använder lösenordsbaserad autentisering och logga in och cloud-init-paketet för att konfigurera virtuella datorer, kan ha lösenordsbaserad inloggning i inaktiverats på redundans (beroende på cloudinit-konfiguration). Lösenordsbaserad inloggning kan återaktiveras på den virtuella datorn genom att återställa lösenordet från stödet > Felsökning > menyn Inställningar (på den redundansväxlade virtuella datorn i Azure-portalen.
 Debian 7 | [Stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(Stöds kernel-versioner)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Stöds kernel-versioner)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Uppgradering av datorer som replikeras från SP3 till SP4 stöds inte. Om en replikerad dator har uppgraderats, måste du inaktivera replikering och återaktivera replikering efter uppgraderingen.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> Köra antingen kompatibel Red Hat-kernel eller Unbreakable Enterprise Kernel version 3 (UEK3).
@@ -132,8 +131,8 @@ Debian 8 | 9.21, 9.22, 9.23, 9.24 | 3.16.0-4-amd64 till 3.16.0-7-amd64 4.9.0-0.b
 **Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.24 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default till 4.4.175-94.79-default</br></br>SP4 4.12.14-94.41-default till 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.23 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default till 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.23 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default till 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default till 4.4.162-94.72-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replikerade datorer - Linux system/gäst fillagring
@@ -148,7 +147,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default ti
 **Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Storlek | Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM-minne | Kontrollera [Azure VM-storlekar](../virtual-machines/windows/sizes.md).
-Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standardalternativen skapas en tillgänglighetsuppsättning automatiskt baserat på de nationella inställningarna för källan. Du kan ändra dessa inställningar.
+Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standardalternativen skapas en tillgänglighetsuppsättning automatiskt, baserat på de nationella inställningarna för källan. Du kan ändra dessa inställningar.
 Tillgänglighetszoner | Stöds |
 Hybrid Use-förmånen (HUB) | Stöds | Om den Virtuella källdatorn har en HUB licens aktiverad, ett redundanstest eller redundans använder virtuell dator också HUB-licens.
 Skalningsuppsättning för virtuella datorer | Stöds inte |
@@ -191,7 +190,8 @@ Lagringsutrymmen | Stöds |
 Kryptering i vila (SSE) | Stöds | SSE är standardinställningen på storage-konton.   
 Azure Disk Encryption (ADE) för Windows OS | Virtuella datorer som har aktiverats för [kryptering med Azure AD-app](https://aka.ms/ade-aad-app) stöds |
 Azure Disk Encryption (ADE) för Linux OS | Stöds inte |
-Frekvent Lägg till/ta bort disk | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
+Lägg till frekvent | Stöds | Aktiverar replikering för en datadisk som du lägger till en replikerad virtuell dator i Azure har stöd för virtuella datorer som använder hanterade diskar.
+Frekvent ta bort disken | Stöds inte | Om du tar bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
 Uteslut disk | Stöd för. Du måste använda [Powershell](azure-to-azure-exclude-disks.md) att konfigurera. |  Temporära diskar undantas som standard.
 Storage Spaces Direct  | Stöd för krascher konsekventa återställningspunkter. Konsekvent programåterställningspunkter stöds inte. |
 Skalbar filserver  | Stöd för krascher konsekventa återställningspunkter. Konsekvent programåterställningspunkter stöds inte. |
@@ -241,7 +241,7 @@ Azure DNS | Stöds |
 Anpassad DNS  | Stöds |
 Via oautentiserad proxyserver | Stöds | [Läs mer]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Autentiserad Proxy | Stöds inte | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med Azure Site Recovery.    
-VPN plats-till-plats-anslutning till lokalt<br/><br/>(med eller utan ExpressRoute)| Stöds | Se till att Udr och NSG: er konfigureras så att Site recovery trafiken inte dirigeras till den lokala. [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)    
+VPN plats-till-plats-anslutning till lokalt<br/><br/>(med eller utan ExpressRoute)| Stöds | Se till att Udr och NSG: er konfigureras så att Site Recovery-trafiken inte dirigeras till den lokala. [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)    
 Anslutning mellan virtuella nätverk | Stöds | [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)  
 Tjänstslutpunkter för virtuellt nätverk | Stöds | Om du är att begränsa åtkomst till virtuellt nätverk till storage-konton, kontrollerar du att betrodda Microsoft-tjänster har åtkomst till lagringskontot.
 Snabbare nätverk | Stöds | Accelererat nätverk måste vara aktiverat på den Virtuella källdatorn. [Läs mer](azure-vm-disaster-recovery-with-accelerated-networking.md).

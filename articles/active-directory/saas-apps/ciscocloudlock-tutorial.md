@@ -1,228 +1,211 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med The Cloud Security Fabric | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och The Cloud Security Fabric.
+title: 'Självstudier: Azure Active Directory-integrering med Cloud Security Fabric | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cloud Security Fabric.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 549e8810-1b3b-4351-bf4b-f07de98980d1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a556b38ca4947b71555ba7b023607b392900bdaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6c43a38a456eb0fce3f46409bd256f0fc42e8ade
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429602"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691430"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Självstudier: Azure Active Directory-integrering med The Cloud Security Fabric
+# <a name="tutorial-azure-active-directory-integration-with-cloud-security-fabric"></a>Självstudier: Azure Active Directory-integrering med Cloud Security Fabric
 
-I den här självstudien får du lära dig hur du integrerar The Cloud Security Fabric med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Cloud Security Fabric med Azure Active Directory (AD Azure).
+Integrera Cloud Security Fabric med Azure AD ger dig följande fördelar:
 
-Integrera The Cloud Security Fabric med Azure AD ger dig följande fördelar:
+* Du kan styra i Azure AD som har åtkomst till Cloud Security Fabric.
+* Du kan aktivera användarna att vara automatiskt inloggad Cloud Security-Infrastrukturen (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till The Cloud Security Fabric.
-- Du kan aktivera användarna att automatiskt få loggat in The Cloud Security-Infrastrukturen (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du vill konfigurera Azure AD-integrering med Cloud Security Fabric behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med The Cloud Security Fabric behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En The Cloud Security Fabric enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Cloud Security Fabric enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till The Cloud Security Fabric från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-the-cloud-security-fabric-from-the-gallery"></a>Att lägga till The Cloud Security Fabric från galleriet
-För att konfigurera integrering av The Cloud Security Fabric i Azure AD, som du behöver lägga till The Cloud Security Fabric från galleriet i din lista över hanterade SaaS-appar.
+* Cloud Security Fabric har stöd för **SP** -initierad SSO
 
-**Utför följande steg för att lägga till The Cloud Security Fabric från galleriet:**
+## <a name="adding-cloud-security-fabric-from-the-gallery"></a>Att lägga till Cloud Security Fabric från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integrering av Molninfrastruktur för säkerhet i Azure AD, som du behöver lägga till Cloud Security Fabric från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till Cloud Security Fabric från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **The Cloud Security Fabric**väljer **The Cloud Security Fabric** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Cloud Security Fabric i listan med resultat](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+    ![Knappen Nytt program](common/add-new-app.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med The Cloud Security Fabric baserat på en testanvändare som kallas ”Britta Simon”.
+4. I sökrutan skriver **Cloud Security Fabric**väljer **Cloud Security Fabric** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i The Cloud Security-infrastrukturen är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i The Cloud Security-Infrastrukturen upprättas.
+    ![Cloud Security Fabric i listan med resultat](common/search-new-app.png)
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med The Cloud Security Fabric, måste du utföra följande byggblock:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare The Cloud Security Fabric](#create-a-the-cloud-security-fabric-test-user)**  – du har en motsvarighet för Britta Simon i The Cloud Security-infrastrukturen som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Cloud Security Fabric baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Cloud Security Fabric upprättas.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Om du vill konfigurera och testa Azure AD enkel inloggning med Molninfrastruktur för säkerhet, måste du utföra följande byggblock:
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt The Cloud Security Fabric-program.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Cloud Security Fabric enkel inloggning](#configure-cloud-security-fabric-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Cloud Security Fabric testanvändare](#create-cloud-security-fabric-test-user)**  – du har en motsvarighet för Britta Simon i Cloud Security-infrastrukturen som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med The Cloud Security Fabric:**
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **The Cloud Security Fabric** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning för länken][4]
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Cloud Security Fabric:
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Cloud Security Fabric** application integration markerar **enkel inloggning**.
 
-    ![Enkel inloggning för dialogrutan](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_samlbase.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **The Cloud Security Fabric domän och URL: er** avsnittet, utför följande steg:
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Cloud Security Fabric domän och URL: er med enkel inloggning för information](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL:
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Cloud Security Fabric domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+
+    a. I den **inloggnings-URL** text skriver en URL:
 
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
-    
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
+
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
     | `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
 
     > [!NOTE]
-    > ID-värde är inte verkliga. Uppdatera värdet med det faktiska ID: T. Kontakta [Cloud Security Fabric klienten supportteamet](mailto:support@cloudlock.com) att hämta värdet. 
+    > Identifierarvärdet är inte verkligt. Uppdatera värdet med det faktiska ID: T. Kontakta [Cloud Security Fabric klienten supportteamet](mailto:support@cloudlock.com) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_certificate.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. Klicka på **spara** knappen.
+6. På den **ställa in Cloud Security Fabric** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/ciscocloudlock-tutorial/tutorial_general_400.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. Att konfigurera enkel inloggning på **The Cloud Security Fabric** sida, som du behöver skicka de hämtade **XML-Metadata för** till [The Cloud Security Fabric supportteamet](mailto:support@cloudlock.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-cloud-security-fabric-single-sign-on"></a>Configure Cloud Security Fabric Single Sign-On
+
+Att konfigurera enkel inloggning på **Cloud Security Fabric** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Molnsäkerhet Fabric-supportteamet](mailto:support@cloudlock.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/ciscocloudlock-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/ciscocloudlock-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/ciscocloudlock-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/ciscocloudlock-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="create-a-the-cloud-security-fabric-test-user"></a>Skapa en testanvändare The Cloud Security Fabric
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i The Cloud Security-infrastrukturen. Arbeta med [The Cloud Security Fabric supportteamet](mailto:support@cloudlock.com) att lägga till användare i The Cloud Security Fabric-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
-
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till The Cloud Security Fabric.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Cloud Security Fabric.
 
-![Tilldela rollen][200]
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Cloud Security Fabric**.
 
-**Om du vill tilldela The Cloud Security Fabric Britta Simon utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **Cloud Security Fabric**.
 
-    ![Tilldela användare][201]
+    ![Länken Cloud Security Fabric i listan med program](common/all-applications.png)
 
-1. I listan med program väljer **The Cloud Security Fabric**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken Cloud Security Fabric i listan med program](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-cloud-security-fabric-test-user"></a>Skapa Cloud Security Fabric testanvändare
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Cloud Security-infrastrukturen. Arbeta med [Cloud Security Fabric supportteamet](mailto:support@cloudlock.com) att lägga till användare i Cloud Security Fabric-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på The Cloud Security Fabric panel i åtkomstpanelen du bör få automatiskt loggat in på ditt The Cloud Security Fabric-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen Molninfrastruktur för säkerhet i åtkomstpanelen, bör det vara loggas in automatiskt i Cloud Security-infrastrukturen som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/ciscocloudlock-tutorial/tutorial_general_01.png
-[2]: ./media/ciscocloudlock-tutorial/tutorial_general_02.png
-[3]: ./media/ciscocloudlock-tutorial/tutorial_general_03.png
-[4]: ./media/ciscocloudlock-tutorial/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/ciscocloudlock-tutorial/tutorial_general_100.png
-
-[200]: ./media/ciscocloudlock-tutorial/tutorial_general_200.png
-[201]: ./media/ciscocloudlock-tutorial/tutorial_general_201.png
-[202]: ./media/ciscocloudlock-tutorial/tutorial_general_202.png
-[203]: ./media/ciscocloudlock-tutorial/tutorial_general_203.png

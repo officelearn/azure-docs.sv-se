@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515528"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681804"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [log aviseringen har skapats i Azure](alerts-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
 
+> [!NOTE]
+> Du kan också använda den [gemensamma avisering schemat](https://aka.ms/commonAlertSchemaDocs), som innehåller fördelen att en enda extensible och enhetlig avisering nyttolast över alla aviseringen tjänster i Azure Monitor för webhook-integreringar. [Läs mer om vanliga avisering schemadefinitioner.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
 

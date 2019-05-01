@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 360b822bc78d353e91612459a70334a0bf3a56e6
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8bd0014518dc93abb952114a1728f8fc1d3fb4a5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189639"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708073"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Så här konfigurerar du lokala kodare med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 Det här avsnittet innehåller en lokal livekodare som du kan använda för att spara din live-händelser och skicka en direktsänd dataström med enkel bithastighet till AMS-kanaler (som är direktsänd kodning aktiverat) för vidare bearbetning. Avsnittet innehåller också länkar till självstudier om hur du konfigurerar listade kodare.
 
 > [!NOTE]
-> När strömmande via RTMP, kontrollerar du inställningarna för brandväggen och/eller proxyn för att bekräfta att utgående TCP-portarna 1935 och 1936 är öppna.
+> Vid direktuppspelning via RTMP ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 1935 och 1936 är öppna.
 
 ## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
 Information om hur du konfigurerar den [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) att skicka en direktsänd dataström med enkel bithastighet till en kanal för AMS finns i [konfigurera FMLE](media-services-configure-fmle-live-encoder.md).
@@ -37,7 +37,7 @@ Information om hur du konfigurerar den [Haivision KB-kodare](https://www.haivisi
 Information om hur du konfigurerar den [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) encoder att skicka en direktsänd dataström med enkel bithastighet till en kanal för AMS finns i [konfigurera Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
-Information om hur du konfigurerar den [Tricaster](http://newtek.com/products/tricaster-40.html) encoder att skicka en direktsänd dataström med enkel bithastighet till en kanal för AMS finns i [konfigurera Tricaster](media-services-configure-tricaster-live-encoder.md).
+Information om hur du konfigurerar den [Tricaster](https://newtek.com/products/tricaster-40.html) encoder att skicka en direktsänd dataström med enkel bithastighet till en kanal för AMS finns i [konfigurera Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
 Mer information finns i [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).

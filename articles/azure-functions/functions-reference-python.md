@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021286"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571171"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Utvecklarguide för Azure Functions Python
 
@@ -28,7 +28,7 @@ Den här artikeln är en introduktion till utvecklar Azure Functions med hjälp 
 
 ## <a name="programming-model"></a>Programmeringsmodell
 
-En Azure-funktion ska vara en tillståndslös metod i Python-skriptet som bearbetar indata och utdata. Som standard körningen förväntar sig att detta ska implementeras som en global metod som kallas `main()` i den `__init__.py` filen.
+En Azure-funktion ska vara en tillståndslös metod i Python-skriptet som bearbetar indata och utdata. Som standard körningen förväntar sig att metoden implementeras som en global metod som kallas `main()` i den `__init__.py` filen.
 
 Du kan ändra standardkonfigurationen genom att ange den `scriptFile` och `entryPoint` egenskaper i den `function.json` filen. Till exempel den _function.json_ nedan berättar körning för att använda den _customentry()_ -metod i den _main.py_ som startpunkt för din Azure-funktion.
 
@@ -109,15 +109,16 @@ Delad kod ska behållas i en separat mapp. Om du vill referera moduler i mappen 
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Tillägg av bindning används av Functions-körning har definierats i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](./functions-bindings-register.md#local-development-azure-functions-core-tools) med hjälp av Azure Functions Core Tools. 
+Tillägg av bindning används av Functions-körning har definierats i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) med hjälp av Azure Functions Core Tools. 
 
 När du distribuerar en Functions-projekt till funktionsappen i Azure, ska hela innehållet i mappen FunctionApp tas med i paketet, men inte själva mappen.
 
-## <a name="inputs"></a>Indata
+## <a name="triggers-and-inputs"></a>Utlösare och indata
 
-Indata är indelade i två kategorier i Azure Functions: utlösarens indata och ytterligare indata. Även om de skiljer sig i `function.json`, användningen är identiska i Python-kod. Låt oss ta ett kodfragment som exempel:
+Indata är indelade i två kategorier i Azure Functions: utlösarens indata och ytterligare indata. Även om de skiljer sig i `function.json`, användningen är identiska i Python-kod.  Anslutningssträngar för utlösare och indata datakällor ska mappa till värden i den `local.settings.json` filen lokalt och programinställningar när du kör i Azure. Låt oss ta ett kodfragment som exempel:
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ Indata är indelade i två kategorier i Azure Functions: utlösarens indata och 
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-När funktionen anropas HTTP-begäran skickas till funktionen som `req`. En post som ska hämtas från Azure Blob-lagringen utifrån den _id_ i URL: en väg och blir tillgängliga som `obj` i själva funktionen.
+När funktionen anropas HTTP-begäran skickas till funktionen som `req`. En post som ska hämtas från Azure Blob-lagringen utifrån den _ID_ i URL: en väg och blir tillgängliga som `obj` i själva funktionen.  Storage-konto anges här är hitta anslutningssträngen i `AzureWebJobsStorage` som är samma lagringskonto som används av funktionsappen.
+
 
 ## <a name="outputs"></a>Utdata
 

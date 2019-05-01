@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 287cab034079c54c027e0dc7b84564458d31fc31
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61341460"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696163"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Skapa din första funktion med Java och Maven
 
@@ -29,10 +29,10 @@ Den här artikeln vägleder dig med att använda Maven-kommandoradsverktyget fö
 
 För att kunna utveckla funktioner med hjälp av Java måste du ha följande installerat:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
-- [Apache Maven](https://maven.apache.org), version 3.0 eller senare.
+- [Java Development Kit](https://www.azul.com/downloads/zulu/), version 8
+- [Apache Maven](https://maven.apache.org), version 3.0 eller senare
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2) (kräver **.NET Core 2.x SDK**)
+- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 eller senare
 
 > [!IMPORTANT]
 > Miljövariabeln JAVA_HOME måste vara inställd på JDK-installationsplatsen för att snabbstarten ska gå att genomföra.
@@ -107,6 +107,10 @@ public class Function {
 }
 
 ```
+
+## <a name="reference-bindings"></a>Referens-bindningar
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 

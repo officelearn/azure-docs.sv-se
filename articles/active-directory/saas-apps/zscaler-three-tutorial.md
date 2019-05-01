@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a7ddc6b9f4a8638d18262e458d61108c00b618d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e2729a47771f2c3073d91cb5b0de4684b51badbd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564561"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Självstudier: Azure Active Directory-integrering med tre Zscaler
 
@@ -34,11 +34,11 @@ Integrera Zscaler tre med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du vill konfigurera Azure AD-integrering med Zscaler tre, behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
 * Zscaler tre enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -154,9 +154,17 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Zscaler
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Konfigurera Zscaler tre enkel inloggning
 
-1. I ett annat webbläsarfönster, loggar du in på webbplatsen Zscaler tre företag som administratör.
+1. Om du vill automatisera konfigurationen inom tre Zscaler, måste du installera **Mina appar skyddat inloggning webbläsartillägget** genom att klicka på **installera tillägget**.
 
-2. Gå till **Administration > Autentisering > Autentiseringsinställningar** och utför följande steg:
+    ![Mina appar-tillägg](common/install-myappssecure-extension.png)
+
+2. När du lägger till tillägg till webbläsaren, klickar på **installationsprogrammet Zscaler tre** omdirigerar dig till programmet Zscaler tre. Ange administratörsautentiseringsuppgifter för att logga in på Zscaler tre därifrån. Webbläsartillägget automatiskt att konfigurera program för dig. och automatisera steg 3 – 6.
+
+    ![Konfigurera enkel inloggning](common/setup-sso.png)
+
+3. Om du vill att installationsprogrammet Zscaler tre manuellt, öppna ett nytt webbläsarfönster och logga till Zscaler tre företagets webbplatsen som administratör och utför följande steg:
+
+4. Gå till **Administration > Autentisering > Autentiseringsinställningar** och utför följande steg:
    
     ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
@@ -164,7 +172,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Zscaler
 
     b. Klicka på **Konfigurera SAML**.
 
-3. I fönstret **Redigera SAML** utför du följande steg och klickar på Spara.  
+5. I fönstret **Redigera SAML** utför du följande steg och klickar på Spara.  
             
     ![Hantera användare och autentisering](./media/zscaler-three-tutorial/ic800208.png "Hantera användare och autentisering")
     
@@ -184,7 +192,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Zscaler
 
     h. Klicka på **Spara**.
 
-4. I dialogrutan **Konfigurera användarautentisering** utför du följande steg:
+6. I dialogrutan **Konfigurera användarautentisering** utför du följande steg:
 
     ![Administration](./media/zscaler-three-tutorial/ic800207.png)
 
@@ -241,7 +249,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 

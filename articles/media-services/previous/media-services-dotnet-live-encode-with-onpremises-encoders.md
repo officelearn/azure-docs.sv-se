@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 6bec12893591fb36298e9c2f1664646a4d598073
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61222260"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869457"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av .NET
 > [!div class="op_single_selector"]
@@ -28,13 +28,17 @@ ms.locfileid: "61222260"
 > 
 > 
 
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+
 Den här självstudien vägleder dig genom stegen för att använda Azure Media Services .NET SDK för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Följande krävs för att kunna genomföra vägledningen:
 
 * Ett Azure-konto.
-* Ett Media Services-konto.    Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+* Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+* Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**. 
 * Ställ in din utvecklingsmiljö. Mer information finns i [ställer in din miljö](media-services-set-up-computer.md).
 * En webbkamera. Till exempel [Telestream Wirecast-kodaren](https://www.telestream.net/wirecast/overview.htm).
 
@@ -48,6 +52,7 @@ Rekommenderar att du i följande artiklar:
 Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="example"></a>Exempel
+
 I följande kodexempel visar hur du utför följande uppgifter:
 
 * Ansluta till Media Services
@@ -60,9 +65,6 @@ I följande kodexempel visar hur du utför följande uppgifter:
 * Skapa och starta en StreamingEndpoint
 * Uppdatera slutpunkten för direktuppspelning
 * Stäng av resurser
-
->[!IMPORTANT]
->Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**. 
     
 >[!NOTE]
 >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).

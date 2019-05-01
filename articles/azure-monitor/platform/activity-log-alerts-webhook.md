@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731509"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688349"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för aviseringar för Azure-aktivitetsloggar
 Som en del av definitionen av en åtgärdsgrupp kan konfigurera du webhook-slutpunkter för att få aviseringar för aktiviteten log. Du kan använda webhooks, för att vidarebefordra dessa meddelanden till andra system för efterbearbetning eller anpassade åtgärder. Den här artikeln visar hur nyttolast för HTTP-POST till en webhook som ser ut.
@@ -21,6 +21,10 @@ Som en del av definitionen av en åtgärdsgrupp kan konfigurera du webhook-slutp
 Läs mer på aktivitetsloggsaviseringar så [skapa aviseringar för Azure aktivitetsloggen](activity-log-alerts.md).
 
 Information om åtgärdsgrupper finns i så här [skapa åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).
+
+> [!NOTE]
+> Du kan också använda den [gemensamma avisering schemat](https://aka.ms/commonAlertSchemaDocs), som innehåller fördelen att en enda extensible och enhetlig avisering nyttolast över alla aviseringen tjänster i Azure Monitor för webhook-integreringar. [Läs mer om vanliga avisering schemadefinitioner.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 ## <a name="authenticate-the-webhook"></a>Autentisera webhooken
 Webhooken kan du kan också använda tokenbaserad auktorisering för autentisering. Webhooken URI sparas med ett token-ID, till exempel `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -173,7 +177,7 @@ Information om specifika schemat på alla andra aktivitetsloggaviseringar, se [�
 | conditionType |Alltid ”händelse”. |
 | namn |Namnet på regeln. |
 | id |Resurs-ID för aviseringen. |
-| beskrivning |Aviseringsbeskrivningen när aviseringen har skapats. |
+| description |Aviseringsbeskrivningen när aviseringen har skapats. |
 | subscriptionId |Azure-prenumerations-ID. |
 | tidsstämpel |Tid då händelsen genererades av Azure-tjänsten som bearbetade förfrågan. |
 | resourceId |Resurs-ID för resursen som påverkas. |

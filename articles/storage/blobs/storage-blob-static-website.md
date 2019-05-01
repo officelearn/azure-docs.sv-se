@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122684"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925288"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Värd för statisk webbplats i Azure Storage
 Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.
@@ -52,16 +52,21 @@ Valda standardfilnamnet används vid roten och eventuella underkataloger när et
 
 ## <a name="cdn-and-ssl-support"></a>CDN- och SSL-stöd
 
-För att göra din statiska webbplats filer tillgängliga via HTTPS, se avsnittet [använda Azure CDN för att få åtkomst till blobar med anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md). Som en del av den här processen måste du *peka CDN-nätverket till webbslutpunkt* till skillnad från blob-slutpunkten. Du kan behöva vänta några minuter innan innehållet är synligt när CDN-konfigurationen inte utförs omedelbart.
+För att göra dina filer för statisk webbplats via din anpassade domän och HTTPS, se [använda Azure CDN för att få åtkomst till blobar med anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md). Som en del av den här processen måste du *peka CDN-nätverket till webbslutpunkt* till skillnad från blob-slutpunkten. Du kan behöva vänta några minuter innan innehållet är synligt när CDN-konfigurationen inte utförs omedelbart.
 
 När du uppdaterar din statiska webbplats, måste du ta bort cachelagrat innehåll i CDN edge-servrar genom att rensa CDN-slutpunkten. Mer information finns i [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md) (Rensa en Azure CDN-slutpunkt).
+
+> [!NOTE]
+> HTTPS stöds internt via webbslutpunkt för kontot. Användningen av anpassade domäner över HTTPS kräver användning av Azure CDN just nu. 
+>
+> Offentliga konto webbslutpunkt över HTTPS: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>Egna domännamn
 
 Du kan [konfigurera ett anpassat domännamn för Azure Storage-kontot](storage-custom-domain-name.md) att tillgängliggöra din statiska webbplats via en anpassad domän. För en grundlig genomgång som är värd för din domän på [Azure, se värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Prissättning
-Som är värd för statisk webbplats tillhandahålls utan extra kostnad. Mer information om priser för Azure Blob Storage finns i [Prissättningssidan för Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Att aktivera som är värd för statisk webbplats är kostnadsfritt. Kunderna debiteras för utnyttjade blob-kostnader för lagring och åtgärder. Mer information om priser för Azure Blob Storage finns i [Prissättningssidan för Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Snabbstart
 
@@ -159,7 +164,10 @@ Nej, som är värd för statisk webbplats är endast tillgänglig i GPv2-konton 
 Ja, den nya webbslutpunkt följs virtuellt nätverk och brandvägg reglerna som konfigurerats för lagringskontot.
 
 **Är webbslutpunkt skiftlägeskänsligt?**  
-Ja, web-slutpunkt är skiftlägeskänsliga precis som blob-slutpunkten. 
+Ja, web-slutpunkt är skiftlägeskänsliga precis som blob-slutpunkten.
+
+**Är webbslutpunkt tillgängliga via både HTTP och HTTPS?**
+Ja, web-slutpunkt är tillgängliga via både HTTP och HTTPS. Men om lagringskontot har konfigurerats för att kräva säker överföring via HTTPS, måste sedan användare använda HTTPS-slutpunkten. Mer information finns i [Kräv säker överföring i Azure Storage](../common/storage-require-secure-transfer.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Använda Azure CDN för att få åtkomst till blobar med anpassade domäner över https](storage-https-custom-domain-cdn.md)

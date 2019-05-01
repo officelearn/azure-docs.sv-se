@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856137"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699444"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning Studio
 ## <a name="overview"></a>Översikt
@@ -217,7 +217,7 @@ Det här dokumentet beskriver en metod som är känsliga för att lösa vanliga 
 
 [3] [CRISP-DM 1.0: Stegvisa Data-utvinning Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Stordata marknadsföring: Engagera dina kunder mer effektivt och Driv värde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Stordata marknadsföring: Engagera dina kunder mer effektivt och Driv värde](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Telco omsättningen modellen mallen](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) i [Azure AI-galleriet](https://gallery.azure.ai/) 
  

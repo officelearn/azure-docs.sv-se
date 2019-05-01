@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
 ms.openlocfilehash: 17ba15ea12efc80dcc830f6338a837d1abb77a71
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764438"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708861"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referensdatauppsättning för miljön för Time Series Insights med hjälp av Azure portal
 
@@ -97,5 +97,7 @@ Referensdata är inte ansluten retroaktivt. Det innebär att endast nuvarande oc
     Sidan bekräftar den slutförda ladda upp och visa meddelandet **har laddats upp datauppsättningen**.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Hantera referensdata](time-series-insights-manage-reference-data-csharp.md) programmässigt.
+
 * En fullständig API-referens, se dokumentet [Referensdata-API](/rest/api/time-series-insights/ga-reference-data-api) .

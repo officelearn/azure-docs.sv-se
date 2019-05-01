@@ -16,7 +16,7 @@ Avsnittet strukturen i datauppsättningar JSON är en **valfritt** för rektangu
 
 Varje kolumn innehåller följande egenskaper:
 
-| Egenskap  | Beskrivning | Obligatoriskt |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Namnet på kolumnen. |Ja |
 | typ |Datatypen för kolumnen. Se typen konverteringar avsnittet nedan finns mer information om när ska du ange typinformation |Nej |

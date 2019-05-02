@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032459"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924795"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestandajustering för virtuella Azure-datorer
 
@@ -304,7 +304,7 @@ Accelererat nätverk är utformad för att förbättra nätverksprestanda, inklu
 
 Azure virtuella datorer har minst ett nätverksgränssnitt som är anslutna till dem. De kan ha flera. Bandbredden som allokeras till en virtuell dator är summan av all utgående trafik för alla nätverksgränssnitt som är kopplade till datorn. Med andra ord allokeras bandbredden på basis av per virtuell dator, oavsett hur många nätverksgränssnitt är kopplade till datorn.
 
-Förväntade utgående dataflöde och antalet nätverksgränssnitt som stöds av varje VM-storlek finns beskrivna i [storlekar för Windows-datorer i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill se maximalt dataflöde, Välj en typ som **generella**, och leta sedan reda på avsnittet om seriens storlek på sidan resulterande (till exempel ”Dv2-serien”). För varje serie finns också en tabell som innehåller nätverk specifikationer i den sista kolumnen som heter ”maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s)”.
+Förväntade utgående dataflöde och antalet nätverksgränssnitt som stöds av varje VM-storlek finns beskrivna i [storlekar för Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill se maximalt dataflöde, Välj en typ som **generella**, och leta sedan reda på avsnittet om seriens storlek på sidan resulterande (till exempel ”Dv2-serien”). För varje serie finns också en tabell som innehåller nätverk specifikationer i den sista kolumnen som heter ”maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s)”.
 
 Dataflöde gränsen gäller för den virtuella datorn. Dataflödet påverkas inte av dessa faktorer:
 
@@ -388,4 +388,4 @@ Dessa typer av paket finns fortfarande, uppgifter som att TCP-dataflöde inte g�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om TCP/IP prestandajustering för virtuella Azure-datorer kan du läsa om andra överväganden för [planera virtuella nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) eller [Läs mer om att ansluta och konfigurera virtuella nätverk ](https://docs.microsoft.com/en-us/azure/virtual-network/).
+Nu när du har lärt dig om TCP/IP prestandajustering för virtuella Azure-datorer kan du läsa om andra överväganden för [planera virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) eller [Läs mer om att ansluta och konfigurera virtuella nätverk ](https://docs.microsoft.com/azure/virtual-network/).

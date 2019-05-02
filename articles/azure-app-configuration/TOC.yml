@@ -1,64 +1,59 @@
-items:
 - name: Dokumentation om förhandsversionen av Azure App Configuration
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Azure App Configuration
-    href: overview.md
+    - name: Om Azure App Configuration
+      href: overview.md
 - name: Snabbstarter
-  items:
-  - name: Skapa en ASP.NET Core-app
-    href: quickstart-aspnet-core-app.md
-  - name: Skapa en .NET Core-app
-    href: quickstart-dotnet-core-app.md
-  - name: Skapa en .NET Framework-app
-    href: quickstart-dotnet-app.md
-  - name: Skapa en Azure-funktion
-    href: quickstart-azure-function-csharp.md
-  - name: Skapa en Java Spring-app
-    href: quickstart-java-spring-app.md
   expanded: true
+  items:
+    - name: Skapa en ASP.NET Core-app
+      href: quickstart-aspnet-core-app.md
+    - name: Skapa en .NET Core-app
+      href: quickstart-dotnet-core-app.md
+    - name: Skapa en .NET Framework-app
+      href: quickstart-dotnet-app.md
+    - name: Skapa en Azure-funktion
+      href: quickstart-azure-function-csharp.md
+    - name: Skapa en Java Spring-app
+      href: quickstart-java-spring-app.md
 - name: Självstudier
   items:
-  - name: Aktivera dynamisk konfiguration i ASP.NET Core
-    href: enable-dynamic-configuration-aspnet-core.md
-  - name: Integrera med en CI/CD-pipeline
-    href: integrate-ci-cd-pipeline.md
+    - name: Aktivera dynamisk konfiguration i ASP.NET Core
+      href: enable-dynamic-configuration-aspnet-core.md
+    - name: Integrera med en CI/CD-pipeline
+      href: integrate-ci-cd-pipeline.md
 - name: Exempel
   items:
-  - name: Azure CLI
-    href: cli-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Begrepp
   items:
-  - name: Nyckelvärdeslagring
-    href: concept-key-value.md
-  - name: Ögonblicksbild av lagring vid olika tidpunkter
-    href: concept-point-time-snapshot.md
+    - name: Nyckelvärdeslagring
+      href: concept-key-value.md
+    - name: Ögonblicksbild av lagring vid olika tidpunkter
+      href: concept-point-time-snapshot.md
 - name: Instruktionsguider
   items:
-  - name: Integrera med Hanterad tjänstidentitet i Azure
-    href: howto-integrate-azure-managed-service-identity.md
-  - name: Importera eller exportera konfigurationsdata
-    href: howto-import-export-data.md
+    - name: Integrera med Hanterad tjänstidentitet i Azure
+      href: howto-integrate-azure-managed-service-identity.md
+    - name: Importera eller exportera konfigurationsdata
+      href: howto-import-export-data.md
 - name: Referens
   items:
-  - name: Konfigurationsprovider för .NET Core
-    href: https://go.microsoft.com/fwlink/?linkid=2074664
-  - name: Konfigurationsbyggare för .NET Framework
-    href: https://go.microsoft.com/fwlink/?linkid=2074663
-  - name: Konfigurationsprovider för Java Spring
-    href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
-  - name: Azure SDK för .NET
-    href: https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane
-  - name: REST
-    href: https://go.microsoft.com/fwlink/?linkid=2078296
+    - name: Konfigurationsprovider för .NET Core
+      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+    - name: Konfigurationsbyggare för .NET Framework
+      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+    - name: Konfigurationsprovider för Java Spring
+      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+    - name: Azure SDK för .NET
+      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
 - name: Resurser
   items:
-  - name: Ge produktfeedback
-    href: https://github.com/Azure/AppConfiguration
-ms.openlocfilehash: 74de90cd0e8274f7192b177c41aba165eabbed40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699618"
+    - name: Video för att komma igång
+      href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    - name: Ge produktfeedback
+      href: 'https://github.com/Azure/AppConfiguration/issues'

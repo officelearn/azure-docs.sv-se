@@ -2,26 +2,19 @@
 title: Go-To-Market Services – erbjuder lista över säkerhetsmetoder | Azure
 description: Go-To-Market Services – det här avsnittet beskrivs lista Metodtips för ett erbjudande
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c06a338ec041c83588c3ee5126795b8c445ef469
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863941"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937992"
 ---
-# <a name="offer-listing-best-practices"></a>Erbjud lista Metodtips
+# <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
 Tabeller i det här avsnittet innehåller förslag för att skapa och engagerande marketplace-erbjudanden. För att skriva och konfigurera ditt marknadsföringsmaterial, går du till den [Cloud Partner portal](https://cloudpartner.azure.com/#insights). 
 
@@ -35,7 +28,7 @@ Tabeller i det här avsnittet innehåller förslag för att skapa och engagerand
 | Storefront inställningen | Regelverk |
 |:--- |:--- |  
 | Branscher: AppSource-appar och konsulttjänster endast | Välj branscher om ditt erbjudande adresser branschspecifika behov: <ul><li> Anropa branschspecifika-funktionerna i beskrivningen för erbjudandet.</li> </ul> **Obs!** Det maximala antalet alternativen varierar beroende på typ av erbjudande och anges i den [Cloud Partner portal](https://cloudpartner.azure.com/#insights). |
-| Kategorier | Välj kategorier som passar bäst för ditt erbjudande:<br> <ul> <li> Välj kategorier noggrant, eftersom kunder använda dem för att söka efter relevanta appar. </li> <li> Glöm inte att anropa reda på hur ditt erbjudande stöder kategorispecifik behov i beskrivningen för erbjudandet. </li> </ul> **Obs!** Det maximala antalet alternativen varierar beroende på typ av erbjudande och anges i den [Cloud Partner portal](https://cloudpartner.azure.com/#insights). |
+| Categories | Välj kategorier som passar bäst för ditt erbjudande:<br> <ul> <li> Välj kategorier noggrant, eftersom kunder använda dem för att söka efter relevanta appar. </li> <li> Glöm inte att anropa reda på hur ditt erbjudande stöder kategorispecifik behov i beskrivningen för erbjudandet. </li> </ul> **Obs!** Det maximala antalet alternativen varierar beroende på typ av erbjudande och anges i den [Cloud Partner portal](https://cloudpartner.azure.com/#insights). |
 | Produkter som din app fungerar med (3 max): AppSource-appar | Lista över ytterligare produkter och tekniker som din lösning använder eller utökar. Till exempel Azure IoT Hub eller Azure Machine Learning. |
 | Sökord (max 3) | Sökord hjälper företag användarna att hitta ditt erbjudande när de söker <ul> <li> på Azure Marketplace </li> <li> on AppSource </li> <li> med hjälp av sökmotorer </li> </ul> Din lista visas i dessa sökningar, måste du: <ul> <li> Identifiera de främsta tre sökord för ditt erbjudande; </li> <li> införliva sökord i ditt erbjudande sammanfattning och beskrivning; </li> <li> lista över sökord här. </li> </ul> |
 

@@ -1,7 +1,6 @@
 ---
 title: Extrahering, transformering och inläsning (ETL) i stor skala - Azure HDInsight
 description: Lär dig hur ETL används i HDInsight med Apache Hadoop.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: c200ca98f2a5ea32886ec12d3e732af6598254f7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a343caaa998505a1772096b058ec7ad300eec03c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337620"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725691"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahering, transformering och laddning (ETL) i stor skala
 

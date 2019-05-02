@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293812"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573036"
 ---
 # <a name="streaming-endpoints-overview"></a>Översikt över slutpunkter för direktuppspelning  
 
-## <a name="overview"></a>Översikt
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 I Microsoft Azure Media Services (AMS), en **Strömningsslutpunkt** representerar en direktuppspelningstjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett CDN Content Delivery Network () för vidare distribution. Media Services tillhandahåller också en smidig integrering med Azure CDN. Den utgående dataströmmen från en StreamingEndpoint-tjänst kan vara en direktsänd dataström, en video på begäran eller progressiv nedladdning av din tillgång i Media Services-kontot. Varje Azure Media Services-konto innehåller en standard StreamingEndpoint. Du kan skapa ytterligare Strömningsslutpunkter under kontot. Det finns två versioner av Strömningsslutpunkter, 1.0 och 2.0. Från och med januari, 10 2017, eventuella nyligen skapade AMS-konton innehåller version 2.0 **standard** StreamingEndpoint. Ytterligare slutpunkter för direktuppspelning som du lägger till det här kontot kommer också att version 2.0. Den här ändringen påverkar inte befintliga konton; befintliga Strömningsslutpunkter blir version 1.0 och kan uppgraderas till version 2.0. Med den här ändringen finns beteende, fakturering och funktionen ändringar (Mer information finns i den **Streaming typer och versioner** avsnitt beskrivs nedan).
 
@@ -46,14 +47,17 @@ För alla ytterligare slutpunkter: `{EndpointName}-{AccountName}.streaming.media
 
 ### <a name="standardpremium-types-version-20"></a>Standard/Premium-typer (version 2.0)
 
-Från och med januari 2017-versionen av Media Services kan ha du två strömmande typer: **Standard** och **Premium**. Typerna är en del av strömning endpoint version ”2.0”.
+Från och med januari 2017-versionen av Media Services kan ha du två strömmande typer: **Standard** (förhandsversion) och **Premium**. Typerna är en del av strömning endpoint version ”2.0”.
 
-Type|Beskrivning
----|---
-**Standard** |Det här är standardalternativet som skulle fungera för flesta scenarier.<br/>Med det här alternativet kan du få fast/begränsad SLA, första 15 dagarna efter att du startar slutpunkten för direktuppspelning är kostnadsfri.<br/>Om du skapar flera slutpunkter för direktuppspelning, endast den första som är kostnadsfri under de första 15 dagarna, faktureras de andra när du startar. <br/>Observera att kostnadsfria utvärderingsversionen bara gäller för nya media services-konton och standardslutpunkt för direktuppspelning. Befintliga slutpunkter för direktuppspelning och dessutom skapade slutpunkter för direktuppspelning inte innehåller kostnadsfria utvärderingsperioden även de uppgraderas till version 2.0 eller de skapas som version 2.0.
-**Premium** |Det här alternativet är lämpligt för professionella scenarier som kräver högre skala eller kontroll.<br/>Variabeln serviceavtal som baseras på strömmande enhet (SU) premiumkapacitet köpt, dedikerad slutpunkter för direktuppspelning live i isolerad miljö och konkurrerar inte om resurser.
 
-Mer information finns i den **jämför Streaming typer** följande avsnitt.
+|Typ|Beskrivning|
+|--------|--------|  
+|**Standard**|Standard-slutpunkt för direktuppspelning är en **Standard** skriver, kan ändras till typen Premium genom att justera strömningsenheter.|
+|**Premium** |Det här alternativet är lämpligt för professionella scenarier som kräver högre skala eller kontroll. Du flyttar till en **Premium** genom att justera strömningsenheter.<br/>Dedikerad slutpunkter för direktuppspelning live i isolerad miljö och konkurrerar inte om resurser.|
+
+För kunder som planerar för att leverera innehåll till stora målgrupper för internet, rekommenderar vi att du aktiverar CDN på slutpunkt för direktuppspelning.
+
+Mer information finns i den [jämför Streaming typer](#comparing-streaming-types) följande avsnitt.
 
 ### <a name="classic-type-version-10"></a>Klassisk typ (version 1.0)
 
@@ -71,29 +75,32 @@ Om din **version ”1.0”** slutpunkt för direktuppspelning har > = 1 premium 
 
 ### <a name="versions"></a>Versioner
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|SLA| 
-|--------------|----------|-----------------|-----------------|-----------------|-----------------|    
-|Klassisk|1.0|0|Ej tillämpligt|Kostnadsfri|Ej tillämpligt|
-|Standard-slutpunkt för direktuppspelning|2.0|0|Ja|Avgiftsbelagt|Ja|
-|Premium-enheter för direktuppspelning|1.0|>0|Ja|Avgiftsbelagt|Ja|
-|Premium-enheter för direktuppspelning|2.0|>0|Ja|Avgiftsbelagt|Ja|
+|Typ|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Klassisk|1.0|0|Ej tillämpligt|Kostnadsfri|
+|Standard-slutpunkt för direktuppspelning (förhandsversion)|2.0|0|Ja|Avgiftsbelagt|
+|Premium-enheter för direktuppspelning|1.0|> 0|Ja|Avgiftsbelagt|
+|Premium-enheter för direktuppspelning|2.0|> 0|Ja|Avgiftsbelagt|
 
 ### <a name="features"></a>Funktioner
 
 Funktion|Standard|Premium
 ---|---|---
-Kostnadsfria första 15 dagarna| Ja |Nej
-Dataflöde |Upp till 600 Mbit/s när Azure CDN inte används. Skalning med CDN.|200 Mbit/s per enhet (SU) för strömning. Skalning med CDN.
-SLA | 99.9|99,9 (200 Mbit/s per SU).
+Kostnadsfri första 15 dagarna <sup>1</sup>| Ja |Nej
+Dataflöde |Upp till 600 Mbit/s och kan tillhandahålla en mycket högre effektiva dataflöde när ett CDN används.|200 Mbit/s per enhet (SU) för strömning. Kan tillhandahålla en mycket högre effektiva dataflöde när ett CDN används.
 CDN|Azure CDN från tredje part CDN eller inga CDN.|Azure CDN från tredje part CDN eller inga CDN.
 Fakturering beräknas| Dagligen|Dagligen
 Dynamisk kryptering|Ja|Ja
 Dynamisk paketering|Ja|Ja
-Skala|Automatiskt skalar upp det riktade dataflödet.|Ytterligare enheter för strömning
-IP-filtrering/G20/anpassat värd|Ja|Ja
+Skala|Automatiskt skalar upp det riktade dataflödet.|Ytterligare enheter för strömning.
+IP-filtrering/G20/anpassat värd <sup>2</sup>|Ja|Ja
 Progressiv nedladdning|Ja|Ja
-Rekommenderade användningen |Rekommenderas för merparten av scenarier för direktuppspelning.|Professionella användning.<br/>Om du tror att kan du ha behov utöver Standard. Kontakta oss (amsstreaming@microsoft.com) om du tror att en samtidiga målgrupp storlek är större än 50 000 användare.
+Rekommenderade användningen |Rekommenderas för merparten av scenarier för direktuppspelning.|Professionella användning. 
 
+<sup>1</sup> den kostnadsfria utvärderingsversionen gäller endast för nya media services-konton och standardvärdet slutpunkten för direktuppspelning.<br/>
+<sup>2</sup> endast används direkt på den slutpunkt för direktuppspelning när CDN inte är aktiverat på slutpunkten.<br/>
+
+SLA-information, se [priser och SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migrering mellan typer
 

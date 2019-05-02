@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ad5a4981869f992ab6823a13afc2cad0e5252d08
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: eb731dc18b1524bcf161352265af9e277f85876e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105441"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730616"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Konfigurera PHP i Azure App Service
 
@@ -35,15 +35,11 @@ PHP 7.0 och PHP 7.2-versioner är också tillgängligt, men inte aktiverad som s
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Bläddra till din app i den [Azure-portalen](https://portal.azure.com) och klicka på den **inställningar** knappen.
+1. Bläddra till din app i den [Azure-portalen](https://portal.azure.com) och bläddra till den **Configuration** sidan.
 
-    ![Appinställningar][settings-button]
-2. Från den **inställningar** bladet väljer **programinställningar** och välj den nya versionen av PHP.
+2. Från **Configuration**väljer **allmänna inställningar** och välj den nya versionen av PHP.
 
-    ![Programinställningar][application-settings]
-3. Klicka på den **spara** längst upp på den **programinställningar** bladet.
-
-    ![Spara konfigurationsinställningarna][save-button]
+3. Klicka på den **spara** längst upp på den **allmänna inställningar** bladet.
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -130,18 +126,12 @@ Enligt vad som anges i föregående avsnitt, det bästa sättet att se PHP-stand
 ### <a name="configure-via-app-setting"></a>Konfigurera via Appinställning
 
 1. Lägg till en `bin` katalogen till rotkatalogen.
-1. Placera `.dll` tillägget filer i den `bin` katalog (till exempel `php_xdebug.dll`). Se till att tillägg som är kompatibla med standardversionen av PHP och är VC9 och icke-trådsäkra (nts)-kompatibel.
-2. Distribuera din app.
-3. Bläddra till din app i Azure-portalen och klicka på den **inställningar** knappen.
-
-    ![Appinställningar][settings-button]
-4. Från den **inställningar** bladet väljer **programinställningar** och bläddra till den **appinställningar** avsnittet.
-5. I den **appinställningar** skapar du en **PHP_EXTENSIONS** nyckel. Värdet för den här nyckeln skulle vara en sökväg i förhållande till webbplatsroten: **bin\your-ext-file**.
-
-    ![Aktivera tillägget appinställningar][php-extensions]
-6. Klicka på den **spara** längst upp på den **programinställningar** bladet.
-
-    ![Spara konfigurationsinställningarna][save-button]
+2. Placera `.dll` tillägget filer i den `bin` katalog (till exempel `php_xdebug.dll`). Se till att tillägg som är kompatibla med standardversionen av PHP och är VC9 och icke-trådsäkra (nts)-kompatibel.
+3. Distribuera din app.
+4. Bläddra till din app i Azure-portalen och klicka på den **Configuration** under **inställningar** avsnittet.
+5. Från den **Configuration** bladet väljer **programinställningar**.
+6. I den **programinställningar** klickar du på **+ ny programinställning** och skapa en **PHP_EXTENSIONS** nyckel. Värdet för den här nyckeln skulle vara en sökväg i förhållande till webbplatsroten: **bin\your-ext-file**.
+7. Klicka på den **uppdatering** knappen längst ned på sidan och klicka sedan på **spara** ovan den **programinställningar** fliken.
 
 Zend-tillägg stöds även med hjälp av en **PHP_ZENDEXTENSIONS** nyckel. Om du vill aktivera flera tillägg måste innehålla en kommaavgränsad lista över `.dll` filer för app inställningens värde.
 
@@ -154,15 +144,11 @@ App Service kan använda en PHP-körning som du anger för att köra PHP-skript 
 3. Du kan också lägga till tillägg till PHP-körning och aktivera dem i den `php.ini` filen.
 4. Lägg till en `bin` katalogen till rotkatalogen och placera den katalog som innehåller din PHP-körning i den (till exempel `bin\php`).
 5. Distribuera din app.
-6. Bläddra till din app i Azure-portalen och klicka på den **inställningar** knappen.
-
-    ![Appinställningar][settings-button]
-7. Från den **inställningar** bladet väljer **programinställningar** och bläddra till den **Hanterarmappningar** avsnittet. Lägg till `*.php` till tillägget och lägga till sökvägen till den `php-cgi.exe` körbara. Om du placerar dina PHP-körning den `bin` katalogen i roten för ditt program sökvägen är `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-
-    ![Ange hanteraren i Hanterarmappningar][handler-mappings]
-8. Klicka på den **spara** längst upp på den **programinställningar** bladet.
-
-    ![Spara konfigurationsinställningarna][save-button]
+6. Bläddra till din app i Azure-portalen och klicka på den **Configuration** bladet.
+8. Från den **Configuration** bladet väljer **sökväg mappningar**. 
+9. Klicka på **+ ny hanterare** och Lägg till `*.php` till tillägget och lägga till sökvägen till den `php-cgi.exe` körbara i **Skriptprocessor**. Om du placerar dina PHP-körning den `bin` katalogen i roten för ditt program sökvägen är `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. Längst ned på sidan, klickar du på **uppdatering** och slutför installationen hanterarmappningen.
+11. Klicka på **Spara** för att spara ändringarna.
 
 <a name="composer" />
 

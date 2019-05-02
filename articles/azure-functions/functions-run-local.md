@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61022116"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875930"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -41,6 +41,9 @@ Om inget annat anges i exemplen i den här artikeln gäller för version 2.x.
 ### <a name="v2"></a>Version 2.x
 
 Version 2.x av verktygen använder Azure Functions-runtime 2.x som bygger på .NET Core. Den här versionen stöds för alla plattformar som .NET Core 2.x stöder, inklusive [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Du måste först installera .NET Core 2.x SDK.
+
+> [!IMPORTANT]
+> När du aktiverar tillägget paket i projektfilen host.json, behöver du inte installera .NET Core 2.x SDK. Mer information finns i [lokal utveckling med Azure Functions Core Tools och tillägget buntar ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Tillägget paket kräver version 2.6.1071 av de viktigaste verktygen eller en senare version.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -310,6 +313,7 @@ Den `host` kommando krävs endast i version 1.x.
 | **`--script-root --prefix`** | Används för att ange sökvägen till roten för funktionsappen som ska köras eller distribueras. Det här används för kompilerade projekt som genererar av projektfiler till en undermapp. Till exempel när du skapar en C#-klassbibliotek projekt, host.json, local.settings.json och function.json filer skapas i en *rot* undermapp med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I så fall, Ange prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Det här är roten av funktionsappen vid körning i Azure. |
 | **`--timeout -t`** | Tidsgränsen för Functions värden startas, i sekunder. Standard: 20 sekunder.|
 | **`--useHttps`** | Binda till `https://localhost:{port}` snarare än till `http://localhost:{port}`. Det här alternativet skapar som standard ett betrott certifikat på datorn.|
+| **`--enableAuth`** | Aktivera fullständig hantering av pipeline-autentisering.|
 
 För en C# klassbiblioteksprojektet (.csproj), måste du inkludera den `--build` alternativet för att generera DLL-filen för biblioteket.
 

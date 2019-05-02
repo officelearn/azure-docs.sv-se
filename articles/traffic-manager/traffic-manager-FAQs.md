@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b89e9a48ce20c7c00bd3282623919b8066e34b25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803030"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717057"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Traffic Manager
 
@@ -320,7 +320,7 @@ Ja. Traffic Manager stöder över HTTPS-avsökning. Konfigurera **HTTPS** som pr
 Traffic manager kan inte ange någon certifikatsverifiering inklusive:
 
 * Inte valideras certifikaten för serversidan
-* SNI serversidan certifikat stöds inte
+* SNI serversidan certifikat verifieras inte
 * Klientcertifikat stöds inte
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Kan jag använda en IP-adress eller ett DNS-namn när du lägger till en slutpunkt?

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122599"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702509"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer samlar in prestanda och anslutningsmått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till arbetsytan Log Analytics i Azure Monitor.  Informationen är tillgänglig för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
@@ -202,7 +202,7 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 | ProductVersion_s | Produktversion |
 | FileVersion_s | Filversionen |
 | CommandLine_s | Från kommandoraden |
-| ExecutablePath _Vä | Sökvägen till den körbara filen |
+| ExecutablePath_s | Sökvägen till den körbara filen |
 | WorkingDirectory_s | Arbetskatalogen |
 | Användarnamn | Det konto som processen körs |
 | UserDomain | Den domän där processen körs |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60430125"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939897"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -176,7 +176,7 @@ Välj följande alternativ som visas på bild:
 
     ![Valet av lagringskonto, Log Analytics-arbetsyta och aktivering av trafikanalys](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafikanalys för. Data från flödesloggar skickas till arbetsytan, så se till att lokala lagar och bestämmelser i ditt land tillåter lagring av data i den region där arbetsytan finns.
+Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafikanalys för. Data från flödesloggar skickas till arbetsytan, så se till att lokala lagar och bestämmelser i ditt land/region tillåter lagring av data i den region där arbetsytan finns.
 
 Du kan också konfigurera traffic analytics med hjälp av den [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell-cmdlet i Azure PowerShell. Kör `Get-Module -ListAvailable Az` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
@@ -270,13 +270,13 @@ Några av de insikter som du kanske vill få när konfigurationen är slutförd 
 
     ![Instrumentpanelen listvy med fördelning av trafik](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- Geo-kartan visar menyfliksområdet längst upp för val av parametrar, till exempel datacenter (distribuerat/Nej-distribution/aktiv/inaktiv/Trafikanalysaktiverade/trafikanalys inte aktiverad) och länder som bidrar till Benign/skadlig trafik till aktivt distribution:
+- Geo-kartan visar menyfliksområdet längst upp för val av parametrar, till exempel datacenter (distribuerat/Nej-distribution/aktiv/inaktiv/Trafikanalysaktiverade/trafikanalys inte aktiverad) och bidrar till Benign/skadlig trafik till aktivt länder/regioner distribution:
 
     ![GEO-kartvyn visar aktiv distribution](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- Geo-kartan visar fördelning av trafik till ett datacenter från andra länder och kontinenter kommunikation till den i blå (ofarlig trafik) och röd (skadlig trafik) färgas rader:
+- Geo-kartan visar fördelning av trafik till ett datacenter från länder/regioner och kontinenter kommunikation till den i blå (ofarlig trafik) och röd (skadlig trafik) färgas rader:
 
-    ![GEO-kartvyn visar fördelning av trafik i länder och kontinenter](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![GEO-kartvyn visar fördelning av trafik till länder/regioner och kontinenter](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Flow-information för fördelning av trafik i loggsökning](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 

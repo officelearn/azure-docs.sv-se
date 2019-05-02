@@ -4,15 +4,15 @@ description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur d
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699397"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722480"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
 
@@ -47,9 +47,8 @@ Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och 
 
 ### <a name="important-facts-about-the-root-management-group"></a>Viktiga fakta om rothanteringsgruppen
 
-- Rothanteringsgruppens namn och ID anges som standard. Visningsnamnet kan uppdateras när som helst på Microsoft Azure-portalen. Om du vill [ändra namnet](manage.md#change-the-name-of-a-management-group) måste ditt konto ha tilldelats rollen Ägare eller Deltagare i rothanteringsgruppen.
-  - Namnet blir ”Rotgrupp för klienter”.
-  - ID:t är samma som Azure Active Directory-ID:t.
+- Som standard är rothanteringsgruppens visningsnamn **Klientorganisationens rotgrupp**. ID:t är samma som ID:t för Azure Active Directory.
+- Om du vill ändra visningsnamnet måste ditt konto ha tilldelats rollen Ägare eller Deltagare i rothanteringsgruppen. Anvisningar om hur du ändrar namnet finns i [Change the name of a management group](manage.md#change-the-name-of-a-management-group) (Ändra namnet på en hanteringsgrupp).
 - Rothanteringsgruppen kan inte flyttas eller tas bort, till skillnad från andra hanteringsgrupper.  
 - Alla prenumerationer och hanteringsgrupper är underordnade rothanteringsgruppen i katalogen.
   - Alla resurser i katalogen är underordnade rothanteringsgruppen för global hantering.

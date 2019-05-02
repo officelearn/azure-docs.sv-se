@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458779"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925826"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostisera utelämnade meddelanden i Azure Notification Hubs
 
@@ -123,7 +123,7 @@ Här följer sökvägar för att diagnostisera grundorsaken till utelämnade med
 
 #### <a name="push-notification-service-developer-portal"></a>Push notification service developer-portalen ####
 
-Kontrollera autentiseringsuppgifterna i respektive push notification service developer-portalen (APNs, FCM, Windows-meddelandetjänsten och så vidare). Mer information finns i [Självstudie: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Kontrollera autentiseringsuppgifterna i respektive push notification service developer-portalen (APNs, FCM, Windows-meddelandetjänsten och så vidare). Mer information finns i [Självstudie: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Azure Portal ####
 
@@ -180,7 +180,7 @@ Du kan också skicka testmeddelanden från Visual Studio.
 
 Mer information om att använda Meddelandehubbar med Visual Studio Server Explorer finns i följande artiklar:
 
-* [Så här visar du enhetsregistreringar för meddelandehubbar](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [Så här visar du enhetsregistreringar för meddelandehubbar](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [Djupdykning: Visual Studio 2013 Update 2 RC och Azure SDK 2.3]
 * [Vi presenterar versionen av Visual Studio 2013 Update 3 och Azure SDK 2.4]
 
@@ -261,7 +261,7 @@ I portalen får du en snabb överblick över alla aktiviteter i din meddelandehu
 
 #### <a name="programmatic-access"></a>Programmässig åtkomst ####
 
-Läs mer om Programmeringsåtkomst [Programmeringsåtkomst](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+Läs mer om Programmeringsåtkomst [Programmeringsåtkomst](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Flera telemetri-relaterade funktioner, som exporterar och importerar registreringar och telemetri åtkomst via API: er, är endast tillgängliga på Standard-tjänstnivå. Om du försöker använda dessa funktioner från kostnadsfritt eller grundläggande tjänstnivån, får du ett Undantagsmeddelande om du använder SDK: N. Du får felmeddelandet HTTP 403 (förbjudet) om du använder funktionerna direkt från REST-API: er.

@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: Lär dig hur du använder Azure DDoS Protection standardmoduler i Azure Monitor för att åtgärda ett angrepp.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
-ms.author: jdial
-ms.openlocfilehash: 32c4516c7dc68b04826b362d34841160936d682d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.author: kumud
+ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244527"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728340"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection Standard med hjälp av Azure portal
 
@@ -47,7 +47,7 @@ Skapandet av mer än en plan krävs inte för de flesta organisationer. En plan 
     |Namn           | myDdosProtectionPlan                              |
     |Prenumeration   | Välj din prenumeration.                         |
     |Resursgrupp | Välj **Skapa nytt** och ange *myResourceGroup* |
-    |Plats       | Östra USA                                           |
+    |Location       | Östra USA                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Aktivera DDoS för ett nytt virtuellt nätverk
 
@@ -60,7 +60,7 @@ Skapandet av mer än en plan krävs inte för de flesta organisationer. En plan 
     | Namn            | myVirtualNetwork                                             |
     | Prenumeration    | Välj din prenumeration.                                    |
     | Resursgrupp  | Välj **Använd befintlig** och sedan **myResourceGroup**. |
-    | Plats        | Östra USA                                                      |
+    | Location        | Östra USA                                                      |
     | DDos-skydd | Välj **Standard** och sedan under **DDoS protection**väljer **myDdosProtectionPlan**. Den plan som du väljer kan finnas i samma, eller en annan prenumeration än det virtuella nätverket, men båda prenumerationerna måste vara kopplade till samma Azure Active Directory-klient.|
 
 Du kan inte flytta ett virtuellt nätverk till en annan resursgrupp eller prenumeration när DDoS-standarden aktiveras för det virtuella nätverket. Om du behöver flytta ett virtuellt nätverk med DDoS Standard aktiverad, inaktivera DDoS Standard först, flytta det virtuella nätverket och sedan aktivera DDoS-standard. Efter överflyttningen återställs automatiskt justerade princip tröskelvärdena för alla skyddade offentliga IP-adresser i det virtuella nätverket.

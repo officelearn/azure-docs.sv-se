@@ -144,7 +144,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight-länkad tjän
 ### <a name="advanced-properties"></a>Avancerade egenskaper
 Detaljerad konfiguration av HDInsight-kluster på begäran, kan du ange följande egenskaper:
 
-| Egenskap                | Beskrivning                              | Obligatoriskt |
+| Egenskap                | Beskrivning                              | Krävs |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Anger konfigurationsparametrar core (core-site.xml) för att skapa HDInsight-klustret. | Nej       |
 | hBaseConfiguration     | Anger HBase konfigurationsparametrar (hbase-site.xml) för HDInsight-klustret. | Nej       |
@@ -197,7 +197,7 @@ Detaljerad konfiguration av HDInsight-kluster på begäran, kan du ange följand
 ### <a name="node-sizes"></a>Nodstorlekar
 Om du vill ange storleken på huvudnoder, datanoder och ZooKeeper-noder, använder du följande egenskaper: 
 
-| Egenskap           | Beskrivning                              | Obligatoriskt |
+| Egenskap           | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Anger storleken på huvudnoden. Standardvärdet är **Standard_D3**. Mer information finns i [ange nodstorlekar](#specify-node-sizes). | Nej       |
 | dataNodeSize      | Anger storleken på datanod. Standardvärdet är **Standard_D3**. | Nej       |
@@ -332,7 +332,7 @@ Du kan skapa en Machine Learning länkad tjänst för att registrera en Machine 
 ```
 
 ### <a name="properties"></a>Egenskaper
-| Egenskap    | Beskrivning                              | Obligatoriskt |
+| Egenskap    | Beskrivning                              | Krävs |
 | ---------- | ---------------------------------------- | -------- |
 | Typ       | Ange typegenskapen som **AzureML**. | Ja      |
 | mlEndpoint | Batchbedömnings-URL: en.                   | Ja      |
@@ -390,7 +390,7 @@ Använd autentisering av tjänstens huvudnamn genom att ange följande egenskape
 #### <a name="user-credential-authentication"></a>Användarautentisering för autentiseringsuppgifter
 För autentisering av användare autentiseringsuppgifter för Data Lake Analytics, anger du följande egenskaper:
 
-| Egenskap           | Beskrivning                              | Obligatoriskt |
+| Egenskap           | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | Auktorisering | I Data Factory Editor väljer den **auktorisera** knappen. Ange den autentiseringsuppgift som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja      |
 | sessions-ID     | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja      |

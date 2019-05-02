@@ -165,7 +165,7 @@ Konfigurationsinställningar för [Övervakare för hälsa för värd](https://g
 
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|aktiverad|true|Anger om funktionen är aktiverad. | 
+|enabled|true|Anger om funktionen är aktiverad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan regelbunden hälsotillståndet kontrollerar. | 
 |healthCheckWindow|2 minuter|En glidande tidsperiod som används tillsammans med den `healthCheckThreshold` inställningen.| 
 |healthCheckThreshold|6|Hur många gånger hälsokontrollen kan misslyckas innan återvinning värd har initierats.| 

@@ -136,8 +136,6 @@
         - name: Använda tomma kantnoder
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Utveckla Python-strömningsprogram
-          href: apache-hadoop-streaming-python.md
         - name: Bearbeta och analysera JSON-dokument
           href: using-json-in-hive.md
         - name: 'Använda C#-användardefinierade funktioner'

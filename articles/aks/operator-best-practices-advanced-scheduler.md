@@ -2,18 +2,17 @@
 title: Metodtips för operatorn – avancerade scheduler funktioner i Azure Kubernetes Services (AKS)
 description: Läs kluster operatorn metodtipsen för att använda avancerade scheduler-funktioner som taints och tolerations, noden väljare och tillhörighet, eller mellan pod tillhörighet och anti-tillhörighet i Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464976"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690469"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för avancerade scheduler funktioner i Azure Kubernetes Service (AKS)
 
@@ -37,7 +36,7 @@ Kubernetes-Schemaläggaren kan använda taints och tolerations för att begräns
 * En **förorena** tillämpas på en nod som anger att endast specifika poddar kan schemaläggas på dem.
 * En **toleration** sedan appliceras till en pod som låter dem *tolerera* färg för en nod.
 
-När du distribuerar en pod till ett AKS-kluster, schemalägger Kubernetes endast poddar på noder där en toleration justeras med färg. Anta att du har en nodepool i AKS-kluster för noder med GPU stöder till exempel. Du kan definiera namn, till exempel *gpu*, sedan ett värde för schemaläggning. Om det här värdet anges till *NoSchedule*, Kubernetes-Schemaläggaren kan inte schemalägga poddar på noden om poden inte definierar lämpliga toleration.
+När du distribuerar en pod till ett AKS-kluster, schemalägger Kubernetes endast poddar på noder där en toleration justeras med färg. Anta att du har en nodpool i AKS-kluster för noder med GPU stöder till exempel. Du kan definiera namn, till exempel *gpu*, sedan ett värde för schemaläggning. Om det här värdet anges till *NoSchedule*, Kubernetes-Schemaläggaren kan inte schemalägga poddar på noden om poden inte definierar lämpliga toleration.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -53,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
   resources:
     requests:
       cpu: 0.5
@@ -73,6 +72,23 @@ Om den här pod distribueras, till exempel med `kubectl apply -f gpu-toleration.
 När du tillämpar taints arbeta med programutvecklare och ägare och låt dem att definiera nödvändiga tolerations i sina distributioner.
 
 Läs mer om taints och tolerations [tillämpa taints och tolerations][k8s-taints-tolerations].
+
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Beteendet för taints och tolerations i AKS
+
+När du uppgraderar en nodpool i AKS följer taints och tolerations ett set-mönster som de har kopplats till nya noder:
+
+- **Standard-kluster utan stöd för skalning av virtuella datorer**
+  - Vi antar att du har ett tvånods-kluster – *node1* och *nod2*. När du uppgraderar, en ny nod (*Nod3*) har skapats.
+  - Taints från *node1* tillämpas på *Nod3*, sedan *Nod1* tas sedan bort.
+  - En annan nya noder har skapats (med namnet *node1*, eftersom den tidigare *Nod1* har tagits bort), och *nod2* taints tillämpas på den nya *Nod1*. Sedan *nod2* tas bort.
+  - I princip *node1* blir *Nod3*, och *node2* blir *Nod1*.
+
+- **Kluster som använder VM-skalningsuppsättningar** (för närvarande i förhandsversion i AKS)
+  - Igen, vi antar att du har ett tvånods-kluster – *node1* och *nod2*. Uppgradering av nodpoolen.
+  - Två ytterligare noder har skapats, *Nod3* och *nod4*, och taints skickas respektive.
+  - Ursprungligt *node1* och *nod2* tas bort.
+
+När du skalar en nodpool i AKS överför inte taints och tolerations över av design.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Kontrollen pod schemaläggning med hjälp av noden väljare och tillhörighet
 
@@ -96,7 +112,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -126,7 +142,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

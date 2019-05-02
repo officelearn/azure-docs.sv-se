@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034167"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575567"
 ---
 # <a name="virtual-appliance-scenario"></a>Virtuell installation scenario
 Ett vanligt scenario bland större Azure-kund är behovet av att tillhandahålla ett program för två nivåer som är exponerade för Internet, samtidigt som åtkomst till backend-nivån från ett lokalt datacenter. Det här dokumentet vägleder dig genom ett scenario med användardefinierade vägar (UDR), en VPN-Gateway och virtuella nätverksenheter för att distribuera en tvålagers-miljö som uppfyller följande krav:
@@ -30,14 +30,14 @@ Ett vanligt scenario bland större Azure-kund är behovet av att tillhandahålla
 * All trafik till programservern måste gå via en virtuell brandväggsinstallation. Den här virtuella installations ska användas för tillgång till slut backend-servern, och kommer från det lokala nätverket via en VPN-Gateway.
 * Administratörer måste kunna hantera brandväggen virtuella installationer från sina lokala datorer, med hjälp av en tredje brandväggen virtuell installation som uteslutande används för hanteringsändamål.
 
-Det här är ett standard DMZ-scenario med en DMZ och ett skyddat nätverk. Sådant scenario kan skapas i Azure med hjälp av NSG: er, brandvägg virtuella installationer eller en kombination av båda. Tabellen nedan visar några av för- och nackdelar mellan NSG: er och brandväggen virtuella installationer.
+Det här är ett perimeternätverk (även knowns som DMZ) scenariot med en DMZ och ett skyddat nätverk. Sådant scenario kan skapas i Azure med hjälp av NSG: er, brandvägg virtuella installationer eller en kombination av båda. Tabellen nedan visar några av för- och nackdelar mellan NSG: er och brandväggen virtuella installationer.
 
 |  | Experter | Nackdelar |
 | --- | --- | --- |
-| NSG |Utan kostnad. <br/>Integreras i Azure RBAC. <br/>Du kan skapa regler i ARM-mallar. |Komplexiteten kan variera i större miljöer. |
+| NSG |Utan kostnad. <br/>Integreras i Azure RBAC. <br/>Regler kan skapas i Azure Resource Manager-mallar. |Komplexiteten kan variera i större miljöer. |
 | Brandvägg |Fullständig kontroll över dataplanet. <br/>Central hantering via brandväggen-konsolen. |Kostnaden för brandväggsinstallation. <br/>Inte integrerat med Azure RBAC. |
 
-Lösningen nedan använder virtuella installationer i brandväggen för att implementera en DMZ/den skyddade scenariot.
+Lösningen nedan använder virtuella installationer i brandväggen för att implementera ett perimeternätverk (DMZ) / skyddade scenariot.
 
 ## <a name="considerations"></a>Överväganden
 Du kan distribuera den miljö som beskrivs ovan i Azure med hjälp av olika funktioner som är tillgängliga idag, enligt följande.

@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: ada09959391c551a9eff4d96b186be29c1e3b7a8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: cfc70b3d8e364c25ccf9fd221699695641a66ef0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013268"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708583"
 ---
 # <a name="create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Skapa och kör enkelt R-skript i Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -102,9 +102,9 @@ Indata till den här lagrade proceduren är:
 
 | | |
 |-|-|
-|*@language* | definierar tillägget språk för att anropa, i det här fallet R |
-|*@script* | definierar de kommandon som skickas till körningsmiljön för r. Hela R-skriptet måste stå inom det här argumentet som Unicode-text. Du kan också lägga till texten i en variabel av typen **nvarchar** och sedan anropa variabeln |
-|*@input_data_1* | data som returneras av frågan, skickas till körningsmiljön för r., som returnerar data till SQL Server som en dataram |
+| @language | definierar tillägget språk för att anropa, i det här fallet R |
+| @script | definierar de kommandon som skickas till körningsmiljön för r. Hela R-skriptet måste stå inom det här argumentet som Unicode-text. Du kan också lägga till texten i en variabel av typen **nvarchar** och sedan anropa variabeln |
+| @input_data_1 | data som returneras av frågan, skickas till körningsmiljön för r., som returnerar data till SQL Server som en dataram |
 |MED RESULTATMÄNGDER | satsen definierar schemat för tabellen returnerade data för SQL Server, att lägga till ”Hello World” som kolumnnamnet **int** för datatypen |
 
 Kommandot returnerar följande text:
@@ -146,7 +146,7 @@ Nu ska vi använda standard-indata och utdata variabler för [sp_execute_externa
 
     **Results**
 
-    ![Innehållet i tabellen RTestData](./media/sql-database-connect-query-r/select-rtestdata.png)
+    ![Innehållet i tabellen RTestData](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
 1. Kör följande R-skript. Data hämtas från en tabell med hjälp av den `SELECT` -instruktionen, skickar det till R-körning och returnerar data som en dataram. Den `WITH RESULT SETS` satsen definierar schemat för tabellen returnerade data för SQL Database, lägger till kolumnnamnet *NewColName*.
 
@@ -159,7 +159,7 @@ Nu ska vi använda standard-indata och utdata variabler för [sp_execute_externa
 
     **Results**
 
-    ![Utdata från R-skript som returnerar data från en tabell](./media/sql-database-connect-query-r/r-output-rtestdata.png)
+    ![Utdata från R-skript som returnerar data från en tabell](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
 1. Nu ska vi ändra namnen på de indata- och variablerna. Standard indata och utdata variabelnamn är **InputDataSet** och **OutputDataSet**, det här skriptet ändrar namnen till **SQL_in** och **SQL_out**:
 
@@ -193,7 +193,7 @@ Nu ska vi använda standard-indata och utdata variabler för [sp_execute_externa
 
     **Results**
 
-    ![Köra frågor mot resultat med hjälp av @script som indata](./media/sql-database-connect-query-r/r-data-generated-output.png)
+    ![Köra frågor mot resultat med hjälp av @script som indata](./media/sql-database-quickstart-r-create-script/r-data-generated-output.png)
 
 ## <a name="check-r-version"></a>Kontrollera R-version
 
@@ -251,7 +251,7 @@ Utdata som genereras från `installed.packages()` i R och returneras som ett res
 
 **Results**
 
-![Installerade paket i R](./media/sql-database-connect-query-r/r-installed-packages.png)
+![Installerade paket i R](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -260,10 +260,8 @@ Skapa en modell för maskininlärning med R i SQL-databas genom att följa den h
 > [!div class="nextstepaction"]
 > [Skapa och träna en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-quickstart-r-train-score-model.md)
 
-Mer information om Machine Learning Services finns i artiklarna nedan. En del av de här artiklarna handlar om SQL Server, men det mesta av informationen gäller även för Machine Learning Services (med R) i Azure SQL Database.
+Mer information om Azure SQL Database Machine Learning Services med R (förhandsversion) finns i följande artiklar.
 
-- [Azure SQL Database Machine Learning Services (med R)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Självstudier: Lär dig databasanalys med hjälp av R i SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [Datavetenskapsgenomgång med slutpunkt till slutpunkt för R och SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Självstudier: Använda RevoScaleR R-funktioner med SQL Server-data](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning Services med R (förhandsversion)](sql-database-machine-learning-services-overview.md)
+- [Skriva avancerade R-funktioner i Azure SQL Database med Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-functions.md)
+- [Arbeta med R och SQL-data i Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-data-issues.md)

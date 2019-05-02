@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864344"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926234"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av klassisk lagring resurs
 Den här artikeln innehåller felsökningsinformation när något av följande fel inträffar försöker ta bort klassiska lagringskontot, behållaren eller *.vhd sidan blob-fil. 
@@ -37,7 +37,7 @@ En ”Disk”-resurs används för att montera en *.vhd page blob-fil till en vi
 3. När lånet diskarna har brutits kan kan de sida BLOB(ar) själva tas bort. Ett lagringskonto eller en behållare kan tas bort när alla ”Disk”-resurs som finns i dem tas bort.
 
 >[!NOTE] 
->Om användaren tar bort den virtuella datorn men inte den virtuella Hårddisken, fortsätter lagringskostnaderna att tillkomma av växlingsfilen blob *.vhd. Avgifterna beräknas i enlighet med typ av storage-konto, kontrollera den [prissättningssidan](https://azure.microsoft.com/en-us/pricing/details/storage/) för mer information. Om användaren inte längre avser att använda de virtuella hårddiskarna bort it/dem för att undvika framtida avgifter. 
+>Om användaren tar bort den virtuella datorn men inte den virtuella Hårddisken, fortsätter lagringskostnaderna att tillkomma av växlingsfilen blob *.vhd. Avgifterna beräknas i enlighet med typ av storage-konto, kontrollera den [prissättningssidan](https://azure.microsoft.com/pricing/details/storage/) för mer information. Om användaren inte längre avser att använda de virtuella hårddiskarna bort it/dem för att undvika framtida avgifter. 
 
 ## <a name="unable-to-delete-storage-account"></a>Det går inte att ta bort lagringskonto 
 

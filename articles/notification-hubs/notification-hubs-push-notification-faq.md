@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872045"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925868"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
@@ -218,7 +218,7 @@ Du kan även programmässigt komma åt mätvärden. Mer information finns i föl
 [Handledning för Hubs säker Push-meddelande]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Meddelandehubbar felsökning]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs mått]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Registreringar Export/Import]: https://docs.microsoft.com/en-us/azure/notification-hubs/export-modify-registrations-bulk
+[Registreringar Export/Import]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/

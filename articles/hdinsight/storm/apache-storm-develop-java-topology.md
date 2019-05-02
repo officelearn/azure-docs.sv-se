@@ -1,7 +1,6 @@
 ---
 title: Apache Storm-exempel Java-topologi - Azure HDInsight
 description: Lär dig mer om att skapa Apache Storm-topologier i Java genom att skapa en exempel-ordräkningstopologi.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: Apache storm, apache storm-exempel, storm java, storm-topologi-exempel
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 32a8c81cd7b2078f4866d4c7311ea5ac0d0b3439
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448294"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695651"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Skapa ett Apache Storm-topologi i Java
 
@@ -26,7 +25,7 @@ När du har slutfört stegen i det här dokumentet, kan du distribuera topologin
 > [!NOTE]  
 > En fullständig version av Storm-topologi exemplen som skapas i det här dokumentet finns på [ https://github.com/Azure-Samples/hdinsight-java-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
 

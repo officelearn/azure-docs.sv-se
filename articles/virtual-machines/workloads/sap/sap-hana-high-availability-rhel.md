@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 1be3c411a208a2a9da1a4f6a319fdf37cc8aa2dd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669052"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922135"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på Red Hat Enterprise Linux
 
@@ -184,7 +184,7 @@ Om du vill distribuera mallen genom att följa dessa steg:
 Mer information om portarna som krävs för SAP HANA, finns i kapitlet [anslutningar till klientdatabaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) i den [klientdatabaser för SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide eller [SAP anteckning 2388694][2388694].
 
 > [!IMPORTANT]
-> Aktivera inte TCP tidsstämplarna för virtuella Azure-datorer är placerade bakom Azure Load Balancer. Aktivera TCP tidsstämplar genereras hälsoavsökningar misslyckas. Ange parametern **net.ipv4.tcp_timestamps** till **0**. Mer information finns i [hälsoavsökningar för belastningsutjämnaren](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> Aktivera inte TCP tidsstämplarna för virtuella Azure-datorer är placerade bakom Azure Load Balancer. Aktivera TCP tidsstämplar genereras hälsoavsökningar misslyckas. Ange parametern **net.ipv4.tcp_timestamps** till **0**. Mer information finns i [hälsoavsökningar för belastningsutjämnaren](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 > Se även SAP anteckning [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>Installera SAP HANA

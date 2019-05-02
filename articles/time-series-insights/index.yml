@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f55ef6f8829db7033790e21653e01a5390be7992
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323157"
 documentType: LandingData
 title: Dokumentation om Azure Time Series Insights
 metadata:
-  title: Dokumentation om Azure Time Series Insights – Snabbstarter, självstudier, API-referens | Microsoft Docs
-  description: Lär dig hur du kör Azure IoT-analys i molnet med fullständigt hanterad händelsebearbetning. Analysera data från program, sensorer, enheter med mera i realtid.
+  title: 'Dokumentation om Azure Time Series Insights – Snabbstarter, självstudier, API-referens | Microsoft Docs'
+  description: 'Lär dig hur du kör Azure IoT-analys i molnet med fullständigt hanterad händelsebearbetning. Analysera data från program, sensorer, enheter med mera i realtid.'
   services: time-series-insights
   author: anshan
   manager: cshankar
@@ -17,51 +11,51 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 12/07/2018
+  ms.date: 04/23/2019
   ms.author: anshan
 abstract:
-  description: Välkommen till Azure Time Series Insights. Azure Time Series Insights ger kraftfulla verktyg för datautforskning och telemetri som hjälper dig att förfina driftsanalyser. Dokumentationen beskriver många funktioner i tjänsten, hur du kommer igång och de kraftfulla Time Series Insights-API:erna. Informationen visas för två versioner, en som är allmänt tillgänglig (Time Series Insights GA) och en som är i förhandsversion (förhandsversionen av Time Series Insights).
+  description: 'Välkommen till Azure Time Series Insights. Azure Time Series Insights ger kraftfulla verktyg för datautforskning och telemetri som hjälper dig att förbättra driftsanalyser. Den här dokumentationen beskriver tjänsten, hur du kommer igång med de många olika funktionerna, klient-SDK och de kraftfulla Time Series Insights-API:erna. Informationen visas för två versioner, en som redan är allmänt tillgänglig (Time Series Insights GA) och en stor tjänstuppdatering som är i förhandsversion (förhandsversionen av Time Series Insights).'
   aside:
     image:
       alt: En videointroduktion till funktioner för Azure IoT Time Series Insights.
       height: 110
       src: media/index/new-tsi-intro.png
       width: 250
-    title: Time Series Insight för IoT-appar. (13:31)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics
+    title: 'Time Series Insight för IoT-appar. (13:31)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics'
     width: 250
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: Lär dig mer om Azure Time Series Insights genom att utforska snabba exempel som hjälper dig att komma igång på bara några minuter.
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
-      text: Utforska allmän tillgänglighet för Azure Time Series Insights
-      href: /azure/time-series-insights/time-series-quickstart
-  - html: <p><a href="/azure/time-series-insights/time-series-insights-update-quickstart">Utforska förhandsversionen av Azure Time Series Insights</a></p>
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du skapar bland annat Azure Time Series Insights-miljöer och enkelsidiga webbappar med hjälp av olika steg för steg-exempel.
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Lär dig mer om Azure Time Series Insights genom att utforska snabba exempel som hjälper dig att komma igång på bara några minuter.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg'
+            text: Utforska allmän tillgänglighet för Azure Time Series Insights
+            href: /azure/time-series-insights/time-series-quickstart
+      - html: <p><a href="/azure/time-series-insights/time-series-insights-update-quickstart">Utforska förhandsversionen av Azure Time Series Insights</a></p>
+  - title: Steg för steg-självstudier
     items:
-    - title: Allmän tillgänglighet för Azure Time Series Insights
-      html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Skapa en miljö</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Skapa en enkelsidig webbapp</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Utforska JavaScript-klientbiblioteket</a></p>
-    - title: Förhandsversion av Azure Time Series Insights
-      html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Självstudie för förhandsversionen</a></p>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Lär dig hur du skapar bland annat Azure Time Series Insights-miljöer och enkelsidiga webbappar med hjälp av olika steg för steg-exempel.
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Allmän tillgänglighet för Azure Time Series Insights
+            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Skapa en miljö</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Skapa en enkelsidig webbapp</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Utforska JavaScript-klientbiblioteket</a></p>
+          - title: Förhandsversion av Azure Time Series Insights
+            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Självstudie för förhandsversionen</a></p>
+  - title: Referens
     items:
-    - title: API:er för allmän tillgänglighet för Time Series Insights
-      html: <p><a href="/rest/api/time-series-insights-management">API för resurshantering</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Fråge-API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Frågesyntax</a></p>
-    - title: API:er för förhandsversionen av Time Series Insights
-      html: <p><a href="/rest/api/time-series-insights/preview-query">Fråge-API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">Modell-API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">Miljö-API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">Time Series Expression-API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 'API:er för allmän tillgänglighet för Time Series Insights'
+            html: <p><a href="/rest/api/time-series-insights-management">API för resurshantering</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Fråge-API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Frågesyntax</a></p>
+          - title: 'API:er för förhandsversionen av Time Series Insights'
+            html: <p><a href="/rest/api/time-series-insights/preview-query">Fråge-API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">Modell-API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">Miljö-API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">Time Series Expression-API</a></p>

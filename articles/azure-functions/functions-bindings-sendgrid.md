@@ -288,7 +288,7 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|från|Saknas|Avsändarens e-postadress över alla funktioner.| 
+|from|Saknas|Avsändarens e-postadress över alla funktioner.| 
 
 
 ## <a name="next-steps"></a>Nästa steg

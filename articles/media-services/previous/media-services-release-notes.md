@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621438"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728035"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 
@@ -321,10 +321,6 @@ Den [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.medias
 * För närvarande kan du mata in en direktsänd dataström RTMP över en SSL-anslutning.
 * Du kan strömma via SSL endast om slutpunkten för direktuppspelning som du kan leverera ditt innehåll har skapats efter den 10 September 2014. Om din strömmande URL: er baseras på de slutpunkter för direktuppspelning som skapats efter den 10 September 2014 innehåller URL: en ”streaming.mediaservices.windows.net” (det nya formatet). Strömmande URL: er som innehåller ”origin.mediaservices.windows.net” (det äldre formatet) stöder inte SSL. Om din URL är i det äldre formatet och du vill spela över SSL, [skapa en ny slutpunkt för direktuppspelning](media-services-portal-manage-streaming-endpoints.md). Använd webbadresserna baserat på den nya strömmande slutpunkten för att strömma ditt innehåll via SSL.
 
-## <a id="october_changes_14"></a>Oktober 2014-versionen
-### <a id="new_encoder_release"></a>Media Services Encoder-version
- Den nya versionen av Azure Media Encoder för Media Services har meddelats. Med den senaste Media Encoder, du debiteras endast för utdata GB. Annars är den nya encoder funktionen som är kompatibel med den föregående kodaren. Mer information finns i [prisinformation om Media Services].
-
 ### <a id="oct_sdk"></a>Media Services .NET SDK
 Media Services SDK för .NET-tilläggen är nu version 2.0.0.3.
 
@@ -396,14 +392,6 @@ Media Services .NET SDK är nu version 3.0.0.5. Följande uppdateringar har gjor
   * När du får web-undantag (exempelvis under en Tokenbegäran för Access Control Service) kan misslyckas allvarliga fel snabbare nu.
 
 Mer information finns i [logik för omprövning i Media Services SDK för .NET].
-
-## <a id="april_changes_14"></a>April 2014 Encoder-versionen
-### <a name="april_14_enocer_changes"></a>Media Services Encoder-uppdateringar
-* Stöd har lagts till för att mata in AVI-filer som skapats med hjälp av icke-linjära gräset Valley EDIUS-redigeraren. I den här processen komprimeras lätt videon med hjälp av gräset Valley HQ/HQX-codec. Mer information finns i [gräset Valley tillkännager EDIUS 7 direktuppspelning via molnet].
-*  Stöd har lagts till för att ange Namngivningskonventionen för filer som skapas av Media Services Encoder. Mer information finns i [kontroll Media Services Encoder utdata filnamn](https://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  Stöd har lagts till för video och/eller ljud överlägg. Mer information finns i [skapa överlägg](https://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  Stöd har lagts till flera video segment sätta ihop. Mer information finns i [sy ihop video segment](https://msdn.microsoft.com/library/azure/dn640504.aspx).
-* En bugg har åtgärdats som har relaterade till transkodning MP4s där ljudet kodats med MPEG-1 ljud Layer 3 (även kallat MP3).
 
 ## <a id="jan_feb_changes_14"></a>Versionerna för januari/februari 2014
 ### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 och 3.0.0.3
@@ -556,7 +544,7 @@ Följande funktioner som är nytt i November-versionen av SDK:
 <!--- URLs. --->
 [Azure Media Services MSDN-Forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure Media Services REST API-referens]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Prisinformation om Media Services]: https://azure.microsoft.com/pricing/details/media-services/
+[Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Inkommande metadata]: https://msdn.microsoft.com/library/azure/dn783120.aspx
 [Utgående metadata]: https://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
@@ -573,7 +561,7 @@ Följande funktioner som är nytt i November-versionen av SDK:
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: https://msdn.microsoft.com/library/azure/dn189154.aspx
 [Logik för omprövning i Media Services SDK för .NET]: https://msdn.microsoft.com/library/azure/dn745650.aspx
-[Gräset Valley tillkännager EDIUS 7 direktuppspelning via molnet]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Grass Valley announces EDIUS 7 streaming through the cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: https://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: https://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: https://msdn.microsoft.com/library/azure/dn640504.aspx

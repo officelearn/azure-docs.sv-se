@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 03/14/2019
+ms.date: 04/22/2019
 ms.author: dacoulte
-ms.openlocfilehash: ed7afa695ab13540f5f571d94b23133133ffe59f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03813bb440e90dd7a1d2caec543756f7fffc221b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59255962"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685571"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints-exempel
 
-Följande tabell innehåller länkar till exempel för Azure Blueprints.
+Följande tabell innehåller länkar till exempel för Azure Blueprints. Alla exempel håller produktionskvalitet och du kan börja distribuera dem redan idag för att uppfylla dina olika efterlevnadsbehov.
 
 ## <a name="standards-based-blueprint-samples"></a>Standardbaserade skissexempel
 

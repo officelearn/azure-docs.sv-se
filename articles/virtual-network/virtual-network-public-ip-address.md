@@ -3,8 +3,8 @@ title: Skapa, ändra eller ta bort en Azure offentlig IP-adress | Microsoft Docs
 description: Lär dig mer om att skapa, ändra eller ta bort en offentlig IP-adress.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: jdial
-ms.openlocfilehash: 2e6f3ce0c01674913dcb1f1980264d205eb4fcd3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: e1e82d7f7b6b8bf9bfef56b569db2db097b914ab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652789"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728732"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Skapa, ändra eller ta bort en offentlig IP-adress
 
@@ -63,14 +63,14 @@ Offentliga IP-adresser har en nominell avgift. Om du vill se priserna, läsa den
    |IP-adresstilldelning (endast synliga när du har markerat den **skapar en IPv6 (eller IPv4) adress** kryssrutan)|Ja, om du väljer den **skapa en IPv6** (eller IPv4) kryssrutan.|Om kryssrutan är **skapa en IPv4-adress**, kan du välja en tilldelningsmetod. Om kryssrutan är **skapa en IPv6-adress**, du kan inte välja en tilldelningsmetod eftersom det måste vara **dynamisk**.|
    |Prenumeration|Ja|Måste finnas i samma [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) som du vill associera den offentliga IP-adressen till resursen.|
    |Resursgrupp|Ja|Kan finnas i samma eller olika, [resursgrupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) som du vill associera den offentliga IP-adressen till resursen.|
-   |Plats|Ja|Måste finnas i samma [plats](https://azure.microsoft.com/regions), även avses som region, som den resurs som du vill associera den offentliga IP adress till.|
+   |Location|Ja|Måste finnas i samma [plats](https://azure.microsoft.com/regions), även avses som region, som den resurs som du vill associera den offentliga IP adress till.|
    |Tillgänglighetszon| Nej | Den här inställningen visas bara om du väljer en plats som stöds. En lista över platser som stöds finns i [översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du har valt den **grundläggande** SKU, *ingen* väljs automatiskt åt dig. Om du vill garantera en viss zon kan du välja en viss zon. Alternativen är inte zonredundant. Om du har valt den **Standard** SKU: Zonredundant väljs automatiskt åt dig och gör din datasökväg elastiska för zonen fel. Om du föredrar att garantera en viss zon som inte är flexibla för zonen fel, kan du välja en viss zon.
 
 **Kommandon**
 
 Även om portalen ger dig möjlighet att skapa två offentliga IP-adressresurser (en IPv4 och en IPv6), skapa en resurs med en adress för en IP-version eller den andra med hjälp av följande kommandon för CLI och PowerShell. Om du vill att två offentliga IP-adressresurser, en för varje IP-version måste du köra kommandot två gånger, att ange olika namn och versioner för de offentliga IP-adressresurser.
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
 |CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
@@ -89,7 +89,7 @@ Offentliga IP-adresser har en nominell avgift. Om du vill se priserna, läsa den
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
 |CLI|[AZ network public-ip-listan](/cli/azure/network/public-ip#az-network-public-ip-list) till listan över offentliga IP-adresser, [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) att visa inställningar. [az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) att uppdatera; [az nätverket offentliga ip-ta bort](/cli/azure/network/public-ip#az-network-public-ip-delete) att ta bort|
 |PowerShell|[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) att hämta objekt för en offentlig IP-adress och visa dess inställningar [Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) att uppdatera inställningar. [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) att ta bort|

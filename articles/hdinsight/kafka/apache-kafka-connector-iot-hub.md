@@ -1,7 +1,6 @@
 ---
 title: Använda Apache Kafka på HDInsight med Azure IoT Hub
 description: Lär dig hur du använder Apache Kafka på HDInsight med Azure IoT Hub. Projektet Kafka ansluta Azure IoT Hub tillhandahåller en käll- och mottagar-anslutningsapp för Kafka. Käll-koppling kan läsa data från IoT Hub och mottagare anslutningen skriver till IoT Hub.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e64490517603687684617ce915e0d3f3e35298e9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093396"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698164"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Använda Apache Kafka på HDInsight med Azure IoT Hub
 
@@ -30,7 +29,7 @@ I följande diagram visas dataflödet mellan Azure IoT Hub och Kafka på HDInsig
 
 Mer information om API: et ansluta finns i [ https://kafka.apache.org/documentation/#connect ](https://kafka.apache.org/documentation/#connect).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761400"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728828"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -157,7 +157,7 @@ Du kan se det här felet om azds.exe inte är installerat eller korrekt konfigur
 
 ### <a name="try"></a>Prova:
 
-1. Kontrollera plats-%ProgramFiles%/Microsoft SDKs\Azure\Azure Dev blanksteg CLI (förhandsversion) för azds.exe. Om det är det lägger du till den platsen att miljövariabeln PATH.
+1. Kontrollera plats-%ProgramFiles%/Microsoft SDKs\Azure\Azure Dev blanksteg CLI för azds.exe. Om det är det lägger du till den platsen att miljövariabeln PATH.
 2. Om azds.exe inte är installerad, kör du följande kommando:
 
     ```cmd
@@ -292,6 +292,16 @@ Det här felet uppstår om Helm-klienten kan inte längre kommunicera med din Ti
 
 ### <a name="try"></a>Prova:
 Starta om agentnoder i klustret vanligtvis löser problemet.
+
+## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>”Fel: versionen azds -\<identifierare\>-\<spacename\>-\<servicename\> misslyckades: tjänsters\<servicename\>' finns redan ”eller” hämta åtkomst nekades för \<servicename\>, databasen finns inte eller kan kräva ”docker-inloggning” ”
+
+### <a name="reason"></a>Orsak
+Dessa fel kan inträffa om du blandar direkt Helm-kommandon (till exempel `helm install`, `helm upgrade`, eller `helm delete`) med utveckling blanksteg kommandon (som `azds up` och `azds down`) i samma dev adressutrymme. De inträffar eftersom Dev blanksteg har en egen Tiller-instans som står i konflikt med din egen Tiller-instans som körs i samma dev adressutrymme.
+
+### <a name="try"></a>Prova:
+Det går bra att använda både Helm kommandon och Dev blanksteg kommandon mot samma AKS-kluster, men varje Dev blanksteg-aktiverat namnområde bör använda antingen den ena eller den andra.
+
+Anta exempelvis att du använder ett Helm-kommando för att köra hela programmet i ett utrymme för utveckling av överordnad. Du kan skapa underordnade dev blanksteg av det överordnat, Använd Dev blanksteg för att köra enskilda tjänster i underordnat dev blanksteg och testa tjänsterna tillsammans. När du är redo att checka in ändringarna, kan du använda ett Helm-kommando för att distribuera den uppdaterade koden till det överordnade dev-utrymmet. Använd inte `azds up` att köra tjänsten uppdaterade i överordnat dev utrymme eftersom den är i konflikt med först köra med Helm-tjänsten.
 
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev blanksteg proxy kan störa andra poddar som körs i en dev-utrymme
 

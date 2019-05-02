@@ -59,7 +59,7 @@
     - name: Spårning av ändringar
       items:
         - name: Översikt över Ändringsspårning
-          href: automation-change-tracking.md
+          href: change-tracking.md
           displayName: 'wildcard, recursion, environment variables, registry'
         - name: Visa filinnehållet i spårade filer
           href: change-tracking-file-contents.md

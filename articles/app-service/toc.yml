@@ -227,7 +227,7 @@
     - name: Kokböcker
       items:
         - name: Referensarkitekturer
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: Distributionsskript
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Felsökning

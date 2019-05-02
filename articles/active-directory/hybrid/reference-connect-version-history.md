@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387221"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572409"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -43,12 +43,12 @@ Ladda ned | [Hämta Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 Även om vi går igenom den här processen kan visas det lägre versionsnumret för versionen med ett ”X” i den lägre version nummer positionen, som i ”1.3.X.0” - Detta anger att den viktiga informationen i det här dokumentet är giltiga för alla versioner som börjar med ”1.3”. När vi har skapat lanseringsprocessen versionsnumret vid lansering kommer att uppdateras till den nyligen utgivna versionen och kommer att uppdateras release-status till ”släppt om hämtning och automatisk uppgradering”.
 Inte alla versioner av Azure AD Connect kommer att göras tillgängliga för automatisk uppgradering. Release-status anger om en version är tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har aktiverats på din Azure AD Connect-server uppgraderar automatiskt den här servern till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att alla konfigurationer för Azure AD Connect är tillämpliga för automatisk uppgradering. Följ den här länken om du vill veta mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13x0"></a>1.3.X.0 
+## <a name="13200"></a>1.3.20.0 
 
 ### <a name="release-status"></a>Versionsstatus 
 
-3/25/2019: Väntande åtgärder
- 
+04/24/2019: Lanserats för nedladdning
+
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
 
 - Lägg till stöd för att uppdatera domän 
@@ -64,7 +64,7 @@ Inte alla versioner av Azure AD Connect kommer att göras tillgängliga för aut
 - Uppgradera till ADAL 3.19.8 att hämta en korrigering för WS-Trust ping och lägga till stöd för nya Azure-instanser 
 - Ändra grupp Synkroniseringsregler flöda samAccountName DomainNetbios och DomainFQDN till molnet – som behövs för anspråk 
 - Ändra standard synkronisering regeln hantering – Läs mer [här](how-to-connect-fix-default-rules.md).
-- Lägga till en ny agent som körs som en windows-tjänst. Den här agenten med namnet ”Admin Agent” gör det möjligt för djupare fjärrdiagnostik av Azure AD Connect-servern för att Microsoft Engineers Felsöka när du öppnar ett supportärende. Läs mer om administratören agenten [här](whatis-aadc-admin-agent.md). 
+- Lägga till en ny agent som körs som en windows-tjänst. Den här agenten med namnet ”Admin Agent” gör det möjligt för djupare fjärrdiagnostik av Azure AD Connect-servern för att Microsoft Engineers Felsöka när du öppnar ett supportärende. Den här agenten är inte installerat och aktiverat som standard.  Läs mer om hur du installera och aktivera agenten [vad är Azure AD Connect Admin-agenten?](whatis-aadc-admin-agent.md). 
 - Uppdatera licensavtalet (EULA) 
 - Lagt till automatisk uppgradering stöd för distributioner som använder AD FS som deras inloggningstypen.  Detta också bort kravet för att uppdatera AD FS Azure AD förlitande Partsförtroenden som en del av uppgraderingsprocessen. 
 - Lagt till en hanteringsaktivitet för Azure AD-förtroende som ger två alternativ: analysera/uppdatera förtroende och återställa förtroendet. 

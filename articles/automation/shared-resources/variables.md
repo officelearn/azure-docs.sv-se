@@ -43,7 +43,7 @@ Här följer en lista över variabeltyper som är tillgängliga i Automation:
 
 * String
 * Integer
-* Datetime
+* DateTime
 * Boolean
 * Null
 

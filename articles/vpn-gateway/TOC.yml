@@ -176,6 +176,12 @@
           href: vpn-gateway-download-vpndevicescript.md
         - name: 'Exempel: Cisco ASA-enhet (IKEv2/inget BGP)'
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+    - name: Övervakning och aviseringar
+      items:
+        - name: Konfigurera aviseringar baserat på mått
+          href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+        - name: Konfigurera aviseringar baserat på diagnostikloggar
+          href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Felsöka
       href: vpn-gateway-troubleshoot.md
       items:

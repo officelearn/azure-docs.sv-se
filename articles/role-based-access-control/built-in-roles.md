@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749333"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689867"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -87,6 +87,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
 | [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
 | [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Låter dig läsa EventGrid-händelseprenumerationer. |
+| [HDInsight-kluster-Operator](#hdinsight-cluster-operator) | Kan du läsa och ändra konfigurationerna för HDInsight-kluster. |
 | [HDInsight domäntjänster deltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänstrelaterade åtgärder som behövs för HDInsight Enterprise Security Package |
 | [Intelligent Systems-Kontodeltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
 | [Nyckelvalvsdeltagare](#key-vault-contributor) | Låter dig hantera nyckelvalv, men inte ha åtkomst till dem. |
@@ -121,6 +122,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Kontoägaren för rumsliga ankare](#spatial-anchors-account-owner) | Låter dig hantera rumsliga fästpunkter i ditt konto, och även att ta bort dem |
 | [Spatial ankare konto läsare](#spatial-anchors-account-reader) | Låter dig söka efter och läsa egenskaper för rumsliga fästpunkter i ditt konto |
 | [SQL DB-deltagare](#sql-db-contributor) | Låter dig hantera SQL-databaser, men inte tillgång till dem. Dessutom kan inte hantera deras säkerhetsrelaterade principer eller deras överordnade SQL-servrar. |
+| [SQL-hanterad instans-deltagare](#sql-managed-instance-contributor) | Låter dig hantera SQL-hanterade instanser och krävs för nätverkskonfiguration, men det går inte att ge åtkomst till andra. |
 | [SQL Security Manager](#sql-security-manager) | Tillåter dig att hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte åtkomst till dem. |
 | [SQL Server-deltagare](#sql-server-contributor) | Tillåter dig att hantera SQL-servrar och databaser, men inte åtkomst till dem eller deras säkerhetsrelaterade principer. |
 | [Lagringskontodeltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
@@ -327,7 +329,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Hämta lista över användarnycklar |
+> | Microsoft.ApiManagement/service/users/keys/read | Hämta nycklar som är associerade med användaren |
 > | **DataActions** |  |
 > | *Ingen* |  |
 > | **NotDataActions** |  |
@@ -349,7 +351,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Hämta lista över användarnycklar |
+> | Microsoft.ApiManagement/service/users/keys/read | Hämta nycklar som är associerade med användaren |
 > | **DataActions** |  |
 > | *Ingen* |  |
 > | **NotDataActions** |  |
@@ -1385,6 +1387,28 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
+## <a name="hdinsight-cluster-operator"></a>HDInsight-kluster-Operator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan du läsa och ändra konfigurationerna för HDInsight-kluster. |
+> | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **Åtgärder** |  |
+> | Microsoft.HDInsight/*/read |  |
+> | Microsoft.HDInsight/clusters/getGatewaySettings/action | Hämta gateway-inställningar för HDInsight-kluster |
+> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Uppdatera gateway-inställningar för HDInsight-kluster |
+> | Microsoft.HDInsight/clusters/configurations/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Resources/deployments/operations/read | Hämtar eller listar distributionsåtgärder. |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | *Ingen* |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
 ## <a name="hdinsight-domain-services-contributor"></a>HDInsight-domäntjänstdeltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1807,6 +1831,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Id** | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | **Åtgärder** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
+> | Microsoft.Storage/storageAccounts/ListAccountSas/action | Returnerar SAS-token för konto för det angivna lagringskontot. |
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 > | **NotActions** |  |
 > | *Ingen* |  |
@@ -2228,6 +2253,34 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Ingen* |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="sql-managed-instance-contributor"></a>SQL-hanterad instans-deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Låter dig hantera SQL-hanterade instanser och krävs för nätverkskonfiguration, men det går inte att ge åtkomst till andra. |
+> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **Åtgärder** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
+> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Network/networkSecurityGroups/* |  |
+> | Microsoft.Network/routeTables/* |  |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Network/virtualNetworks/subnets/* |  |
+> | Microsoft.Network/virtualNetworks/* |  |
+> | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
+> | Microsoft.Insights/metrics/read | Läs mått |
+> | Microsoft.Insights/metricDefinitions/read | Läs måttdefinitioner |
+> | **NotActions** |  |
+> | *Ingen* |  |
 > | **DataActions** |  |
 > | *Ingen* |  |
 > | **NotDataActions** |  |

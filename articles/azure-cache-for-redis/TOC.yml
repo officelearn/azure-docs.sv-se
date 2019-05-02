@@ -5,6 +5,7 @@
     - name: Om Azure Cache for Redis
       href: cache-overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa en ASP.NET-app
       href: cache-web-app-howto.md

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 000315a2d751a05d3e401ee1bb9f593c6e321194
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127725"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922907"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
 
 Du måste ha rätt administratörsroll för att hantera åtkomst till Azure-resurser. Azure har ett auktoriseringssystem som kallas rollbaserad åtkomstkontroll (RBAC) med flera inbyggda roller som du kan välja bland. Du kan tilldela dessa roller med olika omfång, till exempel hanteringsgruppen, prenumeration eller resursgrupp.
 
-Microsoft rekommenderar att du hanterar åtkomst till resurser med hjälp av RBAC. Men om du fortfarande använder den klassiska distributionsmodellen och hantera klassiska resurser med hjälp av [Azure Service Management PowerShell-modulen](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure), måste du använda en klassisk administratör. 
+Microsoft rekommenderar att du hanterar åtkomst till resurser med hjälp av RBAC. Men om du fortfarande använder den klassiska distributionsmodellen och hantera klassiska resurser med hjälp av [Azure Service Management PowerShell-modulen](https://docs.microsoft.com/powershell/module/servicemanagement/azure), måste du använda en klassisk administratör. 
 
 > [!TIP]
 > Om du bara använder Azure-portalen för att hantera klassiska resurser, behöver du inte använda den klassiska administratören.

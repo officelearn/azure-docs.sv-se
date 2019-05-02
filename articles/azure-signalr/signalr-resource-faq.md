@@ -6,19 +6,19 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 09788f4ded66b43fd5ecae20301a28cd01d77320
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9e41ffa335aa95b139a5d5658424c1c5915b569
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646653"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914942"
 ---
 # <a name="azure-signalr-service-faq"></a>Vanliga frågor och svar Azure SignalR Service
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>Är Azure SignalR Service redo för användning i produktion?
 
 Ja.
-Vårt tillkännagivande om allmän tillgänglighet finns på [Azure SignalR Service är nu allmänt tillgänglig](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/). 
+Vårt tillkännagivande om allmän tillgänglighet finns på [Azure SignalR Service är nu allmänt tillgänglig](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/). 
 
 [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) stöds fullt ut.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e290feb278a1cddf1cfecfcb66458d8290ec122a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60628900"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943598"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Tillgängliga regioner för StorSimple
 
@@ -32,7 +32,7 @@ Det är mycket viktigt att välja en Azure-region och val av region påverkas av
 För StorSimple-lösningen bestäms specifikt val av region av följande faktorer:
 
 - Regioner med StorSimple Device Manager-tjänsten.
-- De länder där den fysiska StorSimple, i molnet eller virtuell enhet är tillgänglig.
+- De länder/regioner där den fysiska StorSimple, i molnet eller virtuell enhet är tillgänglig.
 - De regioner där de lagringskonton som lagrar StorSimple data ska vara belägen för optimala prestanda.
 
 Den här självstudien beskrivs de regional tillgängligheten för StorSimple Device Manager-tjänsten, den lokala fysiskt och cloud-enheter. Informationen i den här artikeln gäller för StorSimple 8000 och enheter i 1200-serien.
@@ -61,36 +61,36 @@ Om du använder en StorSimple Cloud Appliance sedan rekommenderar vi att tjänst
 
 ## <a name="availability-of-storsimple-device"></a>Tillgängligheten för StorSimple-enhet
 
-Beroende på vilken modell, kan StorSimple-enheter finnas i olika geografiska områden eller länder.
+Beroende på vilken modell, kan StorSimple-enheter finnas i olika geografiska områden eller länder/regioner.
 
 ### <a name="storsimple-physical-device-models-81008600"></a>Fysiska StorSimple-enheten (modeller 8100/8600)
 
-Om du använder en StorSimple 8100 eller 8600 fysisk enhet, är enheten tillgänglig i följande länder.
+Om du använder en StorSimple 8100 eller 8600 fysisk enhet, är enheten tillgänglig i följande länder/regioner.
 
-| #  | Land/region        | #  | Land/region     | #  | Land/region      | #  | Land/region              |
-|----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australien      | 16 | Hongkong SAR| 31 | Nya Zeeland  | 46 | Sydafrika         |
-| 2  | Österrike        | 17 | Ungern     | 32 | Nigeria      | 47 | Sydkorea          |
-| 3  | Bahrain        | 18 | Island     | 33 | Norge       | 48 | Spanien                |
-| 4  | Belgien        | 19 | Indien       | 34 | Peru         | 49 | Sri Lanka            |
-| 5  | Brasilien         | 20 | Indonesien   | 35 | Filippinerna  | 50 | Sverige               |
-| 6  | Kanada         | 21 | Irland     | 36 | Polen       | 51 | Schweiz          |
-| 7  | Chile          | 22 | Israel      | 37 | Portugal     | 52 | Taiwan (Taiwan)               |
-| 8  | Colombia       | 23 | Italien       | 38 | Puerto Rico  | 53 | Thailand             |
-| 9  | Tjeckien | 24 | Japan       | 39 | Qatar        | 54 | Turkiet               |
-| 10 | Danmark        | 25 | Kenya       | 40 | Rumänien      | 55 | Ukraina              |
-| 11 | Egypten          | 26 | Kuwait      | 41 | Ryssland       | 56 | Förenade Arabemiraten |
-| 12 | Finland        | 27 | Macao SAR   | 42 | Saudiarabien | 57 | Storbritannien       |
-| 13 | Frankrike         | 28 | Malaysia    | 43 | Singapore    | 58 | USA        |
-| 14 | Tyskland        | 29 | Mexiko      | 44 | Slovakien     | 59 | Vietnam              |
-| 15 | Grekland         | 30 | Nederländerna | 45 | Slovenien     | 60 | Kroatien              |
+| #  | Land/region        | #  | Land/region     | #  | Land/region      | #  | Land/region             |
+|----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
+| 1  | Australien             | 16 | Hongkong SAR      | 31 | Nya Zeeland         | 46 | Sydafrika               |
+| 2  | Österrike               | 17 | Ungern            | 32 | Nigeria             | 47 | Sydkorea                |
+| 3  | Bahrain               | 18 | Island            | 33 | Norge              | 48 | Spanien                      |
+| 4  | Belgien               | 19 | Indien              | 34 | Peru                | 49 | Sri Lanka                  |
+| 5  | Brasilien                | 20 | Indonesien          | 35 | Filippinerna         | 50 | Sverige                     |
+| 6  | Kanada                | 21 | Irland            | 36 | Polen              | 51 | Schweiz                |
+| 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwan (Taiwan)                     |
+| 8  | Colombia              | 23 | Italien              | 38 | Puerto Rico         | 53 | Thailand                   |
+| 9  | Tjeckien        | 24 | Japan              | 39 | Qatar               | 54 | Turkiet                     |
+| 10 | Danmark               | 25 | Kenya              | 40 | Rumänien             | 55 | Ukraina                    |
+| 11 | Egypten                 | 26 | Kuwait             | 41 | Ryssland              | 56 | Förenade Arabemiraten       |
+| 12 | Finland               | 27 | Macao SAR          | 42 | Saudiarabien        | 57 | Storbritannien             |
+| 13 | Frankrike                | 28 | Malaysia           | 43 | Singapore           | 58 | USA              |
+| 14 | Tyskland               | 29 | Mexiko             | 44 | Slovakien            | 59 | Vietnam                    |
+| 15 | Grekland                | 30 | Nederländerna        | 45 | Slovenien            | 60 | Kroatien                    |
 
 Den här listan ändras när flera länder/regioner har lagts till. För en uppdaterad lista över geografiska områden, går du till Storage matris villkoren för tillägg i den [villkoren för](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 Microsoft kan leverera fysisk maskinvara och ge maskinvara reservdelar ersättning för StorSimple för geografiska områden i listan ovan.
 
 > [!IMPORTANT]
-> Placera inte en fysisk StorSimple-enhet i en region där StorSimple inte stöds. Microsoft kommer inte att kunna leverera reservdelar alla länder där StorSimple inte stöds.
+> Placera inte en fysisk StorSimple-enhet i en region där StorSimple inte stöds. Microsoft kommer inte att kunna leverera alla reservdelar till länder/regioner där StorSimple inte stöds.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>StorSimple Cloud Appliance (modeller 8010/8020)
 

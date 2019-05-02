@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818481"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943957"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: Identifiering av bedrägerier i realtid
 
@@ -30,7 +30,7 @@ Den här självstudien används ett exempel på bedrägerier i realtid baserat p
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scenario: Telekommunikation och SIM identifiering av bedrägerier i realtid
 
-En telekomföretaget har en stor mängd data för inkommande anrop. Företaget vill identifiera bedrägliga samtal i realtid så att de kan meddela kunder eller stänga av tjänsten för ett specifikt nummer. En typ av SIM bedrägeri innebär att flera anrop från samma identitet ungefär samma tidpunkt men geografiskt olika platser. För att identifiera den här typen av bedrägerier, måste företaget att granska inkommande phone poster och leta efter särskilda mönster – i det här fallet för anrop som görs ungefär samma tidpunkt i olika länder. Alla poster i telefon som tillhör den här kategorin skrivs till lagring för efterföljande analys.
+En telekomföretaget har en stor mängd data för inkommande anrop. Företaget vill identifiera bedrägliga samtal i realtid så att de kan meddela kunder eller stänga av tjänsten för ett specifikt nummer. En typ av SIM bedrägeri innebär att flera anrop från samma identitet ungefär samma tidpunkt men geografiskt olika platser. För att identifiera den här typen av bedrägerier, måste företaget att granska inkommande phone poster och leta efter särskilda mönster – i det här fallet för anrop som görs ungefär samma tidpunkt i olika länder/regioner. Alla poster i telefon som tillhör den här kategorin skrivs till lagring för efterföljande analys.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -150,7 +150,7 @@ Några av de viktiga fält som du kommer att använda i det här programmet för
 |**Spela in**|**Definition**|
 |----------|--------------|
 |`CallrecTime`|Tidsstämpeln för samtalets starttid. |
-|`SwitchNum`|Telefonväxeln används för att ansluta samtalet. För det här exemplet är växlarna strängar som representerar ursprungslandet (USA, Kina, Storbritannien, Tyskland eller Australien). |
+|`SwitchNum`|Telefonväxeln används för att ansluta samtalet. I det här exemplet är växlarna strängar som representerar land/region för ursprung (USA, Kina, Storbritannien, Tyskland eller Australien). |
 |`CallingNum`|Uppringarens telefonnummer. |
 |`CallingIMSI`|International Mobile Subscriber Identity (IMSI). Det här är den unika identifieraren för anroparen. |
 |`CalledNum`|Telefonnumret till mottagaren. |
@@ -276,7 +276,7 @@ I många fall behöver din analys inte alla kolumner från Indataströmmen. Du k
 
 Anta att du vill räkna antalet inkommande anrop per region. När du vill utföra mängdfunktioner som inventering, i strömmande data måste du segmentera strömmen i den temporala enheter (eftersom själva dataströmmen är effektivt oändliga). Du gör detta med hjälp av ett Streaming Analytics [fönsterfunktion används](stream-analytics-window-functions.md). Du kan sedan arbeta med data i fönstret som en enhet.
 
-Den här omvandlingen du vill ha en sekvens av temporala windows som inte överlappar varandra – varje panel kan ha en diskret uppsättning data som du kan gruppera och aggregera. Den här typen av fönstret kallas en *rullande fönster*. Du kan hämta ett antal inkommande samtal grupperade efter i fönstret rullande `SwitchNum`, som representerar det land där anropet har sitt ursprung. 
+Den här omvandlingen du vill ha en sekvens av temporala windows som inte överlappar varandra – varje panel kan ha en diskret uppsättning data som du kan gruppera och aggregera. Den här typen av fönstret kallas en *rullande fönster*. Du kan hämta ett antal inkommande samtal grupperade efter i fönstret rullande `SwitchNum`, som representerar landet/regionen där anropet har sitt ursprung. 
 
 1. Ändra frågan i kodredigeraren till följande:
 
@@ -292,7 +292,7 @@ Den här omvandlingen du vill ha en sekvens av temporala windows som inte överl
 
     Projektionen innehåller `System.Timestamp`, som returnerar en tidsstämpel för slutet av varje fönster. 
 
-    Om du vill ange att du vill använda ett rullande fönster som du använder den [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fungera i den `GROUP BY` satsen. I funktionen anger du en tidsenhet (var som helst från en databehandlingsnoder till en dag) och en fönsterstorleken (hur många enheter). I det här exemplet rullande fönster som består av 5-sekunder intervall, så du får ett antal per land för anrop som var femte sekund.
+    Om du vill ange att du vill använda ett rullande fönster som du använder den [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fungera i den `GROUP BY` satsen. I funktionen anger du en tidsenhet (var som helst från en databehandlingsnoder till en dag) och en fönsterstorleken (hur många enheter). I det här exemplet rullande fönster som består av 5-sekunder intervall, så du får ett antal efter land/region för anrop som var femte sekund.
 
 2. Klicka på **Test** igen. Observera att i resultaten tidsstämplar under **WindowEnd** finns i steg om 5-sekundersintervall.
 
@@ -302,7 +302,7 @@ Den här omvandlingen du vill ha en sekvens av temporala windows som inte överl
 
 Överväg att bedrägliga användning ska vara anrop som kommer från samma användare men på olika platser inom 5 sekunder från varandra i det här exemplet. Samma användare kan till exempel inte legitimt ringa ett samtal från USA och Australien samtidigt. 
 
-Om du vill söka efter dessa fall, du kan använda en självkoppling för strömmande data att ansluta till dataströmmen till sig själv baserad på den `CallRecTime` värde. Du kan sedan leta efter poster där den `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (ursprungsland) är inte samma.
+Om du vill söka efter dessa fall, du kan använda en självkoppling för strömmande data att ansluta till dataströmmen till sig själv baserad på den `CallRecTime` värde. Du kan sedan leta efter poster där den `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (land/region för ursprung) är inte samma.
 
 När du använder en koppling med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. (Som tidigare nämnts strömmande data är effektivt oändliga.) Tidsgränserna för relationen har angetts i den `ON` -satsen för kopplingen, med hjälp av den `DATEDIFF` funktion. I det här fallet baseras kopplingen på ett intervall för 5-sekundersintervall med samtalsdata.
 

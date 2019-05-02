@@ -1,25 +1,18 @@
 ---
-title: Distribuera en virtuell Azure-dator från en användare VHD | Microsoft Docs
+title: Distribuera en virtuell Azure-dator från en användare VHD | Azure Marketplace
 description: Förklarar hur du distribuerar en VHD-avbildning för användaren för att skapa en Azure VM-instans.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046743"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938247"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuera en virtuell Azure-dator från en användare VHD
 
@@ -38,7 +31,7 @@ Kopiera Azure Resource Manager-mall för [VHD distribution](cpp-deploy-json-temp
 | userStorageAccountName     | Namnet på lagringskontot                                                    |
 | sNameForPublicIP           | DNS-namnet för den offentliga IP-Adressen. Måste vara gemener                                  |
 | subscriptionId             | Azure-prenumerations-ID                                                  |
-| Plats                   | Standard Azure geografisk plats för resursgruppen                       |
+| Location                   | Standard Azure geografisk plats för resursgruppen                       |
 | vmName                     | Namnet på den virtuella datorn                                                    |
 | vaultName                  | Namnet på nyckelvalvet                                                          |
 | vaultResourceGroup         | Resursgrupp för nyckelvalvet

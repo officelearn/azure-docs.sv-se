@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 42c1856f30484532e1ace2e84187bcaaacdf4c72
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553832"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733722"
 ---
 Azure Data Factory är en multitenant-tjänst som har följande standardgränser på plats för att kontrollera kundprenumerationer skyddas från varandras arbetsbelastningar. Kontakta supporten om du vill höja gränserna upp till maximalt för din prenumeration.
 
@@ -26,7 +26,7 @@ Azure Data Factory är en multitenant-tjänst som har följande standardgränser
 | Total CPU-kärnor för Azure-SSIS-Integreringskörningar under en prenumeration | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidiga pipelinekörningar per data factory, som delas mellan alla pipelines i fabriken | 10 000  | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximal aktiviteter per pipeline, som innehåller inre aktiviteter för behållare | 40 | 40 |
-| Maximalt antal länkade integreringskörningar som kan skapas mot en enda lokal integration runtime | 20 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Maximalt antal länkade integreringskörningar som kan skapas mot en enda lokal integration runtime | 100 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximal parametrar per pipeline | 50 | 50 |
 | ForEach-objekt | 100 000 | 100 000 |
 | ForEach-parallellitet | 20 | 50 |

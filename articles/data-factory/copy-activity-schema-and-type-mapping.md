@@ -5,57 +5,118 @@ services: data-factory
 documentationcenter: ''
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615624"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875809"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktivitet
+
 Den här artikeln beskriver hur Azure Data Factory Kopieringsaktivitet utför schemamappning och datatypmappningen från källdata till mottagare data när kör Datakopieringen.
 
-## <a name="column-mapping"></a>Kolumnmappning
+## <a name="schema-mapping"></a>Schemamappning
 
-Kolumnmappningen gäller när du kopierar data mellan tabular-formade data. Kopiera aktivitet som standard **mappa källdata till mottagare av kolumnnamn**, såvida inte [explicit kolumnmappning](#explicit-column-mapping) har konfigurerats. Mer specifikt Kopieringsaktivitet:
+Kolumnmappningen gäller när du kopierar data från källa till mottagare. Kopiera aktivitet som standard **mappa källdata till mottagare av kolumnnamn**. Du kan ange [explicit mappning](#explicit-mapping) anpassa kolumnmappningen utifrån dina behov. Mer specifikt Kopieringsaktivitet:
 
 1. Läsa data från källan och avgöra källans schema
-
-    * För datakällor med fördefinierat schema i data store /-format, till exempel databasfiler med metadata (Avro/ORC/Parquet/Text rubrik), extraheras källans schema från frågan resultatet eller filmetadata.
-    * Datakällans schema härleds från frågeresultat för datakällor med flexibelt schema, till exempel Azure tabell/Cosmos DB. Du kan skriva över den genom att konfigurera ”strukturen” i datauppsättningen.
-    * Textfilen utan rubrik skapas standardkolumnvärdena med mönstret ”Prop_0”, ”Prop_1”... Du kan skriva över den genom att konfigurera ”strukturen” i datauppsättningen.
-    * Du måste ange schemainformationen i avsnittet ”struktur” datauppsättning för Dynamics-källa.
-
-2. Använd explicit kolumnmappning om anges.
-
+2. Använd standard kolumnmappningen mappa kolumner efter namn eller tillämpa explicit kolumnmappning om anges.
 3. Skriva data till mottagare
 
-    * För datalager med fördefinierat schema skrivs informationen till kolumner med samma namn.
-    * Datalager utan fasta schemat och filformat genereras namn/kolumnmetadata baserat på datakällans schema.
+### <a name="explicit-mapping"></a>Explicit mappning
 
-### <a name="explicit-column-mapping"></a>Explicit kolumnmappning
+Du kan ange vilka kolumner som ska mappa i kopieringsaktiviteten -> `translator`  ->  `mappings` egenskapen. I följande exempel definierar en Kopieringsaktivitet i en pipeline för att kopiera data från avgränsad text till Azure SQL Database.
 
-Du kan ange **columnMappings** i den **typeProperties** delen av kopieringsaktiviteten inte explicit kolumnmappning. I det här scenariot måste ”struktur”-avsnittet anges för både in- och utdatauppsättningar. Stöd för mappning av kolumnen **mappning av alla eller en delmängd med kolumner i datauppsättningen för källan ”struktur” på alla kolumner i datauppsättning för mottagare ”struktur”**. Här följer felvillkor som resulterar i ett undantag:
+```json
+{
+    "name": "CopyActivity",
+    "type": "Copy",
+    "inputs": [{
+        "referenceName": "DelimitedTextInput",
+        "type": "DatasetReference"
+    }],
+    "outputs": [{
+        "referenceName": "AzureSqlOutput",
+        "type": "DatasetReference"
+    }],
+    "typeProperties": {
+        "source": { "type": "DelimitedTextSource" },
+        "sink": { "type": "SqlSink" },
+        "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+                {
+                    "source": {
+                        "name": "UserId",
+                        "type": "Guid"
+                    },
+                    "sink": {
+                        "name": "MyUserId"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Name",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyName"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Group",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyGroup"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+Följande egenskaper stöds `translator`  ->  `mappings` -> objekt med `source` och `sink`:
+
+| Egenskap  | Beskrivning                                                  | Krävs |
+| -------- | ------------------------------------------------------------ | -------- |
+| namn     | Namnet på källan eller mottagaren kolumn.                           | Ja      |
+| ordinal  | Kolumnindex. Börja med 1. <br>Tillämpa och krävs när med avgränsad text utan rubrikrad. | Nej       |
+| path     | JSON-sökvägsuttrycket för varje fält ska extraheras eller mappar. Gäller för hierarkiska data t.ex. MongoDB/REST.<br>För fält under rotobjektet, JSON-sökvägen som börjar med $; för fält inuti matrisen som väljs av `collectionReference` egenskapen startar JSON-sökvägen från matriselementet. | Nej       |
+| typ     | Data Factory tillfälliga datatypen för kolumnen källan eller mottagaren. | Nej       |
+| kultur  | Kulturen kolumnens källan eller mottagaren. <br>Tillämpa när typen är `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej       |
+| Format   | Formatera strängen som ska användas när typen är `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum- och Datumformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) om hur du formaterar datetime. | Nej       |
+
+Följande egenskaper stöds `translator`  ->  `mappings` förutom objekt med `source` och `sink`:
+
+| Egenskap             | Beskrivning                                                  | Krävs |
+| ------------------- | ------------------------------------------------------------ | -------- |
+| collectionReference | Stöds endast när hierarkiska data t.ex. MongoDB/REST är källan.<br>Om du vill iterera och extrahera data från objekten **i ett matrisfält** med samma mönster och konvertera till ange JSON-sökvägen för matrisen för cross-gäller per rad per objekt. | Nej       |
+
+### <a name="alternative-column-mapping"></a>Alternativa kolumnmappning
+
+Du kan ange copy activity -> `translator`  ->  `columnMappings` att mappa mellan tabular-formade data. I det här fallet krävs ”struktur” avsnittet för både in- och utdatauppsättningar. Stöd för mappning av kolumnen **mappning av alla eller en delmängd med kolumner i datauppsättningen för källan ”struktur” på alla kolumner i datauppsättning för mottagare ”struktur”**. Här följer felvillkor som resulterar i ett undantag:
 
 * Källans datalager fråga resultatet inte har ett kolumnnamn som anges i avsnittet ”struktur” datauppsättningen för indata.
 * Datalager för mottagare (med fördefinierat schema) har inte ett kolumnnamn som anges i avsnittet ”struktur” utdata-datauppsättning.
 * Färre kolumner eller fler kolumner i ”strukturen” för datauppsättning för mottagare än anges i mappningen.
 * Duplicera mappning.
 
-#### <a name="explicit-column-mapping-example"></a>Explicit kolumnmappning exempel
-
-I det här exemplet indatatabellen har en struktur och den pekar på en tabell i en lokal SQL-databas.
+I följande exempel datauppsättningen för indata har en struktur och den pekar på en tabell i en lokal Oracle-databas.
 
 ```json
 {
-    "name": "SqlServerInput",
+    "name": "OracleDataset",
     "properties": {
         "structure":
          [
@@ -63,9 +124,9 @@ I det här exemplet indatatabellen har en struktur och den pekar på en tabell i
             { "name": "Name"},
             { "name": "Group"}
          ],
-        "type": "SqlServerTable",
+        "type": "OracleTable",
         "linkedServiceName": {
-            "referenceName": "SqlServerLinkedService",
+            "referenceName": "OracleLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -75,11 +136,11 @@ I det här exemplet indatatabellen har en struktur och den pekar på en tabell i
 }
 ```
 
-I det här exemplet utdatatabellen har en struktur och den pekar på en tabell i en Azure SQL Database.
+I det här exemplet datauppsättningen för utdata har en struktur och den pekar på en tabell i Salesfoce.
 
 ```json
 {
-    "name": "AzureSqlOutput",
+    "name": "SalesforceDataset",
     "properties": {
         "structure":
         [
@@ -87,9 +148,9 @@ I det här exemplet utdatatabellen har en struktur och den pekar på en tabell i
             { "name": "MyName" },
             { "name": "MyGroup"}
         ],
-        "type": "AzureSqlTable",
+        "type": "SalesforceObject",
         "linkedServiceName": {
-            "referenceName": "AzureSqlLinkedService",
+            "referenceName": "SalesforceLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -99,7 +160,7 @@ I det här exemplet utdatatabellen har en struktur och den pekar på en tabell i
 }
 ```
 
-Följande JSON definierar en Kopieringsaktivitet i en pipeline. Kolumner från källan som är mappade till kolumnerna i mottagare (**columnMappings**) med hjälp av den **translator** egenskapen.
+Följande JSON definierar en Kopieringsaktivitet i en pipeline. Kolumner från källan som är mappade till kolumnerna i mottagare med hjälp av den **translator** -> **columnMappings** egenskapen.
 
 ```json
 {
@@ -107,23 +168,23 @@ Följande JSON definierar en Kopieringsaktivitet i en pipeline. Kolumner från k
     "type": "Copy",
     "inputs": [
         {
-            "referenceName": "SqlServerInput",
+            "referenceName": "OracleDataset",
             "type": "DatasetReference"
         }
     ],
     "outputs": [
         {
-            "referenceName": "AzureSqlOutput",
+            "referenceName": "SalesforceDataset",
             "type": "DatasetReference"
         }
     ],
     "typeProperties":    {
-        "source": { "type": "SqlSource" },
-        "sink": { "type": "SqlSink" },
+        "source": { "type": "OracleSource" },
+        "sink": { "type": "SalesforceSink" },
         "translator":
         {
             "type": "TabularTranslator",
-            "columnMappings": 
+            "columnMappings":
             {
                 "UserId": "MyUserId",
                 "Group": "MyGroup",
@@ -136,23 +197,19 @@ Följande JSON definierar en Kopieringsaktivitet i en pipeline. Kolumner från k
 
 Om du använder syntaxen för `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` för att ange kolumnmappning, stöds det fortfarande som – är.
 
-**Kolumnmappningen flöde:**
+### <a name="alternative-schema-mapping"></a>Alternativa schemamappning
 
-![Kolumnen mappning flöde](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
-
-## <a name="schema-mapping"></a>Schemamappning
-
-Schemamappning gäller när du kopierar data mellan hierarkisk formade data och tabular-formade data, t.ex. kopiera från MongoDB/REST till textfil och kopiera från SQL till Azure Cosmos DB-API för MongoDB. Följande egenskaper stöds i kopieringsaktiviteten `translator` avsnittet:
+Du kan ange copy activity -> `translator`  ->  `schemaMapping` för att mappa mellan hierarkisk formade data och tabular-formade data, t.ex. kopiera från MongoDB/REST till textfilen och kopiera från Oracle till Azure Cosmos DB API för MongoDB. Följande egenskaper stöds i kopieringsaktiviteten `translator` avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för kopiera aktivitet translator måste anges till: **TabularTranslator** | Ja |
-| schemaMapping | En samling nyckel / värde-par som representerar mappning relationen **från källan sida till sida för mottagare**.<br/>- **Nyckel:** representerar källan. För **tabular källa**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska källa**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa.<br/>- **Värde:** representerar mottagare. För **tabular mottagare**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska mottagare**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa. <br/> När det gäller hierarkiska data för fält under rotobjektet, JSON-sökvägen som börjar med $; för fält inuti matrisen som väljs av `collectionReference` egenskapen startar JSON-sökvägen från matriselementet.  | Ja |
+| schemaMapping | En samling nyckel / värde-par som representerar mappning relationen **från källan sida till sida för mottagare**.<br/>- **Nyckel:** representerar källan. För **tabular källa**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska källa**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa.<br>- **Värde:** representerar mottagare. För **tabular mottagare**, ange kolumnnamnet som definierats i datauppsättningsstrukturen; för **hierarkiska mottagare**, ange JSON-sökvägsuttrycket för varje fält för att extrahera och mappa. <br>När det gäller hierarkiska data för fält under rotobjektet, JSON-sökvägen som börjar med $; för fält inuti matrisen som väljs av `collectionReference` egenskapen startar JSON-sökvägen från matriselementet.  | Ja |
 | collectionReference | Om du vill iterera och extrahera data från objekten **i ett matrisfält** med samma mönster och konvertera till ange JSON-sökvägen för matrisen för cross-gäller per rad per objekt. Den här egenskapen stöds endast när hierarkiska data är källan. | Nej |
 
-**Exempel: kopiera från MongoDB till SQL:**
+**Exempel: kopiera från MongoDB till Oracle:**
 
-Exempel: Om du har MongoDB dokument med följande innehåll: 
+Exempel: Om du har MongoDB dokument med följande innehåll:
 
 ```json
 {
@@ -191,21 +248,21 @@ Konfigurera schemamappning regeln som följande kopiera aktivitet JSON-exempel:
 
 ```json
 {
-    "name": "CopyFromMongoDBToSqlAzure",
+    "name": "CopyFromMongoDBToOracle",
     "type": "Copy",
     "typeProperties": {
         "source": {
             "type": "MongoDbV2Source"
         },
         "sink": {
-            "type": "SqlSink"
+            "type": "OracleSink"
         },
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number", 
-                "orderDate": "$.date", 
-                "order_pd": "prod", 
+                "orderNumber": "$.number",
+                "orderDate": "$.date",
+                "order_pd": "prod",
                 "order_price": "price",
                 "city": " $.city[0].name"
             },
@@ -226,7 +283,7 @@ Du kan hitta mappningen mellan ursprunglig typ. till tillfälliga typ i avsnitte
 
 ### <a name="supported-data-types"></a>Datatyper som stöds
 
-Data Factory stöder följande datatyper av mellanliggande: Du kan ange värdena nedan när du konfigurerar anger du följande information i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) konfiguration:
+Data Factory stöder följande datatyper av mellanliggande: Du kan ange värdena nedan när du konfigurerar anger du följande information i [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure-or-schema) konfiguration:
 
 * Byte[]
 * Boolean
@@ -242,31 +299,7 @@ Data Factory stöder följande datatyper av mellanliggande: Du kan ange värdena
 * String
 * Tidsintervall
 
-### <a name="explicit-data-type-conversion"></a>Explicit konvertering av datatyper
-
-När kopierar data till data som lagras med fast schema, till exempel SQL Server/Oracle, när källa och mottagare har en annan typ för samma kolumn anges explicit typkonvertering i käll-sida:
-
-* För källa, till exempel CSV/Avro typ konverze anges via källstrukturen med fullständig kolumnlista (källa på klientsidan namn och en mottagare sida kolumntyp)
-* För relationella källor (till exempel SQL/Oracle), bör typkonvertering uppnås genom explicit typ omvandling i frågeuttrycket.
-
-## <a name="when-to-specify-dataset-structure"></a>När du ska ange ”datauppsättningsstrukturen”
-
-I nedan scenarier krävs ”struktur” i datauppsättningen:
-
-* Tillämpa [explicit konvertering av datatyper](#explicit-data-type-conversion) för filen källor vid kopiering (datauppsättningen för indata)
-* Tillämpa [explicit kolumnmappning](#explicit-column-mapping) vid kopiering (både indata och utdata datauppsättning)
-* Kopiera från Dynamics 365/CRM-källa (datauppsättning för indata)
-* Kopiera till Cosmos DB som kapslat objekt när källan inte är JSON-filer (datauppsättning för utdata)
-
-I nedan scenarier föreslås ”struktur” i datauppsättningen:
-
-* Kopiera från textfil utan rubrik (datauppsättningen för indata). Du kan ange kolumnnamnen textfilen som överensstämmer med motsvarande mottagare kolumn, spara konfigurerar explicit kolumnmappning.
-* Kopiera från data lagrar med flexibelt schema, till exempel Azure tabell/Cosmos DB (datauppsättningen för indata), för att garantera förväntade data (kolumner) kopieras över i stället för att låta kopiera aktivitet Skapa schema baserat på översta raderna under varje aktivitet som körs.
-
-
 ## <a name="next-steps"></a>Nästa steg
 Se de andra artiklarna i Kopieringsaktiviteten:
 
 - [Översikt över Kopieringsaktivitet](copy-activity-overview.md)
-- [Kopiera aktivitet feltolerans](copy-activity-fault-tolerance.md)
-- [Kopiera aktivitet prestanda](copy-activity-performance.md)

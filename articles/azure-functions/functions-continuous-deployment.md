@@ -1,6 +1,6 @@
 ---
 title: Kontinuerlig distribution för Azure Functions | Microsoft Docs
-description: Använda kontinuerlig distribution funktioner i Azure App Service för att publicera dina Azure-funktioner.
+description: Använda kontinuerlig distribution-funktioner i Azure App Service för att publicera dina funktioner.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,17 +11,17 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: fd8fa690c508b8bf748490668c1e9aaa811ac247
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb3f3ad3bb7b42429654ea4bf9b49f7e230db1da
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731301"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943888"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Löpande distribution för Azure Functions
-Azure Functions gör det enkelt att distribuera funktionsappen med kontinuerlig integrering för App Service. Functions kan integreras med BitBucket, Dropbox, GitHub och Azure DevOps. På så sätt kan ett arbetsflöde där Funktionskoden uppdaterar genom att använda en av dessa integrerade tjänster utlösaren distribution till Azure. Om du är nybörjare på Azure Functions, börja med [översikt över Azure Functions](functions-overview.md).
+Azure Functions gör det enkelt att distribuera funktionsappen med kontinuerlig integrering. Functions kan integreras med större koddatabaser och distributionskällor. Den här integreringen möjliggör ett arbetsflöde där Funktionskoden uppdaterar görs via en av dessa tjänster utlösaren distribution till Azure. Om du inte har använt Azure Functions kan du börja med den [översikt över Azure Functions](functions-overview.md).
 
-Kontinuerlig distribution är ett bra alternativ för projekt där flera och ofta återkommande bidrag integreras. Du kan också behålla källkontroll på din functions-kod. Följande distributionskällor stöds för närvarande:
+Kontinuerlig distribution är ett bra alternativ för projekt där du integrerar flera och frekventa bidrag. Du kan också behålla källkontroll på funktionskoden. Azure Functions har stöd för följande distributionskällor:
 
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
@@ -33,9 +33,9 @@ Kontinuerlig distribution är ett bra alternativ för projekt där flera och oft
 
 Distributioner är konfigurerade på basis av per funktion app. När kontinuerlig distribution har aktiverats, att Funktionskoden i portalen har angetts till *skrivskyddad*.
 
-## <a name="continuous-deployment-requirements"></a>Krav för kontinuerlig distribution
+## <a name="requirements-for-continuous-deployment"></a>Krav för kontinuerlig distribution
 
-Du måste ha din distributionskälla som konfigurerats och din functions-kod i distributionskälla innan du kan ställa in kontinuerlig distribution. Varje funktion finns i en namngiven underkatalog, där katalognamnet är namnet på funktionen i en angiven funktion app-distribution.  
+Innan du ställer in kontinuerlig distribution måste du ha din distributionskälla som konfigurerats och Funktionskoden i distributionskälla. I en funktion i appdistribution är varje funktion i en namngiven underkatalog, där katalognamnet är namnet på funktionen.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -44,102 +44,97 @@ För att kunna distribuera från Azure DevOps, måste du först koppla organisat
 ## <a name="set-up-continuous-deployment"></a>Konfigurera kontinuerlig distribution
 Använd den här proceduren för att konfigurera kontinuerlig distribution för en befintlig funktionsapp. De här stegen visar integrering med en GitHub-lagringsplats, men liknande steg som gäller för Azure DevOps- eller förhandstjänster distribution.
 
-1. I funktionsappen i den [Azure-portalen](https://portal.azure.com), klickar du på **plattformsfunktioner** och **distributionsalternativ**. 
+1. I funktionsappen i den [Azure-portalen](https://portal.azure.com)väljer **plattformsfunktioner** > **distributionsalternativ**. 
    
-    ![Konfigurera kontinuerlig distribution](./media/functions-continuous-deployment/setup-deployment.png)
+    ![Val för att öppna distributionsalternativ](./media/functions-continuous-deployment/setup-deployment.png)
  
-2. I den **distributioner** bladet klickar du på **installationsprogrammet**.
+1. På den **distributioner** bladet väljer **installationsprogrammet**.
  
-    ![Konfigurera kontinuerlig distribution](./media/functions-continuous-deployment/setup-deployment-1.png)
+    ![Bladet för distributioner](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-3. I den **distributionskälla** bladet klickar du på **Välj källa**och fyller sedan i informationen för din valda distributionskälla Klicka **OK**.
+1. På den **distributionskälla** bladet väljer **Välj källa**. Fyll i informationen för din valda distributionskälla och välj sedan **OK**.
    
-    ![Välj distributionskälla](./media/functions-continuous-deployment/choose-deployment-source.png)
+    ![Välja en distributionskälla](./media/functions-continuous-deployment/choose-deployment-source.png)
 
-När kontinuerlig distribution har konfigurerats kan alla filändringar i din distributionskälla kopieras till funktionsappen och en fullständig implementering utlöses. Platsen är omdistribueras när filerna i källan uppdateras.
+När du ställer in kontinuerlig distribution alla filändringar i din distributionskälla kopieras till funktionsappen och en fullständig implementering utlöses. Platsen är omdistribueras när filerna i källan uppdateras.
 
-## <a name="deployment-options"></a>Distributionsalternativ
+## <a name="deployment-scenarios"></a>Distributionsscenarier
 
-Här följer några vanliga scenarier:
-
-- [Skapa en mellanlagrings-distribution](#staging)
-- [Flytta befintliga funktioner för kontinuerlig distribution](#existing)
+Vanliga distributionsscenarier omfattar skapa en mellanlagrings-distribution och flytta befintliga funktioner för kontinuerlig distribution.
 
 <a name="staging"></a>
 ### <a name="create-a-staging-deployment"></a>Skapa en mellanlagrings-distribution
 
-Funktionen appar stöder inte ännu distributionsplatser. Du kan dock fortfarande hantera separata distributioner för mellanlagring och produktion med hjälp av kontinuerlig integrering.
+Funktionsappar ännu inte har stöd distributionsplatser. Men du kan fortfarande hantera separata distributioner för mellanlagring och produktion med hjälp av kontinuerlig integrering.
 
 Processen för att konfigurera och arbeta med en mellanlagrings distribution ser vanligtvis ut så här:
 
-1. Skapa två funktionsappar i din prenumeration, en för produktionskod och en för mellanlagring. 
+1. Skapa två funktionsappar i din prenumeration: en för produktionskod och en för mellanlagring. 
 
-2. Skapa en distributionskälla om du inte redan har ett. Det här exemplet används [GitHub].
+1. Skapa en distributionskälla om du inte redan har ett. Det här exemplet används [GitHub].
 
-3. För funktionsappen produktion Slutför föregående stegen i **konfigurera kontinuerlig distribution** och konfigurera distribution-gren till mastergrenen av GitHub-lagringsplats.
+1. För funktionsappen produktion Slutför föregående stegen i [konfigurera kontinuerlig distribution](#set-up-continuous-deployment) och konfigurera distribution-gren till mastergrenen av GitHub-lagringsplats.
    
-    ![Välj gren för distribution](./media/functions-continuous-deployment/choose-deployment-branch.png)
+    ![Alternativ att välja en gren för distribution](./media/functions-continuous-deployment/choose-deployment-branch.png)
 
-4. Upprepa det här steget för mellanlagring funktionsappen, men i stället välja grenen mellanlagring i GitHub-databasen. Om din distributionskällan inte stöder branchning, kan du använda en annan mapp.
+1. Upprepa steg 3 för mellanlagring funktionsappen, men välja grenen mellanlagring i stället i GitHub-databasen. Om din distributionskällan inte stöder branchning, kan du använda en annan mapp.
     
-5. Gör uppdateringar i din kod i den tillfälliga gren eller mappen, och sedan kontrollera att dessa ändringar återspeglas i mellanlagrings-distributionen.
+1. Gör uppdateringar i din kod i den tillfälliga gren eller en mapp och sedan kontrollera att den mellanlagrade distributionen återspeglar ändringarna.
 
-6. När du testar, sammanfoga ändringarna från den tillfälliga grenen i huvudgrenen. Den här kopplingen utlöser distribution till produktion funktionsappen. Om din distributionskälla inte stöder grenar kan du skriva över filer i mappen produktion med filer från den tillfälliga mappen.
+1. När du testar, sammanfoga ändringarna från den tillfälliga grenen i huvudgrenen. Den här kopplingen utlöser distribution till produktion funktionsappen. Om din distributionskälla inte stöder grenar kan du skriva över filer i mappen produktion med filer från den tillfälliga mappen.
 
 <a name="existing"></a>
 ### <a name="move-existing-functions-to-continuous-deployment"></a>Flytta befintliga funktioner för kontinuerlig distribution
-När du har befintliga funktioner som du har skapat och underhålls i portalen, måste du hämta din befintliga funktionen kodfiler med FTP eller lokal Git-lagringsplats innan du kan ställa in kontinuerlig distribution enligt beskrivningen ovan. Du kan göra detta i App Service-inställningarna för din funktionsapp. När filerna har hämtats, kan du överföra dem till valda kontinuerlig distributionskällan.
+När du har befintliga funktioner som du har skapat och underhålls i portalen, måste du hämta din funktion kodfiler med hjälp av FTP eller lokal Git-lagringsplats innan du kan ställa in kontinuerlig distribution enligt beskrivningen ovan. Du kan göra detta i Azure App Service-inställningarna för din funktionsapp. När du har hämtat filer kan du överföra dem till källan valda kontinuerlig distribution.
 
 > [!NOTE]
-> När du konfigurerar kontinuerlig integrering, kommer du inte längre att kunna redigera källfilerna i Functions-portalen.
-
-- [Anvisningar: Konfigurera autentiseringsuppgifter för distribution](#credentials)
-- [Anvisningar: Ladda ned filer med FTP](#downftp)
-- [Anvisningar: Ladda ned filer med hjälp av den lokala Git-lagringsplatsen](#downgit)
+> När du konfigurerar kontinuerlig integrering, kan du inte längre redigera källfilerna i Functions-portalen.
 
 <a name="credentials"></a>
-#### <a name="how-to-configure-deployment-credentials"></a>Anvisningar: Konfigurera autentiseringsuppgifter för distribution
-Innan du kan ladda ned filer från din funktionsapp med FTP eller lokal Git-lagringsplats, måste du konfigurera dina autentiseringsuppgifter för att komma åt webbplatsen. Autentiseringsuppgifterna är inställda på funktionen app-nivå. Använd följande steg för att ange autentiseringsuppgifter för distribution i Azure portal:
+#### <a name="configure-deployment-credentials"></a>Konfigurera autentiseringsuppgifter för distribution
+Innan du kan ladda ned filer från din funktionsapp med hjälp av FTP eller en lokal Git-lagringsplats, måste du konfigurera dina autentiseringsuppgifter för att komma åt webbplatsen. Autentiseringsuppgifterna är inställda på funktionen app-nivå. Använd följande steg för att ange autentiseringsuppgifter för distribution i Azure portal:
 
-1. I funktionsappen i den [Azure-portalen](https://portal.azure.com), klickar du på **plattformsfunktioner** och **distributionsbehörigheterna**.
+1. I funktionsappen i den [Azure-portalen](https://portal.azure.com)väljer **plattformsfunktioner** > **distributionsbehörigheterna**.
    
-    ![Ange autentiseringsuppgifter för lokal distribution](./media/functions-continuous-deployment/setup-deployment-credentials.png)
+1. Ange ett användarnamn och lösenord och välj sedan **spara**. 
 
-2. Ange ett användarnamn och lösenord och klicka sedan på **spara**. Du kan nu använda dessa autentiseringsuppgifter för åtkomst till din funktionsapp från FTP- eller inbyggd Git-lagringsplats.
+   ![Val för att ange autentiseringsuppgifter för lokal distribution](./media/functions-continuous-deployment/setup-deployment-credentials.png)
+
+Du kan nu använda dessa autentiseringsuppgifter för åtkomst till din funktionsapp från FTP- eller inbyggd Git-lagringsplats.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Anvisningar: Ladda ned filer med FTP
+#### <a name="download-files-by-using-ftp"></a>Ladda ned filer via FTP
 
-1. I funktionsappen i den [Azure-portalen](https://portal.azure.com), klickar du på **plattformsfunktioner** och **egenskaper**, kopiera värdena för **FTP/Distributionsanvändare**, **FTP-värdnamn**, och **FTPS-värdnamn**.  
+1. I funktionsappen i den [Azure-portalen](https://portal.azure.com)väljer **plattformsfunktioner** > **egenskaper**. Kopiera värdena för **FTP/Distributionsanvändare**, **FTP-värdnamn**, och **FTPS-värdnamn**.  
 
-    **FTP/Distributionsanvändare** måste anges som visas i portalen, inklusive appnamn, för att tillhandahålla tillräcklig kontext för FTP-servern.
+   **FTP/Distributionsanvändare** måste anges som visas i portalen, inklusive appnamn, för att tillhandahålla tillräcklig kontext för FTP-servern.
    
-    ![Hämta distributionsinformation om din](./media/functions-continuous-deployment/get-deployment-credentials.png)
+   ![Val för att hämta distributionsinformation om din](./media/functions-continuous-deployment/get-deployment-credentials.png)
 
-2. Från FTP-klienten använder du informationen du samlade in för att ansluta till din app och ladda ned källfilerna för dina funktioner.
+1. Använd anslutningsinformationen som du hämtade för att ansluta till din app och ladda ned källfilerna för dina funktioner från FTP-klienten.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Anvisningar: Ladda ned filer med hjälp av en lokal Git-lagringsplats
+#### <a name="download-files-by-using-a-local-git-repository"></a>Hämta filer med hjälp av en lokal Git-lagringsplats
 
-1. I funktionsappen i den [Azure-portalen](https://portal.azure.com), klickar du på **plattformsfunktioner** och **distributionsalternativ**. 
+1. I funktionsappen i den [Azure-portalen](https://portal.azure.com)väljer **plattformsfunktioner** > **distributionsalternativ**. 
    
-    ![Konfigurera kontinuerlig distribution](./media/functions-continuous-deployment/setup-deployment.png)
+    ![Val för att öppna distributionsalternativ](./media/functions-continuous-deployment/setup-deployment.png)
  
-2. I den **distributioner** bladet klickar du på **installationsprogrammet**.
+1. På den **distributioner** bladet väljer **installationsprogrammet**.
  
-    ![Konfigurera kontinuerlig distribution](./media/functions-continuous-deployment/setup-deployment-1.png)
+    ![Bladet för distributioner](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. I den **distributionskälla** bladet klickar du på **lokala Git-lagringsplats** och klicka sedan på **OK**.
+1. På den **distributionskälla** bladet väljer **lokala Git-lagringsplats** > **OK**.
 
-3. I **plattformsfunktioner**, klickar du på **egenskaper** och anteckna värdet för Git-URL. 
+1. I **plattformsfunktioner**väljer **egenskaper** och anteckna värdet för Git-URL. 
    
-    ![Konfigurera kontinuerlig distribution](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
+    ![Val för att hämta Git-URL](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
 
-4. Klona databasen på den lokala datorn med en Git-medvetna kommandotolk eller din favorit Git-verktyg. Kloningskommandot Git ser ut så här:
+1. Klona databasen på den lokala datorn med hjälp av en Git-medvetna kommandotolk eller ditt favorit Git-verktyg. Kloningskommandot Git ser ut så här:
    
         git clone https://username@my-function-app.scm.azurewebsites.net:443/my-function-app.git
 
-5. Hämta filer från din funktionsapp till klonen på din lokala dator, som i följande exempel:
+1. Hämta filer från din funktionsapp till klonen på din lokala dator, som i följande exempel:
    
         git pull origin master
    

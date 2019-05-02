@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511590"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916686"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(INAKTUELL) Hantering av DC/OS-behållare via Marathon REST API
 
@@ -32,7 +32,7 @@ Innan du börjar med de här exemplen behöver du ett DC/OS-kluster som har konf
 ## <a name="access-the-dcos-apis"></a>Komma åt DC/OS-API: er
 När du har anslutit till Azure Container Service-kluster kan du komma åt DC/OS och relaterade REST API: er via http:\//localhost:local-port. Exemplen i det här dokumentet förutsätter att du använder tunneltrafik på port 80. Till exempel Marathon-slutpunkter kan nås på URI: er från och med http: \/ /localhost/marathon/v2 /. 
 
-Mer information om de olika API:erna finns i Mesosphere-dokumentationen för [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) och [Chronos API](https://mesos.github.io/chronos/docs/api.html), samt Apache-dokumentationen för [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Mer information om de olika API:erna finns i Mesosphere-dokumentationen för [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) och [Chronos API](https://mesos.github.io/chronos/docs/api.html), samt Apache-dokumentationen för [Mesos Scheduler API](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Samla in information från DC/OS och Marathon
 Samla in information om DC/OS-klustret, till exempel namn och status för DC/OS-agenter innan du distribuerar behållare i DC/OS-klustret. Det gör du genom att fråga `master/slaves`-slutpunkten för DC/OS REST API. Om allt går bra returnerar frågan en lista över DC/OS-agenter och flera egenskaper för varje agent.

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61348183"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868126"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning Dataomvandling Flow sökning
 
@@ -25,6 +25,10 @@ Använda sökning för att lägga till referensdata från en annan källa till d
 Välj de fält som du vill matcha i mellan de inkommande dataströmmen och fälten från käll-referens. Du måste först ha skapat en ny källa på dataflöde design arbetsytan ska användas som till höger för sökningen.
 
 När matchningar påträffas läggs de resulterande rader och kolumner från käll-referens till ditt dataflöde. Du kan välja vilka fält av intresse som du vill inkludera i dina mottagare i slutet av ditt dataflöde.
+
+## <a name="match--no-match"></a>Matcha / ingen matchning
+
+När din Sökningomvandling, du kan använda efterföljande omvandlingar granska resultatet av varje rad matchning med hjälp av funktionen uttryck `isMatch()` göra ytterligare alternativ i logik baserat på huruvida sökningen resulterade i en rad matchning eller inte.
 
 ## <a name="optimizations"></a>Optimeringar
 

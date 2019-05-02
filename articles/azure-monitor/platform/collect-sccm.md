@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: e5cf89b7fe01946de9944a7026ec448cd55dd6dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741689"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922888"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ansluta Configuration Manager till Azure Monitor
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Monitor för att synkronisera enheten samlingsdata och referera till dessa samlingar i Azure Monitor och Azure Automation.  
@@ -67,7 +67,7 @@ För att lägga till Log Analytics-anslutning, Configuration Manager-miljön må
    
 2. På den **Allmänt** skärmen, bekräfta att du har gjort följande åtgärder och att du har informationen om varje objekt och välj sedan **nästa**.
 
-   1. I Azure-portalen, du har registrerat Configuration Manager som en Webbapp och/eller webb-API-app och som du har den [klient-ID från registreringen](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
+   1. I Azure-portalen, du har registrerat Configuration Manager som en Webbapp och/eller webb-API-app och som du har den [klient-ID från registreringen](../../active-directory/develop/quickstart-register-app.md).
    2. Du har skapat en app hemlig nyckel för registrerad app i Azure Active Directory i Azure-portalen.  
    3. Du har angett den registrerade webbappen med behörighet att komma åt Log Analytics-arbetsyta i Azure Monitor i Azure-portalen.  
       ![Anslutning till Log Analytics guiden fliken Allmänt](./media/collect-sccm/sccm-console-general01.png)

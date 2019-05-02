@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228240"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922993"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurera Application Insights Profiler
 
@@ -41,7 +41,7 @@ Beroende på hur Azure App Service Environment konfigureras blockeras anropet f�
 ## <a id="profileondemand"></a> Utlös Profiler manuellt
 
 ### <a name="minimum-requirements"></a>Minimikrav 
-En användare kan utlösa en profiler session manuellt kräver de minst ”skriva” åtkomst på deras roll för Application Insights-komponent. I de flesta fall du får den här åtkomsten automatiskt och inget ytterligare arbete krävs. Om du har problem med är rollen prenumeration omfång för att lägga till rollen ”Application Insights Component Contributor”. [Mer information om rollen åtkomstkontroll med Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
+En användare kan utlösa en profiler session manuellt kräver de minst ”skriva” åtkomst på deras roll för Application Insights-komponent. I de flesta fall du får den här åtkomsten automatiskt och inget ytterligare arbete krävs. Om du har problem med är rollen prenumeration omfång för att lägga till rollen ”Application Insights Component Contributor”. [Mer information om rollen åtkomstkontroll med Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 Du kan utlösa Profiler manuellt med ett enda klick. Anta att du kör ett webbtest för prestanda. Du måste spårningarna för att hjälpa dig att förstå hur ditt webbprogram fungerar under belastning. Att ha kontroll över när spårningssessioner samlas är avgörande, eftersom du vet när belastningstestet ska köras. Men slumpmässiga exempelintervallet kan gå miste om den.
 

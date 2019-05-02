@@ -12,53 +12,41 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249721"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875643"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identity-datalagring för Europeiska kunder i Azure Active Directory
-Azure Active Directory (Azure AD) hjälper dig att hantera användaridentiteter och skapa intelligensdrivna åtkomstprinciper som hjälper dig att skydda din organisations resurser. Identitetsdata lagras på en plats som baseras på den adress som din organisationen uppgav när du registrerade dig för tjänsten. Till exempel när du registrerar dig för en prenumeration på Office 365 eller Azure. Specifik information om var dina identitetsdata lagras finns i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.
+Identitetsdata lagras av Azure AD i en geografisk plats baserat på den adress som tillhandahålls av din organisation när du prenumererar för Microsoft Online service som Office 365 och Azure. För information om din identitetsdata ska lagras, kan du använda den [var är dina data finns?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) avsnitt i Microsoft Trust Center.
 
-De flesta Azure AD-relaterade Europeiska identitetsdata kvar i Europeiska datacenter, men det finns vissa operativa, tjänstspecifika data som krävs för normal Azure AD-åtgärd, som lagras i USA och inte innehåller några personuppgifter.
+För kunder som tillhandahålls en adress i Europa, ser de flesta av identitetsdata i Europeiska Datacenter till Azure AD. Det här dokumentet innehåller information om alla data som lagras utanför Europa med Azure AD-tjänster.
 
-## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Data som lagras utanför europeiska datacenter för europeiska kunder
-
-Merparten av alla Azure AD-relaterade europeiska identitetsdata, för organisationer med europeiska adresser, lagras på europeiska datacenter. Azure AD-data som lagras i Europeiska datacenter, och också replikeras till datacenter i USA, innehåller:
-
-- **Microsoft Azure Multi-Factor authentication (MFA) och lösenordsåterställning via självbetjäning (SSPR) i Azure AD**
+## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multifaktorautentisering (MFA)
     
-    MFA lagrar alla användardata i vila på europeiska datacenter. Men vissa MFA-tjänstspecifika data lagras i USA, inklusive:
+- Alla tvåfaktorsautentisering med telefonsamtal eller SMS kommer från datacenter i USA och styrs även av globala leverantörer.
+- Push-meddelanden med hjälp av Microsoft Authenticator app som kommer från datacenter. Dessutom kan kan enheten leverantör specifika tjänster förekomma i play och dessa tjänster kanske utanför Europa.
+- OATH-koder verifieras alltid i USA. 
+
+## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
+
+Azure AD B2C-princip konfigurationsdata och nyckelbehållare lagras i datacenter i USA. Dessa innehåller inte några personliga användardata. Mer information om principkonfigurationer, finns det [Azure Active Directory B2C: Inbyggda principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artikeln.
+
+## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-    - Tvåfaktorautentisering och relaterade personliga data kan lagras i USA om du använder MFA eller SSPR.
+Azure AD B2B butiker inbjudningar med Lös in länka och omdirigerings-URL-information i datacenter i USA. Dessutom lagras också e-postadress som slutar prenumerera på att ta emot B2B inbjudningar i datacenter i USA.
 
-        - All tvåfaktorsautentisering via telefonsamtal eller SMS kan genomföras av amerikanska operatörer.
-    
-        - Push-meddelanden med Microsoft Authenticator-appen kräver meddelanden från tillverkarens meddelandetjänst (Apple eller Google), som kan finnas utanför Europa.
-    
-        - OATH-koder verifieras alltid i USA. 
-    
-    - Vissa MFA- och SSPR-loggar lagras i USA i 30 dagar, oavsett autentiseringstyp.
+## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
-- **Microsoft Azure Active Directory B2C (Azure AD B2C)**
+Azure AD DS lagrar användardata på samma plats som kundens valda Azure Virtual Network. Om nätverket finns utanför Europa replikeras och lagras alltså dessa data utanför Europa.
 
-    Azure AD B2C lagrar alla användardata i vila på europeiska datacenter. Arbetsloggar (där personliga data har tagits bort) lagras dock på den plats som personen kommer åt tjänsterna från. Om en B2C-användare exempelvis kommer åt tjänsten i USA, så lagras arbetsloggarna i USA. Dessutom lagras all information om principkonfigurationer som inte innehåller personliga data endast i USA. Mer information om principkonfigurationer, finns det [Azure Active Directory B2C: Inbyggda principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artikeln.
+## <a name="other-considerations"></a>Annat att tänka på
 
-- **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
-    
-    Azure AD B2B lagrar alla användardata i vila på europeiska datacenter. Dock lagrar B2B icke-personliga metadata i tabeller på datacenter i USA. Den här tabellen innehåller fält som redeemUrl, invitationTicket, resource tenant Id, InviteRedirectUrl och InviterAppId.
+Tjänster och program som integreras med Azure AD har du åtkomst till identitetsdata. Utvärdera varje tjänst och program som du använder för att fastställa hur identitetsdata bearbetas av den specifika tjänsten och programmet och om de uppfyller företagets krav för datalagring.
 
-- **Microsoft Azure Active Directory Domain Services (Azure AD DS)**
-
-    Azure AD DS lagrar användardata på samma plats som kundens valda Azure Virtual Network. Om nätverket finns utanför Europa replikeras och lagras alltså dessa data utanför Europa.
-
-- **Tjänster och appar som integrerar med Azure AD**
-
-    Tjänster och appar som integrerar med Azure AD har åtkomst till identitetsdata. Utvärdera varje tjänst och app för att se hur identitetsdata bearbetas av den specifika tjänsten och appen och avgör om de uppfyller ditt företags datalagringskrav.
-
-    Läs mer om Microsoft-tjänsternas datahemvist i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.
+Läs mer om Microsoft-tjänsternas datahemvist i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om någon av funktionerna som beskrivs ovan, finns i följande artiklar:

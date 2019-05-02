@@ -1,64 +1,60 @@
 ---
-title: Virtual machine Marketplace-fliken i Cloud Partner Portal för Azure | Microsoft Docs
+title: Virtual machine Marketplace-fliken i Cloud Partner Portal för Azure Marketplace
 description: Beskriver fliken Marketplace som används för att skapa ett erbjudande för Azure Marketplace-datorn.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.author: pabutler
+ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332779"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938191"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Virtual machine Marketplace-fliken
 
-Den **Marketplace** fliken den **nytt erbjudande** sidan kan du ge din potentiella kunder marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från den Marketplace. Den här diktering är uppdelad i fyra delar: **Översikt över**, **marknadsföring artefakter**, **leda Management**, och **juridiska**. 
+Den **Marketplace** fliken den **nytt erbjudande** sidan kan du ge din potentiella kunder marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från den Marketplace. Den här diktering är uppdelad i fyra delar: **Översikt över**, **marknadsföring artefakter**, **leda Management**, och **juridiska**.
+
 
 ## <a name="overview-section"></a>Översiktsavsnittet
 I det här avsnittet ska ange du allmän information om dina Azure Marketplace erbjuder.  En tillagda asterisk (*) på fältnamnet indikerar att det krävs.
 
-![Översiktsavsnittet Marketplace-fliken i formuläret nytt erbjudande för virtuella datorer](./media/publishvm_008.png)
+![Översiktsavsnittet för fliken Marketplace för virtuella datorer](./media/publishvm_008.png)
 
-I följande tabell beskrivs syftet med och innehållet i de här fälten.
+I följande tabell beskrivs syftet med och innehållet i de här fälten. Required fields are indicted by an asterisk (*).
 
 |  **Fält**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Rubrik**                 | Rubrik för erbjudandet, ofta lång, formella namn. Den här rubriken visas på en framträdande plats i marketplace.  Högst 50 tecken. |
-| **Sammanfattning**               | Kort syfte eller funktion på lösning.  Högst 100 tecken. |
-| **Lång sammanfattning**          | Syfte eller funktion i lösningen.  Högst 256 tecken. |
-| **Beskrivning**           | Beskrivning av lösning.  Maximal längd på 3000 tecken har stöd för enkel HTML-formatering. |
-| **Microsoft CSP-återförsäljare kanal** | Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](../../cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler. |
-| **Identifierare för marknadsföring**  | En unik URL att koppla till det här erbjudandet innehåller normalt sett din organisation och lösningsnamn, maximal längd 50 tecken.  Exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Förhandsversion av prenumerations-ID: N** | Lägg till en till 100 prenumeration identifierare av förhandsgranskningar. Dessa white visas prenumerationer har åtkomst till erbjudandet när den publiceras innan det lanseras. |
+| **Rubrik\***                 | Rubrik för erbjudandet, ofta lång, formella namn. Den här rubriken visas på en framträdande plats i marketplace.  Högst 50 tecken. |
+| **Sammanfattning\***               | Kort syfte eller funktion på lösning.  Högst 100 tecken. |
+| **Lång sammanfattning\***          | Syfte eller funktion i lösningen.  Högst 256 tecken. |
+| **Beskrivning\***           | Beskrivning av lösning.  Maximal längd på 3000 tecken har stöd för enkel HTML-formatering. |
+| **Microsoft CSP-återförsäljare kanal\*** | Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](../../cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler. |
+| **Identifierare för marknadsföring\***  | En unik URL att koppla till det här erbjudandet innehåller normalt sett din organisation och lösningsnamn, maximal längd 50 tecken.  Exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Förhandsversion av prenumerations-ID: N\*** | Lägg till en till 100 prenumeration identifierare av förhandsgranskningar. Dessa white visas prenumerationer har åtkomst till erbjudandet när den publiceras innan det lanseras. |
 | **Användbara länkar**          | Lägga till URL: er till dokumentation, viktig information, vanliga frågor och svar och så vidare. |
-| **Föreslås kategorier (Max 5)** | Flera val för verksamheten och teknisk kategorier som erbjuder kan kopplas bäst.  Maximalt fem tillåts.  |
+| **Föreslås kategorier (Max 5)\*** | Flera val för verksamheten och teknisk kategorier som erbjuder kan kopplas bäst.  Maximalt fem tillåts.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Marknadsföring artefakter avsnittet
 
-Den här andra delen är uppdelad i tre underavsnitt: **Logotyper**, **skärmbild**, och **videor**. Logotyper är den enda krävs marknadsföring artefakter, men alla rekommenderas för bästa kund ändring.
+Den här andra delen är uppdelad i tre underavsnitt: **Logotyper**, **skärmbild**, och **videor**. Logotyper är den enda krävs marknadsföring artefakter, men alla rekommenderas för bästa kund ändring. 
 
 ![Marknadsföring artefakter avsnittet Marketplace-fliken i formuläret nytt erbjudande för virtuella datorer](./media/publishvm_009.png)
+
+I följande tabell beskrivs syftet med och innehållet i de här fälten. Required fields are indicted by an asterisk (*).
 
 |  **Fält**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logotyper*  |  |
-| **Liten**                 | 40 x 40 pixel .ico bitmapp                                                      |
-| **Medel**                | 90 x 90 pixel .ico bitmapp                                                      |
-| **Stora**                 | 115 x 115 pixel .ico bitmapp                                                   |
-| **Brett**                  | 255 x 115 pixel .ico bitmapp                                                    |
+| **Liten\***                 | 40 x 40 pixel .ico bitmapp                                                      |
+| **Medel\***                | 90 x 90 pixel .ico bitmapp                                                      |
+| **Stora\***                 | 115 x 115 pixel .ico bitmapp                                                   |
+| **Wide\***                  | 255 x 115 pixel .ico bitmapp                                                    |
 | **Hero**                  | 815 x 290 bitmapp.  Valfritt, men en gång överförda ikonen hero-komponenten inte kan tas bort. |
 | *Skärmbilder*  | Valfritt, men högst fem skärmbilder per SKU. |
 | **Namn**                  | Namn eller rubrik <!-- TODO - max char length? none specified in UI -->                               |
@@ -67,8 +63,7 @@ Den här andra delen är uppdelad i tre underavsnitt: **Logotyper**, **skärmbil
 | **Namn**                  | Namn eller rubrik  <!-- TODO - max char length? -->                              |
 | **Länk**                  | Video-URL, finns på YouTube eller Vimeo                                        |
 | **Miniatyr**             | 533 x 324 bitmapp                                                               |
-|  |  |
-
+|   |   |
 
 ### <a name="logo-guidelines"></a>Riktlinjer för logotyp
 
@@ -105,7 +100,6 @@ Följande bild visar hur marknadsföring information visas på den huvudsakliga 
 
 
 ## <a name="lead-management-section"></a>Leda hanteringsavsnittet
-<!-- this all should be referenced in a common location for lead management, not in this file. nothing unique for a vm specifically. -->
 
 Det tredje avsnittet kan du samla in kunder leads som genereras från Azure Marketplace-erbjudanden. Den erbjuder följande lagringsalternativ (från en listruta) för den här lead-information.
 
@@ -122,15 +116,16 @@ När du har publicerat ditt erbjudande, lead-anslutningen har verifierats och et
 
 ## <a name="legal-section"></a>Juridiska avsnittet
 
-Det här sista avsnittet kan du ange två juridiska dokument som krävs för varje erbjudande: Sekretesspolicy och användningsvillkoren.
+Det här sista avsnittet kan du ange de nödvändiga juridiska dokument som krävs för varje erbjudande.  
 
-|  **Fält**                |     **Beskrivning**                                                          |
-|  ---------                |     ---------------                                                          |
-| **Sekretesswebbadress för principen**    | URL: en till din bokförda sekretesspolicy                                            |
-| **Användningsvillkor**          | princip för som oformaterad text eller enkel HTML-kod.  <!-- TODO - max char length? -->       |
+|  **Fält**                    |     **Beskrivning**                                        |
+|  ---------                    |     ---------------                                        |
+| **Sekretesswebbadress för principen\***      | URL: en till din bokförda sekretesspolicy                          |
+| **Använda standardavtal?\***  |   |
+| **Användningsvillkor\***            | princip för som oformaterad text eller enkel HTML-kod.                       |
 |  |  |
 
-<br/>
+
+## <a name="next-steps"></a>Nästa steg
 
 I nästa [stöder](./cpp-support-tab.md) fliken du tillhandahåller teknisk hjälp och användaren Supportresurser för ditt erbjudande.
-

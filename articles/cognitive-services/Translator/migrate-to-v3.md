@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fa1733ddd70de3f8ef93452a880094ccf8b9ef56
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916724"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951461"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 till V3-migrering
 
 > [!NOTE]
-> V2 upphörde den 30 April 2018 och kommer att upphöra den 30 April 2019.
+> V2 upphörde den 30 April 2018. Migrera dina program till V3 för att kunna dra nytta av nya funktioner som är tillgängliga i V3.
 > 
-> Microsoft Translator Hub tas ur bruk den 30 April 2019. [Visa information om viktiga migrering och datum](https://www.microsoft.com/translator/business/hub/).  
+> Microsoft Translator Hub dras in den 17 maj 2019. [Visa information om viktiga migrering och datum](https://www.microsoft.com/translator/business/hub/).  
 
 Microsoft Translator-teamet har släppt Version 3 (V3) av Translator Text API. Den här versionen innehåller nya funktioner, föråldrad metoder och ett nytt format för att skicka till och ta emot data från tjänsten Microsoft Translator. Det här dokumentet innehåller information för att ändra programmen kan använda V3. 
 
@@ -110,7 +110,7 @@ Global
 
 > [!NOTE]
 > 
-> Microsoft Translator Hub tas ur bruk den 30 April 2019. [Visa information om viktiga migrering och datum](https://www.microsoft.com/translator/business/hub/).   
+> Microsoft Translator Hub dras in den 17 maj 2019. [Visa information om viktiga migrering och datum](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 använder neural maskinöversättning som standard. Det kan därför inte användas med Microsoft Translator Hub. Translator-hubben har endast stöd för äldre statistiska maskinöversättning. Anpassning av neural översättning är nu tillgänglig med hjälp av anpassade Translator. [Läs mer om hur du anpassar neural maskinöversättning](custom-translator/overview.md)
 
@@ -130,7 +130,6 @@ Neural översättning med text API V3 stöder inte användning av standard kateg
 Du använder Version 3 av API för textöversättning om du använder api.cognitive.microsofttranslator.com-slutpunkten.
 
 **Translator Text API-Version 2**
-* Är föråldrad. Det kommer att upphöra den 30 April 2019. 
 * Inte uppfyller alla ISO 20001,20018 och certifieringskrav för SOC 3. 
 * Tillåter inte att anropa neuralt nätverk översättningssystem som du har anpassat med funktionen Translator anpassning.
 * Ger åtkomst till anpassade översättningssystem som skapats med hjälp av Microsoft Translator Hub.

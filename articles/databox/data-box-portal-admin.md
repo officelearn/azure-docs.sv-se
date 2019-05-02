@@ -1,23 +1,23 @@
 ---
-title: Administratörshandbok för Azure Data Box-portalen | Microsoft Docs
+title: Hantera Azure Data Box via Azure portal | Microsoft Docs
 description: Beskriver hur du använder Azure Portal för att administrera Azure Data Box.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128744"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919283"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>Använda Azure-portalen för att administrera din Data Box
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>Använda Azure-portalen för att administrera din Azure Data Box
 
-Den här artikeln beskriver några av de komplexa arbetsflöden och de administrativa uppgifter som du kan utföra med Data Box. Du kan hantera Data Box via Azure-portalen eller via det lokala webbgränssnittet. 
+Den här artikeln beskriver några av de komplexa arbetsflöden och de administrativa uppgifter som kan utföras på Azure Data Box. Du kan hantera Data Box via Azure-portalen eller via det lokala webbgränssnittet.
 
 Den här artikeln fokuserar på de uppgifter som du kan utföra med Azure-portalen. Använd Azure-portalen för att hantera beställningar, hantera Data Box och spåra beställningens status från början till slut.
 

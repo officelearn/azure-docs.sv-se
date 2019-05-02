@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: cb5676b2609ffb16dd1ef5454ee443bc69fab782
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 60f677c994eb3a30f9dcfb4c341a242b46960c94
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60879835"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916610"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>Snabbstart: Använda Translator Text API för att identifiera textspråk med hjälp av Go
 
@@ -164,7 +164,7 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta en landsförkortning på i den här [Språklista](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Hitta en landsförkortning på i den här [Språklista](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

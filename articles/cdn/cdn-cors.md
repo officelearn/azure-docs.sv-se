@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679884"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876210"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Använda Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
@@ -30,9 +30,9 @@ Det finns två typer av CORS-förfrågningar, *enkla begäranden* och *komplexa 
 
 ### <a name="for-simple-requests"></a>För enkla begäranden:
 
-1. Webbläsaren skickar en begäran om CORS med ytterligare **ursprung** HTTP-frågehuvudet. Värdet för den här rubriken är ursprunget som användes för överordnade-sidan, vilket definieras som en kombination av *-protokollet,* *domän,* och *port.*  När en sida från https://www.contoso.com försöker komma åt en användares data i fabrikam.com ursprung, följande begärandehuvudet skulle skickas till fabrikam.com:
+1. Webbläsaren skickar en begäran om CORS med ytterligare **ursprung** HTTP-frågehuvudet. Värdet för den här rubriken är ursprunget som användes för överordnade-sidan, vilket definieras som en kombination av *-protokollet,* *domän,* och *port.*  När en sida från https\:/ / www.contoso.com försöker komma åt data för en användare i fabrikam.com ursprung, skulle följande huvudet för begäran skickas till fabrikam.com:
 
-   `Origin: https:\//www.contoso.com`
+   `Origin: https://www.contoso.com`
 
 2. Servern svarar med något av följande:
 

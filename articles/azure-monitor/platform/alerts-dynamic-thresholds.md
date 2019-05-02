@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775822"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876198"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Måttaviseringar med dynamiska tröskelvärden i Azure Monitor (förhandsversion)
 
@@ -42,16 +42,16 @@ Dynamiska tröskelvärden kontinuerligt lär sig av data för mått-serien och f
 Tröskelvärdena som är markerade så att en avvikelse från de här tröskelvärdena visar avvikelser i måttbeteendet.
 
 > [!NOTE]
-> Identifiering av säsongsknutet mönster är inställd på timme, dag eller vecka intervall. Det innebär att andra mönster som bihourly mönster eller semiweekly inte kan identifieras.
+> Identifiering av säsongsknutet mönster har angetts till en timme, dag eller vecka intervall. Det innebär att andra mönster som bihourly mönster eller semiweekly inte kan identifieras.
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>Vad kostar ' känslighetsinställningen ' i dynamiska tröskelvärden medelvärdet?
 
 Tröskelvärde för känslighet är ett övergripande begrepp som styr hur lång avvikelse från måttbeteende som krävs för att utlösa en avisering.
 Det här alternativet kräver inte kunskap om mått som statiska tröskelvärdet. De tillgängliga alternativen är:
 
-- Hög – är tröskelvärdena tätt och nära mönstret mått serien. Varningsregeln ska utlösas minsta avvikelse, vilket resulterar i fler aviseringar.
+- Hög – är tröskelvärdena tätt och nära mönstret mått serien. En varningsregel aktiveras på den lägsta avvikelsen, vilket resulterar i fler aviseringar.
 - Medel – mindre strikta och bättre avvägd tröskelvärden, färre aviseringar än med hög känslighet (standard).
-- Låg – tröskelvärdena blir formulärdata med mer avståndet från mått serien mönster. Varningsregeln utlöser bara på stor avvikelse, vilket resulterar i färre aviseringar.
+- Låg – tröskelvärdena blir formulärdata med mer avståndet från mått serien mönster. En varningsregel utlöser endast vid stora avvikelser, vilket resulterar i färre aviseringar.
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Vad är 'Operator' inställningsalternativen i dynamiska tröskelvärden?
 
@@ -83,7 +83,7 @@ Du kan utforska utlösta aviseringsinstanser i aviseringsvyn antingen genom att 
 I aviseringsvyn visas:
 
 - Måttinformation för tillfället dynamiska tröskelvärden-avisering utlöses.
-- Ett diagram över den punkt där aviseringen var utlösare som innehåller den dynamiska tröskelvärden som används i det här läget i tid.
+- Ett diagram över den period där aviseringen utlöstes med dynamiska tröskelvärden som används i det här läget i tid.
 - Möjlighet att ge feedback om dynamiska tröskelvärden aviseringen och aviseringarna visa upplevelse som kunde förbättra framtida identifieringar.
 
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Långsam beteendet ändras i måttutlösaren en avisering?
@@ -92,7 +92,7 @@ Förmodligen inte. Dynamiska tröskelvärden är bra för identifiering av betyd
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Hur mycket data används för att förhandsgranska och sedan beräkna tröskelvärden?
 
-De tröskelvärden som visas i diagrammet, innan en varningsregel skapas på måttet beräknas baserat tillräckligt historiska data för att beräkna timme eller varje dag säsongens mönster (10 dagar). När en varningsregel har skapats kan använder den dynamiska tröskelvärden alla nödvändiga historiska data som är tillgänglig och kontinuerligt lära dig och skickliga baserat på nya data för att göra det mer exakta tröskelvärdena. Det innebär att när den här beräkningen diagrammet visas också veckovisa mönster.
+De tröskelvärden som visas i diagrammet, innan en varningsregel skapas på måttet beräknas baserat på tillräckligt med historiska data för att beräkna timme eller varje dag säsongens mönster (10 dagar). När en varningsregel har skapats använder alla nödvändiga historiska data som är tillgänglig och kommer kontinuerligt Läs och anpassa baserat på nya data så att tröskelvärdena mer exakta med dynamiska tröskelvärden. Det innebär att diagrammet efter den här beräkningen också visar veckovisa mönster.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Hur mycket data krävs för att utlösa en avisering?
 

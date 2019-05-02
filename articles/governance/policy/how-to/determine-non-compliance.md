@@ -3,16 +3,16 @@ title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibla, finns det många möjliga orsaker. Lär dig att ta reda på vad som orsakade överträdelsen.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/30/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499363"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868724"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -105,9 +105,107 @@ Matrisen följande mappar varje möjligt _orsak_ till den ansvariga [villkor](..
 |Det aktuella värdet får inte matcha målvärdet skiftlägesokänsligt. |notMatchInsensitively eller **inte** matchInsensitively |
 |Inga relaterade resurser matchar effektinformationen i principdefinitionen. |En resurs av typen som definierats i **then.details.type** och relaterad till den resurs som definierats i den **om** delen av principregeln finns inte. |
 
-## <a name="change-history-preview"></a>Ändra historik (förhandsversion)
+## <a name="compliance-details-for-guest-configuration"></a>Information om kompatibilitet för gäst-konfiguration
 
-Som en del av en ny **förhandsversion**, de senaste 14 dagarna av ändring historik är tillgänglig för alla Azure-resurser som stöder [slutföra läge borttagning](../../../azure-resource-manager/complete-mode-deletion.md). Ändra historik innehåller information om när en ändring har identifierats och en _visual diff_ för varje ändring. Identifiering av ändring av utlöses när Resource Manager-egenskaper läggs till, tas bort eller ändras.
+För _granska_ principer i den _gäst Configuration_ kategori, det kan finnas flera inställningar som utvärderas i den virtuella datorn och du behöver visa information per inställning. Till exempel om du granskning för en lista över installerade program och tilldelningsstatus är _icke-kompatibla_, måste du veta vilka specifika program som saknas.
+
+Du kan inte heller åtkomst att logga in på den virtuella datorn direkt men du måste rapportera om varför den virtuella datorn är _icke-kompatibla_. Du kan till exempel granska att virtuella datorer är anslutna till rätt domän och inkluderar aktuella domänmedlemskap i information för rapportering.
+
+### <a name="azure-portal"></a>Azure Portal
+
+1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
+
+1. På den **översikt** eller **efterlevnad** väljer du en principtilldelning för alla som innehåller en definition av principen för gäst-konfiguration är _icke-kompatibla_.
+
+1. Välj en _granska_ principen i initiativet är _icke-kompatibla_.
+
+   ![Visa audit definition information](../media/determine-non-compliance/guestconfig-audit-compliance.png)
+
+1. På den **resurskompatibilitet** fliken tillhandahålls följande information:
+
+   - **Namn på** -namnet på Konfigurationstilldelningar gäst.
+   - **Överordnad resurs** -den virtuella datorn i en _icke-kompatibla_ tillstånd för den valda konfigurationen för gäst-tilldelningen.
+   - **Resurstypen** – _guestConfigurationAssignments_ fullständigt namn.
+   - **Senast utvärderad** – den senaste gången som gäst konfigurationstjänsten ett meddelande om Azure Policy om tillståndet för den virtuella måldatorn.
+
+   ![Visa efterlevnadsinformation.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+
+1. Välj gäst Configuration tilldelningsnamn i den **namn** kolumnen för att öppna den **Resurskompatibilitet** sidan.
+
+1. Välj den **visa resurs** längst upp på sidan för att öppna den **gäst tilldelning** sidan.
+
+Den **gäst tilldelning** sidan visar information om alla tillgängliga kompatibilitet. Varje rad i vyn representerar en bedömning som utfördes på den virtuella datorn. I den **orsak** kolumn, en fras som beskriver varför den gäst-tilldelningen är _icke-kompatibla_ visas. Om du granskning att virtuella datorer bör vara ansluten till en domän, till exempel den **orsak** kolumnen visar text, inklusive det aktuella medlemskapet i domänen.
+
+![Visa efterlevnadsinformation.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Du kan också visa information om kompatibilitet från Azure PowerShell. Kontrollera först att du har installerat modulen gäst-konfiguration.
+
+```azurepowershell-interactive
+Install-Module Az.GuestConfiguration
+```
+
+Du kan visa den aktuella statusen för alla gäst-tilldelningar för en virtuell dator med följande kommando:
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+```
+
+```output
+PolicyDisplayName                                                         ComplianceReasons
+-----------------                                                         -----------------
+Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
+Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
+```
+
+Visa endast de _orsak_ fras som beskriver varför den virtuella datorn är _icke-kompatibla_, returnerar endast egenskapen orsak som underordnade.
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+```
+
+```output
+The following applications are not installed: '<name>'.
+```
+
+Du kan också skapa en kompatibilitetshistorik för gäst-tilldelningar inom omfånget för den virtuella datorn. Utdata från det här kommandot finns information om varje rapport för den virtuella datorn.
+
+> [!NOTE]
+> Utdata kan returnera stora mängder data. Vi rekommenderar att du lagrar utdata i en variabel.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
+<truncated>
+```
+
+För att förenkla den här vyn kan du använda den **ShowChanged** parametern. Utdata från det här kommandot innehåller bara de rapporter som följt av en ändring i efterlevnadsstatus.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
+Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
+```
+
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Ändra historik (förhandsversion)
+
+Som en del av en ny **förhandsversion**, de senaste 14 dagarna ändringshistoria är tillgängliga för alla Azure-resurser som stöder [slutföra läge borttagning](../../../azure-resource-manager/complete-mode-deletion.md). Ändra historik innehåller information om när en ändring har identifierats och en _visual diff_ för varje ändring. Identifiering av ändring av utlöses när Resource Manager-egenskaper läggs till, tas bort eller ändras.
 
 1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 
@@ -129,10 +227,10 @@ Den _visual diff_ aides identifiera ändringar till en resurs. Ändringar som ha
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se exempel på [Azure Policy-exempel](../samples/index.md)
-- Granska den [Policy-definitionsstruktur](../concepts/definition-structure.md)
-- Granska [förstå effekterna av princip](../concepts/effects.md)
-- Förstå hur du [skapa principer programmässigt](programmatically-create.md)
-- Lär dig hur du [hämta data för kompatibilitetsinställningar](getting-compliance-data.md)
-- Lär dig hur du [åtgärda icke-kompatibla resurser](remediate-resources.md)
-- Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)
+- Se exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska [Policy-definitionsstrukturen](../concepts/definition-structure.md).
+- Granska [Förstå policy-effekter](../concepts/effects.md).
+- Förstå hur du [skapa principer programmässigt](programmatically-create.md).
+- Lär dig hur du [hämta kompatibilitetsdata](getting-compliance-data.md).
+- Lär dig hur du [åtgärda icke-kompatibla resurser](remediate-resources.md).
+- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).

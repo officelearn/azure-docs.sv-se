@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775888"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922843"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
 Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av data från virtuella datorer som kör Microsoft Windows och Linux som ligger i Azure, ditt datacenter eller andra molnleverantörer. Det finns tre typer av agenter som kan övervaka en virtuell dator:
@@ -66,7 +66,7 @@ Tidigare flera Azure-tjänster har tillsammans i den *Operations Management Suit
 
 * [Azure Automation uppdateringshantering](../../automation/automation-update-management.md) av uppdateringar av operativsystemet.
 * [Azure Automation Desired State Configuration](../../automation/automation-dsc-overview.md) att upprätthålla konsekvent konfigurationsstatus.
-* Spåra ändringar i konfigurationen med [Azure Automation-ändringsspårning och inventering](../../automation/automation-change-tracking.md).
+* Spåra ändringar i konfigurationen med [Azure Automation-ändringsspårning och inventering](../../automation/change-tracking.md).
 * Azure-tjänster som [Programinsikter](https://docs.microsoft.com/azure/application-insights/) och [Azure Security Center](https://docs.microsoft.com/azure/security-center/), som internt lagrar sina data direkt i Log Analytics.  
 
 ## <a name="dependency-agent"></a>Beroendeagent

@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: c4950d03449f2b293a87ab88f1ea3f49eee29557
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62102025"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876015"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen som flyttar till Azure
 
 > [!NOTE]
 > Den här artikeln gäller för både offentliga Azure-molnet och government-molnet utom om inget annat anges.
 
-Azure-portalen är en hubb för alla Azure-tjänster och erbjuder en omfattande hanteringsupplevelse med funktioner som instrumentpaneler för att fästa resurser, intelligenta sökfunktioner för att hitta resurser och tagga för resurshantering. För att konsolidera och förenkla övervakning och hantering av arbetsflödet, börjar vi lägga till OMS portalfunktioner till Azure-portalen. Alla funktioner i OMS-portalen är nu en del av Azure-portalen. Några av de nya funktionerna, till exempel trafikanalys är i själva verket bara tillgängliga i Azure-portalen. Du kommer att kunna göra allt du gjorde i OMS-portalen med Azure-portalen och mycket mer. Om du inte redan gjort det, bör du börja använda Azure-portalen redan idag!
+**OMS-portalen för det offentliga Azure-molnet har dragits officiellt. OMS-portalen för Azure Azure US Government-molnet kommer officiellt dras tillbaka den 15 maj 2019.** Vi är glada över att flytta till Azure-portalen och räknar med övergången är enkelt att hantera. Men vi är medvetna om ändringarna är svåra och kan vara störande. Skicka frågor, feedback eller frågor till **LAUpgradeFeedback\@microsoft.com**. Resten av den här artikeln går över viktiga scenarier och vägledning för den här ändringen.
 
-**OMS-portalen kommer att officiellt dras tillbaka den 15 januari 2019** för kommersiella Azure-molnet och Azure US Government-molnet, OMS-portalen **officiellt dras in den 30 mars 2019.** Vi är glada över att flytta till Azure-portalen och räknar med övergången är enkelt att hantera. Men vi är medvetna om ändringarna är svåra och kan vara störande. Skicka frågor, feedback eller frågor till **LAUpgradeFeedback\@microsoft.com**. Resten av den här artikeln går över viktiga scenarier och vägledning för den här ändringen.
+Azure-portalen är en hubb för alla Azure-tjänster och erbjuder en omfattande hanteringsupplevelse med funktioner som instrumentpaneler för att fästa resurser, intelligenta sökfunktioner för att hitta resurser och tagga för resurshantering. För att konsolidera och förenkla övervakning och hantering av arbetsflödet, börjar vi lägga till OMS portalfunktioner till Azure-portalen. Alla funktioner i OMS-portalen är nu en del av Azure-portalen. Några av de nya funktionerna, till exempel trafikanalys är i själva verket bara tillgängliga i Azure-portalen. Du kommer att kunna göra allt du gjorde i OMS-portalen med Azure-portalen och mycket mer. Om du inte redan gjort det, bör du börja använda Azure-portalen redan idag!
 
 ## <a name="what-is-changing"></a>Vad ändras? 
 Följande ändringar tillkännages med utfasningen av OMS-portalen. Var och en av dessa ändringar beskrivs mer ingående i avsnitten nedan.
@@ -76,10 +76,7 @@ Du är inte längre att kunna skapa nya arbetsytor med OMS-portalen. Följ riktl
 
 ### <a name="alert-extension"></a>Varning-tillägg  
 
-> [!NOTE]
-> Aviseringar har nu utökats helt i Azure-portalen för det offentliga molnet. Befintliga Varningsregler kan ses i OMS-portalen, men de kan bara hanteras i Azure-portalen. Utökning av aviseringar i Azure portal börjar för Azure government-molnet februari 2019.
-
-Aviseringar har [utökats till Azure-portalen](alerts-extend.md). När processen är klar hanteringsåtgärder på aviseringar endast att vara tillgänglig i Azure portal. Befintliga aviseringar fortsätter att listas i OMS-portalen. Om du använder aviseringar programmässigt med hjälp av Log Analytics avisering REST API eller Log Analytics-avisering resursmall måste du använda åtgärdsgrupper istället för åtgärder i API-anrop, Azure Resource Manager-mallar och PowerShell-kommandon.
+Aviseringar har [utökats till Azure-portalen](alerts-extend.md) befintliga fortsätter aviseringarna att listas i OMS-portalen, men du kan endast hantera dem i Azure-portalen. Om du använder aviseringar programmässigt med hjälp av Log Analytics avisering REST API eller Log Analytics-avisering resursmall måste du använda åtgärdsgrupper istället för åtgärder i API-anrop, Azure Resource Manager-mallar och PowerShell-kommandon.
 
 ### <a name="alert-management-solution"></a>Lösning för aviseringshantering
 Som en ändring i en föregående meddelandet den [lösning för aviseringshantering](alert-management-solution.md) fortsätter att vara tillgängliga och stöds fullt ut i Azure-portalen. Du kan fortsätta att installera lösningen från Azure Marketplace.

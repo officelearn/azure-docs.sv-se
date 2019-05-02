@@ -2,24 +2,18 @@
 title: Fastställa din publicering alternativ i Azure Marketplace | Azure
 description: Den här artikeln beskrivs kriterierna för kvalificering och publicera krav partner försöker förstå hur du publicerar appar på Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2755232ea81f1551477431f4eb1f0aeab8b8bfe8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb306a32a9388113a9c81fa363a6e1ee2c3b30ad
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726662"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938099"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa din publiceringsalternativ
 Publiceringsalternativ som du väljer för ditt erbjudande kopplat direkt till både marketplace GTM-fördelar och krav för berättigande. Ännu viktigare är definierar valet av publicera alternativet och erbjudandetypen i Cloud Partner Portal hur användare kommer att interagera med ditt erbjudande i marketplace.

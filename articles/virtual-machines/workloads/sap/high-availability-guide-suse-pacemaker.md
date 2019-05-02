@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0758105c7e2a18e976bc0c210eaf4e55e418a22d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710662"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925714"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -578,7 +578,7 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Pacemaker konfigurationen för Azure schemalagda händelser
 
-Azure erbjuder [schemalagda händelser](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Schemalagda händelser tillhandahålls via metadata-tjänsten och väntar tills programmet för att förbereda för händelser avstängningen, ny distribution av virtuella datorer, t.ex. Resurs-agenten **[azure-händelser](https://github.com/ClusterLabs/resource-agents/pull/1161)** Övervakare för schemalagda händelser i Azure. Om händelserna identifieras försöker agenten stoppa alla resurser på den berörda virtuella datorn och flytta dem till en annan nod i klustret. För att uppnå de ytterligare Pacemaker resurserna måste konfigureras. 
+Azure erbjuder [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Schemalagda händelser tillhandahålls via metadata-tjänsten och väntar tills programmet för att förbereda för händelser avstängningen, ny distribution av virtuella datorer, t.ex. Resurs-agenten **[azure-händelser](https://github.com/ClusterLabs/resource-agents/pull/1161)** Övervakare för schemalagda händelser i Azure. Om händelserna identifieras försöker agenten stoppa alla resurser på den berörda virtuella datorn och flytta dem till en annan nod i klustret. För att uppnå de ytterligare Pacemaker resurserna måste konfigureras. 
 
 1. **[A]**  Installera den **azure-händelser** agent. 
 

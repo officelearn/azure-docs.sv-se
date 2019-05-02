@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ceda22394aab27f27740bb999b36e2cc46a6bd06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4dfd00f7f6bf591b3b40a3ca391d2f722b01b7f0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126929"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919130"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Text Merge kognitiva kunskaper
 
@@ -78,7 +78,7 @@ Det här exemplet visar utdata från föregående indata, under förutsättning 
 
 Ett vanligt scenario för att använda Text Merge är att slå samman textrepresentation av bilder (text från en OCR-kunskaper eller rubriken på en avbildning) i fältet content för ett dokument. 
 
-Följande exempel kompetens använder OCR-kunskaper för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapas en *merged_text* fält som innehåller både ursprungliga och OCRed text från varje avbildning. Du kan läsa mer om OCR färdighet [här](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr).
+Följande exempel kompetens använder OCR-kunskaper för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapas en *merged_text* fält som innehåller både ursprungliga och OCRed text från varje avbildning. Du kan läsa mer om OCR färdighet [här](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {

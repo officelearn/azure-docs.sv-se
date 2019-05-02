@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 42b59c8da9e66b0f749d067e3df867911c7108e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c1e74efa9cf99e8510ea17aedc840ce3b0731c3b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106839"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916682"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefaktcentrallagret i ditt labb i DevTest Labs
 DevTest Labs kan du ange en artefakt som ska läggas till en virtuell dator vid tidpunkten för att skapa den virtuella datorn eller när den virtuella datorn har skapats. Den här artefakten kan vara ett verktyg eller ett program som du vill installera på den virtuella datorn. Artefakter har definierats i en JSON-fil lästs in från en GitHub- eller VSTS Git-lagringsplats. 
@@ -29,7 +29,7 @@ Den här artikeln innehåller information om hur du lägger till anpassad artefa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill lägga till en lagringsplats i labbet, först få viktig information från databasen. I följande avsnitt beskrivs hur du hämtar information som behövs för databaser som finns på **GitHub** eller **Azure DevOps**.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Hämta GitHub-lagringsplatsen klon-URL och personlig åtkomst-token
@@ -232,7 +232,7 @@ Folder under which artifacts can be found. Defaults to '/Artifacts'
 
 .PARAMETER PersonalAccessToken
 Security token for access to GitHub or VSOGit repository.
-See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
+See https://azure.microsoft.com/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
 
 .PARAMETER SourceType
 Whether artifact is VSOGit or GitHub repository.

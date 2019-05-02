@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: c00f703c5cfa606eaeb6ea0dea5fe5d754d3de5d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108092"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867972"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
 
 > [!NOTE]
-> Azure Monitor-dataplattform baseras på två grundläggande datatyper: Mått och loggar. Den här artikeln beskriver mått. Referera till [loggar i Azure Monitor](data-platform-logs.md) för en detaljerad beskrivning av loggar och till [Azure Monitor data platforn](data-platform.md) en jämförelse av två.
+> Azure Monitor-dataplattform baseras på två grundläggande datatyper: Mått och loggar. Den här artikeln beskriver mått. Referera till [loggar i Azure Monitor](data-platform-logs.md) för en detaljerad beskrivning av loggar och till [Azure Monitor dataplattform](data-platform.md) en jämförelse av två.
 
 Mått i Azure Monitor är lätt och kan stödja scenarier i nästan realtid vilket gör dem särskilt användbart för varningar och snabb identifiering av problem. Den här artikeln beskriver hur mått är strukturerade, vad du kan göra med dem och identifierar olika datakällor som lagrar data i mått.
 

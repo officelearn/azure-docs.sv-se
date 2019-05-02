@@ -7,14 +7,14 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489630"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922452"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
 
@@ -40,6 +40,10 @@ Det finns två sätt att aktivera av program för Azure App Services som värd f
 > Om både agenten baserat övervakning och manuella SDK baserad instrumentation identifieras endast manuell instrumentation inställningar kommer att användas. Det här är att förhindra att duplicerade data som skickas från. Mer information om den här Kolla in den [avsnittet om felsökning](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) nedan.
 
 ## <a name="enable-agent-based-monitoring-net"></a>Aktivera agentbaserad övervakning .NET
+
+> [!NOTE]
+> kombinationen av APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte. Mer information finns i förklaring i den [avsnittet om felsökning](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+
 
 1. **Välj Application Insights** i Azure-Kontrollpanelen för app service.
 
@@ -352,6 +356,15 @@ Tabellen nedan innehåller en mer detaljerad förklaring av vad de här värdena
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Det här värdet anger att tillägget identifierat referenser till `Microsoft.AspNet.TelemetryCorrelation` i programmet, och kommer backoff. | Ta bort referensen.
 |`AppContainsDiagnosticSourceAssembly**:true`|Det här värdet anger att tillägget identifierat referenser till `System.Diagnostics.DiagnosticSource` i programmet, och kommer backoff.| Ta bort referensen.
 |`IKeyExists:false`|Det här värdet anger att instrumentationsnyckeln saknas i AppSetting `APPINSIGHTS_INSTRUMENTATIONKEY`. Möjliga orsaker: Värdena kan ha tagits bort av misstag, har glömt att ange värden i automationsskript osv. | Kontrollera att inställningen finns i programinställningarna App Service.
+
+### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte
+
+Om du använder APPINSIGHTS_JAVASCRIPT_ENABLED = true i fall där innehållet är kodat, kan du få fel som: 
+
+- 500 URL-omskrivningsregler fel
+- 500.53 URL rewrite modulfel med meddelandet utgående omarbetning regler kan inte användas när innehållet i HTTP-svaret är kodade (”gzip-). 
+
+Detta anges på grund av APPINSIGHTS_JAVASCRIPT_ENABLED inställningen till true och Innehållskodning som finns på samma gång. Det här scenariot stöds inte ännu. Lösningen är att ta bort APPINSIGHTS_JAVASCRIPT_ENABLED från programinställningarna. Tyvärr innebär det att om klientens/webbläsaren JavaScript instrumentation fortfarande krävs, behövs manuell SDK-referenser för dina webbsidor. Följ den [instruktioner](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) för manuell instrumentering med JavaScript SDK.
 
 Den senaste informationen om Application Insights-agenten/tillägget finns i [viktig](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 

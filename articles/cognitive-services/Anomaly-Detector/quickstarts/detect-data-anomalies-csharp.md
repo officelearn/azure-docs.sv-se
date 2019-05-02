@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 772f15f54819f31d92411df747fc10d54b3e96cd
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544120"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922525"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av Avvikelseidentifiering detektor REST API ochC# 
 
@@ -35,7 +35,7 @@ Använd den här snabbstarten för att börja använda identifiering av avvikels
         1. Högerklicka på den **lösningen Manager**
         2. Klicka på **hantera NuGet-paket...**
         3. Sök efter `Newtonsoft.Json` och installera paketet
-- Om du använder Linux/Mac OS, det här programmet kan kördes med [Mono](http://www.mono-project.com/).
+- Om du använder Linux/Mac OS, det här programmet kan kördes med [Mono](https://www.mono-project.com/).
 
 - Pekar en JSON-fil som innehåller time series-data. Exempeldata för den här snabbstarten finns på [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

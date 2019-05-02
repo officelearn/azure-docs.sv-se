@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337746"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914960"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -121,9 +121,9 @@ Senaste säkerhetskopieringsjobbet misslyckades eftersom det finns en befintlig 
 3. Klicka på valvets instrumentpanel **säkerhetskopieringsjobb** visas alla säkerhetskopieringsjobb.
 
     * Om ett säkerhetskopieringsjobb pågår, vänta på den för att slutföra eller avbryta säkerhetskopieringen.
-        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Om du har konfigurerat om säkerhetskopiering i ett annat valv, kontrollera att det finns inga säkerhetskopieringsjobb som körs i det gamla valvet. Avbryt jobbet om den finns.
-        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Försök att säkerhetskopiera igen.
 
 Om den schemalagda säkerhetskopieringen tar längre tid som är i konflikt med nästa säkerhetskopieringskonfigurationen granskar den [metodtips](backup-azure-vms-introduction.md#best-practices), [säkerhetskopieringsprestanda](backup-azure-vms-introduction.md#backup-performance) och [återställa beräkningen ](backup-azure-vms-introduction.md#backup-and-restore-considerations).

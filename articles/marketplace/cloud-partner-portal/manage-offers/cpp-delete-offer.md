@@ -1,25 +1,18 @@
 ---
-title: Ta bort Marketplace-erbjudanden – Azure Marketplace | Microsoft Docs
+title: Ta bort marketplace-erbjudanden | Azure Marketplace
 description: Ta bort erbjudanden på Azure och AppSource marknadsplatser med partnerportalen i molnet
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 1d5d02d65dd3dcf5978639818fba4ebe36ffaaff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825157"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942106"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Ta bort Azure Marketplace och AppSource erbjudanden och SKU: er
 
@@ -28,7 +21,7 @@ Av olika skäl, kan du välja att återkalla ditt erbjudande från dess Microsof
 - *Erbjuder borttagning av* säkerställer att nya kunder inte längre kan köpa eller distribuera ditt erbjudande, men påverkar inte befintliga kunder som du måste ha stöd för enligt ditt licensavtal (EULA) och relevanta lagar. 
 - *Erbjuder avslutning* är processen att säga upp tjänsten och/eller licensavtalet mellan dig och dina befintliga kunder. 
 
-Vägledning och principer som relaterar till borttagning av erbjudande och uppsägning regleras av [Publiceringsavtalet för Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) och [Deltagandepolicyer](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (avsnittet [erbjudande Inaktivering och borttagning av](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Vägledning och principer som relaterar till borttagning av erbjudande och uppsägning regleras av [Publiceringsavtalet för Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) och [Deltagandepolicyer](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (avsnittet [erbjudande Inaktivering och borttagning av](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Den här artikeln berättar om de olika stöd för borttagning av scenarier och de steg som krävs för att utföra var och en.  
 

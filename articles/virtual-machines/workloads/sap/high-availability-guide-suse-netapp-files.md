@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cd2479aed1e348a27c5cba56c6d809ffb24e4fc0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711138"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925779"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp-filer för SAP-program
 
@@ -29,9 +29,9 @@ ms.locfileid: "60711138"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/en-gb/azure/azure-netapp-files/
-[anf-avail-matrix]:https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register
+[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
+[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -58,7 +58,7 @@ ms.locfileid: "60711138"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Den här artikeln beskriver hur du distribuerar de virtuella datorerna, konfigurera virtuella datorer, installera kluster framework och installera en högtillgänglig SAP NetWeaver 7,50-system med hjälp av [Azure NetApp-filer (i allmänt tillgänglig förhandsversion)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
+Den här artikeln beskriver hur du distribuerar de virtuella datorerna, konfigurera virtuella datorer, installera kluster framework och installera en högtillgänglig SAP NetWeaver 7,50-system med hjälp av [Azure NetApp-filer (i allmänt tillgänglig förhandsversion)](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
 I exempelkonfigurationer, installationskommandon etc., ASCS-instans är antalet 00, ÄNDARE instansnummer 01, instansen för primära programmet (PROVIDERADRESSER) är 02 och programinstansen (AAS) är 03. SAP System-ID: T QAS används. 
 
 Den här artikeln förklarar hur att uppnå hög tillgänglighet för SAP NetWeaver-program med Azure NetApp-filer. Databas-lagret beskrivs inte i detalj i den här artikeln.
@@ -92,12 +92,12 @@ Läs följande SAP Notes och papers först:
 Hög availability(HA) för SAP Netweaver central services kräver delad lagring.
 För att uppnå som på SUSE Linux var hittills det nödvändigt att skapa separat med hög tillgänglighet NFS-kluster. 
 
-Nu är det möjligt att uppnå SAP Netweaver hög tillgänglighet med hjälp av delad lagring som distribuerats på Azure NetApp-filer. Med hjälp av Azure NetApp filer för den delade lagringen eliminerar behovet av ytterligare [NFS kluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Pacemaker krävs fortfarande för hög tillgänglighet för SAP Netweaver centrala services(ASCS/SCS).
+Nu är det möjligt att uppnå SAP Netweaver hög tillgänglighet med hjälp av delad lagring som distribuerats på Azure NetApp-filer. Med hjälp av Azure NetApp filer för den delade lagringen eliminerar behovet av ytterligare [NFS kluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Pacemaker krävs fortfarande för hög tillgänglighet för SAP Netweaver centrala services(ASCS/SCS).
 
 
 ![Översikt över SAP NetWeaver hög tillgänglighet](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-databas använda virtuella värdnamn och virtuella IP-adresser. På Azure, en [belastningsutjämnare](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) krävs för att använda en virtuell IP-adress. I följande lista visas konfigurationen av (A) SCS och ÄNDARE belastningsutjämnare.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-databas använda virtuella värdnamn och virtuella IP-adresser. På Azure, en [belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) krävs för att använda en virtuell IP-adress. I följande lista visas konfigurationen av (A) SCS och ÄNDARE belastningsutjämnare.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -138,17 +138,17 @@ Funktionen Azure NetApp-filer är i offentlig förhandsversion i flera Azure-reg
 
 ### <a name="deploy-azure-netapp-files-resources"></a>Distribuera Azure NetApp Files-resurser  
 
-Anvisningarna förutsätter att du redan har distribuerat [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). Tänk på att Azure NetApp Files-resurser och de virtuella datorerna, där Azure NetApp Files-resurser ska monteras måste distribueras i samma Azure-nätverk.  
+Anvisningarna förutsätter att du redan har distribuerat [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Tänk på att Azure NetApp Files-resurser och de virtuella datorerna, där Azure NetApp Files-resurser ska monteras måste distribueras i samma Azure-nätverk.  
 
-1. Om du inte har gjort det redan kan begära att [registrera i förhandsversionen av Azure NetApp](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register).  
+1. Om du inte har gjort det redan kan begära att [registrera i förhandsversionen av Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
 
-2. Skapa NetApp-kontot i den valda Azure-region, efter den [instruktioner för att skapa NetApp konto](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
-3. Konfigurera Azure NetApp Files kapacitet poolen följa den [anvisningar om hur du ställer in Azure NetApp Files kapacitet pool](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
+2. Skapa NetApp-kontot i den valda Azure-region, efter den [instruktioner för att skapa NetApp konto](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
+3. Konfigurera Azure NetApp Files kapacitet poolen följa den [anvisningar om hur du ställer in Azure NetApp Files kapacitet pool](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
 SAP Netweaver-arkitekturen som visas i den här artikeln använder en enda Azure NetApp Files kapacitet pool, Premium-SKU. Vi rekommenderar Azure NetApp filer Premium-SKU för SAP Netweaver arbetsbelastning på Azure.  
 
-4. Delegera ett undernät till Azure NetApp filer enligt beskrivningen i den [instruktioner Delegera ett undernät till Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
+4. Delegera ett undernät till Azure NetApp filer enligt beskrivningen i den [instruktioner Delegera ett undernät till Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Distribuera Azure NetApp Files volymer, efter den [instruktioner för att skapa en volym för Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuera volymer i den avsedda Azure NetApp Files [undernät](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets). Tänk på att Azure NetApp Files-resurser och virtuella Azure-datorer måste vara i samma Azure-nätverk. Till exempel sapmnt<b>QAS</b>, usrsap<b>QAS</b>och så vidare är volymnamn och sapmnt<b>qas</b>, usrsap<b>qas</b>och så vidare är filepaths för Azure NetApp-filer volymer.  
+5. Distribuera Azure NetApp Files volymer, efter den [instruktioner för att skapa en volym för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Distribuera volymer i den avsedda Azure NetApp Files [undernät](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Tänk på att Azure NetApp Files-resurser och virtuella Azure-datorer måste vara i samma Azure-nätverk. Till exempel sapmnt<b>QAS</b>, usrsap<b>QAS</b>och så vidare är volymnamn och sapmnt<b>qas</b>, usrsap<b>qas</b>och så vidare är filepaths för Azure NetApp-filer volymer.  
 
    1. volymen sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. volymen usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -158,7 +158,7 @@ SAP Netweaver-arkitekturen som visas i den här artikeln använder en enda Azure
    6. volymen usrsap<b>QAS</b>provideradresser (nfs://10.1.0.5/usrsap<b>qas</b>provideradresser)
    7. volymen usrsap<b>QAS</b>aas (nfs://10.1.0.4/usrsap<b>qas</b>aas)
    
-I det här exemplet använde vi Azure NetApp-filer för alla SAP Netweaver-filsystem för att demonstrera hur Azure NetApp filer kan användas. Med SAP-system som inte behöver monteras via NFS kan också distribueras som [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) . I det här exemplet <b>a e</b> måste finnas på Azure NetApp filer och <b>f-g</b> (det vill säga usr/sap/<b>QAS</b>/D<b>02</b>,usr/sap/<b>QAS </b>/D<b>03</b>) kan distribueras som Azure disk storage. 
+I det här exemplet använde vi Azure NetApp-filer för alla SAP Netweaver-filsystem för att demonstrera hur Azure NetApp filer kan användas. Med SAP-system som inte behöver monteras via NFS kan också distribueras som [Azure disk storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) . I det här exemplet <b>a e</b> måste finnas på Azure NetApp filer och <b>f-g</b> (det vill säga usr/sap/<b>QAS</b>/D<b>02</b>,usr/sap/<b>QAS </b>/D<b>03</b>) kan distribueras som Azure disk storage. 
 
 ### <a name="important-considerations"></a>Att tänka på
 
@@ -166,10 +166,10 @@ När du överväger Azure NetApp filer för SAP Netweaver på arkitektur med hö
 
 - Den minimikapacitet poolen är 4 TiB. Poolstorlek kapacitet måste vara i multiplar av 4 TiB.
 - Minsta volymen är 100 GiB
-- Azure NetApp-filer och alla virtuella datorer, där Azure NetApp Files volymer ska monteras måste vara i samma Azure-nätverk eller i [peer-kopplade virtuella nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) i samma region. Azure NetApp filer åtkomst via VNET-peering i samma region stöds nu. NetApp åtkomst till Azure över global peering stöds inte ännu.
+- Azure NetApp-filer och alla virtuella datorer, där Azure NetApp Files volymer ska monteras måste vara i samma Azure-nätverk eller i [peer-kopplade virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) i samma region. Azure NetApp filer åtkomst via VNET-peering i samma region stöds nu. NetApp åtkomst till Azure över global peering stöds inte ännu.
 - Det valda virtuella nätverket måste ha ett undernät som delegerats till Azure NetApp-filer.
 - Azure NetApp Files stöder för närvarande endast NFSv3 
-- NetApp-filer som Azure erbjuder [exportera princip](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): du kan styra de tillåtna klienterna åtkomsttyp (läsa och skriva, skrivskyddad, osv.). 
+- NetApp-filer som Azure erbjuder [exportera princip](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): du kan styra de tillåtna klienterna åtkomsttyp (läsa och skriva, skrivskyddad, osv.). 
 - Azure NetApp filer-funktionen är inte medvetna zon ännu. NetApp-filer för Azure-funktionen inte är distribuerad i alla tillgänglighetszoner i en Azure-region. Vara medveten om potentiella konsekvenser för svarstid i vissa Azure-regioner. 
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Distribuera virtuella Linux-datorer manuellt via Azure-portalen
@@ -243,7 +243,7 @@ Du måste först skapa Azure NetApp Files-volymer. Distribuera de virtuella dato
          * Upprepa stegen ovan under ”d” för portar 33**01**, 5**01**13, 5**01**14, 5**01**16- och TCP för ASCS ERS
 
 > [!IMPORTANT]
-> Aktivera inte TCP tidsstämplarna för virtuella Azure-datorer är placerade bakom Azure Load Balancer. Aktivera TCP tidsstämplar genereras hälsoavsökningar misslyckas. Ange parametern **net.ipv4.tcp_timestamps** till **0**. Mer information finns i [hälsoavsökningar för belastningsutjämnaren](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> Aktivera inte TCP tidsstämplarna för virtuella Azure-datorer är placerade bakom Azure Load Balancer. Aktivera TCP tidsstämplar genereras hälsoavsökningar misslyckas. Ange parametern **net.ipv4.tcp_timestamps** till **0**. Mer information finns i [hälsoavsökningar för belastningsutjämnaren](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Skapa Pacemaker kluster
 

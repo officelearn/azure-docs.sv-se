@@ -8,47 +8,44 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e144214a58f9fe383cf4edd878554792d9d6a6f9
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716259"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947167"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Skriv om HTTP-begäran och svarshuvuden med Azure Application Gateway – Azure-portalen
 
-Den här artikeln visar hur du använder Azure-portalen för att konfigurera en [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) skriva om HTTP-huvuden i begäranden och svar.
-
-> [!IMPORTANT]
-> SKU:n för zonredundant programgateway för automatisk skalning är för närvarande tillgänglig som en offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här artikeln beskriver hur du använder Azure-portalen för att konfigurera en [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) instans att skriva om HTTP-huvuden i begäranden och svar.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du måste ha en Application Gateway-v2 SKU eftersom möjlighet till omskrivning av rubriken inte stöds för v1-SKU. Om du inte har v2-SKU, skapar du en [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) innan du börjar.
+Du måste ha en Application Gateway v2 SKU-instans att slutföra stegen i den här artikeln. Skriva om rubriker stöds inte i v1-SKU. Om du inte har v2-SKU, skapar du en [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) instans innan du börjar.
 
-## <a name="what-is-required-to-rewrite-a-header"></a>Vad som krävs för att skriva om en rubrik
+## <a name="create-required-objects"></a>Skapa nödvändiga objekt
 
-För att konfigurera HTTP-huvud omskrivning, måste du:
+För att konfigurera HTTP-huvud omskrivning, måste du slutföra de här stegen.
 
-1. Skapa nya objekt som krävs för att skriva om http-huvuden:
+1. Skapa de objekt som krävs för Skriv om HTTP-huvud:
 
-   - **Skriv om åtgärden**: används för att ange begäran och begäran huvudfält som du avser att skriva om och det nya värdet som de ursprungliga sidhuvuden behöva skrivas till. Du kan välja att associera en eller flera omskrivning villkor med en Skriv om åtgärden.
+   - **Skriv om åtgärden**: Används för att ange begäran och begäran huvudfält som du avser att skriva om och det nya värdet för sidhuvudena. Du kan koppla ett eller flera omarbetning villkor med en omarbetning åtgärd.
 
-   - **Skriv om villkoret**: Det är en valfri konfiguration. Om ett omskrivning villkor läggs utvärderar det innehållet i HTTP (S)-begäranden och svar. Beslutet att köra åtgärden Skriv om som är associerade med villkoret omskrivning baseras om HTTP (S)-begäran eller svar som matchade med Skriv om villkoret. 
+   - **Skriv om villkoret**: En valfri konfiguration. Skriv om villkor utvärdera innehållet i HTTP (S)-begäranden och svar. Skriv om-åtgärd som ska utföras om den HTTP (S)-begäran eller ett svar matchar villkoret omarbetning.
 
-     Om flera villkor som är associerade med en åtgärd och sedan åtgärden körs endast när alla villkor är uppfyllda, d.v.s., ett logiskt AND-åtgärd utförs.
+     Om du associerar mer än ett villkor med åtgärden utförs åtgärden endast när alla villkor är uppfyllda. Åtgärden är med andra ord en logiskt AND-åtgärd.
 
-   - **Skriva om regeln**: omskrivningsregel innehåller flera omskrivning åtgärd – Skriv om villkoret kombinationer.
+   - **Skriva om regeln**: Innehåller flera omskrivning åtgärd / omarbetning kombinationer av villkor.
 
-   - **Regeln sekvens**: hjälper till att avgöra den ordning som de olika omarbetning regler körs. Det här är användbart när det finns flera omskrivningsregler i en omarbetning. Omskrivningsregel med mindre regeln Sekvensvärde hämtar köras först. Om du anger samma regelsekvens till två omskrivningsregler kommer ordningen för körningen att icke-deterministisk.
+   - **Regeln sekvens**: Hjälper dig att fastställa i vilken ordning som omskrivningsregler köra. Den här konfigurationen är användbar när du har flera omskrivningsregler i en omarbetning. En omskrivningsregel som har ett lägre värde för regeln sekvens körs första. Om du tilldelar två omskrivningsregler samma regel sekvens värde är ordningen för körningen icke-deterministisk.
 
-   - **Skriv om Set**: innehåller flera omskrivningsregler som ska kopplas till en regel för vidarebefordran av begäran.
+   - **Skriv om set**: Innehåller flera omskrivningsregler som ska associeras med en regel för vidarebefordran av begäran.
 
-2. Du kommer att behöva koppla omskrivning med en regel för vidarebefordran. Det beror på att Skriv om konfigurationen är kopplad till käll-lyssnaren via en routningsregel för. När du använder en grundläggande routningsregel rubrik Skriv om konfigurationen är associerad med en käll-lyssnare och är en global huvud-omskrivning. När en sökvägsbaserad regel används har rubrik Skriv om konfigurationen definierats för Webbadress för sökvägskarta. Därför gäller detta bara till området angiven sökväg för en plats.
+2. Koppla omskrivning inställd på en regel för vidarebefordran. Skriv om konfigurationen är kopplat till käll-lyssnaren via en routningsregel för. När du använder en grundläggande routningsregel rubrik Skriv om konfigurationen är associerad med en käll-lyssnare och är en global huvud-omskrivning. När du använder en sökvägsbaserad regel har rubrik Skriv om konfigurationen definierats för Webbadress för sökvägskarta. I så fall gäller endast för området angiven sökväg för en plats.
 
-Du kan skapa flera http-huvud omskrivning uppsättningar och varje uppsättning omskrivning kan tillämpas på flera lyssnare. Du kan dock använda endast en omarbetning inställd på en viss lyssnare.
+Du kan skapa flera HTTP-huvud omskrivning uppsättningar och tillämpa varje omarbetning som angetts till flera lyssnare. Men du kan använda endast en omarbetning inställd på en viss lyssnare.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -56,77 +53,82 @@ Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
 
 ## <a name="configure-header-rewrite"></a>Konfigurera huvud-omskrivning
 
-I det här exemplet ska vi ändra omdirigerings-URL genom att skriva om location-huvudet i http-svar som skickas av backend-applikationer. 
+I det här exemplet ändrar vi en omdirigerings-URL genom att skriva om location-huvudet i HTTP-svar som skickas av en backend-programmet.
 
 1. Välj **alla resurser**, och välj sedan din application gateway.
 
-2. Välj **returpaket** menyn till vänster.
+2. Välj **returpaket** i den vänstra rutan.
 
-3. Klicka på **+ omarbetning set**. 
+3. Välj **omarbetning set**:
 
    ![Lägg till uppsättning av omarbetning](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
-4. Ange namn till omskrivning uppsättningen och koppla den till en regel för vidarebefordran:
+4. Ange ett namn för omarbetning och koppla den till en regel för vidarebefordran:
 
-   - Ange namnet på omarbetning som angetts i den **namn** textrutan.
-   - Välj en eller flera regler som anges i den **associerade routningsregler** lista. Du kan bara välja de regler som inte är associerade med andra omskrivning uppsättningar. Vilka regler som redan är associerade med andra omskrivning uppsättningar är nedtonade.
-   - Klicka på Nästa.
+   - Ange namn för omarbetning som angetts i den **namn** box.
+   - Välj en eller flera av de regler som anges i den **associerade routningsregler** lista. Du kan välja endast de regler som inte har associerats med andra omskrivning uppsättningar. De regler som redan är associerade med andra omskrivning uppsättningar är nedtonade.
+   - Välj **Nästa**.
    
      ![Lägg till namn och association](media/rewrite-http-headers-portal/name-and-association.png)
 
 5. Skapa en omskrivningsregel:
 
-   - Klicka på **+ Lägg till omskrivningsregel**.![ Lägg till omskrivningsregel](media/rewrite-http-headers-portal/add-rewrite-rule.png)
-   - Ange ett namn som omskrivningsregel i textrutan för Skriv om regeln och ange en regelsekvens.![Lägg till namn](media/rewrite-http-headers-portal/rule-name.png)
+   - Välj **Add-omskrivningsregel**.
 
-6. I det här exemplet ska vi skriva om location-huvudet endast när den innehåller en referens till ”azurewebsites.net”. Lägg till ett villkor att utvärdera om location-huvudet i svaret innehåller azurewebsites.net för att göra detta:
+     ![Lägg till omskrivningsregel](media/rewrite-http-headers-portal/add-rewrite-rule.png)
 
-   - Klicka på **+ Lägg till villkor** och klicka sedan på avsnittet som innehåller den **om** anvisningar för att expandera den.![ Lägg till namn](media/rewrite-http-headers-portal/add-condition.png)
+   - Ange ett namn för omskrivningsregel i den **omskrivning Regelnamn** box. Ange ett tal i den **regel sekvens** box.
 
-   - Välj **HTTP-huvud** från den **typen av variabel att kontrollera** listrutan. 
+     ![Lägg till omskrivning Regelnamn](media/rewrite-http-headers-portal/rule-name.png)
 
-   - Välj **Rubriktyp** som **svar**.
+6. I det här exemplet ska vi skriva om location-huvudet endast när den innehåller en referens till azurewebsites.net. Lägg till ett villkor att utvärdera om location-huvudet i svaret innehåller azurewebsites.net för att göra detta:
 
-   - Eftersom det här exemplet vi utvärderar location-huvudet som råkar vara en gemensam rubrik väljer **gemensam rubrik** alternativknappen som den **rubriknamn**.
+   - Välj **Lägg till villkor** och välj sedan rutan som innehåller den **om** anvisningar för att expandera den.
 
-   - Välj **plats** från den **gemensam rubrik** listrutan.
+     ![Lägg till ett villkor](media/rewrite-http-headers-portal/add-condition.png)
 
-   - Välj **nr** som den **skiftlägeskänsliga** inställningen.
+   - I den **typen av variabel att kontrollera** väljer **HTTP-huvud**.
 
-   - Välj **är lika med (=)** från den **operatorn** listrutan.
+   - I den **Rubriktyp** väljer **svar**.
 
-   - Ange mönster för reguljärt uttryck. I det här exemplet använder vi mönstret `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Eftersom i det här exemplet vi utvärderar location-huvudet som är en gemensam rubrik, Välj **gemensam rubrik** under **rubriknamn**.
 
-   - Klicka på **OK**.
+   - I den **gemensam rubrik** väljer **plats**.
 
-     ![Ändra location-huvudet](media/rewrite-http-headers-portal/condition.png)
+   - Under **skiftlägeskänsliga**väljer **nr**.
+
+   - I den **operatorn** väljer **är lika med (=)**.
+
+   - Ange ett mönster för reguljärt uttryck. I det här exemplet använder vi mönstret `(https?):\/\/.*azurewebsites\.net(.*)$`.
+
+   - Välj **OK**.
+
+     ![Konfigurera en om villkor](media/rewrite-http-headers-portal/condition.png)
 
 7. Lägg till en åtgärd för att skriva om location-huvudet:
 
-   - Välj **ange** som den **åtgärdstyp**.
+   - I den **åtgärdstyp** väljer **ange**.
 
-   - Välj **svar** som den **Rubriktyp**.
+   - I den **Rubriktyp** väljer **svar**.
 
-   - Välj **gemensam rubrik** som den **rubriknamn**.
+   - Under **rubriknamn**väljer **gemensam rubrik**.
 
-   - Välj **plats** från den **gemensam rubrik** listrutan.
+   - I den **gemensam rubrik** väljer **plats**.
 
-   - Ange huvudets värde. I det här exemplet ska vi använda `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` som huvudets värde. Det här ersätter *azurewebsites.net* med *contoso.com* i location-huvudet.
+   - Ange huvudets värde. I det här exemplet använder vi `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` som huvudets värde. Det här värdet kommer att ersätta *azurewebsites.net* med *contoso.com* i location-huvudet.
 
-   - Klicka på **OK**.
+   - Välj **OK**.
 
-     ![Ändra location-huvudet](media/rewrite-http-headers-portal/action.png)
+     ![Lägga till en åtgärd](media/rewrite-http-headers-portal/action.png)
 
-8. Klicka på **skapa** att skapa omarbetning.
+8. Välj **skapa** att skapa omarbetning:
 
-   ![Ändra location-huvudet](media/rewrite-http-headers-portal/create.png)
+   ![Välj Skapa](media/rewrite-http-headers-portal/create.png)
 
-9. Då kommer du till vyn omskrivning set. Kontrollera att Skriv om uppsättningen som du skapade ovan finns i listan över omskrivning uppsättningar.
+9. Skriv om set vyn öppnas. Kontrollera att det är uppsättningen omarbetning som du skapade i listan över omskrivning uppsättningar:
 
-   ![Ändra location-huvudet](media/rewrite-http-headers-portal/rewrite-set-list.png)
+   ![Skriv om set-vy](media/rewrite-http-headers-portal/rewrite-set-list.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om den konfiguration som krävs för att utföra några vanliga användningsfall i [gemensam rubrik omarbetning scenarier](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
-
-   
+Läs mer om hur du ställer in några vanliga användningsområden i [gemensam rubrik omarbetning scenarier](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).

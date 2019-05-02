@@ -1,25 +1,18 @@
 ---
-title: Förutsättningar för virtuell dator för Microsoft Azure | Microsoft Docs
+title: Förutsättningar för virtuell dator för Microsoft Azure | Azure Marketplace
 description: Lista över kraven för att publicera ett erbjudande för virtuell dator på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 5c26fd3d6c2593217aef8588e2a58377a86412ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844048"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938070"
 ---
 # <a name="virtual-machine-prerequisites"></a>Förutsättningar för virtuell dator
 
@@ -49,7 +42,7 @@ Affärskraven är procedurmässig avtalsenliga och juridiska skyldigheter:
     > Du bör använda samma konto för registrering av Microsoft Developer Center för att logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com).
     > Du bör ha endast en Microsoft-konto för alla dina Azure Marketplace-erbjudanden. Det får inte vara specifika för enskilda tjänster eller erbjudanden.
     
-- Ditt företag (eller dess filial) måste finnas i en sälj-från-stöds av Azure Marketplace.  En aktuell lista över dessa länder/regioner, se [Deltagandepolicyer för Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+- Ditt företag (eller dess filial) måste finnas i sälj-från-land/region som stöds av Azure Marketplace.  En aktuell lista över dessa länder/regioner, se [Deltagandepolicyer för Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 - Produkten måste licensieras på ett sätt som är kompatibel med faktureringsmodellerna som stöds av Azure Marketplace.  Mer information finns i [betalningsalternativ på Azure Marketplace](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
 - Du ansvarar för att göra teknisk support tillgänglig för kunder på ett kommersiellt rimligt sätt. Detta stöd kan vara kostnadsfria, betald, eller via community-metoder.
 - Du är ansvarig för licensiering för ditt program och eventuella beroenden för programvara från tredje part.

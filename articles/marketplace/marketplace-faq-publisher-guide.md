@@ -1,25 +1,18 @@
 ---
-title: Vanliga frågor och svar för Marketplace | Azure
+title: Vanliga frågor om Azure Marketplace
 description: Svar på vanliga frågor om Microsoft Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709390"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938630"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor om Marketplace
 
@@ -134,7 +127,7 @@ Azure-prenumeration ingår utgivarens oberoende leverantörer (ISV) lösning pri
 
 *Månadsavgift:* Avgifter debiteras eller faktureras en fast månadsavgift för en prenumeration på erbjudandet (från startdatumet för prenumerationen för den prenumerationen). Månadsavgiften kan beräknas prorata för uppsägningar mitt i månaden eller outnyttjade tjänster.
 
-Prisinformation om ett specifikt erbjudande finns på lösningens detaljsida på [ https://azure.microsoft.com/en-us/pricing/ ](https://azure.microsoft.com/pricing/) eller i den [Microsoft Azure-hanteringsportalen](https://portal.azure.com/).
+Prisinformation om ett specifikt erbjudande finns på lösningens detaljsida på [ https://azure.microsoft.com/pricing/ ](https://azure.microsoft.com/pricing/) eller i den [Microsoft Azure-hanteringsportalen](https://portal.azure.com/).
 
 >[!Note]
 > Undantag för månatliga avgifter debiteras Azure-användning alla prismodellerna om inte annat anges.
@@ -490,15 +483,15 @@ Azure Marketplace är tillgängligt för Microsoft Azure-kunder i följande län
 
 Algeriet, Argentina, Australien, Österrike, Bahrain, Vitryssland, Belgien, Brasilien, Bulgarien, Kanada, Chile, Colombia, Costa Rica, Kroatien, Cypern, Tjeckien, Danmark, Dominikanska republiken, Ecuador, Egypten, El Salvador, Estland, Finland, Frankrike, Tyskland, Grekland , Guatemala, Hongkong SAR, Ungern, Island, Indien, Indonesien, Irland, Israel, Italien, Japan, Jordanien, Kazakstan, Kenya, Kuwait, Lettland, Liechtenstein, Litauen, Luxemburg, norra Makedonien, Malaysia, Malta, Mexiko, Montenegro, Marocko, Nederländerna, nya Zeeland, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Puerto Rico, Qatar, Rumänien, Ryssland, Saudiarabien, Serbien, Singapore, Slovakien, Slovenien, Sydafrika, Sydkorea, Spanien, Sri Lanka, Sverige, Schweiz, Taiwan, Thailand, Trinidad och Tobago, Tunisien, Turkiet, Ukraina, Förenade Arabemiraten, Storbritannien, USA, Uruguay, Venezuela.
 
-**Hur definierar jag min geografisk tillgänglighet att sälja i olika länder?**
+**Hur definierar jag min geografisk tillgänglighet att sälja i olika länder/regioner?**
 
-1.  Gå till SKU: N som du vill lägga till nya länder i partnerportalen i molnet.  Navigera till ”land/Region tillgänglighet” i ”SKU-information” och klicka ”utvalda regioner”.
+1.  Gå till SKU: N som du vill lägga till nya länder/regioner i partnerportalen i molnet.  Navigera till ”land/Region tillgänglighet” i ”SKU-information” och klicka ”utvalda regioner”.
 
     ![Välj regioner](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
-1.  En lista visas med alla tillgängliga länder att sälja till.  Klicka på kryssrutan bredvid varje land/region som du vill att denna SKU. Klicka på ”OK”.
+1.  En lista visas med alla tillgängliga länder/regioner sälja till.  Klicka på kryssrutan bredvid varje land/region som du vill att denna SKU. Klicka på ”OK”.
 
-    ![Välj landslista](media/marketplace-publishers-guide/FAQ-select-countries.png)
+    ![Välj land/region lista](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
 1.  Klicka slutligen på ”Publicera” för att ändringarna ska tillämpas på ditt live erbjudande  
 
@@ -509,11 +502,11 @@ Algeriet, Argentina, Australien, Österrike, Bahrain, Vitryssland, Belgien, Bras
 
 **Hur ändrar en utgivare geografisk tillgänglighet i ett befintligt erbjudande?**
 
-Utgivaren kan redigera ett befintligt erbjudande, Välj de nya länder/regioner och använda funktionen kalkylblad download/laddar upp för att ange priser.
+Utgivaren kan redigera ett befintligt erbjudande, Välj de nya länder/regionerna och använda funktionen kalkylblad download/laddar upp för att ange priser.
 
 **I vilka länder/regioner kan kunder som köper Azure Marketplace-erbjudanden?**
 
-Azure Marketplace har stöd för 141 köp från geografiska områden som definieras av kundens faktureringsadress. Se [deltagandepolicyer](https://docs.microsoft.com/legal/marketplace/participation-policy) för en lista över länder.
+Azure Marketplace har stöd för 141 köp från geografiska områden som definieras av kundens faktureringsadress. Se [deltagandepolicyer](https://docs.microsoft.com/legal/marketplace/participation-policy) en lista över länder/regioner.
 
 **Vilka valutor som stöds av Azure Marketplace?**
 
@@ -545,7 +538,7 @@ Prissättningen varierar beroende på produkttyp och utgivarens specifikationer.
 
 * **Månadsavgift**: Du debiteras eller faktureras en fast månadsavgift för en prenumeration på erbjudandet, från början av den specifika prenumerationen. Månadsavgiften kan beräknas prorata för uppsägningar mitt i månaden eller outnyttjade tjänster.
 
-Prisinformation finns på lösningens detaljsida på [ https://azure.microsoft.com/en-us/pricing/ ](https://azure.microsoft.com/pricing/), eller i Microsoft Azure-hanteringsportalen.
+Prisinformation finns på lösningens detaljsida på [ https://azure.microsoft.com/pricing/ ](https://azure.microsoft.com/pricing/), eller i Microsoft Azure-hanteringsportalen.
 
 >[!Note]
 >Undantag för månatliga avgifter debiteras Azure-användning alla prismodellerna om inte annat anges.

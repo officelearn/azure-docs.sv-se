@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3b4c3bac1a2d62246fa5a7ff3a348c6cb2652ea1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465702"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868174"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks för att övervaka jobbmeddelanden för Media Services med .NET 
+
+> [!NOTE]
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 När du kör jobb kräver ofta ett sätt att spåra jobbförloppet. Du kan övervaka jobbmeddelanden för Media Services med hjälp av Azure Webhooks eller [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Den här artikeln visar hur du arbetar med webhooks.
 
@@ -31,7 +34,7 @@ Den här artikeln visar hur du
     
     I det här fallet utlöses webhooken av Media Services när din kodningsjobb ändras status. Funktionen lyssnar efter webhook-anrop från Media Services-meddelanden och publicerar utdatatillgången när jobbet har slutförts. 
     
-    >[!NOTE]
+    >[!TIP]
     >Innan du fortsätter, kontrollera att du förstår hur [Azure Functions HTTP och webhook-bindningar](../../azure-functions/functions-bindings-http-webhook.md) fungerar.
     >
     

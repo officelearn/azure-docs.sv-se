@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: c7e56043e8ec6e8764800d4437ee071d33d79d5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed10c673e0cc76c6ed195027c9b28f7ab6084176
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60879863"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916728"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Snabbstart: Använda Translator Text API för att identifiera textspråk med hjälp av Java
 
@@ -181,7 +181,7 @@ gradle run
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta en landsförkortning på i den här [Språklista](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Hitta en landsförkortning på i den här [Språklista](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

@@ -1,25 +1,18 @@
 ---
-title: Dynamics 365 för kundengagemang erbjuder fliken Storefront information – Azure Marketplace | Microsoft Docs
+title: Dynamics 365 för kundengagemang erbjuder fliken Storefront information | Azure Marketplace
 description: Använd fliken Storefront information för att ange försäljning och marknadsföring för en Dynamics 365 för kundengagemang erbjudande.
 services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/03/2019
-ms.author: pbutlerm
-ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: ad6a84679df09964b1bed047f3fbd236a29172b5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311308"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942309"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 för Customer Engagement Storefront information fliken
 
@@ -32,12 +25,12 @@ Du ger sammanfattning och beskrivning av ditt erbjudande i det här avsnittet.  
  
 ![Erbjudandet informationsavsnittet på fliken Storefront information](./media/storefront-tab-offer-details.png)
 
-I följande tabell beskrivs där fälten i den här fliken: 
+I följande tabell beskrivs där fälten i den här fliken. Required fields are indicted by an asterisk (*). 
 
 |    **Fält**          |  **Beskrivning**               |
 |  ---------------      |  ---------------               |
-|  Sammanfattning av erbjudandet        | Sammanfattning av ditt erbjudande förslagsvärde. Den visas på söksidan för ditt erbjudande. Formatet är oformaterad text med högst 100 tecken. |
-|  Beskrivning av erbjudande    | Beskrivning som visas på sidan med information om appen. Formatet är enkel HTML-kod (inklusive p, em, ul, li, ol och huvud-taggar) med maximalt 1300 tecken.  |
+|  Sammanfattning av erbjudandet\*        | Sammanfattning av ditt erbjudande förslagsvärde. Den visas på söksidan för ditt erbjudande. Formatet är oformaterad text med högst 100 tecken. |
+|  Beskrivning av erbjudande\*    | Beskrivning som visas på sidan med information om appen. Formatet är enkel HTML-kod (inklusive p, em, ul, li, ol och huvud-taggar) med maximalt 1300 tecken.  |
 |  |  | 
 
 
@@ -47,21 +40,21 @@ Du får information om marketplace för publicering i det här avsnittet.
 
 ![Visa en lista över informationsavsnittet på fliken Storefront information](./media/storefront-tab-listing-details.png)
 
-I följande tabell beskrivs där fälten i den här fliken: 
+I följande tabell beskrivs där fälten i den här fliken. Required fields are indicted by an asterisk (*). 
 
 |    **Fält**          |  **Beskrivning**               |
 |  ---------------      |  ---------------               |
 |  Branscher           | Välj branscher (maximalt två) som är den bästa appen som är knutet till. Du kan välja alternativ för noll om ingen gäller.  |
-|  Categories           | Välj kategorier som är relevanta för appen. Välj mellan ett och tre alternativ.  |
-|  Apptyp             | Välj typ av utvärderingsversion som är aktiverad för appen på AppSource. **Kostnadsfria** anger din app kan användas utan kostnad; **Utvärderingsversion** indikerar att kunder kan testa din app under en kort period utan kostnad; och **kontakta mig** indikerar att kunder kan begära en utvärderingsversion av appen på AppSource.  |
-| Hjälplänk för din app | URL för online-dokumentation eller annan hjälp-resurs för appen.  |
+|  Kategorier\*         | Välj kategorier som är relevanta för appen. Välj mellan ett och tre alternativ.  |
+|  Typ av App\*           | Välj typ av utvärderingsversion som är aktiverad för appen på AppSource. **Kostnadsfria** anger din app kan användas utan kostnad; **Utvärderingsversion** indikerar att kunder kan testa din app under en kort period utan kostnad; och **kontakta mig** indikerar att kunder kan begära en utvärderingsversion av appen på AppSource.  |
+| Hjälplänk för din app\* | URL för online-dokumentation eller annan hjälp-resurs för appen.  |
 | Länder/regioner | En popup-dialogruta gör valet av geografiska områden där appen är tillgängliga.  I hela världen distribution är standardinställningen. |
 | Språk som stöds   | Välj de språk som har stöd för din app. För närvarande endast några språk stöds.  (Om din app har stöd för fler språk som inte finns på den här listan, fortsätter att publicera ditt erbjudande och e-den här informationen till: appsource\@microsoft.com.)  |
 | Appversion           | Versionsnumret för appen    |
 | App lanseringsdatum      | Versionen/publicering datumet för appen |
 | Produkter som din app fungerar med | Produkter eller tjänster som din app fungerar mellan platser med. Du kan visa högst tre produkter. Om du vill visa en produkt, klickar du på **+ ny** och ange namnet på en produkt i textrutan visas.  |
 | Sökord       | Uppsättning nyckelord som associeras med appen, med högst tre nyckelord.  AppSource kan kunden att söka efter nyckelord.  Välj Allmänt, vanliga ord som användare använder sannolikt att söka i din app.  |
-|  Dölj nyckel             | En hemlig nyckel som kombineras med erbjudandet URL så att du kan förhandsgranska erbjudandet innan det lanseras.  Den här nyckeln är *inte* ett lösenord.  Det får bara innehålla alfanumeriska tecken.  |
+|  Dölj nyckel\*           | En hemlig nyckel som kombineras med erbjudandet URL så att du kan förhandsgranska erbjudandet innan det lanseras.  Den här nyckeln är *inte* ett lösenord.  Det får bara innehålla alfanumeriska tecken.  |
 |  |  |
 
 
@@ -75,11 +68,11 @@ I följande tabell beskrivs där fälten i den här fliken:
 
 |      Fält            |    Beskrivning                 |
 |  ---------------      |  ---------------               |
-| Erbjudandet logotyp (png-format, 48 x 48) | Ladda upp en bild som visar på söksidan för din app. Formatet är PNG och storlek måste vara 48 x 48 pixel. |
-| Erbjudandet logotyp (png-format, 216 x 216) | Ladda upp en avbildning som kommer att visas på detaljsidan för din app. Formatet är PNG och storlek måste vara 216 x 216 pixel. |
+| Erbjudandet logotyp (png-format, 48 x 48)\* | Ladda upp en bild som visar på söksidan för din app. Formatet är PNG och storlek måste vara 48 x 48 pixel. |
+| Erbjudandet logotyp (png-format, 216 x 216)\* | Ladda upp en avbildning som kommer att visas på detaljsidan för din app. Formatet är PNG och storlek måste vara 216 x 216 pixel. |
 | Videoklipp                | Ladda upp erbjudanden eller instruerande videor för appen, med högst fyra.  Fyll i video namn, URL (YouTube eller Vimeo endast) och associerade miniatyren i PNG-format och storlekar 1 280 x 720 pixel för varje video.  | 
-| Dokument             | Ladda upp produkten erbjudanden eller instruerande dokument i PDF-format, med högst tre.  Ange ett dokumentnamn för varje dokument.  |
-| Skärmbilder           | Ladda upp högst fem bilder av appens användargränssnitt i PNG-format och storlekar 1 280 x 720 bildpunkter.  Dessa skärmdumpar visas på sidan med AppSource för din app. |
+| Dokument\*             | Ladda upp produkten erbjudanden eller instruerande dokument i PDF-format, med högst tre.  Ange ett dokumentnamn för varje dokument.  |
+| Skärmbilder\*           | Ladda upp högst fem bilder av appens användargränssnitt i PNG-format och storlekar 1 280 x 720 bildpunkter.  Dessa skärmdumpar visas på sidan med AppSource för din app. |
 |  |  |
 
 
@@ -93,8 +86,8 @@ I följande tabell beskrivs där fälten i den här fliken:
 
 |      Fält            |    Beskrivning                 |
 |  ---------------      |  ---------------               |
-| Sekretesswebbadress för principen    | URL för online sekretesspolicyn för din app.  |
-| Användningsvillkor          | Villkor för användning av din app i oformaterad text.  AppSource-kunder måste acceptera villkoren innan de kan testa din app. |
+| Sekretesswebbadress för principen\*    | URL för online sekretesspolicyn för din app.  |
+| Användningsvillkor\*          | Villkor för användning av din app i oformaterad text.  AppSource-kunder måste acceptera villkoren innan de kan testa din app. |
 |  |  |
 
 

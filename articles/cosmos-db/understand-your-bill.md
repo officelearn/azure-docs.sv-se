@@ -8,11 +8,11 @@ ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115545"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå fakturan för Azure Cosmos DB
 
@@ -98,7 +98,7 @@ Vi antar att du har en Azure Cosmos-behållare i västra USA. Behållaren har sk
 |---------|---------|---------|-------|
 |Dataflödesfaktura för containrar i USA, västra      | 10 K RU/sek * 24 * 30    |$0.008 per 100 RU/SEK per timme   |$576|
 |Dataflödesfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien       | 3 * 10K RU/sek * 24 * 30    |$0.008 per 100 RU/SEK per timme  |$1,728|
-|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0.25/ GB  |$62.50|
+|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0.25/ GB  |$62.50|
 |Lagringsfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien      | 3 * 250 GB    |$0.25/ GB  |$187.50|
 |**Totalt**     |     |  |**$2,554**|
 
@@ -112,7 +112,7 @@ Anta att du skapar en Azure Cosmos-behållare i västra USA. Behållaren har ska
 |---------|---------|---------|-------|
 |Dataflödesfaktura för behållare i västra USA (alla regioner är skrivbar)       | 10 K RU/sek * 24 * 30    |$0.016 per 100 RU/SEK per timme    |$1,152 |
 |Dataflödesfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien (alla regioner är skrivbar)        | (3 + 1) * 10 K RU/sek * 24 * 30    |$0.016 per 100 RU/SEK per timme   |$4,608 |
-|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0.25/ GB  |$62.50|
+|Lagringsfaktura för containrar i USA, västra      | 250 GB    |$0.25/ GB  |$62.50|
 |Lagringsfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien      | 3 * 250 GB    |$0.25/ GB  |$187.50|
 |**Totalt**     |     |  |**$6,010**|
 

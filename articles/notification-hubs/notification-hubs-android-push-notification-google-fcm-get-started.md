@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
 ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60876797"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Självstudier: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging
 
@@ -40,7 +40,7 @@ I den här självstudien gör du följande:
 > * Anslut appen till meddelandehubben.
 > * Testa appen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
 
@@ -160,7 +160,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med Firebase Cloud Mess
     > [!IMPORTANT]
     > Ersätt platshållaren `<your package NAME>` med det faktiska paketnamnet som visas överst i filen `AndroidManifest.xml`.
 4. Välj **Synkronisera nu** i verktygsfältet.
-5. Lägg till följande nödvändiga FCM-relaterade behörigheter under ****`</application>`-taggen.
+5. Lägg till följande nödvändiga FCM-relaterade behörigheter **under** `</application>`-taggen.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>

@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119817"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -165,7 +165,7 @@ IoT Hub är en fullständigt hanterad Azure-tjänst som möjliggör tillförlitl
 [IoT Hub mått](iot-hub-metrics.md) ger dig information om tillstånd för IoT-hubbar i din [Azure-prenumeration](#subscription). IoT Hub mått kan du utvärdera den övergripande hälsan för tjänsten och de enheter som är anslutna till den. IoT Hub mått kan du se vad som händer med din IoT-hubb och undersöka grundorsaken problem utan att behöva kontakta Azure-supporten.
 
 ## <a name="iot-hub-query-language"></a>IoT Hub-frågespråk
-Den [IoT Hub-frågespråk](iot-hub-devguide-query-language.md) är ett SQL-liknande språk som gör att du kan fråga din [ ](#job) och enhetstvillingar.
+Den [IoT Hub-frågespråk](iot-hub-devguide-query-language.md) är ett SQL-liknande språk som gör att du kan fråga din [](#job) och enhetstvillingar.
 
 ## <a name="iot-hub-resource-rest-api"></a>IoT Hub-resurs REST-API
 Du kan använda den [IoT Hub Resource REST API: et](https://docs.microsoft.com/rest/api/iothub/iothubresource) att hantera IoT-hubbar i din [Azure-prenumeration](#subscription) utför åtgärder som att skapa, uppdatera och ta bort hubs.

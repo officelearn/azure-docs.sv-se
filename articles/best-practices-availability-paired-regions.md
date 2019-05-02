@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616840"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918974"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner
 
@@ -38,7 +38,6 @@ Bild 1 – Azure regionala par
 | Europa |Nordeuropa |Västra Europa |
 | Frankrike |Centrala Frankrike|Frankrike, södra|
 | Tyskland |Centrala Tyskland |Nordöstra Tyskland |
-| Tyskland |Tyskland, norra | Tyskland, västra centrala
 | Indien |Indien, centrala |Södra Indien |
 | Indien |Indien, västra |Södra Indien |
 | Japan |Östra Japan |Västra Japan |
@@ -47,13 +46,8 @@ Bild 1 – Azure regionala par
 | Nordamerika |USA, östra 2 |Centrala USA |
 | Nordamerika |Norra centrala USA |Södra centrala USA |
 | Nordamerika |Västra USA 2 |Västra centrala USA 
-| Nordamerika |Västra USA 3 |Östra USA
-| Norge |Norge, östra |Norge, västra
 | Sydafrika | Sydafrika, norra | Sydafrika, västra
-| Sverige |Sverige Central |Sverige södra
-| Schweiz | Schweiz, norra | Schweiz, västra
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
-| Storbritannien |Storbritannien, norra |Storbritannien, södra 2
 | Förenade Arabemiraten | Förenade Arabemiraten, norra | UAE Center
 | USA:s försvarsdepartement |US DoD, östra |US DoD, centrala |
 | Amerikanska myndigheter |Arizona (USA-förvaltad region) |Texas (USA-förvaltad region) |

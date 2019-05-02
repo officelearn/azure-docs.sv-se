@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778384"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919073"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -78,7 +78,7 @@ När du har skapat en åtgärdsgrupp den syns i den **åtgärdsgrupper** delen a
 
 Du kan ha ett begränsat antal e poståtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel
 
-**ITSM** – du kan ha ett begränsat antal begränsat antal ITSM-åtgärder i en åtgärdsgrupp. ITSM-åtgärden kräver en ITSM-anslutningen. Lär dig hur du skapar en [ITSM-anslutningen](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** – du kan ha ett begränsat antal ITSM-åtgärder i en åtgärdsgrupp. ITSM-åtgärden kräver en ITSM-anslutningen. Lär dig hur du skapar en [ITSM-anslutningen](../../azure-monitor/platform/itsmc-overview.md).
 
 **Logic App** – du kan ha ett begränsat antal Logic App-åtgärder i en åtgärdsgrupp.
 
@@ -105,15 +105,12 @@ Käll-IP-adressintervall
  - 51.5.148.86
  - 51.5.149.19
 
-För att ta emot konfigurerar uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du en [Tjänstehälsa för avisering, som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
-
+För att få uppdateringar om ändringar av dessa IP-adresser, rekommenderar vi att du konfigurerar en avisering för Tjänsthälsa som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
 
 ## <a name="next-steps"></a>Nästa steg ##
-
 * Läs mer om [SMS Avisera beteende](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Få en [förståelse för avisering webhook för aktivitetslogg](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Läs mer om [ITSM-anslutningsprogram](../../azure-monitor/platform/itsmc-overview.md)
 * Läs mer om [hastighetsbegränsning](../../azure-monitor/platform/alerts-rate-limiting.md) på aviseringar.
 * Hämta en [översikt över aktivitetsloggaviseringar](../../azure-monitor/platform/alerts-overview.md), och lär dig hur du får aviseringar.  
 * Lär dig hur du [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-

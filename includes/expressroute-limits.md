@@ -8,16 +8,13 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ee987448f9f6d95e6f97317bec2f696e734cba20
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d067f1af3d5479aef28ddf2290cebe3fe45726b0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632777"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733780"
 ---
-#### <a name="expressroute-limits"></a>Begränsningar för ExpressRoute
-Följande begränsningar gäller för Azure ExpressRoute-resurser per prenumeration.
-
 | Resurs | Standard-/ maxgräns |
 | --- | --- |
 | ExpressRoute-kretsar per prenumeration |10 |
@@ -27,7 +24,8 @@ Följande begränsningar gäller för Azure ExpressRoute-resurser per prenumerat
 | Maximalt antal vägar för Azures privata peering från virtuella nätverkets adressutrymme för en ExpressRoute-anslutning |200 | 
 | Maximalt antal vägar för Microsoft Azure-peering med ExpressRoute-Standard |200 |
 | Maximalt antal vägar för Microsoft Azure-peering med ExpressRoute Premium-tillägget |200 |
-| Maximalt antal ExpressRoute-kretsar som är länkad till samma virtuella nätverk i olika peering-platser |4 |
+| Maximalt antal ExpressRoute-kretsar som är länkad till samma virtuella nätverk på samma plats för peering |4 |
+| Maximalt antal ExpressRoute-kretsar som är länkad till samma virtuella nätverk i olika peering-platser |> 4, beror på GatewaySubnet storlek|
 | Antalet virtuella nätverkslänkar som tillåts per ExpressRoute-krets |Se tabellen nedan. |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Antalet virtuella nätverk per ExpressRoute-krets

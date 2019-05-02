@@ -2,24 +2,17 @@
 title: Azure Marketplace och AppSource konsulttjänster
 description: Den här artikeln beskrivs kriterierna för kvalificering och publicera krav för nya erbjudanden för consulting-tjänst på Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nuno costa
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121139"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938316"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsulttjänster för Azure Marketplace och AppSource
 Konsulttjänster i Azure Marketplace och AppSource ger Microsoft-partner mål anslutande kunder med tjänster som stöder och utökar deras användning av Azure och affärsmål. 
@@ -48,7 +41,7 @@ Service-erbjudanden som är baserade på Microsoft Dynamics 365, Office 365 och 
 > [!TIP]
 > Om du vill publicera till Azure Marketplace-butiken, blir det här alternativet genom att välja ”Azure” från listrutan ”huvudprodukten” i partnerportalen i molnet. Om du vill publicera till AppSource, ska du göra detta val genom att välja ”Dynamics 365”, ”Power BI” eller ”Powerapps” från listrutan ”huvudprodukten” i partnerportalen i molnet.
 
-## <a name="eligible-partners-and-supported-countries"></a>Berättigade partner och länder som stöds
+## <a name="eligible-partners-and-supported-countriesregions"></a>Berättigade partner och länder/regioner
 
 Partner måste ha en **silver eller gold kompetens** i området relevanta för deras tjänster. 
 
@@ -74,9 +67,9 @@ Partner måste ha en **silver eller gold kompetens** i området relevanta för d
 <b> Mer information finns i [uppnådda via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**SI-partners kan skicka consulting Tjänsterbjudanden för följande 18 länder**
+**SI-partners kan skicka consulting Tjänsterbjudanden för följande 18 länder/regioner**
 
-|Berättigade länder |   |   |   |
+|Berättigade länder/regioner |   |   |   |
 |---------|----------|----------|----------|
 |Australien |Frankrike  |     Mexiko          |Spanien       |
 |Belgien   |Tyskland |     Nederländerna     |Sverige       |
@@ -84,7 +77,7 @@ Partner måste ha en **silver eller gold kompetens** i området relevanta för d
 |Danmark   |Italien   |     Norge          |USA |
 |Finland   |Japan   |     Polen          
 
-Lanseringen av konsulttjänster hamnar live i specifika georegionen. Första gången programmet startas blir: USA, Kanada, Storbritannien och Australien. Kataloger för andra länder kommer Driftsätt efter ett beskrivande tal och övertygande valet av Tjänsterbjudanden har skickats av partners och godkänts av Microsoft.
+Lanseringen av konsulttjänster hamnar live i specifika georegionen. Första gången programmet startas blir: USA, Kanada, Storbritannien och Australien. Kataloger för andra länder/regioner går live efter ett beskrivande tal och övertygande valet av Tjänsterbjudanden har skickats av partners och godkänts av Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Hur du registrera dig för konsulttjänster i Azure Marketplace och AppSource
 Börja med att [registrerar](https://azuremarketplace.microsoft.com/sell/signup) företagsinformationen i marketplace. Utgivare kan hänvisa till [blir utgivare på Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), en fullständig kontroll lista över kraven för enhetsregistrering. 
@@ -124,7 +117,7 @@ Visa en lista över dina consulting tjänsterbjudande på Azure Marketplace och 
 3. **Skicka**: Ange nödvändig information som anges i instruktionerna. Allt innehåll och stödjande material lämnas på engelska. 
 4. **Granska**: Vårt team för marknadsföring och tryckta granskar ditt bidrag och optimerar dem för läsbarhet, grammatik och effektivitet. 
 5. **Mellanlagring**: Ditt bidrag mellanlagras för granskning. 
-6. **Publicera**: När du och Microsoft är nöjd med detta innehåll, är registreringen klar för livesändning på marketplace. Go-live-datum för din registrering beror på det land som anges i ditt erbjudande. Din registrering visas inom några timmar om katalogen för det valda landet redan är aktiv på Azure Marketplace eller AppSource. I annat fall visas den när katalogen lanseras.
+6. **Publicera**: När du och Microsoft är nöjd med detta innehåll, är registreringen klar för livesändning på marketplace. Go-live-datum för din registrering är beroende av land/region som anges i ditt erbjudande. Din registrering visas inom några timmar om katalogen för din valda land/region redan är aktiv på Azure Marketplace eller AppSource. I annat fall visas den när katalogen lanseras.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Erbjudanderegistreringar och kriterier för innehållsgranskning
 Erbjudanden måste vara en följande fem typer av tjänster (du kan ange fler än en): 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371826"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919156"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för en Microsoft-kundavtal
 
@@ -108,7 +108,7 @@ En Azure Active Directory-klient har valts för det nya faktureringskontot under
 
 Ditt nya konto har endast stöd för användare från den klient som valdes under signeringen kundavtal Microsoft. Om användare med administrativ behörighet i ditt Enterprise Agreement är en del av klienten, får de åtkomst till det nya faktureringskontot under installationen. Om de inte är en del av klienten, kan de inte åtkomst till det nya faktureringskontot såvida inte du bjuda in dem.
 
-När du bjuder in användare läggs till klienten som gästanvändare och få åtkomst till faktureringskontot. Gäståtkomst måste aktiveras för klienten för att bjuda in användare. Mer information finns i [styra gäståtkomst i Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Kontakta globala administratörer för din klient för att aktivera dem om gäståtkomst är avstängd. <!-- Todo - How can they find their global administrator -->
+När du bjuder in användare läggs till klienten som gästanvändare och få åtkomst till faktureringskontot. Gäståtkomst måste aktiveras för klienten för att bjuda in användare. Mer information finns i [styra gäståtkomst i Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Kontakta globala administratörer för din klient för att aktivera dem om gäståtkomst är avstängd. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>Visa funktioner som har ersatts av det nya faktureringskontot
 

@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a3badf7772c6be6509608fbdb305dc3bc225acc0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b4a1ba7536f0e899ef845bbac54b551125d35fb7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880004"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868539"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Nyhetssökning i Bing-slutpunkter
 
@@ -31,7 +31,7 @@ För att få nyheter sökresultat med hjälp av den nyhetssökning i Bing kan sk
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-Returnerar nyhetsobjekt baserat på en sökfråga. Om frågan är tom, returnerar API: et de senaste artiklarna från olika kategorier. Skicka en fråga efter url kodning sökordet och lägga till den till den`q=""` parametern. Tillgänglighet, se [länder och marknader som stöds](language-support.md#supported-markets-for-news-search-endpoint).
+Returnerar nyhetsobjekt baserat på en sökfråga. Om frågan är tom, returnerar API: et de senaste artiklarna från olika kategorier. Skicka en fråga efter url kodning sökordet och lägga till den till den`q=""` parametern. Tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-search-endpoint).
 
 ### <a name="top-news-items-by-category"></a>De senaste objekt efter kategori
 
@@ -39,7 +39,7 @@ Returnerar nyhetsobjekt baserat på en sökfråga. Om frågan är tom, returnera
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Returnerar de senaste artiklarna efter kategori. Mer specifikt kan du begära översta företag, sport och underhållning artiklar med `category=business`, `category=sports`, eller `category=entertainment`.  Den `category` parametern kan bara användas med den `/news` URL: en. Det finns vissa formella krav för att ange kategorier. referera till `category` i den [frågeparameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) dokumentation. Skicka en fråga efter url kodning sökordet och lägga till den till den`q=""` parametern. Tillgänglighet, se [länder och marknader som stöds](language-support.md#supported-markets-for-news-endpoint).
+Returnerar de senaste artiklarna efter kategori. Mer specifikt kan du begära översta företag, sport och underhållning artiklar med `category=business`, `category=sports`, eller `category=entertainment`.  Den `category` parametern kan bara användas med den `/news` URL: en. Det finns vissa formella krav för att ange kategorier. referera till `category` i den [frågeparameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) dokumentation. Skicka en fråga efter url kodning sökordet och lägga till den till den`q=""` parametern. Tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Populära nyhetsämnen 
 
@@ -47,7 +47,7 @@ Returnerar de senaste artiklarna efter kategori. Mer specifikt kan du begära ö
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-Returnerar nyhetsämnen som för närvarande är populära på sociala nätverk. När den `/trendingtopics` alternativet ingår, Bing search ignorerar flera andra parametrar, till exempel `freshness` och `?q=""`. Tillgänglighet, se [länder och marknader som stöds](language-support.md#supported-markets-for-news-trending-endpoint).
+Returnerar nyhetsämnen som för närvarande är populära på sociala nätverk. När den `/trendingtopics` alternativet ingår, Bing search ignorerar flera andra parametrar, till exempel `freshness` och `?q=""`. Tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-trending-endpoint).
 
 ## <a name="next-steps"></a>Nästa steg
 

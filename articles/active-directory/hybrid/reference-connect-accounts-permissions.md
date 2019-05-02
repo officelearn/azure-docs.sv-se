@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096186"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919171"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Konton som används för Azure AD Connect
 
-![](media/reference-connect-accounts-permissions/account5.png)
+![Översikt över tjänstkonton](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect använder 3-konton för att kunna synkronisera information från en lokal eller Windows Server Active Directory till Azure Active Directory.  Dessa konton är:
 
@@ -111,10 +111,10 @@ Följande är en sammanfattning av anpassad installation sidorna i guiden, de au
 | Installera synkroniseringstjänsterna, tjänsten kontoalternativ |AD eller lokala autentiseringsuppgifter för konto |Användare, behörigheter beviljas av installationsguiden |Om administratören anger ett konto, används det här kontot som tjänstkontot för synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapa ett Azure AD Connector-konto som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
 | Anslut dina kataloger |Den lokala Active Directory-autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna som beror på vilka funktioner du aktiverar och finns i skapa AD DS-anslutningskontot |Det här kontot används för att läsa och skriva kataloginformation under synkroniseringen. |
-| AD FS-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Domänadministratören |Installation och konfiguration av AD FS-serverrollen. |
-| Web application proxy-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Lokal administratör på måldatorn. |Installation och konfiguration av WAP-serverrollen. |
+| AD FS-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när du loggar in autentiseringsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Domänadministratören |Installation och konfiguration av AD FS-serverrollen. |
+| Web application proxy-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när du loggar in autentiseringsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Lokal administratör på måldatorn. |Installation och konfiguration av WAP-serverrollen. |
 | Autentiseringsuppgifter för proxyförtroende |Autentiseringsuppgifter för proxyförtroende Federation service (autentiseringsuppgifter proxyn använder för att registrera för ett betrott certifikat från FS |Domänkonto som är lokal administratör på AD FS-servern |Den första registreringen av FS WAP betrott certifikat. |
-| Sidan för AD FS-tjänstkontot, ”använda en domän användare kontoalternativet” |Autentiseringsuppgifter för AD-användare |Domain user |AD-användarkonto vars autentiseringsuppgifter tillhandahålls används som inloggningskontot för AD FS-tjänsten. |
+| Sidan för AD FS-tjänstkontot, ”använda en domän användare kontoalternativet” |Autentiseringsuppgifter för AD-användare |Domain user |Azure AD-användarkonto som vars autentiseringsuppgifter tillhandahålls används som inloggningskonto för AD FS-tjänsten. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Skapa AD DS-anslutningskontot
 
@@ -239,6 +239,11 @@ Kontot har skapats med ett långt komplexa lösenord som inte upphör att gälla
 Det finns en gräns på 20 tjänstkonton för synkronisering i Azure AD. Om du vill hämta listan över befintliga Azure AD-tjänstkonton i Azure AD, kör du följande Azure AD PowerShell-cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 Ta bort oanvända Azure AD tjänstkonton, kör du följande Azure AD PowerShell-cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+
+>[!NOTE]
+>Innan du kan använda ovanstående PowerShell-kommandon du måste installera den [Azure Active Directory PowerShell för Graph-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) och ansluta till din instans av Azure AD via [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+
+Läs mer om hur du hanterar eller återställa lösenordet för Azure AD-anslutningskontot i [hantera Azure AD Connect-konto](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>Relaterad dokumentation
 Om du inte Läs i dokumentationen om [integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md), i följande tabell innehåller länkar till närliggande ämnen.

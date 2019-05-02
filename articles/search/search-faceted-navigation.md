@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291657"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924578"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
 Aspektbaserad navigering är en filtreringsmekanism som tillhandahåller självriktad detaljgranska navigering i sökprogram. Termen ”aspektbaserad navigering” kan vara bekant, men du har förmodligen använt den tidigare. Som i följande exempel visas är aspektbaserad navigering helt enkelt de kategorier som används för att filtrera resultaten.
@@ -34,7 +34,7 @@ I din programutveckling, skriva kod som skapar frågor som utgör den största d
 ## <a name="sample-code-and-demo"></a>Exempelkod och demo
 Den här artikeln används en jobbet search-portalen som exempel. I exempel implementeras som ett ASP.NET MVC-program.
 
--   Se och testa den fungerande demonstrationen online på [Azure Search jobbet Portal Demo](http://azjobsdemo.azurewebsites.net/).
+-   Se och testa den fungerande demonstrationen online på [Azure Search jobbet Portal Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Ladda ned koden från den [lagringsplats för Azure-exempel på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 

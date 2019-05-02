@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578613"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943926"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Etablera en virtuell dator på Azure för Djupinlärning 
 
@@ -35,10 +35,11 @@ Här följer stegen för att skapa en instans av Deep Learning Virtual Machine:
 ).
 2. Välj den **skapa** längst ned för att gå till en guide.![ Skapa dlvm](./media/dlvm-provision-wizard.PNG)
 3. I guiden som används för att skapa DLVM kräver **indata** för var och en av de **fyra steg** räknas upp till höger i den här bilden. Här följer de indata som behövs för att konfigurera var och en av de här stegen:
-   
+
+   <a name="basics"></a>   
    1. **Grundläggande inställningar**
       
-      1. **Namn**: Namnet på din data science-server som du skapar.
+      1. **Namn**: Namnet på data science-server som du skapar.
       2. **Välj OS-typ för den Djupinlärning**: Välj Windows eller Linux (för Windows 2016 och Ubuntu Linux grundläggande DSVM)
       2. **Användarnamn**: Admin-konto inloggnings-id.
       3. **Lösenord**: Lösenord för administratörskonto.
@@ -46,13 +47,14 @@ Här följer stegen för att skapa en instans av Deep Learning Virtual Machine:
       5. **Resursgrupp**: Du kan skapa en ny eller Använd en **tom** befintliga Azure-resursgrupp i din prenumeration.
       6. **Plats**: Välj det datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data eller som är närmast dina fysiska platsen för snabbaste nätverksåtkomst. 
       
-> [!NOTE]
-> DLVM stöder alla NC- och ND-serien GPU VM-instanser. När du etablerar DLVM, måste du välja någon av platser i Azure med GPU: er. Kontrollera den [Azure-produkter per Region sidan](https://azure.microsoft.com/regions/services/) för de tillgängliga platserna och leta efter **NC-serien**, **NCv2-serien**, **NCv3-serien** , eller **ND-serien** under **Compute**. 
+      > [!NOTE]
+      > DLVM stöder alla NC- och ND-serien GPU VM-instanser. När du etablerar DLVM, måste du välja någon av platser i Azure med GPU: er. Kontrollera den [Azure-produkter per Region sidan](https://azure.microsoft.com/regions/services/) för de tillgängliga platserna och leta efter **NC-serien**, **NCv2-serien**, **NCv3-serien** , eller **ND-serien** under **Compute**. 
 
-1. **Inställningar för**: Välj en av NC-serien (NC, NCv2, NCv3) eller ND-serien GPU-storlekar för virtuella datorer som uppfyller dina funktionella krav och begränsningar för kostnad. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-inställningar](./media/dlvm-provision-step-2.PNG)
+   1. **Inställningar för**: Välj en av NC-serien (NC, NCv2, NCv3) eller ND-serien GPU-storlekar för virtuella datorer som uppfyller dina funktionella krav och begränsningar för kostnad. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-inställningar](./media/dlvm-provision-step-2.PNG)
    
-1. **Sammanfattning**: Kontrollera att all information du angett är korrekt.
-1. **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till villkoren för transaktionen. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
+   1. **Sammanfattning**: Kontrollera att all information du angett är korrekt.
+
+   1. **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till villkoren för transaktionen. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
 
 > [!NOTE]
 > Etableringen tar cirka 10-20 minuter. Status för etableringen visas på Azure portal.
@@ -66,7 +68,7 @@ När den virtuella datorn har skapats kan du fjärrskrivbord till den med hjälp
 
 ### <a name="linux-edition"></a>Linux-version
 
-När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. På en startdiskett inifrån Windows-klienten, kan du ladda ned ett SSH-klientverktyg som [Putty](https://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
+När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den [ **grunderna** ](#basics) avsnittet i steg 3 för text shell-gränssnittet. Mer information om SSH-anslutningar till virtuella Azure-datorer finns i [installera och konfigurera Fjärrskrivbord för att ansluta till en Linux-VM i Azure](/azure/virtual-machines/linux/use-remote-desktop). På en Windows-klient kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System). 
 
 > [!NOTE]
 > Klienten X2Go presterade bättre än X11 vidarebefordran i våra tester. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.

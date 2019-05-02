@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381999"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919109"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en hybrid identity införandestrategi
 I det här steget definierar du hybrid identity-införandestrategin för din hybrididentitetslösning att uppfylla kraven som beskrivs i:
@@ -37,7 +37,7 @@ De första uppgift adresserna avgör organisationer företag behöver.  Detta ka
 ## <a name="define-an-integration-strategy"></a>Definiera en strategi för integrering
 Microsoft har tre huvudsakliga integrationsscenarier är molnidentiteter, synkroniserade identiteter och federerade identiteter.  Du bör planera på börja använda en av strategierna integration.  Vilken strategi du väljer kan variera och beslut när de väljer en kan innehålla vilken typ av användarupplevelse som du vill ge, har du en befintlig infrastruktur och vad är den mest kostnadseffektiva.  
 
-![](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![Integreringsscenarier](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 Scenarier som definierades i bilden ovan är:
 
@@ -111,14 +111,14 @@ Under åren har har flera synkroniseringsverktyg fanns och används för olika s
 ### <a name="supported-topologies"></a>Topologier som stöds
 När du definierar en strategi för synkronisering måste topologin som används för att identifiera. Beroende på vilken information som bestämdes i steg fastställa 2 du vilken topologi som du bör använda. Enkel skog, enskild Azure AD-topologi är den vanligaste och består av en Active Directory-skog och en enda instans av Azure AD.  Detta kommer att användas i en majoritet av scenarier och är den förväntade topologin när du använder Azure AD Connect Express-installationen, enligt bilden nedan.
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest.png) En skog Scenario är det vanligt för stora och även små organisationer att ha flera skogar, som visas i bild 5.
+![Stöd för topologier](./media/plan-hybrid-identity-design-considerations/single-forest.png) enkel skog Scenario är det vanligt att små och även stora organisationer att ha flera skogar, som visas i bild 5.
 
 > [!NOTE]
 > Mer information om de olika lokala och Azure AD-topologier med Azure AD Connect sync finns i artikeln [topologier för Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
-![](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![topologi för flera skogar](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Scenario med flera skogar
 
@@ -140,7 +140,7 @@ Om detta är fallet, och sedan flera skogar enda Azure AD-topologi bör övervä
 
 Om ovanstående inte är uppfyllda och du har flera aktiva konton eller mer än en postlåda, Välj en Azure AD Connect och ignorera den andra.  Om du har länkat postlådor men inga andra kontot kan dessa konton kommer inte att exporteras till Azure AD och användaren kommer inte vara medlem i några grupper.  Detta skiljer sig från hur den har passerat med DirSync och är avsiktlig att bättre stöd för dessa scenarier med flera skogar. Ett scenario med flera skogar illustreras i bilden nedan.
 
-![](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![Flera Azure AD-klienter](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Flera skogar flera Azure AD-scenario**
 
@@ -148,7 +148,7 @@ Rekommenderar vi att du har bara en enskild katalog i Azure AD för en organisat
 
 Det är möjligt och stöds för att ansluta en lokal instans av Active Directory till flera Azure AD-kataloger som visas i bilden nedan:
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![enkel skog filtrering](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Sammanhållna filtrering scenario**
 

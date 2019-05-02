@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 49decb2d67c8ff16f9912fea8e8ece1a3bd9feb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 253585d71ab2704efa0b3e4a06456e1d505b46ad
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232825"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919657"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introduktion till Azure Security Center för IoT
 
@@ -33,7 +33,7 @@ Enhetlig säkerhetshantering och aktivera hotanalyser från slutpunkt till slutp
 
 ## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>Skydda IoT och hybrid arbetsbelastningar mot utvecklas cyberattacker
 
-Sakernas Internet förändrar snabbt vår värld. Möjlighet att upptäcka insikter från dina anslutna enheter och backend-system, kan du nu omvandla information till kraftfulla program och tjänster för att hjälpa företaget att uppnå oöverträffade nivåer av drift- och business prestanda. Men, som miljarder nya enheter är anslutna till internet och integreras i vår dagliga liv och vårt företag; driftteam din säkerhet måste du se till att deras säkerhetsstrategier utvecklas tillräckligt snabbt för att täcka dessa nya attack Surface-enheter. Som alla andra system måste skydda din IoT-lösning skydd i varje skede av din implementering. 
+Sakernas Internet förändrar snabbt vår värld. Möjlighet att få fram insikter från dina anslutna enheter och backend-system, kan du nu omvandla information till kraftfulla program och tjänster för att hjälpa företaget att uppnå oöverträffade nivåer av operativa och affärsresultat. Men, som miljarder nya enheter är anslutna till internet och integreras i vår dagliga liv och vårt företag; driftteam din säkerhet måste du se till att deras säkerhetsstrategier utvecklas tillräckligt snabbt för att täcka dessa nya attack Surface-enheter. Som alla andra system måste skydda din IoT-lösning skydd i varje skede av din implementering. 
 
 Azure Security Center (ASC) för IoT förenklar hybrid skydd av arbetsbelastningar genom att tillhandahålla enhetlig synlighet och kontroll, adaptivt skydd och intelligent hotidentifiering och svar i arbetsbelastningar som körs på edge, lokalt, i Azure och i andra moln. 
 

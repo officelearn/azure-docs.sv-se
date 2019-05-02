@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61059613"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922478"
 ---
 # <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
@@ -29,7 +29,7 @@ Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i la
 Som med alla funktioner i Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com) genom att följa våra [startguide](get-started.md). Om du planerar att hämta avskrifter från våra basmodeller, är skapar en nyckel allt du behöver göra.
 
 >[!NOTE]
-> En standard-prenumerationen (S0) för Speech Services krävs för att använda batch avskrift. Kostnadsfria prenumerationsnycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
+> En standard-prenumerationen (S0) för Speech Services krävs för att använda batch avskrift. Kostnadsfria prenumerationsnycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Anpassade modeller
 
@@ -72,7 +72,8 @@ Konfigurationsparametrar tillhandahålls som JSON:
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True"
+    "AddWordLevelTimestamps" : "True",
+    "AddSentiment" : "True"
   }
 }
 ```
@@ -87,6 +88,7 @@ Konfigurationsparametrar tillhandahålls som JSON:
 | `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `none` som inaktiverar svordomar filtrering, `masked` som ersätter svordomar med asterisker `removed` som tar bort alla svordomar från resultatet, eller `tags` som lägger till ”svordomar”-taggar. Standardinställningen är `masked`. | Valfri |
 | `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `none` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. | Valfri |
  | `AddWordLevelTimestamps` | Anger om word på tidsstämplar ska läggas till utdata. Godkända värden är `true` vilket gör att word på tidsstämplar och `false` (standardvärdet) att inaktivera den. | Valfri |
+ | `AddSentiment` | Anger sentiment ska läggas till i uttryck. Godkända värden är `true` vilket gör att sentiment per uttryck och `false` (standardvärdet) att inaktivera den. | Valfri |
 
 ### <a name="storage"></a>Storage
 
@@ -97,6 +99,57 @@ Batch stöder avskrift [Azure Blob storage](https://docs.microsoft.com/azure/sto
 Avsökning för transkription status kan inte de flesta prestanda eller ange den bästa användarupplevelsen. Om du vill söka efter status, kan du registrera återanrop som meddelar klienten när tidskrävande avskrift aktiviteterna har slutförts.
 
 Mer information finns i [Webhooks](webhooks.md).
+
+## <a name="sentiment"></a>Sentiment
+
+Sentiment är en ny funktion i API: et för Batch-avskrift och är en viktig funktion i anropet center domänen. Kunder kan använda den `AddSentiment` parametrar till sina begäranden om att 
+
+1.  Få insikter om kundnöjdhet
+2.  Skaffa dig insikter om prestanda för agenter (team tar anrop)
+3.  Hitta den exakta platsen i tid när ett anrop tog ett varv i negativ riktning
+4.  Identifiera vad som gick bra när du aktiverar negativt anrop till positivt
+5.  Identifiera vad kunderna tycker och vad de gillar inte om en produkt eller tjänst
+
+Sentimentet får per ljud segment där ett ljud segment har definierats som mellan början av uttryck (förskjutning) och identifiering av tystnad i slutet av byte-dataström. För all text i segmentet används för att beräkna sentiment. Vi gör inte beräkna alla sammanställda sentimentvärdena för hela samtal eller hela tal i varje kanal. Dessa lämnas till domänägare att tillämpa ytterligare.
+
+Sentiment har tillämpats på lexikal formuläret.
+
+Exempel på en JSON-utdata ut som nedan:
+
+```json
+{
+  "AudioFileResults": [
+    {
+      "AudioFileName": "Channel.0.wav",
+      "AudioFileUrl": null,
+      "SegmentResults": [
+        {
+          "RecognitionStatus": "Success",
+          "ChannelNumber": null,
+          "Offset": 400000,
+          "Duration": 13300000,
+          "NBest": [
+            {
+              "Confidence": 0.976174,
+              "Lexical": "what's the weather like",
+              "ITN": "what's the weather like",
+              "MaskedITN": "what's the weather like",
+              "Display": "What's the weather like?",
+              "Words": null,
+              "Sentiment": {
+                "Negative": 0.206194,
+                "Neutral": 0.793785,
+                "Positive": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+Funktionerna använder en modell för Sentiment som för närvarande är Beta.
 
 ## <a name="sample-code"></a>Exempelkod
 

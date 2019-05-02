@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b353e3c0ed14c7ae42e6b1f2c8a92904bf0befd7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453180"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916282"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -97,9 +97,9 @@ Hantera inställningar för de flesta den i den **avancerade inställningar** me
 | Anpassade loggar                  | **Avancerade inställningar** menyn för arbetsytan. |
 | Syslog                       | **Avancerade inställningar** menyn för arbetsytan. |
 | Application Insights         | Den här lösningen är inaktuell nu när Log Analytics och Application Insights delar samma datamotor för.  |
-| Filspårning i Windows        | **Ändringsspårning** menyn i Azure Automation. Se [spåra ändringar i miljön med lösningen ändringsspårning](../../automation/automation-change-tracking.md) mer information. |
-| Registerspårning i Windows        | **Ändringsspårning** menyn i Azure Automation. Se [spåra ändringar i miljön med lösningen ändringsspårning](../../automation/automation-change-tracking.md) mer information. |
-| Filspårning i Linux          | **Ändringsspårning** menyn i Azure Automation. Se [spåra ändringar i miljön med lösningen ändringsspårning](../../automation/automation-change-tracking.md) mer information. |
+| Filspårning i Windows        | **Ändringsspårning** menyn i Azure Automation. Se [spåra ändringar i miljön med lösningen ändringsspårning](../../automation/change-tracking.md) mer information. |
+| Registerspårning i Windows        | **Ändringsspårning** menyn i Azure Automation. Se [spåra ändringar i miljön med lösningen ändringsspårning](../../automation/change-tracking.md) mer information. |
+| Filspårning i Linux          | **Ändringsspårning** menyn i Azure Automation. Se [spåra ändringar i miljön med lösningen ändringsspårning](../../automation/change-tracking.md) mer information. |
 
 ### <a name="solutions"></a>Lösningar
 Hantera lösningar i den **lösningar** menyn för arbetsytan. 

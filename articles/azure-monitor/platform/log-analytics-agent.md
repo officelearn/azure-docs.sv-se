@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782013"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916364"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Samla in loggdata med Azure Log Analytics-agenten
 
@@ -38,7 +38,7 @@ Om du övervakar en dator med System Center Operations Manager 2012 R2 eller sen
 
 Windows-agent kan rapportera upp till fyra Log Analytics-arbetsytor, medan Linux-agenten stöder endast rapporterar till en enda arbetsyta.  
 
-Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor, Azure Automation för att vara värd för Hybrid Runbook worker-roll och andra tjänster som stöder också [ändringsspårning](../../automation/automation-change-tracking.md) och [uppdateringshantering](../../automation/automation-update-management.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor, Azure Automation för att vara värd för Hybrid Runbook worker-roll och andra tjänster som stöder också [ändringsspårning](../../automation/change-tracking.md) och [uppdateringshantering](../../automation/automation-update-management.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
 Följande versioner av Windows-operativsystemet stöds officiellt för Windows-agenten:

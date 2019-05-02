@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406848"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922968"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
 [Azure Functions](functions-overview.md) erbjuder inbyggd integrering med [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) att övervaka funktioner. Den här artikeln visar hur du konfigurerar Azure Functions för att skicka systemgenererade loggfiler till Application Insights.
 
-Vi rekommenderar att du använder Application Insights eftersom den samlar in log, prestanda och Feldata. Automatiskt identifierar prestandaavvikelser och inkluderar kraftfulla analysverktyg för att hjälpa dig att diagnostisera problem och förstå hur dina funktioner används. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet. Du kan även använda Application Insights under lokal funktionen apputvecklingen för projektet. Mer information finns i [vad är Application Insights?](../azure-monitor/app/app-insights-overview.md)
+Vi rekommenderar att du använder Application Insights eftersom den samlar in log, prestanda och Feldata. Automatiskt identifierar prestandaavvikelser och inkluderar kraftfulla analysverktyg för att hjälpa dig att diagnostisera problem och förstå hur dina funktioner används. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet. Du kan även använda Application Insights under lokal funktionen apputvecklingen för projektet. Mer information finns i [vad är Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
 Eftersom nödvändiga Application Insights-instrumentationen är inbyggt i Azure Functions, allt du behöver är en giltig instrumentationsnyckel att ansluta din funktionsapp till en Application Insights-resurs.
 
@@ -626,7 +626,7 @@ Det här ansluter din app till loggen strömningstjänst och programloggar visas
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Du kan aktivera direktuppspelningsloggarna med hjälp av den [Azure kommandoradsgränssnitt (CLI)](/cli/azure/install-azure-cli). För Azure CLI, använder du följande kommandon att logga in, väljer din prenumeration och loggfiler för stream:
+Du kan aktivera direktuppspelningsloggarna med hjälp av den [Azure CLI](/cli/azure/install-azure-cli). Använd följande kommandon för att logga in, Välj din prenumeration och loggfiler för stream:
 
 ```azurecli
 az login

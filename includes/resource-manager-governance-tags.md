@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: f411504b0f4b7872e92a64c57fecbde863f532c6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c426df2293cfb2d8ba4dc02e8fc5519c3d822168
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272360"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868780"
 ---
 Du lägga till taggar till Azure-resurser så att metadata för att organisera dem logiskt i en taxonomi. Varje tagg består av ett namn och ett värde-par. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
@@ -26,7 +26,7 @@ Följande begränsningar gäller för taggar:
 * Inte alla resurstyper stöder taggar. För att avgöra om du kan använda en tagg för en resurstyp, se [tagga stöd för Azure-resurser](../articles/azure-resource-manager/tag-support.md).
 * Varje resurs eller resursgrupp kan innehålla upp till 15 taggnamn-/taggvärdepar. Den här begränsningen gäller endast för taggar som tillämpas direkt på resursgruppen eller resursen. En resursgrupp kan innehålla många resurser som var och en har 15 taggnamn-/taggvärdepar. Om du har fler än 15 värden som du vill koppla till en resurs använder du en JSON-sträng för taggvärdet. JSON-strängen kan innehålla många värden som tillämpas på ett enda taggnamn. Den här artikeln innehåller ett exempel som illustrerar hur du tilldelar en JSON-sträng till taggen.
 * Taggnamnet är begränsat till 512 tecken och taggvärdet är begränsat till 256 tecken. För lagringskonton är taggnamnet begränsat till 128 tecken och taggvärdet till 256 tecken.
-* Virtuella datorer är begränsad till högst 2048 tecken för alla taggnamn och värden.
+* Virtuella datorer och Virtual Machine Scale Sets är begränsade till högst 2048 tecken för alla taggnamn och värden.
 * Taggar som lagts till för en resursgrupp ärvs inte av resurserna i den resursgruppen.
 * Taggar kan inte tillämpas på klassiska resurser, till exempel molntjänster.
 * Taggen får inte innehålla följande tecken: `<`, `>`, `%`, `&`, `\`, `?`, `/`

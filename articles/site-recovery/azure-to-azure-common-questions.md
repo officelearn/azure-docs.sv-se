@@ -1,22 +1,22 @@
 ---
-title: 'Vanliga frågor: Azure till Azure-haveriberedskap med Azure Site Recovery | Microsoft Docs'
-description: Den här artikeln sammanfattas vanliga frågor när du konfigurerar haveriberedskap för virtuella Azure-datorer till en annan Azure-region med hjälp av Azure Site Recovery
+title: Vanliga frågor om Azure till Azure-haveriberedskap med Azure Site Recovery
+description: Den här artikeln innehåller vanliga frågor och svar om haveriberedskap för virtuella Azure-datorer till en annan Azure-region med Azure Site Recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/29/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: asgan
+ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790886"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925676"
 ---
-# <a name="common-questions-azure-to-azure-replication"></a>Vanliga frågor: Azure till Azure replikering
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: Haveriberedskap för Azure till Azure
 
-Den här artikeln innehåller svar på vanliga frågor om hur du distribuerar haveriberedskap (DR) för virtuella Azure-datorer till en annan Azure-region med hjälp av Azure Site Recovery. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+Den här artikeln innehåller svar på vanliga frågor om haveriberedskap för virtuella Azure-datorer till en annan Azure-region med hjälp av [Site Recovery](site-recovery-overview.md). 
 
 
 ## <a name="general"></a>Allmänt
@@ -28,15 +28,15 @@ Varje instans som skyddas med Azure Site Recovery är kostnadsfri under de förs
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Förekommer det några andra avgifter för Azure under de första 31 dagarna?
 Ja, även om Azure Site Recovery är kostnadsfritt under de första 31 dagarna för en skyddad instans kan du komma att debiteras för Azure Storage, lagringstransaktioner och dataöverföring. En återställd virtuell dator kan också debiteras för Azure-beräkningsavgifter. Hämta fullständig information om priser [här](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Vad är bästa praxis för att konfigurera Site Recovery på Azure Virtual Machines?
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Var hittar jag bästa praxis för haveriberedskap för virtuella Azure-datorer? 
 1. [Förstå Azure till Azure-arkitektur](azure-to-azure-architecture.md)
 2. [Granska konfigurationerna som stöds och stöds inte](azure-to-azure-support-matrix.md)
 3. [Konfigurera haveriberedskap för virtuella Azure-datorer](azure-to-azure-how-to-enable-replication.md)
 4. [Kör ett redundanstest](azure-to-azure-tutorial-dr-drill.md)
 5. [Redundansväxla och återställa till den primära regionen](azure-to-azure-tutorial-failover-failback.md)
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Hur kapacitet garanteras i målregionen för virtuella Azure-datorer?
-Azure Site Recovery (ASR)-teamet arbetar med Azure-kapacitet management-teamet att planera för tillräckligt med infrastrukturkapacitet för, i ett försök att se till att virtuella datorer som skyddas av ASR för disaster recovery distribueras har i regionen disaster recovery (DR) När åtgärder för ASR-redundans initieras.
+### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>Hur garanteras kapacitet i målregionen?
+Site Recovery-teamet arbetar med Azure-kapacitet management-teamet att planera tillräckligt med infrastrukturkapacitet för och för att se till att virtuella datorer som skyddas av Site Recovery för blir har distribuerade målregionen när redundansväxling initieras.
 
 ## <a name="replication"></a>Replikering
 
@@ -54,6 +54,16 @@ Ja, du kan [replikera zon fästa datorer](https://azure.microsoft.com/blog/disas
 
 Ja, kan du utesluta diskar vid tidpunkten för skydd med hjälp av PowerShell. Mer information finns [artikel](azure-to-azure-exclude-disks.md)
 
+### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>Kan jag lägga till nya diskar i replikerade virtuella datorerna och aktivera replikering för dem?
+
+Ja, det finns stöd för virtuella Azure-datorer med hanterade diskar. När du lägger till en ny disk till en Azure virtuell dator som har aktiverats för replikering visas replikeringshälsa för den virtuella datorn en varning, med en anteckning som anger att en eller flera diskar på den virtuella datorn är tillgängliga för skydd. Du kan aktivera replikering för tillagda diskar.
+- Om du aktiverar skydd för de tillagda diskarna försvinner varningen när den inledande replikeringen.
+- Om du väljer att inte aktivera replikering av disken, kan du välja för att ignorera varningen.
+- När du redundansväxlar en virtuell dator som du lägger till en disk och aktivera replikering för den visas replikering punkter de diskar som är tillgängliga för återställning. Till exempel om en virtuell dator har en enskild disk och du lägger till en ny, visas replikering punkter som har skapats innan du har lagt till disken att replikering punkten består av ”1 av 2 diskar”.
+
+Site Recovery stöder inte ”frekvent ta bort” för en disk från en replikerad virtuell dator. Om du tar bort en virtuell disk måste du inaktivera och återaktivera replikering för den virtuella datorn.
+
+
 ### <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
 Replikeringen är kontinuerlig när du replikerar virtuella Azure-datorer till en annan Azure-region. Mer information finns i den [arkitektur för Azure till Azure-replikering](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
 
@@ -69,7 +79,7 @@ Site Recovery kräver Nej, inte ansluten till internet. Men det kräver åtkomst
 
 ### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Kan jag replikera program med separat resursgrupp för separata nivåer?
 Ja, kan du replikera programmet och hålla katastrofberedskapskonfigurationen i separat resursgrupp för.
-Till exempel om du har ett program med var och en nivåerna, db och webb i separat resursgrupp och du måste klicka på den [guiden replikering](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) tre gånger om för att skydda alla nivåer. ASR replikeras dessa tre nivåer i tre olika resursgrupp.
+Till exempel om du har ett program med var och en nivåerna, db och webb i separat resursgrupp och du måste klicka på den [guiden replikering](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) tre gånger om för att skydda alla nivåer. Site Recovery replikerar de tre nivåerna i tre olika resursgrupper.
 
 ## <a name="replication-policy"></a>Replikeringsprincip
 
@@ -147,8 +157,8 @@ Eftersom det är Processorintensiva, kan aktivering av konsekvens för flera dat
 
 ## <a name="failover"></a>Redundans
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Hur kapacitet garanteras i målregionen för virtuella Azure-datorer?
-Azure Site Recovery (ASR)-teamet arbetar med Azure-kapacitet management-teamet att planera för tillräckligt med infrastrukturkapacitet för, i ett försök att se till att virtuella datorer som skyddas av ASR för disaster recovery distribueras har i regionen disaster recovery (DR) När åtgärder för ASR-redundans initieras.
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Hur kan kapacitet garanteras i målregionen för virtuella Azure-datorer?
+Site Recovery-teamet arbetar med Azure-kapacitet management-teamet att planera för tillräckligt med infrastrukturkapacitet för, för att se till att virtuella datorer som har aktiverats för haveriberedskap ska distribueras i målregionen när redundansväxling initieras.
 
 ### <a name="is-failover-automatic"></a>Sker redundansväxlingen automatisk?
 
@@ -156,15 +166,19 @@ Den sker inte automatiskt. Du startar redundansväxlingar med ett enda klick i p
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>Kan jag behålla en offentlig IP-adress efter redundans?
 
-Offentliga IP-adressen för produktionsprogram *kan inte hållas kvar på redundans*. Arbetsbelastningar som visas som en del av redundansprocessen måste tilldelas en Azure offentlig IP-resurs som är tillgänglig i målregionen. Du kan göra det här steget manuellt eller automatisera via en återställningsplan. Om du vill tilldela en offentlig IP-adress med hjälp av en återställningsplan, se [konfigurera offentliga IP-adresser efter redundansväxling](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan).  
+Offentliga IP-adressen för produktion-programmet kan inte hållas kvar efter en redundansväxling.
+- Arbetsbelastningar som visas som en del av redundansprocessen måste tilldelas en Azure offentlig IP-resurs som är tillgänglig i målregionen.
+- Du kan göra detta manuellt eller automatisera det med en återställningsplan.
+- Lär dig hur du [konfigurera offentliga IP-adresser efter redundansväxling](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
 
 ### <a name="can-i-retain-a-private-ip-address-during-failover"></a>Kan jag behålla en privat IP-adress vid redundans?
-Ja, kan du behålla en privat IP-adress. Som standard skapar Site Recovery target-resurser utifrån resurs-inställningar för datakälla när du aktiverar Haveriberedskap för virtuella Azure-datorer. Site Recovery försöker etablera samma IP-adress för den Virtuella, måldatorn om den inte används för Azure-datorer som har konfigurerats med statiska IP-adresser. Om du vill behålla privata IP-adressen under olika förhållanden, se [behålla IP-adresser under redundansväxlingen](site-recovery-retain-ip-azure-vm-failover.md).
+Ja, du kan behålla en privat IP-adress. Som standard skapar Site Recovery target-resurser utifrån resurs-inställningar för datakälla när du aktiverar haveriberedskap för virtuella Azure-datorer. – För Azure virtuella datorer som konfigurerats med statiska IP-adresser, försöker Site Recovery etablera samma IP-adress för den Virtuella, måldatorn om den inte används.
+Lär dig mer om [behålla IP-adresser under redundansväxlingen](site-recovery-retain-ip-azure-vm-failover.md).
 
-### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Servern har inte samma IP-adress som virtuella datorn efter redundansväxlingen. Varför är det tilldelade en ny IP-adress?
+### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>Efter en redundansväxling, varför servern tilldelas en ny IP-adress?
 
 Site Recovery försöker ange IP-adress vid tidpunkten för redundans. Om en annan virtuell dator tar den här adressen kan anger Site Recovery nästa tillgängliga IP-adressen som mål.
-En fullständig förklaring på hur Site Recovery hanterar adressering Se [konfigurera nätverksmappning och IP-adresser för virtuella nätverk](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
+Läs mer om [att konfigurera nätverksmappning och IP-adresser för virtuella nätverk](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Vad är **senaste (lägsta Återställningspunktmål)** återställningspunkter?
 Den **senaste (lägsta Återställningspunktmål)** alternativet bearbetar först alla data som har skickats till Site Recovery-tjänsten för att skapa en återställningspunkt för varje virtuell dator innan växling till den. Det här alternativet ger lägsta mål för återställningspunkt (RPO), eftersom den virtuella datorn skapas efter att redundansen har fått alla data som replikeras till Site Recovery när redundansen utlöstes.
@@ -175,10 +189,10 @@ Ja. Site Recovery bearbetar alla data som väntar innan du växlar över, så de
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>Vad gör den **senaste bearbetade** alternativet i recovery pekar medelvärdet?
 Den **bearbetades senast** alternativet växlar över alla virtuella datorer i planerna på att den senaste återställningspunkten peka den Site Recovery som bearbetas. Om du vill se den senaste återställningspunkten för en specifik virtuell dator, kontrollera **senaste återställningspunkter** i inställningarna för virtuella datorer. Det här alternativet ger ett lågt RTO eftersom läggs ingen tid på bearbetning av data.
 
-### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Om jag replikerar mellan två Azure-regioner, vad händer om min primära region uppstår ett oväntat avbrott?
+### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Vad händer om min primära region uppstår ett oväntat avbrott?
 Du kan utlösa redundans efter avbrottet. Site Recovery behöver ingen anslutning från den primära regionen att utföra redundansväxlingen.
 
-### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Vad är en RTO av redundans för en virtuell dator?
+### <a name="what-is-a-rto-of-a-vm-failover-"></a>Vad är en RTO av en redundansväxling av virtuella datorer?
 Site Recovery har en [RTO serviceavtalet för 2 timmar](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Men växla i de flesta fall, Site Recovery över virtuella datorer på några minuter. Du kan beräkna RTO genom att gå till redundans jobb som visar tid det tog för att ta fram den virtuella datorn. Planera RTO för återställning, finns under avsnitt.
 
 ## <a name="recovery-plans"></a>Återställningsplaner
@@ -214,25 +228,27 @@ Nej. När du [redundansväxla](https://docs.microsoft.com/azure/site-recovery/az
 Det beror på situationen. Till exempel om källregionen VM finns synkroniseras endast ändringar mellan källdisken och måldisken. Site Recovery beräknar skillnader genom att jämföra diskarna och överför den sedan data. Den här processen tar vanligtvis några timmar. Läs mer om vad som händer vid återaktiveringen av skyddet, [återaktivering av skydd redundansväxlade virtuella Azure-datorer till den primära regionen]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Hur mycket tid har det tar att återställa efter felet?
-När återaktiveringen av skyddet liknar tiden för återställning efter fel vanligtvis tid för redundans från den primära regionen till en sekundär region.
+När återaktiveringen av skyddet liknar hur lång tid för återställning efter fel vanligtvis den tid som krävs för redundans från den primära regionen till en sekundär region.
 
 ## <a name="capacity"></a>Kapacitet
 
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Hur kan kapacitet garanteras i målregionen för virtuella Azure-datorer?
-Azure Site Recovery (ASR)-teamet arbetar med Azure-kapacitet management-teamet att planera för tillräckligt med infrastrukturkapacitet för, i ett försök att se till att virtuella datorer som skyddas av ASR för disaster recovery distribueras har i regionen disaster recovery (DR) När åtgärder för ASR-redundans initieras.
+Site Recovery-teamet arbetar med Azure-kapacitet management-teamet att planera för tillräckligt med infrastrukturkapacitet för, för att se till att virtuella datorer som har aktiverats för haveriberedskap distribueras har i målregionen när redundansväxling initieras.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>Fungerar Site Recovery med reserverade instanser?
-Ja, du kan köpa [reservera instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i DR region och ASR redundans åtgärder använder dem för. </br> Det krävs ingen ytterligare konfiguration från kunderna.
+Ja, du kan köpa [reservera instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i disaster recovery region och Site Recovery redundans åtgärder använder dem för. </br> Ingen ytterligare konfiguration krävs.
 
 
 ## <a name="security"></a>Säkerhet
+
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Skickas replikeringsdata till Site Recovery-tjänsten?
-Nej, Site Recovery komma åt inte replikerade data och den har inte någon information om vad som körs på dina virtuella datorer. Endast de metadata som behövs för att samordna replikeringen och redundansen skickas till Site Recovery-tjänsten.  
+Nej, Site Recovery komma åt inte replikerade data och har inte någon information om vad som körs på dina virtuella datorer. Endast de metadata som behövs för att samordna replikeringen och redundansen skickas till Site Recovery-tjänsten.  
 Site Recovery är ISO 27001: 2013, 27018, HIPAA, DPA certifierade och håller på att SOC2 och FedRAMP JAB-utvärderingar.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Krypterar Site Recovery replikering?
-Ja, både kryptering under överföring och [kryptering i Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) stöds.
+Ja, både kryptering under överföring och [kryptering i vila i Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Granska](azure-to-azure-support-matrix.md) supportkrav.
 * [Konfigurera](azure-to-azure-tutorial-enable-replication.md) replikering från Azure till Azure.
+- Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).

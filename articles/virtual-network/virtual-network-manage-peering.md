@@ -3,8 +3,8 @@ title: Skapa, ändra eller ta bort en Azure virtuell nätverkspeering | Microsof
 description: Lär dig mer om att skapa, ändra eller ta bort vnet-peering.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524059"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925906"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverkspeering
 
@@ -112,7 +112,7 @@ Om du vill att virtuella nätverk kan kommunicera ibland, men inte alltid, i st�
 
 - <a name="cross-region"></a>Du kan peer-koppla virtuella nätverk i samma region eller olika regioner. Peering av virtuella nätverk i olika regioner också kallas *Global VNet-Peering*. 
 - När du skapar en global peering kan kan de peer-kopplade virtuella nätverken finnas i alla offentliga Azure-molnet region eller Kina molnregioner eller Government cloud-regioner. Du kan inte peer-koppla mellan moln. Till exempel kan ett virtuellt nätverk i offentliga Azure-molnet inte peerkopplas till ett virtuellt nätverk i Azure Kina-molnet.
-- Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Det finns bara stöd för grundläggande belastningsutjämnare inom samma region. Det finns stöd för Standard Load Balancer för både, VNet-Peering och Global VNet-Peering.
+- Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Det finns bara stöd för grundläggande belastningsutjämnare inom samma region. Det finns stöd för Standard Load Balancer för både, VNet-Peering och Global VNet-Peering. Tjänster som använder en grundläggande belastningsutjämnare som inte fungerar över Global VNet-Peering finns dokumenterade [här.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - Du kan Använd fjärrgateway eller Tillåt gatewayöverföring i globalt peer-kopplade virtuella nätverk och lokalt peer-kopplade virtuella nätverk.
 - De virtuella nätverken kan finnas i samma eller olika prenumerationer. När du peerkoppla virtuella nätverk i olika prenumerationer, kommer båda prenumerationerna kan vara kopplade till samma eller en annan Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du [skapar ett](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Stöd för peering mellan virtuella nätverk från prenumerationer som är kopplad till olika Azure Active Directory-klienter är inte tillgängligt i portalen. Du kan använda CLI, PowerShell eller mallar.
 - Virtuella nätverk som peer-du måste ha icke-överlappande IP-adressutrymmen.

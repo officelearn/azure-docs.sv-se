@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792936"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925697"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitetstjänsten i replikering från Azure till Azure
 
@@ -31,9 +31,10 @@ När du använder Site Recovery för att hantera uppdateringar, distribuerar en 
 Standardschemat för runbook återkommer varje dag kl. 12:00 AM i tidszonen för den replikerade virtuella datorn geo. Du kan också ändra schemat för runbook via automation-kontot.
 
 > [!NOTE]
+> Från och med Update Rollup 35, kan du välja ett befintligt automation-konto som används för uppdateringar. Innan den här uppdateringen kan skapa Site Recovery det här kontot som standard. Det här alternativet är tillgängligt när du aktiverar replikering för en virtuell dator. Om du ändrar inställningen gäller för alla Azure-datorer som skyddas i samma valv.
+ 
 > Aktivera automatiska uppdateringar inte kräver en omstart av virtuella datorer i Azure eller påverka pågående replikering.
 
-> [!NOTE]
 > Jobbet fakturering i automation-kontot baseras på antalet jobbminuter runtime som använts under en månad. Som standard ingår 500 minuter som kostnadsfria enheter för ett automation-konto. Jobbkörning tar några sekunder till ungefär en minut varje dag och behandlas som kostnadsfria enheterna.
 
 | Kostnadsfria enheter som ingår (per månad) | Pris |
@@ -63,7 +64,7 @@ När du aktiverar att replikering för en virtuell dator antingen startar [från
 
 
 > [!Note]
-> Något av alternativen meddelar dig för automatiseringskontot som används för hantering av uppdateringar. Om du använder den här funktionen i ett valv för första gången, skapas ett nytt automation-konto. Alla efterföljande aktivera replikeringar i samma valv använda det tidigare skapade.
+> Något av alternativen meddelar dig för automatiseringskontot som används för hantering av uppdateringar. Om du använder den här funktionen i ett valv för första gången, skapas ett nytt automation-konto som standard. Du kan också anpassa inställningen och välja ett befintligt automation-konto. Alla efterföljande aktivera replikeringar i samma valv använda det tidigare skapade.
 
 För en anpassad automation-konto, använder du följande skript:
 

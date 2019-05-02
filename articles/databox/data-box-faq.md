@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9cef479c1d4af55ae58c61a07ff1d5348ed7183
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405468"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868251"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -50,7 +50,7 @@ A. Data Box-tjänsten är tillgänglig mot en nominell kostnad i tio dagar. Kost
 A. Data Box har en råkapacitet på 100 TB och en användbar kapacitet på 80 TB. Du kan överföra upp till 80 TB data med Data Box. Om du vill överföra en större datamängd måste du beställa fler enheter.
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>F. Hur kan jag kontrollera om Data Box är tillgänglig i min region? 
-A.  Information om vilka länder Data Box-tjänsten är tillgänglig i finns på sidan för [regionstillgänglighet](data-box-overview.md#region-availability).  
+A.  Information på vilka länder/regioner Data Box är tillgänglig, går du till [regiontillgänglighet](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>F. I vilka regioner kan jag lagra data med Data Box?
 A. Data Box stöds i alla regioner inom USA, Västeuropa, Nordeuropa, Frankrike och Storbritannien. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte. Mer information finns i [Regional tillgänglighet](data-box-overview.md#region-availability).

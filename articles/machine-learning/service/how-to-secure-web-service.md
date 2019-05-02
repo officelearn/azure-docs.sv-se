@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 02/05/2019
+ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a6aa75f3d25cd88cd1edb9b2cdcfabc3b4ec8f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ece32754ae51bde5db52d20ab44f0d748bf46533
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818545"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943929"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Använda SSL för att skydda webbtjänster med Azure Machine Learning-tjänsten
 
 I den här artikeln får du lära dig hur du skyddar en webbtjänst som distribueras med Azure Machine Learning-tjänsten. Du kan begränsa åtkomsten till webbtjänster och skydda data som skickats av klienter som använder [Hypertext Transfer Protocol Secure (HTTPS)](https://en.wikipedia.org/wiki/HTTPS).
 
-HTTPS används för att skydda kommunikationen mellan en klient och din webbtjänst genom att kryptera kommunikationen mellan två. Kryptering hanteras med [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Ibland refereras det fortfarande till som SSL Secure Sockets Layer (), som var föregångare till TLS.
+HTTPS används för att skydda kommunikationen mellan en klient och din webbtjänst genom att kryptera kommunikationen mellan två. Kryptering hanteras med [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Ibland refereras TLS fortfarande till som SSL Secure Sockets Layer (), som var föregångare till TLS.
 
 > [!TIP]
 > Azure Machine Learning SDK använder termen ”SSL” för egenskaper som har att göra säker kommunikation. Detta innebär inte att TLS används inte av din webbtjänst, precis som SSL är mer identifierbara giltighetstiden för många läsare.
@@ -34,7 +34,7 @@ TLS och SSL nåde förlitar sig på __digitala certifikat__, som används för a
 >
 > HTTPS kan också klienten för att kontrollera att den server som den ansluter till. Detta skyddar klienter mot [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacker.
 
-Processen för att skydda en ny webbtjänst eller en befintlig är följande:
+Den allmänna processen för att skydda en ny webbtjänst eller en befintlig är följande:
 
 1. Få ett domännamn.
 
@@ -43,6 +43,9 @@ Processen för att skydda en ny webbtjänst eller en befintlig är följande:
 3. Distribuera eller uppdatera webbtjänsten med SSL-inställningen aktiverad.
 
 4. Uppdatera din DNS så att den pekar till webbtjänsten.
+
+> [!IMPORTANT]
+> Om du distribuerar till Azure Kubernetes Service (AKS), kan du tillhandahålla ditt eget certifikat eller använda ett certifikat som tillhandahålls av Microsoft. Om du använder Microsoft tillhandahåller certifikat behöver du inte att hämta en domän- eller SSL-certifikat. Mer information finns i den [aktivera SSL och distribuera](#enable) avsnittet.
 
 Det finns mindre skillnader när du skyddar webbtjänster över den [distributionskanaler](how-to-deploy-and-where.md).
 
@@ -65,19 +68,49 @@ När du begär ett certifikat, måste du ange det fullständigt kvalificerade do
 > [!WARNING]
 > Självsignerat certifikat ska användas endast för utveckling. De bör inte användas i produktion. Självsignerade certifikat kan orsaka problem i din klient program. Mer information finns i dokumentationen för nätverksbibliotek som används i klientprogrammet.
 
-## <a name="enable-ssl-and-deploy"></a>Aktivera SSL och distribuera
+## <a id="enable"></a> Aktivera SSL och distribuera
 
-Om du vill distribuera (eller omdistribuera) tjänsten med SSL aktiverat, ange den `ssl_enabled` parameter `True`, kan du när det är tillämpligt. Ange den `ssl_certificate` parametern till värdet för den __certifikat__ fil och `ssl_key` till värdet för den __nyckel__ fil.
+Om du vill distribuera (eller distribuera om) tjänsten med SSL aktiverat, ange den `ssl_enabled` parameter `True`, kan du när det är tillämpligt. Ange den `ssl_certificate` parametern till värdet för den __certifikat__ fil och `ssl_key` till värdet för den __nyckel__ fil.
 
 + **Distribuera i Azure Kubernetes Service (AKS)**
 
-  När du etablerar AKS-kluster, anger du värden för SSL-relaterade parametrar som visas i kodfragmentet:
+  När du distribuerar till AKS, kan du skapa ett nytt AKS-kluster eller bifoga en befintlig. Skapa ett nytt kluster använder [AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-) trots att koppla ett befintligt kluster använder [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-). Båda att returnera ett konfigurationsobjekt som har en `enable_ssl` metod.
+
+  Den `enable_ssl` metod kan antingen använda ett certifikat som tillhandahålls av Microsoft, eller en som du anger.
+
+  * När du använder ett certifikat __som tillhandahålls av Microsoft__, måste du använda den `leaf_domain_label` parametern. Med den här parametern skapar tjänsten med hjälp av ett certifikat som tillhandahålls av Microsoft. Den `leaf_domain_label` används för att generera DNS-namn för tjänsten. Till exempel värdet `myservice` skapar ett domännamn på `myservice<6-random-characters>.<azureregion>.cloudapp.azure.com`, där `<azureregion>` är den region som innehåller tjänsten. Du kan även använda den `overwrite_existing_domain` parameter för att skriva över den befintliga löv domänetiketten.
+
+    Om du vill distribuera (eller omdistribuera) tjänsten med SSL aktiverat, ange den `ssl_enabled` parameter `True`, kan du när det är tillämpligt. Ange den `ssl_certificate` parametern till värdet för den __certifikat__ fil och `ssl_key` till värdet för den __nyckel__ fil.
+
+    > [!IMPORTANT]
+    > När du använder ett certifikat som tillhandahålls av Microsoft, behöver du inte köpa egna certifikat eller domän namn.
+
+    I följande exempel visar hur du skapar konfigurationer som gör att ett SSL-certifikat som skapats av Microsoft:
 
     ```python
     from azureml.core.compute import AksCompute
-
-    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    # Config used to create a new AKS cluster and enable SSL
+    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(leaf_domain_label = "myservice")
+    # Config used to attach an existing AKS cluster to your workspace and enable SSL
+    attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                          cluster_name = cluster_name).enable_ssl(leaf_domain_label = "myservice")
     ```
+
+  * När du använder __ett certifikat som du har köpt__, använda den `ssl_cert_pem_file`, `ssl_key_pem_file`, och `ssl_cname` parametrar.  I följande exempel visar hur du skapar konfigurationer som använder ett SSL-certifikat som du anger med hjälp av `.pem` filer:
+
+    ```python
+    from azureml.core.compute import AksCompute
+    # Config used to create a new AKS cluster and enable SSL
+    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    # Config used to attach an existing AKS cluster to your workspace and enable SSL
+    attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name).enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    ```
+
+  Mer information om `enable_ssl`, se [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) och [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
 + **Distribuera i Azure Container Instances (ACI)**
 
@@ -89,15 +122,7 @@ Om du vill distribuera (eller omdistribuera) tjänsten med SSL aktiverat, ange d
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Distribuera på fältet Programmable Gate matriser (FPGA)**
-
-  När du distribuerar till FPGA, anger du värden för parametrarna SSL-relaterade som visas i kodfragmentet:
-
-    ```python
-    from azureml.contrib.brainwave import BrainwaveWebservice
-
-    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
-    ```
+  Mer information finns i [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none-).
 
 ## <a name="update-your-dns"></a>Uppdatera din DNS-Server
 
@@ -111,6 +136,9 @@ Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
 
 + **För AKS**:
 
+  > [!WARNING]
+  > Om du har använt den `leaf_domain_label` för att skapa tjänsten med ett certifikat som tillhandahålls av Microsoft, inte manuellt uppdatera DNS-värdet för klustret. Värdet ska anges automatiskt.
+
   Uppdatera DNS under fliken ”Configuration” i ”offentliga IP-adressen” för AKS-kluster som du ser i bilden. Du hittar den offentliga IP-adressen som en av de resurstyper som skapats under resursgruppen med agentnoderna AKS och andra nätverksresurser.
 
   ![Azure Machine Learning-tjänsten: Skydda webbtjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
@@ -119,3 +147,4 @@ Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
 Lär dig att:
 + [Använda en maskininlärningsmodell som distribueras som en webbtjänst](how-to-consume-web-service.md)
 + [Kör säkert experiment och inferensjobb i Azure Virtual Network](how-to-enable-virtual-network.md)
+

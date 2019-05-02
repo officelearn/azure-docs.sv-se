@@ -1,25 +1,19 @@
 ---
-title: Konfigurera programmet i Publiceringsportalen | Microsoft Docs
+title: Konfigurera programmet i Publiceringsportalen
 description: Anvisningarna i hur du ställer in ditt program i molnet Publiceringsportalen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483238"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943569"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Konfigurera programmet i Publiceringsportalen
 
@@ -88,7 +82,7 @@ Här är en förklaring till dessa fält:
 
 ### <a name="crm-package-availability"></a>Tillgänglighet för CRM-paket
 
-Välj vilka regioner av CRM ditt paket kommer att göras tillgänglig för det här avsnittet. Information som regioner för att hantera vilka länder finns i länken: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+Välj vilka regioner av CRM ditt paket kommer att göras tillgänglig för det här avsnittet. Information på vilka CRM-regioner som fungerar som länder/regioner finns i länken: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Obs! Distribuera till Tyskland ”suveräna och molnet för amerikanska myndigheter” suveräna kräver särskild behörighet och verifiering under CERTIFIKATUTFÄRDARE
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332818"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925929"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure-databas för MariaDB
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i beteendet för din server.
@@ -41,7 +41,7 @@ De här måtten är tillgängliga för Azure Database for MariaDB:
 |network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
 
 ## <a name="server-logs"></a>Serverloggar
-Du kan aktivera långsamma fråga loggning på servern. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
+Du kan aktivera långsamma fråga loggning på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i Azure Monitor-loggar, Händelsehubbar och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur du komma åt och exportera mått med hjälp av Azure portal, REST API eller CLI finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

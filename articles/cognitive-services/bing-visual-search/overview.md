@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8bcb0372ebb60ac3a46cf06bf85322b288e153ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511496"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916628"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Vad är API:et för visuell sökning i Bing?
 
@@ -47,7 +47,7 @@ Bing Visual Search-resultat även innehålla avgränsar rutorna för regioner in
 
 API:et för visuell sökning i Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. Du kan använda REST-API: et eller SDK: N för tjänsten.
 
-1. Skapa en [Cognitive Services-kontot](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att få åtkomst till API: er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto kostnadsfritt](https://azure.microsoft.com/free/). Du kan hämta din prenumerationsnyckel från den [Azure-portalen](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) när du har skapat ditt konto eller [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis) efter aktivering av en kostnadsfri utvärderingsversion.
+1. Skapa en [Cognitive Services-kontot](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att få åtkomst till API: er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto kostnadsfritt](https://azure.microsoft.com/free/). Du kan hämta din prenumerationsnyckel från den [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) när du har skapat ditt konto eller [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis) efter aktivering av en kostnadsfri utvärderingsversion.
 2. Skicka en begäran till API: et med en giltig sökfråga.
 3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 

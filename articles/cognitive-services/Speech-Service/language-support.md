@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d14200faa06bc30df45a2100635ed7dc697a339
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696791"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868611"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Stöd för språk och din region för Speech Services
 
@@ -29,7 +29,7 @@ Microsoft taligenkänningens API stöder följande språk. Olika typer av anpass
   Kod | Språk | [Akustisk anpassning](how-to-customize-acoustic-models.md) | [Språk-anpassning](how-to-customize-language-model.md) | [Uttal av anpassning](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-t.ex. | Arabiska (Egypten), moderna standard | Nej | Ja | Nej
- CA-ES | Katalanska (Spanien) | Nej | Nej | Nej
+ CA-ES | Katalanska | Nej | Nej | Nej
  da-DK | Danska (Danmark) | Nej | Nej | Nej
  de-DE | Tyska (Tyskland) | Ja | Ja | Nej
  SV-Australien | Engelska (Australien) | Nej | Ja | Ja
@@ -98,7 +98,7 @@ Nationell inställning | Språk | Kön | Tjänsten Namnmappningen
 ar-t.ex.\* | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)”
 ar-SA | Arabiska (Saudiarabien) | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)”
 BG-BG | Bulgariska | Man | ”Microsoft Server tal Text till tal röst (bg-BG, Ivan)”
-CA-ES | Katalanska (Spanien) | Kvinna | ”Microsoft Server tal Text till tal röst (ca-ES, HerenaRUS)”
+CA-ES | Katalanska | Kvinna | ”Microsoft Server tal Text till tal röst (ca-ES, HerenaRUS)”
 CS-CZ | Tjeckiska | Man | ”Microsoft Server tal Text till tal-röst (cs-CZ, Jakub)”
 da-DK | Danska | Kvinna | ”Microsoft Server tal Text till tal-röst (da-DK, HelleRUS)”
 Tyskland-AT | Tyska (Österrike) | Man | ”Microsoft Server tal Text till tal-röst (Tyskland-AT, Michael)”

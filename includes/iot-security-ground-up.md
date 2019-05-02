@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626493"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951572"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Säkerhet för Internet of Things (IoT) från grunden
 

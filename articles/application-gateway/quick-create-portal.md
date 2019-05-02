@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42d3bd2285574b4416ec06af13006353880a7ca5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6f91b424398df7839c251d994fd3d484422d5e2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903530"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947339"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
@@ -65,7 +65,9 @@ För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett 
 
 3. Välj **OK** för att återgå till sidan **Inställningar**.
 
-4. Välj den **Frontend-IP-konfiguration**. Kontrollera att **IP-adresstyp** är inställd på **Offentlig** under **IP-konfiguration för klientdel**. Kontrollera att **Skapa ny** har valts under **Offentlig IP-adress**. <br>Du kan konfigurera Frontend IP för att vara offentlig eller privat enligt ditt användningsområde. I det här exemplet väljer vi en offentlig Klientdels-IP. 
+4. Välj den **Frontend-IP-konfiguration**. Kontrollera att **IP-adresstyp** är inställd på **Offentlig** under **IP-konfiguration för klientdel**. Kontrollera att **Skapa ny** har valts under **Offentlig IP-adress**. <br>Du kan konfigurera Frontend IP för att vara offentlig eller privat enligt ditt användningsområde. I det här exemplet väljer vi en offentlig Klientdels-IP.
+   > [!NOTE]
+   > För SKU: N för Application Gateway v2 kan du endast välja **offentliga** IP-konfiguration. Privata IP-konfigurationen är inte aktiverat för v2-SKU.
 
 5. Ange *myAGPublicIPAddress* som den offentliga IP-adressens namn. 
 

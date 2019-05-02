@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123186"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925947"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostik och övervakning av programprestanda för fjärrstyrd tillförlitlig tjänst
 Tillförlitlig ServiceRemoting runtime genererar [prestandaräknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Det här ger insikt i hur ServiceRemoting fungerar och hjälpa till med felsökning och övervakning av programprestanda.
@@ -100,5 +100,5 @@ När en klient anropar en metod som via en proxy serviceobjektet, resulterar det
 | Service Fabric-tjänst |Genomsnittlig tid i millisekunder för serialiseringssvar |Tid (i millisekunder) att serialisera svarsmeddelandet service på tjänsten innan svaret skickas till klienten |
 
 ## <a name="next-steps"></a>Nästa steg
-* [Exempelkod](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric&sort=0)
+* [Exempelkod](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [EventSource providers i PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

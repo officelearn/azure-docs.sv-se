@@ -1,25 +1,18 @@
 ---
-title: Skapa ett Microsoft Developer-konto | Microsoft Docs
+title: Skapa ett Microsoft Developer-konto | Azure Marketplace
 description: Krav och anvisningar för att skapa ett Microsoft Developer-konto.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326840"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935869"
 ---
 <a name="create-a-microsoft-developer-account"></a>Skapa ett Microsoft Developer-konto
 ====================================
@@ -106,7 +99,7 @@ Microsoft Developer Center för att registrera företagsinformation en gång. Av
    ![Välj land/region](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >”” Försäljningsländer: Registrerade entiteten måste vara från en av de godkända ”” försäljningsländer visas i listrutan för att kunna sälja dina tjänster på Azure Marketplace. Den här begränsningen är payout och skatt skäl. Mer information finns i deltagandepolicyerna för Marketplace.
+    >”Säljer från” länder/regioner: Registrerade entiteten måste vara från en godkänd ”säljer från” länderna/regionerna visas i listrutan för att kunna sälja dina tjänster på Azure Marketplace. Den här begränsningen är payout och skatt skäl. Mer information finns i deltagandepolicyerna för Marketplace.
 
 5. Välj **företagets** som din ”kontotyp” och välj sedan **nästa**.
 

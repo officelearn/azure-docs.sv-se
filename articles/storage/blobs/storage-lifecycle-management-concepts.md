@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392474"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938573"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob storage livscykel
 
@@ -42,7 +42,7 @@ Livscykeln för hantering av funktionen är tillgänglig i alla offentliga Azure
 
 ## <a name="add-or-remove-a-policy"></a>Lägg till eller ta bort en princip 
 
-Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure-portalen [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI, [REST API: er](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), eller ett klientverktyg. Den här artikeln visar hur du hanterar princip med hjälp av portalen och PowerShell-metoder.  
+Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure-portalen [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI, [REST API: er](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), eller ett klientverktyg. Den här artikeln visar hur du hanterar princip med hjälp av portalen och PowerShell-metoder.  
 
 > [!NOTE]
 > Om du aktiverar brandväggsregler för ditt lagringskonto, blockeras livscykeln för hantering av begäranden. Du kan låsa upp dessa begäranden genom att ange undantag. Nödvändiga förbikopplingen är: `Logging,  Metrics,  AzureServices`. Mer information finns i avsnittet undantag i [konfigurera brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>ARM-mall med principen för livscykelhantering
 
+Du kan definiera och distribuera livscykelhantering som en del av distributionen av Azure-lösning med hjälp av ARM-mallar. Följ är en exempelmall för att distribuera ett RA-GRS GPv2-konto med en princip för livscykelhantering. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>Princip
 
@@ -113,7 +153,7 @@ En princip är en samling regler:
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parametertyp | Anteckningar | Obligatoriskt |
+| Parameternamn | Parametertyp | Anteckningar | Krävs |
 |----------------|----------------|-------|----------|
 | namn           | String |Ett regelnamn kan innehålla upp till 256 alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt.  Det måste vara unika inom en princip. | True |
 | aktiverad | Boolean | Ett valfritt booleskt värde att tillåta en regel för att vara tillfälligt inaktiverats. Standardvärdet är SANT om det inte har angetts. | False | 
@@ -305,8 +345,8 @@ För data som ändras och komma åt regelbundet under hela dess livslängd, anv�
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>Vanliga frågor och svar – jag har skapat en ny princip, varför åtgärderna som inte körs direkt? 
-
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR 
+**Jag har skapat en ny princip, varför åtgärderna som inte körs direkt?**  
 Plattformen körs policyn för onlinelivscykeln en gång om dagen. När du konfigurerar en princip, kan det ta upp till 24 timmar för vissa åtgärder (till exempel lagringsnivåer och borttagning) körs för första gången.  
 
 ## <a name="next-steps"></a>Nästa steg

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653780"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875949"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -160,11 +160,55 @@ Om du använder **certThumbprint** för autentisering och certifikatet är insta
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-Det här avsnittet innehåller en lista över egenskaper som har stöd för HTTP-datauppsättningen. 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar och länkade tjänster](concepts-datasets-linked-services.md). 
+- För **Parquet och avgränsat textformat**, referera till [Parquet och avgränsad text formatera datauppsättning](#parquet-and-delimited-text-format-dataset) avsnittet.
+- För andra format som **ORC/Avro/JSON/binära formatet**, referera till [andra format datauppsättning](#other-format-dataset) avsnittet.
 
-Om du vill kopiera data från HTTP, ange den **typ** egenskapen på datauppsättningen till **HttpFile**. Följande egenskaper stöds:
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet och avgränsad text format datauppsättning
+
+Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade datauppsättning och som stöds inställningar. Följande egenskaper har stöd för HTTP under `location` inställningar i formatet-baserade datauppsättning:
+
+| Egenskap     | Beskrivning                                                  | Krävs |
+| ----------- | ------------------------------------------------------------ | -------- |
+| typ        | Egenskapen type under `location` i datauppsättningen måste anges till **HttpServerLocation**. | Ja      |
+| relativeUrl | En relativ URL till den resurs som innehåller data.       | Nej       |
+
+> [!NOTE]
+> Maxstorleken för HTTP-begäran nyttolasten är cirka 500 KB. Om den nyttolast som du vill skicka till din webbslutpunkt är större än 500 KB, Överväg batchbearbetning nyttolast i mindre segment.
+
+> [!NOTE]
+> **HttpFile** typ datauppsättning med Parquet-/ textformat som nämns i nästa avsnitt stöds fortfarande som – för kopiera/Lookup-aktiviteten för bakåtkompatibilitet. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
+
+**Exempel:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "HttpServerLocation",
+                "relativeUrl": "<relative url>"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Andra format-datauppsättning
+
+Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, stöds följande egenskaper:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -226,7 +270,69 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="http-as-source"></a>HTTP som källa
 
-Om du vill kopiera data från HTTP, ange **källtyp** i kopieringsaktiviteten till **HttpSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+- För kopia från **Parquet och avgränsat textformat**, referera till [Parquet och avgränsad text format källa](#parquet-and-delimited-text-format-source) avsnittet.
+- För kopia från andra format som **ORC/Avro/JSON/binära formatet**, referera till [annan format källa](#other-format-source) avsnittet.
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet och avgränsad text format källa
+
+Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade aktiviteten kopieringskälla och inställningar som stöds. Följande egenskaper har stöd för HTTP under `storeSettings` inställningar i formatet-baserade kopieringskälla:
+
+| Egenskap                  | Beskrivning                                                  | Krävs |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| typ                     | Egenskapen type under `storeSettings` måste anges till **HttpReadSetting**. | Ja      |
+| requestMethod            | HTTP-metoden. <br>Tillåtna värden är **hämta** (standard) och **Post**. | Nej       |
+| addtionalHeaders         | Ytterligare rubriker för HTTP-begäran.                             | Nej       |
+| requestBody              | Brödtexten för HTTP-begäran.                               | Nej       |
+| requestTimeout           | Timeout (i **TimeSpan** värde) för HTTP-begäran att få svar. Det här värdet är tidsgränsen för att få svar timeout inte att läsa svarsdata. Standardvärdet är **00:01:40**. | Nej       |
+| maxConcurrentConnections | Antal anslutningar för att ansluta till storage store samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej       |
+
+> [!NOTE]
+> För Parquet/avgränsat textformat **HttpSource** typen kopiera aktivitetskälla som nämns i nästa avsnitt stöds fortfarande som-avser för bakåtkompatibilitet. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
+
+**Exempel:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromHTTP",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "HttpReadSetting",
+                    "requestMethod": "Post",
+                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
+                    "requestBody": "<body for POST HTTP request>"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Andra format-källa
+
+Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |

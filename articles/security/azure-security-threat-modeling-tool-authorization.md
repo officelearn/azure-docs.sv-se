@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121529"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935871"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Security ram: Auktorisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -280,7 +280,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | StorageType - tabell |
 | **Referenser**              | [Hur du delegerar åtkomst till objekt i ditt Azure storage-konto med hjälp av SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Steg** | I vissa affärsscenarier kan Azure Table Storage krävas för att lagra känsliga data som caters till olika parter. T.ex. känsliga data som hör till olika länder. I sådana fall kan SAS signaturer skapas genom att ange nyckelintervall partitions- och radnycklar så att en användare kan komma åt data som är specifika för ett visst land.| 
+| **Steg** | I vissa affärsscenarier kan Azure Table Storage krävas för att lagra känsliga data som caters till olika parter. T.ex. känsliga data som hör till olika länder/regioner. I sådana fall kan SAS signaturer skapas genom att ange nyckelintervall partitions- och radnycklar så att en användare kan komma åt data som är specifika för ett visst land/region.| 
 
 ## <a id="rbac-azure-manager"></a>Aktivera rollbaserad åtkomstkontroll (RBAC) till Azure storage-konto med Azure Resource Manager
 

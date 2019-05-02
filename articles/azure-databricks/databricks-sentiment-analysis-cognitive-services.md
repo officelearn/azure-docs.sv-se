@@ -1,22 +1,22 @@
 ---
 title: 'Självstudie: Sentimentanalys på strömmade data med hjälp av Azure Databricks'
-description: Lär dig att använda Azure Databricks med Event Hubs och Cognitive Services API för att kunna köra attitydanalys på strömmande data nästan i realtid.
+description: Lär dig att använda Azure Databricks med Event Hubs och Cognitive Services API för att köra attitydanalys på strömmande data nästan i realtid.
 services: azure-databricks
 author: lenadroid
 ms.author: alehall
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: a4762f78b16b7798ff746770f1ea69ccebd30130
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60786329"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919020"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudie: Sentimentanalys på strömmade data med hjälp av Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudier: Sentimentanalys på strömmade data med hjälp av Azure Databricks
 
 I den här självstudien får du lära dig att köra sentimentanalys på en dataström med hjälp av Azure Databricks nästan i realtid. Du konfigurerar datainmatningssystemet med Azure Event Hubs. Du kan använda meddelanden från Event Hubs i Azure Databricks med hjälp av Spark Event Hubs-anslutningsprogrammet. Slutligen kan du använda Microsoft Cognitive Service API:er för att köra attitydanalys på strömmad data.
 
@@ -55,9 +55,9 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 Du kan uppfylla dessa krav genom att slutföra stegen i artikeln [Skapa ett Azure Event Hubs-namnområde och en händelsehubb](../event-hubs/event-hubs-create.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
@@ -154,7 +154,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
 ## <a name="get-a-cognitive-services-access-key"></a>Hämta en Cognitive Services-åtkomstnyckel
 
-I den här självstudien använder du [API:er för textanalys i Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md) till att köra sentimentanalys på en ström av tweets nästan i realtid. Innan du använder API:erna behöver du skapa ett Microsoft Cognitive Services-konto i Azure och hämta en åtkomstnyckel för att kunna använda API:er för textanalys.
+I den här självstudien använder du den [Azure Cognitive Services Text Analytics API: er](../cognitive-services/text-analytics/overview.md) att köra attitydanalys på strömmade tweets nästan i realtid. Innan du använder API: erna kan du skapa ett Azure Cognitive Services-konto på Azure och hämta en åtkomstnyckel för att använda Text Analytics API: erna.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -227,7 +227,7 @@ val connStr = new ConnectionStringBuilder()
             .setSasKeyName(sasKeyName)
             .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
+val pool = Executors.newScheduledThreadPool(1)
 val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
 def sendEvent(message: String) = {

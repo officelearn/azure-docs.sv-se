@@ -1,25 +1,18 @@
 ---
-title: Fylla i formuläret med Storefront | Microsoft Docs
+title: Fylla i formuläret med butik
 description: Beskriver värdena för formuläret Storefront information för en ny Dynamics 365 Business Central-app.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397965"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935032"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Fylla i formuläret med butik
 ===========================================
@@ -57,9 +50,9 @@ Det måste finnas en aktiv hjälplänk som hjälper kunder att online produkthj�
 
 ### <a name="supported-countriesregions"></a>Länder/regioner
 
-Det här fältet anger de länder/regioner där ditt erbjudande blir tillgänglig för utvärdering. Du kan endast välja länder där Microsoft Dynamics 365 Business Central är redan tillgänglig eller i en förhandsversion. Aktuell lista finns i [länder och översättningar stöds](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
+Det här fältet anger de länder/regioner där ditt erbjudande blir tillgänglig för utvärdering. Du kan endast välja länder/regioner där Microsoft Dynamics 365 Business Central är redan tillgänglig eller i en förhandsversion. Aktuell lista finns i [länder/regioner och översättningar stöds](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
-![Välj länder och översättningar stöds](./media/d365-financials/image008.png)
+![Välj länder/regioner och översättningar stöds](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Språk som stöds

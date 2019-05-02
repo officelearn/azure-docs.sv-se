@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020396"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922935"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarguide för Azure Functions Java
 
@@ -111,7 +111,7 @@ här är den genererade motsvarande `function.json` av den [azure-functions-mave
 
 Ladda ned och använda den [Azul Zulu Enterprise för Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs från [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) för lokal utveckling av Java-funktionsappar. Azure Functions använder Azul Java 8 JDK-körningen när du distribuerar dina funktionsappar till molnet.
 
-[Azure-supporten](https://azure.microsoft.com/en-us/support/) för problem med JDKs och funktionen appar är tillgängliga med en [kvalificerade supportavtal](https://azure.microsoft.com/support/plans/).
+[Azure-supporten](https://azure.microsoft.com/support/) för problem med JDKs och funktionen appar är tillgängliga med en [kvalificerade supportavtal](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Bibliotek från tredje part 
 

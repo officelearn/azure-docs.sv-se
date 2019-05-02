@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82139178d4c1db4774d539180e41e49699d8ee12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382511"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919123"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objektsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller steg för felsökning av problem med synkronisering av objektet med hjälp av felsökningsaktiviteten. Om du vill se hur felsökning fungerar i Azure Active Directory (Azure AD) Connect, se [den här korta videon](https://aka.ms/AADCTSVideo).
@@ -37,13 +37,13 @@ Om du vill köra aktiviteten felsökning i guiden, utför du följande steg:
 4.  Gå till sidan ytterligare aktiviteter, avancerade och klicka på Nästa.
 5.  På sidan om felsökning, klickar du på Starta till startmenyn felsökning i PowerShell.
 6.  Välj Felsök synkronisering av objektet i huvudmenyn.
-![](media/tshoot-connect-objectsync/objsynch11.png)
+![Felsök synkronisering av objektet](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Felsöka indataparametrar
 Följande indataparametrar krävs av av felsökningsaktiviteten:
 1.  **Objekt-huvudnamnet** – detta är det unika namnet på det objekt som du behöver felsöka
 2.  **AD-Kopplingsnamn** – det här är namnet på den AD-skog där objektet ovan finns.
-3.  Autentiseringsuppgifter som global Azure AD-klient ![](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Autentiseringsuppgifter som global Azure AD-klient ![autentiseringsuppgifterna för global administratör](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Förstå resultatet av av felsökningsaktiviteten
 Av felsökningsaktiviteten utför följande kontroller:
@@ -60,27 +60,27 @@ Resten av det här avsnittet beskriver specifika resultat som returneras av akti
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>UPN-suffixet verifieras inte med Azure AD-klient
 När UserPrincipalName (UPN) / suffix för alternativt inloggnings-ID är inte verifierad med Azure AD-klient och Azure Active Directory ersätter de UPN-suffix med standard domain name ”onmicrosoft.com”.
 
-![](media/tshoot-connect-objectsync/objsynch2.png)
+![Azure AD ersätter UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Om du ändrar UPN-Suffix från en federerad domän till en annan federerad domän
 Azure Active Directory tillåter inte att synkroniseringen av UserPrincipalName (UPN) / alternativt inloggnings-ID suffix ändring från en federerad domän till en annan federerad domän. Detta gäller för domäner som har verifierats med Azure AD-klient och har den autentiseringstyp som federerade.
 
-![](media/tshoot-connect-objectsync/objsynch3.png) 
+![Inget UPN synkronisering från en federerad domän till en annan](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Azure AD-klient DirSync-funktion ”SynchronizeUpnForManagedUsers” är inaktiverad
 När Azure AD-klient DirSync-funktion ”SynchronizeUpnForManagedUsers” är inaktiverad, tillåter inte synkronisering uppdateringar till UserPrincipalName/alternativa inloggnings-ID för licensierade användarkonton med hanterad autentisering i Azure Active Directory.
 
-![](media/tshoot-connect-objectsync/objsynch4.png)
+![SynchronizeUpnForManagedUsers](media/tshoot-connect-objectsync/objsynch4.png)
 
 ## <a name="object-is-filtered-due-to-domain-filtering"></a>Objekt filtreras på grund av filtrering av domän
 ### <a name="domain-is-not-configured-to-sync"></a>Domänen har inte konfigurerats för synkronisering
 Objektet är utanför på grund av domänen som har inte konfigurerats. I exemplet nedan är synkroniserad omfattning i objektet som den domän som den tillhör filtreras från synkronisering.
 
-![](media/tshoot-connect-objectsync/objsynch5.png)
+![Domänen har inte konfigurerats för synkronisering](media/tshoot-connect-objectsync/objsynch5.png)
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>Domänen är konfigurerad för att synkronisera men saknar kör profiler/köra steg
 Objektet är utanför omfånget eftersom domänen saknas kör profiler/köra steg. Objektet är osynkroniserad omfång som den domän som den tillhör saknar kör stegen för den fullständiga importen körningsprofil i exemplet nedan.
-![](media/tshoot-connect-objectsync/objsynch6.png)
+![körning av profiler som saknas](media/tshoot-connect-objectsync/objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>Objekt filtreras på grund av att OU-filtrering
 Objektet är inte synkroniserade omfång på grund av OU-filtrering konfiguration. I exemplet nedan objektet tillhör OU = NoSync, DC = bvtadwbackdc, DC = com.  Den här Organisationsenheten ingår inte i omfånget för synkronisering.</br>
@@ -99,7 +99,7 @@ På grund av olika skillnader mellan lokala synkroniserar Active Directory och A
 ## <a name="html-report"></a>HTML-rapport
 Förutom att analysera objektet genererar av felsökningsaktiviteten även en HTML-rapport som har allt känt objektet. Den här HTML-rapport kan delas med supportteamet att göra ytterligare felsökning, om det behövs.
 
-![](media/tshoot-connect-objectsync/objsynch8.png)
+![HTML-rapport](media/tshoot-connect-objectsync/objsynch8.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

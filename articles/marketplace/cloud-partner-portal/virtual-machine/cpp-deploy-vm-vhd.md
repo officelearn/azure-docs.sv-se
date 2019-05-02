@@ -1,25 +1,18 @@
 ---
-title: 'Distribuera en virtuell dator från dina VHD: er för Azure Marketplace | Microsoft Docs'
+title: 'Distribuera en virtuell dator från dina VHD: er för Azure Marketplace'
 description: Beskriver hur du registrerar en virtuell dator från en Azure-distribuerade virtuella Hårddisken.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046690"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938293"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina VHD: er
 
@@ -70,8 +63,8 @@ När den virtuella datorn har distribuerats kan du är redo att [certifiera din 
    | Systemadministratörsanvändarens namn             | Användarnamn för administratörskontot för nya virtuella datorn                                  |
    | Administratörslösenord              | Lösenordet för administratörskontot för nya virtuella datorn                                  |
    | OS-typ                     | VM-operativsystem: `Windows` \| `Linux`                                    |
-   | Prenumerations-ID             | Identifierare för den valda prenumerationen                                      |
-   | Plats                    | Geografisk plats för distributionen                                        |
+   | Prenumerations-ID:t             | Identifierare för den valda prenumerationen                                      |
+   | Location                    | Geografisk plats för distributionen                                        |
    | Storlek på virtuell dator                     | [Azure VM-storlek](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), till exempel `Standard_A2` |
    | Offentliga IP-adressnamn      | Namnet på din offentliga IP-adress                                               |
    | Namn på virtuell dator                     | Namnet på den nya virtuella datorn                                                           |

@@ -559,12 +559,12 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-| **typ** | Saknas| Krävs – måste vara inställd på `httpTrigger`. |
-| **riktning** | Saknas| Krävs – måste vara inställd på `in`. |
-| **Namn** | Saknas| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. |
+| **type** | Saknas| Krävs – måste vara inställd på `httpTrigger`. |
+| **direction** | Saknas| Krävs – måste vara inställd på `in`. |
+| **name** | Saknas| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. |
 | <a name="http-auth"></a>**authLevel** |  **authLevel** |Anger vad nycklar, om sådana finns, måste finnas på begäran för att anropa funktionen. Åtkomstnivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Inga API-nyckeln är obligatorisk.</li><li><code>function</code>&mdash;Det krävs en funktionsspecifika API-nyckel. Detta är standardvärdet om ingen har angetts.</li><li><code>admin</code>&mdash;Huvudnyckeln krävs.</li></ul> Mer information finns i avsnittet [auktoriseringsregel nycklar](#authorization-keys). |
-| **Metoder** |**Metoder** | En matris med HTTP-metoder som funktionen svarar. Om inte anges svarar funktionen på alla HTTP-metoder. Se [anpassa http-slutpunkt](#customize-the-http-endpoint). |
-| **väg** | **väg** | Definierar flödesmallen, kontrollera som begär URL: er som din funktion svarar. Standardvärdet om inget är `<functionname>`. Mer information finns i [anpassa http-slutpunkt](#customize-the-http-endpoint). |
+| **methods** |**Metoder** | En matris med HTTP-metoder som funktionen svarar. Om inte anges svarar funktionen på alla HTTP-metoder. Se [anpassa http-slutpunkt](#customize-the-http-endpoint). |
+| **route** | **väg** | Definierar flödesmallen, kontrollera som begär URL: er som din funktion svarar. Standardvärdet om inget är `<functionname>`. Mer information finns i [anpassa http-slutpunkt](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Stöds endast för version 1.x-körningen._<br/><br/>Konfigurerar HTTP-utlösare ska fungera som en [webhook](https://en.wikipedia.org/wiki/Webhook) mottagare för den angivna providern. Konfigurerar inte den `methods` egenskapen om du ställer in den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;Ett allmänt webhook-slutpunkt utan logik för en viss leverantör. Den här inställningen begränsar begäranden till endast de som använder HTTP POST och med den `application/json` innehållstyp.</li><li><code>github</code>&mdash;Funktionen svarar på [GitHub webhooks](https://developer.github.com/webhooks/). Använd inte den _authLevel_ egenskap med GitHub webhooks. Mer information finns i avsnittet GitHub webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen svarar på [Slack webhooks](https://api.slack.com/outgoing-webhooks). Använd inte den _authLevel_ egenskap med Slack webhooks. Mer information finns i avsnittet Slack webhooks senare i den här artikeln.</li></ul>|
 
 ## <a name="trigger---usage"></a>Utlösare - användning
@@ -802,9 +802,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Egenskap   |Beskrivning  |
 |---------|---------|
-| **typ** |Måste anges till `http`. |
-| **riktning** | Måste anges till `out`. |
-|**Namn** | Variabelnamnet som används i Funktionskoden för svaret, eller `$return` att använda det returnera värdet. |
+| **type** |Måste anges till `http`. |
+| **direction** | Måste anges till `out`. |
+|**name** | Variabelnamnet som används i Funktionskoden för svaret, eller `$return` att använda det returnera värdet. |
 
 ## <a name="output---usage"></a>Utdata - användning
 

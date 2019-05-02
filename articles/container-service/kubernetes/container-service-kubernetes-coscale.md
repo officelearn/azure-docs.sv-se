@@ -10,11 +10,11 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713085"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(INAKTUELL) Övervaka ett Azure Container Service Kubernetes-kluster med CoScale
 
@@ -32,7 +32,7 @@ CoScale är en övervakningsplattform som samlar in mått och händelser från a
 I den här artikeln visas kan du installera agenter på ett Kubernetes-kluster för att köra CoScale som en SaaS-lösning. Om du vill behålla dina data på plats är CoScale också tillgängliga för en lokal installation.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste först [skapa ett konto med CoScale](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
 

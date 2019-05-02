@@ -529,8 +529,8 @@ I följande tabell innehåller exempel på hur du anger den **tableName** egensk
 | --- | --- | --- |
 | dbo | MyTable | MyTable eller dbo. MyTable eller [dbo]. [Tabell] |
 | dbo1 | MyTable | dbo1. MyTable eller [dbo1]. [Tabell] |
-| dbo | My.Table | [My.Table] eller [dbo]. [My.Table] |
-| dbo1 | My.Table | [dbo1]. [My.Table] |
+| dbo | My.Table | [My.Table] eller [dbo].[My.Table] |
+| dbo1 | My.Table | [dbo1].[My.Table] |
 
 Om du ser följande fel kan problemet vara värdet du angav för den **tableName** egenskapen. Se tabellen ovan för det korrekta sättet att ange värden för den **tableName** JSON-egenskap.
 

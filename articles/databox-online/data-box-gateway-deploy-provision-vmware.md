@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60757794"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Självstudier: Etablera Azure Data Box-Gateway i VMware
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kraven för att etablera en virtuell enhet på ett värdsystem som kör VMware ESXi 6.0, 6.5 eller 6.7 är följande.
 
@@ -145,7 +145,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
     På samma sidan klickar du på **Add hard disk** (Lägg till hårddisk) och väljer sedan **Existing hard disk** (Befintlig hårddisk). Välj VMDK-filen i datalagret. Detta lägger till en OS-disk. 
 
-     ! Anpassa inställningssidan[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     !Anpassa inställningssidan[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Rulla ned tills du ser **New hard disk** (Ny hårddisk) och expandera den för att visa inställningarna. Ställ in **Virtual Device Node** (Nod för virtuell enhet) på **IDE controller 0** (IDE-styrenhet 0).
 

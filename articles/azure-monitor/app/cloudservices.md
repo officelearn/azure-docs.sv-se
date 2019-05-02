@@ -14,18 +14,18 @@ ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
 ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60903303"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure molntjänster
 [Application Insights] [ start] kan övervaka [Azure cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, fel och användning genom att kombinera data från Application Insights SDK: er med [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från dina molntjänster. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
 
 ![Översikt över instrumentpanelen](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar behöver du:
 
 * En [Azure](https://azure.com) prenumeration. Logga in med ditt Microsoft-konto för Windows, Xbox Live eller andra Microsoft-molntjänster. 

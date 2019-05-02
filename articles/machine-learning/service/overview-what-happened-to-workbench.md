@@ -12,11 +12,11 @@ ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
 ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753787"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
@@ -40,7 +40,7 @@ Den senaste versionen av Azure Machine Learning Service innehåller följande fu
 + Ett nytt och mer omfattande Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + Det nya, utökade [Azure CLI-tillägget](reference-azure-machine-learning-cli.md) för maskininlärning.
 
-[Arkitekturen](concept-azure-machine-learning-architecture.md) har gjorts om för enklare användning. I stället för flera Azure-resurser och konton behöver du bara en [Azure Machine Learning-tjänstarbetsyta](concept-azure-machine-learning-architecture.md#workspace). Du kan snabbt skapa arbetsytor i [Azure portal]((setup-create-workspace.md#portal). Genom att använda en arbetsyta kan flera användare lagra tränings- och distributionsberäkningsmål, modellexperiment, Docker-avbildningar, distribuerade modeller och så vidare.
+[Arkitekturen](concept-azure-machine-learning-architecture.md) har gjorts om för enklare användning. I stället för flera Azure-resurser och konton behöver du bara en [Azure Machine Learning-tjänstarbetsyta](concept-azure-machine-learning-architecture.md#workspace). Du kan snabbt skapa arbetsytor i [Azure portal]\((setup-create-workspace.md#portal). Genom att använda en arbetsyta kan flera användare lagra tränings- och distributionsberäkningsmål, modellexperiment, Docker-avbildningar, distribuerade modeller och så vidare.
 
 Även om det finns nya förbättrade CLI- och SDK-klienter i den aktuella versionen, har själva Workbench-skrivbordsprogrammet tagits ur bruk. Experiment kan hanteras i [instrumentpanelen för arbetsytan i Azure-portalen](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Använd instrumentpanelen för att hämta din experimenthistorik, hantera beräkningsmål som är kopplade till din arbetsyta, hantera modeller och Docker-avbildningar och även distribuera webbtjänster.
 
@@ -97,7 +97,7 @@ I den senaste versionen distribueras modeller som webbtjänster till Azure Conta
 
 Mer information finns i följande artiklar:
 + [Var och hur du distribuerar modeller](how-to-deploy-and-where.md)
-+ [Självstudier: Distribuera modeller i Azure Machine Learning-tjänsten](tutorial-deploy-models-with-aml.md)
++ [Självstudie: Distribuera modeller i Azure Machine Learning-tjänsten](tutorial-deploy-models-with-aml.md)
 
 ## <a name="what-about-the-old-sdk-and-cli"></a>Vad gäller för den gamla SDK:n och CLI?
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466076"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Hur du skapar ett Smooth Streaming Windows Store-program  
 
@@ -71,7 +71,7 @@ Mer information om hur du utvecklar Windows Store-program finns i [utveckla bra 
     | Mallgrupp |Installerat/mallar/Visual C#Windows Store |
     | Mall |Tom App (XAML) |
     | Namn |SSPlayer |
-    | Plats |C:\SSTutorials |
+    | Location |C:\SSTutorials |
     | Lösningsnamn |SSPlayer |
     | Skapa katalog för lösningen |(valt) |
 

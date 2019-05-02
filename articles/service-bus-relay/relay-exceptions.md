@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 0fe30fe95e77adceaa5013f89206b08daf2a58a2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749044"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay-undantag
 
@@ -29,18 +29,18 @@ Den här artikeln innehåller vissa undantag som kan genereras av API: er för A
 
 Relay-API: er skapa undantag som kan delas in i följande kategorier. Listan finns även föreslagna åtgärder som du kan vidta för att lösa undantagen.
 
-*   **Användaren kodningsfel**: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
+*   **Användaren kodningsfel**: System.ArgumentException, [System.InvalidOperationException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
 
-    **Allmän åtgärd**: försök att åtgärda koden innan du fortsätter.
+    **Allmän åtgärd**: Försök att åtgärda koden innan du fortsätter.
 *   **Installationen/konfigurationsfel**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
-    **Allmän åtgärd**: Granska konfigurationen. Om det behövs kan du ändra konfigurationen.
-*   **Tillfälliga undantag**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [ Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
+    **Allmän åtgärd**: Granska din konfiguration. Om det behövs kan du ändra konfigurationen.
+*   **Tillfälliga undantag**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
-    **Allmän åtgärd**: försök igen eller meddela användare.
+    **Allmän åtgärd**: Försök igen eller meddela användare.
 *   **Andra undantag**: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
 
-    **Allmän åtgärd**: specifika för typ av undantag. Se tabellen nedan. 
+    **Allmän åtgärd**: Specifika för typ av undantag. Se tabellen nedan. 
 
 ## <a name="exception-types"></a>Undantagstyper
 

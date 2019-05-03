@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283440"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024502"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Säkerhet och sekretess i Azure Search
 
@@ -43,11 +43,8 @@ Kryptering utökar i hela för hela indexering av pipeline: från anslutningar, 
 | Säkerhetslager | Beskrivning |
 |----------------|-------------|
 | Kryptering under överföring <br>(HTTPS/SSL/TLS) | Azure Search lyssnar på port 443 för HTTPS. Anslutningar till Azure-tjänster krypteras på plattformen som helst. <br/><br/>Alla klient-till-tjänst Azure Search interaktioner är SSL/TLS 1.2-kompatibla.  Glöm inte att använda TLSv1.2 för SSL-anslutningar till din tjänst.|
-| Vilande kryptering | Kryptering är helt internalized i indexeringsprocessen mätbara påverkan på indexering tid att slutföra eller Indexstorlek. Det sker automatiskt på alla indexering, inklusive på inkrementella uppdateringar till ett index som inte är helt krypterad (som skapats före januari 2018).<br><br>Internt, kryptering baseras på [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
-
-Kryptering är interna för Azure Search med certifikat och krypteringsnycklar hanteras internt av Microsoft och tillämpas universellt. Du kan inte aktivera kryptering eller inaktivera, hantera eller ersätta dina egna nycklar eller visa krypteringsinställningar i portalen eller via programmering. 
-
-Kryptering i vila lanserades i 24 januari 2018 och gäller för alla tjänstnivåer, inklusive delade (gratis) tjänster i alla regioner. Index som skapats före detta datum måste släppas och återskapas för att kryptering ska ske för fullständig kryptering. I annat fall krypteras endast nya data som lagts till efter januari 24.
+| Vilande kryptering <br>Microsoft-hanterade nycklar | Kryptering är helt internalized i indexeringsprocessen mätbara påverkan på indexering tid att slutföra eller Indexstorlek. Det sker automatiskt på alla indexering, inklusive på inkrementella uppdateringar till ett index som inte är helt krypterad (som skapats före januari 2018).<br><br>Internt, kryptering baseras på [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Kryptering är interna för Azure Search med certifikat och krypteringsnycklar hanteras internt av Microsoft och tillämpas universellt. Du kan inte aktivera kryptering eller inaktivera, hantera eller ersätta dina egna nycklar eller visa krypteringsinställningar i portalen eller via programmering.<br><br>Kryptering i vila lanserades i 24 januari 2018 och gäller för alla tjänstnivåer, inklusive delade (gratis) tjänster i alla regioner. Index som skapats före detta datum måste släppas och återskapas för att kryptering ska ske för fullständig kryptering. I annat fall krypteras endast nya data som lagts till efter januari 24.|
+| Vilande kryptering <br>Kundhanterade nycklar | Kryptering med nycklar som hanteras av kunden är en **förhandsversion** services-funktion som inte är tillgänglig kostnadsfritt. För avgiftsbelagda tjänster, det är endast tillgängligt för söktjänster som skapats på eller efter januari 2019 med senast förhandsversion api-versionen (api-version = 2019-05-06-förhandsversion).<br><br>Azure Search-Index och synonymmappningar kan nu krypteras i vila med nycklar hanterade Kundnycklar i Azure Key Vault. Mer information finns i [hantera krypteringsnycklar i Azure Search](search-security-manage-encryption-keys.md).<br>Den här funktionen ersätter inte standard-kryptering i vila, men i stället tillämpas utöver den.<br>Den här funktionen aktiveras öka indexstorleken på och försämra prestanda för frågor. Baserat på observationer hittills, du kan förvänta dig att se en ökning av 30-60% frågetider, även om den faktiska prestandan kan variera beroende på indexdefinitionen och typer av frågor. På grund av den här prestandainverkan på rekommenderar vi att du aktiverar den här funktionen på index som verkligen behöver den.
 
 ## <a name="azure-wide-user-access-controls"></a>Azure hela åtkomstkontroller
 

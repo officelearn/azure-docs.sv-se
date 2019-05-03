@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7db3292bc5f377d9728e42994dd3a437cb59958e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290424"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024816"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Snabbstart: Utforska Azure Search REST API: er med Postman
 > [!div class="op_single_selector"]
@@ -63,9 +63,9 @@ I det här avsnittet använder du din webb-verktyget för att konfigurera anslut
 
 För båda verktygen behöver du att välja ett kommando (GET, POST, PUT och så vidare), ange en URL-slutpunkt och för vissa åtgärder, anger du JSON i brödtexten i begäran. En fullständig URL ser ut ungefär så här:
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11
+    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
 
-Lägg märke till HTTPS-prefixet, namnet på tjänsten, namnet på ett objekt (i det här fallet, index-samling), och [api-versionen](search-api-versions.md). Api-versionen är en obligatorisk, gemener strängen som anges som ”? api-version = 2017-11-11” för den aktuella versionen. API-versioner uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
+Lägg märke till HTTPS-prefixet, namnet på tjänsten, namnet på ett objekt (i det här fallet, index-samling), och [api-versionen](search-api-versions.md). Api-versionen är en obligatorisk, gemener strängen som anges som `?api-version=2019-05-06` för den aktuella versionen. API-versioner uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
 
 Begärandehuvudet består av två element, innehållstyp samt api-nyckeln som används för att autentisera till Azure Search:
 
@@ -85,7 +85,7 @@ URL: en har utökats för att inkludera den `hotel` Indexnamnet.
 Att göra detta i Postman:
 
 1. Byt till verbet **PLACERA**
-2. Kopiera i den här URL: en `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. Kopiera i den här URL: en `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`
 3. Ange indexdefinitionen (se nedan) i brödtexten i begäran
 4. Klicka på **skicka**
 
@@ -129,7 +129,7 @@ URL: en har utökats för att inkludera den `docs` samlingar och `index` igen.
 Att göra detta i Postman:
 
 1. Byt till verbet **INLÄGG**
-2. Kopiera i den här URL: en `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. Kopiera i den här URL: en `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
 3. Ange JSON-dokument (se nedan) i brödtexten i begäran
 4. Klicka på **skicka**
 
@@ -219,7 +219,7 @@ URL: en har utökats för att inkludera en frågesträng som anges med hjälp av
 Att göra detta i Postman:
 
 + Byt till verbet **hämta**
-+ Kopiera i den här URL: en `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ Kopiera i den här URL: en `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
 + Klicka på **skicka**
 
 Den här frågan söker på termen ”motel” (motell) och returnerar antalet dokument i sökresultaten. Begäran och svar bör se ut som skärmbilden från Postman nedan efter att du klickat på **Skicka**. Statuskoden ska vara 200.
@@ -228,7 +228,7 @@ Den här frågan söker på termen ”motel” (motell) och returnerar antalet d
 
 
 ## <a name="get-index-properties"></a>Hämta egenskaper för frågeindex
-Du kan också avfråga systeminformationen för att visa antalet dokument och lagringsanvändningen: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+Du kan också avfråga systeminformationen för att visa antalet dokument och lagringsanvändningen: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 Din begäran i Postman borde se ut som på bilden nedan. Svaret innehåller ett dokumentantal och det diskutrymme som används uttryckt i byte.
 
@@ -247,7 +247,7 @@ Det här avsnittet motsvarar föregående avsnitt, endast med Fiddler skärmbild
 
 Formulera en begäran som ser ut som i följande skärmbild. Välj **hämta** som verb. Fiddler lägger till `User-Agent=Fiddler`. Du kan klistra in två ytterligare begärandehuvuden på de nya raderna under. Inkludera innehållstypen och tjänstens API-nyckel med hjälp av tjänstens administratörsnyckel.
 
-Kopiera i en modifierad version av den här URL: en för target och: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+Kopiera i en modifierad version av den här URL: en för target och: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06`
 
 ![Begärandehuvud i Fiddler][1]
 
@@ -256,7 +256,7 @@ Kopiera i en modifierad version av den här URL: en för target och: `https://<p
 
 ### <a name="1---create-an-index"></a>1 – Skapa ett index
 
-Byt till verbet **PLACERA**. Kopiera en modifierad version av den här URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`. Kopiera indexdefinitionen ovan till begärandetexten. Sidan bör likna följande skärmbild. Klicka på **kör** uppe till höger för att skicka din färdiga begäran.
+Byt till verbet **PLACERA**. Kopiera en modifierad version av den här URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Kopiera indexdefinitionen ovan till begärandetexten. Sidan bör likna följande skärmbild. Klicka på **kör** uppe till höger för att skicka din färdiga begäran.
 
 ![Begärandetext i Fiddler][7]
 
@@ -272,11 +272,11 @@ Följande exempelfråga kommer från artikeln om [sökindexåtgärder (Azure Sea
 
 **Innan blankstegen ersätts (i lastRenovationDate desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06
 
 **Efter att blankstegen har ersatts med + (i lastRenovationDate+desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2019-05-06
 
 ### <a name="tips-for-viewing-index-statistic-in-fiddler"></a>Tips för att visa indexstatistik i Fiddler
 

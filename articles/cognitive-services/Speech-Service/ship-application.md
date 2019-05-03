@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456180"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020389"
 ---
 # <a name="ship-an-application"></a>Skicka ett program
 
@@ -49,19 +49,26 @@ De tal SDK-filerna som krävs kan distribueras i samma katalog som ditt program.
 
 ## <a name="linux"></a>Linux
 
-Tal-SDK stöder för närvarande Ubuntu 16.04 och 18.04 distributioner.
+Tal-SDK stöder för närvarande Ubuntu 16.04 och Ubuntu 18.04 Debian 9-distributioner.
 För ett internt program, måste du skicka tal SDK-biblioteket `libMicrosoft.CognitiveServices.Speech.core.so`.
 Kontrollera att du väljer den versionen (x86, x64) som matchar ditt program. Beroende på Linux-version kan behöva du också omfattar följande beroenden:
 
 * Delade bibliotek av GNU C-bibliotek (inklusive POSIX trådar Programming-biblioteket `libpthreads`)
-* OpenSSL-bibliotek (`libssl.so.1.0.0`)
+* OpenSSL-bibliotek (`libssl.so.1.0.0` eller `libssl.so.1.0.2`)
 * Det delade biblioteket för ALSA program (`libasound.so.2`)
 
 I Ubuntu bör GNU C-bibliotek vara installerad som standard. Tre senaste kan installeras med hjälp av följande kommandon:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+Installera dessa paket på Debian 9:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>Nästa steg

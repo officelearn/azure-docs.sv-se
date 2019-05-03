@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 76567db7362298b5cd35b544bf7952ebc54a2b66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 712b5a003d3542908698d7b69c636780f6cf1007
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723195"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021742"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten
 
@@ -45,31 +45,29 @@ Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen
 * En notebook-server för Python 3.6 med följande installerat:
     * Azure Machine Learning-SDK för Python
     * `matplotlib` och `scikit-learn`
-* Självstudiens anteckningsbok och filen utils.py
-* En Machine Learning-arbetsyta 
-* Konfigurationsfilen för arbetsytan i samma katalog som anteckningsboken 
+* Självstudiekursen anteckningsboken och filen **utils.py**
+* En Machine Learning-arbetsyta
+* Konfigurationsfilen för arbetsytan i samma katalog som anteckningsboken
 
 Hämta alla dessa förutsättningar från något av avsnitten nedan.
  
-* Använd [Azure Notebooks](#azure) 
+* Använd en [molnet notebook-server i din arbetsyta](#azure) 
 * Använd [din egen Notebook-server](#server)
 
-### <a name="azure"></a>Använd Azure Notebooks: Kostnadsfria Jupyter-anteckningsböcker i molnet
+### <a name="azure"></a>Använda en cloud notebook-server i din arbetsyta
 
-Det är lätt att komma igång med Azure Notebooks! [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig i [Azure Notebooks](https://notebooks.azure.com/). Installationen och framtida uppdateringar hanteras automatiskt via Azure-tjänster.
-
-När du har slutfört stegen nedan kan du köra anteckningsboken **tutorials/img-classification-part1-training.ipynb** i ditt **Komma igång**-projekt.
+Det är enkelt att komma igång med din egen molnbaserad notebook-server. Den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig när du skapar den här molnresursen.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* När du startar notebook-webbsidan, öppnar den **självstudier/img-klassificering – del 1 – training.ipynb** anteckningsboken.
 
 
 ### <a name="server"></a>Använda en egen Jupyter Notebook-server
 
-Skapa en lokal Jupyter Notebook-server på datorn enligt nedan. 
-
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
- När du har slutfört stegen kan du köra anteckningsboken **tutorials/img-classification-part1-training.ipynb**.
+ När du har slutfört stegen kan köra den **självstudier/img-klassificering – del 1 – training.ipynb** anteckningsboken från den klonade katalogen.
 
 ## <a name="start"></a>Konfigurera din utvecklingsmiljö
 

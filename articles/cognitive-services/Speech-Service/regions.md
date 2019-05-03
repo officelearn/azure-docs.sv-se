@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480671"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020652"
 ---
 # <a name="speech-service-supported-regions"></a>Med Taltjänsten regioner som stöds
 
@@ -28,9 +28,9 @@ Se till att du använder den slutpunkt som matchar regionen för din prenumerati
 
 I den [tal SDK](speech-sdk.md), regioner har angetts som en sträng (till exempel som en parameter till `SpeechConfig.FromSubscription` i tal SDK för C#).
 
-### <a name="speech-recognition-and-translation"></a>Taligenkänning och översättning
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Tal till text och text till tal översättning
 
-Tal-SDK är tillgänglig i dessa regioner för **taligenkänning** och **translation**:
+Tal-SDK är tillgänglig i dessa regioner för **taligenkänning**, **text till tal**, och **translation**:
 
   Region | Parametern för tal-SDK | Tal anpassning av portalen
  ------|-------|--------

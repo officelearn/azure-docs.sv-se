@@ -4,7 +4,7 @@ description: Referens för den enkla frågesyntaxen som används för fulltexts�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316905"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024189"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Enkel frågesyntax i Azure Search
 Azure Search implementerar två Lucene-baserat frågespråk: [Enklare Frågeparsern](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) och [Lucene Frågeparsern](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). I Azure Search utesluter den enkla frågesyntaxen fuzzy/uppsamlingstankar alternativ.  

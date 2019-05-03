@@ -20,6 +20,14 @@
   items:
     - name: Identifiera avvikelser i dina data
       href: how-to/identify-anomalies.md
+    - name: Använda containrar
+      items:
+        - name: Installera och köra containrar
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: anomaly-detector-container-howto.md
+        - name: Konfigurera containrar
+          href: anomaly-detector-container-configuration.md
+          displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
 - name: Begrepp
   items:
     - name: 'Regelverk för API:et för avvikelseidentifiering'

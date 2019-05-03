@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926321"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992928"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
@@ -45,7 +45,7 @@ Många program kan dra nytta av tid för att förbereda för VM-underhåll. Tide
 Med schemalagda händelser ditt program kan identifiera när Underhåll ska inträffa och utlösa uppgifter för att begränsa dess inverkan. Aktivera schemalagda händelser ger din virtuella dator en minimal mängd tid innan aktiviteten underhåll utförs. Se avsnittet händelse schemaläggning nedan för information.
 
 Schemalagda händelser innehåller händelser i följande användningsfall:
-- Plattform som initierade Underhåll (t.ex. värden OS uppdatering)
+- [Plattformen initierade Underhåll](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (till exempel VM omstart, Direktmigrering och minne som bevaras uppdateringar för värd)
 - Degraderat maskinvara
 - Användarinitierad Underhåll (t.ex. användare startar om eller distribuerar om en virtuell dator)
 - [Borttagning har VM med låg prioritet](https://azure.microsoft.com/blog/low-priority-scale-sets) i skala
@@ -119,7 +119,7 @@ DocumentIncarnation är en ETag och ger ett enkelt sätt att kontrollera om hän
 |Egenskap   |  Beskrivning |
 | - | - |
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. Processorn är inaktiverad, men det finns ingen inverkan på minne, öppna filer eller nätverksanslutningar. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständiga minne är förlorad). <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod (differentierande diskar förloras). <li>`Preempt`: VM med låg prioritet tas bort (differentierande diskar förloras).|
+| Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. CPU och nätverksanslutningen kan stängas av, men det finns ingen inverkan på minne eller öppna filer. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständiga minne är förlorad). <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod (differentierande diskar förloras). <li>`Preempt`: VM med låg prioritet tas bort (differentierande diskar förloras).|
 | ResourceType | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
 | Resurser| Lista över resurser som påverkar den här händelsen. Detta garanterar att de innehåller datorerna från högst ett [Uppdateringsdomän](manage-availability.md), men får inte innehålla alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Händelsestatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i den `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Inte `Completed` eller liknande status någonsin har angetts, kommer inte längre att returneras händelsen när händelsen har slutförts.
@@ -136,7 +136,8 @@ Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden utifrån hä
 | Förutse | 30 sekunder |
 
 ### <a name="event-scope"></a>Händelsen omfång     
-Schemalagda händelser levereras till:        
+Schemalagda händelser levereras till:
+ - Fristående virtuella datorer
  - Alla virtuella datorer i en molntjänst      
  - Alla virtuella datorer i en Tillgänglighetsuppsättning      
  - Alla virtuella datorer i en Skalningsuppsättning ange Placeringsgrupp.         

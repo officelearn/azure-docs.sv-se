@@ -10,22 +10,24 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819227"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024008"
 ---
-# <a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
-
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Läsa in och läsa data med Azure Machine Learning Data Prep SDK
 I den här artikeln får du lära dig olika metoder för att läsa in data med hjälp av Azure Machine Learning Data Prep SDK. Referensdokumentation för SDK finns i den [översikt](https://aka.ms/data-prep-sdk). SDK stöder flera funktioner för data datainmatning, inklusive:
 
 * Läsa in från många filtyper med parsning parametern inferens (kodning, avgränsare, rubriker)
 * Typ konverze med inferens under inläsningen av filen
 * Stödet för MS SQL Server och Azure Data Lake Storage
+
+> [!Important]
+> Om du skapar en ny lösning kan du prova den [Azure Machine Learning datauppsättningar](how-to-explore-prepare-data.md) (förhandsversion) för datagranskning och förberedelse. Datauppsättningar är nästa version av dataförberedelser SDK, som erbjuder fler funktioner för att hantera datauppsättningar i AI-lösningar.
 
 I följande tabell visas en uppsättning funktioner som används för att läsa in data från vanliga filtyper.
 

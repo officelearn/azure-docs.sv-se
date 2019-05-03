@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd1eaa95a23deed0bf2098995be43402c605defc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345574"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024226"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio är ett drag-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Tjänsten Machine Learning Studio publicerar modeller som webbtjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
@@ -29,7 +29,7 @@ Machine Learning Studio är platsen där datavetenskap, prediktiva analyser, mol
 
 
 ## <a name="the-machine-learning-studio-interactive-workspace"></a>Den interaktiva arbetsytan i tjänsten Machine Learning Studio
-För att skapa en prediktiv analysmodell använder du normalt data från eller flera källor, omvandlar och analyserar dessa data genom att utföra en serie datamodifieringar och statistiska funktioner och sedan genererar du en uppsättning resultat. Att utveckla en modell som den här är en process som är baserad på upprepningar (iteration). När du ändrar olika funktionerna och deras parametrar kommer resultaten att konvergera tills du är nöjd och säker på att du har en tränad, effektiv modell.
+För att utveckla en förutsägande analysmodell kan du vanligtvis använder data från en eller flera källor, transformera och analysera dessa data via datamodifieringar och statistiska funktioner och generera en uppsättning resultat. Att utveckla en modell som den här är en process som är baserad på upprepningar (iteration). När du ändrar olika funktionerna och deras parametrar kommer resultaten att konvergera tills du är nöjd och säker på att du har en tränad, effektiv modell.
 
 **Azure Machine Learning Studio** ger dig en interaktiv, visuell arbetsyta där du kan bygga, testa och utföra iterationer på en prediktiv analysmodell. Du drar och släpper ***datauppsättningar*** och ***analysmoduler*** till en interaktiv ***arbetsyta***, kopplar samman dem för att skapa ett experiment och sedan kör du dessa i Machine Learning Studio. Om du vill köra en iteration med modelldesignen, redigerar du experimentet, sparar en kopia om du så önskar och sedan kör du försöket igen. När du är klar kan du konvertera ditt ***träningsexperiment*** till ett ***prediktivt experiment***, och sedan ***publicera*** det som en webbtjänst så att din modell kan användas av andra.
 
@@ -44,7 +44,7 @@ Ladda ned diagrammet **Översikt över funktioner i Microsoft Azure Machine Lear
 ![Översikt av funktioner i Microsoft Azure Machine Learning Studio](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Kom igång med Machine Learning Studio
-När du startar [Machine Learning Studio](https://studio.azureml.net) kommer du att se **startsidan**. Härifrån kan du titta på dokumentation, videor, webbseminarier och hitta andra användbara resurser.
+När du först ange Machine Learning Studio] (https://studio.azureml.net) du ser den **Start** sidan. Härifrån kan du titta på dokumentation, videor, webbseminarier och hitta andra användbara resurser.
 
 Klicka på menyn uppe till vänster ![Meny](./media/what-is-ml-studio/menu.png) och du ser flera alternativ.
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
@@ -87,7 +87,7 @@ En datauppsättning är data som har överförts till Machine Learning Studio s�
 * **Bröstcancerdata** – Data för bröstcancerdiagnoser.
 * **Data om skogsbränder** – Storleken på skogsbränder i nordöstra Portugal.
 
-Medan du skapar ett experiment kan välja bland alternativ från listan över tillgängliga datauppsättningar på arbetsytans vänstra sida.
+När du skapar ett experiment kan du välja i listan över tillgängliga datauppsättningar till vänster om arbetsytan.
 
 Om du vill se en lista över provdatauppsättningar som ingår i Machine Learning Studio, kan du gå till [Använda provdatauppsättningar i Azure Machine Learning Studio](use-sample-datasets.md).
 
@@ -111,14 +111,22 @@ När din prediktiva analysmodell är färdig kan du distribuera den som en webbt
 <a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Hur skiljer sig tjänsten Machine Learning Studio från Azure Machine Learning Service?
 
-[Azure Machine Learning Service](../service/overview-what-is-azure-ml.md) tillhandahåller SDK:er och tjänster som du kan använda för att snabbt förbereda data samt träna och distribuera maskininlärningsmodeller. Förbättra produktiviteten och minska kostnaderna med databearbetning med automatisk skalning och pipelines. Använd dessa funktioner med Python-ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-learn. 
+[Azure Machine Learning-tjänsten](../service/overview-what-is-azure-ml.md) tillhandahåller både SDK: er **- och -** en visual interface(preview) att snabbt Förbered data, träna och distribuera machine learning-modeller. Den här visuella gränssnittet (förhandsversion) ger en liknande dra och släpp-upplevelse till Studio. Dock använder egna beräkningsresurser det visuella gränssnittet till skillnad från den egna beräkningsplattformen Studio och är helt integrerat i Azure Machine Learning-tjänsten.
 
-Använd Machine Learning Studio om du snabbt och enkelt vill experimentera med maskininlärningsmodeller och om de inbyggda maskininlärningsalgoritmerna räcker för dina lösningar.
+Här är en snabb jämförelse.
 
-Använd Machine Learning-tjänsten om du arbetar i en Python-miljö och vill ha mer kontroll över maskininlärningsalgoritmerna eller om du vill använda maskininlärningsbibliotek med öppen källkod.
+|| Machine Learning Studio | Azure Machine Learning-tjänsten:<br/>Visuella gränssnittet|
+|---| --- | --- |
+|| Allmänt tillgänglig (GA) | Förhandsversion|
+|Moduler för gränssnittet| Många | Inledande uppsättning populära moduler|
+|Beräkningsmål för utbildning| Upphovsrättsskyddad beräkningsmål, CPU-stöd| Har stöd för Azure Machine Learning-beräkning, GPU eller CPU.<br/>(Andra beräkningar som stöds i SDK)|
+|Beräkningsmål för distribution| Upphovsrättsskyddad web service-format, inte kan anpassas | Enterprise säkerhetsalternativ & Azure Kubernetes Service. <br/>([Andra beräkningarna](../service/how-to-deploy-and-where.md) stöds i SDK) |
+|Automatiserad träning och finjustering av hyperparametrar | Nej | Ännu ej i visuella gränssnittet. <br/> (Stöds i SDK och Azure-portalen.) | 
+
+Prova att använda det visuella gränssnittet (förhandsversion) med [snabbstarten: Förbereda och visualisera data utan att skriva kod](../service/ui-quickstart-run-experiment.md)
 
 > [!NOTE]
-> Modeller som skapas i Azure Machine Learning Studio kan inte distribueras eller hanteras av Azure Machine Learning-tjänsten.
+> Modeller som skapats i Studio kan inte distribueras eller hanteras av Azure Machine Learning-tjänsten. Modeller som skapas och distribueras i det visuella gränssnittet för tjänsten kan dock hanteras via arbetsytan Azure Machine Learning-tjänsten.
 
 ## <a name="free-trial"></a>Kostnadsfri utvärderingsversion
 

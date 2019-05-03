@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344554"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024590"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Bifoga en Cognitive Services-resurs med en kompetens i Azure Search 
 
@@ -28,8 +28,7 @@ Om din pipeline består av kunskaper som inte är relaterade till Cognitive Serv
 > [!NOTE]
 > När du expanderar omfång genom att öka frekvensen för bearbetning, lägga till fler dokument eller att lägga till fler AI-algoritmer, behöver du bifoga en fakturerbar resurs för Cognitive Services. Avgifter tillkommer när du anropar API: er i Cognitive Services och extrahering av avbildningen som en del av det dokumentknäckning steget i Azure Search. Det finns inga avgifter för textextrahering från dokument.
 >
-> Körningen av [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) körning som ingår debiteras enligt de [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services), på samma pris som om du har utfört uppgiften direkt. Extrahering av avbildningen är en Azure Search-avgift, på den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400).
-
+> Körningen av inbyggda färdigheter som ingår debiteras enligt den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Bild extrahering priser beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="use-free-resources"></a>Använd kostnadsfria resurser
 
@@ -100,7 +99,7 @@ När du definierar gruppens kunskaper avgör programmässigt, lägga till en `co
 I följande exempel visas det här mönstret. Lägg märke till cognitiveServices-avsnitt i slutet av definitionen
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -110,7 +109,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -142,7 +141,7 @@ Du kan beräkna kostnaderna för kognitiv sökning, indexering, börjar du med e
 + En avbildning per sida (6000 bilder)
 + 3000 tecken per sida
 
-Anta att en pipeline som består av dokumentet cracking av varje PDF med bild- och extrahering, optisk teckenläsning (OCR) av bilder, och som har namnet entitetsidentifiering av organisationer. 
+Anta att en pipeline som består av dokumentknäckning av varje PDF med bild- och extrahering, optisk teckenläsning (OCR) av avbildningar och entitetsidentifiering av organisationer. 
 
 I den här övningen använder vi dyraste priset per transaktion. Faktiska kostnader kan vara lägre på grund av graderad priser. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services).
 

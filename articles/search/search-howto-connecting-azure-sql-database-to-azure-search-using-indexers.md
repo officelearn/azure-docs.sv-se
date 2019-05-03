@@ -1,7 +1,7 @@
 ---
 title: Anslut och indexera Azure SQL Database-innehåll med hjälp av indexerare – Azure Search
 description: Lär dig mer om att uppdatera data i Azure SQL Database med hjälp av indexerare för fulltextsökning i Azure Search. Den här artikeln beskriver anslutningar, indexerarkonfiguration och datainmatning.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817170"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025347"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ansluta till och indexera Azure SQL Database-innehåll med hjälp av Azure Search-indexerare
 
@@ -63,7 +63,7 @@ Beroende på flera faktorer som är relaterade till dina data, användning av Az
 1. Skapa datakällan:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -82,7 +82,7 @@ Beroende på flera faktorer som är relaterade till dina data, användning av Az
 3. Skapa indexeraren genom att ge den ett namn och refererar till dataIndex för källa och mål:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -95,7 +95,7 @@ Beroende på flera faktorer som är relaterade till dina data, användning av Az
 
 En indexerare som skapats på det här sättet har inte ett schema. Det körs automatiskt när när den har skapats. Du kan köra den igen när som helst med en **köra indexeraren** begäran:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 Du kan anpassa flera aspekter av indexeraren fungerar, till exempel batchstorlek och hur många dokument kan du hoppa över innan det går inte att köra en indexerare. Mer information finns i [skapa Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -104,7 +104,7 @@ Du kan behöva ge Azure-tjänster att ansluta till databasen. Se [ansluta från 
 
 Du övervakar indexeraren status och körning historiken (antal objekt som indexeras, fel, etc.) med en **indexeraren status** begäran:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 Svaret bör se ut ungefär så här:
@@ -146,7 +146,7 @@ Mer information om svaret finns i [hämta Status för indexerare](https://go.mic
 ## <a name="run-indexers-on-a-schedule"></a>Kör indexerare enligt ett schema
 Du kan även ordna indexeraren ska köras regelbundet enligt ett schema. Gör detta genom att lägga till den **schema** egenskapen när du skapar eller uppdaterar indexeraren. Exemplet nedan visar en PUT-begäran för att uppdatera indexeraren:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 

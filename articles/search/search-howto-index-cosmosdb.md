@@ -1,7 +1,7 @@
 ---
 title: Index-datakälla för ett Azure Cosmos DB – Azure Search
 description: Crawla en Azure Cosmos DB-datakälla och mata in data i ett sökbart fulltextindex i Azure Search. Indexerare automatisera datainmatning för valda datakällor som Azure Cosmos DB.
-ms.date: 02/28/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871731"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024726"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexera Cosmos DB med en Azure Search-indexerare
 
@@ -122,9 +122,8 @@ Om du utvärderar MongoDB, måste du använda REST API för att skapa datakälla
 
 Du kan välja om du vill att samlingen som automatiskt indexerar alla dokument i ditt Cosmos DB-konto. Alla dokument som indexeras automatiskt som standard, men du kan inaktivera automatisk indexering. När är avstängd indexera dokument kan nås endast via sina egna länkar eller av frågor med hjälp av webbplatsen-ID. Azure Search kräver Cosmos DB automatisk indexering för att aktiveras i den samling som kommer att indexeras av Azure Search. 
 
-> [!NOTE]
-> Azure Cosmos DB är nästa generation av DocumentDB. Även om produktens namn ändras den `documentdb` syntax i Azure Search-indexerare fortfarande finns för bakåtkompatibilitet kompatibilitet i både Azure Search API: er och sidor. När du konfigurerar indexerare, måste du ange den `documentdb` syntax enligt anvisningarna i den här artikeln.
-
+> [!WARNING]
+> Azure Cosmos DB är nästa generation av DocumentDB. Tidigare med API-versionen **2017-11-11** kan du använda den `documentdb` syntax. Detta innebar att du kan ange din typ av datakälla som `cosmosdb` eller `documentdb`. Från och med API-version **2019-05-06** både Azure Search API: er och -portalen stöder endast den `cosmosdb` syntax enligt anvisningarna i den här artikeln. Det innebär att typ av datakälla måste `cosmosdb` om du vill ansluta till en Cosmos DB-slutpunkt.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 – Assemblera indata för begäran
 
@@ -150,13 +149,13 @@ En **datakälla** anger data till indexet, autentiseringsuppgifter och principer
 
 Formulera en POST-begäran för att skapa en datakälla:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
@@ -172,7 +171,7 @@ Brödtexten i begäran innehåller definitionen av datakällan, vilket bör inne
 | Fält   | Beskrivning |
 |---------|-------------|
 | **Namn** | Krävs. Välj ett namn som representerar din datakällobjektet. |
-|**typ**| Krävs. Måste vara `documentdb`. |
+|**typ**| Krävs. Måste vara `cosmosdb`. |
 |**Autentiseringsuppgifter** | Krävs. Måste vara en Cosmos DB-anslutningssträng.<br/>För SQL-samlingar finns anslutningssträngar i följande format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>För MongoDB-samlingar, lägger du till **ApiKind = MongoDb** på anslutningssträngen:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Undvik att portnumren i slutpunkts-url. Om du inkluderar portnumret går Azure Search inte att indexera Azure Cosmos DB-databasen.|
 | **container** | Innehåller följande element: <br/>**name**: Krävs. Ange ID för samlingen databas som ska indexeras.<br/>**fråga**: Valfri. Du kan ange en fråga för att platta ut en godtycklig JSON-dokumentet till ett fast schema som Azure Search kan indexera.<br/>Frågor stöds inte för MongoDB-samlingar. |
 | **dataChangeDetectionPolicy** | Vi rekommenderar. Se [indexering ändrats dokument](#DataChangeDetectionPolicy) avsnittet.|
@@ -193,7 +192,7 @@ Exempel dokument:
             "lastName": "hoh"
         },
         "company": "microsoft",
-        "tags": ["azure", "documentdb", "search"]
+        "tags": ["azure", "cosmosdb", "search"]
     }
 
 Filterfråga:
@@ -219,7 +218,7 @@ Matris förenkling fråga:
 
 [Skapa ett Azure Search målindex](/rest/api/searchservice/create-index) om du inte redan har en. I följande exempel skapas ett index med ett ID och en beskrivning fält:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -263,13 +262,13 @@ Kontrollera att schemat för din målindex är kompatibel med schemat för käll
 
 När index och datakälla har skapats är du redo att skapa indexeraren:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
     {
-      "name" : "mydocdbindexer",
-      "dataSourceName" : "mydocdbdatasource",
+      "name" : "mycosmosdbindexer",
+      "dataSourceName" : "mycosmosdbdatasource",
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
@@ -334,17 +333,17 @@ Om du använder en anpassad fråga, se till att egenskapen refereras av `softDel
 
 I följande exempel skapas en datakälla med en princip för mjuk borttagning:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
-            "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
+            "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
-        "container": { "name": "myDocDbCollectionId" },
+        "container": { "name": "myCosmosDbCollectionId" },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
             "highWaterMarkColumnName": "_ts"

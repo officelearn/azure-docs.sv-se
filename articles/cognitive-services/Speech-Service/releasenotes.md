@@ -8,18 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/24/2019
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 6a9e66b1731a06d81e89b5f3fc4467a0f0344160
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697868"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020343"
 ---
 # <a name="release-notes"></a>Viktig information
 
+## <a name="speech-sdk-150-2019-may-release"></a>Tal SDK 1.5.0: 2019 maj versionen
+
+**Nya funktioner**
+
+* Nyckelordet upptäcka funktioner (KWS) är tillgängligt för Windows och Linux. KWS funktioner fungerar med alla mikrofon typer officiella KWS stöder finns för närvarande begränsad till mikrofonen-matriser i Azure Kinect DK-maskinvara eller tal Devices SDK.
+* Fras tipset funktionen är tillgänglig via SDK. Mer information finns i [här](how-to-phrase-lists.md).
+* Konversationen avskrift funktionen är tillgänglig via SDK. Se [här](conversation-transcription-service.md).
+* Lägg till stöd för röst-första virtuella assistenter med tal för Direct Line-kanalen.
+
+**Exempel**
+
+* Har lagts till exempel för nya funktioner eller nya tjänster som stöds av SDK: N.
+
+**Förbättringar av / ändras**
+
+* Lägga till olika Igenkännande egenskaper om du vill justera tjänstbeteende eller tjänsten resultat (till exempel maskera svordomar och andra).
+* Du kan nu konfigurera Igenkännande via egenskaper för standardkonfigurationen, även om du har skapat Igenkännande `FromEndpoint`.
+* Mål-C: `OutputFormat` egenskapen har lagts till i SPXSpeechConfiguration.
+* SDK: N stöder nu Debian 9 som en Linux-distribution.
+
+**Felkorrigeringar**
+
+* Åtgärdat problem där API-resursen har destructed för tidigt under text till tal.
 ## <a name="speech-sdk-142"></a>Speech SDK 1.4.2
 
 Detta är en felkorrigering version och påverkar endast intern/hanteras SDK. Det påverkar inte JavaScript-versionen av SDK.
@@ -28,7 +51,7 @@ Detta är en felkorrigering version och påverkar endast intern/hanteras SDK. De
 
 Det här är en version med endast JavaScript. Inga funktioner har lagts till. Följande har gjorts:
 
-* Förhindra att webpack laddas https-proxy-agent.
+* Förhindra att web pack laddas https-proxy-agent.
 
 ## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: 2019 April versionen
 
@@ -49,7 +72,7 @@ Det här är en version med endast JavaScript. Inga funktioner har lagts till. F
 **Förbättringar av / ändras**
 
 * Python: Ytterligare egenskaper för resultat visas nu den `properties` egenskapen.
-* För ytterligare support för utveckling och felsökning kan du omdirigera SDK loggning och diagnostik information till en loggfil (Mer information om [här](how-to-use-logging.md)).
+* För ytterligare utvecklings- och stöd för felsökning kan du omdirigera SDK loggning och diagnostik information till en loggfil (Mer information om [här](how-to-use-logging.md)).
 * JavaScript: Förbättra bearbetningsprestanda för ljud.
 
 **Felkorrigeringar**
@@ -70,7 +93,7 @@ Detta är en felkorrigering version och påverkar endast intern/hanteras SDK. De
 
 **Nya funktioner**
 
-* Tal SDK stöder valet av inkommande mikrofonen via AudioConfig-klassen. Detta kan du strömma ljud data till Speech Services från en icke-standard mikrofon. Mer information finns i dokumentationen som beskriver [ingående ljud enhet](how-to-select-audio-input-devices.md). Detta är inte ännu tillgängliga från JavaScript.
+* Tal SDK stöder valet av inkommande mikrofonen via AudioConfig-klassen. Detta kan du strömma ljud data till Speech Services från en icke-standard mikrofon. Mer information finns i dokumentationen som beskriver [ingående ljud enhet](how-to-select-audio-input-devices.md). Den här funktionen är ännu inte tillgänglig från JavaScript.
 * Tal-SDK: N har nu stöd för Unity i en betaversion. Ge feedback via avsnittet problemet i den [GitHub-exempellagringsplats](https://aka.ms/csspeech/samples). Den här versionen stöder Unity på Windows x86 och x64 (desktop eller Universal Windows Platform-program) och Android (ARM32/64, x86). Mer information finns i vår [Unity Snabbstart](quickstart-csharp-unity.md).
 * Filen `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (levereras i tidigare versioner) behövs inte längre. Funktionerna är nu integrerade i core SDK.
 
@@ -107,9 +130,9 @@ Följande nya innehåll finns i vår [exempellagringsplatsen](https://aka.ms/css
 **Felkorrigeringar**
 
 * Tom proxy användarnamn och lösenord för proxy hanterades inte korrekt. Med den här versionen om du ställer in proxy-användarnamn och lösenord för proxy till en tom sträng, skickas de inte när du ansluter till proxyn.
-* Sessions-ID är skapat av SDK kan inte alltid slumpvis för vissa språk&nbsp;/ miljöer. Lägga till slumpmässiga generator initieringen för att åtgärda detta.
+* Sessions-ID är skapat av SDK kan inte alltid slumpvis för vissa språk&nbsp;/ miljöer. Lägga till slumpmässiga generator initieringen för att åtgärda problemet.
 * Förbättra hanteringen av autentiseringstoken. Om du vill använda en autentiseringstoken anger i SpeechConfig och låter prenumerationsnyckeln tom. Skapa sedan identifieraren som vanligt.
-* I vissa fall anslutningen inte var objektet är korrekt. Problemet har åtgärdats.
+* I vissa fall anslutningen inte var objektet är korrekt. Det här problemet har åtgärdats.
 * JavaScript-exemplet åtgärdades för ljuduppspelning för översättning syntes också på Safari.
 
 ## <a name="speech-sdk-121"></a>Speech SDK 1.2.1
@@ -134,7 +157,7 @@ Det här är en version med endast JavaScript. Inga funktioner har lagts till. F
   * Begränsning av lösenordslängd för ljud sessioner har tagits bort återanslutning sker automatiskt under omslaget.
 * Anslutningsobjektet
   * Du kan komma åt ett anslutningsobjekt från Igenkännande. Det här objektet kan du uttryckligen initiera tjänstanslutning och prenumerera för att ansluta och koppla från händelser.
-    (Detta är inte ännu tillgängliga från JavaScript- och Python.)
+    (Den här funktionen är inte ännu tillgängliga från JavaScript- och Python.)
 * Stöd för Ubuntu 18.04.
 * Android
   * Aktiverade ProGuard support under APK generation.
@@ -142,7 +165,7 @@ Det här är en version med endast JavaScript. Inga funktioner har lagts till. F
 **Förbättringar**
 
 * Förbättringar i användningen av interna tråd och minska antalet trådar, lås, mutexer.
-* Förbättrad felrapportering / information. I flera fall har felmeddelanden inte spridits ut.
+* Förbättrad felrapportering / information. I flera fall har felmeddelanden inte spridits ut hela vägen ut.
 * Uppdatera utveckling beroenden i JavaScript för att använda uppdaterade moduler.
 
 **Felkorrigeringar**

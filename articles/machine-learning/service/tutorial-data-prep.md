@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764597"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025092"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
@@ -41,18 +41,16 @@ Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen
     * Azure Machine Learning-SDK för dataförberedelse för Python
 * Anteckningsboken för självstudie
 
-Hämta alla dessa förutsättningar från något av avsnitten nedan.
-
-* Använd [Azure Notebooks](#azure)
+* Använd en [molnet notebook-server i din arbetsyta](#azure) 
 * Använd [din egen Notebook-server](#server)
 
-### <a name="azure"></a>Använd Azure Notebooks: Kostnadsfria Jupyter-anteckningsböcker i molnet
+### <a name="azure"></a>Använda en cloud notebook-server i din arbetsyta
 
-Det är lätt att komma igång med Azure Notebooks! Azure Machine Learning Data Prep SDK har redan installerats och konfigurerats i [Azure Notebooks](https://notebooks.azure.com/). Installationen och framtida uppdateringar hanteras automatiskt via Azure-tjänster.
-
-När du har slutfört stegen nedan kan du köra anteckningsboken **tutorials/regression-part1-data-prep.ipynb** i ditt **Komma igång**-projekt.
+Det är enkelt att komma igång med din egen molnbaserad notebook-server. Den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig när du skapar den här molnresursen.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* När du startar notebook-webbsidan, kör du den **självstudier/regression – del 1 – data-prep.ipynb** anteckningsboken.
 
 ### <a name="server"></a>Använda en egen Jupyter Notebook-server
 

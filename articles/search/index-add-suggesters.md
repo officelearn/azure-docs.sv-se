@@ -1,7 +1,7 @@
 ---
 title: Lägg till typeahead frågor till ett index – Azure Search
 description: Aktivera frågeifyllningsförslag fråga åtgärder i Azure Search genom att skapa förslagsställare och utformningen av begäranden som anropar Komplettera automatiskt eller autosuggested sökord.
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844443"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021884"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Lägg till förslagsställare till ett index för typeahead i Azure Search
 
@@ -39,9 +39,6 @@ För att implementera dessa beteenden i Azure Search, finns det ett index och fr
 + Indexkomponenten är en förslagsställare. Du kan använda portalen, REST API eller .NET SDK för att skapa en förslagsställare. 
 
 + Frågekomponenten är en åtgärd som anges på query-fråga (åtgärd förslag eller Komplettera automatiskt). 
-
-> [!Important]
-> Automatisk komplettering är för närvarande i förhandsversion, finns i förhandsversion REST API: er och .NET SDK. Det är inte avsett för program i produktion. 
 
 Sök-som-du-type-stöd är aktiverat på basis av per fält. Du kan implementera båda typeahead beteenden inom samma söklösning om du vill att en upplevelse liknar det som anges i skärmbilden. Både begäranden mål den *dokument* samling specifikt index och -svar returneras när en användare har tillhandahållit Indatasträngen på minst tre tecken.
 
@@ -106,7 +103,7 @@ Egenskaper som definierar en förslagsställare inkluderar följande:
 
 |Egenskap       |Beskrivning      |
 |--------------|-----------------|
-|`name`        |Namnet på förslagsställare. Du använder namnet på förslagsställare när du anropar den [förslag REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) eller [automatisk komplettering REST API (förhandsversion)](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
+|`name`        |Namnet på förslagsställare. Du använder namnet på förslagsställare när du anropar den [förslag REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) eller [REST-API för automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |Den strategi som används för att söka efter kandidat fraser. Det enda läge som stöds för närvarande är `analyzingInfixMatching`, vilket genomför flexibla matchningar av fraser i början eller mitten meningar.|
 |`sourceFields`|En lista över en eller flera fält som är källan till innehållet för förslag. Endast fält av typen `Edm.String` och `Collection(Edm.String)` kan vara källor förslag. Endast fält som inte har ett anpassat språkanalysverktyg ange kan användas.<p/>Ange endast de fält som lämpar sig i ett förväntat och att rätt svar, oavsett om det är en sträng som slutförda i ett sökfält eller en listruta.<p/>Ett hotellnamn är en bra kandidat eftersom den har precision. Utförlig fält som beskrivningar och kommentarer är för kompakta. På samma sätt är repetitiva fält, till exempel kategorier och taggar, mindre effektiva. I exemplen är inkluderar vi ”kategori” ändå för att visa att du kan ta flera fält. |
 
@@ -120,7 +117,7 @@ Om du lägger till en förslagsställare till ett befintligt index, där befintl
 
 Som vi nämnde tidigare kan använda du en förslagsställare för föreslagna frågor, automatisk komplettering, eller båda. 
 
-En förslagsställare refereras på begäran tillsammans med åtgärden. Ange till exempel antingen på ett GET REST-anrop `suggest` eller `autocomplete` på samlingen dokument. REST, när en förslagsställare har skapats kan använda den [förslag API](https://docs.microsoft.com/rest/api/searchservice/suggestions) eller [automatisk komplettering API (förhandsversion)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) i frågans logik.
+En förslagsställare refereras på begäran tillsammans med åtgärden. Ange till exempel antingen på ett GET REST-anrop `suggest` eller `autocomplete` på samlingen dokument. REST, när en förslagsställare har skapats kan använda den [förslag API](https://docs.microsoft.com/rest/api/searchservice/suggestions) eller [automatisk komplettering API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) i frågans logik.
 
 .NET, använda [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) eller [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
 

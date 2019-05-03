@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dc1852a57970c2994d9f36cbd7242a18b580a61
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60619245"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020999"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Översätt tal med Speech-SDK för Java
 
-I den här snabbstarten skapar du ett enkelt Java-program som samlar in användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Programmet är utformat för att köras i Windows 64-bitars eller Ubuntu Linux 16.04/18.04 64-bitars och är byggt med Maven-paketet Speech SDK och Eclipse Java IDE.
+I den här snabbstarten skapar du ett enkelt Java-program som samlar in användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet är avsedd att köras på Windows 64-bitars eller 64-bitars Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) eller på macOS 10.13 eller senare. Den är byggd med tal SDK Maven-paketet och Eclipse IDE för Java.
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
@@ -27,17 +27,26 @@ En fullständig lista över språk som är tillgängliga för talöversättning 
 
 För den här snabbstarten krävs:
 
-* Operativsystem: Windows 64-bitars eller Ubuntu Linux 16.04/18.04 64-bitars
+* Operativsystem: 64-bitars Windows 64-bitars Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) eller macOS 10.13 eller senare
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * En Azure-prenumerationsnyckel för taltjänsten. [Skaffa en kostnadsfritt](get-started.md).
 
-Om du kör Ubuntu 16.04/18.04 ska dessa beroenden vara installerade innan du startar Eclipse.
+Om du kör Linux måste du kontrollera att dessa beroenden är installerade innan du startar Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * I Ubuntu:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * On Debian 9:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).

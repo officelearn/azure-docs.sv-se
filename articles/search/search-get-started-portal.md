@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289508"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024748"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Snabbstart: Använda inbyggda portalverktyg för Azure Search-import, -indexering och -frågor
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Vi hoppar över det här steget för tillfället och går direkt till **Anpassa 
    ![Hoppa över steget Kognitiva kunskaper](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> Du kan prova den nya förhandsgranskningsfunktionen för kognitiv sökning i Azure Search från [snabbstarten](cognitive-search-quickstart-blob.md) eller [självstudien för kognitiv sökning](cognitive-search-tutorial-blob.md).
+> Du kan gå igenom ett indexering av AI-exempel i en [snabbstarten](cognitive-search-quickstart-blob.md) eller [självstudien](cognitive-search-tutorial-blob.md).
 
 ### <a name="step-3---configure-index"></a>Steg 3 – Konfigurera index
 
@@ -154,7 +154,7 @@ Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av de
 
    ![Kommandot Sökutforskaren](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. Klicka på **Ändra index** i kommandofältet för att byta till *realestate-us-sample*. Klicka på **Ange API-version** i kommandofältet om du vill se vilka REST-API:er som finns tillgängliga. Använd den allmänt tillgängliga versionen (2017-11-11) för frågorna nedan.
+2. Klicka på **Ändra index** i kommandofältet för att byta till *realestate-us-sample*. Klicka på **Ange API-version** i kommandofältet om du vill se vilka REST-API:er som finns tillgängliga. Använd den allmänt tillgängliga versionen (2019-05-06) för frågorna nedan.
 
    ![Index- och API-kommandon](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: dd62119b01465392a92c7e68231fed8027b04da2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 506acee6cd9cd3c50e10f1c45768230564eeaaf1
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61342628"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022082"
 ---
 # <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Avancerad och mappning till ett sökbart index
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig mappning avancerad och indata till utdataf
 Om du vill mappa fält, lägga till `outputFieldMappings` till din indexerardefinitionen enligt nedan:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```

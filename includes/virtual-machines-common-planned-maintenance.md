@@ -5,21 +5,21 @@ services: virtual-machines
 author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/14/2018
+ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301717"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993119"
 ---
 Azure uppdaterar regelbundet plattform för att förbättra tillförlitligheten, prestanda och säkerheten för infrastrukturen för värd för virtuella datorer. Dessa uppdateringar sträcker sig från korrigeringar programvarukomponenter i värdmiljön, uppgradera nätverkskomponenter, till maskinvara ta ur drift. Flesta av dessa uppdateringar har ingen inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka och Azure väljer minst påverkar metoden efter uppdateringar:
 
 - Om en icke-rebootful uppdatering är möjligt, den virtuella datorn pausas medan värden uppdateras eller den är aktiv migreras till en värd som redan är uppdaterad.
 
-- Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. Azure ger också ett tidsfönster som där du kan starta underhållet själv, samtidigt som passar dig. Azure investeringar i att minska fall när de virtuella datorerna måste startas om för plattform för planerat underhåll. 
+- Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. Azure ger också ett tidsfönster som där du kan starta underhållet själv, samtidigt som passar dig. Självunderhåll tidsfönstret är vanligtvis fyra veckor om det inte brådskande att utföra underhåll. Azure också investeringar i att minska fall när de virtuella datorerna måste startas om för plattform för planerat underhåll. 
 
 Den här sidan beskriver hur Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i Hantera tillgängligheten för virtuella datorer för [Windows](../articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -29,18 +29,30 @@ Du kan hämta i VM-meddelande om kommande Underhåll med schemalagda händelser 
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>Underhåll som inte kräver en omstart
 
-Målet för de flesta underhåll som inte kräver en omstart är mindre än 10 sekunder pausa för den virtuella datorn. I vissa fall minnet bevarande Underhåll används mekanismer, vilket pausar den virtuella datorn i upp till 30 sekunder och bevarar minnet i RAM-minne. Den virtuella datorn sedan återupptas och synkroniseras klockan på den virtuella datorn automatiskt. Azure är allt med hjälp av Direktmigrering tekniker och förbättra minne bevarar Underhåll mekanism för att minska varaktighet för pausen.
+Målet för de flesta noll inverkan underhåll som inte kräver en omstart är mindre än 10 sekunder pausa för den virtuella datorn. Azure väljer uppdateringsmekanism som är minst påverkar kundernas virtuella datorer. I vissa fall används minne preserving Underhåll mekanismer, vilket pausar den virtuella datorn i upp till 30 sekunder och bevarar minnet i RAM-minne. Virtuellt datorn sedan återupptas och synkroniseras klockan automatiskt. Azure är allt med hjälp av Direktmigrering tekniker och förbättra minne bevarar Underhåll mekanism för att minska varaktighet för pausen.  
 
 Dessa icke rebootful underhållsåtgärder är tillämpad feldomän av feldomän och förloppet stoppas om någon varning hälsotillstånd signaler tas emot. 
 
 Vissa program kan påverkas av dessa typer av uppdateringar. Den virtuella datorn är live migreras till en annan värd, kanske vissa känsliga arbetsbelastningar märker en liten prestandaförsämring i några minuter ledde till VM-pausa. Sådana program kan dra nytta av schemalagda händelser för [Windows](../articles/virtual-machines/windows/scheduled-events.md) eller [Linux](../articles/virtual-machines/linux/scheduled-events.md) att förbereda för underhåll av virtuell dator och har ingen påverkan under Azure-underhåll. Azure fungerar även på Underhåll styr funktioner för sådana mycket känsliga program. 
 
+## <a name="live-migration"></a>Direktmigrering
+
+Direktmigrering är en icke-rebootful-åtgärd som bevarar minnet för den virtuella datorn och resulterar i en begränsad pausa eller lås, vanligtvis långvarigt mer än 5 sekunder. Idag är all infrastruktur som en tjänst (IaaS) virtuella datorer, förutom G, M, N och H-serien är berättigade för Direktmigrering. Detta motsvarar över 90% av IaaS-datorer som distribuerats i Azure-beståndet. 
+
+Direktmigrering initieras av Azure-infrastrukturen i följande scenarier:
+- Planerat underhåll
+- Maskinvarufel
+- Allokering optimeringar
+
+Direktmigrering utnyttjas i vissa scenarier för planerat underhåll och schemalagda händelser kan användas till att du vet i förväg när Live migration operations start.
+
+Direktmigrering används också för att flytta virtuella datorer från maskinvara med ett nära förestående förutsagt fel när identifieras av vår Machine Learning-algoritmer och för att optimera VM-allokeringar. Om du vill veta mer om vår förutsägande modellering som identifierar instanser av försämrad maskinvara, finns våra blogginlägg berättigade [förbättra Azure VM-återhämtning med förutsägande ML och Direktmigrering](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). Kunderna alltid får ett meddelande för Direktmigrering i sina Azure-portalen i övervakaren / Service Health loggar och genom schemalagda händelser om de används.
 
 ## <a name="maintenance-requiring-a-reboot"></a>Underhåll som kräver en omstart
 
 I de sällsynta fall när virtuella datorer behöver startas om innan planerat underhåll meddelas du i förväg. Planerat underhåll har två faser: fönstret självbetjäning och en schemalagd underhållsperiod.
 
-Den **självbetjäning fönstret** kan du starta underhållet på dina virtuella datorer. Under denna tid kan du fråga varje virtuell dator för att se deras status och kontrollera resultatet av din senaste begäran.
+Den **självbetjäning fönstret** kan du starta underhållet på dina virtuella datorer. Du kan fråga varje virtuell dator för att se deras status och kontrollera resultatet av dina senaste Underhåll under tiden som oftast är fyra veckor.
 
 När du startar självbetjäningsunderhållet, om den virtuella datorn till en nod som redan är uppdaterad. Eftersom den virtuella datorn om den temporära disken går förlorad och den dynamiska IP-adresser som är associerade med virtuella nätverksgränssnittet har uppdaterats.
 

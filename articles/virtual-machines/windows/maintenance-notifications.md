@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: cfd88118b483067f4c6ee62ee013a2202f0d7e67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76e0f496acf37d4220f57a599f0ce449ca130bba
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301771"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992904"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Hantera meddelanden planerat underhåll för Windows-datorer
 
@@ -33,7 +33,7 @@ Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfras
 Planerat underhåll som kräver en omstart schemaläggs i vågor. Varje våg har olika omfång (regioner).
 
 - En våg börjar med ett meddelande till kunderna. Som standard skickas meddelandet till Prenumerationens ägare och Medägare. Du kan lägga till fler mottagare och meddelandeinställningarna som e-post, SMS och Webhooks, till meddelanden med hjälp av Azure [Aktivitetsloggaviseringar](../../azure-monitor/platform/activity-logs-overview.md).  
-- Vid tidpunkten för anmälan, en *självbetjäning fönstret* är tillgänglig. Under det här fönstret kan du hitta vilka av dina virtuella datorer som ingår i den här wave och proaktivt starta Underhåll efter behov schemaläggning.
+- Vid tidpunkten för anmälan, en *självbetjäning fönstret* är tillgänglig. Du kan hitta vilka av dina virtuella datorer som ingår i den här wave och proaktivt starta Underhåll enligt dina egna schemaläggning behov under den här perioden som oftast är fyra veckor.
 - När fönstret självbetjäning en *schemalagda underhållsperiod* börjar. Någon gång under det här fönstret Azure schemalägger och gäller det nödvändiga underhållet för den virtuella datorn. 
 
 Målet i att ha två windows är att ge dig tid att starta underhåll och starta om den virtuella datorn samtidigt som du vet när Azure startar automatiskt underhåll.

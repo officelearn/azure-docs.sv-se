@@ -1,7 +1,7 @@
 ---
 title: Indexera innehåll från Azure Table storage för fulltextsökning – Azure Search
 description: Lär dig hur du indexera data lagrade i Azure Table storage med en Azure Search-indexerare.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e1b411ab54a5b666849893ba9d246eff85e7e54e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871242"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024783"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexera Azure Table storage med Azure Search
 Den här artikeln visar hur du använder Azure Search att indexera data lagrade i Azure Table storage.
@@ -49,7 +49,7 @@ För tabellen indexering måste datakällan ha följande egenskaper:
 
 Skapa en datakälla:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ Indexet anger fälten i dokument, attribut, och andra konstruktioner som formar 
 
 Skapa ett index:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ En indexerare ansluter en datakälla med en målsökindex och tillhandahåller e
 
 När index och datakälla har skapats är du redo att skapa indexeraren:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -133,7 +133,7 @@ När du ställer in en tabellindexerare ska köras enligt ett schema, den reinde
 
 Du kan använda en strategi för mjuk borttagning för att ange att vissa dokument måste tas bort från indexet. Lägga till en egenskap som indikerar att den har tagits bort och konfigurera en princip för mjuk borttagning på datakällan i stället för att ta bort en rad. Till exempel följande princip anser att en rad tas bort om raden har en egenskap `IsDeleted` med värdet `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

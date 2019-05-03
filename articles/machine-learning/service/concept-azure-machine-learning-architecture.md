@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821236"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025227"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -68,7 +68,7 @@ När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som anvä
 
 En taxonomi för arbetsytan illustreras i följande diagram:
 
-[![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Experiment
 
@@ -106,6 +106,16 @@ En kör konfiguration kan vara kvar i en fil på den katalog som innehåller utb
 
 Till exempel kör konfigurationer, se [Använd beräkningsmål träna din modell](how-to-set-up-training-targets.md).
 
+## <a name="dataset"></a>Datauppsättning
+
+Azure Machine Learning datauppsättningar (förhandsversion) gör det enklare att komma åt och arbeta med dina data. Datauppsättningar hantera data i olika scenarier, till exempel modellträning och pipeline skapas. Med Azure Machine Learning SDK kan du komma åt underliggande lagring, utforska och förbereda data, hantera livscykeln för olika datauppsättning definitioner och jämför datauppsättningar som används i utbildning och i produktion.
+
+Datauppsättningar ger metoder för att arbeta med data i populära format, till exempel med hjälp av `from_delimited_files()` eller `to_pandas_dataframe()`.
+
+Mer information finns i [skapa och registrera Azure Machine Learning datauppsättningar](how-to-create-register-datasets.md).
+
+Ett exempel på hur du använder datauppsättningar finns i den [exempel anteckningsböcker](https://aka.ms/dataset-tutorial).
+
 ## <a name="datastore"></a>Datalager
 
 Ett datalager är en abstraktion av lagring via ett Azure storage-konto. Datalagringen kan använda en Azure blob-behållare eller en Azure-filresurs som backend-lagring. Varje arbetsyta har ett standard-datalager, och du kan registrera ytterligare datalager.
@@ -127,7 +137,7 @@ Beräkningsmål är beräkningsresursen som används för att köra skriptet utb
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
+| Fältet-programmable gate array FPGA) | &nbsp; | ✓ |
 
 Beräkningsmål är kopplade till en arbetsyta. Compute mål än den lokala datorn som delas av användare i arbetsytan.
 
@@ -189,8 +199,6 @@ Azure Machine Learning kan skapa två typer av bilder:
 * **Docker-avbildning**: Används när du distribuerar till beräkningsmål än FPGA. Exempel är Azure Container Instances och Azure Kubernetes Service.
 
 Azure Machine Learning-tjänsten tillhandahåller en basavbildning som används som standard. Du kan också ange dina egna anpassade avbildningar.
-
-Mer information finns i Konfigurera och registrera bilddelen av [distribuera modeller](how-to-deploy-and-where.md#configureimage).
 
 Ett exempel för att skapa en avbildning finns i [distribuera en modell för klassificering av avbildning i Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

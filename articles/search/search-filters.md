@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289594"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024834"
 ---
 # <a name="filters-in-azure-search"></a>Filter i Azure Search 
 
@@ -73,10 +73,10 @@ I följande exempel representerar prototypical filterdefinitioner i flera API: e
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -146,7 +146,7 @@ Om ett fält är icke-filtrerbara och du vill göra det filtrerbara, måste du l
 
 ## <a name="text-filter-fundamentals"></a>Grunderna i text-filter
 
-Textfilter är giltiga för strängfält som du vill att hämta vissa godtycklig samling av dokument baserat på värdena i sökkorpus.
+Textfilter är giltiga för strängfält som du vill att hämta vissa godtycklig samling av dokument baserat på värdena i search-index.
 
 För Textfilter som består av strängar, finns det ingen lexikal analys eller ordseparation, så jämförelserna gäller för exakta matchningar. Anta exempelvis att ett fält *f* innehåller ”solig dag” `$filter=f eq 'Sunny'`matchar inte, men `$filter=f eq 'Sunny day'` kommer. 
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924578"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023963"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementera aspektbaserad navigering i Azure Search
 Aspektbaserad navigering är en filtreringsmekanism som tillhandahåller självriktad detaljgranska navigering i sökprogram. Termen ”aspektbaserad navigering” kan vara bekant, men du har förmodligen använt den tidigare. Som i följande exempel visas är aspektbaserad navigering helt enkelt de kategorier som används för att filtrera resultaten.
 
  ![Azure Search jobbet Portal Demo][1]
 
-Aspektbaserad navigering är en annan startpunkt för att söka. Det är ett praktiskt alternativ till att skriva komplexa sökuttryck manuellt. Fasetter kan hjälpa dig att hitta det du letar efter, samtidigt som man säkerställer att du inte blir noll. Som utvecklare kan du exponera mest användbara sökvillkoren för att navigera din sökkorpus fasetter. I onlinebutiker program skapas aspektbaserad navigering ofta över varumärken, avdelningar (barnens skor), storlek, pris, popularitet och betyg. 
+Aspektbaserad navigering är en annan startpunkt för att söka. Det är ett praktiskt alternativ till att skriva komplexa sökuttryck manuellt. Fasetter kan hjälpa dig att hitta det du letar efter, samtidigt som man säkerställer att du inte blir noll. Som utvecklare kan fasetter du exponera mest användbara sökvillkoren för att navigera ditt sökindex. I onlinebutiker program skapas aspektbaserad navigering ofta över varumärken, avdelningar (barnens skor), storlek, pris, popularitet och betyg. 
 
 Implementera aspektbaserad navigering skiljer sig åt mellan sökteknik. I Azure Search byggs aspektbaserad navigering när en fråga körs med fält som du tidigare hänföras i ditt schema.
 

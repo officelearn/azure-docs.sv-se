@@ -7,46 +7,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 2464424b537f6187542fb612626cff115711d6e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a3226050901f6feb17c4d9d6a6582cb622618b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608980"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020190"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
-Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgängliga för att hjälpa utvecklare att bygga intelligenta program utan direkt AI eller datakunskaper eller kunskap. Azure Cognitive Services kan utvecklare enkelt lägga till kognitiva funktioner, till exempel känslo- och video identifiering; videodetektion, tal och syn, igenkänning av och tal- och språkförståelse i sina program. Målet med Azure Cognitive Services är att hjälpa utvecklare att skapa program som kan se, höra, tala, förstå och man orsak. Katalogen med tjänster inom Azure Cognitive Services kan kategoriseras i fem huvudsakliga pelare - visuellt innehåll, tal, språk, Sök och kunskap.
+Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgängliga för att hjälpa utvecklare att bygga intelligenta program utan direkt AI eller datakunskaper eller kunskap. Azure Cognitive Services kan utvecklare enkelt lägga till kognitiva funktioner i sina program. Målet med Azure Cognitive Services är att hjälpa utvecklare att skapa program som kan se, höra, tala, förstå och man orsak. Katalogen med tjänster inom Azure Cognitive Services kan kategoriseras i fem huvudsakliga pelare - visuellt innehåll, tal, språk, webbsökning och beslut.
 
 ## <a name="vision-apis"></a>Visions-API:er
 
 |Tjänstnamn|Tjänstbeskrivning|
 |:-----------|:------------------|
 |[Visuellt](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "för visuellt innehåll")|Tjänsten för visuellt innehåll ger dig tillgång till avancerade algoritmer för att bearbeta bilder och returnerar information.|
-|[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service") (förhandsversion)|Custom Vision Service kan du skapa anpassade bildklassificerare.|
-|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator tillhandahåller övervakning för möjliga stötande, oönskade och riskfyllda innehåll.|
+|[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service")|Custom Vision Service kan du skapa anpassade bildklassificerare.|
 |[API för ansiktsigenkänning](https://docs.microsoft.com/azure/cognitive-services/face/ "Ansikts-API")|Ansikts-API ger åtkomst till avancerade ansiktsigenkänningsalgoritmer, aktivera attributet ansiktsigenkänning och taligenkänning.|
-| [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer kan du extrahera insikter från din video.|
+|[Formuläret Igenkännande](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "utgör Igenkännande") (förhandsversion)|Identifierare för formuläret identifierar och extraherar nyckel / värde-par och tabelldata från formuläret dokument. Därefter visas strukturerade data, inklusive relationerna i den ursprungliga filen.|
+|[Ink-Igenkännande](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Ink-Igenkännande") (förhandsversion)|Ink Igenkännande kan du identifiera och analysera digitala ink linje data, former och handskriven innehåll och mata ut ett dokumentstruktur med alla identifierade entiteter.|
+|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer kan du extrahera insikter från din video.|
 
 ## <a name="speech-apis"></a>API:er för taligenkänning
 
 |Tjänstnamn|Tjänstbeskrivning|
 |:-----------|:------------------|
-|[Med Taltjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Taltjänst") (förhandsversion)|Med Taltjänsten lägger till stöd för tal funktioner till program.|
-|[Bing-taligenkänning](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing-taligenkänning")|API för Bing-taligenkänning ger dig ett enkelt sätt att skapa talbaserade funktioner i dina program.|
-|[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech")|Translator för Talöversättning är en tjänst för maskinöversättning.|
+|[Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Services")|Med Taltjänsten lägger till stöd för tal funktioner till program.|
 |[API för Talarigenkänning](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API för Talarigenkänning") (förhandsversion)|API för Talarigenkänning innehåller algoritmer för talaridentifiering och verifiering.|
+|[Bing-taligenkänning](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing-taligenkänning") (tas ur bruk)|API för Bing-taligenkänning ger dig ett enkelt sätt att skapa talbaserade funktioner i dina program.|
+|[Talöversättning](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Talöversättning") (tas ur bruk)|Translator för Talöversättning är en tjänst för maskinöversättning.|
 
 ## <a name="language-apis"></a>Språk-API: er
 
 |Tjänstnamn|Tjänstbeskrivning|
 |:-----------|:------------------|
-|[Stavningskontroll i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "stavningskontroll i Bing")|Stavningskontroll i Bing kan du utföra sammanhangsberoende grammatik och stavningskontroll.|
 |[LUIS Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/ "Språkförståelse")|Tjänst för Språkförståelse (LUIS) tillåter programmet att förstå vad en person vill med egna ord.|
+|[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker kan du skapa en fråga och besvara tjänsten från din delvis strukturerat innehåll.|
 |[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "textanalys")|Text Analytics tillhandahåller naturlig språkbearbetning rå text för attitydanalys, extrahering av diskussionsämne och språkidentifiering.|
 |[Translator för textöversättning](https://docs.microsoft.com/azure/cognitive-services/translator/ "textöversättning")|Translator för textöversättning ger datorbaserade textöversättning i nära realtid.|
+|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer kan du extrahera insikter från din video.|
 
 ## <a name="search-apis"></a>Sök API:er
 
@@ -61,12 +63,15 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgänglig
 |[Bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "bildsökning i Bing")|Bildsökning i Bing returnerar en visning av bilder som bedöms vara relevanta för användarens fråga.|
 |[Bing Visual Search](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Bing Visual Search")|Bing Visual Search innehåller returnerar information om en bild som visuellt likartade bilder shopping källor för produkter hittades i avbildningen och relaterade sökningar.|
 |[Sökning i Bing lokala företag](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "sökning i Bing lokala företag")| Lokala företag i Bing kan dina program att hitta information om lokala företag baserat på sökfrågor kontakta och plats.|
+|[Stavningskontroll i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "stavningskontroll i Bing")|Stavningskontroll i Bing kan du utföra sammanhangsberoende grammatik och stavningskontroll.|
 
-## <a name="knowledge-apis"></a>Knowledge API: er
+## <a name="decision-apis"></a>Beslutet API: er
 
 |Tjänstnamn|Tjänstbeskrivning|
 |:-----------|:------------------|
-|[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker kan du skapa en fråga och besvara tjänsten från din delvis strukturerat innehåll.|
+|[Avvikelseidentifiering detektor](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Avvikelseidentifiering detektor") (förhandsversion)|Avvikelseidentifiering detektor kan du övervaka och identifiera avvikelser i tidsseriedata.|
+|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator tillhandahåller övervakning för möjliga stötande, oönskade och riskfyllda innehåll.|
+|[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer") (förhandsversion)|Personalizer kan du välja den bästa upplevelsen ska visas för användarna, utbildning från beteendet i realtid.|
 
 ## <a name="use-free-trials"></a>Använd kostnadsfria utvärderingsversioner
 
@@ -74,11 +79,11 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgänglig
 
 ## <a name="subscription-management"></a>Prenumerationshantering
 
-När du har loggat in med ditt Microsoft-Account, du kan komma åt [Mina prenumerationer](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Mina prenumerationer") att visa de produkter som du använder de återstående kvot och möjligheten att lägga till ytterligare produkter din prenumeration.
+När du har loggat in med ditt Microsoft-Account, du kan komma åt [Mina prenumerationer](https://www.microsoft.com/cognitive-services/subscriptions "Mina prenumerationer") att visa de produkter som du använder de återstående kvot och möjligheten att lägga till ytterligare produkter din prenumeration.
 
 ## <a name="upgrade-to-unlock-limits"></a>Uppgraderingen för att låsa upp gränser
 
-Alla API: er har en kostnadsfri utvärderingsversion plan.  När avgiftsbelagda erbjudanden blir tillgängliga för varje API, omdirigeras du till Azure-portalen till Slutför köpet.  Du kan hitta *köpa* länkarna på sidan prenumerationer om du redan använder dem eller du kan hoppa över utvärderingsversion helt och hållet och köpa med tillhandahålls länkar på [priser](https://www.microsoft.com/cognitive-services/en-us/pricing "priser").  Du behöver ett Azure-prenumerant-konto med ett kreditkort och ett telefonnummer. Om du har ett särskilt behov eller bara vill prata med försäljning, klickar du på ”Kontakta oss” längst upp på sidan med priser.
+Alla API: er har en kostnadsfri utvärderingsversion plan som har användnings- och dataflöde gränser.  Du kan öka gränserna genom att använda ett avgiftsbelagt erbjudande och att välja rätt nivå prissättningsalternativ när du distribuerar tjänsten i Azure-portalen. [Mer information om dessa erbjudanden och prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/ "erbjudanden och prissättning"). Du behöver ett Azure-prenumerant-konto med ett kreditkort och ett telefonnummer. Om du har ett särskilt behov eller bara vill prata med försäljning, klickar du på ”Kontakta oss” längst upp på sidan med priser.
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
@@ -96,11 +101,11 @@ Letar du efter en region vi stöder inte ännu? Berätta för oss genom att skic
 
 ## <a name="certifications-and-compliance"></a>Certifieringar och efterlevnad
 
-Cognitive Services har tilldelats certifieringar som CSA STAR-certifieringen, FedRAMP Måttlig och HIPAA BAA. 
+Cognitive Services har tilldelats certifieringar som CSA STAR-certifieringen, FedRAMP Måttlig och HIPAA BAA.
 
-Du kan [hämta](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifieringar för granskningar och security granskningar. 
+Du kan [hämta](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifieringar för granskningar och security granskningar.
 
-För att förstå sekretess- och datahantering, går du till den [Säkerhetscenter](https://servicetrust.microsoft.com/). 
+För att förstå sekretess- och datahantering, går du till den [Säkerhetscenter](https://servicetrust.microsoft.com/).
 
 ## <a name="support"></a>Support
 

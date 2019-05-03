@@ -6,16 +6,16 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281810"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024319"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymer i Azure Search
 
@@ -23,11 +23,13 @@ Synonymer i sökmotorer associerar ekvivalenta termer som implicit expanderar om
 
 I Azure Search görs synonymen expansion när en fråga körs. Du kan lägga till synonymmappningar till en tjänst utan några avbrott befintliga åtgärder. Du kan lägga till en **synonymMaps** egenskap till en fältdefinition utan att behöva återskapa indexet.
 
-## <a name="feature-availability"></a>Funktionstillgänglighet
+## <a name="create-synonyms"></a>Skapa synonymer
 
-Synonymfunktionen stöds i den senaste api-versionen (api-version = 2017-11-11). Funktionen stöds för närvarande inte på Azure Portal.
+Det finns inget portal stöd för att skapa synonymer, men du kan använda REST API eller .NET SDK. Om du vill komma igång med REST, rekommenderar vi [med hjälp av Postman](search-fiddler.md) och formulera begäranden med hjälp av den här API: [Skapa Synonymmappningar](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). För C# utvecklare, du kan komma igång med [lägga till synonymer i Azure söka med C# ](search-synonyms-tutorial-sdk.md).
 
-## <a name="how-to-use-synonyms-in-azure-search"></a>Hur du använder synonymer i Azure search
+Du kan också om du använder [Kundhanterade nycklar](search-security-manage-encryption-keys.md) för tjänstsidan kryptering vid vila, du kan använda det skyddet för innehållet i din synonymmappning.
+
+## <a name="use-synonyms"></a>Använda synonymer
 
 I Azure Search utifrån synonymen support synonymmappningar som du definierar och ladda upp till din tjänst. Dessa kartor utgör en oberoende resurs (till exempel index eller datakällor) och kan användas av valfritt sökbart fält i ett index i din söktjänst.
 
@@ -49,7 +51,7 @@ Synonymmappningar måste vara i formatet Apache Solr som beskrivs nedan. Om du h
 
 Du kan skapa en ny synonymmappning med HTTP POST, som i följande exempel:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -62,7 +64,7 @@ Du kan skapa en ny synonymmappning med HTTP POST, som i följande exempel:
 
 Du kan också använda PUT och ange synonymen kartans namn på URI: N. Om mappningen används inte finns skapas den.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -74,38 +76,38 @@ Du kan också använda PUT och ange synonymen kartans namn på URI: N. Om mappni
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr synonymen format
 
-Solr format stöder motsvarande och explicit synonymmappningar. Regler för mappning av uppfylla filterspecifikationen för öppen källkod synonymen av Apache Solr, som beskrivs i det här dokumentet: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Nedan visas en Exempelregel för motsvarande synonymer.
+Solr format stöder motsvarande och explicit synonymmappningar. Regler för mappning av uppfylla filterspecifikationen synonymen för öppen källkod av Apache Solr, som beskrivs i det här dokumentet: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Nedan visas en Exempelregel för motsvarande synonymer.
 ```
 USA, United States, United States of America
 ```
 
 Med regeln ovan är en sökfråga breddas ”Europa” till ”Europa” eller ”USA” eller ”USA”.
 
-Explicit mappning markeras med en pil ”= >”. När du anger en term sekvens med en sökfråga som matchar den vänstra sidan av ”= >” ersätts med varianter på höger sida. Med regeln nedan kan sökfrågor ”Washington”, ”Wash.” eller ”WA” kommer alla skrivas till ”WA”. Explicit mappning bara gäller i den riktning du angav och skriv om inte frågan ”WA” till ”Washington” i det här fallet.
+Explicit mappning markeras med en pil ”= >”. När du anger en term sekvens med en sökfråga som matchar den vänstra sidan av ”= >” ersätts med alternativ till höger. Med regeln nedan kan sökfrågor ”Washington”, ”Wash.” eller ”WA” kommer alla skrivas till ”WA”. Explicit mappning bara gäller i den riktning du angav och skriv om inte frågan ”WA” till ”Washington” i det här fallet.
 ```
 Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Lista synonymen mappar under din tjänst.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Få en synonymmappning under din tjänst.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Ta bort en synonymer karta under din tjänst.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Konfigurera ett sökbart fält så att synonymmappningen används i indexdefinitionen.
 
 En ny fältegenskap **synonymMaps** kan användas för att ange en synonymmappning som ska användas för ett sökbart fält. Synonymmappningar är tjänsten på resurser och kan refereras av varje fält i ett index i tjänsten.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
     api-key: [admin key]
 
     {

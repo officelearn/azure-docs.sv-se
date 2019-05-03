@@ -11,16 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752346"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021095"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstod när du använder Azure Machine Learning-tjänsten.
+
+## <a name="visual-interface-issues"></a>Visuella gränssnittet problem
+
+Visuella gränssnittet för machine learning-tjänstproblem.
+
+### <a name="long-compute-preparation-time"></a>Länge beräkningsnoderna förberedelsetid
+
+Skapa ny beräkning eller använda lämnar beräkningstid tar kan vara några minuter eller ännu längre. Den här gruppen arbetar för optimering.
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Köra ett experiment det går inte att endast innehåller datauppsättningen 
+
+Du kan vilja köra ett experiment som endast innehåller datauppsättning för att visualisera datauppsättningen. Men det går inte för att köra ett experiment endast innehåller datauppsättningen idag. Vi åtgärdar aktivt problemet.
+ 
+Innan åtgärden, kan du ansluta datauppsättningen till alla data på en omvandling-moduler (Välj kolumner i datauppsättning, redigera Metadata, dela Data osv) och kör experimentet. Sedan kan du visualisera datauppsättningen. 
+
+Nedan bild visar hur: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>SDK-installationsproblem
 

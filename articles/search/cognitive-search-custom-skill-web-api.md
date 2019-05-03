@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343351"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023859"
 ---
 # <a name="custom-web-api-skill"></a>Anpassade webb-API-kunskaper
 
@@ -38,7 +38,7 @@ Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| URI | URI: N webb-api som den _JSON_ nyttolasten skickas. Endast **https** URI-schemat är tillåtet |
+| URI | URI för webb-API som den _JSON_ nyttolasten skickas. Endast **https** URI-schemat är tillåtet |
 | httpMethod | Metoden som ska användas för att skicka nyttolasten. Tillåtna metoder är `PUT` eller `POST` |
 | httpHeaders | En samling nyckel / värde-par där nycklarna som representerar rubriknamn och värden representerar värden i huvudet som skickas till ditt webb-API tillsammans med nyttolasten. Följande huvuden får inte vara i den här samlingen: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (Valfritt) När du anger du tidsgränsen för http-klienten som gör API-anrop. Den måste vara formaterad som en XSD-värde för ”dayTimeDuration” (en begränsad delmängd av en [varaktighet i ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) värde). Till exempel `PT60S` i 60 sekunder. Om inte set, väljs ett standardvärde på 30 sekunder. Timeout-värdet kan anges till högst 90 sekunder och minst 1 sekund. |
@@ -139,10 +139,10 @@ Det kommer alltid att följa dessa begränsningar:
 
 ## <a name="sample-output-json-structure"></a>Exemplet utdata JSON-struktur
 
-”Utdata” motsvarar svaret som returnerades från ditt webb-api. Web api endast ska returnera en _JSON_ nyttolast (verifieras genom att titta på den `Content-Type` svarshuvud) och bör uppfylla följande villkor:
+”Utdata” motsvarar svaret som returnerades från ditt webb-API. Webb-API bör endast returnera en _JSON_ nyttolast (verifieras genom att titta på den `Content-Type` svarshuvud) och bör uppfylla följande villkor:
 
 * Det bör finnas en översta entitet som kallas `values` som ska vara en matris med objekt.
-* Antalet objekt i matrisen ska vara samma som antalet objekt som skickas till webb-api.
+* Antalet objekt i matrisen ska vara samma som antalet objekt som skickas till webb-API.
 * Varje objekt ska ha:
    * En `recordId` egenskap
    * En `data` egenskapen, vilket är ett objekt där fälten är enrichments matchande ”namn” i den `output` och vars värde betraktas berikande.

@@ -7,30 +7,35 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 10/27/2016
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d55a6d883e0dcd5ad4b1c1584b76bae06e6c742a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d18069335bb20f78a5bcda85eb6fcb2a5abe75f7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283379"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024677"
 ---
 # <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis i Azure Search (förhandsversion)
 
-`moreLikeThis=[key]` är en frågeparameter i den [API: et Search](https://docs.microsoft.com/rest/api/searchservice/search-documents). Genom att ange den `moreLikeThis` parameter i en sökfråga kan du hitta dokument som liknar de dokument som anges av dokumentnyckeln. När en sökbegäran görs med `moreLikeThis`, skapas en fråga med sökvillkor som extraheras från dokumentet som bäst beskriver det dokumentet. Frågan som skapas används sedan för att göra sökningen igen. Som standard innehållet i alla `searchable` fält betraktas såvida inte den `searchFields` används för att begränsa fält. Den `moreLikeThis` parametern kan inte användas med parametern search `search=[string]`.
+`moreLikeThis=[key]` är en frågeparameter i den [API för webbsökning dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents) som söker efter dokument liknar de dokument som anges av dokumentnyckeln. När en sökbegäran görs med `moreLikeThis`, skapas en fråga med sökvillkor som extraheras från dokumentet som bäst beskriver det dokumentet. Frågan som skapas används sedan för att göra sökningen igen. Som standard, innehållet i alla sökbara fält betraktas minus eventuella begränsade fält som du angav med hjälp av den `searchFields` parametern. Den `moreLikeThis` parametern kan inte användas med parametern search `search=[string]`.
+
+Som standard betraktas innehållet i alla översta sökbara fält. Om du vill ange vilka fält i stället kan du använda den `searchFields` parametern. 
+
+> [!NOTE]
+> `moreLikeThis` Förhandsgranskning fungerar inte på sökbara delfält i en [komplex typ](search-howto-complex-data-types.md).
 
 ## <a name="examples"></a>Exempel 
 
 Nedan visas ett exempel på en moreLikeThis-fråga. Frågan hittar dokument vars beskrivning fälten liknar mest fältet dokumentets källa som anges av den `moreLikeThis` parametern.
 
 ```
-Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2016-09-01-Preview
+Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2019-05-06-Preview
 ```
 
 ```
-POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
+POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
     {
       "moreLikeThis": "1002",
       "searchFields": "description"
@@ -39,4 +44,11 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
 
 ## <a name="feature-availability"></a>Funktionstillgänglighet
 
-MoreLikeThis-funktionen är för närvarande preliminärt och stöds endast i förhandsversionen api-versioner, `2015-02-28-Preview` och `2016-09-01-Preview`. Eftersom API-version anges i begäran, är det möjligt att kombinera allmänt tillgänglig (GA) och förhandsgranska API: er i samma app. Dock kan förhandsversion API: er inte står under serviceavtal och funktioner ändras, så vi inte rekommenderar att använda dem i produktionsprogram.
+Den `moreLikeThis` parametern är tillgängligt i förhandsversionen REST API: er (`api-version=2019-05-06-Preview`).
+
+## <a name="next-steps"></a>Nästa steg
+
+Du kan använda en webbplats som testar verktyget för att experimentera med den här funktionen.  Vi rekommenderar att du använder Postman för den här övningen.
+
+> [!div class="nextstepaction"]
+> [Utforska Azure Search REST API: er med Postman](search-fiddler.md)

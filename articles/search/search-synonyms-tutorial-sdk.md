@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281785"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025159"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exempel: Lägga till synonymer för Azure Search i C#
 
@@ -23,13 +23,15 @@ Med synonymer kan du utöka en fråga genom att matcha mot termer som anses bety
 I Azure Search definieras synonymer i en *synonymmappning* enligt *mappningsregler* som associerar ekvivalenta termer. Det här exemplet beskriver viktiga steg för att lägga till och med synonymer med ett befintligt index. Lär dig att:
 
 > [!div class="checklist"]
-> * aktivera synonymer genom att skapa och publicera mappningsregler 
-> * referera till en synonymmappning i en frågesträng.
+> * Skapa en synonym karta med det [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) klass. 
+> * Ange den [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) egenskapen på fält som ska ha stöd för frågan expansion via synonymer.
+
+Du kan fråga ett synonymen-aktiverade fält som vanligt. Det finns inga ytterligare frågesyntax som krävs för att få åtkomst till synonymer.
 
 Du kan skapa flera synonymmappningar, publicera dem som en resurs på tjänstnivå tillgänglig för alla index och sedan referera till den mappning som ska användas på fältnivå. När en fråga körs kommer Azure Search då att söka i den synonymmappning som anges för fälten som används i frågan förutom att söka i indexet.
 
 > [!NOTE]
-> Det finns stöd för synonymer i de senaste API- och SDK-versionerna (API-version 2017-11-11, SDK-version 5.0.0). Funktionen stöds för närvarande inte på Azure Portal. Om du skulle ha nytta av funktionen Synonymer på Azure Portal vill vi gärna att du skickar din feedback via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Synonymer kan skapas via programmering, men inte i portalen. Om du skulle ha nytta av funktionen Synonymer på Azure Portal vill vi gärna att du skickar din feedback via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -172,7 +174,7 @@ Det snabbaste sättet att rensa upp efter ett exempel är genom att ta bort resu
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet visas den [synonymer REST API](https://aka.ms/rgm6rq) i C# kod för att skapa och publicera regler för mappning av och sedan anropa synonymmappningen på en fråga. Mer information finns i referensdokumentationen för [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) och [REST-API:t](https://docs.microsoft.com/rest/api/searchservice/).
+Det här exemplet visas synonymfunktionen i C# kod för att skapa och publicera regler för mappning av och sedan anropa synonymmappningen på en fråga. Mer information finns i referensdokumentationen för [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) och [REST-API:t](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Använda synonymer i Azure Search](search-synonyms.md)

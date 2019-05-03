@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871122"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024767"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Guiden Importera data för Azure Search
 
@@ -27,7 +27,7 @@ Med guiden **Importera data** i instrumentpanelen för Azure Search på Azure Po
 
 Guiden kan inte ansluta till ett fördefinierat index eller köra en befintlig indexerare, men i guiden kan du konfigurera ett nytt index eller en indexerare som stöd för struktur och beteenden som du behöver.
 
-Har du inte provat Azure Search än? Gå igenom den [Snabbstart: Importera, index- och fråga med hjälp av portal-verktyg](search-get-started-portal.md) kan provköra importera och indexering med **dataimport** och inbyggda realestate-provdatauppsättning.
+Har du inte provat Azure Search än? Gå igenom den [Snabbstart: Importera, index- och fråga med hjälp av portal-verktyg](search-get-started-portal.md) kan provköra importera och indexering med **dataimport** och exempeldatauppsättning för inbyggda fastigheter.
 
 ## <a name="start-importing-data"></a>Börja importera data
 
@@ -77,14 +77,14 @@ Den **dataimport** guiden skapar ett beständigt datakällobjekt att ange inform
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) (stöds inte för [kognitiv sökning](cognitive-search-concept-intro.md) pipelines)
 
-En utjämnad datauppsättning är en obligatorisk inmatning. Du kan bara importera från en enskild tabell, databasvy eller likvärdig datastruktur. 
+Du kan bara importera från en enskild tabell, databasvy eller likvärdig datastruktur, men strukturen kan innehålla hierarkisk eller kapslad underordnade strukturer. Mer information finns i [hur komplexa typer](search-howto-complex-data-types.md).
 
 Du bör skapa den här datastrukturen innan du kör guiden och måste innehålla innehåll. Kör inte det **dataimport** guiden på en tom datakälla.
 
 |  Val | Beskrivning |
 | ---------- | ----------- |
 | **Befintlig datakälla** |Om du redan har definierat indexerare i söktjänsten, kan du välja en definition av en befintlig datakälla för en annan import. Datakällobjekt som endast används av indexerare i Azure Search. Du kan skapa ett datakällobjekt programmässigt eller via den **dataimport** guiden.|
-| **Exempel**| Azure Search är värd för en kostnadsfri offentlig Azure SQL-databas som du kan använda om du vill veta mer om importera och fråga begäranden i Azure Search. Gå till [Snabbstart: Importera, index- och fråga med hjälp av portal-verktyg](search-get-started-portal.md) en genomgång. |
+| **Exempel**| Azure Search är värd för en kostnadsfri global Azure SQL-databas som du kan använda om du vill veta mer om importera och fråga begäranden i Azure Search. Gå till [Snabbstart: Importera, index- och fråga med hjälp av portal-verktyg](search-get-started-portal.md) en genomgång. |
 | **Azure SQL Database** |Tjänstens namn, autentiseringsuppgifterna för en databasanvändare med läsbehörighet och ett databasnamn kan anges på sidan eller via en ADO.NET-anslutningssträng. Välj alternativet för anslutningssträngar till att visa eller anpassa egenskaperna. <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
 | **SQL Server på virtuella Azure-datorer** |Ange ett fullständigt kvalificerat namn, användar-ID och lösenord och databasen som en anslutningssträng. Om du vill använda den här datakällan måste du tidigare ha installerat ett certifikat i det lokala arkiv som krypterar anslutningen. Instruktioner finns i [SQL VM-anslutning till Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
 | **Cosmos DB** |Kraven innefattar konto, databas och samling. Alla dokument i samlingen kommer att ingå i indexet. Du kan definiera en fråga för att utjämna eller filtrera raduppsättningen, eller lämna det tomt frågan. En fråga behövs inte i den här guiden.|

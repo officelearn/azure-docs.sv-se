@@ -8,18 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109842"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021515"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Stöd för behållare i Azure Cognitive Services
 
-Stöd för behållare i Azure Cognitive Services kan utvecklare använda samma omfattande API: er som är tillgängliga i Azure och möjliggör flexibilitet att distribuera och tillhandahålla tjänster som medföljer [Docker-behållare](https://www.docker.com/what-container). Stöd för behållare finns för närvarande i förhandsversion för en delmängd av Azure Cognitive Services, inklusive delar av [visuellt](Computer-vision/Home.md), [ansikte](Face/Overview.md), [textanalys](text-analytics/overview.md), och [ Språkförståelse](LUIS/luis-container-howto.md) (LUIS).
+Stöd för behållare i Azure Cognitive Services kan utvecklare använda samma omfattande API: er som är tillgängliga i Azure och möjliggör flexibilitet att distribuera och tillhandahålla tjänster som medföljer [Docker-behållare](https://www.docker.com/what-container). Stöd för behållare finns för närvarande i förhandsversion för en delmängd av Azure Cognitive Services, inklusive delar av:
+
+* [Avvikelseidentifiering detektor](Anomaly-Detector/overview.md)
+* [Visuellt innehåll](Computer-vision/Home.md)
+* [Ansikte](Face/Overview.md)
+* [Form Recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Språkförståelse](LUIS/luis-container-howto.md) (LUIS)
+* [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Textanalys](text-analytics/overview.md)
 
 Skapa behållare är en metod för distribution av programvara där ett program eller tjänst, inklusive dess beroenden och konfiguration, är packade tillsammans som en behållaravbildning. Med lite eller ingen ändring av, kan du distribuera en behållaravbildning på en behållarvärd. Behållare är isolerade från varandra och det underliggande operativsystemet, med mindre avtryck än en virtuell dator. Behållare kan instansieras behållaravbildningar för kortsiktig uppgifter och tas bort när den inte längre behövs.
 
@@ -27,7 +35,7 @@ Följande videoklipp visar hur du använder en Cognitive Services-behållare.
 
 [![Demonstration av behållare för Cognitive Services](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
-Den [visuellt](Computer-vision/Home.md), [ansikte](Face/Overview.md), [textanalys](text-analytics/overview.md), och [Språkförståelse (LUIS)](LUIS/what-is-luis.md) tjänster är tillgängliga på [Microsoft Azure](https://azure.microsoft.com). Logga in på den [Azure-portalen](https://portal.azure.com/) att skapa och utforska Azure-resurser för dessa tjänster.
+Cognitive Services-resurser är tillgängliga på [Microsoft Azure](https://azure.microsoft.com). Logga in på den [Azure-portalen](https://portal.azure.com/) att skapa och utforska Azure-resurser för dessa tjänster.
 
 ## <a name="features-and-benefits"></a>Funktioner och erbjudanden
 
@@ -43,14 +51,23 @@ Azure Cognitive Services-behållare ger följande uppsättning Docker-behållare
 
 | Tjänst | Prisnivå som stöds | Container | Beskrivning |
 |---------|----------|----------|-------------|
+|[Avvikelseidentifiering detektor](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Avvikelseidentifiering detektor** |Avvikelseidentifiering detektor API kan du övervaka och identifiera avvikelser i tidsseriedata med machine learning.<br>[Begär åtkomst](https://aka.ms/adcontainer)|
 |[Visuellt innehåll](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Identifiera Text** |Extraherar ut text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort.<br/><br/>**Viktigt!** Behållaren identifiera Text fungerar för närvarande bara på engelska.<br>[Begär åtkomst](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Ansikte](Face/face-how-to-install-containers.md) |F0, S0|**Ansikte** |Identifierar ansikten i bilder och identifierar attribut, inklusive ansiktslandmärken (till exempel och rörliga och ögon), kön, ålder och andra dator-förväntad ansiktsdrag. Förutom identifiering Kontrollera ansikte om två ansikten i samma bild eller olika bilder är samma med hjälp av ett förtroenderesultat eller jämföra ansikten mot en databas för att se om en likartade eller identiska ansikte finns redan. Det kan även sortera liknande ansikten i grupper, med hjälp av delade visual egenskaper.<br>[Begär åtkomst](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204))|Läser in en tränad eller publicerade Language Understanding modell, även kallat en LUIS-app, i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API-slutpunkter. Du kan samla in fråga loggar från behållaren och ladda upp dessa tillbaka till den [LUIS portal](https://www.luis.ai) förbättra appens prognosens noggrannhet.|
-|[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Nyckeln diskussionsämne** ([bild](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extraherar viktiga fraser för att identifiera de viktigaste aspekterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. |
-|[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Språkidentifiering** ([bild](https://go.microsoft.com/fwlink/?linkid=2018759)) |Identifierar vilka språk som indatatexten är skriven i och rapportera en enda språkkod för varje dokument som skickats på begäran för upp till 120 språk. Språkkoden paras med poäng som anger styrkan hos poängen. |
-|[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Attitydanalys** ([bild](https://go.microsoft.com/fwlink/?linkid=2018654)) |Analyserar rå text efter ledtrådar om positiv eller negativ attityd. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva. Analysis-modeller tränas före med hjälp av en omfattande mängd text och naturligt språk tekniker från Microsoft. För [utvalda språk](./text-analytics/language-support.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet. |
+|[Formuläret Igenkännande](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form Recognizer** |Förstå formulär gäller maskininlärningsteknik för att identifiera och extrahera nyckel / värde-par och tabeller från formulär.<br>[Begär åtkomst](https://aka.ms/FormRecognizerContainerRequestAccess)|
+|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Läser in en tränad eller publicerade Language Understanding modell, även kallat en LUIS-app, i en docker-behållare och ger tillgång till fråga förutsägelser från behållarens API-slutpunkter. Du kan samla in fråga loggar från behållaren och ladda upp dessa tillbaka till den [LUIS portal](https://www.luis.ai) förbättra appens prognosens noggrannhet.|
+|[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Tal till text** |Transkriberar kontinuerlig realtidsöversättning av tal till text.<br>[Begär åtkomst](https://aka.ms/speechcontainerspreview/)|
+|[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Text till tal** |Konverterar text till naturligt tal.<br>[Begär åtkomst](https://aka.ms/speechcontainerspreview/)|
+|[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Nyckeln diskussionsämne** ([bild](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraherar viktiga fraser för att identifiera de viktigaste aspekterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. |
+|[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Språkidentifiering** ([bild](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Identifierar vilka språk som indatatexten är skriven i och rapportera en enda språkkod för varje dokument som skickats på begäran för upp till 120 språk. Språkkoden paras med poäng som anger styrkan hos poängen. |
+|[Textanalys](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Attitydanalys** ([bild](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analyserar rå text efter ledtrådar om positiv eller negativ attityd. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva. Analysis-modeller tränas före med hjälp av en omfattande mängd text och naturligt språk tekniker från Microsoft. För [utvalda språk](./text-analytics/language-support.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet. |
 
-Dessutom finns stöd för behållare i Cognitive Services [allt-i-ett erbjudande](https://azure.microsoft.com/pricing/details/cognitive-services/). Du kan skapa en enda allt-i-ett-resurs för Cognitive Services och använder samma fakturering nyckel för alla behållartyper som nämns ovan.
+Dessutom kan vissa behållare stöds i Cognitive Services [ **allt-i-ett erbjudande** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resursnycklar. Du kan skapa en enda allt-i-ett-resurs för Cognitive Services och använder samma fakturering nyckel över tjänster som stöds för följande tjänster:
+
+* Visuellt innehåll
+* Ansikte
+* LUIS
+* Textanalys
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Tillgänglighet för behållare i Azure Cognitive Services
 
@@ -81,7 +98,10 @@ Developer-exempel finns på vår [GitHub-lagringsplatsen](https://github.com/Azu
 
 Installera och utforska funktionerna i behållare i Azure Cognitive Services:
 
-* [Installera och använda behållare för visuellt innehåll](Computer-vision/computer-vision-how-to-install-containers.md)
-* [Installera och använda Ansikts-behållare](Face/face-how-to-install-containers.md)
-* [Installera och använda textanalys behållare](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-* [Installera och använda behållare för Språkförståelse (LUIS)](LUIS/luis-container-howto.md)
+* [Avvikelseidentifiering detektor behållare](Anomaly-Detector/anomaly-detector-container-howto.md)
+* [Datorn Vision behållare](Computer-vision/computer-vision-how-to-install-containers.md)
+* [Ansikts-behållare](Face/face-how-to-install-containers.md)
+* [Formuläret Igenkännande behållare](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Behållare för språk Språkförståelse (LUIS)](LUIS/luis-container-howto.md)
+* [Behållare för tal-API för tjänst](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Text Analytics behållare](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

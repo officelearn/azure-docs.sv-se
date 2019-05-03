@@ -9,20 +9,20 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 90e85e0030a696dd024dd65d27a0f4dbdc7e3cdc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925388"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023663"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Felsökning av Azure Machine Learning-tjänsten AKS och ACI-distributioner
 
-I den här artikeln får lära du dig att undvika eller lösa vanliga Docker-distributionsfel med Azure Container Instances (ACI) och Azure Kubernetes Service (AKS) med hjälp av Azure Machine Learning-tjänsten.
+Lär dig hur du kan undvika eller lösa vanliga Docker-distributionsfel med Azure Container Instances (ACI) och Azure Kubernetes Service (AKS) med hjälp av Azure Machine Learning-tjänsten.
 
-När du distribuerar en modell i Azure Machine Learning-tjänsten, utförs ett antal uppgifter. Detta är en komplex händelsesekvens och ibland problem uppstår. Distribution aktiviteter är:
+När du distribuerar en modell i Azure Machine Learning-tjänsten, utförs ett antal uppgifter. Distribution aktiviteter är:
 
 1. Registrera modellen i arbetsytan modellen registret.
 
@@ -33,6 +33,9 @@ När du distribuerar en modell i Azure Machine Learning-tjänsten, utförs ett a
     4. Skapa en ny Docker-avbildning med hjälp av dockerfile.
     5. Registrera Docker-avbildningen med Azure Container Registry som är associerade med arbetsytan.
 
+    > [!IMPORTANT]
+    > Beroende på din kod, skapa avbildningar sker automatiskt utan att dina indata.
+
 3. Distribuera Docker-avbildningen till Azure Container Instance (ACI)-tjänsten eller till Azure Kubernetes Service (AKS).
 
 4. Starta en ny behållare (eller behållare) i ACI eller AKS. 
@@ -41,9 +44,9 @@ Mer information om den här processen i den [modellhantering](concept-model-mana
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du stöter på några problem, det första du ska göra är att bryta ned aktiviteten distribution (tidigare beskrivs) till enskilda steg för att isolera problemet. 
+Om du stöter på några problem, det första du ska göra är att bryta ned aktiviteten distribution (tidigare beskrivs) till enskilda steg för att isolera problemet.
 
-Det här är användbart om du använder den `Webservice.deploy` API, eller `Webservice.deploy_from_model` API, eftersom dessa funktioner gruppera de tidigare nämnda steg i en enda åtgärd. Dessa API: er är oftast praktiskt, men det hjälper dig för att dela upp stegen när du felsöker genom att ersätta dem med den nedan API-anrop.
+Dela upp distributionen i uppgifter är användbart om du använder den [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API, eller [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) API, som båda dessa funktioner gör ovan nämnda som en enskild åtgärd. Dessa API: er är oftast praktiskt, men det hjälper dig för att dela upp stegen när du felsöker genom att ersätta dem med den nedan API-anrop.
 
 1. Registrera modellen. Här är exempelkod:
 
@@ -86,7 +89,8 @@ Det här är användbart om du använder den `Webservice.deploy` API, eller `Web
 När du har uppdelade distributionsprocessen i enskilda aktiviteter kan vi titta på några av de vanligaste felen.
 
 ## <a name="image-building-fails"></a>Bild som att skapa misslyckas
-Om systemet är det går inte att skapa Docker-avbildningen i `image.wait_for_creation()` anrop misslyckas med vissa felmeddelanden som kan erbjuda viss vägledning. Du kan också hitta mer information om felen från image build-loggen. Nedan är exempelkod som visar hur du identifierar build log-uri för avbildning.
+
+Om Docker-avbildningen inte kan skapas, den [image.wait_for_creation()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) eller [service.wait_for_deployment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) anrop misslyckas med vissa felmeddelanden som kan erbjuda viss vägledning. Du kan också hitta mer information om felen från image build-loggen. Nedan är exempelkod som visar hur du identifierar build log-uri för avbildning.
 
 ```python
 # if you already have the image object handy
@@ -99,13 +103,14 @@ print(ws.images['myimg'].image_build_log_uri)
 for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
+
 Logg-uri för avbildning är en SAS-URL som pekar på en loggfil som lagras i Azure blob storage. Helt enkelt kopiera och klistra in URI: n i ett webbläsarfönster och du kan hämta och visa loggfilen.
 
 ### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Åtkomstprincip för Azure Key Vault och Azure Resource Manager-mallar
 
-Bild-versionen kan också misslyckas på grund av ett problem med åtkomstprincipen i Azure Key Vault. Detta kan inträffa när du använder en Azure Resource Manager-mall för att skapa arbetsyta och associerade resurser (inklusive Azure Key Vault), flera gånger. Till exempel med hjälp av mallen flera gånger med samma parametrar som en del av en kontinuerlig integrering och av distributionspipeline.
+Bild-versionen kan också misslyckas på grund av ett problem med åtkomstprincipen i Azure Key Vault. Den här situationen kan uppstå när du använder en Azure Resource Manager-mall för att skapa arbetsyta och associerade resurser (inklusive Azure Key Vault), flera gånger. Till exempel med hjälp av mallen flera gånger med samma parametrar som en del av en kontinuerlig integrering och av distributionspipeline.
 
-De flesta resursskapande åtgärder via mallar är idempotenta, men Key Vault rensar principer för åtkomst till varje gång mallen används. Detta bryter åtkomst till Key Vault för en befintlig arbetsyta som använder den. Detta resulterar i fel vid försök att skapa nya avbildningar. Här följer några exempel på de fel som du kan ta emot:
+De flesta resursskapande åtgärder via mallar är idempotenta, men Key Vault rensar principer för åtkomst till varje gång mallen används. Rensar radbrytningar åtkomst till Key Vault för en befintlig arbetsyta som använder den med principer för åtkomst. Det här tillståndet resulterar i fel vid försök att skapa nya avbildningar. Här följer några exempel på de fel som du kan ta emot:
 
 __Portal__:
 ```text
@@ -144,16 +149,81 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 Vi rekommenderar en av följande metoder för att undvika det här problemet:
 
 * Distribuera inte mallen mer än en gång för samma parametrar. Eller ta bort befintliga resurser innan du använder mallen för att återskapa dem.
-* Granska åtkomstprinciper för Key Vault och använda detta för att ange den `accessPolicies` egenskapen för mallen.
+* Granska åtkomstprinciper för Key Vault och sedan använda dessa principer för att ange den `accessPolicies` egenskapen för mallen.
 * Kontrollera om Key Vault-resursen finns redan. I annat fall du inte återskapa den via mallen. Lägg exempelvis till en parameter som gör det möjligt att inaktivera skapandet av Key Vault-resursen om den redan finns.
 
-## <a name="service-launch-fails"></a>Starta tjänsten misslyckas
-När avbildningen har har skapats, försöker systemet att starta en behållare i ACI eller AKS beroende på din konfiguration av distributionen. Det rekommenderas att använda en ACI-distribution först, eftersom det är en enklare distribution av enskild behållare. Det här sättet du kan sedan försäkra dig om eventuella problem med AKS.
+## <a name="debug-locally"></a>Felsöka lokalt
 
-Som en del i processen för att starta upp behållaren, den `init()` funktionen i din bedömningsskriptet anropas av systemet. Om det finns undantag utan felhantering i den `init()` fungerar, visas **CrashLoopBackOff** fel i felmeddelandet. Nedan följer några tips för att felsöka problemet.
+Om du får problem med att distribuera en modell till ACI eller AKS, försök att distribuera den som en lokal webbtjänst. Med hjälp av en lokal webbtjänsten gör det enklare att felsöka problem. Docker-avbildningen som innehåller modellen hämtas och startats på den lokala datorn.
 
-### <a name="inspect-the-docker-log"></a>Inspektera Docker-loggen
-Du kan skriva ut detaljerad Docker-motorn loggmeddelanden från objektet.
+> [!IMPORTANT]
+> Lokala webbtjänstdistributioner kräver en fungerande installation av Docker på den lokala datorn. Docker måste köras innan du distribuerar en lokal webbtjänst. Information om att installera och använda Docker finns i [ https://www.docker.com/ ](https://www.docker.com/).
+
+> [!WARNING]
+> Lokala webbtjänstdistributioner stöds inte för produktionsscenarier.
+
+Ändra din kod som ska användas för att distribuera lokalt, `LocalWebservice.deploy_configuration()` att skapa en distributionskonfiguration. Använd sedan `Model.deploy()` att distribuera tjänsten. I följande exempel distribuerar en modell (som finns i den `model` variabeln) som en lokal webbtjänst:
+
+```python
+from azureml.core.model import InferenceConfig
+from azureml.core.webservice import LocalWebservice
+
+# Create inferencing configuration. This creates a docker image that contains the model.
+inference_config = InferenceConfig(runtime= "python", 
+                                   execution_script="score.py",
+                                   conda_file="myenv.yml")
+
+# Create a local deployment, using port 8890 for the web service endpoint
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+# Deploy the service
+service = Model.deploy(ws, "mymodel", [model], inference_config, deployment_config)
+# Wait for the deployment to complete
+service.wait_for_deployment(True)
+# Display the port that the web service is available on
+print(service.port)
+```
+
+Nu kan du arbeta med tjänsten som vanligt. Följande kod visar till exempel skicka data till tjänsten:
+
+```python
+import json
+
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10], 
+    [10,9,8,7,6,5,4,3,2,1]
+]})
+
+test_sample = bytes(test_sample,encoding = 'utf8')
+
+prediction = service.run(input_data=test_sample)
+print(prediction)
+```
+
+### <a name="update-the-service"></a>Uppdatera tjänsten
+
+Under lokal testning kan du behöva uppdatera den `score.py` filen för att lägga till loggning eller försök att lösa eventuella problem som du har identifierats. Att uppdatera ändringar i den `score.py` fil ska du använda `reload()`. Följande kod hämtar skriptet för tjänsten och skickar data till den. Data beräknas med hjälp av den uppdaterade `score.py` fil:
+
+```python
+service.reload()
+print(service.run(input_data=test_sample))
+```
+
+> [!NOTE]
+> Skriptet laddas från den plats som anges av den `InferenceConfig` objekt som används av tjänsten.
+
+Du kan ändra modellen, Conda-beroenden eller distributionskonfiguration med [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). I följande exempel uppdaterar modellen som används av tjänsten:
+
+```python
+service.update([different_model], inference_config, deployment_config)
+```
+
+### <a name="delete-the-service"></a>Ta bort tjänsten
+
+Ta bort tjänsten genom att använda [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
+
+### <a id="dockerlog"></a> Inspektera Docker-loggen
+
+Du kan skriva ut detaljerad Docker-motorn loggmeddelanden från objektet. Du kan visa loggen för ACI och AKS lokala distributioner. I följande exempel visar hur du skriver ut loggarna.
 
 ```python
 # if you already have the service object handy
@@ -163,82 +233,15 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 
-### <a name="debug-the-docker-image-locally"></a>Felsöka Docker-avbildningen lokalt
-Några tillfällen Docker-loggen inte genererar tillräckligt med information om vad som händer fel. Du kan gå ett steg längre och hämta Docker-avbildningen, starta en lokal behållare och Felsök direkt i live-behållaren interaktivt. Om du vill starta en lokal behållare, måste du ha en Docker-motor som körs lokalt och det är mycket enklare om du även har [azure cli-](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installerad.
+## <a name="service-launch-fails"></a>Starta tjänsten misslyckas
 
-Först måste vi ta reda på platsen:
+När avbildningen har har skapats, försöker systemet att starta en behållare med din konfiguration av distributionen. Som en del i processen för att starta upp behållaren, den `init()` funktionen i din bedömningsskriptet anropas av systemet. Om det finns undantag utan felhantering i den `init()` fungerar, visas **CrashLoopBackOff** fel i felmeddelandet.
 
-```python
-# print image location
-print(image.image_location)
-```
-
-Bildplatsen har följande format: `<acr-name>.azurecr.io/<image-name>:<version-number>`, till exempel `myworkpaceacr.azurecr.io/myimage:3`. 
-
-Gå nu till din kommandoradsfönster. Om du har installerat azure-cli kan skriva du följande kommandon för att logga in på ACR (Azure Container Registry) kopplade till arbetsytan där avbildningen finns sparad. 
-
-```sh
-# log on to Azure first if you haven't done so before
-$ az login
-
-# make sure you set the right subscription in case you have access to multiple subscriptions
-$ az account set -s <subscription_name_or_id>
-
-# now let's log in to the workspace ACR
-# note the acr-name is the domain name WITHOUT the ".azurecr.io" postfix
-# e.g.: az acr login -n myworkpaceacr
-$ az acr login -n <acr-name>
-```
-Om du inte har installerat azure-cli kan du använda `docker login` kommando för att logga in på ACR. Men du måste först hämta användarnamn och lösenord för ACR från Azure-portalen.
-
-När du har loggat in till ACR, du kan hämta Docker-avbildningen och starta en behållare lokalt och sedan starta bash-session för felsökning med hjälp av den `docker run` kommando:
-
-```sh
-# note the image_id is <acr-name>.azurecr.io/<image-name>:<version-number>
-# for example: myworkpaceacr.azurecr.io/myimage:3
-$ docker run -it <image_id> /bin/bash
-```
-
-När du startar en bash-session på behållaren som körs hittar bedömnings skripten i den `/var/azureml-app` mapp. Du kan sedan starta en Python-session för att felsöka dina bedömnings-skript. 
-
-```sh
-# enter the directory where scoring scripts live
-cd /var/azureml-app
-
-# find what Python packages are installed in the python environment
-pip freeze
-
-# sanity-check on score.py
-# you might want to edit the score.py to trigger init().
-# as most of the errors happen in init() when you are trying to load the model.
-python score.py
-```
-Om du behöver en textredigerare för att ändra skripten kan du installera vim, nano, Emacs eller din favoritredigerare.
-
-```sh
-# update package index
-apt-get update
-
-# install a text editor of your choice
-apt-get install vim
-apt-get install nano
-apt-get install emacs
-
-# launch emacs (for example) to edit score.py
-emacs score.py
-
-# exit the container bash shell
-exit
-```
-
-Du kan också starta webbtjänsten lokalt och skicka HTTP-trafik till den. Flask-servern i Docker-behållare körs på port 5001. Du kan mappa till alla andra portar som är tillgängliga på värddatorn.
-```sh
-# you can find the scoring API at: http://localhost:8000/score
-$ docker run -p 8000:5001 <image_id>
-```
+Med hjälp av informationen i den [inspektera Docker-loggen](#dockerlog) avsnitt för att kontrollera loggfilerna.
 
 ## <a name="function-fails-getmodelpath"></a>Funktionen misslyckas: get_model_path()
-Ofta, i den `init()` funktionen i bedömningsskriptet, `Model.get_model_path()` funktionen anropas för att hitta en modellfil eller en mapp med modellfiler i behållaren. Det här är ofta en felkälla om modellfilen eller mappen inte kan hittas. Det enklaste sättet att felsöka det här felet är att köra den nedan Python-kod i behållaren shell:
+
+Ofta, i den `init()` funktionen i bedömningsskriptet, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) funktionen anropas för att hitta en modellfil eller en mapp med modellfiler i behållaren. Om modellfilen eller mappen hittas, misslyckas åtgärden. Det enklaste sättet att felsöka det här felet är att köra den nedan Python-kod i behållaren shell:
 
 ```python
 import logging
@@ -247,11 +250,12 @@ from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Detta skulle skriva ut den lokala sökvägen (relativt till `/var/azureml-app`) i behållaren där dina bedömningsskriptet förväntar sig att hitta modellfilen eller mappen. Därefter kan du kontrollera om filen eller mappen är verkligen där det förväntas vara.
+Det här exemplet skriver ut den lokala sökvägen (relativt till `/var/azureml-app`) i behållaren där dina bedömningsskriptet förväntar sig att hitta modellfilen eller mappen. Därefter kan du kontrollera om filen eller mappen är verkligen där det förväntas vara.
 
-Ange loggningsnivån till felsökning kan ge orsak ytterligare information som loggas, vilket kan vara användbart i identifiera felet.
+Ange loggningsnivån till DEBUG leda till ytterligare information som loggas, vilket kan vara användbart i identifiera felet.
 
 ## <a name="function-fails-runinputdata"></a>Funktionen misslyckas: run(input_data)
+
 Om tjänsten har distribuerats, men den kraschar när du publicerar data till bedömnings-slutpunkten, du kan lägga till fel vid identifiering av instruktionen i din `run(input_data)` så att den returnerar detaljerat felmeddelande i stället. Exempel:
 
 ```python
@@ -266,7 +270,8 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**Obs!** Returnerar felmeddelanden från den `run(input_data)` anrop görs för felsökning endast syfte. Det kanske inte är en bra idé att göra detta i en produktionsmiljö av säkerhetsskäl.
+
+**Obs!** Returnerar felmeddelanden från den `run(input_data)` anrop görs för felsökning endast syfte. Av säkerhetsskäl bör ska du inte returnera felmeddelanden på så sätt i en produktionsmiljö.
 
 ## <a name="http-status-code-503"></a>HTTP-statuskod: 503
 
@@ -312,7 +317,7 @@ Mer information om hur `autoscale_target_utilization`, `autoscale_max_replicas`,
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om distribution: 
-* [Hur du distribuerar och var](how-to-deploy-and-where.md)
+Lär dig mer om distribution:
 
+* [Hur du distribuerar och var](how-to-deploy-and-where.md)
 * [Självstudie: Träna och distribuera modeller](tutorial-train-models-with-aml.md)

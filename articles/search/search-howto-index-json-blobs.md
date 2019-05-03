@@ -1,7 +1,7 @@
 ---
 title: Indexera JSON-blobar från Azure Blob-indexeraren för fulltextsökning – Azure Search
 description: Crawla Azure JSON-blobar för textinnehåll med Azure Search Blob-indexeraren. Indexerare automatisera datainmatning för valda datakällor som Azure Blob storage.
-ms.date: 04/11/2019
+ms.date: 05/02/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871659"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024949"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
 Den här artikeln visar hur du konfigurerar en Azure Search-blob [indexeraren](search-indexer-overview.md) att extrahera strukturerat innehåll från JSON-dokument i Azure Blob storage och gör det sökbara i Azure Search. Det här arbetsflödet skapar ett Azure Search-index och läser in den med befintliga text som extraherats från JSON-blobar. 
@@ -24,8 +24,7 @@ Du kan använda den [portal](#json-indexer-portal), [REST API: er](#json-indexer
 
 JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument eller en samling av JSON-entiteter. För JSON-samlingar blob kan ha en **matris** välformulerad JSON-element. Blobbar kan också bestå av flera enskilda JSON-enheter med en ny rad. Blob-indexeraren i Azure Search kan parsa sådana konstruktion, beroende på hur du ställer in den **parsingMode** parametern på begäran.
 
-> [!IMPORTANT]
-> `json` och `jsonArray` parsningslägen är allmänt tillgängliga, men `jsonLines` parsningsläge finns i offentlig förhandsversion och ska inte användas i produktionsmiljöer. Mer information finns i [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+Alla JSON-parsning lägen (`json`, `jsonArray`, `jsonLines`) är nu allmänt tillgängliga. 
 
 > [!NOTE]
 > Följ rekommendationerna indexeraren konfiguration i [indexering en-till-många](search-howto-index-one-to-many-blobs.md) att mata ut flera söka efter dokument från en Azure-blob.
@@ -132,8 +131,8 @@ JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument 
 | JSON-dokument | parsingMode | Beskrivning | Tillgänglighet |
 |--------------|-------------|--------------|--------------|
 | En per blob | `json` | Parsar JSON-blobar som ett enda segment med text. Varje JSON-blob blir ett enskilt dokument i Azure Search. | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Flera per blob | `jsonArray` | Tolkar en JSON-matris i blob där varje element i matrisen blir en separat Azure Search-dokument.  | Tillgänglig som förhandsversion i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Flera per blob | `jsonLines` | Tolkar en blob som innehåller flera JSON entiteter (en ”matris”) avgränsade med en ny rad, där varje entitet blir en separat Azure Search-dokument. | Tillgänglig som förhandsversion i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per blob | `jsonArray` | Tolkar en JSON-matris i blob där varje element i matrisen blir en separat Azure Search-dokument.  | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per blob | `jsonLines` | Tolkar en blob som innehåller flera JSON entiteter (en ”matris”) avgränsade med en ny rad, där varje entitet blir en separat Azure Search-dokument. | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 – Assemblera indata för begäran
 
@@ -160,7 +159,7 @@ Det här steget beskriver anslutningsinformationen för datakällan används av 
 
 Ersätt giltiga värden för tjänstnamnet, admin-nyckel, storage-konto och kontot viktiga platshållare.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -179,7 +178,7 @@ Indexet lagrar du sökbart innehåll i Azure Search. Ange ett schema som anger v
 
 I följande exempel visas en [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) begäran. Indexet har ett sökbart `content` -fält som innehåller den text som extraherats från BLOB-objekt:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -196,7 +195,7 @@ I följande exempel visas en [Create Index](https://docs.microsoft.com/rest/api/
 
 Som med ett index och en käll- och indexerare är också en namngiven objekt som du skapar och återanvända på en Azure Search-tjänst. En fullständigt angivna begäran om att skapa en indexerare kan se ut på följande sätt:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -223,7 +222,7 @@ Det här avsnittet är en sammanfattning av alla begäranden som används för a
 
 Alla indexerare kräver ett datakällobjekt som innehåller anslutningsinformationen till befintliga data. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -239,7 +238,7 @@ Alla indexerare kräver ett datakällobjekt som innehåller anslutningsinformati
 
 Alla indexerare kräver ett målindex som tar emot data. Brödtexten i begäran definierar indexschemat som består av fält, attributet för att stödja de önskade beteenden i ett sökbart index. Det här indexet får vara tom när du kör indexeraren. 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -258,7 +257,7 @@ Den här begäran visar ett fullständigt anges indexerare. Den innehåller fäl
 
 Skapa indexeraren för Azure Search utlöser dataimporten. Den körs direkt och därefter enligt ett schema om du har angett en.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -339,7 +338,7 @@ Du kan också använda alternativet JSON-matris. Det här alternativet är anvä
 
 För en JSON-matris bör att indexerarens definition likna följande exempel. Observera att parametern parsingMode anger den `jsonArray` parser. Ange rätt parsern och har rätt data indata krävs bara två matris-specifika för att indexera JSON-blobar.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -386,7 +385,7 @@ Om din blob innehåller flera JSON-entiteter som är avgränsade med en ny rad o
 
 För JSON linjer bör indexerardefinitionen likna följande exempel. Observera att parametern parsingMode anger den `jsonLines` parser. 
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

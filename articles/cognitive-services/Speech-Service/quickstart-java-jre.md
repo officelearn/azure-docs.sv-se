@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 05/02/2019
 ms.author: fmegen
-ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 771168a13d7192581aae2ff4128e979b6924484a
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622718"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020687"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Känna igen tal med Speech Service SDK för Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Du har skapat programmet med tal SDK Maven-paketet och Eclipse Java IDE (v4.8) på 64-bitars Windows 64-bitars Ubuntu Linux 16.04 / 18.04 eller i macOS 10.13 eller senare. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Du har skapat programmet med tal SDK Maven-paketet och Eclipse Java IDE (v4.8) på 64-bitars Windows 64-bitars Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9), eller i macOS 10.13 eller senare. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
@@ -30,21 +30,29 @@ I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SD
 
 För den här snabbstarten krävs:
 
-* Operativsystem: Windows (64-bitars), Ubuntu Linux 16.04/18.04 (64-bitars) och macOS 10.13 eller senare
+* Operativsystem: 64-bitars Windows 64-bitars Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) eller macOS 10.13 eller senare
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * En Azure-prenumerationsnyckel för taltjänsten. [Skaffa en kostnadsfritt](get-started.md).
 
-Om du kör Ubuntu 16.04/18.04 ska dessa beroenden vara installerade innan du startar Eclipse.
+Om du kör Linux måste du kontrollera att dessa beroenden är installerade innan du startar Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+* I Ubuntu:
 
-Om du kör Windows (64-bitars) se till att du har installerat Microsoft Visual C++ Redistributable för din plattform.
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.0 libasound2
+  ```
+
+* On Debian 9:
+
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.2 libasound2
+  ```
+
+Om du kör Windows (64-bitars), kan du kontrollera att du har installerat Microsoft Visual C++ Redistributable för din plattform.
 * [Ladda ned Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-
 
 ## <a name="create-and-configure-project"></a>Skapa och konfigurera projektet
 

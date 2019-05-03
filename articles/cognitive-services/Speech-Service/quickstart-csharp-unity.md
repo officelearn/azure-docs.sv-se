@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457133"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020942"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Snabbstart: Taligenkänning med Speech SDK för Unity (betaversion)
 
@@ -27,14 +27,15 @@ Om du inte är bekant med Unity rekommenderar vi att du läser [användarhandbok
 
 > [!NOTE]
 > Speech SDK för Unity är för närvarande i betaversion.
-> Den har stöd för Windows x86 och x64 (fristående skrivbordsprogram eller Universell Windows-plattform) samt Android (ARM32/64, x86).
+> Den stöder Windows-skrivbordet (x86 och x64) eller Universal Windows Platform (x86, x64, ARM/ARM64) och Android (x86 ARM32/64).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra det här projektet behöver du:
 
-* [Unity 2018.3 eller senare](https://store.unity.com/)
+* [Unity 2018.3 eller senare](https://store.unity.com/) med [Unity 2019.1 lägger till stöd för UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+     * ARM64-support, installera den [valfria verktyg för ARM64 och SDK för Windows 10 för ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * En prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
 * Åtkomst till datorns mikrofon.
 

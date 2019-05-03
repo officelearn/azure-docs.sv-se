@@ -1,7 +1,7 @@
 ---
 title: Index BLOB-objekt som innehåller flera Sök indexera dokument från Azure Blob-indexeraren för fulltextsökning – Azure Search
 description: Crawla Azure-blobar för textinnehåll med Azure Search Blob-indexeraren. Varje blob kan innehålla ett eller flera Azure Search-index dokument.
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
 manager: briansmi
 ms.author: arjagann
@@ -10,21 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871207"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024655"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexera blobar producera flera söka efter dokument
 Som standard behandlar en blob-indexeraren innehållet i en blob som ett enda search-dokument. Vissa **parsingMode** värden stöder scenarier där en enskild blob kan resultera i flera söka efter dokument. De olika typerna av **parsingMode** som tillåter en indexerare för att extrahera som är mer än en sökning dokument från en blob är:
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` parsningsläge finns i offentlig förhandsversion och ska inte användas i produktionsmiljöer. Mer information finns i [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 ## <a name="one-to-many-document-key"></a>En-till-många dokumentnyckeln
 Varje dokument som visas i ett Azure Search-index identifieras unikt genom en dokumentnyckeln. 
@@ -106,7 +103,7 @@ Om du vill konfigurera en explicit fältmappning, kontrollera att den _sourceFie
 + [Indexerare i Azure Search](search-indexer-overview.md)
 + [Indexera Azure Blob Storage med Azure Search](search-howto-index-json-blobs.md)
 + [Indexera CSV-blobar med Azure Search blob-indexeraren](search-howto-index-csv-blobs.md)
-+ [Indexera JSON-blobar med Azure Search blob-indexeraren](search-howto-index-csv-blobs.md)
++ [Indexera JSON-blobar med Azure Search blob-indexeraren](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>Nästa steg
 * Läs mer om Azure Search i den [söktjänstsidan](https://azure.microsoft.com/services/search/).

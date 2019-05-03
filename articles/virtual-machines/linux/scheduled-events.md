@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924379"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993153"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -46,7 +46,7 @@ Programmet kan identifiera när Underhåll ska inträffa och utlösa uppgifter f
 
 Schemalagda händelser innehåller händelser i följande användningsfall:
 
-- Plattform-kundinitierat Underhåll (till exempel en uppdatering för värdens operativsystem)
+- [Plattformen initierade Underhåll](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (till exempel VM omstart, Direktmigrering och minne som bevaras uppdateringar för värd)
 - Degraderat maskinvara
 - Användarinitierat Underhåll (till exempel en användare startar om eller distribuerar om en virtuell dator)
 - [Borttagning har VM med låg prioritet](https://azure.microsoft.com/blog/low-priority-scale-sets) i skala
@@ -58,6 +58,7 @@ Schemalagda händelser innehåller händelser i följande användningsfall:
 ### <a name="scope"></a>Scope
 Schemalagda händelser levereras till:
 
+- Fristående virtuella datorer.
 - Alla virtuella datorer i en molntjänst.
 - Alla virtuella datorer i en tillgänglighetsuppsättning.
 - Alla virtuella datorer i en skalningsuppsättning ange placeringsgrupp. 
@@ -129,7 +130,7 @@ I fall där det finns schemalagda händelser, svaret innehåller en matris med h
 |Egenskap   |  Beskrivning |
 | - | - |
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. Processorn är inaktiverad, men det finns ingen inverkan på minne, öppna filer eller nätverksanslutningar. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständiga minne är förlorad). <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod (differentierande diskar förloras). <li>`Preempt`: VM med låg prioritet tas bort (differentierande diskar förloras).|
+| Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. CPU och nätverksanslutningen kan stängas av, men det finns ingen inverkan på minne eller öppna filer.<li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständiga minne är förlorad). <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod (differentierande diskar förloras). <li>`Preempt`: VM med låg prioritet tas bort (differentierande diskar förloras).|
 | ResourceType | Typ av resurs som påverkar den här händelsen. <br><br> Värden: <ul><li>`VirtualMachine`|
 | Resurser| Lista över resurser som påverkar den här händelsen. Listan kommer att innehålla datorer från högst ett [uppdateringsdomän](manage-availability.md), men det kanske inte innehåller alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i den `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Inte `Completed` eller liknande status någonsin har angetts. Händelsen är inte längre returneras när händelsen är klar.

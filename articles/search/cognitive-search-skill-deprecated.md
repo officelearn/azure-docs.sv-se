@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637526"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021958"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Föråldrad kognitiv sökning kunskaper
 
@@ -31,7 +31,7 @@ Det här dokumentet beskriver kognitiva kunskaper som betraktas som inaktuella. 
 
 ### <a name="last-available-api-version"></a>Senaste tillgängliga api-version
 
-2017-11-11-preview
+2019-05-06-förhandsversion
 
 ### <a name="end-of-support"></a>Support upphör
 
@@ -43,7 +43,8 @@ Använd [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-en
 
 Att migrera till den [entitet erkännande färdighet](cognitive-search-skill-entity-recognition.md), måste du utföra en eller flera av följande ändringar till din kompetens-definition. Du kan uppdatera en färdighet definition med hjälp av den [uppdatera kompetens API](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Obs!_ Förtroendepoäng som ett begrepp som stöds för närvarande inte. Det kommer att stödjas inom en snar framtid. Den `minimumPrecision` parametern finns på den `EntityRecognitionSkill` för framtida användning och för bakåtkompatibilitet kompatibilitet.
+> [!NOTE]
+> Förtroendepoäng som ett begrepp som stöds för närvarande inte. Den `minimumPrecision` parametern finns på den `EntityRecognitionSkill` för framtida användning och för bakåtkompatibilitet kompatibilitet.
 
 1. *(Krävs)*  Ändra den `@odata.type` från `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` till `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

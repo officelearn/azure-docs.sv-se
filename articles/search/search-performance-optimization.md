@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 8a07657d04cee57cb69c9f5f7862fed3e7965716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283597"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024555"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Distribution och bästa praxis för att optimera prestanda för Azure Search
 
@@ -81,7 +81,7 @@ Det finns två alternativ för att hålla dina distribuerade söktjänster synkr
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Använd indexerare för att uppdatera innehållet på flera tjänster
 
-Om du redan använder indexerare på en tjänst kan konfigurera du en andra indexerare på en andra tjänst för att använda samma datakällobjektet som hämtar data från samma plats. Varje tjänst i varje region har sin egen indexeraren och ett målindex (din sökkorpus inte delas, vilket innebär att data dupliceras), men varje indexerare refererar till samma datakälla.
+Om du redan använder indexerare på en tjänst kan konfigurera du en andra indexerare på en andra tjänst för att använda samma datakällobjektet som hämtar data från samma plats. Varje tjänst i varje region har sin egen indexeraren och ett målindex (search-index inte delas, vilket innebär att data dupliceras), men varje indexerare refererar till samma datakälla.
 
 Här är ett övergripande visuellt objekt på den arkitekturen skulle se ut.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290456"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023998"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search – vanliga frågor (och svar FAQ)
 
@@ -64,7 +64,7 @@ Det finns inga restriktioner gällande användningen av primära eller sekundär
 
 Nej, den här åtgärden stöds inte. Sökningen är alltid begränsade till ett enda index.
 
-### <a name="can-i-restrict-search-corpus-access-by-user-identity"></a>Kan jag begränsa sökningen Kristi åtkomst av användarens identitet?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Kan jag begränsa åtkomst för search-index med användarens identitet?
 
 Du kan implementera [säkerhetsfilter](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) med `search.in()` filter. Filtret composes bra med [identity management-tjänster som Azure Active Directory](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) att trimma sökresultat baserat på användarens gruppmedlemskap som definierats.
 

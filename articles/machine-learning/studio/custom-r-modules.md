@@ -1,7 +1,7 @@
 ---
 title: Definiera anpassade R-moduler
 titleSuffix: Azure Machine Learning Studio
-description: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning Studio. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa.
+description: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R Studio. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751215"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025067"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio
 
-Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning Studio. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa. Det illustrerar hur du skapar filer som definierar en modul och hur du registrerar modulen för distribution i en Machine Learning-arbetsyta. Element och attribut som används i definitionen för anpassad modul sedan beskrivs i detalj. Hur du använder extra funktioner och filer och flera utdata diskuteras också. 
+Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R Studio. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa. Det illustrerar hur du skapar filer som definierar en modul och hur du registrerar modulen för distribution i en Machine Learning-arbetsyta. Element och attribut som används i definitionen för anpassad modul sedan beskrivs i detalj. Hur du använder extra funktioner och filer och flera utdata diskuteras också. 
 
 
 
@@ -159,7 +159,7 @@ Valfritt **DataTable** portar som inte skickas som indata i ett experiment har v
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-För anpassade R-moduler saknar id för en Zip-port matchar alla parametrar för funktionen R. Det beror på att zip-filen automatiskt ska extraheras till R-arbetskatalog.
+För anpassade R-moduler saknar ID för en Zip-port matchar alla parametrar för funktionen R. Det beror på att zip-filen automatiskt ska extraheras till R-arbetskatalog.
 
 **Inkommande regler:**
 
@@ -225,7 +225,7 @@ Och returnerar listan över objekt i en lista i rätt ordning i ”CustomAddRows
 ### <a name="arguments"></a>Argument
 Ytterligare data kan skickas till funktionen R via modulparametrar som definieras i den **argument** element. Dessa parametrar visas i egenskapsfönstret för längst till höger i Machine Learning-Användargränssnittet när modulen har valts. Argument kan vara något av typerna som stöds eller skapa en anpassad uppräkning när det behövs. Liknar den **portar** element, **argument** element kan ha en valfri **beskrivning** element som anger den text som visas när du hovrar musen över den Parameternamnet.
 Valfria egenskaper för en modul som standardvärde, minValue och maxValue kan läggas till ett argument som attribut till en **egenskaper** element. Giltiga egenskaper för den **egenskaper** element beror på vilken argumenttyp och beskrivs med stöds Argumenttyperna i nästa avsnitt. Argument med den **isOptional** egenskapen **”true”** inte kräver att användaren anger ett värde. Om ett värde inte har angetts för argumentet, skickas inte argumentet till funktionens startadress. Argumentet för funktionens startadress som är valfria måste du uttryckligen hanteras av funktionen, t.ex. tilldelade standardvärdet NULL i funktionsdefinitionen post punkt. Ett valfritt argument kommer bara att tillämpa de andra argumentet villkor, t.ex. min eller max, om ett värde har angetts av användaren.
-Det är viktigt att var och en av parametrarna har unika id-värden som är associerade med dem precis som med in- och utdata. I vårt exempel Snabbstart associerade id /-parameter har *växling*.
+Det är viktigt att var och en av parametrarna har unika ID-värden som är kopplade till dem precis som med in- och utdata. I vårt exempel Snabbstart associerade id /-parameter har *växling*.
 
 ### <a name="arg-element"></a>Arg-element
 En modul-parameter har definierats med hjälp av den **Arg** underordnat element av den **argument** delen av XML-definitionsfilen. Precis som med de underordnade elementen i den **portar** avsnittet sorteringen av parametrarna i den **argument** avsnittet definierar layouten påträffades i UX. Parametrarna visas, uppifrån nedåt i Användargränssnittet i samma ordning som de definieras i XML-filen. De typer som stöds av Machine Learning för parametrar visas här. 
@@ -270,7 +270,7 @@ En modul-parameter har definierats med hjälp av den **Arg** underordnat element
 
 * *Valfria egenskaper*: **standard** och **isOptional**
 
-**ColumnPicker**: parametern för val av en kolumn. Den här typen renderas i UX-Gränssnittet som en kolumnväljare. Den **egenskapen** elementet används här för att ange id för den port från vilken kolumner väljs, där porttyp måste vara *DataTable*. Resultatet av kolumnen skickas till funktionen R som en lista med strängar som innehåller namn på valda kolumnerna. 
+**ColumnPicker**: parametern för val av en kolumn. Den här typen renderas i UX-Gränssnittet som en kolumnväljare. Den **egenskapen** elementet används här för att ange ID för den port från vilken kolumner väljs, där porttyp måste vara *DataTable*. Resultatet av kolumnen skickas till funktionen R som en lista med strängar som innehåller namn på valda kolumnerna. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ En modul-parameter har definierats med hjälp av den **Arg** underordnat element
         </Arg>
 
 
-* *Egenskaper som krävs*: **portId** -matchar ID: t för ett indata-element med typen *DataTable*.
+* *Egenskaper som krävs*: **portId** -matchar ID: T för ett indata-element med typen *DataTable*.
 * *Valfria egenskaper*:
   
   * **allowedTypes** -filter som kolumnen skriver från vilken du kan välja. Giltiga värden är: 
@@ -327,7 +327,7 @@ En modul-parameter har definierats med hjälp av den **Arg** underordnat element
     </Arg>    
 
 * *Valfria egenskaper*:
-  * **standard** -värdet för standardegenskapen måste motsvara med ett id-värde från en av de **objekt** element.
+  * **standard** -värdet för standardegenskapen måste motsvara med ett ID-värde från en av de **objekt** element.
 
 ### <a name="auxiliary-files"></a>Extra filer
 Alla filer som placeras i ZIP-filen för anpassade modulen ska vara tillgängliga för användning under körningstid. Alla finns katalogstrukturer bevaras. Det innebär att filen sourcing fungerar samma lokalt och i Azure Machine Learning Studio-körning. 

@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818356"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024578"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Skapa PyTorch-modeller med Azure Machine Learning-tjänsten
 
@@ -102,6 +102,10 @@ Slutligen skicka din distribuerade PyTorch-jobb:
 ```Python
 run = exp.submit(pt_est)
 ```
+
+## <a name="export-to-onnx"></a>Exportera till ONNX
+
+Att hämta optimerad inferensjobb med den [ONNX Runtime](concept-onnx.md), du kan konvertera din träningsmodell PyTorch till ONNX-formatet. Se den [självstudien](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) ett exempel.
 
 ## <a name="examples"></a>Exempel
 

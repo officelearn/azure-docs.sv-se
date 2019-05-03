@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193158"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024643"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningar i Azure Search
 Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, dokument, och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **kostnadsfri**, **grundläggande**,  **Standard**, eller **Lagringsoptimerade** prisnivåer.
@@ -50,7 +50,10 @@ Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, do
 | Resurs | Kostnadsfri | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |10 |10 |
-| Maximal fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximal enkel fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximal komplex samling fält per index |40 |40 |40 |40 |40 |40 |40 |40 |
+| Maximal element för alla komplexa samlingar per dokument |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximalt djup för komplexa fält |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximal [förslagsställare](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximal [poängprofiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximal funktioner per profil |8 |8 |8 |8 |8 |8 |8 |8 |

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729296"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987948"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 
@@ -67,7 +67,7 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderingsprocessen
 
-Baserat på Tillgänglighetsdiagrammet ovan kan kommer vi att schemalägga automatiska uppgraderingar för Gen1-instanser. För att undvika oväntade avbrott på tillgängligheten för datalagret, schemaläggs automatiserade uppgraderingar under ditt underhållsschema. Mer information om scheman finns [visa ett underhållsschema](viewing-maintenance-schedule.md)
+Baserat på Tillgänglighetsdiagrammet ovan kan kommer vi att schemalägga automatiska uppgraderingar för Gen1-instanser. För att undvika oväntade avbrott på tillgängligheten för datalagret, schemaläggs automatiserade uppgraderingar under ditt underhållsschema. Möjligheten att skapa en ny instans av Gen1 inaktiveras i regioner som håller på att automatiskt uppgraderas till Gen2. Mer information om scheman finns [visa ett underhållsschema](viewing-maintenance-schedule.md)
 
 Uppgraderingen kommer att omfatta en kort minskning i anslutningen (cirka 5 minuter) som vi starta om ditt informationslager.  När ditt informationslager har startats om, kommer det att helt tillgängliga för användning. Försämrade prestanda kan dock uppstå medan uppgraderingen fortsätter att uppgradera datafiler i bakgrunden. Den totala tiden för försämrade prestanda varierar beroende på storleken på dina filer.
 

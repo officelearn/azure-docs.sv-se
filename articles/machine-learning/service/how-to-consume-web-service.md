@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: a862c920f1e070ab1bbb8af2546bc3d4350347b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4aaf56a00669dbf7e312e2a6f8787ccc664d1190
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819460"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023822"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
 Distribuera en Azure Machine Learning-modell som en webbtjänst skapas ett REST-API. Du kan skicka data till den här API: et och få förutsägelser som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för webbtjänsten med hjälp av C#, Go, Java och Python.
 
-Du kan skapa en webbtjänst när du distribuerar en avbildning till Azure Container Instances, Azure Kubernetes Service eller Project Brainwave (fältet programmable gate Array). Du kan skapa avbildningar från registrerade modeller och bedömningsfilerna. Du kan hämta den URI som används för åtkomst till en webbtjänst med hjälp av den [Azure Machine Learning SDK](https://aka.ms/aml-sdk). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
+Du kan skapa en webbtjänst när du distribuerar en avbildning till Azure Container Instances, Azure Kubernetes Service eller fält-programmable gate matriser (FPGA). Du kan skapa avbildningar från registrerade modeller och bedömningsfilerna. Du kan hämta den URI som används för åtkomst till en webbtjänst med hjälp av den [Azure Machine Learning SDK](https://aka.ms/aml-sdk). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
 
 Det allmänna arbetsflödet för att skapa en klient som använder en machine learning-webbtjänsten är:
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126759"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025140"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exempel: Lägg till förslag eller Komplettera automatiskt i ditt Azure Search-program
 
@@ -23,7 +23,7 @@ I den här artikeln lär du dig hur du använder [förslag](https://docs.microso
 
 + *Förslag* är föreslagna resultaten som genereras när du skriver, där varje förslag är ett enskilt resultat från indexet som matchar vad du har skrivit hittills. 
 
-+ *Automatisk komplettering*, [en förhandsgranskningsfunktion](search-api-preview.md), ”är klar” ord eller fraser som en användare är för närvarande för att skriva. Den är klar en fråga som du kan sedan köra för att returnera resultat istället för att returnera resultat. Precis som med förslag, förutsätter en slutförd ord eller fraser i en fråga på en matchning i indexet. Tjänsten kommer inte erbjuder frågor som returnerar resultat i indexet.
++ *Automatisk komplettering* ”är klar” ord eller fraser som en användare är för närvarande för att skriva. Den är klar en fråga som du kan sedan köra för att returnera resultat istället för att returnera resultat. Precis som med förslag, förutsätter en slutförd ord eller fraser i en fråga på en matchning i indexet. Tjänsten kommer inte erbjuder frågor som returnerar resultat i indexet.
 
 Du kan ladda ned och kör exempelkoden i **DotNetHowToAutocomplete** att utvärdera dessa funktioner. Exempelkoden riktar sig mot ett fördefinierade index som fyllts med [NYCJobs demonstrera data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). NYCJobs indexet innehåller en [förslagsställare konstruktion](index-add-suggesters.md), vilket är ett krav för att använda förslag eller Komplettera automatiskt. Du kan använda förberedda indexet finns i en sandbox-tjänst eller [fylla i din egen index](#configure-app) med hjälp av en inläsaren av inventeringsdata i exempellösningen NYCJobs. 
 

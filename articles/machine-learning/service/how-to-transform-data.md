@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817563"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023790"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformera data med Azure Machine Learning Data Prep SDK
 
 I den här artikeln får du lära dig olika metoder för att omvandla data med hjälp av Azure Machine Learning Data Prep SDK. SDK: N erbjuder funktioner som gör det enkelt att lägga till kolumner, filtrera bort oönskade rader eller kolumner och sedan imputera värden som saknas. Referensdokumentation för SDK finns i den [översikt](https://aka.ms/data-prep-sdk).
+
+> [!Important]
+> Om du skapar en ny lösning kan du prova den [Azure Machine Learning datauppsättningar](how-to-explore-prepare-data.md) (förhandsversion) för att omvandla dina data, ögonblicksbilddata och lagra version datauppsättning definitioner. Datauppsättningar är nästa version av dataförberedelser SDK, som erbjuder fler funktioner för att hantera datauppsättningar i AI-lösningar.
 
 Den här anvisningen visar exempel för följande uppgifter:
 
@@ -35,7 +38,7 @@ Den här anvisningen visar exempel för följande uppgifter:
 
 Azure Machine Learning Data Prep SDK innehåller `substring` uttryck som du kan använda för att beräkna ett värde från befintliga kolumner och anger att värdet i en ny kolumn. I det här exemplet läser in data och försök att lägga till kolumner som indata.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -52,7 +55,7 @@ dflow.head(3)
 
 Använd den `substring(start, length)` uttryck för att extrahera prefixet från fall talkolumnen och placera den strängen i en ny kolumn `Case Category`. Skicka den `substring_expression` variabeln den `expression` parametern skapar en ny beräknad kolumn som kör uttrycket för varje post.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,10 +70,9 @@ case_category.head(3)
 |2|10140270|HY329253|TYPOGRAFI|07/05/2015 23:20:00: 00|121XX S FRONT PARA|0486|BATTERI|INRIKES BATTERI ENKEL|GATA|false|true|...|9|53|08B|||2015|07/12/2015:42:46 24: 00|
 
 
-
 Använd den `substring(start)` uttryck för att extrahera endast siffran från fall talkolumnen och skapa en ny kolumn. Konvertera den till en numerisk typ med den `to_number()` fungera, och skicka kolumnnamnet sträng som en parameter.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',

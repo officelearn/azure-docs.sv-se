@@ -4,17 +4,17 @@ description: Åtkomstkontroll på Azure Search-innehåll med säkerhetsfilter oc
 ms.service: search
 ms.topic: conceptual
 services: search
-ms.date: 08/07/2017
+ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a222b9e506988929c25a560361611b8f78142053
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61282399"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024374"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Säkerhetsfilter för trimning resultat i Azure Search
 
@@ -61,7 +61,7 @@ Anta att vi har ett index över skyddade filer och varje fil kan nås av en anna
 Utfärda en HTTP POST-begäran till URL-slutpunkt för ditt index. Brödtexten i HTTP-begäran är ett JSON-objekt som innehåller de dokument som ska läggas till:
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=[api-version]  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -119,7 +119,7 @@ Observera att det här exemplet visar hur du söker efter dokument med hjälp av
 Skicka HTTP POST-begäran:
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=[api-version]  
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
 Content-Type: application/json  
 api-key: [admin or query key]
 ```

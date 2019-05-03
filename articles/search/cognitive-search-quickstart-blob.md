@@ -1,22 +1,22 @@
 ---
-title: 'Snabbstart: Skapa ett AI-driven index i Azure portal – Azure Search'
+title: 'Snabbstart: Skapa ett AI-berikats index i Azure portal – Azure Search'
 description: Extrahering av data, naturligt språk och kunskap i ett indexering Azure Search-portalen för bildbearbetning med Azure portal och exempeldata.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61345477"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022102"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Snabbstart: Skapa en indexering AI-pipeline med kognitiva kunskaper och exempeldata
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Snabbstart: Skapa en indexering AI-pipeline med kognitiva funktioner i Azure Search
 
 Azure Search kan integreras med [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), lägga till innehåll extrahering, naturlig språkbearbetning (NLP) och kunskaper för bearbetning av avbildning till ett Azure Search indexering av pipeline, vilket gör unsearchable eller ostrukturerat innehåll mer sökbara. 
 
@@ -30,12 +30,12 @@ I den här snabbstarten skapar du din första berikningspipeline i [Azure Portal
 > * Kör guiden (en entitetskunskap upptäcker personer, platser och organisationer)
 > * Använd [**Sökutforskaren**](search-explorer.md) för att köra frågor mot berikade data
 
-Den här snabbstarten körs på den kostnadsfria tjänsten, men antalet kostnadsfria transaktioner är begränsat till 20 dokument per dag. Om du vill köra den här snabbstarten mer än en gång i samma dag, kan du använda en mindre fil så att du kan rymmas i fler körningar.
+Den här snabbstarten körs på den kostnadsfria tjänsten, men antalet kostnadsfria transaktioner är begränsat till 20 dokument per dag. Om du vill köra den här snabbstarten mer än en gång om dagen, använda en mindre fil så att du kan rymmas i fler körningar.
 
 > [!NOTE]
-> När du expanderar omfång genom att öka frekvensen för bearbetning, lägga till fler dokument eller att lägga till fler AI-algoritmer, behöver du bifoga en fakturerbar resurs för Cognitive Services. Avgifter tillkommer när du anropar API: er i Cognitive Services och extrahering av avbildningen som en del av det dokumentknäckning steget i Azure Search. Det finns inga avgifter för textextrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, att lägga till fler dokument eller att lägga till fler AI-algoritmer, måste du [bifoga en fakturerbar resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md). Avgifter tillkommer när du anropar API: er i Cognitive Services och extrahering av avbildningen som en del av det dokumentknäckning steget i Azure Search. Det finns inga avgifter för textextrahering från dokument.
 >
-> Körningen av inbyggda färdigheter som ingår debiteras enligt den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser som ingår debiteras enligt pris för förhandsversion, enligt beskrivningen på den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Läs [mer](cognitive-search-attach-cognitive-services.md).
+> Körningen av inbyggda färdigheter som ingår debiteras enligt den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Bild extrahering priser beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

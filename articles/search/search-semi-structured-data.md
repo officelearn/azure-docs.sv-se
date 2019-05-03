@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61282163"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024377"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST-självstudiekurs: Indexera och söka efter halvstrukturerade data (JSON-blobar) i Azure Search
 
@@ -27,9 +27,6 @@ I den här självstudien använder den [Azure Search REST API: er](https://docs.
 > * Skapa ett Azure Search-index ska innehålla sökbart innehåll
 > * Konfigurera och köra en indexerare för att läsa behållaren och extrahera sökbart innehåll från Azure blob storage
 > * Söka i indexet som du precis skapade
-
-> [!NOTE]
-> I den här kursen används JSON-matriser som för närvarande är en förhandsgranskningsfunktion i Azure Search. Den finns inte i portalen. Därför använder vi förhandsversionen av REST API som tillhandahåller den här funktionen och ett REST-klientverktyg för att anropa API:t.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -81,7 +78,7 @@ Metoden för begäran för varje anrop i den här självstudien är **POST**. Hu
 
 Vi använder Postman för att göra tre API-anrop till din söktjänst för att skapa en datakälla, ett index och en indexerare. Datakällan innehåller en pekare till ditt lagringskonto och dina JSON-data. Din söktjänst gör anslutningen vid inläsning av data.
 
-Frågesträngen måste innehålla en förhandsversionen av API (till exempel **api-version = 2017-11-11-Preview**) och varje anrop ska returnera en **201 Skapad**. Den allmänt tillgängliga api-versionen kan inte ännu hantera JSON som en JSON-matris. Det kan för närvarande endast förhandsgranskningsversionen av api-versionen.
+Fråga strängar måste ange en api-versionen och varje anrop ska returnera en **201 Skapad**. Den allmänt tillgängliga api-versionen för att använda JSON-matriser är `2019-05-06`.
 
 Kör följande tre API-anrop från REST-klienten.
 
@@ -89,7 +86,7 @@ Kör följande tre API-anrop från REST-klienten.
 
 Den [skapa API för Data källan](https://docs.microsoft.com/rest/api/searchservice/create-data-source)skapar ett Azure Search-objekt som anger vilka data som ska indexeras.
 
-Slutpunkten för anropet är `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten. 
+Slutpunkten för anropet är `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten. 
 
 Begärandetexten måste innehålla namnet på ditt lagringskonto, din lagringskontonyckel och blob-behållarnamn för det här anropet. Lagringskontonyckeln hittar du i **Åtkomstnycklar** i ditt lagringskonto i Azure Portal. Platsen visas på följande bild:
 
@@ -132,7 +129,7 @@ Svaret ska se ut så här:
     
 Det andra anropet är [Create Index-API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), skapa ett Azure Search-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
 
-URL:en för det här anropet är `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten.
+URL:en för det här anropet är `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten.
 
 Ersätt först URL:en. Sedan kopierar du och klistrar in följande kod i meddelandetexten och kör frågan.
 
@@ -222,7 +219,7 @@ Svaret ska se ut så här:
 
 En indexerare ansluter datakällan, importerar data till målsökindex och tillhandahåller eventuellt ett schema för att automatisera datauppdateringen. REST-API: et är [skapa et indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-URL:en för det här anropet är `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Ersätt `[service name]` med namnet på söktjänsten.
+URL:en för det här anropet är `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten.
 
 Ersätt först URL:en. Kopiera och klistra in följande kod i meddelandetexten och skicka begäran. Begäran bearbetas omedelbart. När svaret kommer tillbaka, har du ett index som är fulltext sökbara.
 
@@ -267,7 +264,7 @@ Du kan börja söka så fort det första dokumentet har lästs in. Den här uppg
 
 I Azure-portalen öppnar du söktjänsten **översikt** sidan, hitta det index som du skapade i den **index** lista.
 
-Var noga med att välja det index som du nyss skapade. API-versionen kan vara förhandsversion eller en allmänt tillgänglig version. Det enda kravet för förhandsversion var för indexera JSON-matriser.
+Var noga med att välja det index som du nyss skapade. 
 
   ![Ostrukturerad sökning](media/search-semi-structured-data/indexespane.png)
 

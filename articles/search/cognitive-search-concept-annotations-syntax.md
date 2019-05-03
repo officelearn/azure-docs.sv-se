@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344214"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023880"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Hur du refererar till kommentarer i en kognitiv sökning-kompetens
 
@@ -36,13 +36,13 @@ Innan du granska syntaxen kan vi gå tillbaka till några viktiga begrepp för a
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Exempel 1: Anteckningsreferens för enkel
 
-Anta att du har en mängd olika filer som innehåller referenser till namn på personer som du vill extrahera med igenkänning av namngivna entiteter i Azure Blob storage. I färdighet definitionen nedan, `"/document/content"` textrepresentation av hela dokumentet och ”personer” är en extrahering av fullständiga namnen för enheter som identifierats som personer.
+Anta att du har en mängd olika filer som innehåller referenser till namn på personer som du vill extrahera med igenkänning av entiteter i Azure Blob storage. I färdighet definitionen nedan, `"/document/content"` textrepresentation av hela dokumentet och ”personer” är en extrahering av fullständiga namnen för enheter som identifierats som personer.
 
 Eftersom standardkontexten `"/document"`, lista över personer kan nu referera till som `"/document/people"`. I den här specifika fall `"/document/people"` är en anteckning, vilket kan nu vara mappade till ett fält i ett index eller används i en annan färdighet i samma kompetens.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [

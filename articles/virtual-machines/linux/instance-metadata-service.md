@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: cc333cc1a46d6d7e72faeeb8a4e59a70cc0f27ed
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: HT
+ms.openlocfilehash: 84821a24ceb8624a1a7033c43c44548fe5eff315
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925535"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993146"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -640,6 +640,8 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
+I fall där det mellanliggande certifikatet inte kan hämtas på grund av nätverksbegränsningar vid verifiering av kan mellanliggande certifikat fästas. Azure kommer dock förnyar certifikaten enligt praxis för PKI. Fästa certifikat skulle behöva uppdateras när sammanslagning via händer. Varje gång en ändring för att uppdatera mellanliggande certifikat är planerat Azure-bloggen kommer att uppdateras och Azure-kunder kommer att meddelas. Mellanliggande certifikat finns [här](https://www.microsoft.com/pki/mscorp/cps/default.htm). Mellanliggande certifikat för var och en av regionerna som kan vara olika.
+
 ### <a name="failover-clustering-in-windows-server"></a>Redundanskluster i Windows Server
 
 För vissa scenarier, när du frågar efter Instance Metadata Service med Redundansklustring, det är nödvändigt att lägga till en väg i routningstabellen.
@@ -686,13 +688,15 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>Anpassade data
-Instance Metadata Service gör möjligheten för den virtuella datorn ska ha åtkomst till sina egna data. Binära data måste vara mindre än 64KB och har angetts för den virtuella datorn i base64-kodat format. Mer information om hur du skapar en virtuell dator med anpassade data finns [distribuera en virtuell dator med CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Instance Metadata Service gör möjligheten för den virtuella datorn ska ha åtkomst till sina egna data. Binära data måste vara mindre än 64 KB och har angetts för den virtuella datorn i base64-kodat format. Mer information om hur du skapar en virtuell dator med anpassade data finns [distribuera en virtuell dator med CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+
+Anpassade data är tillgängliga för alla processer som körs på den virtuella datorn. Vi rekommenderar att kunder inte infoga hemlig information i anpassade data.
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>Hämtning av anpassade data på den virtuella datorn
 Instance Metadata Service innehåller anpassade data till den virtuella datorn i base64-kodat format. I följande exempel avkodar base64-kodad sträng.
 
 > [!NOTE]
-> Anpassade data i det här exemplet tolkas som en ASCII-sträng som läser ”min superhemliga data”.
+> Anpassade data i det här exemplet tolkas som en ASCII-sträng som läser ”mina anpassade data”.
 
 **Förfrågan**
 
@@ -703,7 +707,7 @@ curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/custom
 **Svar**
 
 ```text
-My super secret data.
+My custom data.
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exempel på hur metadatatjänsten med olika språk på den virtuella datorn

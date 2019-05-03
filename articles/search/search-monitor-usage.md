@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564790"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035350"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resource förbrukning och fråga i Azure Search
 
@@ -114,7 +114,7 @@ BLOB-objekt som innehåller dina trafikloggar för search-tjänsten är struktur
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |Tidsstämpel för åtgärden |
 | resourceId |sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESOURCEGROUPS-STANDARD-PROVIDERS /<br/> MICROSOFT. SÖK/SEARCHSERVICES/SEARCHSERVICE ” |Din resurs-ID |
 | operationName |sträng |”Query.Search” |Åtgärdens namn |
-| operationVersion |string |"2017-11-11" |Api-versionen som används |
+| operationVersion |string |"2019-05-06" |Api-versionen som används |
 | category |sträng |”OperationLogs” |konstant |
 | resultType |sträng |”Lyckades” |Möjliga värden: Lyckad eller misslyckad |
 | resultSignature |int |200 |Resultatkod för HTTP |
@@ -126,7 +126,7 @@ BLOB-objekt som innehåller dina trafikloggar för search-tjänsten är struktur
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
 | Beskrivning |sträng |”Hämta /indexes('content')/docs” |Åtgärdens slutpunkt |
-| Söka i data |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Frågeparametrar |
+| Söka i data |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Frågeparametrar |
 | Dokument |int |42 |Antal bearbetade dokument |
 | Indexnamn |sträng |”testindex” |Namnet på det index som är associerade med åtgärden |
 

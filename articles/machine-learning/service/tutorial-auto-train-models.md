@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925764"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035453"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -54,16 +54,16 @@ Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen
 
 Hämta alla dessa förutsättningar från något av avsnitten nedan.
 
-* Använd [Azure Notebooks](#azure)
+* Använd en [molnet notebook-server i din arbetsyta](#azure) 
 * Använd [din egen Notebook-server](#server)
 
-### <a name="azure"></a>Använd Azure Notebooks: Kostnadsfria Jupyter-anteckningsböcker i molnet
+### <a name="azure"></a>Använda en cloud notebook-server i din arbetsyta
 
-Det är lätt att komma igång med Azure Notebooks! [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig i [Azure Notebooks](https://notebooks.azure.com/). Installationen och framtida uppdateringar hanteras automatiskt via Azure-tjänster.
-
-När du har slutfört stegen nedan kan du köra anteckningsboken **tutorials/regression-part2-automated-ml.ipynb** i ditt **Komma igång**-projekt.
+Det är enkelt att komma igång med din egen molnbaserad notebook-server. Den [Azure Machine Learning-SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig när du skapar den här molnresursen.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* När du startar notebook-webbsidan, kör du den **självstudier/regression-part2-automated-ml.ipynb** anteckningsboken.
 
 ### <a name="server"></a>Använda en egen Jupyter Notebook-server
 

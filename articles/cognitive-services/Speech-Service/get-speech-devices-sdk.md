@@ -8,91 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3c5874625ee9d1932c401238c1586ad89d5d206d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c2cff23f66ec704fe7e7c44136160313c10c9c2
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540126"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020580"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Hämta Cognitive Services tal enheter SDK
 
-Tal Devices SDK är en begränsad förhandsversion och kräver att du registreras i programmet. För närvarande föredrar Microsoft stora företag som kandidater för åtkomst till den här produkten.
+Tal Devices SDK är ett pretuned bibliotek som utformats för att fungera med specialbyggda development Kit och varierande mikrofon matris konfigurationer.
 
-## <a name="request-access"></a>Begär åtkomst
+## <a name="choose-a-development-kit"></a>Välj en Development kit
 
-Du får åtkomst till SDK: N för tal enheter:
-
-1. Gå till Microsoft Speech enheter SDK [fyllt i registreringsformuläret](https://aka.ms/sdsdk-signup).
-1. Läs den [licensavtalet](speech-devices-sdk-license.md).
-1. Om du samtycker till villkoren i licensavtalet, markera **jag godkänner**.
-1. Svara på frågorna i formuläret.
-1. Skicka formuläret.
-1. Om din e-postadress inte redan är en del av Azure Active Directory (AD Azure) får du ett e-postinbjudan som i följande exempel när du har godkänt för åtkomst. Om din e-postadress är redan i Azure AD, du får ett e-postmeddelande från Microsoft Speech-teamet när du har godkänt för åtkomst och du kan gå vidare till [ladda ner tal enheter SDK](#download-the-speech-devices-sdk).
-
-## <a name="approval-e-mail"></a>E-post för godkännande
-
-```
-From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com>
-Subject: You're invited to the Microsoft organization
-```
-
-![e-postmeddelande](media/speech-devices-sdk/get-sdk-1.png)
-
-## <a name="accept-access"></a>Godkänna åtkomst
-
-Utför följande steg för att ansluta till Azure AD med den e-postadress som du angav under registreringen. Den här processen ger dig åtkomst till tal Devices SDK [hämtningswebbplats](https://shares.datatransfer.microsoft.com/).
-
-1. I e-postmeddelandet du fick, väljer **börjar**. Om din organisation är redan en Office 365-kund kan du uppmanas att logga in och du kan gå vidare till steg 7.
-
-2. I webbläsarfönstret som öppnas väljer du **nästa**.
-
-    ![autentisering-fönstret](media/speech-devices-sdk/get-sdk-2.png)
-
-3. Skapa ett Microsoft-konto om du inte redan har ett. Ange samma e-postadressen som du har fått e-postinbjudan.
-
-    ![Skapa ett Microsoft-konto](media/speech-devices-sdk/get-sdk-3.png)
-
-4. Välj **nästa** att skapa ett lösenord.
-
-5. Få verifieringskoden från e-postinbjudan du fick när du uppmanas att verifiera din e-post.
-
-7. Klistra in eller ange säkerhetskoden från e-postmeddelandet i dialogrutan. I det här exemplet säkerhetskoden är **8406**. Välj **Nästa**.
-
-    ![Verifiera e-post](media/speech-devices-sdk/get-sdk-6.png)
-
-8. När du ser åtkomst till panelen programmet i webbläsaren har du bekräftat att din e-postadress är en del av Azure AD. Nu har du åtkomst till hämtningsplatsen tal Devices SDK.
+|Enheter|Specifikationen|Beskrivning|Scenarier|
+|--|--|--|--|
+|[Roobo Smart ljud Dev-paket](http://ddk.roobo.com)</br>[Installationsprogrammet](speech-devices-sdk-roobo-v1.md) / [snabbstarten](speech-devices-sdk-android-quickstart.md)![Roobo Smart ljud Dev-paket](media/speech-devices-sdk/device-roobo-v1.jpg)|7 mic-matris, ARM SOC, Wi-Fi, ljud ut, IO. </br>Android|Första tal Devices SDK för att anpassa Microsoft Mic Array och front bearbetning av SDK, för utveckling av hög kvalitet transkription och tal scenarier|Konversationen avskrift, Smart talare, röst Agent, Wearable|
+|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 RGB-mic-matris och djup kameror. </br>Windows/Linux|Ett Development kit med avancerade artificiell intelligens (AI) sensorer för att skapa avancerade datormodeller för visuellt innehåll och tal. Den kombinerar klassens bästa spatial mikrofon matris och djup kamera med en videokamera och orientering sensor – allt i en liten enhet med flera lägen, alternativ och SDK: er för olika typer av databehandling.|Konversationen avskrift robotteknik, Smart byggnad|
+|Roobo Smart ljud utvecklingspaket 2![Roobo Smart ljud utvecklingspaket 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 mic-matris, ARM SOC, Wi-Fi, Bluetooth, i/o. </br>Linux|2: a generationen tal Devices SDK som tillhandahåller alternativa OS och fler funktioner i en kostnadseffektiv referensdesign.|Konversationen avskrift, Smart talare, röst Agent, Wearable|
+|URbetter T11 utveckling tavla![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 mic-matris, ARM SOC, Wi-Fi, Ethernet, HDMI, USB-kamera. </br>Linux|Nivån bransch tal Devices SDK som anpassar sig Microsoft Mic-matris och har stöd för utökat i/o, till exempel HDMI/Ethernet och flera USB-kringutrustning|Conversation Transcription, Education, Hospital, Robots, OTT Box, Voice Agent, Drive Thru|
 
 ## <a name="download-the-speech-devices-sdk"></a>Ladda ned SDK för tal-enheter
 
-Gå till den [tal Devices SDK hämtningsplats](https://shares.datatransfer.microsoft.com/). Logga in med Microsoft-konto som du skapade tidigare.
-
-![Hämtningsplats för SDK](media/speech-devices-sdk/get-sdk-7.png)
-
-Ladda ned tal enheter SDK, som är associerade exempelkoden och referensmaterial:
-
-1. Hämta och installera Aspera Connect-verktyget när du uppmanas i webbläsaren.
-
-    ![Hämta Aspera ansluta](media/speech-devices-sdk/get-sdk-8.png)
-
-1. Välj **Ja** att växla appar till Aspera ansluta.
-
-    ![Växla till Aspera ansluta](media/speech-devices-sdk/get-sdk-9.png)
-
-1. Välj **Tillåt** att bekräfta laddar ned filerna med hjälp av Aspera ansluta.
-
-    ![Hämta med hjälp av Aspera ansluta](media/speech-devices-sdk/get-sdk-10.png)
-
-1. Stäng fönstret Aspera ansluta överföringar när filerna har hämtats.
-
-    ![Aspera ansluta överföringar fönster](media/speech-devices-sdk/get-sdk-11.png)
-
-Som standard filerna laddas ned till din **hämtar** mapp. Du kan logga ut från den här platsen nu.
+Ladda ned den [tal enheter SDK](https://aka.ms/sdsdk-download).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kom igång med SDK för tal-enheter](speech-devices-sdk-qsg.md)
+> [Kom igång med SDK för tal-enheter](https://aka.ms/sdsdk-quickstart)

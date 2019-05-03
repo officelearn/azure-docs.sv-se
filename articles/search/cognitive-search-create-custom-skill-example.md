@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344169"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023615"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exempel: Skapa en anpassad kompetens med hjälp av översätta Text-API
 
@@ -243,7 +243,7 @@ När du är nöjd med funktionsbeteende, kan du publicera den.
 
 1. Följ den anvisningarna på skärmen. Du uppmanas att ange Azure-konto, resursgruppens namn, värdplanen och storage-konto som du vill använda. Du kan skapa en ny resursgrupp, en ny värdplan och ett lagringskonto om du inte redan har dessa. När du är klar väljer **skapa**
 
-1. När distributionen är klar kan du Observera webbplatsens URL. Det är adressen till funktionsappen i Azure. 
+1. När distributionen är klar ser du webbplatsens URL. Det är adressen till funktionsappen i Azure. 
 
 1. I den [Azure-portalen](https://portal.azure.com), navigera till resursgruppen och leta efter funktionen översätta du publicerat. Under den **hantera** avsnittet bör du se Värdnycklar. Välj den **kopia** ikonen för den *standard* värdnyckel.  
 
@@ -282,7 +282,7 @@ Nu när du har en ny anpassad kunskap kan du lägga till det din kompetens. Exem
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
-        "uri": "http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [

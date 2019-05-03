@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57fd69542a5d92b9afd1e003d8b94c1ebb64953e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753928"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65031802"
 ---
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för den Azure-prenumeration du använder. 
 
@@ -26,7 +26,7 @@ ms.locfileid: "60753928"
 
 1. I sökfältet anger **Maskininlärning**. Välj den **Machine Learning-tjänstens arbetsyta** sökresultat.
 
-   ![Sök efter en arbetsyta](./media/aml-create-in-portal/allservices-search.PNG)
+   ![Sök efter en arbetsyta](./media/aml-create-in-portal/allservices-search.png)
 
 1. I den **ML-arbetsyta på tjänsten** rutan, rulla ned till botten och välj **skapa** att börja.
 

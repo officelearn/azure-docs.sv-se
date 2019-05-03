@@ -527,8 +527,8 @@ I följande tabell innehåller exempel på hur du anger den **tableName** egensk
 
 | DB-Schema | Tabellnamn | **tableName** JSON-egenskap |
 | --- | --- | --- |
-| dbo | MyTable | MyTable eller dbo. MyTable eller [dbo]. [Tabell] |
-| dbo1 | MyTable | dbo1. MyTable eller [dbo1]. [Tabell] |
+| dbo | MyTable | MyTable eller dbo.MyTable eller [dbo].[Tabell] |
+| dbo1 | MyTable | dbo1.MyTable eller [dbo1].[Tabell] |
 | dbo | My.Table | [My.Table] eller [dbo].[My.Table] |
 | dbo1 | My.Table | [dbo1].[My.Table] |
 

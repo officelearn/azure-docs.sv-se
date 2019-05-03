@@ -11,18 +11,18 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b6d7f791300a970e71fda4f1d56354a45d07afd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029902"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035443"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Skapa och utforska automatiserade machine learning-experiment i Azure portal (förhandsversion)
 
- I den här artikeln lär du dig att skapa, köra och utforska automatiserade machine learning-experiment i Azure-portalen utan en enda rad kod. Automatiserad maskininlärning automatiserar processen att välja den bästa algoritmen använder för dina specifika data, så att du snabbt kan skapa en modell för maskininlärning. [Mer information om automatisk maskininlärning](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
+ I den här artikeln lär du dig att skapa, köra och utforska automatiserade machine learning-experiment i Azure-portalen utan en enda rad kod. Automatiserad maskininlärning automatiserar processen att välja den bästa algoritmen använder för dina specifika data, så att du snabbt kan skapa en modell för maskininlärning. [Mer information om automatisk maskininlärning](concept-automated-ml.md).
 
- Om du föredrar en mer kod baserat-upplevelsen kan du också [konfigurera dina automatiserade maskininlärningsexperiment i Python](how-to-configure-auto-train.md) med den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ Om du föredrar en mer kodbaserad upplevelse, du kan också [konfigurera dina automatiserade maskininlärningsexperiment i Python](how-to-configure-auto-train.md) med den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -40,7 +40,7 @@ Navigera till den vänstra rutan i din arbetsyta. Välj Automatisk Machine Learn
 
 ![Landningssida för Azure portal experiment](media/how-to-create-portal-experiments/landing-page.png)
 
-Annars ser du automatisk machine learning-instrumentpanel med en översikt över alla dina automatiserade machine learning-experiment och körs, inklusive de som kör med hjälp av SDK. Här kan du filtrera och utforska dina körningar efter datum, experimentera namn och Körningsstatus.
+Annars ser du automatisk machine learning-instrumentpanel med en översikt över alla dina automatiserade machine learning-experiment, inklusive de som kör med SDK: N. Här kan du filtrera och utforska dina körningar efter datum, experimentera namn och Körningsstatus.
 
 ![Azure portal experiment instrumentpanel](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -148,8 +148,6 @@ Du kan få en omfattande mängd sammanfattande statistik över din datauppsättn
 
 * **Datamängds**: en datamängds kolumnen. Tomma poster visas för funktioner med irrelevanta typer.
 
-Du kan dessutom använda statistiken för att bestämma om du vill inkludera eller exkludera vissa kolumner. Du kan styra vilka som ska användas i dina automatiserade machine learning-experiment genom att förflytta väljaren för varje kolumn.
-
 <a name="preprocess"></a>
 
 ### <a name="advanced-preprocessing"></a>Avancerade Förbearbeta
@@ -168,72 +166,24 @@ När du konfigurerar dina experiment, du kan aktivera avancerade inställningen 
 |Vikten av bevis (missöden)|Beräknar missöden som ett mått på korrelation mellan kategoriska kolumner att målkolumnen. Det beräknas som en logg för förhållandet mellan i klassen vs out klass sannolikhet. Det här steget matar ut en numeriska kolumn per klass och eliminerar behovet av att uttryckligen sedan imputera värden som saknas och avvikare behandling.|
 |Avståndet i kluster|Träna en klustringsmodell för k-means på alla numeriska kolumner.  Utdata k nya funktioner, en ny numeriska per kluster som innehåller avståndet från varje prov som axelcentroid för varje kluster.|
 
-## <a name="run-experiment"></a>Kör experimentet
+## <a name="run-experiment-and-view-results"></a>Kör experimentet och visa resultat
 
-Kör experimentet genom att klicka på Start.
-  
-Experimentet förbereda processen tar några minuter.
+Kör experimentet genom att klicka på Start. Experimentet förbereda processen tar några minuter.
 
-## <a name="view-results"></a>Visa resultat
+### <a name="view-experiment-details"></a>Visa information om experiment
 
-När förberedelsefasen experimentet är klart visas skärmen körningsinformation. Detta ger dig en fullständig lista över modeller som skapats. Som standard den modell som bedömer de högsta baserat på dina parametrar kommer att överst i listan. När utbildningsjobbet försöker ut fler modeller, ser du dem lagts till i listan och i diagrammet.
-Använd diagrammet för att få en snabb jämförelse av mått för modeller som producerats hittills.
-
-![Information om instrumentpanelen för körning](media/how-to-create-portal-experiments/run-details.png)
-
-Du kan öka detaljnivån för någon av de utdata-modellerna som öppnas med information om den modellen inklusive prestanda och distribution av diagram och mått. [Mer information om diagram](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
-
-![Iteration information](media/how-to-create-portal-experiments/dashboard.png)
+När förberedelsefasen experimentet är klart visas kör detaljerad information. Detta ger dig en fullständig lista över modeller som skapats. Som standard den modell som bedömer de högsta baserat på dina parametrar är överst i listan. Allteftersom utbildningsjobbet försöker ut fler modeller, läggs de till iteration lista och diagram. Använd iteration diagrammet för att få en snabb jämförelse av mått för modeller som producerats hittills.
 
 Utbildning jobb kan ta en stund för varje pipeline som ska slutföras.
 
-## <a name="deploy-model"></a>Distribuera modell
+![Information om instrumentpanelen för körning](media/how-to-create-portal-experiments/run-details.png)
 
-När du har den bästa modellen till hands, är det dags att distribuera den som en webbtjänst för att förutsäga på nya data.
+### <a name="view-training-run-details"></a>Visa utbildningar körningsinformation
 
-Automatiserad ML hjälper dig att distribuera modellen utan att skriva kod:
+Öka detaljnivån på någon av utdata-modeller för att se utbildning körningsinformation som prestandadiagram för mått och distribution. [Mer information om diagram](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
 
-1. Kör sammanfattning-rutan till höger väljer du ”registrera modellen”.
-
-    ![Registrera modellen](media/how-to-create-portal-experiments/register-model.png)
-
-1. När modellen har registrerats kommer du att kunna hämta bedömningsskriptet som ska användas under distributionen.
-
-    ![Ladda ned bedömningsskriptet](media/how-to-create-portal-experiments/download-scoring-script.png)
-
-1. När du har bedömningsskriptet kan gå till sidan ”modeller” (i det vänstra navigeringsfönstret under **tillgångar**).
-
-    ![Modellen navigeringsfönstret](media/how-to-create-portal-experiments/nav-pane-models.png)
-
-1. Markera kryssrutan bredvid den modell som du har registrerat och välj ”Skapa avbildning”.
-
-    Du kan identifiera modellen genom en beskrivning som innehåller ID: T och iteration körningsnumret, i följande format: **< Run_ID > _ < Iteration_number > _Model**.
-
-1. Ange ett namn för avbildningen och överför bedömningsfil som du har hämtat tidigare. [Mer information om bedömning skript](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where.md#script).
-
-    Du kan använda dina egna bedömningsskript och Conda-fil. Om du inte har en Conda-fil, [skapa egna](tutorial-deploy-models-with-aml.md#create-environment-file) och ladda upp den tillsammans med eventuella andra ytterligare filer som du kanske vill använda.
-
-    ![Skapa en bild-formulär](media/how-to-create-portal-experiments/create-image.png)
-
-1. Välj knappen ”Skapa” för att börja skapa avbildningar. Detta tar några minuter att slutföra när klar, visas ett meddelande i det översta fältet.
-
-1. Gå till fliken ”avbildningar”, markera kryssrutan bredvid den avbildning du vill distribuera och välj ”Skapa distribution”.
-
-    ![Bild skapa distributionsskärmen](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. Ange ett unikt namn.
-
-1. (valfritt) Ange en beskrivning av distributionen.
-
-1. Välj måltyp för beräkning du använder. 
-
-    ![Skapa formulär-distribution](media/how-to-create-portal-experiments/create-deployment.png)
-
-1. Välj ”Skapa” för att starta distributionsprocessen, det tar flera minuter att slutföra.
-
-1. Klart! Du har en operational webbtjänst för att generera förutsägelser.
+![Iteration information](media/how-to-create-portal-experiments/iteration-details.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur du använder en distribuerad modell](how-to-consume-web-service.md).
-* [Samla in data för modeller i produktion](how-to-enable-data-collection.md).
+* [Läs mer om automatisk machine learning](concept-automated-ml.md) och Azure Machine Learning.

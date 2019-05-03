@@ -256,10 +256,10 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**typ**|| Krävs – måste vara inställd på `sendGrid`.|
-|**riktning**|| Krävs – måste vara inställd på `out`.|
-|**Namn**|| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
+|**direction**|| Krävs – måste vara inställd på `out`.|
+|**name**|| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
 |**apiKey**|**ApiKey**| Namnet på en appinställning som innehåller din API-nyckel. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsSendGridApiKey”.|
-|**Att**|**Till**| mottagarens e-postadress. |
+|**to**|**Till**| mottagarens e-postadress. |
 |**from**|**From**| avsändarens e-postadress. |
 |**subject**|**Ämne**| den e-postmeddelandets ämne. |
 |**text**|**Text**| e-postinnehåll. |

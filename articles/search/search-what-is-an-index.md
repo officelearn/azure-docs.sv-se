@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308252"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024434"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Skapa ett grundläggande index i Azure Search
 
@@ -54,7 +54,7 @@ Koden i stället för en portal metod som rekommenderas för upprepad konstrukti
 
 Grafiskt, består ett Azure Search-index av följande element. 
 
-Den [ *fält samling* ](#fields-collection) är vanligtvis den största delen av ett index, där varje fält med namnet, har angett och ha tillåten beteenden som avgör hur den används. Andra element är [förslagsställare](#suggesters), [poängprofiler](#scoring-profiles), [analysverktyg](#analyzers) med komponenter för anpassning, och [CORS](#cors) alternativ.
+Den [ *fält samling* ](#fields-collection) är vanligtvis den största delen av ett index, där varje fält med namnet, har angett och ha tillåten beteenden som avgör hur den används. Andra element är [förslagsställare](#suggesters), [poängprofiler](#scoring-profiles), [analysverktyg](#analyzers) med komponenter för anpassning, [CORS](#cors) och [krypteringsnyckeln](#encryption-key) alternativ.
 
 ```json
 {
@@ -126,6 +126,15 @@ Den [ *fält samling* ](#fields-collection) är vanligtvis den största delen av
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -166,7 +175,7 @@ Mer detaljerad information om [indexattributen i Azure Search finns här](https:
 
 De attribut som du väljer påverka lagring. Följande skärmbild illustrerar index storage mönster som härrör från olika kombinationer av attribut.
 
-Indexet baseras på den [inbyggda realestate-exemplet](search-get-started-portal.md) datakällan, vilket kan du indexera och fråga i portalen. Även om de index scheman inte visas, kan du hämta de attribut som baseras på Indexnamnet. Till exempel *realestate-sökbara* indexet innehåller den **sökbara** attributet som väljs och inget annat, *realestate-hämtningsbara* indexet innehåller den  **hämtningsbar** attributet som väljs och inget annat och så vidare.
+Indexet baseras på den [inbyggda fastigheter exempel](search-get-started-portal.md) datakällan, vilket kan du indexera och fråga i portalen. Även om de index scheman inte visas, kan du hämta de attribut som baseras på Indexnamnet. Till exempel *realestate-sökbara* indexet innehåller den **sökbara** attributet som väljs och inget annat, *realestate-hämtningsbara* indexet innehåller den  **hämtningsbar** attributet som väljs och inget annat och så vidare.
 
 ![Index-storlek baserat på val av attributet](./media/search-what-is-an-index/realestate-index-size.png "Index-storlek baserat på val av attribut")
 
@@ -203,6 +212,10 @@ Följande alternativ kan anges för CORS:
   Om du vill tillåta åtkomst till alla ursprung inkludera `*` som ett enda objekt i den **allowedOrigins** matris. *Detta rekommenderas inte för produktion söktjänster* men det kan ofta vara användbart för utveckling och felsökning.
 
 + **maxAgeInSeconds** (valfritt): Webbläsare använder värdet för att fastställa varaktigheten (i sekunder) för cache CORS preflight-svar. Detta måste vara ett icke-negativt heltal. Ju större det här värdet är, bättre prestanda, men ju längre tid det tar för CORS principändringar ska börja gälla. Om det inte har angetts används standardlängd på 5 minuter.
+
+## <a name="encryption-key"></a>Krypteringsnyckel
+
+Även om alla Azure search-index är krypterad som standard med hjälp av Microsoft-hanterad nycklar index kan konfigureras för att krypteras med **Kundhanterade nycklar** i Key Vault. Mer information finns i [hantera krypteringsnycklar i Azure Search](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

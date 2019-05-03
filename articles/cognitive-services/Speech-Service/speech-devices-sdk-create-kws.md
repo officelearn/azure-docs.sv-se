@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2280af4bf37fdb3cd12482da855f979a9180f0ec
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461620"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020506"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Skapa ett anpassat wake ord med Speech-tjänsten
 
@@ -47,29 +47,26 @@ Tänk på följande när du väljer ett wake ord:
 
 ## <a name="create-your-wake-word"></a>Skapa ditt wake ord
 
-Innan du kan använda ett anpassat wake ord med din enhet, måste du skapa wake ordet med hjälp av Microsoft för anpassade Wake Word-Generation-tjänsten. När du har angett ett ord på wake, tjänsten ger en fil som distribuerar du din development Kit för att aktivera wake word på enheten.
+Innan du kan använda ett anpassat wake ord med din enhet, måste du skapa ett wake ord med tjänsten Microsoft anpassade Wake Word Generation. När du har angett ett ord på wake, tjänsten ger en fil som distribuerar du din development Kit för att aktivera wake word på enheten.
 
-1. Gå till den [Custom Speech Service Portal](https://cris.ai/).
+1. Gå till den [Custom Speech Service Portal](https://aka.ms/sdsdk-speechportal) och **logga in** eller om du inte har en tal-prenumeration väljer [ **skapar du en prenumeration**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
     ![Custom Speech Service-portalen](media/speech-devices-sdk/wake-word-4.png)
 
-1. Logga in med e-postadressen som har fått inbjudan för Azure Active Directory.
-
-1. Den **anpassad Wake Word** sidan är inte tillgänglig för allmänheten, så det finns ingen direkt koppling som tar dig det. Anpassad talfunktionen kräver en Azure-prenumeration, men funktionen anpassade Wake Word inte. Om du har fått den **inga prenumerationer hittades.** felsidan, bara Ersätt den **”prenumerationer? errorMessage = ingen % 20Subscriptions % 20found”** med ”**customkws**” i URL: en och träffar på RETUR. URL: en ska vara något av följande: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws eller https://northeurope.cris.ai/customkws, beroende på var din region är.
-
-1. Skriver wake ordet valfritt och väljer sedan **skicka ordet**.
+1. På den [anpassad Wake Word](https://aka.ms/sdsdk-wakewordportal) sidan Ange ordet wake för ditt val och klickar på **Lägg till wake word**. Vi har ett [riktlinjer](#choose-an-effective-wake-word) hjälpa dig att välja en effektiv nyckelord. Vi stöder för närvarande endast en-US språk.
 
     ![Ange ditt wake ord](media/speech-devices-sdk/wake-word-5.png)
 
-1. Det kan ta några minuter för filer som ska genereras. Du bör se en snurrande cirkel i webbläsarfönstret. Efter en stund visas ett informationsfält, där du kan ladda ned en ZIP-fil.
+1. Tre alternativ uttal av wake-ord kommer att skapas. Du kan välja alla uttal som helst. Välj sedan **skicka** att generera wake ordet. Om du vill ändra wake ordet ta bort den befintliga påverkas först när du håller muspekaren på raden uttal visas ikonen Ta bort.
 
-1. Spara ZIP-filen till datorn. Du behöver den här filen för att distribuera anpassade wake ordet development Kit. Om du vill distribuera anpassad aktivering ordet, följer du anvisningarna i [Kom igång med tal enheter SDK](speech-devices-sdk-qsg.md).
+    ![Granska ditt wake ord](media/speech-devices-sdk/wake-word-6.png)
 
-1. Välj **logga ut.**
+1. Det kan ta upp till en minut för modellen som ska genereras. Du uppmanas att hämta filen.
+
+    ![Ladda ned ditt wake ord](media/speech-devices-sdk/wake-word-7.png)
+
+1. Spara ZIP-filen till datorn. Du behöver den här filen för att distribuera dina anpassade wake word development Kit.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång genom att hämta en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) och registrera dig för tal Devices SDK.
-
-> [!div class="nextstepaction"]
-> [Registrera dig för tal Devices SDK](get-speech-devices-sdk.md)
+Testa ditt anpassade wake ord med [tal enheter SDK Snabbstart](https://aka.ms/sdsdk-quickstart).

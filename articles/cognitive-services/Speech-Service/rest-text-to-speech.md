@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480547"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020436"
 ---
 # <a name="text-to-speech-rest-api"></a>Text till tal REST-API
 
@@ -70,7 +70,7 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för text till 
 
 | Huvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -161,10 +161,10 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för text till 
 
 | Huvud | Beskrivning | Obligatoriskt / valfritt |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Obligatoriskt |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
 | `Content-Type` | Anger innehållstypen för den angivna texten. Godkänt värde: `application/ssml+xml`. | Krävs |
 | `X-Microsoft-OutputFormat` | Anger formatet för ljuduppspelning. En fullständig lista över godkända värden, se [ljud utdata](#audio-outputs). | Krävs |
-| `User-Agent` | Programnamnet. Det angivna värdet måste vara mindre än 255 tecken. | Obligatoriskt |
+| `User-Agent` | Programnamnet. Det angivna värdet måste vara mindre än 255 tecken. | Krävs |
 
 ### <a name="audio-outputs"></a>Ljud utdata
 
@@ -204,7 +204,7 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+    name='en-US-JessaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```

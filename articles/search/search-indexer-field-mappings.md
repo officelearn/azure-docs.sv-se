@@ -1,7 +1,7 @@
 ---
 title: Fältmappningar för automatisk indexering med hjälp av indexerare – Azure Search
 description: Konfigurera Azure Search-indexeraren fältmappningar för skillnader i fältnamn och representationer av data.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9bb8a168f54658ea14b174d19a1795e575646304
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3e0d876550b0c3baf89f3f13e0458fc97e11351
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749350"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025222"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Fältmappningar i Azure Search-indexerare
 När du använder Azure Search-indexerare kan ibland hitta själv i situationer där dina indata ganska inte matchar schemat för ditt målindex. I sådana fall kan du använda **fältmappningar** att omvandla data till önskad form.

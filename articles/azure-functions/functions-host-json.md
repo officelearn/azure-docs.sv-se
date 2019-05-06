@@ -204,7 +204,7 @@ Styr loggning beteenden för funktionsappen, inklusive Application Insights.
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av filen loggning är aktiverat.  Alternativen är `never`, `always`, `debugOnly`. |
 |logLevel|Saknas|Objekt som definierar loggkategori filtrering för funktionerna i appen. Version 2.x följer ASP.NET Core-layouten för log kategorifiltrering. På så sätt kan du filtrera loggning för specifika funktioner. Mer information finns i [Log filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.NET Core-dokumentationen. |
-|konsol|Saknas| Den [konsolen](#console) inställning för aktivitetsloggning. |
+|console|Saknas| Den [konsolen](#console) inställning för aktivitetsloggning. |
 |applicationInsights|Saknas| Den [applicationInsights](#applicationinsights) inställningen. |
 
 ## <a name="console"></a>konsol

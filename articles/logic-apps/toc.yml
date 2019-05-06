@@ -61,6 +61,8 @@
           href: logic-apps-scenario-function-sb-trigger.md
         - name: 'Anropa, utlösa eller kapsla logikappar'
           href: logic-apps-http-endpoint.md
+        - name: Hämta stora mängder data med sidnumrering
+          href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Meddelanden om batchprocess
           href: logic-apps-batch-process-send-receive-messages.md
         - name: Skapa JSON-definitioner
@@ -103,11 +105,8 @@
           href: logic-apps-enterprise-integration-b2b.md
         - name: Utbyta AS2-meddelanden
           href: logic-apps-enterprise-integration-as2.md
-          items:
-            - name: AS2-kodning
-              href: logic-apps-enterprise-integration-as2-encode.md
-            - name: AS2-avkodning
-              href: logic-apps-enterprise-integration-as2-decode.md
+        - name: Inställningar för AS2-meddelanden
+          href: logic-apps-enterprise-integration-as2-message-settings.md
         - name: Utbyta EDIFACT-meddelanden
           href: logic-apps-enterprise-integration-edifact.md
           items:

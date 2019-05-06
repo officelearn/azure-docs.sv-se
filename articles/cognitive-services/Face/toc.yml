@@ -45,14 +45,22 @@
           href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-- name: Instruktionsguider
+- name: Begrepp
   items:
     - name: Ansiktsspårning
-      href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+      href: concepts/face-detection.md
     - name: Ansiktsigenkänning
+      href: concepts/face-recognition.md
+- name: Instruktionsguider
+  items:
+    - name: Identifiera ansikten
+      href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+    - name: Identifiera ansikten
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Lägg till ansikten
       href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: Använda HeadPose för att rotera rektangel
+      href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Ange en ansiktsigenkänningsmodell
       href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: Använda den storskaliga funktionen
@@ -69,10 +77,6 @@
           href: face-resource-container-config.md
     - name: Använda den anslutna tjänsten för Ansikts-API
       href: vs-face-connected-service.md
-- name: Exempel
-  items:
-    - name: Kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
 - name: Referens
   items:
     - name: Ansikts-API
@@ -93,10 +97,10 @@
           href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: Resurser
   items:
-    - name: Ordlista
-      href: Glossary.md
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: FAQ.md
+    - name: Exempel
+      items:
+        - name: Exempel på ansikts-API
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
     - name: Priser och begränsningar
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: UserVoice

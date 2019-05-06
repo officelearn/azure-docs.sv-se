@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om formigenkänning
+metadata:
+  title: API-dokumentation – Formigenkänning – Azure Cognitive Services | Microsoft Docs
+  description: Lär dig hur du använder formigenkänning för att extrahera nyckel/värde-data från dina dokument i formuläret på ett intelligent sätt.
+  services: cognitive-services
+  author: PatrickFarley
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.subservice: form-recognizer
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/16/2019
+  ms.author: pafarley
+ms.custom: seodec18
+abstract:
+  description: Formigenkänning i Azure är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera nyckel/värde-par och tabelldata från formulärdokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Med oövervakad inlärning kan modellen att förstå layout och relationer mellan fält och poster utan data för manuell märkning eller intensiv kodning och underhåll.
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/form-recognizer/overview
+            html: <p>Ta reda på mer om formigenkänning.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Vad är formigenkänning?
+          - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto
+            html: <p>Lär dig hur du använder formigenkänningscontainern för att parsa formulär- och tabelldata.</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Installera och köra containrar
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: 'Träna en modell för formigenkänning och extrahera data från formulär med hjälp av:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/logos/logo-curl.svg
+            text: cURL
+            href: quickstarts/curl-train-extract.md
+          - image:
+              src: ./media/logos/logo-python.svg
+            text: Python
+            href: quickstarts/python-train-extract.md
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 'API:er'
+            html: '<p><a href="https://aka.ms/form-recognizer/api">API för formigenkänning</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'

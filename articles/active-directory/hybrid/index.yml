@@ -4,7 +4,7 @@ title: Dokumentation om hybrididentitet
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
   title: Dokumentation om hybrididentitet
-  meta.description: 'Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.'
+  description: Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD.
   services: active-directory
   author: billmath
   manager: daveba
@@ -18,7 +18,7 @@ abstract:
   description: 'Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Vi kallar det för hybrididentitet.</br></br></br>Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. I det här avsnittet beskrivs planerings-, distributions- och användningsstegen. Det är en samling länkar till avsnitt relaterade till det här området.'
   aside:
     image:
-      alt: null
+      alt: kanal 9-video
       height: 110
       src: media/index/video2.png
       width: 250
@@ -36,16 +36,19 @@ sections:
           - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
             html: <p>Lär dig hur du kommer igång med att utöka dina identiteter till molnet med synkronisering av lösenordshash</p>
             image:
+              alt: Hash-synkronisering för lösenord
               src: media/index/azuread2.png
             title: Integrera en enskild AD-skog med hjälp av synkronisering av lösenordshash (PHS)
           - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
             html: <p>Lär dig hur du kommer igång med att utöka dina identiteter till molnet med direktautentisering.</p>
             image:
+              alt: Direktautentisering
               src: media/index/manage2.png
             title: Integrera en enskild AD-skog med hjälp av direktautentisering (PTA)
           - href: /azure/active-directory/hybrid/tutorial-federation
             html: <p>Få reda på hur du federerar Azure Active Directory (Azure AD) Connect med Active Directory Federation Services (AD FS) och Azure AD lokalt.</p>
             image:
+              alt: federation
               src: media/index/federate2.png
             title: Integrera en enskild AD-skog med hjälp av federation
   - title: Instruktionsguider

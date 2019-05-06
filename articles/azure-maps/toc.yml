@@ -42,7 +42,7 @@
           href: render-coverage.md
         - name: Routningstäckning
           href: routing-coverage.md
-    - name: Språk som stöds
+    - name: Lokaliseringsstöd
       href: supported-languages.md
     - name: Mappningsformat som stöds
       href: supported-map-styles.md
@@ -74,11 +74,11 @@
       items:
         - name: Kartkontroll
           items:
-            - name: Använda kartkontrollen
+            - name: Komma igång med webbkartkontroll
               href: how-to-use-map-control.md
             - name: Skapa en karta
               href: map-create.md
-            - name: Välj ett kartformat
+            - name: Ändra formatet för kartan
               href: choose-map-style.md
             - name: Lägga till kontroller till kartan
               href: map-add-controls.md
@@ -120,8 +120,14 @@
               href: map-route.md
     - name: Utveckla med Android SDK
       items:
-        - name: Använda Android-kartkontroll
+        - name: Komma igång med Android-kartkontroll
           href: how-to-use-android-map-control-library.md
+        - name: Lägga till ett symbolskikt
+          href: how-to-add-symbol-to-android-map.md
+        - name: Lägga till former
+          href: how-to-add-shapes-to-android-map.md
+        - name: Ändra formatet för kartan
+          href: set-android-map-styles.md
 - name: Referens
   items:
     - name: API- och parametertillägg

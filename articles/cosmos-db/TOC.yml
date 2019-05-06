@@ -143,17 +143,6 @@
             - name: Indexeringsprinciper
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: Ändringsfeed
-          items:
-            - name: Översikt
-              href: change-feed.md
-            - name: Läsning av ändringsflöde
-              href: read-change-feed.md
-            - name: Ändringsflödesprocessor
-              href: change-feed-processor.md
-            - name: Utlösa Azure Functions
-              displayName: change feed
-              href: change-feed-functions.md
         - name: Time to live
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -498,6 +487,9 @@
           href: data-explorer.md
         - name: Hantera indexeringsprinciper
           href: how-to-manage-indexing-policy.md
+        - name: Exempel på SQL-underfråga
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
     - name: Ändringsflöde
       items:
         - name: Flera Azure Cosmos DB-utlösare

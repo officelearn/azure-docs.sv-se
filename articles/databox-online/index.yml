@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Box-dokumentation – överföring online
+title: Dokumentation om Azure Data Box – Onlineöverföring
 metadata:
-  title: Azure Data Box-dokumentation – överföring online
-  description: 'Använd Data Box-enheter för dataöverföringar med hög prestanda över nätverket till Azure på ett snabbt, prisvärt och tillförlitligt sätt.'
+  title: 'Data Box Gateway, Data Box Edge-dokumentation för dataöverföring till Azure via nätverk'
+  description: 'Använd Data Box Edge och Data Box Gateway för dataöverföringar med höga prestanda över nätverket till Azure snabbt, prisvärt och tillförlitligt.'
   services: databox
   author: alkohli
   manager: twooley
@@ -13,7 +13,7 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: 'Med Azure Data Box kan du överföra hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Använd Data Box-enheter för dataöverföringar över nätverket med höga prestanda.<p>Välj Data Box Gateway för att skicka data för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala.  Använd Data Box Edge för att filtrera, analysera och transformera data när de flyttas till Azure.</p><p>Lär dig hur du kan använda Data Box Gateway och Data Box Edge för nätverksbaserad överföring med våra självstudier.</p>'
+  description: 'Med Azure Data Box kan du överföra hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Använd Data Box Edge- och Data Box Gateway-enheter för överföring av data med höga prestanda via nätverket.<p>Välj Data Box Gateway för att skicka data för molnarkivering eller haveriberedskap, eller för att bearbeta data i molnskala.  Använd Data Box Edge för att filtrera, analysera och transformera data när de flyttas till Azure.</p><p>Lär dig hur du kan använda Data Box Gateway och Data Box Edge för nätverksbaserad överföring med våra självstudier.</p>'
 sections:
   - title: Självstudier
     items:

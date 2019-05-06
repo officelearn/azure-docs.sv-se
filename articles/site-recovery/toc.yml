@@ -95,7 +95,9 @@
           href: vmware-azure-common-questions.md
         - name: Supportmatris för VMware/fysisk till Azure
           href: vmware-physical-azure-support-matrix.md
-        - name: Supportkrav för distribution av konfigurationsserver
+        - name: Om Site Recovery-komponenter (konfiguration/process/huvudmålserver)
+          href: vmware-physical-azure-config-process-server-overview.md
+        - name: Stöd för krav för konfigurations- och processervrar
           href: vmware-azure-configuration-server-requirements.md
         - name: Arkitektur för VMware till Azure
           href: vmware-azure-architecture.md
@@ -197,6 +199,8 @@
               items:
                 - name: Översikt och förutsättningar
                   href: site-recovery-deployment-planner.md
+                - name: Versionshistorik för distributionshanteraren
+                  href: site-recovery-deployment-planner-history.md
                 - name: Kör verktyget Distributionshanteraren
                   href: site-recovery-vmware-deployment-planner-run.md
                 - name: Analysera den genererade rapporten
@@ -319,6 +323,8 @@
               items:
                 - name: Översikt och förutsättningar
                   href: hyper-v-deployment-planner-overview.md
+                - name: Versionshistorik för distributionshanteraren
+                  href: site-recovery-deployment-planner-history.md
                 - name: Kör verktyget Distributionshanteraren
                   href: hyper-v-deployment-planner-run.md
                 - name: Analysera den genererade rapporten
@@ -425,10 +431,14 @@
           href: site-recovery-extension-troubleshoot.md
     - name: VMware/fysisk server
       items:
+        - name: Övervaka processervrar
+          href: vmware-physical-azure-monitor-process-server.md
         - name: Felsöka replikering från VMware till Azure
           href: vmware-azure-troubleshoot-replication.md
         - name: Felsöka konfigurationsservern
           href: vmware-azure-troubleshoot-configuration-server.md
+        - name: Felsöka processervrar
+          href: vmware-physical-azure-troubleshoot-process-server.md
         - name: Felsöka push-installation av mobilitetstjänsten för virtuella VMware-datorer/fysiska servrar
           href: vmware-azure-troubleshoot-push-install.md
         - name: Felsöka redundans till Azure

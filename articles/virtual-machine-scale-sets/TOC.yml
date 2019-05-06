@@ -152,6 +152,8 @@
         - name: vCPU-kvoter
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: Vanliga frågor och svar om skalningsuppsättningar
+      href: virtual-machine-scale-sets-faq.md
 - name: Gör så här för att
   items:
     - name: Planera och designa
@@ -183,6 +185,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Avancerad automatisk skalning
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: Felsök automatisk skalning
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: Program i skalningsuppsättningar
           href: virtual-machine-scale-sets-deploy-app.md
         - name: Tillägg i skalningsuppsättningar
@@ -199,6 +204,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Använda Azure CLI
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: Kryptering av disk med tilläggsordningsföljd
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: Arbeta med stora skalningsuppsättningar
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Konvertera en skalningsuppsättningsmall för användning av hanterad disk
@@ -247,14 +255,6 @@
         - name: Autoskala en skalningsuppsättning
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: Felsöka
-      items:
-        - name: Automatisk skalning
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: VANLIGA FRÅGOR OCH SVAR
-      items:
-        - name: Vanliga frågor och svar om skalningsuppsättningar
-          href: virtual-machine-scale-sets-faq.md
 - name: Referens
   items:
     - name: Azure PowerShell

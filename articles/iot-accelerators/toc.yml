@@ -97,7 +97,7 @@
           href: iot-accelerators-remote-monitoring-rbac.md
         - name: Utforska telemetri
           items:
-            - name: Visualisera telemetri med PowerBI
+            - name: Visualisera telemetri med Power BI
               href: iot-accelerators-integrate-data-powerbi.md
             - name: Integrera Azure Time Series Insights med fjärrövervakning
               href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -133,26 +133,22 @@
       items:
         - name: Vad är branschanpassat IoT
           href: overview-iot-industrial.md
-        - name: OPC-tvilling
-          items:
-            - name: Vad är OPC-tvilling
-              href: overview-opc-twin.md
-            - name: Arkitektur för OPC-tvilling
-              href: overview-opc-twin-architecture.md
-        - name: OPC-valv
-          items:
-            - name: Vad är OPC-valv
-              href: overview-opc-vault.md
-        - name: Ansluten fabrik
-          items:
-            - name: Översikt över ansluten fabrik
-              href: iot-accelerators-connected-factory-features.md
-            - name: Arkitektur för ansluten fabrik
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: Vad är OPC-tvilling
+          href: overview-opc-twin.md
+        - name: Vad är OPC-valv
+          href: overview-opc-vault.md
+        - name: Vad är Ansluten fabrik
+          href: iot-accelerators-connected-factory-features.md
     - name: Snabbstarter
       items:
         - name: Testa en lösning för ansluten fabrik
           href: quickstart-connected-factory-deploy.md
+    - name: Begrepp
+      items:
+        - name: Arkitektur för OPC-tvilling
+          href: overview-opc-twin-architecture.md
+        - name: Arkitektur för ansluten fabrik
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Instruktionsguider
       items:
         - name: Ansluten fabrik

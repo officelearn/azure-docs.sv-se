@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 – Virtuella datorer med hög tillgänglighet
       href: tutorial-availability-sets.md
-    - name: 6 – Skapa en VM-skalningsuppsättning
+    - name: 6 – Skapa en skalningsuppsättning
       href: tutorial-create-vmss.md
     - name: 7 – Belastningsutjämna virtuella datorer
       href: tutorial-load-balancer.md
@@ -219,7 +219,7 @@
               href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
             - name: Ubuntu
               href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
-        - name: Logga in med autentiseringsuppgifter för Azure Active Directory
+        - name: Logga in med Azure Active Directory-autentiseringsuppgifter
           href: login-using-aad.md
         - name: Uppdateringar och korrigeringar
           items:
@@ -259,6 +259,8 @@
               href: shared-image-galleries.md
             - name: Skapa delade bilder med hjälp av CLI
               href: shared-images.md
+            - name: Portalen
+              href: shared-images-portal.md
             - name: Felsöka delade bilder
               href: troubleshooting-shared-images.md
         - name: Hitta och använda avbildningar

@@ -113,6 +113,8 @@
           href: howto-personalize-dashboard.md
         - name: Hantera dina inställningar
           href: howto-manage-preferences.md
+        - name: Växla livechatt
+          href: howto-show-hide-chat.md
 - name: Relaterat
   items:
     - name: Lösningar

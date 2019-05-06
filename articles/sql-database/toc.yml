@@ -232,8 +232,6 @@
     - name: Säkerhet
       items:
         - name: Säkerhetsöversikt
-          href: sql-database-security-index.yml
-        - name: Säkerhetsfunktioner
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
         - name: Avancerad datasäkerhet
@@ -356,9 +354,9 @@
           href: sql-database-temporal-tables.md
         - name: Jobbautomation
           href: sql-database-job-automation-overview.md
-        - name: Maskininlärning
+        - name: Machine Learning Services
           items:
-            - name: Översikt över maskininlärning
+            - name: Översikt
               href: sql-database-machine-learning-services-overview.md
             - name: Viktiga skillnader
               href: sql-database-machine-learning-services-differences.md
@@ -474,6 +472,8 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Anslut program
           href: sql-database-managed-instance-connect-app.md
+        - name: Konfigurera offentlig slutpunkt
+          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Läs in och flytta data
       items:
         - name: Kopiera en databas i Azure
@@ -658,6 +658,8 @@
           href: sql-database-machine-learning-services-functions.md
         - name: Arbeta med R- och SQL-data
           href: sql-database-machine-learning-services-data-issues.md
+        - name: Lägga till R-paket
+          href: sql-database-machine-learning-services-add-r-packages.md
 - name: Referens
   items:
     - name: Azure PowerShell

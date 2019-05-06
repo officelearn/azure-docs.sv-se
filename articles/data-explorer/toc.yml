@@ -60,16 +60,22 @@
     - name: Översikt över datainmatning
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
-    - name: Time Series-analys
-      href: time-series-analysis.md
 - name: Instruktionsguider
   items:
     - name: Kom igång
       items:
-        - name: Skriva frågor
-          href: write-queries.md
         - name: Mata in exempeldata
           href: ingest-sample-data.md
+    - name: Söka i data
+      items:
+        - name: Skriva frågor
+          href: write-queries.md
+        - name: Time Series-analys
+          href: time-series-analysis.md
+        - name: Identifiering av avvikelser och prognoser
+          href: anomaly-detection.md
+        - name: Maskininlärning
+          href: machine-learning-clustering.md
     - name: Hantera
       items:
         - name: Hantera databasbehörigheter
@@ -90,6 +96,8 @@
           href: using-metrics.md
     - name: Arbeta med andra verktyg
       items:
+        - name: Apache Spark-anslutningsapp
+          href: spark-connector.md
         - name: Ansluta från Databricks med hjälp av Python
           href: connect-from-databricks.md
         - name: Analysera data i Jupyter Notebooks och Kqlmagic

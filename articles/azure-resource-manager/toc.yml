@@ -68,6 +68,8 @@
       href: resource-group-delete.md
     - name: Resource Manager och klassisk distribution
       href: resource-manager-deployment-model.md
+    - name: Vanliga säkerhetsattribut i Azure
+      href: azure-resource-manager-security-attributes.md
 - name: Gör så här för att
   items:
     - name: Skapa mallar
@@ -225,6 +227,8 @@
           href: move-support-resources.md
         - name: Stöd för taggar
           href: tag-support.md
+    - name: Resursprovidrar som stöds av tjänsten
+      href: azure-services-resource-providers.md
     - name: REST – Resource Manager
       href: /rest/api/resources/
     - name: REST – Distributionshanteraren

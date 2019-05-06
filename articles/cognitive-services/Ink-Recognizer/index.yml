@@ -1,0 +1,82 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om handskriftsigenkänning
+metadata:
+  title: 'Dokumentation om handskriftsigenkänning – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs'
+  description: Lär dig hur du använder Translator Text för att översätta text på flera språk.
+  services: cognitive-services
+  author: erhopf
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/02/2019
+  ms.author: erhopf
+abstract:
+  description: 'Digitala pennanteckningar avser teknik som möjliggör digitala representationer av indata, till exempel handskrift och ritningar. När enheter fortsätter att aktivera omfattande användning av digitala pennanteckningar kan artificiell intelligens och maskininlärning möjliggöra igenkänning av skriftliga former och text i en kontext. API:et för handskriftsigenkänning är en molnbaserad tjänst som gör att du kan skicka bläckpenseldrag och få detaljerad information om dem.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/ink-recognizer/overview
+            html: <p>Ta reda på mer om handskriftsigenkänning och hur du integrerar det i dina produkter</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Vad är API för handskriftsigenkänning?
+          - href: concepts/send-ink-data.md
+            html: '<p>Lär dig mer om rekommenderade anropsmönster när du använder API:et</p>'
+            image:
+              src: ../media/index/i_overview.svg
+            title: 'Skicka pennanteckning till API:et för handskriftsigenkänning'
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: 'Kom igång med API:et för handskriftsigenkänning:'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo-csharp.svg
+            title: 'C#'
+          - image:
+              src: media/index/logo-java.svg
+            title: Java
+          - image:
+              src: media/index/logo-js.svg
+            title: Javascript
+        rows:
+          - title: Identifiera digitala penseldrag
+            values:
+              - href: quickstarts/csharp.md
+              - href: quickstarts/java.md
+              - href: quickstarts/javascript.md
+  - title: Exempel
+    items:
+      - type: paragraph
+        text: 'Du kan använda de här exempelprogrammen för att se hur kan integrera API:et för handskriftsigenkänning i dina program:'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089502">C# och Universal Windows-plattform (UWP)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# och Windows Presentation Foundation(WPF)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089908">JavaScript-webbläsarappen</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089906">Java- och Android-mobilapp</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089805">Swift- och iOS-mobilapp</a>'
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST-API
+            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2089907"> REST API-referens</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Azure CLI</a></p>'

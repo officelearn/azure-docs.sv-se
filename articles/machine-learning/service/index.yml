@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/19/2019
+  ms.date: 02/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -55,8 +55,8 @@ sections:
         style: unordered
         items:
           - html: '<a href="https://aka.ms/aml-sdk">Huvudsaklig SDK för Python</a>: huvudfunktioner, automatiserad maskininlärning, pipelines med mera'
-          - html: '<a href="https://aka.ms/data-prep-sdk">Dataförberedelser</a> SDK för Python: förbereda och transformera data'
           - html: '<a href="https://aka.ms/aml-monitoring-sdk">Övervaka</a> SDK för Python: samla in data på distribuerade webbtjänster'
+          - html: <a href="../algorithm-module-reference/module-reference.md">Algoritm-och modulreferens</a> för det visuella gränssnittet
   - title: Andra Azure Machine Learning-tekniker
     items:
       - type: list

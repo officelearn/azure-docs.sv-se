@@ -40,10 +40,10 @@
       href: best-practices.md
     - name: Blockera äldre autentisering
       href: block-legacy-authentication.md
-    - name: Styr åtkomsten till Exchange Online och SharePoint Online
-      href: conditional-access-for-exo-and-spo.md
     - name: Migrera klassiska principer
       href: policy-migration.md
+    - name: Inloggningsfrekvens och kontroll av webbläsarpersistens
+      href: howto-conditional-access-session-lifetime.md
     - name: Kräva godkända klientappar
       href: app-based-conditional-access.md
     - name: Kräva appskyddsprincip

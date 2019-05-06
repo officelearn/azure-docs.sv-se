@@ -99,7 +99,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 | resultType |Status för runbookjobbet. Möjliga värden:<br>– Ny<br>- Startad<br>- Stoppad<br>-Pausad<br>- Misslyckades<br>-Har slutförts |
 | Category | Klassificering av typ av data. För Automation är värdet JobLogs. |
 | OperationName | Anger åtgärdstypen i Azure. För Automation är värdet Job. |
-| Resurs | Namnet på Automation-konto |
+| Resource | Namnet på Automation-konto |
 | SourceSystem | Hur ska loggas i Azure Monitor insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResultDescription |Beskriver jobbstatusen för runbook. Möjliga värden:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |
@@ -122,7 +122,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-lo
 | resultType |Status för runbookjobbet. Möjliga värden:<br>-Pågår |
 | Category | Klassificering av typ av data. För Automation är värdet JobStreams. |
 | OperationName | Anger åtgärdstypen i Azure. För Automation är värdet Job. |
-| Resurs | Namnet på Automation-konto |
+| Resource | Namnet på Automation-konto |
 | SourceSystem | Hur ska loggas i Azure Monitor insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResultDescription |Innehåller utdataströmmen från runbook. |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |

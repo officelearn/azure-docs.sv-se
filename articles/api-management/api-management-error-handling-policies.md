@@ -84,8 +84,8 @@ Den `on-error` princip kan användas i alla omfånget. API-utgivare kan konfigur
 | Meddelande  | string | Läsbart felbeskrivning.                                                                         | Ja      |
 | Scope    | string | Namnet på området där felet uppstod och kan vara någon av ”global”, ”product”, ”-api” eller ”åtgärden” | Nej       |
 | Section  | string | Namn på avsnittet där felet uppstod. Möjliga värden: ”inkommande”, ”serverdel”, ”utgående” eller ”på fel”.       | Nej       |
-| Sökväg     | string | Anger kapslade princip, till exempel ”Välj [3] / när [2]”.                                                        | Nej       |
-| PolicyId | string | Värdet på den `id` attributet, om har angetts av kunden, för principen där felet uppstod             | Nej       |
+| `Path`     | string | Anger kapslade princip, till exempel ”Välj [3] / när [2]”.                                                        | Nej       |
+| `PolicyId` | string | Värdet på den `id` attributet, om har angetts av kunden, för principen där felet uppstod             | Nej       |
 
 > [!TIP]
 > Du kan komma åt statuskoden via kontext. Response.StatusCode.  

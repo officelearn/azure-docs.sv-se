@@ -43,15 +43,13 @@ sections:
       - type: paragraph
         text: 'Lär dig hur du installerar och konfigurerar IoT Edge, distribuerar moduler och använder Azure-tjänster som Stream Analytics och Custom Vision vid nätverksgränsen.'
       - type: list
-        style: unordered
+        style: ordered
         items:
+          - html: Konfigurera din utvecklingsdator och lär dig mer om IoT Edge-moduler för <a href="/azure/iot-edge/tutorial-develop-for-linux">Linux-enheter</a> eller <a href="/azure/iot-edge/tutorial-develop-for-windows">Windows-enheter</a>.
+          - html: 'Utveckla moduler för anpassad kod för Linux-enheter med <a href="/azure/iot-edge/tutorial-c-module">C</a>, <a href="/azure/iot-edge/tutorial-csharp-module">C#</a>, <a href="/azure/iot-edge/tutorial-python-module">Python</a>, <a href="/azure/iot-edge/tutorial-node-module">Node.js</a> eller <a href="/azure/iot-edge/tutorial-java-module">Java</a>.'
+          - html: 'Utveckla moduler för anpassad kod för Windows-enheter i <a href="/azure/iot-edge/tutorial-c-module-windows">C</a> eller <a href="/azure/iot-edge/tutorial-csharp-module-windows"> C# </a>.'
           - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filtrera meddelanden med Azure Functions</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Hitta medelvärden med Azure Stream Analytics som en modul</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Bedöma data med Azure Machine Learning som en modul</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Klassificera bilder med Custom Vision Service som en modul</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Filtrera data med en C#-modul</a>'
-          - html: <a href="/azure/iot-edge/tutorial-python-module">Filtrera data med en Python-modul</a>
-          - html: <a href="/azure/iot-edge/tutorial-node-module">Filtrera data med en Node.js-modul</a>
-          - html: <a href="/azure/iot-edge/tutorial-java-module">Filtrera data med en Java-modul</a>
-          - html: <a href="/azure/iot-edge/tutorial-c-module">Filtrera data med en C-modul</a>
           - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Lagra data vid nätverksgränsen med SQL Server</a>

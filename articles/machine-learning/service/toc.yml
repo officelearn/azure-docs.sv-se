@@ -16,32 +16,68 @@
       href: setup-create-workspace.md
 - name: Snabbstarter
   items:
-    - name: Experimentera med en notebook-fil i molnet
-      displayName: workspace
-      href: quickstart-run-cloud-notebook.md
-    - name: Experimentera med en lokal notebook-fil
-      displayName: 'workspace, install, sdk'
-      href: quickstart-run-local-notebook.md
+    - name: Python SDK
+      items:
+        - name: Köra experiment i molnet
+          displayName: workspace
+          href: quickstart-run-cloud-notebook.md
+        - name: Köra experimentet lokalt
+          displayName: 'workspace, install, sdk'
+          href: quickstart-run-local-notebook.md
+    - name: Visuellt gränssnitt
+      items:
+        - name: Förbereda och visualisera data
+          displayName: experiment drag-and-drop
+          href: ui-quickstart-run-experiment.md
 - name: Självstudier
   items:
-    - name: Klassificering av avbildning (MNIST-data)
+    - name: Python SDK
       items:
-        - name: 1. Träna en modell
-          displayName: build modeling
-          href: tutorial-train-models-with-aml.md
-        - name: 2. Distribuera en modell
-          href: tutorial-deploy-models-with-aml.md
-    - name: Regression (data från taxibilar i New York)
+        - name: Klassificering av avbildning (MNIST-data)
+          items:
+            - name: 1. Träna en modell
+              displayName: build modeling
+              href: tutorial-train-models-with-aml.md
+            - name: 2. Distribuera en modell
+              href: tutorial-deploy-models-with-aml.md
+        - name: Regression (data från taxibilar i New York)
+          items:
+            - name: 1. Förbereda data för modellering
+              displayName: data prep
+              href: tutorial-data-prep.md
+            - name: 2. Träna en maskininlärningsmodell automatiskt
+              displayName: 'automl, automated, auto ml,'
+              href: tutorial-auto-train-models.md
+    - name: Visuellt gränssnitt
       items:
-        - name: 1. Förbereda data för modellering
-          displayName: data prep
-          href: tutorial-data-prep.md
-        - name: 2. Träna en maskininlärningsmodell automatiskt
-          displayName: 'automl, automated, auto ml,'
-          href: tutorial-auto-train-models.md
+        - name: Träna regressionsmodellen
+          displayName: experiment drag-and-drop visual interface Tutorial 1
+          href: ui-tutorial-automobile-price-train-score.md
+        - name: Distribuera regressionsmodellen
+          displayName: experiment drag-and-drop visual interface Tutorial 2
+          href: ui-tutorial-automobile-price-deploy.md
 - name: Exempel
-  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
-  href: samples-notebooks.md
+  items:
+    - name: Notebooks
+      displayName: 'example, examples, jupyter, azure notebooks, python, notebook, github'
+      href: samples-notebooks.md
+    - name: Experiment för visuellt gränssnitt
+      items:
+        - name: Förutsäga pris
+          displayName: 'Sample 1, training, regression'
+          href: ui-sample-regression-predict-automobile-price-basic.md
+        - name: Förutsäga pris (avancerat)
+          displayName: 'Sample 2, training, regression'
+          href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
+        - name: Förutsäga kreditrisk
+          displayName: 'Sample 3, training, classification'
+          href: ui-sample-classification-predict-credit-risk-basic.md
+        - name: Förutsäga kreditrisk (avancerat)
+          displayName: 'Sample 4, training, classification'
+          href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
+        - name: Förutsäga omsättning
+          displayName: 'Sample 5, training, CRM, classification'
+          href: ui-sample-classification-predict-churn.md
 - name: Begrepp
   items:
     - name: Så här fungerar tjänsten
@@ -50,14 +86,16 @@
     - name: Automatiserad maskininlärning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Modellhantering
-      displayName: 'deploy, deployment'
+    - name: Modellhantering (MLOps)
+      displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
     - name: Modelltolkning
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
     - name: Accelerera med FPGA
       href: concept-accelerate-with-fpgas.md
+    - name: Optimera med ONNX- och ONNX-körning
+      href: concept-onnx.md
     - name: Pipelines för maskininlärning
       href: concept-ml-pipelines.md
     - name: Säkerhet
@@ -85,24 +123,40 @@
         - name: Konfigurera utvecklingsmiljöer
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Använda Visual Studio Code-tillägg
+        - name: Aktivera loggning
+          displayName: 'troubleshoot, log, files, tracing'
+          href: how-to-enable-logging.md
+        - name: Använda VS Code-tillägg
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
     - name: Arbeta med data
-      displayName: 'data prep, ETL, ELT, data preparation'
       items:
-        - name: Utforska och förbereda data
-          displayName: 'data prep, ETL, ELT, data preparation'
+        - name: Lägga till och registrera datauppsättningar
+          displayName: 'data, dataset'
+          href: how-to-create-register-datasets.md
+        - name: Förbereda med azureml.dataprep
           items:
             - name: Läsa in data
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-load-data.md
             - name: Omvandla data
+              displayName: 'data, etl, dataprep, data prep'
               href: how-to-transform-data.md
             - name: Skrivdata
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-    - name: Hämta data i datalagret
-      displayName: blob get fileshare access storage
-      href: how-to-access-data.md
+        - name: Förbereda med datauppsättningar (förhandsversion)
+          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: Version och hantera datadefinitioner
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: Ögonblicksbild av dina data
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: Hämta data från ett datalager
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
     - name: Inlärningsmodeller
       items:
         - name: Konfigurera miljöer för utbildning
@@ -130,21 +184,24 @@
         - name: Använda automatiserad maskininlärning (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
+        - name: Använda automatisk ML (Azure-portalen)
+          href: how-to-create-portal-experiments.md
         - name: Använd fjärrberäkningsmål
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
         - name: Träna prognosmodeller automatiskt
           displayName: time series
           href: how-to-auto-train-forecast.md
-    - name: ONNX-modeller
-      href: how-to-build-deploy-onnx.md
-    - name: Distribuera modeller
+    - name: Distribuera och hantera modeller
       items:
         - name: Var och hur du distribuerar
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
         - name: 'FPGA:er'
           href: how-to-deploy-fpga-web-service.md
+        - name: IoT Edge
+          href: ../../iot-edge/tutorial-deploy-machine-learning.md
+          maintainContext: true
         - name: Felsöka
           href: how-to-troubleshoot-deployment.md
     - name: Konsumera webbtjänster
@@ -162,31 +219,118 @@
           href: how-to-enable-data-collection.md
         - name: Övervaka med Application Insights
           href: how-to-enable-app-insights.md
-    - name: Skapa din första pipeline
-      href: how-to-create-your-first-pipeline.md
-    - name: Aktivera loggning
-      displayName: logging
-      href: how-to-enable-logging.md
+    - name: Skapa återanvändbara arbetsflöden
+      displayName: pipelines
+      items:
+        - name: Skapa en ML-pipeline
+          href: how-to-create-your-first-pipeline.md
     - name: Hantera resurskvoter
       displayName: limits
       href: how-to-manage-quotas.md
-    - name: Använd CLI för Machine Learning
-      displayName: cli extension command line command-line az ci/cd automate automated
-      href: reference-azure-machine-learning-cli.md
     - name: Exportera och ta bort data
       displayName: GDPR
       href: how-to-export-delete-data.md
 - name: Referens
   items:
     - name: Maskininlärning SDK
-      displayName: api core package python
+      displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
     - name: SDK för dataförberedelser
-      displayName: api preparation package python
+      displayName: api core package python data prep
       href: 'https://aka.ms/data-prep-sdk'
     - name: Övervaka SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'
+    - name: Maskininlärning CLI
+      displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
+      href: reference-azure-machine-learning-cli.md
+    - name: Moduler för visuellt gränssnitt
+      displayName: module reference
+      items:
+        - name: Modulreferensöversikt
+          href: ../algorithm-module-reference/module-reference.md
+        - name: Dataformatkonverteringar
+          items:
+            - name: Konvertera till CSV
+              href: ../algorithm-module-reference/convert-to-csv.md
+        - name: Dataindata och -utdata
+          items:
+            - name: Importera data
+              href: ../algorithm-module-reference/import-data.md
+            - name: Exportera data
+              href: ../algorithm-module-reference/export-data.md
+            - name: Ange data manuellt
+              href: ../algorithm-module-reference/enter-data-manually.md
+        - name: Datatransformationer
+          items:
+            - name: Välja kolumner i datauppsättning
+              href: ../algorithm-module-reference/select-columns-in-dataset.md
+            - name: Redigera metadata
+              href: ../algorithm-module-reference/edit-metadata.md
+            - name: Rensa data som saknas
+              href: ../algorithm-module-reference/clean-missing-data.md
+            - name: Lägga till kolumner
+              href: ../algorithm-module-reference/add-columns.md
+            - name: Lägga till rader
+              href: ../algorithm-module-reference/add-rows.md
+            - name: Ta bort dubblettrader
+              href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: Dela data
+              href: ../algorithm-module-reference/split-data.md
+            - name: Normalisera Data
+              href: ../algorithm-module-reference/normalize-data.md
+            - name: Partitionera och prova
+              href: ../algorithm-module-reference/partition-and-sample.md
+        - name: Maskininlärning
+          items:
+            - name: Poängmodell
+              href: ../algorithm-module-reference/score-model.md
+            - name: Tilldela data till kluster
+              href: ../algorithm-module-reference/assign-data-to-clusters.md
+            - name: Träningsmodell
+              href: ../algorithm-module-reference/train-model.md
+            - name: Träna klustringsmodellen
+              href: ../algorithm-module-reference/train-clustering-model.md
+            - name: Utvärdera modell
+              href: ../algorithm-module-reference/evaluate-model.md
+            - name: Använda transformering
+              href: ../algorithm-module-reference/apply-transformation.md
+            - name: Linjär regression
+              href: ../algorithm-module-reference/linear-regression.md
+            - name: Regression för Neural Network
+              href: ../algorithm-module-reference/neural-network-regression.md
+            - name: Regression för beslutsskog
+              href: ../algorithm-module-reference/decision-forest-regression.md
+            - name: Förbättrad regression för beslutsträd
+              href: ../algorithm-module-reference/boosted-decision-tree-regression.md
+            - name: Förbättrat beslutsträd med två klasser
+              href: ../algorithm-module-reference/two-class-boosted-decision-tree.md
+            - name: Logistic Regression med två klasser
+              href: ../algorithm-module-reference/two-class-logistic-regression.md
+            - name: Logistic Regression med flera klasser
+              href: ../algorithm-module-reference/multiclass-logistic-regression.md
+            - name: Neural Network med flera klasser
+              href: ../algorithm-module-reference/multiclass-neural-network.md
+            - name: Beslutsskog med två klasser
+              href: ../algorithm-module-reference/multiclass-decision-forest.md
+            - name: Genomsnittsperceptron med två klasser
+              href: ../algorithm-module-reference/two-class-averaged-perceptron.md
+            - name: Beslutsskog med två klasser
+              href: ../algorithm-module-reference/two-class-decision-forest.md
+            - name: Neural Network med två klasser
+              href: ../algorithm-module-reference/two-class-neural-network.md
+            - name: Tvåklassig dator för vektorstöd
+              href: ../algorithm-module-reference/two-class-support-vector-machine.md
+            - name: K-means-klustring
+              href: ../algorithm-module-reference/k-means-clustering.md
+        - name: Python-språkmoduler
+          items:
+            - name: Köra Python-skript
+              href: ../algorithm-module-reference/execute-python-script.md
+            - name: Skapa Python-modell
+              href: ../algorithm-module-reference/create-python-model.md
+        - name: Felmeddelanden och koder
+          href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resurser
   items:
     - name: Viktig information

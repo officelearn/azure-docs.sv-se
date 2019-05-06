@@ -13,28 +13,44 @@
       href: quickstart.md
 - name: Självstudier
   items:
-    - name: Filtrera data med Azure Functions
-      href: tutorial-deploy-function.md
-    - name: Hitta medelvärden med ASA
-      href: tutorial-deploy-stream-analytics.md
-    - name: Bedöma data med Azure Machine Learning Service
-      href: tutorial-deploy-machine-learning.md
-    - name: Klassificera bilder med Custom Vision
-      href: tutorial-deploy-custom-vision.md
-    - name: Lagra data lokalt med SQL
-      href: tutorial-store-data-sql-server.md
-    - name: Utveckla anpassade kodmoduler
+    - name: 1. Konfigurera utvecklingsmiljön
       items:
+        - name: Utveckla för Linux-enheter
+          href: tutorial-develop-for-linux.md
+        - name: Utveckla för Windows-enheter
+          href: tutorial-develop-for-windows.md
+    - name: 2. Utveckla anpassade kodmoduler
+      items:
+        - name: C
+          items:
+            - name: C-moduler för Linux-enheter
+              href: tutorial-c-module.md
+            - name: C-moduler för Windows-enheter
+              href: tutorial-c-module-windows.md
         - name: 'C#'
-          href: tutorial-csharp-module.md
-        - name: Python
-          href: tutorial-python-module.md
-        - name: Node.js
-          href: tutorial-node-module.md
+          items:
+            - name: 'C#-moduler för Linux-enheter'
+              href: tutorial-csharp-module.md
+            - name: 'C#-moduler för Windows-enheter'
+              href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
-        - name: C
-          href: tutorial-c-module.md
+        - name: Node.js
+          href: tutorial-node-module.md
+        - name: Python
+          href: tutorial-python-module.md
+    - name: 3. Distribuera Azure-tjänster som moduler
+      items:
+        - name: Filtrera data med Azure Functions
+          href: tutorial-deploy-function.md
+        - name: Hitta medelvärden med ASA
+          href: tutorial-deploy-stream-analytics.md
+        - name: Bedöma data med Azure Machine Learning Service
+          href: tutorial-deploy-machine-learning.md
+        - name: Klassificera bilder med Custom Vision
+          href: tutorial-deploy-custom-vision.md
+        - name: Lagra data lokalt med SQL
+          href: tutorial-store-data-sql-server.md
 - name: Begrepp
   items:
     - name: IoT Edge-körning

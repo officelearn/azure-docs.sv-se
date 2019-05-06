@@ -49,6 +49,8 @@
       href: batch-pool-vm-sizes.md
     - name: Hög tillgänglighet och haveriberedskap
       href: high-availability-disaster-recovery.md
+    - name: Miljövariabler för uppgiftens körtid
+      href: batch-compute-node-environment-variables.md
 - name: Instruktionsguider
   items:
     - name: Hantera Batch-konton
@@ -199,8 +201,6 @@
           href: batch-task-complete-event.md
         - name: Händelse för misslyckad uppgift
           href: batch-task-fail-event.md
-    - name: Miljövariabler för Batch-beräkningsnod
-      href: batch-compute-node-environment-variables.md
 - name: Resurser
   items:
     - name: Azure-översikt

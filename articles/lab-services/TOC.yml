@@ -107,7 +107,7 @@
               href: image-factory-save-distribute-custom-images.md
             - name: Ange bevarandeprincip och köra rensningsskript
               href: image-factory-set-retention-policy-cleanup.md
-        - name: Konfigurera DevTest Labs-infrastruktur i ditt företag
+        - name: DevTest Labs i företaget
           href: devtest-lab-guidance-prescriptive-adoption.md
           items:
             - name: Referensarkitektur

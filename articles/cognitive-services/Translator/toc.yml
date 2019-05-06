@@ -228,6 +228,8 @@
           href: custom-translator/how-to-manage-settings.md
         - name: Migrera från Hub
           href: custom-translator/how-to-migrate.md
+        - name: Språkdistributioner som inte stöds
+          href: custom-translator/unsupported-language-deployments.md
     - name: Resurser
       items:
         - name: Stöd för språk

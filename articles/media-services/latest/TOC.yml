@@ -47,7 +47,7 @@
       items:
         - name: Översikt
           href: encoding-concept.md
-          displayName: Presets
+          displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Transformeringar och jobb
           href: transforms-jobs-concept.md
         - name: Media Encoder Standard-format
@@ -56,14 +56,19 @@
         - name: Generera anpassningsbar bithastighetsstege automatiskt
           href: autogen-bitrate-ladder.md
         - name: Innehållsmedveten kodning
+          displayName: 'content, aware, cae'
           href: cae-experimental.md
+        - name: Jobbfelkoder
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: Medieanalys
       items:
         - name: Översikt
           href: analyzing-video-audio-files-concept.md
-          displayName: Presets
+          displayName: 'analyzing, presets, jobs'
         - name: Transformeringar och jobb
           href: transforms-jobs-concept.md
+        - name: Jobbfelkoder
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: 'Paketering, leverans, skydd'
       items:
         - name: Paketering
@@ -100,6 +105,8 @@
           href: streaming-policy-concept.md
         - name: Viktiga innehållsprinciper
           href: content-key-policy-concept.md
+        - name: Ursprungsfelkoder
+          href: origin-error-codes.md
     - name: Liveuppspelning
       items:
         - name: Översikt
@@ -138,6 +145,12 @@
           href: entities-overview.md
         - name: RBAC
           href: rbac-overview.md
+        - name: Felkoder
+          items:
+            - name: Ursprungsfelkoder
+              href: origin-error-codes.md
+            - name: Jobbfelkoder
+              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: Vägledning för migrering från v2 till v3
       href: migrate-from-v2-to-v3.md
 - name: Instruktionsguider
@@ -240,6 +253,12 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.media/allversions
+    - name: Felkoder
+      items:
+        - name: Ursprungsfelkoder
+          href: origin-error-codes.md
+        - name: Jobbfelkoder
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
 - name: Resurser
   items:
     - name: Azure Media Services-community

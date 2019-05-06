@@ -2,14 +2,14 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Introduktion till Azure NetApp Files
+    - name: Vad är Azure NetApp Files
       href: azure-netapp-files-introduction.md
     - name: Förstå lagringshierarkin
       href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Konfigurera Azure NetApp Files och skapa en volym
+    - name: Konfigurera Azure NetApp Files och skapa en NFS-volym
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Begrepp
   items:
@@ -19,8 +19,8 @@
       href: azure-netapp-files-resource-limits.md
     - name: Mått för Azure NetApp Files
       href: azure-netapp-files-metrics.md
-    - name: Felsöka fel i resursprovidern för Azure NetApp Files
-      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Prestandamått för Azure NetApp Files
+      href: azure-netapp-files-performance-benchmarks.md
 - name: Instruktionsguider
   items:
     - name: Registrera för Azure NetApp Files
@@ -47,6 +47,8 @@
       items:
         - name: REST
           href: azure-netapp-files-develop-with-rest-api.md
+        - name: Felsöka fel i resursprovidern för Azure NetApp Files
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Referens
   items:
     - name: REST

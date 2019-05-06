@@ -15,6 +15,9 @@
     - name: Talöversättning
       href: speech-translation.md
       displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+    - name: Röstbaserade virtuella assistenter – förhandsversion
+      href: voice-first-virtual-assistants.md
+      displayName: 'virtual assistants, speech-enabled bots, conversational agents'
 - name: Snabbstarter
   items:
     - name: Speech SDK
@@ -73,7 +76,7 @@
               displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
             - name: C++ (Windows)
               href: quickstart-translate-speech-cpp-windows.md
-            - name: 'Java (Windows, Linux)'
+            - name: 'Java (Windows, macOS, Linux)'
               href: quickstart-translate-speech-java-jre.md
         - name: Text till tal
           items:
@@ -86,6 +89,14 @@
             - name: C++ (Linux)
               href: quickstart-text-to-speech-cpp-linux.md
               displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+        - name: Röstbaserade virtuella assistenter (förhandsversion)
+          items:
+            - name: 'C# (UWP)'
+              href: quickstart-virtual-assistant-csharp-uwp.md
+              displayName: 'virtual assistant, speech-enabled bot, conversational agent'
+            - name: 'Java (Windows, macOS, Linux)'
+              href: quickstart-virtual-assistant-java-jre.md
+              displayName: 'virtual assistant, speech-enabled bot, conversational agent'
     - name: 'REST API:er'
       items:
         - name: Lista röster som stöds per region
@@ -103,7 +114,7 @@
             - name: Python
               href: quickstart-python-text-to-speech.md
     - name: Speech Devices SDK
-      href: speech-devices-sdk-qsg.md
+      href: speech-devices-sdk-android-quickstart.md
       displayName: 'roobo, speech devices sdk'
 - name: Självstudier
   items:
@@ -113,6 +124,12 @@
     - name: 'Skapa en Flask-app för att översätta och syntetisera text, REST'
       maintainContext: true
       href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
+- name: Begrepp
+  items:
+    - name: Tjänst för samtalstranskription
+      href: conversation-transcription-service.md
+    - name: Avskrifter av kundtjänst
+      href: call-center-transcription.md
 - name: Instruktionsguider
   items:
     - name: Registrera dig för taltjänsterna
@@ -131,26 +148,38 @@
     - name: Aktivera loggning (SDK)
       href: how-to-use-logging.md
       displayName: 'debug, log, logging'
+    - name: Förbättra igenkänning med fraslistor
+      href: how-to-phrase-lists.md
+      displayname: 'phrase lists, phrase, list, recognition accuracy'
+    - name: Transkribera konversationer (SDK)
+      href: how-to-use-conversation-transcription-service.md
+      displayName: 'conversation, transcription, speech recognition'
     - name: Anpassning
       items:
         - name: Tal till text
           items:
-            - name: Förbereda avskrifter för anpassning
-              href: prepare-transcription.md
-            - name: Anpassa akustiska modeller
-              href: how-to-customize-acoustic-models.md
-            - name: Anpassa språkmodeller
-              href: how-to-customize-language-model.md
-            - name: Anpassa uttal
-              href: how-to-customize-pronunciation.md
-            - name: Skapa en slutpunkt för anpassad igenkänning
-              href: how-to-create-custom-endpoint.md
+            - name: Kom igång med Custom Speech
+              href: how-to-custom-speech.md
+            - name: Förbereda data
+              href: how-to-custom-speech-test-data.md
+            - name: Granska data
+              href: how-to-custom-speech-inspect-data.md
+            - name: Utvärdera noggrannhet
+              href: how-to-custom-speech-evaluate-data.md
+            - name: Träna en anpassad modell
+              href: how-to-custom-speech-train-model.md
+            - name: Distribuera en anpassad modell
+              href: how-to-custom-speech-deploy-model.md
+            - name: 'Guide: Skapa transkriptioner med mänsklig etikett'
+              href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Text till tal
           items:
             - name: Skapa rösttyper (bot brand voice)
               href: how-to-customize-voice-font.md
             - name: Spela in röstexempel
               href: record-custom-voice-samples.md
+            - name: Finjustera text till tal-utdata
+              href: how-to-voice-tuning.md
         - name: Skapa ett anpassat aktiveringsord (SDK för enheter)
           href: speech-devices-sdk-create-kws.md
           displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
@@ -162,6 +191,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: 'Från Translator Speech API:et'
           href: how-to-migrate-from-translator-speech-api.md
+    - name: Använda containrar
+      items:
+        - name: Installera och köra containrar
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: speech-container-howto.md
+        - name: Konfigurera containrar
+          href: speech-container-configuration.md
+          displayName: 'docker, container, billing, apikey, pull, logging'
 - name: Exempel
   items:
     - name: Speech SDK
@@ -196,9 +233,13 @@
     - name: Speech Devices SDK
       items:
         - name: Hämta Speech Devices SDK
-          href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
+          href: get-speech-devices-sdk.md
         - name: Viktig information
           href: devices-sdk-release-notes.md
+        - name: Roobo v1-information
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Mikrofonspecifikation
+          href: speech-devices-sdk-microphone.md
     - name: 'REST API:er'
       items:
         - name: Tal till text
@@ -238,6 +279,8 @@
         - name: Talöversättning
           href: 'https://www.microsoft.com/translator/faq.aspx'
           displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+        - name: Röstbaserade virtuella assistenter (förhandsversion)
+          href: faq-voice-first-virtual-assistants.md
     - name: Speech SDK-licenser
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
       items:
@@ -246,17 +289,18 @@
         - name: Meddelanden från tredje part
           href: 'https://aka.ms/csspeech/toctpn'
     - name: Speech Devices SDK
-      href: speech-devices-sdk.md
       displayName: 'roobo, speech devices sdk'
       items:
+        - name: Om
+          href: speech-devices-sdk.md
         - name: Licens
           href: speech-devices-sdk-license.md
-          displayName: 'roobo, speech devices sdk'
         - name: Meddelanden från tredje part
           href: devices-sdk-third-party-notices.md
-          displayName: 'roobo, speech devices sdk'
     - name: Felsöka Speech SDK
       href: troubleshooting.md
+    - name: Felsöka Speech Devices SDK
+      href: speech-devices-sdk-troubleshooting.md
     - name: Support
       href: support.md
     - name: Priser och begränsningar

@@ -186,7 +186,7 @@
           href: how-to-connect-configure-ad-ds-connector-account.md
         - name: Ändra lösenordet för Azure AD Sync-tjänstkontot
           href: how-to-connect-sync-change-serviceacct-pass.md
-        - name: Ändra kontot för Azure AD-anslutningsappen
+        - name: Ändra lösenord för Azure AD Connector-kontot
           href: how-to-connect-azureadaccount.md
         - name: Ändra lösenordet för AD DS Connector-kontot
           href: how-to-connect-sync-change-addsacct-pass.md

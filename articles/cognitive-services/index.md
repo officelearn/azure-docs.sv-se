@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/21/2019
+ms.date: 05/02/2019
 ms.topic: hub-page
-ms.openlocfilehash: 621cf49284ac1080bf18619f80f14c8a21c2f761
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b76f670c6d2e28ea2cb5ee1cece13cf1023af09f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61294319"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021491"
 ---
 <div id="main" class="v2">
 <h1>Dokumentation om Azure Cognitive Services</h1>
@@ -295,9 +295,10 @@ ms.locfileid: "61294319"
                     <div class="cardText">
                         <h3>API för visuellt innehåll</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Visuellt innehåll</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Ansikts-API</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Formigenkänning&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Handskriftsigenkänning&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                     </div>
                 </div>
@@ -310,7 +311,7 @@ ms.locfileid: "61294319"
                 <div class="card">
                     <div class="cardText">
                         <h3>API för taligenkänning</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">Speech Service API</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service">Speech Services</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Talarigenkänning&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>API för Bing-taligenkänning&nbsp;<sup style="font-size:70%">TAS UR BRUK</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>Translator Speech&nbsp;<sup style="font-size:70%">TAS UR BRUK</sup></span></a></p>
@@ -325,22 +326,10 @@ ms.locfileid: "61294319"
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk-API</h3>
-                        <p><a href="/azure/cognitive-services/bing-spell-check/">Stavningskontroll i Bing</a></p>
                         <p><a href="/azure/cognitive-services/luis/">Språkförståelse (LUIS)</a></p>
+                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Textanalys</a></p>
                         <p><a href="/azure/cognitive-services/translator/">Talöversättning</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Kunskaps-API</h3>
-                            <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                     </div>
                 </div>
             </div>
@@ -360,6 +349,7 @@ ms.locfileid: "61294319"
                         <p><a href="/azure/cognitive-services/bing-entities-search/">Entitetssökning i Bing</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">Bildsökning i Bing</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">Visuell sökning i Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-spell-check/">Stavningskontroll i Bing</a></p>
                         <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Sökning efter lokala företag i Bing&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a></p>
                     </div>
                 </div>
@@ -371,8 +361,10 @@ ms.locfileid: "61294319"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Avvikelseidentifiering</h3>
-                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Avvikelseidentifiering&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a></p>               
+                        <h3>Besluts-API</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Avvikelseidentifiering&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personanpassning&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a></p>
                     </div>
                 </div>
             </div>

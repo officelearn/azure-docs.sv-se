@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 – Virtuella datorer med hög tillgänglighet
       href: tutorial-availability-sets.md
-    - name: 6 – Skapa en VM-skalningsuppsättning
+    - name: 6 – Skapa en skalningsuppsättning
       href: tutorial-create-vmss.md
     - name: 7 – Belastningsutjämna virtuella datorer
       href: tutorial-load-balancer.md
@@ -251,6 +251,8 @@
               href: shared-images.md
             - name: Skapa delade bilder med hjälp av CLI
               href: ../linux/shared-images.md
+            - name: Portalen
+              href: shared-images-portal.md
             - name: Felsöka delade bilder
               href: troubleshooting-shared-images.md
         - name: Hitta och använda avbildningar

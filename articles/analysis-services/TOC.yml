@@ -70,41 +70,10 @@
           href: analysis-services-deploy.md
         - name: Uppdatera med REST API
           href: analysis-services-async-refresh.md
-        - name: Datamodellering i Visual Studio – självstudie för Adventure Works (1400)
-          href: tutorials/aas-adventure-works-tutorial.md
-          items:
-            - name: 1 – Skapa ett projekt för tabellmodeller
-              href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-            - name: 2 – Hämta data
-              href: tutorials/aas-lesson-2-get-data.md
-            - name: 3 – Markera som datumtabell
-              href: tutorials/aas-lesson-3-mark-as-date-table.md
-            - name: 4 – Skapa relationer
-              href: tutorials/aas-lesson-4-create-relationships.md
-            - name: 5 – Skapa beräknade kolumner
-              href: tutorials/aas-lesson-5-create-calculated-columns.md
-            - name: 6 – Skapa mått
-              href: tutorials/aas-lesson-6-create-measures.md
-            - name: '7 – Skapa KPI:er'
-              href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-            - name: 8 – Skapa perspektiv
-              href: tutorials/aas-lesson-8-create-perspectives.md
-            - name: 9 – Skapa hierarkier
-              href: tutorials/aas-lesson-9-create-hierarchies.md
-            - name: 10 – Skapa partitioner
-              href: tutorials/aas-lesson-10-create-partitions.md
-            - name: 11 – Skapa roller
-              href: tutorials/aas-lesson-11-create-roles.md
-            - name: 12 – Analysera i Excel
-              href: tutorials/aas-lesson-12-analyze-in-excel.md
-            - name: 13 – Distribuera
-              href: tutorials/aas-lesson-13-deploy.md
-            - name: Kompletterande lektion – Detaljrader
-              href: tutorials/aas-supplemental-lesson-detail-rows.md
-            - name: Kompletterande lektion – Dynamisk säkerhet
-              href: tutorials/aas-supplemental-lesson-dynamic-security.md
-            - name: Kompletterande lektion – Ojämna hierarkier
-              href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+        - name: Uppdatera med Logic Apps
+          href: analysis-services-refresh-logic-app.md
+        - name: Uppdatera med Azure Automation
+          href: analysis-services-refresh-azure-automation.md
     - name: Säkerhet
       items:
         - name: Hantera databasanvändare

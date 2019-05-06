@@ -72,7 +72,9 @@
           href: waf-front-door-custom-rules-powershell.md
         - name: Konfigurera anpassad svarskod
           href: waf-front-door-configure-custom-response-code.md
-        - name: Konfigurera WAF-hastighetsgräns – Azure PowerShell
+        - name: Konfigurera IP-begränsningar
+          href: waf-front-door-configure-ip-restriction.md
+        - name: Konfigurera hastighetsbegränsning – Azure PowerShell
           href: waf-front-door-rate-limit-powershell.md
 - name: VANLIGA FRÅGOR OCH SVAR
   items:

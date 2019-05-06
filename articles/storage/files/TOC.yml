@@ -153,6 +153,8 @@
           href: storage-troubleshoot-windows-file-connection-problems.md
         - name: Felsöka Azure Files på Linux
           href: storage-troubleshoot-linux-file-connection-problems.md
+        - name: Felsöka Azure Files-prestanda
+          href: storage-troubleshooting-files-performance.md
         - name: Felsök Azure File Sync
           href: storage-sync-files-troubleshoot.md
 - name: Referens

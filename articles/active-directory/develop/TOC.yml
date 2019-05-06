@@ -14,20 +14,14 @@
         - name: Konfigurera ett program
           items:
             - name: Registrera en app
-              href: quickstart-v1-add-azure-ad-app.md
-            - name: Uppdatera en app
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Ta bort en objekt
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Registrera en app (förhandsversion)
               href: quickstart-register-app.md
-            - name: 'Konfigurera en app för att få åtkomst till webb-API:er (förhandsversion)'
+            - name: 'Konfigurera appen för att komma åt webb-API:er'
               href: quickstart-configure-app-access-web-apis.md
-            - name: 'Konfigurera en app för att exponera webb-API:er (förhandsversion)'
+            - name: 'Konfigurera appen för att göra webb-API:er tillgängliga'
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Ändra konton som stöds av en app (förhandsversion)
+            - name: Ändra konton som stöds av en app
               href: quickstart-modify-supported-accounts.md
-            - name: Ta bort en app (förhandsversion)
+            - name: Ta bort en objekt
               href: quickstart-remove-app.md
         - name: Enkelsidiga appar
           items:
@@ -243,20 +237,14 @@
         - name: Konfigurera ett program
           items:
             - name: Registrera en app
-              href: quickstart-v2-register-an-app.md
-            - name: Uppdatera en app
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Ta bort en objekt
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Registrera en app (förhandsversion)
               href: quickstart-register-app.md
-            - name: 'Konfigurera en app för att få åtkomst till webb-API:er (förhandsversion)'
+            - name: 'Konfigurera appen för att komma åt webb-API:er'
               href: quickstart-configure-app-access-web-apis.md
-            - name: 'Konfigurera en app för att exponera webb-API:er (förhandsversion)'
+            - name: 'Konfigurera appen för att göra webb-API:er tillgängliga'
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Ändra konton som stöds av en app (förhandsversion)
+            - name: Ändra konton som stöds av en app
               href: quickstart-modify-supported-accounts.md
-            - name: Ta bort en app (förhandsversion)
+            - name: Ta bort en objekt
               href: quickstart-remove-app.md
         - name: Enkelsidiga appar
           items:
@@ -350,6 +338,8 @@
               href: active-directory-certificate-credentials.md
         - name: Tillämpningskonfiguration
           items:
+            - name: Utbildningsguide för appregistreringar
+              href: app-registrations-training-guide.md
             - name: Program och tjänsternas huvudnamn
               href: app-objects-and-service-principals.md
             - name: Appar för enskild klient eller flera klienter

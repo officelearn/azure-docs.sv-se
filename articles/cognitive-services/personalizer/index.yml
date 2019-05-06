@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Personanpassning
+metadata:
+  document_id: null
+  title: 'Personanpassning – självstudier, snabbstarter, API-referens'
+  description: Lär dig använda tjänsten för Personanpassning så att ditt program kan välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2019
+  ms.author: nitinme
+abstract:
+  description: Personanpassning i Azure är en molnbaserad API-tjänst som gör det möjligt att välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/personalizer/what-is-personalizer
+            html: <p>Förstå vad Personanpassning gör och hur du använder det.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Vad är Personanpassning?
+          - href: /azure/cognitive-services/personalizer/how-personalizer-works
+            html: '<p>Lär dig hur feedbackloopen i Personanpassning fungerar med API:er för rangordning och belöning.</p>'
+            image:
+              src: ../media/index/i_overview.svg
+            title: Så här fungerar Personanpassning
+          - href: /azure/cognitive-services/personalizer/ethics-responsible-use
+            html: <p>Implementera Personanpassning på ett sätt som skapar tillförlitlighet i företaget och tjänsten.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Etik och ansvar
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: ''
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ../media/index/logo_Csharp.svg
+            href: csharp-quickstart-commandline-feedback-loop.md
+            text: 'C#'
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 'REST API:er'
+            html: '<p><a href="https://aka.ms/personalizer-rest-api-docs"> API för Personanpassning</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'

@@ -7,10 +7,15 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa ett AKS-kluster – CLI
-      href: kubernetes-walkthrough.md
-    - name: Skapa ett AKS-kluster – portalen
-      href: kubernetes-walkthrough-portal.md
+    - name: Skapa ett AKS-kluster
+      expanded: true
+      items:
+        - name: Använda Azure CLI
+          href: kubernetes-walkthrough.md
+        - name: Använda Azure-portalen
+          href: kubernetes-walkthrough-portal.md
+        - name: Använda en Resource Manager-mall
+          href: kubernetes-walkthrough-rm-template.md
     - name: Utveckla program
       expanded: true
       items:
@@ -87,7 +92,7 @@
             - name: Podsäkerhet
               href: developer-best-practices-pod-security.md
     - name: Kvoter och regionala begränsningar
-      href: container-service-quotas.md
+      href: quotas-skus-regions.md
     - name: Migrera från ACS till AKS
       href: acs-aks-migration.md
     - name: Kubernetes-version som stöds

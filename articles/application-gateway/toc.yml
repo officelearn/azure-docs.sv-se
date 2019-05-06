@@ -45,6 +45,8 @@
           href: application-gateway-components.md
         - name: Översikt över konfiguration
           href: configuration-overview.md
+    - name: Automatisk skalning av v2-SKU
+      href: application-gateway-autoscaling-zone-redundant.md
     - name: Routning
       items:
         - name: Värdtjänster för flera webbplatser
@@ -77,8 +79,6 @@
           href: application-gateway-probe-overview.md
         - name: Diagnostik
           href: application-gateway-diagnostics.md
-    - name: Automatisk skalning och zonredundans
-      href: application-gateway-autoscaling-zone-redundant.md
     - name: App Service-webbapp och stöd för flera innehavare
       href: application-gateway-web-app-overview.md
     - name: WebSocket-stöd
@@ -183,6 +183,8 @@
           href: rewrite-http-headers-portal.md
         - name: Azure PowerShell
           href: add-http-header-rewrite-rule-powershell.md
+        - name: Skapa och skriva om HTTP-huvuden
+          href: tutorial-http-header-rewrite-powershell.md
     - name: Konfigurera App Service-webbapp och tjänst för flera innehavare
       items:
         - name: Portalen

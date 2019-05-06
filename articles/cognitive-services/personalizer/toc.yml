@@ -1,0 +1,70 @@
+- name: Dokumentation om Personanpassning
+  href: index.yml
+- name: Översikt
+  expanded: true
+  items:
+    - name: Vad är Personanpassning?
+      href: what-is-personalizer.md
+      displayName: 'loop, context, feature, action, rank, reward, developer, use case'
+- name: Snabbstarter
+  items:
+    - name: Skapa och använda feedback-loop
+      href: csharp-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, c#'
+- name: Begrepp
+  items:
+    - name: Så här fungerar Personanpassning
+      href: how-personalizer-works.md
+      displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
+    - name: Var kan du använda Personanpassning?
+      href: where-can-you-use-personalizer.md
+      displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: Etik och ansvarig användning
+      href: ethics-responsible-use.md
+      displayName: 'best practice, design'
+    - name: Grundläggande koncept
+      items:
+        - name: 'Funktioner: Åtgärd och kontext'
+          href: concepts-features.md
+          displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Kunskapsförmedling
+          href: concepts-reinforcement-learning.md
+          displayName: 'RL, contextual bandits, Vowpal Wabbit'
+    - name: Analys
+      items:
+        - name: Offlineutvärdering
+          href: concepts-offline-evaluation.md
+          displayName: 'learning policy, Counterfactual, features'
+- name: Instruktionsguider
+  items:
+    - name: Konfigurera Personanpassning
+      href: how-to-settings.md
+      displayName: 'azure, portal, settings, evaluation, offline, policy'
+    - name: Analysera
+      items:
+        - name: Offlineutvärdering
+          href: how-to-offline-evaluation.md
+- name: Referens
+  items:
+    - name: Exempel
+      href: 'https://aka.ms/personalizer-samples'
+    - name: Referens för REST API
+      href: 'https://aka.ms/personalizer-rest-api-docs'
+    - name: 'SDK:er'
+      items:
+        - name: .NET SDK-referens
+          href: 'https://aka.ms/personalizer-dotnet-sdk-docs'
+        - name: NuGet-paket
+          href: 'https://aka.ms/personalizer-nuget-sdk'
+- name: Resurser
+  items:
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure-översikt
+      href: 'https://aka.ms/personalizer-roadmap'
+    - name: Prissättning
+      href: 'https://aka.ms/personalizer-pricing'
+    - name: Stack Overflow
+      href: 'https://aka.ms/personalizer-stackoverflow'
+    - name: UserVoice
+      href: 'https://aka.ms/personalizer-uservoice'

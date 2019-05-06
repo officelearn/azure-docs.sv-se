@@ -351,11 +351,11 @@ Den `context.req` (begäran) objekt har följande egenskaper:
 | Egenskap       | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Ett objekt som innehåller brödtext för begäran.               |
-| _Rubriker_     | Ett objekt som innehåller de begärda rubrikerna.                   |
-| _Metoden_      | HTTP-metod för begäran.                                |
+| _headers_     | Ett objekt som innehåller de begärda rubrikerna.                   |
+| _method_      | HTTP-metod för begäran.                                |
 | _originalUrl_ | URL för begäran.                                        |
-| _parametrar_      | Ett objekt som innehåller parametrarna routning av begäran. |
-| _Fråga_       | Ett objekt som innehåller frågeparametrarna.                  |
+| _params_      | Ett objekt som innehåller parametrarna routning av begäran. |
+| _query_       | Ett objekt som innehåller frågeparametrarna.                  |
 | _rawBody_     | Brödtexten i meddelandet som en sträng.                           |
 
 
@@ -366,7 +366,7 @@ Den `context.res` ()-svarsobjekt har följande egenskaper:
 | Egenskap   | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Ett objekt som innehåller brödtexten i svaret.         |
-| _Rubriker_ | Ett objekt som innehåller svarshuvuden.             |
+| _headers_ | Ett objekt som innehåller svarshuvuden.             |
 | _isRaw_   | Anger att formatering hoppas för svaret.    |
 | _status_  | HTTP-statuskod i svaret.                     |
 

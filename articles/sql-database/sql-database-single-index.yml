@@ -75,6 +75,7 @@ sections:
           - html: '(Förhandsversion) Nya funktioner för Transact-SQL-språk, till exempel <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT aggregering</a> och <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">massimport från Azure Blob storage</a>.'
           - html: '(Förhandsversion) Ny SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">skapa</a> och återskapa grupperade index-åtgärder.'
           - html: '(Förhandsversion) Ny <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database Machine Learning-tjänster (med R)</a>.'
+          - html: '(Förhandsversion) Ny <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">serverlös Beräkningsnivån</a> tillhandahåller beräkning automatisk skalning och fakturering per sekund för beräkning som används.'
   - title: Snabbstarterna på fem minuter
     items:
       - type: paragraph

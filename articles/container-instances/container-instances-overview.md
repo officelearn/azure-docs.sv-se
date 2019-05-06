@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582779"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073294"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
@@ -56,7 +56,10 @@ Vissa funktioner är för närvarande begränsade till Linux-behållare:
 * [Virtual network-distributionen](container-instances-vnet.md) (förhandsversion)
 * [GPU-resurser](container-instances-gpu.md) (förhandsversion)
 
-Azure Container Instances stöder för närvarande avbildningar av Windows Server 2016 baserat på Long-Term Servicing kanal (LTSC)-versionen. SAC-versioner (halvårskanal) för Windows såsom 1709 och 1803 stöds inte.
+För Windows-behållardistributioner, använda bilder baserat på gemensamma [Windows basera avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported).
+
+> [!NOTE]
+> Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är i förhandsversion.
 
 ## <a name="co-scheduled-groups"></a>Samordna schemalagda grupper
 

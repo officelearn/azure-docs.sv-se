@@ -4,14 +4,14 @@ description: Lär du hur du hanterar konflikter i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6e57dc5b4bcfa3f02e323253e24d68381c3535d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054806"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068741"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Hantera principer för konfliktlösning i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Med flera regioner skrivningar när flera klienter skriver till samma enhet, kan
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Skapa en senaste skrivning vinner-konfliktlösningsprincip
 
-De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standardsökvägen för senaste skrivare vinner är tidsstämpelfältet eller `_ts` egenskapen. Detta kan också anges till en användardefinierad sökväg för en numerisk typ. En konflikt uppstod wins det högsta värdet. Om sökvägen inte anges eller om det är ogiltigt, standard `_ts`. Konflikt löst med den här principen visas inte i konflikt feeden. Den här principen kan användas av alla API: er.
+De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standardsökvägen för senaste skrivare vinner är tidsstämpelfältet eller `_ts` egenskapen. Detta kan också anges till en användardefinierad sökväg för en numerisk typ. En konflikt uppstod det högsta värdet wins. Om sökvägen inte anges eller om det är ogiltigt, standard `_ts`. Konflikt löst med den här principen visas inte i konflikt feeden. Den här principen kan användas av alla API: er.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -86,14 +86,14 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Skapa principen för en anpassad konfliktlösning med hjälp av en lagrad procedur
 
-De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip med en lagrad procedur för att lösa konflikten. De här konflikterna visas inte i konfliktflödet såvida det inte finns ett fel i din lagrade procedur. När principen har skapats med behållaren måste du skapa den lagrade proceduren. .NET SDK-exemplet nedan visar ett exempel på det. Den här principen stöds på Core (SQL) Api endast.
+De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip med en lagrad procedur för att lösa konflikten. De här konflikterna visas inte i konfliktflödet såvida det inte finns ett fel i din lagrade procedur. När principen har skapats med behållaren kan behöva du skapa den lagrade proceduren. .NET SDK-exemplet nedan visar ett exempel. Den här principen stöds på Core (SQL) Api endast.
 
 ### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Konfliktlösning för exemplet anpassade lagrade proceduren
 
 Anpassade konflikt upplösning som lagrade procedurer måste implementeras med hjälp av funktionssignaturen visas nedan. Funktionsnamnet behöver inte matcha namnet när du registrerar den lagrade proceduren med behållaren men det förenkla naming. Här följer en beskrivning av de parametrar som måste implementeras för den här lagrade proceduren.
 
 - **incomingItem**: Objekt som infogas eller uppdateras i commit som genererar det är i konflikt. Är null för ta borttagningsåtgärder.
-- **existingItem**: För närvarande allokerade objektet. Det här värdet är null i en uppdatering och null för en insert- eller delete.
+- **existingItem**: För närvarande allokerade objektet. Det här värdet är null i en uppdatering och null för en insert eller tar bort.
 - **isTombstone**: Booleskt värde som anger om incomingItem står i konflikt med ett tidigare borttagna objekt. Om värdet är true är också existingItem null.
 - **conflictingItems**: Matris med den dedicerade versionen av alla objekt i behållaren som står i konflikt med incomingItem-ID: t eller några andra egenskaper för unikt index.
 
@@ -361,7 +361,7 @@ Läs mer om följande Azure Cosmos DB-begrepp:
 
 * [Global distribution – under huven](global-dist-under-the-hood.md)
 * [Så här konfigurerar du multimaster i dina program](how-to-multi-master.md)
-* [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Lägg till eller ta bort regioner från ditt Azure Cosmos DB-konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Så här konfigurerar du flera original i dina program](how-to-multi-master.md).
 * [Partitionering och datadistribution](partition-data.md)

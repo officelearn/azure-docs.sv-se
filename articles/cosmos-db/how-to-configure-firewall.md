@@ -1,17 +1,17 @@
 ---
 title: Konfigurera en IP-Brandvägg för Azure Cosmos DB-kontot
 description: Lär dig hur du konfigurerar principer för IP-åtkomstkontroll för brandvägg på Azure Cosmos DB-databaskonton.
-author: kanshiG
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: govindk
-ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: sample
+ms.date: 05/06/2019
+ms.author: mjbrown
+ms.openlocfilehash: cdf2da745cc418190f6546fffc03e2ac2c330e0e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61060873"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068724"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurera IP-brandvägg i Azure Cosmos DB
 
@@ -32,7 +32,7 @@ När IP-åtkomstkontroll är aktiverat, ger möjligheten att ange IP-adresser, I
 > [!NOTE]
 > När du aktiverar en IP-principer för åtkomstkontroll för Azure Cosmos DB-kontot, avvisas alla förfrågningar till ditt Azure Cosmos DB-konto från datorer som inte listan över tillåtna för IP-adressintervall. Bläddra i Azure Cosmos DB-resurser från portalen blockeras även för att säkerställa integriteten för åtkomstkontroll.
 
-### <a name="allow-requests-from-the-azure-portal"></a>Tillåta begäranden från Azure portal 
+### <a name="allow-requests-from-the-azure-portal"></a>Tillåta begäranden från Azure portal
 
 När du aktiverar en IP-principer för åtkomstkontroll programmässigt kan du behöva lägga till IP-adressen för Azure portal för att den **ipRangeFilter** egenskapen att upprätthålla åtkomsten. Portalen IP-adresser är:
 
@@ -80,7 +80,7 @@ När du skalar ut din molntjänst genom att lägga till rollinstanser har dessa 
 
 ### <a name="requests-from-virtual-machines"></a>Begäranden från virtuella datorer
 
-Du kan också använda [virtuella datorer](https://azure.microsoft.com/services/virtual-machines/) eller [VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för mellannivå tjänster med hjälp av Azure Cosmos DB. Om du vill konfigurera ditt Cosmos DB-konto för att tillåta åtkomst från virtuella datorer, måste du konfigurera offentliga IP-adressen för den virtuella datorn och/eller VM-skalningsuppsättning som en av de tillåtna IP-adresserna för ditt Azure Cosmos DB-konto genom att [ konfigurera principen för IP-åtkomstkontroll](#configure-ip-policy). 
+Du kan också använda [virtuella datorer](https://azure.microsoft.com/services/virtual-machines/) eller [VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för mellannivå tjänster med hjälp av Azure Cosmos DB. Om du vill konfigurera ditt Cosmos DB-konto så att den tillåter åtkomst från virtuella datorer, måste du konfigurera offentliga IP-adressen för den virtuella datorn och/eller VM-skalningsuppsättning som en av de tillåtna IP-adresserna för ditt Azure Cosmos DB-konto genom att [ konfigurera principen för IP-åtkomstkontroll](#configure-ip-policy). 
 
 Du kan hämta IP-adresser för virtuella datorer i Azure-portalen, enligt följande skärmbild:
 
@@ -138,6 +138,37 @@ az cosmosdb update \
       --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
+## <a id="configure-ip-firewall-ps"></a>Konfigurera en IP-principer för åtkomstkontroll med hjälp av PowerShell
+
+Följande skript visar hur du skapar ett Azure Cosmos DB-konto med IP-åtkomstkontroll:
+
+```azurepowershell-interactive
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
+
+$locations = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East US"; "failoverPriority"=1 }
+)
+
+# Add local machine's IP address to firewall, InterfaceAlias is your Network Adapter's name
+$ipRangeFilter = Get-NetIPConfiguration | Where-Object InterfaceAlias -eq "Ethernet 2" | Select-Object IPv4Address
+
+$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "ipRangeFilter"=$ipRangeFilter
+}
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
 ## <a id="troubleshoot-ip-firewall"></a>Felsöka problem med en IP-principer för åtkomstkontroll
 
 Du kan felsöka problem med en IP-principer för åtkomstkontroll med hjälp av följande alternativ: 
@@ -161,5 +192,4 @@ Om du vill konfigurera en tjänstslutpunkt för virtuellt nätverk för Azure Co
 
 * [Virtuellt nätverk och undernät åtkomstkontroll för ditt Azure Cosmos DB-konto](vnet-service-endpoint.md)
 * [Konfigurera virtuella nätverk och undernät-baserad åtkomst för ditt Azure Cosmos DB-konto](how-to-configure-vnet-service-endpoint.md)
-
 

@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: dd6d527020bbf5e2fb510fa9605af408673e89dd
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514238"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071840"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Snabbstart: Skapa cloud Azure Stream Analytics-jobb i Visual Studio Code (förhandsversion)
 
@@ -26,23 +26,13 @@ Den här snabbstarten visar hur du skapar och kör ett Stream Analytics-jobb med
 
 * Installera [Visual Studio Code](https://code.visualstudio.com/).
 
-* Ladda ned den [Azure Stream Analytics-tillägg för VS Code](https://usqldownload.blob.core.windows.net/ext/asa/vscode-asa-0.0.2.vsix).
-
 ## <a name="install-the-azure-stream-analytics-extension"></a>Installera tillägget Azure Stream Analytics
-
-Installera Azure Stream Analytics-tillägget från privata VSIX paketet som du hämtade.
 
 1. Öppna Visual Studio Code.
 
-2. Från **tillägg** i det vänstra fönstret, Välj ellipserna **(...)**  längst upp till höger. Välj sedan **installera från VSIX**.
+2. Från **tillägg** på den vänstra rutan Sök efter **Stream Analytics** och välj **installera** på den **Azure Stream Analytics** tillägget.
 
-   ![Installera från VSIX i Visual Studio Code](./media/quick-create-vs-code/install-vsix.png)
-
-3. Välj de tillägg som du har hämtat som ett krav och välj **installera**.  Det kan ta flera sekunder.
-
-4. När installationen har slutförts, väljer **Reload nu** i popup-fönstret om du uppmanas.
-
-5. Kontrollera att **Azure Stream Analytics Tools** visas i din **aktiverat tillägg**.
+3. När tillägget har installerats kan du kontrollera att **Azure Stream Analytics Tools** visas i din **aktiverat tillägg**.
 
    ![Azure Stream Analytics-verktyg under aktiverat tillägg i Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
 
@@ -123,7 +113,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
    ![Stream Analytics-projektfiler i VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
-4. Konfigurationsfilen asaproj.json innehåller indata, utdata och jobbet filen konfigurationsinformation som behövs för att skicka ASA-jobbet till Azure.
+4. Den **asaproj.json** konfigurationsfilen innehåller indata, utdata och jobbet filen konfigurationsinformation som behövs för att skicka ett Stream Analytics-jobb till Azure.
 
    ![Konfigurationsfilen för Stream Analytics-jobb i VS Code](./media/quick-create-vs-code/job-configuration.png)
 
@@ -146,7 +136,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
 4. Ange indatafilnamn som **IotHub.json**.
 
-5. Redigera **IoTHub.json** med följande värden. Behåll standardvärdena för fält som inte nämns nedan. Använd CodeLens för att ange en sträng eller välj en listruta.
+5. Redigera **IoTHub.json** med följande värden. Behåll standardvärdena för fält som inte nämns nedan. Du kan använda CodeLens för att hjälpa dig att ange en sträng, Välj från en listruta eller ändra texten direkt i filen.
 
    |Inställning|Föreslaget värde|Beskrivning|
    |-------|---------------|-----------|
@@ -189,9 +179,9 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
    HAVING Temperature > 27
    ```
 
-## <a name="compile-script"></a>Kompilera skript
+## <a name="compile-the-script"></a>Kompilera skriptet
 
-Kompilering av skriptet gör två saker: Kontrollera syntax och skapa Azure Resource Manager-mallar för automatisk distribution.
+Kompilering av skriptet gör två saker: Kontrollera syntax och skapa Azure Resource Manager-mallar för autodeployment.
 
 Det finns två sätt att utlösa kompilering av skriptet:
 
@@ -203,7 +193,9 @@ Det finns två sätt att utlösa kompilering av skriptet:
 
     ![Högerklicka på ASA-skriptet för att kompilera](./media/quick-create-vs-code/compile-script2.png)
 
-3. Efter kompilering, du kan hitta de två genererade Azure Resource Manager-mallarna i **distribuera** mapp i ditt projekt. Dessa två filer används för automatisk distribution.
+3. Efter kompilering, du kan hitta de två genererade Azure Resource Manager-mallarna i **distribuera** mapp i ditt projekt. Dessa två filer används för autodeployment.
+
+    ![Stream Analytics-distributionsmallar i Utforskaren](./media/quick-create-vs-code/deployment-templates.png)
 
 ## <a name="submit-a-stream-analytics-job-to-azure"></a>Skicka ett Stream Analytics-jobb till Azure
 
@@ -213,7 +205,7 @@ Det finns två sätt att utlösa kompilering av skriptet:
 
 2. Välj din prenumeration från listan över popup-fönstret.
 
-3. Välj **Välj ett jobb**. Välj sedan skapa ett nytt jobb.
+3. Välj jobb **. Välj sedan skapa ett nytt jobb.
 
 4. Ange Jobbnamnet på din **myASAjob** och följ sedan anvisningarna för att välja den resursgrupp och plats.
 
@@ -233,13 +225,15 @@ Det finns två sätt att utlösa kompilering av skriptet:
 
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Starta Stream Analytics-jobbet och kontrollera utdata
 
-1. Öppna Utforskaren i Stream Analytics i Visual Studio Code och hitta ditt jobb**myASAJob**.
+1. Öppna **Stream Analytics Explorer** i Visual Studio Code och Sök efter ditt jobb **myASAJob**.
 
 2. Högerklicka på jobbnamnet. Välj **starta** på snabbmenyn.
 
+![Starta Stream Analytics-jobbet i VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+
 3. Välj **nu** i popup-fönster för att starta jobbet.
 
-4. Obs jobbet har statusen har ändrats till **kör**. Högerklicka på jobbnamnet och välj **öppna Jobbvy i portalen** att se indata och utdata händelse mått. Det kan ta några minuter.
+4. Obs jobbet har statusen har ändrats till **kör**. Högerklicka på jobbnamnet och välj **öppna Jobbvy i portalen** att se indata och utdata händelse mått. Den här åtgärden kan ta några minuter.
 
 5. Om du vill visa resultatet genom att öppna blob-lagringen i Visual Studio Code-tillägget eller i Azure-portalen.
 

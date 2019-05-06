@@ -1,21 +1,21 @@
 ---
-title: Ansluta till Azure Database for PostgreSQL med språket Go
-description: I den här snabbstarten finns ett kodexempel i programmeringsspråket Go som du kan använda för att ansluta till och fråga efter data från Azure Database för PostgreSQL.
+title: Använda språket Go för att ansluta till Azure Database för PostgreSQL – enskild Server
+description: Den här snabbstarten finns ett kodexempel i programmeringsspråket Go du kan använda för att ansluta och fråga efter data från Azure Database för PostgreSQL – enskild Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 802d7f200f43c690978f05e2d66be81bd2635e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9356379262cc078cd6a62f3280bcb8cc3d315844
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778476"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067382"
 ---
-# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Använda språket Go för att ansluta och fråga efter data
+# <a name="azure-database-for-postgresql---single-server-use-go-language-to-connect-and-query-data"></a>Azure Database för PostgreSQL – enskild Server: Använda språket Go för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av kod som skrivits i språket [Go](https://golang.org/) (golang). Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Den här artikeln förutsätter att du är van att utveckla i Go, men saknar erfarenhet av Azure Database för PostgreSQL.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

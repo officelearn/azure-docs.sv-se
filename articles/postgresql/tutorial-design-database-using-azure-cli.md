@@ -1,21 +1,21 @@
 ---
-title: 'Självstudier: Utforma en Azure Database for PostgreSQL med hjälp av Azure CLI'
-description: I den här självstudien visar vi hur du skapar, konfigurerar och frågar din första Azure Database for PostgreSQL-server med Azure CLI.
+title: 'Självstudier: Utforma Azure Database för PostgreSQL – enskild Server med Azure CLI'
+description: Den här självstudiekursen visar hur du skapar, konfigurerar och fråga efter din första Azure Database för PostgreSQL – enskild Server med Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/01/2018
-ms.openlocfilehash: eba1ffcbe07c617661d902de0726f17e4fec0a00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 5/6/2019
+ms.openlocfilehash: ed272afcfedaf6c781d2a96e5732fe2368914a67
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992088"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073073"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Självstudier: Utforma en Azure Database for PostgreSQL med hjälp av Azure CLI 
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Självstudier: Utforma Azure Database för PostgreSQL – enskild Server med Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
 > [!div class="checklist"]
 > * Skapa en Azure Database för PostgreSQL-server

@@ -1,5 +1,5 @@
 ---
-title: Använda leveranstjänst för dynamisk DRM-krypteringstjänst med Azure Media Services| Microsoft Docs
+title: Använda DRM dynamisk kryptering och licens delivery-tjänsten med Azure Media Services | Microsoft Docs
 description: Du kan använda Azure Media Services till att leverera strömmar som krypterats med Microsoft PlayReady, Google Widevine eller Apple FairPlay-licenser.
 services: media-services
 documentationcenter: ''
@@ -11,62 +11,43 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f53ae122e9888f3e537a3557b6ac5bd76856c2eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 066863a49abc517019785a578d2761d1c50432a7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995878"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141301"
 ---
-# <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Använda leveranstjänst för dynamisk DRM-krypteringstjänst
+# <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Självstudier: Använda leveranstjänst för dynamisk DRM-krypteringstjänst
 
-Du kan använda Azure Media Services när du levererar MPEG-DASH-, Smooth Streaming- och HTTP-Live-Streaming-dataströmmar som skyddas med [PlayReady DRM](https://www.microsoft.com/playready/overview/). Du kan också använda Media Services när du levererar krypterade DASH-strömmar med DRM-licenser av typen **Google Widevine**. Både PlayReady och Widevine krypteras enligt den gemensamma krypteringsspecifikationen (ISO/IEC 23001 7 CENC). Med Media Services kan du dessutom kryptera HLS-innehåll med **Apple FairPlay** (AES-128 CBC). 
+Du kan använda Azure Media Services till att leverera strömmar som krypterats med Microsoft PlayReady, Google Widevine eller Apple FairPlay-licenser. Mer detaljerad förklaring finns i [innehållsskydd med dynamisk kryptering](content-protection-overview.md).
 
 Media Services är vidare en tjänst för att leverera PlayReady-, Widevine och FairPlay-DRM-licenser. När en användare begär ett DRM-skyddat innehåll, begär spelarappen en licens från Media Services-licenstjänsten. Om spelarappen är auktoriserad utfärdar Media Services-licensen en licens till spelaren. En licens innehåller en krypteringsnyckel som kan användas av klientspelaren för att dekryptera och direktuppspela innehållet.
 
-Den här artikeln bygger på exemplet om [kryptering med DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM). Vi visar bland annat hur du:
-
-* Skapa en kodtransformering som använder ett inbyggt förval för adaptiv kodning av bithastighet och mata in en fil direkt från en [HTTP-källwebbadress](job-input-from-http-how-to.md).
-* Ställ in den signeringsnyckel som användes för att verifiera din token.
-* Ställ in de krav (begränsningar) på innehållsnyckelprincipen som måste uppfyllas för att leverera nycklar med den specificerade konfigurationen. 
-
-    * Konfiguration 
-    
-        I det här exemplet är licenserna för [PlayReady](playready-license-template-overview.md) och [Widevine](widevine-license-template-overview.md) konfigurerade så att de kan levereras av Media Services-licensleveranstjänsten. Det här exempelprogrammet konfigurerar inte [FairPlay](fairplay-license-overview.md)-licensen men det innehåller en metod som du kan använda för att konfigurera FairPlay. Om du vill kan du lägga till FairPlay-konfiguration som ytterligare ett alternativ.
-
-    * Begränsning
-
-        Programmet anger en JWT-tokentypbegränsning för principen.
-
-* Skapa en StreamingLocator för den angivna tillgången och med det angivna direktuppspelningspolicynamnet. I det här fallet används den fördefinierade principen. Två nycklar anges på StreamingLocator: AES-128 (kuvert) och CENC (PlayReady och Widevine).  
-    
-    När du har skapat en StreamingLocator är utdatatillgången publicerad och tillgänglig för klienter för uppspelning.
-
-    > [!NOTE]
-    > Kontrollera att slutpunkten du vill spela upp innehåll från körs.
-
-* Skapa en webbadress till Azure Media Player som innehåller både det DASH-manifest och den PlayReady-token som behövs för att spela upp PlayReady-krypterat innehåll. I exemplet är utgången för token satt till en timme. 
-
-    Du kan öppna en webbläsare och klistra in den webbadress som bildas för att starta Azure Media Player-demosidan där webbadressen en och token redan är ifyllda.  
-
-    ![Skydda med DRM](./media/protect-with-drm/playready_encrypted_url.png)
-
-> [!NOTE]
-> Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](content-protection-overview.md#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera.
+Den här artikeln bygger på exemplet om [kryptering med DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM). 
 
 Exemplet som beskrivs i den här artikeln ger följande resultat:
 
 ![AMS med DRM-skyddad video](./media/protect-with-drm/ams_player.png)
+
+I den här självstudiekursen lär du dig att:    
+
+> [!div class="checklist"]
+> * Skapa en kodning transformering
+> * Ange signeringsnyckel som används för verifiering av din token
+> * Ange krav för principen för content-nyckel
+> * Skapa en StreamingLocator med den angivna principen för direktuppspelning
+> * Skapa en URL används för att spela upp din fil
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att kunna genomföra självstudien.
 
 * Gå igenom artikeln med [översikten om innehållsskydd](content-protection-overview.md).
-* Gå igenom artikeln om att [utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
+* Granska den [utforma multi-DRM innehållsskydd system med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
 * Installera Visual Studio Code eller Visual Studio
 * Skapa ett nytt Azure Media Services-konto, som beskrivs i [den här snabbstarten](create-account-cli-quickstart.md).
 * Hämta autentiseringsuppgifter som krävs för att använda API:er för Media Services med hjälp av [åtkomst till API:er](access-api-cli-how-to.md)
@@ -163,18 +144,40 @@ ContentKeyIdentifierClaim används i ContentKeyPolicy, vilket innebär att den t
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
-## <a name="build-a-dash-streaming-url"></a>Skapa en DASH-uppspelningsadress
+## <a name="build-a-streaming-url"></a>Skapa en strömnings-URL
 
 Nu när [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna. Om du vill skapa en URL måste du sammanfoga värdnamnet [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) och sökvägen **StreamingLocator**. I det här exemplet används *standardvärdet* **StreamingEndpoint**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde* för **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
+När du kör appen, kan du se följande:
+
+![Skydda med DRM](./media/protect-with-drm/playready_encrypted_url.png)
+
+Du kan öppna en webbläsare och klistra in den webbadress som bildas för att starta Azure Media Player-demosidan där webbadressen en och token redan är ifyllda. 
+ 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Rensa resurser på ditt Media Services-konto
 
 Vanligtvis bör du rensa bort allt utom objekt som du tänker återanvända (om du t.ex. återanvänder transformeringar behåller du StreamingLocators osv.). Om du vill att ditt konto ska vara rensat efter experimentet, bör du ta bort de resurser som du inte tänker återanvända.  Följande kod tar exempelvis bort Jobb.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och de lagringskonton som du skapade för självstudien, tar du bort resursgruppen som du skapade tidigare. 
+
+Kör följande CLI-kommando:
+
+```azurecli
+az group delete --name amsResourceGroup
+```
+
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
+
+Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Se hur du [skyddar med AES-128](protect-with-aes128.md)
+> [!div class="nextstepaction"]
+> Se hur du [skyddar med AES-128](protect-with-aes128.md)
+

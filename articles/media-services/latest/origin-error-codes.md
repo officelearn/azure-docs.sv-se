@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: c350a989f23eb667923a53f6eb06dd55905b0fab
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e30c51ff3526bb5ed193b65b3f36a64c552024ff
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927319"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141137"
 ---
 # <a name="media-services-packaging-errors"></a>Media Services paketering fel 
 
@@ -194,7 +194,7 @@ Servern är för närvarande inte att ta emot begäranden. Det här felet kan or
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Storage-åtgärdsfel tog emot HTTP-server upptagen fel 503.|
 
-## <a name="provide-feedback"></a>Ge feedback
+## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 
 Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
 

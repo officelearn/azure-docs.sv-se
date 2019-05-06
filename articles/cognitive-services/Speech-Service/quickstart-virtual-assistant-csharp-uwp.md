@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 7dd469b07727e1efa326a1d92ea778bd3fb2cab1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ee7649dccf1ca50933e29cec9d40e4f5e16bd721
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027028"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074113"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Snabbstart: Skapa en röst-första virtuella assistenter med tal SDK, UWP
 
@@ -31,7 +31,7 @@ För den här snabbstarten krävs:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * En Azure-prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
-* En tidigare skapad robot som konfigurerats med den [tal för Direct Line-kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)
+* En tidigare skapad robot som konfigurerats med den [tal för Direct Line-kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
     > I förhandsversion, tal för Direct Line-kanal stöder för närvarande endast den **westus2** region.
@@ -247,7 +247,7 @@ Den här snabbstarten visar steg för steg hur du gör ett enkelt klientprogram 
     > I förhandsversion, tal för Direct Line-kanal stöder för närvarande endast den **westus2** region.
 
     > [!NOTE]
-    > Information om hur du konfigurerar din robot och hämta en hemlighet channel finns i Bot Framework-dokumentationen för [Direct Line tal kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+    > Information om hur du konfigurerar din robot och hämta en hemlighet channel finns i Bot Framework-dokumentationen för [Direct Line tal kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
     ```csharp
     // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key

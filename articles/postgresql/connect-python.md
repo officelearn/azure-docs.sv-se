@@ -1,21 +1,21 @@
 ---
-title: Ansluta till Azure Database for PostgreSQL från Python
-description: I den här snabbstarten finns ett kodexempel i Python som du kan använda för att ansluta till och fråga efter data från Azure Database för PostgreSQL.
+title: Använd Python för att ansluta till Azure Database för PostgreSQL – enskild Server
+description: Den här snabbstarten finns ett kodexempel i Python som du kan använda för att ansluta och fråga efter data från Azure Database för PostgreSQL – enskild Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d7988ad590e6d57d9da37f46557f99fccaad294
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422176"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067229"
 ---
-# <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Använda Python för att ansluta och fråga mot data
+# <a name="azure-database-for-postgresql---single-server-use-python-to-connect-and-query-data"></a>Azure Database för PostgreSQL – enskild Server: Använda Python för att ansluta och fråga mot data
 Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure Database för PostgreSQL. Den visar också hur SQL-instruktioner används för att fråga, infoga, uppdatera och ta bort data i databasen i macOS-, Ubuntu Linux- och Windows-plattformar. I den här artikeln förutsätter vi att du har kunskaper om Python och att du inte har arbetat med Azure Database för PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

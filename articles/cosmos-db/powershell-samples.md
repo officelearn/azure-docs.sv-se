@@ -1,37 +1,48 @@
 ---
 title: Azure PowerShell-exempel för Azure Cosmos DB
 description: Azure PowerShell-exempel – Skript som hjälper dig att skapa och hantera Azure Cosmos DB-konton.
-author: SnehaGunda
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: 3498ac6a2a4aaa1682d7b5bc5aae5383866d5bcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/08/2019
+ms.author: mjbrown
+ms.openlocfilehash: 68e845a05f4ebe2d1f25b55c00042c8925c8109e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926182"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069307"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Azure PowerShell-exempel för Azure Cosmos DB
 
-Följande tabell innehåller länkar till Azure PowerShell-exempelskript för Azure Cosmos DB. Just nu kan du bara hantera Azure Cosmos DB-kontot via PowerShell. Andra resurser, som databaser och containrar, kan inte hanteras via PowerShell.
+I följande tabell innehåller länkar till Azure PowerShell-exempelskript för Azure Cosmos DB för Core (SQL) API.
 
 | |  |
 |---|---|
-|**Skapa ett Azure Cosmos DB-konto**||
-|[Skapa och konfigurera ett Cosmos-konto med SQL-API](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett enskilt Azure Cosmos DB-konto som ska användas med SQL-API:et. |
-|[Skapa och konfigurera ett Cosmos-konto med Azure Cosmos DB:s API för MongoDB](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Cosmos-konto med Azure Cosmos DB:s API för MongoDB. |
-|[Skapa och konfigurera ett Cosmos-konto med Gremlin-API](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett enskilt Azure Cosmos DB-konto som ska användas med Gremlin API:et. |
-|[Skapa och konfigurera ett Cosmos-konto med Cassandra-API](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett enskilt Azure Cosmos DB-konto som ska användas med Cassandra-API:et. |
-|[Skapa och konfigurera ett Cosmos-konto med Tabell-API](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett enskilt Azure Cosmos DB-konto som ska användas med Table-API:et. |
-|**Skala Azure Cosmos DB**||
-|[Replikera ett Azure Cosmos DB-konto i flera regioner och konfigurera redundansprioriteringar](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Replikerar kontodata globalt till flera regioner med en angiven redundansprioritet.|
-|**Skydda Azure Cosmos DB**||
-| [Hämta kontonycklar](scripts/secure-get-account-key-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hämtar de primära och sekundära huvudskrivnycklarna och de primära och sekundära skrivskyddade nycklarna för kontot.|
-| [Hämta anslutningssträngen för MongoDB](scripts/secure-mongo-connection-string-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hämtar anslutningssträngen för att ansluta MongoDB-appen till Azure Cosmos DB-kontot.|
-|[Återskapa kontonycklar](scripts/secure-regenerate-key-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Återskapar huvudnyckeln eller den skrivskyddade nyckeln för kontot.|
-|[Skapa en brandvägg](scripts/create-firewall-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en princip för inkommande IP-åtkomstkontroll för att begränsa åtkomsten till kontot från en godkänd uppsättning datorer och/eller molntjänster.|
-|**Hög tillgänglighet, haveriberedskap, säkerhetskopiering och återställning**||
-|[Konfigurera redundansprincip](scripts/ha-failover-policy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Ställer in redundansprioritet för varje region i vilken kontot är replikerat.|
+|**Azure Cosmos-konton**||
+|[Skapa ett konto](scripts/powershell/sql/ps-account-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos SQL API-konto. |
+|[Skaffa ett konto](scripts/powershell/sql/ps-account-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta egenskaperna för ett Azure Cosmos-konto. |
+|[Lägger till en region](scripts/powershell/sql/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Få ett Azure Cosmos-konto och lägger till en region i listan över platser. |
+|[Ändra redundansprioritet för](scripts/powershell/sql/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ändra redundansprioritet för ett Azure Cosmos-konto med en manuell redundans-utlösare. |
+|[Uppdatera taggar](scripts/powershell/sql/ps-account-tags-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uppdatera taggar för ett Azure Cosmos-konto. |
+|[Hämta kontonycklar](scripts/powershell/sql/ps-account-key-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta de primära och sekundära nycklarna för ett Azure Cosmos-konto. |
+|[Återskapa kontonycklar](scripts/powershell/sql/ps-account-key-regenerate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Återskapa de primära och sekundära nycklarna för ett Azure Cosmos-konto. |
+|[Lista anslutningssträngar](scripts/powershell/sql/ps-account-connection-string-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta de primära och sekundära anslutningssträngarna för ett Azure Cosmos-konto. |
+|[Skapa IP-brandvägg](scripts/powershell/sql/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapa en IP-brandväggsregel för ett Azure Cosmos-konto. |
+|[Ta bort ett Azure Cosmos-konto](scripts/powershell/sql/ps-account-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ta bort ett Azure Cosmos-konto. |
+|**Azure Cosmos-databaser**||
+| [Skapa en databas](scripts/powershell/sql/ps-database-create.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapa en databas i ett Azure Cosmos-konto.|
+| [Skapa en databas med delade/databasnivå dataflöde](scripts/powershell/sql/ps-database-create-shared.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapa en Azure Cosmos-databas med databasnivå dataflöde som stöds och delas med dess behållare.|
+| [Lista alla databaser](scripts/powershell/sql/ps-database-list.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Lista över alla databaser i ett Azure Cosmos-konto.|
+| [Hämta en databas](scripts/powershell/sql/ps-database-get.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hämta egenskaperna för en Azure Cosmos-databas.|
+|**Azure Cosmos-behållare**||
+| [Skapa en behållare](scripts/powershell/sql/ps-container-create.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapa ett Azure Cosmos-behållare med dedikerat dataflöde.|
+| [Skapa en behållare med delade dataflöde](scripts/powershell/sql/ps-container-create-shared.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapa ett Azure Cosmos-behållare med dataflöde som delas med andra behållare i databasen.|
+| [Skapa en behållare med index-princip](scripts/powershell/sql/ps-container-create-index-custom.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapa ett Azure Cosmos-behållare med en princip för anpassat index.|
+| [Skapa en behållare med ingen index-princip](scripts/powershell/sql/ps-container-create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapa ett Azure Cosmos-behållare med index princip stängs av.|
+| [Skapa en behållare med unika nycklar och TTL](scripts/powershell/sql/ps-container-create-unique-key-ttl.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapa en Azure-Cosmos behållare med en unik nyckel begränsning och time-to-live konfigurerats.|
+| [Skapa en behållare med konfliktlösning](scripts/powershell/sql/ps-container-create-conflict-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapa ett Azure Cosmos-behållare med senaste skrivare vinner principen i konflikt med varandra.|
+| [Lista över alla behållare](scripts/powershell/sql/ps-container-list.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Lista alla behållare i en Azure Cosmos-databas.|
+| [Hämta en behållare](scripts/powershell/sql/ps-container-get.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hämta egenskaperna för en behållare i en Azure Cosmos-databas.|
+| [Ta bort en container](scripts/powershell/sql/ps-container-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ta bort en behållare i en Azure Cosmos-databas.|
 |||

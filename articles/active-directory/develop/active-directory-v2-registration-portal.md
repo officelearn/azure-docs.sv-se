@@ -18,18 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b77f2a403bd4f410665d00bc69b3b1bcf0c3aaa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411223"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139178"
 ---
 # <a name="app-registration-reference"></a>Referens för registrering av appar
 Det här dokumentet ger kontext och beskrivningar av olika funktioner i den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
 > [!NOTE]
-> Vi kommer inte längre stöd för registrering och hantering av Konvergerad och Azure AD-program i den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) startar maj 2019. Vi rekommenderar att du hantera dina befintliga program och registrera nya program med hjälp av den [appregistreringar (förhandsversion)](https://aka.ms/appregistrations) upplevelse i Azure-portalen.
+> Vi kommer inte längre stöd för registrering och hantering av Konvergerad och Azure AD-program i den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) startar maj 2019. Vi rekommenderar att du hantera dina befintliga program och registrera nya program med hjälp av den [appregistreringar](https://aka.ms/appregistrations) upplevelse i Azure-portalen.
 
 ## <a name="my-applications-or-converged-applications"></a>Mina program eller konvergerade program
 Den här listan innehåller alla dina program som har registrerats för användning med Azure AD v2.0-slutpunkten. Dessa program möjlighet att logga in användare med både personliga Microsoft-konton och arbets-/ skolkonton från Azure Active Directory. Läs mer om Azure AD v2.0-slutpunkten i den [v2.0 översikt](active-directory-appmodel-v2-overview.md). Dessa program kan också användas för att integrera med autentiseringsslutpunkt för Microsoft-konto `https://login.live.com`.

@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 2e2b2c39cf9039c78a610e9b28065b972484123e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528720"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069274"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Självstudier: Extrahera sammanhangsmässigt relaterade data från ett yttrande
 
 I den här självstudien hittar du relaterade datadelar baserat på kontext. Exempel kan vara en ursprungsplats och målplatser för en transport från en stad till en annan. Båda datadelarna kan krävas, och de är relaterade till varandra.  
 
-Den här självstudien tidigare skrivits med hierarkisk entiteter. Entiteten roller ersätter behovet av den hierarkiska entitetstypen. En roll kan användas med alla typer av fördefinierade eller anpassade entitet och används i både exempel yttranden och mönster. 
+En roll kan användas med alla typer av fördefinierade eller anpassade entitet och används i både exempel yttranden och mönster. 
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -117,7 +117,7 @@ Entiteten fördefinierade geographyV2, extraherar platsinformation, inklusive st
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Gå till slutet av webbadressen i adressfältet och ange `Please move Carl Chamerlin from Tampa to Portland`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `MoveEmployee` med den hierarkiska entiteten extraherad.
+1. Gå till slutet av webbadressen i adressfältet och ange `Please move Carl Chamerlin from Tampa to Portland`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Den här uttryck är inte samma som helst av taggade talade så det är ett bra test och ska returnera den `MoveEmployee` avsikt med den entitet som extraheras.
 
     ```json
     {

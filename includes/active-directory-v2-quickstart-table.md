@@ -16,11 +16,11 @@ ms.date: 01/09/2019
 ms.author: andret
 ms.custom: include file
 ms.openlocfilehash: 4fc189c339e64a1f2cb3da73ea4c473425cebcbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250128"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65081705"
 ---
 | Mobila och interna appar | Webbappar och ensidesapplikationer | Webb-API:er |
 | --- | --- | --- |

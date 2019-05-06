@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139246"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app
 
@@ -70,7 +70,8 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 | `xms_pl`                   | Användarens förvalda språk  | JWT ||Användaren prioriterade språk, om ange. Ursprung sina startklientorganisation i scenarier för gäst-åtkomst. Formaterad lla kopia (”en-us”). |
 | `xms_tpl`                  | Klient-språk| JWT | | Resurs-klienten prioriterade språk, om ange. Formaterad lla (”SV”). |
 | `ztdid`                    | Zero touch-distributions-ID | JWT | | Enhetsidentitet används för [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | Den adresserbara e-postadress för användaren, om användaren har en.  | JWT, SAML | MSA, AAD | Det här värdet ingår som standard om användaren inte är gäst i klienten.  För hanterade användare (de i klienten), måste det begäras via den här valfria anspråk eller på v2.0, med OpenID-området.  För hanterade användare, e-postadressen måste anges i den [administrationsportalen för Office](https://portal.office.com/adminportal/home#/users).|  
+| `email`                    | Den adresserbara e-postadress för användaren, om användaren har en.  | JWT, SAML | MSA, AAD | Det här värdet ingår som standard om användaren inte är gäst i klienten.  För hanterade användare (de i klienten), måste det begäras via den här valfria anspråk eller på v2.0, med OpenID-området.  För hanterade användare, e-postadressen måste anges i den [administrationsportalen för Office](https://portal.office.com/adminportal/home#/users).| 
+| `groups`| Valfritt formatering för gruppanspråk |JWT, SAML| |Används tillsammans med inställningen GroupMembershipClaims i den [programmanifestet](reference-app-manifest.md), som också måste anges. Mer information finns i [gruppen anspråk](#Configuring-group-optional claims) nedan. Läs mer på gruppanspråk [så här konfigurerar du gruppanspråk](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | Status för användare i klienten. | JWT, SAML | | Om användaren är medlem i klienten, är värdet `0`. Om de är en gäst, är värdet `1`. |
 | `upn`                      | UserPrincipalName anspråk. | JWT, SAML  |           | Även om det här anspråket medföljer automatiskt, kan du ange det som ett valfritt anspråk att koppla ytterligare egenskaper om du vill ändra sitt beteende i fallet för gäst-användare.  |
 
@@ -91,7 +92,6 @@ De här anspråken är alltid är inkluderad i v1.0 Azure AD-token, men inte ing
 | `family_name` | Efternamn                       | Innehåller den senaste namn, efternamn eller namn för användaren som definierats i användarobjektet. <br>"family_name":"Miller" | Stöds i MSA och AAD   |
 | `given_name`  | Förnamn                      | Innehåller först eller ”förnamn” för användaren som angetts på användarobjektet.<br>"given_name": ”Frank”                   | Stöds i MSA och AAD  |
 | `upn`         | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktigt ID för användaren och bör inte användas till att viktiga data. | Se [ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för att konfigurera anspråket. |
-
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
@@ -131,24 +131,24 @@ Du kan konfigurera valfria anspråk för ditt program genom att ändra programma
 ```json
 "optionalClaims":  
    {
-       "idToken": [
-             { 
-                   "name": "auth_time", 
-                   "essential": false
-              }
-        ],
- "accessToken": [ 
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": false
+             }
+      ],
+      "accessToken": [
              {
                     "name": "ipaddr", 
                     "essential": false
               }
-        ],
-"saml2Token": [ 
-              { 
+      ],
+      "saml2Token": [
+              {
                     "name": "upn", 
                     "essential": false
                },
-               { 
+               {
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
                     "essential": false
@@ -187,7 +187,7 @@ Om det stöds av specifika anspråk, kan du också ändra beteendet för Optiona
 Du kan också konfigurera token för att inkludera directory-schemautökningar utöver uppsättningen standard valfria anspråk. Mer information finns i [Directory-schemautökningar](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Den här funktionen är användbar för att bifoga ytterligare information som din app kan använda – till exempel, en ytterligare identifierare eller viktiga konfigurationsalternativ som användaren har angett. 
 
 > [!Note]
-> Directory-schematillägg är en funktion för endast AAD-så om programmets manifest begäranden ett anpassat tilläggs- och en MSA-användare loggar in på din app kan returneras de här tilläggen inte. 
+> Directory-schematillägg är en funktion för endast AAD-så om programmets manifest begäranden ett anpassat tilläggs- och en MSA-användare loggar in på din app kan returneras de här tilläggen inte.
 
 ### <a name="directory-extension-formatting"></a>Directory-tillägget formatering
 
@@ -196,6 +196,98 @@ För tilläggsattribut, använder du det fullständiga namnet på filnamnstillä
 Inom JWT, kommer dessa anspråk genereras med följande namnformat: `extn.<attributename>`.
 
 I SAML-tokens kommer dessa anspråk genereras med följande URI-format: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+
+## <a name="configuring-group-optional-claims"></a>Konfigurera valfria gruppanspråk
+
+   > [!NOTE]
+   > Möjligheten att generera gruppnamn för användare och grupper som synkroniserats från en lokal plats är allmänt tillgänglig förhandsversion
+
+Det här avsnittet beskrivs konfigurationsalternativ under valfria anspråk för att ändra gruppattributen som används i gruppanspråk från standard grupp objectID för attribut som synkroniseras från Active Directory för den lokala Windows
+> [!IMPORTANT]
+> Se [konfigurera gruppanspråk för program med Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md) mer information, inklusive viktiga varningar för den offentliga förhandsversionen av gruppanspråk från en lokal attribut.
+
+1. I portalen Azure Active Directory -> program -> registreringar -> Välj program -> Manifest
+
+2. Aktivera medlemskap gruppanspråk genom att ändra groupMembershipClaim
+
+   Giltiga värden är:
+
+   - ”Alla”
+   - "SecurityGroup"
+   - "DistributionList"
+   - "DirectoryRole"
+
+   Exempel:
+
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
+
+   Som standard grupp ObjectIDs ska genereras i gruppen anspråksvärde.  Om du vill ändra anspråkets värde ska innehålla på attributen för plats eller ändra Anspråkstypen roll, använder du OptionalClaims konfigurationen på följande sätt:
+
+3. Ange grupp configuration valfria anspråk.
+
+   Om du vill grupper i token som innehåller den lokala AD-Gruppattribut i avsnittet valfria anspråk anger vilken typ tokenu valfria anspråk ska tillämpas på, namnet på valfria anspråk som begärs och eventuella ytterligare egenskaper som önskade.  Flera typer av token kan visas:
+
+   - idToken för OIDC-ID-token
+   - accessToken för den OAuth/OIDC åtkomst-token
+   - Saml2Token för SAML-token.
+
+   > [!NOTE]
+   > Typen Saml2Token gäller både SAML1.1 och SAML2.0 format-token
+
+   För varje relevant tokentypen ändra grupper anspråk att använda OptionalClaims-avsnitt i manifestet. OptionalClaims schemat är följande:
+
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
+
+   | Valfria anspråk Schema | Värde |
+   |----------|-------------|
+   | **Namn:** | Måste vara ”grupper” |
+   | **Källa:** | Används inte. Utelämna eller ange null |
+   | **essential:** | Används inte. Utelämna eller ange false |
+   | **additionalProperties:** | Lista över ytterligare egenskaper.  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
+
+   In additionalProperties only one of "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name” are required.  Om mer än en sådan finns, används först och andra ignoreras.
+
+   Vissa program kräver gruppinformation om användaren i rollen anspråket.  Om du vill ändra typ av anspråk till anspråk till en rollanspråk från en grupp att lägga till ”emit_as_roles” till ytterligare egenskaper.  Gruppvärden ska genereras i rollen anspråket.
+
+   > [!NOTE]
+   > Om du använder ”emit_as_roles” alla roller för program som konfigurerats att användaren har tilldelats kommer visas inte i rollanspråk
+
+**Exempel:** Skapa grupper som gruppen i OAuth-åtkomsttoken i dnsDomainName\sAMAccountName format
+
+```json
+"optionalClaims": {
+    "accessToken": [{
+        "name": "groups",
+        "additionalProperties": ["dns_domain_and_sam_account_name"]
+    }]
+}
+ ```
+
+Att skapa gruppnamn som ska returneras i netbiosDomain\sAMAccountName format som rollerna anspråk i SAML- och OIDC ID-token:
+
+```json
+"optionalClaims": {
+    "saml2Token": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }],
+
+    "idToken": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }]
+ }
+
+ ```
 
 ## <a name="optional-claims-example"></a>Exempel på valfria anspråk
 
@@ -213,7 +305,7 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
 1. Programsidan klickar du på **Manifest** att öppna redigeraren infogade manifest. 
 1. Du kan redigera manifestet med den här redigeraren direkt. Manifestet följer schemat för den [program entitet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest), och automatisk-format manifestet sparas en gång. Nya element ska läggas till i `OptionalClaims` egenskapen.
 
-      ```json
+    ```json
       "optionalClaims": 
       {
             "idToken": [ 
@@ -223,13 +315,13 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
                         "additionalProperties": [ "include_externally_authenticated_upn"]  
                   }
             ],
-      "accessToken": [ 
+            "accessToken": [ 
                   {
                         "name": "auth_time", 
                         "essential": false
                   }
             ],
-      "saml2Token": [ 
+            "saml2Token": [ 
                   { 
                         "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                         "source": "user", 
@@ -237,8 +329,10 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
                   }
             ]
       }
-      ```
-      I det här fallet har olika valfria anspråk lagts till varje typ av token som programmet kan ta emot. ID-token ska nu innehålla UPN-namnet för federerade användare i fullständig form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Åtkomsttoken som andra klienter begär för det här programmet innehåller nu auth_time anspråket. SAML-token innehåller nu skypeId directory-schematillägget (i det här exemplet är det app-ID för den här appen ab603c56068041afb2f6832e2a17e237). Skype-ID som visas i SAML-tokens `extension_skypeId`.
+
+    ```
+
+    I det här fallet har olika valfria anspråk lagts till varje typ av token som programmet kan ta emot. ID-token ska nu innehålla UPN-namnet för federerade användare i fullständig form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Åtkomsttoken som andra klienter begär för det här programmet innehåller nu auth_time anspråket. SAML-token innehåller nu skypeId directory-schematillägget (i det här exemplet är det app-ID för den här appen ab603c56068041afb2f6832e2a17e237). Skype-ID som visas i SAML-tokens `extension_skypeId`.
 
 1. När du är klar uppdaterar manifestet klickar du på **spara** att spara manifestet
 

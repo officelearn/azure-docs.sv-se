@@ -1,6 +1,6 @@
 ---
-title: Utför en åtkomstgranskning av min Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
-description: Lär dig hur du utför en åtkomstgranskning av din Azure-resursroller i Azure AD Privileged Identity Management (PIM).
+title: Granska åtkomst till Azure-resursroller i PIM - Azure Active Directory | Microsoft Docs
+description: Lär dig hur du granskar åtkomst till Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc503e5c11f8e3a00fe9c258ad2a7cad5b6ade7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e49f0077444f86eabeed22cc7cecf5e0ac7f8b5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287486"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141189"
 ---
-# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Utför en åtkomstgranskning av min Azure-resursroller i PIM
+# <a name="review-access-to-azure-resource-roles-in-pim"></a>Granska åtkomst till Azure-resursroller i PIM
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) förenklar hur företag hantera privilegierad åtkomst till resurser i Azure. 
 
 Om du har tilldelats en administrativ roll kan privilegierad rolladministratör för din organisation be dig att regelbundet kontrollera att du fortfarande behöver rollen för jobbet. Du kan få ett e-postmeddelande som innehåller en länk eller du kan gå direkt till den [Azure-portalen](https://portal.azure.com). Följ stegen i den här artikeln för att utföra själv granska av dina tilldelade roller.

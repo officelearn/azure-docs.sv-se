@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347931"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139292"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect-synkronisering: Scheduler
-Det här avsnittet beskrivs de inbyggda scheduler i Azure AD Connect-synkronisering (kallas även) Synkroniseringsmotorn).
+Det här avsnittet beskrivs de inbyggda scheduler i Azure AD Connect-synkronisering (Synkroniseringsmotorn).
 
 Den här funktionen introducerades med build 1.1.105.0 (publicerad februari 2016).
 
@@ -92,29 +92,62 @@ När du har gjort dina ändringar, Glöm inte att aktivera scheduler igen med `S
 ## <a name="start-the-scheduler"></a>Starta scheduler
 Scheduler är som standard körs var 30: e minut. I vissa fall kanske du vill köra en synkroniseringscykel mellan schemalagda cykler eller måste du köra en annan typ.
 
-**Delta synkroniseringscykel**  
+### <a name="delta-sync-cycle"></a>Delta synkroniseringscykel
 En delta-synkroniseringscykel omfattar följande steg:
 
-* Deltaimport på alla kopplingar
-* Deltasynkronisering på alla kopplingar
-* Exportera på alla kopplingar
 
-Det kan bero på att du har en brådskande ändring som måste synkroniseras omedelbart, vilket är anledningen måste du manuellt köra en cykel. Om du vill köra manuellt en cykel sedan från PowerShell kör `Start-ADSyncSyncCycle -PolicyType Delta`.
+- Deltaimport på alla kopplingar
+- Deltasynkronisering på alla kopplingar
+- Exportera på alla kopplingar
 
-**Fullständig synkroniseringscykel**  
-Om du har gjort något av följande konfigurationsändringar, måste du köra en fullständig synkroniseringscykel (alias) Första):
+### <a name="full-sync-cycle"></a>Fullständig synkroniseringscykel
+En fullständig synkroniseringscykel omfattar följande steg:
 
-* Lagt till fler objekt eller attribut som ska importeras från en källkatalog
-* Gjort ändringar i synkroniseringsreglerna
-* Ändra [filtrering](how-to-connect-sync-configure-filtering.md) så att ett annat antal objekt som ska inkluderas
+- Fullständig Import på alla kopplingar
+- Fullständig synkronisering på alla kopplingar
+- Exportera på alla kopplingar
 
-Om du har gjort någon av dessa ändringar, måste du kör en fullständig synkroniseringscykel Synkroniseringsmotorn har möjlighet att konsolidera kopplingens utrymmen. En fullständig synkroniseringscykel omfattar följande steg:
+Det kan bero på att du har en brådskande ändring som måste synkroniseras omedelbart, vilket är anledningen måste du manuellt köra en cykel. 
 
-* Fullständig Import på alla kopplingar
-* Fullständig synkronisering på alla kopplingar
-* Exportera på alla kopplingar
+Om du behöver att manuellt köra en synkroniseringscykel sedan från PowerShell kör `Start-ADSyncSyncCycle -PolicyType Delta`.
 
-Om du vill initiera en fullständig synkroniseringscykel kör `Start-ADSyncSyncCycle -PolicyType Initial` från en PowerShell-kommandotolk. Detta kommando startar en fullständig synkroniseringscykel.
+Om du vill initiera en fullständig synkroniseringscykel kör `Start-ADSyncSyncCycle -PolicyType Initial` från en PowerShell-kommandotolk.   
+
+Kör en fullständig synkroniseringscykel kan ta mycket lång tid, Läs nästa avsnitt för att läsa hur du optimerar den här processen.
+
+### <a name="sync-steps-required-for-different-configuration-changes"></a>Synkronisera steg som krävs för olika konfigurationsändringar
+Olika konfigurationsändringar kräver synkronisering av olika steg för att kontrollera ändringarna tillämpas korrekt på alla objekt.
+
+- Lagt till fler objekt eller attribut som ska importeras från en källkatalog (genom att lägga till/ändra reglerna sync)
+    - En fullständig Import krävs på Anslutningsappen för den källkatalogen
+- Gjort ändringar i synkroniseringsreglerna
+    - En fullständig synkronisering krävs på Anslutningsappen för de ändrade synkroniseringsreglerna
+- Ändra [filtrering](how-to-connect-sync-configure-filtering.md) så att ett annat antal objekt som ska inkluderas
+    - En fullständig Import krävs på anslutningen för varje AD-anslutning om du inte använder attributet-baserad filtrering baserat på attribut som redan finns som importeras till Synkroniseringsmotorn
+
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Anpassa en synkroniseringscykel som kör den rätta blandningen av Delta och fullständig synkronisering steg
+Du kan markera specifika Anslutningsappar för att köra en fullständig steg med hjälp av följande cmdletar för att undvika att köra en fullständig synkroniseringscykel.
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullSyncRequired $true`
+
+`Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
+
+Exempel:  Om du har gjort ändringar i Synkroniseringsregler för Connector ”AD-skog A” som inte kräver några nya attribut som ska importeras kör du följande cmdletar för att köra en Deltasynkronisering migreringscykel som också en fullständig synkronisering ta steget för den anslutningen.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
+Exempel:  Om du gjort ändringar i synkroniseringsreglerna för anslutningstjänsten ”AD-skog A” så att de kräver nu ett nytt attribut som ska importeras skulle du köra följande cmdlets för att köra en synkroniseringscykel för delta som också har en fullständig Import, steg för fullständig synkronisering av anslutningen.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
 
 ## <a name="stop-the-scheduler"></a>Stoppa Schemaläggaren
 Om scheduler körs för närvarande en synkroniseringscykel, kan du behöva stoppa den. Till exempel om du startar installationsguiden och du får felet:

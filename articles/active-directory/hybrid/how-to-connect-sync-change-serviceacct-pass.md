@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect-synkronisering:  Ändra Azure AD Connect Sync-tjänstkonto | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering:  Om du ändrar kontot ADSync | Microsoft Docs'
 description: Det här avsnittet dokumentet beskriver krypteringsnyckeln och hur du lämna den när lösenordet har ändrats.
 services: active-directory
 keywords: Azure AD sync-tjänstkontot, lösenord
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60241718"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139398"
 ---
-# <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Ändra Azure AD Connect sync tjänstkontolösenord
-Om du ändrar Azure AD Connect sync tjänstkontolösenord kan synkroniseringstjänsten inte kan starta korrekt förrän du har avbrutit krypteringsnyckeln och initierats om Azure AD Connect sync tjänstkontolösenord. 
+# <a name="changing-the-adsync-service-account-password"></a>Ändra lösenordet för ADSync-tjänsten
+Om du ändrar ADSync tjänstkontolösenord kan synkroniseringstjänsten inte kan starta korrekt förrän du har avbrutit krypteringsnyckeln och initierats ADSync tjänstkontolösenord. 
 
-Azure AD Connect, som en del av Synkroniseringstjänsterna använder en krypteringsnyckel för att lagra lösenorden för tjänstkonton AD DS och AD Azure.  Dessa konton krypteras innan de lagras i databasen. 
+Azure AD Connect, som en del av Synkroniseringstjänsterna använder en krypteringsnyckel för att lagra lösenord i AD DS-anslutningskontot och ADSync-tjänstkontot.  Dessa konton krypteras innan de lagras i databasen. 
 
-Krypteringsnyckeln skyddas med [Windows DPAPI (Data Protection)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI skyddar den kryptering nyckeln med hjälp av den **lösenordet för Azure AD Connect-synkroniseringstjänstkontot**. 
+Krypteringsnyckeln skyddas med [Windows DPAPI (Data Protection)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI skyddar den kryptering nyckeln med hjälp av den **ADSync tjänstkonto**. 
 
-Om du vill ändra lösenordet för tjänstens du kan använda procedurerna i [avbryts krypteringsnyckeln Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) att åstadkomma detta.  De här procedurerna bör också användas om du vill lämna krypteringsnyckeln av någon anledning.
+Om du vill ändra lösenordet för tjänstens du kan använda procedurerna i [avbryts ADSync kryptering tjänstkontonyckel](#abandoning-the-adsync-service-account-encryption-key) att åstadkomma detta.  De här procedurerna bör också användas om du vill lämna krypteringsnyckeln av någon anledning.
 
 ## <a name="issues-that-arise-from-changing-the-password"></a>Problem som kan uppstå från att ändra lösenordet
 Det finns två saker som du kan göra när du ändrar tjänstkontolösenord.
@@ -48,9 +48,9 @@ Du ser fel som:
 - Under Windows Service Control Manager om du försöker starta synkroniseringstjänsten och det går inte att hämta krypteringsnyckeln misslyckas med felet ”<strong>Windows kunde inte starta Microsoft Azure AD Sync på lokal dator. Granska systemhändelseloggen för mer information. Om det är en icke-Microsoft-tjänst kan kontakta leverantören för tjänsten och referera till tjänstspecifik felkod-21451857952</strong>”.
 - Under Windows Loggboken, programmets händelselogg innehåller ett fel med **händelse-ID 6028** och felmeddelande *”server-krypteringsnyckeln kan inte nås”.*
 
-För att säkerställa att du inte får de här felen, följer du procedurerna i [avbryts krypteringsnyckeln Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) när du ändrar lösenordet.
+För att säkerställa att du inte får de här felen, följer du procedurerna i [avbryts ADSync kryptering tjänstkontonyckel](#abandoning-the-adsync-service-account-encryption-key) när du ändrar lösenordet.
  
-## <a name="abandoning-the-azure-ad-connect-sync-encryption-key"></a>Lämna krypteringsnyckeln Azure AD Connect Sync
+## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Lämna ADSync kryptering tjänstkontonyckel
 >[!IMPORTANT]
 >Följande procedurer gäller endast för Azure AD Connect version 1.1.443.0 eller senare.
 
@@ -64,9 +64,9 @@ Om du vill lämna krypteringsnyckeln kan du använda följande procedurer för a
 
 1. [Avbryt den befintliga krypteringsnyckeln](#abandon-the-existing-encryption-key)
 
-2. [Anger du lösenordet för AD DS-kontot](#provide-the-password-of-the-ad-ds-account)
+2. [Anger du lösenordet för kontot AD DS-koppling](#provide-the-password-of-the-ad-ds-connector-account)
 
-3. [Initiera om lösenordet för Azure AD sync-konto](#reinitialize-the-password-of-the-azure-ad-sync-account)
+3. [Initiera om lösenordet för tjänstkontot ADSync](#reinitialize-the-password-of-the-adsync-service-account)
 
 4. [Starta synkroniseringstjänsten](#start-the-synchronization-service)
 
@@ -90,8 +90,8 @@ Avbryt den befintliga krypteringsnyckeln så att du kan skapa den nya kryptering
 
 ![Azure AD Connect Sync kryptering viktiga verktyg](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
-#### <a name="provide-the-password-of-the-ad-ds-account"></a>Anger du lösenordet för AD DS-kontot
-Eftersom de befintliga lösenord som lagras i databasen kan inte längre dekrypteras så behöver du ge synkroniseringstjänsten lösenordet för AD DS-kontot. Synkroniseringstjänsten krypterar lösenord med hjälp av den nya krypteringsnyckeln:
+#### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Anger du lösenordet för kontot AD DS-koppling
+Eftersom de befintliga lösenord som lagras i databasen kan inte längre dekrypteras så behöver du ge synkroniseringstjänsten lösenordet för kontot AD DS-anslutningen. Synkroniseringstjänsten krypterar lösenord med hjälp av den nya krypteringsnyckeln:
 
 1. Starta hanteraren för synkroniseringstjänsten (START → Synchronization Service).
 </br>![Sync Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
@@ -103,7 +103,7 @@ Eftersom de befintliga lösenord som lagras i databasen kan inte längre dekrypt
 7. Klicka på **OK** att spara det nya lösenordet och Stäng popup.
 ![Azure AD Connect Sync kryptering viktiga verktyg](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
-#### <a name="reinitialize-the-password-of-the-azure-ad-sync-account"></a>Initiera om lösenordet för Azure AD sync-konto
+#### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Initiera om lösenordet för tjänstkontot ADSync
 Du kan inte direkt anger du lösenordet för Azure AD-tjänstkontot till synkroniseringstjänsten. I stället måste du använda cmdlet: en **Lägg till ADSyncAADServiceAccount** att initiera om Azure AD-tjänstkontot. Cmdlet: en återställer lösenordet för och gör det tillgängligt för synkroniseringstjänsten:
 
 1. Starta en ny PowerShell-session på Azure AD Connect-servern.

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8d509e9f3cabcd588d539d42b8cce022e17a1222
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917331"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139197"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft identity-plattformen protokoll
 
@@ -45,7 +45,7 @@ I nästan alla flöden som OAuth 2.0 och OpenID Connect finns det fyra parter so
 
 ## <a name="app-registration"></a>Appregistrering
 
-Varje app som vill acceptera både personliga- och arbets-eller skolkonto måste registreras via nya **appregistreringar (förhandsversion)** användarupplevelsen i den [Azure-portalen](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) innan den kan logga dessa användare med hjälp av OAuth 2.0 eller OpenID Connect. Registreringsprocessen att samla in och tilldelar några värden till din app:
+Varje app som vill acceptera både personliga- och arbets-eller skolkonto måste registreras via den **appregistreringar** användarupplevelsen i den [Azure-portalen](https://aka.ms/appregistrations) innan den kan logga dessa användare i med hjälp av OAuth 2.0 eller OpenID Connect. Registreringsprocessen att samla in och tilldelar några värden till din app:
 
 * En **program-ID** som unikt identifierar din app
 * En **omdirigerings-URI** eller **Paketidentifierare** som kan användas för att dirigera svar tillbaka till din app

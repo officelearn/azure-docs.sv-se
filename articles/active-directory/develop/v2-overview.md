@@ -1,6 +1,6 @@
 ---
-title: Om v2.0 | Azure
-description: Läs mer om v2.0-slutpunkten och plattformen.
+title: Microsoft identity-plattformen (v2.0) översikt – Azure
+description: Läs mer om Microsoft identity-plattformen (v2.0) slutpunkt och plattform.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -12,55 +12,75 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb269df035bcc11583ebb7cff7d1ee2c3f6d8bca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6aa0af1ff5a8600f43ab92a5f2534a8e3ff253c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250301"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067673"
 ---
-# <a name="about-v20"></a>Om v2.0
+# <a name="microsoft-identity-platform-v20-overview"></a>Översikt över Microsoft identity-plattformen (v2.0)
 
-V2.0-slutpunkten och plattformen har varit i en förhandsversion och förbättrats ständigt. I dag är scenarier med JavaScript-ensidesprogram (SPA) funktionskompletta, och vi vill gärna att du använder MSAL.js för att skapa webbläsarbaserade program och ger oss feedback så att vi kan uppdatera statusen från förhandsversion till allmänt tillgänglig (GA, General Availability).
+Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Det hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter och hämta token för att anropa Microsoft APIs, till exempel Microsoft Graph eller API: er som utvecklare har byggt. Microsoft identity-plattformen består av:
 
-> [!NOTE]
-> MSAL Android, iOS och .NET har fortfarande funktioner under utveckling. Du kan använda dem för att skapa program och skicka feedback.
+- **OAuth 2.0 och OpenID Connect standard-kompatibla autentiseringstjänst** som ger utvecklare möjlighet att autentisera alla Microsoft-identitet, inklusive:
+  - Arbets- eller skolkonto konton (tillhandahålls genom Azure AD)
+  - Personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)
+  - Sociala eller lokala konton (via Azure AD B2C)
+- **Bibliotek med öppen källkod**: Microsoft Authentication Libraries (MSAL) och stöd för andra standardkompatibel bibliotek
+- **Program-hanteringsportalen**: En registrering och konfigurering upplevelse som bygger på Azure-portalen, tillsammans med alla dina andra Azure management-funktioner.
+- **Programkonfiguration API och PowerShell**: vilket gör att programkonfiguration av dina program via REST-API (Microsoft Graph och Azure Active Directory Graph 1.6) och PowerShell, så att du kan automatisera dina DevOps-uppgifter.
+- **Developer innehåll**: konceptuell och referera till dokumentation, Snabbstart exempel, kodexempel, självstudier och instruktionsguider.
 
-Upplevelsen i Azure-portalens [Appregistreringar (förhandsversion)](quickstart-register-app.md) har uppdaterats avsevärt och omfattar nu alla dina program som skapats med ADAL eller MSAL och har förbättrad användbarhet.
+För utvecklare erbjuder Microsoft identity-plattformen sömlös integrering i innovationer i området identitet och säkerhet, till exempel konfiguration av lösenordsfri autentisering, Step Up autentisering och villkorsbaserad åtkomst.  Du behöver inte implementera sådan funktion själv: program som är integrerade med Microsofts identitetsplattform internt dra nytta av sådana innovationer.
 
-Tidigare var programutvecklare som ville stödja både personliga Microsoft-konton och arbetskonton från Azure Active Directory (AD Azure) tvungna att integrera med två separata system. V2.0-slutpunkten och plattformen ger en API-autentiseringsversion som förenklar den här processen. Den kan logga in från båda typer av konton med hjälp av en enskild integrering. Program som använder v2.0-slutpunkten kan också använda REST-API:er från [Microsoft Graph API](https://developer.microsoft.com/graph) med hjälp av endera kontotyp.
+Med Microsoft identity-plattformen, kan du skriver koden en gång och nå alla användare. Du kan skapa en app på en gång och har den arbeta över många plattformar, eller skapa en app som fungerar som en klient som resursprogrammet (API).
 
 ## <a name="getting-started"></a>Komma igång
 
-Välj din favoritplattform i följande lista för att skapa ett program med hjälp av Microsofts bibliotek och ramverk med öppen källkod:
+Arbeta med identity behöver inte vara svårt. Välj ett scenario som passar dig – varje scenario sökväg har en Snabbstart och en översiktssida för att komma igång på bara några minuter:
 
-[!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
+- [Skapa en ensidesapp](scenario-spa-overview.md)
+- [Skapa en webbapp som loggar in användare](scenario-web-app-sign-user-overview.md)
+- [Skapa en webbapp som anropar webb-API: er](scenario-web-app-call-api-overview.md)
+- [Skapa en skyddad webb-API](scenario-protected-web-api-overview.md)
+- [Skapa en webb-API som anropar webb-API: er](scenario-web-api-call-api-overview.md)
+- [Skapa en skrivbordsapp](scenario-desktop-overview.md)
+- [Skapa en daemon-app](scenario-daemon-overview.md)
+- [Skapa en mobilapp](scenario-mobile-overview.md)
 
-## <a name="learn-more-about-the-v20-endpoint-and-platform"></a>Läs mer om v2.0-slutpunkten och plattformen
+<!--- We are making updates to the application scenarios chart. This is placeholder text for it.
 
-Läs mer om vad du kan göra med Azure AD v2.0-slutpunkten:
+The following chart outlines the full set of authentication scenarios and best practices – use it as a reference when integrating the Microsoft identity platform before shipping your app.
 
-* Identifiera de [typer av program som du kan skapa med Azure AD v2.0-slutpunkten](v2-app-types.md).
-* Förstå [begränsningarna, restriktionerna och villkoren](active-directory-v2-limitations.md) med Azure AD v2.0-slutpunkten.
+[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-## <a name="additional-resources"></a>Ytterligare resurser
+--->
 
-Utforska detaljerad information om v2.0:
+## <a name="next-steps"></a>Nästa steg
 
-* [Om Microsoft Identity-plattformen](about-microsoft-identity-platform.md)
-* [Referens för v2.0-protokoll](active-directory-v2-protocols.md)
-* [Referens för åtkomsttoken](access-tokens.md)
-* [Referens för ID-token](id-tokens.md)
-* [Referens för v2.0-autentiseringsbibliotek](reference-v2-libraries.md)
-* [Behörigheter och medgivande i v2.0](v2-permissions-and-consent.md)
-* [Microsoft Graph-API](https://developer.microsoft.com/graph)
+Om du vill ha mer information om grundbegreppen för autentisering, rekommenderar vi att du börjar med följande avsnitt:
 
-> [!NOTE]
-> Om du behöver bara logga in arbets- och skolkonton från Azure Active Directory kan du börja med [utvecklarhandboken för Azure AD](v1-overview.md). v2.0-slutpunkten är avsedd att användas av utvecklare som uttryckligen behöver logga in personliga Microsoft-konton.
+- [Grundläggande om autentisering](authentication-scenarios.md)
+- [Program och tjänstens huvudnamn](app-objects-and-service-principals.md)
+- [målgrupper](v2-supported-account-types.md)
+- [Behörigheter och samtycke](v2-permissions-and-consent.md)
+- [ID-token](id-tokens.md) och [åtkomsttoken](access-tokens.md)
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+Skapa ett dataintensivt program som anropar [Microsoft Graph](https://docs.microsoft.com/graph/overview).
+
+När du är redo att starta appen i en **produktionsmiljö**, granska dessa metodtips:
+
+- [Aktivera loggning](msal-logging.md) i ditt program.
+- Aktivera telemetri i programmet.
+- Aktivera [proxyservrar och anpassa HTTP-klienter](msal-net-provide-httpclient.md).
+- Testa din integrering genom att följa den [Microsoft identity-plattformen integration checklista](identity-platform-integration-checklist.md).
+
+## <a name="learn-more"></a>Läs mer
+
+Om du planerar att skapa en kundinriktad program som loggar in sociala och lokala identiteter måste du ta en titt på de [översikt över Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

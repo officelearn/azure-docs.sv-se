@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410356"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138362"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Anvisningar: Lägg till roller i ditt program och tar emot dem i token
 
@@ -51,7 +51,9 @@ Dessa programroller definieras i den [Azure-portalen](https://portal.azure.com) 
 1. Redigera appmanifestet genom att leta upp den `appRoles` inställning och lägga till alla programroller.
 
      > [!NOTE]
-     > Varje rolldefinition i manifestet måste ha ett annat giltigt **Guid** för egenskapen ”Id”. Den `"value"` egenskapen för varje roll bör exakt matcha strängarna som används i koden i programmet.
+     > Varje approlldefinitionen i manifestet måste ha ett annat giltigt GUID för den `id` egenskapen. 
+     > 
+     > Den `value` egenskapen för varje approlldefinitionen bör exakt matcha de strängar som används i koden i programmet. Den `value` egenskapen får inte innehålla blanksteg. I annat fall får ett fel när du sparar manifestet.
      
 1. Spara manifestet.
 

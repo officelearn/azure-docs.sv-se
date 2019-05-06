@@ -4,14 +4,14 @@ description: Lär dig hur du hanterar indexera principer i Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 76275420e1e6ed7fdec8309da9e11a272f08fee0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054687"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068679"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera principer för indexering i Azure Cosmos DB
 
@@ -162,7 +162,7 @@ response = client.ReplaceContainer(containerPath, container)
 Här följer några exempel på indexering principer som visas i deras JSON-format, vilket är hur de är tillgängliga på Azure-portalen. Samma parametrar kan anges via Azure CLI eller alla SDK: N.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Slipp princip för att selektivt undanta vissa sökvägar för egenskapen
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -193,9 +193,10 @@ Här följer några exempel på indexering principer som visas i deras JSON-form
             }
         ]
     }
+```
 
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Delta i principen för att selektivt ta med vissa egenskapen sökvägar
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -224,11 +225,12 @@ Här följer några exempel på indexering principer som visas i deras JSON-form
             }
         ]
     }
+```
 
 Obs! Allmänt rekommenderar vi att du använder en **avstår** indexeringspolicy så att Azure Cosmos DB proaktivt Indexera nya egenskaper som kan läggas till i din modell.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Med hjälp av en spatialindexet på en specifik egenskapssökväg
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -257,11 +259,12 @@ Obs! Allmänt rekommenderar vi att du använder en **avstår** indexeringspolicy
         ],
         "excludedPaths": []
     }
+```
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Exkludera alla sökvägar för egenskapen men behåller indexering active
 
 Den här principen kan användas i situationer där den [Time-to-Live (TTL) funktionen](time-to-live.md) är aktiv, men inga sekundära index krävs (för att använda Azure Cosmos DB som en ren nyckel / värde-lager).
-
+```
     {
         "indexingMode": "consistent",
         "includedPaths": [],
@@ -269,12 +272,130 @@ Den här principen kan användas i situationer där den [Time-to-Live (TTL) funk
             "path": "/*"
         }]
     }
+```
 
 ### <a name="no-indexing"></a>Ingen indexering
-
+```
     {
         "indexingPolicy": "none"
     }
+```
+
+## <a name="composite-indexing-policy-examples"></a>Sammansatta indexering princip-exempel
+
+Förutom eller undantas sökvägar för enskilda egenskaper, kan du även ange ett sammansatt index. Om du vill köra en fråga som har en `ORDER BY` sats för flera egenskaper, en [sammansatta index](index-policy.md#composite-indexes) på dessa egenskaper krävs.
+
+### <a name="composite-index-defined-for-name-asc-age-desc"></a>Sammansatta index har definierats för (asc namn, ålder desc):
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+Den här sammansatta index skulle kunna stödja följande två frågor:
+
+Fråga #1:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name asc, age desc    
+```
+
+Fråga #2:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name desc, age asc
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Sammansatta index som definierats för (asc namn, ålder asc) och (namnge asc, ålder desc):
+
+Du kan definiera flera olika sammansatta index i samma indexeringsprincipen. 
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"ascending"
+                }
+            ]
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc"></a>Sammansatta index har definierats för (asc namn, ålder asc):
+
+Det är valfritt att ange vilken ordning. Om inte anges, stigande ordning.
+```
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                },
+                {  
+                    "path":"/age",
+                }
+            ]
+        ]
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

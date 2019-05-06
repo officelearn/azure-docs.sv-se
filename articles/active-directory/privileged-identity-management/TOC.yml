@@ -27,12 +27,6 @@
       href: pim-deployment-plan.md
     - name: Börja använda PIM
       href: pim-getting-started.md
-    - name: Aktivera mina roller
-      items:
-        - name: Aktivera mina Azure AD-roller
-          href: pim-how-to-activate-role.md
-        - name: Aktivera mina Azure-resursroller
-          href: pim-resource-roles-activate-your-roles.md
     - name: Konfigurera PIM
       items:
         - name: Säkerhetsguide
@@ -43,6 +37,12 @@
           href: pim-how-to-give-access-to-pim.md
         - name: Utöka åtkomst för att hantera alla prenumerationer
           href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Aktivera mina roller
+      items:
+        - name: Aktivera mina Azure AD-roller
+          href: pim-how-to-activate-role.md
+        - name: Aktivera mina Azure-resursroller
+          href: pim-resource-roles-activate-your-roles.md
     - name: Hantera Azure AD-roller
       items:
         - name: Tilldela roller
@@ -73,21 +73,21 @@
           href: azure-pim-resource-rbac.md
         - name: Använd anpassade roller
           href: pim-resource-roles-custom-role-policy.md
-    - name: Granska åtkomst
+    - name: Åtkomstgranskningar
       items:
         - name: Azure AD-roller
           items:
-            - name: Granska mina Azure AD-roller
-              href: pim-how-to-perform-security-review.md
-            - name: Starta en åtkomstgranskning
+            - name: Skapa en åtkomstgranskning
               href: pim-how-to-start-security-review.md
+            - name: Granska åtkomst
+              href: pim-how-to-perform-security-review.md
             - name: Slutför en åtkomstgranskning
               href: pim-how-to-complete-review.md
         - name: Azure-resursroller
           items:
-            - name: Granska mina Azure-resursroller
-              href: pim-resource-roles-perform-access-review.md
-            - name: Starta en åtkomstgranskning
+            - name: Skapa en åtkomstgranskning
               href: pim-resource-roles-start-access-review.md
+            - name: Granska åtkomst
+              href: pim-resource-roles-perform-access-review.md
             - name: Slutför en åtkomstgranskning
               href: pim-resource-roles-complete-access-review.md

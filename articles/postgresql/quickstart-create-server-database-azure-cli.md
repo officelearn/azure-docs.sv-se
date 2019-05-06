@@ -1,21 +1,21 @@
 ---
-title: Snabbstart – Skapa en Azure Database for PostgreSQL med hjälp av Azure CLI
-description: Snabbstartsguide för att skapa och hantera Azure Database for PostgreSQL-server med Azure CLI (kommandoradsgränssnittet).
+title: Snabbstart – skapa en Azure Database för PostgreSQL – enskild Server med Azure CLI
+description: Snabbstartsguide för att skapa och hantera Azure Database för PostgreSQL – enskild Server med Azure CLI (kommandoradsgränssnitt).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/12/2019
+ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 07e3f1f2dd672fcfd0b7a3a4d102c429ac123c08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5b16d87a69ecdac578da2a90be22013744c32bd7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902026"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069059"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Snabbstart: Skapa en Azure Database för PostgreSQL med hjälp av Azure-CLI:n
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Snabbstart: Skapa en Azure Database för PostgreSQL – enskild Server med Azure CLI
 
 > [!TIP]
 > Överväg att använda den enklare [az postgres upp](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-kommando (för närvarande i förhandsversion). Prova att använda den [snabbstarten](./quickstart-create-server-up-azure-cli.md).
@@ -28,12 +28,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
-Om du kör CLI lokalt, måste du logga in på ditt konto med hjälp av kommandot [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
+Om du kör CLI lokalt, måste du logga in på ditt konto med hjälp av den [az-inloggning](/cli/azure/authenticate-azure-cli?view=interactive-log-in) kommando. Obs den **ID** egenskap från kommandoutdata för det motsvarande prenumerationsnamnet.
 ```azurecli-interactive
 az login
 ```
 
-Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account). Ersätt egenskapen **ID** från **az login**-utdata för din prenumeration i platshållaren för prenumerations-ID.
+Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account). Ersätt den **ID** egenskap från den **az-inloggning** utdata för din prenumeration i platshållaren för prenumerations-ID: T.
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```

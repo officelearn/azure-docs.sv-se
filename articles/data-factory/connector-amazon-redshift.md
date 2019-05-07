@@ -56,8 +56,8 @@ Följande egenskaper har stöd för Amazon Redshift länkade tjänsten:
 | type | Type-egenskapen måste anges till: **AmazonRedshift** | Ja |
 | server |IP-adressen eller värdnamnet namnet på Amazon Redshift-servern. |Ja |
 | port |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter klientanslutningar. |Nej, standard är 5439 |
-| databas |Namnet på Amazon Redshift-databas. |Ja |
-| användarnamn |Namnet på användaren som har åtkomst till databasen. |Ja |
+| database |Namnet på Amazon Redshift-databas. |Ja |
+| username |Namnet på användaren som har åtkomst till databasen. |Ja |
 | password |Lösenordet för användarkontot. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
@@ -126,7 +126,7 @@ För att kopiera data från Amazon Redshift, ange typ av datakälla i kopierings
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AmazonRedshiftSource** | Ja |
-| DocumentDB |Använd anpassad fråga för att läsa data. Till exempel: Välj * från MyTable. |Nej (om ”tableName” i datauppsättningen har angetts) |
+| query |Använd anpassad fråga för att läsa data. Till exempel: Välj * från MyTable. |Nej (om ”tableName” i datauppsättningen har angetts) |
 | redshiftUnloadSettings | Egenskapsgruppen när du använder Amazon Redshift-AVLASTNING. | Nej |
 | s3LinkedServiceName | Refererar till en Amazon S3 att-ska använda som en tillfällig lagring genom att ange ett namn för den länkade tjänsten av typen ”AmazonS3”. | Ja om du använder FRÅNKOPPLING |
 | bucketName | Ange S3-bucket för att lagra tillfälliga data. Om du inte genererar Data Factory-tjänsten den automatiskt.  | Ja om du använder FRÅNKOPPLING |
@@ -210,16 +210,16 @@ När du kopierar data från Amazon Redshift, används följande mappningar från
 | Amazon Redshift-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLESKT VÄRDE |String |
+| BOOLEAN |String |
 | CHAR |String |
 | DATE |DateTime |
 | DECIMAL |Decimal |
-| DUBBEL PRECISION |Double |
-| HELTAL |Int32 |
-| VERKLIGA |Single |
+| DOUBLE PRECISION |Double |
+| INTEGER |Int32 |
+| REAL |Single |
 | SMALLINT |Int16 |
 | TEXT |String |
-| TIDSSTÄMPEL |DateTime |
+| TIMESTAMP |DateTime |
 | VARCHAR |String |
 
 ## <a name="next-steps"></a>Nästa steg

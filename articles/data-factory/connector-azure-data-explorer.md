@@ -68,10 +68,10 @@ Följande egenskaper har stöd för Azure Data Explorer länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen måste anges till **AzureDataExplorer** | Ja |
-| slutpunkt | Slutpunkts-URL för Azure Data Explorer-klustret med formatet som `https://<clusterName>.<regionName>.kusto.windows.net`. | Ja |
-| databas | Namnet på databasen. | Ja |
-| klient | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Det här är det du normalt kan som ”**utfärdare ID**” i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Hämta det genom att hovra med musen i det övre högra hörnet i Azure Portal. | Ja |
+| type | Den **typ** egenskapen måste anges till **AzureDataExplorer** | Ja |
+| endpoint | Slutpunkts-URL för Azure Data Explorer-klustret med formatet som `https://<clusterName>.<regionName>.kusto.windows.net`. | Ja |
+| database | Namnet på databasen. | Ja |
+| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Det här är det du normalt kan som ”**utfärdare ID**” i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Hämta det genom att hovra med musen i det övre högra hörnet i Azure Portal. | Ja |
 | servicePrincipalId | Ange programmets klient-ID. Det här är det du normalt kan som ”**klient-ID för AAD-programmet**” i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Ja |
 | servicePrincipalKey | Ange programmets nyckel. Det här är det du normalt kan som ”**AAD programnyckel**” i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
@@ -106,8 +106,8 @@ Följande egenskaper stöds:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen måste anges till **AzureDataExplorerTable** | Ja |
-| tabell | Namnet på den tabell som den länkade tjänsten refererar till. | Ja för mottagaren; Nej för källa |
+| type | Den **typ** egenskapen måste anges till **AzureDataExplorerTable** | Ja |
+| table | Namnet på den tabell som den länkade tjänsten refererar till. | Ja för mottagaren; Nej för källa |
 
 **Exempel med datauppsättningen egenskaper**
 
@@ -137,8 +137,8 @@ Om du vill kopiera data från Azure Data Explorer, ange den **typ** -egenskapen 
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till: **AzureDataExplorerSource** | Ja |
-| DocumentDB | En skrivskyddad begäran som anges i en [KQL format](/azure/kusto/query/). Använd anpassade KQL fråga som referens. | Ja |
+| type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till: **AzureDataExplorerSource** | Ja |
+| query | En skrivskyddad begäran som anges i en [KQL format](/azure/kusto/query/). Använd anpassade KQL fråga som referens. | Ja |
 | queryTimeout | Väntetid innan frågebegäran når sin tidsgräns. Standardvärdet är 10: e minut (00: 10:00); tillåtna maxvärdet är 1 timme (01: 00:00). | Nej |
 
 >[!NOTE]
@@ -183,7 +183,7 @@ För att kopiera data till Azure Data Explorer, ange egenskapen type i Kopiera a
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Den **typ** egenskapen kopiera aktivitet komprimeringstyp måste anges som: **AzureDataExplorerSink** | Ja |
+| type | Den **typ** egenskapen kopiera aktivitet komprimeringstyp måste anges som: **AzureDataExplorerSink** | Ja |
 | ingestionMappingName | Namnet på en förskapad **[mappning](/azure/kusto/management/mappings#csv-mapping)** för en Kusto-tabell. Mappa kolumner från källan till Datautforskaren i Azure - som gäller för **[alla stöds källans datalager/format](copy-activity-overview.md#supported-data-stores-and-formats)** inklusive CSV/JSON/Avro formaterar osv, kan du använda kopieringsaktiviteten [kolumn mappning av](copy-activity-schema-and-type-mapping.md) (implicit efter namn eller uttryckligen som konfigurerats) och/eller Azure Data Explorer mappningar. | Nej |
 
 **Exempel:**
